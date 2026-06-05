@@ -1,0 +1,16 @@
+node_modules/
+__pycache__/
+*.py[cod]
+dist/
+.env
+.env.*
+!.env.example
+*.db
+*.sqlite
+.storage/
+supabase/.temp/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.egg-info/
+coverage/

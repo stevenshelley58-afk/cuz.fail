@@ -1,0 +1,237 @@
+checks:
+  - key: site_cover
+    label: Site cover
+    category: planning
+    method: max_percentage
+    source_query: site cover R-Codes open space
+    requirement:
+      max_percent: 55
+      part_key: building_footprint_m2
+      whole_key: site_area_m2
+
+  - key: open_space
+    label: Open space
+    category: planning
+    method: min_percentage
+    source_query: open space R-Codes residential design
+    requirement:
+      min_percent: 45
+      part_key: open_space_m2
+      whole_key: site_area_m2
+
+  - key: front_setback
+    label: Front setback
+    category: planning
+    method: min_value
+    source_query: front setback primary street R-Codes
+    requirement:
+      min_value: 4.0
+      value_key: front_setback_m
+      unit: m
+
+  - key: side_setback
+    label: Side setback
+    category: planning
+    method: min_value
+    source_query: side setback lot boundary R-Codes
+    requirement:
+      min_value: 1.0
+      value_key: side_setback_m
+      unit: m
+
+  - key: rear_setback
+    label: Rear setback
+    category: planning
+    method: min_value
+    source_query: rear setback lot boundary R-Codes
+    requirement:
+      min_value: 1.5
+      value_key: rear_setback_m
+      unit: m
+
+  - key: deep_soil_tree_planting
+    label: Deep soil and tree planting
+    category: planning
+    method: all_min_values
+    source_query: deep soil tree planting landscaping R-Codes
+    requirement:
+      values:
+        - key: deep_soil_area_m2
+          min_value: 12.0
+          unit: m2
+        - key: tree_count
+          min_value: 1.0
+          unit: count
+
+  - key: garage_dominance
+    label: Garage dominance
+    category: planning
+    method: garage_ratio
+    source_query: garage width dominance street surveillance
+    requirement:
+      max_percent: 50
+      garage_key: garage_width_m
+      frontage_key: frontage_width_m
+
+  - key: street_surveillance
+    label: Street surveillance
+    category: planning
+    method: boolean_required
+    source_query: street surveillance habitable opening R-Codes
+    requirement:
+      value_key: street_surveillance_opening_present
+      expected: 1
+
+  - key: outdoor_living_area
+    label: Outdoor living area
+    category: planning
+    method: all_min_values
+    source_query: outdoor living area minimum dimension R-Codes
+    requirement:
+      values:
+        - key: outdoor_living_area_m2
+          min_value: 24.0
+          unit: m2
+        - key: outdoor_living_min_dimension_m
+          min_value: 4.0
+          unit: m
+
+  - key: solar_access
+    label: Solar access
+    category: planning
+    method: min_value
+    source_query: solar access north facing major openings R-Codes
+    requirement:
+      min_value: 2.0
+      value_key: solar_access_hours
+      unit: hours
+
+  - key: privacy
+    label: Privacy
+    category: planning
+    method: max_value
+    source_query: visual privacy overlooking R-Codes
+    requirement:
+      max_value: 0.0
+      value_key: privacy_overlooking_risk_count
+      unit: count
+
+  - key: overshadowing
+    label: Overshadowing
+    category: planning
+    method: max_percentage
+    source_query: overshadowing adjoining property R-Codes
+    requirement:
+      max_percent: 25
+      part_key: overshadowed_neighbour_site_area_m2
+      whole_key: neighbour_site_area_m2
+
+  - key: vehicle_access
+    label: Vehicle access
+    category: planning
+    method: boolean_required
+    source_query: vehicle access driveway parking R-Codes local policy
+    requirement:
+      value_key: vehicle_access_shown
+      expected: 1
+
+  - key: bin_storage
+    label: Bin storage
+    category: planning
+    method: boolean_required
+    source_query: bin storage waste collection local planning policy
+    requirement:
+      value_key: bin_storage_shown
+      expected: 1
+
+  - key: ancillary_dwelling_trigger
+    label: Ancillary dwelling trigger
+    category: planning
+    method: trigger_flag
+    source_query: ancillary dwelling R-Codes additional dwelling
+    requirement:
+      value_key: ancillary_dwelling_proposed
+      trigger_value: 1
+
+  - key: retaining_fill_trigger
+    label: Retaining and fill trigger
+    category: planning
+    method: max_value
+    source_query: retaining wall fill site works local planning policy
+    requirement:
+      max_value: 0.5
+      value_key: retaining_fill_height_m
+      unit: m
+
+  - key: bal_bushfire_trigger
+    label: BAL and bushfire trigger
+    category: building
+    method: trigger_flag
+    source_query: bushfire prone area BAL planning building requirements
+    requirement:
+      value_key: bushfire_prone_area_flag
+      trigger_value: 1
+
+  - key: heritage_overlay_trigger
+    label: Heritage and planning overlay trigger
+    category: planning
+    method: trigger_flag
+    source_query: heritage overlay local planning scheme
+    requirement:
+      value_key: heritage_overlay_flag
+      trigger_value: 1
+
+  - key: boundary_wall
+    label: Boundary wall length
+    category: planning
+    method: boundary_wall_ratio
+    source_query: boundary wall length height R-Codes
+    requirement:
+      max_percent: 45
+      boundary_wall_key: boundary_wall_length_m
+      lot_boundary_key: lot_boundary_length_m
+
+  - key: title_block_completeness
+    label: Title block completeness
+    category: drawing_qa
+    method: boolean_required
+    source_query: lodgement checklist title block drawing
+    requirement:
+      value_key: title_block_present
+      expected: 1
+
+  - key: revision_completeness
+    label: Revision completeness
+    category: drawing_qa
+    method: boolean_required
+    source_query: lodgement checklist revision drawing
+    requirement:
+      value_key: revision_present
+      expected: 1
+
+  - key: north_point_completeness
+    label: North point completeness
+    category: drawing_qa
+    method: boolean_required
+    source_query: lodgement checklist north point drawing
+    requirement:
+      value_key: north_point_present
+      expected: 1
+
+  - key: scale_completeness
+    label: Scale completeness
+    category: drawing_qa
+    method: boolean_required
+    source_query: lodgement checklist scale drawing
+    requirement:
+      value_key: scale_present
+      expected: 1
+
+  - key: dimension_completeness
+    label: Dimension completeness
+    category: drawing_qa
+    method: boolean_required
+    source_query: lodgement checklist dimensions drawing
+    requirement:
+      value_key: dimensions_present
+      expected: 1

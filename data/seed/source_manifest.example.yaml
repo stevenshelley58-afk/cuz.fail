@@ -1,0 +1,69 @@
+sources:
+  - title: WA R-Codes Volume 1 source anchor
+    jurisdiction: WA
+    authority: Department of Planning, Lands and Heritage
+    source_type: r_code
+    canonical_url: https://www.wa.gov.au/government/document-collections/residential-design-codes-volume-1-including-medium-density
+    licence_notes: Provided source anchor. Verify lawful fetch and current downloadable documents before indexing.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: PlanWA public planning map source anchor
+    jurisdiction: WA
+    authority: Department of Planning, Lands and Heritage
+    source_type: map_layer
+    canonical_url: https://www.planning.wa.gov.au/mapping-and-data/planwa
+    licence_notes: Provided source anchor. Use public metadata and do not bypass map service controls.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: DFES Bushfire Prone Areas source anchor
+    jurisdiction: WA
+    authority: Department of Fire and Emergency Services
+    source_type: bushfire
+    canonical_url: https://www.dfes.wa.gov.au/hazard-information/bushfire/bushfire-prone-areas
+    licence_notes: Provided source anchor. Verify public data access and licence before indexing.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: NCC official source anchor
+    jurisdiction: AU
+    authority: Australian Building Codes Board
+    source_type: ncc
+    canonical_url: https://ncc.abcb.gov.au/
+    licence_notes: Provided source anchor. Fetch only public/licensed material where official access permits.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: Standards Australia metadata source anchor
+    jurisdiction: AU
+    authority: Standards Australia
+    source_type: standard_metadata
+    canonical_url: https://www.standards.org.au/
+    licence_notes: Metadata only. Do not scrape paid/proprietary standard full text.
+    access_type: public
+    scrape_allowed: true
+    version_label: metadata-only
+
+  - title: Cockburn residential policy example fixture
+    jurisdiction: WA
+    authority: City of Cockburn
+    local_government: Cockburn
+    source_type: local_planning_policy
+    canonical_url: https://www.cockburn.wa.gov.au/example-policy
+    licence_notes: Example fixture for local tests; replace with official current policy URL during real ingestion.
+    access_type: public
+    scrape_allowed: true
+    version_label: example-current
+    effective_date: "2026-01-01"
+    content: |
+      5.1.3 Front setback
+      Primary street setbacks should be assessed using the applicable R-Codes table and local policy context.
+      5.2.2 Garage dominance
+      Garage width and street surveillance should be reviewed to avoid dominant vehicle access outcomes.
+      5.3.1 Open space
+      Open space and site cover calculations should be shown on the site plan.

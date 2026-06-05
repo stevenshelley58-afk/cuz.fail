@@ -1,0 +1,42 @@
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+    env_file:
+      - ../../.env
+    environment:
+      OBJECT_STORAGE_ROOT: /app/.storage
+      HERMES_ENABLED: ${HERMES_ENABLED:-false}
+    volumes:
+      - object_storage:/app/.storage
+    ports:
+      - "127.0.0.1:8087:8000"
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/openapi.json', timeout=5).read()"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 45s
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile
+    env_file:
+      - ../../.env
+    environment:
+      OBJECT_STORAGE_ROOT: /app/.storage
+      HERMES_ENABLED: ${HERMES_ENABLED:-false}
+    command: python -m draftcheck_worker.main
+    volumes:
+      - object_storage:/app/.storage
+    restart: "no"
+
+volumes:
+  object_storage:

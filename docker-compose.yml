@@ -1,0 +1,60 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: draftcheck
+      POSTGRES_PASSWORD: draftcheck
+      POSTGRES_DB: draftcheck
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: draftcheck
+      MINIO_ROOT_PASSWORD: draftcheck-dev-only
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+
+  api:
+    image: python:3.12-slim
+    working_dir: /app
+    command: sh -c "pip install -e '.[dev]' && uvicorn draftcheck_api.main:app --host 0.0.0.0 --port 8000"
+    env_file: .env.example
+    environment:
+      DATABASE_URL: postgresql+psycopg://draftcheck:draftcheck@postgres:5432/draftcheck
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+      - minio
+
+  worker:
+    image: python:3.12-slim
+    working_dir: /app
+    command: sh -c "pip install -e '.[dev]' && python -m draftcheck_worker.main"
+    env_file: .env.example
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+      - redis
+      - minio
+
+volumes:
+  postgres_data:
+  minio_data:

@@ -1,0 +1,1 @@
+"""Lawful public fetcher package."""

@@ -1,0 +1,17 @@
+.git
+.codex
+.mypy_cache
+.pytest_cache
+.ruff_cache
+.storage
+*.egg-info
+__pycache__
+*.py[cod]
+.env
+.env.*
+*.db
+*.sqlite
+*.log
+supabase/.temp
+ui
+landing
