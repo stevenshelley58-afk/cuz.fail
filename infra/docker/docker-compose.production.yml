@@ -4,7 +4,7 @@ services:
       context: ../..
       dockerfile: infra/docker/Dockerfile
     env_file:
-      - ../../.env
+      - ../../${CUZ_ENV_FILE:-.env}
     environment:
       OBJECT_STORAGE_ROOT: /app/.storage
       HERMES_ENABLED: ${HERMES_ENABLED:-false}
@@ -12,6 +12,11 @@ services:
       - object_storage:/app/.storage
     ports:
       - "127.0.0.1:8087:8000"
+    networks:
+      default:
+      blockwise:
+        aliases:
+          - cuz-api
     healthcheck:
       test:
         - CMD
@@ -29,7 +34,7 @@ services:
       context: ../..
       dockerfile: infra/docker/Dockerfile
     env_file:
-      - ../../.env
+      - ../../${CUZ_ENV_FILE:-.env}
     environment:
       OBJECT_STORAGE_ROOT: /app/.storage
       HERMES_ENABLED: ${HERMES_ENABLED:-false}
@@ -40,3 +45,7 @@ services:
 
 volumes:
   object_storage:
+
+networks:
+  blockwise:
+    external: true
