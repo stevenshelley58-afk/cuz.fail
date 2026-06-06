@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>cuz — 42 Banksia St</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#0C2018; --ink-soft:#3E5A4D; --ink-faint:#8FAA9C;
+    --paper:#F6FAF7; --card:#FFFFFF;
+    --green-900:#0A3526; --green-800:#0E4A33; --green:#168253; --green-bright:#1FA468;
+    --mint:#E4F3EA; --mint-deep:#CDE9D9; --line:#DEEAE2;
+    --flag:#B45309; --flag-bg:#FEF3E2;
+    --radius:20px; --shadow:0 8px 30px rgba(10,53,38,.07);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .ms{font-family:'Material Symbols Outlined';line-height:1;vertical-align:middle;-webkit-font-feature-settings:'liga'}
+  h1,h2,h3,.logo{font-family:'Sora','Inter',sans-serif;letter-spacing:-.02em}
+
+  .app{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;background:var(--paper);
+       box-shadow:0 0 60px rgba(10,53,38,.06);padding-bottom:76px}
+  header{position:sticky;top:0;z-index:20;background:rgba(246,250,247,.85);backdrop-filter:blur(10px);
+         border-bottom:1px solid var(--line);height:60px;padding:0 18px;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-weight:800;font-size:1.2rem;color:var(--green-900)}
+  .logo span{color:var(--green-bright);font-weight:600}
+  .switch{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:99px;
+          padding:6px 12px;font-size:.84rem;font-weight:600;box-shadow:var(--shadow);cursor:pointer}
+  .avatar{width:32px;height:32px;border-radius:99px;background:var(--green-900);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.74rem}
+  .topright{display:flex;align-items:center;gap:12px}
+
+  .phead{padding:18px 20px 6px}
+  .pill{display:inline-flex;align-items:center;gap:5px;border-radius:99px;padding:4px 11px;font-size:.74rem;font-weight:700;border:1px solid transparent;white-space:nowrap}
+  .pill.warn{background:var(--flag-bg);color:var(--flag);border-color:#F4D9B0}
+  .pill.ok{background:var(--mint);color:var(--green-800);border-color:var(--mint-deep)}
+  .pill.muted{background:#EEF3F0;color:var(--ink-soft);border-color:var(--line)}
+  .pill.line{background:var(--card);color:var(--ink-soft);border-color:var(--line)}
+  .pill b{color:var(--ink)}
+  h1.addr{font-size:1.7rem;font-weight:800;color:var(--green-900);line-height:1.12;margin:8px 0 12px}
+  .chips{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+
+  .tabs{display:flex;gap:4px;padding:6px 14px 0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);position:sticky;top:60px;background:var(--paper);z-index:10}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none;padding:10px 12px;border:none;background:none;cursor:pointer;font:600 .86rem 'Inter';color:var(--ink-faint);
+       border-bottom:2px solid transparent}
+  .tab.active{color:var(--green);border-bottom-color:var(--green)}
+
+  main{flex:1;padding:16px 20px 20px}
+  .pane{display:none;animation:rise .3s ease both}
+  .pane.active{display:block}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+  .summary{font-size:.84rem;color:var(--ink-soft)}
+  .summary b{color:var(--ink)}
+  .toggle{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--green-800);cursor:pointer;user-select:none}
+  .toggle input{accent-color:var(--green)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:10px}
+  .issue-head{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;cursor:pointer}
+  .issue-head .ms.ic{font-size:22px;flex:none;margin-top:1px}
+  .ic.fail{color:var(--flag)} .ic.pass{color:var(--green)} .ic.review{color:var(--flag)} .ic.info{color:var(--ink-faint)}
+  .issue-head .rule{font-weight:700;font-size:.94rem}
+  .issue-head .why{font-size:.78rem;color:var(--ink-soft);margin-top:2px}
+  .issue-head .stat{margin-left:auto;font-size:.74rem;font-weight:700;flex:none}
+  .stat.fail{color:var(--flag)} .stat.pass{color:var(--green)} .stat.review{color:var(--flag)} .stat.info{color:var(--ink-faint)}
+  .issue-body{display:none;padding:0 16px 16px;border-top:1px solid var(--line)}
+  .issue-body.open{display:block}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  .grid2 .lab{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700}
+  .grid2 .val{font-weight:800;font-size:1rem;margin-top:2px}
+  .citation{display:flex;align-items:center;gap:8px;background:var(--mint);border:1px solid var(--mint-deep);border-radius:12px;padding:9px 12px;font-size:.78rem;color:var(--green-800);font-weight:600}
+  .citation .ms{font-size:16px}
+  .ev-btn{margin-top:12px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:#fff;
+          border:none;border-radius:99px;padding:11px;font:600 .86rem 'Inter';cursor:pointer;text-decoration:none}
+  .ev-btn:hover{background:var(--green-800)}
+  .note{font-size:.78rem;color:var(--ink-soft);background:#F4F8F6;border-radius:10px;padding:9px 11px;margin-top:10px;font-style:italic}
+
+  .row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .k{font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);font-weight:700}
+  .row .v{font-weight:700}
+  .row .meta{font-size:.72rem;color:var(--ink-faint);margin-top:1px}
+  .src{color:var(--green);font-size:.74rem;font-weight:600;cursor:pointer}
+  .srcitem{display:flex;gap:11px;padding:12px 16px;border-bottom:1px solid var(--line);align-items:flex-start}
+  .srcitem:last-child{border-bottom:none}
+  .srcitem .dot{margin-top:5px;width:8px;height:8px;border-radius:99px;flex:none}
+  .dot.inc{background:var(--green)} .dot.exc{background:var(--ink-faint)}
+  .srcitem .t{font-weight:600;font-size:.88rem} .srcitem .s{font-size:.74rem;color:var(--ink-faint);margin-top:1px}
+  .secthead{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);font-weight:700;margin:6px 2px 8px}
+  .file{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid var(--line);border-radius:14px;margin-bottom:10px;background:var(--card)}
+  .file .ext{width:38px;height:38px;border-radius:10px;background:var(--mint);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.6rem;color:var(--green-800)}
+  .file .pname{font-weight:600;font-size:.86rem}
+  .file .pstat{font-size:.72rem;color:var(--ink-faint);margin-top:1px}
+
+  /* chat */
+  .chat{display:flex;flex-direction:column;gap:12px;padding-bottom:150px}
+  .bubble{max-width:88%;padding:11px 14px;border-radius:16px;font-size:.9rem;line-height:1.45}
+  .bubble.q{align-self:flex-end;background:var(--green-900);color:#fff;border-bottom-right-radius:5px;font-family:'Sora','Inter';font-weight:600}
+  .bubble.a{align-self:flex-start;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-bottom-left-radius:5px}
+  .bubble.a.refuse{background:#FBFCFB;border-style:dashed}
+  .citebtn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;color:var(--green);font-weight:700;font-size:.74rem;cursor:pointer;padding:0;margin-top:8px}
+  .citepill{display:inline-flex;align-items:center;gap:5px;background:var(--mint);border:1px solid var(--mint-deep);border-radius:99px;padding:4px 10px;font-size:.72rem;font-weight:600;color:var(--green-800);margin:6px 6px 0 0}
+  .quoteline{font-size:.76rem;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin-top:6px;font-style:italic}
+  .emptychat{text-align:center;color:var(--ink-faint);font-size:.86rem;padding:14px 0 4px}
+  .suggest{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:10px}
+  .suggest button{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:8px 13px;font-size:.8rem;font-weight:600;color:var(--ink-soft);cursor:pointer}
+  .suggest button:hover{background:var(--mint);color:var(--green-800)}
+  #askbar{position:fixed;bottom:64px;left:0;right:0;max-width:480px;margin:0 auto;background:rgba(246,250,247,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:10px 14px;display:none;z-index:15}
+  #askform{display:flex;gap:8px}
+  #askinput{flex:1;border:1px solid var(--line);border-radius:99px;padding:11px 16px;font:500 .9rem 'Inter';outline:none;background:var(--card);box-shadow:var(--shadow)}
+  #askinput:focus{border-color:var(--green-bright)}
+  .sendbtn{width:44px;height:44px;border-radius:99px;border:none;background:var(--green);color:#fff;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center}
+  .sendbtn:hover{background:var(--green-800)}
+
+  nav{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:0 auto;height:64px;background:var(--card);border-top:1px solid var(--line);
+      display:grid;grid-template-columns:repeat(4,1fr)}
+  nav button{border:none;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--ink-faint)}
+  nav button.active{color:var(--green)}
+  nav .ms{font-size:23px} nav .lbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+  .badge{position:absolute;transform:translate(12px,-8px);background:var(--flag);color:#fff;font-size:.6rem;font-weight:800;width:16px;height:16px;border-radius:99px;display:flex;align-items:center;justify-content:center}
+  .crosslinks{text-align:center;padding:14px;font-size:.74rem;color:var(--ink-faint)}
+  .crosslinks a{color:var(--green);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="logo">cuz<span>.fail</span></div>
+    <div class="topright">
+      <div class="switch">42 Banksia St <span class="ms" style="font-size:18px">unfold_more</span></div>
+      <div class="avatar">G</div>
+    </div>
+  </header>
+
+  <div class="phead">
+    <div style="display:flex;gap:7px;align-items:center;margin-bottom:2px">
+      <span class="pill warn"><span class="ms" style="font-size:14px">flag</span> 1 flagged · 2 need info</span>
+      <span style="font-size:.74rem;color:var(--ink-faint);font-weight:500">Lot 14 / Plan 3921</span>
+    </div>
+    <h1 class="addr">42 Banksia Street, Mount Lawley</h1>
+    <div class="chips">
+      <span class="pill line">Zone <b>R40</b></span>
+      <span class="pill line">Lot area <b>480 m²</b></span>
+      <span class="pill line">City of Stirling</span>
+      <span class="pill ok">Bushfire No</span>
+      <span class="pill ok">Heritage No</span>
+    </div>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab" data-pane="profile">Profile</button>
+    <button class="tab" data-pane="sources">Sources</button>
+    <button class="tab" data-pane="drawings">Drawings</button>
+    <button class="tab active" data-pane="issues">Issues</button>
+    <button class="tab" data-pane="export">Export</button>
+  </div>
+
+  <main>
+    <!-- Ask (chat) — scoped to THIS property, grounded in its approved sources -->
+    <section class="pane" id="ask">
+      <div style="display:flex;align-items:flex-start;gap:8px;background:var(--mint);border:1px solid var(--mint-deep);border-radius:12px;padding:10px 12px;margin-bottom:14px;font-size:.78rem;color:var(--green-800)">
+        <span class="ms" style="font-size:16px;margin-top:1px">lock</span>
+        <span><b>Scoped to 42 Banksia St.</b> Answers use only this property's approved sources and link the exact clause — or say they can't. Not a general chatbot.</span>
+      </div>
+      <div class="chat" id="chat"></div>
+    </section>
+
+    <!-- Issues -->
+    <section class="pane active" id="issues">
+      <div class="bar">
+        <div class="summary"><b>8</b> likely pass · <b>1</b> likely fail · <b>2</b> need info · <b>1</b> review</div>
+        <label class="toggle"><input type="checkbox" id="flagsonly" onchange="filterFlags()"> Flags only</label>
+      </div>
+      <div id="issuelist"></div>
+    </section>
+
+    <!-- Profile -->
+    <section class="pane" id="profile">
+      <div class="card">
+        <div class="row"><div><div class="k">Address</div><div class="v">42 Banksia Street, Mount Lawley WA 6050</div><div class="meta">G-NAF · v2026-05</div></div><span class="pill ok">high</span></div>
+        <div class="row"><div><div class="k">Parcel</div><div class="v">Lot 14 on Plan 3921 · 480 m²</div><div class="meta">Landgate cadastre · v2026-05</div></div><span class="pill ok">high</span></div>
+        <div class="row"><div><div class="k">Council</div><div class="v">City of Stirling</div><div class="meta">parcel intersection</div></div><span class="pill ok">high</span></div>
+        <div class="row"><div><div class="k">Zone</div><div class="v">Residential R40</div><div class="meta">PlanWA · v2026-04</div></div><span class="src">source ↗</span></div>
+        <div class="row"><div><div class="k">Region scheme</div><div class="v">MRS · Urban</div></div><span class="pill ok">verified</span></div>
+      </div>
+      <div class="note">Every fact above carries its dataset version. Manual overrides are recorded and always win over the spatial guess.</div>
+    </section>
+
+    <!-- Sources -->
+    <section class="pane" id="sources">
+      <div class="secthead">Included · governs this parcel</div>
+      <div class="card">
+        <div class="srcitem"><span class="dot inc"></span><div><div class="t">SPP 7.3 — R-Codes Vol 1</div><div class="s">WAPC · eff. 2026-04 · statewide</div></div></div>
+        <div class="srcitem"><span class="dot inc"></span><div><div class="t">Stirling Local Planning Scheme No. 3</div><div class="s">zone R40</div></div></div>
+        <div class="srcitem"><span class="dot inc"></span><div><div class="t">Stirling LPP 6.7 — Residential Development</div><div class="s">local policy · current</div></div></div>
+      </div>
+      <div class="secthead">Excluded · with reason</div>
+      <div class="card">
+        <div class="srcitem"><span class="dot exc"></span><div><div class="t">City of Vincent LPS</div><div class="s">wrong council for this parcel</div></div></div>
+        <div class="srcitem"><span class="dot exc"></span><div><div class="t">R-Codes Vol 1 (2024)</div><div class="s">superseded by 2026 edition</div></div></div>
+      </div>
+    </section>
+
+    <!-- Drawings -->
+    <section class="pane" id="drawings">
+      <div onclick="uploadCad()" style="border:2px dashed var(--mint-deep);background:rgba(228,243,234,.45);border-radius:16px;padding:20px;text-align:center;cursor:pointer;margin-bottom:12px">
+        <span class="ms" style="font-size:28px;color:var(--green)">cloud_upload</span>
+        <div style="font-weight:700;color:var(--green-900);font-size:.9rem;margin-top:4px">Upload or replace drawings</div>
+        <div style="font-size:.74rem;color:var(--ink-faint)">PDF · DXF · IFC — re-checks every rule on upload</div>
+      </div>
+      <div id="rescan-status"></div>
+      <div class="file"><div class="ext">PDF</div><div style="flex:1"><div class="pname">site_plan.pdf</div><div class="pstat">Docling ✓ · 3 measurements · read</div></div><span class="pill ok" style="font-size:.66rem">read</span></div>
+      <div class="file"><div class="ext">DXF</div><div style="flex:1"><div class="pname">floor_plan.dxf</div><div class="pstat">ezdxf ✓ · units mm · measured</div></div><span class="pill ok" style="font-size:.66rem">measured</span></div>
+      <div class="file"><div class="ext">PDF</div><div style="flex:1"><div class="pname">elevations.pdf</div><div class="pstat">scanned → OCR · low confidence</div></div><span class="pill warn" style="font-size:.66rem">review</span></div>
+    </section>
+
+    <!-- Export -->
+    <section class="pane" id="export">
+      <div class="card" style="padding:18px">
+        <div style="font-weight:800;font-family:'Sora';font-size:1.05rem;color:var(--green-900)">Review pack</div>
+        <div style="font-size:.84rem;color:var(--ink-soft);margin-top:6px">8 likely pass · 1 likely fail · 1 review · 2 need info, each with citations and a decision trace.</div>
+        <div class="note" style="margin-top:14px">Includes a liability notice and a human sign-off block. This is a draft for review — not a compliance certificate.</div>
+        <button class="ev-btn" style="margin-top:14px" onclick="alert('Mockup: would export JSON / DOCX / XLSX / HTML review pack.')"><span class="ms">ios_share</span> Export review pack</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="askbar">
+    <form id="askform" onsubmit="return sendChat(event)">
+      <input id="askinput" placeholder="Ask about this property…" autocomplete="off" />
+      <button type="submit" class="sendbtn"><span class="ms">arrow_upward</span></button>
+    </form>
+  </div>
+
+  <nav id="nav">
+    <button data-nav="ask" onclick="setPane('ask')"><span class="ms">chat_bubble</span><span class="lbl">Ask</span></button>
+    <button data-nav="sources" onclick="setPane('sources')"><span class="ms">menu_book</span><span class="lbl">Sources</span></button>
+    <button data-nav="drawings" onclick="setPane('drawings')"><span class="ms">architecture</span><span class="lbl">Plans</span></button>
+    <button data-nav="issues" class="active" onclick="setPane('issues')"><span style="position:relative"><span class="ms">rule</span><span class="badge">1</span></span><span class="lbl">Issues</span></button>
+  </nav>
+  <div class="crosslinks"><a href="index.html">⌂ Home</a> · <a href="1-onboarding.html">Onboarding</a> · Dashboard · <a href="3-evidence.html">Evidence</a></div>
+</div>
+
+<script>
+  const $ = id => document.getElementById(id);
+  const ISSUES = [
+    {st:'fail', rule:'Front setback', why:'R40, primary street — no averaging override found', req:'6.0 m', prop:'4.5 m', stat:'likely fail',
+     cite:'Stirling LPP 6.7 · cl 5.1.2 · eff 2026-01', note:'Proposed 4.5 m is below the 6.0 m primary-street setback for R40.'},
+    {st:'review', rule:'Boundary wall length', why:'May rely on planning discretion', req:'≤ 45% of boundary', prop:'measured 9.0 m', stat:'needs review',
+     cite:'R-Codes Vol 1 · 5.1.3 C3.2', note:'Discretionary outcome — a planner should confirm against the design principles.'},
+    {st:'info', rule:'Deep soil area', why:'Not dimensioned on the site plan', req:'≥ 12 m²', prop:'missing', stat:'missing info',
+     cite:'R-Codes Vol 1 · 5.3.2', note:'No deep-soil dimension found in the drawings. Add it to get a result.'},
+    {st:'info', rule:'Tree planting', why:'Landscape plan not provided', req:'≥ 1 canopy tree', prop:'missing', stat:'missing info',
+     cite:'R-Codes Vol 1 · 5.3.2', note:'Upload a landscape plan to resolve.'},
+    {st:'pass', rule:'Open space', why:'R40 minimum', req:'≥ 45%', prop:'54%', stat:'likely pass', cite:'R-Codes Vol 1 · Table 4', note:''},
+    {st:'pass', rule:'Site coverage', why:'R40 maximum', req:'≤ 50%', prop:'48%', stat:'likely pass', cite:'Stirling LPS 3 · Table 2', note:''},
+    {st:'pass', rule:'Outdoor living area', why:'Min area + dimension', req:'≥ 24 m² · 4 m min', prop:'30 m² · 4.5 m', stat:'likely pass', cite:'R-Codes Vol 1 · 5.3.1', note:''},
+    {st:'pass', rule:'Wall height', why:'External wall to boundary', req:'≤ 6.0 m', prop:'5.4 m', stat:'likely pass', cite:'R-Codes Vol 1 · 5.1.6', note:''},
+  ];
+  const ICON = {fail:'flag', review:'gavel', info:'help', pass:'check_circle'};
+
+  function render(){
+    const flagsOnly = $('flagsonly').checked;
+    const rows = ISSUES.filter(r => !flagsOnly || r.st !== 'pass');
+    $('issuelist').innerHTML = rows.map(r=>{
+      const i = ISSUES.indexOf(r);
+      return `
+      <div class="card">
+        <div class="issue-head" onclick="tog(${i})">
+          <span class="ms ic ${r.st}">${ICON[r.st]}</span>
+          <div style="flex:1"><div class="rule">${r.rule}</div><div class="why">${r.why}</div></div>
+          <span class="stat ${r.st}">${r.stat}</span>
+        </div>
+        <div class="issue-body" id="b${i}">
+          <div class="grid2">
+            <div><div class="lab">Required</div><div class="val">${r.req}</div></div>
+            <div><div class="lab">Proposed</div><div class="val">${r.prop}</div></div>
+          </div>
+          ${r.note ? `<div class="note">${r.note}</div>`:''}
+          <div class="citation" style="margin-top:10px"><span class="ms">menu_book</span>${r.cite}</div>
+          <a class="ev-btn" href="3-evidence.html"><span class="ms">find_in_page</span> View evidence &amp; working</a>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  function tog(i){ $('b'+i).classList.toggle('open'); }
+  function filterFlags(){ render(); }
+
+  function setPane(id){
+    document.querySelectorAll('.pane').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    $(id).classList.add('active');
+    document.querySelector(`.tab[data-pane="${id}"]`)?.classList.add('active');
+    document.querySelectorAll('#nav button').forEach(b=>b.classList.remove('active'));
+    document.querySelector(`#nav button[data-nav="${id}"]`)?.classList.add('active');
+    $('askbar').style.display = id === 'ask' ? 'block' : 'none';
+    if (id === 'ask') renderChat();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>setPane(t.dataset.pane)));
+
+  /* ---------- chat: a secondary helper that cites a source or refuses, never judges ---------- */
+  const CHAT = [];
+  const SUGGEST_Q = ['Max site coverage?','Front setback rules?','Open space minimum?','Boundary wall limits?','Can this lot subdivide?'];
+  const ANSWERS = [
+    {m:/cover/i, t:'Maximum site coverage for R40 is 50%. The current plan measures 48% — within the limit (likely pass).',
+      c:[{l:'Stirling LPS 3 · Table 2', q:'Maximum site coverage for R40-coded lots: 50%.'}]},
+    {m:/front ?setback|setback/i, t:'The primary-street setback for R40 here is 6.0 m. The site plan shows 4.5 m, which is under the minimum — that is the flagged "likely fail".',
+      c:[{l:'Stirling LPP 6.7 · cl 5.1.2', q:'Buildings set back from the primary street boundary not less than 6.0 m.'}]},
+    {m:/open ?space/i, t:'Minimum open space for R40 is 45%. The plan provides 54% → likely pass.',
+      c:[{l:'R-Codes Vol 1 · Table 4', q:'Minimum open space for R40: 45%.'}]},
+    {m:/boundary ?wall/i, t:'Boundary walls here are a discretionary (design-principle) outcome, so this one is marked "needs review" rather than a straight pass or fail — a planner should confirm.',
+      c:[{l:'R-Codes Vol 1 · 5.1.3', q:'Walls built up to a boundary in accordance with the design principles…'}]},
+    {m:/subdiv|sub-?divide|battle/i, t:'I cannot confirm subdivision potential from this project’s approved sources — that needs the WAPC / region-scheme rules, which are not loaded here. I will not guess.', c:null},
+    {m:/height/i, t:'External wall height limit here is 6.0 m; the elevations show 5.4 m → likely pass.',
+      c:[{l:'R-Codes Vol 1 · 5.1.6', q:'Maximum external wall height…'}]},
+  ];
+  function answerFor(q){
+    const a = ANSWERS.find(x=>x.m.test(q));
+    if (a) return {who:'a', text:a.t, cites:a.c};
+    return {who:'a', refuse:true,
+      text:'I cannot answer that from this project’s approved source library yet. I only answer with a citation — otherwise I say I cannot, rather than guess.', cites:null};
+  }
+  function escapeHtml(s){ const d=document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
+  function renderChat(){
+    const c = $('chat');
+    if (!CHAT.length){
+      c.innerHTML = `<div class="emptychat">Ask about this property. Answers quote the exact clause — or say they can’t.</div>
+        <div class="suggest">${SUGGEST_Q.map(q=>`<button onclick="askQ('${q.replace(/'/g,"\\'")}')">${q}</button>`).join('')}</div>`;
+      return;
+    }
+    c.innerHTML = CHAT.map(m => m.who==='q'
+      ? `<div class="bubble q">${escapeHtml(m.text)}</div>`
+      : `<div class="bubble a${m.refuse?' refuse':''}">${escapeHtml(m.text)}${m.cites ? `<div><button class="citebtn" onclick="var w=this.parentNode.querySelector('.citewrap');w.style.display=(w.style.display==='none'?'block':'none')"><span class="ms" style="font-size:14px">menu_book</span>${m.cites.length} source${m.cites.length>1?'s':''}</button><div class="citewrap" style="display:none">${m.cites.map(ct=>`<div><span class="citepill"><span class="ms" style="font-size:13px">description</span>${escapeHtml(ct.l)}</span>${ct.q?`<div class="quoteline">“${escapeHtml(ct.q)}”</div>`:''}</div>`).join('')}</div></div>`:''}</div>`
+    ).join('');
+    c.lastElementChild?.scrollIntoView({behavior:'smooth', block:'end'});
+  }
+  function doSend(q){
+    CHAT.push({who:'q', text:q});
+    $('askinput').value='';
+    renderChat();
+    setTimeout(()=>{ CHAT.push(answerFor(q)); renderChat(); }, 450);
+  }
+  function askQ(q){ doSend(q); }
+  function sendChat(e){ e.preventDefault(); const q = $('askinput').value.trim(); if(q) doSend(q); return false; }
+
+  /* CAD upload → confirm the change → re-run every check against the new drawings */
+  function uploadCad(){
+    if(!confirm('Upload new drawings for 42 Banksia St?\n\nThis replaces the current set and re-runs every rule check against the new drawings.')) return;
+    const s = $('rescan-status');
+    s.innerHTML = `<div style="display:flex;align-items:center;gap:8px;background:var(--flag-bg);border:1px solid #F4D9B0;border-radius:12px;padding:11px 13px;margin-bottom:12px;font-size:.82rem;color:var(--flag);font-weight:600"><span class="ms" style="font-size:17px">progress_activity</span> New drawings received — re-checking all rules against the new measurements…</div>`;
+    setTimeout(()=>{
+      s.innerHTML = `<div style="display:flex;align-items:center;gap:8px;background:var(--mint);border:1px solid var(--mint-deep);border-radius:12px;padding:11px 13px;margin-bottom:12px;font-size:.82rem;color:var(--green-800);font-weight:600"><span class="ms" style="font-size:17px">task_alt</span> Re-scan complete — results updated. <a href="#" onclick="setPane('issues');return false;" style="color:var(--green)">View issues →</a></div>`;
+    }, 1600);
+  }
+
+  render();
+</script>
+</body>
+</html>
