@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>cuz — property planning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#1a3c34",
+          "secondary": "#3c6756",
+          "background": "#faf9f7",
+          "surface": "#ffffff",
+          "mint": "#e4f3ea",
+          "mint-deep": "#cde9d9",
+          "ink": "#1a1c1b",
+          "ink-soft": "#414846",
+          "ink-faint": "#717976",
+          "line": "#eeeeec",
+          "warn": "#b45309",
+          "warn-bg": "#fef3e2"
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          heading: ['Sora', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    body {
+      @apply bg-background text-ink font-sans antialiased selection:bg-mint-deep;
+      -webkit-tap-highlight-color: transparent;
+    }
+    h1, h2, h3, .heading {
+      @apply font-heading tracking-[-0.03em];
+    }
+  }
+
+  @layer components {
+    .nav-item {
+      @apply flex flex-col items-center justify-center gap-1 text-ink-faint transition-colors duration-200;
+    }
+    .nav-item.active {
+      @apply text-primary;
+    }
+    .nav-item.active .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1;
+    }
+
+    .chat-bubble-q {
+      @apply bg-primary text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%] self-end shadow-sm;
+    }
+    .chat-bubble-a {
+      @apply bg-surface border border-line rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%] self-start shadow-sm leading-relaxed;
+    }
+
+    .status-dot {
+      @apply w-2 h-2 rounded-full;
+    }
+    .status-dot.flag { @apply bg-warn; }
+    .status-dot.ok { @apply bg-secondary; }
+    .status-dot.wait { @apply bg-ink-faint/30; }
+
+    .pill {
+      @apply px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap border;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  }
+
+  #main-viewport {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+<div id="main-viewport">
+<header class="flex-none bg-background/80 backdrop-blur-md border-line z-30 px-6 h-16 flex items-center sticky top-0">
+<div class="w-full max-w-2xl mx-auto flex items-center justify-between">
+<div class="text-primary font-heading font-extrabold text-xl tracking-tighter">cuz<span class="text-secondary font-semibold">.fail</span></div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 bg-surface border border-line rounded-full px-3 py-1.5 shadow-sm text-sm font-medium transition-all active:bg-line" id="project-switcher-btn">
+<span id="current-project-label">Loading...</span>
+<span class="material-symbols-outlined text-[18px]">unfold_more</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs">G</div>
+</div>
+</div>
+</header>
+<div class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" id="project-menu">
+<div class="absolute bottom-0 inset-x-0 bg-surface rounded-t-[32px] p-6 shadow-2xl transform translate-y-full transition-transform duration-300 max-h-[80vh] overflow-y-auto" id="project-menu-inner">
+<div class="max-w-2xl mx-auto">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-heading font-bold">Projects</h3>
+<button class="text-ink-faint" onclick="toggleProjectMenu()"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div class="space-y-3" id="plist"></div>
+<div class="mt-8 pt-6 border-t border-line">
+<form class="flex gap-2" id="newproj">
+<input class="flex-1 bg-background border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 outline-none" id="newaddr" placeholder="Add new address..." type="text"/>
+<input class="w-36 bg-background border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 outline-none" id="newcouncil" placeholder="Council" type="text"/>
+<button class="bg-primary text-white p-3 rounded-xl" type="submit"><span class="material-symbols-outlined">add</span></button>
+</form>
+<div class="mt-2 text-[11px] text-warn hidden" id="newproj-error"></div>
+</div>
+</div>
+</div>
+</div>
+<main class="flex-1 overflow-y-auto overflow-x-hidden hide-scrollbar">
+<div class="max-w-2xl mx-auto w-full">
+<section class="px-6 pt-6 pb-4">
+<div class="flex items-center gap-2 mb-1">
+<div class="pill bg-mint text-primary border-mint-deep" id="status-pill"></div>
+<div class="text-xs text-ink-faint font-medium" id="subline"></div>
+</div>
+<h1 class="text-3xl font-heading font-bold leading-tight text-primary mb-4" id="addr"></h1>
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-2" id="chips"></div>
+<div class="hidden mt-2 bg-surface border border-line rounded-2xl p-4" id="details"></div>
+</section>
+<div class="px-6 pb-24" id="pane-container">
+<div class="pane hidden pb-28" id="ask">
+<div class="chat flex flex-col gap-4 mb-6" id="chat"></div>
+</div>
+<div class="pane hidden" id="emails">
+<form class="bg-surface border border-line rounded-2xl p-4 mb-4 shadow-sm" id="rfi-form">
+<textarea class="w-full bg-background border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 outline-none resize-none" id="rfitext" placeholder="Paste council RFI text..." rows="3"></textarea>
+<div class="flex items-center justify-between gap-3 mt-3">
+<span class="text-[11px] text-ink-faint" id="rfi-status"></span>
+<button class="bg-primary text-white text-[10px] font-bold py-2 px-4 rounded-full active:scale-95 transition-transform" type="submit">Draft reply</button>
+</div>
+</form>
+<div class="space-y-4 mb-6" id="mlist"></div>
+</div>
+<div class="pane hidden" id="drawings">
+<div class="bg-mint/40 border-2 border-dashed border-mint-deep rounded-2xl p-6 text-center flex flex-col items-center gap-2 cursor-pointer active:bg-mint-deep/50 transition-colors" id="drop">
+<span class="material-symbols-outlined text-3xl text-secondary">cloud_upload</span>
+<div class="font-heading font-bold text-primary text-sm">Drop drawings here</div>
+<p class="text-[11px] text-ink-faint">PDF · DWG · IFC</p>
+</div>
+<input accept=".pdf,.dwg,.dxf,.ifc" class="hidden" id="fileinput" multiple="" type="file"/>
+<div class="mt-6 space-y-3" id="flist"></div>
+</div>
+<div class="pane" id="checklist">
+<div class="flex items-center justify-between mb-4">
+<div class="text-sm font-medium text-ink-soft" id="clsum"></div>
+<div class="flex items-center gap-3">
+<button class="bg-primary text-white text-[10px] font-bold py-2 px-3 rounded-full active:scale-95 transition-transform" id="runchecks" type="button">Run</button>
+<label class="flex items-center gap-2 text-xs font-semibold text-primary cursor-pointer">
+<input class="rounded border-line text-primary focus:ring-primary" id="flagsonly" type="checkbox"/>
+            Flags only
+          </label>
+</div>
+</div>
+<div class="space-y-2" id="clbody"></div>
+</div>
+</div>
+</div>
+</main>
+<div class="hidden fixed inset-0 z-40 bg-surface overflow-y-auto" id="mview-wrap">
+<div class="max-w-2xl mx-auto flex flex-col px-6 pb-12" id="mview"></div>
+</div>
+<div class="hidden flex-none bg-background/90 backdrop-blur-md px-6 py-4 border-t border-line absolute bottom-[72px] inset-x-0 z-20" id="ask-input-bar">
+<form class="flex gap-2 max-w-2xl mx-auto" id="askform">
+<input class="flex-1 bg-surface border border-line rounded-full px-5 py-3 text-sm focus:ring-2 focus:ring-primary/20 outline-none shadow-sm" id="askinput" placeholder="Ask about this property..." type="text"/>
+<button class="bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-md active:scale-95 transition-transform" type="submit">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</form>
+</div>
+<nav class="flex-none bg-surface border-t border-line h-[72px] flex justify-center z-30">
+<div class="grid grid-cols-4 px-2 w-full max-w-2xl">
+<button class="nav-item" data-pane="ask">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Ask</span>
+</button>
+<button class="nav-item" data-pane="emails">
+<div class="relative">
+<span class="material-symbols-outlined">mail</span>
+<span class="absolute -top-1 -right-1 bg-warn text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden" id="mailcount">0</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest">Mail</span>
+</button>
+<button class="nav-item" data-pane="drawings">
+<span class="material-symbols-outlined">architecture</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Plans</span>
+</button>
+<button class="nav-item active" data-pane="checklist">
+<div class="relative">
+<span class="material-symbols-outlined">rule</span>
+<span class="absolute -top-1 -right-1 bg-warn text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden" id="flagcount">0</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest">Rules</span>
+</button>
+</div>
+</nav>
+</div>
+<script>
+const API = "https://api.cuz.fail/v1";
+let TOKEN = null;
+let PROJECTS = {};
+let DB = PROJECTS;
+let current = null;
+const $ = id => document.getElementById(id);
+
+function esc(s){ const d=document.createElement('div'); d.textContent=s ?? ''; return d.innerHTML; }
+function jsq(s){ return String(s).replace(/\\/g, "\\\\").replace(/'/g, "\\'"); }
+
+async function api(path, { method = "GET", body, isForm } = {}) {
+  const headers = {};
+  if (TOKEN) headers.authorization = `Bearer ${TOKEN}`;
+  if (body && !isForm) headers["content-type"] = "application/json";
+  const res = await fetch(API + path, {
+    method,
+    headers,
+    body: isForm ? body : body ? JSON.stringify(body) : undefined,
+  });
+  const text = await res.text();
+  if (!res.ok) throw new Error(`${method} ${path} -> ${res.status} ${text}`);
+  return res.status === 204 || !text ? null : JSON.parse(text);
+}
+
+async function boot() {
+  const auth = await api("/auth/dev-login", { method: "POST" });
+  TOKEN = auth.access_token;
+  await loadProjects();
+}
+
+async function loadProjects() {
+  const rows = await api("/projects");
+  const active = rows.filter(p => p.status === "active");
+  const previous = current;
+  PROJECTS = {};
+  for (const p of active) PROJECTS[p.id] = projectStub(p);
+  DB = PROJECTS;
+  current = active.some(p => p.id === previous) ? previous : active[0]?.id ?? null;
+  if (current) await hydrate(current);
+  renderSidebar();
+  current ? renderAll() : renderEmptyProjects();
+}
+
+async function hydrate(id) {
+  const p = PROJECTS[id];
+  if (!p) return;
+  const [property, documents, checks, responses, rfiItems] = await Promise.all([
+    api(`/projects/${id}/property`),
+    api(`/projects/${id}/documents`),
+    api(`/projects/${id}/checks`),
+    api(`/projects/${id}/responses`),
+    api(`/projects/${id}/rfi/items`),
+  ]);
+  applyProperty(p, property);
+  p.files = documents.map(documentToFile);
+  p.checklist = checks.map(checkToRow);
+  p.responses = responses;
+  p.rfiItems = rfiItems;
+  p.emails = buildEmails(rfiItems, responses);
+  p.status = deriveStatus(p);
+  p.hydrated = true;
+}
+
+async function refreshDocuments(id = current) {
+  const p = PROJECTS[id];
+  if (!p) return [];
+  const documents = await api(`/projects/${id}/documents`);
+  p.files = documents.map(documentToFile);
+  return documents;
+}
+
+async function refreshChecks(id = current) {
+  const p = PROJECTS[id];
+  if (!p) return [];
+  const checks = await api(`/projects/${id}/checks`);
+  p.checklist = checks.map(checkToRow);
+  p.status = deriveStatus(p);
+  return checks;
+}
+
+async function refreshRfi(id = current) {
+  const p = PROJECTS[id];
+  if (!p) return;
+  const [rfiItems, responses] = await Promise.all([
+    api(`/projects/${id}/rfi/items`),
+    api(`/projects/${id}/responses`),
+  ]);
+  p.rfiItems = rfiItems;
+  p.responses = responses;
+  p.emails = buildEmails(rfiItems, responses);
+}
+
+function projectStub(row) {
+  return {
+    id: row.id,
+    raw: row,
+    addr: row.address || row.project_name || "Untitled project",
+    sub: projectSub(row),
+    status: ["wait", "No checks run"],
+    chips: [],
+    warn: [],
+    links: [],
+    chat: [],
+    emails: [],
+    files: [],
+    checklist: [],
+    checkSourceVersionIds: [],
+    rfiItems: [],
+    responses: [],
+  };
+}
+
+function projectSub(row) {
+  return [row.local_government, row.lot_plan].filter(Boolean).join(" · ");
+}
+
+function applyProperty(project, property) {
+  project.property = property;
+  project.sub = projectSub(project.raw);
+  const chips = [];
+  if (property?.zoning) chips.push(["Zone", property.zoning]);
+  if (property?.lot_area_m2 != null) chips.push(["Lot area", `${formatNumber(property.lot_area_m2)} m2`]);
+  if (property?.planning_scheme) chips.push(["Scheme", property.planning_scheme]);
+  project.chips = chips;
+  project.warn = (property?.overlays || []).map(o => ["Overlay", o]);
+  project.links = [];
+}
+
+function deriveStatus(project) {
+  const checks = (project.checklist || []).filter(r => r.st !== "hide");
+  if (!checks.length) return ["wait", "No checks run"];
+  const flags = checks.filter(r => r.st === "flag" && !r.reviewed).length;
+  if (flags) return ["flag", flags === 1 ? "1 flagged" : `${flags} flagged`];
+  const info = checks.filter(r => r.st === "info").length;
+  if (info) return ["wait", info === 1 ? "1 needs info" : `${info} need info`];
+  return ["ok", "Checklist clean"];
+}
+
+function formatNumber(n) {
+  return Number(n).toLocaleString(undefined, { maximumFractionDigits: 1 });
+}
+
+function formatWhen(value) {
+  if (!value) return "";
+  const then = new Date(value).getTime();
+  if (!Number.isFinite(then)) return "";
+  const diff = Math.max(0, Date.now() - then);
+  const minute = 60 * 1000, hour = 60 * minute, day = 24 * hour;
+  if (diff < minute) return "just now";
+  if (diff < hour) return `${Math.floor(diff / minute)}m ago`;
+  if (diff < day) return `${Math.floor(diff / hour)}h ago`;
+  if (diff < 2 * day) return "yesterday";
+  return `${Math.floor(diff / day)}d ago`;
+}
+
+function documentToFile(doc) {
+  const name = doc.title || doc.filename || "Untitled document";
+  const extSource = doc.filename || doc.title || doc.content_type || "file";
+  const ext = (extSource.includes(".") ? extSource.split(".").pop() : extSource.split("/").pop()).slice(0, 4).toUpperCase();
+  return { id: doc.id, name, ext, tier: documentTier(doc), when: formatWhen(doc.created_at), raw: doc };
+}
+
+function documentTier(doc) {
+  if (doc.parse_status === "pending") return "queued";
+  const haystack = `${doc.content_type || ""} ${doc.filename || ""} ${doc.title || ""}`.toLowerCase();
+  if (/(dxf|dwg|ifc)/.test(haystack)) return "measured";
+  if (/(pdf|docx|word)/.test(haystack)) return "read";
+  return doc.analysis_status === "pending" ? "queued" : "read";
+}
+
+function citationLabel(c) {
+  return [c.source_title, c.clause_id].filter(Boolean).join(" · ") || c.heading || c.version_label || "Source";
+}
+
+function citationToView(c) {
+  return { label: citationLabel(c), quote: c.quote || "", url: c.canonical_url || "" };
+}
+
+function checkToRow(row) {
+  const status = {
+    likely_pass: "pass",
+    likely_fail: "flag",
+    needs_human_review: "flag",
+    missing_info: "info",
+    not_applicable: "hide",
+  }[row.status] || "info";
+  const note = [...(row.missing_information || []), ...(row.assumptions || [])].find(Boolean) || "";
+  return {
+    id: row.id,
+    rule: row.label,
+    req: row.requirement || "Missing",
+    prop: row.proposed || "Missing",
+    src: deriveCheckSource(row),
+    st: status,
+    note,
+    cites: (row.citations || []).map(citationToView),
+    raw: row,
+  };
+}
+
+function deriveCheckSource(row) {
+  if (row.status === "missing_info") return "missing";
+  const refs = (row.evidence_refs || []).join(" ").toLowerCase();
+  if (/(measurement|measured|dxf|ifc)/.test(refs)) return "measured";
+  if ((row.citations || []).length || refs) return "read";
+  return "missing";
+}
+
+function answerToMessage(answer) {
+  const cites = (answer?.citations || []).map(citationToView);
+  if (answer?.status === "unsupported" || !cites.length) {
+    return {
+      who: "a",
+      text: "I can't answer from the approved source library for this project yet.",
+      cites: null,
+    };
+  }
+  return { who: "a", text: answer.answer || "The approved source library returned citations but no answer text.", cites };
+}
+
+function buildEmails(rfiItems, responses) {
+  const drafts = (responses || []).map(responseToEmail);
+  return drafts.length ? drafts : (rfiItems || []).map(rfiItemToEmail);
+}
+
+function responseToEmail(response) {
+  const needsReview = response.requires_human_review || (response.missing_information || []).length > 0;
+  const body = [
+    ...(response.missing_information || []).map(x => `Missing: ${x}`),
+    ...(response.assumptions || []).map(x => `Assumption: ${x}`),
+  ].join("\n") || contentSummary(response.content) || "Generated response draft.";
+  return {
+    from: "DraftCheck RFI",
+    subj: response.title || "Draft RFI response",
+    status: needsReview ? ["warn", "Human review"] : ["ready", "Draft ready"],
+    body,
+    draft: response.draft_text || "",
+    liability_notice: response.liability_notice || "",
+    requiresHumanReview: needsReview,
+    cites: (response.citations || []).map(citationToView),
+  };
+}
+
+function rfiItemToEmail(item) {
+  const missing = item.missing_evidence || [];
+  return {
+    from: "Pasted council RFI",
+    subj: item.issue_summary || `RFI item ${item.item_number}`,
+    status: missing.length || item.priority === "high" ? ["warn", "Missing evidence"] : ["info", "RFI parsed"],
+    body: [
+      item.requested_action,
+      item.relevant_drawing_sheet ? `Sheet: ${item.relevant_drawing_sheet}` : "",
+      missing.length ? `Missing evidence: ${missing.join(", ")}` : "",
+    ].filter(Boolean).join("\n\n"),
+    draft: "Draft response not generated yet.",
+    liability_notice: "Human signoff is required before any response is treated as submission-ready.",
+    requiresHumanReview: true,
+    cites: (item.source_requirement_candidates || []).map(citationToView),
+  };
+}
+
+function contentSummary(content) {
+  if (!content) return "";
+  if (typeof content === "string") return content;
+  if (Array.isArray(content)) return content.filter(Boolean).join("\n");
+  return Object.values(content).filter(v => typeof v === "string" && v.trim()).slice(0, 3).join("\n");
+}
+
+function renderEmptyProjects() {
+  $('current-project-label').textContent = "No projects";
+  $('addr').textContent = "No active projects";
+  $('subline').textContent = "Create a project with an address and council to start.";
+  $('status-pill').className = "pill bg-mint text-primary border-mint-deep";
+  $('status-pill').textContent = "Ready";
+  $('chips').innerHTML = "";
+  $('details').classList.add('hidden');
+  $('details').innerHTML = "";
+  $('chat').innerHTML = `<div class="py-12 text-center text-ink-faint text-sm">Select or create a project before asking.</div>`;
+  $('mlist').innerHTML = `<div class="py-12 text-center text-ink-faint text-sm">No project selected.</div>`;
+  $('flist').innerHTML = "";
+  $('clsum').textContent = "";
+  $('clbody').innerHTML = `<div class="py-12 text-center text-ink-faint text-sm">No checks to show.</div>`;
+  $('mailcount').style.display = 'none';
+  $('flagcount').style.display = 'none';
+}
+
+function renderServiceError(err) {
+  console.error(err);
+  PROJECTS = {};
+  DB = PROJECTS;
+  current = null;
+  renderSidebar();
+  $('current-project-label').textContent = "Service unavailable";
+  $('addr').textContent = "Couldn't reach the service";
+  $('subline').textContent = "The production API did not respond. No fallback data was loaded.";
+  $('status-pill').className = "pill bg-warn-bg text-warn border-warn/20";
+  $('status-pill').textContent = "Offline";
+  $('chips').innerHTML = "";
+  $('details').classList.add('hidden');
+  $('details').innerHTML = "";
+  $('chat').innerHTML = `<div class="py-12 text-center text-ink-faint text-sm">${esc(err.message)}</div>`;
+  $('mlist').innerHTML = `<div class="py-12 text-center text-ink-faint text-sm">RFI drafting is unavailable while the service is unreachable.</div>`;
+  $('flist').innerHTML = "";
+  $('clsum').textContent = "";
+  $('clbody').innerHTML = `<div class="py-12 text-center text-ink-faint text-sm">Checks are unavailable while the service is unreachable.</div>`;
+  $('mailcount').style.display = 'none';
+  $('flagcount').style.display = 'none';
+}
+
+// Overlays participate in browser history so back button / Esc / backdrop all close them
+let overlayClose = null;
+function pushOverlay(closeFn){ overlayClose = closeFn; history.pushState({overlay:1}, ''); }
+window.addEventListener('popstate', () => {
+  if (overlayClose){ const f = overlayClose; overlayClose = null; f(); }
+});
+function dismissOverlay(){ if (overlayClose) history.back(); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') dismissOverlay(); });
+
+function sheetVisible(){ return !$('project-menu').classList.contains('pointer-events-none'); }
+function hideSheet(){
+  $('project-menu').classList.add('opacity-0', 'pointer-events-none');
+  $('project-menu-inner').classList.add('translate-y-full');
+}
+function openProjectMenu(){
+  if (sheetVisible()) return;
+  $('project-menu').classList.remove('opacity-0', 'pointer-events-none');
+  $('project-menu-inner').classList.remove('translate-y-full');
+  pushOverlay(hideSheet);
+}
+function toggleProjectMenu(){ sheetVisible() ? dismissOverlay() : openProjectMenu(); }
+
+$('project-switcher-btn').addEventListener('click', toggleProjectMenu);
+$('project-menu').addEventListener('click', e => { if (e.target === $('project-menu')) dismissOverlay(); });
+
+function toggleDetails(){ $('details').classList.toggle('hidden'); }
+
+function renderSidebar(){
+  const entries = Object.entries(DB);
+  $('plist').innerHTML = entries.length ? entries.map(([id,p]) => `
+    <div class="w-full flex items-center justify-between gap-2 p-4 rounded-2xl border ${id===current?'border-primary bg-mint/30':'border-line bg-surface'} text-left">
+      <button class="flex-1 text-left min-w-0" onclick="switchProject('${jsq(id)}')">
+        <div class="font-bold text-ink">${esc(p.addr)}</div>
+        <div class="text-[11px] text-ink-faint flex items-center gap-1.5 mt-1">
+          <span class="status-dot ${p.status[0]}"></span>${esc(p.status[1])}
+        </div>
+      </button>
+      <button class="text-ink-faint flex-none" onclick="deleteProject('${jsq(id)}', event)" title="Delete project"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+      ${id===current ? '<span class="material-symbols-outlined text-primary">check_circle</span>' : ''}
+    </div>`).join('') : `<div class="py-6 text-center text-ink-faint text-sm">No active projects.</div>`;
+}
+
+function renderHead(p){
+  $('addr').textContent = p.addr;
+  $('current-project-label').textContent = p.addr.split(',')[0];
+  $('subline').textContent = p.sub;
+  $('status-pill').className = `pill ${p.status[0] === 'flag' ? 'bg-warn-bg text-warn border-warn/20' : 'bg-mint text-primary border-mint-deep'}`;
+  $('status-pill').textContent = p.status[1];
+
+  const visible = p.chips.filter(([k]) => k === 'Zone' || k === 'Lot area');
+  const rest = p.chips.filter(([k]) => k !== 'Zone' && k !== 'Lot area');
+  $('chips').innerHTML =
+    visible.map(([k,v]) => `<span class="pill bg-surface border-line text-ink-soft">${k}: <b class="text-ink">${v}</b></span>`).join('') +
+    p.warn.map(([k,v]) => `<span class="pill bg-warn-bg border-warn/20 text-warn">${k}: <b>${v}</b></span>`).join('') +
+    ((rest.length || p.links.length) ? `<button class="pill bg-surface border-line text-ink-soft flex items-center gap-1" onclick="toggleDetails()">Details <span class="material-symbols-outlined text-[14px]">expand_more</span></button>` : '');
+
+  $('details').classList.add('hidden');
+  $('details').innerHTML =
+    (rest.length ? `<div class="grid grid-cols-2 gap-x-8 gap-y-2 mb-3">` +
+      rest.map(([k,v]) => `<div class="flex justify-between text-xs"><span class="text-ink-faint">${esc(k)}</span><span class="font-semibold">${esc(v)}</span></div>`).join('') +
+      `</div>` : '') +
+    (p.links.length ? `<div>` + p.links.map(l => `<a class="pill bg-mint/40 border-mint-deep text-secondary inline-flex items-center gap-1 mr-1.5 mb-1.5" href="#" onclick="return false">${esc(l)} <span class="material-symbols-outlined text-[12px]">north_east</span></a>`).join('') + `</div>` : '');
+}
+
+const SUGGESTED = ["Max site coverage?", "Front setback rules?", "Boundary wall limits?", "Can this lot subdivide?"];
+
+function sendQuestion(q){
+  $('askinput').value = q;
+  $('askform').requestSubmit();
+}
+
+function renderChat(p){
+  if (!p.chat.length){
+    $('chat').innerHTML = `
+      <div class="py-6 text-center">
+        <div class="text-sm text-ink-faint mb-4">Ask about this property. Sourced answers show citations.</div>
+        <div class="flex flex-wrap justify-center gap-2">
+          ${SUGGESTED.map(q=>`<button class="pill bg-surface border-line text-ink-soft active:bg-mint" onclick="sendQuestion('${q}')">${q}</button>`).join('')}
+        </div>
+      </div>`;
+    return;
+  }
+  $('chat').innerHTML = p.chat.map(m => m.who==='q'
+    ? `<div class="chat-bubble-q heading text-sm">${esc(m.text)}</div>`
+    : `<div class="chat-bubble-a text-sm">
+         ${esc(m.text)}
+         ${m.cites ? `<button class="flex items-center gap-1 text-[10px] font-bold text-secondary mt-2" onclick="this.nextElementSibling.classList.toggle('hidden')"><span class="material-symbols-outlined text-[13px]">menu_book</span>${m.cites.length} source${m.cites.length>1?'s':''}</button><div class="hidden mt-1">${m.cites.map(c=>renderCitationPill(c)).join('')}</div>` : ''}
+       </div>`).join('');
+}
+
+function renderCitationPill(c){
+  const cite = typeof c === 'string' ? {label:c, quote:''} : c;
+  return cite.quote
+    ? `<button class="pill bg-mint/50 border-mint-deep text-primary text-[10px] inline-flex mr-1.5 mb-1.5" onclick="this.nextElementSibling.classList.toggle('hidden')">${esc(cite.label)}</button><div class="hidden text-[10px] text-ink-soft bg-background/70 rounded-lg p-2 mb-2">${esc(cite.quote)}</div>`
+    : `<span class="pill bg-mint/50 border-mint-deep text-primary text-[10px] inline-flex mr-1.5 mb-1.5">${esc(cite.label)}</span>`;
+}
+
+function renderEmails(p){
+  const actionable = p.emails.filter(m => m.status[0] === 'warn' || m.status[0] === 'info').length;
+  $('mailcount').textContent = actionable || '';
+  $('mailcount').style.display = actionable ? 'flex' : 'none';
+  if (!p.emails.length){
+    $('mlist').innerHTML = `<div class="py-12 text-center text-ink-faint text-sm">No emails yet.</div>`;
+    return;
+  }
+  $('mlist').innerHTML = p.emails.map((m,i)=>`
+    <button class="w-full bg-surface border border-line rounded-2xl p-4 text-left shadow-sm active:scale-[0.98] transition-transform" onclick="pickMail(${i})">
+      <div class="flex justify-between items-start mb-2">
+        <div class="font-bold text-sm text-primary">${esc(m.from)}</div>
+        <span class="pill text-[9px] ${m.status[0]==='warn'?'bg-warn-bg text-warn':'bg-mint text-primary'}">${esc(m.status[1])}</span>
+      </div>
+      <div class="text-xs font-semibold text-ink-soft mb-1">${esc(m.subj)}</div>
+      <div class="text-[11px] text-ink-faint truncate">${esc(m.body)}</div>
+    </button>`).join('');
+}
+
+function pickMail(i){
+  const m = DB[current].emails[i];
+  const reviewNotice = m.requiresHumanReview ? `<div class="text-[11px] text-warn bg-warn-bg border border-warn/20 rounded-xl p-3 mb-3">Requires human review before any response is treated as submission-ready.</div>` : '';
+  const liability = m.liability_notice ? `<div class="text-[11px] text-ink-soft bg-background border border-line rounded-xl p-3 mb-3">${esc(m.liability_notice)}</div>` : '';
+  const cites = m.cites?.length ? `<div class="mb-4"><button class="flex items-center gap-1 text-[10px] font-bold text-secondary" onclick="this.nextElementSibling.classList.toggle('hidden')"><span class="material-symbols-outlined text-[13px]">menu_book</span>${m.cites.length} source${m.cites.length>1?'s':''}</button><div class="hidden mt-1">${m.cites.map(c=>renderCitationPill(c)).join('')}</div></div>` : '';
+  $('mview').innerHTML = `
+    <div class="sticky top-0 z-10 -mx-6 px-6 py-3 bg-surface/90 backdrop-blur-md border-b border-line flex items-center justify-between">
+      <button onclick="dismissOverlay()" class="text-primary flex items-center gap-2 font-bold text-sm">
+        <span class="material-symbols-outlined">arrow_back</span> Back
+      </button>
+      <span class="pill text-[9px] ${m.status[0]==='warn'?'bg-warn-bg text-warn border-warn/20':'bg-mint text-primary border-mint-deep'}">${esc(m.status[1])}</span>
+    </div>
+    <div class="pt-6 mb-8 pb-8 border-b border-line">
+      <div class="text-xs text-ink-faint mb-2">From ${esc(m.from)}</div>
+      <h2 class="text-xl font-heading font-bold text-primary mb-4">${esc(m.subj)}</h2>
+      <div class="text-sm leading-relaxed text-ink-soft bg-background p-4 rounded-2xl italic">"${esc(m.body)}"</div>
+    </div>
+    ${reviewNotice}
+    ${liability}
+    ${cites}
+    <div>
+      <div class="flex justify-between items-end mb-4">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-secondary">Draft reply - yours to edit</span>
+        <button class="bg-primary text-white text-[10px] font-bold py-1.5 px-4 rounded-full" onclick="copyDraft(this)">Copy</button>
+      </div>
+      <textarea id="draft-ta" oninput="DB[current].emails[${i}].draft=this.value;this.style.height='auto';this.style.height=this.scrollHeight+'px'" class="w-full text-sm leading-relaxed bg-background border border-line rounded-2xl p-4 outline-none focus:ring-2 focus:ring-primary/20 resize-none" rows="8">${esc(m.draft)}</textarea>
+    </div>`;
+  $('mview-wrap').classList.remove('hidden');
+  $('mview-wrap').scrollTop = 0;
+  pushOverlay(() => $('mview-wrap').classList.add('hidden'));
+}
+
+function copyDraft(btn){
+  const ta = document.getElementById('draft-ta');
+  if (!ta) return;
+  (navigator.clipboard?.writeText(ta.value) || Promise.reject()).then(() => {
+    btn.textContent = 'Copied';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 1200);
+  }).catch(() => {});
+}
+
+const TIER_STYLES = {
+  measured: ['bg-mint text-primary border-mint-deep', 'Measured'],
+  read: ['bg-surface text-ink-soft border-line', 'Read'],
+  queued: ['bg-warn-bg text-warn border-warn/20', 'Queued'],
+};
+
+function renderFiles(p){
+  if (!p.files.length){
+    $('flist').innerHTML = `<div class="py-8 text-center text-ink-faint text-sm">No drawings uploaded yet.</div>`;
+    return;
+  }
+  $('flist').innerHTML = p.files.map(f => {
+    const [cls, label] = TIER_STYLES[f.tier] || TIER_STYLES.read;
+    return `
+    <div class="bg-surface border border-line rounded-2xl p-4 flex items-center gap-3 shadow-sm">
+      <div class="w-10 h-10 rounded-xl bg-mint flex-none flex items-center justify-center text-[10px] font-bold text-primary">${esc(f.ext)}</div>
+      <div class="flex-1 min-w-0">
+        <div class="text-sm font-semibold truncate">${esc(f.name)}</div>
+        <div class="text-[11px] text-ink-faint">${esc(f.when || '')}</div>
+      </div>
+      <span class="pill text-[9px] ${cls}">${label}</span>
+    </div>`;
+  }).join('');
+}
+
+const CHECK_STYLES = {
+  pass: ['ok', 'bg-mint text-primary border-mint-deep', 'Pass'],
+  flag: ['flag', 'bg-warn-bg text-warn border-warn/20', 'Flag'],
+  info: ['wait', 'bg-surface text-ink-soft border-line', 'Needs info'],
+};
+
+function renderChecklist(p){
+  const rows = (p.checklist || []).filter(r => r.st !== 'hide');
+  const flags = rows.filter(r => r.st === 'flag').length;
+  $('flagcount').textContent = flags || '';
+  $('flagcount').style.display = flags ? 'flex' : 'none';
+  $('clsum').textContent = rows.length ? `${rows.length} checks · ${flags} flagged` : '';
+  const visible = $('flagsonly').checked ? rows.filter(r => r.st === 'flag') : rows;
+  if (!visible.length){
+    $('clbody').innerHTML = `<div class="py-12 text-center text-ink-faint text-sm">${rows.length ? 'No flagged checks.' : 'No checks yet. Tap Run to check this project against the approved sources.'}</div>`;
+    return;
+  }
+  $('clbody').innerHTML = visible.map(r => {
+    const [dot, pill, label] = CHECK_STYLES[r.st] || CHECK_STYLES.info;
+    return `
+    <div class="bg-surface border border-line rounded-2xl p-4 shadow-sm">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="status-dot ${dot} flex-none"></span>
+          <span class="font-bold text-sm truncate">${esc(r.rule)}</span>
+        </div>
+        <span class="pill text-[9px] flex-none ${pill}">${label}</span>
+      </div>
+      <div class="grid grid-cols-2 gap-x-6 mt-3 text-xs">
+        <div><div class="text-ink-faint mb-0.5">Required</div><div class="font-semibold">${esc(r.req)}</div></div>
+        <div><div class="text-ink-faint mb-0.5">Proposed</div><div class="font-semibold">${esc(r.prop)}</div></div>
+      </div>
+      ${r.note ? `<div class="text-[11px] text-ink-soft mt-2">${esc(r.note)}</div>` : ''}
+      ${r.cites?.length ? `<button class="flex items-center gap-1 text-[10px] font-bold text-secondary mt-2" onclick="this.nextElementSibling.classList.toggle('hidden')"><span class="material-symbols-outlined text-[13px]">menu_book</span>${r.cites.length} source${r.cites.length > 1 ? 's' : ''}</button><div class="hidden mt-1">${r.cites.map(c => renderCitationPill(c)).join('')}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+function renderAll(){
+  const p = PROJECTS[current];
+  if (!p){ renderEmptyProjects(); return; }
+  renderHead(p);
+  renderChat(p);
+  renderEmails(p);
+  renderFiles(p);
+  renderChecklist(p);
+}
+
+async function switchProject(id){
+  if (!PROJECTS[id]) return;
+  current = id;
+  try {
+    if (!PROJECTS[id].hydrated) await hydrate(id);
+  } catch (err) {
+    console.error(err);
+  }
+  renderSidebar();
+  renderAll();
+  if (sheetVisible()) dismissOverlay();
+}
+
+async function deleteProject(id, ev){
+  ev?.stopPropagation();
+  if (!confirm('Delete this project? This cannot be undone.')) return;
+  try {
+    await api(`/projects/${id}`, { method: 'DELETE' });
+    if (current === id) current = null;
+    await loadProjects();
+  } catch (err) {
+    alert(`Could not delete project: ${err.message}`);
+  }
+}
+
+/* ---------- pane navigation ---------- */
+function setPane(name){
+  document.querySelectorAll('#pane-container .pane').forEach(el => el.classList.toggle('hidden', el.id !== name));
+  document.querySelectorAll('.nav-item').forEach(btn => btn.classList.toggle('active', btn.dataset.pane === name));
+  $('ask-input-bar').classList.toggle('hidden', name !== 'ask');
+}
+document.querySelectorAll('.nav-item').forEach(btn => btn.addEventListener('click', () => setPane(btn.dataset.pane)));
+
+/* ---------- chat (grounded ask) ---------- */
+$('askform').addEventListener('submit', async e => {
+  e.preventDefault();
+  const q = $('askinput').value.trim();
+  const p = PROJECTS[current];
+  if (!q || !p) return;
+  $('askinput').value = '';
+  p.chat.push({ who: 'q', text: q });
+  p.chat.push({ who: 'a', text: 'Checking the approved source library…', cites: null });
+  renderChat(p);
+  let message;
+  try {
+    const answer = await api(`/projects/${current}/chat`, { method: 'POST', body: { question: q } });
+    message = answerToMessage(answer);
+  } catch (err) {
+    message = { who: 'a', text: `The service could not answer: ${err.message}`, cites: null };
+  }
+  p.chat.pop();
+  p.chat.push(message);
+  renderChat(p);
+  $('chat').lastElementChild?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+});
+
+/* ---------- new project ---------- */
+$('newproj').addEventListener('submit', async e => {
+  e.preventDefault();
+  const address = $('newaddr').value.trim();
+  const council = $('newcouncil').value.trim();
+  const err = $('newproj-error');
+  err.classList.add('hidden');
+  if (!address || !council){
+    err.textContent = 'Both an address and a council are required.';
+    err.classList.remove('hidden');
+    return;
+  }
+  try {
+    const row = await api('/projects', {
+      method: 'POST',
+      body: { project_name: address, address, local_government: council, project_type: 'residential', stage: 'design' },
+    });
+    $('newaddr').value = '';
+    $('newcouncil').value = '';
+    current = row.id;
+    await loadProjects();
+    if (sheetVisible()) dismissOverlay();
+  } catch (ex) {
+    err.textContent = ex.message;
+    err.classList.remove('hidden');
+  }
+});
+
+/* ---------- RFI paste -> parse -> draft ---------- */
+$('rfi-form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const p = PROJECTS[current];
+  const rfiText = $('rfitext').value.trim();
+  if (!p || !rfiText) return;
+  const status = $('rfi-status');
+  status.textContent = 'Parsing RFI…';
+  try {
+    await api(`/projects/${current}/rfi/parse`, { method: 'POST', body: { text: rfiText } });
+    status.textContent = 'Generating draft response…';
+    await api(`/projects/${current}/responses/generate`, { method: 'POST' });
+    await refreshRfi(current);
+    $('rfitext').value = '';
+    status.textContent = 'Draft ready below — human review required.';
+    renderEmails(PROJECTS[current]);
+  } catch (ex) {
+    status.textContent = ex.message;
+  }
+});
+
+/* ---------- drawings upload ---------- */
+$('drop').addEventListener('click', () => $('fileinput').click());
+$('drop').addEventListener('dragover', e => e.preventDefault());
+$('drop').addEventListener('drop', e => { e.preventDefault(); uploadFiles(e.dataTransfer.files); });
+$('fileinput').addEventListener('change', () => { uploadFiles($('fileinput').files); $('fileinput').value = ''; });
+
+async function uploadFiles(files){
+  const p = PROJECTS[current];
+  if (!p || !files?.length) return;
+  for (const file of Array.from(files)){
+    p.files.unshift({ id: 'pending', name: `Uploading ${file.name}…`, ext: '…', tier: 'queued', when: 'now' });
+    renderFiles(p);
+    try {
+      const form = new FormData();
+      form.append('document_type', 'drawing');
+      form.append('title', file.name);
+      form.append('file', file);
+      await api(`/projects/${current}/documents/upload`, { method: 'POST', body: form, isForm: true });
+    } catch (err) {
+      alert(`Upload of ${file.name} failed: ${err.message}`);
+    }
+  }
+  await refreshDocuments(current);
+  renderFiles(PROJECTS[current]);
+}
+
+/* ---------- checks ---------- */
+$('runchecks').addEventListener('click', async () => {
+  const p = PROJECTS[current];
+  if (!p) return;
+  const btn = $('runchecks');
+  btn.disabled = true;
+  btn.textContent = 'Running…';
+  try {
+    await api(`/projects/${current}/checks/run`, { method: 'POST' });
+    await refreshChecks(current);
+    renderChecklist(PROJECTS[current]);
+    renderHead(PROJECTS[current]);
+    renderSidebar();
+  } catch (err) {
+    alert(`Checks failed: ${err.message}`);
+  }
+  btn.disabled = false;
+  btn.textContent = 'Run';
+});
+$('flagsonly').addEventListener('change', () => { if (PROJECTS[current]) renderChecklist(PROJECTS[current]); });
+
+/* ---------- boot ---------- */
+setPane('checklist');
+boot().catch(renderServiceError);
+</script>
+</body>
+</html>
