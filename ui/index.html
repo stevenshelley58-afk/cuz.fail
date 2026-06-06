@@ -121,7 +121,7 @@
     <div class="gchat" style="margin-top:26px">
       <div class="ghead"><span class="ms">smart_toy</span><div class="t">Ask me anything</div></div>
       <div class="thread" id="thread">
-        <div class="bubble a">Hi! Ask me how DraftCheck works — or look up an address and I'll answer with the exact rule for that property.</div>
+        <div class="bubble a">Hi! Ask me how this works — or look up an address and I'll answer with the exact rule for that property.</div>
       </div>
       <div class="suggest" id="suggest">
         <button onclick="gask('What can you check?')">What can you check?</button>
@@ -166,7 +166,7 @@
       return {a:'That depends on the specific parcel, and I won\'t guess. Look up the address above and I\'ll answer with the exact clause for that property.', nudge:true};
     }
     const hit = GA.find(x=>x.m.test(q));
-    return {a: hit ? hit.t : 'I can help with how DraftCheck works. For anything about a specific block, look up its address and I\'ll answer from that property\'s sources.', nudge:!hit};
+    return {a: hit ? hit.t : 'I can help with how this works. For anything about a specific block, look up its address and I\'ll answer from that property\'s sources.', nudge:!hit};
   }
   function esc(s){ const d=document.createElement('div'); d.textContent=s??''; return d.innerHTML; }
   function push(who, text, nudge){
