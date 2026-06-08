@@ -248,6 +248,11 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         help="Optional source type filter, for example structure_plan.",
     )
     repair_sources.add_argument(
+        "--title-contains",
+        default=None,
+        help="Only repair sources whose title contains this text.",
+    )
+    repair_sources.add_argument(
         "--limit",
         type=int,
         default=5,
@@ -485,6 +490,7 @@ def _run_repair_parse_quality_sources(
     result = source_library.repair_parse_quality_sources(
         local_government=args.local_government,
         source_type=args.source_type,
+        title_contains=args.title_contains,
         limit=args.limit,
         org_id=org_id,
         requested_by_user_id=user_id,

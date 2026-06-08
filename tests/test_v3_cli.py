@@ -500,6 +500,7 @@ def test_repair_parse_quality_sources_uses_operator_and_filters(
             *,
             local_government,
             source_type,
+            title_contains,
             limit,
             org_id,
             requested_by_user_id,
@@ -511,6 +512,7 @@ def test_repair_parse_quality_sources_uses_operator_and_filters(
             calls["repair"] = {
                 "local_government": local_government,
                 "source_type": source_type,
+                "title_contains": title_contains,
                 "limit": limit,
                 "org_id": str(org_id),
                 "requested_by_user_id": str(requested_by_user_id),
@@ -534,6 +536,8 @@ def test_repair_parse_quality_sources_uses_operator_and_filters(
             "Cockburn",
             "--source-type",
             "structure_plan",
+            "--title-contains",
+            "Koorilla",
             "--limit",
             "3",
             "--operator-email",
@@ -563,6 +567,7 @@ def test_repair_parse_quality_sources_uses_operator_and_filters(
     assert calls["repair"] == {
         "local_government": "Cockburn",
         "source_type": "structure_plan",
+        "title_contains": "Koorilla",
         "limit": 3,
         "org_id": str(org_id),
         "requested_by_user_id": str(user_id),

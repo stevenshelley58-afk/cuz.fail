@@ -481,6 +481,7 @@ class SqlAlchemySourceLibrary:
         *,
         local_government: str | None = None,
         source_type: str | None = None,
+        title_contains: str | None = None,
         limit: int = 5,
         org_id: UUID,
         requested_by_user_id: UUID,
@@ -492,6 +493,7 @@ class SqlAlchemySourceLibrary:
         candidates = self._parse_repair_candidates(
             local_government=local_government,
             source_type=source_type,
+            title_contains=title_contains,
             limit=limit,
         )
         repaired = 0
@@ -1088,6 +1090,7 @@ class SqlAlchemySourceLibrary:
         *,
         local_government: str | None,
         source_type: str | None,
+        title_contains: str | None,
         limit: int,
     ) -> list[dict[str, object]]:
         with self._session_factory() as session:
@@ -1096,10 +1099,13 @@ class SqlAlchemySourceLibrary:
                 statement = statement.where(DbSource.local_government == local_government)
             if source_type:
                 statement = statement.where(DbSource.source_type == source_type)
+            normalized_title_filter = title_contains.strip().casefold() if title_contains else None
             candidates: list[dict[str, object]] = []
             for source in session.scalars(statement).all():
                 if len(candidates) >= limit:
                     break
+                if normalized_title_filter and normalized_title_filter not in source.title.casefold():
+                    continue
                 version = self._latest_version(session, source)
                 fetch_log = self._latest_fetch_log(session, source)
                 if version is None:
