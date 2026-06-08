@@ -485,6 +485,9 @@ class SqlAlchemySourceLibrary:
                     link.url,
                     fallback=str(parent["authority"]),
                 )
+                if self._already_has_fetched_source(link.url):
+                    skipped += 1
+                    continue
                 source_metadata = {
                     "discovery_source": "source_child_link",
                     "discovered_from_source_id": str(parent["source_id"]),
@@ -853,6 +856,18 @@ class SqlAlchemySourceLibrary:
                     }
                 )
             return parents
+
+    def _already_has_fetched_source(self, canonical_url: str) -> bool:
+        with self._session_factory() as session:
+            source = session.scalar(
+                select(DbSource).where(DbSource.canonical_url == canonical_url).limit(1)
+            )
+            if source is None:
+                return False
+            latest = self._latest_version(session, source)
+            if latest is None:
+                return False
+            return not self._source_version(latest).metadata_only
 
     def ingestion_status(self, *, local_government: str | None = None) -> dict[str, object]:
         with self._session_factory() as session:
