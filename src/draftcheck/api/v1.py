@@ -8,9 +8,13 @@ implements them; routers mounted here replace the matching stubs as waves land.
 from __future__ import annotations
 
 import os
+from pathlib import Path
 from typing import Any
 
 from fastapi import APIRouter
+from sqlalchemy import text
+
+from draftcheck.db.engine import create_runtime_engine
 
 from draftcheck.api.address import router as address_router
 from draftcheck.api.auth import router as auth_router
@@ -47,6 +51,75 @@ def _ops_source_status(source_library: Any) -> dict[str, Any]:
     )
     status["pending"] = list(dict.fromkeys(pending))
     return status
+
+
+def _ready_probe_database() -> dict[str, str]:
+    database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        return {
+            "status": "warning",
+            "detail": "DATABASE_URL not configured; durable database checks skipped",
+        }
+
+    engine = None
+    try:
+        engine = create_runtime_engine(database_url)
+        with engine.connect() as connection:
+            connection.execute(text("SELECT 1"))
+        return {
+            "status": "ok",
+            "detail": f"{engine.dialect.name} connection ok",
+        }
+    except Exception as exc:
+        return {
+            "status": "error",
+            "detail": f"database probe failed: {exc}",
+        }
+    finally:
+        if engine is not None:
+            engine.dispose()
+
+
+def _ready_probe_queue() -> dict[str, str]:
+    conninfo = os.getenv("PROCRASTINATE_DB_URI")
+    if conninfo:
+        return {"status": "ok", "detail": "PROCRASTINATE_DB_URI configured"}
+
+    database_url = os.getenv("DATABASE_URL", "")
+    if database_url.startswith(("postgresql://", "postgres://", "postgresql+psycopg://")):
+        return {"status": "ok", "detail": "queue can derive conninfo from DATABASE_URL"}
+
+    return {
+        "status": "warning",
+        "detail": "Procrastinate queue is not configured",
+    }
+
+
+def _ready_probe_storage() -> dict[str, str]:
+    storage_root = Path(os.getenv("OBJECT_STORAGE_ROOT", ".storage")).expanduser()
+    if storage_root.is_dir():
+        return {"status": "ok", "detail": f"storage root present: {storage_root}"}
+    return {
+        "status": "warning",
+        "detail": f"storage root missing: {storage_root}",
+    }
+
+
+def _ready_probe_source_store(source_library: Any) -> dict[str, str]:
+    store_name = type(source_library).__name__
+    store_mode = os.getenv("DRAFTCHECK_SOURCE_STORE", "auto")
+    database_url = os.getenv("DATABASE_URL")
+    if store_name == "SqlAlchemySourceLibrary":
+        return {"status": "ok", "detail": "durable SQL source library configured"}
+    if database_url and store_mode != "memory":
+        return {
+            "status": "warning",
+            "detail": f"{store_name} active despite DATABASE_URL; using fallback source store",
+        }
+    return {
+        "status": "warning",
+        "detail": f"{store_name} active; source library is in-memory",
+    }
 
 
 def create_v1_router(library: Any | None = None) -> APIRouter:
@@ -128,10 +201,22 @@ def health() -> dict[str, str]:
 
 @router.get("/ready", tags=["ops"])
 def ready() -> dict[str, object]:
+    source_library = _default_source_library()
+    checks: dict[str, dict[str, str]] = {
+        "app": {"status": "ok", "detail": "router mounted at /api/v1"},
+        "config": {"status": "ok", "detail": "settings loaded"},
+        "database": _ready_probe_database(),
+        "queue": _ready_probe_queue(),
+        "storage": _ready_probe_storage(),
+        "source_store": _ready_probe_source_store(source_library),
+    }
+    status_value = "ok"
+    if any(check["status"] == "error" for check in checks.values()):
+        status_value = "degraded"
     return {
-        "status": "ok",
+        "status": status_value,
         "service": "draftcheck-api",
-        "checks": {"app": "ok", "config": "ok"},
+        "checks": checks,
     }
 
 

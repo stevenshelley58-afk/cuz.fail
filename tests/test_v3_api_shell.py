@@ -1,10 +1,13 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from draftcheck.api.auth import get_current_session, require_reviewer_session
 from draftcheck.api.main import app, create_app
+from draftcheck.api import v1 as v1_api
 from draftcheck.api.v1 import create_v1_router
 from draftcheck.domain.sources import InMemorySourceLibrary, LicenceStatus
 from draftcheck.domain.identity import ActiveSession, IdentityRole, InMemoryIdentityStore
@@ -22,13 +25,80 @@ def test_v3_health_and_ready_are_mounted_only_under_api_v1() -> None:
     assert ready.status_code == 200
     assert health.headers["x-request-id"]
     assert health.json() == {"status": "ok", "service": "draftcheck-api", "version": "0.1.0"}
-    assert ready.json() == {
-        "status": "ok",
-        "service": "draftcheck-api",
-        "checks": {"app": "ok", "config": "ok"},
-    }
+    ready_body = ready.json()
+    assert ready_body["status"] == "ok"
+    assert ready_body["service"] == "draftcheck-api"
+    assert ready_body["checks"]["app"]["status"] == "ok"
+    assert ready_body["checks"]["config"]["status"] == "ok"
+    assert ready_body["checks"]["database"]["status"] == "warning"
+    assert ready_body["checks"]["queue"]["status"] == "warning"
+    assert ready_body["checks"]["storage"]["status"] in {"ok", "warning"}
+    assert ready_body["checks"]["source_store"]["status"] == "warning"
     assert client.get("/v1/health").status_code == 404
     assert client.get("/api/health").status_code == 404
+
+
+def test_v3_ready_reports_durable_runtime_when_database_and_queue_are_configured(
+    monkeypatch,
+) -> None:
+    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://fixture:fixture@localhost/fixture")
+    monkeypatch.setenv("PROCRASTINATE_DB_URI", "postgresql://fixture:fixture@localhost/fixture")
+    monkeypatch.setenv("OBJECT_STORAGE_ROOT", str(Path.cwd()))
+
+    class _FakeConnection:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb) -> None:
+            return None
+
+        def execute(self, statement) -> None:
+            assert statement is not None
+
+    class _FakeEngine:
+        dialect = type("Dialect", (), {"name": "postgresql"})()
+
+        def connect(self) -> _FakeConnection:
+            return _FakeConnection()
+
+        def dispose(self) -> None:
+            return None
+
+    monkeypatch.setattr(v1_api, "create_runtime_engine", lambda _url: _FakeEngine())
+    test_app = FastAPI()
+    test_app.include_router(create_v1_router(), prefix="/api/v1")
+
+    ready = TestClient(test_app).get("/api/v1/ready")
+
+    assert ready.status_code == 200
+    ready_body = ready.json()
+    assert ready_body["status"] == "ok"
+    assert ready_body["checks"]["database"] == {
+        "status": "ok",
+        "detail": "postgresql connection ok",
+    }
+    assert ready_body["checks"]["queue"]["status"] == "ok"
+    assert ready_body["checks"]["storage"]["status"] == "ok"
+    assert ready_body["checks"]["source_store"]["status"] == "ok"
+
+
+def test_v3_ready_degrades_when_database_probe_fails(monkeypatch) -> None:
+    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://fixture:fixture@localhost/fixture")
+    monkeypatch.delenv("PROCRASTINATE_DB_URI", raising=False)
+    monkeypatch.setattr(
+        v1_api,
+        "create_runtime_engine",
+        lambda _url: (_ for _ in ()).throw(RuntimeError("db offline")),
+    )
+
+    client = TestClient(create_app())
+    ready = client.get("/api/v1/ready")
+
+    assert ready.status_code == 200
+    ready_body = ready.json()
+    assert ready_body["status"] == "degraded"
+    assert ready_body["checks"]["database"]["status"] == "error"
+    assert "db offline" in ready_body["checks"]["database"]["detail"]
 
 
 def test_v3_contract_stub_uses_problem_json() -> None:
