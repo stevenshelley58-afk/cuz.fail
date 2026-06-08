@@ -18,7 +18,6 @@ from draftcheck.domain.identity.store import (
     SessionIssue,
     UserIdentity,
 )
-from draftcheck.domain.identity.sqlalchemy_store import SqlAlchemyIdentityStore
 from draftcheck.domain.identity.tokens import (
     IssuedToken,
     generate_raw_token,
@@ -47,7 +46,6 @@ __all__ = [
     "MagicLinkTokenNotFoundError",
     "OrgIdentity",
     "SessionIssue",
-    "SqlAlchemyIdentityStore",
     "UserIdentity",
     "can_review",
     "generate_raw_token",

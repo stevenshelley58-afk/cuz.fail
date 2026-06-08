@@ -16,9 +16,9 @@ from draftcheck.domain.identity import (
     IdentityRole,
     InMemoryIdentityStore,
     InvalidIdentityInputError,
-    SqlAlchemyIdentityStore,
     normalize_role,
 )
+from draftcheck.domain.identity.sqlalchemy_store import SqlAlchemyIdentityStore
 from draftcheck.domain.identity.store import DEFAULT_ORG_NAME
 
 

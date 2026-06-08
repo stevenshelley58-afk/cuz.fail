@@ -21,9 +21,9 @@ from draftcheck.domain.identity import (
     MagicLinkTokenExpiredError,
     MagicLinkTokenNotFoundError,
     SESSION_TTL,
-    SqlAlchemyIdentityStore,
     require_reviewer,
 )
+from draftcheck.domain.identity.sqlalchemy_store import SqlAlchemyIdentityStore
 
 
 router = APIRouter(tags=["auth"])
