@@ -5,11 +5,15 @@ from __future__ import annotations
 import argparse
 from dataclasses import dataclass
 from datetime import datetime
+import json
 from functools import partial
 import os
+from pathlib import Path
 import sys
 from typing import Any, Sequence, TextIO, cast
 from urllib.parse import urlencode, urlparse
+
+import yaml
 
 from draftcheck.config import Settings
 from draftcheck.domain.identity import (
@@ -20,6 +24,7 @@ from draftcheck.domain.identity import (
 )
 from draftcheck.domain.identity.sqlalchemy_store import SqlAlchemyIdentityStore
 from draftcheck.domain.identity.store import DEFAULT_ORG_NAME
+from draftcheck.domain.sources.sqlalchemy_store import SqlAlchemySourceLibrary
 
 
 @dataclass(frozen=True)
@@ -133,6 +138,36 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         default=None,
         help="Frontend base URL. Defaults to FRONTEND_URL or local settings.",
     )
+    seed_sources = subparsers.add_parser(
+        "seed-source-manifest",
+        help="Record source manifest anchors into the durable V3 source tables.",
+    )
+    seed_sources.add_argument(
+        "manifest_path",
+        nargs="?",
+        default="data/seed/source_manifest.example.yaml",
+        help="YAML source manifest to seed.",
+    )
+    seed_sources.add_argument(
+        "--local-government",
+        default=None,
+        help="Optional local government filter, for example Cockburn.",
+    )
+    seed_sources.add_argument(
+        "--operator-email",
+        default=None,
+        help="Provision/reuse this reviewer to record source fetch log rows.",
+    )
+    seed_sources.add_argument(
+        "--org-slug",
+        default=None,
+        help="Organisation slug for fetch log ownership.",
+    )
+    seed_sources.add_argument(
+        "--org-name",
+        default=DEFAULT_ORG_NAME,
+        help="Organisation display name when provisioning a new org.",
+    )
     return parser
 
 
@@ -162,6 +197,59 @@ def _run_login_link(
     return 0
 
 
+def _run_seed_source_manifest(
+    args: argparse.Namespace,
+    *,
+    stdout: TextIO,
+    stderr: TextIO,
+) -> int:
+    database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        stderr.write("error: DATABASE_URL is required for durable source seeding\n")
+        return 2
+    manifest_path = Path(args.manifest_path)
+    if not manifest_path.is_file():
+        stderr.write(f"error: manifest not found: {manifest_path}\n")
+        return 2
+    try:
+        manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as exc:
+        stderr.write(f"error: invalid source manifest YAML: {exc}\n")
+        return 2
+    if not isinstance(manifest, dict):
+        stderr.write("error: source manifest must be a YAML object\n")
+        return 2
+
+    org_id = None
+    user_id = None
+    if args.operator_email:
+        identity_store = SqlAlchemyIdentityStore.from_database_url(database_url)
+        org = identity_store.get_or_create_org(slug=args.org_slug, name=args.org_name)
+        user = identity_store.get_or_create_user(
+            org=org,
+            email=args.operator_email,
+            role=IdentityRole.REVIEWER,
+        )
+        org_id = org.id
+        user_id = user.id
+
+    source_library = SqlAlchemySourceLibrary.from_database_url(database_url)
+    try:
+        result = source_library.seed_manifest(
+            manifest,
+            local_government=args.local_government,
+            org_id=org_id,
+            requested_by_user_id=user_id,
+        )
+    except ValueError as exc:
+        stderr.write(f"error: {exc}\n")
+        return 2
+
+    stdout.write(json.dumps(result, sort_keys=True))
+    stdout.write("\n")
+    return 0
+
+
 def main(
     argv: Sequence[str] | None = None,
     *,
@@ -180,6 +268,8 @@ def main(
 
     if args.command == "login-link":
         return _run_login_link(args, stdout=out, stderr=err, store=store, settings=settings)
+    if args.command == "seed-source-manifest":
+        return _run_seed_source_manifest(args, stdout=out, stderr=err)
 
     err.write("error: unsupported command\n")
     return 2

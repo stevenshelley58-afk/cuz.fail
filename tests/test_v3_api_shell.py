@@ -63,6 +63,7 @@ def test_v3_openapi_contains_required_surface_without_legacy_aliases() -> None:
         "/api/v1/projects/{project_id}/resolve-address",
         "/api/v1/documents/projects/{project_id}/upload",
         "/api/v1/sources/import",
+        "/api/v1/sources/ingestion-status",
         "/api/v1/rules/candidates/{candidate_id}/promote",
         "/api/v1/search/ask",
         "/api/v1/compliance/projects/{project_id}/run",
@@ -109,12 +110,47 @@ def test_cockburn_ops_dashboard_reports_canary_and_hermes_state() -> None:
     assert body["canary"]["property_resolution"] == (
         "address_known_parcel_pending_authoritative_import"
     )
+    assert body["canary"]["beta_status"] == "not_beta_accurate_yet"
+    assert set(body["canary"]["blocked_outputs"]) >= {
+        "final_compliance_claims",
+        "uncited_regulatory_answers",
+        "unpromoted_measurement_verdicts",
+    }
+    assert body["source_library"]["status"] == "ingestion_in_progress"
     assert body["source_library"]["answer_policy"] == "cite_or_refuse"
-    assert "City of Cockburn source anchors" in body["source_library"]["active_scope"]
+    assert set(body["source_library"]["active_scope"]) >= {
+        "City of Cockburn source anchors",
+        "WA planning source anchors",
+        "NCC public/licensed source anchors",
+        "Standards Australia metadata only",
+    }
+    assert "Cockburn document fetch and human source approval" in body["source_library"]["pending"]
     assert body["hermes"]["trace_required"] is True
     assert body["hermes"]["skill_version_required"] is True
     assert body["hermes"]["spend_capped"] is True
     assert "compliance verdicts" in body["hermes"]["forbidden_outputs"]
+
+
+def test_source_ingestion_status_reports_cite_or_refuse_until_reviewed() -> None:
+    client = TestClient(app)
+
+    response = client.get("/api/v1/sources/ingestion-status?local_government=Cockburn")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["answer_policy"] == "cite_or_refuse"
+    assert body["beta_status"] == "not_beta_accurate_yet"
+    assert "uncited_regulatory_answers" in body["blocked_outputs"]
+    assert {
+        "sources",
+        "versions",
+        "pending_review_versions",
+        "approved_citable_versions",
+        "metadata_only_versions",
+        "chunks",
+        "citations",
+        "pending_fetches",
+    } <= set(body["counts"])
 
 
 def test_create_app_instances_do_not_share_default_source_library_state() -> None:

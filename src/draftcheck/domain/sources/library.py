@@ -380,7 +380,14 @@ class InMemorySourceLibrary:
             )
             return updated
 
-    def refresh_source(self, source_id: str) -> SourceRefreshResult:
+    def refresh_source(
+        self,
+        source_id: str,
+        *,
+        org_id: str | None = None,
+        reviewer_id: str | None = None,
+    ) -> SourceRefreshResult:
+        del org_id, reviewer_id
         with self._lock:
             self.get_source(source_id)
             requested_at = utc_now()

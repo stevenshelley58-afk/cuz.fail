@@ -7,6 +7,7 @@ not edit `draftcheck.api.v1`.
 from __future__ import annotations
 
 from dataclasses import replace
+import os
 from typing import Annotated, Any
 from uuid import uuid4
 
@@ -16,6 +17,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from draftcheck.ai import InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
 from draftcheck.api.auth import get_current_session, require_allowed_origin, require_reviewer_session
+from draftcheck.db.engine import database_url_from_env
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.sources import (
     AnswerStatus,
@@ -29,6 +31,7 @@ from draftcheck.domain.sources import (
     SourceReviewStatus,
     SourceSearchHit,
 )
+from draftcheck.domain.sources.sqlalchemy_store import SqlAlchemySourceLibrary
 
 
 class SourceImportPayload(BaseModel):
@@ -137,6 +140,61 @@ def _answer_payload(answer: SourceAnswer) -> dict[str, Any]:
     return payload
 
 
+def _default_source_library() -> Any:
+    database_url = database_url_from_env()
+    if database_url and os.getenv("DRAFTCHECK_SOURCE_STORE", "auto") != "memory":
+        return SqlAlchemySourceLibrary.from_database_url(database_url)
+    return InMemorySourceLibrary()
+
+
+def _fallback_ingestion_status(
+    source_library: InMemorySourceLibrary,
+    *,
+    local_government: str | None,
+) -> dict[str, Any]:
+    del local_government
+    sources = source_library.list_sources()
+    versions = [
+        version
+        for source in sources
+        for version in source_library.list_versions(source.id)
+    ]
+    return {
+        "status": "ingestion_in_progress" if versions else "not_started",
+        "answer_policy": "cite_or_refuse",
+        "local_government": None,
+        "beta_status": "not_beta_accurate_yet",
+        "counts": {
+            "sources": len(sources),
+            "versions": len(versions),
+            "pending_review_versions": sum(
+                1 for version in versions if version.review_status is SourceReviewStatus.PENDING_REVIEW
+            ),
+            "approved_citable_versions": sum(
+                1 for version in versions if version.can_support_citable_retrieval
+            ),
+            "metadata_only_versions": sum(1 for version in versions if version.metadata_only),
+            "chunks": sum(
+                len(source_library.get_chunks_for_version(version.id)) for version in versions
+            ),
+            "citations": len(source_library.citations),
+            "pending_fetches": 0,
+        },
+        "items": [],
+        "blocked_outputs": [
+            "final_compliance_claims",
+            "uncited_regulatory_answers",
+            "unpromoted_measurement_verdicts",
+        ],
+        "pending": [
+            "lawful source fetch",
+            "human source approval",
+            "rule extraction review",
+            "deterministic check promotion",
+        ],
+    }
+
+
 def _trace_supported_answer(
     answer: SourceAnswer,
     *,
@@ -195,10 +253,10 @@ def _trace_supported_answer(
 
 
 def create_sources_router(
-    library: InMemorySourceLibrary | None = None,
+    library: Any | None = None,
     model_adapter: ModelAdapter | None = None,
 ) -> APIRouter:
-    source_library = library or InMemorySourceLibrary()
+    source_library = library or _default_source_library()
     search_service = InMemorySourceSearchService(source_library)
     governed_model_adapter = model_adapter or LocalDeterministicModelAdapter(mode="local")
     api_router = APIRouter()
@@ -234,6 +292,13 @@ def create_sources_router(
     def source_freshness() -> dict[str, Any]:
         items = source_library.freshness()
         return {"items": jsonable_encoder(items), "count": len(items)}
+
+    @api_router.get("/sources/ingestion-status", tags=["sources"])
+    def source_ingestion_status(local_government: str | None = None) -> dict[str, Any]:
+        status_provider = getattr(source_library, "ingestion_status", None)
+        if callable(status_provider):
+            return status_provider(local_government=local_government)
+        return _fallback_ingestion_status(source_library, local_government=local_government)
 
     @api_router.get("/sources/{source_id}", tags=["sources"])
     def get_source(source_id: str) -> dict[str, Any]:
@@ -275,10 +340,14 @@ def create_sources_router(
     def refresh_source(
         source_id: str,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
     ) -> dict[str, Any]:
         try:
-            result = source_library.refresh_source(source_id)
+            result = source_library.refresh_source(
+                source_id,
+                org_id=str(active_session.org.id),
+                reviewer_id=str(active_session.user.id),
+            )
         except SourceNotFoundError as exc:
             raise _source_not_found(exc) from exc
         return jsonable_encoder(result)
