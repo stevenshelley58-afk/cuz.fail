@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 
+import importlib
 import os
 from collections.abc import Callable
 from typing import Any, Protocol, TypeVar, cast
 
+procrastinate: Any
 try:
-    import procrastinate as _procrastinate
+    procrastinate = importlib.import_module("procrastinate")
 except ModuleNotFoundError:  # pragma: no cover - exercised when optional runtime dep is absent.
-    _procrastinate = None
-
-procrastinate: Any = _procrastinate
+    procrastinate = None
 
 
 TaskFunc = TypeVar("TaskFunc", bound=Callable[..., object])
