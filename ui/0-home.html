@@ -80,6 +80,23 @@
   .scope .ms{font-size:15px;color:var(--green);margin-top:1px}
   .crosslinks{text-align:center;padding:16px;font-size:.74rem;color:var(--ink-faint)}
   .crosslinks a{color:var(--green);text-decoration:none;font-weight:600}
+
+  /* Desktop: use the screen instead of a stranded phone column.
+     Mobile (below 880px) is unchanged — everything here is additive. */
+  @media (min-width:880px){
+    .app{max-width:1140px;box-shadow:0 0 90px rgba(10,53,38,.05)}
+    header{height:66px;padding:0 32px}
+    .logo{font-size:1.32rem}
+    main{display:grid;grid-template-columns:1.05fr .95fr;column-gap:44px;align-items:start;padding:48px 32px 8px}
+    h1.title{font-size:2.7rem;margin:16px 0 8px}
+    .sub{font-size:1.07rem;max-width:50ch}
+    .lookup{margin-top:24px;padding:10px 10px 10px 18px}
+    .lookup input{font-size:1.06rem}
+    .col-side{position:sticky;top:90px}
+    .col-side .gchat{margin-top:0}
+    .thread{max-height:360px}
+    .crosslinks{text-align:left;padding:24px 32px 32px}
+  }
 </style>
 </head>
 <body>
@@ -90,6 +107,7 @@
   </header>
 
   <main>
+    <div class="col-main">
     <span class="eyebrow">Home</span>
     <h1 class="title">Look up a property,<br>or ask me anything.</h1>
     <p class="sub">Each address becomes its own workspace — its docs, links, drawings and a chat that only answers from that property's sources.</p>
@@ -117,7 +135,9 @@
       <div><div class="a">15 Field Street, Mount Lawley</div><div class="m"><span class="dot wait"></span> no checks run yet · R40</div></div>
       <span class="ms go">chevron_right</span>
     </a>
+    </div><!-- /col-main -->
 
+    <div class="col-side">
     <div class="gchat" style="margin-top:26px">
       <div class="ghead"><span class="ms">smart_toy</span><div class="t">Ask me anything</div></div>
       <div class="thread" id="thread">
@@ -134,6 +154,7 @@
       </form>
     </div>
     <div class="scope"><span class="ms">lock</span><span>Won't guess about a specific property — those answers live inside the property, cited to a clause.</span></div>
+    </div><!-- /col-side -->
   </main>
 
   <div class="crosslinks">Home · <a href="1-onboarding.html">Onboarding →</a> · <a href="2-dashboard.html">Dashboard →</a> · <a href="3-evidence.html">Evidence →</a></div>
