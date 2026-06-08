@@ -4,12 +4,14 @@ from __future__ import annotations
 
 import os
 from collections.abc import Callable
-from typing import Protocol, TypeVar
+from typing import Any, Protocol, TypeVar, cast
 
 try:
-    import procrastinate
+    import procrastinate as _procrastinate
 except ModuleNotFoundError:  # pragma: no cover - exercised when optional runtime dep is absent.
-    procrastinate = None
+    _procrastinate = None
+
+procrastinate: Any = _procrastinate
 
 
 TaskFunc = TypeVar("TaskFunc", bound=Callable[..., object])
@@ -43,11 +45,14 @@ class _TaskRegistrar(Protocol):
 def _create_procrastinate_app() -> _TaskRegistrar:
     if procrastinate is None:
         return _FallbackProcrastinateApp()
-    return procrastinate.App(
-        connector=procrastinate.PsycopgConnector(
-            conninfo=_conninfo(),
+    return cast(
+        _TaskRegistrar,
+        procrastinate.App(
+            connector=procrastinate.PsycopgConnector(
+                conninfo=_conninfo(),
+            ),
+            worker_defaults={"listen_notify": False},
         ),
-        worker_defaults={"listen_notify": False},
     )
 
 
