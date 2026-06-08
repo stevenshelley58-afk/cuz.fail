@@ -11,7 +11,7 @@ import os
 from typing import Annotated, Any
 from uuid import uuid4
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
@@ -195,6 +195,113 @@ def _fallback_ingestion_status(
     }
 
 
+def _fallback_review_worklist(
+    source_library: InMemorySourceLibrary,
+    *,
+    local_government: str | None,
+    source_type: str | None,
+    include_metadata_only: bool,
+    limit: int,
+) -> dict[str, Any]:
+    items: list[dict[str, Any]] = []
+    counts = {
+        "review_items": 0,
+        "fetched_review_items": 0,
+        "pending_fetch_items": 0,
+        "approved_citable_versions": 0,
+        "rejected_versions": 0,
+        "chunks": 0,
+        "citations": 0,
+    }
+    for source in source_library.list_sources():
+        for version in source_library.list_versions(source.id):
+            if version.can_support_citable_retrieval:
+                counts["approved_citable_versions"] += 1
+                continue
+            if version.review_status is SourceReviewStatus.REJECTED:
+                counts["rejected_versions"] += 1
+            if version.metadata_only and not include_metadata_only:
+                continue
+            chunks = source_library.get_chunks_for_version(version.id)
+            citation_count = len(
+                [citation for citation in source_library.citations.values() if citation.source_version_id == version.id]
+            )
+            items.append(
+                {
+                    "source_id": source.id,
+                    "source_version_id": version.id,
+                    "title": source.title,
+                    "authority": source.publisher,
+                    "local_government": None,
+                    "source_type": "source_document",
+                    "canonical_url": source.uri,
+                    "licence_status": version.licence_status.value,
+                    "review_status": version.review_status.value,
+                    "metadata_only": version.metadata_only,
+                    "chunk_count": len(chunks),
+                    "citation_count": citation_count,
+                    "latest_fetch": None,
+                    "priority": "normal" if chunks else "medium",
+                    "issue_codes": _fallback_review_issue_codes(
+                        version,
+                        chunk_count=len(chunks),
+                        citation_count=citation_count,
+                    ),
+                    "recommended_action": (
+                        "lawful_fetch"
+                        if version.metadata_only
+                        else "human_source_review"
+                        if chunks and citation_count
+                        else "repair_parse_or_citations"
+                    ),
+                    "can_support_search": False,
+                }
+            )
+            counts["review_items"] += 1
+            counts["chunks"] += len(chunks)
+            counts["citations"] += citation_count
+            if version.metadata_only:
+                counts["pending_fetch_items"] += 1
+            else:
+                counts["fetched_review_items"] += 1
+    return {
+        "status": "review_required" if counts["review_items"] else "clear",
+        "answer_policy": "cite_or_refuse",
+        "local_government": local_government,
+        "source_type": source_type,
+        "counts": counts,
+        "items": items[: max(limit, 0)],
+        "count": min(len(items), max(limit, 0)),
+        "total": len(items),
+        "blocked_until": [
+            "human source review",
+            "licence verification",
+            "rule extraction review",
+            "deterministic rule promotion",
+        ],
+    }
+
+
+def _fallback_review_issue_codes(
+    version: Any,
+    *,
+    chunk_count: int,
+    citation_count: int,
+) -> list[str]:
+    issues: list[str] = []
+    if version.metadata_only:
+        issues.append("metadata_only_pending_fetch")
+    if version.review_status is SourceReviewStatus.PENDING_REVIEW:
+        issues.append("source_version_pending_review")
+    if version.licence_status is LicenceStatus.PENDING_REVIEW:
+        issues.append("licence_pending_review")
+    if not version.metadata_only and chunk_count == 0:
+        issues.append("no_chunks")
+    if not version.metadata_only and citation_count == 0:
+        issues.append("no_citations")
+    return issues
+
+
 def _trace_supported_answer(
     answer: SourceAnswer,
     *,
@@ -299,6 +406,31 @@ def create_sources_router(
         if callable(status_provider):
             return status_provider(local_government=local_government)
         return _fallback_ingestion_status(source_library, local_government=local_government)
+
+    @api_router.get("/sources/review-worklist", tags=["sources"])
+    def source_review_worklist(
+        _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+        _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        local_government: str | None = None,
+        source_type: str | None = None,
+        include_metadata_only: bool = True,
+        limit: int = Query(default=100, ge=1, le=500),
+    ) -> dict[str, Any]:
+        worklist_provider = getattr(source_library, "review_worklist", None)
+        if callable(worklist_provider):
+            return worklist_provider(
+                local_government=local_government,
+                source_type=source_type,
+                include_metadata_only=include_metadata_only,
+                limit=limit,
+            )
+        return _fallback_review_worklist(
+            source_library,
+            local_government=local_government,
+            source_type=source_type,
+            include_metadata_only=include_metadata_only,
+            limit=limit,
+        )
 
     @api_router.get("/sources/{source_id}", tags=["sources"])
     def get_source(source_id: str) -> dict[str, Any]:

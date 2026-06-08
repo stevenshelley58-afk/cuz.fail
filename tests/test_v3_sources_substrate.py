@@ -373,6 +373,47 @@ def test_api_source_import_and_refresh_require_authenticated_reviewer() -> None:
     assert allowed_refresh.json()["freshness_status"] == "refresh_requested"
 
 
+def test_api_source_review_worklist_requires_reviewer_and_reports_pending_sources() -> None:
+    library = InMemorySourceLibrary(embedding_config=_embedding_config())
+    reviewer_client = _client(library, reviewer=True)
+    imported = reviewer_client.post(
+        "/api/v1/sources/import",
+        json={
+            "title": "Review Worklist Fixture",
+            "content": "Planning source content requires human source and licence review.",
+            "licence_status": "pending_review",
+        },
+    ).json()
+    metadata_only = library.import_source(
+        title="Metadata Only Fixture",
+        uri="https://example.test/metadata-only",
+        licence_status=LicenceStatus.PENDING_REVIEW,
+        review_status=SourceReviewStatus.PENDING_REVIEW,
+        metadata_only=True,
+    )
+
+    blocked = _client(library).get("/api/v1/sources/review-worklist")
+    response = reviewer_client.get("/api/v1/sources/review-worklist")
+
+    assert blocked.status_code == 401
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "review_required"
+    assert body["answer_policy"] == "cite_or_refuse"
+    assert body["counts"]["review_items"] == 2
+    assert body["counts"]["fetched_review_items"] == 1
+    assert body["counts"]["pending_fetch_items"] == 1
+    by_version = {item["source_version_id"]: item for item in body["items"]}
+    fetched_item = by_version[imported["version"]["id"]]
+    metadata_item = by_version[metadata_only.version.id]
+    assert fetched_item["recommended_action"] == "human_source_review"
+    assert "source_version_pending_review" in fetched_item["issue_codes"]
+    assert "licence_pending_review" in fetched_item["issue_codes"]
+    assert metadata_item["recommended_action"] == "lawful_fetch"
+    assert "metadata_only_pending_fetch" in metadata_item["issue_codes"]
+    assert not fetched_item["can_support_search"]
+
+
 def test_api_source_mutations_reject_disallowed_origin() -> None:
     library = InMemorySourceLibrary(embedding_config=_embedding_config())
     reviewer_client = _client(library, reviewer=True)

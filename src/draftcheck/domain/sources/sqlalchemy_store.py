@@ -978,6 +978,128 @@ class SqlAlchemySourceLibrary:
                 ],
             }
 
+    def review_worklist(
+        self,
+        *,
+        local_government: str | None = None,
+        source_type: str | None = None,
+        include_metadata_only: bool = True,
+        limit: int = 100,
+    ) -> dict[str, object]:
+        with self._session_factory() as session:
+            statement = select(DbSource).order_by(DbSource.authority, DbSource.title)
+            if local_government:
+                statement = statement.where(DbSource.local_government == local_government)
+            if source_type:
+                statement = statement.where(DbSource.source_type == source_type)
+            items: list[dict[str, object]] = []
+            counts = {
+                "review_items": 0,
+                "fetched_review_items": 0,
+                "pending_fetch_items": 0,
+                "approved_citable_versions": 0,
+                "rejected_versions": 0,
+                "chunks": 0,
+                "citations": 0,
+            }
+            for source in session.scalars(statement).all():
+                version = self._latest_version(session, source)
+                fetch_log = self._latest_fetch_log(session, source)
+                if version is None:
+                    continue
+                domain_version = self._source_version(version)
+                if domain_version.can_support_citable_retrieval:
+                    counts["approved_citable_versions"] += 1
+                    continue
+                if domain_version.review_status is SourceReviewStatus.REJECTED:
+                    counts["rejected_versions"] += 1
+                if domain_version.metadata_only and not include_metadata_only:
+                    continue
+                chunk_count = int(
+                    session.scalar(
+                        select(func.count()).select_from(DbSourceChunk).where(
+                            DbSourceChunk.source_version_id == version.id,
+                        )
+                    )
+                    or 0
+                )
+                citation_count = int(
+                    session.scalar(
+                        select(func.count()).select_from(DbSourceCitation).where(
+                            DbSourceCitation.source_version_id == version.id,
+                        )
+                    )
+                    or 0
+                )
+                issue_codes = _review_issue_codes(
+                    source=source,
+                    version=domain_version,
+                    chunk_count=chunk_count,
+                    citation_count=citation_count,
+                )
+                item: dict[str, object] = {
+                    "source_id": str(source.id),
+                    "source_version_id": str(version.id),
+                    "title": source.title,
+                    "authority": source.authority,
+                    "local_government": source.local_government,
+                    "source_type": source.source_type,
+                    "canonical_url": source.canonical_url,
+                    "licence_status": domain_version.licence_status.value,
+                    "review_status": domain_version.review_status.value,
+                    "metadata_only": domain_version.metadata_only,
+                    "chunk_count": chunk_count,
+                    "citation_count": citation_count,
+                    "latest_fetch": (
+                        {
+                            "status": fetch_log.status,
+                            "fetch_kind": fetch_log.fetch_kind,
+                            "requested_at": fetch_log.requested_at.isoformat(),
+                        }
+                        if fetch_log is not None
+                        else None
+                    ),
+                    "priority": _review_priority(
+                        source_type=source.source_type,
+                        metadata_only=domain_version.metadata_only,
+                        chunk_count=chunk_count,
+                    ),
+                    "issue_codes": issue_codes,
+                    "recommended_action": _review_recommended_action(
+                        metadata_only=domain_version.metadata_only,
+                        review_status=domain_version.review_status,
+                        chunk_count=chunk_count,
+                        citation_count=citation_count,
+                    ),
+                    "can_support_search": False,
+                }
+                items.append(item)
+                counts["review_items"] += 1
+                counts["chunks"] += chunk_count
+                counts["citations"] += citation_count
+                if domain_version.metadata_only:
+                    counts["pending_fetch_items"] += 1
+                else:
+                    counts["fetched_review_items"] += 1
+            items.sort(key=_review_sort_key)
+            limited_items = items[: max(limit, 0)]
+            return {
+                "status": "review_required" if counts["review_items"] else "clear",
+                "answer_policy": "cite_or_refuse",
+                "local_government": local_government,
+                "source_type": source_type,
+                "counts": counts,
+                "items": limited_items,
+                "count": len(limited_items),
+                "total": len(items),
+                "blocked_until": [
+                    "human source review",
+                    "licence verification",
+                    "rule extraction review",
+                    "deterministic rule promotion",
+                ],
+            }
+
     def _get_or_create_source(
         self,
         session: Session,
@@ -1548,6 +1670,95 @@ def _pending_action(
     if review_status is SourceReviewStatus.APPROVED:
         return "ready_for_rule_extraction"
     return "review_follow_up"
+
+
+def _review_issue_codes(
+    *,
+    source: DbSource,
+    version: SourceVersion,
+    chunk_count: int,
+    citation_count: int,
+) -> list[str]:
+    issues: list[str] = []
+    if version.metadata_only:
+        issues.append("metadata_only_pending_fetch")
+    if version.review_status is SourceReviewStatus.PENDING_REVIEW:
+        issues.append("source_version_pending_review")
+    if version.licence_status is LicenceStatus.PENDING_REVIEW:
+        issues.append("licence_pending_review")
+    if not version.metadata_only and chunk_count == 0:
+        issues.append("no_chunks")
+    if not version.metadata_only and citation_count == 0:
+        issues.append("no_citations")
+    if source.source_type == "scheme_map":
+        issues.append("scheme_map_text_only_no_measurement")
+    declared_size_mb = _declared_size_mb(source.title)
+    if declared_size_mb is not None and declared_size_mb >= 25:
+        issues.append("large_document_controlled_fetch_or_review")
+    if version.review_status is SourceReviewStatus.REJECTED:
+        issues.append("source_version_rejected")
+    return issues
+
+
+def _review_recommended_action(
+    *,
+    metadata_only: bool,
+    review_status: SourceReviewStatus,
+    chunk_count: int,
+    citation_count: int,
+) -> str:
+    if metadata_only:
+        return "lawful_fetch"
+    if chunk_count == 0 or citation_count == 0:
+        return "repair_parse_or_citations"
+    if review_status is SourceReviewStatus.PENDING_REVIEW:
+        return "human_source_review"
+    if review_status is SourceReviewStatus.REJECTED:
+        return "replace_or_refresh_source"
+    if review_status is SourceReviewStatus.STALE:
+        return "refresh_source"
+    return "review_follow_up"
+
+
+def _review_priority(*, source_type: str, metadata_only: bool, chunk_count: int) -> str:
+    if not metadata_only and source_type in {"local_planning_scheme", "local_planning_strategy"}:
+        return "critical"
+    if not metadata_only and source_type in {
+        "local_development_plan",
+        "local_planning_policy",
+        "planning_guidance",
+    }:
+        return "high"
+    if source_type == "scheme_map":
+        return "high" if not metadata_only else "medium"
+    if not metadata_only and source_type == "structure_plan":
+        return "medium"
+    if metadata_only and source_type == "structure_plan":
+        return "controlled_fetch"
+    if chunk_count == 0:
+        return "medium"
+    return "normal"
+
+
+def _review_sort_key(item: Mapping[str, object]) -> tuple[int, str, str]:
+    priority_rank = {
+        "critical": 0,
+        "high": 1,
+        "medium": 2,
+        "normal": 3,
+        "controlled_fetch": 4,
+    }
+    priority = str(item.get("priority") or "normal")
+    source_type = str(item.get("source_type") or "")
+    title = str(item.get("title") or "")
+    return (priority_rank.get(priority, 9), source_type, title)
+
+
+def _declared_size_mb(title: str) -> float | None:
+    match = re.search(r"\((?:PDF,\s*)?([0-9]+(?:\.[0-9]+)?)\s*MB\)", title, flags=re.IGNORECASE)
+    if match is None:
+        return None
+    return float(match.group(1))
 
 
 def _utc_now() -> datetime:
