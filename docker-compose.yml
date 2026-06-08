@@ -85,7 +85,7 @@ services:
     env_file:
       - .env.example
     environment:
-      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD:-draftcheck}@db:5432/${POSTGRES_DB:-draftcheck}
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD:?required}@db:5432/${POSTGRES_DB:-draftcheck}
       REQUIRE_DURABLE_DATABASE: "true"
       REQUIRE_DURABLE_OBJECT_STORAGE: "true"
       REDIS_URL: redis://redis:6379/0
@@ -136,7 +136,7 @@ services:
     env_file:
       - .env.example
     environment:
-      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD:-draftcheck}@db:5432/${POSTGRES_DB:-draftcheck}
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD:?required}@db:5432/${POSTGRES_DB:-draftcheck}
       REQUIRE_DURABLE_DATABASE: "true"
       REQUIRE_DURABLE_OBJECT_STORAGE: "true"
       REDIS_URL: redis://redis:6379/0

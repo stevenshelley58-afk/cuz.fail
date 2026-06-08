@@ -8,7 +8,7 @@ services:
     image: ${DRAFTCHECK_V3_DB_IMAGE:-draftcheck-wa-v3-db:local}
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-draftcheck}
-      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD for V3}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?required}"
       POSTGRES_DB: ${POSTGRES_DB:-draftcheck}
     volumes:
       - postgres_data:/var/lib/postgresql/data
