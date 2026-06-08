@@ -1133,9 +1133,12 @@ class SqlAlchemySourceLibrary:
                     not domain_version.metadata_only
                     and source.source_type != "scheme_map"
                     and (
-                        chunk_count <= 1
-                        or citation_count <= 1
-                        or metadata_low_signal
+                        metadata_low_signal
+                        or _count_signal_requires_review(
+                            chunk_count=chunk_count,
+                            citation_count=citation_count,
+                            parse_quality=parse_quality,
+                        )
                     )
                 )
                 artifact_rows = session.scalars(
@@ -1288,9 +1291,12 @@ class SqlAlchemySourceLibrary:
             not domain_version.metadata_only
             and source.source_type != "scheme_map"
             and (
-                chunk_count <= 1
-                or citation_count <= 1
-                or _parse_quality_requires_review(parse_quality)
+                _parse_quality_requires_review(parse_quality)
+                or _count_signal_requires_review(
+                    chunk_count=chunk_count,
+                    citation_count=citation_count,
+                    parse_quality=parse_quality,
+                )
             )
         )
         return _quality_readiness(
@@ -1676,9 +1682,12 @@ class SqlAlchemySourceLibrary:
                     not domain_version.metadata_only
                     and source.source_type != "scheme_map"
                     and (
-                        chunk_count <= 1
-                        or citation_count <= 1
-                        or metadata_low_signal
+                        metadata_low_signal
+                        or _count_signal_requires_review(
+                            chunk_count=chunk_count,
+                            citation_count=citation_count,
+                            parse_quality=parse_quality,
+                        )
                     )
                 )
                 repair_profile = _parse_repair_profile(
@@ -1846,9 +1855,12 @@ class SqlAlchemySourceLibrary:
                 not domain_version.metadata_only
                 and source.source_type != "scheme_map"
                 and (
-                    chunk_count <= 1
-                    or citation_count <= 1
-                    or metadata_low_signal
+                    metadata_low_signal
+                    or _count_signal_requires_review(
+                        chunk_count=chunk_count,
+                        citation_count=citation_count,
+                        parse_quality=parse_quality,
+                    )
                 )
             )
             issue_codes = _review_issue_codes(
@@ -2630,6 +2642,25 @@ def _parse_quality_requires_review(parse_quality: Mapping[str, object] | None) -
         "no_parseable_text",
         "partial_ocr_review",
     }
+
+
+def _count_signal_requires_review(
+    *,
+    chunk_count: int,
+    citation_count: int,
+    parse_quality: Mapping[str, object] | None,
+) -> bool:
+    if chunk_count == 0 or citation_count == 0:
+        return True
+    if chunk_count > 1 and citation_count > 1:
+        return False
+    if parse_quality is None:
+        return True
+    if str(parse_quality.get("status") or "") != "text_layer_extracted":
+        return True
+    text_char_count = _parse_quality_text_char_count(parse_quality) or 0
+    text_coverage_ratio = _optional_float(parse_quality.get("text_coverage_ratio")) or 0.0
+    return text_char_count < 1000 or text_coverage_ratio < 0.5
 
 
 _RAW_SOURCE_ARTIFACT_KINDS = {

@@ -5,6 +5,7 @@ from types import SimpleNamespace
 
 from draftcheck.domain.sources.models import LicenceStatus, SourceReviewStatus, SourceVersion
 from draftcheck.domain.sources.sqlalchemy_store import (
+    _count_signal_requires_review,
     _parse_repair_profile,
     _source_quality_gates,
 )
@@ -84,6 +85,44 @@ def test_source_quality_gates_surface_parse_repair_input_readiness() -> None:
         "blocking_count": 1,
         "ready_count": 1,
     }
+
+
+def test_count_signal_allows_complete_short_ocr_document_for_human_review() -> None:
+    assert (
+        _count_signal_requires_review(
+            chunk_count=1,
+            citation_count=1,
+            parse_quality={
+                "status": "text_layer_extracted",
+                "text_char_count": 1136,
+                "text_coverage_ratio": 1.0,
+            },
+        )
+        is False
+    )
+
+
+def test_count_signal_keeps_short_or_unmeasured_single_chunk_in_parse_review() -> None:
+    assert (
+        _count_signal_requires_review(
+            chunk_count=1,
+            citation_count=1,
+            parse_quality={
+                "status": "text_layer_extracted",
+                "text_char_count": 500,
+                "text_coverage_ratio": 1.0,
+            },
+        )
+        is True
+    )
+    assert (
+        _count_signal_requires_review(
+            chunk_count=1,
+            citation_count=1,
+            parse_quality=None,
+        )
+        is True
+    )
 
 
 def _source(*, source_type: str) -> SimpleNamespace:
