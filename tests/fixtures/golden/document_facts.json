@@ -1,0 +1,308 @@
+{
+  "documents": [
+    {
+      "id": "doc_m1_canary_site_plan_rev_a",
+      "project_id": "proj_m1_canary",
+      "filename": "m1_canary_site_plan_rev_a.dxf",
+      "revision": "A",
+      "supersedes_document_id": null,
+      "media_type": "application/dxf",
+      "sha256": "e2e91d7d0f82cefc31b37aaaea784e235af055e5326561e0916de133d89c8aca",
+      "source": "synthetic_fixture",
+      "uploaded_by_user_id": "user_m1_owner",
+      "uploaded_at": "2026-06-07T10:00:00+08:00",
+      "artifact": {
+        "id": "artifact_m1_canary_site_plan_rev_a",
+        "kind": "raw_dxf",
+        "storage_path": "fixtures/golden/38/134e38ab8a57a9f2d8f695a9ca7e429e190f01535d903866fc8ca4db119bd5",
+        "sha256": "38134e38ab8a57a9f2d8f695a9ca7e429e190f01535d903866fc8ca4db119bd5",
+        "parser_name": "fixture_dxf_parser",
+        "parser_version": "1.0"
+      }
+    }
+  ],
+  "document_facts": [
+    {
+      "id": "df_lot_boundary",
+      "document_id": "doc_m1_canary_site_plan_rev_a",
+      "fact_type": "lot_boundary",
+      "value_json": {
+        "area_m2": 450.0,
+        "frontage_m": 15.0
+      },
+      "confidence": 0.98,
+      "extraction": {
+        "parser_name": "fixture_dxf_parser",
+        "parser_version": "1.0",
+        "layer": "A-LOT-BOUNDARY"
+      },
+      "review_status": "human_confirmed",
+      "confirmed_by_user_id": "user_m1_reviewer",
+      "confirmed_at": "2026-06-07T10:15:00+08:00",
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "artifact_id": "artifact_m1_canary_site_plan_rev_a",
+        "method": "dxf_closed_polyline_area"
+      }
+    },
+    {
+      "id": "df_building_footprint",
+      "document_id": "doc_m1_canary_site_plan_rev_a",
+      "fact_type": "building_footprint",
+      "value_json": {
+        "area_m2": 218.0
+      },
+      "confidence": 0.97,
+      "extraction": {
+        "parser_name": "fixture_dxf_parser",
+        "parser_version": "1.0",
+        "layer": "A-BUILDING-FOOTPRINT"
+      },
+      "review_status": "human_confirmed",
+      "confirmed_by_user_id": "user_m1_reviewer",
+      "confirmed_at": "2026-06-07T10:16:00+08:00",
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "artifact_id": "artifact_m1_canary_site_plan_rev_a",
+        "method": "dxf_closed_polyline_area"
+      }
+    },
+    {
+      "id": "df_open_space_area",
+      "document_id": "doc_m1_canary_site_plan_rev_a",
+      "fact_type": "open_space_area",
+      "value_json": {
+        "area_m2": 180.0
+      },
+      "confidence": 0.88,
+      "extraction": {
+        "parser_name": "fixture_dxf_parser",
+        "parser_version": "1.0",
+        "layer": "A-OPEN-SPACE"
+      },
+      "review_status": "human_confirmed",
+      "confirmed_by_user_id": "user_m1_reviewer",
+      "confirmed_at": "2026-06-07T10:17:00+08:00",
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "artifact_id": "artifact_m1_canary_site_plan_rev_a",
+        "method": "dxf_closed_polyline_area",
+        "limitation": "Open-space exclusions remain reviewer-sensitive in the expected result."
+      }
+    },
+    {
+      "id": "df_primary_setback",
+      "document_id": "doc_m1_canary_site_plan_rev_a",
+      "fact_type": "primary_street_setback",
+      "value_json": {
+        "distance_m": 4.5
+      },
+      "confidence": 0.95,
+      "extraction": {
+        "parser_name": "fixture_dxf_parser",
+        "parser_version": "1.0",
+        "layer": "A-DIMENSIONS",
+        "dimension_label": "front setback"
+      },
+      "review_status": "human_confirmed",
+      "confirmed_by_user_id": "user_m1_reviewer",
+      "confirmed_at": "2026-06-07T10:18:00+08:00",
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "artifact_id": "artifact_m1_canary_site_plan_rev_a",
+        "method": "dxf_dimension_entity"
+      }
+    },
+    {
+      "id": "df_garage_width",
+      "document_id": "doc_m1_canary_site_plan_rev_a",
+      "fact_type": "garage_width",
+      "value_json": {
+        "width_m": 5.4
+      },
+      "confidence": 0.94,
+      "extraction": {
+        "parser_name": "fixture_dxf_parser",
+        "parser_version": "1.0",
+        "layer": "A-DIMENSIONS",
+        "dimension_label": "garage width"
+      },
+      "review_status": "human_confirmed",
+      "confirmed_by_user_id": "user_m1_reviewer",
+      "confirmed_at": "2026-06-07T10:19:00+08:00",
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "artifact_id": "artifact_m1_canary_site_plan_rev_a",
+        "method": "dxf_dimension_entity"
+      }
+    },
+    {
+      "id": "df_boundary_wall_length",
+      "document_id": "doc_m1_canary_site_plan_rev_a",
+      "fact_type": "boundary_wall_length",
+      "value_json": {
+        "length_m": 0.0
+      },
+      "confidence": 0.9,
+      "extraction": {
+        "parser_name": "fixture_dxf_parser",
+        "parser_version": "1.0",
+        "layer": "A-WALLS"
+      },
+      "review_status": "human_confirmed",
+      "confirmed_by_user_id": "user_m1_reviewer",
+      "confirmed_at": "2026-06-07T10:20:00+08:00",
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "artifact_id": "artifact_m1_canary_site_plan_rev_a",
+        "method": "dxf_layer_query"
+      }
+    }
+  ],
+  "promoted_measurements": [
+    {
+      "id": "pm_lot_area",
+      "measurement_type": "lot_area",
+      "value": 450.0,
+      "unit": "m2",
+      "source_fact_ids": [
+        "df_lot_boundary"
+      ],
+      "citation_id": "cit_artificial_measurement_protocol_dxf",
+      "promotion_status": "human_confirmed",
+      "human_confirmation": {
+        "confirmed": true,
+        "confirmed_by_user_id": "user_m1_reviewer",
+        "confirmed_at": "2026-06-07T10:25:00+08:00"
+      },
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "method": "dxf_closed_polyline_area",
+        "calibration": {
+          "required": false,
+          "reason": "DXF fixture units are recorded as metres in artifact metadata."
+        }
+      }
+    },
+    {
+      "id": "pm_site_cover_area",
+      "measurement_type": "site_cover_area",
+      "value": 218.0,
+      "unit": "m2",
+      "source_fact_ids": [
+        "df_building_footprint"
+      ],
+      "citation_id": "cit_artificial_measurement_protocol_dxf",
+      "promotion_status": "human_confirmed",
+      "human_confirmation": {
+        "confirmed": true,
+        "confirmed_by_user_id": "user_m1_reviewer",
+        "confirmed_at": "2026-06-07T10:26:00+08:00"
+      },
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "method": "dxf_closed_polyline_area",
+        "calibration": {
+          "required": false,
+          "reason": "DXF fixture units are recorded as metres in artifact metadata."
+        }
+      }
+    },
+    {
+      "id": "pm_open_space_area",
+      "measurement_type": "open_space_area",
+      "value": 180.0,
+      "unit": "m2",
+      "source_fact_ids": [
+        "df_open_space_area"
+      ],
+      "citation_id": "cit_artificial_measurement_protocol_dxf",
+      "promotion_status": "human_confirmed",
+      "human_confirmation": {
+        "confirmed": true,
+        "confirmed_by_user_id": "user_m1_reviewer",
+        "confirmed_at": "2026-06-07T10:27:00+08:00"
+      },
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "method": "dxf_closed_polyline_area",
+        "calibration": {
+          "required": false,
+          "reason": "DXF fixture units are recorded as metres in artifact metadata."
+        }
+      }
+    },
+    {
+      "id": "pm_primary_street_setback",
+      "measurement_type": "primary_street_setback",
+      "value": 4.5,
+      "unit": "m",
+      "source_fact_ids": [
+        "df_primary_setback"
+      ],
+      "citation_id": "cit_artificial_measurement_protocol_dxf",
+      "promotion_status": "human_confirmed",
+      "human_confirmation": {
+        "confirmed": true,
+        "confirmed_by_user_id": "user_m1_reviewer",
+        "confirmed_at": "2026-06-07T10:28:00+08:00"
+      },
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "method": "dxf_dimension_entity",
+        "calibration": {
+          "required": false,
+          "reason": "DXF fixture units are recorded as metres in artifact metadata."
+        }
+      }
+    },
+    {
+      "id": "pm_garage_width",
+      "measurement_type": "garage_width",
+      "value": 5.4,
+      "unit": "m",
+      "source_fact_ids": [
+        "df_garage_width"
+      ],
+      "citation_id": "cit_artificial_measurement_protocol_dxf",
+      "promotion_status": "human_confirmed",
+      "human_confirmation": {
+        "confirmed": true,
+        "confirmed_by_user_id": "user_m1_reviewer",
+        "confirmed_at": "2026-06-07T10:29:00+08:00"
+      },
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "method": "dxf_dimension_entity",
+        "calibration": {
+          "required": false,
+          "reason": "DXF fixture units are recorded as metres in artifact metadata."
+        }
+      }
+    },
+    {
+      "id": "pm_boundary_wall_length",
+      "measurement_type": "boundary_wall_length",
+      "value": 0.0,
+      "unit": "m",
+      "source_fact_ids": [
+        "df_boundary_wall_length"
+      ],
+      "citation_id": "cit_artificial_measurement_protocol_dxf",
+      "promotion_status": "human_confirmed",
+      "human_confirmation": {
+        "confirmed": true,
+        "confirmed_by_user_id": "user_m1_reviewer",
+        "confirmed_at": "2026-06-07T10:30:00+08:00"
+      },
+      "provenance": {
+        "source_document_id": "doc_m1_canary_site_plan_rev_a",
+        "method": "dxf_layer_query",
+        "calibration": {
+          "required": false,
+          "reason": "DXF fixture units are recorded as metres in artifact metadata."
+        }
+      }
+    }
+  ]
+}

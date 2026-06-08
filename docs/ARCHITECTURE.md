@@ -29,7 +29,7 @@ DraftCheck WA Core uses a Python/FastAPI monorepo layout:
 9. Exports compile response packs and persist `exports`.
 10. Every workflow creates `audit_events`; Hermes delegation creates `background_jobs` and `job_traces`.
 
-Hermes corpus output is imported from `source_inventory.jsonl` through `POST /v1/sources/hermes-corpus/import` or `scripts/import_hermes_corpus.py`. Public/open rows with parsed PDF/text content become versioned, chunked, citable source text. Blocked, paid, login-gated, captcha-gated, robots-denied, unknown-access, restricted-licence, or otherwise non-public rows are skipped. Standards Australia rows remain metadata-only, with public metadata and access/licence notes stored but no paid Australian Standards full text and no retrieval chunks.
+Hermes corpus output is imported from `source_inventory.jsonl` through `POST /v1/sources/hermes-corpus/import` or `scripts/import_hermes_corpus.py`. Public/open rows with parsed PDF/text content become versioned and chunked source text, defaulting to `pending_review`; they become citable only after acceptance through source governance. Blocked, paid, login-gated, captcha-gated, robots-denied, unknown-access, restricted-licence, or otherwise non-public rows are skipped. Standards Australia rows remain metadata-only, with public metadata and access/licence notes stored but no paid Australian Standards full text and no retrieval chunks.
 
 ## Compliance Coverage
 

@@ -1,0 +1,390 @@
+{
+  "cases": [
+    {
+      "track": "retrieval",
+      "name": "Australian Standards full text refusal",
+      "input": {
+        "question": "What are the AS 3959 full text requirements for bushfire construction?"
+      },
+      "expected": {
+        "status": "unsupported",
+        "citation_count": 0,
+        "source_version_ids": [],
+        "answer_contains": [
+          "Australian Standards full text is not stored"
+        ]
+      },
+      "notes": "Paid Australian Standards full text must never be answered from stored metadata."
+    },
+    {
+      "track": "retrieval",
+      "name": "BAL construction requirement prompt refuses without standard evidence",
+      "input": {
+        "question": "What BAL construction requirements apply?"
+      },
+      "expected": {
+        "status": "unsupported",
+        "citation_count": 0,
+        "source_version_ids": [],
+        "answer_contains": [
+          "AS 3959"
+        ]
+      },
+      "notes": "A public BAL form excerpt must not be used to answer construction-standard requirements."
+    },
+    {
+      "track": "retrieval",
+      "name": "Bushfire BAL basic report cites official WA form",
+      "input": {
+        "question": "bushfire prone areas BAL report"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "100 metres",
+          "BAL-LOW"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "Bushfires: BAL Assessment (Basic) Report"
+          ]
+        ]
+      },
+      "notes": "BAL report questions should cite the official WA basic BAL report form without answering AS 3959 construction details."
+    },
+    {
+      "track": "retrieval",
+      "name": "Design compliance question needs project evidence",
+      "input": {
+        "question": "Does my design comply?"
+      },
+      "expected": {
+        "status": "missing_info",
+        "citation_count": 0,
+        "source_version_ids": [],
+        "answer_contains": [
+          "resolved address/profile"
+        ]
+      },
+      "notes": "Chat must not answer project compliance from source-library snippets."
+    },
+    {
+      "track": "retrieval",
+      "name": "Broad setback prompt needs specific rule context",
+      "input": {
+        "question": "What are the setbacks?"
+      },
+      "expected": {
+        "status": "missing_info",
+        "citation_count": 0,
+        "source_version_ids": [],
+        "answer_contains": [
+          "more specific rule context"
+        ]
+      },
+      "notes": "Broad setback prompts should not return fragment snippets or table debris."
+    },
+    {
+      "track": "retrieval",
+      "name": "Proposal build question needs property context",
+      "input": {
+        "question": "Can I build a shed in Cockburn?"
+      },
+      "expected": {
+        "status": "missing_info",
+        "citation_count": 0,
+        "source_version_ids": [],
+        "answer_contains": [
+          "resolved address/profile"
+        ]
+      },
+      "notes": "Proposal-specific build questions require resolved project context even when lexical source matches exist."
+    },
+    {
+      "track": "retrieval",
+      "name": "First person R40 build question needs project context",
+      "input": {
+        "question": "Can I build a two storey house in R40 in Cockburn?"
+      },
+      "expected": {
+        "status": "missing_info",
+        "citation_count": 0,
+        "source_version_ids": [],
+        "answer_contains": [
+          "resolved address/profile"
+        ],
+        "answer_not_contains": [
+          "single house may be two storeys"
+        ]
+      },
+      "notes": "First-person build questions must not be answered from an operative rule snippet without resolved project facts."
+    },
+    {
+      "track": "retrieval",
+      "name": "Allowed two storey house question needs property context",
+      "input": {
+        "question": "Is a two storey house allowed?"
+      },
+      "expected": {
+        "status": "missing_info",
+        "citation_count": 0,
+        "source_version_ids": [],
+        "answer_contains": [
+          "resolved address/profile"
+        ],
+        "answer_not_contains": [
+          "single house may be two storeys"
+        ]
+      },
+      "notes": "Allowed/permitted dwelling-height prompts are property-specific and must not be answered from source-library snippets alone."
+    },
+    {
+      "track": "retrieval",
+      "name": "Second storey addition question needs property context",
+      "input": {
+        "question": "Can I add a second storey?"
+      },
+      "expected": {
+        "status": "missing_info",
+        "citation_count": 0,
+        "source_version_ids": [],
+        "answer_contains": [
+          "resolved address/profile"
+        ],
+        "answer_not_contains": [
+          "single house may be two storeys"
+        ]
+      },
+      "notes": "Addition/extension wording for a second storey is project-specific and requires resolved project facts before any answer."
+    },
+    {
+      "track": "retrieval",
+      "name": "R30 site cover stitches approved table fragments",
+      "input": {
+        "question": "What is the site cover requirement for R30?"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "R30 site cover: 60%"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "Residential Design Codes Volume 1 - April 2026 (PDF, 9.12MB)",
+            "R-Codes Volume 1 bootstrap excerpt"
+          ]
+        ]
+      },
+      "notes": "Fragmented R-Code table chunks may be stitched only within the same approved source version."
+    },
+    {
+      "track": "retrieval",
+      "name": "R30 front setback avoids conflicting density snippets",
+      "input": {
+        "question": "what is the front setback for an R30 single house in Cockburn?",
+        "source_filters": {
+          "local_government": "Cockburn"
+        }
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "R30 primary street setback: 4m"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:",
+          "Figure 3.3c",
+          "boundary walls",
+          "R80 Code standards"
+        ]
+      },
+      "notes": "Density-specific retrieval may cite R30 context, but must not answer an R30 question with an R80 snippet."
+    },
+    {
+      "track": "retrieval",
+      "name": "R30 open space returns Table B threshold",
+      "input": {
+        "question": "What is the open space requirement for an R30 single house?"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "R30 open space: 45%"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "Residential Design Codes Volume 1 - April 2026 (PDF, 9.12MB)",
+            "R-Codes Volume 1 bootstrap excerpt"
+          ]
+        ]
+      },
+      "notes": "R30 open-space questions should return the Table B minimum threshold, not generic open-space prose."
+    },
+    {
+      "track": "retrieval",
+      "name": "R30 outdoor living returns area and dimension thresholds",
+      "input": {
+        "question": "What is the outdoor living area requirement for an R30 single house?"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "R30 outdoor living area: 24m2 minimum area; 4m minimum dimension"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "Residential Design Codes Volume 1 - April 2026 (PDF, 9.12MB)",
+            "R-Codes Volume 1 bootstrap excerpt"
+          ]
+        ]
+      },
+      "notes": "Outdoor-living answers should combine the Table B area row and C1.1 minimum dimension from the same approved source."
+    },
+    {
+      "track": "retrieval",
+      "name": "Solar access demonstration cites official guidance",
+      "input": {
+        "question": "How do I demonstrate solar access?"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "solar access can be demonstrated"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "4.1 Solar and daylight access - Demonstrating solar access (PDF, 1.69MB)"
+          ]
+        ]
+      },
+      "notes": "Solar demonstration method questions should cite the official DPLH guidance source, not refuse due vector-only candidate narrowing."
+    },
+    {
+      "track": "retrieval",
+      "name": "Solar access requirement prompt refuses without normative evidence",
+      "input": {
+        "question": "What are the solar access requirements?"
+      },
+      "expected": {
+        "status": "unsupported",
+        "citation_count": 0,
+        "source_version_ids": []
+      },
+      "notes": "A general requirements prompt must remain unsupported unless an approved source chunk has direct normative requirement evidence."
+    },
+    {
+      "track": "retrieval",
+      "name": "Natural ventilation orientation cites official guidance",
+      "input": {
+        "question": "How should I orient apartments for natural ventilation?"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "45 to 90 degrees",
+          "prevailing cooling wind"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "4.2 Natural ventilation - Optimal orientation for natural ventilation (PDF, 1013.78KB)"
+          ]
+        ]
+      },
+      "notes": "Natural ventilation orientation questions should cite the official DPLH technical guidance source."
+    },
+    {
+      "track": "retrieval",
+      "name": "Average side setback method cites official guidance",
+      "input": {
+        "question": "How do I calculate average side setbacks?"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "average side setback"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "2.4 Side and rear setbacks - Calculating average side setbacks (PDF, 935.76KB)"
+          ]
+        ]
+      },
+      "notes": "Average setback method questions should cite the official DPLH calculation guidance instead of unrelated Vol.2 chunks."
+    },
+    {
+      "track": "retrieval",
+      "name": "R-Codes Volume 2 design review guidance cites A4",
+      "input": {
+        "question": "What information should be provided for R-Codes Volume 2 design review?"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "provided by the applicant for design review"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "R-Codes Vol.2 - A4 Design development guidance (DOCX, 17.54KB)"
+          ]
+        ]
+      },
+      "notes": "Design review information questions should cite the official R-Codes Volume 2 A4 guidance."
+    },
+    {
+      "track": "retrieval",
+      "name": "R-Codes Volume 2 development application guidance cites A5",
+      "input": {
+        "question": "What materials are needed for a development application under R-Codes Volume 2?"
+      },
+      "expected": {
+        "status": "needs_human_review",
+        "min_citation_count": 1,
+        "answer_contains": [
+          "materials when submitting a development application"
+        ],
+        "answer_not_contains": [
+          "Based on the matched approved source chunks:"
+        ],
+        "citation_titles_include_any": [
+          [
+            "R-Codes Vol.2 - A5 Development application guidance (DOCX, 17.6KB)"
+          ]
+        ]
+      },
+      "notes": "Development application materials questions should cite the official R-Codes Volume 2 A5 guidance."
+    }
+  ]
+}

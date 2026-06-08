@@ -1,0 +1,28 @@
+{
+  "proposal": {
+    "id": "proposal_m1_canary",
+    "project_id": "proj_m1_canary",
+    "proposal_type": "single_house",
+    "dwelling_type": "single_house",
+    "building_class": "class_1a_fixture_label",
+    "work_type": "new_dwelling",
+    "new_or_existing": "new",
+    "lot_type": "single_street",
+    "primary_street_confirmed": true,
+    "secondary_street_confirmed": false,
+    "source": "user_confirmed_fixture_questionnaire",
+    "confidence": 1.0,
+    "classification_source_version_id": "sv_artificial_building_class_guide_2026_v1",
+    "classification_citation_id": "cit_artificial_building_class_label",
+    "provenance": {
+      "captured_at": "2026-06-07T09:30:00+08:00",
+      "captured_by_user_id": "user_m1_owner",
+      "confirmed_by_user_id": "user_m1_reviewer",
+      "confirmed_at": "2026-06-07T09:35:00+08:00",
+      "notes": [
+        "Proposal labels are synthetic and fixture scoped.",
+        "The dwelling classification label is supported only by the artificial fixture source version."
+      ]
+    }
+  }
+}

@@ -11,6 +11,7 @@ from draftcheck_core.audit import record_audit
 from draftcheck_core.config import get_settings
 from draftcheck_core.json_utils import from_json, to_json
 from draftcheck_core.models import BackgroundJob, JobTrace
+from draftcheck_core.queue import enqueue_background_job, fetch_rq_job_status
 from draftcheck_shared.schemas import JobStatus
 
 
@@ -46,6 +47,16 @@ class HermesAdapter:
             except Exception as exc:  # pragma: no cover - network failure shape depends on Hermes
                 job.status = "failed"
                 job.error = str(exc)
+        elif self.settings.rq_enabled and job.provider == "local-rq" and job.remote_job_id:
+            if job.status not in {"completed", "failed", "cancelled", "disabled"}:
+                try:
+                    rq_status = fetch_rq_job_status(job.remote_job_id, settings=self.settings)
+                    job.status = _map_rq_status(str(rq_status.get("status") or job.status))
+                    if job.status == "failed" and not job.error:
+                        job.error = str(rq_status.get("error") or "RQ job failed")
+                except Exception as exc:  # pragma: no cover - Redis failure shape depends on runtime
+                    job.status = "failed"
+                    job.error = f"Local RQ status lookup failed: {exc}"
         return _job_to_schema(job)
 
     def store_job_trace(
@@ -96,6 +107,34 @@ class HermesAdapter:
             raise ValueError("Only failed jobs can be retried")
         job.status = "queued"
         job.error = None
+        if job.provider == "local-rq":
+            if not self.settings.rq_enabled:
+                job.status = "failed"
+                job.error = "Cannot retry local RQ job because RQ_ENABLED=false"
+            else:
+                try:
+                    queued = enqueue_background_job(
+                        job.id,
+                        job.job_type,
+                        from_json(job.payload_json, {}),
+                        queue_name=job.job_type,
+                        settings=self.settings,
+                    )
+                    job.remote_job_id = queued.rq_job_id
+                    job.status = queued.status
+                except Exception as exc:  # pragma: no cover - Redis failure shape depends on runtime
+                    job.status = "failed"
+                    job.error = f"Local RQ enqueue failed: {exc}"
+            self.store_job_trace(
+                job_id=job.id,
+                prompt=job.payload_json,
+                status=job.status,
+                project_id=job.project_id,
+                source_version_id=job.source_version_id,
+                model=job.model,
+                provider=job.provider,
+                error=job.error,
+            )
         record_audit(
             self.db,
             action="job.retried",
@@ -147,7 +186,7 @@ class HermesAdapter:
         source_version_id: str | None = None,
     ) -> JobStatus:
         correlation_id = f"corr_{uuid4().hex}"
-        provider = "hermes" if self.settings.hermes_enabled else "local-disabled"
+        provider = _provider_for_settings(self.settings)
         model = (
             self.settings.hermes_review_model
             if job_type in {"council_pack", "final_review"}
@@ -155,7 +194,7 @@ class HermesAdapter:
         )
         job = BackgroundJob(
             job_type=job_type,
-            status="queued" if self.settings.hermes_enabled else "disabled",
+            status="queued" if provider in {"hermes", "local-rq"} else "disabled",
             correlation_id=correlation_id,
             project_id=project_id,
             source_version_id=source_version_id,
@@ -188,6 +227,20 @@ class HermesAdapter:
             except Exception as exc:  # pragma: no cover - network failure shape depends on Hermes
                 job.status = "failed"
                 job.error = str(exc)
+        elif self.settings.rq_enabled:
+            try:
+                queued = enqueue_background_job(
+                    job.id,
+                    job_type,
+                    payload,
+                    queue_name=job_type,
+                    settings=self.settings,
+                )
+                job.remote_job_id = queued.rq_job_id
+                job.status = queued.status
+            except Exception as exc:  # pragma: no cover - Redis failure shape depends on runtime
+                job.status = "failed"
+                job.error = f"Local RQ enqueue failed: {exc}"
         else:
             job.error = "Hermes disabled by HERMES_ENABLED=false"
 
@@ -239,3 +292,25 @@ def _job_to_schema(job: BackgroundJob) -> JobStatus:
         created_at=job.created_at,
         updated_at=job.updated_at,
     )
+
+
+def _provider_for_settings(settings) -> str:
+    if settings.hermes_enabled:
+        return "hermes"
+    if settings.rq_enabled:
+        return "local-rq"
+    return "local-disabled"
+
+
+def _map_rq_status(status: str) -> str:
+    return {
+        "queued": "queued",
+        "deferred": "queued",
+        "scheduled": "queued",
+        "started": "running",
+        "finished": "completed",
+        "failed": "failed",
+        "stopped": "cancelled",
+        "canceled": "cancelled",
+        "cancelled": "cancelled",
+    }.get(status, status)

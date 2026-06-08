@@ -11,9 +11,10 @@ from draftcheck_core.models import (
     DocumentPage,
     ExtractedDocumentFact,
     ExtractedMeasurement,
+    Project,
     ProjectDocument,
 )
-from draftcheck_document_ai.facts import extract_fact_candidates
+from draftcheck_document_ai.facts import DocumentFactCandidate, extract_fact_candidates
 
 
 DRAWING_QA_KEYWORDS = {
@@ -28,6 +29,26 @@ DRAWING_QA_KEYWORDS = {
     "parking": ["parking", "garage", "carport"],
 }
 
+UNCALIBRATED_DRAWING_CONTEXT_TERMS = (
+    "uncalibrated",
+    "not calibrated",
+    "calibration missing",
+    "raster",
+    "ocr",
+    "pdf extraction",
+    "pdf-derived",
+    "pdf derived",
+)
+
+DRAWING_MEASUREMENT_CONTEXT_TERMS = (
+    "dimension",
+    "dimension measurement",
+    "line length",
+    "polyline length",
+    "scale inferred",
+    "scaled from",
+)
+
 
 class DocumentAnalysisService:
     def __init__(self, db: Session):
@@ -37,6 +58,11 @@ class DocumentAnalysisService:
         doc = self.db.get(ProjectDocument, document_id)
         if not doc or doc.project_id != project_id:
             raise KeyError("Document not found")
+        project = self.db.get(Project, project_id)
+        if not project:
+            raise KeyError("Project not found")
+        as_of_date = project.as_of_date or project.lodgement_date or "unknown"
+        assessment_basis = project.assessment_basis
         text = f"{doc.title}\n{doc.text_content}".lower()
         results: list[CheckResult] = []
         for key, terms in DRAWING_QA_KEYWORDS.items():
@@ -48,6 +74,8 @@ class DocumentAnalysisService:
                 label=f"Drawing QA: {key.replace('_', ' ')}",
                 category="drawing_qa",
                 status=status,
+                as_of_date=as_of_date,
+                assessment_basis=assessment_basis,
                 requirement=f"Detected plan set should show {key.replace('_', ' ')} where applicable.",
                 proposed="Detected" if detected else "Not detected in extracted text.",
                 evidence_refs_json=to_json([document_id]),
@@ -89,6 +117,7 @@ class DocumentAnalysisService:
         facts: list[dict] = []
         for page in self._pages(doc):
             for candidate in extract_fact_candidates(page.text_content):
+                measurement_readiness = _measurement_readiness(candidate)
                 fact = ExtractedDocumentFact(
                     project_id=project_id,
                     document_id=document_id,
@@ -100,11 +129,21 @@ class DocumentAnalysisService:
                     unit=candidate.unit,
                     source_text=candidate.source_text,
                     confidence=candidate.confidence,
-                    metadata_json=to_json({"measurement_key": candidate.measurement_key}),
+                    metadata_json=to_json(
+                        {
+                            "measurement_key": candidate.measurement_key,
+                            "measurement_compliance_ready": measurement_readiness["ready"],
+                            "measurement_readiness_reason": measurement_readiness["reason"],
+                        }
+                    ),
                 )
                 self.db.add(fact)
                 self.db.flush()
-                if candidate.measurement_key and candidate.numeric_value is not None:
+                if (
+                    candidate.measurement_key
+                    and candidate.numeric_value is not None
+                    and measurement_readiness["ready"]
+                ):
                     self.db.add(
                         ExtractedMeasurement(
                             project_id=project_id,
@@ -209,6 +248,20 @@ def _classify(title: str, text: str) -> str:
     if "council" in blob or "request for information" in blob:
         return "council_rfi"
     return "unknown"
+
+
+def _measurement_readiness(candidate: DocumentFactCandidate) -> dict[str, str | bool]:
+    if not candidate.measurement_key or candidate.numeric_value is None:
+        return {"ready": False, "reason": "not_a_project_measurement"}
+    if candidate.fact_type == "drawing_dimension":
+        return {"ready": False, "reason": "drawing_dimension_fact_only"}
+    source = candidate.source_text.lower()
+    has_uncalibrated_context = any(term in source for term in UNCALIBRATED_DRAWING_CONTEXT_TERMS)
+    has_drawing_measurement_context = any(term in source for term in DRAWING_MEASUREMENT_CONTEXT_TERMS)
+    has_explicit_calibration = "calibrated" in source and "uncalibrated" not in source
+    if has_uncalibrated_context and has_drawing_measurement_context and not has_explicit_calibration:
+        return {"ready": False, "reason": "uncalibrated_raster_or_pdf_drawing_measurement"}
+    return {"ready": True, "reason": "measurement_candidate_ready"}
 
 
 def _fact_to_dict(row: ExtractedDocumentFact) -> dict:

@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from draftcheck_document_ai.extraction import extract_text_from_bytes
-from draftcheck_scraper.lawful_fetcher import parse_robots_allows
+from draftcheck_scraper.lawful_fetcher import assert_lawful_source, parse_robots_allows
 
 
 def test_robots_parser_honours_disallow_rules():
@@ -22,6 +22,44 @@ def test_html_extraction_for_source_fetch_path():
     text = extract_text_from_bytes(html, "text/html")
     assert "5.1.3 Front setback" in text
     assert "Primary street setback text" in text
+
+
+def test_lawful_fetcher_refuses_restricted_access_terms():
+    for notes in [
+        "subscription required",
+        "paid access only",
+        "proprietary no redistribution",
+        "licence required before reuse",
+    ]:
+        try:
+            assert_lawful_source(
+                "https://www.wa.gov.au/public-policy",
+                licence_notes=notes,
+                access_type="public",
+            )
+        except ValueError as exc:
+            assert str(exc) == "Source metadata indicates restricted access"
+        else:  # pragma: no cover - assertion branch
+            raise AssertionError(f"restricted notes were accepted: {notes}")
+
+
+def test_source_ingest_refuses_fetch_when_scrape_disallowed(client):
+    response = client.post(
+        "/v1/sources/ingest",
+        json={
+            "title": "No scrape source",
+            "jurisdiction": "WA",
+            "authority": "Example authority",
+            "source_type": "local_planning_policy",
+            "canonical_url": "https://example.test/no-scrape-policy",
+            "licence_notes": "Do not fetch.",
+            "access_type": "public",
+            "scrape_allowed": False,
+        },
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"] == "scrape_allowed is false for this source"
 
 
 def test_check_definition_yaml_import_endpoint(client):

@@ -2,14 +2,15 @@ from __future__ import annotations
 
 import re
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
 from draftcheck_core.audit import record_audit
 from draftcheck_core.json_utils import from_json, to_json
 from draftcheck_core.models import ProjectDocument, ResponseDraft, RfiItem, Task
+from draftcheck_core.review_queue import ReviewQueueService
 from draftcheck_retrieval.service import RetrievalService
-from draftcheck_shared.schemas import RfiItemRead, ResponseDraftRead
+from draftcheck_shared.schemas import ReviewQueueItemCreate, RfiItemRead, ResponseDraftRead
 
 LIABILITY_NOTICE = (
     "Draft only. Requires review and approval by the designer or another qualified human before submission."
@@ -37,14 +38,27 @@ class RfiService:
 
         requests = _split_requests(source_text)
         parsed: list[RfiItemRead] = []
-        for index, request in enumerate(requests, start=1):
+        existing_by_request = {
+            _request_key(item.requested_action): item
+            for item in self.db.scalars(select(RfiItem).where(RfiItem.project_id == project_id))
+        }
+        returned_item_ids: set[str] = set()
+        next_item_number = self._next_item_number(project_id)
+        for request in requests:
+            request_key = _request_key(request)
+            existing_item = existing_by_request.get(request_key)
+            if existing_item:
+                if existing_item.id not in returned_item_ids:
+                    parsed.append(_rfi_to_schema(existing_item))
+                    returned_item_ids.add(existing_item.id)
+                continue
             issue_type = _classify_issue(request)
-            citations = self.retrieval.citation_for_check(f"{issue_type} {request}")
+            citations = self.retrieval.citations_for_supported_answer(f"{issue_type} {request}")
             missing = _missing_evidence(issue_type, request)
             item = RfiItem(
                 project_id=project_id,
                 source_document_id=doc.id if doc else None,
-                item_number=index,
+                item_number=next_item_number,
                 issue_summary=request[:180],
                 requested_action=request,
                 relevant_drawing_sheet=_sheet_ref(request),
@@ -56,11 +70,14 @@ class RfiService:
             )
             self.db.add(item)
             self.db.flush()
+            next_item_number += 1
+            existing_by_request[request_key] = item
+            returned_item_ids.add(item.id)
             self.db.add(
                 Task(
                     project_id=project_id,
                     rfi_item_id=item.id,
-                    title=f"Address RFI item {index}: {issue_type}",
+                    title=f"Address RFI item {item.item_number}: {issue_type}",
                     description=f"Review drawings and prepare evidence for: {request}",
                     priority=item.priority,
                 )
@@ -75,6 +92,12 @@ class RfiService:
             metadata={"item_count": len(parsed), "document_id": document_id},
         )
         return parsed
+
+    def _next_item_number(self, project_id: str) -> int:
+        max_item_number = self.db.scalar(
+            select(func.max(RfiItem.item_number)).where(RfiItem.project_id == project_id)
+        )
+        return int(max_item_number or 0) + 1
 
     def list_items(self, project_id: str) -> list[RfiItemRead]:
         rows = self.db.scalars(
@@ -95,19 +118,35 @@ class RfiService:
         for item in items:
             citations.extend(item.source_requirement_candidates)
             missing.extend(item.missing_evidence)
+            source_citation_count = len(item.source_requirement_candidates)
+            source_support_status = "cited" if source_citation_count else "unsupported"
+            if source_support_status == "unsupported":
+                missing.append(f"approved source citation for RFI item {item.item_number}")
+                source_support_sentence = (
+                    f"No approved source citation matched RFI item {item.item_number}; this draft response "
+                    "is limited to a drawing/evidence checklist until source support is added."
+                )
+            else:
+                source_support_sentence = (
+                    f"RFI item {item.item_number} has {source_citation_count} approved source citation(s); "
+                    "the response should be checked against those cited source versions."
+                )
             response = (
                 f"Item {item.item_number}: The request has been noted. The drawings should be reviewed and "
-                f"annotated to address: {item.requested_action}. Any response should refer to the cited policy "
-                "material where relevant and avoid claiming final compliance."
+                f"annotated to address: {item.requested_action}. {source_support_sentence} "
+                "Avoid claiming final compliance."
             )
             paragraphs.append(response)
             table.append(
                 {
+                    "rfi_item_id": item.id,
                     "item_number": item.item_number,
                     "request": item.requested_action,
                     "draft_response": response,
                     "drawing_annotation": f"Add annotation addressing RFI item {item.item_number}.",
                     "missing_evidence": item.missing_evidence,
+                    "source_support_status": source_support_status,
+                    "source_citation_count": source_citation_count,
                 }
             )
         paragraphs.extend(["", "Regards,", "DraftCheck WA Core"])
@@ -128,14 +167,25 @@ class RfiService:
                     "consultant_request_email": "Please review the attached RFI items and provide any required supporting evidence.",
                 }
             ),
-            confidence=0.55 if items else 0.0,
-            assumptions_json=to_json(["Response wording is generated from parsed RFI text and retrieved citations."]),
+            confidence=_draft_confidence(items, citations),
+            assumptions_json=to_json(
+                [
+                    "Response wording is generated from parsed RFI text and approved source candidates where available.",
+                    "RFI items without approved source candidates are drafting checklists only, not source-backed responses.",
+                ]
+            ),
             missing_information_json=to_json(sorted(set(missing))),
             citations_json=to_json([citation.model_dump(mode="json") for citation in citations]),
             requires_human_review=True,
         )
         self.db.add(draft)
         self.db.flush()
+        self._enqueue_source_review_items(
+            project_id=project_id,
+            draft=draft,
+            item_table=table,
+            missing_information=sorted(set(missing)),
+        )
         record_audit(
             self.db,
             action="response_draft.generated",
@@ -146,21 +196,77 @@ class RfiService:
         )
         return _draft_to_schema(draft)
 
+    def _enqueue_source_review_items(
+        self,
+        *,
+        project_id: str,
+        draft: ResponseDraft,
+        item_table: list[dict],
+        missing_information: list[str],
+    ) -> None:
+        review_queue = ReviewQueueService(self.db)
+        for row in item_table:
+            if row.get("source_support_status") != "unsupported":
+                continue
+            item_number = row["item_number"]
+            rfi_item_id = row["rfi_item_id"]
+            review_queue.enqueue(
+                ReviewQueueItemCreate(
+                    queue="source_review",
+                    project_id=project_id,
+                    target_type="rfi_item",
+                    target_id=rfi_item_id,
+                    reason=f"RFI item {item_number} lacks approved source support",
+                    blocking_level="blocking",
+                    evidence={
+                        "response_draft_id": draft.id,
+                        "rfi_item_id": rfi_item_id,
+                        "item_number": item_number,
+                        "requested_action": row["request"],
+                        "source_support_status": row["source_support_status"],
+                        "source_citation_count": row["source_citation_count"],
+                        "missing_evidence": row["missing_evidence"],
+                        "missing_information": [
+                            value
+                            for value in missing_information
+                            if value in row["missing_evidence"]
+                            or value == f"approved source citation for RFI item {item_number}"
+                        ],
+                    },
+                    suggested_action=(
+                        "Add or approve an official source citation for this RFI item, or keep the "
+                        "response as an unsupported drafting checklist until source support is available."
+                    ),
+                    priority="high",
+                )
+            )
+
     def list_responses(self, project_id: str) -> list[ResponseDraftRead]:
         rows = self.db.scalars(
             select(ResponseDraft)
             .where(ResponseDraft.project_id == project_id)
-            .order_by(ResponseDraft.created_at.desc())
+            .order_by(ResponseDraft.created_at.desc(), ResponseDraft.id.desc())
         ).all()
         return [_draft_to_schema(row) for row in rows]
+
+    def latest_response(self, project_id: str) -> ResponseDraftRead | None:
+        row = self.db.scalars(
+            select(ResponseDraft)
+            .where(ResponseDraft.project_id == project_id)
+            .order_by(ResponseDraft.created_at.desc(), ResponseDraft.id.desc())
+            .limit(1)
+        ).first()
+        return _draft_to_schema(row) if row else None
 
 
 def _split_requests(text: str) -> list[str]:
     lines = [line.strip(" -\t") for line in text.splitlines() if line.strip()]
     candidates: list[str] = []
     buffer = ""
+    saw_structured_marker = False
     for line in lines:
         if re.match(r"^(\d+[\).]|item\s+\d+|request\s+\d+)", line, re.IGNORECASE):
+            saw_structured_marker = True
             if buffer:
                 candidates.append(buffer.strip())
             buffer = re.sub(r"^(\d+[\).]|item\s+\d+|request\s+\d+)[:.)\s-]*", "", line, flags=re.I)
@@ -168,13 +274,17 @@ def _split_requests(text: str) -> list[str]:
             buffer = f"{buffer} {line}".strip() if buffer else line
     if buffer:
         candidates.append(buffer.strip())
-    if len(candidates) <= 1:
+    if len(candidates) <= 1 and not saw_structured_marker:
         candidates = [
             part.strip()
             for part in re.split(r"(?<=[.?])\s+(?=(?:Please|Could|Provide|Clarify|Confirm|Revise)\b)", text)
             if part.strip()
         ]
     return candidates or [text.strip()]
+
+
+def _request_key(text: str) -> str:
+    return " ".join(text.casefold().split())
 
 
 def _classify_issue(text: str) -> str:
@@ -205,6 +315,14 @@ def _missing_evidence(issue_type: str, text: str) -> list[str]:
     if "photo" in text.lower():
         missing.append("site photo")
     return missing
+
+
+def _draft_confidence(items: list[RfiItemRead], citations: list) -> float:
+    if not items:
+        return 0.0
+    if not citations:
+        return 0.3
+    return 0.55
 
 
 def _sheet_ref(text: str) -> str | None:

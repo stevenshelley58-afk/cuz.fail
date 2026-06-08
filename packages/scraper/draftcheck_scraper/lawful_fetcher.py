@@ -17,7 +17,18 @@ ALLOWED_PUBLIC_HOST_HINTS = (
     "standards.org.au",
 )
 
-RESTRICTED_TERMS = ("paywall", "login required", "captcha")
+RESTRICTED_TERMS = (
+    "paywall",
+    "login required",
+    "captcha",
+    "subscription",
+    "paid access",
+    "proprietary",
+    "no reuse",
+    "no redistribution",
+    "licence required",
+    "license required",
+)
 
 
 @dataclass(frozen=True)

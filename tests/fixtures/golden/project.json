@@ -1,0 +1,32 @@
+{
+  "project": {
+    "id": "proj_m1_canary",
+    "org_id": "org_m1_canary",
+    "created_by_user_id": "user_m1_owner",
+    "name": "M1 Canary - Synthetic Dwelling",
+    "lodgement_date": "2026-06-07",
+    "as_of_date": "2026-06-07",
+    "assessment_basis": "fixture_only",
+    "property_id": "property_m1_canary",
+    "proposal_id": "proposal_m1_canary",
+    "created_at": "2026-06-07T09:05:00+08:00"
+  },
+  "property": {
+    "id": "property_m1_canary",
+    "project_id": "proj_m1_canary",
+    "display_address": "10 Canary Lane, Demo Bay WA 6000",
+    "address_resolution_id": "addrres_m1_canary",
+    "resolution_cache": {
+      "display_only": true,
+      "authority_source": "address_resolution.json"
+    }
+  },
+  "provenance": {
+    "created_by": "fixture_seed",
+    "created_at": "2026-06-07T09:05:00+08:00",
+    "notes": [
+      "Synthetic project for repeatable M1 canary tests.",
+      "Real project use requires current approved source versions and reviewer signoff."
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+	admin off
+}
+
+(security_headers) {
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+}
+
+(api_routes) {
+	@api_uploads path /api/v1/documents/*/upload /api/v1/sources/import
+	request_body @api_uploads {
+		max_size 250MB
+	}
+	handle /api/v1* {
+		reverse_proxy api:8000
+	}
+}
+
+{$CADDY_API_HOST:api.cuz.fail} {
+	import security_headers
+	encode zstd gzip
+	import api_routes
+	handle {
+		respond "not found" 404
+	}
+}
+
+{$CADDY_APP_HOST:app.cuz.fail} {
+	import security_headers
+	encode zstd gzip
+	import api_routes
+	handle {
+		root * /srv/draftcheck/web/dist
+		try_files {path} /index.html
+		file_server
+	}
+}
+
+# Transition note: keep any temporary legacy /v1 proxy in a separate commented
+# operator overlay. This V3 Caddyfile actively serves only /api/v1 for API traffic.
