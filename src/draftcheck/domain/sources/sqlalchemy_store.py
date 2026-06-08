@@ -6,6 +6,8 @@ from collections.abc import Callable, Mapping
 from datetime import UTC, date, datetime
 from hashlib import sha256
 import json
+import os
+from pathlib import Path
 import re
 from typing import Any, cast
 from urllib.parse import urlparse
@@ -406,6 +408,14 @@ class SqlAlchemySourceLibrary:
                     source_metadata=source_metadata,
                     version_metadata=public_source.metadata,
                 )
+                raw_artifact = self.record_raw_fetch_artifact(
+                    source_id=result.source.id,
+                    source_version_id=result.version.id,
+                    content=public_source.content,
+                    content_type=public_source.content_type,
+                    final_url=public_source.final_url,
+                    metadata=public_source.metadata,
+                )
                 self.record_fetch_log(
                     source_id=result.source.id,
                     source_version_id=result.version.id,
@@ -427,6 +437,7 @@ class SqlAlchemySourceLibrary:
                         "chunk_count": len(result.chunks),
                         "citation_count": len(result.citations),
                         "parse_quality": public_source.metadata.get("parse_quality"),
+                        "raw_artifact_id": raw_artifact["id"],
                         "review_status": result.version.review_status.value,
                     }
                 )
@@ -769,6 +780,74 @@ class SqlAlchemySourceLibrary:
                         metadata_json=dict(metadata or {}),
                     )
                 )
+
+    def record_raw_fetch_artifact(
+        self,
+        *,
+        source_id: str,
+        source_version_id: str,
+        content: bytes,
+        content_type: str,
+        final_url: str,
+        metadata: Mapping[str, object] | None = None,
+    ) -> dict[str, object]:
+        digest = sha256(content).hexdigest()
+        relative_path = f"raw-sources/{content_addressed_path(digest)}"
+        storage_root = Path(os.getenv("OBJECT_STORAGE_ROOT", ".storage")).expanduser()
+        artifact_path = storage_root / relative_path
+        artifact_path.parent.mkdir(parents=True, exist_ok=True)
+        if not artifact_path.exists():
+            artifact_path.write_bytes(content)
+        kind = _raw_artifact_kind(content_type=content_type, final_url=final_url)
+        with self._session_factory() as session:
+            with session.begin():
+                source = self._get_source_by_id(session, source_id)
+                version = self._get_version_by_id(session, source_version_id)
+                if version.source_id != source.id:
+                    raise SourceNotFoundError(f"source version does not belong to source: {source_version_id}")
+                existing = session.scalar(
+                    select(DbArtifact).where(
+                        DbArtifact.subject_id == version.id,
+                        DbArtifact.kind == kind.value,
+                        DbArtifact.sha256 == digest,
+                    )
+                )
+                if existing is None:
+                    existing = DbArtifact(
+                        id=uuid4(),
+                        org_id=source.org_id,
+                        subject_type=ArtifactSubjectType.SOURCE_VERSION.value,
+                        subject_id=version.id,
+                        kind=kind.value,
+                        storage_path=relative_path,
+                        sha256=digest,
+                        media_type=content_type,
+                        size_bytes=len(content),
+                        parser_name="draftcheck.sources.public_fetch.raw",
+                        parser_version="v0",
+                        metadata_json={
+                            "source_id": str(source.id),
+                            "final_url": final_url,
+                            "raw_sha256": digest,
+                            **dict(metadata or {}),
+                        },
+                    )
+                    session.add(existing)
+                    session.flush()
+                manifest = dict(version.storage_manifest_json or {})
+                artifact_ids = manifest.get("artifact_ids", [])
+                normalized_ids = [str(value) for value in artifact_ids] if isinstance(artifact_ids, list) else []
+                if str(existing.id) not in normalized_ids:
+                    normalized_ids.append(str(existing.id))
+                    manifest["artifact_ids"] = normalized_ids
+                    version.storage_manifest_json = manifest
+                return {
+                    "id": str(existing.id),
+                    "kind": existing.kind,
+                    "storage_path": existing.storage_path,
+                    "sha256": existing.sha256,
+                    "size_bytes": existing.size_bytes or 0,
+                }
 
     def _pending_fetch_candidates(
         self,
@@ -2406,6 +2485,17 @@ def _review_issue_codes(
     if version.review_status is SourceReviewStatus.REJECTED:
         issues.append("source_version_rejected")
     return issues
+
+
+def _raw_artifact_kind(*, content_type: str, final_url: str) -> ArtifactKind:
+    haystack = f"{content_type} {final_url}".lower()
+    if "pdf" in haystack:
+        return ArtifactKind.RAW_PDF
+    if "wordprocessingml" in haystack or "msword" in haystack or haystack.endswith(".docx"):
+        return ArtifactKind.RAW_DOCX
+    if "html" in haystack or haystack.endswith((".html", ".htm", "/")):
+        return ArtifactKind.RAW_HTML
+    return ArtifactKind.CANONICAL_TEXT
 
 
 def _review_recommended_action(

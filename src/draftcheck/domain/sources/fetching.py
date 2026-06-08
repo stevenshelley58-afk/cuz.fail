@@ -29,6 +29,7 @@ class PublicSourceFetch:
     status_code: int
     content_type: str
     text: str
+    content: bytes
     sha256: str
     metadata: dict[str, object]
 
@@ -86,6 +87,7 @@ def fetch_public_source(
             status_code=response.status_code,
             content_type=content_type,
             text=text,
+            content=response.content,
             sha256=digest,
             metadata={
                 "http_status": response.status_code,
