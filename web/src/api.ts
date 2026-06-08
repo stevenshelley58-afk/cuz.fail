@@ -26,6 +26,26 @@ export type ProjectSummary = {
 
 export type HealthInfo = { status?: string; service?: string; version?: string } & Record<string, unknown>;
 
+export type ChatCitation = {
+  source_title?: string;
+  locator?: string;
+  clause_id?: string | null;
+  heading?: string | null;
+  page_number?: number | null;
+  canonical_url?: string | null;
+  quote?: string;
+} & Record<string, unknown>;
+
+export type ChatReply = {
+  answer: string;
+  citations?: ChatCitation[];
+  grounded?: boolean;
+  model?: string;
+  provider?: string;
+  used_fallback?: boolean;
+  disclaimer?: string | null;
+} & Record<string, unknown>;
+
 function base(): string {
   const raw = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim();
   return (raw && raw.length > 0 ? raw : DEFAULT_BASE).replace(/\/+$/, "");
@@ -72,5 +92,5 @@ export const api = {
     call<Record<string, unknown>>("POST", `/projects/${projectId}/resolve-address`, { address }),
   rules: () => call<unknown>("GET", "/sources"),
   ask: (question: string, scope: { web: boolean }) =>
-    call<unknown>("POST", "/search/ask", { question, web_search_requested: scope.web }),
+    call<ChatReply>("POST", "/assistant", { message: question, web_search_requested: scope.web }),
 };

@@ -1,11 +1,11 @@
-/* LotFile — Mint Ledger theme */
+/* LotFile — Clean Slate theme (crisp white, green used as an accent) */
 :root{
-  --ink:#0C2018; --ink-soft:#3E5A4D; --ink-faint:#8FAA9C;
-  --paper:#F6FAF7; --card:#FFFFFF;
-  --green-900:#0A3526; --green-800:#0E4A33; --green:#168253; --green-bright:#1FA468;
-  --mint:#E4F3EA; --mint-deep:#CDE9D9; --line:#DEEAE2;
+  --ink:#14181B; --ink-soft:#5A6560; --ink-faint:#98A19C;
+  --paper:#F7F8F8; --card:#FFFFFF;
+  --green-900:#0E3B2A; --green-800:#14543B; --green:#16834F; --green-bright:#1FA468;
+  --mint:#EAF4EE; --mint-deep:#D6E8DE; --line:#E9ECEA;
   --flag:#B45309; --flag-bg:#FEF3E2;
-  --radius:20px; --shadow:0 8px 30px rgba(10,53,38,.07);
+  --radius:20px; --shadow:0 4px 16px rgba(16,24,32,.05);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body,#root{height:100%}
@@ -48,8 +48,9 @@ a{color:var(--green)}
 .greet{text-align:center;margin-bottom:24px}
 .greet h1{font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.15;margin-bottom:6px}
 .greet p{color:var(--ink-soft);font-size:.95rem}
-.onebox{width:100%;min-width:0;max-width:100%;overflow:hidden;background:var(--card);border:2px solid var(--green-bright);border-radius:22px;
-        box-shadow:var(--shadow);padding:14px 14px 10px;flex:none}
+.onebox{width:100%;min-width:0;max-width:100%;overflow:hidden;background:var(--card);border:1.5px solid var(--line);border-radius:22px;
+        box-shadow:var(--shadow);padding:14px 14px 10px;flex:none;transition:border-color .15s,box-shadow .15s}
+.onebox:focus-within{border-color:var(--green-bright);box-shadow:0 0 0 3px rgba(31,164,104,.12),var(--shadow)}
 .onebox textarea{width:100%;min-width:0;border:none;outline:none;resize:none;background:none;color:var(--ink);font-size:1.02rem;height:50px}
 .onebox textarea::placeholder{color:var(--ink-faint)}
 .belt{display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:wrap}
@@ -62,10 +63,10 @@ a{color:var(--green)}
 .go:hover{background:var(--green-800)}
 .go:disabled{opacity:.5;cursor:default}
 .hints{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;max-width:100%}
-.hints button{font-size:.78rem;font-weight:600;color:var(--green-800);background:var(--mint);
-              border:1px solid var(--mint-deep);padding:8px 14px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:6px;max-width:100%;white-space:normal}
-.hints button:hover{background:var(--mint-deep)}
-.hints button .icon{width:15px;height:15px}
+.hints button{font-size:.78rem;font-weight:600;color:var(--ink-soft);background:var(--card);
+              border:1px solid var(--line);padding:8px 14px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:6px;max-width:100%;white-space:normal}
+.hints button:hover{border-color:var(--green-bright);color:var(--green-800)}
+.hints button .icon{width:15px;height:15px;color:var(--green)}
 .hints button.addr{background:var(--card);border-color:var(--line);color:var(--ink-soft)}
 .hints button.addr:hover{border-color:var(--green-bright);color:var(--green-800)}
 
@@ -116,7 +117,7 @@ a{color:var(--green)}
 .pill .icon{width:13px;height:13px}
 .pill.ok{background:var(--mint);color:var(--green-800)}
 .pill.bad{background:var(--flag-bg);color:var(--flag)}
-.pill.dim{background:#EEF2F0;color:var(--ink-soft)}
+.pill.dim{background:#EFF1F1;color:var(--ink-soft)}
 .statusbar{flex:none;width:100%;max-width:min(760px,100%);display:flex;gap:8px;align-items:center;padding:8px 0 14px;font-size:.7rem;color:var(--ink-faint)}
 .statusbar .grow{flex:1}
 
@@ -131,7 +132,7 @@ a{color:var(--green)}
 .modal-backdrop{position:fixed;inset:0;background:rgba(10,53,38,.32);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
   display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}
 .modal{width:min(420px,100%);background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  box-shadow:0 24px 70px rgba(10,53,38,.22);padding:30px 28px;text-align:center;animation:pop .18s ease}
+  box-shadow:0 24px 70px rgba(16,24,32,.16);padding:30px 28px;text-align:center;animation:pop .18s ease}
 @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
 .modal-logo{font-family:'Sora','Inter',sans-serif;font-weight:800;font-size:1.35rem;color:var(--green-900);margin-bottom:14px}
 .modal-logo span{color:var(--green-bright)}

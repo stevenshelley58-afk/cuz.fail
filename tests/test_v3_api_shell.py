@@ -142,6 +142,7 @@ def test_v3_openapi_contains_required_surface_without_legacy_aliases() -> None:
         "/api/v1/sources/{source_id}/versions/{source_version_id}/review-packet",
         "/api/v1/rules/candidates/{candidate_id}/promote",
         "/api/v1/search/ask",
+        "/api/v1/assistant",
         "/api/v1/compliance/projects/{project_id}/run",
         "/api/v1/compliance/projects/{project_id}/matrix",
         "/api/v1/rfi/projects/{project_id}/parse",
@@ -170,6 +171,20 @@ def test_wave3_sources_and_address_routes_are_live_in_central_app() -> None:
     assert resolved.status_code == 200
     assert resolved.json()["resolution_status"] == "resolved"
     assert resolved.json()["target_crs"] == "EPSG:7844"
+
+
+def test_v3_assistant_accepts_message_payload_and_returns_chat_shape() -> None:
+    client = _authenticated_client()
+
+    response = client.post("/api/v1/assistant", json={"message": "How does LotFile work?"})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["answer"]
+    assert body["citations"] == []
+    assert body["grounded"] is False
+    assert body["provider"] == "mock"
+    assert body["used_fallback"] is True
 
 
 def test_cockburn_ops_dashboard_reports_canary_and_hermes_state() -> None:

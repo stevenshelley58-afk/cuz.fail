@@ -22,7 +22,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { api, type ApiResult, type HealthInfo, type ProjectSummary, type SessionInfo } from "./api";
+import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo } from "./api";
 import "./styles.css";
 
 /* ── helpers ── */
@@ -81,6 +81,14 @@ function projectList(r: ApiResult<ProjectSummary[] | { projects?: ProjectSummary
   if (Array.isArray(d)) return d;
   if (d && Array.isArray(d.projects)) return d.projects;
   return [];
+}
+
+function citationChip(citation: NonNullable<ChatReply["citations"]>[number]): string {
+  return [
+    citation.source_title,
+    citation.clause_id ?? citation.locator ?? citation.heading,
+    citation.page_number ? `p.${citation.page_number}` : "",
+  ].filter(Boolean).join(" · ");
 }
 
 /* ── status bar (live health/ready) ── */
@@ -171,8 +179,15 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
     } else {
       const r = await api.ask(t, { web: webOn });
       if (r.kind === "ok") {
-        const d = r.data as { answer?: string; citations?: string[] };
-        push({ role: "a", text: d.answer ?? JSON.stringify(d), chips: d.citations });
+        const d: ChatReply = r.data;
+        const chips = (d.citations ?? [])
+          .map(citationChip)
+          .filter((chip) => chip.length > 0);
+        push({
+          role: "a",
+          text: d.answer ?? "I couldn't get an answer just now.",
+          chips: chips.length ? chips : undefined,
+        });
       } else if (r.kind === "missing" || r.kind === "notBuilt") {
         push({
           role: "a", tone: "note",

@@ -16,6 +16,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+from draftcheck_core.providers import get_chat_provider
+
 from draftcheck.ai import InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
 from draftcheck.api.auth import get_current_session, require_allowed_origin, require_reviewer_session
 from draftcheck.db.engine import database_url_from_env
@@ -76,6 +78,44 @@ class SearchAskPayload(BaseModel):
     query: str | None = Field(default=None, max_length=1000)
     q: str | None = Field(default=None, max_length=1000)
     limit: int = Field(default=4, ge=1, le=12)
+
+
+class AssistantPayload(BaseModel):
+    question: str | None = Field(default=None, max_length=1000)
+    message: str | None = Field(default=None, max_length=1000)
+    query: str | None = Field(default=None, max_length=1000)
+    q: str | None = Field(default=None, max_length=1000)
+    web_search_requested: bool = False
+    limit: int = Field(default=6, ge=1, le=12)
+
+
+_ASSISTIVE_DISCLAIMER = (
+    "Assistive only - this is not a compliance determination. Confirm current "
+    "source versions and project facts, and have a human reviewer sign off before relying on it."
+)
+
+_GROUNDED_SYSTEM_PROMPT = (
+    "You are LotFile's assistant for Western Australian residential planning and design. "
+    "Answer using only the numbered SOURCES provided below. Do not invent requirements, "
+    "figures, clause numbers, property facts, or compliance outcomes that are not present "
+    "in the SOURCES. If the sources do not answer the question, say so plainly. "
+    "Never state that a specific property, drawing, or design is compliant or approved."
+)
+
+_GENERAL_SYSTEM_PROMPT = (
+    "You are LotFile's assistant. LotFile checks Western Australian residential drawings "
+    "against approved source versions and deterministic rules. Be concise and helpful, "
+    "but do not assert specific regulatory requirements, clause numbers, setbacks, site "
+    "cover, height figures, or compliance outcomes without cited source context. For "
+    "property-specific questions, ask for the address and project evidence."
+)
+
+_GENERAL_FALLBACK_ANSWER = (
+    "I can help with LotFile workflows now: start with a property address, then use approved "
+    "source versions and uploaded project evidence for cited answers. I do not have a cited "
+    "source match for that question yet, so I will not guess a WA planning requirement. Try "
+    "asking for a specific rule or add the property address first."
+)
 
 
 def _required_query(*values: str | None) -> str:
@@ -139,6 +179,53 @@ def _answer_payload(answer: SourceAnswer) -> dict[str, Any]:
     if answer.status is not AnswerStatus.UNSUPPORTED and not answer.citations:
         raise RuntimeError("source answer invariant violated: cited answer has no citations")
     return payload
+
+
+def _assistant_source_context(hits: tuple[SourceSearchHit, ...]) -> str:
+    blocks: list[str] = []
+    for index, hit in enumerate(hits, start=1):
+        label_parts = [
+            hit.citation.source_title,
+            hit.citation.locator,
+        ]
+        label = " - ".join(part for part in label_parts if part)
+        snippet = " ".join(hit.chunk.text.split())[:700]
+        blocks.append(f"[{index}] {label}\n{snippet}")
+    return "\n\n".join(blocks)
+
+
+def _dedupe_assistant_citations(hits: tuple[SourceSearchHit, ...]) -> list[dict[str, Any]]:
+    seen: set[tuple[str, str, str]] = set()
+    citations: list[dict[str, Any]] = []
+    for hit in hits:
+        key = (
+            hit.citation.source_version_id,
+            hit.citation.locator,
+            hit.citation.quote,
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        citations.append(jsonable_encoder(hit.citation))
+    return citations
+
+
+def _assistant_payload_from_answer(
+    answer: SourceAnswer,
+    *,
+    model: str,
+    provider: str,
+    used_fallback: bool,
+) -> dict[str, Any]:
+    return {
+        "answer": answer.answer,
+        "citations": jsonable_encoder(answer.citations),
+        "grounded": bool(answer.citations),
+        "model": model,
+        "provider": provider,
+        "used_fallback": used_fallback,
+        "disclaimer": _ASSISTIVE_DISCLAIMER if answer.citations else None,
+    }
 
 
 def _default_source_library() -> Any:
@@ -873,6 +960,74 @@ def create_sources_router(
             model_adapter=governed_model_adapter,
         )
         return _answer_payload(traced_answer)
+
+    @api_router.post("/assistant", tags=["search"])
+    def assistant_chat(
+        payload: AssistantPayload,
+        _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    ) -> dict[str, Any]:
+        question = _required_query(payload.message, payload.question, payload.query, payload.q)
+        provider = get_chat_provider()
+        hits = search_service.search_chunks(question, limit=payload.limit)
+
+        if getattr(provider, "is_live", False):
+            try:
+                if hits:
+                    answer = provider.complete(
+                        _GROUNDED_SYSTEM_PROMPT,
+                        (
+                            f"Question: {question}\n\n"
+                            f"SOURCES:\n{_assistant_source_context(hits)}"
+                        ),
+                    )
+                    return {
+                        "answer": answer,
+                        "citations": _dedupe_assistant_citations(hits),
+                        "grounded": True,
+                        "model": provider.model,
+                        "provider": provider.name,
+                        "used_fallback": False,
+                        "disclaimer": _ASSISTIVE_DISCLAIMER,
+                    }
+                answer = provider.complete(
+                    _GENERAL_SYSTEM_PROMPT,
+                    (
+                        f"Question: {question}\n\n"
+                        "No approved citable source chunk matched this question."
+                    ),
+                )
+                return {
+                    "answer": answer,
+                    "citations": [],
+                    "grounded": False,
+                    "model": provider.model,
+                    "provider": provider.name,
+                    "used_fallback": False,
+                    "disclaimer": None,
+                }
+            except Exception:
+                # Keep chat live even when the model provider is unavailable:
+                # fall back to the deterministic cite-or-refuse source answer.
+                pass
+
+        if hits:
+            deterministic_answer = search_service.ask(question, limit=payload.limit)
+            return _assistant_payload_from_answer(
+                deterministic_answer,
+                model=provider.model,
+                provider=provider.name,
+                used_fallback=True,
+            )
+        return {
+            "answer": _GENERAL_FALLBACK_ANSWER,
+            "citations": [],
+            "grounded": False,
+            "model": provider.model,
+            "provider": provider.name,
+            "used_fallback": True,
+            "disclaimer": None,
+        }
 
     return api_router
 
