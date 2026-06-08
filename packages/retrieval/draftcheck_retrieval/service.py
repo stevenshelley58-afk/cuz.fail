@@ -111,6 +111,9 @@ class RetrievalService:
 
         evidence_results = _select_evidence_results(question, results)
         if not evidence_results:
+            stitched_answer = self._stitched_threshold_table_answer(question, filters)
+            if stitched_answer:
+                return stitched_answer
             return _unsupported_answer(
                 "No matched source chunk contained a direct evidence sentence for the requested topic.",
                 readiness_missing_information=_source_library_readiness_missing_information(self.db),

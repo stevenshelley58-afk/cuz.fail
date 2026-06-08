@@ -12,7 +12,7 @@ html,body,#root{height:100%}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);
      -webkit-font-smoothing:antialiased;line-height:1.5;overflow:hidden}
 h1,h2,h3,.logo{font-family:'Sora','Inter',sans-serif;letter-spacing:-.02em}
-.ms{font-family:'Material Symbols Outlined';line-height:1;vertical-align:middle}
+.icon{width:1em;height:1em;vertical-align:middle;flex:none}
 button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 input,textarea{font:inherit}
 a{color:var(--green)}
@@ -26,13 +26,13 @@ a{color:var(--green)}
 .newbtn{display:flex;align-items:center;gap:9px;background:var(--green-900);color:#fff;font-weight:700;
         font-size:.85rem;padding:11px 14px;border-radius:13px;margin:0 2px 14px}
 .newbtn:hover{background:var(--green-800)}
-.newbtn .ms{font-size:19px}
+.newbtn .icon{width:19px;height:19px}
 .nav{display:flex;flex-direction:column;gap:3px}
 .nav button{display:flex;align-items:center;gap:11px;color:var(--ink-soft);text-align:left;
        font-size:.88rem;font-weight:600;padding:9px 12px;border-radius:12px;width:100%}
-.nav button .ms{font-size:20px;color:var(--ink-faint)}
+.nav button .icon{width:20px;height:20px;color:var(--ink-faint)}
 .nav button.on{background:var(--mint);color:var(--green-800)}
-.nav button.on .ms{color:var(--green)}
+.nav button.on .icon{color:var(--green)}
 .nav button:hover:not(.on){background:var(--paper)}
 .side .grow{flex:1}
 .user{display:flex;align-items:center;gap:10px;padding:10px 10px;border-top:1px solid var(--line);font-size:.78rem}
@@ -56,7 +56,7 @@ a{color:var(--green)}
 .chip{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:99px;display:flex;align-items:center;gap:5px;
       border:1px solid var(--line);color:var(--ink-faint);background:var(--paper)}
 .chip.on{background:var(--mint);border-color:var(--mint-deep);color:var(--green-800)}
-.chip .ms{font-size:13px}
+.chip .icon{width:13px;height:13px}
 .belt .grow{flex:1}
 .go{width:42px;height:42px;border-radius:13px;background:var(--green-900);color:#fff;display:flex;align-items:center;justify-content:center}
 .go:hover{background:var(--green-800)}
@@ -65,7 +65,7 @@ a{color:var(--green)}
 .hints button{font-size:.78rem;font-weight:600;color:var(--green-800);background:var(--mint);
               border:1px solid var(--mint-deep);padding:8px 14px;border-radius:99px;display:flex;align-items:center;gap:6px}
 .hints button:hover{background:var(--mint-deep)}
-.hints button .ms{font-size:15px}
+.hints button .icon{width:15px;height:15px}
 .hints button.addr{background:var(--card);border-color:var(--line);color:var(--ink-soft)}
 .hints button.addr:hover{border-color:var(--green-bright);color:var(--green-800)}
 
@@ -78,7 +78,7 @@ a{color:var(--green)}
 .a .src{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
 .srcchip{font-size:.66rem;font-weight:700;padding:3px 9px;border-radius:8px;background:var(--mint);
          color:var(--green-800);border:1px solid var(--mint-deep);display:flex;align-items:center;gap:4px}
-.srcchip .ms{font-size:12px}
+.srcchip .icon{width:12px;height:12px}
 .a .act{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
 .a .act button,.btn{background:var(--green-900);color:#fff;font-weight:700;font-size:.8rem;
                     padding:9px 16px;border-radius:11px;display:inline-flex;align-items:center;gap:7px}
@@ -93,7 +93,7 @@ a{color:var(--green)}
 .proj{flex:1;min-width:240px;text-align:left;background:var(--card);border:1px solid var(--line);
       border-radius:16px;padding:10px 14px;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px}
 .proj:hover{border-color:var(--green-bright)}
-.proj .ms{color:var(--green);font-size:19px}
+.proj .icon{color:var(--green);width:19px;height:19px}
 .proj .t{font-size:.8rem;font-weight:600;line-height:1.25;min-width:0}
 .proj .t small{display:block;font-weight:500;color:var(--ink-faint);font-size:.68rem}
 
@@ -101,19 +101,19 @@ a{color:var(--green)}
 .view{flex:1;min-height:0;width:100%;max-width:860px;overflow-y:auto;padding:22px 2px}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;margin-bottom:14px}
 .panel h3{font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.panel h3 .ms{color:var(--green);font-size:20px}
+.panel h3 .icon{color:var(--green);width:20px;height:20px}
 .panel p{font-size:.85rem;color:var(--ink-soft)}
 .state{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink-soft);
        background:var(--paper);border:1px dashed var(--line);border-radius:14px;padding:12px 14px;margin-top:10px}
-.state .ms{color:var(--flag);font-size:19px;margin-top:1px}
-.state.okay .ms{color:var(--green)}
+.state .icon{color:var(--flag);width:19px;height:19px;margin-top:1px}
+.state.okay .icon{color:var(--green)}
 .field{display:flex;gap:8px;margin-top:10px}
 .field input{flex:1;border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;outline:none;background:var(--paper)}
 .field input:focus{border-color:var(--green-bright)}
 
 /* status pills */
 .pill{font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:99px;display:inline-flex;align-items:center;gap:5px}
-.pill .ms{font-size:13px}
+.pill .icon{width:13px;height:13px}
 .pill.ok{background:var(--mint);color:var(--green-800)}
 .pill.bad{background:var(--flag-bg);color:var(--flag)}
 .pill.dim{background:#EEF2F0;color:var(--ink-soft)}
@@ -131,7 +131,7 @@ a{color:var(--green)}
           align-items:stretch;padding-bottom:env(safe-area-inset-bottom,0)}
   .tb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
       font-size:.56rem;font-weight:700;color:var(--ink-faint)}
-  .tb .ms{font-size:21px}
+  .tb .icon{width:21px;height:21px}
   .tb.on{color:var(--green-800)}
   .tb.on .ico{background:var(--mint);border-radius:99px;padding:2px 13px}
   .tb .ico{padding:2px 13px}

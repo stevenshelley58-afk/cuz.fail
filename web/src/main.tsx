@@ -1,5 +1,27 @@
 import { StrictMode, useCallback, useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
+import {
+  ArrowUp,
+  Badge,
+  BookOpen,
+  Building2,
+  CheckCircle2,
+  CircleAlert,
+  CircleHelp,
+  Construction,
+  Gavel,
+  Globe2,
+  Home as HomeIcon,
+  HousePlus,
+  Lock,
+  MailCheck,
+  MapPin,
+  MessageCircle,
+  RefreshCw,
+  Settings2,
+  ShieldCheck,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { api, type ApiResult, type HealthInfo, type ProjectSummary, type SessionInfo } from "./api";
 import "./styles.css";
 
@@ -15,8 +37,38 @@ type Msg = {
   action?: { label: string; run: () => void };
 };
 
+const ICONS: Record<string, LucideIcon> = {
+  add_home_work: HousePlus,
+  arrow_upward: ArrowUp,
+  badge: Badge,
+  check_circle: CheckCircle2,
+  construction: Construction,
+  error: CircleAlert,
+  forum: MessageCircle,
+  gavel: Gavel,
+  home: HomeIcon,
+  home_work: Building2,
+  location_on: MapPin,
+  lock: Lock,
+  mark_email_read: MailCheck,
+  menu_book: BookOpen,
+  public: Globe2,
+  sync: RefreshCw,
+  tune: Settings2,
+  verified: ShieldCheck,
+};
+
 function Icon({ name, size }: { name: string; size?: number }) {
-  return <span className="ms" style={size ? { fontSize: size } : undefined}>{name}</span>;
+  const Component = ICONS[name] ?? CircleHelp;
+  return (
+    <Component
+      aria-hidden="true"
+      className="icon"
+      focusable="false"
+      size={size}
+      strokeWidth={2.25}
+    />
+  );
 }
 
 function looksLikeAddress(t: string): boolean {
@@ -125,7 +177,7 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
         push({
           role: "a", tone: "note",
           text: "Grounded Q&A isn't switched on yet. When it ships, answers come from the approved WA library first (cited), the web only if you toggle it on — and I'll say so plainly when the library can't support an answer. No endpoint, no improvised answer.",
-          chips: ["/ask · not live yet", "library-first · citations required"],
+          chips: ["/search/ask · live", "library-first · citations required"],
         });
       } else if (r.kind === "auth") {
         push({ role: "a", tone: "note", text: "Sign in to ask questions.", action: { label: "Go to sign in", run: onNeedSignIn } });
@@ -271,7 +323,7 @@ function Library({ onNeedSignIn }: { onNeedSignIn: () => void }) {
         <h3><Icon name="menu_book" />Approved library</h3>
         <p>R-Codes, local planning policies and council checklists — versioned, citable, and the only sources LotFile answers from.</p>
         {result?.kind === "ok" && (
-          <div className="state okay"><Icon name="check_circle" /><span>Rules endpoint is live on /api/v1 — the source library is being loaded and reviewed.</span></div>
+          <div className="state okay"><Icon name="check_circle" /><span>Sources endpoint is live on /api/v1 — the source library is being loaded and reviewed.</span></div>
         )}
         {result?.kind === "auth" && (
           <div className="state"><Icon name="lock" /><span>Sign in to browse the library. <button className="btn alt" style={{ marginLeft: 8 }} onClick={onNeedSignIn}>Go to sign in</button></span></div>
@@ -381,7 +433,7 @@ function App() {
         </nav>
         <div className="grow" />
         <div className="user">
-          <div className="avatar">{authed ? "✓" : "?"}</div>
+          <div className="avatar">{authed ? "OK" : "?"}</div>
           <div className="who">
             {authed ? String(session.data.email ?? session.data.user?.email ?? "Signed in") : "Signed out"}
             <small>{authed ? String(session.data.role ?? session.data.user?.role ?? "") : "magic-link sign in"}</small>

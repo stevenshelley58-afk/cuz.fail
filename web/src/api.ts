@@ -70,6 +70,7 @@ export const api = {
   createProject: (address: string) => call<ProjectSummary>("POST", "/projects", { name: address, address }),
   resolveAddress: (projectId: string, address: string) =>
     call<Record<string, unknown>>("POST", `/projects/${projectId}/resolve-address`, { address }),
-  rules: () => call<unknown>("GET", "/rules"),
-  ask: (question: string, scope: { web: boolean }) => call<unknown>("POST", "/ask", { question, scope }),
+  rules: () => call<unknown>("GET", "/sources"),
+  ask: (question: string, scope: { web: boolean }) =>
+    call<unknown>("POST", "/search/ask", { question, web_search_requested: scope.web }),
 };
