@@ -175,27 +175,72 @@
   }
   function goLookup(e){ e.preventDefault(); window.location.href='1-onboarding.html'; return false; }
 
-  /* general assistant — general info only; nudges to a property for specifics, never guesses */
-  const GA = [
-    {m:/check|what can/i, t:'For a looked-up property I check the R-Codes and council rules: setbacks, site cover, open space, building height, outdoor living, boundary walls, deep soil, plus bushfire/heritage triggers and a drawing-QA pass — each with a citation.'},
-    {m:/accurate|reliable|trust/i, t:'Every property result either cites an official, current source or is marked "needs review" / "missing info". It never says "compliant" — a human signs off. I would rather say "I can\'t prove this" than guess.'},
-    {m:/council|support|cover/i, t:'WA-first, council by council. The demo covers the City of Stirling. Each council\'s scheme and policies are loaded and reviewed before its rules go live.'},
-    {m:/cost|price|free/i, t:'Address and bushfire data are free; the statewide cadastre and zoning are licensed. That only affects what I can load — not how I answer.'},
-  ];
-  function gAnswer(q){
-    if(/setback|my |this (lot|block|property|parcel|address)|site cover|open space|zone|height|subdiv/i.test(q) && !/what can|accurate|council|cost/i.test(q)){
-      return {a:'That depends on the specific parcel, and I won\'t guess. Look up the address above and I\'ll answer with the exact clause for that property.', nudge:true};
-    }
-    const hit = GA.find(x=>x.m.test(q));
-    return {a: hit ? hit.t : 'I can help with how DraftCheck works. For anything about a specific block, look up its address and I\'ll answer from that property\'s sources.', nudge:!hit};
-  }
+  /* general assistant — real grounded model via the API.
+     Grounded answers carry citations; ungrounded ones nudge to a property. */
+  const API = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+    ? 'http://127.0.0.1:8000/v1'
+    : 'https://api.cuz.fail/v1';
+
   function esc(s){ const d=document.createElement('div'); d.textContent=s??''; return d.innerHTML; }
-  function push(who, text, nudge){
+
+  function push(who, text){
     const b=document.createElement('div'); b.className='bubble '+who;
-    b.innerHTML = esc(text) + (nudge ? `<br><a class="nudge" href="1-onboarding.html"><span class="ms" style="font-size:14px">location_on</span> Look up a property</a>`:'');
+    b.innerHTML = esc(text).replace(/\n/g,'<br>');
     $('thread').appendChild(b); $('thread').scrollTop = $('thread').scrollHeight;
+    return b;
   }
-  function gask(q){ push('q', q); $('suggest').style.display='none'; setTimeout(()=>{ const r=gAnswer(q); push('a', r.a, r.nudge); }, 380); }
+
+  function pushTyping(){
+    const b=document.createElement('div'); b.className='bubble a'; b.textContent='…';
+    $('thread').appendChild(b); $('thread').scrollTop=$('thread').scrollHeight;
+    return b;
+  }
+
+  function renderAnswer(node, data){
+    const text = (data && typeof data.answer === 'string' && data.answer.trim())
+      ? data.answer : "Sorry, I didn't get an answer.";
+    const grounded = !!(data && data.grounded);
+    const cites = (data && Array.isArray(data.citations)) ? data.citations : [];
+    node.className='bubble a';
+    node.innerHTML = esc(text).replace(/\n/g,'<br>');
+    if(cites.length){
+      const wrap=document.createElement('div');
+      wrap.style.cssText='display:flex;flex-wrap:wrap;gap:6px;margin-top:9px';
+      cites.forEach(c=>{
+        const label=[c.source_title, c.clause_id].filter(Boolean).join(' · ') || 'source';
+        const pill=document.createElement('span');
+        pill.textContent=label;
+        if(c.quote) pill.title=c.quote;
+        pill.style.cssText='background:var(--mint);color:var(--green-800);border:1px solid var(--mint-deep);border-radius:99px;padding:3px 9px;font-size:.72rem;font-weight:600;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap';
+        wrap.appendChild(pill);
+      });
+      node.appendChild(wrap);
+    } else if(!grounded && !(data && data.noNudge)){
+      const a=document.createElement('a'); a.className='nudge'; a.href='1-onboarding.html';
+      a.innerHTML='<span class="ms" style="font-size:14px">location_on</span> Look up a property';
+      node.appendChild(document.createElement('br')); node.appendChild(a);
+    }
+    $('thread').scrollTop=$('thread').scrollHeight;
+  }
+
+  async function gask(q){
+    q = (q||'').trim(); if(!q) return;
+    push('q', q);
+    $('suggest').style.display='none';
+    const typing = pushTyping();
+    try{
+      const res = await fetch(API + '/assistant', {
+        method:'POST',
+        headers:{'content-type':'application/json'},
+        body: JSON.stringify({ message: q })
+      });
+      if(!res.ok) throw new Error('HTTP '+res.status);
+      renderAnswer(typing, await res.json());
+    }catch(err){
+      renderAnswer(typing, { answer:"I couldn't reach the assistant just now. Please try again in a moment.", grounded:false, citations:[], noNudge:true });
+    }
+  }
+
   function gsend(e){ e.preventDefault(); const q=$('ginput').value.trim(); if(!q) return false; $('ginput').value=''; gask(q); return false; }
 </script>
 </body>

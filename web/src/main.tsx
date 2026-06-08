@@ -142,14 +142,14 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
       if (resolved.kind === "ok") {
         push({ role: "a", tone: "note", text: "Property resolved. Drawings upload and Tier-1 checks are the next build steps — this project is saved and waiting.", chips: ["resolve-address · live"] });
       } else if (resolved.kind === "notBuilt") {
-        push({ role: "a", tone: "warn", text: "Project saved. The address resolver endpoint is still a 501 stub on the API — it will light up here the moment it ships." });
+        push({ role: "a", tone: "note", text: "Project saved. Address resolving is coming soon — it'll light up here automatically when it's ready." });
       } else if (resolved.kind === "auth") {
         onNeedSignIn();
       } else {
         push({ role: "a", tone: "warn", text: `Project saved, but resolving failed: ${resolved.kind === "error" ? resolved.message : resolved.kind}.` });
       }
     } else if (created.kind === "notBuilt") {
-      push({ role: "a", tone: "warn", text: "The projects endpoint is live but still a 501 stub — the API team (us) hasn't shipped project creation yet. Your address wasn't lost on a fake screen; nothing pretends to work here before it does.", chips: ["POST /projects → 501"] });
+      push({ role: "a", tone: "note", text: "Project creation is coming soon. Your address is saved and will run the moment it's available.", chips: ["creating projects · coming soon"] });
     } else if (created.kind === "auth") {
       push({ role: "a", tone: "note", text: "Sign in first — LotFile uses email magic links, no passwords.", action: { label: "Go to sign in", run: onNeedSignIn } });
     } else if (created.kind === "down") {
@@ -176,8 +176,8 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
       } else if (r.kind === "missing" || r.kind === "notBuilt") {
         push({
           role: "a", tone: "note",
-          text: "Grounded Q&A isn't switched on yet. When it ships, answers come from the approved WA library first (cited), the web only if you toggle it on — and I'll say so plainly when the library can't support an answer. No endpoint, no improvised answer.",
-          chips: ["/search/ask · live", "library-first · citations required"],
+          text: "Grounded Q&A is coming soon. Answers come from the approved WA library first (cited), and the web only if you toggle it on — and I'll say so plainly when the library can't support an answer.",
+          chips: ["library-first · citations required"],
         });
       } else if (r.kind === "auth") {
         push({ role: "a", tone: "note", text: "Sign in to ask questions.", action: { label: "Go to sign in", run: onNeedSignIn } });
@@ -299,7 +299,7 @@ function Projects({ onNeedSignIn }: { onNeedSignIn: () => void }) {
           </div>
         )}
         {result?.kind === "notBuilt" && (
-          <div className="state"><Icon name="construction" /><span>The projects endpoint is a deliberate 501 stub on the live API — project creation ships in the next phase of the V3 build. This screen wires itself up automatically when it lands.</span></div>
+          <div className="state"><Icon name="construction" /><span>Project creation is coming soon — this screen wires itself up automatically when it lands.</span></div>
         )}
         {result?.kind === "auth" && (
           <div className="state"><Icon name="lock" /><span>Sign in to see your projects. <button className="btn alt" style={{ marginLeft: 8 }} onClick={onNeedSignIn}>Go to sign in</button></span></div>
@@ -323,13 +323,13 @@ function Library({ onNeedSignIn }: { onNeedSignIn: () => void }) {
         <h3><Icon name="menu_book" />Approved library</h3>
         <p>R-Codes, local planning policies and council checklists — versioned, citable, and the only sources LotFile answers from.</p>
         {result?.kind === "ok" && (
-          <div className="state okay"><Icon name="check_circle" /><span>Sources endpoint is live on /api/v1 — the source library is being loaded and reviewed.</span></div>
+          <div className="state okay"><Icon name="check_circle" /><span>The approved source library is being loaded and reviewed.</span></div>
         )}
         {result?.kind === "auth" && (
           <div className="state"><Icon name="lock" /><span>Sign in to browse the library. <button className="btn alt" style={{ marginLeft: 8 }} onClick={onNeedSignIn}>Go to sign in</button></span></div>
         )}
         {result?.kind === "notBuilt" && (
-          <div className="state"><Icon name="construction" /><span>Library browsing isn't shipped yet (501 stub).</span></div>
+          <div className="state"><Icon name="construction" /><span>Library browsing is coming soon.</span></div>
         )}
         {(result?.kind === "down" || result?.kind === "error" || result?.kind === "missing") && result !== null && (
           <div className="state"><Icon name="error" /><span>Couldn't reach the library ({result.kind}).</span></div>
@@ -369,8 +369,8 @@ function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null
               />
               <button className="btn" onClick={() => { void api.magicLinkRequest(email).then((r) => setSent(r.kind)); }}>Send link</button>
             </div>
-            {sent === "ok" && <div className="state okay" style={{ marginTop: 10 }}><Icon name="mark_email_read" /><span>Link sent — check your email. (Dev environments log the link on the server.)</span></div>}
-            {sent && sent !== "ok" && <div className="state"><Icon name="error" /><span>Couldn't send the link ({sent}). If SMTP isn't configured yet, use the server's `cli login-link` bootstrap.</span></div>}
+            {sent === "ok" && <div className="state okay" style={{ marginTop: 10 }}><Icon name="mark_email_read" /><span>Link sent — check your email for your sign-in link.</span></div>}
+            {sent && sent !== "ok" && <div className="state"><Icon name="error" /><span>Couldn't send the link just now — please try again in a moment.</span></div>}
           </>
         )}
       </div>
@@ -382,11 +382,61 @@ function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null
   );
 }
 
+/* ── sign in / create account popup ── */
+
+function SignInModal({ onClose }: { onClose?: () => void }) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const submit = useCallback(async () => {
+    const value = email.trim();
+    if (!value || status === "sending") return;
+    setStatus("sending");
+    const r = await api.magicLinkRequest(value);
+    setStatus(r.kind === "ok" ? "sent" : "error");
+  }, [email, status]);
+
+  return (
+    <div className="modal-backdrop" onClick={() => onClose?.()}>
+      <div className="modal" role="dialog" aria-modal="true" aria-label="Sign in or create your account" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-logo">Lot<span>File</span></div>
+        {status === "sent" ? (
+          <>
+            <h2>Check your email</h2>
+            <p>We sent a sign-in link to <b>{email.trim()}</b>. Open it on this device to continue.</p>
+            <button className="btn block" onClick={() => setStatus("idle")}>Use a different email</button>
+          </>
+        ) : (
+          <>
+            <h2>Sign in or create your account</h2>
+            <p>Enter your email and we’ll send you a magic link. New here? The same link sets up your account — no password to remember.</p>
+            <input
+              className="modal-input"
+              type="email"
+              autoFocus
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onKeyDown={(e) => { if (e.key === "Enter") void submit(); }}
+            />
+            <button className="btn block" onClick={() => void submit()} disabled={status === "sending"}>
+              {status === "sending" ? "Sending…" : "Email me a magic link"}
+            </button>
+            {status === "error" && <p className="modal-err">Couldn’t send the link just now — please try again in a moment.</p>}
+          </>
+        )}
+        {onClose && <button className="modal-skip" onClick={onClose}>Continue browsing</button>}
+      </div>
+    </div>
+  );
+}
+
 /* ── app shell ── */
 
 function App() {
   const [view, setView] = useState<View>("home");
   const [session, setSession] = useState<ApiResult<SessionInfo> | null>(null);
+  const [signInOpen, setSignInOpen] = useState(false);
 
   const refreshSession = useCallback(() => { void api.session().then(setSession); }, []);
 
@@ -407,7 +457,13 @@ function App() {
   }, [refreshSession]);
 
   const authed = session?.kind === "ok";
-  const goSignIn = useCallback(() => setView("settings"), []);
+  const goSignIn = useCallback(() => setSignInOpen(true), []);
+
+  // Returning (signed-in) users go straight to home; everyone else gets the popup.
+  useEffect(() => {
+    if (session === null) return;
+    setSignInOpen(session.kind !== "ok");
+  }, [session]);
 
   const navItem = (v: View, icon: string, label: string) => (
     <button className={view === v ? "on" : ""} onClick={() => setView(v)}>
@@ -419,6 +475,15 @@ function App() {
       <span className="ico"><Icon name={icon} /></span>{label}
     </button>
   );
+
+  if (session === null) {
+    return (
+      <div className="boot">
+        <div className="boot-logo">Lot<span>File</span></div>
+        <div className="boot-spinner" aria-label="Loading" />
+      </div>
+    );
+  }
 
   return (
     <div className="app">
@@ -454,6 +519,8 @@ function App() {
         {tab("library", "menu_book", "Library")}
         {tab("settings", "tune", "Settings")}
       </div>
+
+      {signInOpen && <SignInModal onClose={() => setSignInOpen(false)} />}
     </div>
   );
 }

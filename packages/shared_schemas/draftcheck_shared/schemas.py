@@ -179,6 +179,23 @@ class StandardAnswer(BaseModel):
     status: CheckStatus | Literal["unsupported"]
 
 
+class ChatReply(BaseModel):
+    """Conversational assistant reply.
+
+    `grounded` is true when the answer was produced from retrieved, cited source
+    chunks. When false, the answer is a general assistant response and carries no
+    citations (and must never assert a specific regulatory requirement).
+    """
+
+    answer: str
+    citations: list[Citation] = Field(default_factory=list)
+    grounded: bool = False
+    model: str = ""
+    provider: str = ""
+    used_fallback: bool = False
+    disclaimer: str | None = None
+
+
 class ProjectCreate(BaseModel):
     project_name: str = "Untitled project"
     client_name: str | None = None

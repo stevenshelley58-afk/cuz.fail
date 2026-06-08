@@ -48,10 +48,12 @@ from draftcheck_document_ai.upload_security import (
 )
 from draftcheck_export.service import ExportService
 from draftcheck_ingestion.service import SourceIngestionService
+from draftcheck_retrieval.chat import GroundedChatService
 from draftcheck_retrieval.service import RetrievalService
 from draftcheck_scraper.lawful_fetcher import fetch_public_content
 from draftcheck_shared.schemas import (
     AskRequest,
+    ChatReply,
     AddressProfileRead,
     AddressResolveRequest,
     AddressSuggestionRead,
@@ -620,6 +622,25 @@ def ask_chat(payload: AskRequest, db: Session = Depends(get_db)) -> StandardAnsw
 def ask_project_source(project_id: str, payload: AskRequest, db: Session = Depends(get_db)) -> StandardAnswer:
     project = ProjectService(db).get_project(project_id)
     return RetrievalService(db).ask(payload.question, _project_source_filters(project, payload))
+
+
+@router.post("/assistant", response_model=ChatReply)
+def assistant_chat(payload: AskRequest, db: Session = Depends(get_db)) -> ChatReply:
+    """Grounded conversational assistant.
+
+    Uses the configured chat model, grounded in approved sources when relevant
+    chunks exist; otherwise a general helpful reply (never inventing regulatory
+    specifics). Falls back to the deterministic engine when no live model is set.
+    """
+    return GroundedChatService(db).reply(payload.question, payload.source_filters)
+
+
+@router.post("/projects/{project_id}/assistant", response_model=ChatReply)
+def assistant_project_chat(
+    project_id: str, payload: AskRequest, db: Session = Depends(get_db)
+) -> ChatReply:
+    project = ProjectService(db).get_project(project_id)
+    return GroundedChatService(db).reply(payload.question, _project_source_filters(project, payload))
 
 
 @router.post("/projects/{project_id}/ask", response_model=StandardAnswer)

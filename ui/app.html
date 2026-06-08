@@ -430,6 +430,14 @@ function answerToMessage(answer) {
   return { who: "a", text: answer.answer || "The approved source library returned citations but no answer text.", cites };
 }
 
+function chatReplyToMessage(reply) {
+  const cites = (reply?.citations || []).map(citationToView);
+  const text = (reply?.answer && reply.answer.trim())
+    ? reply.answer
+    : "I couldn't get an answer just now. Please try again.";
+  return { who: "a", text, cites: cites.length ? cites : null };
+}
+
 function buildEmails(rfiItems, responses) {
   const drafts = (responses || []).map(responseToEmail);
   return drafts.length ? drafts : (rfiItems || []).map(rfiItemToEmail);
@@ -794,8 +802,8 @@ $('askform').addEventListener('submit', async e => {
   renderChat(p);
   let message;
   try {
-    const answer = await api(`/projects/${current}/chat`, { method: 'POST', body: { question: q } });
-    message = answerToMessage(answer);
+    const reply = await api(`/projects/${current}/assistant`, { method: 'POST', body: { question: q } });
+    message = chatReplyToMessage(reply);
   } catch (err) {
     message = { who: 'a', text: `The service could not answer: ${err.message}`, cites: null };
   }
