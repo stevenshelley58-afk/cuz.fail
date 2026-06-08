@@ -5,6 +5,7 @@ from draftcheck.domain.sources.fetching import (
     extract_source_text,
     infer_source_type,
     parse_robots_allows,
+    sanitize_source_text,
 )
 
 
@@ -155,3 +156,7 @@ def test_infer_source_type_requires_planning_specific_policy_and_strategy_tokens
         )
         == "source_document"
     )
+
+
+def test_sanitize_source_text_removes_postgres_nul_bytes() -> None:
+    assert sanitize_source_text("planning\x00scheme\x00text") == "planningschemetext"

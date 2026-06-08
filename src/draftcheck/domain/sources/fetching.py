@@ -66,6 +66,7 @@ def fetch_public_source(
             content_type=content_type,
             final_url=str(response.url),
         )
+        text = sanitize_source_text(text)
         if not text.strip():
             raise ValueError("source fetch produced no parseable text")
         digest = sha256(response.content).hexdigest()
@@ -144,6 +145,12 @@ def extract_source_text(content: bytes, *, content_type: str, final_url: str) ->
     if "html" in lowered_type or lowered_url.endswith((".html", ".htm", "/")):
         return _extract_html_text(content, final_url=final_url)
     return content.decode("utf-8", errors="ignore").strip()
+
+
+def sanitize_source_text(text: str) -> str:
+    """Remove characters PostgreSQL cannot store in text columns."""
+
+    return text.replace("\x00", "")
 
 
 def extract_candidate_links(final_url: str, html: bytes | str) -> tuple[CandidateSourceLink, ...]:
