@@ -107,3 +107,51 @@ def test_cli_surface_is_login_link_only() -> None:
     assert stdout.getvalue() == ""
     assert "invalid choice" in stderr.getvalue()
     assert "token=" not in stderr.getvalue()
+
+
+def test_login_link_uses_durable_store_when_database_url_is_set(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[dict[str, str | None]] = []
+    backing_store = InMemoryIdentityStore(token_hash_pepper="pepper")
+
+    class FakeSqlAlchemyIdentityStore:
+        @classmethod
+        def from_database_url(
+            cls,
+            database_url: str,
+            *,
+            token_hash_pepper: str | None = None,
+        ) -> InMemoryIdentityStore:
+            calls.append({"database_url": database_url, "token_hash_pepper": token_hash_pepper})
+            return backing_store
+
+    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://fixture")
+    monkeypatch.setattr(cli, "SqlAlchemyIdentityStore", FakeSqlAlchemyIdentityStore)
+    stdout = StringIO()
+    stderr = StringIO()
+
+    status = cli.main(
+        [
+            "login-link",
+            "owner@example.test",
+            "--org-slug",
+            "pilot",
+            "--frontend-url",
+            "https://app.test",
+        ],
+        stdout=stdout,
+        stderr=stderr,
+        settings=Settings(frontend_url="https://app.test", auth_token_hash_pepper="pepper"),
+    )
+
+    assert status == 0
+    assert stderr.getvalue() == ""
+    assert calls == [
+        {
+            "database_url": "postgresql+psycopg://fixture",
+            "token_hash_pepper": "pepper",
+        }
+    ]
+    token = parse_qs(urlparse(stdout.getvalue().strip()).query)["token"][0]
+    assert backing_store.consume_magic_link(token)[0].email == "owner@example.test"

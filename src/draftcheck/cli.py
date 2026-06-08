@@ -6,6 +6,7 @@ import argparse
 from dataclasses import dataclass
 from datetime import datetime
 from functools import partial
+import os
 import sys
 from typing import Any, Sequence, TextIO, cast
 from urllib.parse import urlencode, urlparse
@@ -15,6 +16,7 @@ from draftcheck.domain.identity import (
     IdentityRole,
     InMemoryIdentityStore,
     InvalidIdentityInputError,
+    SqlAlchemyIdentityStore,
     normalize_role,
 )
 from draftcheck.domain.identity.store import DEFAULT_ORG_NAME
@@ -65,9 +67,7 @@ def issue_login_link(
 
     active_settings = settings or Settings.from_env()
     normalized_frontend_url = _normalize_frontend_url(frontend_url or active_settings.frontend_url)
-    identity_store = store or InMemoryIdentityStore(
-        token_hash_pepper=active_settings.auth_token_hash_pepper or None,
-    )
+    identity_store = store or _default_identity_store(active_settings)
     normalized_role = normalize_role(role)
 
     org = identity_store.get_or_create_org(slug=org_slug, name=org_name)
@@ -82,6 +82,17 @@ def issue_login_link(
         url=_magic_link_url(normalized_frontend_url, issue.token),
         expires_at=issue.record.expires_at,
     )
+
+
+def _default_identity_store(settings: Settings) -> InMemoryIdentityStore | SqlAlchemyIdentityStore:
+    token_hash_pepper = settings.auth_token_hash_pepper or None
+    database_url = os.getenv("DATABASE_URL")
+    if database_url and os.getenv("DRAFTCHECK_AUTH_STORE", "auto") != "memory":
+        return SqlAlchemyIdentityStore.from_database_url(
+            database_url,
+            token_hash_pepper=token_hash_pepper,
+        )
+    return InMemoryIdentityStore(token_hash_pepper=token_hash_pepper)
 
 
 def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:

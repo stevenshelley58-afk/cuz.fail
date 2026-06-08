@@ -9,6 +9,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from draftcheck.api.auth import get_email_sender, get_identity_store
+import draftcheck.api.auth as auth_module
 from draftcheck.api.main import create_app
 from draftcheck.config import Settings, get_settings
 from draftcheck.domain.identity import (
@@ -155,6 +156,39 @@ def test_new_v3_app_has_no_dev_login_route() -> None:
     assert client.post("/api/v1/auth/dev-login").status_code == 404
     paths = set(client.get("/api/v1/openapi.json").json()["paths"])
     assert not any("dev-login" in path for path in paths)
+
+
+def test_auth_dependency_uses_durable_store_when_database_url_is_set(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[dict[str, str | None]] = []
+    backing_store = InMemoryIdentityStore(token_hash_pepper="pepper")
+
+    class FakeSqlAlchemyIdentityStore:
+        @classmethod
+        def from_database_url(
+            cls,
+            database_url: str,
+            *,
+            token_hash_pepper: str | None = None,
+        ) -> InMemoryIdentityStore:
+            calls.append({"database_url": database_url, "token_hash_pepper": token_hash_pepper})
+            return backing_store
+
+    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://fixture")
+    monkeypatch.setattr(auth_module, "SqlAlchemyIdentityStore", FakeSqlAlchemyIdentityStore)
+    monkeypatch.setattr(auth_module, "_identity_store", None)
+
+    store = get_identity_store(Settings(auth_token_hash_pepper="pepper"))
+
+    assert store is backing_store
+    assert calls == [
+        {
+            "database_url": "postgresql+psycopg://fixture",
+            "token_hash_pepper": "pepper",
+        }
+    ]
+    monkeypatch.setattr(auth_module, "_identity_store", None)
 
 
 def _token_from_magic_link(magic_link: str) -> str:

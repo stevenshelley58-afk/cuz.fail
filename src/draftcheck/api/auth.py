@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+import os
 from typing import Annotated
 from urllib.parse import urlencode
 
@@ -20,13 +21,16 @@ from draftcheck.domain.identity import (
     MagicLinkTokenExpiredError,
     MagicLinkTokenNotFoundError,
     SESSION_TTL,
+    SqlAlchemyIdentityStore,
     require_reviewer,
 )
 
 
 router = APIRouter(tags=["auth"])
 
-_identity_store: InMemoryIdentityStore | None = None
+IdentityStore = InMemoryIdentityStore | SqlAlchemyIdentityStore
+
+_identity_store: IdentityStore | None = None
 _email_sender = DevLogEmailSender()
 
 
@@ -69,12 +73,20 @@ class LogoutResponse(BaseModel):
     status: str
 
 
-def get_identity_store(settings: Annotated[Settings, Depends(get_settings)]) -> InMemoryIdentityStore:
+def get_identity_store(settings: Annotated[Settings, Depends(get_settings)]) -> IdentityStore:
     global _identity_store
     if _identity_store is None:
-        _identity_store = InMemoryIdentityStore(
-            token_hash_pepper=settings.auth_token_hash_pepper or None,
-        )
+        token_hash_pepper = settings.auth_token_hash_pepper or None
+        database_url = os.getenv("DATABASE_URL")
+        if database_url and os.getenv("DRAFTCHECK_AUTH_STORE", "auto") != "memory":
+            _identity_store = SqlAlchemyIdentityStore.from_database_url(
+                database_url,
+                token_hash_pepper=token_hash_pepper,
+            )
+        else:
+            _identity_store = InMemoryIdentityStore(
+                token_hash_pepper=token_hash_pepper,
+            )
     return _identity_store
 
 
