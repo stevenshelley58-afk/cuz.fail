@@ -57,6 +57,7 @@ a{color:var(--green)}
 .chip{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:99px;display:flex;align-items:center;gap:5px;
       border:1px solid var(--line);color:var(--ink-faint);background:var(--paper)}
 .chip.on{background:var(--mint);border-color:var(--mint-deep);color:var(--green-800)}
+.chip.guest{background:#FFF7ED;border-color:#FED7AA;color:#9A4B0B}
 .chip .icon{width:13px;height:13px}
 .belt .grow{flex:1}
 .go{width:42px;height:42px;border-radius:13px;background:var(--green-900);color:#fff;display:flex;align-items:center;justify-content:center}
@@ -145,6 +146,17 @@ a{color:var(--green)}
 .modal-err{color:var(--flag);font-size:.8rem;margin:10px 0 0}
 .modal-skip{display:inline-block;margin-top:14px;color:var(--ink-faint);font-size:.78rem;font-weight:600}
 .modal-skip:hover{color:var(--green-800)}
+.paywall{padding-top:26px}
+.paywall-icon{width:46px;height:46px;margin:0 auto 12px;border-radius:16px;background:var(--mint);color:var(--green-800);
+  display:flex;align-items:center;justify-content:center}
+.paywall-icon .icon{width:23px;height:23px}
+.usage-meter{height:8px;border-radius:99px;background:var(--paper);border:1px solid var(--line);overflow:hidden;margin:2px 0 16px}
+.usage-meter span{display:block;height:100%;background:var(--green);border-radius:99px}
+.plans{display:grid;grid-template-columns:1fr;gap:8px;text-align:left;margin:0 0 16px}
+.plans div{border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:var(--paper)}
+.plans b{display:block;font-size:.78rem;color:var(--ink);margin-bottom:2px}
+.plans span{display:block;font-size:.72rem;color:var(--ink-soft);line-height:1.35}
+.paywall .btn+.btn{margin-top:8px}
 
 /* mobile */
 .tabbar{display:none}

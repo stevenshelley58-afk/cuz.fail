@@ -90,7 +90,13 @@ export const api = {
     call<Record<string, unknown>>("POST", "/auth/dev-login", { username, password }),
   logout: () => call<Record<string, unknown>>("POST", "/auth/logout"),
   projects: () => call<ProjectSummary[] | { projects?: ProjectSummary[] }>("GET", "/projects"),
-  createProject: (address: string) => call<ProjectSummary>("POST", "/projects", { name: address, address }),
+  createProject: (address: string) => call<ProjectSummary>("POST", "/projects", {
+    name: address,
+    project_name: address,
+    address,
+    project_type: "single_house",
+    stage: "concept",
+  }),
   resolveAddress: (projectId: string, address: string) =>
     call<Record<string, unknown>>("POST", `/projects/${projectId}/resolve-address`, { address }),
   rules: () => call<unknown>("GET", "/sources"),

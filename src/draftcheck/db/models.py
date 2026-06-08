@@ -6,7 +6,7 @@ only and must not create, migrate, or bind tables at import time.
 
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 from decimal import Decimal
 from enum import StrEnum
 from typing import Any
@@ -15,6 +15,7 @@ from uuid import UUID, uuid4
 from sqlalchemy import (
     BigInteger,
     Boolean,
+    Date,
     DateTime,
     Enum,
     Float,
@@ -26,6 +27,7 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
     Uuid,
+    text,
 )
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -256,6 +258,7 @@ class Project(Base, TimestampMixin):
     name: Mapped[str] = mapped_column(String(240), nullable=False)
     status: Mapped[str] = mapped_column(String(40), nullable=False, default="draft")
     as_of_date: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    lodgement_date: Mapped[date | None] = mapped_column(Date, nullable=True)
     assessment_basis: Mapped[str | None] = mapped_column(String(80), nullable=True)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
 
@@ -294,7 +297,9 @@ class Property(Base, TimestampMixin):
         nullable=True,
         index=True,
     )
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
     target_crs: Mapped[str] = mapped_column(String(40), nullable=False, default=f"EPSG:{GDA2020_SRID}")
+    resolution_cache_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     resolution_metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
 
 
@@ -325,14 +330,17 @@ class Proposal(Base, TimestampMixin):
     new_or_existing: Mapped[str | None] = mapped_column(String(40), nullable=True)
     lot_type: Mapped[str | None] = mapped_column(String(80), nullable=True)
     primary_street_confirmed: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    secondary_street_confirmed: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    source: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
 
 
 class Source(Base, TimestampMixin):
-    __tablename__ = "sources"
+    __tablename__ = "source_documents"
     __table_args__ = (
-        UniqueConstraint("authority", "canonical_url", name="uq_sources_authority_canonical_url"),
-        Index("ix_sources_jurisdiction_authority", "jurisdiction", "authority"),
+        UniqueConstraint("authority", "canonical_url", name="uq_source_documents_authority_canonical_url"),
+        Index("ix_source_documents_jurisdiction_authority", "jurisdiction", "authority"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -363,7 +371,7 @@ class SourceVersion(Base, TimestampMixin):
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
     source_id: Mapped[UUID] = mapped_column(
         Uuid(as_uuid=True),
-        ForeignKey("sources.id", ondelete="CASCADE"),
+        ForeignKey("source_documents.id", ondelete="CASCADE"),
         nullable=False,
         index=True,
     )
@@ -391,6 +399,18 @@ class SourceChunk(Base, TimestampMixin):
     __table_args__ = (
         UniqueConstraint("source_version_id", "chunk_index", name="uq_source_chunks_version_index"),
         Index("ix_source_chunks_source_version", "source_version_id"),
+        Index(
+            "ix_source_chunks_embedding_metadata_hnsw",
+            "embedding",
+            postgresql_using="hnsw",
+            postgresql_with={"m": 16, "ef_construction": 64},
+            postgresql_ops={"embedding": "vector_cosine_ops"},
+            postgresql_where=text(
+                "embedding_provider = 'api' "
+                "AND embedding_model = 'text-embedding-3-small' "
+                "AND embedding_dimension = 1536",
+            ),
+        ),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -472,7 +492,7 @@ class SourceReviewRecord(Base):
     )
     source_id: Mapped[UUID] = mapped_column(
         Uuid(as_uuid=True),
-        ForeignKey("sources.id", ondelete="CASCADE"),
+        ForeignKey("source_documents.id", ondelete="CASCADE"),
         nullable=False,
         index=True,
     )
@@ -511,7 +531,7 @@ class SourceFetchLog(Base):
     )
     source_id: Mapped[UUID] = mapped_column(
         Uuid(as_uuid=True),
-        ForeignKey("sources.id", ondelete="CASCADE"),
+        ForeignKey("source_documents.id", ondelete="CASCADE"),
         nullable=False,
         index=True,
     )
@@ -676,6 +696,7 @@ class LgArea(Base, TimestampMixin):
     __table_args__ = (
         Index("ix_lg_areas_spatial_dataset", "spatial_dataset_id"),
         Index("ix_lg_areas_name", "name"),
+        Index("ix_lg_areas_geom_gist", "geom", postgresql_using="gist"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -702,6 +723,7 @@ class Parcel(Base, TimestampMixin):
     __table_args__ = (
         Index("ix_parcels_spatial_dataset", "spatial_dataset_id"),
         Index("ix_parcels_lot_plan", "lot_plan"),
+        Index("ix_parcels_geom_gist", "geom", postgresql_using="gist"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -731,6 +753,7 @@ class AddressPoint(Base, TimestampMixin):
         UniqueConstraint("gnaf_pid", name="uq_address_points_gnaf_pid"),
         Index("ix_address_points_parcel", "parcel_id"),
         Index("ix_address_points_spatial_dataset", "spatial_dataset_id"),
+        Index("ix_address_points_geom_gist", "geom", postgresql_using="gist"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -764,6 +787,7 @@ class PlanningFeature(Base, TimestampMixin):
     __table_args__ = (
         Index("ix_planning_features_layer", "layer_type"),
         Index("ix_planning_features_spatial_dataset", "spatial_dataset_id"),
+        Index("ix_planning_features_geom_gist", "geom", postgresql_using="gist"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -791,7 +815,7 @@ class PropertyFact(Base, TimestampMixin):
     __table_args__ = (
         Index("ix_property_facts_org_property", "org_id", "property_id"),
         Index("ix_property_facts_fact_type", "fact_type"),
-        Index("ix_property_facts_source_dataset", "source_dataset_id"),
+        Index("ix_property_facts_spatial_dataset", "spatial_dataset_id"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -818,7 +842,7 @@ class PropertyFact(Base, TimestampMixin):
     confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
     method: Mapped[str] = mapped_column(String(80), nullable=False)
     provenance_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
-    source_dataset_id: Mapped[UUID | None] = mapped_column(
+    spatial_dataset_id: Mapped[UUID | None] = mapped_column(
         Uuid(as_uuid=True),
         ForeignKey("spatial_datasets.id", ondelete="SET NULL"),
         nullable=True,
@@ -846,3 +870,928 @@ class PropertyFact(Base, TimestampMixin):
     effective_to: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     stale_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     review_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")
+
+
+class Clause(Base, TimestampMixin):
+    __tablename__ = "clauses"
+    __table_args__ = (
+        UniqueConstraint("source_version_id", "clause_key", name="uq_clauses_version_key"),
+        Index("ix_clauses_source_version_path", "source_version_id", "clause_path"),
+        Index("ix_clauses_parent_clause", "parent_clause_id"),
+        Index("ix_clauses_disposition", "disposition"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    source_version_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("source_versions.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    source_chunk_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("source_chunks.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    parent_clause_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("clauses.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    clause_key: Mapped[str] = mapped_column(String(160), nullable=False)
+    clause_path: Mapped[str | None] = mapped_column(String(160), nullable=True)
+    clause_type: Mapped[str] = mapped_column(String(80), nullable=False, default="clause")
+    title: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    section_ref: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    disposition: Mapped[str] = mapped_column(String(40), nullable=False, default="manual_review")
+    text: Mapped[str] = mapped_column(Text, nullable=False)
+    quote: Mapped[str | None] = mapped_column(Text, nullable=True)
+    effective_from: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    effective_to: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    parser_name: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    parser_version: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class SkillVersion(Base):
+    __tablename__ = "skill_versions"
+    __table_args__ = (
+        UniqueConstraint("skill_name", "version", name="uq_skill_versions_name_version"),
+        Index("ix_skill_versions_status", "status"),
+    )
+
+    id: Mapped[str] = mapped_column(String(160), primary_key=True)
+    skill_name: Mapped[str] = mapped_column(String(160), nullable=False)
+    version: Mapped[str] = mapped_column(String(80), nullable=False)
+    content_hash: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="draft")
+    active_from: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    active_to: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    manifest_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    eval_summary_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=utc_now,
+        onupdate=utc_now,
+    )
+
+
+class RuleCandidate(Base, TimestampMixin):
+    __tablename__ = "rule_candidates"
+    __table_args__ = (
+        Index("ix_rule_candidates_clause_status", "clause_id", "review_status"),
+        Index("ix_rule_candidates_source_version", "source_version_id"),
+        Index("ix_rule_candidates_skill_version", "skill_version_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    source_version_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("source_versions.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    clause_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("clauses.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    source_chunk_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("source_chunks.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    rule_key: Mapped[str | None] = mapped_column(String(160), nullable=True)
+    rule_type: Mapped[str] = mapped_column(String(60), nullable=False, default="requirement")
+    pathway: Mapped[str] = mapped_column(String(60), nullable=False, default="none")
+    operator: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    value_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    unit: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    condition_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    quote: Mapped[str] = mapped_column(Text, nullable=False)
+    extractor_model: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    skill_version_id: Mapped[str | None] = mapped_column(
+        String(160),
+        ForeignKey("skill_versions.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    prompt_hash: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    review_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")
+    reviewed_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class Rule(Base, TimestampMixin):
+    __tablename__ = "rules"
+    __table_args__ = (
+        UniqueConstraint("source_version_id", "rule_key", name="uq_rules_version_key"),
+        Index("ix_rules_lifecycle_status", "lifecycle_status"),
+        Index("ix_rules_rule_key", "rule_key"),
+        Index("ix_rules_clause", "clause_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    source_version_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("source_versions.id", ondelete="RESTRICT"),
+        nullable=False,
+        index=True,
+    )
+    clause_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("clauses.id", ondelete="RESTRICT"),
+        nullable=False,
+        index=True,
+    )
+    candidate_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("rule_candidates.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    rule_key: Mapped[str] = mapped_column(String(160), nullable=False)
+    rule_type: Mapped[str] = mapped_column(String(60), nullable=False)
+    pathway: Mapped[str] = mapped_column(String(60), nullable=False, default="none")
+    lifecycle_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")
+    operator: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    value_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    unit: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    condition_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    quote: Mapped[str] = mapped_column(Text, nullable=False)
+    extractor_model: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    skill_version_id: Mapped[str | None] = mapped_column(
+        String(160),
+        ForeignKey("skill_versions.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    prompt_hash: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+    approved_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    approved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    superseded_by_rule_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("rules.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class RuleClauseLink(Base, TimestampMixin):
+    __tablename__ = "rule_clause_links"
+    __table_args__ = (
+        UniqueConstraint("rule_id", "clause_id", "link_type", name="uq_rule_clause_links_rule_clause_type"),
+        Index("ix_rule_clause_links_clause", "clause_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    rule_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("rules.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    clause_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("clauses.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    source_version_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("source_versions.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    link_type: Mapped[str] = mapped_column(String(60), nullable=False, default="primary")
+    quote: Mapped[str | None] = mapped_column(Text, nullable=True)
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class LegalEdge(Base, TimestampMixin):
+    __tablename__ = "legal_edges"
+    __table_args__ = (
+        UniqueConstraint(
+            "from_type",
+            "from_ref",
+            "to_type",
+            "to_ref",
+            "relation",
+            name="uq_legal_edges_from_to_relation",
+        ),
+        Index("ix_legal_edges_from", "from_type", "from_ref"),
+        Index("ix_legal_edges_to", "to_type", "to_ref"),
+        Index("ix_legal_edges_relation", "relation"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    from_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    from_ref: Mapped[str] = mapped_column(String(200), nullable=False)
+    to_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    to_ref: Mapped[str] = mapped_column(String(200), nullable=False)
+    relation: Mapped[str] = mapped_column(String(80), nullable=False)
+    evidence_quote: Mapped[str | None] = mapped_column(Text, nullable=True)
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    review_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class CheckRun(Base):
+    __tablename__ = "check_runs"
+    __table_args__ = (
+        Index("ix_check_runs_org_project", "org_id", "project_id"),
+        Index("ix_check_runs_status", "status"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    property_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("properties.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    proposal_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("proposals.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    as_of_date: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    assessment_basis: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending")
+    rule_pack_hash: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+    source_version_ids_json: Mapped[list[str]] = mapped_column(JSONB, nullable=False, default=list)
+    engine_version: Mapped[str] = mapped_column(String(80), nullable=False)
+    started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class ResolvedRule(Base, TimestampMixin):
+    __tablename__ = "resolved_rules"
+    __table_args__ = (
+        Index("ix_resolved_rules_check_run", "check_run_id"),
+        Index("ix_resolved_rules_project_rule", "project_id", "rule_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    check_run_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("check_runs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    rule_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("rules.id", ondelete="RESTRICT"),
+        nullable=False,
+        index=True,
+    )
+    rule_key: Mapped[str] = mapped_column(String(160), nullable=False)
+    applicability_status: Mapped[str] = mapped_column(String(40), nullable=False)
+    pathway: Mapped[str] = mapped_column(String(60), nullable=False, default="none")
+    precedence_rank: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    assumptions_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    rule_snapshot_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    selection_trace_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    citations_json: Mapped[list[object]] = mapped_column(JSONB, nullable=False, default=list)
+
+
+class CheckResult(Base, TimestampMixin):
+    __tablename__ = "check_results"
+    __table_args__ = (
+        Index("ix_check_results_check_run", "check_run_id"),
+        Index("ix_check_results_status", "status"),
+        Index("ix_check_results_project_check", "project_id", "check_key"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    check_run_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("check_runs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    resolved_rule_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("resolved_rules.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    check_key: Mapped[str] = mapped_column(String(160), nullable=False)
+    status: Mapped[str] = mapped_column(String(40), nullable=False)
+    requirement_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    proposed_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    why_this_applies: Mapped[str | None] = mapped_column(Text, nullable=True)
+    citations_json: Mapped[list[object]] = mapped_column(JSONB, nullable=False, default=list)
+    drawing_evidence_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    decision_trace_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    pathway_note: Mapped[str | None] = mapped_column(Text, nullable=True)
+    human_review_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+    human_override_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    reviewed_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+
+class Document(Base, TimestampMixin):
+    __tablename__ = "documents"
+    __table_args__ = (
+        Index("ix_documents_org_project", "org_id", "project_id"),
+        Index("ix_documents_sha256", "sha256"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    uploaded_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    supersedes_document_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("documents.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    title: Mapped[str] = mapped_column(String(500), nullable=False)
+    document_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    revision_label: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="uploaded")
+    storage_path: Mapped[str] = mapped_column(Text, nullable=False)
+    sha256: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    media_type: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    size_bytes: Mapped[int | None] = mapped_column(BigInteger, nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class DocumentPage(Base, TimestampMixin):
+    __tablename__ = "document_pages"
+    __table_args__ = (
+        UniqueConstraint("document_id", "page_number", name="uq_document_pages_document_page"),
+        Index("ix_document_pages_document", "document_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    document_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("documents.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    page_number: Mapped[int] = mapped_column(Integer, nullable=False)
+    width: Mapped[float | None] = mapped_column(Float, nullable=True)
+    height: Mapped[float | None] = mapped_column(Float, nullable=True)
+    rotation_degrees: Mapped[float | None] = mapped_column(Float, nullable=True)
+    artifact_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("artifacts.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class DocumentChunk(Base, TimestampMixin):
+    __tablename__ = "document_chunks"
+    __table_args__ = (
+        UniqueConstraint("document_id", "chunk_index", name="uq_document_chunks_document_index"),
+        Index("ix_document_chunks_document", "document_id"),
+        Index("ix_document_chunks_page", "page_id"),
+        Index(
+            "ix_document_chunks_embedding_metadata_hnsw",
+            "embedding",
+            postgresql_using="hnsw",
+            postgresql_with={"m": 16, "ef_construction": 64},
+            postgresql_ops={"embedding": "vector_cosine_ops"},
+            postgresql_where=text(
+                "embedding_provider = 'api' "
+                "AND embedding_model = 'text-embedding-3-small' "
+                "AND embedding_dimension = 1536",
+            ),
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    document_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("documents.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    page_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("document_pages.id", ondelete="CASCADE"),
+        nullable=True,
+        index=True,
+    )
+    chunk_index: Mapped[int] = mapped_column(Integer, nullable=False)
+    heading: Mapped[str | None] = mapped_column(String(500), nullable=True)
+    section_ref: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    text: Mapped[str] = mapped_column(Text, nullable=False)
+    token_count: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    embedding_provider: Mapped[str] = mapped_column(String(120), nullable=False, default=SOURCE_CHUNK_EMBEDDING_PROVIDER)
+    embedding_model: Mapped[str] = mapped_column(String(200), nullable=False, default=SOURCE_CHUNK_EMBEDDING_MODEL)
+    embedding_dimension: Mapped[int] = mapped_column(Integer, nullable=False, default=SOURCE_CHUNK_EMBEDDING_DIMENSION)
+    embedding: Mapped[list[float]] = mapped_column(PgVector(SOURCE_CHUNK_EMBEDDING_DIMENSION), nullable=False)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class DocumentFact(Base, TimestampMixin):
+    __tablename__ = "document_facts"
+    __table_args__ = (
+        Index("ix_document_facts_project_kind", "project_id", "fact_kind"),
+        Index("ix_document_facts_check_key", "check_key"),
+        Index("ix_document_facts_promoted", "promoted_to_measurement", "review_status"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    document_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("documents.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    page_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("document_pages.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    document_chunk_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("document_chunks.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    artifact_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("artifacts.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    fact_kind: Mapped[str] = mapped_column(String(80), nullable=False)
+    check_key: Mapped[str | None] = mapped_column(String(160), nullable=True, index=True)
+    value_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False)
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    evidence_ref_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    promoted_to_measurement: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    review_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")
+    parser_name: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    parser_version: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class RfiItem(Base, TimestampMixin):
+    __tablename__ = "rfi_items"
+    __table_args__ = (
+        Index("ix_rfi_items_project_status", "project_id", "status"),
+        Index("ix_rfi_items_check_result", "check_result_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    document_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("documents.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    check_result_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("check_results.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    item_key: Mapped[str | None] = mapped_column(String(160), nullable=True)
+    title: Mapped[str] = mapped_column(String(300), nullable=False)
+    body: Mapped[str] = mapped_column(Text, nullable=False)
+    severity: Mapped[str] = mapped_column(String(40), nullable=False, default="normal")
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="open")
+    assigned_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    due_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    source_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class ResponseDraft(Base, TimestampMixin):
+    __tablename__ = "response_drafts"
+    __table_args__ = (
+        Index("ix_response_drafts_project_status", "project_id", "status"),
+        Index("ix_response_drafts_rfi_item", "rfi_item_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    rfi_item_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("rfi_items.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    job_trace_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("job_traces.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    draft_kind: Mapped[str] = mapped_column(String(80), nullable=False, default="rfi_response")
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="draft")
+    model: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    skill_version_id: Mapped[str | None] = mapped_column(
+        String(160),
+        ForeignKey("skill_versions.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    content: Mapped[str] = mapped_column(Text, nullable=False)
+    citations_json: Mapped[list[object]] = mapped_column(JSONB, nullable=False, default=list)
+    human_edited: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    edited_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class Export(Base):
+    __tablename__ = "exports"
+    __table_args__ = (
+        Index("ix_exports_project_status", "project_id", "status"),
+        Index("ix_exports_check_run", "check_run_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    check_run_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("check_runs.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    requested_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    format: Mapped[str] = mapped_column(String(40), nullable=False)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending")
+    sections_json: Mapped[list[str]] = mapped_column(JSONB, nullable=False, default=list)
+    manifest_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    storage_path: Mapped[str | None] = mapped_column(Text, nullable=True)
+    sha256: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class Signoff(Base):
+    __tablename__ = "signoffs"
+    __table_args__ = (
+        Index("ix_signoffs_project", "project_id"),
+        Index("ix_signoffs_export", "export_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    export_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("exports.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    check_run_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("check_runs.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    signer_user_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="RESTRICT"),
+        nullable=False,
+        index=True,
+    )
+    signoff_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="signed")
+    statement: Mapped[str] = mapped_column(Text, nullable=False)
+    signed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
+    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class AgentMemory(Base, TimestampMixin):
+    __tablename__ = "agent_memory"
+    __table_args__ = (
+        UniqueConstraint("org_id", "memory_key", name="uq_agent_memory_org_key"),
+        Index("ix_agent_memory_subject", "subject_type", "subject_id"),
+        Index("ix_agent_memory_status", "status"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=True,
+        index=True,
+    )
+    memory_key: Mapped[str] = mapped_column(String(200), nullable=False)
+    subject_type: Mapped[str | None] = mapped_column(String(80), nullable=True)
+    subject_id: Mapped[UUID | None] = mapped_column(Uuid(as_uuid=True), nullable=True)
+    content: Mapped[str] = mapped_column(Text, nullable=False)
+    confidence: Mapped[float | None] = mapped_column(Float, nullable=True)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="active")
+    source_job_trace_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("job_traces.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    expires_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class EvalCase(Base, TimestampMixin):
+    __tablename__ = "eval_cases"
+    __table_args__ = (
+        UniqueConstraint("suite_name", "case_key", name="uq_eval_cases_suite_key"),
+        Index("ix_eval_cases_skill_status", "skill_name", "status"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    suite_name: Mapped[str] = mapped_column(String(160), nullable=False)
+    case_key: Mapped[str] = mapped_column(String(160), nullable=False)
+    skill_name: Mapped[str] = mapped_column(String(160), nullable=False)
+    source_version_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("source_versions.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    input_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False)
+    expected_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="active")
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class EvalRun(Base):
+    __tablename__ = "eval_runs"
+    __table_args__ = (
+        Index("ix_eval_runs_case", "eval_case_id"),
+        Index("ix_eval_runs_skill_version", "skill_version_id"),
+        Index("ix_eval_runs_status", "status"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    eval_case_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("eval_cases.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    skill_version_id: Mapped[str | None] = mapped_column(
+        String(160),
+        ForeignKey("skill_versions.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    job_trace_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("job_traces.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    status: Mapped[str] = mapped_column(String(40), nullable=False)
+    score: Mapped[Decimal | None] = mapped_column(Numeric(8, 4), nullable=True)
+    output_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    metrics_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    started_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
+    finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    error: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class AuditEvent(Base):
+    __tablename__ = "audit_events"
+    __table_args__ = (
+        Index("ix_audit_events_org_created", "org_id", "created_at"),
+        Index("ix_audit_events_subject", "subject_type", "subject_id"),
+        Index("ix_audit_events_actor", "actor_user_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    actor_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    event_type: Mapped[str] = mapped_column(String(120), nullable=False)
+    action: Mapped[str] = mapped_column(String(120), nullable=False)
+    subject_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    subject_id: Mapped[UUID | None] = mapped_column(Uuid(as_uuid=True), nullable=True)
+    request_id: Mapped[str | None] = mapped_column(String(120), nullable=True, index=True)
+    ip_address: Mapped[str | None] = mapped_column(String(64), nullable=True)
+    before_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    after_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class ReviewItem(Base, TimestampMixin):
+    __tablename__ = "review_items"
+    __table_args__ = (
+        Index("ix_review_items_org_status", "org_id", "status"),
+        Index("ix_review_items_project_status", "project_id", "status"),
+        Index("ix_review_items_subject", "subject_type", "subject_id"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=True,
+        index=True,
+    )
+    subject_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    subject_id: Mapped[UUID | None] = mapped_column(Uuid(as_uuid=True), nullable=True)
+    reason: Mapped[str] = mapped_column(Text, nullable=False)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="open")
+    priority: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    assigned_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    due_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    resolved_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    source_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)

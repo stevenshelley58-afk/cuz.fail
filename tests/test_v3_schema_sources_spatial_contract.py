@@ -18,29 +18,59 @@ def column_names(table_name: str) -> set[str]:
     return set(Base.metadata.tables[table_name].c.keys())
 
 
+def index_names(table_name: str) -> set[str]:
+    return {index.name for index in Base.metadata.tables[table_name].indexes}
+
+
 def test_v3_sources_spatial_foundation_tables_present() -> None:
     tables = Base.metadata.tables
 
-    assert {
-        "projects",
-        "properties",
-        "proposals",
-        "sources",
-        "source_versions",
-        "source_chunks",
-        "source_citations",
-        "source_reviews",
-        "source_fetch_log",
-        "artifacts",
-        "job_traces",
-        "spend_events",
-        "spatial_datasets",
-        "lg_areas",
+    assert set(tables) == {
+        "agent_memory",
         "address_points",
+        "audit_events",
+        "artifacts",
+        "check_results",
+        "check_runs",
+        "clauses",
+        "document_chunks",
+        "document_facts",
+        "document_pages",
+        "documents",
+        "eval_cases",
+        "eval_runs",
+        "exports",
+        "job_traces",
+        "legal_edges",
+        "lg_areas",
+        "magic_link_tokens",
+        "orgs",
         "parcels",
         "planning_features",
+        "projects",
+        "properties",
         "property_facts",
-    } <= set(tables)
+        "proposals",
+        "resolved_rules",
+        "response_drafts",
+        "review_items",
+        "rfi_items",
+        "rule_candidates",
+        "rule_clause_links",
+        "rules",
+        "sessions",
+        "signoffs",
+        "skill_versions",
+        "source_chunks",
+        "source_citations",
+        "source_documents",
+        "source_fetch_log",
+        "source_reviews",
+        "source_versions",
+        "spatial_datasets",
+        "spend_events",
+        "users",
+    }
 
 
 def test_v3_source_artifact_trace_and_spend_columns() -> None:
@@ -117,7 +147,7 @@ def test_v3_spatial_and_property_fact_columns() -> None:
         "fact_type",
         "value_json",
         "provenance_json",
-        "source_dataset_id",
+        "spatial_dataset_id",
         "source_version_id",
         "planning_feature_id",
         "parcel_id",
@@ -143,6 +173,7 @@ def test_v3_project_property_and_proposal_columns_are_tenant_scoped() -> None:
         "name",
         "status",
         "as_of_date",
+        "lodgement_date",
         "assessment_basis",
         "metadata_json",
     } <= column_names("projects")
@@ -153,7 +184,9 @@ def test_v3_project_property_and_proposal_columns_are_tenant_scoped() -> None:
         "resolution_status",
         "address_point_id",
         "parcel_id",
+        "confidence",
         "target_crs",
+        "resolution_cache_json",
         "resolution_metadata_json",
     } <= column_names("properties")
     assert {
@@ -166,6 +199,9 @@ def test_v3_project_property_and_proposal_columns_are_tenant_scoped() -> None:
         "new_or_existing",
         "lot_type",
         "primary_street_confirmed",
+        "secondary_street_confirmed",
+        "source",
+        "confidence",
         "metadata_json",
     } <= column_names("proposals")
 
@@ -186,6 +222,55 @@ def test_v3_source_chunk_vector_dimension_is_pinned() -> None:
     assert embedding_dimension_default.arg == SOURCE_CHUNK_EMBEDDING_DIMENSION
     assert chunk_table.c.embedding.nullable is False
     assert getattr(chunk_table.c.embedding.type, "dim", None) == SOURCE_CHUNK_EMBEDDING_DIMENSION
+
+
+def test_v3_rule_compliance_document_and_output_columns() -> None:
+    assert {
+        "source_version_id",
+        "source_chunk_id",
+        "parent_clause_id",
+        "clause_key",
+        "clause_path",
+        "disposition",
+        "text",
+    } <= column_names("clauses")
+    assert {
+        "rule_key",
+        "rule_type",
+        "pathway",
+        "lifecycle_status",
+        "condition_json",
+        "quote",
+        "skill_version_id",
+    } <= column_names("rules")
+    assert {"from_type", "from_ref", "to_type", "to_ref", "relation", "review_status"} <= column_names(
+        "legal_edges",
+    )
+    assert {"as_of_date", "source_version_ids_json", "engine_version", "status"} <= column_names("check_runs")
+    assert {"rule_snapshot_json", "selection_trace_json", "assumptions_json"} <= column_names("resolved_rules")
+    assert {"decision_trace_json", "drawing_evidence_json", "human_override_json"} <= column_names("check_results")
+    assert {"supersedes_document_id", "revision_label", "storage_path", "sha256"} <= column_names("documents")
+    assert {
+        "fact_kind",
+        "value_json",
+        "check_key",
+        "evidence_ref_json",
+        "promoted_to_measurement",
+        "review_status",
+    } <= column_names("document_facts")
+    assert {"manifest_json", "storage_path", "sections_json"} <= column_names("exports")
+    assert {"signer_user_id", "statement", "signed_at", "revoked_at"} <= column_names("signoffs")
+    assert {"subject_type", "subject_id", "reason", "priority", "source_json"} <= column_names("review_items")
+
+
+def test_v3_search_and_spatial_indexes_are_declared() -> None:
+    assert "ix_source_chunks_embedding_metadata_hnsw" in index_names("source_chunks")
+    assert "ix_document_chunks_embedding_metadata_hnsw" in index_names("document_chunks")
+
+    assert "ix_lg_areas_geom_gist" in index_names("lg_areas")
+    assert "ix_parcels_geom_gist" in index_names("parcels")
+    assert "ix_address_points_geom_gist" in index_names("address_points")
+    assert "ix_planning_features_geom_gist" in index_names("planning_features")
 
 
 def test_v3_spatial_geometry_types_use_gda2020() -> None:

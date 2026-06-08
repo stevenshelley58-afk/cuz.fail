@@ -8,8 +8,10 @@ import {
   CheckCircle2,
   CircleAlert,
   CircleHelp,
+  CreditCard,
   Construction,
   Gavel,
+  Gauge,
   Globe2,
   Home as HomeIcon,
   HousePlus,
@@ -20,6 +22,7 @@ import {
   RefreshCw,
   Settings2,
   ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo } from "./api";
@@ -33,9 +36,35 @@ const DEV_LOGIN =
   Boolean((import.meta.env as Record<string, unknown>).DEV) ||
   (import.meta.env as Record<string, unknown>).VITE_DEV_LOGIN === "1";
 
+const GUEST_USAGE_KEY = "lotfile_guest_usage_v1";
+const GUEST_ADDRESS_LIMIT = envNumber("VITE_GUEST_ADDRESS_LIMIT", 2);
+const GUEST_CHAT_LIMIT = envNumber("VITE_GUEST_CHAT_LIMIT", 8);
+const CHECKOUT_URL = String((import.meta.env as Record<string, unknown>).VITE_CHECKOUT_URL ?? "").trim();
+
 /* ── helpers ── */
 
 type View = "home" | "projects" | "library" | "settings";
+type GuestFeature = "address" | "chat";
+
+type GuestCheck = {
+  id: string;
+  address: string;
+  createdAt: string;
+  mode: "guest" | "fallback";
+};
+
+type GuestUsage = {
+  addressChecks: number;
+  chatMessages: number;
+  checks: GuestCheck[];
+  updatedAt: string;
+};
+
+type PaywallState = {
+  feature: GuestFeature;
+  used: number;
+  limit: number;
+};
 
 type Msg = {
   role: "q" | "a";
@@ -50,10 +79,12 @@ const ICONS: Record<string, LucideIcon> = {
   arrow_upward: ArrowUp,
   badge: Badge,
   check_circle: CheckCircle2,
+  credit_card: CreditCard,
   construction: Construction,
   error: CircleAlert,
   forum: MessageCircle,
   gavel: Gavel,
+  gauge: Gauge,
   home: HomeIcon,
   home_work: Building2,
   location_on: MapPin,
@@ -61,6 +92,7 @@ const ICONS: Record<string, LucideIcon> = {
   mark_email_read: MailCheck,
   menu_book: BookOpen,
   public: Globe2,
+  sparkles: Sparkles,
   sync: RefreshCw,
   tune: Settings2,
   verified: ShieldCheck,
@@ -81,6 +113,72 @@ function Icon({ name, size }: { name: string; size?: number }) {
 
 function looksLikeAddress(t: string): boolean {
   return /^\d+\s+\w+.*(st|street|rd|road|ave|avenue|lane|ln|way|cres|crescent|court|ct|pl|place)\b/i.test(t.trim());
+}
+
+function envNumber(name: string, fallback: number): number {
+  const raw = (import.meta.env as Record<string, unknown>)[name];
+  const parsed = Number(raw);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
+}
+
+function emptyGuestUsage(): GuestUsage {
+  return {
+    addressChecks: 0,
+    chatMessages: 0,
+    checks: [],
+    updatedAt: new Date().toISOString(),
+  };
+}
+
+function normalizeGuestUsage(value: Partial<GuestUsage> | null | undefined): GuestUsage {
+  const empty = emptyGuestUsage();
+  return {
+    addressChecks: Math.max(0, Number(value?.addressChecks ?? 0) || 0),
+    chatMessages: Math.max(0, Number(value?.chatMessages ?? 0) || 0),
+    checks: Array.isArray(value?.checks) ? value.checks.slice(0, 4) : [],
+    updatedAt: typeof value?.updatedAt === "string" ? value.updatedAt : empty.updatedAt,
+  };
+}
+
+function loadGuestUsage(): GuestUsage {
+  try {
+    return normalizeGuestUsage(JSON.parse(window.localStorage.getItem(GUEST_USAGE_KEY) ?? "null") as Partial<GuestUsage> | null);
+  } catch {
+    return emptyGuestUsage();
+  }
+}
+
+function saveGuestUsage(usage: GuestUsage) {
+  window.localStorage.setItem(GUEST_USAGE_KEY, JSON.stringify(usage));
+}
+
+function guestProjectList(usage: GuestUsage): ProjectSummary[] {
+  return usage.checks.map((check) => ({
+    id: check.id,
+    name: check.address,
+    address: check.address,
+    created_at: new Date(check.createdAt).toLocaleString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }),
+    status: check.mode,
+  }));
+}
+
+function paywallCopy(feature: GuestFeature): { title: string; body: string } {
+  if (feature === "address") {
+    return {
+      title: "Guest address checks used",
+      body: "You have seen the address-first workflow. Upgrade or sign in to keep running property searches, save dossiers, and unlock deeper checks.",
+    };
+  }
+  return {
+    title: "Guest chat limit reached",
+    body: "You have used the free guest chat allowance. Upgrade or sign in to keep asking source-backed planning questions.",
+  };
+}
+
+function guestLimitMessage(feature: GuestFeature): string {
+  return feature === "address"
+    ? "You have used the free guest address checks. Unlock more searches to keep going."
+    : "You have used the free guest chat allowance. Unlock more questions to keep going.";
 }
 
 function projectList(r: ApiResult<ProjectSummary[] | { projects?: ProjectSummary[] }>): ProjectSummary[] {
@@ -132,7 +230,21 @@ function StatusBar() {
 
 /* ── one-box home ── */
 
-function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => void }) {
+function Home({
+  authed,
+  guestUsage,
+  onGuestAddressStart,
+  onGuestChatStart,
+  onNeedSignIn,
+  onShowPaywall,
+}: {
+  authed: boolean;
+  guestUsage: GuestUsage;
+  onGuestAddressStart: (address: string) => boolean;
+  onGuestChatStart: () => boolean;
+  onNeedSignIn: () => void;
+  onShowPaywall: (feature: GuestFeature) => void;
+}) {
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [busy, setBusy] = useState(false);
   const [webOn, setWebOn] = useState(false);
@@ -141,15 +253,72 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
   const threadRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!authed) {
+      setRecents(guestProjectList(guestUsage).slice(0, 2));
+      return;
+    }
     void api.projects().then((r) => setRecents(projectList(r).slice(0, 2)));
-  }, []);
+  }, [authed, guestUsage]);
   useEffect(() => {
     threadRef.current?.scrollTo({ top: threadRef.current.scrollHeight });
   }, [msgs]);
 
   const push = (m: Msg) => setMsgs((prev) => [...prev, m]);
 
+  const pushGuestAddressPreview = useCallback((address: string, mode: "guest" | "fallback") => {
+    const label = mode === "guest" ? "Guest address scan" : "Preview address scan";
+    const chips = authed
+      ? ["preview fallback", "address-first dossier", "approved sources only"]
+      : [
+          `address ${Math.min(guestUsage.addressChecks + 1, GUEST_ADDRESS_LIMIT)}/${GUEST_ADDRESS_LIMIT}`,
+          "address-first dossier",
+          "approved sources only",
+        ];
+    push({
+      role: "a",
+      tone: "note",
+      text: `${label} for ${address}: I can build the dossier shell, run the address-first workflow, and line the property up with parcel, council, zoning, overlays, source-library search, drawing upload, and Tier-1 check readiness when the live API has authoritative data.`,
+      chips,
+    });
+    push({
+      role: "a",
+      text: "No final compliance claim is made in guest mode. The app will cite approved source versions, refuse unsupported regulatory answers, and require confirmed measurements plus human signoff before anything is treated as submission-ready.",
+      chips: ["cite-or-refuse", "measurements must be confirmed", "human signoff"],
+    });
+  }, [authed, guestUsage.addressChecks]);
+
+  const pushGuestChatPreview = useCallback((question: string) => {
+    const lower = question.toLowerCase();
+    let text = "In the full app I search the approved WA source library first, answer only when the source library supports it, attach citations, and keep unsupported regulatory claims out of the response.";
+    if (lower.includes("drawing") || lower.includes("da") || lower.includes("application")) {
+      text = "For a DA workflow I can help organise the drawing pack, pull out missing-evidence questions, and draft council-ready responses. The exact required documents still need to come from the approved council/state source library before I present them as requirements.";
+    } else if (lower.includes("zoning") || lower.includes("r20") || lower.includes("r-code") || lower.includes("rcode")) {
+      text = "For zoning and R-Code questions I first resolve the address, then retrieve approved source clauses for the council and WA planning context. I will not invent numeric thresholds or compliance outcomes when the approved source library cannot support them.";
+    } else if (lower.includes("setback") || lower.includes("site cover") || lower.includes("open space")) {
+      text = "For Tier-1 checks I compare confirmed proposal measurements against approved, cited rules. If a measurement or rule is missing, the result stays missing-info or needs-human-review instead of becoming a guess.";
+    }
+    if (webOn) {
+      text += " Web search can help discover public context, but approved sources still control regulatory answers.";
+    }
+    push({
+      role: "a",
+      tone: "note",
+      text,
+      chips: authed
+        ? ["library-first", "preview fallback", "citations required"]
+        : [
+            `chat ${Math.min(guestUsage.chatMessages + 1, GUEST_CHAT_LIMIT)}/${GUEST_CHAT_LIMIT}`,
+            "library-first",
+            "guest preview",
+          ],
+    });
+  }, [authed, guestUsage.chatMessages, webOn]);
+
   const startCheck = useCallback(async (address: string) => {
+    if (!authed && !onGuestAddressStart(address)) {
+      push({ role: "a", tone: "note", text: guestLimitMessage("address"), action: { label: "Unlock more", run: () => onShowPaywall("address") } });
+      return;
+    }
     const created = await api.createProject(address);
     if (created.kind === "ok") {
       const id = created.data.id;
@@ -157,30 +326,36 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
       const resolved = await api.resolveAddress(id, address);
       if (resolved.kind === "ok") {
         push({ role: "a", tone: "note", text: "Property resolved. Drawings upload and Tier-1 checks are the next build steps — this project is saved and waiting.", chips: ["resolve-address · live"] });
+      } else if (!authed && (resolved.kind === "auth" || resolved.kind === "notBuilt" || resolved.kind === "missing")) {
+        pushGuestAddressPreview(address, "guest");
       } else if (resolved.kind === "notBuilt") {
-        push({ role: "a", tone: "note", text: "Project saved. Address resolving is coming soon — it'll light up here automatically when it's ready." });
+        pushGuestAddressPreview(address, "fallback");
       } else if (resolved.kind === "auth") {
         onNeedSignIn();
       } else {
         push({ role: "a", tone: "warn", text: `Project saved, but resolving failed: ${resolved.kind === "error" ? resolved.message : resolved.kind}.` });
       }
     } else if (created.kind === "notBuilt") {
-      push({ role: "a", tone: "note", text: "Project creation is coming soon. Your address is saved and will run the moment it's available.", chips: ["creating projects · coming soon"] });
+      pushGuestAddressPreview(address, authed ? "fallback" : "guest");
     } else if (created.kind === "auth") {
-      push({
-        role: "a",
-        tone: "note",
-        text: DEV_LOGIN
-          ? "Sign in first with the local dev account."
-          : "Sign in first — LotFile uses email magic links, no passwords.",
-        action: { label: "Go to sign in", run: onNeedSignIn },
-      });
+      if (!authed) {
+        pushGuestAddressPreview(address, "guest");
+      } else {
+        push({
+          role: "a",
+          tone: "note",
+          text: DEV_LOGIN
+            ? "Sign in first with the local dev account."
+            : "Sign in first — LotFile uses email magic links, no passwords.",
+          action: { label: "Go to sign in", run: onNeedSignIn },
+        });
+      }
     } else if (created.kind === "down") {
-      push({ role: "a", tone: "warn", text: "Can't reach the API right now. The VPS may be restarting — try again shortly." });
+      pushGuestAddressPreview(address, authed ? "fallback" : "guest");
     } else {
-      push({ role: "a", tone: "warn", text: `Couldn't create the project (${created.kind === "error" ? created.message : created.kind}).` });
+      pushGuestAddressPreview(address, authed ? "fallback" : "guest");
     }
-  }, [onNeedSignIn]);
+  }, [authed, onGuestAddressStart, onNeedSignIn, onShowPaywall, pushGuestAddressPreview]);
 
   const send = useCallback(async () => {
     const el = inputRef.current;
@@ -192,6 +367,11 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
     if (looksLikeAddress(t)) {
       await startCheck(t);
     } else {
+      if (!authed && !onGuestChatStart()) {
+        push({ role: "a", tone: "note", text: guestLimitMessage("chat"), action: { label: "Unlock more", run: () => onShowPaywall("chat") } });
+        setBusy(false);
+        return;
+      }
       const r = await api.ask(t, { web: webOn });
       if (r.kind === "ok") {
         const d: ChatReply = r.data;
@@ -203,12 +383,10 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
           text: d.answer ?? "I couldn't get an answer just now.",
           chips: chips.length ? chips : undefined,
         });
+      } else if (!authed && (r.kind === "auth" || r.kind === "missing" || r.kind === "notBuilt" || r.kind === "down")) {
+        pushGuestChatPreview(t);
       } else if (r.kind === "missing" || r.kind === "notBuilt") {
-        push({
-          role: "a", tone: "note",
-          text: "Grounded Q&A is coming soon. Answers come from the approved WA library first (cited), and the web only if you toggle it on — and I'll say so plainly when the library can't support an answer.",
-          chips: ["library-first · citations required"],
-        });
+        pushGuestChatPreview(t);
       } else if (r.kind === "auth") {
         push({ role: "a", tone: "note", text: "Sign in to ask questions.", action: { label: "Go to sign in", run: onNeedSignIn } });
       } else {
@@ -216,7 +394,7 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
       }
     }
     setBusy(false);
-  }, [busy, webOn, startCheck, onNeedSignIn]);
+  }, [authed, busy, webOn, startCheck, onGuestChatStart, onNeedSignIn, onShowPaywall, pushGuestChatPreview]);
 
   const fill = (t: string) => {
     if (inputRef.current) {
@@ -275,7 +453,9 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
             <button className={`chip${webOn ? " on" : ""}`} onClick={() => setWebOn(!webOn)}>
               <Icon name="public" />Web
             </button>
-            {!authed && <span className="chip"><Icon name="lock" />signed out</span>}
+            {!authed && (
+              <span className="chip guest"><Icon name="sparkles" />Guest {guestUsage.addressChecks}/{GUEST_ADDRESS_LIMIT} searches · {guestUsage.chatMessages}/{GUEST_CHAT_LIMIT} chats</span>
+            )}
             <span className="grow" />
             <button className="go" onClick={() => void send()} disabled={busy}><Icon name="arrow_upward" /></button>
           </div>
@@ -308,15 +488,49 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
 
 /* ── projects view ── */
 
-function Projects({ onNeedSignIn }: { onNeedSignIn: () => void }) {
+function Projects({
+  authed,
+  guestUsage,
+  onNeedSignIn,
+}: {
+  authed: boolean;
+  guestUsage: GuestUsage;
+  onNeedSignIn: () => void;
+}) {
   const [result, setResult] = useState<ApiResult<ProjectSummary[] | { projects?: ProjectSummary[] }> | null>(null);
-  useEffect(() => { void api.projects().then(setResult); }, []);
+  useEffect(() => {
+    if (!authed) {
+      setResult(null);
+      return;
+    }
+    void api.projects().then(setResult);
+  }, [authed]);
   const items = result ? projectList(result) : [];
+  const guestItems = guestProjectList(guestUsage);
   return (
     <div className="view">
       <div className="panel">
         <h3><Icon name="home_work" />Projects</h3>
-        {result === null && <p>Loading…</p>}
+        {!authed && (
+          <>
+            <p>Guest checks are saved only on this device. Sign in when you want saved projects, uploads, exports, and reviewer signoff.</p>
+            {guestItems.length === 0 && <div className="state"><Icon name="sparkles" /><span>No guest checks yet — start one from Home by pasting an address.</span></div>}
+            {guestItems.length > 0 && (
+              <div className="strip" style={{ marginTop: 10 }}>
+                {guestItems.map((p) => (
+                  <button key={p.id} className="proj">
+                    <Icon name="home_work" />
+                    <span className="t">{p.address ?? p.id}<small>Guest preview · {p.created_at ?? ""}</small></span>
+                  </button>
+                ))}
+              </div>
+            )}
+            <div className="field">
+              <button className="btn" onClick={onNeedSignIn}>Sign in to save projects</button>
+            </div>
+          </>
+        )}
+        {authed && result === null && <p>Loading…</p>}
         {result?.kind === "ok" && items.length === 0 && <p>No projects yet — start one from Home by pasting an address.</p>}
         {result?.kind === "ok" && items.length > 0 && (
           <div className="strip" style={{ marginTop: 10 }}>
@@ -509,7 +723,7 @@ function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onSignedIn
         ) : (
           <>
             <h2>Sign in or create your account</h2>
-            <p>Enter your email and we’ll send you a magic link. New here? The same link sets up your account — no password to remember.</p>
+            <p>Enter your email and we’ll send you a magic link. You can also keep exploring as a guest, with limited address checks and chat.</p>
             <input
               className="modal-input"
               type="email"
@@ -525,7 +739,55 @@ function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onSignedIn
             {status === "error" && <p className="modal-err">Couldn’t send the link just now — please try again in a moment.</p>}
           </>
         )}
-        {onClose && <button className="modal-skip" onClick={onClose}>Continue browsing</button>}
+        {onClose && <button className="modal-skip" onClick={onClose}>Continue as guest</button>}
+      </div>
+    </div>
+  );
+}
+
+function PaywallModal({
+  state,
+  onClose,
+  onSignIn,
+}: {
+  state: PaywallState;
+  onClose: () => void;
+  onSignIn: () => void;
+}) {
+  const copy = paywallCopy(state.feature);
+  const cta = CHECKOUT_URL ? "Unlock more checks" : "Sign in to continue";
+  const upgrade = () => {
+    if (CHECKOUT_URL) {
+      window.location.assign(CHECKOUT_URL);
+      return;
+    }
+    onSignIn();
+  };
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal paywall" role="dialog" aria-modal="true" aria-label={copy.title} onClick={(e) => e.stopPropagation()}>
+        <div className="modal-logo">Lot<span>File</span></div>
+        <div className="paywall-icon"><Icon name={state.feature === "address" ? "location_on" : "forum"} /></div>
+        <h2>{copy.title}</h2>
+        <p>{copy.body}</p>
+        <div className="usage-meter" aria-label={`Guest usage ${state.used} of ${state.limit}`}>
+          <span style={{ width: `${Math.min(100, (state.used / state.limit) * 100)}%` }} />
+        </div>
+        <div className="plans">
+          <div>
+            <b>Guest</b>
+            <span>{GUEST_ADDRESS_LIMIT} address checks · {GUEST_CHAT_LIMIT} chat questions</span>
+          </div>
+          <div>
+            <b>Unlocked</b>
+            <span>Saved dossiers, more searches, uploads, exports, reviewer workflow</span>
+          </div>
+        </div>
+        <button className="btn block" onClick={upgrade}>
+          <Icon name={CHECKOUT_URL ? "credit_card" : "badge"} />{cta}
+        </button>
+        {CHECKOUT_URL && <button className="btn alt block" onClick={onSignIn}>Sign in instead</button>}
+        <button className="modal-skip" onClick={onClose}>Not now</button>
       </div>
     </div>
   );
@@ -537,6 +799,8 @@ function App() {
   const [view, setView] = useState<View>("home");
   const [session, setSession] = useState<ApiResult<SessionInfo> | null>(null);
   const [signInOpen, setSignInOpen] = useState(false);
+  const [paywall, setPaywall] = useState<PaywallState | null>(null);
+  const [guestUsage, setGuestUsage] = useState<GuestUsage>(() => loadGuestUsage());
 
   const refreshSession = useCallback(() => { void api.session().then(setSession); }, []);
 
@@ -558,12 +822,59 @@ function App() {
 
   const authed = session?.kind === "ok";
   const goSignIn = useCallback(() => setSignInOpen(true), []);
-
-  // Returning (signed-in) users go straight to home; everyone else gets the popup.
-  useEffect(() => {
-    if (session === null) return;
-    setSignInOpen(session.kind !== "ok");
-  }, [session]);
+  const showPaywall = useCallback((feature: GuestFeature) => {
+    const used = feature === "address" ? guestUsage.addressChecks : guestUsage.chatMessages;
+    const limit = feature === "address" ? GUEST_ADDRESS_LIMIT : GUEST_CHAT_LIMIT;
+    setPaywall({ feature, used, limit });
+  }, [guestUsage]);
+  const openSignIn = useCallback(() => {
+    setPaywall(null);
+    setSignInOpen(true);
+  }, []);
+  const handleSignedIn = useCallback(() => {
+    setSignInOpen(false);
+    refreshSession();
+  }, [refreshSession]);
+  const startGuestAddress = useCallback((address: string): boolean => {
+    if (authed) return true;
+    if (guestUsage.addressChecks >= GUEST_ADDRESS_LIMIT) {
+      setPaywall({ feature: "address", used: guestUsage.addressChecks, limit: GUEST_ADDRESS_LIMIT });
+      return false;
+    }
+    const now = new Date().toISOString();
+    const next = normalizeGuestUsage({
+      ...guestUsage,
+      addressChecks: guestUsage.addressChecks + 1,
+      checks: [
+        {
+          id: `guest-${Date.now().toString(36)}`,
+          address,
+          createdAt: now,
+          mode: "guest" as const,
+        },
+        ...guestUsage.checks,
+      ].slice(0, 4),
+      updatedAt: now,
+    });
+    saveGuestUsage(next);
+    setGuestUsage(next);
+    return true;
+  }, [authed, guestUsage]);
+  const startGuestChat = useCallback((): boolean => {
+    if (authed) return true;
+    if (guestUsage.chatMessages >= GUEST_CHAT_LIMIT) {
+      setPaywall({ feature: "chat", used: guestUsage.chatMessages, limit: GUEST_CHAT_LIMIT });
+      return false;
+    }
+    const next = normalizeGuestUsage({
+      ...guestUsage,
+      chatMessages: guestUsage.chatMessages + 1,
+      updatedAt: new Date().toISOString(),
+    });
+    saveGuestUsage(next);
+    setGuestUsage(next);
+    return true;
+  }, [authed, guestUsage]);
 
   const navItem = (v: View, icon: string, label: string) => (
     <button className={view === v ? "on" : ""} onClick={() => setView(v)}>
@@ -600,15 +911,24 @@ function App() {
         <div className="user">
           <div className="avatar">{authed ? "OK" : "?"}</div>
           <div className="who">
-            {authed ? String(session.data.email ?? session.data.user?.email ?? "Signed in") : "Signed out"}
-            <small>{authed ? String(session.data.role ?? session.data.user?.role ?? "") : DEV_LOGIN ? "dev sign in" : "magic-link sign in"}</small>
+            {authed ? String(session.data.email ?? session.data.user?.email ?? "Signed in") : "Guest mode"}
+            <small>{authed ? String(session.data.role ?? session.data.user?.role ?? "") : `${GUEST_ADDRESS_LIMIT} searches · ${GUEST_CHAT_LIMIT} chats`}</small>
           </div>
         </div>
       </aside>
 
       <main className="stage">
-        {view === "home" && <Home authed={authed} onNeedSignIn={goSignIn} />}
-        {view === "projects" && <Projects onNeedSignIn={goSignIn} />}
+        {view === "home" && (
+          <Home
+            authed={authed}
+            guestUsage={guestUsage}
+            onGuestAddressStart={startGuestAddress}
+            onGuestChatStart={startGuestChat}
+            onNeedSignIn={openSignIn}
+            onShowPaywall={showPaywall}
+          />
+        )}
+        {view === "projects" && <Projects authed={authed} guestUsage={guestUsage} onNeedSignIn={openSignIn} />}
         {view === "library" && <Library onNeedSignIn={goSignIn} />}
         {view === "settings" && <Settings session={session} refresh={refreshSession} />}
       </main>
@@ -620,7 +940,14 @@ function App() {
         {tab("settings", "tune", "Settings")}
       </div>
 
-      {signInOpen && <SignInModal onClose={() => setSignInOpen(false)} onSignedIn={refreshSession} />}
+      {signInOpen && <SignInModal onClose={() => setSignInOpen(false)} onSignedIn={handleSignedIn} />}
+      {paywall && (
+        <PaywallModal
+          state={paywall}
+          onClose={() => setPaywall(null)}
+          onSignIn={openSignIn}
+        />
+      )}
     </div>
   );
 }
