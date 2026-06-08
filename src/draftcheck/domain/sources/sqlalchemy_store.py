@@ -1121,6 +1121,7 @@ class SqlAlchemySourceLibrary:
         *,
         local_government: str | None = None,
         source_type: str | None = None,
+        readiness: str | None = None,
         limit: int = 100,
     ) -> dict[str, object]:
         with self._session_factory() as session:
@@ -1255,6 +1256,8 @@ class SqlAlchemySourceLibrary:
                 }
                 items.append(item)
             items.sort(key=_quality_sort_key)
+            if readiness:
+                items = [item for item in items if item.get("readiness") == readiness]
             limited_items = items[: max(limit, 0)]
             gates = _source_quality_gates(counts)
             return {
@@ -1263,6 +1266,7 @@ class SqlAlchemySourceLibrary:
                 "beta_status": "not_beta_accurate_yet",
                 "local_government": local_government,
                 "source_type": source_type,
+                "readiness": readiness,
                 "counts": counts,
                 "quality_gates": gates,
                 "items": limited_items,

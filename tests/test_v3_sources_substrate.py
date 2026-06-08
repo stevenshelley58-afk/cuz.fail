@@ -466,7 +466,19 @@ def test_api_source_quality_report_requires_reviewer_and_reports_blocking_gates(
     assert gates["deterministic_rules_promoted"]["status"] == "blocked"
     by_version = {item["source_version_id"]: item for item in body["items"]}
     assert by_version[fetched["version"]["id"]]["recommended_action"] == "human_source_review"
+    assert by_version[fetched["version"]["id"]]["readiness"] == "parse_quality_review_required"
     assert by_version[metadata_only.version.id]["recommended_action"] == "lawful_fetch"
+
+    filtered = reviewer_client.get(
+        "/api/v1/sources/quality-report",
+        params={"readiness": "parse_quality_review_required"},
+    )
+    assert filtered.status_code == 200
+    filtered_body = filtered.json()
+    assert filtered_body["readiness"] == "parse_quality_review_required"
+    assert filtered_body["counts"]["low_signal_versions"] == 1
+    assert filtered_body["total"] == 1
+    assert filtered_body["items"][0]["source_version_id"] == fetched["version"]["id"]
 
 
 def test_api_source_mutations_reject_disallowed_origin() -> None:

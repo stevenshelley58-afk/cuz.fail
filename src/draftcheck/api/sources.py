@@ -307,6 +307,7 @@ def _fallback_quality_report(
     *,
     local_government: str | None,
     source_type: str | None,
+    readiness: str | None,
     limit: int,
 ) -> dict[str, Any]:
     worklist = _fallback_review_worklist(
@@ -332,18 +333,49 @@ def _fallback_quality_report(
     )
     counts["blocked_versions"] = counts["review_items"]
     gates = _quality_gates(counts)
+    items = [
+        {
+            **item,
+            "readiness": _fallback_quality_readiness(item),
+        }
+        for item in worklist["items"]
+    ]
+    if readiness:
+        items = [item for item in items if item["readiness"] == readiness]
+    limited_items = items[: max(limit, 0)]
     return {
         "status": "blocked" if any(gate["status"] == "blocked" for gate in gates) else "review_ready",
         "answer_policy": "cite_or_refuse",
         "beta_status": "not_beta_accurate_yet",
         "local_government": local_government,
         "source_type": source_type,
+        "readiness": readiness,
         "counts": counts,
         "quality_gates": gates,
-        "items": worklist["items"],
-        "count": worklist["count"],
-        "total": worklist["total"],
+        "items": limited_items,
+        "count": len(limited_items),
+        "total": len(items),
     }
+
+
+def _fallback_quality_readiness(item: dict[str, Any]) -> str:
+    if item["can_support_search"]:
+        return "citable_search_ready"
+    if item["metadata_only"]:
+        return "pending_lawful_fetch"
+    if item["chunk_count"] == 0 or item["citation_count"] == 0:
+        return "parse_or_citation_repair_required"
+    if item["chunk_count"] <= 1 or item["citation_count"] <= 1:
+        return "parse_quality_review_required"
+    if item["review_status"] == SourceReviewStatus.PENDING_REVIEW.value:
+        return "source_review_ready"
+    if item["review_status"] == SourceReviewStatus.REJECTED.value:
+        return "source_rejected"
+    if item["review_status"] == SourceReviewStatus.STALE.value:
+        return "source_refresh_required"
+    if item["licence_status"] == LicenceStatus.PENDING_REVIEW.value:
+        return "licence_review_required"
+    return "review_follow_up"
 
 
 def _quality_gates(counts: dict[str, Any]) -> list[dict[str, Any]]:
@@ -512,6 +544,7 @@ def create_sources_router(
         _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
         local_government: str | None = None,
         source_type: str | None = None,
+        readiness: str | None = Query(default=None, max_length=80),
         limit: int = Query(default=100, ge=1, le=500),
     ) -> dict[str, Any]:
         report_provider = getattr(source_library, "quality_report", None)
@@ -519,12 +552,14 @@ def create_sources_router(
             return report_provider(
                 local_government=local_government,
                 source_type=source_type,
+                readiness=readiness,
                 limit=limit,
             )
         return _fallback_quality_report(
             source_library,
             local_government=local_government,
             source_type=source_type,
+            readiness=readiness,
             limit=limit,
         )
 
