@@ -352,6 +352,7 @@ class SqlAlchemySourceLibrary:
         local_government: str | None = None,
         source_type: str | None = None,
         title_contains: str | None = None,
+        readiness: str | None = None,
         max_declared_size_mb: float | None = None,
         limit: int = 5,
         org_id: UUID,
@@ -362,6 +363,7 @@ class SqlAlchemySourceLibrary:
             local_government=local_government,
             source_type=source_type,
             title_contains=title_contains,
+            readiness=readiness,
             max_declared_size_mb=max_declared_size_mb,
             limit=limit,
             force=force,
@@ -774,6 +776,7 @@ class SqlAlchemySourceLibrary:
         local_government: str | None,
         source_type: str | None,
         title_contains: str | None,
+        readiness: str | None,
         max_declared_size_mb: float | None,
         limit: int,
         force: bool,
@@ -801,8 +804,20 @@ class SqlAlchemySourceLibrary:
                     continue
                 latest = self._latest_version(session, source)
                 latest_fetch = self._latest_fetch_log(session, source)
+                latest_domain = self._source_version(latest) if latest else None
+                if readiness:
+                    if latest is None or latest_domain is None:
+                        continue
+                    current_readiness = self._source_version_readiness_for_row(
+                        session,
+                        source=source,
+                        version=latest,
+                        fetch_log=latest_fetch,
+                        domain_version=latest_domain,
+                    )
+                    if current_readiness != readiness:
+                        continue
                 if not force:
-                    latest_domain = self._source_version(latest) if latest else None
                     already_fetched = latest_domain is not None and not latest_domain.metadata_only
                     latest_succeeded = latest_fetch is not None and latest_fetch.status == "success"
                     if already_fetched or latest_succeeded:
@@ -825,6 +840,48 @@ class SqlAlchemySourceLibrary:
                 if len(candidates) >= limit:
                     break
             return candidates
+
+    def _source_version_readiness_for_row(
+        self,
+        session: Session,
+        *,
+        source: DbSource,
+        version: DbSourceVersion,
+        fetch_log: DbSourceFetchLog | None,
+        domain_version: SourceVersion,
+    ) -> str:
+        chunk_count = int(
+            session.scalar(
+                select(func.count()).select_from(DbSourceChunk).where(
+                    DbSourceChunk.source_version_id == version.id,
+                )
+            )
+            or 0
+        )
+        citation_count = int(
+            session.scalar(
+                select(func.count()).select_from(DbSourceCitation).where(
+                    DbSourceCitation.source_version_id == version.id,
+                )
+            )
+            or 0
+        )
+        parse_quality = _version_parse_quality(version=version, fetch_log=fetch_log)
+        low_signal = (
+            not domain_version.metadata_only
+            and source.source_type != "scheme_map"
+            and (
+                chunk_count <= 1
+                or citation_count <= 1
+                or _parse_quality_requires_review(parse_quality)
+            )
+        )
+        return _quality_readiness(
+            version=domain_version,
+            chunk_count=chunk_count,
+            citation_count=citation_count,
+            low_signal=low_signal,
+        )
 
     def _child_discovery_candidates(
         self,
@@ -1187,7 +1244,7 @@ class SqlAlchemySourceLibrary:
                     )
                     or 0
                 )
-                parse_quality = _parse_quality_metadata(version.metadata_json)
+                parse_quality = _version_parse_quality(version=version, fetch_log=fetch_log)
                 metadata_low_signal = _parse_quality_requires_review(parse_quality)
                 counts["chunks"] = int(counts["chunks"]) + chunk_count
                 counts["citations"] = int(counts["citations"]) + citation_count
@@ -1333,7 +1390,7 @@ class SqlAlchemySourceLibrary:
                 .where(DbArtifact.subject_id == version.id)
                 .order_by(DbArtifact.kind, DbArtifact.created_at)
             ).all()
-            parse_quality = _parse_quality_metadata(version.metadata_json)
+            parse_quality = _version_parse_quality(version=version, fetch_log=fetch_log)
             metadata_low_signal = _parse_quality_requires_review(parse_quality)
             low_signal = (
                 not domain_version.metadata_only
@@ -2091,6 +2148,19 @@ def _parse_quality_metadata(metadata: Mapping[str, object]) -> dict[str, object]
     if not isinstance(value, Mapping):
         return None
     return {str(key): item for key, item in value.items()}
+
+
+def _version_parse_quality(
+    *,
+    version: DbSourceVersion,
+    fetch_log: DbSourceFetchLog | None,
+) -> dict[str, object] | None:
+    version_quality = _parse_quality_metadata(version.metadata_json)
+    if version_quality is not None:
+        return version_quality
+    if fetch_log is None or fetch_log.source_version_id != version.id:
+        return None
+    return _parse_quality_metadata(fetch_log.metadata_json)
 
 
 def _parse_quality_requires_review(parse_quality: Mapping[str, object] | None) -> bool:

@@ -197,6 +197,11 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         help="Only fetch pending sources whose title contains this text.",
     )
     fetch_sources.add_argument(
+        "--readiness",
+        default=None,
+        help="Only fetch sources whose current quality readiness matches this value.",
+    )
+    fetch_sources.add_argument(
         "--max-declared-size-mb",
         type=float,
         default=None,
@@ -382,6 +387,7 @@ def _run_fetch_pending_sources(
         local_government=args.local_government,
         source_type=args.source_type,
         title_contains=args.title_contains,
+        readiness=args.readiness,
         max_declared_size_mb=args.max_declared_size_mb,
         limit=args.limit,
         org_id=org_id,
