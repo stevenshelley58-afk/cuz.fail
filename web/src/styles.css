@@ -42,8 +42,8 @@ a{color:var(--green)}
 .user .who small{display:block;color:var(--ink-faint);font-weight:500;font-size:.68rem}
 
 /* stage */
-.stage{min-height:0;display:flex;flex-direction:column;align-items:center;padding:0 40px;overflow:hidden;position:relative}
-.conv{flex:1;min-height:0;width:100%;max-width:760px;display:flex;flex-direction:column;justify-content:center}
+.stage{min-height:0;min-width:0;width:100%;display:flex;flex-direction:column;align-items:center;padding:0 40px;overflow:hidden;position:relative}
+.conv{flex:1;min-height:0;width:100%;max-width:min(760px,100%);display:flex;flex-direction:column;justify-content:center}
 .conv.active{justify-content:flex-start;padding-top:18px}
 .greet{text-align:center;margin-bottom:24px}
 .greet h1{font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.15;margin-bottom:6px}
@@ -63,7 +63,7 @@ a{color:var(--green)}
 .go:disabled{opacity:.5;cursor:default}
 .hints{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
 .hints button{font-size:.78rem;font-weight:600;color:var(--green-800);background:var(--mint);
-              border:1px solid var(--mint-deep);padding:8px 14px;border-radius:99px;display:flex;align-items:center;gap:6px}
+              border:1px solid var(--mint-deep);padding:8px 14px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:6px;max-width:100%;white-space:normal}
 .hints button:hover{background:var(--mint-deep)}
 .hints button .icon{width:15px;height:15px}
 .hints button.addr{background:var(--card);border-color:var(--line);color:var(--ink-soft)}
@@ -87,7 +87,7 @@ a{color:var(--green)}
 .btn.alt:hover{border-color:var(--green-bright);color:var(--green-800);background:var(--card)}
 
 /* recents / lists */
-.recent{flex:none;width:100%;max-width:760px;padding:10px 0 14px}
+.recent{flex:none;width:100%;max-width:min(760px,100%);padding:10px 0 14px}
 .recent h2,.panel h2{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin-bottom:8px}
 .strip{display:flex;gap:10px;flex-wrap:wrap}
 .proj{flex:1;min-width:240px;text-align:left;background:var(--card);border:1px solid var(--line);
@@ -98,7 +98,7 @@ a{color:var(--green)}
 .proj .t small{display:block;font-weight:500;color:var(--ink-faint);font-size:.68rem}
 
 /* generic view panel */
-.view{flex:1;min-height:0;width:100%;max-width:860px;overflow-y:auto;padding:22px 2px}
+.view{flex:1;min-height:0;width:100%;max-width:min(860px,100%);overflow-y:auto;padding:22px 2px}
 .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 20px;margin-bottom:14px}
 .panel h3{font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
 .panel h3 .icon{color:var(--green);width:20px;height:20px}
@@ -117,7 +117,7 @@ a{color:var(--green)}
 .pill.ok{background:var(--mint);color:var(--green-800)}
 .pill.bad{background:var(--flag-bg);color:var(--flag)}
 .pill.dim{background:#EEF2F0;color:var(--ink-soft)}
-.statusbar{flex:none;width:100%;max-width:760px;display:flex;gap:8px;align-items:center;padding:8px 0 14px;font-size:.7rem;color:var(--ink-faint)}
+.statusbar{flex:none;width:100%;max-width:min(760px,100%);display:flex;gap:8px;align-items:center;padding:8px 0 14px;font-size:.7rem;color:var(--ink-faint)}
 .statusbar .grow{flex:1}
 
 /* mobile */
@@ -136,5 +136,8 @@ a{color:var(--green)}
   .tb.on .ico{background:var(--mint);border-radius:99px;padding:2px 13px}
   .tb .ico{padding:2px 13px}
   .greet h1{font-size:1.35rem}
+  .greet p{padding:0 4px;overflow-wrap:anywhere}
   .conv{justify-content:flex-start;padding-top:14px}
+  .statusbar{flex-wrap:wrap;font-size:.64rem;line-height:1.25}
+  .statusbar > span:last-child{min-width:0;overflow-wrap:anywhere}
 }
