@@ -162,6 +162,9 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
                 "counts": counts,
                 "quality_gates": source_status.get("quality_gates", []),
                 "readiness_counts": source_status.get("readiness_counts", {}),
+                "source_type_counts": source_status.get("source_type_counts", {}),
+                "pending_action_counts": source_status.get("pending_action_counts", {}),
+                "latest_fetch_summary": source_status.get("latest_fetch_summary", {}),
                 "pending": source_status.get("pending", []),
             },
             "hermes": {

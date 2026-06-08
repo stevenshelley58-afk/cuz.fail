@@ -217,6 +217,9 @@ def test_cockburn_ops_dashboard_reports_canary_and_hermes_state() -> None:
         "source_review_ready",
         "citable_search_ready",
     } <= set(body["source_library"]["readiness_counts"])
+    assert isinstance(body["source_library"]["source_type_counts"], dict)
+    assert isinstance(body["source_library"]["pending_action_counts"], dict)
+    assert {"requested_at", "successful_at"} <= set(body["source_library"]["latest_fetch_summary"])
     assert set(body["source_library"]["active_scope"]) >= {
         "City of Cockburn source anchors",
         "WA planning source anchors",
@@ -255,6 +258,9 @@ def test_ops_dashboard_uses_live_router_source_library_counts() -> None:
     assert body["source_library"]["counts"]["approved_citable_versions"] == 0
     assert body["source_library"]["counts"]["low_signal_versions"] == 1
     assert body["source_library"]["readiness_counts"]["parse_quality_review_required"] == 1
+    assert body["source_library"]["source_type_counts"]["source_document"] == 1
+    assert body["source_library"]["pending_action_counts"]["human_source_review"] == 1
+    assert body["source_library"]["latest_fetch_summary"]["requested_at"] is None
     assert "Cockburn document fetch and human source approval" in body["source_library"]["pending"]
 
 
@@ -291,6 +297,9 @@ def test_source_ingestion_status_reports_cite_or_refuse_until_reviewed() -> None
         "source_review_ready",
         "citable_search_ready",
     } <= set(body["readiness_counts"])
+    assert isinstance(body["source_type_counts"], dict)
+    assert isinstance(body["pending_action_counts"], dict)
+    assert {"requested_at", "successful_at"} <= set(body["latest_fetch_summary"])
 
 
 def test_create_app_instances_do_not_share_default_source_library_state() -> None:

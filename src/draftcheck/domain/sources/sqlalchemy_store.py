@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from collections.abc import Callable, Mapping, Sequence
 from datetime import UTC, date, datetime
 from hashlib import sha256
@@ -1400,12 +1401,17 @@ class SqlAlchemySourceLibrary:
                 "citable_search_ready": 0,
                 "review_follow_up": 0,
             }
+            source_type_counts: Counter[str] = Counter()
+            pending_action_counts: Counter[str] = Counter()
+            latest_requested_at: datetime | None = None
+            latest_successful_at: datetime | None = None
             for source in sources:
                 version = self._latest_version(session, source)
                 fetch_log = self._latest_fetch_log(session, source)
                 chunk_count = 0
                 citation_count = 0
                 version_payload: dict[str, object] | None = None
+                source_type_counts[source.source_type] += 1
                 if version is not None:
                     counts["versions"] += 1
                     domain_version = self._source_version(version)
@@ -1498,6 +1504,14 @@ class SqlAlchemySourceLibrary:
                     }
                 if fetch_log is not None and fetch_log.status == "pending_fetch":
                     counts["pending_fetches"] += 1
+                if fetch_log is not None:
+                    if latest_requested_at is None or fetch_log.requested_at > latest_requested_at:
+                        latest_requested_at = fetch_log.requested_at
+                    if fetch_log.status == "success" and (
+                        latest_successful_at is None or fetch_log.requested_at > latest_successful_at
+                    ):
+                        latest_successful_at = fetch_log.requested_at
+                pending_action_counts[_pending_action(version, fetch_log)] += 1
                 items.append(
                     {
                         "source_id": str(source.id),
@@ -1543,6 +1557,12 @@ class SqlAlchemySourceLibrary:
                 ],
                 "quality_gates": _source_quality_gates(counts),
                 "readiness_counts": readiness_counts,
+                "source_type_counts": dict(source_type_counts),
+                "pending_action_counts": dict(pending_action_counts),
+                "latest_fetch_summary": {
+                    "requested_at": latest_requested_at.isoformat() if latest_requested_at else None,
+                    "successful_at": latest_successful_at.isoformat() if latest_successful_at else None,
+                },
             }
 
     def review_worklist(

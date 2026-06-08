@@ -6,6 +6,7 @@ not edit `draftcheck.api.v1`.
 
 from __future__ import annotations
 
+from collections import Counter
 from dataclasses import replace
 import os
 from typing import Annotated, Any
@@ -192,6 +193,8 @@ def _fallback_ingestion_status(
         "citable_search_ready": 0,
         "review_follow_up": 0,
     }
+    source_type_counts: Counter[str] = Counter()
+    pending_action_counts: Counter[str] = Counter()
     for version in versions:
         chunk_count = len(source_library.get_chunks_for_version(version.id))
         citation_count = len(
@@ -211,6 +214,7 @@ def _fallback_ingestion_status(
             low_signal=low_signal,
         )
         readiness_counts[readiness] += 1
+        source_type_counts["source_document"] += 1
         if low_signal:
             counts["low_signal_versions"] += 1
         if (
@@ -220,6 +224,7 @@ def _fallback_ingestion_status(
             and citation_count > 0
         ):
             counts["review_ready_versions"] += 1
+        pending_action_counts[_fallback_pending_action(version, chunk_count, citation_count)] += 1
     return {
         "status": "ingestion_in_progress" if versions else "not_started",
         "answer_policy": "cite_or_refuse",
@@ -240,6 +245,12 @@ def _fallback_ingestion_status(
         ],
         "quality_gates": _quality_gates(counts),
         "readiness_counts": readiness_counts,
+        "source_type_counts": dict(source_type_counts),
+        "pending_action_counts": dict(pending_action_counts),
+        "latest_fetch_summary": {
+            "requested_at": None,
+            "successful_at": None,
+        },
     }
 
 
@@ -348,6 +359,18 @@ def _fallback_review_issue_codes(
     if not version.metadata_only and citation_count == 0:
         issues.append("no_citations")
     return issues
+
+
+def _fallback_pending_action(
+    version: Any,
+    chunk_count: int,
+    citation_count: int,
+) -> str:
+    if version.metadata_only:
+        return "lawful_fetch"
+    if chunk_count == 0 or citation_count == 0:
+        return "repair_parse_or_citations"
+    return "human_source_review"
 
 
 def _fallback_quality_report(
