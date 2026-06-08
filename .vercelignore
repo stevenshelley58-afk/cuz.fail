@@ -21,7 +21,6 @@ deploy
 supabase
 landing
 mockups
-ui
 docs
 data
 docker-compose.yml
