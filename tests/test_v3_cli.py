@@ -70,6 +70,64 @@ def test_login_link_outputs_only_one_time_url_and_hashes_token(
         store.consume_magic_link(raw_token)
 
 
+def test_login_link_defaults_to_owner_email_from_env(monkeypatch: pytest.MonkeyPatch) -> None:
+    raw_token = "fixed-owner-env-token"
+    monkeypatch.setattr(identity_tokens, "generate_raw_token", lambda: raw_token)
+    monkeypatch.setenv("DRAFTCHECK_OWNER_EMAIL", "Owner@Example.test")
+    store = InMemoryIdentityStore(token_hash_pepper="pepper")
+    stdout = StringIO()
+    stderr = StringIO()
+
+    status = cli.main(
+        [
+            "login-link",
+            "--org-slug",
+            "Pilot",
+            "--frontend-url",
+            "https://app.test",
+        ],
+        stdout=stdout,
+        stderr=stderr,
+        store=store,
+        settings=Settings(frontend_url="https://app.test", auth_token_hash_pepper="pepper"),
+    )
+
+    assert status == 0
+    assert stderr.getvalue() == ""
+    assert stdout.getvalue().splitlines() == [
+        "https://app.test/auth/magic-link/verify?token=fixed-owner-env-token"
+    ]
+
+    token = parse_qs(urlparse(stdout.getvalue().strip()).query)["token"][0]
+    user, org, _record = store.consume_magic_link(token)
+    assert user.email == "owner@example.test"
+    assert user.role == IdentityRole.OWNER
+    assert org.slug == "pilot"
+
+
+def test_login_link_defaults_to_steven_owner_email(monkeypatch: pytest.MonkeyPatch) -> None:
+    raw_token = "fixed-owner-default-token"
+    monkeypatch.setattr(identity_tokens, "generate_raw_token", lambda: raw_token)
+    monkeypatch.delenv("DRAFTCHECK_OWNER_EMAIL", raising=False)
+    store = InMemoryIdentityStore(token_hash_pepper="pepper")
+    stdout = StringIO()
+    stderr = StringIO()
+
+    status = cli.main(
+        ["login-link", "--frontend-url", "https://app.test"],
+        stdout=stdout,
+        stderr=stderr,
+        store=store,
+        settings=Settings(frontend_url="https://app.test", auth_token_hash_pepper="pepper"),
+    )
+
+    assert status == 0
+    assert stderr.getvalue() == ""
+    token = parse_qs(urlparse(stdout.getvalue().strip()).query)["token"][0]
+    user, _org, _record = store.consume_magic_link(token)
+    assert user.email == "stevenshelley58@gmail.com"
+
+
 def test_login_link_rejects_non_http_frontend_url_before_token_issue(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:

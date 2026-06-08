@@ -28,6 +28,9 @@ from draftcheck.domain.identity.store import DEFAULT_ORG_NAME
 from draftcheck.domain.sources.sqlalchemy_store import SqlAlchemySourceLibrary
 
 
+DEFAULT_OWNER_EMAIL = "stevenshelley58@gmail.com"
+
+
 @dataclass(frozen=True)
 class LoginLinkResult:
     url: str
@@ -117,7 +120,12 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         "login-link",
         help="Issue a one-time bootstrap magic-link URL.",
     )
-    login_link.add_argument("email", help="Provisioned operator email address.")
+    login_link.add_argument(
+        "email",
+        nargs="?",
+        default=None,
+        help="Provisioned operator email address. Defaults to DRAFTCHECK_OWNER_EMAIL.",
+    )
     login_link.add_argument(
         "--org-slug",
         default=None,
@@ -215,9 +223,10 @@ def _run_login_link(
     store: InMemoryIdentityStore | None,
     settings: Settings | None,
 ) -> int:
+    email = args.email or os.getenv("DRAFTCHECK_OWNER_EMAIL") or DEFAULT_OWNER_EMAIL
     try:
         result = issue_login_link(
-            email=args.email,
+            email=email,
             org_slug=args.org_slug,
             org_name=args.org_name,
             role=args.role,
