@@ -19,6 +19,7 @@ def main() -> None:
         result = SourceIngestionService(db).import_hermes_corpus(
             inventory_jsonl=inventory_jsonl,
             corpus_root=corpus_root,
+            request_acceptance=args.request_acceptance,
         )
         db.commit()
 
@@ -30,6 +31,11 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("inventory_path", nargs="?", help="Path to the Hermes inventory JSONL file.")
     parser.add_argument("--inventory", dest="inventory_flag", help="Path to the Hermes inventory JSONL file.")
     parser.add_argument("--corpus-root", help="Optional root directory for corpus files.")
+    parser.add_argument(
+        "--request-acceptance",
+        action="store_true",
+        help="Request source acceptance through the governance gate; default imports remain pending review.",
+    )
     args = parser.parse_args()
     args.inventory_path = args.inventory_path or args.inventory_flag
     if not args.inventory_path:

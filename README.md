@@ -1,8 +1,15 @@
 # DraftCheck WA Core
 
-Backend core for a WA residential drafting assistant. It manages projects, source ingestion, citation-backed retrieval, deterministic compliance checks, RFI parsing, draft response packs, Hermes job delegation, exports, signoffs, and audit events.
+Backend core and V3 rebuild workspace for a WA residential drafting assistant. It manages projects,
+source ingestion, citation-backed retrieval, deterministic compliance checks, RFI parsing, draft
+response packs, Hermes job delegation, exports, signoffs, audit events, and the new address-first
+frontend under `web/`.
 
-This repo intentionally contains no frontend.
+## Plan Lock
+
+Implementation work must follow `docs/MASTER_REBUILD_PLAN.md` together with refreshed
+`REPO_AUDIT.md`, `DATA_INVENTORY.md`, and `VERCEL_AUDIT.md`. Older planning docs are background
+context only when they conflict with the V3 rebuild plan.
 
 ## Local Setup
 
@@ -10,6 +17,12 @@ Use Python 3.12.
 
 ```bash
 python -m pip install -e ".[dev]"
+python scripts/bootstrap_source_library.py
+python scripts/audit_source_library.py
+python scripts/extract_source_rules.py --source-title-contains "Residential Design Codes" --limit 1
+python scripts/rule_review_worklist.py --source-title-contains "Residential Design Codes" --limit 1
+python scripts/promote_rule_candidate.py --candidate-id <candidate-id> --reconcile-source --commit
+python scripts/reconcile_source_review_queue.py --source-version-id <source-version-id>
 python -m uvicorn draftcheck_api.main:app --reload --host 127.0.0.1 --port 8000
 python -m pytest
 ```
@@ -20,7 +33,9 @@ In this Codex workspace the bundled runtime was used:
 & 'C:\Users\steve\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m pytest
 ```
 
-OpenAPI is available at `/openapi.json` and Swagger UI at `/docs`.
+The legacy FastAPI app still exposes OpenAPI at `/openapi.json` and Swagger UI at `/docs`.
+For the V3 rebuild, the new app will expose only `/api/v1/*`; legacy `/v1` and `/api` routes are
+transition surfaces until M1.
 
 ## Environment
 
@@ -33,6 +48,11 @@ Key variables:
 - `HERMES_ENABLED`: defaults to `false`.
 - `HERMES_BASE_URL`, `HERMES_API_KEY`: required only when delegating to Hermes.
 - `HERMES_MAX_CONCURRENCY`, `HERMES_DEFAULT_MODEL`, `HERMES_REVIEW_MODEL`: Hermes scheduling/model hints.
+- `RQ_ENABLED`, `RQ_REDIS_URL`, `RQ_QUEUES`: legacy transition queue settings only. V3 target queue
+  is Procrastinate on PostgreSQL.
+- `BOOTSTRAP_DEMO_SOURCE_LIBRARY`: when `true`, startup ensures a small approved WA R-Codes
+  bootstrap excerpt is present. For local setup without that env var, run
+  `python scripts/bootstrap_source_library.py` once before judging chat quality.
 
 ## Safety Boundaries
 
@@ -40,7 +60,12 @@ DraftCheck WA Core is assistive only. It must not claim final compliance, approv
 
 Every regulatory answer must either cite approved source versions and chunks or say the approved source library cannot support the answer. Australian Standards full text must not be scraped or stored; store public metadata and access notes only.
 
-Hermes `source_inventory.jsonl` output can be imported through `POST /v1/sources/hermes-corpus/import` or `python scripts/import_hermes_corpus.py --inventory path/to/source_inventory.jsonl`. Public/open parsed PDF/text content becomes versioned, chunked, citable source text. Blocked, paid, login-gated, captcha-gated, robots-denied, unknown-access, restricted-licence, or otherwise non-public rows are skipped, and Standards Australia content remains metadata-only and non-citable.
+Hermes `source_inventory.jsonl` output can be imported through the legacy import script
+`python scripts/import_hermes_corpus.py --inventory path/to/source_inventory.jsonl` during harvest.
+The V3 source path is `/api/v1` only and must use the governed, traced, spend-capped adapter before
+any LLM-backed source/search behavior ships. Blocked, paid, login-gated, captcha-gated,
+robots-denied, unknown-access, restricted-licence, or otherwise non-public rows are skipped, and
+Standards Australia content remains metadata-only and non-citable.
 
 ## Useful Commands
 
@@ -48,23 +73,28 @@ Hermes `source_inventory.jsonl` output can be imported through `POST /v1/sources
 make setup
 make dev
 make test
+make bootstrap-sources
+make audit-sources
+make extract-rules
+make rule-worklist
+make reconcile-source-reviews
 make seed
 make worker
 ```
 
-## First Shippable Workflow
+## Legacy Local Workflow
 
-1. Create a project.
-2. Import a lawful source manifest or Hermes corpus inventory.
-3. Upload/paste a council RFI or upload a PDF/text/DOCX/HTML/DXF document through `/v1/projects/{project_id}/documents/upload`.
-4. Parse RFI items.
-5. Generate a draft response.
-6. Run checklist/compliance matrix.
-7. Export JSON/DOCX/XLSX/HTML/CSV response pack.
-8. Require human review/signoff before submission.
+The existing `apps/` and `packages/` implementation is frozen transition code. Use it for harvest,
+compatibility checks, and baseline tests only. Do not expand it as the V3 product surface.
 
-The default compliance matrix is broad but conservative. It creates findings for planning, building-trigger, and drawing-QA checks, but returns `missing_info` or `needs_human_review` unless enough measurements and source support exist.
+## V3 First Shippable Workflow
 
-Uploaded project files are split into pages and chunks for search, then scanned for structured drafting facts and extracted measurements. PDFs, DOCX, HTML, text files, and DXF files can support project-local search through `/v1/projects/{project_id}/document-search?q=...`; use `/v1/projects/{project_id}/documents/{document_id}/facts` for page-specific evidence instead of raw blobs. CAD/DXF geometry is handled conservatively and ambiguous measurements remain missing information or human-review evidence.
+1. Resolve an address through `/api/v1` to parcel, council, zone, overlays, and property facts with provenance.
+2. Confirm proposal facts separately from address facts.
+3. Match approved source versions and cite-or-refuse source search answers.
+4. Upload drawings, review extracted facts, and promote only confirmed measurements.
+5. Run Tier 1 deterministic checks against approved rules and promoted measurements.
+6. Show issue cards with citations, drawing evidence, and decision traces.
+7. Block exports until human signoff.
 
 # cuz.fail

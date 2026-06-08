@@ -6,8 +6,8 @@ functions (`renderHead`, `renderChat`, `renderEmails`, `renderFiles`,
 `renderChecklist`) stay as-is; only their data source changes.
 
 - Frontend (this file): `https://cuz.fail` (Vercel, static `ui/`).
-- API: `https://api.cuz.fail` — FastAPI, routes under `/v1`. CORS is already
-  `allow_origins=["*"]`, so browser calls work. Health: `GET /v1/me`.
+- API: `https://api.cuz.fail` — FastAPI, routes under `/v1`. Local/test CORS may use a wildcard,
+  but durable deployments require `CORS_ALLOWED_ORIGINS` to list explicit app origins. Health: `GET /v1/me`.
 - DB: Supabase Postgres (schema applied). Writes from the API land there.
 
 Status today: the API is real but the LLM/embedding providers are `mock`, so
@@ -50,8 +50,9 @@ Call `boot()` instead of the current bare `renderAll()` at the bottom. Keep a
 real error path: if `boot()` throws, render an inline "couldn't reach the
 service" state — never silently fall back to demo data in production.
 
-Auth note: `/auth/dev-login` returns a static `dev-token` today. When real auth
-arrives the only change here is where `TOKEN` comes from. Do not hard-code it.
+Auth note: `/auth/dev-login` is a local/development helper and is disabled when durable deployment
+flags are enabled. Production clients must use the configured API key/auth path; do not hard-code a
+token or wire production startup to `dev-login`.
 
 ---
 
@@ -190,12 +191,13 @@ This path writes real rows to Supabase — it's the most complete pane.
 
 ```js
 async function runChecks() {
-  await api(`/projects/${current}/checks/run`, { method: "POST" });
-  return api(`/projects/${current}/checks`);   // CheckResultRead[]
+  await api(`/projects/${current}/compliance/run`, { method: "POST" });
+  return api(`/projects/${current}/compliance/matrix`);
 }
 ```
 
-`CheckResultRead` → row mapping:
+`GET /compliance/matrix` returns the latest matrix envelope; map each `results[]`
+item as a `CheckResultRead` row:
 
 | Prototype field | API field |
 |---|---|

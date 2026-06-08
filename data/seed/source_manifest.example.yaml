@@ -54,7 +54,7 @@ sources:
     authority: City of Cockburn
     local_government: Cockburn
     source_type: local_planning_policy
-    canonical_url: https://www.cockburn.wa.gov.au/example-policy
+    canonical_url:
     licence_notes: Example fixture for local tests; replace with official current policy URL during real ingestion.
     access_type: public
     scrape_allowed: true

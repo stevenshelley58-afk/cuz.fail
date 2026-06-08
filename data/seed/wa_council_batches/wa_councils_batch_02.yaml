@@ -1,0 +1,217 @@
+sources:
+- title: City of Nedlands official website source anchor
+  jurisdiction: WA
+  authority: City of Nedlands
+  local_government: Nedlands
+  source_type: local_planning_policy
+  canonical_url: https://nedlands.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Perth official website source anchor
+  jurisdiction: WA
+  authority: City of Perth
+  local_government: Perth
+  source_type: local_planning_policy
+  canonical_url: https://perth.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Rockingham official website source anchor
+  jurisdiction: WA
+  authority: City of Rockingham
+  local_government: Rockingham
+  source_type: local_planning_policy
+  canonical_url: http://rockingham.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of South Perth official website source anchor
+  jurisdiction: WA
+  authority: City of South Perth
+  local_government: South Perth
+  source_type: local_planning_policy
+  canonical_url: https://southperth.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Stirling official website source anchor
+  jurisdiction: WA
+  authority: City of Stirling
+  local_government: Stirling
+  source_type: local_planning_policy
+  canonical_url: https://stirling.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Subiaco official website source anchor
+  jurisdiction: WA
+  authority: City of Subiaco
+  local_government: Subiaco
+  source_type: local_planning_policy
+  canonical_url: https://subiaco.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Swan official website source anchor
+  jurisdiction: WA
+  authority: City of Swan
+  local_government: Swan
+  source_type: local_planning_policy
+  canonical_url: https://swan.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Vincent official website source anchor
+  jurisdiction: WA
+  authority: City of Vincent
+  local_government: Vincent
+  source_type: local_planning_policy
+  canonical_url: https://vincent.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Wanneroo official website source anchor
+  jurisdiction: WA
+  authority: City of Wanneroo
+  local_government: Wanneroo
+  source_type: local_planning_policy
+  canonical_url: https://wanneroo.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Ashburton official website source anchor
+  jurisdiction: WA
+  authority: Shire of Ashburton
+  local_government: Ashburton
+  source_type: local_planning_policy
+  canonical_url: https://ashburton.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Augusta Margaret River official website source anchor
+  jurisdiction: WA
+  authority: Shire of Augusta Margaret River
+  local_government: Augusta Margaret River
+  source_type: local_planning_policy
+  canonical_url: https://amrshire.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Beverley official website source anchor
+  jurisdiction: WA
+  authority: Shire of Beverley
+  local_government: Beverley
+  source_type: local_planning_policy
+  canonical_url: https://beverley.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Boddington official website source anchor
+  jurisdiction: WA
+  authority: Shire of Boddington
+  local_government: Boddington
+  source_type: local_planning_policy
+  canonical_url: https://boddington.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Boyup Brook official website source anchor
+  jurisdiction: WA
+  authority: Shire of Boyup Brook
+  local_government: Boyup Brook
+  source_type: local_planning_policy
+  canonical_url: https://boyupbrook.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Bridgetown-Greenbushes official website source anchor
+  jurisdiction: WA
+  authority: Shire of Bridgetown-Greenbushes
+  local_government: Bridgetown-Greenbushes
+  source_type: local_planning_policy
+  canonical_url: https://bridgetown.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Brookton official website source anchor
+  jurisdiction: WA
+  authority: Shire of Brookton
+  local_government: Brookton
+  source_type: local_planning_policy
+  canonical_url: https://brookton.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Broome official website source anchor
+  jurisdiction: WA
+  authority: Shire of Broome
+  local_government: Broome
+  source_type: local_planning_policy
+  canonical_url: http://broome.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Broomehill- Tambellup official website source anchor
+  jurisdiction: WA
+  authority: Shire of Broomehill- Tambellup
+  local_government: Broomehill- Tambellup
+  source_type: local_planning_policy
+  canonical_url: http://shirebt.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor

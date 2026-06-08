@@ -1,4 +1,11 @@
 repos:
+  - repo: local
+    hooks:
+      - id: draftcheck-repo-hygiene
+        name: DraftCheck repo hygiene guard
+        entry: python scripts/precommit_guard.py
+        language: python
+        pass_filenames: true
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.16
     hooks:

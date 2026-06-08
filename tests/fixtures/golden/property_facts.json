@@ -1,0 +1,166 @@
+{
+  "property_facts": [
+    {
+      "id": "pf_council",
+      "project_id": "proj_m1_canary",
+      "property_id": "property_m1_canary",
+      "fact_type": "council",
+      "value_json": {
+        "name": "Demo Bay Local Government"
+      },
+      "confidence": 0.96,
+      "method": "parcel_intersection",
+      "source_version_id": "sv_artificial_lga_boundaries_2026_q2_v1",
+      "citation_id": "cit_artificial_lga_boundary",
+      "spatial_dataset_id": "spds_artificial_lga_2026_q2",
+      "planning_feature_id": "lga_demo_bay",
+      "parcel_id": "parcel_m1_canary",
+      "effective_from": "2026-06-07",
+      "effective_to": null,
+      "review_status": "human_confirmed",
+      "provenance": {
+        "resolved_from_address_resolution_id": "addrres_m1_canary",
+        "computed_at": "2026-06-07T09:22:00+08:00"
+      }
+    },
+    {
+      "id": "pf_zone",
+      "project_id": "proj_m1_canary",
+      "property_id": "property_m1_canary",
+      "fact_type": "zone",
+      "value_json": {
+        "code": "DEMO_RES",
+        "label": "Demonstration residential zone"
+      },
+      "confidence": 0.95,
+      "method": "parcel_intersection",
+      "source_version_id": "sv_artificial_demo_scheme_2026_v1",
+      "citation_id": "cit_artificial_scheme_zone",
+      "spatial_dataset_id": "spds_artificial_demo_scheme_2026",
+      "planning_feature_id": "zone_demo_res",
+      "parcel_id": "parcel_m1_canary",
+      "effective_from": "2026-06-07",
+      "effective_to": null,
+      "review_status": "human_confirmed",
+      "provenance": {
+        "resolved_from_address_resolution_id": "addrres_m1_canary",
+        "computed_at": "2026-06-07T09:23:00+08:00"
+      }
+    },
+    {
+      "id": "pf_r_code",
+      "project_id": "proj_m1_canary",
+      "property_id": "property_m1_canary",
+      "fact_type": "r_code",
+      "value_json": {
+        "code": "R30",
+        "fixture_value": true
+      },
+      "confidence": 0.95,
+      "method": "parcel_intersection",
+      "source_version_id": "sv_artificial_demo_scheme_2026_v1",
+      "citation_id": "cit_artificial_scheme_r_code",
+      "spatial_dataset_id": "spds_artificial_demo_scheme_2026",
+      "planning_feature_id": "rcode_r30_fixture",
+      "parcel_id": "parcel_m1_canary",
+      "effective_from": "2026-06-07",
+      "effective_to": null,
+      "review_status": "human_confirmed",
+      "provenance": {
+        "resolved_from_address_resolution_id": "addrres_m1_canary",
+        "computed_at": "2026-06-07T09:23:00+08:00",
+        "note": "R30 is an illustrative canary value tied to this artificial source version."
+      }
+    },
+    {
+      "id": "pf_lot_area",
+      "project_id": "proj_m1_canary",
+      "property_id": "property_m1_canary",
+      "fact_type": "lot_area",
+      "value_json": {
+        "area_m2": 450.0
+      },
+      "confidence": 0.98,
+      "method": "source_import",
+      "source_version_id": "sv_artificial_cadastre_2026_q2_v1",
+      "citation_id": "cit_artificial_cadastre_lot_area",
+      "spatial_dataset_id": "spds_artificial_cadastre_2026_q2",
+      "parcel_id": "parcel_m1_canary",
+      "effective_from": "2026-06-07",
+      "effective_to": null,
+      "review_status": "human_confirmed",
+      "provenance": {
+        "resolved_from_address_resolution_id": "addrres_m1_canary",
+        "computed_at": "2026-06-07T09:24:00+08:00"
+      }
+    },
+    {
+      "id": "pf_frontage",
+      "project_id": "proj_m1_canary",
+      "property_id": "property_m1_canary",
+      "fact_type": "frontage",
+      "value_json": {
+        "frontage_m": 15.0,
+        "street": "Canary Lane"
+      },
+      "confidence": 0.97,
+      "method": "source_import",
+      "source_version_id": "sv_artificial_cadastre_2026_q2_v1",
+      "citation_id": "cit_artificial_cadastre_frontage",
+      "spatial_dataset_id": "spds_artificial_cadastre_2026_q2",
+      "parcel_id": "parcel_m1_canary",
+      "effective_from": "2026-06-07",
+      "effective_to": null,
+      "review_status": "human_confirmed",
+      "provenance": {
+        "resolved_from_address_resolution_id": "addrres_m1_canary",
+        "computed_at": "2026-06-07T09:24:00+08:00"
+      }
+    },
+    {
+      "id": "pf_primary_street",
+      "project_id": "proj_m1_canary",
+      "property_id": "property_m1_canary",
+      "fact_type": "primary_street",
+      "value_json": {
+        "street": "Canary Lane",
+        "confirmed": true
+      },
+      "confidence": 1.0,
+      "method": "user_confirmed",
+      "source_version_id": "sv_artificial_cadastre_2026_q2_v1",
+      "citation_id": "cit_artificial_cadastre_frontage",
+      "parcel_id": "parcel_m1_canary",
+      "effective_from": "2026-06-07",
+      "effective_to": null,
+      "review_status": "human_confirmed",
+      "provenance": {
+        "confirmed_by_user_id": "user_m1_reviewer",
+        "confirmed_at": "2026-06-07T09:25:00+08:00"
+      }
+    },
+    {
+      "id": "pf_bushfire",
+      "project_id": "proj_m1_canary",
+      "property_id": "property_m1_canary",
+      "fact_type": "bushfire",
+      "value_json": {
+        "bushfire_prone_area": false
+      },
+      "confidence": 0.91,
+      "method": "parcel_intersection",
+      "source_version_id": "sv_artificial_bushfire_map_2026_v1",
+      "citation_id": "cit_artificial_bushfire_not_mapped",
+      "spatial_dataset_id": "spds_artificial_bushfire_2026",
+      "planning_feature_id": "bpa_demo_none",
+      "parcel_id": "parcel_m1_canary",
+      "effective_from": "2026-06-07",
+      "effective_to": null,
+      "review_status": "human_confirmed",
+      "provenance": {
+        "resolved_from_address_resolution_id": "addrres_m1_canary",
+        "computed_at": "2026-06-07T09:26:00+08:00"
+      }
+    }
+  ]
+}

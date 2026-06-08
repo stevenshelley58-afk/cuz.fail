@@ -1,0 +1,45 @@
+{
+  "address_resolution": {
+    "id": "addrres_m1_canary",
+    "project_id": "proj_m1_canary",
+    "property_id": "property_m1_canary",
+    "input": {
+      "single_line": "10 Canary Lane, Demo Bay WA 6000"
+    },
+    "resolution_status": "resolved",
+    "confidence": 0.94,
+    "method": "gnaf_pid_then_parcel_intersection",
+    "selected_address_point": {
+      "address_point_id": "ap_m1_canary",
+      "gnaf_pid": "GAACTEST000001",
+      "formatted_address": "10 Canary Lane, Demo Bay WA 6000",
+      "latitude": -32.0001,
+      "longitude": 115.8001,
+      "source_version_id": "sv_artificial_gnaf_2026_q2_v1",
+      "citation_id": "cit_artificial_gnaf_address_point",
+      "provenance": {
+        "method": "source_import",
+        "dataset_record_id": "GAACTEST000001",
+        "imported_at": "2026-06-07T09:10:00+08:00"
+      }
+    },
+    "selected_parcel": {
+      "parcel_id": "parcel_m1_canary",
+      "lot_plan": "Lot 1 on Demo Plan 900001",
+      "source_version_id": "sv_artificial_cadastre_2026_q2_v1",
+      "citation_id": "cit_artificial_cadastre_parcel",
+      "provenance": {
+        "method": "parcel_intersection",
+        "spatial_dataset_id": "spds_artificial_cadastre_2026_q2",
+        "intersection_ratio": 1.0
+      }
+    },
+    "review_status": "human_confirmed",
+    "confirmed_by_user_id": "user_m1_reviewer",
+    "confirmed_at": "2026-06-07T09:20:00+08:00",
+    "limitations": [
+      "Synthetic address and parcel records are fixture data only.",
+      "External geocoder results are not used as legal proof."
+    ]
+  }
+}

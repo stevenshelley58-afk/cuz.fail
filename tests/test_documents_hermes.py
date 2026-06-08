@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from tests.test_compliance_rfi_export import create_project
 
 
@@ -46,6 +48,75 @@ def test_multipart_document_upload_stores_raw_file_and_pages(client):
     assert pages.status_code == 200
     assert [page["page_number"] for page in pages.json()] == [1, 2]
     assert "front setback" in pages.json()[0]["text_content"]
+
+
+def test_multipart_document_upload_uses_content_addressed_keys_for_same_filename(client, monkeypatch, tmp_path):
+    monkeypatch.setenv("OBJECT_STORAGE_ROOT", str(tmp_path))
+    project = create_project(client)
+
+    first_content = b"First RFI asks for front setback evidence."
+    second_content = b"Second RFI asks for open space evidence."
+    first = client.post(
+        f"/v1/projects/{project['id']}/documents/upload",
+        data={"document_type": "council_rfi", "title": "First RFI"},
+        files={"file": ("rfi.txt", first_content, "text/plain")},
+    )
+    second = client.post(
+        f"/v1/projects/{project['id']}/documents/upload",
+        data={"document_type": "council_rfi", "title": "Second RFI"},
+        files={"file": ("rfi.txt", second_content, "text/plain")},
+    )
+
+    assert first.status_code == 200, first.text
+    assert second.status_code == 200, second.text
+    assert first.json()["filename"] == "rfi.txt"
+    assert second.json()["filename"] == "rfi.txt"
+    assert first.json()["raw_object_key"] != second.json()["raw_object_key"]
+    assert Path(first.json()["raw_object_key"]).read_bytes() == first_content
+    assert Path(second.json()["raw_object_key"]).read_bytes() == second_content
+
+
+def test_multipart_document_upload_sanitizes_unsafe_filename(client, monkeypatch, tmp_path):
+    monkeypatch.setenv("OBJECT_STORAGE_ROOT", str(tmp_path))
+    project = create_project(client)
+
+    response = client.post(
+        f"/v1/projects/{project['id']}/documents/upload",
+        data={"document_type": "council_rfi", "title": "Unsafe filename"},
+        files={"file": ("..\\CON.txt", b"Please confirm the setback.", "text/plain")},
+    )
+
+    assert response.status_code == 200, response.text
+    body = response.json()
+    assert body["filename"] == "upload_CON.txt"
+    assert Path(body["raw_object_key"]).name == "upload_CON.txt"
+
+
+def test_multipart_document_upload_rejects_content_type_spoofing(client):
+    project = create_project(client)
+
+    response = client.post(
+        f"/v1/projects/{project['id']}/documents/upload",
+        data={"document_type": "site_plan", "title": "Spoofed PDF"},
+        files={"file": ("spoofed.pdf", b"not actually a pdf", "application/pdf")},
+    )
+
+    assert response.status_code == 400
+    assert "does not match declared content type" in response.json()["detail"]
+
+
+def test_multipart_document_upload_rejects_oversized_file(client, monkeypatch):
+    monkeypatch.setenv("UPLOAD_MAX_BYTES", "5")
+    project = create_project(client)
+
+    response = client.post(
+        f"/v1/projects/{project['id']}/documents/upload",
+        data={"document_type": "council_rfi", "title": "Too large"},
+        files={"file": ("large.txt", b"123456", "text/plain")},
+    )
+
+    assert response.status_code == 400
+    assert "exceeds 5 byte limit" in response.json()["detail"]
 
 
 def test_document_fact_extraction_creates_measurements_and_search_chunks(client):
@@ -110,6 +181,39 @@ def test_document_fact_extraction_handles_pdf_units_and_commas(client):
     assert values["open_space_m2"] == 245
     assert values["front_setback_m"] == 4.5
     assert values["outdoor_living_area_m2"] == 30
+
+
+def test_uncalibrated_pdf_drawing_measurement_stays_fact_only(client):
+    project = create_project(client)
+    doc = client.post(
+        f"/v1/projects/{project['id']}/documents",
+        json={
+            "document_type": "site_plan",
+            "title": "Uncalibrated Raster Site Plan A03",
+            "filename": "A03.pdf",
+            "content_type": "application/pdf",
+            "text_content": (
+                "Uncalibrated raster PDF extraction. "
+                "Front setback dimension 4.5m from scaled drawing read."
+            ),
+        },
+    )
+    assert doc.status_code == 200, doc.text
+
+    facts = client.get(f"/v1/projects/{project['id']}/documents/{doc.json()['id']}/facts")
+    assert facts.status_code == 200
+    front_setback_facts = [fact for fact in facts.json() if fact["label"] == "front setback"]
+    assert front_setback_facts
+    assert front_setback_facts[0]["metadata"]["measurement_key"] == "front_setback_m"
+    assert front_setback_facts[0]["metadata"]["measurement_compliance_ready"] is False
+    assert (
+        front_setback_facts[0]["metadata"]["measurement_readiness_reason"]
+        == "uncalibrated_raster_or_pdf_drawing_measurement"
+    )
+
+    measurements = client.get(f"/v1/projects/{project['id']}/measurements")
+    assert measurements.status_code == 200
+    assert "front_setback_m" not in {row["key"] for row in measurements.json()}
 
 
 def test_dxf_upload_extracts_layers_text_and_is_searchable(client):

@@ -1,0 +1,229 @@
+{
+  "run": {
+    "id": "expected_run_m1_canary",
+    "project_id": "proj_m1_canary",
+    "as_of_date": "2026-06-07",
+    "engine_contract": "deterministic_fixture_contract_v1",
+    "limits": {
+      "fixture_only": true,
+      "requires_human_signoff_for_real_use": true,
+      "no_llm_verdicts": true
+    }
+  },
+  "expected_results": [
+    {
+      "id": "cr_site_cover",
+      "check_key": "site_cover",
+      "tier": 1,
+      "status": "needs_human_review",
+      "status_reason": "Rule and measurement evidence exist, but the source version is an artificial fixture paraphrase.",
+      "source_version_ids": [
+        "sv_artificial_demo_rcodes_extract_2026_v1"
+      ],
+      "rule_evidence_ids": [
+        "cit_artificial_rcodes_site_cover"
+      ],
+      "measurement_ids": [
+        "pm_site_cover_area",
+        "pm_lot_area"
+      ],
+      "decision_trace": {
+        "approved_rule_id": "rule_fixture_site_cover",
+        "approved_source_version_ids": [
+          "sv_artificial_demo_rcodes_extract_2026_v1"
+        ],
+        "official_citation_ids": [
+          "cit_artificial_rcodes_site_cover"
+        ],
+        "promoted_measurement_ids": [
+          "pm_site_cover_area",
+          "pm_lot_area"
+        ],
+        "calculation_trace_id": "trace_fixture_site_cover",
+        "not_excluded_by_precedence": true,
+        "human_review_required": true,
+        "final_verdict": false
+      },
+      "missing_information": [],
+      "review_reasons": [
+        "Artificial source version cannot support a real project conclusion."
+      ]
+    },
+    {
+      "id": "cr_primary_street_setback",
+      "check_key": "primary_street_setback",
+      "tier": 1,
+      "status": "needs_human_review",
+      "status_reason": "The canary has a promoted setback measurement, but contextual discretion is intentionally unresolved.",
+      "source_version_ids": [
+        "sv_artificial_demo_rcodes_extract_2026_v1"
+      ],
+      "rule_evidence_ids": [
+        "cit_artificial_rcodes_primary_setback"
+      ],
+      "measurement_ids": [
+        "pm_primary_street_setback"
+      ],
+      "decision_trace": {
+        "approved_rule_id": "rule_fixture_primary_street_setback",
+        "approved_source_version_ids": [
+          "sv_artificial_demo_rcodes_extract_2026_v1"
+        ],
+        "official_citation_ids": [
+          "cit_artificial_rcodes_primary_setback"
+        ],
+        "promoted_measurement_ids": [
+          "pm_primary_street_setback"
+        ],
+        "calculation_trace_id": "trace_fixture_primary_street_setback",
+        "not_excluded_by_precedence": true,
+        "human_review_required": true,
+        "final_verdict": false
+      },
+      "missing_information": [],
+      "review_reasons": [
+        "Primary-street context remains reviewer-gated in the canary."
+      ]
+    },
+    {
+      "id": "cr_open_space",
+      "check_key": "open_space",
+      "tier": 1,
+      "status": "missing_information",
+      "status_reason": "Open-space area exists, but exclusion classification evidence is not supplied in this seed.",
+      "source_version_ids": [
+        "sv_artificial_demo_rcodes_extract_2026_v1"
+      ],
+      "rule_evidence_ids": [
+        "cit_artificial_rcodes_open_space"
+      ],
+      "measurement_ids": [
+        "pm_open_space_area",
+        "pm_lot_area"
+      ],
+      "decision_trace": {
+        "approved_rule_id": "rule_fixture_open_space",
+        "approved_source_version_ids": [
+          "sv_artificial_demo_rcodes_extract_2026_v1"
+        ],
+        "official_citation_ids": [
+          "cit_artificial_rcodes_open_space"
+        ],
+        "promoted_measurement_ids": [
+          "pm_open_space_area",
+          "pm_lot_area"
+        ],
+        "calculation_trace_id": null,
+        "not_excluded_by_precedence": true,
+        "human_review_required": true,
+        "final_verdict": false
+      },
+      "missing_information": [
+        "open_space_exclusion_classification"
+      ],
+      "review_reasons": []
+    },
+    {
+      "id": "cr_garage_dominance",
+      "check_key": "garage_dominance",
+      "tier": 1,
+      "status": "needs_human_review",
+      "status_reason": "Garage width and frontage facts exist, but dominance assessment remains reviewer-gated.",
+      "source_version_ids": [
+        "sv_artificial_demo_rcodes_extract_2026_v1"
+      ],
+      "rule_evidence_ids": [
+        "cit_artificial_rcodes_garage_width"
+      ],
+      "measurement_ids": [
+        "pm_garage_width"
+      ],
+      "property_fact_ids": [
+        "pf_frontage"
+      ],
+      "decision_trace": {
+        "approved_rule_id": "rule_fixture_garage_dominance",
+        "approved_source_version_ids": [
+          "sv_artificial_demo_rcodes_extract_2026_v1"
+        ],
+        "official_citation_ids": [
+          "cit_artificial_rcodes_garage_width"
+        ],
+        "promoted_measurement_ids": [
+          "pm_garage_width"
+        ],
+        "calculation_trace_id": "trace_fixture_garage_dominance",
+        "not_excluded_by_precedence": true,
+        "human_review_required": true,
+        "final_verdict": false
+      },
+      "missing_information": [],
+      "review_reasons": [
+        "The fixture does not encode a deterministic design-judgement override."
+      ]
+    },
+    {
+      "id": "cr_boundary_wall_length",
+      "check_key": "boundary_wall_length",
+      "tier": 1,
+      "status": "not_assessed",
+      "status_reason": "No boundary-wall proposal is asserted by the seed.",
+      "source_version_ids": [
+        "sv_artificial_demo_rcodes_extract_2026_v1"
+      ],
+      "rule_evidence_ids": [
+        "cit_artificial_rcodes_boundary_wall"
+      ],
+      "measurement_ids": [
+        "pm_boundary_wall_length"
+      ],
+      "decision_trace": {
+        "approved_rule_id": "rule_fixture_boundary_wall_length",
+        "approved_source_version_ids": [
+          "sv_artificial_demo_rcodes_extract_2026_v1"
+        ],
+        "official_citation_ids": [
+          "cit_artificial_rcodes_boundary_wall"
+        ],
+        "promoted_measurement_ids": [
+          "pm_boundary_wall_length"
+        ],
+        "calculation_trace_id": null,
+        "not_excluded_by_precedence": true,
+        "human_review_required": true,
+        "final_verdict": false
+      },
+      "missing_information": [
+        "boundary_wall_proposal_confirmation"
+      ],
+      "review_reasons": []
+    },
+    {
+      "id": "cr_building_height",
+      "check_key": "building_height",
+      "tier": 2,
+      "status": "not_assessed",
+      "status_reason": "Height checks are outside the M1 Tier 1 canary evidence scope.",
+      "source_version_ids": [],
+      "rule_evidence_ids": [],
+      "measurement_ids": [],
+      "decision_trace": {
+        "approved_rule_id": null,
+        "approved_source_version_ids": [],
+        "official_citation_ids": [],
+        "promoted_measurement_ids": [],
+        "calculation_trace_id": null,
+        "not_excluded_by_precedence": null,
+        "human_review_required": true,
+        "final_verdict": false
+      },
+      "missing_information": [
+        "calibrated_natural_ground_level",
+        "approved_height_rule"
+      ],
+      "review_reasons": [
+        "Tier 2 checks require calibrated level evidence."
+      ]
+    }
+  ]
+}
