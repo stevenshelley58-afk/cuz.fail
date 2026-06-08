@@ -350,6 +350,7 @@ class SqlAlchemySourceLibrary:
         self,
         *,
         local_government: str | None = None,
+        source_type: str | None = None,
         limit: int = 5,
         org_id: UUID,
         requested_by_user_id: UUID,
@@ -357,6 +358,7 @@ class SqlAlchemySourceLibrary:
     ) -> dict[str, object]:
         candidates = self._pending_fetch_candidates(
             local_government=local_government,
+            source_type=source_type,
             limit=limit,
             force=force,
         )
@@ -762,6 +764,7 @@ class SqlAlchemySourceLibrary:
         self,
         *,
         local_government: str | None,
+        source_type: str | None,
         limit: int,
         force: bool,
     ) -> list[dict[str, object]]:
@@ -772,6 +775,8 @@ class SqlAlchemySourceLibrary:
             )
             if local_government:
                 statement = statement.where(DbSource.local_government == local_government)
+            if source_type:
+                statement = statement.where(DbSource.source_type == source_type)
             candidates: list[dict[str, object]] = []
             for source in session.scalars(statement).all():
                 latest = self._latest_version(session, source)
@@ -1403,25 +1408,47 @@ def _candidate_links_from_text(text: str) -> tuple[CandidateSourceLink, ...]:
 
 
 def _looks_like_discovered_source(url: str, label: str) -> bool:
-    haystack = f"{url} {label}".lower()
-    return any(
+    haystack = f"{url} {label}".lower().replace("_", "-")
+    if any(
         term in haystack
         for term in (
-            "planning",
-            "policy",
-            "scheme",
-            "development",
+            "local-planning",
+            "town-planning",
+            "planning-scheme",
+            "scheme-text",
+            "schemetext",
             "structure-plan",
             "local-development-plan",
-            "strategy",
-            "map",
+            "local development plan",
+            "planning-strategy",
+            "planning advice",
+            "planning-advice",
+            "development-assessment",
             "r-code",
             "rcode",
-            "residential",
-            ".pdf",
-            ".doc",
-            ".docx",
+            "residential-design-code",
         )
+    ):
+        return True
+    if _has_tps_token(haystack) and ("map" in haystack or "scheme" in haystack):
+        return True
+    return bool(
+        (haystack.endswith((".pdf", ".doc", ".docx")) or ".pdf" in haystack)
+        and any(term in haystack for term in ("planning", "scheme", "map", "r-code", "rcode"))
+    )
+
+
+def _has_tps_token(haystack: str) -> bool:
+    normalized = (
+        haystack.replace("/", "-")
+        .replace(".", "-")
+        .replace("(", "-")
+        .replace(")", "-")
+        .replace("%20", "-")
+    )
+    return any(
+        token == "tps" or (token.startswith("tps") and token[3:].isdigit())
+        for token in normalized.split("-")
     )
 
 

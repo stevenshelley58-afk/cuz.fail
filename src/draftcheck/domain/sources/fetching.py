@@ -232,15 +232,27 @@ def _candidate_links(soup: BeautifulSoup, *, final_url: str) -> list[CandidateSo
 
 def infer_source_type(url: str, label: str = "") -> str:
     haystack = f"{url} {label}".lower().replace("_", "-")
+    is_tps = _has_tps_token(haystack)
     if "standards.org.au" in haystack or "standards australia" in haystack:
         return "standard_metadata"
-    if "scheme-map" in haystack or "map-" in haystack or " map " in f" {haystack} ":
+    if (
+        "scheme-map" in haystack
+        or "map-" in haystack
+        or " map " in f" {haystack} "
+        or (is_tps and "map" in haystack)
+    ):
         return "scheme_map"
     if "local-development-plan" in haystack or "ldp" in haystack:
         return "local_development_plan"
     if "structure-plan" in haystack or "structure plan" in haystack:
         return "structure_plan"
-    if "local-planning-scheme" in haystack or "scheme-text" in haystack or "tps" in haystack:
+    if (
+        "local-planning-scheme" in haystack
+        or "town-planning-scheme" in haystack
+        or "scheme-text" in haystack
+        or "schemetext" in haystack
+        or is_tps
+    ):
         return "local_planning_scheme"
     if "local-planning-policy" in haystack or "policy" in haystack or "lpp" in haystack:
         return "local_planning_policy"
@@ -254,30 +266,45 @@ def infer_source_type(url: str, label: str = "") -> str:
 
 
 def _looks_like_source_link(url: str, label: str) -> bool:
-    haystack = f"{url} {label}"
-    return any(
+    haystack = f"{url} {label}".lower().replace("_", "-")
+    if any(
         term in haystack
         for term in (
-            "planning",
-            "policy",
-            "scheme",
-            "development",
+            "local-planning",
+            "town-planning",
+            "planning-scheme",
+            "scheme-text",
+            "schemetext",
             "structure-plan",
             "local-development-plan",
             "local development plan",
-            "strategy",
-            "map",
-            "checklist",
-            "information sheet",
+            "planning-strategy",
+            "planning advice",
             "planning-advice",
+            "development-assessment",
             "r-code",
             "rcode",
-            "residential",
-            ".pdf",
-            ".doc",
-            ".docx",
+            "residential-design-code",
         )
+    ):
+        return True
+    if _has_tps_token(haystack) and ("map" in haystack or "scheme" in haystack):
+        return True
+    return bool(
+        (haystack.endswith((".pdf", ".doc", ".docx")) or ".pdf" in haystack)
+        and any(term in haystack for term in ("planning", "scheme", "map", "r-code", "rcode"))
     )
+
+
+def _has_tps_token(haystack: str) -> bool:
+    normalized = (
+        haystack.replace("/", "-")
+        .replace(".", "-")
+        .replace("(", "-")
+        .replace(")", "-")
+        .replace("%20", "-")
+    )
+    return any(token == "tps" or (token.startswith("tps") and token[3:].isdigit()) for token in normalized.split("-"))
 
 
 def _host_allowed(parsed_base: ParseResult, parsed_candidate: ParseResult) -> bool:

@@ -3,6 +3,7 @@ from __future__ import annotations
 from draftcheck.domain.sources.fetching import (
     extract_candidate_links,
     extract_source_text,
+    infer_source_type,
     parse_robots_allows,
 )
 
@@ -79,3 +80,20 @@ def test_extract_candidate_links_returns_structured_source_targets() -> None:
             "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Development-Plans",
         ),
     ]
+
+
+def test_infer_source_type_does_not_treat_https_as_tps_scheme() -> None:
+    assert (
+        infer_source_type(
+            "https://www.cockburn.wa.gov.au/City-and-Council/Strategies-and-Plans",
+            "Corporate Strategic Planning",
+        )
+        == "source_document"
+    )
+    assert (
+        infer_source_type(
+            "https://www.wa.gov.au/system/files/2026-03/map16_cockburn_tps3_beeliar_locality.pdf",
+            "Map 16 - Beeliar locality",
+        )
+        == "scheme_map"
+    )

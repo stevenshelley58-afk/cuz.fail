@@ -393,6 +393,7 @@ def test_fetch_pending_sources_uses_operator_and_local_government(
             self,
             *,
             local_government,
+            source_type,
             limit,
             org_id,
             requested_by_user_id,
@@ -400,6 +401,7 @@ def test_fetch_pending_sources_uses_operator_and_local_government(
         ):
             calls["fetch"] = {
                 "local_government": local_government,
+                "source_type": source_type,
                 "limit": limit,
                 "org_id": str(org_id),
                 "requested_by_user_id": str(requested_by_user_id),
@@ -418,6 +420,8 @@ def test_fetch_pending_sources_uses_operator_and_local_government(
             "fetch-pending-sources",
             "--local-government",
             "Cockburn",
+            "--source-type",
+            "scheme_map",
             "--limit",
             "2",
             "--operator-email",
@@ -441,6 +445,7 @@ def test_fetch_pending_sources_uses_operator_and_local_government(
     assert calls["source_database_url"] == "postgresql+psycopg://fixture"
     assert calls["fetch"] == {
         "local_government": "Cockburn",
+        "source_type": "scheme_map",
         "limit": 2,
         "org_id": str(org_id),
         "requested_by_user_id": str(user_id),

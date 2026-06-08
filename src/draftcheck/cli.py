@@ -187,6 +187,11 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         help="Optional local government filter, for example Cockburn.",
     )
     fetch_sources.add_argument(
+        "--source-type",
+        default=None,
+        help="Optional source type filter, for example scheme_map or local_planning_scheme.",
+    )
+    fetch_sources.add_argument(
         "--limit",
         type=int,
         default=5,
@@ -364,6 +369,7 @@ def _run_fetch_pending_sources(
     source_library = SqlAlchemySourceLibrary.from_database_url(database_url)
     result = source_library.fetch_pending_sources(
         local_government=args.local_government,
+        source_type=args.source_type,
         limit=args.limit,
         org_id=org_id,
         requested_by_user_id=user_id,
