@@ -37,6 +37,17 @@ The legacy FastAPI app still exposes OpenAPI at `/openapi.json` and Swagger UI a
 For the V3 rebuild, the new app will expose only `/api/v1/*`; legacy `/v1` and `/api` routes are
 transition surfaces until M1.
 
+## Production Deploy
+
+The live VPS target is `srv1625369` at `76.13.209.160`, reachable from the operator machine as
+`ssh draftcheck`. PowerShell/Codex is the local shell; commands that mutate production must run
+through `ssh draftcheck '...'` or inside an interactive `ssh draftcheck` session.
+
+`https://app.cuz.fail/` is served by Caddy from `/srv/draftcheck/app/web/dist`. For a UI-only
+deploy, sync `/srv/draftcheck/app` to `origin/main` and rebuild `web/dist`; no Vercel action and
+no container restart are needed. See `docs/PRODUCTION_DEPLOYMENT.md` for the exact command and
+verification checklist.
+
 ## Environment
 
 Copy `.env.example` to `.env` for local overrides.

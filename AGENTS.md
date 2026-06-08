@@ -15,6 +15,9 @@
 - Missing credentials or access are never a reason to stop: apply the documented fallback,
   finish everything else, and list the one-command unblock in the final report
   (see `docs/CODEX_DEPLOY_SYNC_RUNBOOK.md`).
+- Production VPS operations use `ssh draftcheck` (`root@76.13.209.160`) from the local
+  operator shell. For exact deploy commands and verification, use
+  `docs/PRODUCTION_DEPLOYMENT.md`.
 - This grants process autonomy only. It does not loosen the product's legal governance
   below (rule approval, signoffs, citation requirements), which are runtime product
   features — they gate what the app emits, not what agents may build.

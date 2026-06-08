@@ -34,16 +34,20 @@ GitHub     gh auth status (already authenticated on this machine)
   `cd web && npm ci && npm run build`; no Vercel action and no container restart are needed.
 - Do not paste deploy code into Vercel. If a command mutates `/srv/draftcheck/app`, run it
   through `ssh draftcheck` or from an interactive shell after `ssh draftcheck`.
+- For the current production runbook and troubleshooting checklist, also read
+  `docs/PRODUCTION_DEPLOYMENT.md`.
 
 Current ground truth (verified 2026-06-08):
 
 ```text
-Local repo      C:\Dev\Cuz, branch main, ONE commit, ONE tracked file (README.md).
-                All V3 work is uncommitted.
+Local repo      C:\Dev\Cuz, branch main. The active V3 workspace is now on origin/main;
+                local dirty/untracked work may exist and must be preserved.
 Remote          origin = https://github.com/stevenshelley58-afk/cuz.fail.git (main exists)
-CI              .github/workflows/ci.yml exists locally (not yet pushed)
+CI              .github/workflows/ci.yml exists on origin/main.
 VPS             srv1625369 is reachable as `ssh draftcheck`; app.cuz.fail serves
                 `/srv/draftcheck/app/web/dist` from the VPS.
+Web UI          web/index.html title is `LotFile`; live deploy requires rebuilding web/dist
+                on the VPS because Caddy serves compiled files.
 Vercel          legacy production, ACTIVE. Guarded by step A0 — then proceed freely.
 V3 app          Phases 0–2: auth, sources, address/spatial. Product routes are 501 stubs.
                 Deploying now ships the shell, not the product. Expected.
@@ -141,6 +145,35 @@ Resolve the target from `$DRAFTCHECK_VPS_HOST` or `~/.ssh/config` (`Host draftch
 **Fallback if no VPS is reachable:** complete Phases A and the deploy.sh/CLI work, generate
 `infra/v3/.env.production.template`, and put exact provisioning commands in the final report.
 Do not block anything else on this.
+
+### B0. UI-only redeploy from current main
+
+Use this when the API/container stack is already live and only `app.cuz.fail` is serving an old
+compiled frontend. Preserve unpushed VPS work first.
+
+```bash
+ssh draftcheck 'set -euo pipefail
+git config --global --add safe.directory /srv/draftcheck/app
+cd /srv/draftcheck/app
+git status --porcelain
+git branch -a
+git stash list
+if [ -n "$(git status --porcelain -- web)" ]; then
+  git stash push -m "pre-deploy web changes $(date -Is)" -- web
+fi
+git fetch origin
+git reset --hard origin/main
+cd web
+npm ci
+npm run build'
+```
+
+Verification:
+
+```bash
+curl -s https://app.cuz.fail/ | grep -o '<title>[^<]*</title>'     # <title>LotFile</title>
+curl -s https://api.cuz.fail/api/v1/health                         # 200 / status ok
+```
 
 ### B1. Harden + install (once, idempotent)
 

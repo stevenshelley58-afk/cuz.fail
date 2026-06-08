@@ -1,5 +1,14 @@
 # Frontend Handoff
 
+## Current Status
+
+The active frontend is the LotFile Vite/React app under `web/`. It builds with
+`cd web && npm ci && npm run build`; production serves the compiled `web/dist` from the VPS
+at `app.cuz.fail`. Use `docs/PRODUCTION_DEPLOYMENT.md` for deploy steps.
+
+The stack list below is target guidance for the broader V3 product surface, not a reason to
+replace the current LotFile shell during a deploy fix.
+
 Build the frontend from the generated OpenAPI JSON at `/openapi.json`. Do not invent endpoints.
 
 Recommended stack:

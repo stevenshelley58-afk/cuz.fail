@@ -1,6 +1,8 @@
 # Infrastructure Foundation
 
-This repository remains backend-only. The Caddy `app` route is a proxy/file-serving shape for a separately built frontend artifact and does not add frontend source code here.
+The V3 repository includes the backend core and the LotFile web UI under `web/`. Caddy serves the
+production web UI from the compiled static artifact at `/srv/draftcheck/app/web/dist` on the VPS.
+See `docs/PRODUCTION_DEPLOYMENT.md` for the current `app.cuz.fail` deploy procedure.
 
 ## Local stack
 
@@ -75,10 +77,16 @@ The local helper scripts default to `environment=local`, `offsite=false`, `encry
 
 ## VPS shape
 
-Use `deploy/docker-compose.vps.yml` with a private `deploy/.env` derived from `deploy/env.production.example`. Caddy terminates HTTP/TLS and routes:
+The live VPS is `srv1625369` (`76.13.209.160`) and is reachable from the operator machine as
+`ssh draftcheck`.
 
-- `CADDY_API_HOST` to the backend API container.
-- `CADDY_APP_HOST` to `${STATIC_FRONTEND_ROOT}`, expected to be a separately deployed static frontend artifact.
+The active production checkout is `/srv/draftcheck/app`. Caddy terminates HTTP/TLS and routes:
+
+- `api.cuz.fail` to the backend API mounted at `/api/v1`.
+- `app.cuz.fail` to `/srv/draftcheck/app/web/dist`.
+
+For UI-only releases, rebuild `web/dist` on the VPS after resetting the checkout to `origin/main`.
+No Vercel deploy and no container restart are required for static frontend changes.
 
 Do not put paid Australian Standards full text into MinIO or backups. Store only allowed public metadata and access notes for those sources.
 
