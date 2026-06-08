@@ -455,7 +455,7 @@ def test_api_source_quality_report_requires_reviewer_and_reports_blocking_gates(
     assert body["answer_policy"] == "cite_or_refuse"
     assert body["beta_status"] == "not_beta_accurate_yet"
     assert body["counts"]["approved_citable_versions"] == 1
-    assert body["counts"]["review_ready_versions"] == 1
+    assert body["counts"]["review_ready_versions"] == 0
     assert body["counts"]["pending_fetch_items"] == 1
     assert body["counts"]["low_signal_versions"] == 1
     gates = {gate["gate"]: gate for gate in body["quality_gates"]}

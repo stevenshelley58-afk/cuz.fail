@@ -1187,8 +1187,6 @@ class SqlAlchemySourceLibrary:
                 )
                 counts["chunks"] = int(counts["chunks"]) + chunk_count
                 counts["citations"] = int(counts["citations"]) + citation_count
-                if not domain_version.metadata_only and chunk_count > 0 and citation_count > 0:
-                    counts["review_ready_versions"] = int(counts["review_ready_versions"]) + 1
                 low_signal = (
                     not domain_version.metadata_only
                     and source.source_type != "scheme_map"
@@ -1196,6 +1194,13 @@ class SqlAlchemySourceLibrary:
                 )
                 if low_signal:
                     counts["low_signal_versions"] = int(counts["low_signal_versions"]) + 1
+                if (
+                    not domain_version.metadata_only
+                    and not low_signal
+                    and chunk_count > 0
+                    and citation_count > 0
+                ):
+                    counts["review_ready_versions"] = int(counts["review_ready_versions"]) + 1
                 issue_codes = _review_issue_codes(
                     source=source,
                     version=domain_version,

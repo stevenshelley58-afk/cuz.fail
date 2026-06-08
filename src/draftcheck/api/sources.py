@@ -318,15 +318,17 @@ def _fallback_quality_report(
     )
     counts = dict(worklist["counts"])
     counts["source_types"] = {"source_document": counts["review_items"]}
-    counts["review_ready_versions"] = sum(
-        1
-        for item in worklist["items"]
-        if not item["metadata_only"] and item["chunk_count"] > 0 and item["citation_count"] > 0
-    )
     counts["low_signal_versions"] = sum(
         1
         for item in worklist["items"]
         if not item["metadata_only"] and (item["chunk_count"] <= 1 or item["citation_count"] <= 1)
+    )
+    counts["review_ready_versions"] = sum(
+        1
+        for item in worklist["items"]
+        if not item["metadata_only"]
+        and item["chunk_count"] > 1
+        and item["citation_count"] > 1
     )
     counts["blocked_versions"] = counts["review_items"]
     gates = _quality_gates(counts)
