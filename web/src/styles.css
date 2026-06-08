@@ -48,9 +48,9 @@ a{color:var(--green)}
 .greet{text-align:center;margin-bottom:24px}
 .greet h1{font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.15;margin-bottom:6px}
 .greet p{color:var(--ink-soft);font-size:.95rem}
-.onebox{width:100%;background:var(--card);border:2px solid var(--green-bright);border-radius:22px;
+.onebox{width:100%;min-width:0;max-width:100%;overflow:hidden;background:var(--card);border:2px solid var(--green-bright);border-radius:22px;
         box-shadow:var(--shadow);padding:14px 14px 10px;flex:none}
-.onebox textarea{width:100%;border:none;outline:none;resize:none;background:none;color:var(--ink);font-size:1.02rem;height:50px}
+.onebox textarea{width:100%;min-width:0;border:none;outline:none;resize:none;background:none;color:var(--ink);font-size:1.02rem;height:50px}
 .onebox textarea::placeholder{color:var(--ink-faint)}
 .belt{display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:wrap}
 .chip{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:99px;display:flex;align-items:center;gap:5px;
@@ -61,7 +61,7 @@ a{color:var(--green)}
 .go{width:42px;height:42px;border-radius:13px;background:var(--green-900);color:#fff;display:flex;align-items:center;justify-content:center}
 .go:hover{background:var(--green-800)}
 .go:disabled{opacity:.5;cursor:default}
-.hints{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+.hints{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:16px;max-width:100%}
 .hints button{font-size:.78rem;font-weight:600;color:var(--green-800);background:var(--mint);
               border:1px solid var(--mint-deep);padding:8px 14px;border-radius:99px;display:flex;align-items:center;justify-content:center;gap:6px;max-width:100%;white-space:normal}
 .hints button:hover{background:var(--mint-deep)}
@@ -137,7 +137,9 @@ a{color:var(--green)}
   .tb .ico{padding:2px 13px}
   .greet h1{font-size:1.35rem}
   .greet p{padding:0 4px;overflow-wrap:anywhere}
-  .conv{justify-content:flex-start;padding-top:14px}
+  .conv{justify-content:flex-start;padding-top:14px;width:calc(100vw - 32px);max-width:calc(100vw - 32px);min-width:0}
+  .hints{display:grid;grid-template-columns:1fr;width:100%;padding:0 44px}
+  .hints button{width:100%;border-radius:18px}
   .statusbar{flex-wrap:wrap;font-size:.64rem;line-height:1.25}
   .statusbar > span:last-child{min-width:0;overflow-wrap:anywhere}
 }
