@@ -243,6 +243,48 @@ def _extract_pdf_text(content: bytes) -> str:
     return _extract_pdf_text_with_metadata(content).text
 
 
+def extract_pdf_text_with_pymupdf(content: bytes) -> SourceTextExtraction:
+    try:
+        import fitz
+    except ImportError as exc:  # pragma: no cover - optional repair dependency in pyproject
+        raise ValueError("PyMuPDF repair parser is unavailable") from exc
+    document = fitz.open(stream=content, filetype="pdf")
+    try:
+        pages = [page.get_text("text") or "" for page in document]
+    finally:
+        document.close()
+    normalized_pages = [page.strip() for page in pages]
+    text_pages = [page for page in normalized_pages if page]
+    text = "\n\n".join(text_pages)
+    page_count = len(normalized_pages)
+    pages_with_text = len(text_pages)
+    text_char_count = len(text)
+    text_word_count = len(text.split())
+    text_coverage_ratio = round(pages_with_text / page_count, 4) if page_count else 0.0
+    return SourceTextExtraction(
+        text=text,
+        metadata={
+            "extraction": {
+                "content_kind": "pdf",
+                "method": "pymupdf_text_layer",
+            },
+            "parse_quality": {
+                "status": _pdf_parse_quality_status(
+                    page_count=page_count,
+                    pages_with_text=pages_with_text,
+                    text_char_count=text_char_count,
+                    text_coverage_ratio=text_coverage_ratio,
+                ),
+                "page_count": page_count,
+                "pages_with_text": pages_with_text,
+                "text_char_count": text_char_count,
+                "text_word_count": text_word_count,
+                "text_coverage_ratio": text_coverage_ratio,
+            },
+        },
+    )
+
+
 def _extract_pdf_text_with_metadata(content: bytes) -> SourceTextExtraction:
     try:
         from pypdf import PdfReader

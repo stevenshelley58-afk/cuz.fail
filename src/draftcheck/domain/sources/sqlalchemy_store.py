@@ -28,7 +28,13 @@ from draftcheck.db.models import (
     SourceReviewRecord as DbSourceReviewRecord,
     SourceVersion as DbSourceVersion,
 )
-from draftcheck.domain.sources.fetching import CandidateSourceLink, fetch_public_source, infer_source_type
+from draftcheck.domain.sources.fetching import (
+    CandidateSourceLink,
+    extract_pdf_text_with_pymupdf,
+    fetch_public_source,
+    infer_source_type,
+    sanitize_source_text,
+)
 from draftcheck.domain.sources.library import (
     _chunk_text,
     _hash_embedding,
@@ -469,6 +475,213 @@ class SqlAlchemySourceLibrary:
             "items": items,
         }
 
+    def repair_parse_quality_sources(
+        self,
+        *,
+        local_government: str | None = None,
+        source_type: str | None = None,
+        limit: int = 5,
+        org_id: UUID,
+        requested_by_user_id: UUID,
+        force: bool = False,
+    ) -> dict[str, object]:
+        candidates = self._parse_repair_candidates(
+            local_government=local_government,
+            source_type=source_type,
+            limit=limit,
+        )
+        repaired = 0
+        failed = 0
+        skipped = 0
+        items: list[dict[str, object]] = []
+        storage_root = Path(os.getenv("OBJECT_STORAGE_ROOT", ".storage")).expanduser()
+        for candidate in candidates:
+            source_id = str(candidate["source_id"])
+            source_version_id = str(candidate["source_version_id"])
+            title = str(candidate["title"])
+            raw_kind = str(candidate["raw_kind"])
+            if raw_kind != ArtifactKind.RAW_PDF.value:
+                skipped += 1
+                items.append(
+                    {
+                        "source_id": source_id,
+                        "source_version_id": source_version_id,
+                        "title": title,
+                        "status": "skipped",
+                        "reason": f"unsupported raw artifact kind: {raw_kind}",
+                    }
+                )
+                continue
+            raw_path = storage_root / str(candidate["raw_storage_path"])
+            if not raw_path.is_file():
+                failed += 1
+                error = f"raw artifact file is missing: {candidate['raw_storage_path']}"
+                self.record_fetch_log(
+                    source_id=source_id,
+                    source_version_id=source_version_id,
+                    org_id=org_id,
+                    requested_by_user_id=requested_by_user_id,
+                    fetch_kind="parse_repair",
+                    status="failed",
+                    metadata={"raw_artifact_id": candidate["raw_artifact_id"]},
+                    error=error,
+                    completed=True,
+                )
+                items.append(
+                    {
+                        "source_id": source_id,
+                        "source_version_id": source_version_id,
+                        "title": title,
+                        "status": "failed",
+                        "error": error,
+                    }
+                )
+                continue
+            try:
+                raw_content = raw_path.read_bytes()
+                extraction = extract_pdf_text_with_pymupdf(raw_content)
+                repaired_text = sanitize_source_text(extraction.text)
+                if not repaired_text.strip():
+                    raise ValueError("repair parser produced no parseable text")
+                previous_char_count = _optional_int(candidate.get("current_text_char_count")) or 0
+                if len(repaired_text) <= previous_char_count and not force:
+                    skipped += 1
+                    self.record_fetch_log(
+                        source_id=source_id,
+                        source_version_id=source_version_id,
+                        org_id=org_id,
+                        requested_by_user_id=requested_by_user_id,
+                        fetch_kind="parse_repair",
+                        status="skipped_no_improvement",
+                        metadata={
+                            "raw_artifact_id": candidate["raw_artifact_id"],
+                            "previous_text_char_count": previous_char_count,
+                            "repaired_text_char_count": len(repaired_text),
+                            **extraction.metadata,
+                        },
+                        completed=True,
+                    )
+                    items.append(
+                        {
+                            "source_id": source_id,
+                            "source_version_id": source_version_id,
+                            "title": title,
+                            "status": "skipped",
+                            "reason": "repair text was not longer than the current extraction",
+                            "previous_text_char_count": previous_char_count,
+                            "repaired_text_char_count": len(repaired_text),
+                            "parse_quality": extraction.metadata.get("parse_quality"),
+                        }
+                    )
+                    continue
+                repair_metadata = {
+                    **extraction.metadata,
+                    "repair": {
+                        "method": "pymupdf_text_layer",
+                        "previous_source_version_id": source_version_id,
+                        "raw_artifact_id": candidate["raw_artifact_id"],
+                        "previous_text_char_count": previous_char_count,
+                        "repaired_text_char_count": len(repaired_text),
+                        "review_required": True,
+                        "note": "Parser repair creates a new pending-review version; it does not approve the source.",
+                    },
+                }
+                result = self.import_source(
+                    source_id=source_id,
+                    title=title,
+                    content=repaired_text,
+                    uri=_optional_str(candidate.get("canonical_url")),
+                    publisher=str(candidate["authority"]),
+                    licence_status=LicenceStatus.PENDING_REVIEW,
+                    review_status=SourceReviewStatus.PENDING_REVIEW,
+                    media_type="text/plain",
+                    metadata_only=False,
+                    jurisdiction=str(candidate["jurisdiction"]),
+                    authority=str(candidate["authority"]),
+                    local_government=_optional_str(candidate.get("local_government")),
+                    source_type=str(candidate["source_type"]),
+                    access_type=str(candidate["access_type"]),
+                    licence_notes=str(candidate.get("licence_notes") or ""),
+                    version_label=f"repaired:{sha256(repaired_text.encode('utf-8')).hexdigest()[:12]}",
+                    source_metadata=cast(Mapping[str, object], candidate["source_metadata"]),
+                    version_metadata=repair_metadata,
+                )
+                raw_artifact = self.record_raw_fetch_artifact(
+                    source_id=result.source.id,
+                    source_version_id=result.version.id,
+                    content=raw_content,
+                    content_type=str(candidate.get("raw_media_type") or "application/pdf"),
+                    final_url=str(candidate.get("canonical_url") or ""),
+                    metadata={
+                        "copied_from_source_version_id": source_version_id,
+                        "copied_from_artifact_id": str(candidate["raw_artifact_id"]),
+                    },
+                )
+                self.record_fetch_log(
+                    source_id=result.source.id,
+                    source_version_id=result.version.id,
+                    org_id=org_id,
+                    requested_by_user_id=requested_by_user_id,
+                    fetch_kind="parse_repair",
+                    status="success",
+                    metadata={
+                        "previous_source_version_id": source_version_id,
+                        "raw_artifact_id": raw_artifact["id"],
+                        "previous_raw_artifact_id": candidate["raw_artifact_id"],
+                        "previous_text_char_count": previous_char_count,
+                        "repaired_text_char_count": len(repaired_text),
+                        "duplicate": result.duplicate,
+                        **extraction.metadata,
+                    },
+                    completed=True,
+                )
+                repaired += 1
+                items.append(
+                    {
+                        "source_id": result.source.id,
+                        "source_version_id": result.version.id,
+                        "previous_source_version_id": source_version_id,
+                        "title": result.source.title,
+                        "status": "success",
+                        "duplicate": result.duplicate,
+                        "chunk_count": len(result.chunks),
+                        "citation_count": len(result.citations),
+                        "previous_text_char_count": previous_char_count,
+                        "repaired_text_char_count": len(repaired_text),
+                        "parse_quality": extraction.metadata.get("parse_quality"),
+                        "raw_artifact_id": raw_artifact["id"],
+                        "review_status": result.version.review_status.value,
+                    }
+                )
+            except (OSError, ValueError) as exc:
+                failed += 1
+                self.record_fetch_log(
+                    source_id=source_id,
+                    source_version_id=source_version_id,
+                    org_id=org_id,
+                    requested_by_user_id=requested_by_user_id,
+                    fetch_kind="parse_repair",
+                    status="failed",
+                    metadata={"raw_artifact_id": candidate["raw_artifact_id"]},
+                    error=str(exc),
+                    completed=True,
+                )
+                items.append(
+                    {
+                        "source_id": source_id,
+                        "source_version_id": source_version_id,
+                        "title": title,
+                        "status": "failed",
+                        "error": str(exc),
+                    }
+                )
+        return {
+            "repaired": repaired,
+            "failed": failed,
+            "skipped": skipped,
+            "items": items,
+        }
+
     def discover_child_sources(
         self,
         *,
@@ -848,6 +1061,104 @@ class SqlAlchemySourceLibrary:
                     "sha256": existing.sha256,
                     "size_bytes": existing.size_bytes or 0,
                 }
+
+    def _parse_repair_candidates(
+        self,
+        *,
+        local_government: str | None,
+        source_type: str | None,
+        limit: int,
+    ) -> list[dict[str, object]]:
+        with self._session_factory() as session:
+            statement = select(DbSource).order_by(DbSource.authority, DbSource.title)
+            if local_government:
+                statement = statement.where(DbSource.local_government == local_government)
+            if source_type:
+                statement = statement.where(DbSource.source_type == source_type)
+            candidates: list[dict[str, object]] = []
+            for source in session.scalars(statement).all():
+                if len(candidates) >= limit:
+                    break
+                version = self._latest_version(session, source)
+                fetch_log = self._latest_fetch_log(session, source)
+                if version is None:
+                    continue
+                domain_version = self._source_version(version)
+                chunk_count = int(
+                    session.scalar(
+                        select(func.count()).select_from(DbSourceChunk).where(
+                            DbSourceChunk.source_version_id == version.id,
+                        )
+                    )
+                    or 0
+                )
+                citation_count = int(
+                    session.scalar(
+                        select(func.count()).select_from(DbSourceCitation).where(
+                            DbSourceCitation.source_version_id == version.id,
+                        )
+                    )
+                    or 0
+                )
+                parse_quality = _version_parse_quality(version=version, fetch_log=fetch_log)
+                metadata_low_signal = _parse_quality_requires_review(parse_quality)
+                low_signal = (
+                    not domain_version.metadata_only
+                    and source.source_type != "scheme_map"
+                    and (
+                        chunk_count <= 1
+                        or citation_count <= 1
+                        or metadata_low_signal
+                    )
+                )
+                artifact_rows = session.scalars(
+                    select(DbArtifact).where(DbArtifact.subject_id == version.id)
+                ).all()
+                repair_profile = _parse_repair_profile(
+                    source=source,
+                    version=domain_version,
+                    chunk_count=chunk_count,
+                    citation_count=citation_count,
+                    parse_quality=parse_quality,
+                    artifact_rows=artifact_rows,
+                    low_signal=low_signal,
+                )
+                if repair_profile["status"] != "repair_ready":
+                    continue
+                raw_artifact = _preferred_raw_repair_artifact(artifact_rows)
+                if raw_artifact is None:
+                    continue
+                current_text_char_count = _parse_quality_text_char_count(parse_quality)
+                if current_text_char_count is None:
+                    current_text_char_count = int(
+                        session.scalar(
+                            select(func.coalesce(func.sum(func.length(DbSourceChunk.text)), 0)).where(
+                                DbSourceChunk.source_version_id == version.id,
+                            )
+                        )
+                        or 0
+                    )
+                candidates.append(
+                    {
+                        "source_id": str(source.id),
+                        "source_version_id": str(version.id),
+                        "title": source.title,
+                        "authority": source.authority,
+                        "jurisdiction": source.jurisdiction,
+                        "local_government": source.local_government,
+                        "source_type": source.source_type,
+                        "canonical_url": source.canonical_url,
+                        "access_type": source.access_type,
+                        "licence_notes": source.metadata_json.get("licence_notes"),
+                        "source_metadata": dict(source.metadata_json or {}),
+                        "current_text_char_count": current_text_char_count,
+                        "raw_artifact_id": str(raw_artifact.id),
+                        "raw_kind": raw_artifact.kind,
+                        "raw_storage_path": raw_artifact.storage_path,
+                        "raw_media_type": raw_artifact.media_type,
+                    }
+                )
+            return candidates
 
     def _pending_fetch_candidates(
         self,
@@ -2417,6 +2728,35 @@ def _artifact_repair_reference(artifact: DbArtifact) -> dict[str, object]:
         "parser_name": artifact.parser_name,
         "parser_version": artifact.parser_version,
     }
+
+
+def _preferred_raw_repair_artifact(artifact_rows: Sequence[DbArtifact]) -> DbArtifact | None:
+    priority = {
+        ArtifactKind.RAW_PDF.value: 0,
+        ArtifactKind.RAW_DOCX.value: 1,
+        ArtifactKind.RAW_HTML.value: 2,
+    }
+    raw_artifacts = [
+        artifact for artifact in artifact_rows if artifact.kind in _RAW_SOURCE_ARTIFACT_KINDS
+    ]
+    if not raw_artifacts:
+        return None
+    return sorted(
+        raw_artifacts,
+        key=lambda artifact: (
+            priority.get(artifact.kind, 9),
+            -(artifact.size_bytes or 0),
+            artifact.created_at,
+        ),
+    )[0]
+
+
+def _parse_quality_text_char_count(
+    parse_quality: Mapping[str, object] | None,
+) -> int | None:
+    if parse_quality is None:
+        return None
+    return _optional_int(parse_quality.get("text_char_count"))
 
 
 def _optional_float(value: object) -> float | None:

@@ -233,6 +233,46 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         action="store_true",
         help="Refetch even when the latest version already has fetched text.",
     )
+    repair_sources = subparsers.add_parser(
+        "repair-parse-quality-sources",
+        help="Create pending-review repaired versions from stored raw source artifacts.",
+    )
+    repair_sources.add_argument(
+        "--local-government",
+        default=None,
+        help="Optional local government filter, for example Cockburn.",
+    )
+    repair_sources.add_argument(
+        "--source-type",
+        default=None,
+        help="Optional source type filter, for example structure_plan.",
+    )
+    repair_sources.add_argument(
+        "--limit",
+        type=int,
+        default=5,
+        help="Maximum number of repair-ready source versions to process.",
+    )
+    repair_sources.add_argument(
+        "--operator-email",
+        required=True,
+        help="Provision/reuse this reviewer to own repair log rows.",
+    )
+    repair_sources.add_argument(
+        "--org-slug",
+        default=None,
+        help="Organisation slug for repair log ownership.",
+    )
+    repair_sources.add_argument(
+        "--org-name",
+        default=DEFAULT_ORG_NAME,
+        help="Organisation display name when provisioning a new org.",
+    )
+    repair_sources.add_argument(
+        "--force",
+        action="store_true",
+        help="Create a repaired version even when repaired text is not longer.",
+    )
     discover_links = subparsers.add_parser(
         "discover-source-links",
         help="Register child source links from fetched public source pages as pending-review fetch targets.",
@@ -399,6 +439,39 @@ def _run_fetch_pending_sources(
     return 0
 
 
+def _run_repair_parse_quality_sources(
+    args: argparse.Namespace,
+    *,
+    stdout: TextIO,
+    stderr: TextIO,
+) -> int:
+    database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        stderr.write("error: DATABASE_URL is required for durable source repair\n")
+        return 2
+    if args.limit < 1:
+        stderr.write("error: --limit must be at least 1\n")
+        return 2
+    org_id, user_id = _operator_ids(
+        database_url=database_url,
+        email=args.operator_email,
+        org_slug=args.org_slug,
+        org_name=args.org_name,
+    )
+    source_library = SqlAlchemySourceLibrary.from_database_url(database_url)
+    result = source_library.repair_parse_quality_sources(
+        local_government=args.local_government,
+        source_type=args.source_type,
+        limit=args.limit,
+        org_id=org_id,
+        requested_by_user_id=user_id,
+        force=args.force,
+    )
+    stdout.write(json.dumps(result, sort_keys=True))
+    stdout.write("\n")
+    return 0
+
+
 def _run_discover_source_links(
     args: argparse.Namespace,
     *,
@@ -452,6 +525,8 @@ def main(
         return _run_seed_source_manifest(args, stdout=out, stderr=err)
     if args.command == "fetch-pending-sources":
         return _run_fetch_pending_sources(args, stdout=out, stderr=err)
+    if args.command == "repair-parse-quality-sources":
+        return _run_repair_parse_quality_sources(args, stdout=out, stderr=err)
     if args.command == "discover-source-links":
         return _run_discover_source_links(args, stdout=out, stderr=err)
 
