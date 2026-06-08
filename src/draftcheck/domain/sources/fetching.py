@@ -254,11 +254,21 @@ def infer_source_type(url: str, label: str = "") -> str:
         or is_tps
     ):
         return "local_planning_scheme"
-    if "local-planning-policy" in haystack or "policy" in haystack or "lpp" in haystack:
+    if (
+        "local-planning-polic" in haystack
+        or "local planning polic" in haystack
+        or _has_lpp_token(haystack)
+    ):
         return "local_planning_policy"
-    if "planning-strategy" in haystack or "strategy" in haystack:
+    if "planning-strategy" in haystack or "local planning strategy" in haystack:
         return "local_planning_strategy"
-    if "checklist" in haystack or "information-sheet" in haystack or "advice" in haystack:
+    if (
+        "planning-advice" in haystack
+        or "building-advice" in haystack
+        or "information-sheet" in haystack
+        or "planning information" in haystack
+        or ("checklist" in haystack and "planning" in haystack)
+    ):
         return "planning_guidance"
     if "r-code" in haystack or "rcode" in haystack or "residential-design-code" in haystack:
         return "r_code"
@@ -271,7 +281,6 @@ def _looks_like_source_link(url: str, label: str) -> bool:
         term in haystack
         for term in (
             "local-planning",
-            "town-planning",
             "planning-scheme",
             "scheme-text",
             "schemetext",
@@ -279,14 +288,18 @@ def _looks_like_source_link(url: str, label: str) -> bool:
             "local-development-plan",
             "local development plan",
             "planning-strategy",
+            "local planning strategy",
+            "local-planning-polic",
+            "local planning polic",
             "planning advice",
             "planning-advice",
-            "development-assessment",
             "r-code",
             "rcode",
             "residential-design-code",
         )
     ):
+        return True
+    if _has_lpp_token(haystack):
         return True
     if _has_tps_token(haystack) and ("map" in haystack or "scheme" in haystack):
         return True
@@ -305,6 +318,17 @@ def _has_tps_token(haystack: str) -> bool:
         .replace("%20", "-")
     )
     return any(token == "tps" or (token.startswith("tps") and token[3:].isdigit()) for token in normalized.split("-"))
+
+
+def _has_lpp_token(haystack: str) -> bool:
+    normalized = (
+        haystack.replace("/", "-")
+        .replace(".", "-")
+        .replace("(", "-")
+        .replace(")", "-")
+        .replace("%20", "-")
+    )
+    return any(token == "lpp" or (token.startswith("lpp") and token[3:].isdigit()) for token in normalized.split("-"))
 
 
 def _host_allowed(parsed_base: ParseResult, parsed_candidate: ParseResult) -> bool:

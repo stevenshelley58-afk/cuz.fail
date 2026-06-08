@@ -97,3 +97,61 @@ def test_infer_source_type_does_not_treat_https_as_tps_scheme() -> None:
         )
         == "scheme_map"
     )
+
+
+def test_extract_candidate_links_excludes_non_source_project_and_generic_policy_pages() -> None:
+    html = b"""
+<html>
+  <body>
+    <a href="/Building-Planning-and-Roads/Town-Planning-and-Development/Planning-Projects">
+      Planning Projects Learn about the City's planning projects.
+    </a>
+    <a href="/Building-Planning-and-Roads/Town-Planning-and-Development/Glen-Iris-(1)">
+      Redevelopment of Cockburn Gateway Shopping City Find out what role the City plays in the redevelopment.
+    </a>
+    <a href="/Building-Planning-and-Roads/Town-Planning-and-Development/Changing-the-name-of-Port-Coogee">
+      Changing the name of North Coogee The City received a proposal and Landgate policy assessment.
+    </a>
+    <a href="/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Policies">
+      Local Planning Policies
+    </a>
+    <a href="/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives">
+      Local Planning Strategy and Key Initiatives
+    </a>
+  </body>
+</html>
+"""
+
+    links = extract_candidate_links(
+        "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        html,
+    )
+
+    assert [(link.label, link.source_type) for link in links] == [
+        ("Local Planning Policies", "local_planning_policy"),
+        ("Local Planning Strategy and Key Initiatives", "local_planning_strategy"),
+    ]
+
+
+def test_infer_source_type_requires_planning_specific_policy_and_strategy_tokens() -> None:
+    assert (
+        infer_source_type(
+            "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Changing-the-name-of-Port-Coogee",
+            "Changing the name of North Coogee The City received a proposal and Landgate policy assessment.",
+        )
+        == "source_document"
+    )
+    assert (
+        infer_source_type(
+            "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Policies",
+            "Local Planning Policies",
+        )
+        == "local_planning_policy"
+    )
+    assert (
+        infer_source_type(
+            "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies",
+            "Revitalisation Strategies",
+        )
+        == "source_document"
+    )

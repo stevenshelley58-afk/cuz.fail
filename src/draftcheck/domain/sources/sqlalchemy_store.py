@@ -1566,7 +1566,6 @@ def _looks_like_discovered_source(url: str, label: str) -> bool:
         term in haystack
         for term in (
             "local-planning",
-            "town-planning",
             "planning-scheme",
             "scheme-text",
             "schemetext",
@@ -1574,14 +1573,18 @@ def _looks_like_discovered_source(url: str, label: str) -> bool:
             "local-development-plan",
             "local development plan",
             "planning-strategy",
+            "local planning strategy",
+            "local-planning-polic",
+            "local planning polic",
             "planning advice",
             "planning-advice",
-            "development-assessment",
             "r-code",
             "rcode",
             "residential-design-code",
         )
     ):
+        return True
+    if _has_lpp_token(haystack):
         return True
     if _has_tps_token(haystack) and ("map" in haystack or "scheme" in haystack):
         return True
@@ -1601,6 +1604,20 @@ def _has_tps_token(haystack: str) -> bool:
     )
     return any(
         token == "tps" or (token.startswith("tps") and token[3:].isdigit())
+        for token in normalized.split("-")
+    )
+
+
+def _has_lpp_token(haystack: str) -> bool:
+    normalized = (
+        haystack.replace("/", "-")
+        .replace(".", "-")
+        .replace("(", "-")
+        .replace(")", "-")
+        .replace("%20", "-")
+    )
+    return any(
+        token == "lpp" or (token.startswith("lpp") and token[3:].isdigit())
         for token in normalized.split("-")
     )
 
