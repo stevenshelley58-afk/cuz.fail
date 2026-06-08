@@ -1,0 +1,81 @@
+name: Deploy to VPS
+
+# Auto-deploy the live VPS whenever CI passes on main.
+# GitHub `main` is the single source of truth: the production checkout at
+# /srv/draftcheck/app is reset to origin/main and the V3 stack is redeployed.
+# No local/Windows checkout is involved. See docs/PRODUCTION_DEPLOYMENT.md.
+#
+# INSTALL: this file must live at .github/workflows/deploy.yml to run.
+#   git mv deploy/deploy.workflow.yml .github/workflows/deploy.yml
+# ARM: add one repo secret VPS_SSH_KEY (private deploy key whose public half is
+# in the VPS root authorized_keys). Host/user default to the prod box; override
+# with optional secrets VPS_SSH_HOST / VPS_SSH_USER / VPS_SSH_PORT.
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: vps-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Sync VPS to origin/main and redeploy
+    runs-on: ubuntu-latest
+    # Deploy only after CI passed on main, or when triggered by hand.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
+    env:
+      HAS_SSH: ${{ secrets.VPS_SSH_KEY != '' }}
+    steps:
+      - name: Notice when auto-deploy is not armed
+        if: env.HAS_SSH != 'true'
+        run: |
+          echo "::warning title=Auto-deploy not armed::Add repo secret VPS_SSH_KEY to enable auto-deploy to the VPS. Skipping this run."
+
+      - name: Configure SSH key
+        if: env.HAS_SSH == 'true'
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_SSH_HOST: ${{ secrets.VPS_SSH_HOST }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H "${VPS_SSH_HOST:-76.13.209.160}" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Sync checkout to origin/main and redeploy
+        if: env.HAS_SSH == 'true'
+        env:
+          VPS_SSH_HOST: ${{ secrets.VPS_SSH_HOST }}
+          VPS_SSH_USER: ${{ secrets.VPS_SSH_USER }}
+          VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
+        run: |
+          ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -p "${VPS_SSH_PORT:-22}" "${VPS_SSH_USER:-root}@${VPS_SSH_HOST:-76.13.209.160}" 'set -e; git config --global --add safe.directory /srv/draftcheck/app; cd /srv/draftcheck/app; git diff --quiet || git stash push -m "pre-deploy-auto" || true; git fetch origin --prune; git reset --hard origin/main; bash deploy/vps_deploy.sh'
+
+      - name: Verify live (/ready then /health)
+        if: env.HAS_SSH == 'true'
+        run: |
+          ok=""
+          for i in $(seq 1 18); do
+            ready="$(curl -fsS https://api.cuz.fail/api/v1/ready || true)"
+            echo "attempt $i: $ready"
+            if printf '%s' "$ready" | grep -q '"status":"ok"'; then ok=1; break; fi
+            sleep 5
+          done
+          if [ -z "$ok" ]; then
+            echo "::error title=Readiness check failed::/api/v1/ready did not report ok after deploy"
+            exit 1
+          fi
+          curl -fsS https://api.cuz.fail/api/v1/health
+          echo
+          echo "verified live"
