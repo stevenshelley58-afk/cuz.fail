@@ -1,9 +1,12 @@
 from __future__ import annotations
 
+from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
 from draftcheck.api.auth import get_current_session, require_reviewer_session
 from draftcheck.api.main import app, create_app
+from draftcheck.api.v1 import create_v1_router
+from draftcheck.domain.sources import InMemorySourceLibrary, LicenceStatus
 from draftcheck.domain.identity import ActiveSession, IdentityRole, InMemoryIdentityStore
 
 ORIGIN_HEADERS = {"origin": "http://localhost:5173"}
@@ -119,19 +122,55 @@ def test_cockburn_ops_dashboard_reports_canary_and_hermes_state() -> None:
         "uncited_regulatory_answers",
         "unpromoted_measurement_verdicts",
     }
-    assert body["source_library"]["status"] == "ingestion_in_progress"
+    assert body["source_library"]["status"] in {"not_started", "ingestion_in_progress"}
     assert body["source_library"]["answer_policy"] == "cite_or_refuse"
+    assert {
+        "sources",
+        "versions",
+        "pending_review_versions",
+        "approved_citable_versions",
+        "metadata_only_versions",
+        "chunks",
+        "citations",
+        "pending_fetches",
+    } <= set(body["source_library"]["counts"])
     assert set(body["source_library"]["active_scope"]) >= {
         "City of Cockburn source anchors",
         "WA planning source anchors",
         "NCC public/licensed source anchors",
         "Standards Australia metadata only",
     }
-    assert "Cockburn document fetch and human source approval" in body["source_library"]["pending"]
+    assert "approved citable Cockburn source versions" in body["source_library"]["pending"]
+    if body["source_library"]["counts"]["pending_review_versions"] > 0:
+        assert "Cockburn document fetch and human source approval" in body["source_library"]["pending"]
     assert body["hermes"]["trace_required"] is True
     assert body["hermes"]["skill_version_required"] is True
     assert body["hermes"]["spend_capped"] is True
     assert "compliance verdicts" in body["hermes"]["forbidden_outputs"]
+
+
+def test_ops_dashboard_uses_live_router_source_library_counts() -> None:
+    library = InMemorySourceLibrary()
+    library.import_source(
+        title="Cockburn Fixture",
+        content="Fixture text for Cockburn source status.",
+        source_id="src_cockburn_fixture",
+        publisher="City of Cockburn",
+        uri="https://example.test/cockburn-fixture",
+        licence_status=LicenceStatus.OPEN,
+    )
+    test_app = FastAPI()
+    test_app.include_router(create_v1_router(library=library), prefix="/api/v1")
+
+    response = TestClient(test_app).get("/api/v1/ops/dashboard")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["source_library"]["counts"]["sources"] == 1
+    assert body["source_library"]["counts"]["versions"] == 1
+    assert body["source_library"]["counts"]["pending_review_versions"] == 1
+    assert body["source_library"]["counts"]["approved_citable_versions"] == 0
+    assert "Cockburn document fetch and human source approval" in body["source_library"]["pending"]
 
 
 def test_source_ingestion_status_reports_cite_or_refuse_until_reviewed() -> None:

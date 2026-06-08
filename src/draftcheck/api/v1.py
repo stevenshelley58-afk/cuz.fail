@@ -15,7 +15,7 @@ from fastapi import APIRouter
 from draftcheck.api.address import router as address_router
 from draftcheck.api.auth import router as auth_router
 from draftcheck.api.documents import router as documents_router
-from draftcheck.api.sources import create_sources_router
+from draftcheck.api.sources import _default_source_library, _fallback_ingestion_status, create_sources_router
 
 
 COCKBURN_CANARY_ADDRESS = "3 Black Swan Rise, Beeliar WA 6164"
@@ -24,12 +24,95 @@ contract_router = APIRouter()
 router = contract_router
 
 
-def create_v1_router() -> APIRouter:
+def _ops_source_status(source_library: Any) -> dict[str, Any]:
+    status_provider = getattr(source_library, "ingestion_status", None)
+    if callable(status_provider):
+        status = status_provider(local_government="Cockburn")
+    else:
+        status = _fallback_ingestion_status(source_library, local_government="Cockburn")
+
+    counts = status.get("counts") if isinstance(status.get("counts"), dict) else {}
+    pending: list[str] = []
+    if int(counts.get("pending_fetches", 0) or 0) > 0:
+        pending.append("lawful Cockburn source fetch")
+    if int(counts.get("pending_review_versions", 0) or 0) > 0:
+        pending.append("Cockburn document fetch and human source approval")
+    if int(counts.get("approved_citable_versions", 0) or 0) == 0:
+        pending.append("approved citable Cockburn source versions")
+    pending.extend(
+        [
+            "spatial cadastre/G-NAF import for the canary parcel",
+            "rule extraction review before compliance checks",
+        ]
+    )
+    status["pending"] = list(dict.fromkeys(pending))
+    return status
+
+
+def create_v1_router(library: Any | None = None) -> APIRouter:
+    source_library = library or _default_source_library()
     api_router = APIRouter()
     api_router.include_router(auth_router)
     api_router.include_router(address_router)
-    api_router.include_router(create_sources_router())
+    api_router.include_router(create_sources_router(library=source_library))
     api_router.include_router(documents_router)
+
+    @api_router.get("/ops/dashboard", tags=["ops"])
+    def ops_dashboard() -> dict[str, Any]:
+        queue_configured = bool(os.getenv("PROCRASTINATE_DB_URI") or os.getenv("DATABASE_URL"))
+        source_status = _ops_source_status(source_library)
+        counts = source_status.get("counts") if isinstance(source_status.get("counts"), dict) else {}
+        return {
+            "status": "ok",
+            "service": "draftcheck-api",
+            "mode": "v3_cockburn_build",
+            "canary": {
+                "address": COCKBURN_CANARY_ADDRESS,
+                "local_government": "City of Cockburn",
+                "property_resolution": "address_known_parcel_pending_authoritative_import",
+                "beta_status": "not_beta_accurate_yet",
+                "blocked_outputs": [
+                    "final_compliance_claims",
+                    "uncited_regulatory_answers",
+                    "unpromoted_measurement_verdicts",
+                ],
+            },
+            "source_library": {
+                "status": source_status.get("status", "ingestion_in_progress"),
+                "answer_policy": source_status.get("answer_policy", "cite_or_refuse"),
+                "active_scope": [
+                    "City of Cockburn source anchors",
+                    "WA planning source anchors",
+                    "NCC public/licensed source anchors",
+                    "Standards Australia metadata only",
+                ],
+                "counts": counts,
+                "pending": source_status.get("pending", []),
+            },
+            "hermes": {
+                "status": "configured" if queue_configured else "configured_unconnected",
+                "queue_configured": queue_configured,
+                "queues": [
+                    "hermes",
+                    "source_extraction",
+                    "source_freshness_audit",
+                ],
+                "trace_required": True,
+                "skill_version_required": True,
+                "spend_capped": True,
+                "allowed_outputs": [
+                    "source candidates",
+                    "review worklists",
+                    "draft responses requiring signoff",
+                ],
+                "forbidden_outputs": [
+                    "compliance verdicts",
+                    "rule approval",
+                    "submission-ready exports",
+                ],
+            },
+        }
+
     api_router.include_router(contract_router)
     return api_router
 
@@ -245,65 +328,6 @@ def list_agent_evals() -> None:
 @router.post("/agent/evals/run", tags=["agent"])
 def run_agent_evals(payload: dict[str, Any]) -> None:
     _stub("agent.evals_run")
-
-
-@router.get("/ops/dashboard", tags=["ops"])
-def ops_dashboard() -> dict[str, Any]:
-    queue_configured = bool(os.getenv("PROCRASTINATE_DB_URI") or os.getenv("DATABASE_URL"))
-    return {
-        "status": "ok",
-        "service": "draftcheck-api",
-        "mode": "v3_cockburn_build",
-        "canary": {
-            "address": COCKBURN_CANARY_ADDRESS,
-            "local_government": "City of Cockburn",
-            "property_resolution": "address_known_parcel_pending_authoritative_import",
-            "beta_status": "not_beta_accurate_yet",
-            "blocked_outputs": [
-                "final_compliance_claims",
-                "uncited_regulatory_answers",
-                "unpromoted_measurement_verdicts",
-            ],
-        },
-        "source_library": {
-            "status": "ingestion_in_progress",
-            "answer_policy": "cite_or_refuse",
-            "active_scope": [
-                "City of Cockburn source anchors",
-                "WA planning source anchors",
-                "NCC public/licensed source anchors",
-                "Standards Australia metadata only",
-            ],
-            "pending": [
-                "durable V3 source import",
-                "Cockburn document fetch and human source approval",
-                "spatial cadastre/G-NAF import for the canary parcel",
-                "rule extraction review before compliance checks",
-            ],
-        },
-        "hermes": {
-            "status": "configured" if queue_configured else "configured_unconnected",
-            "queue_configured": queue_configured,
-            "queues": [
-                "hermes",
-                "source_extraction",
-                "source_freshness_audit",
-            ],
-            "trace_required": True,
-            "skill_version_required": True,
-            "spend_capped": True,
-            "allowed_outputs": [
-                "source candidates",
-                "review worklists",
-                "draft responses requiring signoff",
-            ],
-            "forbidden_outputs": [
-                "compliance verdicts",
-                "rule approval",
-                "submission-ready exports",
-            ],
-        },
-    }
 
 
 router = create_v1_router()
