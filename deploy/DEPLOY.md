@@ -4,11 +4,14 @@ Three pieces: frontend on Vercel, Postgres on Supabase, FastAPI backend on the V
 
 ## 1. Frontend — Vercel (done by repo)
 
-`vercel.json` at the repo root serves the static `ui/` folder. If the Vercel
-project `cuz.fail` is connected to this GitHub repo, every push to `main`
-deploys production automatically. If it is not connected yet: Vercel project
--> Settings -> Git -> connect `stevenshelley58-afk/cuz.fail`, keep Root
-Directory at the repo root.
+The Vercel project `cuz.fail` serves the static `ui/` folder. Its project
+Root Directory is `ui`, and every push to `main` deploys production
+automatically. Keep `.vercelignore` from excluding `ui`; Vercel still reads
+the repository-level ignore file before the frontend build.
+
+If the project must be reconnected: Vercel project -> Settings -> Git ->
+connect `stevenshelley58-afk/cuz.fail`, set Root Directory to `ui`, and leave
+Git deployments enabled for the frontend project.
 
 Later, to let the frontend call the API without CORS pain, add to vercel.json:
 

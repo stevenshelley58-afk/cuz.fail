@@ -8,9 +8,15 @@ Authority: supporting cutover inventory for `docs/MASTER_REBUILD_PLAN.md`.
 
 Vercel is legacy transition infrastructure and must not be expanded for V3.
 
+Live exception as of 2026-06-08: the public `cuz.fail` frontend remains a
+Vercel static project during transition. Its Vercel Root Directory is `ui`,
+Git deployments are enabled, and `.vercelignore` must not exclude `ui`.
+`api.cuz.fail` remains a separate Vercel API project until the VPS cutover is
+complete.
+
 | Path | Status | Notes |
 |---|---|---|
-| `vercel.json` | Present | Rewrites all traffic to `api/index.py`; function max duration 60 seconds. |
+| `vercel.json` | Present | Static frontend config for the `cuz.fail` transition deployment. |
 | `api/index.py` | Present | Adds legacy package roots to `sys.path`, copies `draftcheck.db` to `/tmp/draftcheck.db`, sets SQLite/object-storage env vars, imports `draftcheck_api.main:app`. |
 | `index.py` | Present | Similar root-level Vercel entrypoint; copies `draftcheck.db` to `/tmp/draftcheck.db`. |
 | `.vercelignore` | Present | Excludes many local folders plus docs/data/tests/deploy, but this is not a V3 deployment path. |
@@ -28,8 +34,9 @@ Vercel is legacy transition infrastructure and must not be expanded for V3.
 ## Required Cutover Steps (autonomous — operator standing approval 2026-06-08)
 
 Agents execute these without per-step human approval (see `AGENTS.md` Operator Standing
-Approval and `docs/CODEX_DEPLOY_SYNC_RUNBOOK.md`). Git-triggered Vercel deploys are disabled
-via `vercel.json` `"git": {"deploymentEnabled": false}` before the first push.
+Approval and `docs/CODEX_DEPLOY_SYNC_RUNBOOK.md`). The older V3 freeze used
+`vercel.json` `"git": {"deploymentEnabled": false}`; do not reapply that to
+the public `cuz.fail` frontend while it is still serving production traffic.
 
 ```text
 1. Verify VPS deploy and Caddy routes are green.
