@@ -95,6 +95,28 @@ def test_wave3_sources_and_address_routes_are_live_in_central_app() -> None:
     assert resolved.json()["target_crs"] == "EPSG:7844"
 
 
+def test_cockburn_ops_dashboard_reports_canary_and_hermes_state() -> None:
+    client = TestClient(app)
+
+    response = client.get("/api/v1/ops/dashboard")
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "ok"
+    assert body["mode"] == "v3_cockburn_build"
+    assert body["canary"]["address"] == "3 Black Swan Rise, Beeliar WA 6164"
+    assert body["canary"]["local_government"] == "City of Cockburn"
+    assert body["canary"]["property_resolution"] == (
+        "address_known_parcel_pending_authoritative_import"
+    )
+    assert body["source_library"]["answer_policy"] == "cite_or_refuse"
+    assert "City of Cockburn source anchors" in body["source_library"]["active_scope"]
+    assert body["hermes"]["trace_required"] is True
+    assert body["hermes"]["skill_version_required"] is True
+    assert body["hermes"]["spend_capped"] is True
+    assert "compliance verdicts" in body["hermes"]["forbidden_outputs"]
+
+
 def test_create_app_instances_do_not_share_default_source_library_state() -> None:
     first_app = create_app()
     second_app = create_app()

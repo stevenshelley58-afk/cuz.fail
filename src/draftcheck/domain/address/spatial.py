@@ -185,6 +185,7 @@ class Parcel:
     area_m2: float
     dataset_id: str
     target_crs: str = GDA2020_TARGET_CRS
+    verification_status: str = "verified"
 
 
 @dataclass(frozen=True)
@@ -485,40 +486,50 @@ class AddressResolutionService:
             method="parcel_link",
             detail="Address point linked to approved/licensed cadastral parcel fixture.",
         )
+        parcel_verified = parcel.verification_status == "verified"
+        parcel_confidence = Confidence.HIGH if parcel_verified else Confidence.MEDIUM
+        parcel_review_status = "accepted" if parcel_verified else "pending_review"
         facts: list[PropertyFact] = [
             PropertyFact(
                 fact_id=f"{project_id}:address",
                 fact_type="address",
                 value={"formatted_address": point.formatted_address, "gnaf_pid": point.gnaf_pid},
                 provenance=point_provenance,
-                confidence=Confidence.HIGH,
-                review_status="accepted",
+                confidence=parcel_confidence,
+                review_status=parcel_review_status,
             ),
             PropertyFact(
                 fact_id=f"{project_id}:parcel",
                 fact_type="parcel",
-                value={"parcel_id": parcel.parcel_id, "lot_plan": parcel.lot_plan},
+                value={
+                    "parcel_id": parcel.parcel_id,
+                    "lot_plan": parcel.lot_plan,
+                    "verification_status": parcel.verification_status,
+                },
                 provenance=parcel_provenance,
-                confidence=Confidence.HIGH,
-                review_status="accepted",
+                confidence=parcel_confidence,
+                review_status=parcel_review_status,
             ),
             PropertyFact(
                 fact_id=f"{project_id}:local_government",
                 fact_type="local_government",
                 value={"name": parcel.local_government},
                 provenance=parcel_provenance,
-                confidence=Confidence.HIGH,
-                review_status="accepted",
-            ),
-            PropertyFact(
-                fact_id=f"{project_id}:lot_area_m2",
-                fact_type="lot_area_m2",
-                value={"value": parcel.area_m2, "unit": "m2"},
-                provenance=parcel_provenance,
-                confidence=Confidence.HIGH,
-                review_status="accepted",
+                confidence=parcel_confidence,
+                review_status=parcel_review_status,
             ),
         ]
+        if parcel_verified and parcel.area_m2 > 0:
+            facts.append(
+                PropertyFact(
+                    fact_id=f"{project_id}:lot_area_m2",
+                    fact_type="lot_area_m2",
+                    value={"value": parcel.area_m2, "unit": "m2"},
+                    provenance=parcel_provenance,
+                    confidence=Confidence.HIGH,
+                    review_status="accepted",
+                )
+            )
         provenance = [point_provenance, parcel_provenance]
         for feature in self.store.planning_for_parcel(parcel.parcel_id):
             dataset = self.store.dataset_for(feature.dataset_id)
@@ -543,15 +554,19 @@ class AddressResolutionService:
         return PropertyProfile(
             org_id=org_id,
             project_id=project_id,
-            resolution_status=ResolutionStatus.RESOLVED,
-            confidence=Confidence.HIGH,
+            resolution_status=(
+                ResolutionStatus.RESOLVED if parcel_verified else ResolutionStatus.NEEDS_HUMAN_REVIEW
+            ),
+            confidence=Confidence.HIGH if parcel_verified else Confidence.MEDIUM,
             address=point.formatted_address,
             address_point_id=point.address_id,
             parcel_id=parcel.parcel_id,
             local_government=parcel.local_government,
             facts=tuple(facts),
             provenance=tuple(provenance),
-            issues=(),
+            issues=()
+            if parcel_verified
+            else ("parcel_needs_authoritative_import", "planning_sources_pending_import"),
         )
 
     def _empty_profile(
@@ -626,6 +641,16 @@ def create_default_spatial_store() -> InMemorySpatialDatasetStore:
             dataset_id=cadastre_dataset.dataset_id,
         )
     )
+    store.add_parcel(
+        Parcel(
+            parcel_id="parcel-cockburn-black-swan-rise-canary",
+            lot_plan="pending authoritative cadastre import",
+            local_government="City of Cockburn",
+            area_m2=0.0,
+            dataset_id=cadastre_dataset.dataset_id,
+            verification_status="canary_pending_authoritative_import",
+        )
+    )
     store.add_address_point(
         AddressPoint(
             address_id="address-gnaf-fixture-1",
@@ -635,6 +660,22 @@ def create_default_spatial_store() -> InMemorySpatialDatasetStore:
             lon=115.005,
             lat=-31.995,
             parcel_id="parcel-cockburn-fixture-1",
+            dataset_id=gnaf_dataset.dataset_id,
+        )
+    )
+    store.add_address_point(
+        AddressPoint(
+            address_id="address-gnaf-black-swan-rise-canary",
+            gnaf_pid="GNAF-WA-BLACK-SWAN-RISE-CANARY",
+            formatted_address="3 Black Swan Rise, Beeliar WA 6164",
+            aliases=(
+                "3 Black Swan Rise Beeliar WA 6164",
+                "3 Black Swan Rise, Beeliar WA",
+                "3 Black Swan Rise Beeliar WA",
+            ),
+            lon=115.82,
+            lat=-32.13,
+            parcel_id="parcel-cockburn-black-swan-rise-canary",
             dataset_id=gnaf_dataset.dataset_id,
         )
     )

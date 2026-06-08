@@ -7,6 +7,7 @@ implements them; routers mounted here replace the matching stubs as waves land.
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 from fastapi import APIRouter
@@ -16,6 +17,8 @@ from draftcheck.api.auth import router as auth_router
 from draftcheck.api.documents import router as documents_router
 from draftcheck.api.sources import create_sources_router
 
+
+COCKBURN_CANARY_ADDRESS = "3 Black Swan Rise, Beeliar WA 6164"
 
 contract_router = APIRouter()
 router = contract_router
@@ -245,8 +248,62 @@ def run_agent_evals(payload: dict[str, Any]) -> None:
 
 
 @router.get("/ops/dashboard", tags=["ops"])
-def ops_dashboard() -> None:
-    _stub("ops.dashboard")
+def ops_dashboard() -> dict[str, Any]:
+    queue_configured = bool(os.getenv("PROCRASTINATE_DB_URI") or os.getenv("DATABASE_URL"))
+    return {
+        "status": "ok",
+        "service": "draftcheck-api",
+        "mode": "v3_cockburn_build",
+        "canary": {
+            "address": COCKBURN_CANARY_ADDRESS,
+            "local_government": "City of Cockburn",
+            "property_resolution": "address_known_parcel_pending_authoritative_import",
+            "beta_status": "not_beta_accurate_yet",
+            "blocked_outputs": [
+                "final_compliance_claims",
+                "uncited_regulatory_answers",
+                "unpromoted_measurement_verdicts",
+            ],
+        },
+        "source_library": {
+            "status": "ingestion_in_progress",
+            "answer_policy": "cite_or_refuse",
+            "active_scope": [
+                "City of Cockburn source anchors",
+                "WA planning source anchors",
+                "NCC public/licensed source anchors",
+                "Standards Australia metadata only",
+            ],
+            "pending": [
+                "durable V3 source import",
+                "Cockburn document fetch and human source approval",
+                "spatial cadastre/G-NAF import for the canary parcel",
+                "rule extraction review before compliance checks",
+            ],
+        },
+        "hermes": {
+            "status": "configured" if queue_configured else "configured_unconnected",
+            "queue_configured": queue_configured,
+            "queues": [
+                "hermes",
+                "source_extraction",
+                "source_freshness_audit",
+            ],
+            "trace_required": True,
+            "skill_version_required": True,
+            "spend_capped": True,
+            "allowed_outputs": [
+                "source candidates",
+                "review worklists",
+                "draft responses requiring signoff",
+            ],
+            "forbidden_outputs": [
+                "compliance verdicts",
+                "rule approval",
+                "submission-ready exports",
+            ],
+        },
+    }
 
 
 router = create_v1_router()

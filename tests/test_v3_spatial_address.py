@@ -147,6 +147,35 @@ def test_gda2020_target_datum_is_recorded_for_resolved_fixture() -> None:
     assert {item["target_crs"] for item in body["provenance"]} == {GDA2020_TARGET_CRS}
 
 
+def test_black_swan_rise_canary_resolves_without_inventing_planning_facts() -> None:
+    client = _client(AddressResolutionService())
+
+    response = client.post(
+        "/api/v1/projects/project-black-swan/resolve-address",
+        json={"address": "3 Black Swan Rise, Beeliar WA 6164"},
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["resolution_status"] == "needs_human_review"
+    assert body["address"] == "3 Black Swan Rise, Beeliar WA 6164"
+    assert body["local_government"] == "City of Cockburn"
+    assert "parcel_needs_authoritative_import" in body["issues"]
+    assert "planning_sources_pending_import" in body["issues"]
+    fact_types = {fact["fact_type"] for fact in body["facts"]}
+    assert fact_types == {"address", "parcel", "local_government"}
+    assert "zone" not in fact_types
+    assert "lot_area_m2" not in fact_types
+    assert {fact["review_status"] for fact in body["facts"]} == {"pending_review"}
+    parcel_fact = next(fact for fact in body["facts"] if fact["fact_type"] == "parcel")
+    assert parcel_fact["value"]["verification_status"] == "canary_pending_authoritative_import"
+    for fact in body["facts"]:
+        provenance = fact["provenance"]
+        assert provenance["kind"] == "spatial_dataset"
+        assert provenance["source_version_id"]
+        assert provenance["target_crs"] == GDA2020_TARGET_CRS
+
+
 def test_manual_override_provenance_appears_without_authoritative_claim() -> None:
     client = _client(AddressResolutionService())
 

@@ -54,8 +54,8 @@ sources:
     authority: City of Cockburn
     local_government: Cockburn
     source_type: local_planning_policy
-    canonical_url:
-    licence_notes: Example fixture for local tests; replace with official current policy URL during real ingestion.
+    canonical_url: https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Policies
+    licence_notes: Example fixture for local tests; official page must be fetched, reviewed, and approved before use as a citable source.
     access_type: public
     scrape_allowed: true
     version_label: example-current
@@ -67,3 +67,25 @@ sources:
       Garage width and street surveillance should be reviewed to avoid dominant vehicle access outcomes.
       5.3.1 Open space
       Open space and site cover calculations should be shown on the site plan.
+
+  - title: City of Cockburn planning information source anchor
+    jurisdiction: WA
+    authority: Department of Planning, Lands and Heritage
+    local_government: Cockburn
+    source_type: local_planning_scheme
+    canonical_url: https://www.wa.gov.au/government/document-collections/city-of-cockburn-planning-information
+    licence_notes: Official WA Government Cockburn planning collection. Fetch only public documents and review source version before indexing.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: City of Cockburn town planning and development source anchor
+    jurisdiction: WA
+    authority: City of Cockburn
+    local_government: Cockburn
+    source_type: local_planning_policy
+    canonical_url: https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development
+    licence_notes: Official Cockburn planning entry point. Use as discovery anchor; approve fetched documents before citation.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
