@@ -57,7 +57,11 @@ def test_hermes_corpus_import_ingests_public_council_text_and_excludes_standard_
 
     response = client.post(
         "/v1/sources/hermes-corpus/import",
-        json={"inventory_path": str(inventory_path), "corpus_root": str(tmp_path)},
+        json={
+            "inventory_path": str(inventory_path),
+            "corpus_root": str(tmp_path),
+            "request_acceptance": True,
+        },
     )
 
     assert response.status_code == 200, response.text
@@ -81,6 +85,71 @@ def test_hermes_corpus_import_ingests_public_council_text_and_excludes_standard_
     standard_search = client.get("/v1/source-chunks/search", params={"q": "sardonyx balustrade"})
     assert standard_search.status_code == 200, standard_search.text
     assert standard_search.json() == []
+
+
+def test_hermes_corpus_import_defaults_to_pending_review(
+    client,
+    tmp_path: Path,
+) -> None:
+    council_text = "\n".join(
+        [
+            "1.1 Front setback and open space",
+            "A wall must be set back at least 1.5m unless a variation is approved.",
+            "The front setback should be shown on the site plan.",
+            "Open space calculations must identify uncovered outdoor areas.",
+        ]
+    )
+    _write_text(tmp_path, "parsed/council-policy.txt", council_text)
+    _write_bytes(tmp_path, "raw/council-policy.pdf", b"public council policy fixture")
+    inventory_path = _write_inventory(
+        tmp_path,
+        [
+            _inventory_row(
+                title="City of Stirling Pending Residential Design Policy",
+                authority="City of Stirling",
+                local_government="Stirling",
+                source_type="local_planning_policy",
+                canonical_url="https://www.stirling.wa.gov.au/planning/pending-residential-design-policy",
+                parsed_path="parsed/council-policy.txt",
+                raw_path="raw/council-policy.pdf",
+                text=council_text,
+                licence_notes=(
+                    "Public council policy fixture for importer tests; human review required before use."
+                ),
+            )
+        ],
+    )
+
+    response = client.post(
+        "/v1/sources/hermes-corpus/import",
+        json={"inventory_path": str(inventory_path), "corpus_root": str(tmp_path)},
+    )
+
+    assert response.status_code == 200, response.text
+    body = response.json()
+    assert body["imported"] == 1
+    assert body["items"][0]["source_version_id"]
+
+    sources = client.get("/v1/sources")
+    assert sources.status_code == 200, sources.text
+    source = next(
+        source
+        for source in sources.json()
+        if source["title"] == "City of Stirling Pending Residential Design Policy"
+    )
+    versions = client.get(f"/v1/sources/{source['id']}/versions")
+    assert versions.status_code == 200, versions.text
+    assert versions.json()[0]["review_status"] == "pending_review"
+    candidates = client.get(
+        "/v1/rules/candidates",
+        params={"source_version_id": body["items"][0]["source_version_id"]},
+    )
+    assert candidates.status_code == 200, candidates.text
+    assert candidates.json() == []
+
+    public_search = client.get("/v1/source-chunks/search", params={"q": "front setback open space"})
+    assert public_search.status_code == 200, public_search.text
+    assert public_search.json() == []
 
 
 def test_hermes_corpus_import_skips_paid_and_robots_blocked_rows(

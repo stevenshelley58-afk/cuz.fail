@@ -1,0 +1,19 @@
+services:
+  internal_caddy:
+    image: caddy:2.8-alpine
+    environment:
+      CADDY_API_HOST: ${CADDY_API_HOST:-api.cuz.fail}
+      CADDY_APP_HOST: ${CADDY_APP_HOST:-app.cuz.fail}
+    volumes:
+      - ./Caddyfile.internal:/etc/caddy/Caddyfile:ro
+      - ../../web/dist:/srv/draftcheck/web/dist:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+    networks:
+      default:
+        aliases:
+          - draftcheck-v3-caddy
+    restart: unless-stopped

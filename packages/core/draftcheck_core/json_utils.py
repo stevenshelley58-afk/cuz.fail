@@ -24,6 +24,10 @@ def hash_text(value: str) -> str:
     return _sha256(value.encode("utf-8")).hexdigest()
 
 
+def hash_bytes(value: bytes) -> str:
+    return _sha256(value).hexdigest()
+
+
 def normalize_text(value: str) -> str:
     return "\n".join(line.strip() for line in value.replace("\r\n", "\n").splitlines()).strip()
 

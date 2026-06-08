@@ -1,0 +1,217 @@
+sources:
+- title: City of Albany official website source anchor
+  jurisdiction: WA
+  authority: City of Albany
+  local_government: Albany
+  source_type: local_planning_policy
+  canonical_url: http://albany.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Armadale official website source anchor
+  jurisdiction: WA
+  authority: City of Armadale
+  local_government: Armadale
+  source_type: local_planning_policy
+  canonical_url: https://armadale.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Bayswater official website source anchor
+  jurisdiction: WA
+  authority: City of Bayswater
+  local_government: Bayswater
+  source_type: local_planning_policy
+  canonical_url: http://bayswater.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Belmont official website source anchor
+  jurisdiction: WA
+  authority: City of Belmont
+  local_government: Belmont
+  source_type: local_planning_policy
+  canonical_url: http://belmont.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Bunbury official website source anchor
+  jurisdiction: WA
+  authority: City of Bunbury
+  local_government: Bunbury
+  source_type: local_planning_policy
+  canonical_url: http://bunbury.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Busselton official website source anchor
+  jurisdiction: WA
+  authority: City of Busselton
+  local_government: Busselton
+  source_type: local_planning_policy
+  canonical_url: https://busselton.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Canning official website source anchor
+  jurisdiction: WA
+  authority: City of Canning
+  local_government: Canning
+  source_type: local_planning_policy
+  canonical_url: https://canning.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Cockburn official website source anchor
+  jurisdiction: WA
+  authority: City of Cockburn
+  local_government: Cockburn
+  source_type: local_planning_policy
+  canonical_url: https://cockburn.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Fremantle official website source anchor
+  jurisdiction: WA
+  authority: City of Fremantle
+  local_government: Fremantle
+  source_type: local_planning_policy
+  canonical_url: https://fremantle.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Gosnells official website source anchor
+  jurisdiction: WA
+  authority: City of Gosnells
+  local_government: Gosnells
+  source_type: local_planning_policy
+  canonical_url: https://gosnells.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Greater Geraldton official website source anchor
+  jurisdiction: WA
+  authority: City of Greater Geraldton
+  local_government: Greater Geraldton
+  source_type: local_planning_policy
+  canonical_url: https://cgg.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Joondalup official website source anchor
+  jurisdiction: WA
+  authority: City of Joondalup
+  local_government: Joondalup
+  source_type: local_planning_policy
+  canonical_url: https://joondalup.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Kalamunda official website source anchor
+  jurisdiction: WA
+  authority: City of Kalamunda
+  local_government: Kalamunda
+  source_type: local_planning_policy
+  canonical_url: http://kalamunda.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Kalgoorlie-Boulder official website source anchor
+  jurisdiction: WA
+  authority: City of Kalgoorlie-Boulder
+  local_government: Kalgoorlie-Boulder
+  source_type: local_planning_policy
+  canonical_url: https://ckb.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Karratha official website source anchor
+  jurisdiction: WA
+  authority: City of Karratha
+  local_government: Karratha
+  source_type: local_planning_policy
+  canonical_url: http://karratha.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Kwinana official website source anchor
+  jurisdiction: WA
+  authority: City of Kwinana
+  local_government: Kwinana
+  source_type: local_planning_policy
+  canonical_url: https://kwinana.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Mandurah official website source anchor
+  jurisdiction: WA
+  authority: City of Mandurah
+  local_government: Mandurah
+  source_type: local_planning_policy
+  canonical_url: https://mandurah.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: City of Melville official website source anchor
+  jurisdiction: WA
+  authority: City of Melville
+  local_government: Melville
+  source_type: local_planning_policy
+  canonical_url: https://melvillecity.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor

@@ -36,7 +36,27 @@ Import Hermes `source_inventory.jsonl` through either:
 - `POST /v1/sources/hermes-corpus/import`
 - `python scripts/import_hermes_corpus.py --inventory path/to/source_inventory.jsonl`
 
-The importer treats the inventory as a provenance ledger. Rows with lawful public/open parsed PDF/text content are imported as source documents, stored as content-addressed source versions, chunked for retrieval, and made citable through approved source version/chunk identifiers. Regulatory answers may use that text only when the stored source version supports the answer.
+## Local Discovery Helper
+
+For a conservative local pass from approved manifest anchors:
+
+```bash
+python scripts/discover_public_sources.py \
+  --manifest data/seed/source_manifest.example.yaml \
+  --output-root data/corpus/discovery-initial \
+  --max-depth 1 \
+  --max-urls-per-anchor 20 \
+  --delay-seconds 0.75
+```
+
+The helper writes the same Hermes-style outputs: `source_inventory.jsonl`,
+`fetch_log.jsonl`, `errors.jsonl`, `raw/`, `parsed/`, and `reports/`. It checks
+robots before fetching, uses a per-host delay, skips restricted-looking links,
+and keeps Standards Australia rows metadata-only.
+
+The importer treats the inventory as a provenance ledger. Rows with lawful public/open parsed PDF/text content are imported as source documents, stored as content-addressed source versions, and chunked for source governance. Regulatory answers may use that text only when the stored source version supports citable retrieval.
+
+By default, Hermes imports stage source versions as `pending_review`; they are chunked for governance and review, and rule extraction is deferred. They cannot support citable chat/retrieval until accepted. Use `--request-acceptance` on the CLI or `request_acceptance: true` on the API only after an operator has decided the corpus should request acceptance through the governance gate.
 
 Rows marked blocked, paid, login-gated, captcha-gated, robots-denied, unknown-access, restricted-licence, or otherwise not lawfully accessible are skipped rather than fetched or stored. Rows without usable parsed public text may be imported only as metadata where that is useful for source governance; metadata-only records are not chunked for retrieval. Standards Australia material is always metadata-only: store public metadata, access notes, licence notes, and source references, but do not store paid Australian Standards full text.
 

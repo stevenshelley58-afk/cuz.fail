@@ -323,7 +323,7 @@ function projectStub(row) {
 }
 
 function projectSub(row) {
-  return [row.local_government, row.lot_plan].filter(Boolean).join(" · ");
+  return [row.local_government, row.lot_plan].filter(Boolean).join(" \u00b7 ");
 }
 
 function applyProperty(project, property) {
@@ -381,7 +381,7 @@ function documentTier(doc) {
 }
 
 function citationLabel(c) {
-  return [c.source_title, c.clause_id].filter(Boolean).join(" · ") || c.heading || c.version_label || "Source";
+  return [c.source_title, c.clause_id].filter(Boolean).join(" \u00b7 ") || c.heading || c.version_label || "Source";
 }
 
 function citationToView(c) {

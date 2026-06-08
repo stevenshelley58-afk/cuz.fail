@@ -1,0 +1,217 @@
+sources:
+- title: Shire of Dardanup official website source anchor
+  jurisdiction: WA
+  authority: Shire of Dardanup
+  local_government: Dardanup
+  source_type: local_planning_policy
+  canonical_url: https://dardanup.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Denmark official website source anchor
+  jurisdiction: WA
+  authority: Shire of Denmark
+  local_government: Denmark
+  source_type: local_planning_policy
+  canonical_url: https://denmark.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Derby-West Kimberley official website source anchor
+  jurisdiction: WA
+  authority: Shire of Derby-West Kimberley
+  local_government: Derby-West Kimberley
+  source_type: local_planning_policy
+  canonical_url: https://sdwk.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Donnybrook Balingup official website source anchor
+  jurisdiction: WA
+  authority: Shire of Donnybrook Balingup
+  local_government: Donnybrook Balingup
+  source_type: local_planning_policy
+  canonical_url: http://donnybrook-balingup.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Dowerin official website source anchor
+  jurisdiction: WA
+  authority: Shire of Dowerin
+  local_government: Dowerin
+  source_type: local_planning_policy
+  canonical_url: https://dowerin.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Dumbleyung official website source anchor
+  jurisdiction: WA
+  authority: Shire of Dumbleyung
+  local_government: Dumbleyung
+  source_type: local_planning_policy
+  canonical_url: https://dumbleyung.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Dundas official website source anchor
+  jurisdiction: WA
+  authority: Shire of Dundas
+  local_government: Dundas
+  source_type: local_planning_policy
+  canonical_url: https://dundas.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of East Pilbara official website source anchor
+  jurisdiction: WA
+  authority: Shire of East Pilbara
+  local_government: East Pilbara
+  source_type: local_planning_policy
+  canonical_url: http://eastpilbara.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Esperance official website source anchor
+  jurisdiction: WA
+  authority: Shire of Esperance
+  local_government: Esperance
+  source_type: local_planning_policy
+  canonical_url: https://esperance.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Exmouth official website source anchor
+  jurisdiction: WA
+  authority: Shire of Exmouth
+  local_government: Exmouth
+  source_type: local_planning_policy
+  canonical_url: https://exmouth.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Gingin official website source anchor
+  jurisdiction: WA
+  authority: Shire of Gingin
+  local_government: Gingin
+  source_type: local_planning_policy
+  canonical_url: https://gingin.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Gnowangerup official website source anchor
+  jurisdiction: WA
+  authority: Shire of Gnowangerup
+  local_government: Gnowangerup
+  source_type: local_planning_policy
+  canonical_url: http://gnowangerup.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Goomalling official website source anchor
+  jurisdiction: WA
+  authority: Shire of Goomalling
+  local_government: Goomalling
+  source_type: local_planning_policy
+  canonical_url: https://goomalling.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Halls Creek official website source anchor
+  jurisdiction: WA
+  authority: Shire of Halls Creek
+  local_government: Halls Creek
+  source_type: local_planning_policy
+  canonical_url: https://hallscreek.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Harvey official website source anchor
+  jurisdiction: WA
+  authority: Shire of Harvey
+  local_government: Harvey
+  source_type: local_planning_policy
+  canonical_url: https://harvey.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Irwin official website source anchor
+  jurisdiction: WA
+  authority: Shire of Irwin
+  local_government: Irwin
+  source_type: local_planning_policy
+  canonical_url: https://irwin.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Jerramungup official website source anchor
+  jurisdiction: WA
+  authority: Shire of Jerramungup
+  local_government: Jerramungup
+  source_type: local_planning_policy
+  canonical_url: http://jerramungup.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Katanning official website source anchor
+  jurisdiction: WA
+  authority: Shire of Katanning
+  local_government: Katanning
+  source_type: local_planning_policy
+  canonical_url: https://katanning.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor

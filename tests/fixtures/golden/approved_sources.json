@@ -1,0 +1,395 @@
+{
+  "source_documents": [
+    {
+      "id": "src_artificial_gnaf",
+      "title": "Artificial Address Point Fixture Register",
+      "publisher": "DraftCheck fixture seed",
+      "source_kind": "synthetic_fixture",
+      "canonical_url": "https://example.test/draftcheck-fixtures/address-points",
+      "licence_status": "fixture_public_paraphrase"
+    },
+    {
+      "id": "src_artificial_cadastre",
+      "title": "Artificial Cadastre Fixture Register",
+      "publisher": "DraftCheck fixture seed",
+      "source_kind": "synthetic_fixture",
+      "canonical_url": "https://example.test/draftcheck-fixtures/cadastre",
+      "licence_status": "fixture_public_paraphrase"
+    },
+    {
+      "id": "src_artificial_lga_boundaries",
+      "title": "Artificial Local Government Boundary Fixture",
+      "publisher": "DraftCheck fixture seed",
+      "source_kind": "synthetic_fixture",
+      "canonical_url": "https://example.test/draftcheck-fixtures/lga-boundaries",
+      "licence_status": "fixture_public_paraphrase"
+    },
+    {
+      "id": "src_artificial_demo_scheme",
+      "title": "Artificial Demo Bay Planning Scheme Fixture",
+      "publisher": "DraftCheck fixture seed",
+      "source_kind": "synthetic_fixture",
+      "canonical_url": "https://example.test/draftcheck-fixtures/demo-bay-scheme",
+      "licence_status": "fixture_public_paraphrase"
+    },
+    {
+      "id": "src_artificial_demo_rcodes_extract",
+      "title": "Artificial R-Codes Rule Paraphrase Fixture",
+      "publisher": "DraftCheck fixture seed",
+      "source_kind": "synthetic_fixture",
+      "canonical_url": "https://example.test/draftcheck-fixtures/rcodes-paraphrase",
+      "licence_status": "fixture_public_paraphrase"
+    },
+    {
+      "id": "src_artificial_bushfire_map",
+      "title": "Artificial Bushfire Mapping Fixture",
+      "publisher": "DraftCheck fixture seed",
+      "source_kind": "synthetic_fixture",
+      "canonical_url": "https://example.test/draftcheck-fixtures/bushfire-map",
+      "licence_status": "fixture_public_paraphrase"
+    },
+    {
+      "id": "src_artificial_building_class_guide",
+      "title": "Artificial Building Classification Fixture Guide",
+      "publisher": "DraftCheck fixture seed",
+      "source_kind": "synthetic_fixture",
+      "canonical_url": "https://example.test/draftcheck-fixtures/building-class",
+      "licence_status": "fixture_public_paraphrase"
+    },
+    {
+      "id": "src_artificial_measurement_protocol",
+      "title": "Artificial DXF Measurement Promotion Protocol",
+      "publisher": "DraftCheck fixture seed",
+      "source_kind": "synthetic_fixture",
+      "canonical_url": "https://example.test/draftcheck-fixtures/measurement-protocol",
+      "licence_status": "fixture_public_paraphrase"
+    }
+  ],
+  "source_versions": [
+    {
+      "id": "sv_artificial_gnaf_2026_q2_v1",
+      "source_document_id": "src_artificial_gnaf",
+      "version_label": "2026-Q2 artificial fixture",
+      "content_sha256": "5147d1cbf2e3621b112cd074dd489470491bfbdaa6118d8fe6e9aecc756d2711",
+      "review_status": "approved",
+      "licence_status": "approved_fixture_only",
+      "approved_by_user_id": "user_m1_reviewer",
+      "approved_at": "2026-06-07T09:40:00+08:00",
+      "approval_scope": "M1 canary fixture only",
+      "paid_standard_text_stored": false,
+      "citation_metadata": {
+        "retrieved_at": "2026-06-07T09:40:00+08:00",
+        "storage_manifest_sha256": "5147d1cbf2e3621b112cd074dd489470491bfbdaa6118d8fe6e9aecc756d2711"
+      }
+    },
+    {
+      "id": "sv_artificial_cadastre_2026_q2_v1",
+      "source_document_id": "src_artificial_cadastre",
+      "version_label": "2026-Q2 artificial fixture",
+      "content_sha256": "832c60d03567489202c3ed8356903e0cacf08bbe20fad036adab8721ff4d4501",
+      "review_status": "approved",
+      "licence_status": "approved_fixture_only",
+      "approved_by_user_id": "user_m1_reviewer",
+      "approved_at": "2026-06-07T09:40:00+08:00",
+      "approval_scope": "M1 canary fixture only",
+      "paid_standard_text_stored": false,
+      "citation_metadata": {
+        "retrieved_at": "2026-06-07T09:40:00+08:00",
+        "storage_manifest_sha256": "832c60d03567489202c3ed8356903e0cacf08bbe20fad036adab8721ff4d4501"
+      }
+    },
+    {
+      "id": "sv_artificial_lga_boundaries_2026_q2_v1",
+      "source_document_id": "src_artificial_lga_boundaries",
+      "version_label": "2026-Q2 artificial fixture",
+      "content_sha256": "72777603849ea37a9da39977933bd48a763ed9e8d6b0f59fcacf9cf4546ed0e6",
+      "review_status": "approved",
+      "licence_status": "approved_fixture_only",
+      "approved_by_user_id": "user_m1_reviewer",
+      "approved_at": "2026-06-07T09:40:00+08:00",
+      "approval_scope": "M1 canary fixture only",
+      "paid_standard_text_stored": false,
+      "citation_metadata": {
+        "retrieved_at": "2026-06-07T09:40:00+08:00",
+        "storage_manifest_sha256": "72777603849ea37a9da39977933bd48a763ed9e8d6b0f59fcacf9cf4546ed0e6"
+      }
+    },
+    {
+      "id": "sv_artificial_demo_scheme_2026_v1",
+      "source_document_id": "src_artificial_demo_scheme",
+      "version_label": "2026 artificial fixture",
+      "content_sha256": "a24dd315d99d371f82690d6b3a4d8824e8dc98c95e415acb50133f45e32e0e67",
+      "review_status": "approved",
+      "licence_status": "approved_fixture_only",
+      "approved_by_user_id": "user_m1_reviewer",
+      "approved_at": "2026-06-07T09:40:00+08:00",
+      "approval_scope": "M1 canary fixture only",
+      "paid_standard_text_stored": false,
+      "citation_metadata": {
+        "retrieved_at": "2026-06-07T09:40:00+08:00",
+        "storage_manifest_sha256": "a24dd315d99d371f82690d6b3a4d8824e8dc98c95e415acb50133f45e32e0e67"
+      }
+    },
+    {
+      "id": "sv_artificial_demo_rcodes_extract_2026_v1",
+      "source_document_id": "src_artificial_demo_rcodes_extract",
+      "version_label": "2026 artificial paraphrase fixture",
+      "content_sha256": "e27150ad7c473fa7e06d26db107914f6d2f8455ea1e84c54308da04fdeee3cd5",
+      "review_status": "approved",
+      "licence_status": "approved_fixture_only",
+      "approved_by_user_id": "user_m1_reviewer",
+      "approved_at": "2026-06-07T09:40:00+08:00",
+      "approval_scope": "M1 canary fixture only",
+      "paid_standard_text_stored": false,
+      "citation_metadata": {
+        "retrieved_at": "2026-06-07T09:40:00+08:00",
+        "storage_manifest_sha256": "e27150ad7c473fa7e06d26db107914f6d2f8455ea1e84c54308da04fdeee3cd5"
+      }
+    },
+    {
+      "id": "sv_artificial_bushfire_map_2026_v1",
+      "source_document_id": "src_artificial_bushfire_map",
+      "version_label": "2026 artificial fixture",
+      "content_sha256": "73c315c818ca07885ddbd5835ae90e3843fe08fec1082257de9300ef4f488bc0",
+      "review_status": "approved",
+      "licence_status": "approved_fixture_only",
+      "approved_by_user_id": "user_m1_reviewer",
+      "approved_at": "2026-06-07T09:40:00+08:00",
+      "approval_scope": "M1 canary fixture only",
+      "paid_standard_text_stored": false,
+      "citation_metadata": {
+        "retrieved_at": "2026-06-07T09:40:00+08:00",
+        "storage_manifest_sha256": "73c315c818ca07885ddbd5835ae90e3843fe08fec1082257de9300ef4f488bc0"
+      }
+    },
+    {
+      "id": "sv_artificial_building_class_guide_2026_v1",
+      "source_document_id": "src_artificial_building_class_guide",
+      "version_label": "2026 artificial fixture",
+      "content_sha256": "0fe27e33b32fd6f72d69433354b864808dfedbd36694a9190f6c47e7c83d92ba",
+      "review_status": "approved",
+      "licence_status": "approved_fixture_only",
+      "approved_by_user_id": "user_m1_reviewer",
+      "approved_at": "2026-06-07T09:40:00+08:00",
+      "approval_scope": "M1 canary fixture only",
+      "paid_standard_text_stored": false,
+      "citation_metadata": {
+        "retrieved_at": "2026-06-07T09:40:00+08:00",
+        "storage_manifest_sha256": "0fe27e33b32fd6f72d69433354b864808dfedbd36694a9190f6c47e7c83d92ba"
+      }
+    },
+    {
+      "id": "sv_artificial_measurement_protocol_2026_v1",
+      "source_document_id": "src_artificial_measurement_protocol",
+      "version_label": "2026 artificial fixture",
+      "content_sha256": "39e81dfe17328c2470b82ae32cc95dc356a4aaea98b31cb4dd46bfe1e6d6cdde",
+      "review_status": "approved",
+      "licence_status": "approved_fixture_only",
+      "approved_by_user_id": "user_m1_reviewer",
+      "approved_at": "2026-06-07T09:40:00+08:00",
+      "approval_scope": "M1 canary fixture only",
+      "paid_standard_text_stored": false,
+      "citation_metadata": {
+        "retrieved_at": "2026-06-07T09:40:00+08:00",
+        "storage_manifest_sha256": "39e81dfe17328c2470b82ae32cc95dc356a4aaea98b31cb4dd46bfe1e6d6cdde"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "id": "cit_artificial_gnaf_address_point",
+      "source_version_id": "sv_artificial_gnaf_2026_q2_v1",
+      "clause_id": "ADDR-POINT-1",
+      "locator": "record GAACTEST000001",
+      "paraphrase": "The artificial address register maps the canary address to fixture point GAACTEST000001.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_cadastre_parcel",
+      "source_version_id": "sv_artificial_cadastre_2026_q2_v1",
+      "clause_id": "CAD-PARCEL-1",
+      "locator": "parcel parcel_m1_canary",
+      "paraphrase": "The artificial cadastre register identifies the canary address point inside fixture parcel parcel_m1_canary.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_cadastre_lot_area",
+      "source_version_id": "sv_artificial_cadastre_2026_q2_v1",
+      "clause_id": "CAD-AREA-1",
+      "locator": "parcel area attribute",
+      "paraphrase": "The artificial cadastre fixture records a 450 square metre parcel area for the canary parcel.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_cadastre_frontage",
+      "source_version_id": "sv_artificial_cadastre_2026_q2_v1",
+      "clause_id": "CAD-FRONTAGE-1",
+      "locator": "parcel frontage attribute",
+      "paraphrase": "The artificial cadastre fixture records Canary Lane as the frontage edge for the canary parcel.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_lga_boundary",
+      "source_version_id": "sv_artificial_lga_boundaries_2026_q2_v1",
+      "clause_id": "LGA-DEMO-1",
+      "locator": "boundary feature lga_demo_bay",
+      "paraphrase": "The artificial boundary fixture places the canary parcel in Demo Bay Local Government.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_scheme_zone",
+      "source_version_id": "sv_artificial_demo_scheme_2026_v1",
+      "clause_id": "SCHEME-ZONE-1",
+      "locator": "planning feature zone_demo_res",
+      "paraphrase": "The artificial scheme fixture maps the canary parcel to the demonstration residential zone.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_scheme_r_code",
+      "source_version_id": "sv_artificial_demo_scheme_2026_v1",
+      "clause_id": "SCHEME-RCODE-1",
+      "locator": "planning feature rcode_r30_fixture",
+      "paraphrase": "The artificial scheme fixture assigns illustrative R30 coding to the canary parcel.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_bushfire_not_mapped",
+      "source_version_id": "sv_artificial_bushfire_map_2026_v1",
+      "clause_id": "BUSHFIRE-MAP-1",
+      "locator": "fixture bushfire layer intersection",
+      "paraphrase": "The artificial bushfire layer does not intersect the canary parcel.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_building_class_label",
+      "source_version_id": "sv_artificial_building_class_guide_2026_v1",
+      "clause_id": "CLASS-LABEL-1",
+      "locator": "fixture classification label",
+      "paraphrase": "The artificial guide labels the canary proposal as class_1a_fixture_label for fixture routing.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_rcodes_site_cover",
+      "source_version_id": "sv_artificial_demo_rcodes_extract_2026_v1",
+      "clause_id": "R-FIX-SITE-COVER",
+      "locator": "fixture rule atom site_cover",
+      "paraphrase": "The artificial rule fixture describes a site-cover check for the canary R-code context.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_rcodes_open_space",
+      "source_version_id": "sv_artificial_demo_rcodes_extract_2026_v1",
+      "clause_id": "R-FIX-OPEN-SPACE",
+      "locator": "fixture rule atom open_space",
+      "paraphrase": "The artificial rule fixture describes an open-space check for the canary R-code context.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_rcodes_primary_setback",
+      "source_version_id": "sv_artificial_demo_rcodes_extract_2026_v1",
+      "clause_id": "R-FIX-PRIMARY-SETBACK",
+      "locator": "fixture rule atom primary_street_setback",
+      "paraphrase": "The artificial rule fixture describes a primary-street setback check for the canary R-code context.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_rcodes_garage_width",
+      "source_version_id": "sv_artificial_demo_rcodes_extract_2026_v1",
+      "clause_id": "R-FIX-GARAGE",
+      "locator": "fixture rule atom garage_dominance",
+      "paraphrase": "The artificial rule fixture describes a garage-dominance check for the canary frontage context.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_rcodes_boundary_wall",
+      "source_version_id": "sv_artificial_demo_rcodes_extract_2026_v1",
+      "clause_id": "R-FIX-BOUNDARY-WALL",
+      "locator": "fixture rule atom boundary_wall_length",
+      "paraphrase": "The artificial rule fixture describes a boundary-wall length check for the canary proposal context.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    },
+    {
+      "id": "cit_artificial_measurement_protocol_dxf",
+      "source_version_id": "sv_artificial_measurement_protocol_2026_v1",
+      "clause_id": "MEASURE-DXF-1",
+      "locator": "fixture protocol dxf layer areas",
+      "paraphrase": "The artificial protocol permits DXF fixture dimensions to be promoted only after reviewer confirmation.",
+      "statement_scope": "fixture_only",
+      "quoted_text_stored": false,
+      "provenance": {
+        "created_by": "fixture_seed",
+        "created_at": "2026-06-07T09:45:00+08:00"
+      }
+    }
+  ]
+}

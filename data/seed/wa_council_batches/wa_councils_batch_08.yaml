@@ -1,0 +1,157 @@
+sources:
+- title: Shire of Wyalkatchem official website source anchor
+  jurisdiction: WA
+  authority: Shire of Wyalkatchem
+  local_government: Wyalkatchem
+  source_type: local_planning_policy
+  canonical_url: http://wyalkatchem.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Wyndham-East Kimberley official website source anchor
+  jurisdiction: WA
+  authority: Shire of Wyndham-East Kimberley
+  local_government: Wyndham-East Kimberley
+  source_type: local_planning_policy
+  canonical_url: https://swek.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Yalgoo official website source anchor
+  jurisdiction: WA
+  authority: Shire of Yalgoo
+  local_government: Yalgoo
+  source_type: local_planning_policy
+  canonical_url: https://yalgoo.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Yilgarn official website source anchor
+  jurisdiction: WA
+  authority: Shire of Yilgarn
+  local_government: Yilgarn
+  source_type: local_planning_policy
+  canonical_url: https://yilgarn.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of York official website source anchor
+  jurisdiction: WA
+  authority: Shire of York
+  local_government: York
+  source_type: local_planning_policy
+  canonical_url: https://york.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Town of Bassendean official website source anchor
+  jurisdiction: WA
+  authority: Town of Bassendean
+  local_government: Bassendean
+  source_type: local_planning_policy
+  canonical_url: https://bassendean.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Town of Cambridge official website source anchor
+  jurisdiction: WA
+  authority: Town of Cambridge
+  local_government: Cambridge
+  source_type: local_planning_policy
+  canonical_url: https://cambridge.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Town of Claremont official website source anchor
+  jurisdiction: WA
+  authority: Town of Claremont
+  local_government: Claremont
+  source_type: local_planning_policy
+  canonical_url: https://claremont.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Town of Cottesloe official website source anchor
+  jurisdiction: WA
+  authority: Town of Cottesloe
+  local_government: Cottesloe
+  source_type: local_planning_policy
+  canonical_url: https://cottesloe.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Town of East Fremantle official website source anchor
+  jurisdiction: WA
+  authority: Town of East Fremantle
+  local_government: East Fremantle
+  source_type: local_planning_policy
+  canonical_url: https://eastfremantle.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Town of Mosman Park official website source anchor
+  jurisdiction: WA
+  authority: Town of Mosman Park
+  local_government: Mosman Park
+  source_type: local_planning_policy
+  canonical_url: https://mosmanpark.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Town of Port Hedland official website source anchor
+  jurisdiction: WA
+  authority: Town of Port Hedland
+  local_government: Port Hedland
+  source_type: local_planning_policy
+  canonical_url: https://porthedland.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Town of Victoria Park official website source anchor
+  jurisdiction: WA
+  authority: Town of Victoria Park
+  local_government: Victoria Park
+  source_type: local_planning_policy
+  canonical_url: https://victoriapark.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor

@@ -1,0 +1,135 @@
+name: draftcheck-wa-v3
+
+services:
+  db:
+    build:
+      context: ../..
+      dockerfile: infra/v3/db/Dockerfile
+    image: ${DRAFTCHECK_V3_DB_IMAGE:-draftcheck-wa-v3-db:local}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-draftcheck}
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD for V3}"
+      POSTGRES_DB: ${POSTGRES_DB:-draftcheck}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - draftcheck-v3-db-healthcheck
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
+
+  api:
+    build:
+      context: ../..
+      dockerfile: infra/v3/app.Dockerfile
+    image: ${DRAFTCHECK_V3_APP_IMAGE:-draftcheck-wa-v3-app:local}
+    command:
+      - sh
+      - -c
+      - >-
+        alembic upgrade head &&
+        (procrastinate --app "$${PROCRASTINATE_APP}" schema --apply ||
+        echo "procrastinate schema already present; continuing") &&
+        uvicorn draftcheck.api.main:app --host 0.0.0.0 --port 8000
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-draftcheck}
+      PROCRASTINATE_APP: ${PROCRASTINATE_APP:-draftcheck.jobs.procrastinate_app}
+      PROCRASTINATE_DB_URI: postgresql://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-draftcheck}
+      OBJECT_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
+      REQUIRE_DURABLE_DATABASE: "true"
+      REQUIRE_LOCAL_CONTENT_STORAGE: "true"
+      DRAFTCHECK_ENV: production
+      FRONTEND_URL: ${FRONTEND_URL:-https://app.cuz.fail}
+      AUTH_TOKEN_HASH_PEPPER: "${AUTH_TOKEN_HASH_PEPPER:?set AUTH_TOKEN_HASH_PEPPER for V3}"
+      SESSION_COOKIE_SECURE: "true"
+      API_MOUNT: /api/v1
+      API_AUTH_ENABLED: "true"
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-https://app.cuz.fail}
+    volumes:
+      - ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}:${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=5).read()"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 45s
+    restart: unless-stopped
+
+  worker:
+    image: ${DRAFTCHECK_V3_APP_IMAGE:-draftcheck-wa-v3-app:local}
+    command:
+      - sh
+      - -c
+      - >-
+        procrastinate --app "$${PROCRASTINATE_APP}" worker
+        --queues default,source_ingestion,council_pack,rfi_analysis,source_freshness_audit
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-draftcheck}
+      PROCRASTINATE_APP: ${PROCRASTINATE_APP:-draftcheck.jobs.procrastinate_app}
+      PROCRASTINATE_DB_URI: postgresql://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-draftcheck}
+      OBJECT_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
+      REQUIRE_DURABLE_DATABASE: "true"
+      REQUIRE_LOCAL_CONTENT_STORAGE: "true"
+    volumes:
+      - ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}:${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  hermes:
+    image: ${DRAFTCHECK_V3_APP_IMAGE:-draftcheck-wa-v3-app:local}
+    command:
+      - sh
+      - -c
+      - >-
+        procrastinate --app "$${PROCRASTINATE_APP}" worker
+        --queues hermes,source_extraction,source_freshness_audit
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-draftcheck}
+      PROCRASTINATE_APP: ${PROCRASTINATE_APP:-draftcheck.jobs.procrastinate_app}
+      PROCRASTINATE_DB_URI: postgresql://${POSTGRES_USER:-draftcheck}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-draftcheck}
+      OBJECT_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
+      HERMES_TRACE_REQUIRED: "true"
+      HERMES_SKILL_VERSION_REQUIRED: "true"
+      HERMES_SPEND_CAP_CENTS: "${HERMES_SPEND_CAP_CENTS:?set HERMES_SPEND_CAP_CENTS for V3}"
+    volumes:
+      - ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}:${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  caddy:
+    image: caddy:2.8-alpine
+    environment:
+      CADDY_API_HOST: ${CADDY_API_HOST:-api.cuz.fail}
+      CADDY_APP_HOST: ${CADDY_APP_HOST:-app.cuz.fail}
+    ports:
+      - "${CADDY_HTTP_PORT:-80}:80"
+      - "${CADDY_HTTPS_PORT:-443}:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ../../web/dist:/srv/draftcheck/web/dist:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:

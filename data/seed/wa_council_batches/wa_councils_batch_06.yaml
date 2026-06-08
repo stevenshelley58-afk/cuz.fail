@@ -1,0 +1,217 @@
+sources:
+- title: Shire of Mukinbudin official website source anchor
+  jurisdiction: WA
+  authority: Shire of Mukinbudin
+  local_government: Mukinbudin
+  source_type: local_planning_policy
+  canonical_url: https://mukinbudin.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Mundaring official website source anchor
+  jurisdiction: WA
+  authority: Shire of Mundaring
+  local_government: Mundaring
+  source_type: local_planning_policy
+  canonical_url: https://mundaring.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Murchison official website source anchor
+  jurisdiction: WA
+  authority: Shire of Murchison
+  local_government: Murchison
+  source_type: local_planning_policy
+  canonical_url: https://murchison.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Murray official website source anchor
+  jurisdiction: WA
+  authority: Shire of Murray
+  local_government: Murray
+  source_type: local_planning_policy
+  canonical_url: https://murray.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Nannup official website source anchor
+  jurisdiction: WA
+  authority: Shire of Nannup
+  local_government: Nannup
+  source_type: local_planning_policy
+  canonical_url: https://nannup.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Narembeen official website source anchor
+  jurisdiction: WA
+  authority: Shire of Narembeen
+  local_government: Narembeen
+  source_type: local_planning_policy
+  canonical_url: https://narembeen.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Narrogin official website source anchor
+  jurisdiction: WA
+  authority: Shire of Narrogin
+  local_government: Narrogin
+  source_type: local_planning_policy
+  canonical_url: https://narrogin.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Ngaanyatjarraku official website source anchor
+  jurisdiction: WA
+  authority: Shire of Ngaanyatjarraku
+  local_government: Ngaanyatjarraku
+  source_type: local_planning_policy
+  canonical_url: http://ngaanyatjarraku.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Northam official website source anchor
+  jurisdiction: WA
+  authority: Shire of Northam
+  local_government: Northam
+  source_type: local_planning_policy
+  canonical_url: https://northam.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Northampton official website source anchor
+  jurisdiction: WA
+  authority: Shire of Northampton
+  local_government: Northampton
+  source_type: local_planning_policy
+  canonical_url: https://northampton.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Nungarin official website source anchor
+  jurisdiction: WA
+  authority: Shire of Nungarin
+  local_government: Nungarin
+  source_type: local_planning_policy
+  canonical_url: http://nungarin.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Peppermint Grove official website source anchor
+  jurisdiction: WA
+  authority: Shire of Peppermint Grove
+  local_government: Peppermint Grove
+  source_type: local_planning_policy
+  canonical_url: https://peppermintgrove.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Perenjori official website source anchor
+  jurisdiction: WA
+  authority: Shire of Perenjori
+  local_government: Perenjori
+  source_type: local_planning_policy
+  canonical_url: http://perenjori.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Pingelly official website source anchor
+  jurisdiction: WA
+  authority: Shire of Pingelly
+  local_government: Pingelly
+  source_type: local_planning_policy
+  canonical_url: https://pingelly.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Plantagenet official website source anchor
+  jurisdiction: WA
+  authority: Shire of Plantagenet
+  local_government: Plantagenet
+  source_type: local_planning_policy
+  canonical_url: http://plantagenet.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Quairading official website source anchor
+  jurisdiction: WA
+  authority: Shire of Quairading
+  local_government: Quairading
+  source_type: local_planning_policy
+  canonical_url: https://quairading.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Ravensthorpe official website source anchor
+  jurisdiction: WA
+  authority: Shire of Ravensthorpe
+  local_government: Ravensthorpe
+  source_type: local_planning_policy
+  canonical_url: https://ravensthorpe.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
+- title: Shire of Sandstone official website source anchor
+  jurisdiction: WA
+  authority: Shire of Sandstone
+  local_government: Sandstone
+  source_type: local_planning_policy
+  canonical_url: https://sandstone.wa.gov.au
+  licence_notes: 'Official council website from WALGA Local Government Directory 2026.
+    Discover only public planning/building documents; verify licence and currency
+    before use. Directory source: https://walga.asn.au/getmedia/85eb5241-c2ae-4e79-a305-089ecb89e5d7/The-Western-Australian-Local-Government-Directory.pdf'
+  access_type: public
+  scrape_allowed: true
+  version_label: walga-directory-2026-anchor
