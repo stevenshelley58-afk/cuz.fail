@@ -138,7 +138,7 @@ a{color:var(--green)}
   .greet h1{font-size:1.35rem}
   .greet p{padding:0 4px;overflow-wrap:anywhere}
   .conv{justify-content:flex-start;padding-top:14px;width:calc(100vw - 32px);max-width:calc(100vw - 32px);min-width:0}
-  .onebox{align-self:center;width:calc(100vw - 48px);max-width:calc(100vw - 48px)}
+  .onebox{align-self:center;width:min(320px,calc(100vw - 64px));max-width:min(320px,calc(100vw - 64px))}
   .hints{display:grid;grid-template-columns:1fr;width:100%;padding:0 44px}
   .hints button{width:100%;border-radius:18px}
   .statusbar{flex-wrap:wrap;font-size:.64rem;line-height:1.25}
