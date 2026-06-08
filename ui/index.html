@@ -1,202 +1,532 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>cuz — home</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
-<style>
-  :root{
-    --ink:#0C2018; --ink-soft:#3E5A4D; --ink-faint:#8FAA9C;
-    --paper:#F6FAF7; --card:#FFFFFF;
-    --green-900:#0A3526; --green-800:#0E4A33; --green:#168253; --green-bright:#1FA468;
-    --mint:#E4F3EA; --mint-deep:#CDE9D9; --line:#DEEAE2;
-    --flag:#B45309; --flag-bg:#FEF3E2;
-    --radius:20px; --shadow:0 8px 30px rgba(10,53,38,.07);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
-  .ms{font-family:'Material Symbols Outlined';line-height:1;vertical-align:middle;-webkit-font-feature-settings:'liga'}
-  h1,h2,h3,.logo{font-family:'Sora','Inter',sans-serif;letter-spacing:-.02em}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LotFile - WA planning checks that cite or refuse</title>
+  <meta
+    name="description"
+    content="LotFile is a private beta workspace for WA residential planning checks, source review, drawing evidence, and human signoff."
+  />
+  <meta property="og:title" content="LotFile - WA planning checks that cite or refuse" />
+  <meta
+    property="og:description"
+    content="A live private beta for address-first planning checks, governed source review, and evidence-backed compliance workflows."
+  />
+  <meta property="og:image" content="/assets/lotfile-live-desktop.png" />
+  <meta name="theme-color" content="#f6faf7" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --ink: #0c2018;
+      --soft: #3e5a4d;
+      --faint: #7e968a;
+      --paper: #f6faf7;
+      --card: #ffffff;
+      --line: #dce9e1;
+      --green-950: #06271c;
+      --green-900: #0a3526;
+      --green-700: #11603f;
+      --green: #168253;
+      --mint: #e4f3ea;
+      --mint-deep: #cde9d9;
+      --amber: #a75808;
+      --amber-bg: #fff4df;
+      --shadow: 0 22px 80px rgba(10, 53, 38, .12);
+    }
 
-  .app{max-width:480px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;background:var(--paper);box-shadow:0 0 60px rgba(10,53,38,.06);padding-bottom:24px}
-  header{position:sticky;top:0;z-index:20;background:rgba(246,250,247,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
-         height:60px;padding:0 18px;display:flex;align-items:center;justify-content:space-between}
-  .logo{font-weight:800;font-size:1.2rem;color:var(--green-900)}
-  .logo span{color:var(--green-bright);font-weight:600}
-  .avatar{width:32px;height:32px;border-radius:99px;background:var(--green-900);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.74rem}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .page { min-height: 100vh; overflow: hidden; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
 
-  main{flex:1;padding:20px}
-  .eyebrow{display:inline-block;background:var(--mint);color:var(--green-800);border-radius:99px;padding:5px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-  h1.title{font-size:1.7rem;font-weight:800;color:var(--green-900);line-height:1.12;margin:12px 0 4px}
-  .sub{color:var(--ink-soft);font-size:.96rem}
+    header {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Sora, Inter, sans-serif;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-decoration: none;
+      color: var(--green-950);
+      font-size: 1.15rem;
+    }
+    .mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: var(--green-950);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(10, 53, 38, .2);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--soft);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+    nav a {
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 10px;
+    }
+    nav a:hover { background: var(--mint); color: var(--green-900); }
 
-  .lookup{margin-top:16px;display:flex;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:8px 8px 8px 16px;box-shadow:var(--shadow);align-items:center}
-  .lookup .ms{color:var(--green);font-size:22px}
-  .lookup input{flex:1;border:none;outline:none;background:transparent;font:500 1rem 'Inter';color:var(--ink);min-width:0}
-  .lookup button{background:var(--green);color:#fff;border:none;border-radius:99px;padding:10px 18px;font:600 .9rem 'Inter';cursor:pointer;white-space:nowrap}
-  .lookup button:hover{background:var(--green-800)}
-  .ac{margin-top:8px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:none}
-  .ac.show{display:block}
-  .ac a{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:500;font-size:.92rem}
-  .ac a:last-child{border-bottom:none}
-  .ac a:hover{background:var(--mint)}
-  .ac .ms{color:var(--ink-faint);font-size:20px}
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 48px;
+      padding: 34px 0 70px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green-900);
+      background: var(--mint);
+      border: 1px solid var(--mint-deep);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: .76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(22, 130, 83, .12);
+    }
+    h1 {
+      margin: 18px 0 14px;
+      color: var(--green-950);
+      font-family: Sora, Inter, sans-serif;
+      font-size: clamp(2.45rem, 6vw, 5.8rem);
+      line-height: .97;
+      letter-spacing: 0;
+    }
+    .lead {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--soft);
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: .95rem;
+      border: 1px solid transparent;
+    }
+    .btn.primary {
+      background: var(--green-950);
+      color: #fff;
+      box-shadow: 0 14px 38px rgba(10, 53, 38, .22);
+    }
+    .btn.primary:hover { background: var(--green-900); }
+    .btn.secondary {
+      background: #fff;
+      color: var(--green-900);
+      border-color: var(--line);
+    }
+    .btn.secondary:hover { border-color: var(--green); }
+    .fine {
+      margin-top: 12px;
+      color: var(--faint);
+      font-size: .82rem;
+    }
 
-  .secthead{display:flex;align-items:center;justify-content:space-between;margin:26px 2px 10px}
-  .secthead .h{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);font-weight:700}
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 30px;
+      max-width: 640px;
+    }
+    .proof-card {
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 13px;
+    }
+    .proof-card b {
+      display: block;
+      color: var(--green-950);
+      font-family: Sora, Inter, sans-serif;
+      font-size: 1.12rem;
+      line-height: 1.1;
+    }
+    .proof-card span {
+      display: block;
+      margin-top: 4px;
+      color: var(--faint);
+      font-size: .78rem;
+      font-weight: 700;
+    }
 
-  .recent{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 15px;box-shadow:var(--shadow);margin-bottom:10px;text-decoration:none;color:inherit}
-  .recent:hover{border-color:var(--mint-deep)}
-  .recent .ic{width:40px;height:40px;border-radius:12px;background:var(--mint);display:flex;align-items:center;justify-content:center;color:var(--green);flex:none}
-  .recent .a{font-weight:700;font-size:.92rem;color:var(--green-900)}
-  .recent .m{font-size:.74rem;color:var(--ink-faint);margin-top:1px;display:flex;align-items:center;gap:5px}
-  .dot{width:7px;height:7px;border-radius:99px}
-  .dot.warn{background:var(--flag)} .dot.ok{background:var(--green)} .dot.wait{background:var(--ink-faint)}
-  .recent .go{margin-left:auto;color:var(--ink-faint)}
+    .product {
+      position: relative;
+      min-height: 600px;
+    }
+    .screen {
+      position: absolute;
+      inset: 0 0 auto auto;
+      width: 100%;
+      border: 1px solid rgba(12, 32, 24, .12);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .screen img { width: 100%; height: auto; }
+    .phone {
+      position: absolute;
+      left: 0;
+      bottom: 20px;
+      width: min(230px, 34%);
+      border-radius: 26px;
+      padding: 8px;
+      background: var(--green-950);
+      box-shadow: 0 28px 80px rgba(6, 39, 28, .28);
+    }
+    .phone img { border-radius: 20px; width: 100%; }
+    .status {
+      position: absolute;
+      right: 18px;
+      bottom: 22px;
+      width: min(360px, 52%);
+      background: rgba(255, 255, 255, .94);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      box-shadow: 0 20px 60px rgba(10, 53, 38, .15);
+      backdrop-filter: blur(8px);
+    }
+    .status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 8px 0;
+      border-top: 1px solid var(--line);
+      color: var(--soft);
+      font-size: .84rem;
+      font-weight: 700;
+    }
+    .status-row:first-child { border-top: 0; padding-top: 0; }
+    .pill {
+      white-space: nowrap;
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: var(--mint);
+      color: var(--green-900);
+      font-size: .72rem;
+      font-weight: 800;
+    }
+    .pill.warn { background: var(--amber-bg); color: var(--amber); }
 
-  /* general chat */
-  .gchat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-  .gchat .ghead{display:flex;align-items:center;gap:9px;padding:13px 16px;border-bottom:1px solid var(--line);background:#FBFDFC}
-  .gchat .ghead .ms{color:var(--green);font-size:20px}
-  .gchat .ghead .t{font-weight:700;font-size:.9rem}
-  .gchat .ghead .s{font-size:.72rem;color:var(--ink-faint)}
-  .thread{display:flex;flex-direction:column;gap:10px;padding:16px;max-height:300px;overflow-y:auto}
-  .bubble{max-width:90%;padding:10px 13px;border-radius:15px;font-size:.88rem;line-height:1.45}
-  .bubble.q{align-self:flex-end;background:var(--green-900);color:#fff;border-bottom-right-radius:4px;font-weight:600}
-  .bubble.a{align-self:flex-start;background:var(--paper);border:1px solid var(--line);border-bottom-left-radius:4px}
-  .bubble.a .nudge{margin-top:8px;display:inline-flex;align-items:center;gap:5px;color:var(--green);font-weight:700;font-size:.78rem;text-decoration:none}
-  .suggest{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 14px}
-  .suggest button{background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:7px 12px;font-size:.78rem;font-weight:600;color:var(--ink-soft);cursor:pointer}
-  .suggest button:hover{background:var(--mint);color:var(--green-800)}
-  .ginput{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line)}
-  .ginput input{flex:1;border:1px solid var(--line);border-radius:99px;padding:10px 15px;font:500 .9rem 'Inter';outline:none;background:var(--paper)}
-  .ginput input:focus{border-color:var(--green-bright)}
-  .ginput button{width:42px;height:42px;border-radius:99px;border:none;background:var(--green);color:#fff;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center}
-  .scope{display:flex;align-items:flex-start;gap:7px;font-size:.74rem;color:var(--ink-faint);margin-top:10px;padding:0 2px}
-  .scope .ms{font-size:15px;color:var(--green);margin-top:1px}
-  .crosslinks{text-align:center;padding:16px;font-size:.74rem;color:var(--ink-faint)}
-  .crosslinks a{color:var(--green);text-decoration:none;font-weight:600}
+    section { padding: 74px 0; border-top: 1px solid var(--line); }
+    .section-title {
+      margin: 0 0 26px;
+      color: var(--green-950);
+      font-family: Sora, Inter, sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .feature {
+      min-height: 210px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 10px 42px rgba(10, 53, 38, .06);
+    }
+    .feature .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: var(--mint);
+      color: var(--green-900);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .feature h3 {
+      margin: 0 0 8px;
+      color: var(--green-950);
+      font-family: Sora, Inter, sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0;
+    }
+    .feature p {
+      margin: 0;
+      color: var(--soft);
+      font-size: .9rem;
+    }
+    .workflow {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .steps {
+      display: grid;
+      gap: 10px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--green-950);
+      color: #fff;
+      font-weight: 900;
+      font-size: .88rem;
+    }
+    .step b { display: block; color: var(--green-950); }
+    .step span {
+      display: block;
+      margin-top: 3px;
+      color: var(--soft);
+      font-size: .86rem;
+    }
+    .callout {
+      background: var(--green-950);
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+    }
+    .callout h2 {
+      margin: 0;
+      font-family: Sora, Inter, sans-serif;
+      font-size: clamp(1.8rem, 3vw, 3.2rem);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+    .callout p {
+      color: rgba(255, 255, 255, .76);
+      max-width: 56ch;
+      margin: 16px 0 0;
+    }
+    .callout .actions { margin-top: 24px; }
+    .callout .btn.secondary { background: #fff; border: 0; }
 
-  /* Desktop: use the screen instead of a stranded phone column.
-     Mobile (below 880px) is unchanged — everything here is additive. */
-  @media (min-width:880px){
-    .app{max-width:1140px;box-shadow:0 0 90px rgba(10,53,38,.05)}
-    header{height:66px;padding:0 32px}
-    .logo{font-size:1.32rem}
-    main{display:grid;grid-template-columns:1.05fr .95fr;column-gap:44px;align-items:start;padding:48px 32px 8px}
-    h1.title{font-size:2.7rem;margin:16px 0 8px}
-    .sub{font-size:1.07rem;max-width:50ch}
-    .lookup{margin-top:24px;padding:10px 10px 10px 18px}
-    .lookup input{font-size:1.06rem}
-    .col-side{position:sticky;top:90px}
-    .col-side .gchat{margin-top:0}
-    .thread{max-height:360px}
-    .crosslinks{text-align:left;padding:24px 32px 32px}
-  }
-</style>
+    footer {
+      padding: 28px 0 44px;
+      color: var(--faint);
+      font-size: .82rem;
+    }
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; gap: 28px; padding-top: 20px; }
+      .product { min-height: auto; display: grid; gap: 14px; }
+      .screen, .phone, .status { position: static; width: 100%; }
+      .phone { display: none; }
+      .status { width: 100%; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .workflow { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 28px, 1160px); }
+      header { height: 64px; }
+      nav a:not(.keep) { display: none; }
+      h1 { font-size: 2.28rem; line-height: 1.04; }
+      .proof { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      section { padding: 50px 0; }
+      .feature { min-height: auto; }
+      .actions { width: 100%; }
+      .btn { width: 100%; }
+    }
+  </style>
 </head>
 <body>
-<div class="app">
-  <header>
-    <div class="logo">cuz<span>.fail</span></div>
-    <div class="avatar">G</div>
-  </header>
+  <div class="page">
+    <header class="wrap">
+      <a class="brand" href="/">
+        <span class="mark">L</span>
+        <span>LotFile</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#workflow">Workflow</a>
+        <a href="#readiness">Readiness</a>
+        <a class="keep" href="https://app.cuz.fail/">Open app</a>
+      </nav>
+    </header>
 
-  <main>
-    <div class="col-main">
-    <span class="eyebrow">Home</span>
-    <h1 class="title">Look up a property,<br>or ask me anything.</h1>
-    <p class="sub">Each address becomes its own workspace — its docs, links, drawings and a chat that only answers from that property's sources.</p>
+    <main>
+      <div class="wrap hero">
+        <div>
+          <span class="eyebrow"><span class="pulse"></span> Live private beta</span>
+          <h1>WA planning checks that cite or refuse.</h1>
+          <p class="lead">
+            LotFile turns an address, council sources, drawings, and review notes into a
+            structured planning workspace. The rule is simple: cite the official source,
+            mark the gap, or send it to human review.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="https://app.cuz.fail/">Open the live app</a>
+            <a class="btn secondary" href="/app.html">View the demo workspace</a>
+          </div>
+          <p class="fine">
+            Private beta. Advisory workflow only. No submission-ready compliance claim is emitted without human signoff.
+          </p>
+          <div class="proof" id="readiness">
+            <div class="proof-card"><b>VPS live</b><span>API, worker, Hermes, Caddy</span></div>
+            <div class="proof-card"><b>5,186</b><span>source chunks indexed</span></div>
+            <div class="proof-card"><b>69</b><span>Cockburn versions in review</span></div>
+          </div>
+        </div>
 
-    <form class="lookup" id="lookup" onsubmit="return goLookup(event)">
-      <span class="ms">search</span>
-      <input id="addr" placeholder="Enter an address…" autocomplete="off" oninput="ac(this.value)" />
-      <button type="submit">Look up</button>
-    </form>
-    <div class="ac" id="aclist"></div>
-
-    <div class="secthead"><span class="h">Recent properties</span><span style="font-size:.74rem;color:var(--green);font-weight:600">View all</span></div>
-    <a class="recent" href="2-dashboard.html">
-      <div class="ic"><span class="ms">home_work</span></div>
-      <div><div class="a">42 Banksia Street, Mount Lawley</div><div class="m"><span class="dot warn"></span> 1 flagged · 2 need info · R40</div></div>
-      <span class="ms go">chevron_right</span>
-    </a>
-    <a class="recent" href="2-dashboard.html">
-      <div class="ic"><span class="ms">home_work</span></div>
-      <div><div class="a">8 Coode Street, Mount Lawley</div><div class="m"><span class="dot ok"></span> checklist clean · R30</div></div>
-      <span class="ms go">chevron_right</span>
-    </a>
-    <a class="recent" href="2-dashboard.html">
-      <div class="ic"><span class="ms">home_work</span></div>
-      <div><div class="a">15 Field Street, Mount Lawley</div><div class="m"><span class="dot wait"></span> no checks run yet · R40</div></div>
-      <span class="ms go">chevron_right</span>
-    </a>
-    </div><!-- /col-main -->
-
-    <div class="col-side">
-    <div class="gchat" style="margin-top:26px">
-      <div class="ghead"><span class="ms">smart_toy</span><div class="t">Ask me anything</div></div>
-      <div class="thread" id="thread">
-        <div class="bubble a">Hi! Ask me how DraftCheck works — or look up an address and I'll answer with the exact rule for that property.</div>
+        <div class="product" aria-label="LotFile product screenshots">
+          <div class="screen">
+            <img src="assets/lotfile-live-desktop.png" alt="LotFile desktop app showing the address-first home screen" />
+          </div>
+          <div class="phone">
+            <img src="assets/lotfile-live-mobile.png" alt="LotFile mobile app showing the live private beta home screen" />
+          </div>
+          <div class="status" aria-label="Current live readiness">
+            <div class="status-row"><span>Public app</span><span class="pill">online</span></div>
+            <div class="status-row"><span>Source answer policy</span><span class="pill">cite or refuse</span></div>
+            <div class="status-row"><span>Cockburn source review</span><span class="pill warn">in progress</span></div>
+            <div class="status-row"><span>Final compliance verdicts</span><span class="pill warn">blocked</span></div>
+          </div>
+        </div>
       </div>
-      <div class="suggest" id="suggest">
-        <button onclick="gask('What can you check?')">What can you check?</button>
-        <button onclick="gask('How accurate is it?')">How accurate is it?</button>
-        <button onclick="gask('What is my setback?')">What is my setback?</button>
+
+      <section>
+        <div class="wrap">
+          <h2 class="section-title">Built for the work between a drawing and a defensible answer.</h2>
+          <div class="grid">
+            <article class="feature">
+              <div class="icon">A</div>
+              <h3>Address-first workspace</h3>
+              <p>Start with the property, then attach sources, proposal facts, drawings, RFIs, and decisions to one file.</p>
+            </article>
+            <article class="feature">
+              <div class="icon">C</div>
+              <h3>Cited source library</h3>
+              <p>Official source versions are hashed, reviewed, chunked, and kept separate from metadata-only references.</p>
+            </article>
+            <article class="feature">
+              <div class="icon">R</div>
+              <h3>Rule governance</h3>
+              <p>Rules are promoted through review. Changed sources create new versions instead of silently changing answers.</p>
+            </article>
+            <article class="feature">
+              <div class="icon">H</div>
+              <h3>Human signoff</h3>
+              <p>Exports and final claims stay blocked until the evidence, calculations, citations, and reviewer signoff exist.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="wrap workflow">
+          <div class="steps">
+            <div class="step"><div class="num">1</div><div><b>Resolve the property</b><span>Address, council, parcel, zone, overlays, and missing spatial facts.</span></div></div>
+            <div class="step"><div class="num">2</div><div><b>Load the evidence</b><span>Reviewed sources, drawings, measurements, RFI text, and extracted document facts.</span></div></div>
+            <div class="step"><div class="num">3</div><div><b>Run deterministic checks</b><span>Tier-1 checks only produce results when rule, measurement, citation, and trace line up.</span></div></div>
+            <div class="step"><div class="num">4</div><div><b>Review and export</b><span>Issue cards explain the requirement, proposed value, evidence, citation, and review reason.</span></div></div>
+          </div>
+
+          <div class="callout">
+            <div>
+              <h2>What you can show right now.</h2>
+              <p>
+                The live stack is real: public frontend, VPS API, Postgres, workers, source library status, and a governed beta posture.
+                The honest demo is the workflow and product direction, not a final legal compliance engine.
+              </p>
+            </div>
+            <div class="actions">
+              <a class="btn secondary" href="https://api.cuz.fail/api/v1/ops/dashboard">Open live readiness JSON</a>
+              <a class="btn secondary" href="https://app.cuz.fail/">Open app shell</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <span>LotFile by DraftCheck WA. Private beta surface for planning evidence workflows.</span>
+        <span>Not legal, planning, building, or certification advice.</span>
       </div>
-      <form class="ginput" onsubmit="return gsend(event)">
-        <input id="ginput" placeholder="Ask me anything…" autocomplete="off" />
-        <button type="submit"><span class="ms">arrow_upward</span></button>
-      </form>
-    </div>
-    <div class="scope"><span class="ms">lock</span><span>Won't guess about a specific property — those answers live inside the property, cited to a clause.</span></div>
-    </div><!-- /col-side -->
-  </main>
-
-  <div class="crosslinks">Home · <a href="1-onboarding.html">Onboarding →</a> · <a href="2-dashboard.html">Dashboard →</a> · <a href="3-evidence.html">Evidence →</a></div>
-</div>
-
-<script>
-  const $ = id => document.getElementById(id);
-  const SUGGEST = [
-    "42 Banksia Street, Mount Lawley WA 6050",
-    "8 Coode Street, Mount Lawley WA 6050",
-    "15 Field Street, Mount Lawley WA 6050",
-  ];
-  function ac(v){
-    const l = $('aclist');
-    if(!v.trim()){ l.classList.remove('show'); l.innerHTML=''; return; }
-    l.innerHTML = SUGGEST.map(s=>`<a href="1-onboarding.html"><span class="ms">location_on</span>${s}</a>`).join('');
-    l.classList.add('show');
-  }
-  function goLookup(e){ e.preventDefault(); window.location.href='1-onboarding.html'; return false; }
-
-  /* general assistant — general info only; nudges to a property for specifics, never guesses */
-  const GA = [
-    {m:/check|what can/i, t:'For a looked-up property I check the R-Codes and council rules: setbacks, site cover, open space, building height, outdoor living, boundary walls, deep soil, plus bushfire/heritage triggers and a drawing-QA pass — each with a citation.'},
-    {m:/accurate|reliable|trust/i, t:'Every property result either cites an official, current source or is marked "needs review" / "missing info". It never says "compliant" — a human signs off. I would rather say "I can\'t prove this" than guess.'},
-    {m:/council|support|cover/i, t:'WA-first, council by council. The demo covers the City of Stirling. Each council\'s scheme and policies are loaded and reviewed before its rules go live.'},
-    {m:/cost|price|free/i, t:'Address and bushfire data are free; the statewide cadastre and zoning are licensed. That only affects what I can load — not how I answer.'},
-  ];
-  function gAnswer(q){
-    if(/setback|my |this (lot|block|property|parcel|address)|site cover|open space|zone|height|subdiv/i.test(q) && !/what can|accurate|council|cost/i.test(q)){
-      return {a:'That depends on the specific parcel, and I won\'t guess. Look up the address above and I\'ll answer with the exact clause for that property.', nudge:true};
-    }
-    const hit = GA.find(x=>x.m.test(q));
-    return {a: hit ? hit.t : 'I can help with how DraftCheck works. For anything about a specific block, look up its address and I\'ll answer from that property\'s sources.', nudge:!hit};
-  }
-  function esc(s){ const d=document.createElement('div'); d.textContent=s??''; return d.innerHTML; }
-  function push(who, text, nudge){
-    const b=document.createElement('div'); b.className='bubble '+who;
-    b.innerHTML = esc(text) + (nudge ? `<br><a class="nudge" href="1-onboarding.html"><span class="ms" style="font-size:14px">location_on</span> Look up a property</a>`:'');
-    $('thread').appendChild(b); $('thread').scrollTop = $('thread').scrollHeight;
-  }
-  function gask(q){ push('q', q); $('suggest').style.display='none'; setTimeout(()=>{ const r=gAnswer(q); push('a', r.a, r.nudge); }, 380); }
-  function gsend(e){ e.preventDefault(); const q=$('ginput').value.trim(); if(!q) return false; $('ginput').value=''; gask(q); return false; }
-</script>
+    </footer>
+  </div>
 </body>
 </html>
