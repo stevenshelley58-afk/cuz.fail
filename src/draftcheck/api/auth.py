@@ -1,4 +1,4 @@
-"""V3 magic-link auth router."""
+"""V3 auth router: magic-link auth, plus a dev-only password login (off in production)."""
 
 from __future__ import annotations
 
@@ -15,6 +15,7 @@ from draftcheck.domain.identity import (
     ActiveSession,
     DevLogEmailSender,
     EmailSender,
+    IdentityRole,
     InMemoryIdentityStore,
     InvalidIdentityInputError,
     MagicLinkTokenConsumedError,
@@ -46,6 +47,11 @@ class MagicLinkRequestedResponse(BaseModel):
 
 class MagicLinkVerifyRequest(BaseModel):
     token: str = Field(min_length=32)
+
+
+class DevLoginRequest(BaseModel):
+    username: str = Field(min_length=1, max_length=120)
+    password: str = Field(min_length=1, max_length=200)
 
 
 class UserResponse(BaseModel):
@@ -235,6 +241,61 @@ def verify_magic_link(
     except MagicLinkTokenNotFoundError as exc:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid magic link") from exc
 
+    session_issue = store.create_session(
+        user=user,
+        org=org,
+        ip_address=_client_host(request),
+        user_agent=request.headers.get("user-agent"),
+    )
+    _set_session_cookie(response, settings, session_issue.token)
+    return VerifyMagicLinkResponse(
+        session=_session_response(
+            ActiveSession(session=session_issue.session, user=session_issue.user, org=session_issue.org)
+        )
+    )
+
+
+def _dev_login_enabled(settings: Settings) -> bool:
+    """Dev-only password login is disabled in production (operator decision 2026-06-08).
+
+    Production continues to use magic-link auth only; see docs/MASTER_REBUILD_PLAN.md.
+    """
+    return settings.app_env.strip().lower() != "production"
+
+
+@router.post("/auth/dev-login", response_model=VerifyMagicLinkResponse, include_in_schema=False)
+def dev_login(
+    payload: DevLoginRequest,
+    request: Request,
+    response: Response,
+    settings: Annotated[Settings, Depends(get_settings)],
+    store: Annotated[InMemoryIdentityStore, Depends(get_identity_store)],
+) -> VerifyMagicLinkResponse:
+    """Local/dev convenience login.
+
+    Trades the magic-link round-trip for a fixed username/password while building.
+    Hard-disabled (404) in production so the shipped surface stays magic-link only.
+    Credentials default to jemma/jemma6969 and can be overridden via
+    DEV_LOGIN_USERNAME / DEV_LOGIN_PASSWORD.
+    """
+    if not _dev_login_enabled(settings):
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+    _assert_allowed_origin(request, settings)
+
+    expected_username = os.getenv("DEV_LOGIN_USERNAME", "jemma").strip().lower()
+    expected_password = os.getenv("DEV_LOGIN_PASSWORD", "jemma6969")
+    if payload.username.strip().lower() != expected_username or payload.password != expected_password:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid username or password",
+        )
+
+    org = store.get_or_create_org()
+    user = store.get_or_create_user(
+        org=org,
+        email=f"{expected_username}@dev.local",
+        role=IdentityRole.REVIEWER,
+    )
     session_issue = store.create_session(
         user=user,
         org=org,

@@ -60,7 +60,9 @@ V3 app          Phases 0–2: auth, sources, address/spatial. Product routes are
   `.gitignore` + `scripts/precommit_guard.py` enforce this; GitHub would reject the 153 MB DB
   anyway. Do not weaken either.
 - Never: force-push, rewrite history, `git clean`, delete legacy `apps/ packages/ api/ ui/`
-  (M1 work), add `create_all`/dev-login to V3, mount anything besides `/api/v1` in the new app.
+  (M1 work), add `create_all` to V3, mount anything besides `/api/v1` in the new app.
+  (Exception, operator decision 2026-06-08: a dev-only `/api/v1/auth/dev-login` is allowed;
+  it is hard-disabled — 404 — when `app_env=production`.)
 - Secrets are generated on the VPS, live only in `infra/v3/.env` there, never committed.
 
 Anything not on those two lists is yours to do without asking.
@@ -112,7 +114,7 @@ python -m ruff check .
 python -m mypy src
 lint-imports --config pyproject.toml
 python -m pytest -q                               # expect ~342+ passing
-( ! grep -R "create_all" src web ) && ( ! grep -R "dev-login" src web )
+( ! grep -R "create_all" src web )   # dev-login is intentionally present (off in prod); see ci.yml
 cd web && npm ci && npm run build && cd ..
 git diff --check
 ```

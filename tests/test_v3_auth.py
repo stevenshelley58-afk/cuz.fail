@@ -150,12 +150,63 @@ def test_magic_link_request_refuses_unprovisioned_public_user() -> None:
         assert imported.status_code == 401
 
 
-def test_new_v3_app_has_no_dev_login_route() -> None:
-    client = TestClient(create_app())
+def test_dev_login_issues_session_for_valid_credentials() -> None:
+    # Operator decision 2026-06-08: dev-only password login; disabled in prod (test below).
+    with auth_client() as (client, store, _sender, settings):
+        response = client.post(
+            "/api/v1/auth/dev-login",
+            json={"username": "jemma", "password": "jemma6969"},
+            headers={"origin": "http://app.test"},
+        )
 
-    assert client.post("/api/v1/auth/dev-login").status_code == 404
-    paths = set(client.get("/api/v1/openapi.json").json()["paths"])
-    assert not any("dev-login" in path for path in paths)
+        assert response.status_code == 200
+        body = response.json()
+        assert "token" not in body["session"]
+        assert body["session"]["user"]["email"] == "jemma@dev.local"
+        assert body["session"]["user"]["role"] == "reviewer"
+
+        raw_session_token = client.cookies.get(settings.session_cookie_name)
+        assert raw_session_token is not None
+        assert hash_token(raw_session_token) in store.sessions_by_hash
+
+        session = client.get("/api/v1/auth/session")
+        assert session.status_code == 200
+        assert session.json()["user"]["email"] == "jemma@dev.local"
+
+
+def test_dev_login_rejects_invalid_credentials() -> None:
+    with auth_client() as (client, _store, _sender, _settings):
+        response = client.post(
+            "/api/v1/auth/dev-login",
+            json={"username": "jemma", "password": "nope"},
+            headers={"origin": "http://app.test"},
+        )
+
+        assert response.status_code == 401
+
+
+def test_dev_login_is_disabled_in_production() -> None:
+    app = create_app()
+    store = InMemoryIdentityStore()
+    settings = Settings(
+        app_env="production",
+        frontend_url="https://app.test",
+        session_cookie_secure=True,
+        cors_allowed_origins=("https://app.test",),
+    )
+    app.dependency_overrides[get_identity_store] = lambda: store
+    app.dependency_overrides[get_settings] = lambda: settings
+    with TestClient(app) as client:
+        response = client.post(
+            "/api/v1/auth/dev-login",
+            json={"username": "jemma", "password": "jemma6969"},
+            headers={"origin": "https://app.test"},
+        )
+
+        assert response.status_code == 404
+
+        paths = set(client.get("/api/v1/openapi.json").json()["paths"])
+        assert not any("dev-login" in path for path in paths)
 
 
 def test_auth_dependency_uses_durable_store_when_database_url_is_set(

@@ -85,6 +85,9 @@ export const api = {
   session: () => call<SessionInfo>("GET", "/auth/session"),
   magicLinkRequest: (email: string) => call<Record<string, unknown>>("POST", "/auth/magic-link/request", { email }),
   magicLinkVerify: (token: string) => call<Record<string, unknown>>("POST", "/auth/magic-link/verify", { token }),
+  // Dev-only password login (disabled in production on the server). See web/src/main.tsx DEV_LOGIN.
+  devLogin: (username: string, password: string) =>
+    call<Record<string, unknown>>("POST", "/auth/dev-login", { username, password }),
   logout: () => call<Record<string, unknown>>("POST", "/auth/logout"),
   projects: () => call<ProjectSummary[] | { projects?: ProjectSummary[] }>("GET", "/projects"),
   createProject: (address: string) => call<ProjectSummary>("POST", "/projects", { name: address, address }),

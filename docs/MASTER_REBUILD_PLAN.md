@@ -68,7 +68,7 @@ Rows marked **(new)** amend the reviewed plans. Everything overrides older docs 
 | Queue | Procrastinate on Postgres. Redis/RQ and the `background_jobs` table are deleted from the target. |
 | Storage | Local content-addressed tree at `/srv/draftcheck/storage` (`sha256[:2]/sha256`), restic to B2/R2. No MinIO/S3/boto in v1. |
 | Proxy | Caddy only. `deploy/nginx-cuz.conf` is dead and removed. |
-| Auth | Magic-link email + signed session cookies. **(new)** Email goes through an `EmailSender` port (SMTP creds via env, provider chosen at deploy); dev mode logs the link; `cli login-link` issues a one-time bootstrap URL. No dev-login in production. |
+| Auth | Magic-link email + signed session cookies. **(new)** Email goes through an `EmailSender` port (SMTP creds via env, provider chosen at deploy); dev mode logs the link; `cli login-link` issues a one-time bootstrap URL. No dev-login in production. **Amended 2026-06-08 (operator):** a dev-only username/password login (`POST /api/v1/auth/dev-login`, default `jemma`/`jemma6969`, creds overridable via `DEV_LOGIN_USERNAME`/`DEV_LOGIN_PASSWORD`) is allowed while building; it is hard-disabled (404) whenever `app_env=production`, so the shipped surface stays magic-link only. |
 | Roles **(new)** | `users.role ∈ {owner, reviewer}`. Rule approval, source approval, overrides, and signoffs require `reviewer`+. Single human may hold both; the audit trail still records who. |
 | AI | Hermes is the governed agent runtime. LLMs extract, classify, embed, draft — never decide compliance verdicts. Governance substrate exists from the first LLM call (§7). |
 | Spend **(new)** | Per-job token caps + daily budget env + breaker that pauses agent queues. From Phase 1, not Phase 8. |
@@ -242,7 +242,7 @@ users       email, role ∈ {owner, reviewer}, status
 sessions    token_hash (random 256-bit, stored hashed), created_at, expires_at, revoked_at
 ```
 
-Auth flow: `POST /auth/magic-link/request` → EmailSender (SMTP env; dev logs URL; `cli login-link` for bootstrap) → 15-min single-use token → session cookie (HttpOnly, Secure, SameSite=Lax, sliding 30 d). Unsafe methods require an Origin check. No dev-login route exists in the new app.
+Auth flow: `POST /auth/magic-link/request` → EmailSender (SMTP env; dev logs URL; `cli login-link` for bootstrap) → 15-min single-use token → session cookie (HttpOnly, Secure, SameSite=Lax, sliding 30 d). Unsafe methods require an Origin check. In production this is the only auth path. **Amended 2026-06-08 (operator):** a dev-only `POST /auth/dev-login` (username/password, default `jemma`/`jemma6969`) exists for local building and is hard-disabled (404) when `app_env=production`.
 
 ### 5.2 Projects
 
@@ -615,7 +615,7 @@ Exit: no skill self-activates; rollback works; canaries protect the demo; drift 
 
 **PR 3 — VPS compose + Caddy + safety rails.** infra/compose.yml; Caddyfile (incl. transition routing §6.3); db image PostGIS+pgvector; deploy.sh; backups (§3.3); hardening + uptime (§3.4). Accept: `docker compose up --wait` green; `/api/v1/ready` via Caddy; postgis+vector present; first restore drill documented.
 
-**PR 4 — Auth + schema base.** orgs/users/sessions + roles; magic-link skeleton + EmailSender + cli login-link; CSRF/Origin checks; CORS locked; Alembic base; org_id convention. Accept: no dev-login path exists; mutating routes require auth; alembic upgrade+downgrade in CI.
+**PR 4 — Auth + schema base.** orgs/users/sessions + roles; magic-link skeleton + EmailSender + cli login-link; CSRF/Origin checks; CORS locked; Alembic base; org_id convention. Accept: no dev-login path exists in production (the dev-only login added 2026-06-08 returns 404 when `app_env=production`); mutating routes require auth; alembic upgrade+downgrade in CI.
 
 **PR 5 — Source foundation + label harvest.** Source tables + artifacts; corpus import from `data/corpus` + `.storage`; licence/review gate; **harvest legacy SQLite** (approved rule_rows, clause_dispositions, golden_eval_cases → JSONL eval seeds) then archive `draftcheck.db` out of the tree. Accept: corpus imported content-addressed; every source has hash + licence/review status; restricted sources can't support answers; ≥1 eval seed file committed.
 

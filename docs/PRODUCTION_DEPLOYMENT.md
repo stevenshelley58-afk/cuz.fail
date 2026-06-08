@@ -194,8 +194,9 @@ Check the VPS compose state:
 ssh draftcheck 'cd /srv/draftcheck/app/infra/v3 && docker compose ps'
 ```
 
-Do not add `/v1` shims, Vercel routes, password routes, or dev-login routes to work around
-API issues. Fix the `/api/v1` service.
+Do not add `/v1` shims, Vercel routes, or production-reachable password/dev-login routes to
+work around API issues. Fix the `/api/v1` service. (The dev-only `/api/v1/auth/dev-login`
+added 2026-06-08 is exempt: it returns 404 whenever `app_env=production`.)
 
 ## Never Do During Deploy
 
@@ -205,4 +206,5 @@ API issues. Fix the `/api/v1` service.
 - Do not force-push, rewrite history, or run `git clean` unless Steven explicitly says so
   in the current session.
 - Do not discard unpushed VPS work silently. Stash it or branch and push it, then report it.
-- Do not add password/dev-login routes.
+- Do not add password/dev-login routes that are reachable in production. (The dev-only
+  login added 2026-06-08 is hard-disabled — 404 — when `app_env=production`.)

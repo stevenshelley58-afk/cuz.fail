@@ -25,6 +25,14 @@ import type { LucideIcon } from "lucide-react";
 import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo } from "./api";
 import "./styles.css";
 
+/* ── dev login ──
+   While building we swap the magic-link round-trip for a simple username/password.
+   On by default under the Vite dev server (import.meta.env.DEV); force it on a built
+   bundle with VITE_DEV_LOGIN=1. The server hard-disables /auth/dev-login in production. */
+const DEV_LOGIN =
+  Boolean((import.meta.env as Record<string, unknown>).DEV) ||
+  (import.meta.env as Record<string, unknown>).VITE_DEV_LOGIN === "1";
+
 /* ── helpers ── */
 
 type View = "home" | "projects" | "library" | "settings";
@@ -159,7 +167,14 @@ function Home({ authed, onNeedSignIn }: { authed: boolean; onNeedSignIn: () => v
     } else if (created.kind === "notBuilt") {
       push({ role: "a", tone: "note", text: "Project creation is coming soon. Your address is saved and will run the moment it's available.", chips: ["creating projects · coming soon"] });
     } else if (created.kind === "auth") {
-      push({ role: "a", tone: "note", text: "Sign in first — LotFile uses email magic links, no passwords.", action: { label: "Go to sign in", run: onNeedSignIn } });
+      push({
+        role: "a",
+        tone: "note",
+        text: DEV_LOGIN
+          ? "Sign in first with the local dev account."
+          : "Sign in first — LotFile uses email magic links, no passwords.",
+        action: { label: "Go to sign in", run: onNeedSignIn },
+      });
     } else if (created.kind === "down") {
       push({ role: "a", tone: "warn", text: "Can't reach the API right now. The VPS may be restarting — try again shortly." });
     } else {
@@ -372,6 +387,11 @@ function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null
               <button className="btn alt" onClick={() => { void api.logout().then(refresh); }}>Sign out</button>
             </div>
           </>
+        ) : DEV_LOGIN ? (
+          <>
+            <p>Local development login — magic links are off while we build.</p>
+            <DevLoginForm variant="panel" onSignedIn={refresh} />
+          </>
         ) : (
           <>
             <p>LotFile signs you in with an email magic link — no passwords.</p>
@@ -397,9 +417,68 @@ function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null
   );
 }
 
+/* ── dev username/password form (used in place of magic link while DEV_LOGIN) ── */
+
+function DevLoginForm({ variant, onSignedIn }: { variant: "modal" | "panel"; onSignedIn: () => void }) {
+  const [username, setUsername] = useState("jemma");
+  const [password, setPassword] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState(false);
+
+  const submit = useCallback(async () => {
+    if (busy || !username.trim() || !password) return;
+    setBusy(true);
+    setErr(false);
+    const r = await api.devLogin(username.trim(), password);
+    setBusy(false);
+    if (r.kind === "ok") onSignedIn();
+    else setErr(true);
+  }, [busy, username, password, onSignedIn]);
+
+  const inputClass = variant === "modal" ? "modal-input" : undefined;
+  const fields = (
+    <>
+      <input
+        className={inputClass}
+        placeholder="username"
+        autoComplete="username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        onKeyDown={(e) => { if (e.key === "Enter") void submit(); }}
+      />
+      <input
+        className={inputClass}
+        type="password"
+        placeholder="password"
+        autoComplete="current-password"
+        autoFocus={variant === "modal"}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        onKeyDown={(e) => { if (e.key === "Enter") void submit(); }}
+      />
+      <button className={variant === "modal" ? "btn block" : "btn"} onClick={() => void submit()} disabled={busy}>
+        {busy ? "Signing in…" : "Sign in"}
+      </button>
+    </>
+  );
+
+  return (
+    <>
+      {variant === "modal"
+        ? fields
+        : <div className="field" style={{ flexDirection: "column", alignItems: "stretch", gap: 8 }}>{fields}</div>}
+      {err && (
+        <p className={variant === "modal" ? "modal-err" : undefined} style={variant === "panel" ? { color: "#b00", marginTop: 8 } : undefined}>
+          Wrong username or password.
+        </p>
+      )}
+    </>
+  );
+}
+
 /* ── sign in / create account popup ── */
 
-function SignInModal({ onClose }: { onClose?: () => void }) {
+function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onSignedIn: () => void }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
@@ -415,7 +494,13 @@ function SignInModal({ onClose }: { onClose?: () => void }) {
     <div className="modal-backdrop" onClick={() => onClose?.()}>
       <div className="modal" role="dialog" aria-modal="true" aria-label="Sign in or create your account" onClick={(e) => e.stopPropagation()}>
         <div className="modal-logo">Lot<span>File</span></div>
-        {status === "sent" ? (
+        {DEV_LOGIN ? (
+          <>
+            <h2>Dev sign in</h2>
+            <p>Local development login — magic links are off while we build.</p>
+            <DevLoginForm variant="modal" onSignedIn={onSignedIn} />
+          </>
+        ) : status === "sent" ? (
           <>
             <h2>Check your email</h2>
             <p>We sent a sign-in link to <b>{email.trim()}</b>. Open it on this device to continue.</p>
@@ -516,7 +601,7 @@ function App() {
           <div className="avatar">{authed ? "OK" : "?"}</div>
           <div className="who">
             {authed ? String(session.data.email ?? session.data.user?.email ?? "Signed in") : "Signed out"}
-            <small>{authed ? String(session.data.role ?? session.data.user?.role ?? "") : "magic-link sign in"}</small>
+            <small>{authed ? String(session.data.role ?? session.data.user?.role ?? "") : DEV_LOGIN ? "dev sign in" : "magic-link sign in"}</small>
           </div>
         </div>
       </aside>
@@ -535,7 +620,7 @@ function App() {
         {tab("settings", "tune", "Settings")}
       </div>
 
-      {signInOpen && <SignInModal onClose={() => setSignInOpen(false)} />}
+      {signInOpen && <SignInModal onClose={() => setSignInOpen(false)} onSignedIn={refreshSession} />}
     </div>
   );
 }
