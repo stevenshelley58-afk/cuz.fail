@@ -1,148 +1,75 @@
-const DEFAULT_API_BASE_URL = "/api/v1";
+/* LotFile API client — V3 /api/v1 (VPS). Honest result kinds, no fakes. */
 
-export type ProbeName = "health" | "ready";
+const DEFAULT_BASE = "/api/v1";
 
-export type ApiProbeResult = {
-  name: ProbeName;
-  endpoint: "/health" | "/ready";
-  url: string;
-  ok: boolean;
-  status: number | null;
-  statusText: string;
-  latencyMs: number;
-  checkedAt: string;
-  body: unknown;
-  error: string | null;
-};
+export type ApiResult<T> =
+  | { kind: "ok"; status: number; data: T }
+  | { kind: "auth" }                       // 401/403 — sign in required
+  | { kind: "notBuilt"; detail?: string }  // 501 — endpoint not shipped yet
+  | { kind: "missing" }                    // 404 — route absent
+  | { kind: "error"; status: number; message: string }
+  | { kind: "down"; message: string };     // network / API unreachable
 
-export type ParserAccuracyReport = {
-  demo_fixture_status: "passed" | "failed";
-  beta_status: "not_beta_ready" | string;
-  reason: string;
-  expected_fact_count: number;
-  extracted_fact_count: number;
-  matched_fact_count: number;
-  recall: number;
-  precision: number;
-  matched: string[];
-  missing: string[];
-  mismatched: unknown[];
-  blocked_for_beta: string[];
-};
+export type SessionInfo = {
+  authenticated?: boolean;
+  email?: string;
+  user?: { email?: string; role?: string } | null;
+  role?: string;
+} & Record<string, unknown>;
 
-type ProbeDefinition = {
-  name: ProbeName;
-  endpoint: ApiProbeResult["endpoint"];
-};
+export type ProjectSummary = {
+  id: string;
+  name?: string;
+  address?: string;
+  created_at?: string;
+} & Record<string, unknown>;
 
-const probes: Record<ProbeName, ProbeDefinition> = {
-  health: { name: "health", endpoint: "/health" },
-  ready: { name: "ready", endpoint: "/ready" },
-};
+export type HealthInfo = { status?: string; service?: string; version?: string } & Record<string, unknown>;
 
-function normalizeApiBaseUrl(rawBaseUrl: string | undefined): string {
-  const trimmed = rawBaseUrl?.trim();
-  return (trimmed && trimmed.length > 0 ? trimmed : DEFAULT_API_BASE_URL).replace(/\/+$/, "");
+function base(): string {
+  const raw = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim();
+  return (raw && raw.length > 0 ? raw : DEFAULT_BASE).replace(/\/+$/, "");
 }
 
-async function parseResponseBody(response: Response): Promise<unknown> {
-  const text = await response.text();
-
-  if (!text) {
-    return null;
-  }
-
-  const contentType = response.headers.get("content-type") ?? "";
-  if (contentType.includes("application/json")) {
-    return JSON.parse(text);
-  }
-
+async function call<T>(method: string, path: string, body?: unknown): Promise<ApiResult<T>> {
+  let res: Response;
   try {
-    return JSON.parse(text);
-  } catch {
-    return text;
-  }
-}
-
-function errorMessage(error: unknown): string {
-  if (error instanceof Error) {
-    return error.name === "AbortError" ? "Probe cancelled." : error.message;
-  }
-
-  return "Unable to reach the DraftCheck API.";
-}
-
-export class DraftCheckApiClient {
-  readonly baseUrl: string;
-
-  constructor(baseUrl = import.meta.env.VITE_API_BASE_URL) {
-    this.baseUrl = normalizeApiBaseUrl(baseUrl);
-  }
-
-  health(signal?: AbortSignal): Promise<ApiProbeResult> {
-    return this.probe(probes.health, signal);
-  }
-
-  ready(signal?: AbortSignal): Promise<ApiProbeResult> {
-    return this.probe(probes.ready, signal);
-  }
-
-  async parserAccuracy(signal?: AbortSignal): Promise<ParserAccuracyReport> {
-    const response = await fetch(`${this.baseUrl}/documents/parsers/accuracy`, {
-      method: "GET",
-      headers: { Accept: "application/json" },
-      cache: "no-store",
-      signal,
+    res = await fetch(`${base()}${path}`, {
+      method,
+      credentials: "include",
+      headers: body === undefined ? undefined : { "content-type": "application/json" },
+      body: body === undefined ? undefined : JSON.stringify(body),
     });
-    const body = await parseResponseBody(response);
-    if (!response.ok) {
-      throw new Error(`Parser accuracy check failed: HTTP ${response.status}`);
-    }
-    return body as ParserAccuracyReport;
+  } catch (err) {
+    return { kind: "down", message: err instanceof Error ? err.message : "network error" };
   }
-
-  private async probe(definition: ProbeDefinition, signal?: AbortSignal): Promise<ApiProbeResult> {
-    const startedAt = performance.now();
-    const url = `${this.baseUrl}${definition.endpoint}`;
-
-    try {
-      const response = await fetch(url, {
-        method: "GET",
-        headers: { Accept: "application/json" },
-        cache: "no-store",
-        signal,
-      });
-      const latencyMs = Math.round(performance.now() - startedAt);
-      const body = await parseResponseBody(response);
-      const statusText = response.statusText || (response.ok ? "OK" : "HTTP error");
-
-      return {
-        name: definition.name,
-        endpoint: definition.endpoint,
-        url,
-        ok: response.ok,
-        status: response.status,
-        statusText,
-        latencyMs,
-        checkedAt: new Date().toISOString(),
-        body,
-        error: response.ok ? null : `HTTP ${response.status} ${statusText}`,
-      };
-    } catch (error) {
-      return {
-        name: definition.name,
-        endpoint: definition.endpoint,
-        url,
-        ok: false,
-        status: null,
-        statusText: "Network error",
-        latencyMs: Math.round(performance.now() - startedAt),
-        checkedAt: new Date().toISOString(),
-        body: null,
-        error: errorMessage(error),
-      };
-    }
+  let data: unknown = null;
+  const text = await res.text();
+  if (text) {
+    try { data = JSON.parse(text); } catch { data = text; }
   }
+  if (res.ok) return { kind: "ok", status: res.status, data: data as T };
+  if (res.status === 401 || res.status === 403) return { kind: "auth" };
+  if (res.status === 501) {
+    const d = data as { detail?: string; title?: string } | null;
+    return { kind: "notBuilt", detail: d?.detail ?? d?.title };
+  }
+  if (res.status === 404) return { kind: "missing" };
+  const d = data as { detail?: string; title?: string } | null;
+  return { kind: "error", status: res.status, message: d?.detail ?? d?.title ?? res.statusText };
 }
 
-export const apiClient = new DraftCheckApiClient();
+export const api = {
+  health: () => call<HealthInfo>("GET", "/health"),
+  ready: () => call<Record<string, unknown>>("GET", "/ready"),
+  session: () => call<SessionInfo>("GET", "/auth/session"),
+  magicLinkRequest: (email: string) => call<Record<string, unknown>>("POST", "/auth/magic-link/request", { email }),
+  magicLinkVerify: (token: string) => call<Record<string, unknown>>("POST", "/auth/magic-link/verify", { token }),
+  logout: () => call<Record<string, unknown>>("POST", "/auth/logout"),
+  projects: () => call<ProjectSummary[] | { projects?: ProjectSummary[] }>("GET", "/projects"),
+  createProject: (address: string) => call<ProjectSummary>("POST", "/projects", { name: address, address }),
+  resolveAddress: (projectId: string, address: string) =>
+    call<Record<string, unknown>>("POST", `/projects/${projectId}/resolve-address`, { address }),
+  rules: () => call<unknown>("GET", "/rules"),
+  ask: (question: string, scope: { web: boolean }) => call<unknown>("POST", "/ask", { question, scope }),
+};
