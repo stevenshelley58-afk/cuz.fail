@@ -105,6 +105,7 @@ def test_cli_surface_exposes_operational_commands_without_dev_login() -> None:
 
     assert "login-link" in parser_help
     assert "seed-source-manifest" in parser_help
+    assert "fetch-pending-sources" in parser_help
     assert "dev-login" not in parser_help
     assert status == 2
     assert stdout.getvalue() == ""
@@ -172,6 +173,24 @@ def test_seed_source_manifest_requires_database_url(
     assert status == 2
     assert stdout.getvalue() == ""
     assert stderr.getvalue() == "error: DATABASE_URL is required for durable source seeding\n"
+
+
+def test_fetch_pending_sources_requires_database_url(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.delenv("DATABASE_URL", raising=False)
+    stdout = StringIO()
+    stderr = StringIO()
+
+    status = cli.main(
+        ["fetch-pending-sources", "--operator-email", "reviewer@example.test"],
+        stdout=stdout,
+        stderr=stderr,
+    )
+
+    assert status == 2
+    assert stdout.getvalue() == ""
+    assert stderr.getvalue() == "error: DATABASE_URL is required for durable source fetching\n"
 
 
 def test_seed_source_manifest_filters_cockburn_and_records_fetch_logs(
@@ -281,4 +300,90 @@ sources:
         "local_government": "Cockburn",
         "org_id": str(org_id),
         "requested_by_user_id": str(user_id),
+    }
+
+
+def test_fetch_pending_sources_uses_operator_and_local_government(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: dict[str, object] = {}
+    org_id = uuid4()
+    user_id = uuid4()
+
+    class FakeIdentityStore:
+        @classmethod
+        def from_database_url(cls, database_url: str):
+            calls["identity_database_url"] = database_url
+            return cls()
+
+        def get_or_create_org(self, *, slug, name):
+            calls["org"] = {"slug": slug, "name": name}
+            return type("Org", (), {"id": org_id})()
+
+        def get_or_create_user(self, *, org, email, role):
+            calls["user"] = {"org_id": org.id, "email": email, "role": role.value}
+            return type("User", (), {"id": user_id})()
+
+    class FakeSourceLibrary:
+        @classmethod
+        def from_database_url(cls, database_url: str):
+            calls["source_database_url"] = database_url
+            return cls()
+
+        def fetch_pending_sources(
+            self,
+            *,
+            local_government,
+            limit,
+            org_id,
+            requested_by_user_id,
+            force,
+        ):
+            calls["fetch"] = {
+                "local_government": local_government,
+                "limit": limit,
+                "org_id": str(org_id),
+                "requested_by_user_id": str(requested_by_user_id),
+                "force": force,
+            }
+            return {"fetched": 2, "failed": 0, "skipped": 0, "items": []}
+
+    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://fixture")
+    monkeypatch.setattr(cli, "SqlAlchemyIdentityStore", FakeIdentityStore)
+    monkeypatch.setattr(cli, "SqlAlchemySourceLibrary", FakeSourceLibrary)
+    stdout = StringIO()
+    stderr = StringIO()
+
+    status = cli.main(
+        [
+            "fetch-pending-sources",
+            "--local-government",
+            "Cockburn",
+            "--limit",
+            "2",
+            "--operator-email",
+            "reviewer@example.test",
+            "--org-slug",
+            "draftcheck",
+            "--force",
+        ],
+        stdout=stdout,
+        stderr=stderr,
+    )
+
+    assert status == 0
+    assert stderr.getvalue() == ""
+    assert json.loads(stdout.getvalue()) == {
+        "fetched": 2,
+        "failed": 0,
+        "skipped": 0,
+        "items": [],
+    }
+    assert calls["source_database_url"] == "postgresql+psycopg://fixture"
+    assert calls["fetch"] == {
+        "local_government": "Cockburn",
+        "limit": 2,
+        "org_id": str(org_id),
+        "requested_by_user_id": str(user_id),
+        "force": True,
     }

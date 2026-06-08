@@ -9,6 +9,7 @@ import json
 from typing import Any
 from uuid import NAMESPACE_URL, UUID, uuid4, uuid5
 
+import httpx
 from sqlalchemy import func, select
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
@@ -23,6 +24,7 @@ from draftcheck.db.models import (
     SourceReviewRecord as DbSourceReviewRecord,
     SourceVersion as DbSourceVersion,
 )
+from draftcheck.domain.sources.fetching import fetch_public_source
 from draftcheck.domain.sources.library import (
     _chunk_text,
     _hash_embedding,
@@ -342,6 +344,109 @@ class SqlAlchemySourceLibrary:
             "items": items,
         }
 
+    def fetch_pending_sources(
+        self,
+        *,
+        local_government: str | None = None,
+        limit: int = 5,
+        org_id: UUID,
+        requested_by_user_id: UUID,
+        force: bool = False,
+    ) -> dict[str, object]:
+        candidates = self._pending_fetch_candidates(
+            local_government=local_government,
+            limit=limit,
+            force=force,
+        )
+        fetched = 0
+        failed = 0
+        skipped = 0
+        items: list[dict[str, object]] = []
+        for candidate in candidates:
+            if not candidate["canonical_url"]:
+                skipped += 1
+                continue
+            try:
+                public_source = fetch_public_source(
+                    str(candidate["canonical_url"]),
+                    licence_notes=str(candidate.get("licence_notes") or ""),
+                )
+                candidate_metadata = candidate.get("metadata")
+                source_metadata = (
+                    candidate_metadata
+                    if isinstance(candidate_metadata, Mapping)
+                    else {}
+                )
+                result = self.import_source(
+                    title=str(candidate["title"]),
+                    content=public_source.text,
+                    uri=str(candidate["canonical_url"]),
+                    publisher=str(candidate["authority"]),
+                    licence_status=LicenceStatus.PENDING_REVIEW,
+                    review_status=SourceReviewStatus.PENDING_REVIEW,
+                    media_type="text/plain",
+                    metadata_only=False,
+                    jurisdiction=str(candidate["jurisdiction"]),
+                    authority=str(candidate["authority"]),
+                    local_government=_optional_str(candidate.get("local_government")),
+                    source_type=str(candidate["source_type"]),
+                    access_type=str(candidate["access_type"]),
+                    licence_notes=str(candidate.get("licence_notes") or ""),
+                    version_label=f"fetched:{public_source.sha256[:12]}",
+                    source_metadata=source_metadata,
+                    version_metadata=public_source.metadata,
+                )
+                self.record_fetch_log(
+                    source_id=result.source.id,
+                    source_version_id=result.version.id,
+                    org_id=org_id,
+                    requested_by_user_id=requested_by_user_id,
+                    fetch_kind="public_source_fetch",
+                    status="success",
+                    metadata=public_source.metadata,
+                    completed=True,
+                )
+                fetched += 1
+                items.append(
+                    {
+                        "source_id": result.source.id,
+                        "source_version_id": result.version.id,
+                        "title": result.source.title,
+                        "status": "success",
+                        "duplicate": result.duplicate,
+                        "chunk_count": len(result.chunks),
+                        "citation_count": len(result.citations),
+                        "review_status": result.version.review_status.value,
+                    }
+                )
+            except (httpx.HTTPError, ValueError) as exc:
+                self.record_fetch_log(
+                    source_id=str(candidate["source_id"]),
+                    source_version_id=_optional_str(candidate.get("source_version_id")),
+                    org_id=org_id,
+                    requested_by_user_id=requested_by_user_id,
+                    fetch_kind="public_source_fetch",
+                    status="failed",
+                    metadata={"canonical_url": candidate["canonical_url"]},
+                    error=str(exc),
+                    completed=True,
+                )
+                failed += 1
+                items.append(
+                    {
+                        "source_id": str(candidate["source_id"]),
+                        "title": str(candidate["title"]),
+                        "status": "failed",
+                        "error": str(exc),
+                    }
+                )
+        return {
+            "fetched": fetched,
+            "failed": failed,
+            "skipped": skipped,
+            "items": items,
+        }
+
     def list_sources(self) -> tuple[SourceDocument, ...]:
         with self._session_factory() as session:
             rows = session.scalars(select(DbSource).order_by(DbSource.title)).all()
@@ -525,6 +630,8 @@ class SqlAlchemySourceLibrary:
         fetch_kind: str,
         status: str,
         metadata: Mapping[str, object] | None = None,
+        error: str | None = None,
+        completed: bool = False,
     ) -> None:
         with self._session_factory() as session:
             with session.begin():
@@ -543,9 +650,54 @@ class SqlAlchemySourceLibrary:
                         requested_by_user_id=requested_by_user_id,
                         fetch_kind=fetch_kind,
                         status=status,
+                        completed_at=_utc_now() if completed else None,
+                        error=error,
                         metadata_json=dict(metadata or {}),
                     )
                 )
+
+    def _pending_fetch_candidates(
+        self,
+        *,
+        local_government: str | None,
+        limit: int,
+        force: bool,
+    ) -> list[dict[str, object]]:
+        with self._session_factory() as session:
+            statement = select(DbSource).where(DbSource.canonical_url.is_not(None)).order_by(
+                DbSource.authority,
+                DbSource.title,
+            )
+            if local_government:
+                statement = statement.where(DbSource.local_government == local_government)
+            candidates: list[dict[str, object]] = []
+            for source in session.scalars(statement).all():
+                latest = self._latest_version(session, source)
+                latest_fetch = self._latest_fetch_log(session, source)
+                if not force:
+                    latest_domain = self._source_version(latest) if latest else None
+                    already_fetched = latest_domain is not None and not latest_domain.metadata_only
+                    latest_succeeded = latest_fetch is not None and latest_fetch.status == "success"
+                    if already_fetched or latest_succeeded:
+                        continue
+                candidates.append(
+                    {
+                        "source_id": str(source.id),
+                        "source_version_id": str(latest.id) if latest else None,
+                        "title": source.title,
+                        "jurisdiction": source.jurisdiction,
+                        "authority": source.authority,
+                        "local_government": source.local_government,
+                        "source_type": source.source_type,
+                        "canonical_url": source.canonical_url,
+                        "access_type": source.access_type,
+                        "licence_notes": (source.metadata_json or {}).get("licence_notes"),
+                        "metadata": dict(source.metadata_json or {}),
+                    }
+                )
+                if len(candidates) >= limit:
+                    break
+            return candidates
 
     def ingestion_status(self, *, local_government: str | None = None) -> dict[str, object]:
         with self._session_factory() as session:

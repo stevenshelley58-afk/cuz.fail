@@ -12,6 +12,7 @@ from pathlib import Path
 import sys
 from typing import Any, Sequence, TextIO, cast
 from urllib.parse import urlencode, urlparse
+from uuid import UUID
 
 import yaml
 
@@ -168,6 +169,41 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         default=DEFAULT_ORG_NAME,
         help="Organisation display name when provisioning a new org.",
     )
+    fetch_sources = subparsers.add_parser(
+        "fetch-pending-sources",
+        help="Lawfully fetch pending public source anchors into pending-review source versions.",
+    )
+    fetch_sources.add_argument(
+        "--local-government",
+        default=None,
+        help="Optional local government filter, for example Cockburn.",
+    )
+    fetch_sources.add_argument(
+        "--limit",
+        type=int,
+        default=5,
+        help="Maximum number of pending source anchors to fetch.",
+    )
+    fetch_sources.add_argument(
+        "--operator-email",
+        required=True,
+        help="Provision/reuse this reviewer to own fetch log rows.",
+    )
+    fetch_sources.add_argument(
+        "--org-slug",
+        default=None,
+        help="Organisation slug for fetch log ownership.",
+    )
+    fetch_sources.add_argument(
+        "--org-name",
+        default=DEFAULT_ORG_NAME,
+        help="Organisation display name when provisioning a new org.",
+    )
+    fetch_sources.add_argument(
+        "--force",
+        action="store_true",
+        help="Refetch even when the latest version already has fetched text.",
+    )
     return parser
 
 
@@ -250,6 +286,55 @@ def _run_seed_source_manifest(
     return 0
 
 
+def _operator_ids(
+    *,
+    database_url: str,
+    email: str,
+    org_slug: str | None,
+    org_name: str,
+) -> tuple[UUID, UUID]:
+    identity_store = SqlAlchemyIdentityStore.from_database_url(database_url)
+    org = identity_store.get_or_create_org(slug=org_slug, name=org_name)
+    user = identity_store.get_or_create_user(
+        org=org,
+        email=email,
+        role=IdentityRole.REVIEWER,
+    )
+    return org.id, user.id
+
+
+def _run_fetch_pending_sources(
+    args: argparse.Namespace,
+    *,
+    stdout: TextIO,
+    stderr: TextIO,
+) -> int:
+    database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        stderr.write("error: DATABASE_URL is required for durable source fetching\n")
+        return 2
+    if args.limit < 1:
+        stderr.write("error: --limit must be at least 1\n")
+        return 2
+    org_id, user_id = _operator_ids(
+        database_url=database_url,
+        email=args.operator_email,
+        org_slug=args.org_slug,
+        org_name=args.org_name,
+    )
+    source_library = SqlAlchemySourceLibrary.from_database_url(database_url)
+    result = source_library.fetch_pending_sources(
+        local_government=args.local_government,
+        limit=args.limit,
+        org_id=org_id,
+        requested_by_user_id=user_id,
+        force=args.force,
+    )
+    stdout.write(json.dumps(result, sort_keys=True))
+    stdout.write("\n")
+    return 0
+
+
 def main(
     argv: Sequence[str] | None = None,
     *,
@@ -270,6 +355,8 @@ def main(
         return _run_login_link(args, stdout=out, stderr=err, store=store, settings=settings)
     if args.command == "seed-source-manifest":
         return _run_seed_source_manifest(args, stdout=out, stderr=err)
+    if args.command == "fetch-pending-sources":
+        return _run_fetch_pending_sources(args, stdout=out, stderr=err)
 
     err.write("error: unsupported command\n")
     return 2
