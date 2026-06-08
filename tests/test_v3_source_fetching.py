@@ -183,6 +183,34 @@ def test_extract_candidate_links_excludes_non_source_project_and_generic_policy_
     ]
 
 
+def test_extract_candidate_links_excludes_cockburn_generic_source_documents() -> None:
+    html = b"""
+<html>
+  <body>
+    <a href="/Building-Planning-and-Roads/Town-Planning-and-Development">
+      Town Planning and Development
+    </a>
+    <a href="/Building-Planning-and-Roads/Development-Assessment-Panel">
+      Development Assessment Panel (DAP)
+    </a>
+    <a href="/Building-Planning-and-Roads/Planning-Advice">
+      Planning Advice
+    </a>
+    <a href="/Building-Planning-and-Roads/Building-and-Planning-Advice">
+      Building Advice
+    </a>
+  </body>
+</html>
+"""
+
+    links = extract_candidate_links("https://www.cockburn.wa.gov.au/", html)
+
+    assert [(link.label, link.source_type) for link in links] == [
+        ("Planning Advice", "planning_guidance"),
+        ("Building Advice", "planning_guidance"),
+    ]
+
+
 def test_infer_source_type_requires_planning_specific_policy_and_strategy_tokens() -> None:
     assert (
         infer_source_type(
