@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from datetime import datetime, timezone
 
 from draftcheck_core.providers import (
@@ -43,6 +44,20 @@ class _FakeLiveProvider:
         return self._text
 
 
+class _FakeChatResponse:
+    def __init__(self, payload: dict):
+        self.payload = payload
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_args):
+        return False
+
+    def read(self) -> bytes:
+        return json.dumps(self.payload).encode("utf-8")
+
+
 def _standard_answer() -> StandardAnswer:
     return StandardAnswer(
         answer="Deterministic cited answer.",
@@ -80,6 +95,84 @@ def test_get_chat_provider_openai_without_key_falls_back_to_mock(monkeypatch):
     monkeypatch.setenv("LLM_PROVIDER", "openai")
     monkeypatch.delenv("OPENAI_API_KEY", raising=False)
     assert isinstance(get_chat_provider(), MockChatProvider)
+
+
+def test_get_chat_provider_openrouter_when_configured(monkeypatch):
+    monkeypatch.setenv("LLM_PROVIDER", "openrouter")
+    monkeypatch.setenv("OPENROUTER_API_KEY", "sk-or-test")
+    monkeypatch.setenv("LLM_MODEL", "gpt-5.5")
+
+    provider = get_chat_provider()
+
+    assert isinstance(provider, OpenAIChatProvider)
+    assert provider.name == "openrouter"
+    assert provider.model == "openai/gpt-5.5"
+    assert provider.base_url == "https://openrouter.ai/api/v1"
+    assert provider.extra_headers == {
+        "HTTP-Referer": "https://app.cuz.fail",
+        "X-Title": "LotFile",
+    }
+    assert provider.is_live is True
+
+
+def test_get_chat_provider_openrouter_uses_explicit_model(monkeypatch):
+    monkeypatch.setenv("LLM_PROVIDER", "openrouter")
+    monkeypatch.setenv("OPENROUTER_API_KEY", "sk-or-test")
+    monkeypatch.setenv("LLM_MODEL", "anthropic/claude-sonnet-4.5")
+    monkeypatch.setenv("OPENROUTER_BASE_URL", "https://example.test/api/v1")
+
+    provider = get_chat_provider()
+
+    assert isinstance(provider, OpenAIChatProvider)
+    assert provider.name == "openrouter"
+    assert provider.model == "anthropic/claude-sonnet-4.5"
+    assert provider.base_url == "https://example.test/api/v1"
+
+
+def test_get_chat_provider_openrouter_without_key_falls_back_to_mock(monkeypatch):
+    monkeypatch.setenv("LLM_PROVIDER", "openrouter")
+    monkeypatch.delenv("OPENROUTER_API_KEY", raising=False)
+    assert isinstance(get_chat_provider(), MockChatProvider)
+
+
+def test_openrouter_chat_provider_posts_expected_payload(monkeypatch):
+    captured: dict = {}
+
+    def fake_urlopen(request, timeout):
+        captured["timeout"] = timeout
+        captured["url"] = request.full_url
+        captured["body"] = json.loads(request.data.decode("utf-8"))
+        captured["auth"] = request.get_header("Authorization")
+        captured["referer"] = request.get_header("Http-referer")
+        captured["title"] = request.get_header("X-title")
+        return _FakeChatResponse(
+            {"choices": [{"message": {"content": "OpenRouter answer"}}]}
+        )
+
+    monkeypatch.setenv("LLM_PROVIDER", "openrouter")
+    monkeypatch.setenv("OPENROUTER_API_KEY", "sk-or-test")
+    monkeypatch.setenv("LLM_MODEL", "openai/gpt-5.5")
+    monkeypatch.setenv("LLM_TIMEOUT_SECONDS", "9")
+    monkeypatch.setenv("LLM_MAX_OUTPUT_TOKENS", "321")
+    monkeypatch.setattr("draftcheck_core.providers.urlopen", fake_urlopen)
+
+    provider = get_chat_provider()
+    answer = provider.complete("system prompt", "user prompt")
+
+    assert answer == "OpenRouter answer"
+    assert captured["url"] == "https://openrouter.ai/api/v1/chat/completions"
+    assert captured["timeout"] == 9
+    assert captured["auth"] == "Bearer sk-or-test"
+    assert captured["referer"] == "https://app.cuz.fail"
+    assert captured["title"] == "LotFile"
+    assert captured["body"] == {
+        "model": "openai/gpt-5.5",
+        "messages": [
+            {"role": "system", "content": "system prompt"},
+            {"role": "user", "content": "user prompt"},
+        ],
+        "max_completion_tokens": 321,
+    }
 
 
 # --- grounded chat behaviour ------------------------------------------------

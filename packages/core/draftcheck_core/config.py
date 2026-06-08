@@ -90,6 +90,14 @@ class Settings:
     embedding_timeout_seconds: int = field(default_factory=lambda: _env_int("EMBEDDING_TIMEOUT_SECONDS", "30"))
     openai_api_key: str = field(default_factory=lambda: os.getenv("OPENAI_API_KEY", ""))
     openai_base_url: str = field(default_factory=lambda: os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1"))
+    openrouter_api_key: str = field(default_factory=lambda: os.getenv("OPENROUTER_API_KEY", ""))
+    openrouter_base_url: str = field(
+        default_factory=lambda: os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+    )
+    openrouter_site_url: str = field(
+        default_factory=lambda: os.getenv("OPENROUTER_SITE_URL", "https://app.cuz.fail")
+    )
+    openrouter_app_name: str = field(default_factory=lambda: os.getenv("OPENROUTER_APP_NAME", "LotFile"))
     bootstrap_demo_source_library: bool = field(default_factory=lambda: _env_bool("BOOTSTRAP_DEMO_SOURCE_LIBRARY"))
 
 

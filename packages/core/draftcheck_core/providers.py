@@ -209,6 +209,7 @@ def _clip_error(value: str, limit: int = 500) -> str:
 # ---------------------------------------------------------------------------
 
 OPENAI_DEFAULT_CHAT_MODEL = "gpt-5.5"
+OPENROUTER_DEFAULT_CHAT_MODEL = "openai/gpt-5.5"
 
 
 class ChatProvider(Protocol):
@@ -239,11 +240,13 @@ class OpenAIChatProvider:
     timeout_seconds: int = 30
     max_output_tokens: int = 700
     name: str = "openai"
+    error_label: str = "OpenAI"
+    extra_headers: dict[str, str] | None = None
     is_live: bool = True
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
         if not self.api_key:
-            raise RuntimeError("OPENAI_API_KEY is required when LLM_PROVIDER=openai.")
+            raise RuntimeError(f"API key is required when LLM_PROVIDER={self.name}.")
         body: dict[str, Any] = {
             "model": self.model,
             "messages": [
@@ -252,13 +255,15 @@ class OpenAIChatProvider:
             ],
             "max_completion_tokens": self.max_output_tokens,
         }
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+            **(self.extra_headers or {}),
+        }
         request = Request(
             f"{self.base_url.rstrip('/')}/chat/completions",
             data=json.dumps(body).encode("utf-8"),
-            headers={
-                "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json",
-            },
+            headers=headers,
             method="POST",
         )
         try:
@@ -266,13 +271,15 @@ class OpenAIChatProvider:
                 payload = json.loads(response.read().decode("utf-8"))
         except HTTPError as exc:
             detail = exc.read().decode("utf-8", errors="replace")
-            raise RuntimeError(f"OpenAI chat request failed with HTTP {exc.code}: {_clip_error(detail)}") from exc
+            raise RuntimeError(
+                f"{self.error_label} chat request failed with HTTP {exc.code}: {_clip_error(detail)}"
+            ) from exc
         except (OSError, URLError) as exc:
-            raise RuntimeError(f"OpenAI chat request failed: {exc}") from exc
+            raise RuntimeError(f"{self.error_label} chat request failed: {exc}") from exc
 
         choices = payload.get("choices")
         if not isinstance(choices, list) or not choices:
-            raise RuntimeError("OpenAI chat response did not include any choices.")
+            raise RuntimeError(f"{self.error_label} chat response did not include any choices.")
         message = choices[0].get("message", {}) if isinstance(choices[0], dict) else {}
         content = message.get("content")
         if isinstance(content, list):
@@ -283,7 +290,7 @@ class OpenAIChatProvider:
                 if isinstance(part, dict)
             )
         if not isinstance(content, str) or not content.strip():
-            raise RuntimeError("OpenAI chat response contained no text content.")
+            raise RuntimeError(f"{self.error_label} chat response contained no text content.")
         return content.strip()
 
 
@@ -303,5 +310,34 @@ def get_chat_provider(settings: Settings | None = None) -> ChatProvider:
             timeout_seconds=active_settings.llm_timeout_seconds,
             max_output_tokens=active_settings.llm_max_output_tokens,
         )
+    if provider == "openrouter" and active_settings.openrouter_api_key:
+        return OpenAIChatProvider(
+            api_key=active_settings.openrouter_api_key,
+            model=_openrouter_chat_model(active_settings),
+            base_url=active_settings.openrouter_base_url,
+            timeout_seconds=active_settings.llm_timeout_seconds,
+            max_output_tokens=active_settings.llm_max_output_tokens,
+            name="openrouter",
+            error_label="OpenRouter",
+            extra_headers=_openrouter_headers(active_settings),
+        )
     # No live provider configured (or key missing): honest deterministic fallback.
     return MockChatProvider()
+
+
+def _openrouter_chat_model(settings: Settings) -> str:
+    configured = (settings.llm_model or "").strip()
+    if configured and configured != OPENAI_DEFAULT_CHAT_MODEL:
+        return configured
+    return OPENROUTER_DEFAULT_CHAT_MODEL
+
+
+def _openrouter_headers(settings: Settings) -> dict[str, str]:
+    headers: dict[str, str] = {}
+    site_url = settings.openrouter_site_url.strip()
+    app_name = settings.openrouter_app_name.strip()
+    if site_url:
+        headers["HTTP-Referer"] = site_url
+    if app_name:
+        headers["X-Title"] = app_name
+    return headers
