@@ -414,6 +414,61 @@ def test_api_source_review_worklist_requires_reviewer_and_reports_pending_source
     assert not fetched_item["can_support_search"]
 
 
+def test_api_source_quality_report_requires_reviewer_and_reports_blocking_gates() -> None:
+    library = InMemorySourceLibrary(embedding_config=_embedding_config())
+    reviewer_client = _client(library, reviewer=True)
+    fetched = reviewer_client.post(
+        "/api/v1/sources/import",
+        json={
+            "title": "Quality Report Fixture",
+            "content": "One short fetched source chunk for source review.",
+            "licence_status": "pending_review",
+        },
+    ).json()
+    approved = library.import_source(
+        title="Approved Quality Fixture",
+        content="Approved source text for citable search readiness.",
+        licence_status=LicenceStatus.OPEN,
+    )
+    library.review_source(
+        source_id=approved.source.id,
+        source_version_id=approved.version.id,
+        review_status=SourceReviewStatus.APPROVED,
+        licence_status=LicenceStatus.VERIFIED_OPEN,
+        reviewer_id="reviewer-fixture",
+    )
+    metadata_only = library.import_source(
+        title="Large Metadata Only Fixture",
+        uri="https://example.test/large-metadata-only",
+        licence_status=LicenceStatus.PENDING_REVIEW,
+        review_status=SourceReviewStatus.PENDING_REVIEW,
+        metadata_only=True,
+    )
+
+    blocked = _client(library).get("/api/v1/sources/quality-report")
+    response = reviewer_client.get("/api/v1/sources/quality-report")
+
+    assert blocked.status_code == 401
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "blocked"
+    assert body["answer_policy"] == "cite_or_refuse"
+    assert body["beta_status"] == "not_beta_accurate_yet"
+    assert body["counts"]["approved_citable_versions"] == 1
+    assert body["counts"]["review_ready_versions"] == 1
+    assert body["counts"]["pending_fetch_items"] == 1
+    assert body["counts"]["low_signal_versions"] == 1
+    gates = {gate["gate"]: gate for gate in body["quality_gates"]}
+    assert gates["lawful_fetch_complete"]["status"] == "blocked"
+    assert gates["source_review_complete"]["status"] == "blocked"
+    assert gates["parse_quality_review"]["status"] == "needs_review"
+    assert gates["citable_search_ready"]["status"] == "passed"
+    assert gates["deterministic_rules_promoted"]["status"] == "blocked"
+    by_version = {item["source_version_id"]: item for item in body["items"]}
+    assert by_version[fetched["version"]["id"]]["recommended_action"] == "human_source_review"
+    assert by_version[metadata_only.version.id]["recommended_action"] == "lawful_fetch"
+
+
 def test_api_source_mutations_reject_disallowed_origin() -> None:
     library = InMemorySourceLibrary(embedding_config=_embedding_config())
     reviewer_client = _client(library, reviewer=True)

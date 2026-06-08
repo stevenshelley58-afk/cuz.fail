@@ -65,6 +65,7 @@ def test_v3_openapi_contains_required_surface_without_legacy_aliases() -> None:
         "/api/v1/sources/import",
         "/api/v1/sources/ingestion-status",
         "/api/v1/sources/review-worklist",
+        "/api/v1/sources/quality-report",
         "/api/v1/rules/candidates/{candidate_id}/promote",
         "/api/v1/search/ask",
         "/api/v1/compliance/projects/{project_id}/run",

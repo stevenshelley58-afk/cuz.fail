@@ -1116,6 +1116,160 @@ class SqlAlchemySourceLibrary:
                 ],
             }
 
+    def quality_report(
+        self,
+        *,
+        local_government: str | None = None,
+        source_type: str | None = None,
+        limit: int = 100,
+    ) -> dict[str, object]:
+        with self._session_factory() as session:
+            statement = select(DbSource).order_by(DbSource.authority, DbSource.title)
+            if local_government:
+                statement = statement.where(DbSource.local_government == local_government)
+            if source_type:
+                statement = statement.where(DbSource.source_type == source_type)
+            counts: dict[str, Any] = {
+                "sources": 0,
+                "versions": 0,
+                "pending_review_versions": 0,
+                "approved_citable_versions": 0,
+                "rejected_versions": 0,
+                "metadata_only_versions": 0,
+                "fetched_review_items": 0,
+                "pending_fetch_items": 0,
+                "review_ready_versions": 0,
+                "low_signal_versions": 0,
+                "large_controlled_fetch_items": 0,
+                "chunks": 0,
+                "citations": 0,
+                "source_types": {},
+            }
+            items: list[dict[str, object]] = []
+            for source in session.scalars(statement).all():
+                counts["sources"] = int(counts["sources"]) + 1
+                _increment_nested_count(counts, "source_types", source.source_type)
+                version = self._latest_version(session, source)
+                fetch_log = self._latest_fetch_log(session, source)
+                if version is None:
+                    items.append(_quality_item_without_version(source=source, fetch_log=fetch_log))
+                    continue
+                counts["versions"] = int(counts["versions"]) + 1
+                domain_version = self._source_version(version)
+                if domain_version.review_status is SourceReviewStatus.PENDING_REVIEW:
+                    counts["pending_review_versions"] = int(counts["pending_review_versions"]) + 1
+                if domain_version.review_status is SourceReviewStatus.REJECTED:
+                    counts["rejected_versions"] = int(counts["rejected_versions"]) + 1
+                if domain_version.metadata_only:
+                    counts["metadata_only_versions"] = int(counts["metadata_only_versions"]) + 1
+                    counts["pending_fetch_items"] = int(counts["pending_fetch_items"]) + 1
+                    if _declared_size_mb(source.title) is not None and (_declared_size_mb(source.title) or 0) >= 25:
+                        counts["large_controlled_fetch_items"] = int(counts["large_controlled_fetch_items"]) + 1
+                else:
+                    counts["fetched_review_items"] = int(counts["fetched_review_items"]) + 1
+                if domain_version.can_support_citable_retrieval:
+                    counts["approved_citable_versions"] = int(counts["approved_citable_versions"]) + 1
+                chunk_count = int(
+                    session.scalar(
+                        select(func.count()).select_from(DbSourceChunk).where(
+                            DbSourceChunk.source_version_id == version.id,
+                        )
+                    )
+                    or 0
+                )
+                citation_count = int(
+                    session.scalar(
+                        select(func.count()).select_from(DbSourceCitation).where(
+                            DbSourceCitation.source_version_id == version.id,
+                        )
+                    )
+                    or 0
+                )
+                counts["chunks"] = int(counts["chunks"]) + chunk_count
+                counts["citations"] = int(counts["citations"]) + citation_count
+                if not domain_version.metadata_only and chunk_count > 0 and citation_count > 0:
+                    counts["review_ready_versions"] = int(counts["review_ready_versions"]) + 1
+                low_signal = (
+                    not domain_version.metadata_only
+                    and source.source_type != "scheme_map"
+                    and (chunk_count <= 1 or citation_count <= 1)
+                )
+                if low_signal:
+                    counts["low_signal_versions"] = int(counts["low_signal_versions"]) + 1
+                issue_codes = _review_issue_codes(
+                    source=source,
+                    version=domain_version,
+                    chunk_count=chunk_count,
+                    citation_count=citation_count,
+                )
+                if low_signal:
+                    issue_codes.append("low_signal_parse_review")
+                item: dict[str, object] = {
+                    "source_id": str(source.id),
+                    "source_version_id": str(version.id),
+                    "title": source.title,
+                    "authority": source.authority,
+                    "local_government": source.local_government,
+                    "source_type": source.source_type,
+                    "canonical_url": source.canonical_url,
+                    "licence_status": domain_version.licence_status.value,
+                    "review_status": domain_version.review_status.value,
+                    "metadata_only": domain_version.metadata_only,
+                    "chunk_count": chunk_count,
+                    "citation_count": citation_count,
+                    "readiness": _quality_readiness(
+                        version=domain_version,
+                        chunk_count=chunk_count,
+                        citation_count=citation_count,
+                        low_signal=low_signal,
+                    ),
+                    "issue_codes": issue_codes,
+                    "recommended_action": _review_recommended_action(
+                        metadata_only=domain_version.metadata_only,
+                        review_status=domain_version.review_status,
+                        chunk_count=chunk_count,
+                        citation_count=citation_count,
+                    ),
+                    "priority": _review_priority(
+                        source_type=source.source_type,
+                        metadata_only=domain_version.metadata_only,
+                        chunk_count=chunk_count,
+                    ),
+                    "can_support_search": domain_version.can_support_citable_retrieval
+                    and chunk_count > 0
+                    and citation_count > 0,
+                    "latest_fetch": (
+                        {
+                            "status": fetch_log.status,
+                            "fetch_kind": fetch_log.fetch_kind,
+                            "requested_at": fetch_log.requested_at.isoformat(),
+                        }
+                        if fetch_log is not None
+                        else None
+                    ),
+                }
+                items.append(item)
+            items.sort(key=_quality_sort_key)
+            limited_items = items[: max(limit, 0)]
+            gates = _source_quality_gates(counts)
+            return {
+                "status": "blocked" if any(gate["status"] == "blocked" for gate in gates) else "review_ready",
+                "answer_policy": "cite_or_refuse",
+                "beta_status": "not_beta_accurate_yet",
+                "local_government": local_government,
+                "source_type": source_type,
+                "counts": counts,
+                "quality_gates": gates,
+                "items": limited_items,
+                "count": len(limited_items),
+                "total": len(items),
+                "blocked_outputs": [
+                    "final_compliance_claims",
+                    "uncited_regulatory_answers",
+                    "unpromoted_measurement_verdicts",
+                ],
+            }
+
     def _get_or_create_source(
         self,
         session: Session,
@@ -1703,6 +1857,131 @@ def _pending_action(
     if review_status is SourceReviewStatus.APPROVED:
         return "ready_for_rule_extraction"
     return "review_follow_up"
+
+
+def _increment_nested_count(counts: dict[str, Any], key: str, value: str) -> None:
+    nested = counts.get(key)
+    if not isinstance(nested, dict):
+        nested = {}
+        counts[key] = nested
+    nested[value] = int(nested.get(value, 0)) + 1
+
+
+def _quality_item_without_version(
+    *,
+    source: DbSource,
+    fetch_log: DbSourceFetchLog | None,
+) -> dict[str, object]:
+    return {
+        "source_id": str(source.id),
+        "source_version_id": None,
+        "title": source.title,
+        "authority": source.authority,
+        "local_government": source.local_government,
+        "source_type": source.source_type,
+        "canonical_url": source.canonical_url,
+        "licence_status": None,
+        "review_status": None,
+        "metadata_only": False,
+        "chunk_count": 0,
+        "citation_count": 0,
+        "readiness": "missing_source_version",
+        "issue_codes": ["missing_source_version"],
+        "recommended_action": "repair_source_version",
+        "priority": "critical",
+        "can_support_search": False,
+        "latest_fetch": (
+            {
+                "status": fetch_log.status,
+                "fetch_kind": fetch_log.fetch_kind,
+                "requested_at": fetch_log.requested_at.isoformat(),
+            }
+            if fetch_log is not None
+            else None
+        ),
+    }
+
+
+def _quality_readiness(
+    *,
+    version: SourceVersion,
+    chunk_count: int,
+    citation_count: int,
+    low_signal: bool,
+) -> str:
+    if version.can_support_citable_retrieval and chunk_count > 0 and citation_count > 0:
+        return "citable_search_ready"
+    if version.metadata_only:
+        return "pending_lawful_fetch"
+    if chunk_count == 0 or citation_count == 0:
+        return "parse_or_citation_repair_required"
+    if low_signal:
+        return "parse_quality_review_required"
+    if version.review_status is SourceReviewStatus.PENDING_REVIEW:
+        return "source_review_ready"
+    if version.review_status is SourceReviewStatus.REJECTED:
+        return "source_rejected"
+    if version.review_status is SourceReviewStatus.STALE:
+        return "source_refresh_required"
+    if not version.licence_status.can_support_citation:
+        return "licence_review_required"
+    return "review_follow_up"
+
+
+def _source_quality_gates(counts: Mapping[str, object]) -> list[dict[str, object]]:
+    pending_fetch = _int_count(counts, "pending_fetch_items")
+    pending_review = _int_count(counts, "pending_review_versions")
+    low_signal = _int_count(counts, "low_signal_versions")
+    approved_citable = _int_count(counts, "approved_citable_versions")
+    return [
+        {
+            "gate": "lawful_fetch_complete",
+            "status": "blocked" if pending_fetch else "passed",
+            "blocking_count": pending_fetch,
+        },
+        {
+            "gate": "source_review_complete",
+            "status": "blocked" if pending_review else "passed",
+            "blocking_count": pending_review,
+        },
+        {
+            "gate": "parse_quality_review",
+            "status": "needs_review" if low_signal else "passed",
+            "blocking_count": low_signal,
+        },
+        {
+            "gate": "citable_search_ready",
+            "status": "blocked" if approved_citable == 0 else "passed",
+            "blocking_count": 0 if approved_citable else 1,
+        },
+        {
+            "gate": "deterministic_rules_promoted",
+            "status": "blocked",
+            "blocking_count": 1,
+        },
+    ]
+
+
+def _int_count(counts: Mapping[str, object], key: str) -> int:
+    value = counts.get(key)
+    return value if isinstance(value, int) else 0
+
+
+def _quality_sort_key(item: Mapping[str, object]) -> tuple[int, str, str]:
+    readiness_rank = {
+        "pending_lawful_fetch": 0,
+        "parse_or_citation_repair_required": 1,
+        "parse_quality_review_required": 2,
+        "source_review_ready": 3,
+        "licence_review_required": 4,
+        "source_refresh_required": 5,
+        "source_rejected": 6,
+        "citable_search_ready": 7,
+    }
+    readiness = str(item.get("readiness") or "")
+    source_type = str(item.get("source_type") or "")
+    title = str(item.get("title") or "")
+    return (readiness_rank.get(readiness, 9), source_type, title)
 
 
 def _review_issue_codes(

@@ -302,6 +302,78 @@ def _fallback_review_issue_codes(
     return issues
 
 
+def _fallback_quality_report(
+    source_library: InMemorySourceLibrary,
+    *,
+    local_government: str | None,
+    source_type: str | None,
+    limit: int,
+) -> dict[str, Any]:
+    worklist = _fallback_review_worklist(
+        source_library,
+        local_government=local_government,
+        source_type=source_type,
+        include_metadata_only=True,
+        limit=limit,
+    )
+    counts = dict(worklist["counts"])
+    counts["source_types"] = {"source_document": counts["review_items"]}
+    counts["review_ready_versions"] = sum(
+        1
+        for item in worklist["items"]
+        if not item["metadata_only"] and item["chunk_count"] > 0 and item["citation_count"] > 0
+    )
+    counts["low_signal_versions"] = sum(
+        1
+        for item in worklist["items"]
+        if not item["metadata_only"] and (item["chunk_count"] <= 1 or item["citation_count"] <= 1)
+    )
+    counts["blocked_versions"] = counts["review_items"]
+    gates = _quality_gates(counts)
+    return {
+        "status": "blocked" if any(gate["status"] == "blocked" for gate in gates) else "review_ready",
+        "answer_policy": "cite_or_refuse",
+        "beta_status": "not_beta_accurate_yet",
+        "local_government": local_government,
+        "source_type": source_type,
+        "counts": counts,
+        "quality_gates": gates,
+        "items": worklist["items"],
+        "count": worklist["count"],
+        "total": worklist["total"],
+    }
+
+
+def _quality_gates(counts: dict[str, Any]) -> list[dict[str, Any]]:
+    return [
+        {
+            "gate": "lawful_fetch_complete",
+            "status": "blocked" if counts.get("pending_fetch_items", 0) else "passed",
+            "blocking_count": counts.get("pending_fetch_items", 0),
+        },
+        {
+            "gate": "source_review_complete",
+            "status": "blocked" if counts.get("review_items", 0) else "passed",
+            "blocking_count": counts.get("review_items", 0),
+        },
+        {
+            "gate": "parse_quality_review",
+            "status": "needs_review" if counts.get("low_signal_versions", 0) else "passed",
+            "blocking_count": counts.get("low_signal_versions", 0),
+        },
+        {
+            "gate": "citable_search_ready",
+            "status": "blocked" if counts.get("approved_citable_versions", 0) == 0 else "passed",
+            "blocking_count": 0 if counts.get("approved_citable_versions", 0) else 1,
+        },
+        {
+            "gate": "deterministic_rules_promoted",
+            "status": "blocked",
+            "blocking_count": 1,
+        },
+    ]
+
+
 def _trace_supported_answer(
     answer: SourceAnswer,
     *,
@@ -429,6 +501,28 @@ def create_sources_router(
             local_government=local_government,
             source_type=source_type,
             include_metadata_only=include_metadata_only,
+            limit=limit,
+        )
+
+    @api_router.get("/sources/quality-report", tags=["sources"])
+    def source_quality_report(
+        _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+        _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        local_government: str | None = None,
+        source_type: str | None = None,
+        limit: int = Query(default=100, ge=1, le=500),
+    ) -> dict[str, Any]:
+        report_provider = getattr(source_library, "quality_report", None)
+        if callable(report_provider):
+            return report_provider(
+                local_government=local_government,
+                source_type=source_type,
+                limit=limit,
+            )
+        return _fallback_quality_report(
+            source_library,
+            local_government=local_government,
+            source_type=source_type,
             limit=limit,
         )
 
