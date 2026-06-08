@@ -1382,6 +1382,23 @@ class SqlAlchemySourceLibrary:
                 "chunks": 0,
                 "citations": 0,
                 "pending_fetches": 0,
+                "review_ready_versions": 0,
+                "low_signal_versions": 0,
+                "parse_repair_ready_versions": 0,
+                "parse_repair_missing_raw_artifact_versions": 0,
+                "raw_source_artifact_versions": 0,
+                "repaired_text_artifact_versions": 0,
+            }
+            readiness_counts = {
+                "pending_lawful_fetch": 0,
+                "parse_or_citation_repair_required": 0,
+                "parse_quality_review_required": 0,
+                "source_review_ready": 0,
+                "licence_review_required": 0,
+                "source_refresh_required": 0,
+                "source_rejected": 0,
+                "citable_search_ready": 0,
+                "review_follow_up": 0,
             }
             for source in sources:
                 version = self._latest_version(session, source)
@@ -1416,6 +1433,57 @@ class SqlAlchemySourceLibrary:
                     )
                     counts["chunks"] += chunk_count
                     counts["citations"] += citation_count
+                    parse_quality = _version_parse_quality(version=version, fetch_log=fetch_log)
+                    metadata_low_signal = _parse_quality_requires_review(parse_quality)
+                    artifact_rows = session.scalars(
+                        select(DbArtifact).where(DbArtifact.subject_id == version.id)
+                    ).all()
+                    low_signal = (
+                        not domain_version.metadata_only
+                        and source.source_type != "scheme_map"
+                        and (
+                            metadata_low_signal
+                            or _count_signal_requires_review(
+                                chunk_count=chunk_count,
+                                citation_count=citation_count,
+                                parse_quality=parse_quality,
+                            )
+                        )
+                    )
+                    repair_profile = _parse_repair_profile(
+                        source=source,
+                        version=domain_version,
+                        chunk_count=chunk_count,
+                        citation_count=citation_count,
+                        parse_quality=parse_quality,
+                        artifact_rows=artifact_rows,
+                        low_signal=low_signal,
+                    )
+                    if low_signal:
+                        counts["low_signal_versions"] += 1
+                    if repair_profile["raw_artifact_count"]:
+                        counts["raw_source_artifact_versions"] += 1
+                    if repair_profile["status"] == "repair_ready":
+                        counts["parse_repair_ready_versions"] += 1
+                    if repair_profile["status"] == "raw_source_missing":
+                        counts["parse_repair_missing_raw_artifact_versions"] += 1
+                    if repair_profile["repair_artifact_count"]:
+                        counts["repaired_text_artifact_versions"] += 1
+                    readiness = _quality_readiness(
+                        version=domain_version,
+                        chunk_count=chunk_count,
+                        citation_count=citation_count,
+                        low_signal=low_signal,
+                    )
+                    if readiness in readiness_counts:
+                        readiness_counts[readiness] += 1
+                    if (
+                        not domain_version.metadata_only
+                        and not low_signal
+                        and chunk_count > 0
+                        and citation_count > 0
+                    ):
+                        counts["review_ready_versions"] += 1
                     version_payload = {
                         "id": str(version.id),
                         "version_label": version.version_label,
@@ -1473,6 +1541,8 @@ class SqlAlchemySourceLibrary:
                     "rule extraction review",
                     "deterministic check promotion",
                 ],
+                "quality_gates": _source_quality_gates(counts),
+                "readiness_counts": readiness_counts,
             }
 
     def review_worklist(

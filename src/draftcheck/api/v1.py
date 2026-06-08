@@ -160,6 +160,8 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
                     "Standards Australia metadata only",
                 ],
                 "counts": counts,
+                "quality_gates": source_status.get("quality_gates", []),
+                "readiness_counts": source_status.get("readiness_counts", {}),
                 "pending": source_status.get("pending", []),
             },
             "hermes": {

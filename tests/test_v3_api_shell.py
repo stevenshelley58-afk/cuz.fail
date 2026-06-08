@@ -203,7 +203,20 @@ def test_cockburn_ops_dashboard_reports_canary_and_hermes_state() -> None:
         "chunks",
         "citations",
         "pending_fetches",
+        "review_ready_versions",
+        "low_signal_versions",
+        "parse_repair_ready_versions",
+        "parse_repair_missing_raw_artifact_versions",
+        "raw_source_artifact_versions",
+        "repaired_text_artifact_versions",
     } <= set(body["source_library"]["counts"])
+    assert isinstance(body["source_library"]["quality_gates"], list)
+    assert {
+        "pending_lawful_fetch",
+        "parse_quality_review_required",
+        "source_review_ready",
+        "citable_search_ready",
+    } <= set(body["source_library"]["readiness_counts"])
     assert set(body["source_library"]["active_scope"]) >= {
         "City of Cockburn source anchors",
         "WA planning source anchors",
@@ -240,6 +253,8 @@ def test_ops_dashboard_uses_live_router_source_library_counts() -> None:
     assert body["source_library"]["counts"]["versions"] == 1
     assert body["source_library"]["counts"]["pending_review_versions"] == 1
     assert body["source_library"]["counts"]["approved_citable_versions"] == 0
+    assert body["source_library"]["counts"]["low_signal_versions"] == 1
+    assert body["source_library"]["readiness_counts"]["parse_quality_review_required"] == 1
     assert "Cockburn document fetch and human source approval" in body["source_library"]["pending"]
 
 
@@ -262,7 +277,20 @@ def test_source_ingestion_status_reports_cite_or_refuse_until_reviewed() -> None
         "chunks",
         "citations",
         "pending_fetches",
+        "review_ready_versions",
+        "low_signal_versions",
+        "parse_repair_ready_versions",
+        "parse_repair_missing_raw_artifact_versions",
+        "raw_source_artifact_versions",
+        "repaired_text_artifact_versions",
     } <= set(body["counts"])
+    assert isinstance(body["quality_gates"], list)
+    assert {
+        "pending_lawful_fetch",
+        "parse_quality_review_required",
+        "source_review_ready",
+        "citable_search_ready",
+    } <= set(body["readiness_counts"])
 
 
 def test_create_app_instances_do_not_share_default_source_library_state() -> None:

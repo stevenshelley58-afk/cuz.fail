@@ -159,27 +159,73 @@ def _fallback_ingestion_status(
         for source in sources
         for version in source_library.list_versions(source.id)
     ]
+    counts = {
+        "sources": len(sources),
+        "versions": len(versions),
+        "pending_review_versions": sum(
+            1 for version in versions if version.review_status is SourceReviewStatus.PENDING_REVIEW
+        ),
+        "approved_citable_versions": sum(
+            1 for version in versions if version.can_support_citable_retrieval
+        ),
+        "metadata_only_versions": sum(1 for version in versions if version.metadata_only),
+        "chunks": sum(
+            len(source_library.get_chunks_for_version(version.id)) for version in versions
+        ),
+        "citations": len(source_library.citations),
+        "pending_fetches": 0,
+        "review_ready_versions": 0,
+        "low_signal_versions": 0,
+        "parse_repair_ready_versions": 0,
+        "parse_repair_missing_raw_artifact_versions": 0,
+        "raw_source_artifact_versions": 0,
+        "repaired_text_artifact_versions": 0,
+    }
+    readiness_counts = {
+        "pending_lawful_fetch": 0,
+        "parse_or_citation_repair_required": 0,
+        "parse_quality_review_required": 0,
+        "source_review_ready": 0,
+        "licence_review_required": 0,
+        "source_refresh_required": 0,
+        "source_rejected": 0,
+        "citable_search_ready": 0,
+        "review_follow_up": 0,
+    }
+    for version in versions:
+        chunk_count = len(source_library.get_chunks_for_version(version.id))
+        citation_count = len(
+            [
+                citation
+                for citation in source_library.citations.values()
+                if citation.source_version_id == version.id
+            ]
+        )
+        low_signal = (
+            not version.metadata_only and (chunk_count <= 1 or citation_count <= 1)
+        )
+        readiness = _source_version_readiness(
+            version=version,
+            chunk_count=chunk_count,
+            citation_count=citation_count,
+            low_signal=low_signal,
+        )
+        readiness_counts[readiness] += 1
+        if low_signal:
+            counts["low_signal_versions"] += 1
+        if (
+            not version.metadata_only
+            and not low_signal
+            and chunk_count > 0
+            and citation_count > 0
+        ):
+            counts["review_ready_versions"] += 1
     return {
         "status": "ingestion_in_progress" if versions else "not_started",
         "answer_policy": "cite_or_refuse",
         "local_government": None,
         "beta_status": "not_beta_accurate_yet",
-        "counts": {
-            "sources": len(sources),
-            "versions": len(versions),
-            "pending_review_versions": sum(
-                1 for version in versions if version.review_status is SourceReviewStatus.PENDING_REVIEW
-            ),
-            "approved_citable_versions": sum(
-                1 for version in versions if version.can_support_citable_retrieval
-            ),
-            "metadata_only_versions": sum(1 for version in versions if version.metadata_only),
-            "chunks": sum(
-                len(source_library.get_chunks_for_version(version.id)) for version in versions
-            ),
-            "citations": len(source_library.citations),
-            "pending_fetches": 0,
-        },
+        "counts": counts,
         "items": [],
         "blocked_outputs": [
             "final_compliance_claims",
@@ -192,6 +238,8 @@ def _fallback_ingestion_status(
             "rule extraction review",
             "deterministic check promotion",
         ],
+        "quality_gates": _quality_gates(counts),
+        "readiness_counts": readiness_counts,
     }
 
 
