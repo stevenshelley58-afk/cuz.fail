@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Callable, Mapping, Sequence
 from datetime import UTC, date, datetime
 from hashlib import sha256
 import json
@@ -1278,6 +1278,10 @@ class SqlAlchemySourceLibrary:
                 "pending_fetch_items": 0,
                 "review_ready_versions": 0,
                 "low_signal_versions": 0,
+                "raw_source_artifact_versions": 0,
+                "parse_repair_ready_versions": 0,
+                "parse_repair_missing_raw_artifact_versions": 0,
+                "repaired_text_artifact_versions": 0,
                 "large_controlled_fetch_items": 0,
                 "chunks": 0,
                 "citations": 0,
@@ -1325,6 +1329,9 @@ class SqlAlchemySourceLibrary:
                 )
                 parse_quality = _version_parse_quality(version=version, fetch_log=fetch_log)
                 metadata_low_signal = _parse_quality_requires_review(parse_quality)
+                artifact_rows = session.scalars(
+                    select(DbArtifact).where(DbArtifact.subject_id == version.id)
+                ).all()
                 counts["chunks"] = int(counts["chunks"]) + chunk_count
                 counts["citations"] = int(counts["citations"]) + citation_count
                 low_signal = (
@@ -1336,8 +1343,33 @@ class SqlAlchemySourceLibrary:
                         or metadata_low_signal
                     )
                 )
+                repair_profile = _parse_repair_profile(
+                    source=source,
+                    version=domain_version,
+                    chunk_count=chunk_count,
+                    citation_count=citation_count,
+                    parse_quality=parse_quality,
+                    artifact_rows=artifact_rows,
+                    low_signal=low_signal,
+                )
                 if low_signal:
                     counts["low_signal_versions"] = int(counts["low_signal_versions"]) + 1
+                if repair_profile["raw_artifact_count"]:
+                    counts["raw_source_artifact_versions"] = (
+                        int(counts["raw_source_artifact_versions"]) + 1
+                    )
+                if repair_profile["status"] == "repair_ready":
+                    counts["parse_repair_ready_versions"] = (
+                        int(counts["parse_repair_ready_versions"]) + 1
+                    )
+                if repair_profile["status"] == "raw_source_missing":
+                    counts["parse_repair_missing_raw_artifact_versions"] = (
+                        int(counts["parse_repair_missing_raw_artifact_versions"]) + 1
+                    )
+                if repair_profile["repair_artifact_count"]:
+                    counts["repaired_text_artifact_versions"] = (
+                        int(counts["repaired_text_artifact_versions"]) + 1
+                    )
                 if (
                     not domain_version.metadata_only
                     and not low_signal
@@ -1375,6 +1407,7 @@ class SqlAlchemySourceLibrary:
                         low_signal=low_signal,
                     ),
                     "parse_quality": parse_quality,
+                    "repair_profile": repair_profile,
                     "issue_codes": issue_codes,
                     "recommended_action": _review_recommended_action(
                         metadata_only=domain_version.metadata_only,
@@ -1532,6 +1565,15 @@ class SqlAlchemySourceLibrary:
                 "issue_codes": issue_codes,
                 "recommended_action": _packet_recommended_action(readiness),
                 "parse_quality": parse_quality,
+                "repair_profile": _parse_repair_profile(
+                    source=source,
+                    version=domain_version,
+                    chunk_count=chunk_count,
+                    citation_count=citation_count,
+                    parse_quality=parse_quality,
+                    artifact_rows=artifact_rows,
+                    low_signal=low_signal,
+                ),
                 "priority": _review_priority(
                     source_type=source.source_type,
                     metadata_only=domain_version.metadata_only,
@@ -2251,6 +2293,154 @@ def _parse_quality_requires_review(parse_quality: Mapping[str, object] | None) -
     }
 
 
+_RAW_SOURCE_ARTIFACT_KINDS = {
+    ArtifactKind.RAW_PDF.value,
+    ArtifactKind.RAW_HTML.value,
+    ArtifactKind.RAW_DOCX.value,
+}
+_REPAIRED_TEXT_ARTIFACT_KINDS = {
+    ArtifactKind.OCR_TEXT.value,
+    ArtifactKind.PARSED_TEXT.value,
+}
+
+
+def _parse_repair_profile(
+    *,
+    source: DbSource,
+    version: SourceVersion,
+    chunk_count: int,
+    citation_count: int,
+    parse_quality: Mapping[str, object] | None,
+    artifact_rows: Sequence[DbArtifact],
+    low_signal: bool,
+) -> dict[str, object]:
+    raw_artifacts = [
+        artifact for artifact in artifact_rows if artifact.kind in _RAW_SOURCE_ARTIFACT_KINDS
+    ]
+    repair_artifacts = [
+        artifact
+        for artifact in artifact_rows
+        if artifact.kind in _REPAIRED_TEXT_ARTIFACT_KINDS
+    ]
+    reason_codes = _parse_repair_reason_codes(
+        chunk_count=chunk_count,
+        citation_count=citation_count,
+        parse_quality=parse_quality,
+        low_signal=low_signal,
+    )
+    if version.metadata_only:
+        status_value = "pending_lawful_fetch"
+        next_action = "lawfully fetch the public source before parse repair"
+    elif source.source_type == "scheme_map":
+        status_value = "not_required"
+        next_action = "review map evidence separately; text extraction is not authoritative for measurements"
+    elif not low_signal:
+        status_value = "not_required"
+        next_action = "human source review"
+    elif repair_artifacts:
+        status_value = "repaired_text_available"
+        next_action = "review repaired text, then rechunk and re-cite before source approval"
+    elif raw_artifacts:
+        status_value = "repair_ready"
+        next_action = _parse_repair_next_action(raw_artifacts)
+    else:
+        status_value = "raw_source_missing"
+        next_action = "refetch with raw artifact persistence before OCR or parser repair"
+    return {
+        "required": status_value
+        in {"repair_ready", "raw_source_missing", "repaired_text_available"},
+        "status": status_value,
+        "next_action": next_action,
+        "reason_codes": reason_codes,
+        "raw_artifact_count": len(raw_artifacts),
+        "raw_artifact_kinds": sorted({artifact.kind for artifact in raw_artifacts}),
+        "raw_artifacts": [_artifact_repair_reference(artifact) for artifact in raw_artifacts],
+        "repair_artifact_count": len(repair_artifacts),
+        "repair_artifact_kinds": sorted({artifact.kind for artifact in repair_artifacts}),
+        "repair_artifacts": [
+            _artifact_repair_reference(artifact) for artifact in repair_artifacts
+        ],
+    }
+
+
+def _parse_repair_next_action(raw_artifacts: Sequence[DbArtifact]) -> str:
+    kinds = {artifact.kind for artifact in raw_artifacts}
+    if ArtifactKind.RAW_PDF.value in kinds:
+        return "run OCR or PDF text-layer repair from the stored raw PDF"
+    if ArtifactKind.RAW_DOCX.value in kinds:
+        return "rerun DOCX parser from the stored raw document"
+    if ArtifactKind.RAW_HTML.value in kinds:
+        return "rerun HTML parser from the stored raw page"
+    return "rerun parser from the stored raw source artifact"
+
+
+def _parse_repair_reason_codes(
+    *,
+    chunk_count: int,
+    citation_count: int,
+    parse_quality: Mapping[str, object] | None,
+    low_signal: bool,
+) -> list[str]:
+    reason_codes: list[str] = []
+    if chunk_count == 0:
+        reason_codes.append("no_chunks")
+    elif chunk_count <= 1:
+        reason_codes.append("single_chunk")
+    if citation_count == 0:
+        reason_codes.append("no_citations")
+    elif citation_count <= 1:
+        reason_codes.append("single_citation")
+    if parse_quality is not None:
+        status_value = str(parse_quality.get("status") or "").strip()
+        if status_value:
+            reason_codes.append(f"parse_quality_{status_value}")
+        text_coverage_ratio = _optional_float(parse_quality.get("text_coverage_ratio"))
+        if text_coverage_ratio is not None and text_coverage_ratio < 0.2:
+            reason_codes.append("low_text_coverage")
+        page_count = _optional_int(parse_quality.get("page_count"))
+        pages_with_text = _optional_int(parse_quality.get("pages_with_text"))
+        if page_count and pages_with_text is not None and pages_with_text / page_count < 0.2:
+            reason_codes.append("low_page_text_coverage")
+    if low_signal and not reason_codes:
+        reason_codes.append("low_signal_parse_review")
+    return list(dict.fromkeys(reason_codes))
+
+
+def _artifact_repair_reference(artifact: DbArtifact) -> dict[str, object]:
+    return {
+        "id": str(artifact.id),
+        "kind": artifact.kind,
+        "storage_path": artifact.storage_path,
+        "sha256": artifact.sha256,
+        "media_type": artifact.media_type,
+        "size_bytes": artifact.size_bytes or 0,
+        "parser_name": artifact.parser_name,
+        "parser_version": artifact.parser_version,
+    }
+
+
+def _optional_float(value: object) -> float | None:
+    if isinstance(value, bool) or value is None:
+        return None
+    if not isinstance(value, (int, float, str)):
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _optional_int(value: object) -> int | None:
+    if isinstance(value, bool) or value is None:
+        return None
+    if not isinstance(value, (int, float, str)):
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
 def _sample_ordinals(total: int, limit: int) -> list[int]:
     if total <= 0:
         return []
@@ -2407,6 +2597,11 @@ def _source_quality_gates(counts: Mapping[str, object]) -> list[dict[str, object
     pending_fetch = _int_count(counts, "pending_fetch_items")
     pending_review = _int_count(counts, "pending_review_versions")
     low_signal = _int_count(counts, "low_signal_versions")
+    parse_repair_ready = _int_count(counts, "parse_repair_ready_versions")
+    parse_repair_missing_raw = _int_count(
+        counts,
+        "parse_repair_missing_raw_artifact_versions",
+    )
     approved_citable = _int_count(counts, "approved_citable_versions")
     return [
         {
@@ -2423,6 +2618,18 @@ def _source_quality_gates(counts: Mapping[str, object]) -> list[dict[str, object
             "gate": "parse_quality_review",
             "status": "needs_review" if low_signal else "passed",
             "blocking_count": low_signal,
+        },
+        {
+            "gate": "parse_repair_inputs",
+            "status": (
+                "blocked"
+                if parse_repair_missing_raw
+                else "ready"
+                if parse_repair_ready
+                else "not_required"
+            ),
+            "blocking_count": parse_repair_missing_raw,
+            "ready_count": parse_repair_ready,
         },
         {
             "gate": "citable_search_ready",
