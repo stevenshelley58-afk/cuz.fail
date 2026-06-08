@@ -192,6 +192,17 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         help="Optional source type filter, for example scheme_map or local_planning_scheme.",
     )
     fetch_sources.add_argument(
+        "--title-contains",
+        default=None,
+        help="Only fetch pending sources whose title contains this text.",
+    )
+    fetch_sources.add_argument(
+        "--max-declared-size-mb",
+        type=float,
+        default=None,
+        help="Skip pending sources whose title declares a larger PDF size.",
+    )
+    fetch_sources.add_argument(
         "--limit",
         type=int,
         default=5,
@@ -370,6 +381,8 @@ def _run_fetch_pending_sources(
     result = source_library.fetch_pending_sources(
         local_government=args.local_government,
         source_type=args.source_type,
+        title_contains=args.title_contains,
+        max_declared_size_mb=args.max_declared_size_mb,
         limit=args.limit,
         org_id=org_id,
         requested_by_user_id=user_id,

@@ -351,6 +351,8 @@ class SqlAlchemySourceLibrary:
         *,
         local_government: str | None = None,
         source_type: str | None = None,
+        title_contains: str | None = None,
+        max_declared_size_mb: float | None = None,
         limit: int = 5,
         org_id: UUID,
         requested_by_user_id: UUID,
@@ -359,6 +361,8 @@ class SqlAlchemySourceLibrary:
         candidates = self._pending_fetch_candidates(
             local_government=local_government,
             source_type=source_type,
+            title_contains=title_contains,
+            max_declared_size_mb=max_declared_size_mb,
             limit=limit,
             force=force,
         )
@@ -768,6 +772,8 @@ class SqlAlchemySourceLibrary:
         *,
         local_government: str | None,
         source_type: str | None,
+        title_contains: str | None,
+        max_declared_size_mb: float | None,
         limit: int,
         force: bool,
     ) -> list[dict[str, object]]:
@@ -780,8 +786,18 @@ class SqlAlchemySourceLibrary:
                 statement = statement.where(DbSource.local_government == local_government)
             if source_type:
                 statement = statement.where(DbSource.source_type == source_type)
+            normalized_title_filter = title_contains.strip().casefold() if title_contains else None
             candidates: list[dict[str, object]] = []
             for source in session.scalars(statement).all():
+                if normalized_title_filter and normalized_title_filter not in source.title.casefold():
+                    continue
+                declared_size_mb = _declared_size_mb(source.title)
+                if (
+                    max_declared_size_mb is not None
+                    and declared_size_mb is not None
+                    and declared_size_mb > max_declared_size_mb
+                ):
+                    continue
                 latest = self._latest_version(session, source)
                 latest_fetch = self._latest_fetch_log(session, source)
                 if not force:
