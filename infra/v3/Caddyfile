@@ -30,6 +30,22 @@
 	}
 }
 
+{$CADDY_ROOT_HOST:cuz.fail} {
+	import security_headers
+	encode zstd gzip
+	handle {
+		root * /srv/draftcheck/ui
+		try_files {path} /index.html
+		file_server
+	}
+}
+
+{$CADDY_WWW_HOST:www.cuz.fail} {
+	import security_headers
+	encode zstd gzip
+	redir https://{$CADDY_ROOT_HOST:cuz.fail}{uri} permanent
+}
+
 {$CADDY_APP_HOST:app.cuz.fail} {
 	import security_headers
 	encode zstd gzip
