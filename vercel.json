@@ -3,6 +3,18 @@
   "framework": null,
   "outputDirectory": "ui",
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://app.cuz.fail/",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://app.cuz.fail/:path*",
+      "permanent": false
+    }
+  ],
   "git": {
     "deploymentEnabled": false
   }
