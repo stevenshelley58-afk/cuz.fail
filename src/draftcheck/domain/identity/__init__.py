@@ -1,6 +1,14 @@
 """Identity domain helpers for V3."""
 
-from draftcheck.domain.identity.email import DevLogEmailSender, EmailSender, MagicLinkEmail
+from draftcheck.domain.identity.email import (
+    DevLogEmailSender,
+    EmailConfigurationError,
+    EmailDeliveryError,
+    EmailSender,
+    MagicLinkEmail,
+    MissingEmailSender,
+    SmtpEmailSender,
+)
 from draftcheck.domain.identity.roles import IdentityRole, can_review, normalize_role, require_reviewer
 from draftcheck.domain.identity.store import (
     MAGIC_LINK_TTL,
@@ -32,6 +40,8 @@ __all__ = [
     "SESSION_TTL",
     "ActiveSession",
     "DevLogEmailSender",
+    "EmailConfigurationError",
+    "EmailDeliveryError",
     "EmailSender",
     "IdentityRole",
     "IdentitySession",
@@ -44,8 +54,10 @@ __all__ = [
     "MagicLinkTokenConsumedError",
     "MagicLinkTokenExpiredError",
     "MagicLinkTokenNotFoundError",
+    "MissingEmailSender",
     "OrgIdentity",
     "SessionIssue",
+    "SmtpEmailSender",
     "UserIdentity",
     "can_review",
     "generate_raw_token",

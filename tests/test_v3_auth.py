@@ -150,6 +150,30 @@ def test_magic_link_request_refuses_unprovisioned_public_user() -> None:
         assert imported.status_code == 401
 
 
+def test_magic_link_request_reports_missing_smtp_in_production() -> None:
+    app = create_app()
+    store = InMemoryIdentityStore()
+    org = store.get_or_create_org()
+    store.get_or_create_user(org=org, email="owner@example.test", role=IdentityRole.OWNER)
+    settings = Settings(
+        app_env="production",
+        frontend_url="https://app.test",
+        session_cookie_secure=True,
+        cors_allowed_origins=("https://app.test",),
+    )
+    app.dependency_overrides[get_identity_store] = lambda: store
+    app.dependency_overrides[get_settings] = lambda: settings
+    with TestClient(app) as client:
+        response = client.post(
+            "/api/v1/auth/magic-link/request",
+            json={"email": "owner@example.test"},
+            headers={"origin": "https://app.test"},
+        )
+
+    assert response.status_code == 503
+    assert response.json()["detail"] == "SMTP_HOST and SMTP_FROM must be configured to send magic links"
+
+
 def test_dev_login_issues_session_for_valid_credentials() -> None:
     # Operator decision 2026-06-08: dev-only password login; disabled in prod (test below).
     with auth_client() as (client, store, _sender, settings):

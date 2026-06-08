@@ -14,6 +14,8 @@ from draftcheck.config import Settings, get_settings
 from draftcheck.domain.identity import (
     ActiveSession,
     DevLogEmailSender,
+    EmailConfigurationError,
+    EmailDeliveryError,
     EmailSender,
     IdentityRole,
     InMemoryIdentityStore,
@@ -21,7 +23,9 @@ from draftcheck.domain.identity import (
     MagicLinkTokenConsumedError,
     MagicLinkTokenExpiredError,
     MagicLinkTokenNotFoundError,
+    MissingEmailSender,
     SESSION_TTL,
+    SmtpEmailSender,
     require_reviewer,
 )
 from draftcheck.domain.identity.sqlalchemy_store import SqlAlchemyIdentityStore
@@ -32,7 +36,7 @@ router = APIRouter(tags=["auth"])
 IdentityStore = InMemoryIdentityStore | SqlAlchemyIdentityStore
 
 _identity_store: IdentityStore | None = None
-_email_sender = DevLogEmailSender()
+_dev_email_sender = DevLogEmailSender()
 
 
 class MagicLinkRequest(BaseModel):
@@ -96,8 +100,22 @@ def get_identity_store(settings: Annotated[Settings, Depends(get_settings)]) -> 
     return _identity_store
 
 
-def get_email_sender() -> EmailSender:
-    return _email_sender
+def get_email_sender(settings: Annotated[Settings, Depends(get_settings)]) -> EmailSender:
+    if settings.smtp_host:
+        return SmtpEmailSender(
+            host=settings.smtp_host,
+            port=settings.smtp_port,
+            username=settings.smtp_username,
+            password=settings.smtp_password,
+            from_address=settings.smtp_from,
+            from_name=settings.smtp_from_name,
+            use_starttls=settings.smtp_starttls,
+            use_ssl=settings.smtp_ssl,
+            timeout_seconds=settings.smtp_timeout_seconds,
+        )
+    if settings.app_env.strip().lower() == "production":
+        return MissingEmailSender()
+    return _dev_email_sender
 
 
 def _client_host(request: Request) -> str | None:
@@ -215,11 +233,22 @@ def request_magic_link(
     except InvalidIdentityInputError as exc:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
 
-    email_sender.send_magic_link(
-        issue.user.email,
-        _magic_link_url(settings, issue.token),
-        issue.record.expires_at,
-    )
+    try:
+        email_sender.send_magic_link(
+            issue.user.email,
+            _magic_link_url(settings, issue.token),
+            issue.record.expires_at,
+        )
+    except EmailConfigurationError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=str(exc),
+        ) from exc
+    except EmailDeliveryError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="Magic-link email delivery failed",
+        ) from exc
     return MagicLinkRequestedResponse(status="accepted", expires_at=issue.record.expires_at)
 
 

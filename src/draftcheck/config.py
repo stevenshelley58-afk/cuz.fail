@@ -21,6 +21,13 @@ def _bool_from_env(value: str | None) -> bool | None:
     raise ValueError(f"invalid boolean environment value: {value}")
 
 
+def _int_from_env(name: str, default: int) -> int:
+    value = os.getenv(name)
+    if value is None or value.strip() == "":
+        return default
+    return int(value)
+
+
 def _split_csv(value: str | None) -> tuple[str, ...]:
     if not value:
         return ()
@@ -43,6 +50,15 @@ class Settings:
     session_cookie_secure: bool = False
     session_cookie_samesite: SameSite = "lax"
     cors_allowed_origins: tuple[str, ...] = ("http://localhost:5173",)
+    smtp_host: str = ""
+    smtp_port: int = 587
+    smtp_username: str = ""
+    smtp_password: str = ""
+    smtp_from: str = ""
+    smtp_from_name: str = "LotFile"
+    smtp_starttls: bool = True
+    smtp_ssl: bool = False
+    smtp_timeout_seconds: int = 10
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -51,6 +67,8 @@ class Settings:
         secure_override = _bool_from_env(os.getenv("SESSION_COOKIE_SECURE"))
         secure = secure_override if secure_override is not None else app_env.lower() == "production"
         origins = _split_csv(os.getenv("CORS_ALLOWED_ORIGINS")) or (frontend_url,)
+        smtp_starttls = _bool_from_env(os.getenv("SMTP_STARTTLS"))
+        smtp_ssl = _bool_from_env(os.getenv("SMTP_SSL"))
         return cls(
             app_env=app_env,
             frontend_url=frontend_url,
@@ -59,6 +77,15 @@ class Settings:
             session_cookie_secure=secure,
             session_cookie_samesite=_samesite_from_env(os.getenv("SESSION_COOKIE_SAMESITE")),
             cors_allowed_origins=origins,
+            smtp_host=os.getenv("SMTP_HOST", ""),
+            smtp_port=_int_from_env("SMTP_PORT", 587),
+            smtp_username=os.getenv("SMTP_USERNAME", ""),
+            smtp_password=os.getenv("SMTP_PASSWORD", ""),
+            smtp_from=os.getenv("SMTP_FROM", ""),
+            smtp_from_name=os.getenv("SMTP_FROM_NAME", "LotFile"),
+            smtp_starttls=True if smtp_starttls is None else smtp_starttls,
+            smtp_ssl=False if smtp_ssl is None else smtp_ssl,
+            smtp_timeout_seconds=_int_from_env("SMTP_TIMEOUT_SECONDS", 10),
         )
 
 
