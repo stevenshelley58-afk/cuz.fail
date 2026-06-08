@@ -30,6 +30,7 @@ from draftcheck.db.models import (
 )
 from draftcheck.domain.sources.fetching import (
     CandidateSourceLink,
+    extract_pdf_text_with_ocr,
     extract_pdf_text_with_pymupdf,
     fetch_public_source,
     infer_source_type,
@@ -484,6 +485,9 @@ class SqlAlchemySourceLibrary:
         org_id: UUID,
         requested_by_user_id: UUID,
         force: bool = False,
+        ocr: bool = False,
+        max_ocr_pages: int = 30,
+        ocr_dpi: int = 200,
     ) -> dict[str, object]:
         candidates = self._parse_repair_candidates(
             local_government=local_government,
@@ -539,7 +543,15 @@ class SqlAlchemySourceLibrary:
                 continue
             try:
                 raw_content = raw_path.read_bytes()
-                extraction = extract_pdf_text_with_pymupdf(raw_content)
+                extraction = (
+                    extract_pdf_text_with_ocr(
+                        raw_content,
+                        max_pages=max_ocr_pages,
+                        dpi=ocr_dpi,
+                    )
+                    if ocr
+                    else extract_pdf_text_with_pymupdf(raw_content)
+                )
                 repaired_text = sanitize_source_text(extraction.text)
                 if not repaired_text.strip():
                     raise ValueError("repair parser produced no parseable text")
@@ -555,6 +567,7 @@ class SqlAlchemySourceLibrary:
                         status="skipped_no_improvement",
                         metadata={
                             "raw_artifact_id": candidate["raw_artifact_id"],
+                            "repair_mode": "ocr" if ocr else "text_layer",
                             "previous_text_char_count": previous_char_count,
                             "repaired_text_char_count": len(repaired_text),
                             **extraction.metadata,
@@ -577,7 +590,11 @@ class SqlAlchemySourceLibrary:
                 repair_metadata = {
                     **extraction.metadata,
                     "repair": {
-                        "method": "pymupdf_text_layer",
+                        "method": (
+                            "pymupdf_render_tesseract_ocr"
+                            if ocr
+                            else "pymupdf_text_layer"
+                        ),
                         "previous_source_version_id": source_version_id,
                         "raw_artifact_id": candidate["raw_artifact_id"],
                         "previous_text_char_count": previous_char_count,
@@ -602,7 +619,10 @@ class SqlAlchemySourceLibrary:
                     source_type=str(candidate["source_type"]),
                     access_type=str(candidate["access_type"]),
                     licence_notes=str(candidate.get("licence_notes") or ""),
-                    version_label=f"repaired:{sha256(repaired_text.encode('utf-8')).hexdigest()[:12]}",
+                    version_label=(
+                        f"{'ocr' if ocr else 'repaired'}:"
+                        f"{sha256(repaired_text.encode('utf-8')).hexdigest()[:12]}"
+                    ),
                     source_metadata=cast(Mapping[str, object], candidate["source_metadata"]),
                     version_metadata=repair_metadata,
                 )
@@ -628,6 +648,7 @@ class SqlAlchemySourceLibrary:
                         "previous_source_version_id": source_version_id,
                         "raw_artifact_id": raw_artifact["id"],
                         "previous_raw_artifact_id": candidate["raw_artifact_id"],
+                        "repair_mode": "ocr" if ocr else "text_layer",
                         "previous_text_char_count": previous_char_count,
                         "repaired_text_char_count": len(repaired_text),
                         "duplicate": result.duplicate,
@@ -2601,6 +2622,7 @@ def _parse_quality_requires_review(parse_quality: Mapping[str, object] | None) -
     return str(parse_quality.get("status") or "") in {
         "low_signal_review",
         "no_parseable_text",
+        "partial_ocr_review",
     }
 
 

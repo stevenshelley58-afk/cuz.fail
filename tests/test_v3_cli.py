@@ -504,6 +504,9 @@ def test_repair_parse_quality_sources_uses_operator_and_filters(
             org_id,
             requested_by_user_id,
             force,
+            ocr,
+            max_ocr_pages,
+            ocr_dpi,
         ):
             calls["repair"] = {
                 "local_government": local_government,
@@ -512,6 +515,9 @@ def test_repair_parse_quality_sources_uses_operator_and_filters(
                 "org_id": str(org_id),
                 "requested_by_user_id": str(requested_by_user_id),
                 "force": force,
+                "ocr": ocr,
+                "max_ocr_pages": max_ocr_pages,
+                "ocr_dpi": ocr_dpi,
             }
             return {"repaired": 1, "failed": 0, "skipped": 0, "items": []}
 
@@ -535,6 +541,11 @@ def test_repair_parse_quality_sources_uses_operator_and_filters(
             "--org-slug",
             "draftcheck",
             "--force",
+            "--ocr",
+            "--max-ocr-pages",
+            "12",
+            "--ocr-dpi",
+            "180",
         ],
         stdout=stdout,
         stderr=stderr,
@@ -556,6 +567,9 @@ def test_repair_parse_quality_sources_uses_operator_and_filters(
         "org_id": str(org_id),
         "requested_by_user_id": str(user_id),
         "force": True,
+        "ocr": True,
+        "max_ocr_pages": 12,
+        "ocr_dpi": 180,
     }
 
 

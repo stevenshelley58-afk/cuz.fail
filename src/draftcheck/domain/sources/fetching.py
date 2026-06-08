@@ -285,6 +285,78 @@ def extract_pdf_text_with_pymupdf(content: bytes) -> SourceTextExtraction:
     )
 
 
+def extract_pdf_text_with_ocr(
+    content: bytes,
+    *,
+    max_pages: int = 30,
+    dpi: int = 200,
+) -> SourceTextExtraction:
+    try:
+        import fitz
+        from PIL import Image
+        import pytesseract
+    except ImportError as exc:  # pragma: no cover - optional repair dependency in pyproject
+        raise ValueError("OCR repair parser is unavailable") from exc
+    if max_pages < 1:
+        raise ValueError("max_pages must be at least 1 for OCR repair")
+    if dpi < 100:
+        raise ValueError("dpi must be at least 100 for OCR repair")
+    document = fitz.open(stream=content, filetype="pdf")
+    try:
+        page_count = len(document)
+        pages_to_process = min(page_count, max_pages)
+        scale = dpi / 72
+        matrix = fitz.Matrix(scale, scale)
+        text_pages: list[str] = []
+        for page_index in range(pages_to_process):
+            page = document[page_index]
+            pixmap = page.get_pixmap(matrix=matrix, alpha=False)
+            image = Image.open(BytesIO(pixmap.tobytes("png")))
+            page_text = pytesseract.image_to_string(image, lang="eng").strip()
+            if page_text:
+                text_pages.append(page_text)
+    finally:
+        document.close()
+    text = "\n\n".join(text_pages)
+    pages_with_text = len(text_pages)
+    text_char_count = len(text)
+    text_word_count = len(text.split())
+    text_coverage_ratio = round(pages_with_text / page_count, 4) if page_count else 0.0
+    partial = pages_to_process < page_count
+    status_value = (
+        "partial_ocr_review"
+        if partial
+        else _pdf_parse_quality_status(
+            page_count=page_count,
+            pages_with_text=pages_with_text,
+            text_char_count=text_char_count,
+            text_coverage_ratio=text_coverage_ratio,
+        )
+    )
+    return SourceTextExtraction(
+        text=text,
+        metadata={
+            "extraction": {
+                "content_kind": "pdf",
+                "method": "pymupdf_render_tesseract_ocr",
+                "dpi": dpi,
+                "max_pages": max_pages,
+                "pages_processed": pages_to_process,
+                "partial": partial,
+            },
+            "parse_quality": {
+                "status": status_value,
+                "page_count": page_count,
+                "pages_processed": pages_to_process,
+                "pages_with_text": pages_with_text,
+                "text_char_count": text_char_count,
+                "text_word_count": text_word_count,
+                "text_coverage_ratio": text_coverage_ratio,
+            },
+        },
+    )
+
+
 def _extract_pdf_text_with_metadata(content: bytes) -> SourceTextExtraction:
     try:
         from pypdf import PdfReader

@@ -273,6 +273,23 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         action="store_true",
         help="Create a repaired version even when repaired text is not longer.",
     )
+    repair_sources.add_argument(
+        "--ocr",
+        action="store_true",
+        help="Run bounded OCR from the stored raw PDF instead of text-layer repair.",
+    )
+    repair_sources.add_argument(
+        "--max-ocr-pages",
+        type=int,
+        default=30,
+        help="Maximum pages to OCR per PDF when --ocr is set.",
+    )
+    repair_sources.add_argument(
+        "--ocr-dpi",
+        type=int,
+        default=200,
+        help="Render DPI for OCR repair when --ocr is set.",
+    )
     discover_links = subparsers.add_parser(
         "discover-source-links",
         help="Register child source links from fetched public source pages as pending-review fetch targets.",
@@ -452,6 +469,12 @@ def _run_repair_parse_quality_sources(
     if args.limit < 1:
         stderr.write("error: --limit must be at least 1\n")
         return 2
+    if args.max_ocr_pages < 1:
+        stderr.write("error: --max-ocr-pages must be at least 1\n")
+        return 2
+    if args.ocr_dpi < 100:
+        stderr.write("error: --ocr-dpi must be at least 100\n")
+        return 2
     org_id, user_id = _operator_ids(
         database_url=database_url,
         email=args.operator_email,
@@ -466,6 +489,9 @@ def _run_repair_parse_quality_sources(
         org_id=org_id,
         requested_by_user_id=user_id,
         force=args.force,
+        ocr=args.ocr,
+        max_ocr_pages=args.max_ocr_pages,
+        ocr_dpi=args.ocr_dpi,
     )
     stdout.write(json.dumps(result, sort_keys=True))
     stdout.write("\n")
