@@ -34,6 +34,12 @@ class PublicSourceFetch:
 
 
 @dataclass(frozen=True)
+class SourceTextExtraction:
+    text: str
+    metadata: dict[str, object]
+
+
+@dataclass(frozen=True)
 class CandidateSourceLink:
     url: str
     label: str
@@ -61,12 +67,12 @@ def fetch_public_source(
             raise ValueError(f"source requires restricted access: HTTP {response.status_code}")
         response.raise_for_status()
         content_type = response.headers.get("content-type", "application/octet-stream")
-        text = extract_source_text(
+        extraction = extract_source_text_with_metadata(
             response.content,
             content_type=content_type,
             final_url=str(response.url),
         )
-        text = sanitize_source_text(text)
+        text = sanitize_source_text(extraction.text)
         if not text.strip():
             raise ValueError("source fetch produced no parseable text")
         digest = sha256(response.content).hexdigest()
@@ -88,6 +94,7 @@ def fetch_public_source(
                 "raw_sha256": digest,
                 "robots_allowed": True,
                 "parser": "draftcheck.sources.public_fetch.v0",
+                **extraction.metadata,
                 "candidate_links": [
                     {
                         "url": link.url,
@@ -138,13 +145,49 @@ def parse_robots_allows(robots_text: str, path: str) -> bool:
 
 
 def extract_source_text(content: bytes, *, content_type: str, final_url: str) -> str:
+    return extract_source_text_with_metadata(
+        content,
+        content_type=content_type,
+        final_url=final_url,
+    ).text
+
+
+def extract_source_text_with_metadata(
+    content: bytes,
+    *,
+    content_type: str,
+    final_url: str,
+) -> SourceTextExtraction:
     lowered_type = content_type.lower()
     lowered_url = final_url.lower()
     if "pdf" in lowered_type or lowered_url.endswith(".pdf"):
-        return _extract_pdf_text(content)
+        return _extract_pdf_text_with_metadata(content)
     if "html" in lowered_type or lowered_url.endswith((".html", ".htm", "/")):
-        return _extract_html_text(content, final_url=final_url)
-    return content.decode("utf-8", errors="ignore").strip()
+        return SourceTextExtraction(
+            text=_extract_html_text(content, final_url=final_url),
+            metadata={
+                "extraction": {
+                    "content_kind": "html",
+                    "method": "beautifulsoup_text",
+                },
+                "parse_quality": {
+                    "status": "text_extracted",
+                },
+            },
+        )
+    text = content.decode("utf-8", errors="ignore").strip()
+    return SourceTextExtraction(
+        text=text,
+        metadata={
+            "extraction": {
+                "content_kind": "text",
+                "method": "utf8_decode",
+            },
+            "parse_quality": {
+                "status": "text_extracted" if text else "no_parseable_text",
+            },
+        },
+    )
 
 
 def sanitize_source_text(text: str) -> str:
@@ -195,13 +238,77 @@ def _candidate_links_for_response(
 
 
 def _extract_pdf_text(content: bytes) -> str:
+    return _extract_pdf_text_with_metadata(content).text
+
+
+def _extract_pdf_text_with_metadata(content: bytes) -> SourceTextExtraction:
     try:
         from pypdf import PdfReader
     except ImportError as exc:  # pragma: no cover - dependency is locked in pyproject
         raise ValueError("PDF parser is unavailable") from exc
     reader = PdfReader(BytesIO(content))
     pages = [page.extract_text() or "" for page in reader.pages]
-    return "\n\n".join(page.strip() for page in pages if page.strip())
+    normalized_pages = [page.strip() for page in pages]
+    text_pages = [page for page in normalized_pages if page]
+    text = "\n\n".join(text_pages)
+    page_count = len(normalized_pages)
+    pages_with_text = len(text_pages)
+    text_char_count = len(text)
+    text_word_count = len(text.split())
+    text_coverage_ratio = round(pages_with_text / page_count, 4) if page_count else 0.0
+    return SourceTextExtraction(
+        text=text,
+        metadata={
+            "extraction": {
+                "content_kind": "pdf",
+                "method": "pypdf_text_layer",
+            },
+            "parse_quality": {
+                "status": _pdf_parse_quality_status(
+                    page_count=page_count,
+                    pages_with_text=pages_with_text,
+                    text_char_count=text_char_count,
+                    text_coverage_ratio=text_coverage_ratio,
+                ),
+                "page_count": page_count,
+                "pages_with_text": pages_with_text,
+                "text_char_count": text_char_count,
+                "text_word_count": text_word_count,
+                "text_coverage_ratio": text_coverage_ratio,
+            },
+        },
+    )
+
+
+def _pdf_parse_quality_status(
+    *,
+    page_count: int,
+    pages_with_text: int,
+    text_char_count: int,
+    text_coverage_ratio: float,
+) -> str:
+    if text_char_count == 0 or pages_with_text == 0:
+        return "no_parseable_text"
+    if page_count > 1 and pages_with_text <= 1:
+        return "low_signal_review"
+    if text_char_count < 1000:
+        return "low_signal_review"
+    if page_count >= 4 and text_coverage_ratio < 0.25:
+        return "low_signal_review"
+    return "text_layer_extracted"
+
+
+def _is_low_signal_cockburn_source_link(url: str, source_type: str) -> bool:
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower()
+    if not host.endswith("cockburn.wa.gov.au"):
+        return False
+    if source_type != "source_document":
+        return False
+    normalized_path = parsed.path.lower().rstrip("/")
+    if normalized_path == "/building-planning-and-roads/town-planning-and-development":
+        return True
+    return normalized_path.startswith("/building-planning-and-roads/")
 
 
 def _candidate_links(soup: BeautifulSoup, *, final_url: str) -> list[CandidateSourceLink]:
@@ -224,6 +331,9 @@ def _candidate_links(soup: BeautifulSoup, *, final_url: str) -> list[CandidateSo
         label = " ".join(anchor.get_text(" ", strip=True).split())
         if not _looks_like_source_link(lowered, label.lower()):
             continue
+        source_type = infer_source_type(absolute, label)
+        if _is_low_signal_cockburn_source_link(absolute, source_type):
+            continue
         if absolute in seen_urls:
             continue
         seen_urls.add(absolute)
@@ -231,7 +341,7 @@ def _candidate_links(soup: BeautifulSoup, *, final_url: str) -> list[CandidateSo
             CandidateSourceLink(
                 url=absolute,
                 label=label or _label_from_url(absolute),
-                source_type=infer_source_type(absolute, label),
+                source_type=source_type,
             )
         )
     return candidates

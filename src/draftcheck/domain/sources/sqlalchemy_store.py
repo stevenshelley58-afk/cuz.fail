@@ -424,6 +424,7 @@ class SqlAlchemySourceLibrary:
                         "duplicate": result.duplicate,
                         "chunk_count": len(result.chunks),
                         "citation_count": len(result.citations),
+                        "parse_quality": public_source.metadata.get("parse_quality"),
                         "review_status": result.version.review_status.value,
                     }
                 )
@@ -1186,12 +1187,18 @@ class SqlAlchemySourceLibrary:
                     )
                     or 0
                 )
+                parse_quality = _parse_quality_metadata(version.metadata_json)
+                metadata_low_signal = _parse_quality_requires_review(parse_quality)
                 counts["chunks"] = int(counts["chunks"]) + chunk_count
                 counts["citations"] = int(counts["citations"]) + citation_count
                 low_signal = (
                     not domain_version.metadata_only
                     and source.source_type != "scheme_map"
-                    and (chunk_count <= 1 or citation_count <= 1)
+                    and (
+                        chunk_count <= 1
+                        or citation_count <= 1
+                        or metadata_low_signal
+                    )
                 )
                 if low_signal:
                     counts["low_signal_versions"] = int(counts["low_signal_versions"]) + 1
@@ -1210,6 +1217,8 @@ class SqlAlchemySourceLibrary:
                 )
                 if low_signal:
                     issue_codes.append("low_signal_parse_review")
+                if metadata_low_signal:
+                    issue_codes.append("parse_quality_metadata_review")
                 item: dict[str, object] = {
                     "source_id": str(source.id),
                     "source_version_id": str(version.id),
@@ -1229,6 +1238,7 @@ class SqlAlchemySourceLibrary:
                         citation_count=citation_count,
                         low_signal=low_signal,
                     ),
+                    "parse_quality": parse_quality,
                     "issue_codes": issue_codes,
                     "recommended_action": _review_recommended_action(
                         metadata_only=domain_version.metadata_only,
@@ -1323,10 +1333,16 @@ class SqlAlchemySourceLibrary:
                 .where(DbArtifact.subject_id == version.id)
                 .order_by(DbArtifact.kind, DbArtifact.created_at)
             ).all()
+            parse_quality = _parse_quality_metadata(version.metadata_json)
+            metadata_low_signal = _parse_quality_requires_review(parse_quality)
             low_signal = (
                 not domain_version.metadata_only
                 and source.source_type != "scheme_map"
-                and (chunk_count <= 1 or citation_count <= 1)
+                and (
+                    chunk_count <= 1
+                    or citation_count <= 1
+                    or metadata_low_signal
+                )
             )
             issue_codes = _review_issue_codes(
                 source=source,
@@ -1336,6 +1352,8 @@ class SqlAlchemySourceLibrary:
             )
             if low_signal:
                 issue_codes.append("low_signal_parse_review")
+            if metadata_low_signal:
+                issue_codes.append("parse_quality_metadata_review")
             readiness = _quality_readiness(
                 version=domain_version,
                 chunk_count=chunk_count,
@@ -1377,6 +1395,7 @@ class SqlAlchemySourceLibrary:
                 "readiness": readiness,
                 "issue_codes": issue_codes,
                 "recommended_action": _packet_recommended_action(readiness),
+                "parse_quality": parse_quality,
                 "priority": _review_priority(
                     source_type=source.source_type,
                     metadata_only=domain_version.metadata_only,
@@ -2065,6 +2084,22 @@ def _quality_readiness(
     if not version.licence_status.can_support_citation:
         return "licence_review_required"
     return "review_follow_up"
+
+
+def _parse_quality_metadata(metadata: Mapping[str, object]) -> dict[str, object] | None:
+    value = metadata.get("parse_quality")
+    if not isinstance(value, Mapping):
+        return None
+    return {str(key): item for key, item in value.items()}
+
+
+def _parse_quality_requires_review(parse_quality: Mapping[str, object] | None) -> bool:
+    if parse_quality is None:
+        return False
+    return str(parse_quality.get("status") or "") in {
+        "low_signal_review",
+        "no_parseable_text",
+    }
 
 
 def _sample_ordinals(total: int, limit: int) -> list[int]:

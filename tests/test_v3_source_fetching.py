@@ -1,8 +1,13 @@
 from __future__ import annotations
 
+from io import BytesIO
+
+from pypdf import PdfWriter
+
 from draftcheck.domain.sources.fetching import (
     extract_candidate_links,
     extract_source_text,
+    extract_source_text_with_metadata,
     infer_source_type,
     parse_robots_allows,
     sanitize_source_text,
@@ -51,6 +56,50 @@ def test_extract_html_source_text_keeps_candidate_public_links() -> None:
     assert "Town Planning and Development" in text
     assert "Local Planning Policies" in text
     assert "/login/private-policy.pdf" not in text
+
+
+def test_extract_html_source_text_reports_parse_quality_metadata() -> None:
+    html = b"<html><body><h1>Cockburn Planning</h1><p>Policy text.</p></body></html>"
+
+    extraction = extract_source_text_with_metadata(
+        html,
+        content_type="text/html",
+        final_url="https://www.cockburn.wa.gov.au/planning",
+    )
+
+    assert "Cockburn Planning" in extraction.text
+    assert extraction.metadata["extraction"] == {
+        "content_kind": "html",
+        "method": "beautifulsoup_text",
+    }
+    assert extraction.metadata["parse_quality"] == {"status": "text_extracted"}
+
+
+def test_extract_pdf_source_text_flags_blank_pdf_for_parse_quality_review() -> None:
+    writer = PdfWriter()
+    writer.add_blank_page(width=72, height=72)
+    stream = BytesIO()
+    writer.write(stream)
+
+    extraction = extract_source_text_with_metadata(
+        stream.getvalue(),
+        content_type="application/pdf",
+        final_url="https://example.test/blank.pdf",
+    )
+
+    assert extraction.text == ""
+    assert extraction.metadata["extraction"] == {
+        "content_kind": "pdf",
+        "method": "pypdf_text_layer",
+    }
+    assert extraction.metadata["parse_quality"] == {
+        "status": "no_parseable_text",
+        "page_count": 1,
+        "pages_with_text": 0,
+        "text_char_count": 0,
+        "text_word_count": 0,
+        "text_coverage_ratio": 0.0,
+    }
 
 
 def test_extract_candidate_links_returns_structured_source_targets() -> None:
