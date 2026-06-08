@@ -378,6 +378,140 @@ def _fallback_quality_readiness(item: dict[str, Any]) -> str:
     return "review_follow_up"
 
 
+def _fallback_source_review_packet(
+    source_library: InMemorySourceLibrary,
+    *,
+    source_id: str,
+    source_version_id: str,
+    sample_limit: int,
+    sample_chars: int,
+) -> dict[str, Any]:
+    source = source_library.get_source(source_id)
+    version = source_library.get_version(source_version_id)
+    if version.source_id != source.id:
+        raise SourceNotFoundError(f"source version does not belong to source: {source_version_id}")
+    chunks = source_library.get_chunks_for_version(version.id)
+    citations = [
+        citation
+        for citation in source_library.citations.values()
+        if citation.source_version_id == version.id
+    ]
+    citation_by_chunk = {citation.chunk_id: citation for citation in citations}
+    low_signal = (
+        not version.metadata_only
+        and (len(chunks) <= 1 or len(citations) <= 1)
+    )
+    issue_codes = _fallback_review_issue_codes(
+        version,
+        chunk_count=len(chunks),
+        citation_count=len(citations),
+    )
+    if low_signal:
+        issue_codes.append("low_signal_parse_review")
+    readiness = _source_version_readiness(
+        version=version,
+        chunk_count=len(chunks),
+        citation_count=len(citations),
+        low_signal=low_signal,
+    )
+    chunk_samples = [
+        {
+            "id": chunk.id,
+            "ordinal": chunk.ordinal,
+            "text": _truncate_review_text(chunk.text, sample_chars),
+            "text_truncated": len(chunk.text) > sample_chars,
+            "text_sha256": chunk.text_sha256,
+            "citation": jsonable_encoder(citation_by_chunk.get(chunk.id)),
+        }
+        for chunk in _sample_ordered(chunks, limit=sample_limit)
+    ]
+    artifacts = [
+        artifact
+        for artifact in source_library.artifacts.values()
+        if artifact.subject_id == version.id
+    ]
+    return {
+        "status": "review_required" if readiness != "citable_search_ready" else "citable_search_ready",
+        "answer_policy": "cite_or_refuse",
+        "source": jsonable_encoder(source),
+        "version": jsonable_encoder(version),
+        "counts": {
+            "chunks": len(chunks),
+            "citations": len(citations),
+            "artifacts": len(artifacts),
+        },
+        "readiness": readiness,
+        "issue_codes": issue_codes,
+        "recommended_action": (
+            "repair_parse_or_citations"
+            if readiness in {"parse_or_citation_repair_required", "parse_quality_review_required"}
+            else "lawful_fetch"
+            if readiness == "pending_lawful_fetch"
+            else "human_source_review"
+        ),
+        "can_support_search": version.can_support_citable_retrieval and bool(chunks) and bool(citations),
+        "artifacts": jsonable_encoder(artifacts),
+        "chunk_samples": chunk_samples,
+        "blocked_outputs": [
+            "final_compliance_claims",
+            "uncited_regulatory_answers",
+            "unpromoted_measurement_verdicts",
+        ],
+        "required_before_beta": [
+            "human source review",
+            "licence verification",
+            "parse quality review when flagged",
+            "rule extraction review",
+            "deterministic rule promotion",
+        ],
+    }
+
+
+def _source_version_readiness(
+    *,
+    version: Any,
+    chunk_count: int,
+    citation_count: int,
+    low_signal: bool,
+) -> str:
+    if version.can_support_citable_retrieval and chunk_count > 0 and citation_count > 0:
+        return "citable_search_ready"
+    if version.metadata_only:
+        return "pending_lawful_fetch"
+    if chunk_count == 0 or citation_count == 0:
+        return "parse_or_citation_repair_required"
+    if low_signal:
+        return "parse_quality_review_required"
+    if version.review_status is SourceReviewStatus.PENDING_REVIEW:
+        return "source_review_ready"
+    if version.review_status is SourceReviewStatus.REJECTED:
+        return "source_rejected"
+    if version.review_status is SourceReviewStatus.STALE:
+        return "source_refresh_required"
+    if not version.licence_status.can_support_citation:
+        return "licence_review_required"
+    return "review_follow_up"
+
+
+def _sample_ordered(items: tuple[Any, ...], *, limit: int) -> tuple[Any, ...]:
+    if limit <= 0 or len(items) <= limit:
+        return items
+    if limit == 1:
+        return (items[0],)
+    indexes = {0, len(items) - 1}
+    if limit > 2:
+        step = (len(items) - 1) / (limit - 1)
+        indexes.update(round(step * index) for index in range(limit))
+    return tuple(items[index] for index in sorted(indexes)[:limit])
+
+
+def _truncate_review_text(text: str, max_chars: int) -> str:
+    normalized_limit = max(max_chars, 0)
+    if len(text) <= normalized_limit:
+        return text
+    return text[:normalized_limit].rstrip()
+
+
 def _quality_gates(counts: dict[str, Any]) -> list[dict[str, Any]]:
     return [
         {
@@ -562,6 +696,34 @@ def create_sources_router(
             readiness=readiness,
             limit=limit,
         )
+
+    @api_router.get("/sources/{source_id}/versions/{source_version_id}/review-packet", tags=["sources"])
+    def source_review_packet(
+        source_id: str,
+        source_version_id: str,
+        _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+        _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        sample_limit: int = Query(default=12, ge=1, le=30),
+        sample_chars: int = Query(default=4000, ge=500, le=12000),
+    ) -> dict[str, Any]:
+        packet_provider = getattr(source_library, "review_packet", None)
+        try:
+            if callable(packet_provider):
+                return packet_provider(
+                    source_id=source_id,
+                    source_version_id=source_version_id,
+                    sample_limit=sample_limit,
+                    sample_chars=sample_chars,
+                )
+            return _fallback_source_review_packet(
+                source_library,
+                source_id=source_id,
+                source_version_id=source_version_id,
+                sample_limit=sample_limit,
+                sample_chars=sample_chars,
+            )
+        except SourceNotFoundError as exc:
+            raise _source_not_found(exc) from exc
 
     @api_router.get("/sources/{source_id}", tags=["sources"])
     def get_source(source_id: str) -> dict[str, Any]:

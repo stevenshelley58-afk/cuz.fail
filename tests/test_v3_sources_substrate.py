@@ -481,6 +481,50 @@ def test_api_source_quality_report_requires_reviewer_and_reports_blocking_gates(
     assert filtered_body["items"][0]["source_version_id"] == fetched["version"]["id"]
 
 
+def test_api_source_review_packet_requires_reviewer_and_returns_evidence_samples() -> None:
+    library = InMemorySourceLibrary(embedding_config=_embedding_config())
+    reviewer_client = _client(library, reviewer=True)
+    content = "\n\n".join(
+        f"Clause {index} sets out source review fixture text and requires citation review."
+        for index in range(1, 40)
+    )
+    imported = reviewer_client.post(
+        "/api/v1/sources/import",
+        json={
+            "title": "Review Packet Fixture",
+            "content": content,
+            "licence_status": "pending_review",
+        },
+    ).json()
+    source_id = imported["source"]["id"]
+    version_id = imported["version"]["id"]
+
+    blocked = _client(library).get(
+        f"/api/v1/sources/{source_id}/versions/{version_id}/review-packet",
+    )
+    response = reviewer_client.get(
+        f"/api/v1/sources/{source_id}/versions/{version_id}/review-packet",
+        params={"sample_limit": 2, "sample_chars": 700},
+    )
+
+    assert blocked.status_code == 401
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "review_required"
+    assert body["answer_policy"] == "cite_or_refuse"
+    assert body["source"]["title"] == "Review Packet Fixture"
+    assert body["version"]["id"] == version_id
+    assert body["counts"]["chunks"] >= 2
+    assert body["counts"]["citations"] >= 2
+    assert body["readiness"] == "source_review_ready"
+    assert body["recommended_action"] == "human_source_review"
+    assert "source_version_pending_review" in body["issue_codes"]
+    assert len(body["chunk_samples"]) == 2
+    assert body["chunk_samples"][0]["citation"]["quote"]
+    assert "final_compliance_claims" in body["blocked_outputs"]
+    assert "deterministic rule promotion" in body["required_before_beta"]
+
+
 def test_api_source_mutations_reject_disallowed_origin() -> None:
     library = InMemorySourceLibrary(embedding_config=_embedding_config())
     reviewer_client = _client(library, reviewer=True)

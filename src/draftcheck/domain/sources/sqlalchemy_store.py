@@ -1279,6 +1279,136 @@ class SqlAlchemySourceLibrary:
                 ],
             }
 
+    def review_packet(
+        self,
+        *,
+        source_id: str,
+        source_version_id: str,
+        sample_limit: int = 12,
+        sample_chars: int = 4000,
+    ) -> dict[str, object]:
+        with self._session_factory() as session:
+            source = self._get_source_by_id(session, source_id)
+            version = self._get_version_by_id(session, source_version_id)
+            if version.source_id != source.id:
+                raise SourceNotFoundError(f"source version does not belong to source: {source_version_id}")
+            domain_version = self._source_version(version)
+            fetch_log = self._latest_fetch_log(session, source)
+            chunk_count = int(
+                session.scalar(
+                    select(func.count()).select_from(DbSourceChunk).where(
+                        DbSourceChunk.source_version_id == version.id,
+                    )
+                )
+                or 0
+            )
+            citation_count = int(
+                session.scalar(
+                    select(func.count()).select_from(DbSourceCitation).where(
+                        DbSourceCitation.source_version_id == version.id,
+                    )
+                )
+                or 0
+            )
+            token_count = int(
+                session.scalar(
+                    select(func.coalesce(func.sum(DbSourceChunk.token_count), 0)).where(
+                        DbSourceChunk.source_version_id == version.id,
+                    )
+                )
+                or 0
+            )
+            artifact_rows = session.scalars(
+                select(DbArtifact)
+                .where(DbArtifact.subject_id == version.id)
+                .order_by(DbArtifact.kind, DbArtifact.created_at)
+            ).all()
+            low_signal = (
+                not domain_version.metadata_only
+                and source.source_type != "scheme_map"
+                and (chunk_count <= 1 or citation_count <= 1)
+            )
+            issue_codes = _review_issue_codes(
+                source=source,
+                version=domain_version,
+                chunk_count=chunk_count,
+                citation_count=citation_count,
+            )
+            if low_signal:
+                issue_codes.append("low_signal_parse_review")
+            readiness = _quality_readiness(
+                version=domain_version,
+                chunk_count=chunk_count,
+                citation_count=citation_count,
+                low_signal=low_signal,
+            )
+            sample_ordinals = _sample_ordinals(chunk_count, sample_limit)
+            sample_rows: list[tuple[DbSourceChunk, DbSourceCitation | None]] = []
+            if sample_ordinals:
+                sample_statement = (
+                    select(DbSourceChunk, DbSourceCitation)
+                    .outerjoin(DbSourceCitation, DbSourceCitation.source_chunk_id == DbSourceChunk.id)
+                    .where(
+                        DbSourceChunk.source_version_id == version.id,
+                        DbSourceChunk.chunk_index.in_(sample_ordinals),
+                    )
+                    .order_by(DbSourceChunk.chunk_index)
+                )
+                sample_rows = [
+                    (chunk, citation)
+                    for chunk, citation in session.execute(sample_statement).all()
+                ]
+            can_support_search = (
+                domain_version.can_support_citable_retrieval
+                and chunk_count > 0
+                and citation_count > 0
+            )
+            return {
+                "status": "citable_search_ready" if can_support_search else "review_required",
+                "answer_policy": "cite_or_refuse",
+                "source": _review_packet_source(source),
+                "version": _review_packet_version(domain_version),
+                "counts": {
+                    "chunks": chunk_count,
+                    "citations": citation_count,
+                    "artifacts": len(artifact_rows),
+                    "tokens": token_count,
+                },
+                "readiness": readiness,
+                "issue_codes": issue_codes,
+                "recommended_action": _packet_recommended_action(readiness),
+                "priority": _review_priority(
+                    source_type=source.source_type,
+                    metadata_only=domain_version.metadata_only,
+                    chunk_count=chunk_count,
+                ),
+                "can_support_search": can_support_search,
+                "latest_fetch": _review_packet_fetch_log(fetch_log),
+                "artifacts": [_review_packet_artifact(artifact) for artifact in artifact_rows],
+                "chunk_samples": [
+                    _review_packet_chunk_sample(
+                        chunk=chunk,
+                        citation=citation,
+                        source=source,
+                        version=version,
+                        sample_chars=sample_chars,
+                    )
+                    for chunk, citation in sample_rows
+                ],
+                "blocked_outputs": [
+                    "final_compliance_claims",
+                    "uncited_regulatory_answers",
+                    "unpromoted_measurement_verdicts",
+                ],
+                "required_before_beta": [
+                    "human source review",
+                    "licence verification",
+                    "parse quality review when flagged",
+                    "rule extraction review",
+                    "deterministic rule promotion",
+                ],
+            }
+
     def _get_or_create_source(
         self,
         session: Session,
@@ -1934,6 +2064,158 @@ def _quality_readiness(
         return "source_refresh_required"
     if not version.licence_status.can_support_citation:
         return "licence_review_required"
+    return "review_follow_up"
+
+
+def _sample_ordinals(total: int, limit: int) -> list[int]:
+    if total <= 0:
+        return []
+    if limit <= 0 or total <= limit:
+        return list(range(1, total + 1))
+    if limit == 1:
+        return [1]
+    ordinals = {1, total}
+    if limit > 2:
+        step = (total - 1) / (limit - 1)
+        ordinals.update(1 + round(step * index) for index in range(limit))
+    return sorted(ordinal for ordinal in ordinals if 1 <= ordinal <= total)[:limit]
+
+
+def _review_packet_source(source: DbSource) -> dict[str, object]:
+    return {
+        "id": str(source.id),
+        "title": source.title,
+        "authority": source.authority,
+        "jurisdiction": source.jurisdiction,
+        "local_government": source.local_government,
+        "source_type": source.source_type,
+        "canonical_url": source.canonical_url,
+        "access_type": source.access_type,
+        "status": source.status,
+        "metadata": source.metadata_json,
+    }
+
+
+def _review_packet_version(version: SourceVersion) -> dict[str, object]:
+    return {
+        "id": version.id,
+        "source_id": version.source_id,
+        "version_label": version.version_label,
+        "sha256": version.sha256,
+        "storage_path": version.storage_path,
+        "licence_status": version.licence_status.value,
+        "review_status": version.review_status.value,
+        "fetched_at": version.fetched_at.isoformat(),
+        "published_at": version.published_at.isoformat() if version.published_at else None,
+        "effective_from": version.effective_from.isoformat() if version.effective_from else None,
+        "effective_to": version.effective_to.isoformat() if version.effective_to else None,
+        "superseded_by_version_id": version.superseded_by_version_id,
+        "artifact_ids": list(version.artifact_ids),
+        "metadata_only": version.metadata_only,
+        "can_support_citable_retrieval": version.can_support_citable_retrieval,
+    }
+
+
+def _review_packet_fetch_log(fetch_log: DbSourceFetchLog | None) -> dict[str, object] | None:
+    if fetch_log is None:
+        return None
+    return {
+        "id": str(fetch_log.id),
+        "source_version_id": str(fetch_log.source_version_id) if fetch_log.source_version_id else None,
+        "fetch_kind": fetch_log.fetch_kind,
+        "status": fetch_log.status,
+        "requested_at": fetch_log.requested_at.isoformat(),
+        "completed_at": fetch_log.completed_at.isoformat() if fetch_log.completed_at else None,
+        "error": fetch_log.error,
+        "metadata": fetch_log.metadata_json,
+    }
+
+
+def _review_packet_artifact(artifact: DbArtifact) -> dict[str, object]:
+    return {
+        "id": str(artifact.id),
+        "subject_type": artifact.subject_type,
+        "subject_id": str(artifact.subject_id) if artifact.subject_id else None,
+        "kind": artifact.kind,
+        "storage_path": artifact.storage_path,
+        "sha256": artifact.sha256,
+        "media_type": artifact.media_type,
+        "size_bytes": artifact.size_bytes,
+        "parser_name": artifact.parser_name,
+        "parser_version": artifact.parser_version,
+        "metadata": artifact.metadata_json,
+    }
+
+
+def _review_packet_chunk_sample(
+    *,
+    chunk: DbSourceChunk,
+    citation: DbSourceCitation | None,
+    source: DbSource,
+    version: DbSourceVersion,
+    sample_chars: int,
+) -> dict[str, object]:
+    text = _truncate_review_text(chunk.text, sample_chars)
+    return {
+        "id": str(chunk.id),
+        "source_id": str(source.id),
+        "source_version_id": str(version.id),
+        "ordinal": chunk.chunk_index,
+        "heading": chunk.heading,
+        "section_ref": chunk.section_ref,
+        "page_start": chunk.page_start,
+        "page_end": chunk.page_end,
+        "token_count": chunk.token_count,
+        "text": text,
+        "text_truncated": len(chunk.text) > len(text),
+        "text_sha256": sha256(chunk.text.encode("utf-8")).hexdigest(),
+        "citation": (
+            _review_packet_citation(citation, chunk=chunk, source=source)
+            if citation is not None
+            else None
+        ),
+    }
+
+
+def _review_packet_citation(
+    citation: DbSourceCitation,
+    *,
+    chunk: DbSourceChunk,
+    source: DbSource,
+) -> dict[str, object]:
+    return {
+        "id": str(citation.id),
+        "chunk_id": str(chunk.id),
+        "locator": citation.section_ref or f"chunk {chunk.chunk_index}",
+        "page_number": citation.page_number,
+        "quote": citation.quote or _safe_quote(chunk.text),
+        "uri": source.canonical_url,
+        "citation_json": citation.citation_json,
+    }
+
+
+def _truncate_review_text(text: str, max_chars: int) -> str:
+    normalized_limit = max(max_chars, 0)
+    if len(text) <= normalized_limit:
+        return text
+    return text[:normalized_limit].rstrip()
+
+
+def _packet_recommended_action(readiness: str) -> str:
+    if readiness == "pending_lawful_fetch":
+        return "lawful_fetch"
+    if readiness in {"parse_or_citation_repair_required", "parse_quality_review_required"}:
+        return "repair_parse_or_citations"
+    if readiness == "source_review_ready":
+        return "human_source_review"
+    if readiness == "source_rejected":
+        return "replace_or_refresh_source"
+    if readiness == "source_refresh_required":
+        return "refresh_source"
+    if readiness == "licence_review_required":
+        return "licence_review"
+    if readiness == "citable_search_ready":
+        return "rule_extraction_review"
     return "review_follow_up"
 
 
