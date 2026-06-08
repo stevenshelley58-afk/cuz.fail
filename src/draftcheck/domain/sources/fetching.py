@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from hashlib import sha256
 from io import BytesIO
-from urllib.parse import urljoin, urlparse
+from urllib.parse import ParseResult, urldefrag, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 import httpx
@@ -31,6 +31,13 @@ class PublicSourceFetch:
     text: str
     sha256: str
     metadata: dict[str, object]
+
+
+@dataclass(frozen=True)
+class CandidateSourceLink:
+    url: str
+    label: str
+    source_type: str
 
 
 def fetch_public_source(
@@ -62,6 +69,11 @@ def fetch_public_source(
         if not text.strip():
             raise ValueError("source fetch produced no parseable text")
         digest = sha256(response.content).hexdigest()
+        candidate_links = _candidate_links_for_response(
+            response.content,
+            content_type=content_type,
+            final_url=str(response.url),
+        )
         return PublicSourceFetch(
             final_url=str(response.url),
             status_code=response.status_code,
@@ -75,6 +87,14 @@ def fetch_public_source(
                 "raw_sha256": digest,
                 "robots_allowed": True,
                 "parser": "draftcheck.sources.public_fetch.v0",
+                "candidate_links": [
+                    {
+                        "url": link.url,
+                        "label": link.label,
+                        "source_type": link.source_type,
+                    }
+                    for link in candidate_links
+                ],
             },
         )
 
@@ -126,6 +146,12 @@ def extract_source_text(content: bytes, *, content_type: str, final_url: str) ->
     return content.decode("utf-8", errors="ignore").strip()
 
 
+def extract_candidate_links(final_url: str, html: bytes | str) -> tuple[CandidateSourceLink, ...]:
+    text = html.decode("utf-8", errors="ignore") if isinstance(html, bytes) else html
+    soup = BeautifulSoup(text, "html.parser")
+    return tuple(_candidate_links(soup, final_url=final_url))
+
+
 def _extract_html_text(content: bytes, *, final_url: str) -> str:
     soup = BeautifulSoup(content, "html.parser")
     for node in soup(["script", "style", "noscript", "svg"]):
@@ -141,8 +167,24 @@ def _extract_html_text(content: bytes, *, final_url: str) -> str:
                 parts.append(text)
     links = _candidate_links(soup, final_url=final_url)
     if links:
-        parts.append("Candidate public source links:\n" + "\n".join(links[:80]))
+        rendered_links = [
+            f"{link.label}: {link.url}" if link.label else link.url for link in links[:80]
+        ]
+        parts.append("Candidate public source links:\n" + "\n".join(rendered_links))
     return "\n\n".join(parts).strip()
+
+
+def _candidate_links_for_response(
+    content: bytes,
+    *,
+    content_type: str,
+    final_url: str,
+) -> tuple[CandidateSourceLink, ...]:
+    lowered_type = content_type.lower()
+    lowered_url = final_url.lower()
+    if "html" not in lowered_type and not lowered_url.endswith((".html", ".htm", "/")):
+        return ()
+    return extract_candidate_links(final_url, content)
 
 
 def _extract_pdf_text(content: bytes) -> str:
@@ -155,18 +197,19 @@ def _extract_pdf_text(content: bytes) -> str:
     return "\n\n".join(page.strip() for page in pages if page.strip())
 
 
-def _candidate_links(soup: BeautifulSoup, *, final_url: str) -> list[str]:
+def _candidate_links(soup: BeautifulSoup, *, final_url: str) -> list[CandidateSourceLink]:
     parsed_base = urlparse(final_url)
-    candidates: list[str] = []
+    candidates: list[CandidateSourceLink] = []
+    seen_urls: set[str] = set()
     for anchor in soup.find_all("a", href=True):
         href = str(anchor["href"]).strip()
         if not href or href.startswith(("mailto:", "tel:", "#")):
             continue
-        absolute = urljoin(final_url, href)
+        absolute = urldefrag(urljoin(final_url, href))[0]
         parsed = urlparse(absolute)
         if parsed.scheme not in {"http", "https"}:
             continue
-        if parsed.netloc != parsed_base.netloc:
+        if not _host_allowed(parsed_base, parsed):
             continue
         lowered = absolute.lower()
         if any(term in lowered for term in RESTRICTED_TERMS):
@@ -174,10 +217,40 @@ def _candidate_links(soup: BeautifulSoup, *, final_url: str) -> list[str]:
         label = " ".join(anchor.get_text(" ", strip=True).split())
         if not _looks_like_source_link(lowered, label.lower()):
             continue
-        rendered = f"{label}: {absolute}" if label else absolute
-        if rendered not in candidates:
-            candidates.append(rendered)
+        if absolute in seen_urls:
+            continue
+        seen_urls.add(absolute)
+        candidates.append(
+            CandidateSourceLink(
+                url=absolute,
+                label=label or _label_from_url(absolute),
+                source_type=infer_source_type(absolute, label),
+            )
+        )
     return candidates
+
+
+def infer_source_type(url: str, label: str = "") -> str:
+    haystack = f"{url} {label}".lower().replace("_", "-")
+    if "standards.org.au" in haystack or "standards australia" in haystack:
+        return "standard_metadata"
+    if "scheme-map" in haystack or "map-" in haystack or " map " in f" {haystack} ":
+        return "scheme_map"
+    if "local-development-plan" in haystack or "ldp" in haystack:
+        return "local_development_plan"
+    if "structure-plan" in haystack or "structure plan" in haystack:
+        return "structure_plan"
+    if "local-planning-scheme" in haystack or "scheme-text" in haystack or "tps" in haystack:
+        return "local_planning_scheme"
+    if "local-planning-policy" in haystack or "policy" in haystack or "lpp" in haystack:
+        return "local_planning_policy"
+    if "planning-strategy" in haystack or "strategy" in haystack:
+        return "local_planning_strategy"
+    if "checklist" in haystack or "information-sheet" in haystack or "advice" in haystack:
+        return "planning_guidance"
+    if "r-code" in haystack or "rcode" in haystack or "residential-design-code" in haystack:
+        return "r_code"
+    return "source_document"
 
 
 def _looks_like_source_link(url: str, label: str) -> bool:
@@ -189,6 +262,14 @@ def _looks_like_source_link(url: str, label: str) -> bool:
             "policy",
             "scheme",
             "development",
+            "structure-plan",
+            "local-development-plan",
+            "local development plan",
+            "strategy",
+            "map",
+            "checklist",
+            "information sheet",
+            "planning-advice",
             "r-code",
             "rcode",
             "residential",
@@ -197,6 +278,31 @@ def _looks_like_source_link(url: str, label: str) -> bool:
             ".docx",
         )
     )
+
+
+def _host_allowed(parsed_base: ParseResult, parsed_candidate: ParseResult) -> bool:
+    base_host = (parsed_base.hostname or "").lower()
+    candidate_host = (parsed_candidate.hostname or "").lower()
+    if not base_host or not candidate_host:
+        return False
+    if candidate_host == base_host:
+        return True
+    # WA Government and City of Cockburn pages sometimes point between official
+    # planning hosts. Keep discovery narrow to public government domains.
+    official_hosts = (
+        "wa.gov.au",
+        "planning.wa.gov.au",
+        "cockburn.wa.gov.au",
+    )
+    return any(base_host.endswith(host) for host in official_hosts) and any(
+        candidate_host.endswith(host) for host in official_hosts
+    )
+
+
+def _label_from_url(url: str) -> str:
+    path = urlparse(url).path.rstrip("/").split("/")[-1]
+    cleaned = path.replace("-", " ").replace("_", " ").replace("%20", " ").strip()
+    return cleaned or url
 
 
 def _assert_lawful_public_url(url: str, *, licence_notes: str) -> None:
@@ -211,4 +317,3 @@ def _assert_lawful_public_url(url: str, *, licence_notes: str) -> None:
         raise ValueError("restricted source URL or licence notes require human review")
     if "standards.org.au" in lowered or "standards australia" in lowered:
         raise ValueError("Standards Australia full text is metadata-only unless lawfully supplied")
-

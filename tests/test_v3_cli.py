@@ -164,6 +164,7 @@ def test_cli_surface_exposes_operational_commands_without_dev_login() -> None:
     assert "login-link" in parser_help
     assert "seed-source-manifest" in parser_help
     assert "fetch-pending-sources" in parser_help
+    assert "discover-source-links" in parser_help
     assert "dev-login" not in parser_help
     assert status == 2
     assert stdout.getvalue() == ""
@@ -444,4 +445,87 @@ def test_fetch_pending_sources_uses_operator_and_local_government(
         "org_id": str(org_id),
         "requested_by_user_id": str(user_id),
         "force": True,
+    }
+
+
+def test_discover_source_links_uses_operator_and_local_government(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: dict[str, object] = {}
+    org_id = uuid4()
+    user_id = uuid4()
+
+    class FakeIdentityStore:
+        @classmethod
+        def from_database_url(cls, database_url: str):
+            calls["identity_database_url"] = database_url
+            return cls()
+
+        def get_or_create_org(self, *, slug, name):
+            calls["org"] = {"slug": slug, "name": name}
+            return type("Org", (), {"id": org_id})()
+
+        def get_or_create_user(self, *, org, email, role):
+            calls["user"] = {"org_id": org.id, "email": email, "role": role.value}
+            return type("User", (), {"id": user_id})()
+
+    class FakeSourceLibrary:
+        @classmethod
+        def from_database_url(cls, database_url: str):
+            calls["source_database_url"] = database_url
+            return cls()
+
+        def discover_child_sources(
+            self,
+            *,
+            local_government,
+            limit,
+            org_id,
+            requested_by_user_id,
+        ):
+            calls["discover"] = {
+                "local_government": local_government,
+                "limit": limit,
+                "org_id": str(org_id),
+                "requested_by_user_id": str(requested_by_user_id),
+            }
+            return {"discovered": 3, "duplicates": 1, "skipped": 0, "links_seen": 4, "items": []}
+
+    monkeypatch.setenv("DATABASE_URL", "postgresql+psycopg://fixture")
+    monkeypatch.setattr(cli, "SqlAlchemyIdentityStore", FakeIdentityStore)
+    monkeypatch.setattr(cli, "SqlAlchemySourceLibrary", FakeSourceLibrary)
+    stdout = StringIO()
+    stderr = StringIO()
+
+    status = cli.main(
+        [
+            "discover-source-links",
+            "--local-government",
+            "Cockburn",
+            "--limit",
+            "4",
+            "--operator-email",
+            "reviewer@example.test",
+            "--org-slug",
+            "draftcheck",
+        ],
+        stdout=stdout,
+        stderr=stderr,
+    )
+
+    assert status == 0
+    assert stderr.getvalue() == ""
+    assert json.loads(stdout.getvalue()) == {
+        "discovered": 3,
+        "duplicates": 1,
+        "skipped": 0,
+        "links_seen": 4,
+        "items": [],
+    }
+    assert calls["source_database_url"] == "postgresql+psycopg://fixture"
+    assert calls["discover"] == {
+        "local_government": "Cockburn",
+        "limit": 4,
+        "org_id": str(org_id),
+        "requested_by_user_id": str(user_id),
     }

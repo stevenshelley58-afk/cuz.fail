@@ -212,6 +212,36 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         action="store_true",
         help="Refetch even when the latest version already has fetched text.",
     )
+    discover_links = subparsers.add_parser(
+        "discover-source-links",
+        help="Register child source links from fetched public source pages as pending-review fetch targets.",
+    )
+    discover_links.add_argument(
+        "--local-government",
+        default=None,
+        help="Optional local government filter, for example Cockburn.",
+    )
+    discover_links.add_argument(
+        "--limit",
+        type=int,
+        default=50,
+        help="Maximum number of discovered child source links to register.",
+    )
+    discover_links.add_argument(
+        "--operator-email",
+        required=True,
+        help="Provision/reuse this reviewer to own discovery fetch log rows.",
+    )
+    discover_links.add_argument(
+        "--org-slug",
+        default=None,
+        help="Organisation slug for discovery log ownership.",
+    )
+    discover_links.add_argument(
+        "--org-name",
+        default=DEFAULT_ORG_NAME,
+        help="Organisation display name when provisioning a new org.",
+    )
     return parser
 
 
@@ -344,6 +374,37 @@ def _run_fetch_pending_sources(
     return 0
 
 
+def _run_discover_source_links(
+    args: argparse.Namespace,
+    *,
+    stdout: TextIO,
+    stderr: TextIO,
+) -> int:
+    database_url = os.getenv("DATABASE_URL")
+    if not database_url:
+        stderr.write("error: DATABASE_URL is required for durable source discovery\n")
+        return 2
+    if args.limit < 1:
+        stderr.write("error: --limit must be at least 1\n")
+        return 2
+    org_id, user_id = _operator_ids(
+        database_url=database_url,
+        email=args.operator_email,
+        org_slug=args.org_slug,
+        org_name=args.org_name,
+    )
+    source_library = SqlAlchemySourceLibrary.from_database_url(database_url)
+    result = source_library.discover_child_sources(
+        local_government=args.local_government,
+        limit=args.limit,
+        org_id=org_id,
+        requested_by_user_id=user_id,
+    )
+    stdout.write(json.dumps(result, sort_keys=True))
+    stdout.write("\n")
+    return 0
+
+
 def main(
     argv: Sequence[str] | None = None,
     *,
@@ -366,6 +427,8 @@ def main(
         return _run_seed_source_manifest(args, stdout=out, stderr=err)
     if args.command == "fetch-pending-sources":
         return _run_fetch_pending_sources(args, stdout=out, stderr=err)
+    if args.command == "discover-source-links":
+        return _run_discover_source_links(args, stdout=out, stderr=err)
 
     err.write("error: unsupported command\n")
     return 2

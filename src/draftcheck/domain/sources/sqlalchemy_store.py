@@ -6,7 +6,9 @@ from collections.abc import Callable, Mapping
 from datetime import UTC, date, datetime
 from hashlib import sha256
 import json
-from typing import Any
+import re
+from typing import Any, cast
+from urllib.parse import urlparse
 from uuid import NAMESPACE_URL, UUID, uuid4, uuid5
 
 import httpx
@@ -24,7 +26,7 @@ from draftcheck.db.models import (
     SourceReviewRecord as DbSourceReviewRecord,
     SourceVersion as DbSourceVersion,
 )
-from draftcheck.domain.sources.fetching import fetch_public_source
+from draftcheck.domain.sources.fetching import CandidateSourceLink, fetch_public_source, infer_source_type
 from draftcheck.domain.sources.library import (
     _chunk_text,
     _hash_embedding,
@@ -447,6 +449,106 @@ class SqlAlchemySourceLibrary:
             "items": items,
         }
 
+    def discover_child_sources(
+        self,
+        *,
+        local_government: str | None = None,
+        limit: int = 50,
+        org_id: UUID,
+        requested_by_user_id: UUID,
+    ) -> dict[str, object]:
+        """Register discovered child source links as pending-review fetch targets."""
+
+        parents = self._child_discovery_candidates(local_government=local_government)
+        links_seen = 0
+        discovered = 0
+        duplicates = 0
+        skipped = 0
+        items: list[dict[str, object]] = []
+        for parent in parents:
+            if discovered >= limit:
+                break
+            candidate_links = cast(tuple[CandidateSourceLink, ...], parent["candidate_links"])
+            for link in candidate_links:
+                links_seen += 1
+                if discovered >= limit:
+                    break
+                if not isinstance(link, CandidateSourceLink) or not _is_public_http_url(link.url):
+                    skipped += 1
+                    continue
+                if link.url == parent.get("canonical_url"):
+                    skipped += 1
+                    continue
+                authority = _authority_for_discovered_link(
+                    link.url,
+                    fallback=str(parent["authority"]),
+                )
+                source_metadata = {
+                    "discovery_source": "source_child_link",
+                    "discovered_from_source_id": str(parent["source_id"]),
+                    "discovered_from_source_version_id": str(parent["source_version_id"]),
+                    "discovered_from_url": parent.get("canonical_url"),
+                    "discovery_label": link.label,
+                    "licence_notes": "Discovered from official public source page; fetch, licence, currency, and source-version review required before citation.",
+                    "pending_review_reason": "Discovered child source requires lawful fetch and human approval.",
+                }
+                result = self.import_source(
+                    title=link.label or _title_from_url(link.url),
+                    content="",
+                    uri=link.url,
+                    publisher=authority,
+                    licence_status=LicenceStatus.PENDING_REVIEW,
+                    review_status=SourceReviewStatus.PENDING_REVIEW,
+                    metadata_only=True,
+                    jurisdiction=str(parent["jurisdiction"]),
+                    authority=authority,
+                    local_government=_optional_str(parent.get("local_government")),
+                    source_type=link.source_type,
+                    access_type=str(parent["access_type"]),
+                    licence_notes=str(source_metadata["licence_notes"]),
+                    version_label="discovered-anchor",
+                    source_metadata=source_metadata,
+                    version_metadata=source_metadata,
+                )
+                if result.duplicate:
+                    duplicates += 1
+                    status = "duplicate"
+                else:
+                    discovered += 1
+                    status = "pending_fetch"
+                self.record_fetch_log(
+                    source_id=result.source.id,
+                    source_version_id=result.version.id,
+                    org_id=org_id,
+                    requested_by_user_id=requested_by_user_id,
+                    fetch_kind="source_link_discovery",
+                    status=status,
+                    metadata={
+                        "url": link.url,
+                        "label": link.label,
+                        "source_type": link.source_type,
+                        "discovered_from_source_id": str(parent["source_id"]),
+                    },
+                    completed=status == "duplicate",
+                )
+                items.append(
+                    {
+                        "source_id": result.source.id,
+                        "source_version_id": result.version.id,
+                        "title": result.source.title,
+                        "canonical_url": link.url,
+                        "source_type": link.source_type,
+                        "status": status,
+                    }
+                )
+        return {
+            "discovered": discovered,
+            "duplicates": duplicates,
+            "skipped": skipped,
+            "links_seen": links_seen,
+            "items": items,
+        }
+
     def list_sources(self) -> tuple[SourceDocument, ...]:
         with self._session_factory() as session:
             rows = session.scalars(select(DbSource).order_by(DbSource.title)).all()
@@ -698,6 +800,54 @@ class SqlAlchemySourceLibrary:
                 if len(candidates) >= limit:
                     break
             return candidates
+
+    def _child_discovery_candidates(
+        self,
+        *,
+        local_government: str | None,
+    ) -> list[dict[str, object]]:
+        with self._session_factory() as session:
+            statement = select(DbSource).where(DbSource.canonical_url.is_not(None)).order_by(
+                DbSource.authority,
+                DbSource.title,
+            )
+            if local_government:
+                statement = statement.where(DbSource.local_government == local_government)
+            parents: list[dict[str, object]] = []
+            for source in session.scalars(statement).all():
+                latest = self._latest_version(session, source)
+                if latest is None:
+                    continue
+                latest_domain = self._source_version(latest)
+                if latest_domain.metadata_only:
+                    continue
+                candidate_links = _candidate_links_from_metadata(latest.metadata_json)
+                if not candidate_links:
+                    chunks = session.scalars(
+                        select(DbSourceChunk)
+                        .where(DbSourceChunk.source_version_id == latest.id)
+                        .order_by(DbSourceChunk.chunk_index)
+                    ).all()
+                    candidate_links = _candidate_links_from_text(
+                        "\n".join(chunk.text for chunk in chunks)
+                    )
+                if not candidate_links:
+                    continue
+                parents.append(
+                    {
+                        "source_id": source.id,
+                        "source_version_id": latest.id,
+                        "title": source.title,
+                        "jurisdiction": source.jurisdiction,
+                        "authority": source.authority,
+                        "local_government": source.local_government,
+                        "source_type": source.source_type,
+                        "canonical_url": source.canonical_url,
+                        "access_type": source.access_type,
+                        "candidate_links": candidate_links,
+                    }
+                )
+            return parents
 
     def ingestion_status(self, *, local_government: str | None = None) -> dict[str, object]:
         with self._session_factory() as session:
@@ -1193,6 +1343,121 @@ def _review_status(value: str) -> SourceReviewStatus:
         return SourceReviewStatus(value)
     except ValueError:
         return SourceReviewStatus.PENDING_REVIEW
+
+
+_URL_IN_TEXT_RE = re.compile(r"https?://[^\s<>)\"']+")
+
+
+def _candidate_links_from_metadata(metadata: Mapping[str, object]) -> tuple[CandidateSourceLink, ...]:
+    raw_links = metadata.get("candidate_links")
+    if not isinstance(raw_links, list):
+        return ()
+    links: list[CandidateSourceLink] = []
+    seen: set[str] = set()
+    for raw_link in raw_links:
+        if not isinstance(raw_link, Mapping):
+            continue
+        url = _optional_str(raw_link.get("url"))
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        label = _optional_str(raw_link.get("label")) or _title_from_url(url)
+        source_type = _optional_str(raw_link.get("source_type")) or infer_source_type(url, label)
+        links.append(CandidateSourceLink(url=url, label=label, source_type=source_type))
+    return tuple(links)
+
+
+def _candidate_links_from_text(text: str) -> tuple[CandidateSourceLink, ...]:
+    links: list[CandidateSourceLink] = []
+    seen: set[str] = set()
+    in_candidate_block = False
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            if in_candidate_block:
+                in_candidate_block = False
+            continue
+        if line.lower().startswith("candidate public source links"):
+            in_candidate_block = True
+            continue
+        if not in_candidate_block and "http" not in line.lower():
+            continue
+        match = _URL_IN_TEXT_RE.search(line)
+        if match is None:
+            continue
+        url = match.group(0).rstrip(".,;]")
+        if url in seen or not _is_public_http_url(url):
+            continue
+        label = line[: match.start()].strip().rstrip(":").strip() or _title_from_url(url)
+        if not _looks_like_discovered_source(url, label):
+            continue
+        seen.add(url)
+        links.append(
+            CandidateSourceLink(
+                url=url,
+                label=label,
+                source_type=infer_source_type(url, label),
+            )
+        )
+    return tuple(links)
+
+
+def _looks_like_discovered_source(url: str, label: str) -> bool:
+    haystack = f"{url} {label}".lower()
+    return any(
+        term in haystack
+        for term in (
+            "planning",
+            "policy",
+            "scheme",
+            "development",
+            "structure-plan",
+            "local-development-plan",
+            "strategy",
+            "map",
+            "r-code",
+            "rcode",
+            "residential",
+            ".pdf",
+            ".doc",
+            ".docx",
+        )
+    )
+
+
+def _is_public_http_url(url: str) -> bool:
+    parsed = urlparse(url)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        return False
+    host = (parsed.hostname or "").lower()
+    if host in {"localhost", "127.0.0.1", "::1"} or host.endswith(".local"):
+        return False
+    lowered = url.lower()
+    return not any(
+        restricted in lowered
+        for restricted in ("login", "signin", "password", "private", "cart", "checkout", "captcha")
+    )
+
+
+def _authority_for_discovered_link(url: str, *, fallback: str) -> str:
+    host = (urlparse(url).hostname or "").lower()
+    if host.endswith("cockburn.wa.gov.au"):
+        return "City of Cockburn"
+    if host.endswith("wa.gov.au") or host.endswith("planning.wa.gov.au"):
+        return "Department of Planning, Lands and Heritage"
+    return fallback
+
+
+def _title_from_url(url: str) -> str:
+    parsed = urlparse(url)
+    path_title = parsed.path.rstrip("/").split("/")[-1]
+    if not path_title:
+        return url
+    for suffix in (".aspx", ".html", ".htm", ".pdf", ".docx", ".doc"):
+        if path_title.lower().endswith(suffix):
+            path_title = path_title[: -len(suffix)]
+            break
+    return path_title.replace("-", " ").replace("_", " ").replace("%20", " ").strip() or url
 
 
 def _optional_str(value: object) -> str | None:
