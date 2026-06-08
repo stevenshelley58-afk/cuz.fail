@@ -16,12 +16,24 @@ way are logged in commit/PR descriptions, not asked about.
 Credentials are discovered, never requested interactively:
 
 ```text
-VPS        $DRAFTCHECK_VPS_HOST or `Host draftcheck` in ~/.ssh/config (user@ip)
+VPS        $DRAFTCHECK_VPS_HOST or `Host draftcheck` in ~/.ssh/config (root@76.13.209.160)
 DNS        $CLOUDFLARE_API_TOKEN (or provider equivalent) if present → automate; else report records
 Restic     $RESTIC_REPOSITORY + $RESTIC_PASSWORD + B2/R2 keys if present → configure; else local-only
 Vercel     $VERCEL_TOKEN if present → API; else the vercel.json guard below is sufficient
 GitHub     gh auth status (already authenticated on this machine)
 ```
+
+## Command execution model
+
+- Local PowerShell/Codex is the operator shell. Use it for public checks such as
+  `curl https://app.cuz.fail/` and for launching SSH commands.
+- VPS deploy commands run on the server via `ssh draftcheck '...'`. Anything inside the
+  quoted command executes on `srv1625369` (`root@76.13.209.160`), not on Windows.
+- The production app checkout is `/srv/draftcheck/app`. Caddy serves the web UI directly
+  from `/srv/draftcheck/app/web/dist`, so a UI-only deploy is a repo reset plus
+  `cd web && npm ci && npm run build`; no Vercel action and no container restart are needed.
+- Do not paste deploy code into Vercel. If a command mutates `/srv/draftcheck/app`, run it
+  through `ssh draftcheck` or from an interactive shell after `ssh draftcheck`.
 
 Current ground truth (verified 2026-06-08):
 
@@ -30,7 +42,8 @@ Local repo      C:\Dev\Cuz, branch main, ONE commit, ONE tracked file (README.md
                 All V3 work is uncommitted.
 Remote          origin = https://github.com/stevenshelley58-afk/cuz.fail.git (main exists)
 CI              .github/workflows/ci.yml exists locally (not yet pushed)
-VPS             not deployed; no deploy.sh exists
+VPS             srv1625369 is reachable as `ssh draftcheck`; app.cuz.fail serves
+                `/srv/draftcheck/app/web/dist` from the VPS.
 Vercel          legacy production, ACTIVE. Guarded by step A0 — then proceed freely.
 V3 app          Phases 0–2: auth, sources, address/spatial. Product routes are 501 stubs.
                 Deploying now ships the shell, not the product. Expected.
