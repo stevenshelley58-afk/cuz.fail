@@ -250,8 +250,13 @@ def delete_project(project_id: str) -> None:
     _stub("projects.delete")
 
 
-@router.put("/projects/{project_id}/proposal", tags=["projects"])
-def put_project_proposal(project_id: str, payload: dict[str, Any]) -> None:
+@router.post("/projects/{project_id}/property/override", tags=["projects"])
+def override_project_property(project_id: str, payload: dict[str, Any]) -> None:
+    _stub("projects.property_override")
+
+
+@router.post("/projects/{project_id}/proposal", tags=["projects"])
+def post_project_proposal(project_id: str, payload: dict[str, Any]) -> None:
     _stub("projects.proposal")
 
 
