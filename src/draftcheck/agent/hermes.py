@@ -98,7 +98,7 @@ class HermesAgent:
             try:
                 from draftcheck.jobs.extraction import run_extraction_group
 
-                await run_extraction_group(
+                await run_extraction_group(  # type: ignore[call-arg]
                     clause_id=str(clause_id),
                     clause_key=clause_key,
                     adapter=self._adapter,

@@ -11,7 +11,7 @@ from hashlib import sha256
 import os
 import re
 from threading import RLock
-from typing import Literal, Protocol, runtime_checkable
+from typing import Any, Literal, Protocol, runtime_checkable
 from uuid import uuid4
 
 
@@ -324,7 +324,7 @@ class HttpModelAdapter:
 
     def __init__(
         self,
-        provider: object,  # ChatProvider protocol
+        provider: "Any",  # ChatProvider protocol
         *,
         spend_caps: SpendCaps | None = None,
         trace_store: InMemoryJobTraceStore | None = None,
@@ -477,14 +477,14 @@ def build_model_adapter(settings: object | None = None) -> ModelAdapter:
     if provider_name == "anthropic" and os.environ.get("ANTHROPIC_API_KEY"):
         from draftcheck.providers import AnthropicChatProvider
 
-        provider = AnthropicChatProvider(api_key=os.environ["ANTHROPIC_API_KEY"])
-        return HttpModelAdapter(provider, spend_caps=SpendCaps.from_env())
+        _provider: Any = AnthropicChatProvider(api_key=os.environ["ANTHROPIC_API_KEY"])
+        return HttpModelAdapter(_provider, spend_caps=SpendCaps.from_env())
     if provider_name in ("openai", "openai-compatible") and os.environ.get("OPENAI_API_KEY"):
         from draftcheck.providers import OpenAIChatProvider
 
-        provider = OpenAIChatProvider(
+        _provider = OpenAIChatProvider(
             api_key=os.environ["OPENAI_API_KEY"],
             model=os.environ.get("LLM_MODEL", "gpt-4o"),
         )
-        return HttpModelAdapter(provider, spend_caps=SpendCaps.from_env())
+        return HttpModelAdapter(_provider, spend_caps=SpendCaps.from_env())
     return LocalDeterministicModelAdapter(mode="disabled")
