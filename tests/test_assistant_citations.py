@@ -8,7 +8,6 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-import pytest
 from fastapi.testclient import TestClient
 
 from draftcheck.api.main import create_app
@@ -24,7 +23,7 @@ from draftcheck.api.sources import (
     _parse_cited_indices,
 )
 from draftcheck.api.auth import get_current_session
-from draftcheck.domain.identity import ActiveSession, IdentityRole, InMemoryIdentityStore
+from draftcheck.domain.identity import ActiveSession, InMemoryIdentityStore
 from draftcheck.domain.sources import LicenceStatus, SourceSearchHit, SourceReviewStatus
 from draftcheck.domain.sources.models import SourceChunk, SourceCitation, SourceVersion
 
