@@ -20,6 +20,7 @@ from draftcheck.api.address import router as address_router
 from draftcheck.api.auth import router as auth_router
 from draftcheck.api.documents import router as documents_router
 from draftcheck.api.projects import router as projects_router
+from draftcheck.api.rules import router as rules_router
 from draftcheck.api.sources import _default_source_library, _fallback_ingestion_status, create_sources_router
 
 
@@ -131,6 +132,7 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
     api_router.include_router(projects_router)
     api_router.include_router(create_sources_router(library=source_library))
     api_router.include_router(documents_router)
+    api_router.include_router(rules_router)
 
     @api_router.get("/ops/dashboard", tags=["ops"])
     def ops_dashboard() -> dict[str, Any]:
