@@ -22,14 +22,16 @@ from sqlalchemy import (
     ForeignKey,
     Index,
     Integer,
+    JSON,
     Numeric,
+    SmallInteger,
     String,
     Text,
     UniqueConstraint,
     Uuid,
     text,
 )
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.dialects.postgresql import JSONB, UUID as PgUUID
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy.types import UserDefinedType
 
@@ -909,6 +911,7 @@ class Clause(Base, TimestampMixin):
     parser_name: Mapped[str | None] = mapped_column(String(120), nullable=True)
     parser_version: Mapped[str | None] = mapped_column(String(80), nullable=True)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    classification_skill_version_id: Mapped[str | None] = mapped_column(String(160), ForeignKey("skill_versions.id"), nullable=True)
 
 
 class SkillVersion(Base):
@@ -995,6 +998,12 @@ class RuleCandidate(Base, TimestampMixin):
     )
     reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    extraction_group_id: Mapped[UUID | None] = mapped_column(PgUUID(as_uuid=True), nullable=True)
+    extraction_pass: Mapped[int | None] = mapped_column(SmallInteger, nullable=True)
+    quote_char_start: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    quote_char_end: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    validator_results_json: Mapped[dict] = mapped_column(JSON, nullable=False, server_default="{}")
+    auto_promoted_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
 
 class Rule(Base, TimestampMixin):

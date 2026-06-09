@@ -46,6 +46,37 @@ export type ChatReply = {
   disclaimer?: string | null;
 } & Record<string, unknown>;
 
+/* ── Stage 3 types ── */
+
+export type RuleSummary = {
+  id: string;
+  rule_key: string;
+  operator: string;
+  value_json: number | object | null;
+  unit: string | null;
+  rule_type: string;
+  lifecycle_status: string;
+  confidence: number;
+  clause_id: string | null;
+  source_version_id: string | null;
+  created_at: string;
+};
+
+export type CandidateSummary = {
+  id: string;
+  rule_key: string | null;
+  operator: string | null;
+  value_json: number | object | null;
+  unit: string | null;
+  quote: string | null;
+  review_status: string;
+  confidence: number | null;
+  validator_results_json: Record<string, { pass: boolean; detail: string }> | null;
+  extraction_pass: number | null;
+  clause_id: string | null;
+  auto_promoted_at: string | null;
+};
+
 /* ── Stage 2 types ── */
 
 export type ProvenanceResponse = {
@@ -162,6 +193,24 @@ export const api = {
   createProjectV2: (name: string, council_scope?: string) =>
     call<ProjectSummary>("POST", "/projects", { name, council_scope }),
   rules: () => call<unknown>("GET", "/sources"),
+  listRules: (opts?: { lifecycle_status?: string; limit?: number; offset?: number }) => {
+    const params = new URLSearchParams();
+    if (opts?.lifecycle_status) params.set("lifecycle_status", opts.lifecycle_status);
+    if (opts?.limit !== undefined) params.set("limit", String(opts.limit));
+    if (opts?.offset !== undefined) params.set("offset", String(opts.offset));
+    const qs = params.toString();
+    return call<RuleSummary[]>("GET", `/rules${qs ? `?${qs}` : ""}`);
+  },
+  getRule: (id: string) => call<RuleSummary>("GET", `/rules/${id}`),
+  listCandidates: (opts?: { review_status?: string; limit?: number; offset?: number }) => {
+    const params = new URLSearchParams();
+    if (opts?.review_status) params.set("review_status", opts.review_status);
+    if (opts?.limit !== undefined) params.set("limit", String(opts.limit));
+    if (opts?.offset !== undefined) params.set("offset", String(opts.offset));
+    const qs = params.toString();
+    return call<CandidateSummary[]>("GET", `/rules/candidates${qs ? `?${qs}` : ""}`);
+  },
+  getCandidate: (id: string) => call<CandidateSummary>("GET", `/rules/candidates/${id}`),
   ask: (question: string, scope: { web: boolean }) =>
     call<ChatReply>("POST", "/assistant", { message: question, web_search_requested: scope.web }),
 };
