@@ -373,7 +373,7 @@ class InMemorySourceLibrary:
                     source_version_id=version_id,
                     review_status=updated.review_status,
                     licence_status=updated.licence_status,
-                    reviewer_id=actor_id,
+                    actor_id=actor_id,
                     reviewed_at=utc_now(),
                     notes=notes,
                 )
