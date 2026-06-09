@@ -8,7 +8,6 @@ services:
       CADDY_APP_HOST: ${CADDY_APP_HOST:-app.cuz.fail}
     volumes:
       - ./Caddyfile.internal:/etc/caddy/Caddyfile:ro
-      - ../../ui:/srv/draftcheck/ui:ro
       - ../../web/dist:/srv/draftcheck/web/dist:ro
       - caddy_data:/data
       - caddy_config:/config

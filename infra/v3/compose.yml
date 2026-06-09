@@ -130,26 +130,6 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
-  caddy:
-    image: caddy:2.8-alpine
-    environment:
-      CADDY_API_HOST: ${CADDY_API_HOST:-api.cuz.fail}
-      CADDY_ROOT_HOST: ${CADDY_ROOT_HOST:-cuz.fail}
-      CADDY_WWW_HOST: ${CADDY_WWW_HOST:-www.cuz.fail}
-      CADDY_APP_HOST: ${CADDY_APP_HOST:-app.cuz.fail}
-    ports:
-      - "${CADDY_HTTP_PORT:-80}:80"
-      - "${CADDY_HTTPS_PORT:-443}:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - ../../web/dist:/srv/draftcheck/web/dist:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      api:
-        condition: service_healthy
-    restart: unless-stopped
-
 volumes:
   postgres_data:
   caddy_data:
