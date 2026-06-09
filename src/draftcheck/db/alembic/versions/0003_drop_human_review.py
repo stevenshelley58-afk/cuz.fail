@@ -48,8 +48,14 @@ def upgrade() -> None:
         "role IN ('owner')",
     )
 
+    # 5. Rename check_results.human_review_reason -> review_reason.
+    op.alter_column("check_results", "human_review_reason", new_column_name="review_reason")
+
 
 def downgrade() -> None:
+    # Restore check_results.review_reason -> human_review_reason.
+    op.alter_column("check_results", "review_reason", new_column_name="human_review_reason")
+
     # Restore the two-value role constraint (rows cannot be un-promoted).
     op.drop_constraint("identity_role", "users", type_="check")
     op.create_check_constraint(

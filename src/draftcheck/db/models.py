@@ -1257,7 +1257,7 @@ class CheckResult(Base, TimestampMixin):
     drawing_evidence_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     decision_trace_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     pathway_note: Mapped[str | None] = mapped_column(Text, nullable=True)
-    human_review_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+    review_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
     human_override_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     reviewed_by_user_id: Mapped[UUID | None] = mapped_column(
         Uuid(as_uuid=True),
