@@ -945,7 +945,6 @@ def create_sources_router(
     def search_chunks(
         payload: SearchChunksPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         query = _required_query(payload.query, payload.q)
         hits = search_service.search_chunks(query, limit=payload.limit)
@@ -955,7 +954,6 @@ def create_sources_router(
     def search_ask(
         payload: SearchAskPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         question = _required_query(payload.question, payload.query, payload.q)
         answer = search_service.ask(question, limit=payload.limit)
@@ -971,7 +969,6 @@ def create_sources_router(
     def assistant_chat(
         payload: AssistantPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         question = _required_query(payload.message, payload.question, payload.query, payload.q)
         provider = get_chat_provider()
