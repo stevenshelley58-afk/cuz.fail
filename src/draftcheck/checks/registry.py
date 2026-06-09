@@ -1,8 +1,6 @@
 # Check registry — all check definitions in code, not DB rows.
 from dataclasses import dataclass
 from enum import StrEnum
-from typing import Literal
-
 
 class CheckTier(StrEnum):
     TIER1 = "tier1"
