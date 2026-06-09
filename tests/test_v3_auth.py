@@ -40,19 +40,64 @@ def auth_client() -> Iterator[tuple[TestClient, InMemoryIdentityStore, DevLogEma
         yield client, store, sender, settings
 
 
-def test_magic_link_endpoints_are_disabled() -> None:
+def test_magic_link_request_returns_202_for_unknown_email() -> None:
+    """Unknown email must still return 202 — callers must not learn whether the address exists."""
+    with auth_client() as (client, _store, sender, _settings):
+        response = client.post(
+            "/api/v1/auth/magic-link/request",
+            json={"email": "nobody@example.test"},
+            headers={"origin": "http://app.test"},
+        )
+        assert response.status_code == 202
+        body = response.json()
+        assert body["status"] == "sent"
+        assert "expires_at" in body
+        assert sender.sent_messages == []  # no email sent for unknown address
+
+
+def test_magic_link_full_flow() -> None:
+    """Request a link, extract the token from the logged URL, verify it, get a session."""
+    with auth_client() as (client, store, sender, settings):
+        org = store.get_or_create_org()
+        store.get_or_create_user(org=org, email="owner@example.test", role=IdentityRole.OWNER)
+
+        resp = client.post(
+            "/api/v1/auth/magic-link/request",
+            json={"email": "owner@example.test"},
+            headers={"origin": "http://app.test"},
+        )
+        assert resp.status_code == 202
+        assert len(sender.sent_messages) == 1
+
+        token = _token_from_magic_link(sender.sent_messages[0].magic_link)
+
+        verify = client.post(
+            "/api/v1/auth/magic-link/verify",
+            json={"token": token},
+            headers={"origin": "http://app.test"},
+        )
+        assert verify.status_code == 200
+        body = verify.json()
+        assert body["session"]["user"]["email"] == "owner@example.test"
+        assert client.cookies.get(settings.session_cookie_name) is not None
+
+
+def test_magic_link_verify_rejects_bad_token() -> None:
+    with auth_client() as (client, _store, _sender, _settings):
+        response = client.post(
+            "/api/v1/auth/magic-link/verify",
+            json={"token": "a" * 32},
+            headers={"origin": "http://app.test"},
+        )
+        assert response.status_code == 401
+
+
+def test_magic_link_requires_allowed_origin() -> None:
     with auth_client() as (client, _store, _sender, _settings):
         assert client.post(
             "/api/v1/auth/magic-link/request",
             json={"email": "owner@example.test"},
-            headers={"origin": "http://app.test"},
-        ).status_code == 404
-
-        assert client.post(
-            "/api/v1/auth/magic-link/verify",
-            json={"token": "a" * 32},
-            headers={"origin": "http://app.test"},
-        ).status_code == 404
+        ).status_code == 403
 
 
 def test_magic_link_and_session_expiry_windows() -> None:

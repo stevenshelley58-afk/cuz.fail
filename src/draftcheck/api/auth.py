@@ -198,8 +198,37 @@ def request_magic_link(
     settings: Annotated[Settings, Depends(get_settings)],
     store: Annotated[InMemoryIdentityStore, Depends(get_identity_store)],
     email_sender: Annotated[EmailSender, Depends(get_email_sender)],
+    _origin: None = Depends(require_allowed_origin),
 ) -> MagicLinkRequestedResponse:
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+    from draftcheck.domain.identity import (
+        InvalidIdentityInputError,
+        MagicLinkIssue,
+    )
+
+    # Always return 202 — never reveal whether the email/org exists.
+    dummy_expires_at: datetime | None = None
+    try:
+        issue: MagicLinkIssue = store.request_magic_link(
+            email=payload.email,
+            org_slug=payload.org_slug,
+            requested_ip=_client_host(request),
+            user_agent=request.headers.get("user-agent"),
+        )
+        magic_link_url = (
+            f"{settings.frontend_url.rstrip('/')}/auth/verify?token={issue.token}"
+        )
+        email_sender.send_magic_link(
+            recipient=issue.record.email,
+            magic_link=magic_link_url,
+            expires_at=issue.record.expires_at,
+        )
+        dummy_expires_at = issue.record.expires_at
+    except InvalidIdentityInputError:
+        # Silently swallow — caller gets the same 202 response regardless.
+        from draftcheck.domain.identity.tokens import utc_now, MAGIC_LINK_TTL
+        dummy_expires_at = utc_now() + MAGIC_LINK_TTL
+
+    return MagicLinkRequestedResponse(status="sent", expires_at=dummy_expires_at)  # type: ignore[arg-type]
 
 
 @router.post("/auth/magic-link/verify", response_model=VerifyMagicLinkResponse, include_in_schema=False)
@@ -209,8 +238,34 @@ def verify_magic_link(
     response: Response,
     settings: Annotated[Settings, Depends(get_settings)],
     store: Annotated[InMemoryIdentityStore, Depends(get_identity_store)],
+    _origin: None = Depends(require_allowed_origin),
 ) -> VerifyMagicLinkResponse:
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+    from draftcheck.domain.identity import (
+        MagicLinkTokenConsumedError,
+        MagicLinkTokenExpiredError,
+        MagicLinkTokenNotFoundError,
+    )
+
+    try:
+        user, org, _record = store.consume_magic_link(payload.token)
+    except (MagicLinkTokenNotFoundError, MagicLinkTokenConsumedError, MagicLinkTokenExpiredError):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or expired magic link",
+        )
+
+    session_issue = store.create_session(
+        user=user,
+        org=org,
+        ip_address=_client_host(request),
+        user_agent=request.headers.get("user-agent"),
+    )
+    _set_session_cookie(response, settings, session_issue.token)
+    return VerifyMagicLinkResponse(
+        session=_session_response(
+            ActiveSession(session=session_issue.session, user=session_issue.user, org=session_issue.org)
+        )
+    )
 
 
 @router.post("/auth/dev-login", response_model=VerifyMagicLinkResponse, include_in_schema=False)
