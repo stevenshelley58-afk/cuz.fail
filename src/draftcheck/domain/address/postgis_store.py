@@ -92,7 +92,7 @@ def _db_dataset_to_metadata(row: DbSpatialDataset) -> SpatialDatasetMetadata:
         source_crs=row.source_crs,
         source_version_id=str(row.source_version_id) if row.source_version_id else None,
         approval_status=SourceApprovalStatus(row.approval_status),
-        target_crs=meta.get("target_crs", GDA2020_TARGET_CRS),
+        target_crs=str(meta.get("target_crs", GDA2020_TARGET_CRS)),
         fetched_at=row.fetched_at or __import__("datetime").datetime.now(__import__("datetime").timezone.utc),
     )
 
@@ -558,7 +558,8 @@ class PostGISSpatialDatasetStore:
 
             cache = prop.resolution_cache_json or {}
             meta = prop.resolution_metadata_json or {}
-            provenance_list = meta.get("provenance", [])
+            _prov_raw = meta.get("provenance")
+            provenance_list: list[object] = list(_prov_raw) if isinstance(_prov_raw, list) else []
 
             fact_rows = session.execute(
                 select(DbPropertyFact).where(
@@ -617,12 +618,12 @@ class PostGISSpatialDatasetStore:
                 resolution_status=ResolutionStatus(prop.resolution_status),
                 confidence=profile_confidence,
                 address=prop.address_text,
-                address_point_id=cache.get("address_point_id"),
-                parcel_id=cache.get("parcel_id"),
-                local_government=cache.get("local_government"),
+                address_point_id=str(cache["address_point_id"]) if cache.get("address_point_id") is not None else None,
+                parcel_id=str(cache["parcel_id"]) if cache.get("parcel_id") is not None else None,
+                local_government=str(cache["local_government"]) if cache.get("local_government") is not None else None,
                 facts=tuple(facts),
-                provenance=tuple(_json_to_provenance(p) for p in provenance_list),
-                issues=tuple(cache.get("issues", [])),
+                provenance=tuple(_json_to_provenance(p) for p in provenance_list),  # type: ignore[arg-type]
+                issues=tuple(str(i) for i in (cache.get("issues") if isinstance(cache.get("issues"), list) else [])),  # type: ignore[arg-type,attr-defined]
                 target_crs=prop.target_crs or GDA2020_TARGET_CRS,
             )
 

@@ -175,8 +175,8 @@ class PropertyService:
         existing: PropertyFact | None = session.scalars(existing_stmt).first()
 
         if existing is not None:
-            existing.value_json = {"value": value}
-            existing.provenance_json = provenance
+            existing.value_json = {"value": value}  # type: ignore[assignment]
+            existing.provenance_json = provenance  # type: ignore[assignment]
             existing.review_status = "pending_review"
             session.flush()
             return existing

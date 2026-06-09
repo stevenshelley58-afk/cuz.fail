@@ -166,7 +166,8 @@ class ProposalResponse(BaseModel):
 def _project_response(project: Project) -> ProjectResponse:
     council_scope: str | None = None
     if isinstance(project.metadata_json, dict):
-        council_scope = project.metadata_json.get("council_scope")
+        raw = project.metadata_json.get("council_scope")
+        council_scope = str(raw) if raw is not None else None
     return ProjectResponse(
         id=str(project.id),
         org_id=str(project.org_id),
@@ -188,9 +189,9 @@ def _fact_response(fact: PropertyFact) -> PropertyFactResponse:
         confidence=str(fact.confidence) if fact.confidence is not None else None,
         review_status=fact.review_status,
         provenance=ProvenanceResponse(
-            entered_by=prov.get("entered_by"),
-            reason=prov.get("reason"),
-            method=prov.get("method", "manual_override"),
+            entered_by=str(prov["entered_by"]) if prov.get("entered_by") is not None else None,
+            reason=str(prov["reason"]) if prov.get("reason") is not None else None,
+            method=str(prov.get("method") or "manual_override"),
         ),
     )
 
