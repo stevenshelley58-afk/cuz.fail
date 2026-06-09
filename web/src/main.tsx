@@ -1487,14 +1487,16 @@ function Home({
           text: d.answer ?? "I couldn't get an answer just now.",
           chips: chips.length ? chips : undefined,
         });
-      } else if (!authed && (r.kind === "auth" || r.kind === "missing" || r.kind === "notBuilt" || r.kind === "down")) {
-        pushGuestChatPreview(t);
-      } else if (r.kind === "missing" || r.kind === "notBuilt") {
-        pushGuestChatPreview(t);
       } else if (r.kind === "auth") {
-        push({ role: "a", tone: "note", text: "Sign in to ask questions.", action: { label: "Go to sign in", run: onNeedSignIn } });
+        if (!authed) {
+          pushGuestChatPreview(t);
+        } else {
+          push({ role: "a", tone: "note", text: "Session expired — please sign in again.", action: { label: "Sign in", run: onNeedSignIn } });
+        }
+      } else if ((r.kind === "missing" || r.kind === "notBuilt") && !authed) {
+        pushGuestChatPreview(t);
       } else {
-        push({ role: "a", tone: "warn", text: r.kind === "down" ? "Can't reach the API right now." : `Ask failed (${r.message}).` });
+        push({ role: "a", tone: "warn", text: r.kind === "down" ? "Can't reach the API right now." : `Ask failed (${r.kind === "missing" || r.kind === "notBuilt" ? "endpoint not available" : r.message}).` });
       }
     }
     setBusy(false);
