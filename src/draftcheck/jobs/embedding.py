@@ -69,7 +69,7 @@ class MockEmbeddingProvider(EmbeddingProvider):
         for text in texts:
             digest = hashlib.sha256(text.encode()).digest()
             # Extend digest bytes cyclically to fill dimension floats.
-            raw = []
+            raw: list[float] = []
             i = 0
             while len(raw) < self.dimension:
                 raw.append(digest[i % len(digest)] / 255.0)
