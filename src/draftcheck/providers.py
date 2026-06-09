@@ -37,7 +37,7 @@ class MockChatProvider:
         return "The live assistant model is not configured in this environment."
 
 
-@dataclass(frozen=True)
+@dataclass
 class OpenAIChatProvider:
     api_key: str
     model: str
