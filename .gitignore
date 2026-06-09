@@ -31,4 +31,5 @@ supabase/.temp/
 *.egg-info/
 coverage/
 data/corpus/
+data/harvest/
 data/seed/*.pdf
