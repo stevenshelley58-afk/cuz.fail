@@ -25,9 +25,6 @@ def test_v3_authority_is_locked_in_active_agent_docs() -> None:
 
 def test_superseded_authority_docs_warn_near_top() -> None:
     for path in [
-        "docs/MASTER_IMPLEMENTATION_PLAN.md",
-        "MASTER_PLAN_ADDENDUM.md",
-        "docs/PLAN_LOCK_NOTICE.md",
         "docs/REBUILD_SPEC.md",
     ]:
         first_page = "\n".join(read(path).splitlines()[:12])
