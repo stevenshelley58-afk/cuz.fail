@@ -10,7 +10,7 @@ frontend under `web/`.
 ## Plan Lock
 
 Implementation work must follow `docs/MASTER_REBUILD_PLAN.md` together with refreshed
-`REPO_AUDIT.md`, `DATA_INVENTORY.md`, and `VERCEL_AUDIT.md`. Older planning docs are background
+`REPO_AUDIT.md` and `DATA_INVENTORY.md`. Older planning docs are background
 context only when they conflict with the V3 rebuild plan.
 
 ## Local Setup

@@ -213,7 +213,7 @@ def _fts_count(db) -> int | None:
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Audit the local DraftCheck source library DB.")
-    parser.add_argument("--output", default="docs/SOURCE_LIBRARY_AUDIT.md")
+    parser.add_argument("--output", default="reports/SOURCE_LIBRARY_AUDIT.md")
     return parser.parse_args()
 
 

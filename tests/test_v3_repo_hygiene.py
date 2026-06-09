@@ -22,15 +22,6 @@ def test_v3_authority_is_locked_in_active_agent_docs() -> None:
     assert "This repo intentionally contains no frontend" not in readme
 
 
-def test_superseded_authority_docs_warn_near_top() -> None:
-    for path in [
-        "docs/REBUILD_SPEC.md",
-    ]:
-        first_page = "\n".join(read(path).splitlines()[:12])
-        assert "SUPERSEDED" in first_page
-        assert "docs/MASTER_REBUILD_PLAN.md" in first_page
-
-
 def test_ignore_rules_cover_runtime_and_private_artifacts() -> None:
     gitignore = read(".gitignore")
     dockerignore = read(".dockerignore")

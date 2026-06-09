@@ -21,7 +21,6 @@ Do not stage `draftcheck.db`, `.storage/`, `.venv/`, `.vercel/`, `build/`, cache
 scripts/precommit_guard.py           rejects forbidden paths, files >5 MB, and obvious secrets
 scripts/check_sqlite_integrity.py    read-only SQLite integrity and harvest-count checker
 DATA_INVENTORY.md                    data/corpus, .storage, SQLite count baseline
-VERCEL_AUDIT.md                      legacy Vercel cutover inventory
 ```
 
 Local verification:
