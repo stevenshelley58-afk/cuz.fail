@@ -670,6 +670,7 @@ class SpatialDataset(Base, TimestampMixin):
     __table_args__ = (
         UniqueConstraint("dataset_id", "version", name="uq_spatial_datasets_dataset_version"),
         Index("ix_spatial_datasets_licence_status", "licence_status"),
+        Index("ix_spatial_datasets_approval_status", "approval_status"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -678,6 +679,7 @@ class SpatialDataset(Base, TimestampMixin):
     provider: Mapped[str] = mapped_column(String(200), nullable=False)
     licence: Mapped[str | None] = mapped_column(String(200), nullable=True)
     licence_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")
+    approval_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")
     source_crs: Mapped[str] = mapped_column(String(80), nullable=False)
     version: Mapped[str] = mapped_column(String(120), nullable=False)
     source_version_id: Mapped[UUID | None] = mapped_column(

@@ -46,6 +46,62 @@ export type ChatReply = {
   disclaimer?: string | null;
 } & Record<string, unknown>;
 
+/* ── Stage 2 types ── */
+
+export type ProvenanceResponse = {
+  kind: "spatial_dataset" | "manual_override";
+  method: string;
+  target_crs: string;
+  dataset_id?: string | null;
+  licence_status?: string | null;
+};
+
+export type PropertyFactResponse = {
+  fact_id: string;
+  fact_type: string;
+  value: unknown;
+  confidence: "high" | "medium" | "low" | "none";
+  review_status: string;
+  provenance: ProvenanceResponse;
+};
+
+export type PropertyProfileResponse = {
+  org_id: string;
+  project_id: string;
+  resolution_status: "resolved" | "missing_info" | "needs_human_review" | "unsupported";
+  confidence: "high" | "medium" | "low" | "none";
+  address?: string | null;
+  local_government?: string | null;
+  target_crs: string;
+  issues: string[];
+  provenance: ProvenanceResponse[];
+  facts: PropertyFactResponse[];
+};
+
+export type ProposalRequest = {
+  proposal_type?: string | null;
+  dwelling_type?: string | null;
+  building_class?: string | null;
+  work_type?: string | null;
+  new_or_existing?: "new" | "existing" | null;
+  lot_type?: string | null;
+  primary_street_confirmed?: boolean;
+  secondary_street_confirmed?: boolean;
+};
+
+export type ProposalResponse = {
+  id: string;
+  org_id: string;
+  project_id: string;
+  proposal_type?: string | null;
+  dwelling_type?: string | null;
+  building_class?: string | null;
+  work_type?: string | null;
+  lot_type?: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
 function base(): string {
   const raw = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim();
   return (raw && raw.length > 0 ? raw : DEFAULT_BASE).replace(/\/+$/, "");
@@ -98,7 +154,13 @@ export const api = {
     stage: "concept",
   }),
   resolveAddress: (projectId: string, address: string) =>
-    call<Record<string, unknown>>("POST", `/projects/${projectId}/resolve-address`, { address }),
+    call<PropertyProfileResponse>("POST", `/projects/${projectId}/resolve-address`, { address }),
+  getProperty: (projectId: string) =>
+    call<PropertyProfileResponse>("GET", `/projects/${projectId}/property`),
+  upsertProposal: (projectId: string, data: ProposalRequest) =>
+    call<ProposalResponse>("POST", `/projects/${projectId}/proposal`, data),
+  createProjectV2: (name: string, council_scope?: string) =>
+    call<ProjectSummary>("POST", "/projects", { name, council_scope }),
   rules: () => call<unknown>("GET", "/sources"),
   ask: (question: string, scope: { web: boolean }) =>
     call<ChatReply>("POST", "/assistant", { message: question, web_search_requested: scope.web }),

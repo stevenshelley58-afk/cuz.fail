@@ -1,0 +1,10 @@
+{
+  "id": "PROJECT_GOLDEN_VINCENT_001",
+  "org_id": "ORG_DEMO_001",
+  "name": "244 Vincent Street North Perth — M1 Golden Fixture",
+  "status": "draft",
+  "council_scope": "City of Vincent",
+  "created_at": "2026-06-09T00:00:00Z",
+  "updated_at": "2026-06-09T00:00:00Z",
+  "_fixture_note": "M1 golden fixture project for Stage 2 end-to-end tests"
+}

@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "ZONE_VINCENT_001",
+      "properties": {
+        "zone_code": "R60",
+        "zone_label": "Residential R60",
+        "r_code": "R60",
+        "scheme": "City of Vincent Local Planning Scheme No. 2",
+        "lga": "City of Vincent",
+        "subzone": null,
+        "heritage_area": false,
+        "source": "DPLH Display WMS (demo fixture)",
+        "licence": "display_only",
+        "note": "Advisory/display-only data. Not for use as authoritative planning data without DPLH licence agreement."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [115.8508, -31.9325],
+          [115.8528, -31.9325],
+          [115.8528, -31.9308],
+          [115.8508, -31.9308],
+          [115.8508, -31.9325]
+        ]]
+      }
+    }
+  ],
+  "_metadata": {
+    "endpoint": "DPLH WMS GetFeatureInfo (stub)",
+    "query_point": {"lat": -31.9318, "lon": 115.8518},
+    "licence_status": "display_only",
+    "approval_status": "pending_review",
+    "fixture_note": "Demo fixture for City of Vincent M1 test. Real endpoint to be wired in W2."
+  }
+}

@@ -110,7 +110,29 @@ class PropertyProfileResponse(BaseModel):
 def get_address_service() -> AddressResolutionService:
     global _address_service
     if _address_service is None:
-        _address_service = AddressResolutionService()
+        import os
+
+        database_url = os.environ.get("DATABASE_URL")
+        if database_url:
+            try:
+                from sqlalchemy import create_engine
+
+                from draftcheck.domain.address.postgis_store import PostGISSpatialDatasetStore
+
+                engine = create_engine(database_url)
+                postgis_store = PostGISSpatialDatasetStore(engine)
+                _address_service = AddressResolutionService(store=postgis_store)  # type: ignore[arg-type]
+            except Exception:  # pragma: no cover – PostGIS not available in all envs
+                import logging
+
+                logging.getLogger(__name__).warning(
+                    "get_address_service: DATABASE_URL is set but PostGIS store failed to "
+                    "initialise; falling back to in-memory store",
+                    exc_info=True,
+                )
+                _address_service = AddressResolutionService()
+        else:
+            _address_service = AddressResolutionService()
     return _address_service
 
 

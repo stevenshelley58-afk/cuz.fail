@@ -1,0 +1,24 @@
+{
+  "type": "Feature",
+  "properties": {
+    "parcel_id": "PARCEL_VINCENT_DEMO_001",
+    "lot_number": "1",
+    "plan_number": "P12345",
+    "lga_name": "City of Vincent",
+    "area_m2": 2800,
+    "tenure": "freehold",
+    "licence": "CC BY 4.0 (SLIP cadastre geometry)",
+    "srid": 7844,
+    "note": "Demo fixture — not authoritative cadastral data"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [[
+      [115.8508, -31.9325],
+      [115.8528, -31.9325],
+      [115.8528, -31.9308],
+      [115.8508, -31.9308],
+      [115.8508, -31.9325]
+    ]]
+  }
+}
