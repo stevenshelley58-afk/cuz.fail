@@ -85,6 +85,46 @@ def _extract_numeric(value_json: dict[str, object] | None) -> float | None:
         return None
 
 
+def _get_applicable_rules(
+    session: Session,
+    *,
+    council_scope: str | None = None,
+    zone_codes: list[str] | None = None,
+    r_codes: list[str] | None = None,
+) -> list[Rule]:
+    """Load approved rules filtered by zone/R-code applicability.
+
+    NULL applicable_zones / applicable_r_codes means the rule is global (applies to all).
+    """
+    from sqlalchemy import cast, or_
+    from sqlalchemy.dialects.postgresql import JSONB as PgJSONB
+
+    q = session.query(Rule).filter(Rule.lifecycle_status == "approved")
+
+    if council_scope:
+        q = q.filter(
+            (Rule.council_scope == None) | (Rule.council_scope == council_scope)  # noqa: E711
+        )
+
+    if zone_codes and any(zone_codes):
+        zone_filters = [Rule.applicable_zones == None]  # noqa: E711
+        for zc in zone_codes:
+            zone_filters.append(
+                Rule.applicable_zones.contains(cast([zc], PgJSONB))
+            )
+        q = q.filter(or_(*zone_filters))
+
+    if r_codes and any(r_codes):
+        r_code_filters = [Rule.applicable_r_codes == None]  # noqa: E711
+        for rc in r_codes:
+            r_code_filters.append(
+                Rule.applicable_r_codes.contains(cast([rc], PgJSONB))
+            )
+        q = q.filter(or_(*r_code_filters))
+
+    return q.all()
+
+
 def _rule_pack_hash(rules: list[Rule]) -> str:
     """Stable hash of the rule ids in this pack for audit tracing."""
     ids = sorted(str(r.id) for r in rules)
@@ -118,27 +158,15 @@ class ComplianceEngine:
             raise ValueError(f"Project {project_id} not found")
 
         # ------------------------------------------------------------------
-        # 2. Load approved rules scoped to this project's council
+        # 2. Resolve council_scope — prefer promoted column, fall back to JSON
         # ------------------------------------------------------------------
-        council_scope: str | None = None
-        if isinstance(project.metadata_json, dict):
+        council_scope: str | None = project.council_scope
+        if council_scope is None and isinstance(project.metadata_json, dict):
             raw = project.metadata_json.get("council_scope")
             council_scope = str(raw) if raw is not None else None
 
-        rules: list[Rule] = (
-            session.query(Rule)
-            .filter(Rule.lifecycle_status == "approved")
-            .all()
-        )
-
-        # Build lookup: rule_key -> Rule (last approved wins on key collision)
-        rule_by_key: dict[str, Rule] = {}
-        for _r in rules:
-            if _r.rule_key:
-                rule_by_key[_r.rule_key] = _r
-
         # ------------------------------------------------------------------
-        # 3. Load PropertyFacts for this project
+        # 3. Load PropertyFacts for this project (needed before rule filtering)
         # ------------------------------------------------------------------
         facts: list[PropertyFact] = (
             session.query(PropertyFact)
@@ -153,8 +181,37 @@ class ComplianceEngine:
         for fact in sorted(facts, key=lambda f: f.created_at):
             fact_by_type[fact.fact_type] = fact
 
+        # Extract zone and r_code codes for rule applicability filtering
+        zone_codes: list[str] = []
+        r_codes: list[str] = []
+        for fact in facts:
+            if fact.fact_type == "zone" and isinstance(fact.value_json, dict):
+                code = fact.value_json.get("code")
+                if code:
+                    zone_codes.append(str(code))
+            elif fact.fact_type == "r_code" and isinstance(fact.value_json, dict):
+                code = fact.value_json.get("code")
+                if code:
+                    r_codes.append(str(code))
+
         # ------------------------------------------------------------------
-        # 4. Create the CheckRun record
+        # 4. Load approved rules filtered by zone/R-code applicability
+        # ------------------------------------------------------------------
+        rules: list[Rule] = _get_applicable_rules(
+            session,
+            council_scope=council_scope,
+            zone_codes=zone_codes or None,
+            r_codes=r_codes or None,
+        )
+
+        # Build lookup: rule_key -> Rule (last approved wins on key collision)
+        rule_by_key: dict[str, Rule] = {}
+        for _r in rules:
+            if _r.rule_key:
+                rule_by_key[_r.rule_key] = _r
+
+        # ------------------------------------------------------------------
+        # 5. Create the CheckRun record
         # ------------------------------------------------------------------
         pack_hash = _rule_pack_hash(rules) if rules else None
         source_version_ids = list(
@@ -175,7 +232,7 @@ class ComplianceEngine:
         session.flush()  # obtain check_run.id
 
         # ------------------------------------------------------------------
-        # 5. Evaluate each Tier-1 check key
+        # 6. Evaluate each Tier-1 check key
         # ------------------------------------------------------------------
         results: list[CheckResultItem] = []
         any_fail = False
@@ -288,7 +345,7 @@ class ComplianceEngine:
             results.append(item)
 
             # ------------------------------------------------------------------
-            # 6. Persist ResolvedRule + CheckResult rows
+            # 7. Persist ResolvedRule + CheckResult rows
             # ------------------------------------------------------------------
             resolved_rule = ResolvedRule(
                 org_id=UUID(org_id),
@@ -349,7 +406,7 @@ class ComplianceEngine:
             session.add(check_result)
 
         # ------------------------------------------------------------------
-        # 7. Update CheckRun status
+        # 8. Update CheckRun status
         # ------------------------------------------------------------------
         overall_status: str
         if any_fail:

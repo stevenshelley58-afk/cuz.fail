@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import re
+import time
 from dataclasses import dataclass
 from typing import Any, Protocol
 from urllib.error import HTTPError, URLError
@@ -100,9 +101,77 @@ class OpenAIChatProvider:
         return content.strip()
 
 
+ANTHROPIC_DEFAULT_CHAT_MODEL = "claude-haiku-4-5-20251001"
+
+
+@dataclass
+class AnthropicChatProvider:
+    api_key: str
+    model: str = ANTHROPIC_DEFAULT_CHAT_MODEL
+    timeout_seconds: int = 30
+    max_output_tokens: int = 700
+    name: str = "anthropic"
+    is_live: bool = True
+
+    def complete(self, system_prompt: str, user_prompt: str) -> str:
+        if not self.api_key:
+            raise RuntimeError("API key is required when LLM_PROVIDER=anthropic.")
+        body = json.dumps(
+            {
+                "model": self.model,
+                "max_tokens": self.max_output_tokens,
+                "system": system_prompt,
+                "messages": [{"role": "user", "content": user_prompt}],
+            }
+        ).encode("utf-8")
+        req = Request(
+            "https://api.anthropic.com/v1/messages",
+            data=body,
+            headers={
+                "x-api-key": self.api_key,
+                "anthropic-version": "2023-06-01",
+                "Content-Type": "application/json",
+            },
+            method="POST",
+        )
+        delays = [1.0, 2.0, 4.0]
+        last_exc: Exception | None = None
+        for delay in [0.0, *delays]:
+            if delay:
+                time.sleep(delay)
+            try:
+                with urlopen(req, timeout=self.timeout_seconds) as resp:
+                    data = json.loads(resp.read().decode("utf-8"))
+                content_blocks = data.get("content", [])
+                text = "".join(
+                    block.get("text", "")
+                    for block in content_blocks
+                    if isinstance(block, dict) and block.get("type") == "text"
+                )
+                if not text.strip():
+                    raise RuntimeError("Anthropic chat response contained no text content.")
+                return text.strip()
+            except HTTPError as exc:
+                detail = exc.read().decode("utf-8", errors="replace")
+                last_exc = RuntimeError(
+                    f"Anthropic chat request failed with HTTP {exc.code}: {_clip_error(detail)}"
+                )
+            except (OSError, URLError) as exc:
+                last_exc = RuntimeError(f"Anthropic chat request failed: {exc}")
+        raise RuntimeError(f"Anthropic API failed after retries: {last_exc}") from last_exc
+
+
 def get_chat_provider(settings: Settings | None = None) -> ChatProvider:
     active_settings = settings or get_settings()
     provider = (active_settings.llm_provider or "mock").strip().lower()
+    if provider == "anthropic" and active_settings.anthropic_api_key:
+        model = active_settings.llm_model.strip() or ANTHROPIC_DEFAULT_CHAT_MODEL
+        return AnthropicChatProvider(
+            api_key=active_settings.anthropic_api_key,
+            model=model,
+            timeout_seconds=active_settings.llm_timeout_seconds,
+            max_output_tokens=active_settings.llm_max_output_tokens,
+        )
     if provider in {"openai", "openai-compatible"} and active_settings.openai_api_key:
         model = active_settings.llm_model.strip() or OPENAI_DEFAULT_CHAT_MODEL
         return OpenAIChatProvider(
@@ -160,4 +229,8 @@ _EMBEDDING_SYNONYMS = {
     "vehicles": "garage",
 }
 
-_KNOWN_PROVIDERS = re.compile(r"^(mock|openai|openai-compatible|openrouter|minimax)$")
+_KNOWN_PROVIDERS = re.compile(r"^(mock|openai|openai-compatible|openrouter|minimax|anthropic)$")
+
+
+# Alias used by substrate.build_model_adapter and callers that only need a provider.
+build_chat_provider = get_chat_provider
