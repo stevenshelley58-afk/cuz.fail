@@ -17,7 +17,7 @@ from draftcheck.config import Settings, get_settings
 
 OPENAI_DEFAULT_CHAT_MODEL = "gpt-4o"
 OPENROUTER_DEFAULT_CHAT_MODEL = "openai/gpt-4o"
-MINIMAX_DEFAULT_CHAT_MODEL = "MiniMax-Text-01"
+MINIMAX_DEFAULT_CHAT_MODEL = "MiniMax-M3"
 MINIMAX_DEFAULT_BASE_URL = "https://api.minimax.chat/v1"
 
 
