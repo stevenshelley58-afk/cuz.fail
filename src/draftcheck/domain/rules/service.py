@@ -15,6 +15,7 @@ Design invariants (must all hold):
 
 from __future__ import annotations
 
+import json
 import re
 from datetime import UTC, datetime
 from uuid import UUID, uuid4
@@ -22,8 +23,12 @@ from uuid import UUID, uuid4
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+import logging
+
 from draftcheck.ai.substrate import ModelAdapter, ModelRequest
 from draftcheck.db.models import AuditEvent, Clause, Rule, RuleCandidate, User
+
+log = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -51,6 +56,34 @@ _NORMATIVE_RE = re.compile(
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------
+
+
+def _parse_extraction_response(text: str) -> dict | None:
+    """Try to parse JSON from an LLM response text.
+
+    Handles:
+    - Raw JSON string
+    - JSON wrapped in a markdown code fence (```json ... ```)
+    Returns a dict on success, None if unparseable.
+    """
+    stripped = text.strip()
+    # Try raw JSON first.
+    try:
+        result = json.loads(stripped)
+        if isinstance(result, dict):
+            return result
+    except json.JSONDecodeError:
+        pass
+    # Try to extract from a code fence.
+    fence_match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", stripped, re.DOTALL)
+    if fence_match:
+        try:
+            result = json.loads(fence_match.group(1))
+            if isinstance(result, dict):
+                return result
+        except json.JSONDecodeError:
+            pass
+    return None
 
 
 def _classify_from_text(text: str) -> str:
@@ -122,16 +155,21 @@ def classify_clause(
         )
     )
 
-    # Deterministic classification from clause text (stub for Stage 3).
-    # Phase 6 will parse the real LLM response instead.
-    disposition = _classify_from_text(clause.text)
+    # Try to parse disposition from the LLM response first; fall back to regex.
+    disposition: str | None = None
+    if response.status == "succeeded" and response.text:
+        parsed = _parse_extraction_response(response.text)
+        if parsed and isinstance(parsed.get("disposition"), str):
+            candidate_disp = parsed["disposition"].strip().lower()
+            if candidate_disp in VALID_DISPOSITIONS:
+                disposition = candidate_disp
+    if disposition is None:
+        disposition = _classify_from_text(clause.text)
 
     clause.disposition = disposition
     clause.classification_skill_version_id = skill_version_id
     session.flush()
 
-    # Suppress unused variable — trace_id is available if callers want it.
-    _ = response.trace_id
     return disposition
 
 
@@ -140,15 +178,31 @@ def classify_clause(
 # ---------------------------------------------------------------------------
 
 
+_EXTRACTION_PROMPT_TEMPLATE = """\
+Extract the planning rule from this clause. Return JSON with keys:
+- rule_key: str (from vocabulary)
+- value: number or null
+- unit: "m" | "%" | null
+- operator: "lte" | "gte" | "lt" | "gt" | "eq"
+- condition: str describing when this rule applies, or null
+- quote: exact verbatim text from the clause that states this rule
+
+Clause text: {clause_text}"""
+
+
 def enqueue_extraction_group(
     clause_id: UUID,
     skill_version_id: str,
     session: Session,
+    adapter: ModelAdapter | None = None,
 ) -> UUID:
     """Create 3 RuleCandidate rows for extraction passes 1, 2, 3.
 
     Invariant: only call for rule_bearing clauses.  This function checks and
     raises ValueError if the clause is not rule_bearing.
+
+    If `adapter` is provided and is a live adapter, calls it for each pass to
+    populate value_json, condition_json, quote, rule_key, unit, operator on the candidate.
 
     Returns the shared extraction_group_id UUID.
     """
@@ -179,6 +233,49 @@ def enqueue_extraction_group(
             value_json={},
             condition_json={},
         )
+
+        # Attempt live extraction if an adapter is provided.
+        if adapter is not None:
+            try:
+                extraction_prompt = _EXTRACTION_PROMPT_TEMPLATE.format(
+                    clause_text=clause.text[:2000]
+                )
+                response = adapter.complete(
+                    ModelRequest(
+                        job_id=f"extract_{clause_id.hex}_p{pass_number}",
+                        job_type="extract_rule",
+                        skill_version_id=skill_version_id,
+                        prompt=extraction_prompt,
+                        max_output_tokens=512,
+                    )
+                )
+                if response.status == "succeeded" and response.text:
+                    parsed = _parse_extraction_response(response.text)
+                    if parsed:
+                        if isinstance(parsed.get("quote"), str) and parsed["quote"].strip():
+                            candidate.quote = parsed["quote"].strip()
+                        if isinstance(parsed.get("rule_key"), str):
+                            candidate.rule_key = parsed["rule_key"].strip() or None
+                        if isinstance(parsed.get("operator"), str):
+                            candidate.operator = parsed["operator"].strip() or None
+                        if isinstance(parsed.get("unit"), str):
+                            candidate.unit = parsed["unit"].strip() or None
+                        value = parsed.get("value")
+                        if value is not None:
+                            candidate.value_json = {"value": value}
+                        condition = parsed.get("condition")
+                        if isinstance(condition, str) and condition.strip():
+                            candidate.condition_json = {"condition": condition.strip()}
+                        candidate.review_status = "extracted"
+            except Exception:
+                log.warning(
+                    "Extraction adapter call failed for clause %s pass %d; "
+                    "leaving candidate in pending_extraction state.",
+                    clause_id,
+                    pass_number,
+                    exc_info=True,
+                )
+
         session.add(candidate)
 
     session.flush()

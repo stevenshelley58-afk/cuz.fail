@@ -60,6 +60,16 @@ class ZoneFact:
     code: str
     label: str | None
     metadata: dict[str, Any]
+    spatial_dataset_id: str | None = None
+
+
+@dataclass
+class RCodeFact:
+    feature_db_id: str
+    layer_type: str
+    code: str
+    label: str | None
+    spatial_dataset_id: str | None = None
 
 
 @dataclass
@@ -169,6 +179,9 @@ class AddressResolver:
         if not zones:
             warnings.append("zone_not_found_for_parcel")
 
+        # Step 4b: R-code facts
+        r_code_facts = await self._r_codes_from_parcel(parcel.parcel_db_id, session)
+
         # Step 5: Overlay facts
         overlays = await self._overlays_from_parcel(parcel.parcel_db_id, session)
 
@@ -207,6 +220,7 @@ class AddressResolver:
             parcel=parcel,
             lga_name=lga_name,
             zones=zones,
+            r_code_facts=r_code_facts,
             overlays=overlays,
             lot_area_m2=lot_area_m2,
             frontage_m=frontage_m,
@@ -372,7 +386,8 @@ class AddressResolver:
         result = await _execute(
             session,
             text(
-                "SELECT pf.id, pf.layer_type, pf.code, pf.label, pf.metadata_json "
+                "SELECT pf.id, pf.layer_type, pf.code, pf.label, pf.metadata_json, "
+                "pf.spatial_dataset_id "
                 "FROM planning_features pf "
                 "WHERE pf.layer_type = 'zone' "
                 "AND ST_Intersects("
@@ -390,6 +405,7 @@ class AddressResolver:
                 code=str(r[2]),
                 label=r[3],
                 metadata=r[4] or {},
+                spatial_dataset_id=str(r[5]) if r[5] else None,
             )
             for r in rows
         ]
@@ -421,6 +437,37 @@ class AddressResolver:
                 code=str(r[2]),
                 label=r[3],
                 metadata=r[4] or {},
+            )
+            for r in rows
+        ]
+
+    async def _r_codes_from_parcel(
+        self, parcel_db_id: str, session: Any
+    ) -> list[RCodeFact]:
+        """Query planning_features for R-code/residential_density layers."""
+        from sqlalchemy import text
+
+        result = await _execute(
+            session,
+            text(
+                "SELECT pf.id, pf.code, pf.label, pf.spatial_dataset_id, pf.layer_type "
+                "FROM planning_features pf "
+                "WHERE pf.layer_type IN ('r_code', 'residential_density') "
+                "AND ST_Intersects("
+                "  pf.geom, "
+                "  (SELECT geom FROM parcels WHERE id = :pid)"
+                ")"
+            ),
+            {"pid": parcel_db_id},
+        )
+        rows = result.fetchall()
+        return [
+            RCodeFact(
+                feature_db_id=str(r[0]),
+                layer_type=r[4],
+                code=str(r[1]) if r[1] else "",
+                label=r[2],
+                spatial_dataset_id=str(r[3]) if r[3] else None,
             )
             for r in rows
         ]
@@ -642,6 +689,7 @@ class AddressResolver:
         parcel: ParcelResult,
         lga_name: str | None,
         zones: list[ZoneFact],
+        r_code_facts: list[RCodeFact],
         overlays: list[OverlayFact],
         lot_area_m2: float | None,
         frontage_m: float | None,
@@ -661,7 +709,8 @@ class AddressResolver:
             session,
             text(
                 "DELETE FROM property_facts "
-                "WHERE org_id = :org_id AND project_id = :project_id"
+                "WHERE org_id = :org_id AND project_id = :project_id "
+                "AND review_status NOT IN ('approved', 'promoted', 'confirmed')"
             ),
             {"org_id": str(org_uuid), "project_id": str(project_uuid)},
         )
@@ -742,6 +791,18 @@ class AddressResolver:
                     },
                     confidence=0.85,
                     method="postgis_st_intersects_zone",
+                    spatial_dataset_id=zone.spatial_dataset_id,
+                )
+            )
+        for r_code_row in r_code_facts:
+            facts.append(
+                _make_fact(
+                    org_uuid, project_uuid, property_id,
+                    fact_type="r_code",
+                    value={"code": r_code_row.code, "label": r_code_row.label},
+                    confidence=0.85,
+                    method="postgis_st_intersects_r_code",
+                    spatial_dataset_id=r_code_row.spatial_dataset_id,
                 )
             )
         for overlay in overlays:
@@ -766,9 +827,10 @@ class AddressResolver:
                 text(
                     "INSERT INTO property_facts "
                     "(id, org_id, project_id, property_id, fact_type, value_json, "
-                    "confidence, method, provenance_json, review_status) "
+                    "confidence, method, provenance_json, review_status, spatial_dataset_id) "
                     "VALUES (:id, :org_id, :project_id, :property_id, :fact_type, "
-                    ":value_json, :confidence, :method, :provenance_json, :review_status)"
+                    ":value_json, :confidence, :method, :provenance_json, :review_status, "
+                    ":spatial_dataset_id)"
                 ),
                 fact,
             )
@@ -789,6 +851,7 @@ def _make_fact(
     value: dict,
     confidence: float,
     method: str,
+    spatial_dataset_id: str | None = None,
 ) -> dict:
     import json as _json
     return {
@@ -802,6 +865,7 @@ def _make_fact(
         "method": method,
         "provenance_json": _json.dumps({"method": method, "advisory_only": True}),
         "review_status": "pending_review",
+        "spatial_dataset_id": spatial_dataset_id,
     }
 
 

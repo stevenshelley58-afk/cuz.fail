@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Callable, Mapping, Sequence
+from collections.abc import Callable, Iterator, Mapping, Sequence
 from datetime import UTC, date, datetime
 from hashlib import sha256
 import json
@@ -982,6 +982,41 @@ class SqlAlchemySourceLibrary:
                     )
                 )
             return tuple(citable)
+
+    def citable_chunks_paginated(
+        self,
+        session: Session,
+        *,
+        page_size: int = 200,
+        after_id: UUID | None = None,
+    ) -> Iterator[tuple[SourceChunk, SourceCitation, SourceVersion]]:
+        """Keyset-cursor generator — never loads the full table into memory."""
+        while True:
+            q = (
+                session.query(DbSourceChunk, DbSourceCitation, DbSourceVersion, DbSource)
+                .join(DbSourceVersion, DbSourceVersion.id == DbSourceChunk.source_version_id)
+                .join(DbSource, DbSource.id == DbSourceVersion.source_id)
+                .join(DbSourceCitation, DbSourceCitation.source_chunk_id == DbSourceChunk.id)
+                .order_by(DbSourceChunk.id)
+            )
+            if after_id is not None:
+                q = q.filter(DbSourceChunk.id > after_id)
+            rows = q.limit(page_size).all()
+            if not rows:
+                break
+            for chunk, citation, version, source in rows:
+                domain_version = self._source_version(version)
+                if not domain_version.can_support_citable_retrieval:
+                    continue
+                domain_chunk = self._source_chunk(chunk, version, citation_id=str(citation.id))
+                yield (
+                    domain_chunk,
+                    self._source_citation(citation, chunk, version, source),
+                    domain_version,
+                )
+            after_id = rows[-1][0].id
+            if len(rows) < page_size:
+                break
 
     def record_fetch_log(
         self,

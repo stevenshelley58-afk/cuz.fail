@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from typing import Any
 from dataclasses import replace
 from hashlib import sha256
 import json
@@ -181,6 +182,34 @@ def _chunk_text(text: str, *, max_chars: int = 1200) -> tuple[str, ...]:
     if current:
         chunks.append(current)
     return tuple(chunks)
+
+
+def _chunk_by_clauses(
+    text: str,
+    clause_offsets: list[tuple[int, int]],
+    *,
+    max_chars: int = 1200,
+) -> list[str]:
+    """Split text at clause boundaries instead of paragraph breaks.
+
+    clause_offsets: list of (start, end) character offsets for each clause body.
+    Falls back to paragraph splitting if no offsets provided.
+    """
+    if not clause_offsets:
+        return list(_chunk_text(text, max_chars=max_chars))
+
+    chunks = []
+    for start, end in clause_offsets:
+        body = text[start:end].strip()
+        if not body:
+            continue
+        # If this clause is longer than max_chars, sub-split by paragraph
+        if len(body) <= max_chars:
+            chunks.append(body)
+        else:
+            sub = _chunk_text(body, max_chars=max_chars)
+            chunks.extend(sub)
+    return chunks
 
 
 def _safe_quote(text: str, *, max_chars: int = 240) -> str:
@@ -550,6 +579,198 @@ class InMemorySourceSearchService:
             hits.append(SourceSearchHit(chunk=chunk, citation=citation, version=version, score=score))
         hits.sort(key=lambda hit: (-hit.score, hit.chunk.source_version_id, hit.chunk.ordinal))
         return tuple(hits[:limit])
+
+    def ask(self, question: str, *, limit: int = 4) -> SourceAnswer:
+        hits = self.search_chunks(question, limit=limit)
+        if not hits:
+            return SourceAnswer(
+                status=AnswerStatus.UNSUPPORTED,
+                answer=(
+                    "Unsupported: no approved source version citations were found for this question."
+                ),
+                citations=(),
+                source_version_ids=(),
+                missing_information=("approved source version citation",),
+                needs_verification=True,
+            )
+
+        citations = tuple(hit.citation for hit in hits)
+        source_version_ids = tuple(dict.fromkeys(hit.version.id for hit in hits))
+        excerpts = " ".join(_safe_quote(hit.chunk.text, max_chars=180) for hit in hits)
+        return SourceAnswer(
+            status=AnswerStatus.SUPPORTED_BY_APPROVED_SOURCES,
+            answer=f"Based on the matched approved source chunks: {excerpts}",
+            citations=citations,
+            source_version_ids=source_version_ids,
+            assumptions=(),
+            missing_information=(),
+            confidence=min(0.95, 0.5 + sum(hit.score for hit in hits) / max(len(hits), 1) / 2),
+            needs_verification=True,
+            risk_level="unknown",
+        )
+
+
+class SqlAlchemySourceSearchService:
+    """Hybrid FTS + pgvector search backed by PostgreSQL."""
+
+    def __init__(
+        self,
+        session_factory: Any,
+        embedding_config: EmbeddingConfig | None = None,
+    ) -> None:
+        self._session_factory = session_factory
+        self._embedding_config = embedding_config or default_embedding_config()
+
+    def search_chunks(self, query: str, *, limit: int = 8) -> tuple[SourceSearchHit, ...]:
+        from sqlalchemy import text as sqla_text
+
+        if not query or not query.strip():
+            return ()
+
+        session = self._session_factory()
+        try:
+            recall_limit = limit * 5
+
+            fts_sql = sqla_text("""
+                SELECT
+                    sc.id AS chunk_id,
+                    sc.source_version_id,
+                    sc.chunk_index,
+                    sc.text AS chunk_text,
+                    sc.embedding,
+                    sc.embedding_provider,
+                    sc.embedding_model,
+                    sc.embedding_dimension,
+                    sc.section_ref AS chunk_section_ref,
+                    sv.id AS version_id,
+                    sv.source_id,
+                    sv.version_label,
+                    sv.sha256 AS version_sha256,
+                    sv.storage_manifest_json,
+                    sv.licence_status,
+                    sv.review_status,
+                    sv.fetched_at,
+                    sv.published_at,
+                    sv.effective_from,
+                    sv.effective_to,
+                    sv.superseded_by_version_id,
+                    sv.metadata_json AS version_metadata_json,
+                    sd.title AS source_title,
+                    sd.canonical_url,
+                    scit.id AS citation_id,
+                    scit.section_ref AS citation_section_ref,
+                    scit.quote AS citation_quote,
+                    ts_rank_cd(
+                        to_tsvector('english', sc.text),
+                        websearch_to_tsquery('english', :q)
+                    ) AS fts_score
+                FROM source_chunks sc
+                JOIN source_versions sv ON sv.id = sc.source_version_id
+                JOIN source_documents sd ON sd.id = sv.source_id
+                LEFT JOIN source_citations scit ON scit.source_chunk_id = sc.id
+                WHERE sv.review_status = 'approved'
+                  AND to_tsvector('english', sc.text) @@ websearch_to_tsquery('english', :q)
+                ORDER BY fts_score DESC
+                LIMIT :recall_limit
+            """)
+            fts_rows = session.execute(fts_sql, {"q": query, "recall_limit": recall_limit}).fetchall()
+
+            if not fts_rows:
+                return ()
+
+            # Vector re-rank using stored embeddings and a hash-based query vector
+            query_vec = _hash_embedding(query, self._embedding_config)
+            max_fts = max((float(r.fts_score) for r in fts_rows), default=1.0) or 1.0
+
+            scored: list[tuple[Any, float]] = []
+            for r in fts_rows:
+                fts_norm = float(r.fts_score) / max_fts
+                emb = r.embedding
+                if emb:
+                    vec = list(emb)
+                    qv = list(query_vec)
+                    min_len = min(len(vec), len(qv))
+                    dot = sum(vec[i] * qv[i] for i in range(min_len))
+                    norm_v = sum(x * x for x in vec[:min_len]) ** 0.5 or 1.0
+                    norm_q = sum(x * x for x in qv[:min_len]) ** 0.5 or 1.0
+                    cosine_sim = dot / (norm_v * norm_q)
+                    hybrid = 0.4 * fts_norm + 0.6 * max(0.0, cosine_sim)
+                else:
+                    hybrid = fts_norm
+                scored.append((r, hybrid))
+
+            scored.sort(key=lambda x: x[1], reverse=True)
+            top_rows = scored[:limit]
+
+            hits: list[SourceSearchHit] = []
+            for r, score in top_rows:
+                storage_manifest = dict(r.storage_manifest_json or {})
+                artifact_ids_raw = storage_manifest.get("artifact_ids", [])
+                artifact_ids = artifact_ids_raw if isinstance(artifact_ids_raw, list) else []
+                version_meta = dict(r.version_metadata_json or {})
+                storage_path = str(
+                    storage_manifest.get("storage_path")
+                    or content_addressed_path(r.version_sha256)
+                )
+
+                version = SourceVersion(
+                    id=str(r.version_id),
+                    source_id=str(r.source_id),
+                    version_label=r.version_label or f"sha256:{r.version_sha256[:12]}",
+                    sha256=r.version_sha256,
+                    storage_path=storage_path,
+                    licence_status=LicenceStatus(r.licence_status),
+                    review_status=SourceReviewStatus(r.review_status),
+                    fetched_at=r.fetched_at,
+                    published_at=r.published_at,
+                    effective_from=r.effective_from,
+                    effective_to=r.effective_to,
+                    superseded_by_version_id=(
+                        str(r.superseded_by_version_id) if r.superseded_by_version_id else None
+                    ),
+                    artifact_ids=tuple(str(v) for v in artifact_ids),
+                    metadata_only=bool(
+                        version_meta.get("metadata_only")
+                        or storage_manifest.get("metadata_only")
+                    ),
+                )
+
+                citation_id = str(r.citation_id) if r.citation_id else _stable_id(
+                    "cit", str(r.chunk_id)
+                )
+                chunk_text_val: str = r.chunk_text
+                chunk = SourceChunk(
+                    id=str(r.chunk_id),
+                    source_id=str(r.source_id),
+                    source_version_id=str(r.version_id),
+                    ordinal=r.chunk_index,
+                    text=chunk_text_val,
+                    text_sha256=sha256(chunk_text_val.encode("utf-8")).hexdigest(),
+                    citation_id=citation_id,
+                    embedding_provider=r.embedding_provider,
+                    embedding_model=r.embedding_model,
+                    embedding_dimension=r.embedding_dimension,
+                    embedding=tuple(list(r.embedding) if r.embedding else []),
+                )
+
+                locator = r.citation_section_ref or r.chunk_section_ref or f"chunk {r.chunk_index}"
+                quote = r.citation_quote or _safe_quote(chunk_text_val)
+                citation = SourceCitation(
+                    id=citation_id,
+                    source_id=str(r.source_id),
+                    source_version_id=str(r.version_id),
+                    chunk_id=str(r.chunk_id),
+                    source_title=r.source_title,
+                    locator=locator,
+                    quote=quote,
+                    uri=r.canonical_url,
+                )
+
+                hits.append(SourceSearchHit(chunk=chunk, citation=citation, version=version, score=score))
+
+            return tuple(hits)
+        finally:
+            session.close()
 
     def ask(self, question: str, *, limit: int = 4) -> SourceAnswer:
         hits = self.search_chunks(question, limit=limit)

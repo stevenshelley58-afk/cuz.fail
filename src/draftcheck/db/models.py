@@ -263,6 +263,10 @@ class Project(Base, TimestampMixin):
     lodgement_date: Mapped[date | None] = mapped_column(Date, nullable=True)
     assessment_basis: Mapped[str | None] = mapped_column(String(80), nullable=True)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    council_scope: Mapped[str | None] = mapped_column(
+        String(120), nullable=True, index=True,
+        comment="Promoted from metadata_json by migration 0007"
+    )
 
 
 class Property(Base, TimestampMixin):
@@ -1064,6 +1068,16 @@ class Rule(Base, TimestampMixin):
         index=True,
     )
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    council_scope: Mapped[str | None] = mapped_column(
+        String(120), nullable=True, index=True,
+        comment="Council/LGA this rule applies to; NULL = global (all councils)"
+    )
+    applicable_zones: Mapped[list | None] = mapped_column(
+        JSONB, nullable=True, comment="Zone codes this rule applies to; NULL = all zones"
+    )
+    applicable_r_codes: Mapped[list | None] = mapped_column(
+        JSONB, nullable=True, comment="R-codes this rule applies to; NULL = all R-codes"
+    )
 
 
 class RuleClauseLink(Base, TimestampMixin):
