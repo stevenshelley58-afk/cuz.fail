@@ -1,5 +1,7 @@
 # DraftCheck WA Core
 
+**Production:** https://lotfile.app — served by Caddy on a single VPS; no Vercel.
+
 Backend core and V3 rebuild workspace for a WA residential drafting assistant. It manages projects,
 source ingestion, citation-backed retrieval, deterministic compliance checks, RFI parsing, draft
 response packs, Hermes job delegation, exports, validation gates, audit events, and the new address-first
@@ -43,7 +45,7 @@ The live VPS target is `srv1625369` at `76.13.209.160`, reachable from the opera
 `ssh draftcheck`. PowerShell/Codex is the local shell; commands that mutate production must run
 through `ssh draftcheck '...'` or inside an interactive `ssh draftcheck` session.
 
-`https://app.cuz.fail/` is served by Caddy from `/srv/draftcheck/app/web/dist`. For a UI-only
+`https://lotfile.app/` is served by Caddy from `/srv/draftcheck/app/web/dist`. For a UI-only
 deploy, sync `/srv/draftcheck/app` to `origin/main` and rebuild `web/dist`; no Vercel action and
 no container restart are needed. See `docs/PRODUCTION_DEPLOYMENT.md` for the exact command and
 verification checklist.

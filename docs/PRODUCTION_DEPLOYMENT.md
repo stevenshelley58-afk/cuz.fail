@@ -1,10 +1,10 @@
 # Production Deployment
 
-Date: 2026-06-08
+Date: 2026-06-10 (updated — Vercel retired, VPS is sole production target)
 
-This is the operator guide for the live VPS deployment at `app.cuz.fail` and
+This is the operator guide for the live VPS deployment at `lotfile.app` and
 `api.cuz.fail`. It is written for Codex/PowerShell on Steven's Windows machine and the
-VPS `srv1625369`.
+VPS `srv1625369`. Vercel is retired — do not deploy there.
 
 ## Authority
 
@@ -68,14 +68,15 @@ srv1625369
 
 ## Current Production Shape
 
-- Web URL: `https://app.cuz.fail/`
+- Web URL: `https://lotfile.app/`
 - API URL: `https://api.cuz.fail/api/v1`
 - VPS host: `srv1625369`
 - VPS IP: `76.13.209.160`
 - Repo checkout: `/srv/draftcheck/app`
 - Live static root: `/srv/draftcheck/app/web/dist`
-- UI deploy: rebuild `web/dist`; no Vercel action and no container restart.
+- UI deploy: rebuild `web/dist` on VPS; no Vercel, no container restart.
 - API health check: `https://api.cuz.fail/api/v1/health`
+- Vercel: RETIRED
 
 ## UI-Only Deploy From Main
 
@@ -132,7 +133,7 @@ echo "deployed $deploy_sha"
 Run these from local PowerShell/Codex after the deploy:
 
 ```powershell
-curl.exe -s https://app.cuz.fail/ |
+curl.exe -s https://lotfile.app/ |
   Select-String -Pattern '<title>[^<]*</title>' -AllMatches |
   ForEach-Object { $_.Matches.Value }
 
@@ -147,7 +148,7 @@ Expected:
 HTTP_STATUS=200
 ```
 
-Also load `https://app.cuz.fail/` at desktop width. The current LotFile UI should show:
+Also load `https://lotfile.app/` at desktop width. The current LotFile UI should show:
 
 - Left sidebar.
 - Full-width content area across the remaining viewport.

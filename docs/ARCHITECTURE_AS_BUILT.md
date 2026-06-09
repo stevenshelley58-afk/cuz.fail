@@ -1,6 +1,19 @@
 # DraftCheck WA — As-Built Architecture
 
-Date: 2026-06-07. This maps what is actually in the repo today, verified against the code — not what the planning docs say should exist. Companion to `REPO_AUDIT.md` (2026-06-06).
+Date: 2026-06-07 (updated 2026-06-10). **Deployment architecture is LOCKED: single VPS at
+76.13.209.160 (Caddy). Vercel is retired.** This maps what is actually in the repo today,
+verified against the code — not what the planning docs say should exist. Companion to
+`REPO_AUDIT.md` (2026-06-06).
+
+## Production topology (locked 2026-06-10)
+
+- Single host: VPS `srv1625369` (76.13.209.160)
+- Canonical app URL: `https://lotfile.app`
+- `cuz.fail`, `www.cuz.fail`, `lotfile.app` all redirect to `lotfile.app`
+- SPA served from `/srv/draftcheck/app/web/dist`
+- API at `/api/v1` (proxied by Caddy to `api:8000`, same-origin)
+- Vercel: retired. No split-brain.
+- Source-of-truth Caddyfile: `infra/v3/Caddyfile`
 
 ## What the app is
 
