@@ -771,7 +771,15 @@ def create_sources_router(
     model_adapter: ModelAdapter | None = None,
 ) -> APIRouter:
     source_library = library or _default_source_library()
-    search_service = InMemorySourceSearchService(source_library)
+    if os.environ.get("DATABASE_URL") and os.getenv("DRAFTCHECK_SOURCE_STORE", "auto") != "memory":
+        from draftcheck.domain.sources.library import SqlAlchemySourceSearchService, default_embedding_config
+        from draftcheck.db.engine import create_session_factory as _csf
+        search_service: Any = SqlAlchemySourceSearchService(
+            session_factory=_csf(),
+            embedding_config=default_embedding_config(),
+        )
+    else:
+        search_service = InMemorySourceSearchService(source_library)
     if model_adapter is not None:
         governed_model_adapter = model_adapter
     else:

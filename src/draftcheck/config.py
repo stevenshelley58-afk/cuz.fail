@@ -71,6 +71,7 @@ class Settings:
     openrouter_app_name: str = "LotFile"
     minimax_api_key: str = ""
     minimax_base_url: str = "https://api.minimax.chat/v1"
+    anthropic_api_key: str = ""
     sentry_dsn: str = ""
 
     @classmethod
@@ -111,6 +112,7 @@ class Settings:
             openrouter_app_name=os.getenv("OPENROUTER_APP_NAME", "LotFile"),
             minimax_api_key=os.getenv("MINIMAX_API_KEY", ""),
             minimax_base_url=os.getenv("MINIMAX_BASE_URL", "https://api.minimax.chat/v1"),
+            anthropic_api_key=os.getenv("ANTHROPIC_API_KEY", ""),
             sentry_dsn=os.getenv("SENTRY_DSN", ""),
         )
 
