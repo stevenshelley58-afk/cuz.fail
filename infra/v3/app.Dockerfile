@@ -8,9 +8,6 @@ WORKDIR /app
 
 COPY pyproject.toml README.md alembic.ini ./
 COPY src ./src
-COPY apps ./apps
-COPY packages ./packages
-COPY infra/alembic ./infra/alembic
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
