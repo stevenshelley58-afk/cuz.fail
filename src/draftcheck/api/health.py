@@ -2,17 +2,26 @@
 
 from __future__ import annotations
 
+import importlib.metadata
 import logging
 import os
+from typing import Any
 
 from fastapi import APIRouter
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse, Response
 from sqlalchemy import text
 
 from draftcheck.db.engine import create_runtime_engine
 
 logger = logging.getLogger(__name__)
 router = APIRouter(tags=["ops"])
+
+
+def _get_version() -> str:
+    try:
+        return importlib.metadata.version("draftcheck")
+    except importlib.metadata.PackageNotFoundError:
+        return "unknown"
 
 
 def _db_ok() -> bool:
@@ -33,11 +42,12 @@ def _db_ok() -> bool:
 
 
 @router.get("/health", include_in_schema=False)
-def health() -> dict[str, str]:
+def health() -> dict[str, Any]:
     db_status = "ok" if _db_ok() else "error"
     return {
         "status": "ok" if db_status == "ok" else "degraded",
         "db": db_status,
+        "version": _get_version(),
     }
 
 
@@ -54,12 +64,12 @@ def metrics() -> PlainTextResponse:
     try:
         engine = create_runtime_engine(database_url)
         with engine.connect() as conn:
-            # LLM spend today
+            # LLM spend today (from spend_events)
             try:
                 r = conn.execute(
                     text(
-                        "SELECT COALESCE(ROUND(SUM(cost_usd) * 100), 0) FROM job_traces "
-                        "WHERE started_at >= date_trunc('day', now() AT TIME ZONE 'UTC')"
+                        "SELECT COALESCE(SUM(amount_cents), 0) FROM spend_events "
+                        "WHERE created_at >= date_trunc('day', now() AT TIME ZONE 'UTC')"
                     )
                 )
                 spend = float(r.scalar() or 0)

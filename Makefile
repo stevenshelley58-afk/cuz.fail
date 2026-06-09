@@ -1,24 +1,32 @@
 PY ?= python
 
-.PHONY: setup dev test lint migrate bootstrap-sources audit-sources extract-rules rule-worklist reconcile-source-reviews seed worker
+.PHONY: setup dev test lint typecheck migrate backup seed-eval \
+        bootstrap-sources audit-sources extract-rules rule-worklist \
+        reconcile-source-reviews seed worker
 
 setup:
 	$(PY) -m pip install -e ".[dev]"
 
 dev:
-	$(PY) -m uvicorn draftcheck_api.main:app --reload --host 127.0.0.1 --port 8000
+	uvicorn draftcheck.api.main:app --reload --port 8000
 
 test:
-	$(PY) -m pytest
+	pytest tests/ -x -q
 
 lint:
-	$(PY) -m ruff check .
+	ruff check src/ tests/
 
 typecheck:
-	$(PY) -m mypy apps packages
+	mypy src/draftcheck/ --ignore-missing-imports
 
 migrate:
-	$(PY) -c "from draftcheck_core.database import init_database; init_database()"
+	alembic upgrade head
+
+backup:
+	bash scripts/backup_db.sh
+
+seed-eval:
+	$(PY) -c "from draftcheck.eval.seeds import seed_eval_cases; import asyncio; asyncio.run(seed_eval_cases())"
 
 bootstrap-sources:
 	$(PY) scripts/bootstrap_source_library.py

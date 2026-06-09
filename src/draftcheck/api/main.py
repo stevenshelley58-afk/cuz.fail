@@ -12,6 +12,7 @@ from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from draftcheck.api.health import router as health_router
 from draftcheck.api.v1 import create_v1_router
 from draftcheck.config import get_settings
 from draftcheck.observability import init_sentry
@@ -93,6 +94,7 @@ def create_app() -> FastAPI:
             },
         )
 
+    app.include_router(health_router)  # /health and /metrics — no version prefix
     app.include_router(create_v1_router(), prefix="/api/v1")
     return app
 
