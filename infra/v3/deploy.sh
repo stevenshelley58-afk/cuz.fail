@@ -11,6 +11,14 @@ cd "$APP_DIR"
 git fetch origin
 git reset --hard origin/main
 
+# Ensure lotfile.app is in CORS_ALLOWED_ORIGINS in the env file.
+if [ -f "$ENV_FILE" ] && grep -q "^CORS_ALLOWED_ORIGINS=" "$ENV_FILE"; then
+  if ! grep "^CORS_ALLOWED_ORIGINS=" "$ENV_FILE" | grep -q "lotfile\.app"; then
+    sed -i 's|^CORS_ALLOWED_ORIGINS=.*|&,https://lotfile.app|' "$ENV_FILE"
+    echo "Patched CORS_ALLOWED_ORIGINS to include lotfile.app"
+  fi
+fi
+
 (cd web && npm ci && npm run build)
 
 cd infra/v3
