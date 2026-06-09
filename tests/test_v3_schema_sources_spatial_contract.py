@@ -59,7 +59,6 @@ def test_v3_sources_spatial_foundation_tables_present() -> None:
         "rule_clause_links",
         "rules",
         "sessions",
-        "signoffs",
         "skill_versions",
         "source_chunks",
         "source_citations",
@@ -99,7 +98,6 @@ def test_v3_source_artifact_trace_and_spend_columns() -> None:
         "org_id",
         "source_id",
         "source_version_id",
-        "reviewer_user_id",
         "review_status",
         "licence_status",
         "reviewed_at",
@@ -259,7 +257,6 @@ def test_v3_rule_compliance_document_and_output_columns() -> None:
         "review_status",
     } <= column_names("document_facts")
     assert {"manifest_json", "storage_path", "sections_json"} <= column_names("exports")
-    assert {"signer_user_id", "statement", "signed_at", "revoked_at"} <= column_names("signoffs")
     assert {"subject_type", "subject_id", "reason", "priority", "source_json"} <= column_names("review_items")
 
 

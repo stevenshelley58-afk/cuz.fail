@@ -60,7 +60,8 @@ def test_v3_revisions_are_explicit_and_legacy_free() -> None:
 
     created_tables = set(re.findall(r'op\.create_table\(\s*"([^"]+)"', upgrade_sources))
     renamed_tables = dict(re.findall(r'op\.rename_table\(\s*"([^"]+)"\s*,\s*"([^"]+)"', upgrade_sources))
-    final_tables = (created_tables - set(renamed_tables)) | set(renamed_tables.values())
+    dropped_tables = set(re.findall(r'op\.drop_table\(\s*"([^"]+)"', upgrade_sources))
+    final_tables = (created_tables - set(renamed_tables) - dropped_tables) | set(renamed_tables.values())
 
     assert set(Base.metadata.tables) == final_tables
 

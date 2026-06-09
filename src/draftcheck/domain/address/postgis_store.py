@@ -12,7 +12,7 @@ Safety invariants enforced here:
     ``UNKNOWN``.
 4.  ``approval_status`` is written to the ``SpatialDataset.approval_status``
     column (added in migration 0003) and also cached in ``metadata_json``.
-5.  No human reviewer/approval gate is added to spatial resolution.
+5.  No approval gate is added to spatial resolution — pipeline is fully AI.
 6.  No direct table creation — Alembic owns the schema.
 7.  All geometry is EPSG:7844 (GDA2020).
 """
