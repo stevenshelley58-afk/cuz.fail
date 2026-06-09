@@ -21,7 +21,6 @@ Do not stage `draftcheck.db`, `.storage/`, `.venv/`, `.vercel/`, `build/`, cache
 scripts/precommit_guard.py           rejects forbidden paths, files >5 MB, and obvious secrets
 scripts/check_sqlite_integrity.py    read-only SQLite integrity and harvest-count checker
 DATA_INVENTORY.md                    data/corpus, .storage, SQLite count baseline
-VERCEL_AUDIT.md                      legacy Vercel cutover inventory
 ```
 
 Local verification:
@@ -38,8 +37,8 @@ The previous backend-only rule is superseded. V3 builds a first-class frontend u
 new-app traffic only under `/api/v1`, moves target code into `src/draftcheck/`, uses PostgreSQL with
 PostGIS and pgvector, Procrastinate, local content-addressed storage, and a governed Hermes runtime.
 
-Legacy `apps/`, `packages/`, `api/`, `ui/`, `landing/`, and `mockups/` are transition or
-design-reference material until M1 cutover.
+Legacy `apps/`, `packages/`, `api/`, `ui/`, `landing/`, and `mockups/` have been removed from the
+tree; V3 code lives in `src/draftcheck/` with the frontend under `web/` (recoverable from git history).
 
 ## Verification Baseline To Re-run In CI
 

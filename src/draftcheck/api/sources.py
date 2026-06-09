@@ -1132,7 +1132,11 @@ def create_sources_router(
                 }
             except Exception:
                 # Keep chat live on provider failure — fall through to deterministic path.
-                pass
+                _logger.warning(
+                    "Live chat provider %s failed; falling back to deterministic assistant",
+                    provider.name,
+                    exc_info=True,
+                )
 
         if hits:
             deterministic_answer = search_service.ask(question, limit=payload.limit)

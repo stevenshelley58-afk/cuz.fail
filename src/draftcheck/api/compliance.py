@@ -19,8 +19,6 @@ interpreted as final legal, planning, or certification compliance.
 
 from __future__ import annotations
 
-import os
-from collections.abc import Generator
 from datetime import datetime
 from typing import Annotated
 from uuid import UUID
@@ -30,38 +28,14 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from draftcheck.api.auth import get_current_session
+from draftcheck.api.deps import get_db_session
 from draftcheck.checks.engine import ComplianceEngine
-from draftcheck.db.engine import create_session_factory
 from draftcheck.db.models import CheckResult, CheckRun
 from draftcheck.domain.identity import ActiveSession
 
 router = APIRouter(prefix="/compliance", tags=["compliance"])
 
 _engine = ComplianceEngine()
-
-
-# ---------------------------------------------------------------------------
-# DB session dependency (mirrors projects.py)
-# ---------------------------------------------------------------------------
-
-
-def get_db_session() -> Generator[Session, None, None]:
-    database_url = os.getenv("DATABASE_URL")
-    if not database_url:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="DATABASE_URL is not configured; durable storage unavailable.",
-        )
-    factory = create_session_factory(database_url)
-    db: Session = factory()
-    try:
-        yield db
-        db.commit()
-    except Exception:
-        db.rollback()
-        raise
-    finally:
-        db.close()
 
 
 DbSession = Annotated[Session, Depends(get_db_session)]

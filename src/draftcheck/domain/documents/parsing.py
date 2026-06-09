@@ -113,6 +113,10 @@ class DocumentNotFoundError(KeyError):
     """Raised when a document is unknown to the in-memory library."""
 
 
+class DocumentParseError(ValueError):
+    """Raised when content cannot be parsed by its declared format."""
+
+
 class DocumentParser:
     """Extract reviewable document facts without producing compliance verdicts."""
 
@@ -375,37 +379,46 @@ def _extract_text(media_type: str, filename: str, content: bytes) -> tuple[str, 
     return decoded, notes
 
 
-def _extract_pdf_text(content: bytes) -> str:
-    try:
-        from pypdf import PdfReader
-    except ImportError:
-        return _decode_text(content)
+def extract_pdf_pages(content: bytes) -> list[str]:
+    """Per-page text from a PDF. Raises DocumentParseError on unreadable input."""
+    from pypdf import PdfReader
+
     try:
         reader = PdfReader(io.BytesIO(content))
-    except Exception:
-        return _decode_text(content)
-    return "\n\n".join(page.extract_text() or "" for page in reader.pages)
+        return [page.extract_text() or "" for page in reader.pages]
+    except Exception as exc:
+        raise DocumentParseError(f"Failed to parse PDF: {exc}") from exc
 
 
-def _extract_docx_text(content: bytes) -> str:
-    try:
-        from docx import Document
-    except ImportError:
-        return _decode_text(content)
+def extract_docx_text(content: bytes) -> str:
+    """Paragraph text from a DOCX. Raises DocumentParseError on unreadable input."""
+    from docx import Document
+
     try:
         doc = Document(io.BytesIO(content))
-    except Exception:
-        return _decode_text(content)
+    except Exception as exc:
+        raise DocumentParseError(f"Failed to parse DOCX: {exc}") from exc
     return "\n".join(paragraph.text for paragraph in doc.paragraphs if paragraph.text.strip())
 
 
-def _decode_text(content: bytes) -> str:
+def decode_text_bytes(content: bytes) -> str:
     for encoding in ("utf-8", "utf-16", "cp1252", "latin-1"):
         try:
             return content.decode(encoding)
         except UnicodeDecodeError:
             continue
     return content.decode("utf-8", errors="replace")
+
+
+def _extract_pdf_text(content: bytes) -> str:
+    return "\n\n".join(extract_pdf_pages(content))
+
+
+def _extract_docx_text(content: bytes) -> str:
+    return extract_docx_text(content)
+
+
+_decode_text = decode_text_bytes
 
 
 def _flatten_csv(text: str) -> str:

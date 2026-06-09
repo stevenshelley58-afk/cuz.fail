@@ -11,7 +11,7 @@
   the need. Reintroducing a split frontend/backend (Vercel + api.cuz.fail) is what repeatedly
   broke the app — do not do it.
 - Do not deploy to Vercel. If a domain serves the blank "LotFile" shell, its DNS is pointing at
-  Vercel instead of the VPS — fix DNS, do not touch the build. See `docs/FIX_ONE_HOST_VPS.md`.
+  Vercel instead of the VPS — fix DNS, do not touch the build. See `docs/PRODUCTION_DEPLOYMENT.md`.
 - Global reverse-proxy config tracked at `infra/blockwise-caddy/Caddyfile`.
 
 - Active implementation source: `docs/MASTER_REBUILD_PLAN.md` (single authority for the V3
