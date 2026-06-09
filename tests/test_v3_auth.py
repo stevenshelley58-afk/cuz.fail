@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 from datetime import UTC, datetime, timedelta
+import os
 from typing import Iterator
 from urllib.parse import parse_qs, urlparse
 
@@ -36,8 +37,16 @@ def auth_client() -> Iterator[tuple[TestClient, InMemoryIdentityStore, DevLogEma
     app.dependency_overrides[get_identity_store] = lambda: store
     app.dependency_overrides[get_email_sender] = lambda: sender
     app.dependency_overrides[get_settings] = lambda: settings
-    with TestClient(app) as client:
-        yield client, store, sender, settings
+    prev = os.environ.get("DEV_LOGIN_ENABLED")
+    os.environ["DEV_LOGIN_ENABLED"] = "1"
+    try:
+        with TestClient(app) as client:
+            yield client, store, sender, settings
+    finally:
+        if prev is None:
+            os.environ.pop("DEV_LOGIN_ENABLED", None)
+        else:
+            os.environ["DEV_LOGIN_ENABLED"] = prev
 
 
 def test_magic_link_and_session_tokens_are_stored_only_as_hashes() -> None:
