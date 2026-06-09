@@ -2,7 +2,7 @@
 
 Backend core and V3 rebuild workspace for a WA residential drafting assistant. It manages projects,
 source ingestion, citation-backed retrieval, deterministic compliance checks, RFI parsing, draft
-response packs, Hermes job delegation, exports, signoffs, audit events, and the new address-first
+response packs, Hermes job delegation, exports, validation gates, audit events, and the new address-first
 frontend under `web/`.
 
 ## Plan Lock
@@ -106,6 +106,6 @@ compatibility checks, and baseline tests only. Do not expand it as the V3 produc
 4. Upload drawings, review extracted facts, and promote only confirmed measurements.
 5. Run Tier 1 deterministic checks against approved rules and promoted measurements.
 6. Show issue cards with citations, drawing evidence, and decision traces.
-7. Block exports until human signoff.
+7. Block exports until automated validation gate.
 
 # cuz.fail

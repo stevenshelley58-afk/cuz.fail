@@ -255,7 +255,7 @@ echo "deployed $(git -C /srv/draftcheck/app rev-parse --short HEAD)"
 ### B7. Auth bootstrap — implement, don't defer
 
 The deployed shell is unusable without a login path: magic-link requires a pre-provisioned
-`owner`/`reviewer` and the planned `cli login-link` (plan §5.1) doesn't exist yet. You are
+`owner`/`operator` and the planned `cli login-link` (plan §5.1) doesn't exist yet. You are
 authorized to implement it now, per plan: `src/draftcheck/cli.py` with `login-link` issuing a
 one-time bootstrap URL for a provisioned owner (email from `$DRAFTCHECK_OWNER_EMAIL`, default
 `stevenshelley58@gmail.com`), wired to the existing identity store and token machinery, with

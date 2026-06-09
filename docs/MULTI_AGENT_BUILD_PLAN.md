@@ -37,7 +37,7 @@ draftcheck.db (127 MB)  -> PRAGMA integrity_check FAILS from this workspace:
 | 9 | **Frontend serialized.** PR10 queued after PR9 wastes the one track that parallelizes perfectly. | Frontend is a **continuous track** from Wave 1: shell + design tokens against the PR2 OpenAPI stub, then screens land per wave as their APIs merge (§4). PR10 becomes the track's M1 acceptance, not its start. | Med |
 | 10 | **Embeddings unpinned.** PR5 says nothing about model/dimension; V3 §8.1 pins them. | PR5 acceptance adds: pinned provider/model/dim via env, `embedding_model` recorded per chunk, HNSW index, re-embed runbook. | Med |
 | 11 | **Golden fixture unowned.** PR7/8/9 all consume one council + address + drawing fixture. | Fixtures Owner (single writer for `tests/fixtures/golden/`) creates it in Wave 3; it becomes the M1 demo and the permanent canary. | Med |
-| 12 | **Reviewer mechanics vague.** "Two review agents" without isolation or checklists. | §6: reviewers are fresh-context, read-only, run in pairs — Spec (diffs the PR against named V3 sections + acceptance list) then Quality (runs gates; greps forbidden patterns: `create_all`, `dev-login`, verdict writes outside the engine, uncited regulatory strings). Red-team agent attacks `/search/ask` at PR5 and the engine at PR9. | Low |
+| 12 | **Validator mechanics vague.** "Two review agents" without isolation or checklists. | §6: validators are fresh-context, read-only, run in pairs — Spec (diffs the PR against named V3 sections + acceptance list) then Quality (runs gates; greps forbidden patterns: `create_all`, `dev-login`, verdict writes outside the engine, uncited regulatory strings). Red-team agent attacks `/search/ask` at PR5 and the engine at PR9. | Low |
 
 ## 3. Agent roster
 
@@ -56,8 +56,8 @@ draftcheck.db (127 MB)  -> PRAGMA integrity_check FAILS from this workspace:
 | **RFI/Export** | worker | `domain/rfi`, `domain/exports` | PR11b |
 | **Frontend** | track worker | `web/` only | Waves 1→6 |
 | **Fixtures Owner** | worker | `tests/fixtures/` | Wave 3→ |
-| **Spec Reviewer / Quality Reviewer** | reviewers ×2 per merge | read-only | per PR |
-| **Red-team** | reviewer | read-only + eval harness | PR5, PR9 |
+| **Spec Validator / Quality Validator** | validators ×2 per merge | read-only | per PR |
+| **Red-team** | validator | read-only + eval harness | PR5, PR9 |
 
 Workers are fresh subagents per PR, each in an isolated git worktree, each receiving the invariants block (§5). A worker never edits outside its write scope; schema needs go to the Schema Integrator as specs.
 
@@ -73,7 +73,7 @@ W3  PR5 sources + SUBSTRATE v0   ||  PR7 spatial    || FE: login, dashboard, res
 W4  PR6 legal + skills/evals     ||  PR8 documents  || FE: sources admin, upload, facts review
 W5  PR9 compliance -> M1 GATE (golden fixture e2e; legacy deletion; /v1 removed)
         || FE: matrix, evidence drawer, ask         -> PR10 acceptance = FE M1
-W6  PR11a hermes autonomy        ||  PR11b RFI/exports/signoffs   || FE: RFI, agent/ops
+W6  PR11a hermes autonomy        ||  PR11b RFI/exports/validations   || FE: RFI, agent/ops
 ```
 
 Hard edges: PR6 ← PR5 (source_versions, clauses) · PR8 ← PR5 (artifacts) · PR7 ← PR4 only · PR9 ← PR6+PR7+PR8 · PR11 ← PR9. PR2 ∥ PR3 share only a contract (image names, `/api/v1/health|ready`), no files. Concurrency cap: 3 backend writers + frontend + fixtures.
@@ -89,7 +89,7 @@ Single-writer files you must not touch: pyproject.toml, uv.lock, models.py, alem
 Safety invariants (V3 §12): no final compliance claims; cite approved source versions or
   refuse; LLMs never decide verdicts; no likely_pass/likely_fail without approved rule +
   promoted measurement + citation + trace; no uncalibrated raster/PDF measurement; no paid
-  Standards Australia full text; no export without signoff; no LLM call outside the traced,
+  Standards Australia full text; no export without automated validation; no LLM call outside the traced,
   spend-capped adapter; no create_all; no dev-login; legal values in examples are
   illustrative — hardcoding one is a defect.
 Never stage: draftcheck.db, .storage/, .venv/, .vercel/, build/, caches, data/corpus/.
@@ -104,8 +104,8 @@ Done = code + tests + handoff note (what changed, contracts touched, follow-ups,
 2. CI must be green: ruff, mypy (new-code scope), pytest, alembic up+down, import-linter,
    web build, OpenAPI diff, forbidden-pattern grep (create_all | dev-login | verdict
    writes outside engine | uncited regulatory output paths).
-3. Spec Reviewer (fresh context, read-only): PR vs named V3 sections + acceptance list.
-4. Quality Reviewer (fresh context): runs gates locally, adversarial greps, test quality.
+3. Spec Validator (fresh context, read-only): PR vs named V3 sections + acceptance list.
+4. Quality Validator (fresh context): runs gates locally, adversarial greps, test quality.
 5. Coordinator merges in dependency order; integration runs daily at minimum.
 6. Schema PRs always merge before the service PRs that need them (same wave).
 7. Red-team gate at PR5 (try to elicit uncited answers) and PR9 (try to fake a verdict).
@@ -128,7 +128,7 @@ PR5  + substrate v0 (model adapter, job_traces, spend caps, breaker)
 PR6  + skill_versions + eval_cases seeded from harvest; every extraction traced
 PR9  M1 gate also deletes legacy apps/, packages/, api/, root index.py and removes /v1
 PR10 = frontend track M1 acceptance (track starts Wave 1, not after PR9)
-PR11 split: 11a Hermes autonomy + memory + console; 11b RFI/exports/signoffs
+PR11 split: 11a Hermes autonomy + memory + console; 11b RFI/exports/validations
      (substrate is NOT here — it shipped in PR5/PR6)
 ```
 

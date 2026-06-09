@@ -43,7 +43,7 @@ But both were written partly against an imagined repo. The 2026-06-07 audit (§1
 | 14 | First end-to-end demo implicit and late | Golden fixture project from Phase 2; M1 vertical-slice gate at Phase 5 (§9) | Med |
 | 15 | Drawing revisions (Rev A/B/C) unmodeled, though every real project iterates | `documents.supersedes_document_id` revision chain (§5.6) | Med |
 | 16 | No datum decision | GDA2020 (EPSG:7844) everywhere; transform at import (§8.2) | Med |
-| 17 | `orgs` table absent and no roles, despite org_id-everywhere and human approval gates | `orgs` table; `users.role ∈ {owner, reviewer}`; approvals require reviewer (§5.1) | Med |
+| 17 | `orgs` table absent and no roles, despite org_id-everywhere and operator approval gates | `orgs` table; `users.role ∈ {owner, operator}`; approvals require operator+ (§5.1) | Med |
 | 18 | Height checks treated like setbacks (they need natural ground level / survey data) | Check difficulty tiers; v1 = Tier 1; heights default `needs_human_review` (§8.4) | Med |
 | 19 | `check_definitions` as DB seed rows let fallback defaults masquerade as rules (25 DEFAULT_CHECKS do this today) | Check registry moves to code (typed, versioned); DB seeds removed (§5.7) | Med |
 | 20 | Table-count fetish (36 vs 33 stated; 57 exist today) | Target ≈ 42; count descriptive, provenance wins; full legacy mapping (Appendix A) | Low |
@@ -69,7 +69,7 @@ Rows marked **(new)** amend the reviewed plans. Everything overrides older docs 
 | Storage | Local content-addressed tree at `/srv/draftcheck/storage` (`sha256[:2]/sha256`), restic to B2/R2. No MinIO/S3/boto in v1. |
 | Proxy | Caddy only. `deploy/nginx-cuz.conf` is dead and removed. |
 | Auth | Magic-link email + signed session cookies. **(new)** Email goes through an `EmailSender` port (SMTP creds via env, provider chosen at deploy); dev mode logs the link; `cli login-link` issues a one-time bootstrap URL. No dev-login in production. **Amended 2026-06-08 (operator):** a dev-only username/password login (`POST /api/v1/auth/dev-login`, default `jemma`/`jemma6969`, creds overridable via `DEV_LOGIN_USERNAME`/`DEV_LOGIN_PASSWORD`) is allowed while building; it is hard-disabled (404) whenever `app_env=production`, so the shipped surface stays magic-link only. |
-| Roles **(new)** | `users.role ∈ {owner, reviewer}`. Rule approval, source approval, overrides, and signoffs require `reviewer`+. Single human may hold both; the audit trail still records who. |
+| Roles **(new)** | `users.role ∈ {owner, operator}`. Rule approval, source approval, and overrides require `operator`+. The audit trail records who. Exports gate on automated validation, not a signoff step. |
 | AI | Hermes is the governed agent runtime. LLMs extract, classify, embed, draft — never decide compliance verdicts. Governance substrate exists from the first LLM call (§7). |
 | Spend **(new)** | Per-job token caps + daily budget env + breaker that pauses agent queues. From Phase 1, not Phase 8. |
 | Compliance | Deterministic calculators over resolved rules and promoted measurements. `likely_pass`/`likely_fail` require proof (§8.4). Check registry lives in code, not DB seeds. |
@@ -80,7 +80,7 @@ Rows marked **(new)** amend the reviewed plans. Everything overrides older docs 
 | UX | Address-first wizard. Chat secondary. Issue card is the core object. |
 | Tenancy | Single-tenant operationally; `orgs` table exists and `org_id` is on every tenant-owned row. |
 | Examples **(new)** | Every numeric/legal value in this plan's examples is illustrative. Real values come only from approved, cited rules. |
-| Autonomy **(new 2026-06-08)** | Operator standing approval: agents execute git/CI/deploy/DNS/infra work without per-step human approval (see `AGENTS.md`). Dual-run/monitoring windows are discretionary, not mandated. Product-level legal gates (rule approval, signoffs) are unchanged. |
+| Autonomy **(new 2026-06-08)** | Operator standing approval: agents execute git/CI/deploy/DNS/infra work without per-step human approval (see `AGENTS.md`). Dual-run/monitoring windows are discretionary, not mandated. Product-level legal gates (rule approval, automated validation gates) are unchanged. |
 
 Caddy provides automatic HTTPS for the configured hostnames. Procrastinate gives retries, periodic jobs, locks, and workers on plain Postgres. pgvector supports exact search plus HNSW/IVFFlat. uv manages Python deps with a lockfile. (References: Caddy docs, Procrastinate docs, pgvector README, uv docs.)
 
@@ -124,7 +124,7 @@ Official docs -> source_versions -> clauses -> rule_candidates -> rules/legal_ed
 Address -> parcel -> council -> zone/R-code/overlays -> property_facts
 Proposal -> applicability + precedence -> resolved_rules
 Drawings -> document_facts -> promoted measurements
-Engine -> check_results + decision_trace_json -> issue cards -> signoff -> export
+Engine -> check_results + decision_trace_json -> issue cards -> automated validation gate -> export
 ```
 
 ---
@@ -238,7 +238,7 @@ Count is descriptive. Provenance, auditability, and query correctness always bea
 
 ```text
 orgs        single row operationally; everything tenant-owned carries org_id
-users       email, role ∈ {owner, reviewer}, status
+users       email, role ∈ {owner, operator}, status
 sessions    token_hash (random 256-bit, stored hashed), created_at, expires_at, revoked_at
 ```
 
@@ -375,11 +375,11 @@ versioned with the code (`engine_version`), tested with property-based tests. Fa
 ### 5.8 RFI, outputs, agent
 
 ```text
-rfi_items, response_drafts, exports, signoffs            (exports blocked without signoff)
+rfi_items, response_drafts, exports, validations            (exports blocked without automated validation)
 job_traces, agent_memory, skill_versions, eval_cases, eval_runs, audit_events, review_items
 ```
 
-`review_items` absorbs the legacy `tasks` + `review_queue_items` pair. Every approve/override/signoff writes an `audit_events` row — enforced in service code, asserted in tests. Procrastinate owns its own queue tables on top of these 42.
+`review_items` absorbs the legacy `tasks` + `review_queue_items` pair. Every approve/override/validation writes an `audit_events` row — enforced in service code, asserted in tests. Procrastinate owns its own queue tables on top of these 42.
 
 ---
 
@@ -402,7 +402,7 @@ job_traces, agent_memory, skill_versions, eval_cases, eval_runs, audit_events, r
 /rfi         POST projects/{project_id}/parse | GET projects/{project_id}/items
              POST items/{id}/draft-response | GET drafts/{id}
 /exports     POST / | GET / | GET {id}/download
-/signoffs    POST / | GET projects/{project_id}
+/validations POST / | GET projects/{project_id}
 /reviews     GET / | POST {id}/resolve
 /agent       GET jobs | POST jobs/{id}/retry | POST jobs/{id}/cancel | GET traces
              GET memory | PUT memory/{id} | GET skills | GET skills/{id}/diff
@@ -451,10 +451,10 @@ Hermes may never write:
 
 ```text
 rules.lifecycle_status = approved | resolved_rules (final) |
-check_results likely_pass/likely_fail | exports/signoffs
+check_results likely_pass/likely_fail | exports/validations
 ```
 
-Gate chain: `LLM proposes → validators check → evals gate → human approves → deterministic engine decides`. Skills live in `skills/<name>/` (SKILL.md + schema.json + examples/); every output records skill_version_id, model, prompt_hash, input/output artifacts, job_trace_id. Self-learning (Phase 8) starts only after human-labelled examples accumulate — and the legacy label harvest gives it a head start.
+Gate chain: `LLM proposes → validators check → evals gate → deterministic engine decides`. Skills live in `skills/<name>/` (SKILL.md + schema.json + examples/); every output records skill_version_id, model, prompt_hash, input/output artifacts, job_trace_id. Self-learning (Phase 8) starts only after operator-labelled examples accumulate — and the legacy label harvest gives it a head start.
 
 Note: the legacy `HermesAdapter` points at an external service via `HERMES_BASE_URL`. In the rebuild Hermes is the in-repo `hermes` container (an agent loop over the same Procrastinate queue), not an external dependency.
 
@@ -523,10 +523,10 @@ project + property_facts + proposal
   -> rule selection (jurisdiction, zone, R-code, overlays, proposal type)
   -> precedence + exceptions (rule_type=exception edges)
   -> resolved_rules -> promoted measurements -> code-registry calculators
-  -> check_results + decision_trace_json -> issue cards -> signoff -> export
+  -> check_results + decision_trace_json -> issue cards -> automated validation gate -> export
 ```
 
-Statuses: `likely_pass | likely_fail | missing_info | needs_human_review | not_applicable | unsupported`.
+Statuses: `likely_pass | likely_fail | missing_info | needs_operator_review | not_applicable | unsupported`.
 
 `likely_pass`/`likely_fail` require all of: approved resolved rule, promoted measurement, official citation, decision trace, not excluded by precedence. Otherwise: missing source/spatial fact/measurement → `missing_info`; legal conflict or discretion → `needs_human_review`; no citable support → `unsupported`. When a DTC rule fails and a `performance_alternative_to` edge exists, the result carries a `pathway_note`: design-principle assessment available — that is WA reality, not a softener.
 
@@ -588,21 +588,21 @@ Exit: PDF/DOCX/HTML/TXT parse; DXF dimensions become evidence-linked facts; rast
 
 check_runs/resolved_rules/check_results; applicability + precedence resolvers; code-registry calculators; decision traces; matrix UI; issue cards + evidence drawer.
 **M1 vertical slice (demo gate):** one council, one address, one source set, one drawing, five Tier-1 checks — perfect end-to-end with citations and traces. Then: legacy apps/packages/api deleted; `/v1` route removed; the golden fixture becomes the permanent canary.
-Exit: pass/fail impossible without rule+measurement+citation+trace; conflicts → human review; assumptions labelled; M1 demo runs clean.
+Exit: pass/fail impossible without rule+measurement+citation+trace; conflicts → cite-or-refuse gate; assumptions labelled; M1 demo runs clean.
 
 ### Phase 6 — Hermes autonomy
 
 hermes container (in-repo runtime, not external HERMES_BASE_URL); agent_memory; skills (extract_rules, classify_clauses, analyse_rfi, draft_response); agent console; eval-gated activation.
 Exit: Hermes creates candidates/drafts only; cannot approve or emit verdicts; every output fully attributed.
 
-### Phase 7 — RFI, exports, signoffs
+### Phase 7 — RFI, exports, validations
 
-RFI parser; drafts; export builders with manifest (source/rule/address coverage, decision traces, citations, assumptions + limitations section); signoff gate.
-Exit: export blocked without signoff; drafts editable and traceable.
+RFI parser; drafts; export builders with manifest (source/rule/address coverage, decision traces, citations, assumptions + limitations section); automated validation gate.
+Exit: export blocked without automated validation; drafts editable and traceable.
 
 ### Phase 8 — Self-learning + scale
 
-Human dispositions → labelled examples; improve_skill job; skill diff UI; golden evals gate activation; weekly canaries on the golden fixture; source refresh/diff → review items; ops dashboard (freshness, failures, spend, backups, eval trend).
+Operator dispositions → labelled examples; improve_skill job; skill diff UI; golden evals gate activation; weekly canaries on the golden fixture; source refresh/diff → review items; ops dashboard (freshness, failures, spend, backups, eval trend).
 Exit: no skill self-activates; rollback works; canaries protect the demo; drift surfaces as review items.
 
 ---
@@ -665,7 +665,7 @@ No raster/PDF-derived measurement without explicit calibration.
 Approved rules never silently change; changed sources create new versions.
 Nothing authoritative is deleted; supersession and overrides are recorded.
 No paid Standards Australia full text stored — metadata-only unless lawfully supplied.
-No export without human signoff.
+No export without automated validation gate.
 Every numeric in this plan's examples is illustrative; hardcoding one is a defect.
 Alembic is the only schema authority; create_all never ships.
 Table count never overrides provenance, auditability, or query correctness.
@@ -708,7 +708,7 @@ Table count never overrides provenance, auditability, or query correctness.
 | assumptions | resolved_rules.assumptions_json | folded |
 | tasks, review_queue_items | review_items | merged |
 | rfi_items, response_drafts, exports | same | — |
-| human_signoffs | signoffs | rename |
+| human_signoffs | validations | rename |
 | golden_eval_cases, golden_eval_runs | eval_cases, eval_runs | rename; seeded by harvest |
 | audit_events, job_traces | same | job_traces from day one |
 | background_jobs | Procrastinate tables | queue owns its schema |

@@ -48,9 +48,9 @@ Background jobs → RQ on Redis (RQ_ENABLED) | remote Hermes (HERMES_ENABLED, of
 - Ask/chat: `ask`, `chat`, `ask-source-library` + project-scoped variants — cited answers or refusal.
 - Compliance: resolved-rules, run, results, matrix (+ deprecated alias), measurements.
 - RFI: parse/analyse, items, draft-response, responses.
-- Exports: response packs + download; signoffs; review-queues; ops dashboard; golden evals; jobs (status/retry/cancel/traces); audit log.
+- Exports: response packs + download; automated validation gates; review-queues; ops dashboard; golden evals; jobs (status/retry/cancel/traces); audit log.
 
-Most workflows write `audit_events`; exports gate on `human_signoffs`.
+Most workflows write `audit_events`; exports gate on automated validation.
 
 ## Data model (57 tables, 7 domains)
 
@@ -59,7 +59,7 @@ Most workflows write `audit_events`; exports gate on `human_signoffs`.
 3. Source library: source_documents, source_versions (SHA-256 content-addressed), source_artifacts, source_licence_reviews, source_supersessions, source_references, source_chunks, source_chunk_embeddings, source_citations, source_fetch_logs, source_update_events.
 4. Rules: clauses, clause_references, clause_dispositions, rule_extraction_candidates, rule_rows, rule_to_clauses, rule_overrides, rule_carveouts.
 5. Project documents: project_documents, document_pages, document_chunks, extracted_document_facts, document_assets, extracted_measurements.
-6. Compliance/RFI/output: check_definitions, check_runs, resolved_rules, check_results, decision_traces, assumptions, rfi_items, tasks, response_drafts, exports, human_signoffs.
+6. Compliance/RFI/output: check_definitions, check_runs, resolved_rules, check_results, decision_traces, assumptions, rfi_items, tasks, response_drafts, exports, export_validations.
 7. Governance/ops: review_queue_items, golden_eval_cases, golden_eval_runs, audit_events, background_jobs, job_traces.
 
 ## Background jobs
@@ -104,7 +104,7 @@ Frontends: `ui/app.html` (live SPA → api.cuz.fail), `ui/0-3*.html` + `mockups/
 
 ## What is NOT a mess
 
-The core is sound: clean one-direction package dependencies, a disciplined 57-table provenance model (content-addressed source versions, licence gates, citations, decision traces, signoffs, golden evals), deterministic compliance with refusal semantics, a real RQ worker, alembic chain, and 27 test files (REPO_AUDIT reported green on 2026-06-06). The mess is concentrated in deployment sprawl, dead infrastructure, naming, and the absence of version control — all fixable without touching the domain core.
+The core is sound: clean one-direction package dependencies, a disciplined 57-table provenance model (content-addressed source versions, licence gates, citations, decision traces, automated validation gates, golden evals), deterministic compliance with refusal semantics, a real RQ worker, alembic chain, and 27 test files (REPO_AUDIT reported green on 2026-06-06). The mess is concentrated in deployment sprawl, dead infrastructure, naming, and the absence of version control — all fixable without touching the domain core.
 
 ## Suggested order of operations
 

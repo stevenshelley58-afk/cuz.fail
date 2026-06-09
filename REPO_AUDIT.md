@@ -77,7 +77,7 @@ must be resolved before agents start coding from the master plan.
   plain `postgres:16`, not PostGIS, and no DB image currently proves pgvector support.
 - The core evidence tables exist: `SourceDocument`, `SourceVersion`, `Clause`, `SourceChunk`,
   `SourceCitation`, `CheckDefinition`, `CheckResult`, `AuditEvent`, `BackgroundJob`, `JobTrace`, and
-  `HumanSignoff`.
+  `ExportValidation`.
 - The spatial/legal spine in the master plan is not implemented yet. Missing tables include
   `SourceArtifact`, `SourceLicenceReview`, `ClauseReference`, `RuleExtractionCandidate`, `RuleRow`,
   `SpatialDataset`, `Parcel`, `AddressPoint`, `PlanningLayerFeature`, `AddressProfile`,
@@ -126,7 +126,7 @@ Current constraints:
 - Respect robots.txt, rate limits, paywalls, login gates, captchas, copyright, and licence
   restrictions.
 - Prefer deterministic calculations for measurements.
-- Human signoff is required before any export is treated as submission-ready.
+- Automated validation gate is required before any export is treated as submission-ready.
 
 ## 3. Current SQLAlchemy Models
 
@@ -184,8 +184,8 @@ JobTrace -> job_traces
   provider, input_tokens, output_tokens, cost, status, started_at, finished_at,
   error, artifacts_json, created_at, updated_at
 
-HumanSignoff -> human_signoffs
-  id, project_id, target_type, target_id, status, signed_by, notes, created_at, updated_at
+ExportValidation -> export_validations
+  id, project_id, target_type, target_id, status, validated_by, notes, created_at, updated_at
 ```
 
 Additional current models:
@@ -262,7 +262,7 @@ POST /v1/projects/{project_id}/measurements
 GET  /v1/projects/{project_id}/measurements
 ```
 
-RFI, responses, exports, signoff, jobs, audit:
+RFI, responses, exports, validation gate, jobs, audit:
 
 ```text
 POST /v1/projects/{project_id}/rfi/parse
@@ -278,8 +278,8 @@ POST /v1/projects/{project_id}/exports/response-pack
 GET  /v1/projects/{project_id}/exports
 GET  /v1/projects/{project_id}/exports/{export_id}
 GET  /v1/projects/{project_id}/exports/{export_id}/download
-POST /v1/projects/{project_id}/signoffs
-GET  /v1/projects/{project_id}/signoffs
+POST /v1/projects/{project_id}/validations
+GET  /v1/projects/{project_id}/validations
 GET  /v1/jobs/{job_id}
 POST /v1/jobs/{job_id}/retry
 POST /v1/jobs/{job_id}/cancel
