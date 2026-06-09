@@ -1,8 +1,8 @@
 """WP7 DB fixes — pg_trgm, address trigram index, CHECK constraints, council_scope column,
 rules zone/r_code columns, property_facts composite index.
 
-Revision ID: 0007_wp7_db_fixes
-Revises: 0006_fix_role_constraint
+Revision ID: 0008_wp7_db_fixes
+Revises: 0007_nullable_org_job_traces
 """
 
 from __future__ import annotations
@@ -14,8 +14,8 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 
-revision: str = "0007_wp7_db_fixes"
-down_revision: str | None = "0006_fix_role_constraint"
+revision: str = "0008_wp7_db_fixes"
+down_revision: str | None = "0007_nullable_org_job_traces"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

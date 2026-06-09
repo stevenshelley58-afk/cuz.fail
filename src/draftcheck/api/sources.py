@@ -16,10 +16,10 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-from draftcheck.ai import InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
+from draftcheck.ai import DbJobTraceStore, InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
 from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.providers import get_chat_provider
-from draftcheck.db.engine import database_url_from_env
+from draftcheck.db.engine import create_session_factory, database_url_from_env
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.sources import (
     AnswerStatus,
@@ -773,14 +773,22 @@ def create_sources_router(
     source_library = library or _default_source_library()
     if os.environ.get("DATABASE_URL") and os.getenv("DRAFTCHECK_SOURCE_STORE", "auto") != "memory":
         from draftcheck.domain.sources.library import SqlAlchemySourceSearchService, default_embedding_config
-        from draftcheck.db.engine import create_session_factory
+        from draftcheck.db.engine import create_session_factory as _csf
         search_service: Any = SqlAlchemySourceSearchService(
-            session_factory=create_session_factory(),
+            session_factory=_csf(),
             embedding_config=default_embedding_config(),
         )
     else:
         search_service = InMemorySourceSearchService(source_library)
-    governed_model_adapter = model_adapter or LocalDeterministicModelAdapter(mode="local")
+    if model_adapter is not None:
+        governed_model_adapter = model_adapter
+    else:
+        db_url = database_url_from_env()
+        if db_url:
+            trace_store = DbJobTraceStore(create_session_factory(db_url))
+            governed_model_adapter = LocalDeterministicModelAdapter(mode="local", trace_store=trace_store)
+        else:
+            governed_model_adapter = LocalDeterministicModelAdapter(mode="local")
     api_router = APIRouter()
 
     @api_router.post("/sources/import", tags=["sources"])

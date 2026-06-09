@@ -14,6 +14,7 @@ from fastapi.responses import JSONResponse
 
 from draftcheck.api.v1 import create_v1_router
 from draftcheck.config import get_settings
+from draftcheck.observability import init_sentry
 
 
 LOGGER = logging.getLogger("draftcheck.api")
@@ -21,6 +22,7 @@ LOGGER = logging.getLogger("draftcheck.api")
 
 def create_app() -> FastAPI:
     settings = get_settings()
+    init_sentry(settings.sentry_dsn, app_env=settings.app_env)
     app = FastAPI(
         title="DraftCheck WA API",
         version="0.1.0",

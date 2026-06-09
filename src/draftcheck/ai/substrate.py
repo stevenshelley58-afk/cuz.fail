@@ -11,7 +11,7 @@ from hashlib import sha256
 import os
 import re
 from threading import RLock
-from typing import Literal, Protocol
+from typing import Literal, Protocol, runtime_checkable
 from uuid import uuid4
 
 
@@ -133,6 +133,12 @@ class ModelAdapter(Protocol):
         """Run a governed model call."""
 
 
+@runtime_checkable
+class JobTraceStore(Protocol):
+    def append(self, trace: JobTrace) -> None: ...
+    def seed_daily_counters(self, today: date) -> tuple[int, int]: ...
+
+
 class InMemoryJobTraceStore:
     def __init__(self) -> None:
         self._lock = RLock()
@@ -146,6 +152,10 @@ class InMemoryJobTraceStore:
         with self._lock:
             return tuple(self._traces)
 
+    def seed_daily_counters(self, today: date) -> tuple[int, int]:
+        # In-memory store has no persistence; always starts fresh.
+        return 0, 0
+
 
 class LocalDeterministicModelAdapter:
     """A disabled/local deterministic adapter with spend controls and traces."""
@@ -158,7 +168,7 @@ class LocalDeterministicModelAdapter:
         self,
         *,
         mode: AdapterMode = "disabled",
-        trace_store: InMemoryJobTraceStore | None = None,
+        trace_store: JobTraceStore | None = None,
         spend_caps: SpendCaps | None = None,
         circuit_breaker: CircuitBreaker | None = None,
     ) -> None:
@@ -217,9 +227,16 @@ class LocalDeterministicModelAdapter:
     def _reset_ledger_if_needed(self) -> None:
         today = utc_now().date()
         if self._ledger_day != today:
+            if self._ledger_day is None:
+                # First call after (re)start — seed from durable store to survive restarts.
+                self._daily_tokens, self._daily_cost_cents = (
+                    self.trace_store.seed_daily_counters(today)
+                )
+            else:
+                # Day rollover — genuinely new day, start from zero.
+                self._daily_tokens = 0
+                self._daily_cost_cents = 0
             self._ledger_day = today
-            self._daily_tokens = 0
-            self._daily_cost_cents = 0
 
     def _refusal_reason(self, projected_tokens: int, projected_cost_cents: int) -> str | None:
         if self.mode == "disabled":
