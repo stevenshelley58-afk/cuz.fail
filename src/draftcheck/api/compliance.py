@@ -29,7 +29,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from draftcheck.api.auth import get_current_session
+from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.checks.engine import ComplianceEngine
 from draftcheck.db.engine import create_session_factory
 from draftcheck.db.models import CheckResult, CheckRun
@@ -186,6 +186,7 @@ def _run_response(run: CheckRun, results: list[CheckResult]) -> ComplianceRunRes
 def run_compliance(
     project_id: str,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     db: DbSession,
 ) -> ComplianceRunResponse:
     """Execute the deterministic Tier-1 engine for the project.

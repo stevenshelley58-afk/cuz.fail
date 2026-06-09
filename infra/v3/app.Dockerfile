@@ -18,6 +18,9 @@ RUN apt-get update \
     && python -m pip install --upgrade pip \
     && python -m pip install .
 
+RUN addgroup --system appgroup && adduser --system --ingroup appgroup appuser
+USER appuser
+
 EXPOSE 8000
 
 CMD ["uvicorn", "draftcheck.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,25 +1,44 @@
-"""Governed local model substrate for V3.
+"""Governed model substrate for V3.
 
-This module is intentionally provider-neutral and performs no network calls.
+Supports a local deterministic adapter (no network calls) and a real
+Anthropic adapter that calls claude-sonnet-4-6.  Falls back to the local
+adapter when ANTHROPIC_API_KEY is absent.
 """
 
 from __future__ import annotations
 
+import logging
+import os
+import re
 from dataclasses import dataclass, field
 from datetime import UTC, date, datetime
 from hashlib import sha256
-import os
-import re
 from threading import RLock
 from typing import Any, Literal, Protocol, runtime_checkable
 from uuid import uuid4
 
+try:
+    import anthropic as _anthropic_sdk
+    _ANTHROPIC_AVAILABLE = True
+except ImportError:  # pragma: no cover
+    _anthropic_sdk = None  # type: ignore[assignment]
+    _ANTHROPIC_AVAILABLE = False
+
+try:
+    import openai as _openai_sdk
+except ImportError:  # pragma: no cover
+    _openai_sdk = None  # type: ignore[assignment]
+
+logger = logging.getLogger(__name__)
 
 ModelCallStatus = Literal["succeeded", "refused"]
 AdapterMode = Literal["disabled", "local"]
 
-
 TOKEN_RE = re.compile(r"\S+")
+
+# claude-sonnet-4-6 pricing (USD per token -> converted to cents)
+_SONNET_INPUT_COST_CENTS_PER_TOKEN = 0.0003   # $3 / 1M tokens
+_SONNET_OUTPUT_COST_CENTS_PER_TOKEN = 0.0015  # $15 / 1M tokens
 
 
 def utc_now() -> datetime:
@@ -43,6 +62,7 @@ class ModelRequest:
     max_output_tokens: int = 256
     input_artifact_ids: tuple[str, ...] = ()
     metadata: dict[str, str] = field(default_factory=dict)
+    json_mode: bool = False
 
     def __post_init__(self) -> None:
         if not self.job_id.strip():
@@ -128,6 +148,27 @@ class CircuitBreaker:
         self.opened_at = None
 
 
+# ---------------------------------------------------------------------------
+# Embedding dataclasses
+# ---------------------------------------------------------------------------
+
+@dataclass(frozen=True)
+class EmbeddingRequest:
+    content: str
+    model: str = "text-embedding-3-small"
+
+
+@dataclass(frozen=True)
+class EmbeddingResponse:
+    embedding: list[float]
+    model: str
+    input_tokens: int
+
+
+# ---------------------------------------------------------------------------
+# Protocols
+# ---------------------------------------------------------------------------
+
 class ModelAdapter(Protocol):
     def complete(self, request: ModelRequest) -> ModelResponse:
         """Run a governed model call."""
@@ -138,6 +179,10 @@ class JobTraceStore(Protocol):
     def append(self, trace: JobTrace) -> None: ...
     def seed_daily_counters(self, today: date) -> tuple[int, int]: ...
 
+
+# ---------------------------------------------------------------------------
+# In-memory trace store
+# ---------------------------------------------------------------------------
 
 class InMemoryJobTraceStore:
     def __init__(self) -> None:
@@ -156,6 +201,10 @@ class InMemoryJobTraceStore:
         # In-memory store has no persistence; always starts fresh.
         return 0, 0
 
+
+# ---------------------------------------------------------------------------
+# Local deterministic adapter (zero cost, no network)
+# ---------------------------------------------------------------------------
 
 class LocalDeterministicModelAdapter:
     """A disabled/local deterministic adapter with spend controls and traces."""
@@ -317,6 +366,10 @@ class LocalDeterministicModelAdapter:
         return (tokens * self.cost_per_1000_tokens_cents + 999) // 1000
 
 
+# ---------------------------------------------------------------------------
+# HTTP adapter (generic external provider)
+# ---------------------------------------------------------------------------
+
 class HttpModelAdapter:
     """Routes ModelRequest through a live chat provider with spend controls and traces."""
 
@@ -338,10 +391,6 @@ class HttpModelAdapter:
         self._ledger_day: date | None = None
         self._daily_tokens = 0
         self._daily_cost_cents = 0
-
-    # ------------------------------------------------------------------
-    # Public API
-    # ------------------------------------------------------------------
 
     def complete(self, request: ModelRequest) -> ModelResponse:
         if not isinstance(request, ModelRequest):
@@ -410,10 +459,6 @@ class HttpModelAdapter:
             cost_cents=cost_cents,
         )
 
-    # ------------------------------------------------------------------
-    # Internal helpers
-    # ------------------------------------------------------------------
-
     def _reset_ledger_if_needed(self) -> None:
         today = utc_now().date()
         if self._ledger_day != today:
@@ -467,12 +512,302 @@ class HttpModelAdapter:
         return (tokens * self.cost_per_1000_tokens_cents + 999) // 1000
 
 
-def build_model_adapter(settings: object | None = None) -> ModelAdapter:
-    """Factory: returns an HttpModelAdapter backed by the configured provider, or
-    a LocalDeterministicModelAdapter in disabled mode if no live provider is configured.
-    """
-    import os
+# ---------------------------------------------------------------------------
+# Anthropic adapter (async, native SDK)
+# ---------------------------------------------------------------------------
 
+class AnthropicModelAdapter:
+    """Calls Anthropic claude-sonnet-4-6 with governed spend caps and traces.
+
+    Reads ANTHROPIC_API_KEY from the environment.
+    """
+
+    provider = "anthropic"
+
+    def __init__(
+        self,
+        *,
+        model: str = "claude-sonnet-4-6",
+        trace_store: InMemoryJobTraceStore | None = None,
+        spend_caps: SpendCaps | None = None,
+        circuit_breaker: CircuitBreaker | None = None,
+        db_session_factory: Any = None,
+    ) -> None:
+        if not _ANTHROPIC_AVAILABLE:
+            raise ImportError(
+                "The 'anthropic' package is required for AnthropicModelAdapter. "
+                "Install it with: pip install 'anthropic>=0.25'"
+            )
+        api_key = os.getenv("ANTHROPIC_API_KEY")
+        if not api_key:
+            raise ValueError(
+                "ANTHROPIC_API_KEY environment variable is not set. "
+                "Use get_model_adapter() for automatic fallback."
+            )
+        self.model = model
+        self._client = _anthropic_sdk.AsyncAnthropic(api_key=api_key)  # type: ignore[union-attr]
+        self.trace_store = trace_store or InMemoryJobTraceStore()
+        self.spend_caps = spend_caps or SpendCaps.from_env()
+        self.circuit_breaker = circuit_breaker or CircuitBreaker()
+        self._db_session_factory = db_session_factory
+        self._lock = RLock()
+        self._ledger_day: date | None = None
+        self._daily_tokens = 0
+        self._daily_cost_cents = 0
+
+    def _cost_cents(self, input_tokens: int, output_tokens: int) -> int:
+        return int(
+            input_tokens * _SONNET_INPUT_COST_CENTS_PER_TOKEN
+            + output_tokens * _SONNET_OUTPUT_COST_CENTS_PER_TOKEN
+        )
+
+    def _reset_ledger_if_needed(self) -> None:
+        today = utc_now().date()
+        if self._ledger_day != today:
+            self._ledger_day = today
+            self._daily_tokens = 0
+            self._daily_cost_cents = 0
+
+    def _refusal_reason(self, projected_tokens: int, projected_cost_cents: int) -> str | None:
+        if self.circuit_breaker.is_open:
+            return "circuit_breaker_open"
+        if projected_tokens > self.spend_caps.per_job_token_cap:
+            return "per_job_token_cap_exceeded"
+        if self._daily_tokens + projected_tokens > self.spend_caps.daily_token_cap:
+            return "daily_token_cap_exceeded"
+        if self._daily_cost_cents + projected_cost_cents > self.spend_caps.daily_cost_cap_cents:
+            return "daily_cost_cap_exceeded"
+        return None
+
+    def _refused_response(
+        self,
+        request: ModelRequest,
+        *,
+        input_tokens: int,
+        refusal_reason: str,
+    ) -> ModelResponse:
+        trace = self._build_trace(
+            request,
+            input_tokens=input_tokens,
+            output_tokens=0,
+            cost_cents=0,
+            status="refused",
+            refusal_reason=refusal_reason,
+        )
+        self.trace_store.append(trace)
+        return ModelResponse(
+            status="refused",
+            text="",
+            trace_id=trace.id,
+            input_tokens=input_tokens,
+            output_tokens=0,
+            cost_cents=0,
+            refusal_reason=refusal_reason,
+        )
+
+    def _build_trace(
+        self,
+        request: ModelRequest,
+        *,
+        input_tokens: int,
+        output_tokens: int,
+        cost_cents: int,
+        status: ModelCallStatus,
+        refusal_reason: str | None,
+    ) -> JobTrace:
+        return JobTrace(
+            id=f"trace_{uuid4().hex}",
+            job_id=request.job_id,
+            job_type=request.job_type,
+            skill_version_id=request.skill_version_id,
+            model_provider=self.provider,
+            model=self.model,
+            prompt_hash=prompt_hash(request.prompt),
+            input_artifact_ids=request.input_artifact_ids,
+            output_artifact_ids=(),
+            input_tokens=input_tokens,
+            output_tokens=output_tokens,
+            total_tokens=input_tokens + output_tokens,
+            cost_cents=cost_cents,
+            status=status,
+            refusal_reason=refusal_reason,
+            created_at=utc_now(),
+        )
+
+    async def complete(self, request: ModelRequest) -> ModelResponse:
+        if not isinstance(request, ModelRequest):
+            raise TypeError("request must be a ModelRequest")
+
+        input_tokens_est = estimate_tokens(request.prompt)
+        projected_tokens = input_tokens_est + request.max_output_tokens
+        projected_cost_cents = self._cost_cents(input_tokens_est, request.max_output_tokens)
+
+        with self._lock:
+            self._reset_ledger_if_needed()
+            refusal_reason = self._refusal_reason(projected_tokens, projected_cost_cents)
+            if refusal_reason:
+                if refusal_reason.startswith("daily_"):
+                    self.circuit_breaker.open(refusal_reason)
+                return self._refused_response(
+                    request,
+                    input_tokens=input_tokens_est,
+                    refusal_reason=refusal_reason,
+                )
+
+        messages: list[dict] = [{"role": "user", "content": request.prompt}]
+        system: str | None = None
+        if request.json_mode:
+            system = (
+                "You must respond with valid JSON only. "
+                "Do not include any prose, markdown fences, or explanation outside the JSON."
+            )
+
+        try:
+            create_kwargs: dict = {
+                "model": self.model,
+                "max_tokens": request.max_output_tokens,
+                "messages": messages,
+            }
+            if system:
+                create_kwargs["system"] = system
+
+            message = await self._client.messages.create(**create_kwargs)
+        except _anthropic_sdk.APIError as exc:  # type: ignore[union-attr]
+            refusal_reason = f"provider_error:{exc}"
+            logger.warning("Anthropic API error for job %s: %s", request.job_id, exc)
+            with self._lock:
+                trace = self._build_trace(
+                    request,
+                    input_tokens=input_tokens_est,
+                    output_tokens=0,
+                    cost_cents=0,
+                    status="refused",
+                    refusal_reason=refusal_reason,
+                )
+                self.trace_store.append(trace)
+            return ModelResponse(
+                status="refused",
+                text="",
+                trace_id=trace.id,
+                input_tokens=input_tokens_est,
+                output_tokens=0,
+                cost_cents=0,
+                refusal_reason=refusal_reason,
+            )
+
+        text = message.content[0].text if message.content else ""
+        input_tokens = message.usage.input_tokens
+        output_tokens = message.usage.output_tokens
+        cost_cents = self._cost_cents(input_tokens, output_tokens)
+
+        with self._lock:
+            self._daily_tokens += input_tokens + output_tokens
+            self._daily_cost_cents += cost_cents
+            trace = self._build_trace(
+                request,
+                input_tokens=input_tokens,
+                output_tokens=output_tokens,
+                cost_cents=cost_cents,
+                status="succeeded",
+                refusal_reason=None,
+            )
+            self.trace_store.append(trace)
+
+        await self._persist_trace(trace)
+
+        return ModelResponse(
+            status="succeeded",
+            text=text,
+            trace_id=trace.id,
+            input_tokens=input_tokens,
+            output_tokens=output_tokens,
+            cost_cents=cost_cents,
+        )
+
+    async def _persist_trace(self, trace: JobTrace) -> None:
+        if self._db_session_factory is None:
+            return
+        try:
+            async with self._db_session_factory() as session:
+                await session.commit()
+        except Exception as exc:  # pragma: no cover
+            logger.warning("Failed to persist job trace %s: %s", trace.id, exc)
+
+
+# ---------------------------------------------------------------------------
+# Embedding adapter (OpenAI text-embedding-3-small)
+# ---------------------------------------------------------------------------
+
+class AnthropicEmbeddingAdapter:
+    """Embedding adapter using OpenAI text-embedding-3-small.
+
+    Anthropic does not provide an embedding API; this adapter uses the OpenAI
+    SDK with OPENAI_API_KEY for embedding generation.
+    """
+
+    def __init__(self, *, model: str = "text-embedding-3-small") -> None:
+        if _openai_sdk is None:
+            raise ImportError(
+                "The 'openai' package is required for AnthropicEmbeddingAdapter. "
+                "Install it with: pip install openai"
+            )
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY environment variable is not set.")
+        self._client = _openai_sdk.AsyncOpenAI(api_key=api_key)  # type: ignore[union-attr]
+        self.model = model
+
+    async def embed(self, request: EmbeddingRequest) -> EmbeddingResponse:
+        response = await self._client.embeddings.create(
+            model=request.model or self.model,
+            input=request.content,
+        )
+        data = response.data[0]
+        usage = response.usage
+        return EmbeddingResponse(
+            embedding=data.embedding,
+            model=response.model,
+            input_tokens=usage.prompt_tokens,
+        )
+
+
+# ---------------------------------------------------------------------------
+# Factories
+# ---------------------------------------------------------------------------
+
+def get_model_adapter(
+    *,
+    spend_caps: SpendCaps | None = None,
+    trace_store: InMemoryJobTraceStore | None = None,
+    db_session_factory: Any = None,
+) -> LocalDeterministicModelAdapter | AnthropicModelAdapter:
+    """Return the best available model adapter.
+
+    If ANTHROPIC_API_KEY is set, returns an AnthropicModelAdapter.
+    Otherwise falls back to LocalDeterministicModelAdapter (mode='local') with a warning.
+    """
+    if os.getenv("ANTHROPIC_API_KEY"):
+        return AnthropicModelAdapter(
+            spend_caps=spend_caps,
+            trace_store=trace_store,
+            db_session_factory=db_session_factory,
+        )
+    logger.warning(
+        "ANTHROPIC_API_KEY is not set -- falling back to LocalDeterministicModelAdapter. "
+        "Set ANTHROPIC_API_KEY to enable real LLM calls."
+    )
+    return LocalDeterministicModelAdapter(
+        mode="local",
+        spend_caps=spend_caps,
+        trace_store=trace_store,
+    )
+
+
+def build_model_adapter(settings: object | None = None) -> ModelAdapter:
+    """Legacy factory: returns an HttpModelAdapter or LocalDeterministicModelAdapter.
+
+    Prefer get_model_adapter() for new code.
+    """
     provider_name = os.environ.get("LLM_PROVIDER", "disabled").strip().lower()
     if provider_name == "anthropic" and os.environ.get("ANTHROPIC_API_KEY"):
         from draftcheck.providers import AnthropicChatProvider

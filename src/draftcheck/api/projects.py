@@ -39,7 +39,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from draftcheck.api.auth import get_current_session
+from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.db.engine import create_session_factory
 from draftcheck.db.models import Project, PropertyFact, Proposal
 from draftcheck.domain.identity import ActiveSession
@@ -275,6 +275,7 @@ def _get_project_or_404(project_id: str, db: Session) -> Project:
 def create_project(
     payload: CreateProjectRequest,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     db: DbSession,
 ) -> ProjectResponse:
     org_id = _resolve_org_id(active_session, None)
@@ -329,6 +330,7 @@ def update_project(
     project_id: str,
     payload: UpdateProjectRequest,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     db: DbSession,
 ) -> ProjectResponse:
     """Partial update — only supplied (non-None) fields are written.
@@ -390,6 +392,7 @@ def update_project(
 def delete_project(
     project_id: str,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     db: DbSession,
 ) -> None:
     """Hard-delete a project and all child rows (cascaded by FK constraints).
@@ -411,6 +414,7 @@ def override_property_fact(
     project_id: str,
     payload: FactOverrideRequest,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     db: DbSession,
 ) -> PropertyFactResponse:
     """Override a property fact with manual data.
@@ -448,6 +452,7 @@ def upsert_proposal(
     project_id: str,
     payload: ProposalRequest,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     db: DbSession,
 ) -> ProposalResponse:
     """Idempotent upsert — repeated calls with identical data return the same id."""

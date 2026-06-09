@@ -9,13 +9,14 @@
 		X-Content-Type-Options "nosniff"
 		X-Frame-Options "DENY"
 		Referrer-Policy "strict-origin-when-cross-origin"
+		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'"
 	}
 }
 
 (api_routes) {
 	@api_uploads path /api/v1/documents/*/upload /api/v1/sources/import
 	request_body @api_uploads {
-		max_size 250MB
+		max_size 25MB
 	}
 	handle /api/v1* {
 		reverse_proxy api:8000
@@ -46,12 +47,7 @@ http://app.cuz.fail {
 	redir https://lotfile.app{uri} permanent
 }
 
-http://lotfile.app {
-	import security_headers
-	redir https://lotfile.app{uri} permanent
-}
-
-http://lotfile.app {
+https://lotfile.app {
 	import security_headers
 	encode zstd gzip
 	import api_routes

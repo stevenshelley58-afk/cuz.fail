@@ -1,12 +1,17 @@
 """Agent memory — record and retrieve learned quirks about councils/parsers."""
-from __future__ import annotations
-import uuid
-import logging
 
-logger = logging.getLogger(__name__)
+from __future__ import annotations
+
+from datetime import UTC, datetime, timedelta
+from uuid import uuid4
+
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class AgentMemory:
+    """Thin persistence layer over the agent_memory table."""
+
     async def record(
         self,
         memory_key: str,
@@ -14,65 +19,111 @@ class AgentMemory:
         subject_id: str,
         content: str,
         confidence: float,
-        session,
+        session: AsyncSession,
         source_job_trace_id: str | None = None,
         ttl_days: int = 30,
     ) -> None:
-        from sqlalchemy import text
+        """Upsert a memory entry.
 
-        await session.execute(
+        If a row with (memory_key, subject_id) already exists it is updated
+        in-place; otherwise a new row is inserted.  The caller is responsible
+        for committing the session.
+        """
+        now = datetime.now(UTC)
+        expires_at = now + timedelta(days=ttl_days)
+
+        existing = await session.execute(
             text(
-                "INSERT INTO agent_memory "
-                "(id, memory_key, subject_type, subject_id, content, confidence, "
-                "status, source_job_trace_id, expires_at, created_at, updated_at) "
-                "VALUES (:id, :mk, :st, :si, :content, :conf, 'active', "
-                ":trace_id, now() + :ttl * interval '1 day', now(), now()) "
-                "ON CONFLICT (memory_key, subject_id) DO UPDATE SET "
-                "content = EXCLUDED.content, confidence = EXCLUDED.confidence, "
-                "expires_at = EXCLUDED.expires_at, updated_at = now()"
+                """
+                SELECT id FROM agent_memory
+                WHERE memory_key = :key AND subject_id = :subject_id
+                LIMIT 1
+                """
             ),
-            {
-                "id": str(uuid.uuid4()),
-                "mk": memory_key,
-                "st": subject_type,
-                "si": subject_id,
-                "content": content,
-                "conf": confidence,
-                "trace_id": source_job_trace_id,
-                "ttl": ttl_days,
-            },
+            {"key": memory_key, "subject_id": subject_id},
         )
-        await session.commit()
+        row = existing.fetchone()
+
+        if row is None:
+            await session.execute(
+                text(
+                    """
+                    INSERT INTO agent_memory
+                        (id, memory_key, subject_type, subject_id, content,
+                         confidence, source_job_trace_id, expires_at,
+                         created_at, updated_at)
+                    VALUES
+                        (:id, :key, :subject_type, :subject_id, :content,
+                         :confidence, :trace_id, :expires_at,
+                         :now, :now)
+                    """
+                ),
+                {
+                    "id": str(uuid4()),
+                    "key": memory_key,
+                    "subject_type": subject_type,
+                    "subject_id": subject_id,
+                    "content": content,
+                    "confidence": confidence,
+                    "trace_id": source_job_trace_id,
+                    "expires_at": expires_at,
+                    "now": now,
+                },
+            )
+        else:
+            await session.execute(
+                text(
+                    """
+                    UPDATE agent_memory
+                    SET content = :content,
+                        confidence = :confidence,
+                        source_job_trace_id = :trace_id,
+                        expires_at = :expires_at,
+                        updated_at = :now
+                    WHERE id = :id
+                    """
+                ),
+                {
+                    "content": content,
+                    "confidence": confidence,
+                    "trace_id": source_job_trace_id,
+                    "expires_at": expires_at,
+                    "now": now,
+                    "id": str(row[0]),
+                },
+            )
 
     async def recall(
-        self, memory_key: str, subject_id: str, session
+        self,
+        memory_key: str,
+        subject_id: str,
+        session: AsyncSession,
     ) -> str | None:
-        from sqlalchemy import text
-
-        r = await session.execute(
+        """Return the content of the most recent active memory entry, or None."""
+        now = datetime.now(UTC)
+        result = await session.execute(
             text(
-                "SELECT content FROM agent_memory "
-                "WHERE memory_key = :mk AND subject_id = :si "
-                "AND status = 'active' AND expires_at > now() "
-                "ORDER BY created_at DESC LIMIT 1"
+                """
+                SELECT content FROM agent_memory
+                WHERE memory_key = :key
+                  AND subject_id = :subject_id
+                  AND expires_at > :now
+                ORDER BY updated_at DESC
+                LIMIT 1
+                """
             ),
-            {"mk": memory_key, "si": subject_id},
+            {"key": memory_key, "subject_id": subject_id, "now": now},
         )
-        row = r.fetchone()
+        row = result.fetchone()
         return row[0] if row else None
 
-    async def expire_stale(self, session) -> int:
-        from sqlalchemy import text
-
-        r = await session.execute(
-            text(
-                "UPDATE agent_memory SET status = 'expired', updated_at = now() "
-                "WHERE expires_at < now() AND status = 'active' "
-                "RETURNING id"
-            )
+    async def expire_stale(self, session: AsyncSession) -> int:
+        """Delete expired memory entries.  Returns the number of rows deleted."""
+        now = datetime.now(UTC)
+        result = await session.execute(
+            text("DELETE FROM agent_memory WHERE expires_at < :now RETURNING id"),
+            {"now": now},
         )
-        expired = len(r.fetchall())
-        if expired:
-            logger.info("Expired %d stale agent_memory entries", expired)
-            await session.commit()
-        return expired
+        deleted = len(result.fetchall())
+        await session.commit()
+        return deleted

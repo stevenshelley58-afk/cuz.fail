@@ -30,12 +30,13 @@ from collections.abc import Generator
 from pathlib import Path, PurePath
 from typing import Annotated, Any
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from fastapi import APIRouter, Depends, File, HTTPException, Request, UploadFile, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy.orm import Session
 
 from draftcheck.api.auth import get_current_session, require_allowed_origin
+from draftcheck.api.rate_limit import limiter
 from draftcheck.db.engine import create_session_factory
 from draftcheck.db.models import (
     Document,
@@ -285,7 +286,9 @@ def get_document_parser_accuracy() -> dict[str, Any]:
 
 
 @router.post("/documents/upload", tags=["documents"])
+@limiter.limit("20/minute")
 async def upload_document(
+    request: Request,
     file: Annotated[UploadFile, File()],
     project_id: str,
     db: DbSession,

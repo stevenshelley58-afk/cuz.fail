@@ -2,16 +2,23 @@
 
 from __future__ import annotations
 
+import asyncio
 import json
 import logging
 import time
-from collections.abc import Awaitable, Callable
+from collections.abc import AsyncGenerator, Awaitable, Callable
+from contextlib import asynccontextmanager
 from uuid import uuid4
 
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
+from draftcheck.agent.hermes import HermesAgent
+from draftcheck.api.health import router as health_router
+from draftcheck.api.rate_limit import limiter
 from draftcheck.api.v1 import create_v1_router
 from draftcheck.config import get_settings
 from draftcheck.observability import init_sentry
@@ -23,18 +30,54 @@ LOGGER = logging.getLogger("draftcheck.api")
 def create_app() -> FastAPI:
     settings = get_settings()
     init_sentry(settings.sentry_dsn, app_env=settings.app_env)
+
+    @asynccontextmanager
+    async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+        """Start Hermes on startup, stop it cleanly on shutdown."""
+        hermes_task: asyncio.Task | None = None
+        try:
+            session_factory = getattr(app.state, "session_factory", None)
+            adapter = getattr(app.state, "model_adapter", None)
+            if session_factory is not None and adapter is not None:
+                hermes = HermesAgent(session_factory=session_factory, adapter=adapter)
+                hermes_task = asyncio.create_task(hermes.start(), name="hermes")
+                app.state.hermes = hermes
+                LOGGER.info("Hermes background agent task created")
+            else:
+                LOGGER.warning(
+                    "Hermes not started: session_factory or model_adapter not set on app.state"
+                )
+        except Exception:  # noqa: BLE001
+            LOGGER.exception("Failed to start Hermes agent")
+
+        yield  # app is running
+
+        # Shutdown
+        if hermes_task is not None and not hermes_task.done():
+            hermes = app.state.hermes
+            await hermes.stop()
+            try:
+                await asyncio.wait_for(hermes_task, timeout=10)
+            except (asyncio.TimeoutError, asyncio.CancelledError):
+                hermes_task.cancel()
+                LOGGER.warning("Hermes task cancelled on shutdown")
+
+
     app = FastAPI(
         title="DraftCheck WA API",
         version="0.1.0",
         docs_url="/api/v1/docs",
         openapi_url="/api/v1/openapi.json",
+        lifespan=lifespan,
     )
+    app.state.limiter = limiter
+    app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)  # type: ignore[arg-type]
     app.add_middleware(
         CORSMiddleware,
         allow_origins=list(settings.cors_allowed_origins),
         allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
+        allow_methods=["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+        allow_headers=["Content-Type", "Authorization", "X-Requested-With"],
     )
 
     @app.middleware("http")
@@ -93,6 +136,7 @@ def create_app() -> FastAPI:
             },
         )
 
+    app.include_router(health_router)  # /health and /metrics — no version prefix
     app.include_router(create_v1_router(), prefix="/api/v1")
     return app
 
