@@ -15,6 +15,7 @@ def test_v3_identity_schema_contract() -> None:
     assert isinstance(role_type, SqlAlchemyEnum)
     assert set(role_type.enums) == {
         IdentityRole.OWNER.value,
+        IdentityRole.OPERATOR.value,
     }
 
     for table_name in ("users", "sessions", "magic_link_tokens"):
