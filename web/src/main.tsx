@@ -2068,7 +2068,7 @@ function RuleDetail({ rule, onBack, onApproved }: { rule: RuleSummary; onBack: (
   async function handleApprove() {
     setApproving(true);
     setApproveError(null);
-    const r = await api.rules.approve(rule.id);
+    const r = await api.approveRule(rule.id);
     setApproving(false);
     if (r.kind === "ok") {
       onApproved?.(rule.id);

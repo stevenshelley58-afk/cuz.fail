@@ -292,8 +292,6 @@ export const api = {
     confirmFact: (docId: string, factKey: string) =>
       call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/review`, { review_status: "confirmed" }),
   },
-  rules: {
-    approve: (ruleId: string) =>
-      call<{ id: string; lifecycle_status: string }>("POST", `/rules/${ruleId}/approve`, {}),
-  },
+  approveRule: (ruleId: string) =>
+    call<{ id: string; lifecycle_status: string }>("POST", `/rules/${ruleId}/approve`, {}),
 };
