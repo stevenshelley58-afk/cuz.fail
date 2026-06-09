@@ -19,25 +19,12 @@ Use Python 3.12.
 
 ```bash
 python -m pip install -e ".[dev]"
-python scripts/bootstrap_source_library.py
-python scripts/audit_source_library.py
-python scripts/extract_source_rules.py --source-title-contains "Residential Design Codes" --limit 1
-python scripts/rule_review_worklist.py --source-title-contains "Residential Design Codes" --limit 1
-python scripts/promote_rule_candidate.py --candidate-id <candidate-id> --reconcile-source --commit
-python scripts/reconcile_source_review_queue.py --source-version-id <source-version-id>
-python -m uvicorn draftcheck_api.main:app --reload --host 127.0.0.1 --port 8000
+python -m alembic upgrade head
+python -m uvicorn draftcheck.api.main:app --reload --host 127.0.0.1 --port 8000
 python -m pytest
 ```
 
-In this Codex workspace the bundled runtime was used:
-
-```powershell
-& 'C:\Users\steve\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe' -m pytest
-```
-
-The legacy FastAPI app still exposes OpenAPI at `/openapi.json` and Swagger UI at `/docs`.
-For the V3 rebuild, the new app will expose only `/api/v1/*`; legacy `/v1` and `/api` routes are
-transition surfaces until M1.
+The app exposes only `/api/v1/*` (see `docs/API_CONTRACT.md`).
 
 ## Production Deploy
 

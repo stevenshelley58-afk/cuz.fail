@@ -144,9 +144,9 @@ export type ProposalResponse = {
   updated_at: string;
 };
 
+// Same-origin /api/v1 only — never reintroduce VITE_API_BASE_URL (see CLAUDE.md).
 function base(): string {
-  const raw = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.trim();
-  return (raw && raw.length > 0 ? raw : DEFAULT_BASE).replace(/\/+$/, "");
+  return DEFAULT_BASE;
 }
 
 async function call<T>(method: string, path: string, body?: unknown): Promise<ApiResult<T>> {
