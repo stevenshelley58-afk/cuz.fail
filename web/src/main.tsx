@@ -28,13 +28,8 @@ import type { LucideIcon } from "lucide-react";
 import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo, type PropertyProfileResponse, type PropertyFactResponse, type ProposalRequest, type ProposalResponse, type RuleSummary, type CandidateSummary, type ComplianceRunResponse, type ComplianceResultItem, type ExtractedFact, type DocumentUploadResponse } from "./api";
 import "./styles.css";
 
-/* ── dev login ──
-   While building we swap the magic-link round-trip for a simple username/password.
-   On by default under the Vite dev server (import.meta.env.DEV); force it on a built
-   bundle with VITE_DEV_LOGIN=1. The server hard-disables /auth/dev-login in production. */
-const DEV_LOGIN =
-  Boolean((import.meta.env as Record<string, unknown>).DEV) ||
-  (import.meta.env as Record<string, unknown>).VITE_DEV_LOGIN === "1";
+// Magic link is disabled — always use the username/password login form.
+const DEV_LOGIN = true;
 
 const GUEST_USAGE_KEY = "lotfile_guest_usage_v1";
 const GUEST_ADDRESS_LIMIT = envNumber("VITE_GUEST_ADDRESS_LIMIT", 2);
