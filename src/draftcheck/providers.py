@@ -30,6 +30,9 @@ class ChatProvider(Protocol):
     def complete(self, system_prompt: str, user_prompt: str) -> str:
         ...
 
+    def complete_chat(self, system_prompt: str, messages: list[dict[str, str]]) -> str:
+        ...
+
 
 class MockChatProvider:
     name = "mock"
@@ -38,6 +41,9 @@ class MockChatProvider:
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
         return "The live assistant model is not configured in this environment."
+
+    def complete_chat(self, system_prompt: str, messages: list[dict[str, str]]) -> str:
+        return self.complete(system_prompt, messages[-1]["content"] if messages else "")
 
 
 @dataclass
@@ -53,13 +59,16 @@ class OpenAIChatProvider:
     is_live: bool = True
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
+        return self.complete_chat(system_prompt, [{"role": "user", "content": user_prompt}])
+
+    def complete_chat(self, system_prompt: str, messages: list[dict[str, str]]) -> str:
         if not self.api_key:
             raise RuntimeError(f"API key is required when LLM_PROVIDER={self.name}.")
         body: dict[str, Any] = {
             "model": self.model,
             "messages": [
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
+                *messages,
             ],
             "max_completion_tokens": self.max_output_tokens,
         }
@@ -114,6 +123,9 @@ class AnthropicChatProvider:
     is_live: bool = True
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
+        return self.complete_chat(system_prompt, [{"role": "user", "content": user_prompt}])
+
+    def complete_chat(self, system_prompt: str, messages: list[dict[str, str]]) -> str:
         if not self.api_key:
             raise RuntimeError("API key is required when LLM_PROVIDER=anthropic.")
         body = json.dumps(
@@ -121,7 +133,7 @@ class AnthropicChatProvider:
                 "model": self.model,
                 "max_tokens": self.max_output_tokens,
                 "system": system_prompt,
-                "messages": [{"role": "user", "content": user_prompt}],
+                "messages": messages,
             }
         ).encode("utf-8")
         req = Request(
