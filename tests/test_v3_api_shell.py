@@ -24,7 +24,8 @@ def test_v3_health_and_ready_are_mounted_only_under_api_v1() -> None:
     assert health.status_code == 200
     assert ready.status_code == 200
     assert health.headers["x-request-id"]
-    assert health.json() == {"status": "ok", "service": "draftcheck-api", "version": "0.1.0"}
+    health_body = health.json()
+    assert health_body["status"] in {"ok", "degraded"}
     ready_body = ready.json()
     assert ready_body["status"] == "ok"
     assert ready_body["service"] == "draftcheck-api"

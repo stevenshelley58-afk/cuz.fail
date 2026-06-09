@@ -1,0 +1,15 @@
+[Unit]
+Description=DraftCheck V3 nightly backup (pg_dump + restic)
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=root
+EnvironmentFile=/etc/draftcheck/backup.env
+ExecStart=/bin/bash /srv/draftcheck/app/infra/v3/backup/backup.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=draftcheck-backup
+# Fail the unit (and suppress the timer from re-triggering) if backup errors.
+SuccessExitStatus=0

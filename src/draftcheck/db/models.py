@@ -586,10 +586,10 @@ class JobTrace(Base):
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
-    org_id: Mapped[UUID] = mapped_column(
+    org_id: Mapped[UUID | None] = mapped_column(
         Uuid(as_uuid=True),
         ForeignKey("orgs.id", ondelete="CASCADE"),
-        nullable=False,
+        nullable=True,
         index=True,
     )
     job_id: Mapped[str] = mapped_column(String(160), nullable=False, index=True)
