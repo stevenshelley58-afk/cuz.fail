@@ -8,7 +8,7 @@ from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field
 
-from draftcheck.api.auth import get_current_session, require_allowed_origin, require_reviewer_session
+from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.domain.documents import (
     DocumentFact,
     DocumentNotFoundError,
@@ -146,7 +146,7 @@ def review_document_fact(
     payload: ReviewDocumentFactPayload,
     library: Annotated[InMemoryDocumentLibrary, Depends(get_document_library)],
     _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-    active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
 ) -> dict[str, Any]:
     try:
         fact = library.review_fact(

@@ -352,7 +352,7 @@ sources:
     assert calls["user"] == {
         "org_id": org_id,
         "email": "reviewer@example.test",
-        "role": "reviewer",
+        "role": "owner",
     }
     assert calls["seed"] == {
         "sources": 2,

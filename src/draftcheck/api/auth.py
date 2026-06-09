@@ -26,7 +26,6 @@ from draftcheck.domain.identity import (
     MissingEmailSender,
     SESSION_TTL,
     SmtpEmailSender,
-    require_reviewer,
 )
 from draftcheck.domain.identity.sqlalchemy_store import SqlAlchemyIdentityStore
 
@@ -199,16 +198,6 @@ def get_current_session(
     return active_session
 
 
-def require_reviewer_session(
-    active_session: Annotated[ActiveSession, Depends(get_current_session)],
-) -> ActiveSession:
-    try:
-        require_reviewer(active_session.user.role)
-    except PermissionError as exc:
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=str(exc)) from exc
-    return active_session
-
-
 @router.post(
     "/auth/magic-link/request",
     response_model=MagicLinkRequestedResponse,
@@ -323,7 +312,7 @@ def dev_login(
     user = store.get_or_create_user(
         org=org,
         email=f"{expected_username}@dev.local",
-        role=IdentityRole.REVIEWER,
+        role=IdentityRole.OWNER,
     )
     session_issue = store.create_session(
         user=user,

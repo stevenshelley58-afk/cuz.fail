@@ -42,35 +42,11 @@ requires = ["setuptools>=70.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = [
-  "src",
-  "apps/api",
-  "apps/worker",
-  "packages/core",
-  "packages/ingestion",
-  "packages/retrieval",
-  "packages/compliance",
-  "packages/document_ai",
-  "packages/export",
-  "packages/scraper",
-  "packages/shared_schemas"
-]
+where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-pythonpath = [
-  "src",
-  "apps/api",
-  "apps/worker",
-  "packages/core",
-  "packages/ingestion",
-  "packages/retrieval",
-  "packages/compliance",
-  "packages/document_ai",
-  "packages/export",
-  "packages/scraper",
-  "packages/shared_schemas"
-]
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100

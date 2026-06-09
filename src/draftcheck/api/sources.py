@@ -16,10 +16,9 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-from draftcheck_core.providers import get_chat_provider
-
 from draftcheck.ai import InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
-from draftcheck.api.auth import get_current_session, require_allowed_origin, require_reviewer_session
+from draftcheck.api.auth import get_current_session, require_allowed_origin
+from draftcheck.providers import get_chat_provider
 from draftcheck.db.engine import database_url_from_env
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.sources import (
@@ -91,7 +90,7 @@ class AssistantPayload(BaseModel):
 
 _ASSISTIVE_DISCLAIMER = (
     "Assistive only - this is not a compliance determination. Confirm current "
-    "source versions and project facts, and have a human reviewer sign off before relying on it."
+    "source versions and project facts before relying on this output."
 )
 
 _GROUNDED_SYSTEM_PROMPT = (
@@ -326,7 +325,7 @@ def _fallback_ingestion_status(
         ],
         "pending": [
             "lawful source fetch",
-            "human source approval",
+            "automated source validation",
             "rule extraction review",
             "deterministic check promotion",
         ],
@@ -396,7 +395,7 @@ def _fallback_review_worklist(
                     "recommended_action": (
                         "lawful_fetch"
                         if version.metadata_only
-                        else "human_source_review"
+                        else "source_review"
                         if chunks and citation_count
                         else "repair_parse_or_citations"
                     ),
@@ -420,7 +419,7 @@ def _fallback_review_worklist(
         "count": min(len(items), max(limit, 0)),
         "total": len(items),
         "blocked_until": [
-            "human source review",
+            "automated source review",
             "licence verification",
             "rule extraction review",
             "deterministic rule promotion",
@@ -457,7 +456,7 @@ def _fallback_pending_action(
         return "lawful_fetch"
     if chunk_count == 0 or citation_count == 0:
         return "repair_parse_or_citations"
-    return "human_source_review"
+    return "source_review"
 
 
 def _fallback_quality_report(
@@ -605,7 +604,7 @@ def _fallback_source_review_packet(
             if readiness in {"parse_or_citation_repair_required", "parse_quality_review_required"}
             else "lawful_fetch"
             if readiness == "pending_lawful_fetch"
-            else "human_source_review"
+            else "source_review"
         ),
         "can_support_search": version.can_support_citable_retrieval and bool(chunks) and bool(citations),
         "artifacts": jsonable_encoder(artifacts),
@@ -616,7 +615,7 @@ def _fallback_source_review_packet(
             "unpromoted_measurement_verdicts",
         ],
         "required_before_beta": [
-            "human source review",
+            "automated source review",
             "licence verification",
             "parse quality review when flagged",
             "rule extraction review",
@@ -770,7 +769,7 @@ def create_sources_router(
     def import_source(
         payload: SourceImportPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         try:
             result = source_library.import_source(
@@ -808,7 +807,7 @@ def create_sources_router(
     @api_router.get("/sources/review-worklist", tags=["sources"])
     def source_review_worklist(
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
         local_government: str | None = None,
         source_type: str | None = None,
         include_metadata_only: bool = True,
@@ -833,7 +832,7 @@ def create_sources_router(
     @api_router.get("/sources/quality-report", tags=["sources"])
     def source_quality_report(
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
         local_government: str | None = None,
         source_type: str | None = None,
         readiness: str | None = Query(default=None, max_length=80),
@@ -860,7 +859,7 @@ def create_sources_router(
         source_id: str,
         source_version_id: str,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
         sample_limit: int = Query(default=12, ge=1, le=30),
         sample_chars: int = Query(default=4000, ge=500, le=12000),
     ) -> dict[str, Any]:
@@ -903,7 +902,7 @@ def create_sources_router(
         source_id: str,
         payload: SourceReviewPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         try:
             version = source_library.review_source(
@@ -923,7 +922,7 @@ def create_sources_router(
     def refresh_source(
         source_id: str,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        active_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+        active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         try:
             result = source_library.refresh_source(

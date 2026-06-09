@@ -59,6 +59,16 @@ class Settings:
     smtp_starttls: bool = True
     smtp_ssl: bool = False
     smtp_timeout_seconds: int = 10
+    llm_provider: str = "mock"
+    llm_model: str = ""
+    llm_timeout_seconds: int = 30
+    llm_max_output_tokens: int = 700
+    openai_api_key: str = ""
+    openai_base_url: str = "https://api.openai.com/v1"
+    openrouter_api_key: str = ""
+    openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    openrouter_site_url: str = ""
+    openrouter_app_name: str = "LotFile"
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -86,6 +96,16 @@ class Settings:
             smtp_starttls=True if smtp_starttls is None else smtp_starttls,
             smtp_ssl=False if smtp_ssl is None else smtp_ssl,
             smtp_timeout_seconds=_int_from_env("SMTP_TIMEOUT_SECONDS", 10),
+            llm_provider=os.getenv("LLM_PROVIDER", "mock"),
+            llm_model=os.getenv("LLM_MODEL", ""),
+            llm_timeout_seconds=_int_from_env("LLM_TIMEOUT_SECONDS", 30),
+            llm_max_output_tokens=_int_from_env("LLM_MAX_OUTPUT_TOKENS", 700),
+            openai_api_key=os.getenv("OPENAI_API_KEY", ""),
+            openai_base_url=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1"),
+            openrouter_api_key=os.getenv("OPENROUTER_API_KEY", ""),
+            openrouter_base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
+            openrouter_site_url=os.getenv("OPENROUTER_SITE_URL", ""),
+            openrouter_app_name=os.getenv("OPENROUTER_APP_NAME", "LotFile"),
         )
 
 

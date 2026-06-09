@@ -1,1 +1,0 @@
-"""Lawful source ingestion package."""

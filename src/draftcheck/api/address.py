@@ -23,7 +23,7 @@ from draftcheck.domain.address import (
     PropertyProfile,
     ResolutionProvenance,
 )
-from draftcheck.domain.identity import ActiveSession, require_reviewer
+from draftcheck.domain.identity import ActiveSession
 
 
 router = APIRouter(tags=["projects"])
@@ -194,11 +194,6 @@ def resolve_project_address(
     _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
 ) -> PropertyProfileResponse:
-    if payload.manual_override is not None:
-        try:
-            require_reviewer(active_session.user.role)
-        except PermissionError as exc:
-            raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=str(exc)) from exc
     profile = service.resolve_address(
         org_id=str(active_session.org.id),
         project_id=project_id,

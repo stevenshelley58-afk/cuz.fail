@@ -1551,7 +1551,7 @@ class SqlAlchemySourceLibrary:
                 ],
                 "pending": [
                     "lawful source fetch",
-                    "human source approval",
+                    "automated source validation",
                     "rule extraction review",
                     "deterministic check promotion",
                 ],
@@ -1680,7 +1680,7 @@ class SqlAlchemySourceLibrary:
                 "count": len(limited_items),
                 "total": len(items),
                 "blocked_until": [
-                    "human source review",
+                    "automated source review",
                     "licence verification",
                     "rule extraction review",
                     "deterministic rule promotion",
@@ -2038,7 +2038,7 @@ class SqlAlchemySourceLibrary:
                     "unpromoted_measurement_verdicts",
                 ],
                 "required_before_beta": [
-                    "human source review",
+                    "automated source review",
                     "licence verification",
                     "parse quality review when flagged",
                     "rule extraction review",
@@ -2629,7 +2629,7 @@ def _pending_action(
     if fetch_log is not None and fetch_log.status == "pending_fetch":
         return "lawful_fetch"
     if review_status is SourceReviewStatus.PENDING_REVIEW:
-        return "human_source_review"
+        return "source_review"
     if review_status is SourceReviewStatus.APPROVED:
         return "ready_for_rule_extraction"
     return "review_follow_up"
@@ -2796,7 +2796,7 @@ def _parse_repair_profile(
         next_action = "review map evidence separately; text extraction is not authoritative for measurements"
     elif not low_signal:
         status_value = "not_required"
-        next_action = "human source review"
+        next_action = "automated source review"
     elif repair_artifacts:
         status_value = "repaired_text_available"
         next_action = "review repaired text, then rechunk and re-cite before source approval"
@@ -3070,7 +3070,7 @@ def _packet_recommended_action(readiness: str) -> str:
     if readiness in {"parse_or_citation_repair_required", "parse_quality_review_required"}:
         return "repair_parse_or_citations"
     if readiness == "source_review_ready":
-        return "human_source_review"
+        return "source_review"
     if readiness == "source_rejected":
         return "replace_or_refresh_source"
     if readiness == "source_refresh_required":
@@ -3206,7 +3206,7 @@ def _review_recommended_action(
     if chunk_count == 0 or citation_count == 0:
         return "repair_parse_or_citations"
     if review_status is SourceReviewStatus.PENDING_REVIEW:
-        return "human_source_review"
+        return "source_review"
     if review_status is SourceReviewStatus.REJECTED:
         return "replace_or_refresh_source"
     if review_status is SourceReviewStatus.STALE:

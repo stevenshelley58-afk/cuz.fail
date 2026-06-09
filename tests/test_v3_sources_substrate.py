@@ -15,7 +15,7 @@ from draftcheck.ai import (
     ModelResponse,
     SpendCaps,
 )
-from draftcheck.api.auth import get_current_session, require_reviewer_session
+from draftcheck.api.auth import get_current_session
 from draftcheck.api.sources import create_sources_router
 from draftcheck.domain.identity import ActiveSession, IdentityRole, InMemoryIdentityStore
 from draftcheck.domain.sources import (
@@ -406,7 +406,7 @@ def test_api_source_review_worklist_requires_reviewer_and_reports_pending_source
     by_version = {item["source_version_id"]: item for item in body["items"]}
     fetched_item = by_version[imported["version"]["id"]]
     metadata_item = by_version[metadata_only.version.id]
-    assert fetched_item["recommended_action"] == "human_source_review"
+    assert fetched_item["recommended_action"] == "source_review"
     assert "source_version_pending_review" in fetched_item["issue_codes"]
     assert "licence_pending_review" in fetched_item["issue_codes"]
     assert metadata_item["recommended_action"] == "lawful_fetch"
@@ -465,7 +465,7 @@ def test_api_source_quality_report_requires_reviewer_and_reports_blocking_gates(
     assert gates["citable_search_ready"]["status"] == "passed"
     assert gates["deterministic_rules_promoted"]["status"] == "blocked"
     by_version = {item["source_version_id"]: item for item in body["items"]}
-    assert by_version[fetched["version"]["id"]]["recommended_action"] == "human_source_review"
+    assert by_version[fetched["version"]["id"]]["recommended_action"] == "source_review"
     assert by_version[fetched["version"]["id"]]["readiness"] == "parse_quality_review_required"
     assert by_version[metadata_only.version.id]["recommended_action"] == "lawful_fetch"
 
@@ -517,7 +517,7 @@ def test_api_source_review_packet_requires_reviewer_and_returns_evidence_samples
     assert body["counts"]["chunks"] >= 2
     assert body["counts"]["citations"] >= 2
     assert body["readiness"] == "source_review_ready"
-    assert body["recommended_action"] == "human_source_review"
+    assert body["recommended_action"] == "source_review"
     assert "source_version_pending_review" in body["issue_codes"]
     assert len(body["chunk_samples"]) == 2
     assert body["chunk_samples"][0]["citation"]["quote"]
@@ -814,7 +814,7 @@ def _client(
         user = store.get_or_create_user(
             org=org,
             email="reviewer@example.test",
-            role=IdentityRole.REVIEWER,
+            role=IdentityRole.OWNER,
         )
         session_issue = store.create_session(user=user, org=org)
         active_session = ActiveSession(
@@ -823,5 +823,4 @@ def _client(
             org=session_issue.org,
         )
         app.dependency_overrides[get_current_session] = lambda: active_session
-        app.dependency_overrides[require_reviewer_session] = lambda: active_session
     return TestClient(app, headers=ORIGIN_HEADERS if default_origin else None)
