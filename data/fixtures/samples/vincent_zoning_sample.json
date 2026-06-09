@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "source": "DPLH Local Planning Scheme — Zones and Reserves (DPLH-071) + R Codes (DPLH-070) via SLIP Public REST/WMS",
+    "dataset_ids": {
+      "zones": "bd528c56-5fd0-4341-b46a-1c14c352529d (DPLH-071)",
+      "r_codes": "3a69bc8a-ef36-4dc4-b7e5-d9922efee004 (DPLH-070)"
+    },
+    "portal_urls": {
+      "zones": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-zones-and-reserves-dop-025",
+      "r_codes": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-r-codes-dop-101"
+    },
+    "rest_endpoints": {
+      "zones_layer_112": "https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Property_and_Planning/MapServer/112",
+      "r_codes_layer_111": "https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Property_and_Planning/MapServer/111",
+      "wms": "https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Property_and_Planning/MapServer/WMSServer"
+    },
+    "licence": "DPLH Data Licensing Agreement — open display/identify use only. Dataset-level restriction: 'not to be used for commercial purposes'. Bulk vector (WFS/GeoPackage/FGDB): Government-Use-Only, requires signed DPLH licence agreement.",
+    "licence_status": "BLOCKED FOR BULK DB INGEST — do not ingest polygon geometry into PostGIS without a DPLH licence or City of Vincent direct data agreement. On-demand REST point queries may be used during the demo phase (display/identify use), but confirm in writing with DPLH. See docs/DATA_ACQUISITION_RUNBOOK.md Section 4 human-loop items 2 and 3.",
+    "crs": "GDA2020 (EPSG:7844)",
+    "layer": "zone / overlay",
+    "scope": "City of Vincent (LGA code 117 in DPLH scheme data; ABS LGA code 58570). Scheme: Local Planning Scheme No. 2 (LPS2), gazetted 2026-05-16. An amended Local Planning Strategy was endorsed for public advertising March 2026 — confirm operative status with City of Vincent before production ingest.",
+    "pull_method_demo": "ArcGIS REST point-in-polygon query (no DB storage of geometry). Replace <lon> and <lat> with actual coordinates.",
+    "endpoint_status": "VERIFIED 2026-06-09 — REST MapServer layers 111 and 112 respond without authentication. GetCapabilities returns valid XML listing both layers. Restricted bulk WFS (services.slip.wa.gov.au) confirmed to exist but Government-Use-Only.",
+    "on_demand_query_urls": {
+      "zone_lookup": "https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Property_and_Planning/MapServer/112/query?geometry=<lon>,<lat>&geometryType=esriGeometryPoint&spatialRel=esriSpatialRelIntersects&outFields=*&f=geojson",
+      "r_code_lookup": "https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Property_and_Planning/MapServer/111/query?geometry=<lon>,<lat>&geometryType=esriGeometryPoint&spatialRel=esriSpatialRelIntersects&outFields=*&f=geojson",
+      "zone_vincent_filter": "https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Property_and_Planning/MapServer/112/query?where=scheme_nam+LIKE+'%25Vincent%25'&outFields=*&f=geojson"
+    }
+  },
+  "schema": {
+    "description": "Expected GeoJSON structure returned by DPLH REST query endpoint. Fields confirmed from REST MapServer GetCapabilities and layer metadata.",
+    "zone_feature_example": {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": "<integer — server row ID>",
+        "zone": "<string — e.g. 'Residential', 'Commercial', 'Mixed Use', 'Open Space'>",
+        "zone_label": "<string — human-readable label, may differ from zone code>",
+        "scheme_nam": "<string — e.g. 'City of Vincent Local Planning Scheme No. 2'>",
+        "scheme_no": "<string — e.g. '2'>",
+        "lpscheme_i": "<string — scheme identifier>",
+        "local_government": "<string — 'City of Vincent' (derived from scheme_nam)>",
+        "layer_type": "zone",
+        "_db_mapping": "code <- zone, label <- zone_label, geom <- geometry (MULTIPOLYGON GDA2020)"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "crs": "EPSG:7844 (GDA2020)",
+        "_note": "Geometry withheld from this sample file — bulk polygon storage requires DPLH licence. On-demand point queries return only the intersecting feature properties."
+      }
+    },
+    "r_code_feature_example": {
+      "type": "Feature",
+      "properties": {
+        "OBJECTID": "<integer>",
+        "rcode_no": "<string — e.g. 'R40', 'R20', 'R80', 'R160'>",
+        "scheme_nam": "<string — e.g. 'City of Vincent Local Planning Scheme No. 2'>",
+        "scheme_no": "<string>",
+        "gazettal_d": "<date string — e.g. '2018-05-16' for LPS2 gazettal>",
+        "layer_type": "overlay",
+        "_db_mapping": "code <- rcode_no, label <- rcode_no, geom <- geometry (MULTIPOLYGON GDA2020)"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "crs": "EPSG:7844 (GDA2020)",
+        "_note": "Geometry withheld — same licence restriction as zone layer."
+      }
+    }
+  },
+  "known_zone_codes_city_of_vincent": [
+    "Residential",
+    "Commercial",
+    "Mixed Use",
+    "Open Space",
+    "Public Purpose",
+    "Centre"
+  ],
+  "known_r_codes_city_of_vincent": [
+    "R20",
+    "R40",
+    "R60",
+    "R80",
+    "R160"
+  ],
+  "human_loop_actions": [
+    "Email spatialdata@dplh.wa.gov.au to request bulk licence for DPLH-071 and DPLH-070 (see runbook Section 4 item 2)",
+    "Email mail@vincent.wa.gov.au to request LPS2 zoning data directly from City of Vincent (see runbook Section 4 item 3 — PREFERRED PATH)"
+  ]
+}

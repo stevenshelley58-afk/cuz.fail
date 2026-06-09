@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "source": "Cadastre (No Attributes) LGATE-001 — SLIP Public Services, Landgate (Western Australian Land Information Authority)",
+    "dataset_id": "LGATE-001 / c6b9be34-d22a-45d7-bc33-66944a83a0e4",
+    "portal_url": "https://catalogue.data.wa.gov.au/dataset/cadastre-no-attributes-lgate-001",
+    "wfs_endpoint": "https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Property_and_Planning_WFS/MapServer/WFSServer",
+    "licence": "SLIP Personal Use Licence — non-commercial only. Commercial/product use requires a separate Landgate licence. Contact: licensing@landgate.wa.gov.au, (08) 9273 7210.",
+    "licence_status": "BLOCKED FOR COMMERCIAL USE — do not ingest into production DB without written Landgate approval. See docs/DATA_ACQUISITION_RUNBOOK.md Section 4 human-loop item 1.",
+    "crs": "GDA2020 (EPSG:7844 / urn:ogc:def:crs:EPSG::7844)",
+    "layer": "parcels",
+    "scope": "3 parcel polygons, Leederville test tile. City of Vincent full BBOX: -31.958,115.836,-31.875,115.882 (lat/lon, WFS 1.1.0 order).",
+    "pull_method": "WFS 1.1.0 GetFeature with BBOX in lat/lon order, OUTPUTFORMAT=GML3. Source GML converted here to GeoJSON for readability. Original GML at data/slip_cadastre_leederville_sample.gml",
+    "pull_command": "https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Property_and_Planning_WFS/MapServer/WFSServer?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAMES=esri:Cadastre__No_Attributes___LGATE-001_&BBOX=-31.935,115.845,-31.920,115.860,EPSG:4326&COUNT=5&OUTPUTFORMAT=GML3",
+    "raw_gml_source": "data/fixtures/samples/cadastre_slip_leederville_raw.gml",
+    "endpoint_status": "VERIFIED 2026-06-09 — WFS 1.1.0 returned 3 parcel polygons for Leederville test BBOX. WFS 2.0.0 (lon/lat BBOX) returns 0 features. GML3 only — application/json returns HTTP 400.",
+    "field_notes": {
+      "OBJECTID": "Server row ID — not stored in DB (unstable)",
+      "view_scale": "Display hint only — not stored",
+      "st_area_shape_": "In decimal degrees squared — discard; compute area_m2 via ST_Area(ST_Transform(geom,7856)) in PostGIS",
+      "lot_plan": "NULL on this layer — LGATE-001 is geometry-only. Lot/plan attributes available on LGATE-217 (subscription, out of scope for demo).",
+      "local_government": "Derived by spatial join against LGA boundary layer after load — not provided by this WFS"
+    }
+  },
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "Cadastre__No_Attributes___LGATE-001_.87876",
+      "properties": {
+        "OBJECTID": 87876,
+        "view_scale": "4K",
+        "st_area_shape_": 0.00000006,
+        "st_perimeter_shape_": 0.00131658,
+        "lot_plan": null,
+        "local_government": null,
+        "area_m2": null,
+        "_note": "area_m2 and local_government must be computed after load — see field_notes above"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [115.84528735, -31.92151895],
+              [115.84475468, -31.92151559],
+              [115.84470958, -31.92139835],
+              [115.84524224, -31.92140170],
+              [115.84528735, -31.92151895]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Cadastre__No_Attributes___LGATE-001_.87897",
+      "properties": {
+        "OBJECTID": 87897,
+        "view_scale": "4K",
+        "st_area_shape_": 0.00000006,
+        "st_perimeter_shape_": 0.00131648,
+        "lot_plan": null,
+        "local_government": null,
+        "area_m2": null,
+        "_note": "area_m2 and local_government must be computed after load — see field_notes above"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [115.84501677, -31.92081556],
+              [115.84506186, -31.92093278],
+              [115.84452922, -31.92092944],
+              [115.84448414, -31.92081222],
+              [115.84501677, -31.92081556]
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Cadastre__No_Attributes___LGATE-001_.87898",
+      "properties": {
+        "OBJECTID": 87898,
+        "view_scale": "4K",
+        "st_area_shape_": 0.00000006,
+        "st_perimeter_shape_": 0.00131651,
+        "lot_plan": null,
+        "local_government": null,
+        "area_m2": null,
+        "_note": "area_m2 and local_government must be computed after load — see field_notes above"
+      },
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [115.84510696, -31.92105001],
+              [115.84515205, -31.92116724],
+              [115.84461941, -31.92116390],
+              [115.84457431, -31.92104666],
+              [115.84510696, -31.92105001]
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

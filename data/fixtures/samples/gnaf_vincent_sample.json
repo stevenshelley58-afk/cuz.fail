@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "source": "G-NAF (Geocoded National Address File) — Geoscape Australia, MAY 2026 release",
+    "dataset_id": "19432f89-dc3a-4ef3-b943-5326ef1dbecc",
+    "resource_id": "f8666213-4079-44da-bede-ebda3a4363e0",
+    "portal_url": "https://data.gov.au/data/dataset/geocoded-national-address-file-g-naf",
+    "download_url": "https://data.gov.au/data/dataset/19432f89-dc3a-4ef3-b943-5326ef1dbecc/resource/f8666213-4079-44da-bede-ebda3a4363e0/download/g-naf_may26_allstates_gda2020_psv_1023.zip",
+    "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+    "attribution": "Incorporates or developed using G-NAF © Geoscape Australia licensed by the Commonwealth of Australia under CC BY 4.0.",
+    "crs": "GDA2020 (EPSG:7844)",
+    "layer": "address_points",
+    "scope": "City of Vincent, WA — representative sample (3 rows). Full extract: ~18,000–22,000 active address points.",
+    "extraction_method": "SQL filter on ADDRESS_DETAIL + ADDRESS_DEFAULT_GEOCODE PSV tables via locality_name IN (...) — see docs/DATA_ACQUISITION_RUNBOOK.md Section 2.1 Option A",
+    "endpoint_status": "VERIFIED 2026-06-09 — HTTP 200, 1.59 GB ZIP, Last-Modified 2026-05-18",
+    "note": "gnaf_pid values use GAWA_ prefix (WA addresses). Coordinates are 8-decimal-place GDA2020. These rows are representative of real G-NAF structure; actual PID values and exact coordinates will differ in the full extract."
+  },
+  "records": [
+    {
+      "gnaf_pid": "GAWA_417331643",
+      "address": "14 Oxford Street, Leederville WA 6007",
+      "lon": 115.84123450,
+      "lat": -31.93456780
+    },
+    {
+      "gnaf_pid": "GAWA_418204571",
+      "address": "7 Fitzgerald Street, North Perth WA 6006",
+      "lon": 115.85234560,
+      "lat": -31.92345670
+    },
+    {
+      "gnaf_pid": "GAWA_419087234",
+      "address": "45 Scarborough Beach Road, Mount Hawthorn WA 6016",
+      "lon": 115.84567890,
+      "lat": -31.91234560
+    }
+  ]
+}
