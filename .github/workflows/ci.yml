@@ -33,24 +33,34 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgis/postgis:16-3.4
-        env:
-          POSTGRES_USER: draftcheck
-          POSTGRES_PASSWORD: draftcheck
-          POSTGRES_DB: draftcheck
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
     env:
       DATABASE_URL: postgresql+psycopg://draftcheck:draftcheck@localhost:5432/draftcheck
     steps:
       - uses: actions/checkout@v4
+      - name: Build and start postgres+postgis+pgvector
+        run: |
+          # Build a custom image so all packages (pgvector, postgis, postgres server)
+          # are consistent at build time — avoids runtime .so version mismatches.
+          docker build --tag testdb - << 'DOCKERFILE'
+          FROM postgis/postgis:16-3.4
+          RUN apt-get update -qq \
+           && apt-get upgrade -y \
+           && apt-get install -y --no-install-recommends postgresql-16-pgvector \
+           && rm -rf /var/lib/apt/lists/*
+          DOCKERFILE
+          docker run --detach --name testdb \
+            --publish 5432:5432 \
+            --env POSTGRES_USER=draftcheck \
+            --env POSTGRES_PASSWORD=draftcheck \
+            --env POSTGRES_DB=draftcheck \
+            testdb
+      - name: Wait for postgres
+        run: |
+          for i in $(seq 1 30); do
+            docker exec testdb pg_isready -U draftcheck && break
+            echo "postgres not ready yet ($i/30)"
+            sleep 2
+          done
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -66,18 +76,6 @@ jobs:
         run: |
           ! grep -R "create_all" src web
           ! grep -rE "human.?review|NEEDS_HUMAN_REVIEW|human_review_required" src tests --exclude-dir=alembic --exclude-dir='*.egg-info'
-      - name: Install pgvector into postgres service
-        run: |
-          PGCTR=$(docker ps -q --filter ancestor=postgis/postgis:16-3.4)
-          # Upgrade all postgres packages together so .so files match the server binary,
-          # then install pgvector, then restart postgres to pick up the new binary.
-          docker exec "$PGCTR" bash -c "
-            apt-get update -qq
-            apt-get upgrade -y postgresql-16 postgresql-16-contrib postgresql-client-16
-            apt-get install -y postgresql-16-pgvector
-          "
-          docker exec -u postgres "$PGCTR" \
-            /usr/lib/postgresql/16/bin/pg_ctl restart -D /var/lib/postgresql/data -m fast -w -t 30
       - name: Run migrations
         run: alembic upgrade head
       - name: Run tests
