@@ -66,6 +66,27 @@ def test_v3_revisions_are_explicit_and_legacy_free() -> None:
     assert set(Base.metadata.tables) == final_tables
 
 
+def test_v3_offline_postgresql_downgrade_sql_exists_for_every_revision() -> None:
+    """Every migration must have a reversible downgrade — verified by generating SQL."""
+    config = Config(str(ALEMBIC_INI))
+    config.set_main_option(
+        "sqlalchemy.url",
+        "postgresql+psycopg://draftcheck:draftcheck@localhost:5432/draftcheck",
+    )
+
+    for version_path in V3_VERSIONS:
+        revision = version_path.stem.split("_")[0]
+        output = StringIO()
+        with redirect_stdout(output):
+            command.downgrade(config, f"{revision}:-1", sql=True)
+        sql = output.getvalue().strip()
+        assert sql, f"downgrade for {revision} produced no SQL"
+        # Downgrade SQL must not attempt to create the legacy tables.
+        sql_lower = sql.lower()
+        for legacy_table in LEGACY_TABLES:
+            assert f"create table {legacy_table}" not in sql_lower
+
+
 def test_v3_offline_postgresql_upgrade_sql_contains_foundation_schema() -> None:
     config = Config(str(ALEMBIC_INI))
     config.set_main_option(
