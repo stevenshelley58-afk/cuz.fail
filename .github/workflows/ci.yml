@@ -68,8 +68,12 @@ jobs:
           ! grep -rE "human.?review|NEEDS_HUMAN_REVIEW|human_review_required" src tests --exclude-dir=alembic --exclude-dir='*.egg-info'
       - name: Install pgvector into postgres service
         run: |
-          docker exec $(docker ps -q --filter ancestor=postgis/postgis:16-3.4) \
-            bash -c "apt-get update -qq && apt-get install -y postgresql-16-pgvector"
+          docker exec $(docker ps -q --filter ancestor=postgis/postgis:16-3.4) bash -c "
+            apt-mark hold postgresql-16 postgresql-16-contrib postgresql-client-16 2>/dev/null || true
+            apt-get update -qq
+            apt-get install -y postgresql-16-pgvector
+            apt-mark unhold postgresql-16 postgresql-16-contrib postgresql-client-16 2>/dev/null || true
+          "
       - name: Run migrations
         run: alembic upgrade head
       - name: Run tests
