@@ -1,0 +1,58 @@
+{
+  "type": "FeatureCollection",
+  "name": "m1_fixture_zoning",
+  "synthetic": true,
+  "crs": {
+    "type": "name",
+    "properties": {"name": "urn:ogc:def:crs:EPSG::7844"}
+  },
+  "_fixture_meta": {
+    "schema": "draftcheck-wa-v3-spatial-stub/1.0",
+    "stage": "pre-stage-session-b",
+    "datum": "GDA2020",
+    "epsg": 7844,
+    "illustrative": true,
+    "note": "Synthetic LPS zone and R-code feature. NOT from a real DPLH WFS or council GIS dataset. Zone: R60 Residential (City of Vincent LPS2, illustrative). Covers an area larger than the test parcel so point-in-polygon resolution succeeds. GDA2020 EPSG:7844."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "m1_zone_r60_001",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [115.848200, -31.932800],
+            [115.848900, -31.932800],
+            [115.848900, -31.931900],
+            [115.848200, -31.931900],
+            [115.848200, -31.932800]
+          ]
+        ]
+      },
+      "properties": {
+        "zone_feature_id": "m1_zone_r60_001",
+        "layer_type": "zone",
+        "zone_code": "R60",
+        "zone_label": "Residential R60",
+        "residential_density_code": "R60",
+        "scheme_name": "City of Vincent Local Planning Scheme No. 2",
+        "scheme_reference": "LPS2-SYNTHETIC",
+        "lga_name": "City of Vincent",
+        "lga_lgc_code": "50750",
+        "dplh_layer_id": "DPLH-071-SYNTHETIC",
+        "effective_date": "2026-01-01",
+        "r_code_applicable": true,
+        "r_code_source": "wa_residential_design_codes_v2_illustrative",
+        "overlays": [],
+        "bushfire_prone": false,
+        "heritage_listed": false,
+        "source_dataset": "m1_synthetic_lps_zones_2026",
+        "source_crs": "GDA2020 EPSG:7844",
+        "licence_status": "synthetic_no_licence_required",
+        "synthetic": true,
+        "note": "Synthetic R60 zoning record. City of Vincent LPS2 is a real instrument but this geometry, zone boundary, and R-code assignment are all illustrative. Real LPS zone data must be obtained from the council or DPLH WFS. R-code 'R60' is an illustrative test value — the actual R-code for any real parcel must be confirmed from approved source versions."
+      }
+    }
+  ]
+}

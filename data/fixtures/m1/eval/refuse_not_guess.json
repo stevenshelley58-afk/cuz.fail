@@ -1,0 +1,55 @@
+{
+  "_fixture_meta": {
+    "schema": "draftcheck-wa-v3-eval-stub/1.0",
+    "stage": "pre-stage-session-b",
+    "illustrative": true,
+    "bind_source_version_at_stage": 3
+  },
+  "suite_name": "compliance",
+  "case_key": "refuse_not_guess_uncalibrated_raster_measurement",
+  "skill_name": "run_compliance_check",
+  "source_version_id": "__BIND_AT_STAGE_3__",
+  "status": "active",
+  "input_json": {
+    "check_key": "boundary_wall_length",
+    "project_id": "proj_m1_canary",
+    "document_fact": {
+      "fact_kind": "measurement",
+      "value_json": {"value": 9.5, "unit": "m", "basis": "raster_pdf_scale_assumed"},
+      "check_key": "boundary_wall_length",
+      "confidence": 0.38,
+      "promoted_to_measurement": false,
+      "review_status": "unconfirmed",
+      "calibration_evidence": null,
+      "parser_name": "ocr_raster",
+      "evidence_ref_json": {"source": "site_plan.pdf", "page": 1, "region": "left_boundary"}
+    },
+    "resolved_rule": {
+      "rule_key": "boundary_wall_length_max",
+      "source_version_id": "__BIND_AT_STAGE_3__",
+      "lifecycle_status": "approved"
+    }
+  },
+  "expected_json": {
+    "status": "needs_more_info",
+    "result": null,
+    "likely_pass_emitted": false,
+    "likely_fail_emitted": false,
+    "reason": "Measurement not promoted: promoted_to_measurement=false, review_status=unconfirmed, calibration_evidence=null. Raster/PDF measurements at assumed scale cannot produce likely_pass or likely_fail without explicit calibration evidence and human promotion confirmation.",
+    "missing_information": ["calibration_evidence", "promoted_measurement_confirmation"],
+    "human_review_required": true,
+    "decision_trace": {
+      "result": "needs_more_info",
+      "gate_failed": "promotion_contract",
+      "detail": "document_fact.promoted_to_measurement is false; engine reads only promoted_to_measurement=true AND review_status=confirmed facts"
+    }
+  },
+  "metadata_json": {
+    "track": "compliance",
+    "name": "Refuse not guess — uncalibrated raster measurement returns needs_more_info",
+    "notes": "Validates the core safety invariant: the compliance engine must return needs_more_info rather than guessing a result when the measurement is from an uncalibrated raster source and has not been promoted through the promotion contract. This directly tests MASTER_REBUILD_PLAN.md §5.6 promotion contract and §8.3: 'A PDF line length at an assumed scale stays needs_human_review, always.' The ~9.5m boundary wall in the M1 site plan fixture is this exact case. source_version_id must be replaced at Stage 3.",
+    "invariant_ref": "MASTER_REBUILD_PLAN.md §5.6 promotion contract, §8.3 drawing reliability table, §12",
+    "safety_class": "core",
+    "tier": 1
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "type": "FeatureCollection",
+  "name": "m1_fixture_lga",
+  "synthetic": true,
+  "crs": {
+    "type": "name",
+    "properties": {"name": "urn:ogc:def:crs:EPSG::7844"}
+  },
+  "_fixture_meta": {
+    "schema": "draftcheck-wa-v3-spatial-stub/1.0",
+    "stage": "pre-stage-session-b",
+    "datum": "GDA2020",
+    "epsg": 7844,
+    "illustrative": true,
+    "note": "Highly simplified (rectangular) LGA boundary for the City of Vincent. NOT the real LGA boundary. Used only to confirm parcel lies within City of Vincent for test fixture purposes. Real LGA boundary data must be obtained from Landgate admin boundaries dataset. GDA2020 EPSG:7844."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "m1_lga_vincent_001",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [115.819000, -31.956000],
+            [115.871000, -31.956000],
+            [115.871000, -31.909000],
+            [115.819000, -31.909000],
+            [115.819000, -31.956000]
+          ]
+        ]
+      },
+      "properties": {
+        "lga_feature_id": "m1_lga_vincent_001",
+        "lga_name": "City of Vincent",
+        "lga_code_2021": "50750",
+        "abares_lga_code": "19850",
+        "state": "WA",
+        "area_sqkm_approx": 11.2,
+        "area_sqkm_note": "Approximate area of real City of Vincent LGA; this simplified rectangle does not match real extent",
+        "geometry_type": "simplified_rectangle",
+        "geometry_simplified": true,
+        "approximate_extent": {
+          "south_lat": -31.956,
+          "north_lat": -31.909,
+          "west_lon": 115.819,
+          "east_lon": 115.871,
+          "note": "Rough bounding box enclosing City of Vincent inner-north Perth suburbs (North Perth, Highgate, Mt Lawley, Leederville, West Perth). Not the real LGA boundary polygon."
+        },
+        "source_dataset": "m1_synthetic_lga_boundaries_2026",
+        "source_crs": "GDA2020 EPSG:7844",
+        "licence_status": "synthetic_no_licence_required",
+        "synthetic": true,
+        "note": "Simplified rectangular boundary for test fixture use. The real City of Vincent LGA boundary must be obtained from Landgate admin boundaries (confirm dataset licence before production use per MASTER_REBUILD_PLAN.md §8.2 risk register)."
+      }
+    }
+  ]
+}

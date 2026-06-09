@@ -1,0 +1,58 @@
+{
+  "type": "FeatureCollection",
+  "name": "m1_fixture_parcel",
+  "synthetic": true,
+  "crs": {
+    "type": "name",
+    "properties": {"name": "urn:ogc:def:crs:EPSG::7844"}
+  },
+  "_fixture_meta": {
+    "schema": "draftcheck-wa-v3-spatial-stub/1.0",
+    "stage": "pre-stage-session-b",
+    "datum": "GDA2020",
+    "epsg": 7844,
+    "illustrative": true,
+    "note": "Synthetic test parcel. NOT a real Landgate cadastral record. GDA2020 (EPSG:7844). Lot is 15.0m × 32.0m = 480 sqm. Centroid at approx. 115.8486°E 31.9324°S (North Perth / City of Vincent area). Coordinates derived from illustrative lat/lon arithmetic — not surveyed."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "m1_parcel_001",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [115.848500, -31.932500],
+            [115.848659, -31.932500],
+            [115.848659, -31.932211],
+            [115.848500, -31.932211],
+            [115.848500, -31.932500]
+          ]
+        ]
+      },
+      "properties": {
+        "parcel_id": "m1_parcel_001",
+        "lot_number": "15",
+        "deposited_plan": "DP12345-SYNTHETIC",
+        "strata_plan": null,
+        "title_reference": "SYNTHETIC-VOL0000-FOL0000",
+        "area_sqm": 480,
+        "area_sqm_source": "computed_from_illustrative_coordinates",
+        "frontage_m": 15.0,
+        "depth_m": 32.0,
+        "lot_type": "freehold",
+        "centroid_longitude": 115.848579,
+        "centroid_latitude": -31.932356,
+        "lga_name": "City of Vincent",
+        "suburb": "NORTH PERTH",
+        "postcode": "6006",
+        "state": "WA",
+        "source_dataset": "m1_synthetic_cadastre_2026",
+        "source_crs": "GDA2020 EPSG:7844",
+        "licence_status": "synthetic_no_licence_required",
+        "synthetic": true,
+        "coordinate_derivation": "Illustrative coordinates computed from approx. Perth inner-north lat/lon; width=15m→0.0001589deg_lon, depth=32m→0.0002894deg_lat at -31.93S"
+      }
+    }
+  ]
+}
