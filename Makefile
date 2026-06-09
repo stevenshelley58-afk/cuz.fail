@@ -6,7 +6,7 @@ setup:
 	$(PY) -m pip install -e ".[dev]"
 
 dev:
-	$(PY) -m uvicorn draftcheck_api.main:app --reload --host 127.0.0.1 --port 8000
+	$(PY) -m uvicorn draftcheck.api.main:app --reload --host 127.0.0.1 --port 8000
 
 test:
 	$(PY) -m pytest
@@ -15,10 +15,10 @@ lint:
 	$(PY) -m ruff check .
 
 typecheck:
-	$(PY) -m mypy apps packages
+	$(PY) -m mypy src tests/test_v3_api_shell.py
 
 migrate:
-	$(PY) -c "from draftcheck_core.database import init_database; init_database()"
+	$(PY) -m alembic upgrade head
 
 bootstrap-sources:
 	$(PY) scripts/bootstrap_source_library.py
@@ -39,4 +39,4 @@ seed:
 	$(PY) scripts/seed_example.py
 
 worker:
-	$(PY) -m draftcheck_worker.main
+	$(PY) -m procrastinate --app draftcheck.jobs.procrastinate_app worker --queues default,source_ingestion,council_pack,rfi_analysis,source_freshness_audit

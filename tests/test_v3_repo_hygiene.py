@@ -18,7 +18,6 @@ def test_v3_authority_is_locked_in_active_agent_docs() -> None:
 
     assert "docs/MASTER_REBUILD_PLAN.md" in agents
     assert "DATA_INVENTORY.md" in agents
-    assert "VERCEL_AUDIT.md" in agents
     assert "docs/MASTER_REBUILD_PLAN.md" in readme
     assert "This repo intentionally contains no frontend" not in readme
 

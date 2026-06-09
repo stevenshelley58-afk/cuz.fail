@@ -1,7 +1,7 @@
 # DraftCheck WA Core Agent Rules
 
 - Active implementation source: `docs/MASTER_REBUILD_PLAN.md` plus refreshed
-  `REPO_AUDIT.md`, `DATA_INVENTORY.md`, and `VERCEL_AUDIT.md`.
+  `REPO_AUDIT.md` and `DATA_INVENTORY.md`.
 - `docs/MASTER_REBUILD_PLAN.md` is the single implementation authority for the V3
   greenfield rebuild. Older planning docs are background context only where they conflict.
 
@@ -25,9 +25,6 @@
 - Build toward one repo, one VPS, one `/api/v1` mount, one PostgreSQL database, one
   Postgres-backed queue, one content-addressed storage tree, one governed Hermes runtime,
   one deterministic compliance engine, and one address-first frontend under `web/`.
-- Legacy `apps/`, `packages/`, `api/`, `ui/`, `landing/`, and `mockups/` are transition
-  or design-reference material until the V3 M1 cutover. Do not expand legacy code except
-  for harvest, compatibility, or blocking fixes.
 
 - Never claim final legal, planning, building, or certification compliance.
 - All regulatory outputs must cite approved source versions or explicitly state that the

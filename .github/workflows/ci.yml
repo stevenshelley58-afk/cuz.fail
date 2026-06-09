@@ -17,7 +17,7 @@ jobs:
       - name: Install backend
         run: python -m pip install -e ".[dev]"
       - name: Repo hygiene guard
-        run: python scripts/precommit_guard.py AGENTS.md README.md DATA_INVENTORY.md VERCEL_AUDIT.md
+        run: python scripts/precommit_guard.py AGENTS.md README.md DATA_INVENTORY.md
       - name: Ruff
         run: python -m ruff check .
       - name: Mypy new code
