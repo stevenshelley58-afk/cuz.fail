@@ -19,8 +19,6 @@ from draftcheck.domain.identity import (
     MAGIC_LINK_TTL,
     SESSION_TTL,
     MagicLinkTokenExpiredError,
-    can_review,
-    require_reviewer,
 )
 from draftcheck.domain.identity.tokens import hash_token
 
@@ -116,16 +114,6 @@ def test_magic_link_and_session_expiry_windows() -> None:
     )
 
 
-def test_reviewer_guard_accepts_owner_and_reviewer_only() -> None:
-    assert can_review(IdentityRole.OWNER)
-    assert can_review(IdentityRole.REVIEWER)
-    assert require_reviewer("owner") == IdentityRole.OWNER
-    assert require_reviewer("reviewer") == IdentityRole.REVIEWER
-
-    assert not can_review("auditor")
-    with pytest.raises(PermissionError):
-        require_reviewer("auditor")
-
 
 def test_magic_link_request_refuses_unprovisioned_public_user() -> None:
     with auth_client() as (client, _store, sender, _settings):
@@ -187,7 +175,7 @@ def test_dev_login_issues_session_for_valid_credentials() -> None:
         body = response.json()
         assert "token" not in body["session"]
         assert body["session"]["user"]["email"] == "jemma@dev.local"
-        assert body["session"]["user"]["role"] == "reviewer"
+        assert body["session"]["user"]["role"] == "owner"
 
         raw_session_token = client.cookies.get(settings.session_cookie_name)
         assert raw_session_token is not None

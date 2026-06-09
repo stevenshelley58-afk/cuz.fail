@@ -5,7 +5,7 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from draftcheck.api.auth import get_current_session, require_reviewer_session
+from draftcheck.api.auth import get_current_session
 from draftcheck.api.main import app, create_app
 from draftcheck.api import v1 as v1_api
 from draftcheck.api.v1 import create_v1_router
@@ -243,7 +243,7 @@ def test_cockburn_ops_dashboard_reports_canary_and_hermes_state() -> None:
     }
     assert "approved citable Cockburn source versions" in body["source_library"]["pending"]
     if body["source_library"]["counts"]["pending_review_versions"] > 0:
-        assert "Cockburn document fetch and human source approval" in body["source_library"]["pending"]
+        assert "Cockburn document fetch and automated source validation" in body["source_library"]["pending"]
     assert body["hermes"]["trace_required"] is True
     assert body["hermes"]["skill_version_required"] is True
     assert body["hermes"]["spend_capped"] is True
@@ -274,9 +274,9 @@ def test_ops_dashboard_uses_live_router_source_library_counts() -> None:
     assert body["source_library"]["counts"]["low_signal_versions"] == 1
     assert body["source_library"]["readiness_counts"]["parse_quality_review_required"] == 1
     assert body["source_library"]["source_type_counts"]["source_document"] == 1
-    assert body["source_library"]["pending_action_counts"]["human_source_review"] == 1
+    assert body["source_library"]["pending_action_counts"]["source_review"] == 1
     assert body["source_library"]["latest_fetch_summary"]["requested_at"] is None
-    assert "Cockburn document fetch and human source approval" in body["source_library"]["pending"]
+    assert "Cockburn document fetch and automated source validation" in body["source_library"]["pending"]
 
 
 def test_source_ingestion_status_reports_cite_or_refuse_until_reviewed() -> None:
@@ -365,7 +365,7 @@ def _override_reviewer(test_app) -> None:
     user = store.get_or_create_user(
         org=org,
         email="reviewer@example.test",
-        role=IdentityRole.REVIEWER,
+        role=IdentityRole.OWNER,
     )
     session_issue = store.create_session(user=user, org=org)
     active_session = ActiveSession(
@@ -374,4 +374,3 @@ def _override_reviewer(test_app) -> None:
         org=session_issue.org,
     )
     test_app.dependency_overrides[get_current_session] = lambda: active_session
-    test_app.dependency_overrides[require_reviewer_session] = lambda: active_session

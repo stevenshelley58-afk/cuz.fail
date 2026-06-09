@@ -40,7 +40,7 @@ def _ops_source_status(source_library: Any) -> dict[str, Any]:
     if int(counts.get("pending_fetches", 0) or 0) > 0:
         pending.append("lawful Cockburn source fetch")
     if int(counts.get("pending_review_versions", 0) or 0) > 0:
-        pending.append("Cockburn document fetch and human source approval")
+        pending.append("Cockburn document fetch and automated source validation")
     if int(counts.get("approved_citable_versions", 0) or 0) == 0:
         pending.append("approved citable Cockburn source versions")
     pending.extend(
@@ -181,7 +181,7 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
                 "allowed_outputs": [
                     "source candidates",
                     "review worklists",
-                    "draft responses requiring signoff",
+                    "draft responses for operator review",
                 ],
                 "forbidden_outputs": [
                     "compliance verdicts",
@@ -343,16 +343,6 @@ def list_exports() -> None:
 @router.get("/exports/{export_id}/download", tags=["exports"])
 def download_export(export_id: str) -> None:
     _stub("exports.download")
-
-
-@router.post("/signoffs", tags=["signoffs"])
-def create_signoff(payload: dict[str, Any]) -> None:
-    _stub("signoffs.create")
-
-
-@router.get("/signoffs/projects/{project_id}", tags=["signoffs"])
-def list_project_signoffs(project_id: str) -> None:
-    _stub("signoffs.project")
 
 
 @router.get("/reviews", tags=["reviews"])

@@ -98,7 +98,7 @@ class SqlAlchemyIdentityStore:
         *,
         org: OrgIdentity,
         email: str,
-        role: IdentityRole = IdentityRole.REVIEWER,
+        role: IdentityRole = IdentityRole.OWNER,
         now: datetime | None = None,
     ) -> UserIdentity:
         normalized_email = normalize_email(email)

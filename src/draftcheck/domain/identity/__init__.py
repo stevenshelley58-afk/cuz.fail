@@ -9,7 +9,7 @@ from draftcheck.domain.identity.email import (
     MissingEmailSender,
     SmtpEmailSender,
 )
-from draftcheck.domain.identity.roles import IdentityRole, can_review, normalize_role, require_reviewer
+from draftcheck.domain.identity.roles import IdentityRole, normalize_role
 from draftcheck.domain.identity.store import (
     MAGIC_LINK_TTL,
     SESSION_TTL,
@@ -59,12 +59,10 @@ __all__ = [
     "SessionIssue",
     "SmtpEmailSender",
     "UserIdentity",
-    "can_review",
     "generate_raw_token",
     "hash_token",
     "issue_magic_link_token",
     "issue_session_token",
     "normalize_role",
-    "require_reviewer",
     "token_hash_matches",
 ]

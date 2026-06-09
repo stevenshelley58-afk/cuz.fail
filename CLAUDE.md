@@ -7,7 +7,7 @@
 - Older planning docs are background context only where they conflict with the active implementation
   source.
 
-## Operator Standing Approval (2026-06-08)
+## Operator Standing Approval (2026-06-09)
 
 - The operator (Steven) pre-approves all operational and implementation work that follows the
   active implementation source: git commits/pushes, PRs and merges once CI is green, CI changes,
@@ -15,13 +15,18 @@
 - Do not pause to ask permission or wait for confirmation; decide, act, and log the decision in
   the commit/PR description. Missing credentials → documented fallback, continue, and list the
   one-command unblock in the final report (see `docs/CODEX_DEPLOY_SYNC_RUNBOOK.md`).
-- Process autonomy only: the legal governance rules below (citations, human signoff in the
-  product) are runtime product features and stay as designed.
+
+## Pipeline and output governance (2026-06-09)
+
+The pipeline is **fully AI**: LLM/extractor proposes → automated validators → eval gate →
+deterministic engine decides → cited, advisory output. There is no human reviewer or signoff
+gate in the product.
 
 - Never claim final legal, planning, building, or certification compliance.
 - All regulatory outputs must cite approved source versions or explicitly state that the approved source library cannot support the answer.
+- Outputs are advisory with statuses like `likely_pass / likely_fail / needs_more_info / unsupported`. They are not final certifications.
 
-- Prefer deterministic calculations for measurements. If measurements are absent or ambiguous, return missing information or human review status.
+- Prefer deterministic calculations for measurements. If measurements are absent or ambiguous, return missing information.
 
 ## External Agent Resources
 

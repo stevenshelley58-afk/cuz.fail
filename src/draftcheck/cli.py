@@ -21,7 +21,7 @@ from draftcheck.domain.identity import (
     IdentityRole,
     InMemoryIdentityStore,
     InvalidIdentityInputError,
-    normalize_role,
+    normalize_role,  # noqa: F401 - re-exported for callers
 )
 from draftcheck.domain.identity.sqlalchemy_store import SqlAlchemyIdentityStore
 from draftcheck.domain.identity.store import DEFAULT_ORG_NAME
@@ -386,7 +386,7 @@ def _run_seed_source_manifest(
         user = identity_store.get_or_create_user(
             org=org,
             email=args.operator_email,
-            role=IdentityRole.REVIEWER,
+            role=IdentityRole.OWNER,
         )
         org_id = org.id
         user_id = user.id
@@ -420,7 +420,7 @@ def _operator_ids(
     user = identity_store.get_or_create_user(
         org=org,
         email=email,
-        role=IdentityRole.REVIEWER,
+        role=IdentityRole.OWNER,
     )
     return org.id, user.id
 

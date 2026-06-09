@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi.testclient import TestClient
 
-from draftcheck.api.auth import get_current_session, require_reviewer_session
+from draftcheck.api.auth import get_current_session
 from draftcheck.api.main import create_app
 from draftcheck.domain.identity import ActiveSession, IdentityRole, InMemoryIdentityStore
 
@@ -133,7 +133,7 @@ def test_v3_image_upload_is_review_only_until_calibrated() -> None:
 
 
 def test_v3_document_fact_review_requires_reviewer_and_records_status() -> None:
-    client = _client(reviewer=True)
+    client = _client()
     upload = client.post(
         "/api/v1/documents/projects/project-docs/upload",
         files={"file": ("site-plan.txt", b"Open space: 180 m2", "text/plain")},
@@ -155,14 +155,14 @@ def test_v3_document_fact_review_requires_reviewer_and_records_status() -> None:
     assert body["metadata"]["review_note"] == "Fixture confirmation only."
 
 
-def _client(*, reviewer: bool = False) -> TestClient:
+def _client() -> TestClient:
     app = create_app()
     store = InMemoryIdentityStore()
     org = store.get_or_create_org(slug="fixture")
     user = store.get_or_create_user(
         org=org,
-        email="reviewer@example.test" if reviewer else "owner@example.test",
-        role=IdentityRole.REVIEWER if reviewer else IdentityRole.OWNER,
+        email="owner@example.test",
+        role=IdentityRole.OWNER,
     )
     session_issue = store.create_session(user=user, org=org)
     active_session = ActiveSession(
@@ -171,6 +171,4 @@ def _client(*, reviewer: bool = False) -> TestClient:
         org=session_issue.org,
     )
     app.dependency_overrides[get_current_session] = lambda: active_session
-    if reviewer:
-        app.dependency_overrides[require_reviewer_session] = lambda: active_session
     return TestClient(app, headers=ORIGIN_HEADERS)
