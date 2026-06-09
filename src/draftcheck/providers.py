@@ -17,6 +17,8 @@ from draftcheck.config import Settings, get_settings
 
 OPENAI_DEFAULT_CHAT_MODEL = "gpt-4o"
 OPENROUTER_DEFAULT_CHAT_MODEL = "openai/gpt-4o"
+MINIMAX_DEFAULT_CHAT_MODEL = "MiniMax-Text-01"
+MINIMAX_DEFAULT_BASE_URL = "https://api.minimax.chat/v1"
 
 
 class ChatProvider(Protocol):
@@ -129,6 +131,17 @@ def get_chat_provider(settings: Settings | None = None) -> ChatProvider:
             error_label="OpenRouter",
             extra_headers=extra_headers or None,
         )
+    if provider == "minimax" and active_settings.minimax_api_key:
+        model = active_settings.llm_model.strip() or MINIMAX_DEFAULT_CHAT_MODEL
+        return OpenAIChatProvider(
+            api_key=active_settings.minimax_api_key,
+            model=model,
+            base_url=active_settings.minimax_base_url,
+            timeout_seconds=active_settings.llm_timeout_seconds,
+            max_output_tokens=active_settings.llm_max_output_tokens,
+            name="minimax",
+            error_label="MiniMax",
+        )
     return MockChatProvider()
 
 
@@ -147,4 +160,4 @@ _EMBEDDING_SYNONYMS = {
     "vehicles": "garage",
 }
 
-_KNOWN_PROVIDERS = re.compile(r"^(mock|openai|openai-compatible|openrouter)$")
+_KNOWN_PROVIDERS = re.compile(r"^(mock|openai|openai-compatible|openrouter|minimax)$")
