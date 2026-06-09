@@ -62,7 +62,7 @@ class Settings:
     llm_provider: str = "mock"
     llm_model: str = ""
     llm_timeout_seconds: int = 30
-    llm_max_output_tokens: int = 700
+    llm_max_output_tokens: int = 1200
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
     openrouter_api_key: str = ""

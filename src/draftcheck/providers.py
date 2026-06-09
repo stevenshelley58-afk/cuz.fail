@@ -15,8 +15,8 @@ from urllib.request import Request, urlopen
 from draftcheck.config import Settings, get_settings
 
 
-OPENAI_DEFAULT_CHAT_MODEL = "gpt-5.5"
-OPENROUTER_DEFAULT_CHAT_MODEL = "openai/gpt-5.5"
+OPENAI_DEFAULT_CHAT_MODEL = "gpt-4o"
+OPENROUTER_DEFAULT_CHAT_MODEL = "openai/gpt-4o"
 
 
 class ChatProvider(Protocol):
