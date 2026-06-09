@@ -46,6 +46,11 @@ def _metadata_json(name: str = "metadata_json") -> sa.Column[Any]:
 
 
 def upgrade() -> None:
+    # Widen alembic_version.version_num — default VARCHAR(32) is too short for
+    # migration IDs like '0008_property_facts_confirmed_index' (35 chars).
+    op.execute(
+        "ALTER TABLE alembic_version ALTER COLUMN version_num TYPE VARCHAR(128)"
+    )
     op.execute("CREATE EXTENSION IF NOT EXISTS vector")
     op.create_table(
         "orgs",
