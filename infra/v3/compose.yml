@@ -42,7 +42,7 @@ services:
       OBJECT_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
       REQUIRE_DURABLE_DATABASE: "true"
       REQUIRE_LOCAL_CONTENT_STORAGE: "true"
-      DRAFTCHECK_ENV: production
+      DRAFTCHECK_ENV: ${DRAFTCHECK_ENV:-staging}
       FRONTEND_URL: ${FRONTEND_URL:-https://app.cuz.fail}
       AUTH_TOKEN_HASH_PEPPER: "${AUTH_PEPPER}"
       SESSION_COOKIE_SECURE: "true"
