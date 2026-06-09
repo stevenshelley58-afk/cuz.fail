@@ -23,7 +23,7 @@ def test_v3_compose_has_target_services_and_no_legacy_backends():
     compose_text = COMPOSE_PATH.read_text(encoding="utf-8")
     compose = yaml.safe_load(compose_text)
 
-    assert set(compose["services"]) == {"db", "api", "worker", "hermes", "caddy"}
+    assert set(compose["services"]) == {"db", "api", "worker", "hermes", "internal_caddy"}
     assert compose["services"]["db"]["build"]["dockerfile"] == "infra/v3/db/Dockerfile"
 
     lowered = compose_text.lower()
@@ -39,7 +39,7 @@ def test_v3_caddy_routes_api_v1_and_static_web_dist():
 
     assert "/api/v1" in active_caddy
     assert "reverse_proxy api:8000" in active_caddy
-    assert "root * /srv/draftcheck/web/dist" in active_caddy
+    assert "root * /srv/draftcheck/app/web/dist" in active_caddy
     assert "/v1" not in active_caddy.replace("/api/v1", "")
 
 
