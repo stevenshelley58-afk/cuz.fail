@@ -22,7 +22,7 @@
 	}
 }
 
-{$CADDY_API_HOST:api.cuz.fail} {
+http://{$CADDY_API_HOST:api.cuz.fail} {
 	import security_headers
 	encode zstd gzip
 	import api_routes
@@ -31,17 +31,17 @@
 	}
 }
 
-{$CADDY_ROOT_HOST:cuz.fail} {
+http://{$CADDY_ROOT_HOST:cuz.fail} {
 	import security_headers
 	redir https://{$CADDY_APP_HOST:app.cuz.fail}{uri} permanent
 }
 
-{$CADDY_WWW_HOST:www.cuz.fail} {
+http://{$CADDY_WWW_HOST:www.cuz.fail} {
 	import security_headers
 	redir https://{$CADDY_APP_HOST:app.cuz.fail}{uri} permanent
 }
 
-{$CADDY_APP_HOST:app.cuz.fail} {
+http://{$CADDY_APP_HOST:app.cuz.fail} {
 	import security_headers
 	encode zstd gzip
 	import api_routes
