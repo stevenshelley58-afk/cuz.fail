@@ -381,7 +381,7 @@ async def upload_document(
         "extracted_facts": [_orm_fact_payload(f) for f in all_orm_facts],
         "fact_count": len(all_orm_facts),
         "review_required": True,
-        "advisory_notice": "All extracted measurements are advisory pending human review and promotion.",
+        "advisory_notice": "All extracted measurements are advisory. Promote facts to confirm before running compliance.",
     }
 
 
