@@ -62,13 +62,15 @@ class Settings:
     llm_provider: str = "mock"
     llm_model: str = ""
     llm_timeout_seconds: int = 30
-    llm_max_output_tokens: int = 700
+    llm_max_output_tokens: int = 1200
     openai_api_key: str = ""
     openai_base_url: str = "https://api.openai.com/v1"
     openrouter_api_key: str = ""
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
     openrouter_site_url: str = ""
     openrouter_app_name: str = "LotFile"
+    minimax_api_key: str = ""
+    minimax_base_url: str = "https://api.minimax.chat/v1"
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -106,6 +108,8 @@ class Settings:
             openrouter_base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
             openrouter_site_url=os.getenv("OPENROUTER_SITE_URL", ""),
             openrouter_app_name=os.getenv("OPENROUTER_APP_NAME", "LotFile"),
+            minimax_api_key=os.getenv("MINIMAX_API_KEY", ""),
+            minimax_base_url=os.getenv("MINIMAX_BASE_URL", "https://api.minimax.chat/v1"),
         )
 
 
