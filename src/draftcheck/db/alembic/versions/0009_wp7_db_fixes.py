@@ -1,8 +1,8 @@
 """WP7 DB fixes — pg_trgm, address trigram index, CHECK constraints, council_scope column,
-rules zone/r_code columns, property_facts composite index.
+rules zone/r_code columns.
 
-Revision ID: 0008_wp7_db_fixes
-Revises: 0007_nullable_org_job_traces
+Revision ID: 0009_wp7_db_fixes
+Revises: 0008_property_facts_confirmed_index
 """
 
 from __future__ import annotations
@@ -14,8 +14,8 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 
-revision: str = "0008_wp7_db_fixes"
-down_revision: str | None = "0007_nullable_org_job_traces"
+revision: str = "0009_wp7_db_fixes"
+down_revision: str | None = "0008_property_facts_confirmed_index"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 
@@ -85,22 +85,13 @@ def upgrade() -> None:
         ),
     )
 
-    # 6. Composite index on property_facts(project_id, review_status)
-    op.create_index(
-        "ix_property_facts_project_review",
-        "property_facts",
-        ["project_id", "review_status"],
-    )
-
-    # 7. planning_features.layer_type — no existing CHECK constraint in prior migrations;
+    # 6. planning_features.layer_type — no existing CHECK constraint in prior migrations;
     #    step skipped as instructed.
+    # Note: ix_property_facts_project_review already created by 0008_property_facts_confirmed_index
 
 
 def downgrade() -> None:
-    # 7. (skipped — no constraint was added)
-
-    # 6. Drop property_facts composite index
-    op.drop_index("ix_property_facts_project_review", table_name="property_facts")
+    # 6. (skipped — no constraint was added)
 
     # 5. Drop rules zone/r_code columns
     op.drop_column("rules", "applicable_r_codes")
