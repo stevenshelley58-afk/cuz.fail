@@ -13,7 +13,7 @@ from __future__ import annotations
 import asyncio
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import JSONResponse
 
 router = APIRouter()
@@ -65,7 +65,7 @@ def list_jobs(
     # The global trace store is kept in the adapter; fall back to empty list
     try:
         adapter = _get_adapter()
-        store: InMemoryJobTraceStore = getattr(adapter, "trace_store", None)
+        store: InMemoryJobTraceStore | None = getattr(adapter, "trace_store", None)
         traces = list(store.list_traces()) if store else []
     except Exception:
         traces = []

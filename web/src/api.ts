@@ -171,6 +171,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<Ap
 export type ComplianceResultItem = {
   check_key: string;
   display_name: string;
+  check_name?: string;
   status: "likely_pass" | "likely_fail" | "needs_more_info" | "unsupported";
   threshold_value: number | string | null;
   threshold_unit: string | null;

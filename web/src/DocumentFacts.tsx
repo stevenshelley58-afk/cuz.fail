@@ -215,7 +215,7 @@ export function DocumentFacts({
     api.documents.facts(docId).then((r) => {
       if (cancelled) return;
       if (r.kind === "ok") {
-        setFacts(r.data.facts ?? []);
+        setFacts(r.data.items ?? []);
       } else if (r.kind === "error") {
         setError(r.message);
       } else if (r.kind === "down") {

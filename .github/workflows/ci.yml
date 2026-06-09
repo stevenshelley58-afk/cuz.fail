@@ -48,7 +48,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     env:
-      DATABASE_URL: postgresql://draftcheck:draftcheck@localhost:5432/draftcheck
+      DATABASE_URL: postgresql+psycopg://draftcheck:draftcheck@localhost:5432/draftcheck
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

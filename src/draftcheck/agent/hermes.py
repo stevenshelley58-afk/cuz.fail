@@ -5,9 +5,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from datetime import UTC, datetime, timedelta
-from uuid import UUID
-
-from sqlalchemy import select, text
+from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 logger = logging.getLogger(__name__)
@@ -134,7 +132,7 @@ class HermesAgent:
 
         for (clause_id, skill_version_id) in rows:
             try:
-                group_id = enqueue_extraction_group(clause_id, skill_version_id, session)
+                group_id = enqueue_extraction_group(clause_id, skill_version_id, session)  # type: ignore[arg-type]
                 await session.commit()
                 logger.info(
                     "Hermes enqueued extraction group %s for clause %s", group_id, clause_id
