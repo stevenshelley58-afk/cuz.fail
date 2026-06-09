@@ -75,7 +75,7 @@ def test_v3_offline_postgresql_downgrade_sql_exists_for_every_revision() -> None
     )
 
     for version_path in V3_VERSIONS:
-        revision = version_path.stem.split("_")[0]
+        revision = version_path.stem
         output = StringIO()
         with redirect_stdout(output):
             command.downgrade(config, f"{revision}:-1", sql=True)
