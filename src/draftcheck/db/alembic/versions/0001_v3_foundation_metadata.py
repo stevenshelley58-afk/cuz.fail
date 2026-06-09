@@ -46,6 +46,7 @@ def _metadata_json(name: str = "metadata_json") -> sa.Column[Any]:
 
 
 def upgrade() -> None:
+    op.execute("CREATE EXTENSION IF NOT EXISTS vector")
     op.create_table(
         "orgs",
         sa.Column("id", UUID, primary_key=True),
