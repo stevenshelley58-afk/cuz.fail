@@ -34,6 +34,16 @@ services:
         alembic upgrade head &&
         (procrastinate --app "$${PROCRASTINATE_APP}" schema --apply ||
         echo "procrastinate schema already present; continuing") &&
+        ([ "$${DRAFTCHECK_ENV}" != "production" ] &&
+        python -c "
+from draftcheck.db.session import get_engine
+from sqlalchemy import text
+e = get_engine()
+with e.connect() as c:
+    n = c.execute(text(\"UPDATE source_versions SET review_status='approved' WHERE review_status='pending_review'\")).rowcount
+    c.commit()
+    print(f'dev auto-approved {n} source versions')
+" || true) &&
         uvicorn draftcheck.api.main:app --host 0.0.0.0 --port 8000
     environment:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW}@db:5432/${POSTGRES_DB:-draftcheck}
