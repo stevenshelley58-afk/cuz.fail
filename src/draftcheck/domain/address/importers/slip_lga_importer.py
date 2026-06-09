@@ -1,14 +1,16 @@
-"""SLIP LGA boundary importer — City of Vincent.
+﻿"""SLIP LGA boundary importer -- City of Vincent.
 
 Fetches the City of Vincent LGA boundary polygon from the SLIP LGA boundaries
 layer and loads it as an ``LgArea`` record.
 
-Licence:    CC BY 4.0 (Landgate SLIP) — LicenceStatus.LICENSED
-CRS:        SLIP returns GDA2020 (EPSG:7844).
+Licence:    CC BY 4.0 (Landgate SLIP) -- LicenceStatus.LICENSED
+CRS:        SLIP returns GDA2020 (EPSG:7844); if the response CRS member
+            indicates GDA94 (EPSG:4283), coordinates are reprojected to
+            EPSG:7844 via pyproj before storage.
 approval_status: "approved"
 
 Endpoint:
-    SLIP public WFS — LGA boundaries layer:
+    SLIP public WFS -- LGA boundaries layer:
     https://services.slip.wa.gov.au/public/services/
         SLIP_Public_Services/Administrative_Boundaries/MapServer/WFSServer
     typeName: ``Administrative_Boundaries:WA_LOCAL_GOVERNMENT_AREA``
@@ -78,7 +80,7 @@ def _fetch_geojson(url: str) -> dict[str, Any] | None:
     req = Request(url)
     req.add_header("Accept", "application/json")
     try:
-        with urlopen(req, timeout=30) as resp:  # noqa: S310 – controlled URL
+        with urlopen(req, timeout=30) as resp:  # noqa: S310 - controlled URL
             return json.loads(resp.read())
     except URLError as exc:
         logger.warning("slip_lga_importer: HTTP error: %s", exc)
@@ -88,22 +90,75 @@ def _fetch_geojson(url: str) -> dict[str, Any] | None:
         return None
 
 
-def _geom_to_ewkt(geom: dict[str, Any]) -> str | None:
+def _detect_source_crs(geojson: dict[str, Any]) -> str | None:
+    """Detect the CRS from a WFS GeoJSON FeatureCollection ``crs`` member.
+
+    Returns ``"EPSG:4283"`` if GDA94, ``"EPSG:7844"`` if GDA2020, or
+    ``None`` if the member is absent.
+    """
+    crs_member = geojson.get("crs")
+    if not crs_member or not isinstance(crs_member, dict):
+        return None
+    props = crs_member.get("properties") or {}
+    name = str(props.get("name") or "")
+    if "4283" in name:
+        return "EPSG:4283"
+    if "7844" in name:
+        return "EPSG:7844"
+    if name.upper().startswith("EPSG:"):
+        return name.upper()
+    return None
+
+
+def _reproject_ring(ring: list, transformer: Any) -> list:
+    return [list(transformer.transform(x, y)) for x, y in ring]
+
+
+def _maybe_reproject_coords(coordinates: list, source_crs: str | None) -> list:
+    """Reproject coordinates from GDA94 (EPSG:4283) to GDA2020 (EPSG:7844).
+
+    No-op if ``source_crs`` is not GDA94.  Uses pyproj (available via the
+    shapely dependency).
+    """
+    if not source_crs or "4283" not in source_crs:
+        return coordinates
+    try:
+        from pyproj import Transformer
+
+        transformer = Transformer.from_crs("EPSG:4283", "EPSG:7844", always_xy=True)
+
+        def _reproject_depth(coords: list, depth: int) -> list:
+            if depth == 0:
+                return _reproject_ring(coords, transformer)
+            return [_reproject_depth(item, depth - 1) for item in coords]
+
+        return _reproject_depth(coordinates, depth=1)
+    except Exception as exc:  # pragma: no cover
+        logger.warning(
+            "slip_lga_importer: pyproj reprojection failed (%s); storing as-is", exc
+        )
+        return coordinates
+
+
+def _geom_to_ewkt(geom: dict[str, Any], source_crs: str | None = None) -> str | None:
     """Convert GeoJSON geometry to EWKT SRID=7844.
 
-    TODO: If SLIP returns GDA94 (EPSG:4283) instead of GDA2020 (EPSG:7844),
-    reprojection is required before storing.  Check the CRS member in the WFS
-    response FeatureCollection.
+    Conditionally reprojects from GDA94 (EPSG:4283) to GDA2020 (EPSG:7844)
+    when ``source_crs`` indicates the WFS response is GDA94.
     """
     geom_type = geom.get("type", "")
     coordinates = geom.get("coordinates")
     if not coordinates:
         return None
     if geom_type == "Polygon":
-        rings = _rings_to_wkt(coordinates)
+        coords = _maybe_reproject_coords(coordinates, source_crs)
+        rings = _rings_to_wkt(coords)
         return f"SRID=7844;MULTIPOLYGON(({rings}))"
     elif geom_type == "MultiPolygon":
-        polygons = [f"({_rings_to_wkt(poly)})" for poly in coordinates]
+        polygons = []
+        for poly in coordinates:
+            reprojected = _maybe_reproject_coords(poly, source_crs)
+            polygons.append(f"({_rings_to_wkt(reprojected)})")
         return f"SRID=7844;MULTIPOLYGON({','.join(polygons)})"
     return None
 
@@ -140,14 +195,21 @@ def import_slip_lga_vincent(
         logger.warning("slip_lga_importer: no LGA features returned for VINCENT")
         return 0
 
+    source_crs = _detect_source_crs(geojson)
+    if source_crs and "4283" in source_crs:
+        logger.info(
+            "slip_lga_importer: source CRS is GDA94 (%s); reprojecting to EPSG:7844",
+            source_crs,
+        )
+
     dataset = SpatialDatasetMetadata(
         dataset_id=_DATASET_ID,
-        name=f"WA LGA Boundary — {_LGA_NAME} (SLIP)",
+        name=f"WA LGA Boundary -- {_LGA_NAME} (SLIP)",
         provider=_PROVIDER,
         version="2026",
         licence=_LICENCE,
         licence_status=LicenceStatus.LICENSED,
-        source_crs=GDA2020_TARGET_CRS,
+        source_crs=source_crs or GDA2020_TARGET_CRS,
         approval_status=SourceApprovalStatus.APPROVED,
         source_version_id=f"slip:wa-lga:{_LGA_NAME.lower().replace(' ', '-')}:2026",
     )
@@ -156,13 +218,11 @@ def import_slip_lga_vincent(
         logger.error("slip_lga_importer: dataset not accepted: %s", result.reason)
         return 0
 
-    # For PostGIS store — insert an LgArea row directly via SQLAlchemy
     from draftcheck.domain.address.postgis_store import PostGISSpatialDatasetStore
 
     if isinstance(store, PostGISSpatialDatasetStore):
-        return _insert_lg_area_postgis(store, dataset, features)
+        return _insert_lg_area_postgis(store, dataset, features, source_crs)
 
-    # For in-memory store — dataset is registered; no LgArea concept exists
     logger.info(
         "slip_lga_importer: LGA dataset registered in in-memory store "
         "(no LgArea persistence for InMemorySpatialDatasetStore)"
@@ -174,6 +234,7 @@ def _insert_lg_area_postgis(
     store: "PostGISSpatialDatasetStore",
     dataset: SpatialDatasetMetadata,
     features: list[dict[str, Any]],
+    source_crs: str | None = None,
 ) -> int:
     from sqlalchemy.orm import Session
     from sqlalchemy import text
@@ -187,7 +248,7 @@ def _insert_lg_area_postgis(
     feature = features[0]
     props = feature.get("properties") or {}
     geom = feature.get("geometry") or {}
-    geom_ewkt = _geom_to_ewkt(geom) or "SRID=7844;MULTIPOLYGON EMPTY"
+    geom_ewkt = _geom_to_ewkt(geom, source_crs) or "SRID=7844;MULTIPOLYGON EMPTY"
     lg_code = props.get("LGA_CODE") or props.get("lga_code") or ""
 
     with Session(store._engine) as session:

@@ -234,3 +234,7 @@ class DocumentFactService:
                 _add(key, val, unit, confidence, match.group(0))
 
         return facts
+
+
+# Alias satisfying the import contract: MeasurementExtractor = DocumentFactService
+MeasurementExtractor = DocumentFactService

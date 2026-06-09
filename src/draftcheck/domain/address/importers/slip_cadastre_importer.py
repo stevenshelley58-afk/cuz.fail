@@ -1,10 +1,12 @@
-"""SLIP cadastre (WA parcel boundaries) importer.
+﻿"""SLIP cadastre (WA parcel boundaries) importer.
 
 Fetches parcel geometries from the SLIP public WFS for the City of Vincent and
 loads them into the spatial store.
 
-Licence:    CC BY 4.0 (Landgate / SLIP free tier) — LicenceStatus.LICENSED
-CRS:        SLIP free WFS returns GDA2020 (EPSG:7844) GeoJSON.
+Licence:    CC BY 4.0 (Landgate / SLIP free tier) -- LicenceStatus.LICENSED
+CRS:        SLIP free WFS returns GDA2020 (EPSG:7844) GeoJSON; if the response
+            CRS member indicates GDA94 (EPSG:4283), coordinates are reprojected
+            to EPSG:7844 via pyproj before storage.
 approval_status: "approved"
 
 Endpoints tried (in order):
@@ -19,7 +21,7 @@ Endpoints tried (in order):
    https://services.slip.wa.gov.au/private/WFS
 
 If neither endpoint is reachable, the importer logs a warning and returns 0
-(degraded operation — does NOT raise).
+(degraded operation -- does NOT raise).
 
 Usage::
 
@@ -88,7 +90,7 @@ def _fetch_geojson(url: str, *, username: str = "", password: str = "") -> dict[
         req.add_header("Authorization", f"Basic {credentials}")
     req.add_header("Accept", "application/json")
     try:
-        with urlopen(req, timeout=30) as resp:  # noqa: S310 – controlled URL
+        with urlopen(req, timeout=30) as resp:  # noqa: S310 - controlled URL
             return json.loads(resp.read())
     except URLError as exc:
         logger.warning("slip_cadastre_importer: HTTP error fetching %s: %s", url, exc)
@@ -98,15 +100,62 @@ def _fetch_geojson(url: str, *, username: str = "", password: str = "") -> dict[
         return None
 
 
-def _geom_to_ewkt(geom: dict[str, Any]) -> str | None:
+def _detect_source_crs(geojson: dict[str, Any]) -> str | None:
+    """Detect the CRS from a WFS GeoJSON FeatureCollection ``crs`` member.
+
+    Returns ``"EPSG:4283"`` if GDA94, ``"EPSG:7844"`` if GDA2020, or
+    ``None`` if the member is absent.
+    """
+    crs_member = geojson.get("crs")
+    if not crs_member or not isinstance(crs_member, dict):
+        return None
+    props = crs_member.get("properties") or {}
+    name = str(props.get("name") or "")
+    if "4283" in name:
+        return "EPSG:4283"
+    if "7844" in name:
+        return "EPSG:7844"
+    if name.upper().startswith("EPSG:"):
+        return name.upper()
+    return None
+
+
+def _reproject_ring(ring: list, transformer: Any) -> list:
+    return [list(transformer.transform(x, y)) for x, y in ring]
+
+
+def _maybe_reproject_coords(coordinates: list, source_crs: str | None) -> list:
+    """Reproject coordinates from GDA94 (EPSG:4283) to GDA2020 (EPSG:7844).
+
+    No-op if ``source_crs`` is not GDA94.  Uses pyproj (available via the
+    shapely dependency).
+    """
+    if not source_crs or "4283" not in source_crs:
+        return coordinates
+    try:
+        from pyproj import Transformer
+
+        transformer = Transformer.from_crs("EPSG:4283", "EPSG:7844", always_xy=True)
+
+        def _reproject_depth(coords: list, depth: int) -> list:
+            if depth == 0:
+                return _reproject_ring(coords, transformer)
+            return [_reproject_depth(item, depth - 1) for item in coords]
+
+        return _reproject_depth(coordinates, depth=1)
+    except Exception as exc:  # pragma: no cover
+        logger.warning(
+            "slip_cadastre_importer: pyproj reprojection failed (%s); storing as-is", exc
+        )
+        return coordinates
+
+
+def _geom_to_ewkt(geom: dict[str, Any], source_crs: str | None = None) -> str | None:
     """Convert a GeoJSON geometry dict to an EWKT string (SRID=7844).
 
     Only handles Polygon and MultiPolygon (parcel geometries).
-    Returns None for unsupported geometry types.
-
-    TODO: If SLIP returns GDA94 (EPSG:4283) instead of GDA2020 (EPSG:7844),
-    reprojection is required before storing.  Check the WFS ``srsName`` in
-    the response FeatureCollection CRS member to detect this case.
+    Conditionally reprojects from GDA94 (EPSG:4283) to GDA2020 (EPSG:7844)
+    when ``source_crs`` indicates the WFS response is GDA94.
     """
     geom_type = geom.get("type", "")
     coordinates = geom.get("coordinates")
@@ -114,12 +163,14 @@ def _geom_to_ewkt(geom: dict[str, Any]) -> str | None:
         return None
 
     if geom_type == "Polygon":
-        rings = _coords_to_wkt_rings(coordinates)
+        coords = _maybe_reproject_coords(coordinates, source_crs)
+        rings = _coords_to_wkt_rings(coords)
         return f"SRID=7844;MULTIPOLYGON(({rings}))"
     elif geom_type == "MultiPolygon":
         polygons = []
         for poly in coordinates:
-            rings = _coords_to_wkt_rings(poly)
+            reprojected = _maybe_reproject_coords(poly, source_crs)
+            rings = _coords_to_wkt_rings(reprojected)
             polygons.append(f"({rings})")
         return f"SRID=7844;MULTIPOLYGON({','.join(polygons)})"
     else:
@@ -141,12 +192,11 @@ def import_slip_cadastre_vincent(
     """Import City of Vincent parcel boundaries from SLIP WFS.
 
     Returns count of parcels imported.  Returns 0 (with a logged warning) if
-    SLIP is unreachable — does NOT raise.
+    SLIP is unreachable -- does NOT raise.
     """
     slip_username = os.environ.get("SLIP_USERNAME", "")
     slip_password = os.environ.get("SLIP_PASSWORD", "")
 
-    # Try public endpoint first, then authenticated
     geojson: dict[str, Any] | None = None
     public_url = _build_wfs_url(_SLIP_PUBLIC_WFS)
     geojson = _fetch_geojson(public_url)
@@ -169,14 +219,21 @@ def import_slip_cadastre_vincent(
         logger.warning("slip_cadastre_importer: WFS returned 0 features for LGA_NAME='VINCENT'")
         return 0
 
+    source_crs = _detect_source_crs(geojson)
+    if source_crs and "4283" in source_crs:
+        logger.info(
+            "slip_cadastre_importer: source CRS is GDA94 (%s); reprojecting to EPSG:7844",
+            source_crs,
+        )
+
     dataset = SpatialDatasetMetadata(
         dataset_id=_DATASET_ID,
-        name="WA Cadastre — City of Vincent parcels (SLIP)",
+        name="WA Cadastre -- City of Vincent parcels (SLIP)",
         provider=_PROVIDER,
         version="2026",
         licence=_LICENCE,
         licence_status=LicenceStatus.LICENSED,
-        source_crs=GDA2020_TARGET_CRS,
+        source_crs=source_crs or GDA2020_TARGET_CRS,
         approval_status=SourceApprovalStatus.APPROVED,
         source_version_id="slip:wa-cadastre:vincent:2026",
     )
@@ -202,7 +259,7 @@ def import_slip_cadastre_vincent(
         lot_plan = f"Lot {lot_number} {plan_number}".strip() if plan_number else f"Lot {lot_number}"
         area_m2 = float(props.get("AREA_METRES2") or props.get("area_m2") or 0.0)
 
-        geom_ewkt = _geom_to_ewkt(geom)
+        geom_ewkt = _geom_to_ewkt(geom, source_crs)
 
         parcel = Parcel(
             parcel_id=f"slip_vincent_{lot_number}_{count}",
@@ -211,7 +268,6 @@ def import_slip_cadastre_vincent(
             area_m2=area_m2,
             dataset_id=dataset.dataset_id,
         )
-        # Attach geometry for PostGIS store (duck-typed extension)
         object.__setattr__(parcel, "_geom_ewkt", geom_ewkt or "SRID=7844;MULTIPOLYGON EMPTY")
         store.add_parcel(parcel)
         count += 1

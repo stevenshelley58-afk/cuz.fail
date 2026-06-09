@@ -1,4 +1,4 @@
-"""DPLH WMS / WFS planning zones importer for City of Vincent.
+﻿"""DPLH WMS / WFS planning zones importer for City of Vincent.
 
 Fetches local planning scheme zones from the DPLH WA Planning Viewer.
 
@@ -12,26 +12,20 @@ Endpoints tried (in order):
 1. DPLH geoserver WFS:
    https://www.planning.wa.gov.au/dapi/geoserver/wfs
    typeName: ``planning:LOCAL_PLANNING_SCHEME_ZONES``
-   CQL_FILTER: ``LGA_NAME='VINCENT'``
+   CQL_FILTER: ``LGA_NAME='"'"'VINCENT'"'"'``
 
 2. SLIP Planning Cadastre WMS/WFS:
    https://services.slip.wa.gov.au/public/services/
        SLIP_Public_Services/Planning_Cadastre/MapServer/WFSServer
 
 If neither endpoint is reachable, the importer logs a warning and returns 0
-(degraded operation — does NOT raise).
+(degraded operation -- does NOT raise).
 
 IMPORTANT: ``store.import_dataset`` will RAISE ``ValueError`` for UNLICENSED
-datasets (safety invariant 3).  This importer therefore calls
-``import_dataset(require_authoritative=False)`` with ``LicenceStatus.LICENSED``
-set to ``RESTRICTED`` (display-use) and stores the licence status in the
-dataset metadata so downstream queries can enforce the advisory-only gate.
-
-WAIT — UNLICENSED cannot be imported (invariant 3 blocks it).  The correct
-approach is to store these as ``LicenceStatus.RESTRICTED`` (advisory/display)
-and set ``approval_status=PENDING_REVIEW``.  The data is then importable but
-will never satisfy ``is_authoritative()``, so it will never drive resolved
-facts.  A comment records the situation clearly.
+datasets (safety invariant 3).  This importer therefore uses
+``LicenceStatus.RESTRICTED`` (advisory/display) and
+``approval_status=PENDING_REVIEW``.  The data is importable but will never
+satisfy ``is_authoritative()``.
 
 Usage::
 
@@ -63,7 +57,6 @@ if TYPE_CHECKING:
 
 logger = logging.getLogger(__name__)
 
-# DPLH WMS/WFS endpoints (as documented / discoverable):
 _DPLH_GEOSERVER_WFS = "https://www.planning.wa.gov.au/dapi/geoserver/wfs"
 _SLIP_PLANNING_WFS = (
     "https://services.slip.wa.gov.au/public/services/"
@@ -73,12 +66,8 @@ _DPLH_TYPENAME = "planning:LOCAL_PLANNING_SCHEME_ZONES"
 _SLIP_PLANNING_TYPENAME = "Planning_Cadastre:LOCAL_PLANNING_SCHEME_ZONE"
 _LGA_FILTER = "LGA_NAME='VINCENT'"
 
-# Licence note: DPLH WMS data is advisory/display-only.
-# ``RESTRICTED`` is used (not UNLICENSED) so the record can be ingested but
-# will never satisfy is_authoritative() (which requires LICENSED + APPROVED).
-# approval_status stays PENDING_REVIEW until a licensed data agreement exists.
 _LICENCE_NOTE = (
-    "DPLH WA Planning Viewer display data — advisory only. "
+    "DPLH WA Planning Viewer display data -- advisory only. "
     "Not for authoritative compliance decisions. "
     "Pending licensed data agreement with DPLH."
 )
@@ -103,7 +92,7 @@ def _fetch_geojson(url: str) -> dict[str, Any] | None:
     req = Request(url)
     req.add_header("Accept", "application/json")
     try:
-        with urlopen(req, timeout=30) as resp:  # noqa: S310 – controlled URL
+        with urlopen(req, timeout=30) as resp:  # noqa: S310 - controlled URL
             return json.loads(resp.read())
     except URLError as exc:
         logger.warning("dplh_wms_importer: HTTP error fetching %s: %s", url, exc)
@@ -113,25 +102,75 @@ def _fetch_geojson(url: str) -> dict[str, Any] | None:
         return None
 
 
-def _geom_to_ewkt(geom: dict[str, Any]) -> str | None:
-    """Convert GeoJSON geometry to EWKT (SRID=7844 GDA2020).
+def _detect_source_crs(geojson: dict[str, Any]) -> str | None:
+    """Detect CRS from WFS GeoJSON FeatureCollection ``crs`` member.
 
-    TODO: If DPLH WFS returns GDA94 (EPSG:4283) coordinates, reprojection to
-    EPSG:7844 is required before storing.  Inspect the WFS response CRS member
-    and apply a coordinate transformation (e.g. using pyproj/shapely) if
-    necessary.  For now coordinates are assumed to be GDA2020-compatible.
+    Returns ``"EPSG:4283"`` if GDA94, ``"EPSG:7844"`` if GDA2020, or
+    ``None`` if the member is absent (treat as GDA2020-compatible).
+    """
+    crs_member = geojson.get("crs")
+    if not crs_member or not isinstance(crs_member, dict):
+        return None
+    props = crs_member.get("properties") or {}
+    name = str(props.get("name") or "")
+    if "4283" in name:
+        return "EPSG:4283"
+    if "7844" in name:
+        return "EPSG:7844"
+    if name.upper().startswith("EPSG:"):
+        return name.upper()
+    return None
+
+
+def _reproject_ring(ring: list, transformer: Any) -> list:
+    return [list(transformer.transform(x, y)) for x, y in ring]
+
+
+def _maybe_reproject_coords(coordinates: list, source_crs: str | None) -> list:
+    """Reproject coordinates from GDA94 (EPSG:4283) to GDA2020 (EPSG:7844).
+
+    No-op if ``source_crs`` is not GDA94.  Uses pyproj (available via the
+    shapely dependency).
+    """
+    if not source_crs or "4283" not in source_crs:
+        return coordinates
+    try:
+        from pyproj import Transformer
+
+        transformer = Transformer.from_crs("EPSG:4283", "EPSG:7844", always_xy=True)
+
+        def _reproject_depth(coords: list, depth: int) -> list:
+            if depth == 0:
+                return _reproject_ring(coords, transformer)
+            return [_reproject_depth(item, depth - 1) for item in coords]
+
+        return _reproject_depth(coordinates, depth=1)
+    except Exception as exc:  # pragma: no cover
+        logger.warning(
+            "dplh_wms_importer: pyproj reprojection failed (%s); storing as-is", exc
+        )
+        return coordinates
+
+
+def _geom_to_ewkt(geom: dict[str, Any], source_crs: str | None = None) -> str | None:
+    """Convert GeoJSON geometry to EWKT SRID=7844.
+
+    Conditionally reprojects from GDA94 (EPSG:4283) to GDA2020 (EPSG:7844)
+    when ``source_crs`` indicates the source is GDA94.
     """
     geom_type = geom.get("type", "")
     coordinates = geom.get("coordinates")
     if not coordinates:
         return None
     if geom_type == "Polygon":
-        rings = _rings_to_wkt(coordinates)
+        coords = _maybe_reproject_coords(coordinates, source_crs)
+        rings = _rings_to_wkt(coords)
         return f"SRID=7844;MULTIPOLYGON(({rings}))"
     elif geom_type == "MultiPolygon":
         polygons = []
         for poly in coordinates:
-            polygons.append(f"({_rings_to_wkt(poly)})")
+            reprojected = _maybe_reproject_coords(poly, source_crs)
+            polygons.append(f"({_rings_to_wkt(reprojected)})")
         return f"SRID=7844;MULTIPOLYGON({','.join(polygons)})"
     return None
 
@@ -150,16 +189,14 @@ def import_dplh_planning_vincent(
     """Import DPLH planning zones for City of Vincent.
 
     Returns count of features imported.  Returns 0 (with warning) if the
-    DPLH endpoint is unreachable — does NOT raise.
+    DPLH endpoint is unreachable -- does NOT raise.
 
-    NOTE: Imported features are ``LicenceStatus.RESTRICTED`` /
-    ``approval_status=PENDING_REVIEW``.  They will NEVER satisfy
-    ``is_authoritative()`` and will NEVER drive resolved ``PropertyFact``
-    records in the compliance pipeline without a licensed data agreement.
+    Imported features are ``LicenceStatus.RESTRICTED`` /
+    ``approval_status=PENDING_REVIEW`` and will NEVER satisfy
+    ``is_authoritative()``.
     """
     geojson: dict[str, Any] | None = None
 
-    # Try DPLH geoserver first
     url = _build_wfs_url(_DPLH_GEOSERVER_WFS, _DPLH_TYPENAME)
     geojson = _fetch_geojson(url)
 
@@ -171,8 +208,7 @@ def import_dplh_planning_vincent(
     if geojson is None:
         logger.warning(
             "dplh_wms_importer: DPLH/SLIP planning WFS is not accessible. "
-            "Returning 0 (degraded operation). "
-            "Endpoints tried: %s, %s",
+            "Returning 0 (degraded operation). Endpoints tried: %s, %s",
             _DPLH_GEOSERVER_WFS,
             _SLIP_PLANNING_WFS,
         )
@@ -183,18 +219,23 @@ def import_dplh_planning_vincent(
         logger.warning("dplh_wms_importer: WFS returned 0 features for LGA_NAME='VINCENT'")
         return 0
 
-    # Use RESTRICTED (not UNLICENSED) so import is accepted by the licence gate,
-    # but approval_status=PENDING_REVIEW means it will never be authoritative.
+    source_crs = _detect_source_crs(geojson)
+    if source_crs and "4283" in source_crs:
+        logger.info(
+            "dplh_wms_importer: source CRS is GDA94 (%s); reprojecting to EPSG:7844",
+            source_crs,
+        )
+
     dataset = SpatialDatasetMetadata(
         dataset_id=_DATASET_ID,
-        name="DPLH Local Planning Scheme Zones — City of Vincent (display only)",
+        name="DPLH Local Planning Scheme Zones -- City of Vincent (display only)",
         provider=_PROVIDER,
         version="2026",
         licence=_LICENCE_NOTE,
-        licence_status=LicenceStatus.RESTRICTED,  # advisory/display-only
-        source_crs=GDA2020_TARGET_CRS,
-        approval_status=SourceApprovalStatus.PENDING_REVIEW,  # NOT approved
-        source_version_id=None,  # no versioned licensed dataset yet
+        licence_status=LicenceStatus.RESTRICTED,
+        source_crs=source_crs or GDA2020_TARGET_CRS,
+        approval_status=SourceApprovalStatus.PENDING_REVIEW,
+        source_version_id=None,
     )
     result = store.import_dataset(dataset, require_authoritative=False)
     if not result.accepted:
@@ -217,11 +258,11 @@ def import_dplh_planning_vincent(
         heritage_listing = props.get("HERITAGE_LISTING") or props.get("heritage_listing") or ""
         label = props.get("ZONE_LABEL") or props.get("zone_label") or zone_code
 
-        geom_ewkt = _geom_to_ewkt(geom)
+        geom_ewkt = _geom_to_ewkt(geom, source_crs)
 
         feature_obj = PlanningFeature(
             feature_id=f"dplh_vincent_zone_{count}",
-            parcel_id="",  # spatial join via ST_Intersects — no direct parcel FK
+            parcel_id="",
             fact_type="zone",
             value={
                 "zone_code": zone_code,
@@ -229,7 +270,7 @@ def import_dplh_planning_vincent(
                 "overlay_type": overlay_type,
                 "heritage_listing": heritage_listing,
                 "label": label,
-                "advisory_only": True,  # enforce advisory-only flag in the value
+                "advisory_only": True,
             },
             dataset_id=dataset.dataset_id,
             label=label,
