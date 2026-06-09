@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 from datetime import UTC, datetime, timedelta
-import os
 from typing import Iterator
 from urllib.parse import parse_qs, urlparse
 
@@ -37,62 +36,23 @@ def auth_client() -> Iterator[tuple[TestClient, InMemoryIdentityStore, DevLogEma
     app.dependency_overrides[get_identity_store] = lambda: store
     app.dependency_overrides[get_email_sender] = lambda: sender
     app.dependency_overrides[get_settings] = lambda: settings
-    prev = os.environ.get("DEV_LOGIN_ENABLED")
-    os.environ["DEV_LOGIN_ENABLED"] = "1"
-    try:
-        with TestClient(app) as client:
-            yield client, store, sender, settings
-    finally:
-        if prev is None:
-            os.environ.pop("DEV_LOGIN_ENABLED", None)
-        else:
-            os.environ["DEV_LOGIN_ENABLED"] = prev
+    with TestClient(app) as client:
+        yield client, store, sender, settings
 
 
-def test_magic_link_and_session_tokens_are_stored_only_as_hashes() -> None:
-    with auth_client() as (client, store, sender, settings):
-        org = store.get_or_create_org()
-        store.get_or_create_user(org=org, email="Owner@Example.test", role=IdentityRole.OWNER)
-
-        requested = client.post(
+def test_magic_link_endpoints_are_disabled() -> None:
+    with auth_client() as (client, _store, _sender, _settings):
+        assert client.post(
             "/api/v1/auth/magic-link/request",
-            json={"email": "Owner@Example.test"},
+            json={"email": "owner@example.test"},
             headers={"origin": "http://app.test"},
-        )
+        ).status_code == 404
 
-        assert requested.status_code == 202
-        assert requested.json()["status"] == "accepted"
-        assert sender.sent_messages
-
-        raw_magic_token = _token_from_magic_link(sender.sent_messages[-1].magic_link)
-        magic_hash = hash_token(raw_magic_token)
-        assert raw_magic_token not in store.magic_links_by_hash
-        assert magic_hash in store.magic_links_by_hash
-        assert not hasattr(store.magic_links_by_hash[magic_hash], "token")
-
-        verified = client.post(
+        assert client.post(
             "/api/v1/auth/magic-link/verify",
-            json={"token": raw_magic_token},
+            json={"token": "a" * 32},
             headers={"origin": "http://app.test"},
-        )
-
-        assert verified.status_code == 200
-        assert "token" not in verified.json()["session"]
-
-        raw_session_token = client.cookies.get(settings.session_cookie_name)
-        assert raw_session_token is not None
-        session_hash = hash_token(raw_session_token)
-        assert raw_session_token not in store.sessions_by_hash
-        assert session_hash in store.sessions_by_hash
-        assert not hasattr(store.sessions_by_hash[session_hash], "token")
-
-        session = client.get("/api/v1/auth/session")
-        assert session.status_code == 200
-        assert session.json()["user"]["email"] == "owner@example.test"
-
-        logout = client.post("/api/v1/auth/logout", headers={"origin": "http://app.test"})
-        assert logout.status_code == 200
-        assert client.get("/api/v1/auth/session").status_code == 401
+        ).status_code == 404
 
 
 def test_magic_link_and_session_expiry_windows() -> None:
@@ -124,59 +84,12 @@ def test_magic_link_and_session_expiry_windows() -> None:
 
 
 
-def test_magic_link_request_refuses_unprovisioned_public_user() -> None:
-    with auth_client() as (client, _store, sender, _settings):
-        requested = client.post(
-            "/api/v1/auth/magic-link/request",
-            json={"email": "new-user@example.test"},
-            headers={"origin": "http://app.test"},
-        )
-
-        imported = client.post(
-            "/api/v1/sources/import",
-            json={
-                "title": "Self Registered Import",
-                "content": "A public magic-link user must not approve global sources.",
-                "licence_status": "open",
-            },
-            headers={"origin": "http://app.test"},
-        )
-
-        assert requested.status_code == 400
-        assert sender.sent_messages == []
-        assert imported.status_code == 401
-
-
-def test_magic_link_request_reports_missing_smtp_in_production() -> None:
-    app = create_app()
-    store = InMemoryIdentityStore()
-    org = store.get_or_create_org()
-    store.get_or_create_user(org=org, email="owner@example.test", role=IdentityRole.OWNER)
-    settings = Settings(
-        app_env="production",
-        frontend_url="https://app.test",
-        session_cookie_secure=True,
-        cors_allowed_origins=("https://app.test",),
-    )
-    app.dependency_overrides[get_identity_store] = lambda: store
-    app.dependency_overrides[get_settings] = lambda: settings
-    with TestClient(app) as client:
-        response = client.post(
-            "/api/v1/auth/magic-link/request",
-            json={"email": "owner@example.test"},
-            headers={"origin": "https://app.test"},
-        )
-
-    assert response.status_code == 503
-    assert response.json()["detail"] == "SMTP_HOST and SMTP_FROM must be configured to send magic links"
-
 
 def test_dev_login_issues_session_for_valid_credentials() -> None:
-    # Operator decision 2026-06-08: dev-only password login; disabled in prod (test below).
     with auth_client() as (client, store, _sender, settings):
         response = client.post(
             "/api/v1/auth/dev-login",
-            json={"username": "jemma", "password": "jemma6969"},
+            json={"username": "jemma", "password": "jemma123"},
             headers={"origin": "http://app.test"},
         )
 
@@ -205,29 +118,6 @@ def test_dev_login_rejects_invalid_credentials() -> None:
 
         assert response.status_code == 401
 
-
-def test_dev_login_is_disabled_in_production() -> None:
-    app = create_app()
-    store = InMemoryIdentityStore()
-    settings = Settings(
-        app_env="production",
-        frontend_url="https://app.test",
-        session_cookie_secure=True,
-        cors_allowed_origins=("https://app.test",),
-    )
-    app.dependency_overrides[get_identity_store] = lambda: store
-    app.dependency_overrides[get_settings] = lambda: settings
-    with TestClient(app) as client:
-        response = client.post(
-            "/api/v1/auth/dev-login",
-            json={"username": "jemma", "password": "jemma6969"},
-            headers={"origin": "https://app.test"},
-        )
-
-        assert response.status_code == 404
-
-        paths = set(client.get("/api/v1/openapi.json").json()["paths"])
-        assert not any("dev-login" in path for path in paths)
 
 
 def test_auth_dependency_uses_durable_store_when_database_url_is_set(

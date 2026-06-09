@@ -142,7 +142,7 @@ def test_v3_openapi_contains_required_surface_without_legacy_aliases() -> None:
     paths = set(client.get("/api/v1/openapi.json").json()["paths"])
 
     required_paths = {
-        "/api/v1/auth/magic-link/request",
+        "/api/v1/auth/session",
         "/api/v1/projects/{project_id}/resolve-address",
         "/api/v1/documents/projects/{project_id}/upload",
         "/api/v1/sources/import",
