@@ -1,7 +1,7 @@
 """Add approval_status to spatial_datasets (Stage 2 delta).
 
-Revision ID: 0003_spatial_approval_status
-Revises: 0002_v3_complete_target_schema
+Revision ID: 0004_spatial_approval_status
+Revises: 0003_drop_human_review
 
 The in-memory SpatialDatasetMetadata.is_authoritative() checks approval_status
 independently from licence_status. The PostGIS-backed store needs the same field
@@ -17,8 +17,8 @@ import sqlalchemy as sa
 from alembic import op
 
 
-revision: str = "0003_spatial_approval_status"
-down_revision: str | None = "0002_v3_complete_target_schema"
+revision: str = "0004_spatial_approval_status"
+down_revision: str | None = "0003_drop_human_review"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 

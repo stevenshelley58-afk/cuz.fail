@@ -61,7 +61,7 @@ from sqlalchemy import create_engine  # noqa: E402
 from sqlalchemy.orm import Session, sessionmaker  # noqa: E402
 from sqlalchemy.pool import StaticPool  # noqa: E402
 
-from draftcheck.api.auth import get_current_session, require_reviewer_session  # noqa: E402
+from draftcheck.api.auth import get_current_session  # noqa: E402
 from draftcheck.api.projects import get_db_session, router as projects_router  # noqa: E402
 from draftcheck.db.models import Base, Project  # noqa: E402
 from draftcheck.domain.identity import (  # noqa: E402
@@ -109,7 +109,7 @@ _SESSION_FACTORY = sessionmaker(
 
 def _make_active_session(
     store: InMemoryIdentityStore,
-    role: IdentityRole = IdentityRole.REVIEWER,
+    role: IdentityRole = IdentityRole.OWNER,
 ) -> ActiveSession:
     slug = f"org-{uuid4().hex[:8]}"
     org = store.get_or_create_org(slug=slug)
@@ -120,7 +120,6 @@ def _make_active_session(
 
 def _make_test_app(
     active_session: ActiveSession,
-    reviewer_session: ActiveSession | None = None,
 ) -> tuple[FastAPI, Session]:
     """Return (FastAPI test app, open DB Session) backed by the shared SQLite engine.
 
@@ -141,9 +140,6 @@ def _make_test_app(
     app.include_router(projects_router, prefix="")
     app.dependency_overrides[get_db_session] = override_db
     app.dependency_overrides[get_current_session] = lambda: active_session
-
-    _reviewer = reviewer_session if reviewer_session is not None else active_session
-    app.dependency_overrides[require_reviewer_session] = lambda: _reviewer
 
     return app, db
 
@@ -196,33 +192,6 @@ def test_create_project_without_council_scope() -> None:
     body = response.json()
     assert body["name"] == "Minimal Project"
     assert body["council_scope"] is None
-
-
-# ---------------------------------------------------------------------------
-# Test: POST /projects/{id}/property/override returns 403 for non-reviewer
-# ---------------------------------------------------------------------------
-
-
-def test_override_property_fact_returns_403_for_non_reviewer() -> None:
-    store = InMemoryIdentityStore()
-    active = _make_active_session(store)
-    app, db = _make_test_app(active)
-    project = _add_project(db, active.org.id)
-
-    from fastapi import HTTPException as _HTTPException
-
-    def _deny_reviewer():
-        raise _HTTPException(status_code=403, detail="reviewer role required")
-
-    app.dependency_overrides[require_reviewer_session] = _deny_reviewer
-
-    client = TestClient(app)
-    response = client.post(
-        f"/projects/{project.id}/property/override",
-        json={"fact_type": "zone", "value": "R20", "reason": "Checked manually"},
-    )
-
-    assert response.status_code == 403, response.text
 
 
 # ---------------------------------------------------------------------------

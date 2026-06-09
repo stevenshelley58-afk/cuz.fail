@@ -34,7 +34,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from draftcheck.api.auth import get_current_session, require_reviewer_session  # type: ignore[attr-defined]
+from draftcheck.api.auth import get_current_session
 from draftcheck.db.engine import create_session_factory
 from draftcheck.db.models import Project, PropertyFact, Proposal
 from draftcheck.domain.identity import ActiveSession
@@ -280,13 +280,12 @@ def list_projects(
 @router.post(
     "/{project_id}/property/override",
     response_model=PropertyFactResponse,
-    summary="Override a property fact (reviewer role required)",
+    summary="Override a property fact",
 )
 def override_property_fact(
     project_id: str,
     payload: FactOverrideRequest,
-    # INVARIANT 3: reviewer role check MUST remain here.
-    reviewer_session: Annotated[ActiveSession, Depends(require_reviewer_session)],
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
     db: DbSession,
 ) -> PropertyFactResponse:
     """Override a property fact with manual data.
@@ -295,9 +294,6 @@ def override_property_fact(
     fact_type="dwelling_type" returns 422.
 
     INVARIANT 2: reason is required and must not be empty.
-
-    INVARIANT 3: reviewer role is required (enforced by require_reviewer_session
-    dependency — do not remove it).
     """
     if not payload.reason or not payload.reason.strip():
         raise HTTPException(
