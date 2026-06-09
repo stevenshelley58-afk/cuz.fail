@@ -101,7 +101,7 @@ class Settings:
             llm_provider=os.getenv("LLM_PROVIDER", "mock"),
             llm_model=os.getenv("LLM_MODEL", ""),
             llm_timeout_seconds=_int_from_env("LLM_TIMEOUT_SECONDS", 30),
-            llm_max_output_tokens=_int_from_env("LLM_MAX_OUTPUT_TOKENS", 700),
+            llm_max_output_tokens=_int_from_env("LLM_MAX_OUTPUT_TOKENS", 1200),
             openai_api_key=os.getenv("OPENAI_API_KEY", ""),
             openai_base_url=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1"),
             openrouter_api_key=os.getenv("OPENROUTER_API_KEY", ""),
