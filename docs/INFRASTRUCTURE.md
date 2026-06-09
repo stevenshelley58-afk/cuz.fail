@@ -6,133 +6,93 @@ See `docs/PRODUCTION_DEPLOYMENT.md` for the current `lotfile.app` deploy procedu
 
 ## Local stack
 
-Start the foundation services from the repository root:
+Start the local services from the repository root:
 
 ```powershell
 docker compose up -d --build
 ```
 
-The stack includes:
+The local stack mirrors the V3 production shape (`infra/v3/compose.yml`):
 
-- `db`: custom `postgis/postgis:16-3.5` image with pgvector `0.8.0` built and installed.
-- `redis`: Redis with append-only persistence for RQ-compatible queue state.
-- `minio`: object storage with private `raw-sources`, `parsed-sources`, `uploads`, and `exports` buckets.
-- `api` and `worker`: backend containers using the existing Python image.
-- `caddy`: reverse proxy for API routes and a static frontend artifact path.
+- `db`: custom `postgis/postgis:16-3.5` image (`infra/v3/db/Dockerfile`) with pgvector built in.
+- `api`: FastAPI app (`infra/v3/app.Dockerfile`); runs `alembic upgrade head`, applies the
+  Procrastinate schema, then serves `draftcheck.api.main:app` on port 8000.
+- `worker`: Procrastinate worker consuming all queues (the production split between `worker`
+  and `hermes` queue groups is collapsed into one local worker).
 
-Runtime storage writes are bucket-specific: project uploads use `uploads`, generated export files use
-`exports`, and source artifact helpers are reserved for `raw-sources` and `parsed-sources`.
+There is no redis, minio, or local caddy — the V3 stack uses PostgreSQL for queues
+(Procrastinate) and a local content-addressed storage tree (`OBJECT_STORAGE_ROOT`).
 
-Validate the local stack:
+`GET /api/v1/ready` is the dependency gate: database connectivity/schema, Alembic migration
+head, required PostgreSQL extensions (`postgis`, `vector`), and content-storage read/write.
+Compose health checks use it.
+
+Alternatively, run the API on the host against the compose database:
 
 ```powershell
-.\scripts\infra-health.ps1
+docker compose up -d db
+make migrate
+make dev
 ```
-
-`/health` is a lightweight API liveness endpoint. `/ready` is the dependency gate and checks
-database connectivity/schema, Alembic migration head, required PostgreSQL extensions (`postgis` and
-`vector`) when the runtime database is PostgreSQL, object-storage read/write, every configured S3
-bucket when `S3_ENDPOINT_URL` is set, and Redis/RQ when `RQ_ENABLED=true`. Compose health checks use
-`/ready`, and the worker health check runs
-`python -m draftcheck_worker.main --check-ready`.
 
 ## Database extensions
 
-The DB image is intentionally custom because `postgis/postgis` should not be assumed to include pgvector. On first database initialization, `infra/docker/db/init-extensions.sql` runs:
+The DB image is custom because `postgis/postgis` does not include pgvector. On first database
+initialization, `infra/v3/db/init-extensions.sql` runs:
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS postgis;
 CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
-For an existing Postgres volume created before this image, run the extension creation manually or recreate the local volume after confirming no local data is needed.
+For an existing Postgres volume created before this image, run the extension creation manually or
+recreate the local volume after confirming no local data is needed.
 
 ## Backups and restores
 
-Create a local timestamped backup:
-
-```powershell
-.\scripts\backup-infra.ps1
-```
-
-Restore from a backup directory:
-
-```powershell
-.\scripts\restore-infra.ps1 -BackupDir .\.backups\YYYYMMDD-HHMMSS
-```
-
-Restore is destructive for the target local DB and MinIO buckets, so the script requires typing `RESTORE` unless `-Force` is supplied. These helpers are practical local/ops scaffolding only; production still needs encrypted offsite storage, scheduled execution, restore timing, and operational signoff before any submission-ready claim.
-
-After a successful run, the scripts execute `scripts/record_infra_event.py` inside the API container:
-
-- Backup records `infra.backup.completed` with the backup directory, DB dump, MinIO mirror, manifest hash, and duration.
-- Restore records `infra.restore.completed` with the restored backup directory, checksum-validation flag, manifest hash, and duration.
-
-The ops dashboard shows the latest backup/restore events, but release readiness requires production-grade evidence:
-
-- Backup: `environment=production`, `offsite=true`, `encrypted=true`, `schedule=daily` or `scheduled=true`, database artifact, object-storage artifact, `manifest_sha256`, and `duration_seconds`.
-- Restore: `environment=production`, `clean_machine_restore=true`, `checksum_validated=true`, `manifest_sha256`, and `duration_seconds`.
-
-The local helper scripts default to `environment=local`, `offsite=false`, `encrypted=false`, and manual scheduling. Those events prove the scripts completed locally, but they intentionally do not clear the production backup/restore verification issues. A production backup run may pass `-Environment production -Offsite -Encrypted -ScheduledDaily`; a clean-machine restore test may pass `-Environment production -CleanMachineRestore`.
+Production backups are owned by `infra/v3/backup/` (systemd timer + `pg_dump` + restic, with a
+documented restore drill). See `infra/v3/backup/README.md` and `docs/ops/restore-drill-template.md`.
+Local volumes are disposable; recreate them rather than building local backup tooling.
 
 ## VPS shape
 
 The live VPS is `srv1625369` (`76.13.209.160`) and is reachable from the operator machine as
 `ssh draftcheck`.
 
-The active production checkout is `/srv/draftcheck/app`. Caddy terminates HTTP/TLS and routes:
-
-- `api.cuz.fail` to the backend API mounted at `/api/v1`.
-- `lotfile.app` to `/srv/draftcheck/app/web/dist`.
+The active production checkout is `/srv/draftcheck/app`. Caddy terminates HTTP/TLS, proxies
+`/api/v1` to the backend, and serves `lotfile.app` from `/srv/draftcheck/app/web/dist`
+(`infra/v3/Caddyfile` is the source of truth; the global reverse proxy is tracked at
+`infra/blockwise-caddy/Caddyfile`).
 
 For UI-only releases, rebuild `web/dist` on the VPS after resetting the checkout to `origin/main`.
-No Vercel deploy and no container restart are required for static frontend changes.
-
-Do not put paid Australian Standards full text into MinIO or backups. Store only allowed public metadata and access notes for those sources.
+No container restart is required for static frontend changes.
 
 ## Production bootstrap (VPS-only)
 
 Vercel is retired. The only production target is the VPS at `76.13.209.160` serving `lotfile.app`.
+Deploys run `deploy/vps_deploy.sh`, which delegates to `infra/v3/deploy.sh` (see
+`.github/workflows/deploy.yml` and `docs/PRODUCTION_DEPLOYMENT.md`).
 
-To deploy or redeploy the UI:
+To deploy or redeploy the UI manually:
 
 ```bash
-ssh draftcheck ‘cd /srv/draftcheck/app && git fetch origin && git reset --hard origin/main && cd web && npm ci && npm run build’
+ssh draftcheck 'cd /srv/draftcheck/app && git fetch origin && git reset --hard origin/main && cd web && npm ci && npm run build'
 ```
 
 If the Caddyfile changed, reload Caddy:
 
 ```bash
-ssh draftcheck ‘cd /srv/draftcheck/app/infra/v3 && sudo docker compose exec caddy caddy reload --config /etc/caddy/Caddyfile’
+ssh draftcheck 'cd /srv/draftcheck/app/infra/v3 && sudo docker compose exec internal_caddy caddy reload --config /etc/caddy/Caddyfile'
 ```
 
-Source library and eval tooling:
+## Embeddings
 
-For local or durable databases where chat returns unsupported despite many stored chunks, run
-`python scripts/bootstrap_source_library.py` and then `python scripts/audit_source_library.py`. The
-audit distinguishes stored chunks from source versions that pass the runtime citable retrieval gate;
-chunks without accepted source review, approved licence/storage/AI-processing, no blocking review
-items, approved rule rows, and no-orphan audit clearance are intentionally not used for regulatory
-answers.
-
-Semantic retrieval remains opt-in. The default `EMBEDDING_PROVIDER=mock` keeps tests and offline
+Semantic retrieval is opt-in. The default `EMBEDDING_PROVIDER=mock` keeps tests and offline
 development deterministic. To use OpenAI-compatible embeddings, set `EMBEDDING_PROVIDER=openai`,
 `OPENAI_API_KEY`, and optionally `EMBEDDING_MODEL`, `EMBEDDING_DIMENSIONS`, `OPENAI_BASE_URL`, and
-`EMBEDDING_TIMEOUT_SECONDS`, then run `python scripts/rebuild_source_embeddings.py` against the
-durable database. Retrieval filters vector candidates by provider and model, so old mock embeddings
-will not be mixed into OpenAI-backed searches.
+`EMBEDDING_TIMEOUT_SECONDS`, then re-embed sources against the durable database. Retrieval filters
+vector candidates by provider and model, so old mock embeddings are never mixed into
+OpenAI-backed searches.
 
-To prepare accepted sources for rule review, run `python scripts/extract_source_rules.py` with a
-source filter. The command dry-runs by default and requires `--commit` before it writes deterministic
-rule candidates or clause dispositions. It never approves rule rows; reviewers still need to promote
-and approve quote-anchored candidates before a source version can support citable retrieval.
-Use `python scripts/rule_review_worklist.py --source-version-id <id>` to render the source-specific
-gate checks, coverage/no-orphan summaries, rule rows, rule candidate IDs, and open review queue items
-that must be cleared before that source can support chat or other regulatory answers.
-Use `python scripts/promote_rule_candidate.py --candidate-id <candidate-id> --reconcile-source` to
-dry-run promotion into a pending `RuleRow`, then add `--commit` only after the output is correct.
-Promotion never approves a rule row and does not make a source citable; it creates the pending rule
-review artifact that a human reviewer must approve, reject, or revise.
-After reviewers promote/approve/reject rule work, run
-`python scripts/reconcile_source_review_queue.py --source-version-id <id>` to resolve stale queue
-items that are no longer present in the current acceptance-gate audits. Current blockers remain open.
+Do not store paid Australian Standards full text in content storage or backups. Store only allowed
+public metadata and access notes for those sources.
