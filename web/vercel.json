@@ -1,6 +1,4 @@
 {
-  "projectId": "prj_36gKGZHTl36ZVird1MavTyoBLI67",
-  "orgId": "team_C6Cl0FiN9Psza4y57lN7R18J",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }]
