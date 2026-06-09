@@ -18,6 +18,7 @@ from draftcheck.db.engine import create_runtime_engine
 
 from draftcheck.api.address import router as address_router
 from draftcheck.api.auth import router as auth_router
+from draftcheck.api.compliance import router as compliance_router
 from draftcheck.api.documents import router as documents_router
 from draftcheck.api.projects import router as projects_router
 from draftcheck.api.rules import router as rules_router
@@ -133,6 +134,7 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
     api_router.include_router(create_sources_router(library=source_library))
     api_router.include_router(documents_router)
     api_router.include_router(rules_router)
+    api_router.include_router(compliance_router)
 
     @api_router.get("/ops/dashboard", tags=["ops"])
     def ops_dashboard() -> dict[str, Any]:
@@ -229,20 +231,6 @@ def ready() -> dict[str, object]:
     }
 
 
-@router.get("/projects/{project_id}", tags=["projects"])
-def get_project(project_id: str) -> None:
-    _stub("projects.get")
-
-
-@router.patch("/projects/{project_id}", tags=["projects"])
-def update_project(project_id: str, payload: dict[str, Any]) -> None:
-    _stub("projects.update")
-
-
-@router.delete("/projects/{project_id}", tags=["projects"])
-def delete_project(project_id: str) -> None:
-    _stub("projects.delete")
-
 
 @router.get("/rules/clauses", tags=["rules"])
 def list_clauses() -> None:
@@ -283,20 +271,6 @@ def review_rule(rule_id: str, payload: dict[str, Any]) -> None:
 def rule_coverage_audit() -> None:
     _stub("rules.coverage_audit")
 
-
-@router.post("/compliance/projects/{project_id}/run", tags=["compliance"])
-def run_project_compliance(project_id: str, payload: dict[str, Any]) -> None:
-    _stub("compliance.run")
-
-
-@router.get("/compliance/projects/{project_id}/matrix", tags=["compliance"])
-def get_project_compliance_matrix(project_id: str) -> None:
-    _stub("compliance.matrix")
-
-
-@router.post("/compliance/results/{result_id}/override", tags=["compliance"])
-def override_compliance_result(result_id: str, payload: dict[str, Any]) -> None:
-    _stub("compliance.override")
 
 
 @router.post("/rfi/projects/{project_id}/parse", tags=["rfi"])
