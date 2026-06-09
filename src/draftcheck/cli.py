@@ -920,7 +920,6 @@ def _run_re_embed(
 
         from draftcheck.domain.sources.library import (
             _batch_embed,
-            EmbeddingConfig,
             default_embedding_config,
         )
 

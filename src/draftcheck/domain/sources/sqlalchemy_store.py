@@ -40,7 +40,6 @@ from draftcheck.domain.sources.fetching import (
 from draftcheck.domain.sources.library import (
     _chunk_text,
     _embed,
-    _hash_embedding,
     _safe_quote,
     default_embedding_config,
 )

@@ -52,6 +52,7 @@ pythonpath = ["src"]
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+exclude = [".claire", ".claude"]
 
 [tool.mypy]
 python_version = "3.12"
