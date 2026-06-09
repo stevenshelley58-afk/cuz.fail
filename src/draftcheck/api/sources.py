@@ -110,15 +110,15 @@ _GENERAL_SYSTEM_PROMPT = (
     "Answer questions helpfully and clearly using your knowledge of WA planning law, the R-Codes, "
     "development application processes, WAPC policies, and council requirements. "
     "When you give a specific figure (setback, height, site cover, etc.) that comes from general knowledge "
-    "rather than a cited source chunk, clearly label it as 'general knowledge — verify against approved source version'. "
+    "rather than a cited source extract, clearly label it as 'general knowledge — verify against approved source version'. "
     "For property-specific compliance questions, ask for the address and relevant project evidence. "
-    "Do not refuse to help just because a source chunk wasn't retrieved — use your expertise and flag when verification is needed."
+    "Do not refuse to help just because a source extract wasn't retrieved — use your expertise and flag when verification is needed."
 )
 
 _GENERAL_FALLBACK_ANSWER = (
     "I can help with Western Australian residential planning questions — setbacks, site cover, "
     "height limits, R-Codes, development applications, and more. "
-    "I don't have a source chunk match for your question right now, but ask me anything about WA planning "
+    "I don't have a matching source extract for your question right now, but ask me anything about WA planning "
     "and I'll give you the best answer I can from the R-Codes and planning framework, clearly noting "
     "where you should verify against the approved source version."
 )
