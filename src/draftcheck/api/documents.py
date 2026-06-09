@@ -60,7 +60,7 @@ def list_document_parsers() -> dict[str, Any]:
             "required_before_beta": [
                 "real PDF/DOCX/DXF/IFC fixture set",
                 "per-field precision/recall report",
-                "human review promotion workflow",
+                "automated review gate",
                 "no raster measurement without calibration",
             ],
         },

@@ -127,7 +127,7 @@ def test_v3_image_upload_is_review_only_until_calibrated() -> None:
 
     assert response.status_code == 200, response.text
     body = response.json()
-    assert body["document"]["parse_status"] == "needs_human_review"
+    assert body["document"]["parse_status"] == "needs_more_info"
     assert body["fact_count"] == 0
     assert "image_ocr_requires_calibration" in body["document"]["metadata"]["extraction_notes"]
 

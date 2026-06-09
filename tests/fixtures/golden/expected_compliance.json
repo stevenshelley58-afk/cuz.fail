@@ -15,7 +15,7 @@
       "id": "cr_site_cover",
       "check_key": "site_cover",
       "tier": 1,
-      "status": "needs_human_review",
+      "status": "needs_more_info",
       "status_reason": "Rule and measurement evidence exist, but the source version is an artificial fixture paraphrase.",
       "source_version_ids": [
         "sv_artificial_demo_rcodes_extract_2026_v1"
@@ -41,7 +41,7 @@
         ],
         "calculation_trace_id": "trace_fixture_site_cover",
         "not_excluded_by_precedence": true,
-        "human_review_required": true,
+        "needs_verification": true,
         "final_verdict": false
       },
       "missing_information": [],
@@ -53,7 +53,7 @@
       "id": "cr_primary_street_setback",
       "check_key": "primary_street_setback",
       "tier": 1,
-      "status": "needs_human_review",
+      "status": "needs_more_info",
       "status_reason": "The canary has a promoted setback measurement, but contextual discretion is intentionally unresolved.",
       "source_version_ids": [
         "sv_artificial_demo_rcodes_extract_2026_v1"
@@ -77,7 +77,7 @@
         ],
         "calculation_trace_id": "trace_fixture_primary_street_setback",
         "not_excluded_by_precedence": true,
-        "human_review_required": true,
+        "needs_verification": true,
         "final_verdict": false
       },
       "missing_information": [],
@@ -115,7 +115,7 @@
         ],
         "calculation_trace_id": null,
         "not_excluded_by_precedence": true,
-        "human_review_required": true,
+        "needs_verification": true,
         "final_verdict": false
       },
       "missing_information": [
@@ -127,7 +127,7 @@
       "id": "cr_garage_dominance",
       "check_key": "garage_dominance",
       "tier": 1,
-      "status": "needs_human_review",
+      "status": "needs_more_info",
       "status_reason": "Garage width and frontage facts exist, but dominance assessment remains reviewer-gated.",
       "source_version_ids": [
         "sv_artificial_demo_rcodes_extract_2026_v1"
@@ -154,7 +154,7 @@
         ],
         "calculation_trace_id": "trace_fixture_garage_dominance",
         "not_excluded_by_precedence": true,
-        "human_review_required": true,
+        "needs_verification": true,
         "final_verdict": false
       },
       "missing_information": [],
@@ -190,7 +190,7 @@
         ],
         "calculation_trace_id": null,
         "not_excluded_by_precedence": true,
-        "human_review_required": true,
+        "needs_verification": true,
         "final_verdict": false
       },
       "missing_information": [
@@ -214,7 +214,7 @@
         "promoted_measurement_ids": [],
         "calculation_trace_id": null,
         "not_excluded_by_precedence": null,
-        "human_review_required": true,
+        "needs_verification": true,
         "final_verdict": false
       },
       "missing_information": [

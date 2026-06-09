@@ -32,7 +32,7 @@ class SourceApprovalStatus(StrEnum):
 class ResolutionStatus(StrEnum):
     RESOLVED = "resolved"
     MISSING_INFO = "missing_info"
-    NEEDS_HUMAN_REVIEW = "needs_human_review"
+    NEEDS_MORE_INFO = "needs_more_info"
     UNSUPPORTED = "unsupported"
 
 
@@ -372,7 +372,7 @@ class AddressResolutionService:
                 org_id=org_id,
                 project_id=project_id,
                 address=address,
-                status=ResolutionStatus.NEEDS_HUMAN_REVIEW,
+                status=ResolutionStatus.NEEDS_MORE_INFO,
                 confidence=Confidence.MEDIUM,
                 issues=("multiple_address_points_match", "parcel_not_verified"),
             )
@@ -449,12 +449,12 @@ class AddressResolutionService:
         return PropertyProfile(
             org_id=org_id,
             project_id=project_id,
-            resolution_status=ResolutionStatus.NEEDS_HUMAN_REVIEW,
+            resolution_status=ResolutionStatus.NEEDS_MORE_INFO,
             confidence=Confidence.LOW,
             address=manual_override.address or address,
             facts=facts,
             provenance=(provenance,),
-            issues=("manual_override_requires_human_review",),
+            issues=("manual_override_requires_review",),
         )
 
     def _resolved_profile(
@@ -555,7 +555,7 @@ class AddressResolutionService:
             org_id=org_id,
             project_id=project_id,
             resolution_status=(
-                ResolutionStatus.RESOLVED if parcel_verified else ResolutionStatus.NEEDS_HUMAN_REVIEW
+                ResolutionStatus.RESOLVED if parcel_verified else ResolutionStatus.NEEDS_MORE_INFO
             ),
             confidence=Confidence.HIGH if parcel_verified else Confidence.MEDIUM,
             address=point.formatted_address,

@@ -737,7 +737,7 @@ def _trace_supported_answer(
             citations=(),
             source_version_ids=(),
             missing_information=("governed model trace",),
-            human_review_required=True,
+            needs_verification=True,
             trace_id=model_response.trace_id,
         )
     trace_store = getattr(model_adapter, "trace_store", None)
@@ -750,7 +750,7 @@ def _trace_supported_answer(
             citations=(),
             source_version_ids=(),
             missing_information=("governed model trace",),
-            human_review_required=True,
+            needs_verification=True,
             trace_id=model_response.trace_id,
         )
     return replace(answer, trace_id=model_response.trace_id)

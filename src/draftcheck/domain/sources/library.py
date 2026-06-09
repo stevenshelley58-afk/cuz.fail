@@ -467,7 +467,7 @@ class InMemorySourceSearchService:
                 citations=(),
                 source_version_ids=(),
                 missing_information=("approved source version citation",),
-                human_review_required=True,
+                needs_verification=True,
             )
 
         citations = tuple(hit.citation for hit in hits)
@@ -481,6 +481,6 @@ class InMemorySourceSearchService:
             assumptions=(),
             missing_information=(),
             confidence=min(0.95, 0.5 + sum(hit.score for hit in hits) / max(len(hits), 1) / 2),
-            human_review_required=True,
+            needs_verification=True,
             risk_level="unknown",
         )

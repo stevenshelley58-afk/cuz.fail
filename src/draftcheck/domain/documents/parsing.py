@@ -142,10 +142,10 @@ class DocumentParser:
         text, extraction_notes = _extract_text(normalized_media_type, filename, content)
         pages = _pages(document_id, text, parser_name, self.version, extraction_notes)
         facts = _facts(document_id, text, parser_name, normalized_media_type)
-        parse_status = "parsed" if text.strip() or facts else "needs_human_review"
+        parse_status = "parsed" if text.strip() or facts else "needs_more_info"
         metadata = {
             "extraction_notes": extraction_notes,
-            "measurement_policy": "Measurements are pending review until promoted by a human reviewer.",
+            "measurement_policy": "Measurements are advisory pending automated validation.",
             "raster_measurement_policy": "Raster/PDF/image measurements are not compliance-ready without calibration.",
         }
         return normalized_media_type, parser_name, parse_status, pages, facts, metadata

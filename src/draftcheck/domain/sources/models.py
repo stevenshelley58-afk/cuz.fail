@@ -261,7 +261,7 @@ class SourceAnswer:
     assumptions: tuple[str, ...] = ()
     missing_information: tuple[str, ...] = ()
     confidence: float = 0.0
-    human_review_required: bool = True
+    needs_verification: bool = True
     risk_level: Literal["unknown", "low", "medium", "high"] = "unknown"
     trace_id: str | None = None
 

@@ -39,7 +39,7 @@
         "question": "bushfire prone areas BAL report"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "100 metres",
@@ -168,7 +168,7 @@
         "question": "What is the site cover requirement for R30?"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "R30 site cover: 60%"
@@ -195,7 +195,7 @@
         }
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "R30 primary street setback: 4m"
@@ -216,7 +216,7 @@
         "question": "What is the open space requirement for an R30 single house?"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "R30 open space: 45%"
@@ -240,7 +240,7 @@
         "question": "What is the outdoor living area requirement for an R30 single house?"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "R30 outdoor living area: 24m2 minimum area; 4m minimum dimension"
@@ -264,7 +264,7 @@
         "question": "How do I demonstrate solar access?"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "solar access can be demonstrated"
@@ -300,7 +300,7 @@
         "question": "How should I orient apartments for natural ventilation?"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "45 to 90 degrees",
@@ -324,7 +324,7 @@
         "question": "How do I calculate average side setbacks?"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "average side setback"
@@ -347,7 +347,7 @@
         "question": "What information should be provided for R-Codes Volume 2 design review?"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "provided by the applicant for design review"
@@ -370,7 +370,7 @@
         "question": "What materials are needed for a development application under R-Codes Volume 2?"
       },
       "expected": {
-        "status": "needs_human_review",
+        "status": "needs_more_info",
         "min_citation_count": 1,
         "answer_contains": [
           "materials when submitting a development application"
