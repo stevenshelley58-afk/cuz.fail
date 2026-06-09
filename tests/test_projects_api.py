@@ -31,7 +31,6 @@ if not hasattr(SQLiteTypeCompiler, "visit_JSONB"):
 # Now patch the models module to remove the duplicate sha256 index so
 # SQLite doesn't complain about 'index ix_documents_sha256 already exists'.
 # This must happen before create_all is called.
-import importlib  # noqa: E402
 import draftcheck.db.models as _models_mod  # noqa: E402
 
 for _idx in list(_models_mod.Base.metadata.sorted_tables):
@@ -56,7 +55,6 @@ for _idx in _to_drop:
 from datetime import UTC, datetime  # noqa: E402
 from uuid import UUID, uuid4  # noqa: E402
 
-import pytest  # noqa: E402
 from fastapi import FastAPI  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402
 from sqlalchemy import create_engine  # noqa: E402
@@ -65,7 +63,7 @@ from sqlalchemy.pool import StaticPool  # noqa: E402
 
 from draftcheck.api.auth import get_current_session, require_reviewer_session  # noqa: E402
 from draftcheck.api.projects import get_db_session, router as projects_router  # noqa: E402
-from draftcheck.db.models import Base, Project, Proposal, PropertyFact  # noqa: E402
+from draftcheck.db.models import Base, Project  # noqa: E402
 from draftcheck.domain.identity import (  # noqa: E402
     ActiveSession,
     IdentityRole,

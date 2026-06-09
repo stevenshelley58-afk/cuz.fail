@@ -178,7 +178,7 @@ def import_slip_cadastre_vincent(
         licence_status=LicenceStatus.LICENSED,
         source_crs=GDA2020_TARGET_CRS,
         approval_status=SourceApprovalStatus.APPROVED,
-        source_version_id=f"slip:wa-cadastre:vincent:2026",
+        source_version_id="slip:wa-cadastre:vincent:2026",
     )
     result = store.import_dataset(dataset)
     if not result.accepted:

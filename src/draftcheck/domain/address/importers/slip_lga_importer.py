@@ -177,8 +177,7 @@ def _insert_lg_area_postgis(
 ) -> int:
     from sqlalchemy.orm import Session
     from sqlalchemy import text
-    from draftcheck.db.models import LgArea as DbLgArea, SpatialDataset as DbSpatialDataset
-    from sqlalchemy import select
+    from draftcheck.db.models import LgArea as DbLgArea
 
     db_dataset_id = store._resolve_db_dataset_id(dataset.dataset_id)
     if db_dataset_id is None:

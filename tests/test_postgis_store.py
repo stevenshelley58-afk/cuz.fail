@@ -17,13 +17,8 @@ import pytest
 
 from draftcheck.domain.address.spatial import (
     GDA2020_TARGET_CRS,
-    AddressPoint,
-    DatasetImportResult,
     InMemorySpatialDatasetStore,
     LicenceStatus,
-    Parcel,
-    PlanningFeature,
-    PropertyProfile,
     SourceApprovalStatus,
     SpatialDatasetMetadata,
 )

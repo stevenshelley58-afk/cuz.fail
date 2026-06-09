@@ -10,8 +10,8 @@ Safety invariants enforced here:
     licence_status) via ``provenance_json``.
 3.  Dataset import is BLOCKED when ``licence_status`` is ``UNLICENSED`` or
     ``UNKNOWN``.
-4.  ``approval_status`` is stored in ``SpatialDataset.metadata_json`` (the ORM
-    model has no ``approval_status`` column — see schema-gap note below).
+4.  ``approval_status`` is written to the ``SpatialDataset.approval_status``
+    column (added in migration 0003) and also cached in ``metadata_json``.
 5.  No human reviewer/approval gate is added to spatial resolution.
 6.  No direct table creation — Alembic owns the schema.
 7.  All geometry is EPSG:7844 (GDA2020).
@@ -19,18 +19,14 @@ Safety invariants enforced here:
 
 from __future__ import annotations
 
-import dataclasses
-import json
 import logging
 from typing import Any
-from uuid import uuid4
 
 from sqlalchemy import Engine, func, select, text
 from sqlalchemy.orm import Session
 
 from draftcheck.db.models import (
     AddressPoint as DbAddressPoint,
-    LgArea as DbLgArea,
     Parcel as DbParcel,
     PlanningFeature as DbPlanningFeature,
     Property as DbProperty,
@@ -637,7 +633,6 @@ class PostGISSpatialDatasetStore:
     def _resolve_db_dataset_id(self, dataset_id: str):
         """Return the UUID primary key of the most-recent ``SpatialDataset`` row
         for the given logical ``dataset_id``.  Returns ``None`` if not found."""
-        import uuid as _uuid_mod
 
         with Session(self._engine) as session:
             row = session.execute(
