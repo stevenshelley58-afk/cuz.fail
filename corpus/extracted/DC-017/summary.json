@@ -1,0 +1,36 @@
+{
+  "id": "DC-017",
+  "title": "Department of Planning,",
+  "instrument_type": "DC",
+  "issuing_authority": "Western Australian Planning Commission",
+  "version_date": "March 2025",
+  "pages": 5,
+  "key_provisions": [
+    {
+      "heading": "5.1 General requirements 2",
+      "summary": ""
+    },
+    {
+      "heading": "5.2 Effect on amenity 2",
+      "summary": ""
+    },
+    {
+      "heading": "5.3 Safety and efficiency of roads 3",
+      "summary": ""
+    },
+    {
+      "heading": "5.4 Protection of reservation 3",
+      "summary": "Advertising on reserved land"
+    },
+    {
+      "heading": "5.3 Safety and efficiency of roads 5.4 Protection of reservation",
+      "summary": "5.3.1 Advertisements often compete for the 5.4.1 An advertisement does not constitute"
+    }
+  ],
+  "cross_references": [
+    "Development Control Policy 5.4",
+    "Operational Policy 5.4"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:35:51Z"
+}

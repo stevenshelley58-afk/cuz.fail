@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2024-11/map6_melville_lps6_murdoch.pdf",
+  "fetched_at": "2026-06-09T22:35:29Z",
+  "http_status": 200,
+  "content_hash": "a6fef48366c475b6344786ae363504435f2e84301a2aa7e35a11fe48888d01d5",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2024-11/map6_melville_lps6_murdoch.pdf",
+  "used_playwright": false,
+  "bytes": 3684345
+}

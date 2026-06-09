@@ -1,0 +1,52 @@
+{
+  "counts": {
+    "imported": 5,
+    "duplicates": 0,
+    "metadata_only": 0,
+    "approved": 0,
+    "held_pending": 0,
+    "errors": 0
+  },
+  "items": [
+    {
+      "id": "PC-001",
+      "source_id": "4107ac86-7f5b-5997-a6f4-add99b9f51b6",
+      "source_version_id": "e6459610-60d7-4a10-8064-b538b0dd0c4e",
+      "duplicate": false,
+      "metadata_only": false,
+      "chars": 297008
+    },
+    {
+      "id": "PC-002",
+      "source_id": "560e3962-0b3d-5b24-8c8f-32bc4e19c83e",
+      "source_version_id": "4f77222e-80a0-4a4d-9e74-e2f63afa0bc4",
+      "duplicate": false,
+      "metadata_only": false,
+      "chars": 340975
+    },
+    {
+      "id": "SPP-001",
+      "source_id": "e0d7f579-dd3c-5c6b-9157-94821f797313",
+      "source_version_id": "73a27134-7d4a-41cb-b861-c2ea988c953f",
+      "duplicate": false,
+      "metadata_only": false,
+      "chars": 25588
+    },
+    {
+      "id": "SPP-002",
+      "source_id": "bb34f38c-9722-59e2-8327-357223bb7d4c",
+      "source_version_id": "d27f2df9-9f05-4c73-9ca3-1a9da272bf2a",
+      "duplicate": false,
+      "metadata_only": false,
+      "chars": 39398
+    },
+    {
+      "id": "SPP-003",
+      "source_id": "ea8f1e06-6315-52b2-9aa0-ebeb3e48a020",
+      "source_version_id": "855e06bb-0a61-4756-9ad2-26fc53d491ac",
+      "duplicate": false,
+      "metadata_only": false,
+      "chars": 18876
+    }
+  ]
+}

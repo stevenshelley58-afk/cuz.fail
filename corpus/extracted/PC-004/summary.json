@@ -1,0 +1,28 @@
+{
+  "id": "PC-004",
+  "title": "Residential Design Codes – Volume 1",
+  "instrument_type": "planning_code",
+  "issuing_authority": "Western Australian Planning Commission",
+  "version_date": "April 2024",
+  "pages": 16,
+  "key_provisions": [
+    {
+      "heading": "140 William Street",
+      "summary": ""
+    },
+    {
+      "heading": "1 Table D?",
+      "summary": "R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)"
+    }
+  ],
+  "cross_references": [
+    "Development Control Policy 2.2",
+    "R Codes",
+    "R-Codes",
+    "R-Codes Volume 1",
+    "Residential Design Codes",
+    "Residential Design Codes Volume 1"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:41:24Z"
+}

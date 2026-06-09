@@ -1,0 +1,59 @@
+{
+  "id": "MEL-LPP-021",
+  "title": "Residential Development",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Melville",
+  "version_date": "May 2022",
+  "pages": 8,
+  "key_provisions": [
+    {
+      "heading": "1 Street Setback",
+      "summary": "The Deemed-to-Comply provisions of Clause 5.1.2of the R-Codes are replaced with the following:"
+    },
+    {
+      "heading": "2 Setback of Garages and Carports",
+      "summary": "The Deemed-to-Comply provisions in Clause 5.2.1 of the R-Codes are replaced with the following:"
+    },
+    {
+      "heading": "3 Fences and Street Walls",
+      "summary": "The Deemed-to-Comply provisions in Clause 5.2.4 of the R-Codes are replaced with the following:"
+    },
+    {
+      "heading": "4 Garage Width",
+      "summary": "The Deemed-to-Comply provisions in Clause 5.2.2 of the R-Codes are replaced with the following:"
+    },
+    {
+      "heading": "5 Sight lines",
+      "summary": "The Deemed-to-Comply provisions in Clause 5.2.5 of the R-Codes Volume 1 of the R-Codes are"
+    },
+    {
+      "heading": "6 Boundary Walls",
+      "summary": "The Deemed-to-Comply provisions in Clauses 5.1.3 (C3.2) of the R-Codes are replaced with the"
+    },
+    {
+      "heading": "7 Outbuildings",
+      "summary": "The Deemed-to-Comply provisions in Clauses 5.4.3 of the R-Codes are replaced with the"
+    },
+    {
+      "heading": "REVIEWS",
+      "summary": "Ordinary Meeting of Council 19/11/2013 P13/3438"
+    }
+  ],
+  "cross_references": [
+    "LPP1.1",
+    "LPP1.2",
+    "LPP1.5",
+    "LPP1.8",
+    "LPP3.1",
+    "Local Planning Scheme No. 6",
+    "Planning and Development Act 2005",
+    "R-Codes",
+    "R-Codes Volume 1",
+    "Residential Design Codes Volume 1",
+    "State Planning Policy 7.3",
+    "State Planning Policy 7.3 - Residential Design Codes Volume",
+    "State Planning Policy 7.3: Residential Design Codes"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:34:48Z"
+}

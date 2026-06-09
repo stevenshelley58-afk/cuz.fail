@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-53-land-use-planning-the-vicinity-of-jandakot-airport",
+  "fetched_at": "2026-06-09T22:34:58Z",
+  "http_status": 200,
+  "content_hash": "62ab4f6afc8fa605702d3ebd94a55ba2390996b28f548e26bc92222ee8590f9b",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP-5-3_Jandakot_Airport.pdf",
+  "used_playwright": false,
+  "bytes": 1359439
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-63-ningaloo-coast",
+  "fetched_at": "2026-06-09T22:35:01Z",
+  "http_status": 200,
+  "content_hash": "4627c2cfb0c7f1a37b5feef5e46aa040fe4b2a7f2dcd72793ad292cb951fbd43",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP_6-3_ningaloo_coast.pdf",
+  "used_playwright": false,
+  "bytes": 424800
+}

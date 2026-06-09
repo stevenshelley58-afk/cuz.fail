@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/document-collections/peel-region-scheme",
+  "fetched_at": "2026-06-09T22:35:25Z",
+  "http_status": 200,
+  "content_hash": "dd1145ee51769895e972d8adeb6e1b6c59aa0e0a833d835c2c31e2d0a823b70a",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2023-09/envfig3.pdf",
+  "used_playwright": false,
+  "bytes": 31918
+}

@@ -1,0 +1,784 @@
+Operational
+Policy 1.11
+Community schemes
+June 2021
+The Western Australian Planning Disclaimer © State of Western Australian website: www.dplh.wa.gov.au
+C t t p w w r h o a a h i i l s m s d l o t f i l t o m a a a i n n l o r l i e o d s d n s w . w a p i o l W i r i o t n n e h e w s a t e u p h n c n s a k e e t y n t i r , r o s o t o f d h a w o u a e n o r l y i d e t r r , s d e d a c t s g e n u e p e p d s s e s c t s c o t e . t h t d h n o t i e d o a s a n e E n s l w t d o s h e f o rs T P a a n a d n h l o r a e d i v t n s s i l c n o i d u a e i n o l n b t e c t g l o e x u h f p C m e f a o r o b e c e r m t s a n a i s s o m t n e i n s h y d i s a t t d s o h a s i a r a k o b m t e i n e m n t . a e h A p g n o e l n e r i p G e y n o u d o o r r b e v i t l n l p o e i t s r s r a t h n e s h k e s m e i w e s d n e n h p , b n t a u a a y t t s b t , s t i o i l t o h t i h c e s n e e a v e , W t e c s m io r t a e a p n w s s t e l t e h i o e s m m i y r c m n e a h e e a y n A m s d t u b , a e a s e o n t y , i p r n d i a o n i n l g a c i r a g i c o e o n u e o s n r n p d o a t e f s s r c a a t it r h e P W G 1 Pe 4 u o e r 0 b r s t d l h t W i e o s W h r i n l n l e A i S a d A t m 6 e u b 0 p s y S 0 t h t r 0 t a r e h e l n e i e a s t n o n P l H a o n u n s in e g Commission e t f N a e m a x l: t : a i 0 0 o i 8 l 8 n : i 6 a 6 n 5 l 5 f R 5 o 5 1 e @ 1 l 8 a d 9 y 0 p 0 0 S 0 lh 2 e 1 . r w v a ic .g e o : 1 v 3 .a 3 u 6 77
+of any representation, statement, opinion or advice referred to Locked Bag 2506 This document is available in
+herein. Professional advice should be obtained before applying the Perth WA 6001 alternative formats on application to
+information contained in this document to particular circumstances. the Communications Branch.
+Publication date: June 2021
+Operational date: June 2021
+Content last reviewed: June 2021
+
+Operational Policy
+Operational
+Policy 1.11
+Community schemes
+Contents
+1. Policy intent 1 5.2 Extension of the development period 8
+Waiver of other requirements relating
+2. Application of this operational policy 1
+to plans or instruments 9
+3. Community schemes in Western Australia 1
+6. Implementation 9
+3.1 Statement of Grounds and Community
+Development Statement 2 6.1 Community development statement 9
+Procedures 9
+4. Policy objectives 3
+Manner and form of a community
+5. Policy measures 4 development statement 10
+5.1 General requirements 4
+Assessment of a community
+Level of detail 5 development statement 10
+Application of the Residential Timeframes 10
+Design Codes 5
+Public consultation 10
+Subdivision and development 5
+Determination 11
+Staging 5
+Amendment to community
+Infrastructure, utilities and servicing 6 development statement 11
+Infrastructure contributions 6
+6.2 Right of review 12
+Environmental characteristics 7
+Cease to have effect 12
+Public open space 7
+6.3 Subdivision 12
+Movement network 8
+6.4 Development 13
+Historical heritage 8
+Aboriginal heritage 8
+
+Operational Policy 1.11
+1
+Community schemes
+1. Policy intent 2. Application of this 3. Community schemes
+operational policy in Western Australia
+This policy sets out the general principles and basic
+requirements that will be used by the Western
+Australian Planning Commission (WAPC) to: This policy applies to applications for community Community schemes is an opt-in form of
+development statements, including the statement subdivision that can apply throughout Western
+• clarify the procedure for assessing and
+of grounds, to facilitate implementation of the CT Australia. Land may be subdivided by a community
+determining a statement of grounds and
+Act through subdivision and development of single scheme if, in accordance with section 7(1) of the CT
+community development statement; and
+freehold lots held in fee simple within Western Act:
+• establish criteria for the consideration of a Australia.
+• it comprises the whole of a parcel of land; and
+community development statement and the
+subsequent subdivision and development The policy is complemented by the full range • the parcel of land is freehold land held in fee
+proposals. of policies under State Planning Policy 1 State simple and comprised in a single certificate of
+Planning Framework that are concerned with title under the Transfer of Land Act 1893; and
+as provided for by the Community Titles Act 2018 the more detailed aspects of lot creation and • the parcel of land is not already subdivided by
+(CT Act) and the Community Titles Regulations development for particular land uses. a strata title scheme under the Strata Titles Act
+2021 (the Regulations). The general principles should be read in 1985; and
+conjunction with the relevant use-specific policy
+• the parcel of land is not a caravan park or
+to give a comprehensive coverage of the WAPC’s
+camping ground within the meanings given in
+policy requirements for any land use.
+the Caravan Park and Camping Grounds Act
+1995.
+This policy shall be applied in conjunction with the
+Community Schemes Guidelines (the Guidelines).
+Subdivision in the form of a community scheme
+allows for up to three tiers of schemes to be
+created within a single scheme. One community
+development statement will guide all tier schemes.
+Unlike strata titles schemes under the Strata Titles
+Act 1985, the linking of multiple tiers to the original
+tier 1 scheme allows for separate, autonomous
+community titles subdivision to occur, while being
+linked through the parent lot.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+2
+Community schemes
+There are two types of community titles schemes: As part of an application for approval of a The content and level of detail provided in a
+community development statement, the applicant community development statement should be
+• community titles (land) schemes; and
+is required to provide a statement of grounds. appropriate to support the proposed community
+• community titles (building) schemes.
+This shall be provided as the executive summary scheme and subsequent subdivision and
+of the community development statement. development applications, where appropriate.
+These can exist within the same community
+Further detail is provided in section 5 of this policy.
+scheme to provide for a mix of development types
+The WAPC must determine the statement of
+and forms.
+grounds and the community development The effect a community development statement
+statement together. has on planning approvals is set out in section 19 of
+The CT Act introduces a new planning
+the CT Act. This section affords a weight or binding
+instrument for community schemes, a community
+A statement of grounds must identify why effect to the community development statement,
+development statement. The intent of the
+subdivision by a community scheme is an according to the application type and timing of its
+community development statement is to guide the
+appropriate form of subdivision for the land. submission.
+subdivision and development of land, including
+That is, why the form of subdivision is appropriate
+the proposed staging and sequencing of the 1. Generally, a community development
+compared to any other form, such as green title,
+subdivision and development. statement is binding on a subdivision
+strata or survey-strata.
+application during:
+A community development statement must be
+A community development statement will i. the Approval Period. This is the period
+approved by the WAPC prior to the approval of
+define how the subject land may be subdivided between the WAPC issuing approval of
+a proposed tier 1 subdivision. Once approved,
+and developed. The community development a community development statement
+its effect on planning approvals varies according
+statement is to address matters outlined in section and it being registered with the tier 1
+to the type of application made and when it is
+25 of the CT Act, including the following: subdivision. This period can last for a
+made. In some cases, a community development
+• how the subject land may be subdivided and maximum of four years. Applications
+statement has a binding effect on planning
+developed; and must be approved if consistent with the
+approvals, while at others it is to be paid due
+community development statement.
+regard. This is set out in section 19 of the CT Act. • number of tiers proposed; and
+ii. the Development Period. This is a 10-year
+• number of lots proposed at each tier; and
+period following registration of the tier 1
+3.1 Statement of grounds and • whether each scheme is a community titles scheme plan (which may be extended).
+(building) scheme or community titles (land)
+community development • Applications made any time before
+scheme; and
+the final four years of the Development
+statement
+• staging; and
+Period must be approved if consistent
+• other matters as outlined in regulation 13 of with the community development
+The WAPC is responsible for determining whether
+the Regulations, and the Guidelines, to the statement.
+a community scheme is an appropriate form of
+satisfaction of the WAPC.
+subdivision for a parcel of land.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+3
+Community schemes
+• Applications made in the final four 4 Policy objectives 4.6 To ensure that all development is
+years of the Development Period must complemented by adequate, well-located
+not be approved if inconsistent with the areas of public open space that will enhance
+4.1 To ensure that a community development
+community development statement. the amenity of the development and provide
+statement will facilitate subdivision and
+for the recreational needs of the locality.
+development that achieves orderly and
+Once the Development Period has ended, a
+proper planning and is consistent with 4.7 To ensure the timely, equitable and
+community development statement is to be
+planning frameworks and procedures. coordinated delivery of community
+given due regard when considering subdivision
+infrastructure and facilities for land subject
+applications. 4.2 To ensure that a community development
+to a community scheme, and the broader
+statement is responsive to the characteristics
+locality.
+2. A community development statement is of the site, including environmental features,
+binding on a development application: sustainability principles and the local planning
+context.
+i. During the Development Period,
+applications must not be approved 4.3 To ensure that movement within, around
+if inconsistent with the community and through a community scheme
+development statement. reflects appropriate transport standards
+for pedestrians, cyclists and vehicles in
+ii. At all other times the community
+accordance with the existing locality.
+development statement is to be given due
+regard for development applications. 4.4 To ensure that a community development
+statement appropriately identifies the
+In determining a statement of grounds and provision of public utilities and infrastructure,
+community development statement, the WAPC connecting with the broader locality and
+must have regard to matters outlined in section existing networks, in a timely manner.
+23 of the CT Act, the Regulations, the existing
+4.5 To promote a sense of place and conservation
+planning framework, State planning policies,
+of places of Aboriginal and historical heritage
+local planning schemes and interim development
+significance in accordance with the existing
+orders.
+locality.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+4
+Community schemes
+5 Policy measures 5.1.3 It is noted that the application of For example, where the local planning
+community scheme legislation does scheme establishes a 10 metre building
+not remove a landowner/applicant’s setback, and the approved community
+5.1 General requirements obligations under other legislation, development statement establishes
+for example, the Environmental Protection a 7 metre setback, a 6 metre setback
+5.1.1 In its consideration of a community
+Act 1986 or Aboriginal Heritage Act 1972. proposed at development application
+development statement and amendments
+would not be considered consistent and
+to a community development statement, 5.1.4 Further to section 5.1.1 of this policy,
+would not be supported.
+the WAPC will apply the following criteria: a community development statement
+must be consistent with the planning 5.1.5 A community development statement
+a) The proposed community scheme
+framework. Minor variation will only be cannot be used to permit a land use,
+is in accordance with all relevant
+considered where the local planning development or density that is otherwise
+provisions of the local planning
+scheme provides for variation and prohibited or not provided for by the local
+scheme.
+objectives of the scheme are satisfied. planning scheme.
+b) Subdivision by community scheme is
+consistent with long-term planning Where minor variation is proposed, the 5.1.6 It is the WAPC preference that
+goals and objectives for the locality. WAPC would assess whether the variation development is undertaken on a site prior
+is consistent with the intent and objectives to applying for a community development
+c) The proposal is consistent with the
+of the planning framework for that locality. statement.
+policies of the WAPC regarding
+subdivision and development, and
+The same flexibility afforded to the 5.1.7 Where a proposed community
+in particular, the standards for roads,
+planning framework will be applied to the development statement incorporates/
+public open space and residential
+community development statement and reflects a development provision for
+design.
+will be at the discretion of the decision development which has been approved
+maker. by the Joint Development Assessment
+5.1.2 In order to satisfy itself with respect to
+Panel or State Development Assessment
+these matters, the WAPC may require
+Where minor variations are approved in
+Unit, these provisions would be
+the submission of technical reports and/
+a community development statement,
+considered to be consistent with the local
+or concept or sketch plans showing a
+then these variations become binding
+planning framework. This is because a
+form of development which complies
+for subdivision and development. This
+valid development approval exists for
+with all relevant development standards
+means that further discretion to these
+the subject land, for which due regard
+and requirements. The WAPC may also
+varied provisions will not be considered at
+would have been given to the planning
+undertake consultation with other affected
+subdivision or development application
+framework during the assessment of the
+bodies.
+stage.
+application.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+5
+Community schemes
+Level of detail Application of the Residential Design Codes are considered, for example, onsite
+effluent disposal (where proposed),
+5.1.8 The level of detail proposed in a 5.1.9 Where reference is made to the
+tree retention, cut and fill;
+community development statement in application of the Residential Design
+relation to development provisions will Codes for a community scheme, an • the community scheme connects and
+determine the future flexibility afforded to applicant may choose to apply a provides for the integration with the
+subsequent subdivision and development performance based approach, however it existing or anticipated locality;
+on the subject land. would need to be within the parameters • adaptable reuse and parking
+of the community development statement. provisions are accommodated to
+That is, the more specific the provision
+That is, any specified requirements (e.g. ensure that development provided
+provided in the community development
+minimum parking standards, building can cater for changing trends; and
+statement, the less flexibility there will be
+envelopes) would need to be achieved
+to exercise discretion at subdivision and • each tier and/or stage of subdivision
+through the application of a performance
+development stages. is compliant with the planning
+based approach.
+framework and does not conflict with
+If the applicant wants to deviate from the or undermine a valid approval.
+Subdivision and development
+details approved, this may warrant an
+amendment to a community development 5.1.10 Where subdivision and/or development To ensure infrastructure and servicing is delivered,
+statement. provisions are proposed as part of a appropriate conditions will be applied to each
+community development statement, the stage of subdivision and/or development.
+5.1.9 The level of detail provided in a
+community development statement shall, This will be influenced/determined by the staging
+community development statement will
+in accordance with the applicable zone, and sequencing provisions provided in the
+also vary depending on the complexity of
+density and planning framework that community development statement.
+the scheme and/or whether development
+exists over the subject land, demonstrate
+has already been undertaken on the Based on the provisions provided in a community
+that:
+subject land. development statement, appropriate conditions
+• the subject land is capable of
+will be applied to each stage of subdivision or
+The level of detail provided needs to be subdivision and development taking
+development applications.
+sufficient for the owners or occupiers to into account any site, environmental
+understand the level of development or soil characteristics, and whether Staging
+proposed, and their entitlements. the sites are appropriately serviced.
+This may be demonstrated through 5.1.11 The community scheme staging plan
+indicative lot layout or building should show each tier and the ultimate
+envelopes. This is to ensure that development outcome sought for the
+any factors required to implement subject land. This may include the
+the subdivision or development provision of temporary infrastructure until
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+6
+Community schemes
+such time as further development occurs, terminated. An entire community ceding of land and contributions
+such as temporary road or bushfire access scheme may also be terminated. In either to facilitate the provision of traffic
+routes or temporary water pump stations, instance, consideration needs to be given signals; and
+pending subsequent subdivision and in the community development statement
+c) identify the staging of infrastructure
+permanent infrastructure provision. to the ongoing provision or maintenance
+required at each tier or stage
+of infrastructure if its proposed to be
+of subdivision, to cater for the
+5.1.12 Given the potential for three tiers to be
+transferred to the local government.
+proposed development; for
+developed over an extended timeframe,
+example, temporary and permanent
+the WAPC will generally require the The WAPC may require an amendment to
+infrastructure.
+ceding of land, provision of infrastructure, the community development statement
+or contribution towards land and/ where community titles schemes or tiers
+5.1.17 The WAPC requires that each new lot
+or infrastructure as part of the tier 1 within a community scheme are being
+is provided with an acceptable level of
+subdivision, to facilitate a more timely and terminated.
+utility services, provided either by a public
+equitable approach to development of
+or a licensed private service provider.
+the scheme. This should be demonstrated Infrastructure, utilities and servicing
+The level and standard of these will be
+as part of a staging plan.
+5.1.16 The community development statement determined by the WAPC in the context
+5.1.13 Consultation with servicing agencies is should: of the intended use, the size of the lot,
+soil conditions, provisions of planning
+recommended at the earliest possible a) identify the required infrastructure,
+scheme, and the Government Sewerage
+stage when preparing a community utilities and servicing needed to
+Policy 2019, together with the provisions
+development statement to determine accommodate the community
+of any other published policy that may be
+staging and servicing delivery. scheme which may include
+relevant.
+opportunities for enhancing the
+5.1.14 Staging requirements may be enforced
+efficiency and effectiveness of
+and monitored through the imposition Infrastructure contributions
+existing infrastructure within the
+of conditions on subdivision and
+immediate locality; 5.1.18 The community development statement
+development applications. Subdivision
+should require that contributions or the
+or development applications may not be b) demonstrate the provision of onsite
+ceding of land is provided with the tier 1
+determined or endorsed if conditions are public or strategic infrastructure,
+subdivision. Where land is to be ceded, it
+not satisfied. land to accommodate infrastructure,
+may be either transferred to the Crown at
+or contributions to infrastructure,
+5.1.15 It is acknowledged that community titles to facilitate the subdivision and that time or be the subject of a separate
+schemes or tiers within a community development of the land, for example legal agreement which ensures the
+scheme may be terminated without transfer of a site at some future nominated
+the entire community scheme being time.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+7
+Community schemes
+In limited circumstances the WAPC may • identify proposed measures, 5.1.23 The WAPC may decide to take cash in
+consider the ceding of land at subsequent including, but not limited to; lieu of setting aside land on advice from
+stages of the community scheme subject requirements for appropriate the local government. It is recommended
+to: protection, enhancement, that an applicant liaise with the WAPC and
+remediation, buffers and local government early in the application
+– justification for delayed delivery, and
+management of environmental process to understand their public open
+– a detailed staging plan being
+features such as wetlands, significant space obligations.
+included within the community
+trees for retention or management of
+development statement clearly stating 5.1.24 Obligations for contributions or land
+onsite water courses and air quality.
+what contributions will be provided required to be ceded for public open
+and when, and 5.1.21 The management of environmental space are to be met entirely at the tier 1
+features including retention, ceding, subdivision stage.
+– support from the local government,
+revegetation or management, needs to be
+public authority or service provider.
+5.1.25 The WAPC may, in limited circumstances,
+addressed in the staging plan.
+agree to land being ceded at a tier 2 stage
+5.1.19 Where infrastructure contributions are in
+subject to:
+place for the locality, in accordance with Public open space
+State Planning Policy 3.6 Infrastructure – justification for delayed delivery, and
+5.1.22 Public open space shall be provided for
+Contributions (SPP 3.6) and the relevant
+community schemes in accordance with – a detailed staging plan included in the
+scheme provisions, they will be applied
+Development Control Policy 2.3 Public community development statement
+to each subdivision application within a
+Open Space in Residential Areas (DC 2.3). clearly stating what land will be ceded
+community scheme. The requirement
+and when, and
+for infrastructure to be provided to serve Open space retained as a lot or common
+– support from the local government.
+the subject land and the development property within a community scheme
+proposed by the community scheme, is in may be considered to contribute towards 5.1.26 Public open space will be applied based
+addition to any infrastructure contribution communal open space for the purposes of generally on the entire scheme area
+requirements as applied under SPP 3.6. the Residential Design Codes. regardless of whether it will be community
+titles (land) and/or community titles
+Environmental characteristics Land that is not ceded to the Crown,
+(building) lots. The WAPC may however
+but is proposed to function as public
+5.1.20 The community development statement consider excluding certain areas within the
+open space will only be considered as a
+should: community scheme from the public open
+contribution in accordance with DC 2.3
+space calculation if a contribution is not
+• identify the environmental features; where it meets the design and function
+triggered by a particular land use.
+and of public open space and a public access
+easement is put in place. This is to ensure
+that access is provided to the public, in
+perpetuity and without restriction.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+8
+Community schemes
+5.1.27 The land to be used for public open space retained, where appropriate. This may be b) identify proposed measures
+(whether ceded to the Crown or covered implemented through the use of public to protect significant natural,
+by a public access easement) is to be access easements. Aboriginal and cultural features,
+located to ensure public access will be including sites and features, cultural,
+5.1.32 Where parking standards are to be
+maintained. archaeological, ethnographic,
+included in a community development
+geological, geomorphological, visual
+5.1.28 Where the WAPC considers it appropriate statement these standards shall be
+or wilderness values.
+due to the intensification of residential identified for the entire scheme. This may
+development, the requirement for public be demonstrated and allocated through
+open space may be applied to community the staging plan.
+5.2 Extension of the
+titles (building) schemes where the
+5.1.33 Where the parking provisions of the Development Period
+predominant use is for residential
+local planning framework are proposed
+purposes.
+5.2.1 It is recommended that an applicant
+to be varied or new standards applied,
+apply for pre-lodgement advice with the
+the applicant is to provide justification
+Movement network
+WAPC prior to lodging an application for
+demonstrating that the car parking is
+5.1.29 The street and lot layout shall be site sufficient. extension of the Development Period.
+responsive, providing safe and efficient
+5.2.2 When assessing an application to extend
+movement for all modes of transport. Historical heritage
+the Development Period, the WAPC will
+5.1.30 Road, pedestrian and cycling facilities 5.1.34 The community development statement have regard to the following matters,
+including end-of-trip facilities, shall be should: including but not limited to:
+provided in accordance with the existing a) identify any site of significance and its • existing planning scheme provisions
+planning framework or legislative value, and and State planning policies and how
+requirements (e.g. Perth Parking they may have changed since the
+b) identify proposed measures or
+Management Act 1999). commencement of the Development
+opportunities to rejuvenate, protect
+Period;
+5.1.31 The movement network shall connect and promote historical heritage
+with the broader locality. Through the features or assets. • the extent of subdivision and
+subdivision approval process where development already undertaken in
+roads are proposed to be managed and Aboriginal heritage the community scheme; and
+maintained by the tier corporation (as a • any valid existing subdivision and
+5.1.35 The community development statement
+lot or common property), it will need to be development approvals that are yet
+should:
+demonstrated how public access will be to be implemented.
+a) identify any site of significance and its
+value, and
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+9
+Community schemes
+5.2.3 Where the Development Period has 5.2.7 Where other plans or instruments are 6. Implementation
+ended, the WAPC may consider whether required under a planning scheme, the
+an amendment to the community WAPC will only consider waiving the
+6.1 Community development
+development statement is required, requirement to prepare an instrument
+prior to consideration of an application where: statement
+to extend the Development Period, in
+• The community development
+accordance with regulation 17. statement provides sufficient detail to Procedures
+guide subdivision and development
+5.2.4 In determining an application to extend 6.1.1 It is recommended that an applicant
+of the site, and
+the Development Period the WAPC apply for pre-lodgement advice with the
+reserves the right to determine alternate • The area subject to the community WAPC prior to lodging an application for
+timeframes than those proposed by the development statement covers the approval of a community development
+applicant. entire area identified in the scheme statement.
+that requires the preparation of an
+Waiver of other requirements relating to instrument. 6.1.2 An application for approval of a
+plans or instruments community development statement (or
+amendment to a community development
+5.2.5 In accordance with section 20 of the statement) must be made to the WAPC in
+CT Act the WAPC may, by instrument accordance with section 21 of the CT Act.
+in writing, waive requirements for That is, it must:
+the preparation of particular plans or
+• be completed on the application
+instruments under a planning scheme
+form; and
+or interim development order for land
+that is or is proposed to be divided by a • include a statement of grounds; and
+community scheme. • refer to section 3 of this policy and
+ensure the land is of a type not
+5.2.6 Waiving of planning instruments
+excluded from the application of the
+will only be considered with or after
+CT Act.
+the determination of the community
+development statement. 6.1.3 It is recommended that an applicant
+liaise with the local government, public
+authorities and utility service providers
+ahead of the lodgement of an application
+for a community development statement.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+10
+Community schemes
+6.1.4 Any details or requirements of the • comments received during the 6.1.11 If a valid development approval exists
+community scheme that need to be consultation period; and and works have significantly commenced
+binding must be contained within the or are complete, the local government
+• any other matter of relevance
+body of the community development referral timeframe is 28 days. In all other
+including, but not limited to, local
+statement. Information provided in the instances the local government referral
+policy or position statements
+appendix should only support or justify timeframe is 42 days.
+and technical advice and further
+the community development statement.
+information obtained from a local
+6.1.12 During the referral period local
+This means that minor alteration to the
+government or referral agency.
+governments will be required to advertise
+appendix wouldn’t require an amendment
+the community development statement
+to the community development statement, 6.1.7 During the assessment of an application
+for public comment (14 – 21 days) and to
+unless the changes impact provisions (e.g. for a community development
+provide a copy of all submissions received
+timing of deliverables such as roads, retail statement or amendment, the WAPC
+to the WAPC.
+floor space, landscaping). may request additional information to
+guide the consideration, assessment
+6.1.13 Local government is not required to
+Manner and form of a community or determination of a community
+consider the submissions received as part
+development statement development statement.
+of their referral response.
+6.1.5 A community development statement is to 6.1.8 If additional information is provided,
+6.1.14 Subject to agreement with the applicant,
+be prepared in accordance with sections further comment or technical advice may
+additional time may be required in order
+21 and 25 of the CT Act, the Regulations be sought from the local government.
+to seek further information or technical
+and the Guidelines.
+advice in consideration of the proposal.
+Timeframes
+Assessment of a community
+Public consultation
+development statement 6.1.9 The WAPC has 120 days to assess and
+determine a statement of grounds and a
+6.1.15 The WAPC will advise the local
+6.1.6 In considering whether subdivision by a community development statement.
+government of the applicable timeframe
+community scheme is an appropriate form
+for which they must undertake public
+of subdivision the WAPC must have due 6.1.10 This time period for assessment includes
+consultation.
+regard to: referral to the relevant local government(s)
+(28 or 42 days, refer to section 6.1.11 • Where a proposed community
+• relevant State planning policies;
+of this policy) in which the proposal is development statement or
+• planning schemes or interim located as well as public authority or utility amendment proposes to clarify or
+development orders that have effect service providers (28 days). expand on the planning framework
+in the locality in which the land is it will be advertised for public
+situated; comment for a maximum of 21 days.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+11
+Community schemes
+– In this instance, public comment of the community development statement. approval ceases to have effect, in
+will be sought specifically in If the modifications are significant, a accordance with section 24(4) of the CT
+relation to the appropriateness community development statement Act.
+of the land being subdivided or amendment may be refused and a
+6.1.20 Once approved the community
+by a community scheme AND new application may be required to
+development statement will be published
+any provisions which propose to allow for referral to agencies and public
+on the WAPC website.
+clarify or expand on the planning consultation.
+framework.
+6.1.18 Modifications to a community Amendment to community development
+• Where a proposed community
+development statement that are statement
+development statement or
+considered minor in nature include:
+amendment to a community 6.1.21 It is recommended that an applicant
+development statement proposes • minor textual amendments which do apply for pre-lodgement advice with the
+to adopt the existing planning not materially alter the intent of the WAPC prior to lodging an application
+framework without alteration or if community development statement for approval of an amendment to a
+development is complete, it will be • minor mapping changes which do community development statement.
+advertised for public comment for a not materially alter the intent of the
+6.1.22 An application to amend a community
+maximum of 14 days. community development statement
+development statement may be made to
+– In this instance, public comment • modifications which do not adversely the WAPC at any time after a community
+will be sought specifically in impact on the amenity of the locality development statement has been
+relation to the appropriateness of or restrict the use and enjoyment of approved, regardless of whether the
+the land being subdivided by a the land community development statement
+community scheme. • modifications which do not impact on has been registered (i.e. during the
+the provision of infrastructure (land, Development Period) or not.
+Determination
+infrastructure, contributions).
+6.1.23 Where a subdivision or development
+6.1.16 The WAPC may approve, approve subject Note: Supporting or technical information proposal is inconsistent with the
+to conditions or refuse a community may need to be modified to support the community development statement, a
+development statement or amendment. required modifications. determining authority may refuse an
+application or may request a development
+6.1.17 The WAPC may approve a community 6.1.19 Where a community development
+or subdivision application be withdrawn,
+development statement or amendment, statement is approved subject to
+until such time as a community
+subject to modification as a condition of modifications, if the modifications are not
+development statement is amended to
+approval, where the modifications are addressed or undertaken as directed,
+remove any inconsistency.
+minor in nature and do not materially or within the timeframe stipulated, the
+impact on the provisions or overall intent community development statement Note: this may include proposals to terminate
+all or part of a community scheme.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+12
+Community schemes
+6.1.24 Where an amendment to a community 6.2 Right of review 6.2.4 In accordance with section 27(2) of the CT
+development statement is proposed the Act, where an amendment to a community
+6.2.1 The applicant can apply to the State
+WAPC will assess it in the same manner development statement (that effects a
+Administrative Tribunal for review of:
+against the same policy provisions as a subdivision) is not registered within four
+community development statement. • a decision to refuse a community years of the approval of the amendment
+development statement to the community development statement
+6.1.25 Where an amendment to the community
+by the WAPC, the amendment will lapse.
+• a decision to approve a community
+development statement is approved
+development statement subject to
+during the Development Period, the 6.2.5 Where the Development Period has
+conditions
+WAPC will register the amendment with expired by more than six months and
+the Registrar of Titles in accordance with • a decision to refuse to extend the where an application to extend the
+regulation 18. Development Period of a community Development Period or an application
+development statement to amend the community development
+6.1.26 Once approved, the consolidated
+statement has not been received, the
+• a decision to extend the
+community development statement will
+WAPC may declare, on its own initiative,
+Development Period (i.e. less time
+be published on the WAPC website.
+that the community development
+than requested)
+statement ceases to have effect, in
+6.1.27 An approved amendment has 4 years to
+• refusal to approve an amendment or
+accordance with section 27(3) of the CT
+be registered with a scheme plan, where it
+repeal of planning scheme by-laws.
+Act.
+effects a subdivision.
+6.2.2 An applicant may lodge a written notice
+6.1.28 During the Approval Period, an approved
+of default with the WAPC and make an
+amendment to a community development 6.3 Subdivision
+application to the State Administrative
+statement does not extend the Approval
+Tribunal in accordance with section 34 of
+Period, which will remain as 4 years from 6.3.1 Following the approval of a community
+the CT Act and Part 14 of the Planning and
+the date of the approval of the community development statement by the WAPC an
+Development Act 2005.
+development statement. application may be made for approval to
+subdivide within the community scheme
+Cease to have effect
+to create a community titles scheme.
+6.2.3 In accordance with section 27(1) of the CT
+6.3.2 The WAPC is the determining authority for
+Act, where a tier 1 subdivision application
+subdivision and the application is made
+has not been determined and lodged
+under the Planning and Development
+with the Registrar of Titles for registration
+Act 2005, with the normal process being
+within four years of approval of the
+applied. This includes referral to local
+community development statement by
+government, public authorities and utility
+the WAPC, the community development
+service providers as required.
+statement will lapse.
+Western Australian Planning Commission – June 2021
+
+Operational Policy 1.11
+13
+Community schemes
+6.3.3 The community development statement 6.4.2 A community development statement
+is binding on subdivision proposals may reference any valid development
+during the Approval Period and the approval.
+Development Period (refer to section 3.1
+of this policy). This means a subdivision
+may not be approved if it is inconsistent
+with the community development
+statement.
+6.3.4 As with the normal subdivision proposal,
+appropriate consideration will be given
+to relevant State and local planning
+frameworks. It is acknowledged that
+subdivision is required to be consistent
+with the community development
+statement at the time of determination,
+however, if significant changes have
+occurred to the planning framework since
+the community development statement
+has been determined the determining
+authority may need to exercise discretion
+as to how the proposal is to meet the
+requirements.
+6.4 Development
+6.4.1 In addition to the community
+development statement, when
+considering an application for
+development approval the provisions of
+the Planning and Development Act 2005
+(Part 10) are applied through the normal
+development application process.
+Western Australian Planning Commission – June 2021

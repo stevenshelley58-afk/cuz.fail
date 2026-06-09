@@ -1,0 +1,10 @@
+{
+  "url": "https://www.melvillecity.com.au/getContentAsset/953e49d3-7475-4236-85b0-315d9243f3a3/3ca954ad-3848-47c6-8f97-68cebe0b47a2/city-of-melville-local-planning-strategy?language=en",
+  "fetched_at": "2026-06-09T22:35:26Z",
+  "http_status": 200,
+  "content_hash": "43fd3e3cb38578033908cedb503f30949c5ea6f45c337dabbe455df377f58225",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.melvillecity.com.au/getContentAsset/f76cc68a-8e6f-4ceb-b071-94b9d5029dbb/3ca954ad-3848-47c6-8f97-68cebe0b47a2/City-of-Melville-Local-Planning-Strategy-(February-2016).pdf?language=en",
+  "used_playwright": false,
+  "bytes": 5439917
+}

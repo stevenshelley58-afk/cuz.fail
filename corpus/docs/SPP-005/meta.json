@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-26-coastal-planning",
+  "fetched_at": "2026-06-09T22:34:51Z",
+  "http_status": 200,
+  "content_hash": "f52c07e934e90a4635900dd837b129bead8b4bee341ce46e51cb4b9a8abaacd7",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/SPP-CST-SPP2-6_Policy.pdf",
+  "used_playwright": false,
+  "bytes": 169756
+}

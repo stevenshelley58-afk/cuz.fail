@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2024-11/map5_melville_lps6_kardinya.pdf",
+  "fetched_at": "2026-06-09T22:35:29Z",
+  "http_status": 200,
+  "content_hash": "65397fe504504dcbe8d9138ba1eab79f119920875313d2a1c3f53ec235a04627",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2024-11/map5_melville_lps6_kardinya.pdf",
+  "used_playwright": false,
+  "bytes": 1120244
+}

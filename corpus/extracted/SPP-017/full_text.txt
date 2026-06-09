@@ -1,0 +1,374 @@
+STATE
+PLANNING
+POLICY
+5.2
+Telecommunications
+Infrastructure
+September 2015
+Prepared under Part Three of the Planning
+and Development Act 2005 by the Western
+Australian Planning Commission
+
+click to follow
+1 CITATION 1
+2 POLICY INTENT 1
+3 BACKGROUND 1
+Disclaimer
+This document has been published by the 3.1. Electromagnetic Emissions (EME) 1
+Department of Planning on behalf of the
+3.2. Where this policy applies 1
+Western Australian Planning Commission. Any
+representation, statement, opinion or advice 3.3. Above ground telecommunications
+expressed or implied in this publication is
+infrastructure 2
+made in good faith and on the basis that the
+Government, its employees and agents are 3.4. Below ground telecommunications
+not liable for any damage or loss whatsoever
+infrastructure 2
+which may occur as a result of action taken
+or not taken, as the case may be, in respect 3.5. Policy exemptions 3
+of any representation, statement, opinion or
+advice referred to herein. Professional advice 3.6. When this policy should be applied 3
+should be obtained before applying the
+3.7. Relationship of this policy to
+information contained in this document to
+particular circumstances. Commonwealth legislation 3
+© Western Australian Planning Commission 4 POLICY OBJECTIVES 4
+Published by the
+Western Australian Planning Commission
+Gordon Stephenson House 5 POLICY MEASURES 4
+140 William Street
+Perth WA 6000 5.1. Visual Impacts 4
+Locked Bag 2506
+Perth WA 6001 6 IMPLEMENTATION 5
+Published September 2015
+6.1. Local planning schemes and local
+website: www.planning.wa.gov.au
+planning policies 5
+email: corporate@planning.wa.gov.au
+6.2. Local structure planning 5
+tel: 08 6551 9000
+fax: 08 6551 9001 6.3. Development 5
+National Relay Service: 13 36 77
+infoline: 1800 626 477
+7. DEFINITIONS 6
+This document is available in alternative formats on
+application to Communication Services.
+
+STATE PLANNING POLICY 5.2 1
+Telecommunications Infrastructure
+1. CITATION 3. BACKGROUND Measurement surveys undertaken by ARPANSA
+demonstrate that environmental radiofrequency levels
+This is a State Planning Policy prepared under Part 3 of Adequate and reliable telecommunications are essential near base stations for the mobile telephone network are
+the Planning and Development Act 2005. This policy may for all aspects of contemporary community life, from extremely low. The ARPANSA surveys reported that typical
+be cited as State Planning Policy 5.2: Telecommunications supporting the State’s economy to creating and exposures to radiofrequency fields were well below
+Infrastructure Policy. maintaining connected and cohesive social networks. one per cent of the Standard’s public exposure limits. It
+Contact between emergency services and the community concluded that “given the very low levels recorded and the
+After this policy has been gazetted, Statement of Planning
+increasingly relies on the telecommunications networks. relatively low power of these types of transmitters, it is unlikely
+Policy 5.2 Telecommunications Infrastructure (2004) will
+that the radiofrequency radiation from base stations would
+be repealed. The importance of telecommunications services in
+cause any adverse health effects, based on current medical
+Western Australia is recognised in the Western Australian
+research”.
+Planning Commission’s (WAPC’s) State Planning Strategy
+2. POLICY INTENT 2050 (2014), which advocates for the provision of an Standards set by ARPANSA incorporate substantial safety
+effective state-wide telecommunications network. margins to address human health and safety matters;
+Installation of telecommunications network infrastructure This network includes both above and below ground therefore it is not within the scope of this Policy to address
+usually involves the development of land and/or infrastructure to support both fixed line and wireless health and safety matters. Based on ARPANSA’s findings,
+alteration to the appearance of buildings or structures, telecommunications. setback distances for telecommunications infrastructure
+which may have visual impacts. This planning policy aims are not to be set out in local planning schemes or local
+to balance the need for effective telecommunications planning policies to address health or safety standards for
+3.1 Electromagnetic Emissions (EME)
+services and effective roll-out of networks, with the human exposure to electromagnetic emissions.
+community interest in protecting the visual character The use of mobile telephones has raised public
+of local areas. Using a set of land use planning policy concern about possible health issues associated with 3.2 Where this policy applies
+measures, the policy intends to provide clear guidance exposure to electromagnetic emissions. However,
+pertaining to the siting, location and design of telecommunications carriers must comply with the This policy applies throughout Western Australia in
+telecommunications infrastructure. Australian Communications and Media Authority (ACMA) respect to above and below ground telecommunications
+Radiocommunications Licence Conditions (Apparatus infrastructure other than those facilities exempted
+Licence) Determination 2003. These licence conditions under the Commonwealth Telecommunications Act
+make mandatory the limits in the Australian Radiation 1997 (Telecommunications Act). (See Section 3.5 Policy
+Protection and Nuclear Safety Agency (ARPANSA) Exemptions for further information)
+Radiofrequency (RF) Standard which sets limits for human
+All other facilities constitute ‘development’ under the
+exposure to RF electromagnetic fields from all sources,
+Planning and Development Act 2005 and development
+including telecommunications infrastructure. ARPANSA
+approval may be required from the relevant planning
+is the primary Commonwealth agency responsible for
+authority. Separate approval may also be required from
+protecting the health and safety of people and the
+other government agencies under other legislation.
+environment from the harmful effects of radiation.
+
+STATE PLANNING POLICY 5.2 2
+Telecommunications Infrastructure
+3.3 Above ground more panels to existing towers, or by constructing new Anyone can listen to the amateur bands using a receiver,
+telecommunications infrastructure towers. In areas of low mobile use, the cells are larger and but to transmit, operator qualifications and a licence
+the antennae are mounted on taller masts and towers. issued by the Australian Communications and Media
+For the purposes of this policy, above ground Association (ACMA) are required.
+As telecommunications networks expand due to
+telecommunications infrastructure refers to any line,
+increasing demand for mobile telephone and data An amateur apparatus licence is issued to authorise a
+equipment, apparatus, tower, antenna or any other
+services, the location, siting and design of proposed station that:
+structure that is visible above ground level.
+facilities becomes critical.
+a) is operated for the purposes of self-training in radio
+3.3.1 Mobile telephone networks communications; intercommunication using radio
+3.3.2 National Broadband Network
+communications; and technical investigation into
+Mobile telephone networks operate through base fixed wireless broadband towers
+radio communications by persons who do so solely
+stations, which incorporate a radio transmitter, a receiver
+National Broadband Network (NBN) fixed wireless with a personal aim, and who have no pecuniary
+and an antenna. Base stations provide coverage to a
+broadband towers are usually bigger than mobile phone interest in the outcome of the operations of the
+geographic area known as a ‘cell’, which may vary in size
+towers, and are more likely to be required in metropolitan station;
+but generally has a radius of up to 10 kilometres. Each cell
+fringe and regional areas.
+has its own transceiver which sends and receives radio b) is operated on amateur frequencies or amateur
+signals throughout its specified zone. Fixed wireless technology can transmit data at broadband frequency bands; and
+speeds using radio signals instead of cables. This c) may participate in the amateur-satellite service.
+The location of new mobile telephone base stations
+technology uses fixed transmission towers or base
+needs to be carefully considered in relation to existing
+stations to communicate ‘over the air’ with the NBN
+base stations, to ensure that the network functions 3.4 Below ground
+installed equipment within the home or business. Line
+effectively. Mobile telephone antennas generally need to telecommunications infrastructure
+of sight from the tower to the equipment at the home
+be mounted clear of surrounding obstructions like trees
+or business is essential. Western Australia is a vast state
+and buildings to avoid loss of reception and to allow each For the purposes of this policy, below ground
+with complex geography and fixed wireless technology
+mobile telephone base station to cover its intended cell infrastructure refers to pit and pipe infrastructure used
+enables access to NBN services in locations that are
+with minimum transmitter power. They must also be sited to house fixed line (fibre, Hybrid Fibre Coaxial, copper) to
+difficult or not cost effective to reach with fixed line
+where they will not interfere with neighbouring cells. carry voice and data services.
+technology.
+The more base stations of a particular carrier there are
+In accordance with the Fibre Deployment Amendment
+in an area, the smaller the cells, which means the power
+3.3.3 Amateur radio equipment 2011 to the Telecommunications Act, developers that are
+and energy levels of each station are generally lower. In
+corporations are required to provide fibre-ready pit and
+areas of high mobile use there are many small cells to The amateur service is designed primarily to facilitate
+pipe infrastructure to new developments that are within
+meet traffic demands, maintaining service quality and hobby radio communications and for technical
+the National Broadband Network Corporations’ (NBN Co)
+capacity. Antennas do not need to be very high and can experimentation and operates on specified frequency
+fibre footprint.
+be installed on building roofs or small poles. If additional bands. Amateur radio operators communicate using
+base stations are needed in areas where mobile network transmission modes including, but not limited to, Morse Developers of all new developments are encouraged
+coverage already exists, demand may be met by adding code, telephony and data. to engage with a telecommunications carrier to ensure
+that pit and pipe infrastructure complies with industry
+specifications or any standards set by the ACMA.
+
+STATE PLANNING POLICY 5.2 3
+Telecommunications Infrastructure
+3.5 Policy exemptions 3.7 Relationship of this policy This policy complements the Telecommunications Act
+to Commonwealth legislation and other relevant and subordinate legislation.
+Some telecommunications facilities are exempted from
+development approval under the Telecommunications The Telecommunications Act provides the regulatory
+Act. framework for the Australian telecommunications
+industry. All telecommunications carriers and service
+Schedule 3 of the Telecommunications Act and related
+providers must comply with the Act and its subordinate
+subordinate legislation provides telecommunications
+legislation. The ACMA is empowered through the
+carriers with powers to enter land to inspect land,
+Telecommunications Act to regulate and monitor the
+maintain facilities and install certain types of facilities
+performance of the industry, and reports to the Minister
+(known as low-impact facilities), and immunity from some
+for Communications annually.
+state and territory laws, including planning laws, when
+carrying out these activities. Relevant amendments to the Telecommunications Act
+include:
+Schedule 3 of the Telecommunications Act includes:
+• Telecommunications Legislation Amendment (Fibre
+• low-impact facilities described in the
+Deployment) Act 2011 - This amendment to the
+Telecommunications (Low-Impact Facilities)
+Telecommunications Act provides a framework for
+Determination 1997 and all existing and future
+the roll-out of the National Broadband Network,
+amendments, when installed by a carrier;
+specifically the deployment of optical fibre lines and
+• a temporary defence facility; and
+fibre-ready infrastructure.
+• a facility authorised by a Facilities Installation Permit
+Other relevant Commonwealth legislation and
+issued under the Telecommunication Act.
+subordinate codes include:
+Carriers seeking to install low-impact facilities are required
+• National Broadband Network Companies Act 2011 –
+to comply with Schedule 3 of the Telecommunications
+This Act provides a regulatory framework for NBN
+Act and the Telecommunications Code of Practice 1997.
+Corporations that promotes the long term interests of
+end-users of carriage services or of services provided
+3.6 When this policy should be applied
+by means of carriage services; and
+Due regard should be given to this policy by State and • Mobile Phone Base Station Deployment Industry Code
+local government planning decision-makers for: (C564:2011) – This code applies a precautionary
+approach to the deployment of mobile telephone
+a) The preparation and assessment of local planning
+infrastructure to ensure that the exposure of the
+schemes and local planning policies;
+community to EME is minimised. It also sets out a
+b) The preparation of local structure plans; and consultation procedure for infrastructure development
+c) Development proposals for telecommunications that does not require development approval (low
+infrastructure. impact facilities).
+
+STATE PLANNING POLICY 5.2 4
+Telecommunications Infrastructure
+4. POLICY OBJECTIVES 5. POLICY MEASURES d) display design features, including scale, materials,
+external colours and finishes that are sympathetic
+The objectives of this policy are to: 5.1 Visual impacts to the surrounding landscape;
+a) facilitate the provision of telecommunications iii) In addition to the existing exemptions under
+For telecommunications infrastructure to be effective,
+infrastructure in an efficient and environmentally the Telecommunication Act, local governments
+structures are generally located prominently, at high
+responsible manner to meet community needs; should consider exempting telecommunications
+points in the landscape or on top of buildings, where they
+infrastructure from the requirement for development
+b) manage the environmental, cultural heritage, are more likely to be visible to the public.
+approval where:
+visual and social impacts of telecommunications
+The planning authority may exercise discretion in
+infrastructure; a) The infrastructure has a maximum height of 30
+addressing the visual impacts of telecommunications
+c) ensure that telecommunications infrastructure is metres from finished ground level;
+infrastructure. Visual impacts of an infrastructure
+included in relevant planning processes as essential b) The proposal complies with the policy measures
+development proposal should be assessed by applying
+infrastructure for business, personal and emergency outlined in this policy; and
+the following set of policy measures to guide the location,
+reasons; and,
+siting and design of the structure. c) The proponent has undertaken notification of
+d) promote a consistent approach in the preparation, the proposal in a similar manner to ‘low impact
+assessment and determination of planning decisions 5.1.1 The benefit of improved facilities’ as defined and set out in the Mobile
+for telecommunications infrastructure. telecommunications services should Phone Base Station Deployment Industry Code
+be balanced with the visual impact (C564:2011);
+on the surrounding area.
+iv) Telecommunications infrastructure should be located
+i) Assessment of the visual impact of development where it will facilitate continuous network coverage
+proposals for telecommunications infrastructure and/or improved telecommunications services to the
+should be made on a case by case basis; community; and
+ii) Telecommunications infrastructure should be sited
+v) Telecommunications infrastructure should be co-
+and designed to minimise visual impact and whenever
+located and whenever possible:
+possible:
+a) Cables and lines should be located within an
+a) be located where it will not be prominently visible
+existing underground conduit or duct; and
+from significant viewing locations such as scenic
+B) Overhead lines and towers should be co-located
+routes, lookouts and recreation sites;
+with existing infrastructure and/or within existing
+b) be located to avoid detracting from a significant
+infrastructure corridors and/or mounted on
+view of a heritage item or place, a landmark, a
+existing or proposed buildings.
+streetscape, vista or a panorama, whether viewed
+Section 6.3.1 provides guidance on what applicants
+from public or private land;
+should submit in support of a development application to
+c) not be located on sites where environmental,
+assist planning assessment.
+cultural heritage, social and visual landscape values
+maybe compromised and
+
+STATE PLANNING POLICY 5.2 5
+Telecommunications Infrastructure
+6. IMPLEMENTATION 6.2 Structure planning at the local level (C564:2011), excluding Sections 6 and 7 (which
+only apply to developments that do not require
+This policy is given effect by the Planning and a) In the preparation and assessment of structure plans development approval);
+at the local level, consideration should be given to the
+Development Act 2005. Telecommunications infrastructure b) a statement and/or a map indicating the extent to
+need for telecommunications services in supporting
+should be included as a relevant planning consideration which the proposed facility addresses the network
+documentation. Early consideration of wireless
+in the preparation and assessment of local planning capacity for future demand and/or current gaps in
+and mobile phone telecommunication system
+schemes and local planning policies, structure plans (at service;
+requirements allows for them to be incorporated into
+the local level) and development applications.
+c) a statement about the extent to which the proposed
+the design process and mitigate any potential visual
+facility complies with any relevant local planning
+impacts to the community.
+6.1 Local planning schemes scheme or planning policy adopted under a scheme
+and local planning policies and (if applicable) justification for any variation from
+6.3 Development
+the relevant scheme or policy provisions;
+When preparing or reviewing local planning schemes or
+In considering a development application, the local d) plans and coloured graphic illustrations, including
+local planning policies, local governments should ensure
+government should give consideration to: photo simulations, showing the type of facility and
+that:
+its relationship with adjacent development, including
+a) The extent to which the proposal adheres to the
+a) Telecommunications infrastructure is included in the the proposal’s elevations showing the extent, height
+policy measures outlined in Section 5 of this policy
+zoning table as a land use; and appearance, proposed materials and colour, any
+b) The need for services to be located to optimise screening or fencing, and any external lighting;
+b) Telecommunications infrastructure is not designated
+coverage; and
+as a ‘use not permitted’ (X) by the scheme in any zone e) details of any significant environmental constraints,
+in the zoning table; c) Documentation to be submitted under Section 6.3.1 including those associated with the species, condition
+of this Policy. and significance of any vegetation to be removed;
+c) In zones where the location of telecommunications
+infrastructure is supported, telecommunications The advertising period for a development proposal should f) map and a statement about where the proposed
+infrastructure is designated as a permitted use (P) in be no more than 21 days. facility is to be located. If the facility is proposed within
+the zoning table; an infrastructure easement or corridor, consultation
+6.3.1 Information to be submitted when with other users is to be demonstrated; and
+d) In zones where telecommunications infrastructure
+lodging a development application
+is permitted, the Scheme provides guidance on g) a statement explaining how the proposed facility
+development approval exemptions; In addition to the requirements for development addresses the policy measures for the location, siting
+e) Buffer zones and/or setback distances are not included applications under the relevant local planning scheme, and design of telecommunications infrastructure set
+in local planning schemes or local planning policies; development applications for telecommunications out in Section 5.1.1 of this Policy.
+and infrastructure are to include the following information:
+a) Schemes and policies adhere to the policy measures a) a report demonstrating compliance with the Mobile
+outlined in Section 5 of this policy. Phone Base Station Deployment Industry Code
+
+STATE PLANNING POLICY 5.2 6
+Telecommunications Infrastructure
+7. DEFINITIONS National Broadband Network Corporation has the same
+meaning given to the term in the National Broadband
+Telecommunications Carrier has the same meaning given Companies Act 2011
+to the term in the Telecommunications Act 1997.
+Radiocommunications has the same meaning given to the
+Fibre-ready Facility has the same meaning given to the term in the Radiocommunications Act 1992
+term in the Telecommunications Act 1997.
+Pit and pipe infrastructure refers to pits and conduits
+Relevant health and safety standard means health and installed in subdivisions to house fixed line
+safety standards specified for the installation and telecommunications cable.
+operation of telecommunications facilities under the:
+Fibre-ready facility has the same meaning given to the
+• (Commonwealth) Telecommunications Code of Practice term in the Telecommunications Act 1997
+1997;
+Carriage services include services for carrying
+• (Commonwealth) Radiocommunications Act 1992; communications, for example telephone services, Internet
+• Mobile Phone Base Station Deployment Industry access services and Voice over Internet Protocol (VoIP)
+Code (C564:2011) (this is a document prepared by the services.
+Communications Alliance and registered with the ACMA
+as an Industry Code)
+Telecommunications infrastructure means any part of the
+infrastructure of a telecommunications network and
+includes any line, equipment, apparatus, tower, antenna,
+tunnel, duct, hole, pit, or other structure used, or for use,
+in or in connection with a telecommunications network.
+Service provider has the same meaning given to the term
+in the Telecommunications Act 1997
+National Broadband Network has the same meaning given
+to the term in the National Broadband Companies
+Act 2011

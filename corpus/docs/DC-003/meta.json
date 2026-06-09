@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/development-control-policy-15-bicycle-planning",
+  "fetched_at": "2026-06-09T22:35:04Z",
+  "http_status": 200,
+  "content_hash": "1bd3ee7dd0e0103e44dd41455e8ad876798159c6b55aaee36896cbc422647e68",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/DCP_1-5_bicycle_planning.pdf",
+  "used_playwright": false,
+  "bytes": 107214
+}

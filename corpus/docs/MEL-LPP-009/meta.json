@@ -1,0 +1,10 @@
+{
+  "url": "https://www.melvillecity.com.au/getContentAsset/9a1fae81-39e4-4433-9eb5-70ddb49f4d7f/3ca954ad-3848-47c6-8f97-68cebe0b47a2/height-of-buildings?language=en",
+  "fetched_at": "2026-06-09T22:34:46Z",
+  "http_status": 200,
+  "content_hash": "26d3d56ddcf3815136ab0011ae743838c18c90ca8611648032a207af52278484",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.melvillecity.com.au/getContentAsset/65f63211-ca20-45ae-8153-b263792c805d/3ca954ad-3848-47c6-8f97-68cebe0b47a2/LPP1-9-Height-of-Buildings-June-2020.pdf?language=en",
+  "used_playwright": false,
+  "bytes": 217863
+}

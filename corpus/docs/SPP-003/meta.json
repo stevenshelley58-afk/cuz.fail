@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-24-basic-raw-materials",
+  "fetched_at": "2026-06-09T22:34:49Z",
+  "http_status": 200,
+  "content_hash": "7ea336aad7da0e53076bcffd2a0097d1bc1bd2e7b66366045123d4c70ca5a129",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2022-02/SPP-2.4-Planning-for-Basic-Raw-Materials.pdf",
+  "used_playwright": false,
+  "bytes": 633075
+}

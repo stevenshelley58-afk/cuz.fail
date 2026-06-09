@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2021-07/PB_113_multiple_dwellings_R40_44526.pdf",
+  "fetched_at": "2026-06-09T22:35:22Z",
+  "http_status": 200,
+  "content_hash": "89668f08003c087c8434d4b8ee7f9c8f04b7225d6193222780395319374856fd",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/PB_113_multiple_dwellings_R40_44526.pdf",
+  "used_playwright": false,
+  "bytes": 116030
+}

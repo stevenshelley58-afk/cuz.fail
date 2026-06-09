@@ -1,0 +1,882 @@
+THIS IS NOT AN OFFICIAL GAZETTED COPY
+GAZETTED COPIES CAN BE OBTAINED FROM STATE LAW PUBLISHER
+GAZETTAL DATE: TUESDAY 30 JULY 2013
+PLANNING AND DEVELOPMENT ACT 2005
+STATE PLANNING POLICY No. 2.6
+STATE COASTAL PLANNING POLICY
+PREPARED UNDER PART 3 OF THE PLANNING AND DEVELOPMENT
+ACT 2005 BY THE WESTERN AUSTRALIAN PLANNING COMMISSION
+REPLACES STATE PLANNING POLICY 2.6 AS PUBLISHED IN THE
+GOVERNMENT GAZETTE ON 10 JUNE 2003 AND AMENDED ON 19
+DECEMBER 2006
+
+PLANNING AND DEVELOPMENT ACT 2005
+STATE PLANNING POLICY No. 2.6
+STATE COASTAL PLANNING POLICY
+Contents
+1. Citation
+2. Introduction and background
+2.1 The Western Australian coast
+2.2 The policy context
+2.3 Relationship to other WAPC policies and guidelines
+2.4 The policy purpose
+3. Application of the policy
+4. Policy objectives
+5. Policy measures
+5.1 General measures
+5.2 Development and settlement
+5.3 Water resources and management
+5.4 Building height limits
+5.5 Coastal hazard risk management and adaptation planning
+5.6 Infill development
+5.7 Coastal protection works
+5.8 Public interest
+5.9 Coastal foreshore reserve
+5.10 Coastal strategies and management plans
+5.11 Precautionary principle
+6. Implementation
+7. Definitions
+
+Schedule One
+Calculation of coastal processes
+1. Introduction
+2. Planning time frame
+3. Coastal classification
+3.1 Sandy Coast
+3.2 Rock Coast
+3.2.1 Hard rock coast
+3.2.2 Soft sedimentary rock coast
+3.2.3 Weakly lithified sedimentary rock coast
+3.3 Mixed sandy and rocky coast
+3.3.1 Fringing reefs
+3.3.2 Rocky platforms
+3.3.3 Discontinuous rocky shorelines
+3.4 Coastal lowlands
+3.5 Tidal reaches of inland waters
+3.6 Islands
+4. Calculation of coastal processes
+4.1 Climate change
+4.2 Horizontal shoreline datum
+4.3 Coastal protection works
+4.4 Allowance for the current risk of erosion
+4.4.1 (S1 Erosion) Allowance for the current risk of storm erosion
+4.4.2 (S2 Erosion) Allowance for historic shoreline movement trends
+4.4.3 (S3 Erosion) Allowance for erosion caused by future sea level rise
+4.5 Allowance for erosion on rocky coasts
+4.6 Allowance for erosion on mixed sandy and rocky coasts
+4.6.1 Allowance for erosion on fringing reefs
+4.6.2 Allowance for erosion on rocky platforms
+4.6.3 Allowance for erosion on discontinuous rocky coasts
+4.7 Allowance for erosion on coastal lowlands
+4.8 Allowance for erosion on tidal reaches of inland waters
+4.9 Allowance for erosion on islands
+4.10 Allowance for storm surge inundation on all coasts
+4.10.1 (S4 Inundation) Allowance for the current risk of storm surge inundation
+5. Definition of the storm event
+5.1 Sheltered coasts
+6. Tsunamis
+7. Variations
+7.1 Public recreation facilities with finite lifespan
+7.2 Coastally dependant and easily relocatable development
+7.3 Department of Defence
+7.4 Industrial and commercial development
+7.5 Coastal nodes
+7.6 Surf life saving clubs
+Figures
+Figure 1: Coastal areas
+
+1. Citation
+This is a State Planning Policy made under Part 3 of the Planning and Development Act 2005. This
+Policy may be cited as State Planning Policy No. 2.6 State Coastal Planning Policy.
+2. Introduction and background
+2.1 The Western Australian coast
+The Western Australian coastal zone is a significant asset of the state in terms of its environmental,
+economic, social and cultural resources.
+The Western Australian coastal zone varies in character and patterns of use and includes:
+ urban coasts – where the adjacent uses are predominantly residential and commercial and there is a
+high demand for recreational activity;
+ natural coasts – with less intensive hinterland uses and concentrations of tourism and associated
+recreational and cultural activities; and
+ remote coasts – with limited opportunity for low key tourism and associated recreational and cultural
+activities.
+There are pressures on the coastal zone for use by different groups in the community for a variety of
+purposes including a mix of recreational, residential, industrial and commercial uses. Planning for coastal
+zone land is about balancing these often competing needs and desires in a way that takes into account the
+values of the coastal zone, which include its scenic, aesthetic and ecological qualities; recreational
+opportunities; and social, indigenous, cultural and economic importance. The overall effect of these
+values contributes to the psychological wellbeing and health of the Western Australian community. The
+presence of coastal hazards is also an important consideration.
+There is also growing pressure on coastal resources as the state's population increases, coastal-based
+industries expand and technological changes make remote areas more accessible. Successful coastal zone
+planning today will ensure that current and future generations of Western Australians can benefit from
+the opportunities presented by the values and resources of the Western Australian coast.
+2.2 The policy context
+Section 77 of the Planning and Development Act 2005 requires local governments, when preparing or
+amending a local planning scheme, to have due regard to this State Coastal Planning Policy where it
+affects its district. The local governments may decide to make a new or amended scheme consistent with
+particular aspects of this State Coastal Planning Policy, or include in a new or amended scheme a
+provision that this State Coastal Planning Policy is to be read as part of the scheme.
+The State Planning Strategy provides a strategic basis for coordinating and promoting land use, transport
+and land development in a sustainable manner throughout Western Australia. The Strategy sets out the
+guidance for achieving the state goals of generating wealth and prosperity; preserving and enhancing the
+environment; and building vibrant and safe communities for enjoyment of current and subsequent
+generations of Western Australians.
+State Planning Policy No. 1 State Planning Framework Policy (SPP1) brings together existing state and
+regional policies and plans that apply to land use and development in Western Australia, into a State
+Planning Framework. SPP1 identifies the policies, plans, strategies and guidelines as well as regional
+strategies, regional and sub-regional structure plans, strategic policies and operation policies and
+guidelines prepared from time to time and used by the Western Australian Planning Commission
+(WAPC) and the Department of Planning in making decisions.
+State Planning Policy No. 2: Environment and Natural Resources Policy (SPP2) sets out the broad
+environment and resource management policies for sustainable development.
+Under SPP2 planning strategies, schemes and decision-making will identify and, where appropriate,
+include provisions for the sustainable use of the coast.
+
+2
+This State Coastal Planning Policy is consistent with and complementary to the State Planning Strategy,
+SPP1 and SPP2 and should be read and applied within the context provided by these policies.
+2.3 Relationship to other WAPC policies and guidelines
+SPP2.6 applies state-wide and draws on and is supported by other WAPC state planning policies,
+development control policies and guidelines relevant to the coastal zone. Application of these other
+policies and guidelines is to be made in view of this policy, including but not limited to:
+State planning policies
+ 1 State Planning Framework Policy
+ 2 Environment and Natural Resources Policy
+ 2.9 Water Resources
+ 2.10 Swan-Canning River System
+ 3 Urban Growth and Settlement
+ 3.4 Natural Hazards and Disasters
+ 3.5 Historic Heritage Conservation
+ 3.6 Development Contributions and Infrastructure
+ 6.1 Leeuwin-Naturaliste Ridge Policy
+ 6.3 Ningaloo Coast.
+Development control policies
+ 1.1 Subdivision of Land - General Principles,
+ 1.2 Development Control - General Principles,
+ 1.8 Canal Estates and other Artificial Waterway Developments,
+ 2.3 Public Open Space in Residential Areas and
+ 4.2 Planning for Hazards and Safety.
+Coastal planning guidelines
+For coastal matters this State Planning Policy No. 2.6 State Coastal Planning Policy is to be viewed as the
+higher order and prevailing policy.
+2.4 The policy purpose
+The purpose of this Policy is to provide guidance for decision-making within the coastal zone including
+managing development and land use change; establishment of foreshore reserves; and to protect, conserve
+and enhance coastal values. This policy recognises and responds to regional diversity in coastal types;
+requires that coastal hazard risk management and adaptation is appropriately planned for; and encourages
+innovative approaches to managing coastal hazard risk, and provides public ownership of coastal
+foreshore reserves.
+The Policy is to inform and guide decision-making by the WAPC and its Committees, and in integrating
+and coordinating the activities of state agencies that influence the use and development of land in the
+coastal zone. The Policy will also guide local governments, state government agencies, the State
+Administrative Tribunal and the State Government of those aspects of state planning policy concerning
+the coastal zone that should be taken into account in planning decision-making.
+There are many agencies with statutory responsibilities along the Western Australian coast. While
+recognising these responsibilities, this Policy provides a framework for coordinating those agencies
+activities with those of the private sector to ensure an integrated approach for coastal planning. The
+Policy also provides guidance for private landowners wishing to undertake development in the coastal
+zone.
+This Policy also provides guidance for situations where planning decisions occur outside the framework
+of the Planning & Development Act 2005, such as for unvested Crown land, pastoral lease, indigenous
+and conservation estate land.
+
+3
+3. Application of the policy
+This Policy applies to the coast throughout Western Australia, including:
+ sandy coasts, rocky coasts, mixed sandy and rocky coasts, coastal lowlands, and tidal
+reaches of inland waters;
+ near shore marine waters, state waters;
+ all islands within the state lying seawards of the mainland; and
+ land use and development within the coastal zone.
+The application of this Policy should be read in conjunction with legislation, policy, management plans
+and responsibilities of other relevant decision-making and management authorities.
+4. Policy objectives
+The objectives of this Policy are to:
+1. ensure that development and the location of coastal facilities takes into account coastal
+processes, landform stability, coastal hazards, climate change and biophysical criteria;
+2. ensure the identification of appropriate areas for the sustainable use of the coast for
+housing, tourism, recreation, ocean access, maritime industry, commercial and other
+activities;
+3. provide for public coastal foreshore reserves and access to them on the coast; and
+4. protect, conserve and enhance coastal zone values, particularly in areas of landscape,
+biodiversity and ecosystem integrity, indigenous and cultural significance.
+5 Policy measures
+5.1 General measures
+(i) Local and regional planning strategies, structure plans, schemes, subdivisions, strata
+subdivision, development applications, coastal planning strategies and foreshore
+management plans, as well as other planning decisions and instruments relating to the
+coast should comply with the policy measures.
+(ii) The policy measures where relevant should be read in conjunction with Schedule One
+and the Coastal Planning Guidelines prepared and endorsed under this policy.
+5.2 Development and settlement
+(i) Encourage urban development to be concentrated in and around existing settlements,
+particularly those with established infrastructure and services. Continuous linear urban
+development along the coast should be discouraged or, where it has occurred, carefully
+controlled. Proposed major urban development outside existing settlements will only be
+supported where a genuine community need has been demonstrated and the
+environmental capability has been properly assessed.
+(ii) Ensure that when selecting a development location, regard is given to infrastructure
+capacity and where possible, existing infrastructure be upgraded and improved.
+(iii) Ensure that when identifying areas suitable for development, consideration is given to
+strategic sites for coastal access and commercial development that is demonstrably
+dependent on a foreshore location including ports, boat harbours and regional boat
+ramps.
+
+4
+(iv) Ensure that use of the coast, including the marine environment, for recreation,
+conservation, tourism, commerce, industry, housing, ocean access and other appropriate
+activities, is sustainable and located in suitable areas.
+(v) Ensure that land use and development, including roads, adjacent to the coast is sited
+and designed to complement and enhance the coastal environment in terms of its visual,
+amenity, social and ecological values.
+(vi) Avoid significant and permanent negative impacts on the environment, either on or off
+site.
+5.3 Water resources and management
+(i) Coastal development should manage water resources in accordance with the principles
+of water sensitive urban design and integrated water cycle management. This includes
+treating all urban water flows as potential resources, and giving consideration to all
+water users, including the community, industry and the environment.
+(ii) Development on or near the coast should maintain or restore pre-existing or desirable
+environmental flows and hydrological cycles within foreshore reserves. Development
+on or near the coast should not discharge any waste or stormwater that could
+significantly degrade the coastal environment, including the coastal foreshore reserve,
+coastal waters and marine ecosystems.
+(iii) Stormwater flows from development areas that comply with the Stormwater
+Management Manual for Western Australia may be incorporated into foreshore
+reserves. Permitted stormwater management measures within coastal foreshore reserves
+are detention/infiltration areas and overland flow paths onto the beach for major flow
+events, subject to minimal landform modification within the dune system.
+Detention/infiltration areas should be located landward of the allowance for coastal
+processes identified as part of determination of a coastal foreshore reserve under
+section 5.9 (i) below.
+(iv) There is a general presumption against the use of coastal foreshore reserves for the
+management of wastewater or to accommodate any portion of infrastructure or site
+works used for wastewater management.
+5.4 Building height limits
+(i) The provisions of this part of the policy apply to all development within 300 metres of
+the horizontal shoreline datum, but do not apply to industrial or resource development,
+transport, telecommunications and engineering infrastructure, and Port Works and
+Facilities (as defined by the Port Authorities Act 1999).
+(ii) Maximum height limits should be specified as part of controls outlined in a local
+planning scheme and/or structure plan, in order to achieve outcomes which respond to
+the desired character, built form and amenity of the locality.
+(iii) When determining building height controls in a local planning scheme and/or structure
+plan, building heights should have due regard to the following planning criteria:
+(a) development is consistent with the overall visual theme identified as part of
+land use planning for a locality or in an appropriate planning control
+instrument such as a local planning strategy;
+(b) development takes into account the built form, topography and landscape
+character of the surrounding area;
+(c) the location is part of an identified coastal node;
+
+5
+(d) the amenity of the coastal foreshore is not detrimentally affected by any
+significant overshadowing of the foreshore; and
+(e) there is overall visual permeability of the foreshore and ocean from nearby
+residential areas, roads and public spaces.
+5.5 Coastal hazard risk management and adaptation planning
+(i) Adequate coastal hazard risk management and adaptation planning should be
+undertaken by the responsible management authority and/or proponent where existing
+or proposed development or landholders are in an area at risk of being affected by
+coastal hazards over the planning timeframe. Coastal hazard risk management and
+adaptation planning should include as a minimum, a process that establishes the
+context, vulnerability assessment, risk identification, analysis, evaluation, adaptation,
+funding arrangements, maintenance, monitoring and review, and communicate and
+consult.
+(ii) Where a coastal hazard risk is identified it should be disclosed to those likely to be
+affected. On consideration of approval for subdivision and/or development current
+and/or future lot owners should be made aware of the coastal hazard risk by providing
+the following notification on the certificate on title: VULNERABLE COASTAL
+AREA –This lot is located in a area likely to be subject to coastal erosion and/or
+inundation over the next 100 years.
+(iii) Where risk assessments identify a level of risk that is unacceptable to the affected
+community or proposed development, adaptation measures need to be prepared to
+reduce those risks down to acceptable or tolerable levels. Adaptation measures should
+be sought from the following coastal hazard risk management and adaptation planning
+hierarchy on a sequential and preferential basis:
+(1) Avoid the presence of new development within an area identified to be
+affected by coastal hazards. Determination of the likely consequences of
+coastal hazards should be done in consideration of local conditions and in
+accordance with the guidelines provided in Schedule One.
+(2) Planned or Managed Retreat or the relocation or removal of assets within an
+area identified as likely to be subject to intolerable risk of damage from coastal
+hazards over the planning time frame.
+(3) If sufficient justification can be provided for not avoiding development of land
+that is at risk from coastal hazards then Accommodation adaptation measures
+should be provided that suitably address the identified risks. Such measures
+would involve design and/or management strategies that render the risks from
+the identified coastal hazards acceptable.
+(4) Where sufficient justification can be provided for not avoiding the use or
+development of land that is at risk from coastal hazards and accommodation
+measures alone cannot adequately address the risks from coastal hazards, then
+coastal Protection works may be proposed for areas where there is a need to
+preserve the foreshore reserve, public access and public safety, property and
+infrastructure that is not expendable.
+(iv) Where new information or methods become available that significantly modify the
+understanding of the coastal hazards then all areas within the newly defined risk areas
+should be reviewed again through the coastal hazard risk management and adaptation
+planning hierarchy above, as part of the ongoing monitoring and review process.
+
+6
+5.6 Infill development
+(i) New development should be located on the least vulnerable portion of the development
+site.
+(ii) Where development is likely to be subject to coastal hazards over the planning
+timeframe, coastal hazard risk management and adaptation planning measures (Section
+5.5) should be implemented to reduce the risk from coastal hazards over the full
+planning time frame to an acceptable level.
+5.7 Coastal protection works
+(i) New coastal protection works are not permitted, except where such works are
+considered only after all other options for avoiding and adapting to coastal hazards
+have been fully explored, as part of a comprehensive coastal hazard risk management
+process.
+(ii) Existing coastal protection works that require significant upgrade or maintenance over
+the planning timeframe should be considered as new coastal protection works,
+including consideration of the most appropriate form.
+(iii) Coastal protection works should only be supported:
+(a) where it is demonstrated there are no significant negative impacts on the
+adjacent environment within the sediment cell; and
+(b) in conjunction with appropriate funding arrangements for the construction and
+ongoing care, control and maintenance being put in place.
+(iv) Coastal protection works, where necessary and justified should be:
+(a) adequately considered and planned as part of making decisions about land use,
+subdivision and development within the coastal zone;
+(b) primarily proposed in the public interest to ensure they maintain a coastal
+foreshore reserve, public access, public amenity and public safety as well as to
+protect high value property and infrastructure that is not expendable; and
+(c) evaluated at a sediment cell level and take into consideration the future
+protection requirements of adjoining development.
+5.8 Public interest
+(i) Ensure that adequate opportunity is provided to enable the community to participate in
+coastal planning and management, including the support and guidance of activities
+undertaken by voluntary coast care groups.
+(ii) Community consultation and engagement strategies should be developed to encourage
+informed community input into decision-making processes. Communities should have
+sufficient information to understand the risks to their communities arising from likely
+influence on coastal processes and coastal hazards. Consultation and participation
+should raise community awareness, understanding and education of risks and
+appropriate responses associated with their region(s).
+(iii) The provision of public access to the coast that is consistent with the values and
+management objectives of the area including, the interests of security, safety and
+protection of coastal resources as well as the recreational opportunities, both on and
+offshore, of that section of coast.
+
+7
+(vi) Support public ownership of the coast, including where appropriate the provision of a
+coastal foreshore reserve and accommodation of regional and local recreational needs.
+(v) Support the removal of existing unlawful dwellings (squatter shacks) on coastal Crown
+land as per the State Government Squatter Policy (July 1989 and January 1999).
+5.9 Coastal foreshore reserve
+(i) Coastal foreshore reserves are required to accommodate a range of functions and
+values. While local and site specific considerations will vary, the delineation of a
+coastal foreshore reserve will include the consideration of, and protection for,
+significant natural features such as coastal habitats and, for their biodiversity,
+archaeological, ethnographic, geological, geo-morphological, visual or wilderness,
+biodiversity and ecosystem integrity, heritage, landscape, seascape, and visual
+landscape values; likely impacts of coastal hazards; and opportunities for public access,
+public recreation needs and safety to lives and property. Schedule One provides
+guidance on how to estimate the potential impacts of coastal hazards, however, this is
+only one input into the determination of a coastal foreshore reserve, which will be
+required to demonstrate that the values, functions and uses prescribed are available at
+the end of the planning timeframe.
+(ii) The required coastal foreshore reserve will vary according to the circumstances of any
+particular proposal. Each proposal must be assessed on its merits having regard to this
+policy, including the principles and guidelines of Schedule One and the Coastal
+Planning Policy Guidelines.
+(iii) Ensure that the identification of land to be set aside for public ownership for
+management, public access, recreation, and conservation is undertaken during the
+planning process. Generally this land should be given up free of cost at the time of
+development, subdivision or strata subdivision, over and above the required provision
+of public open space.
+(iv) Support vesting of the coastal foreshore reserve in the relevant local government for the
+purposes of coastal foreshore management, public access, recreation and conservation.
+Where the land has significant conservation value, vesting should generally be with the
+state body responsible for the conservation estate. Opportunities to improve and protect
+the conservation values of freehold land should also be pursued.
+(v) Ensure that the coastal foreshore reserve is separated from adjacent development in a
+way that provides a clear demarcation between public and private land.
+5.10 Coastal strategies and management plans
+(i) Ensure that at rezoning, structure planning, subdivision, strata subdivision or
+development – whichever arises first and is appropriate in scale, a coastal planning
+strategy or coastal foreshore management plan is prepared and implemented, by the
+local government and/or proponent, for the coastal foreshore reserve and any abutting
+freehold land with conservation values of the subject land.
+(ii) Any structure plan, zoning, subdivision, strata subdivision or development proposal for
+public purposes, residential, industrial, commercial, tourist, special rural and similar
+uses on the coast is only approved based on or in conjunction with a current detailed
+coastal planning strategy or foreshore management plan (whichever is appropriate for
+the stage and scale of development).
+(iii) Ensure that the coastal planning strategy or foreshore management plan is developed in
+consultation with the broad community and relevant public authorities, and achieve the
+approval of the local land manager and the WAPC if appropriate.
+
+8
+(iv) The proponent should be responsible for the implementation of the foreshore
+management plan as well as funding, maintenance, monitoring and management of
+foreshore works for a period not less than five years commencing from completion of
+all foreshore works.
+(v) A coastal planning strategy or foreshore management plan should address as a
+minimum, the matters set out in the Coastal Planning Policy Guidelines.
+5.11 Precautionary principle
+(i) Where there are threats of serious or irreversible environmental damage, lack of full
+scientific certainty should not be used as a reason to postpone measures to prevent
+environmental degradation.
+(ii) The onus is on any proponent to show that development does not pose any likelihood of
+serious or irreversible harm to the environment.
+(iii) If the proponent cannot demonstrate there is not a likelihood of such harm, the onus is
+on the development proponent to show that the harm can be managed.
+6. Implementation
+Implementation of this Policy will be through related state planning policies, regional strategies,
+local planning strategies and regional and local planning schemes. Implementation will also
+occur through the day to day process of decision-making on zoning, structure plans, subdivision,
+strata subdivision and development applications, and the actions of other state agencies in
+carrying out their responsibilities. New or amended region or local planning schemes should be
+consistent with the objectives, policy and guidelines contained in this Policy. Local governments
+and state agencies should take account of this Policy to ensure integrated decision-making.
+Given the variation of coastal environments in the state and the range of development and use
+contexts that can be presented, it is important that this Policy, together with the Schedule One
+and Coastal Planning Policy Guidelines, be applied to each case under consideration on its
+merits using the best available information, common sense and a precautionary approach.
+The Policy and guidelines will be monitored on an ongoing basis and reviewed as required or at
+least within five years of its adoption.
+7. Definitions
+In this Policy, unless the context otherwise requires:
+'accretion' refers to shoreline movement where the shoreline shifts seaward increasing the width
+of a coastal foreshore reserve and or the distance to a fixed feature on the adjoining
+land.
+'acceptable' means the risks that do not need further treatment. The expression acceptable level
+of risk refers to the level at which it is decided that further restricting or otherwise
+altering the activity is not worthwhile. E.g. additional effort will not result in significant
+reductions in risk levels.
+'adaptation' means an adjustment in natural or human systems in response to actual or
+expected stimuli or their effects, which moderates harm or exploits beneficial
+opportunities. Adaptation is the means for maximising the gains and minimising the
+losses associated with coastal hazards over the planning timeframe.
+'coastal compartment' means length of shoreline bounded by broad scale changes in geology,
+geomorphic structures/landforms or changes in the aspect of the shore.
+
+9
+'coastal foreshore reserve' is the area of land on the coast set aside in public ownership to
+allow for likely impacts of coastal hazards and provide protection of public access,
+recreation and safety, biodiversity and ecosystem integrity, landscape, visual
+landscape, indigenous and cultural heritage.
+'coastal or foreshore management plan' is a local scale plan, designating areas for various
+purposes such as public access, car parks, toilets and surf life saving club rooms, and
+providing advice on management needs. Foreshore management plans tend to deal
+with a smaller area, be more detailed and are prepared as part of a planning approval
+process or ongoing maintenance or upgrading program.
+'coastal hazard' means the consequence of coastal processes that affect the environment and
+safety of people. Potential coastal hazards include erosion, accretion and inundation.
+'coastal node' is a distinct and discrete built area that may be located within a coastal foreshore
+reserve. Excluding permanent residential development, it may vary in size from a
+grouping of recreational facilities to an area of commercial or tourism facilities or
+accommodation.
+'coastal planning strategy' is generally a district or subregion scale plan focusing on the coast
+designating areas suitable for conservation, recreation and development purposes. It
+should include a strategic land use and access strategy and determination of an
+appropriate foreshore reserve.
+'coastal processes' means any action of natural forces on the coastal environment.
+'coastal protection works' means any permanent or periodic work undertaken primarily to alter
+physical coastal processes and/or manage the effects of coastal hazards. The influence
+of coastal protection works should be evaluated at the sediment cell level.
+'coastal zone' includes the areas of water and land that may be influenced by coastal processes.
+'consequence' means the outcome or impact of an event. Consequence is expressed qualitatively
+or quantitatively – a loss, injury, expressed concern, disadvantage or gain. Consequence
+can be more than one consequence from one event, range from positive to negative and
+is generally considered in relation to achievement of objectives.
+'cross-shore' means perpendicular to the shoreline.
+‘development’ has the same meaning as in the Planning and Development Act 2005.
+'environment' means conditions or influences comprising built, physical and social elements,
+which surround or interact with the community (including the natural conditions, the
+natural as modified by human activity and the artificial).
+'erosion' refers to shoreline movement where the shoreline shifts landward reducing the width
+of a coastal foreshore reserve and/or the distance to a fixed feature on the adjoining
+land.
+'event' means any occurrence of a particular set of circumstances that can have an adverse
+impact(s) on the environment. The event can be certain or uncertain, and be a one-off
+occurrence or a series of occurrences of a particular set of circumstances.
+‘fetch limited’ means a situation where wave energy is limited by the size of the wave
+generation area.
+'height' has the same meaning as in the Town Planning Regulations 1967, Appendix B–Model
+Scheme Text.
+
+10
+'horizontal shoreline datum (HSD)' defines the active limit of the shoreline under storm
+activity. It is the line from which a physical processes allowance will be applied from.
+'infill development' refers to sites between existing developments.
+'intolerable' means risk that is unacceptable in any circumstances or at any level.
+'inundation' means the flow of water onto previously dry land. It may either be permanent (for
+example due to sea level rise) or a temporary occurrence during a storm event.
+'likelihood' means the probability that something will occur. Likelihood is generally expressed
+qualitatively or quantitatively.
+'longshore' means parallel to the shoreline.
+‘management authority’ means any authority with decision-making responsibility over areas of
+water and land within the coastal zone.
+'peak steady water level (PSWL)' means the highest average elevation of the sea surface
+caused by the combined effect of storm surge, tide and wave setup resulting from the
+storm events defined in Schedule One section 5.
+'precautionary principle' has the meaning in section 5 Policy Measures section 5.11(i).
+'risk' is specified in terms of an hazardous event or circumstances and the consequence that
+may flow from it. Risk is measured in terms of a combination of the likelihood of an
+event occurring and the consequence of that event occurring.
+'risk assessment' means the overall process or method for evaluating risks associated with a
+specific coastal hazard and includes risk identification, risk analysis and risk
+evaluation.
+'risk management' means the measures taken to reduce, modify, offset or share risks associated
+with development in areas subject to coastal hazards. These include the coordinated
+activities to direct and control an organisation with regard to risk; and the culture,
+processes and structures that are directed towards realising potential opportunities
+whilst managing adverse effects.
+‘salient’ means a bulge in the coastline projecting towards an off shore structure natural or
+manmade.
+'sediment cell' means a length of shoreline in which interruptions to the movement of sediment
+along the beaches or near shore sea bed do not significantly affect beaches in the
+adjacent lengths of coastline. Within a sediment cell the sediments sources, transport
+pathways and sinks should be clearly definable.
+‘strategic plan’ may be a coastal strategy or foreshore management plan, structure plan, local
+planning scheme, local planning strategy or a plan approved by the WAPC.
+‘structure plan’ has the same meaning as in the Structure plan preparation guidelines (July
+2012).
+‘sustainable’ means achieving as much as possible with as little as possible. This requires
+current generations to minimise consumption and imports on natural and other
+resources in order to continue their activities in the long-term and maintain future
+options. It involves wealth creation, while preserving our natural, biodiversity and
+ecosystem integrity and cultural heritage, for the benefit of current and future
+generations.
+
+11
+'storm surge' means the increase in water level at the shoreline due to the forcing of winds
+(wind-setup) and atmospheric pressure.
+'tidal reaches of inland waters' has the meaning in Schedule One section 3.5.
+'tolerable' means the willingness to live with a risk to secure benefits, on the understanding that
+it is being properly controlled. ‘Tolerability’ does not mean ‘acceptability’. Tolerating a
+risk does not mean that it is regarded as negligible, or something we may ignore, but
+rather as something that needs to be kept under review and reduced further, if and when
+able to be done so.
+'updrift' means the direction to which the predominant longshore movement of shoreline
+material approaches.
+'vulnerability' means the degree to which a system is susceptible to, or unable to cope with,
+adverse effects of climate change, including climate variability and extremes.
+Vulnerability is a function of the character, magnitude, and rate of climate change and
+variation to which a system is exposed, its sensitivity, and its adaptive capacity.
+Systems that are highly exposed, sensitive and less able to adapt are vulnerable.
+'wave run-up' means the rush of water up a shoreline or structure on the breaking of a wave.
+'wave overtopping' means water carried over the top of a structure or landform due to wave
+run-up or surge action exceeding the crest.
+
+12
+Schedule One
+Calculation of coastal processes
+1. Introduction
+The specific objective of this Schedule is to provide guidance for calculating the component of the
+coastal foreshore reserve required to allow for coastal processes. The width calculated from this
+Schedule does not delineate a coastal foreshore reserve width. Factors other than coastal processes
+will often require additional width and should be considered on a case-by-case basis. These factors
+include biodiversity and ecosystem integrity, landscape, seascape, visual landscape, indigenous and
+cultural heritage, public access, recreation values and safety to lives and property.
+The component of the coastal foreshore reserve to allow for coastal processes should be sufficient to
+mitigate the impacts of coastal hazards (including erosion and inundation) by allowing for landform
+stability, natural variability and climate change. Notwithstanding this, where the effects of coastal
+processes would ordinarily preclude development, but where application of those policy measures are not
+realistic nor feasible, coastal hazard risk management and adaptation planning (Section 5.5) should be
+undertaken to reduce the risk from coastal hazards over the full planning timeframe, to an acceptable
+level.
+An appropriate coastal foreshore reserve will include a component to allow for coastal processes and be
+of an appropriate width to ensure a coastal foreshore reserve continues to provide the values, functions
+and uses prescribed should the coastal processes be realised over the planning timeframe (Policy
+measures 5.9 [i]).
+2. Planning time frame
+These guidelines are based on a 100-year time frame from when a subject proposal is being assessed.
+3. Coastal classification
+Calculation for coastal processes should be determined with regard to the physical and biological features
+of the coast. The following classification of coastal types shall be used and coasts that cannot be
+categorised within these types shall be considered on a case-by-case basis.
+3.1 Sandy coasts
+Sandy coasts comprise unlithified/unconsolidated sediments, rock is either not present or not dominant.
+They typically feature gently to moderately sloping shores and are often backed by dunes or beach ridges,
+which may contain dune blowouts. The shoreline can quickly alternate between accretion and erosion but
+is likely to retreat as a result of sea level rise.
+Examples include Swanbourne to Trigg Beach (Perth), Wylie Beach (Esperance), and 80 Mile Beach
+(Canning Coast).
+3.2 Rocky coasts
+Rocky coasts comprise a continuous rocky substrate which extends to an elevation above the active limit
+of the shoreline. In most instances this elevation should be defined at least one metre above the HSD.
+Coasts with discontinuous or low elevation rock shall be classified as mixed sandy and rocky coasts.
+Rocky coasts shall be classed as one of the following three groups depending on their
+geomorphic/geological features.
+3.2.1 Hard rock coast
+These coasts comprise hard, highly durable rock. They typically feature uniform slopes of a
+relatively low gradient, often with boulders at the base and are relatively free from fractures.
+Negligible shoreline change is expected over the planning timeframe.
+
+13
+Examples include the igneous/metamorphic headlands of Cape Naturaliste, Esperance, and the
+Dampier Archipelagos.
+3.2.2 Soft sedimentary rock coast
+These coasts comprise relatively hard, strongly lithified, durable rock with distinct bedding
+layers. They typically feature high, steep cliff faces, which may be undercut. Shoreline retreat is
+generally slow and is caused by rock-falls or slab collapse.
+Examples include the Kalbarri cliffs, Zuytdorp Cliffs (near Shark Bay), Broome, and the Great
+Australia Bight
+3.2.3 Weakly lithified sedimentary rock coast
+These coasts comprise poorly cemented or semi-lithified, discontinuous, relatively soft or highly
+weathered, weak rock. They typically feature low steep cliffs which are easily undercut often
+forming wave cut platforms. Shoreline retreat is comparatively rapid compared to other types of
+rocky coasts and generally occurs by slumping, rock-falls, or slab collapse.
+Examples include the coastal limestone of the Perth Region and the Cape to Cape Region.
+3.3 Mixed sandy and rocky coasts
+Mixed sandy and rocky coasts shall be classed as one of the following three groups dependent on the
+location and continuity of the rock. These coasts may be sensitive to small variations in climatic
+conditions and often contain unstable/dynamic landforms.
+3.3.1 Fringing reefs
+These shorelines comprise offshore or near shore rock in the form of a reef or island which
+results in a reduction in the wave energy reaching the shoreline. On sandy shorelines the wave
+sheltering often results in a bulge (salient) in the shoreline towards an offshore reef or island.
+Examples include Shoalwater Bay (Perth), Lancelin, Horrocks, and Port Gregory.
+3.3.2 Rocky platforms
+These coasts comprise a continuous subtidal or intertidal rock platform overlain by
+unlithified/unconsolidated sediments. The rock platform is often created as the result of the
+historic retreat/ erosion of a rocky shoreline. In many locations a sandy beach overlays the
+platform to form a perched beach. These are commonly backed by a remnant sand dune.
+Examples include Robert Point (Mandurah), and Leighton to Mudarup Rocks (Cottesloe, Perth),
+Greenhead, Leeman.
+3.3.3 Discontinuous rocky shorelines
+These coasts comprise discontinuous subtidal or intertidal rock on a predominantly sandy
+shoreline. The subtidal rock may be present as a pavement or discontinuous outcrops of reef
+close to the shore.
+Examples include the bay beaches Trigg Point to Sorrento (Perth), North Head to Sandy Cape
+(Jurien), and Drummonds Cove (Geraldton).
+
+14
+3.4 Coastal lowlands
+Coastal lowlands typically feature flat to gently sloping shores often containing high percentages of finer
+sediments. In contrast to sandy coasts the landforms are generally the result of the historic geologic
+advance of a deltaic or outwash plain. The near shore environment often comprises tidal flats, salt
+marshes or mangroves. In many locations where there is an availability of sediments, a chenier plain or
+storm ridge may be present. These shorelines are strongly influenced by inundation and tidal processes.
+Examples include the deltaic landforms of the Ashburton River (Onslow), Gascoyne (Carnarvon) and the
+outwash plains of Wooramel (Shark Bay), and Yannarie (Exmouth Gulf).
+3.5 Tidal reaches of inland waters
+Tidal reaches of inland waters are inland water bodies which are predominantly controlled by coastal
+related processes, particularly tides and fluctuations in sea level. They include river mouths and estuaries
+and generally comprise flat to gently sloping shores often containing high percentages of finer sediments.
+These shorelines are strongly influenced by inundation and tidal processes.
+Examples include the non-deltaic coastal lagoons of the southwest, Princess Royal Harbour (Albany),
+Oyster Harbour (Albany), Peel-Harvey Estuary and the Swan Estuary.
+3.6 Islands
+Islands typically comprise a combination of sandy and rocky coasts. Examples include Rottnest Island,
+Garden Island, the Houtman Abrolhos, and the Dampier Archipelago.
+4. Calculation of the coastal processes
+The site specific coastal foreshore reserve width to allow for coastal processes should be calculated based
+on the coastal classification, and should consider each of the factors listed for that coastal type.
+The study area for the calculation of the coastal processes should be defined based on the coastal
+geology/geomorphology. The study area should include the entire sediment cell and extend to include
+adjacent coastal areas as required to define the coastal processes at the development site. Macro-level
+land use planning such as regional plans and strategies, should be extended to include the entire coastal
+compartment.
+The values given for each factor should be based upon the best available data and be a conservative
+estimate of that factor and include allowance for uncertainty. As knowledge improves, the WAPC in
+consultation with and agreement of the Department of Planning will update the values and methods.
+More detail and advice on the factors and the models used to calculate the value given for each factor can
+be obtained from the Department of Transport’s Manager, Coastal Management.
+4.1 Climate change
+Climate change will cause variations in many environmental variables including mean sea level, ocean
+currents and temperature, wind climate, wave climate, rainfall/run-off and air temperature. Consideration
+of changes in other key environmental variables should be included as knowledge improves, and where
+relevant as part of Coastal Hazard Risk Management and Adaptation Planning or any other assessment of
+coastal hazards undertaken in accordance with the policy requirements.
+The allowance for sea level rise should be based on a vertical sea level rise of 0.9 metres over a 100-year
+planning timeframe to 2110.
+
+15
+4.2 Horizontal shoreline datum
+The horizontal shoreline datum should define the active limit of the shoreline under storm activity, and
+should be determined against the physical and biological features of the coast. In most instances it should
+be defined as the seaward shoreline contour representing the peak steady water level under storm activity
+resulting from the storm defined in section 5.
+4.3 Coastal protection works
+Development that benefits from protection from coastal hazards by formal coastal protection works
+should be determined on a case by case basis with the allowance for coastal processes taking into account
+the works in question.
+4.4 Allowance for erosion on sandy coasts
+On a sandy coast the allowance for erosion should be measured from the HSD and calculated as the sum
+of the factors: S1 Erosion; S2 Erosion; and S3 Erosion plus 0.2 metres per year allowance for uncertainty.
+4.4.1 (S1 Erosion) Allowance for the current risk of storm erosion
+The allowance for absorbing the current risk of erosion should be based on the calculation of the
+maximum cross-shore storm erosion with consideration of the maximum longshore storm
+erosion. The cross-shore erosion should be determined using a credible sediment transport
+model appropriate for the subject location. When a model is used it should be run for three
+successive storm events and the distance should be the recession from the HSD to the land
+extent of the storm erosion as calculated by the model. In the absence of modelling a minimum
+value of 40 metres should be used to allow for cross-shore erosion coastal erosion on a typical
+sandy coast.
+Consideration should be given to longshore erosion, especially where there may be a
+gradient/transition in longshore erosion during a storm. This may be caused by an obstacle
+(natural or manmade) which reduces updrift longshore sediment transport and is common on the
+tidal reaches of inland waters, sheltered embayments and gulfs.
+Steeply sloping sandy coasts may also be subject to coastal recession as a result of slope failure.
+This may be the result of undercutting by storm erosion, changes in groundwater conditions or
+loading at the top of the slope. For steeply sloping sandy coasts the distance for absorbing the
+current risk of erosion should extend to the crest of the stable post storm shoreline slope. In the
+absence of a geological assessment the stable slope profile for a typical sandy shoreline should
+be 30 degrees from the horizontal.
+4.4.2 (S2 Erosion) Allowance for historic shoreline movement trends
+The allowance for historic shoreline movement trends should be based on the review of
+available shoreline records. Aerial photography has been collected for the majority of the coast
+at about five-yearly intervals since around the 1950s and should be used to determine the
+historic position of the shoreline. In some locations historic beach and bathymetric surveys may
+exist and should also be used.
+Consideration should be given to the cause of shoreline movement trends. Trends should be
+derived from shoreline movement time series and may include continuous erosion or accretion;
+erosion followed by accretion or visa-versa; longshore evolution of features; or shoreline
+rotation.
+The allowance for historic shoreline movement trends should generally be calculated as 100
+times the historic annual rate of erosion.
+Where the historic annual rate of shoreline movement is accretion less than 0.2 metres per year
+the allowance for historic shoreline movement trends should be zero. Where the historic annual
+rate of shoreline movement is continuous accretion in excess of 0.2 metres per year and there is
+
+16
+compelling evidence that accretion is likely to continue at the same rate for at least the next 50
+years the allowance for historic shoreline movement trends should be calculated as minus 50
+times the historic longer-term annual rate of accretion.
+Where mobile dune systems exist, they should be included in the coastal foreshore reserve
+width, with a provision for dune migration calculated as 100 times the annual historic movement
+rate.
+The coastal foreshore reserve width shall include the greatest of that calculated as a result of
+shoreline movement or dune migration.
+4.4.3 (S3 Erosion) Allowance for erosion caused by future sea level rise
+The allowance for erosion caused by future sea level rise on sandy coast should be calculated as
+100 times the adopted sea level rise value of 0.9m over a 100-year timeframe or 90 metres.
+Consideration should be given to increasing the allowance where the impact of obstacles
+(natural or manmade) may influence future trends by reducing updrift longshore sediment
+transport.
+4.5 Allowance for erosion on rocky coasts
+On the majority of rocky coasts the rate of coastal erosion is relatively slow. The allowance for the
+current and future risk of erosion should be based on a geotechnical assessment of the shoreline stability.
+The geotechnical assessment should include consideration of: slope elevation, slope angle, durability of
+material, consistency of material, angle of bedding layers and thickness of bedding layers.
+4.6 Allowance for erosion on mixed sandy and rocky coasts
+4.6.1 Allowance for erosion on fringing reefs
+The allowance for erosion on coasts with fringing reefs should generally be determined using the
+methods specified for sandy coasts. Where a dynamic landform is present, such as a salient, the
+coastal foreshore reserve width should include allowance for the fluctuation or reduction/loss of
+the landform.
+The allowance for erosion caused by future sea level rise should include consideration of the
+potential reduction in wave attenuation by reef and the resulting impacts on shoreline stability.
+4.6.2 Allowance for erosion on rocky platforms
+The allowance for erosion on rocky platforms should be determined on a case-by-case basis. The
+allowance should be evaluated following a geotechnical assessment of the platform which
+should include consideration of: elevation, width, angle and durability and consistency of
+material.
+4.6.3 Allowance for erosion on discontinuous rocky coasts
+The allowance for erosion on discontinuous rocky coasts should generally be determined using
+the methods specified for sandy coasts. Particular consideration however, should be given to
+how a rocky outcrop may act as an obstacle to updrift longshore sediment transport.
+4.7 Allowance for erosion on coastal lowlands
+The allowance for erosion on coastal lowlands should generally be determined using the methods
+specified for sandy coasts,; rocky coasts; and mixed sandy and rocky coasts. However consideration
+should be given to potential changes in the landform.
+
+17
+4.8 Allowance for erosion on tidal reaches of inland waters
+The allowance for erosion on tidal reaches of inland water should generally be determined using the
+methods specified for sandy, rocky, and mixed sandy and rocky coasts. It is however, acknowledged that
+these methods are principally derived for open ocean coast and case-by-case consideration should be
+given to the variation in underlying coastal processes and driving forces within sheltered inland waters.
+4.9 Allowance for erosion on islands
+Acknowledging that for most islands the allowance would preclude development, variation should be
+considered on a case-by-case basis.
+4.10 Allowance for storm surge inundation on all coasts
+The allowance for inundation should be the maximum extent of inundation calculated as the sum of S4
+Inundation plus the predicted extent of sea level rise.
+Where the identified inundation is not contained within a foreshore reserve (Policy measure 5.9 (i)),
+coastal hazard risk management and adaptation planning (Policy measure 5.5) should be undertaken.
+4.10.1 (S4 Inundation) Allowance for the current risk of storm surge inundation
+The allowance for the current risk of inundation should be the maximum extent of storm
+inundation, defined as the peak steady water level plus wave run-up. Where inundation is halted
+by a coastal barrier (natural or manmade) consideration should be given to the stability of the
+barriers and whether the barrier may be breached or bypassed during a storm event over the
+planning period.
+Where a continuous barrier dune is present the capacity of the dune to provide protection from
+inundation should be assessed based on the cross-sectional area of the dune. If the dune reserve,
+the cross-sectional area of the dune above the peak steady water level, is less than 100 cubic
+metres, it should be assumed that the dune will be removed during storm activity and the
+maximum extent of storm inundation should be calculated without the dune.
+On low permeability/impermeable coasts where wave run-up can result in wave overtopping, the
+coastal foreshore reserve width for this coastal process should be the maximum extent of wave
+overtopping.
+5. Definition of the storm event
+The selection of the storm event for determining the allowance for the current risk of erosion and
+inundation is dependent on the coastal area (Figure 1).
+The allowance for the current risk of erosion should be based on a tropical cyclone storm event for areas
+one and two and a mid-latitude depression or extra-tropical low storm event for areas three and four.
+The storm event for erosion and accretion should be based on ocean forces and coastal processes, which
+have a one percent or one-in-one hundred probability of being equalled or exceeded in any given year
+over the planning timeframe.
+The allowance for the current risk of inundation should be based on a tropical cyclone storm event for
+areas one, two and three; and a mid-latitude depression or extra-tropical low storm event for area four.
+The storm event for storm surge inundation should be based on ocean forces and coastal processes that
+have a 0.2 percent or one-in-five hundred probability of being equalled or exceeded in any given year
+over the planning time frame.
+Storm events will vary for each location and should be reviewed on a case-by-case basis. The path for the
+storm event should be determined so as to maximise the associated erosion and inundation. To assist in
+the determination of tropical cyclonic storm events the relative scales, central pressures and worst-case
+
+18
+paths derived from historic records are available for the majority of locations. Non-tropical cyclonic
+storm events for coastal areas three and four should be based on recorded storm events and are available
+for the majority of locations.
+Figure 1: Coastal areas
+5.1 Sheltered coasts
+Some sections of the coast are sheltered from the direct impacts of offshore storm events. This may be as
+they form part of the tidal reaches of inland waterways or due to the presence of offshore islands/reefs.
+For these locations the storm event should be defined on a case-by-case basis either by the transformation
+of the offshore storm event or, for fetch limited locations, the hindcasting of an equivalent storm event
+based on recorded or modelled winds.
+6. Tsunamis
+An allowance for absorbing the current risk of inundation should be based on maximum inundation
+heights evidenced in tsunami prone areas.
+
+19
+7 Variations
+It is recognised that in the circumstances described below development may need to occur within an area
+identified to be potentially impacted by physical coastal processes within the planning time frame. Such
+development should always be considered within a coastal hazard risk management and adaptation
+planning process and should only proceed once adequate management and adaptation planning measures
+have been agreed, and which accord with the Avoid – Planned or Managed Retreat - Accommodate –
+Protect hierarchy stipulated in the policy General Measures.
+7.1 Public recreation facilities with finite lifespan
+Development with an expected useful lifespan of less than 30 years for public recreation purposes on the
+proviso that the development is to be removed or modified should it be threatened by erosion or creates
+an erosion threat to other land. Such development may include for example minor car parks for coastal
+recreational users; recreational amenities such as public ablutions; barbeque/picnic/shade areas;
+playground and other recreational equipment; infrastructure for public safety; and pedestrian access
+structures such as ramps, stairs and paths.
+7.2 Coastally dependent and easily relocatable development
+Temporary, easily relocatable structures that are demonstrably coastally dependent. Such structures may
+include for example fencing, for the purposes of protecting dunes and ecologically sensitive areas; sun
+shades; and facilities for public events.
+7.3 Department of Defence
+Department of Defence operational installations that require foreshore location.
+7.4 Industrial and commercial development
+Industrial and commercial development that is demonstrably dependent on a foreshore location. Such
+development may include, for example, marinas for tourism and recreational boating facilities, cage
+based aquaculture operations, and port facilities.
+7.5 Coastal nodes
+The need for the provision of coastal nodes on the coast is recognised and should provide for a range of
+facilities to benefit the broader public. Such nodes may be developed within the coastal foreshore reserve
+but should only be located where identified in a strategic plan. Nodes should be located on stable areas;
+should have no negative impacts on the adjacent environment; and should avoid areas of high natural
+landscape or resource value.
+7.6 Surf lifesaving clubs
+Where there is a demonstrable need for coastal surf life saving club facilities including surf life saver
+lookouts in the public interest, preference should be given to clubs that are identified in a strategic plan
+and co-located with other facilities such as those described in sections 7.1 and 7.5.
+Development that falls within the above general possible variations will be assessed on a case-by-case
+basis against the policy measures in Section 5 and in consultation with other relevant agencies and
+community as considered appropriate.
+Development that is dependent upon location on the coast but which would not require a direct interface
+with tidal areas or placement in the foreshore – such as resort developments or tank based aquaculture –
+permanent infrastructure services and facilities such as sewerage pumping stations, drainage,
+communications, energy and water operation are not included in these possible variations.

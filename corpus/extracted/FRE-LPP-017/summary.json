@@ -1,0 +1,38 @@
+{
+  "id": "FRE-LPP-017",
+  "title": "Local Planning",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Fremantle",
+  "version_date": "",
+  "pages": 9,
+  "key_provisions": [
+    {
+      "heading": "PART 1 – ALL FENCING",
+      "summary": "Deemed-to-comply provisions being modified"
+    },
+    {
+      "heading": "PART 2 – RESIDENTIAL FENCING",
+      "summary": "This part covers development assessed under Volume 1 the Residential Design Codes."
+    },
+    {
+      "heading": "PART 3 – NON-RESIDENTIAL FENCING",
+      "summary": "This part covers development that is not assessed under the Residential Design Codes."
+    },
+    {
+      "heading": "5.3 Boundary fences 5.3.1 Boundary fences outside of the primary and",
+      "summary": "secondary street setback areas are a maximum of"
+    }
+  ],
+  "cross_references": [
+    "LPP 1.7",
+    "LPP 3.6",
+    "Local Planning Policy 2.8 – Fences (LPP",
+    "Local Planning Policy 2.9: Residential Streetscapes to limit driveway width at",
+    "Local Planning Policy 3.6",
+    "R-Codes",
+    "R-Codes Volume 1",
+    "Residential Design Codes"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:37Z"
+}

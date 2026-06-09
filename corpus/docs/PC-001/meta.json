@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2026-04/r-codes-volume-1-10-april-2026.pdf",
+  "fetched_at": "2026-06-09T22:40:43Z",
+  "http_status": 200,
+  "content_hash": "bb7309a005818f779f416025b8477098afe05ba81f5da209ff00995af64573ab",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2026-04/r-codes-volume-1-10-april-2026.pdf",
+  "used_playwright": false,
+  "bytes": 9565557
+}

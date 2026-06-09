@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-51-land-use-planning-the-vicinity-of-perth-airport",
+  "fetched_at": "2026-06-09T22:34:57Z",
+  "http_status": 200,
+  "content_hash": "003131217343396a0b98df6fbe7eac6e511bdb7269a70d9c4844e76f20fa9ff5",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP-5_1_Land-Use-Planning-Perth_Airport.pdf",
+  "used_playwright": false,
+  "bytes": 514403
+}

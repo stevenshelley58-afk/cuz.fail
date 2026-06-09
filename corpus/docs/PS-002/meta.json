@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/document-collections/position-statement-public-open-space",
+  "fetched_at": "2026-06-09T22:35:14Z",
+  "http_status": 200,
+  "content_hash": "f8c3440ee3eafa4732db23cde416592a2073a471520b7d704e189880ac2b5755",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2026-05/position-statement_public-open-space.pdf",
+  "used_playwright": false,
+  "bytes": 449803
+}

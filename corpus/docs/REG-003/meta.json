@@ -1,0 +1,10 @@
+{
+  "url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s39645.html&view=consolidated",
+  "fetched_at": "2026-06-09T22:35:26Z",
+  "http_status": 200,
+  "content_hash": "fd09ba76375fe7d7e1a8cb0010af945bf9a36eb069be116b519472fb2e89ac5c",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_49204.pdf/$FILE/Planning%20and%20Development%20Regulations%202009%20-%20%5B01-m0-00%5D.pdf?OpenElement",
+  "used_playwright": false,
+  "bytes": 343885
+}

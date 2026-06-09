@@ -1,0 +1,41 @@
+{
+  "id": "FRE-LPP-009",
+  "title": "CITY OF FREMANTLE",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Fremantle",
+  "version_date": "February 2013",
+  "pages": 3,
+  "key_provisions": [
+    {
+      "heading": "CITY OF FREMANTLE",
+      "summary": "LOCAL PLANNING POLICY 2.18"
+    },
+    {
+      "heading": "NEW RESIDENTIAL DEVELOPMENTS IN THE CITY CENTRE ZONE - NOISE FROM",
+      "summary": "AUTHORITY: LOCAL PLANNING SCHEME NO.4"
+    },
+    {
+      "heading": "AN EXISTING SOURCE",
+      "summary": "AUTHORITY: LOCAL PLANNING SCHEME NO.4"
+    },
+    {
+      "heading": "STATUTORY BACKGROUND",
+      "summary": "This Local Planning Policy is prepared under the provisions of Part 2 of the City of"
+    },
+    {
+      "heading": "APPLICATION",
+      "summary": "The provisions of this policy apply to all new residential development in the City Centre"
+    },
+    {
+      "heading": "PURPOSE",
+      "summary": "The objective of this policy is to address the issue of noise when considering new residential"
+    }
+  ],
+  "cross_references": [
+    "Local Planning Policy 2.18 - New Residential Developments in the City Centre Zone - Noise",
+    "Local Planning Policy 2.3 - Fremantle Port Buffer Area Development Guidelines - Area",
+    "Local Planning Scheme No. 4"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:33Z"
+}

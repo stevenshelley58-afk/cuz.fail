@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/draft-state-planning-policy-41-industrial-interface",
+  "fetched_at": "2026-06-09T22:34:55Z",
+  "http_status": 200,
+  "content_hash": "7beac4d24fbf2cc4f836fcae94b2b2435e7cbe446175e006271f916ccdbdc4f3",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2022-07/SPP_4.1-Industrial-Interface-July-2022_0.pdf",
+  "used_playwright": false,
+  "bytes": 729821
+}

@@ -1,0 +1,438 @@
+5
+.
+1
+C
+D
+.
+O
+N
+Y
+C
+I
+L
+O
+P
+G
+N
+I
+N
+N
+A
+L
+P
+E
+L
+C
+Y
+C
+I
+B
+CONTENTS
+Background Notes 3
+1. Introduction 5
+2. Policy Objectives 5
+3. Policy Measures 5
+3.1 Bicycles and the Road Network 5
+3.2 Cycling Facilities in New Subdivisions 6
+3.3 Bicycles in Local Area Traffic Management Schemes 6
+3.4 Bicycle Parking and End-of-Trip Facilities 6
+3.5 Dual-Mode Transport 8
+3.6 Consideration of Cycling in Planning Studies 8
+WESTERN AUSTRALIAN
+PLANNING COMMISSION
+
+Western Australian Planning Commission - Policy DC 1.5 - July 1998
+5
+.
+1
+C
+D
+.
+O
+N
+Y
+C
+I
+L
+O
+P
+G
+N
+I
+N
+N
+A
+L
+P
+E
+L
+C
+Y
+C
+I
+B
+BACKGROUND NOTES
+1. This policy describes the planning considerations which should be taken into
+account in order to improve the safety and convenience of cycling.
+2. One third of Western Australia's population, or approximately 500,000 people, own
+or use a bicycle. Of the cycling population, 55 percent (or 255,000 people) are
+"regular cyclists", riding at least once per week, about 192,000 trips being made
+each day by bicycle representing 6.2 percent of all vehicle trips. Bicycle trips have
+doubled in the past 10 years and as many trips are now made by bicycle as by bus
+and ferry combined. Significantly, surveys have shown that an additional 8 percent
+of car drivers or passengers would consider changing to the bicycle for travel if
+there were more cycling facilities.
+3. The resurgence of cycling for transport and as a recreational activity over the past
+two decades has resulted in the preparation of a number of advisory documents
+related to bicycle planning. In October 1974 a committee was established to
+examine the needs of cyclists in Perth. Its findings were released in August 1975. In
+1980 further examination of the need for provision of cyclist facilities was
+undertaken, culminating in a report with policy recommendations. More recently, in
+1983, a study team was formed to develop a Bikeplan for the Perth Metropolitan
+Region, which was published in 1985.
+4. State and local government agencies have been encouraged to promote cycling as a
+mode of transport because of:
+• recognition of the adverse environmental effects of motor vehicles,
+particularly the private car;
+• moves towards the development of low-energy lifestyles, initially as a
+response to the “energy crisis” of the mid-1970s;
+• the need to make more efficient use of transport infrastructure;
+• increasing awareness that cycling reduces congestion and the need for car
+parks.
+5. In early 1987 Bikewest (now a unit of the Department of Transport) was
+established, primarily to coordinate bicycle matters between State government
+departments and local governments throughout the State. This policy is designed to
+supplement the work of Bikewest, and statements such as Bike Ahead (1996) and
+the Perth Bicycle Network Plan (1996) by setting out the role of planning
+authorities in providing for cyclists.
+6. It is recognised that the safety and attractiveness of cycling can be affected by
+decisions at all levels of the planning process. At its meeting of 27 June 1987, the
+State Planning Commission made the following commitments to bicycle planning:
+• to consider the needs of cyclists in all strategic and statutory planning
+activities in cooperation with Bikewest;
+• to ensure the needs of cyclists are accommodated in planning briefs and in the
+development of parks and reserves;
+• to encourage provision of end-of-trip facilities for cyclists (such as bicycle
+parking and shower facilities) in all new buildings at employment centres;
+3
+
+• to plan for bicycle routes and paths in new subdivisions and ensure developers
+provide these facilities; and
+• to encourage the provision of bicycle routes along riverfront areas of Perth, in
+line with Government policy.
+The Commission reconsidered and updated the policy in July 1998.
+7. This policy should be read in conjunction with the following:
+Policy No. DC 1.4 - Functional Road Classification for Planning
+Policy No. DC 2.2 - Residential Subdivision
+Policy No. DC 2.6 - Residential Road Planning.
+4 Western Australian Planning Commission - Policy DC 1.5 - July 1998
+
+Western Australian Planning Commission - Policy DC 1.5 - July 1998
+5
+.
+1
+C
+D
+.
+O
+N
+Y
+C
+I
+L
+O
+P
+G
+N
+I
+N
+N
+A
+L
+P
+E
+L
+C
+Y
+C
+I
+B
+1. INTRODUCTION of the facility to the existing bicycle route
+network.
+1.1 The aim of bicycle planning is to provide for
+1.6 Detailed engineering design standards for on-
+the safe and convenient movement of cyclists.
+road and off-road bicycle facilities should be
+It seeks to increase mobility for people
+in accordance with the AUSTROADS Guide
+without access to a car, and to encourage a
+to Traffic Engineering Practice Pt 14,
+transfer of journeys from private cars to
+Bicycles, 1993.
+bicycles.
+1.2 This document sets out policy objectives and
+measures to achieve greater consideration of 2. POLICY OBJECTIVES
+cyclists' needs and to promote an
+understanding of cyclists' requirements by o To make cycling safer and more
+planning consultants, developers, and State
+convenient through the provision of end-
+and local government. The bicycle planning
+of-trip facilities and by the provision of
+principles contained in this policy should be
+better cycle route networks.
+observed by those with responsibility for
+planning and designing our cities and suburbs. o To ensure that the needs of cyclists, are
+However, it is acknowledged that additional recognised and provided for by planning
+imposts on the subdivider may have a and road construction authorities.
+detrimental effect on housing affordability,
+consequently the need for, and payment o To encourage more work, school and
+towards, facilities for cyclists should be shopping trips to be made by bicycle
+assessed in this context. through the provision of more (and
+better) cycling facilities.
+1.3 Considerable variation exists in the levels of
+knowledge, competence and skills between o To increase the general awareness of the
+various groups of cyclists, ranging from the benefits of cycling.
+competent, experienced commuter cyclist to
+o To ensure adequate consideration is given
+the inexperienced (novice) recreational or
+to the provision of cycling facilities in child cyclist. Consequently there is a need to
+planning studies and in the
+provide a range of facilities to cater for the
+implementation of statutory planning
+diverse needs of these different groups.
+controls.
+Generally, experienced and competent cyclists
+prefer to use the existing road network, while
+young, inexperienced and recreational cyclists
+will choose segregated facilities if available, 3. POLICY MEASURES
+or streets with little motor vehicle traffic.
+1.4 Present bicycle planning practice is toward the 3.1 Bicycles and the Road Network
+integration of cyclists onto the road network
+by eliminating hazards and problems often 3.1.1 In view of cycling being a predominantly on-
+encountered in on-road cycling. This practice road activity, road planning authorities should
+is based on the growing awareness that give adequate consideration to cyclists’needs
+segregated dual-use paths are rarely either and ensure that cycling is safely integrated
+cost-effective or even successful in with other road users. Consideration and
+substantially reducing bicycle/motor vehicle implementation of the AUSTROADS bicycle
+accidents. However there is still a need to facility engineering guidelines by road
+provide segregated facilities for young and planning and construction authorities will
+inexperienced cyclists, near schools and other assist in providing safer on-road conditions for
+community facilities. cyclists.
+1.5 As about 75-80 percent of bicycle trips are for 3.1.2 Acycling network should be developed for
+transport purposes (i.e. destination oriented), urban areas by:
+developers will be encouraged to provide safe
+• improving the existing road network and
+and convenient cycling facilities within a new
+new subdivisional roads to meet the
+subdivision or development. There will be
+needs of cyclists more effectively.
+instances where other agencies such as State
+(Consideration needs to be given to road
+and local governments will be responsible for
+pavements and traffic lane widths,
+the sharing of costs associated with connection
+5
+
+surface conditions, on-road parking, • Within a new subdivision (particularly in
+intersection layout, localised “squeeze residential areas) the emphasis should be
+points”, and reduced operating speeds); on on-road facilities linked by
+segregated paths where necessary to
+• providing off-road facilities of adequate
+ensure continuity of the cycle route
+standard where there is a strong demand
+system.
+(such as near schools) and where the
+opportunity exists; • Segregated dual-use paths or cyclepaths
+may be required along one side of
+• providing information to enable cyclists
+district distributor roads, providing
+to make the most effective use of the
+access to bus stops, grade separated
+network;
+crossings, or regional community
+facilities. Use could be made of the
+• ensuring that the needs of cyclists are
+carriageway of subdivisional roads
+adequately catered for in the planning,
+which run parallel with the district
+design and construction of extensions to
+distributor.
+the existing road network.
+• Segregated dual-use paths or cyclepaths
+3.2 Cycling Facilities in New
+may be required along one side of those
+Subdivisions local distributor roads without frontage
+access, where strong demand exists such
+3.2.1 Account should be taken of the Residential as near schools and shops where
+Road Planning Policy (DC 2.6) to ensure that inexperienced/novice cyclists may be
+most roads within the residential cell or expected. These paths should form part
+precinct are safe for cyclists and pedestrians. of an overall cycle route network.
+3.2.2 In the planning of a new subdivision, two • Subdivision design should provide for
+fundamental issues relevant to cycling need to bicycle access along river and coastal
+be considered: foreshores, and across artificial obstacles
+such as major roads, and other transport
+• the provision of safe cycle routes to and
+facilities.
+through the subdivision (i.e. accessibility
+to facilities outside the subdivision such • Dual-use paths or cyclepaths (utilising
+as regional recreation centres, suburban well-designed public access ways or
+shopping centres, public transport other reservations) between culs-de-sac
+stations, employment centres); and heads, and between long sections of
+parallel roads, provide an important
+• provision of safe cycling conditions
+element of the network.
+within the new subdivision itself (i.e.
+local area bicycle movements to schools, 3.2.5 Acycle route network plan for a residential
+shops, local parks and other community precinct should be based on the principles set
+facilities). out in Figure 1, which depicts the ideal
+provision of on-road and off-road facilities in
+3.2.3 Cyclists should be encouraged to use routes
+a new subdivision.
+other than busy distributor roads by the
+adequate provision of suitable alternative
+3.3 Bicycles in Local Area Traffic
+routes which are both direct and continuous as
+Management Schemes
+they pass from one residential cell to another.
+As district and local distributors will often be
+Local governments undertaking local area
+used by adult and secondary school age
+traffic management schemes should give
+cyclists regardless of the provision of dual-use
+consideration to cycling and ensure any
+paths, they should be designed to
+devices installed enhance cycling access and
+accommodate cyclists.
+safety, and have no detrimental impact on
+3.2.4 The following matters should be taken into cycling opportunities.
+account in subdivision design:
+3.4 Bicycle Parking and End-of-Trip
+• Where regional or local bike plans have
+Facilities
+been prepared, the proposals of the bike
+plans should be incorporated into the The provision of appropriate bicycle facilities
+design. through the imposition of development
+conditions dealing with such matters as the
+6 Western Australian Planning Commission - Policy DC 1.5 - July 1998
+
+Western Australian Planning Commission - Policy DC 1.5 - July 1998
+5
+.
+1
+C
+D
+.
+O
+N
+Y
+C
+I
+L
+O
+P
+G
+N
+I
+N
+N
+A
+L
+P
+E
+L
+C
+Y
+C
+I
+B
+type, number and location of bicycle parking • health centres and hospitals
+facilities, and the installation of showers and
+• libraries and other public buildings
+change rooms is supported for locations such
+as:
+• rail and bus stations
+• shopping centres
+• major places of employment
+• factories
+• parks
+• offices
+• beaches and recreation venues
+• educational establishments
+• tourist attractions.
+• sport, leisure and entertainment centres
+On local distributor roads
+segregated dual-use paths Link paths to connect safe
+are warranted where strong local streets to cyclepath
+demand exists such as near network.
+schools, and where there are
+no driveway crossovers.
+Wide kerbside lanes or bike
+Local access roads should
+lanes are the minimum
+form part of the cycle route
+treatment on district
+network.
+distributors.
+These roads will be used by
+cyclists regardless
+of the dual-use path provision.
+Trunk bike routes to
+employment centres, regional
+On local access roads shops, railway stations and
+operating speeds neighbouring residential areas
+should be kept below 40kmh, connect with recreational bike
+consistent with their routes.
+environmental function.
+Subdivision roads running
+parallel to district
+distributors can form part of
+the cycle route network.
+District Distributor Open Space
+Local Distributor Underpass
+Access Roads At Grade Crossing (Median Refuge)
+Trunk Cycle Route Bicycle Parking
+Intra - District and Feeder
+Schools
+Cycle Routes
+Figure 1. Bicycle Planning and Subdivisions Design Principles
+7
+
+3.5 Dual-Mode Transport
+Transperth/Westrail and other appropriate
+agencies will be encouraged to facilitate dual-
+mode transport (or the use of bicycles to feed
+public transport systems) and develop
+improved cycling facilities at (and to) railway,
+bus stations, in particular by:
+• installation of secure bicycle parking
+facilities at rail, bus stations (lockers and
+hitching rails);
+• improvements in access to stations,
+including railway crossings, with better
+links to the local cycle route network
+and residential areas;
+• acceptance by authorities to the carriage
+of bicycles on public transport;
+• modifications to railway carriages and
+buses to enable bicycles to be carried.
+3.6 Consideration of Cycling in
+Planning Studies
+3.6.1 Cycling should be included as a consideration
+in structure plans for future growth areas.
+3.6.2 Planning authorities can further the provision
+of safe and convenient cycling facilities by:
+• the inclusion of cycling as a matter to be
+considered in the brief for a study;
+• reporting on how measures to encourage
+and provide for (safer) cycling can be
+implemented in a subdivision design;
+• examination of the impact of a proposed
+development upon any existing or
+proposed cycling route;
+• incorporation of significant proposals
+and recommendations of a bike plan into
+a local area or regional planning study;
+• discussion of the role of cycling as an
+integral component of a tourism
+development.
+8 Western Australian Planning Commission - Policy DC 1.5 - July 1998

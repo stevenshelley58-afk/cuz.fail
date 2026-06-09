@@ -1,0 +1,321 @@
+LEGEND
+REGION SCHEME RESERVES (MRS)
+Civic and Cultural Public Purposes
+Other Regional Roads CP Public Purposes - Car Park
+CG Public Purposes - Commonwealth Government
+Parks and Recreation
+HS Public Purposes - High School
+R Parks and Recreation - restricted
+H Public Purposes - Hospital
+Port Installations
+P Public Purposes - Prison
+Primary Regional Roads SU Public Purposes - Special Uses
+Railways SEC Public Purposes - State Energy Commission
+TS Public Purposes - Technical School
+State Forests
+U Public Purposes - University
+Waterways
+# # WSD Public Purposes - Water Authority of WA
+# # # Water Catchments
+# #
+# # #
+LOCAL SCHEME RESERVES
+District Distributor Road Public Open Space
+Local Distributor Road E Public Purposes : Education
+Local Road IS Public Purposes : Infrastructure Services
+LOCAL SCHEME ZONES
+Centre Residential
+KEITH ROAD
+Light Industry Service Commercial
+Mixed Use Special Use
+Private Clubs, Institutions and Place of Worship Urban Development
+HS
+OTHER CATEGORIES
+E
+C
+A
+L
+P
+G R20
+N
+WIL
+DI
+S
+Scheme Area Boundary
+W
+SEC M E
+CUREDALE Local Government Boundary
+H
+R
+A
+2
+R
+0
+T U
+R
+N G
+WAY
+C
+2
+A
+0
+MM
+S AL M O N D
+A
+W
+V AY EN
+IS
+U
+R
+E
+20 R O W LE Y P LA C
+EWING
+A V E N U E C A R P E N T R E R 20
+MORANC
+R
+L
+IS
+O
+E L L O E
+S
+W D R
+E
+I V E R20
+R20 FORS
+TR
+T
+U O
+E
+C
+R
+K A R E L
+A V
+E N
+U E
+R
+A
+R SU
+2
+1
+1
+0
+1
+R
+S R
+A
+p e
+d
+C
+e s
+d
+o
+c t
+i
+r
+d
+t
+i
+i
+i a
+o
+c
+e
+l t
+n
+s
+e U
+a
+d s
+l
+e
+U
+U
+s
+s A
+e
+e re
+s
+s a
+E F G
+RICHES WAY LARMER
+PLACE MCCULLOCKRISE N IR TS
+C
+R
+T N E C
+E S
+No Zone
+R20 R20
+MOSSMAN
+R20
+GLEDDON ROAD
+R20 BROCKMAN AVENUE
+MINCHIN
+PLACE
+AHERNEC
+D
+O
+OURT
+R20
+R20 S
+OLLY C
+OURT
+DRIVER
+WAY
+R20
+D
+E B R IE
+S
+P
+W L
+NER
+W E
+C
+A
+AY R20
+Y
+R C 2 A 0 RM D O
+TU
+XEN
+PLA C E C E
+R20
+G O D DA R D W R20 C A M M R20
+SELLARS
+A W
+Y M A Q UI
+R E
+W
+A
+EF R OY ROAD
+R20
+O C
+Y
+R20 P L
+A AY L
+TRU
+O
+U R
+T
+MCW A V
+E
+PARRYAVENUE H A R C
+E C
+AL H P A E N U E
+O C
+KETT WAY
+R20 R20
+R
+PARRY
+AVENUE
+R40 R20
+C4
+HERTFORD
+CLOSE
+WIRTH CLOSE
+R20 DEWIS PLACE
+R20 R20
+E Y
+CI R
+CLE
+R20 R20 T E AGUECLOSE
+ROCHE
+R20
+COURT
+A
+L R RYAN COURT CAVE
+D R20
+RODGERS PLACE DOBIE STREET
+PLACE NICHOLLS
+CRESCENT COTTONCRESCENT
+TULLY COURT
+R20
+LEWIS CLOSE
+R20 R20 FINCH PLACE
+E
+MOSEY COURT E R20
+V
+E R20
+E A T L E Y
+D
+RI
+H W A Y R20 O M P S O N
+W A
+Y
+R20 W A Y CALLAWAY STREET
+R20 BOLT PLACE W H M A R S B E R T H O H T U R L E Y R20
+U H
+R
+R20
+R20
+MORE
+CRE
+W
+S
+H
+C
+IT
+E
+T
+N
+A
+T
+KE
+B
+R
+A
+C
+C
+R
+K
+ES C
+C
+E
+R
+N
+LO
+T
+2
+S
+0
+E
+DARLEY CIR CLE
+VAGG
+R 20
+STREET
+P E A
+R S
+O N C R E S C E N T R
+W IL
+2
+D
+0
+CLO
+T N C E R C E S
+S
+R
+E
+EADPLAC
+E
+R20
+R20
+VANCE P
+R
+LA
+2
+C
+0
+E R20
+VERSION No 1
+City of Melville
+MAP OVERVIEW
+This electronic planning map has been prepared and made If you have questions about the publication or certification of a
+Authorised: T.Servaas
+available for public inspection by the Western Australian map, or suspect any omissions or errors in this electronic planning Local Planning Scheme No. 6
+Planning Commission pursuant to section 267B of the map, please advise the Department of Planning, Lands and City of Melville 1 2
+P l a n n in g a n d D e v e l o p m e n t A c t 2 0 0 5 . Whilst all care has been Heritage at spatialdata@dplh.wa.gov.au N Plot Date: 03 April 2018
+taken to accurately portray the original map, spatial data can be 3 4 ( District Scheme )
+subject to modification over time. If you wish to use a copy of Produced by Data Analytics, Local Planning Scheme No. 6 G.Gazette: Friday, 27 May 2016
+0 125 250 375 500
+this map in any proceedings, a copy certified by the Department of Planning, Lands and Heritage.
+Commission (or its delegates) under section 267C is evidence Base Information Supplied by the Western Australian 5 6 8
+of the contents of the electronic map or a part of the map. Land Information Authority, SLIP 1180-2020-1 ( District Scheme ) metres Local Planning Scheme Map No. 7 of 8
+MAP: Bull Creek Locaity

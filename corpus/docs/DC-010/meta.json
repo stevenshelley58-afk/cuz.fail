@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/development-control-policy-24-school-sites",
+  "fetched_at": "2026-06-09T22:35:09Z",
+  "http_status": 200,
+  "content_hash": "30f42fd7846cba721e56338393d8b0226f403741bd348edaa4ae3c8b88442d91",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/DCP_2-4_school_sites.pdf",
+  "used_playwright": false,
+  "bytes": 65998
+}

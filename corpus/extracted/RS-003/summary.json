@@ -1,0 +1,23 @@
+{
+  "id": "RS-003",
+  "title": "Greater Bunbury Region Scheme",
+  "instrument_type": "region_scheme",
+  "issuing_authority": "Western Australian Planning Commission",
+  "version_date": "9 October 2025",
+  "pages": 0,
+  "key_provisions": [
+    {
+      "heading": "9 October 2025",
+      "summary": "Zones, reservations and special control areas"
+    },
+    {
+      "heading": "140 William Street, PERTH WA 6000",
+      "summary": "Locked Bag 2506, Perth WA 6001"
+    }
+  ],
+  "cross_references": [
+    "Greater Bunbury Region Scheme"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:37:13Z"
+}

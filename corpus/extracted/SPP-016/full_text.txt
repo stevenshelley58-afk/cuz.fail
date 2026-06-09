@@ -1,0 +1,794 @@
+THIS IS NOT AN OFFICIAL GAZETTED COPY, GAZETTED COPIES CAN BE
+OBTAINED FROM STATE LAW PUBLISHER. GAZETTAL DATE: THURSDAY 9 JULY 2015
+state
+planning
+policy
+5.1
+land use planning in the vicinity
+of perth airport
+July 2015
+Prepared under Part Three of the
+Planning and Development Act 2005 by the
+Western Australian Planning Commission
+
+State Planning Policy 5.1 II
+Land use planning in the vicinity of Perth Airport
+Disclaimer
+This document has been published by the
+Department of Planning on behalf of the
+Western Australian Planning Commission.
+Any representation, statement, opinion or
+advice expressed or implied in this publication
+is made in good faith and on the basis that the
+Government, its employees and agents are
+not liable for any damage or loss whatsoever
+which may occur as a result of action taken
+or not taken, as the case may be, in respect
+of any representation, statement, opinion or
+advice referred to herein. Professional advice
+should be obtained before applying the
+information contained in this document to
+particular circumstances.
+© Western Australian Planning Commission
+Published by the
+Western Australian Planning Commission
+Gordon Stephenson House
+140 William Street
+Perth WA 6000
+Locked Bag 2506
+Perth WA 6001
+Published July 2015
+website: www.planning.wa.gov.au
+email: corporate@planning.wa.gov.au
+tel: 08 6551 9000
+fax: 08 6551 9001
+National Relay Service: 13 36 77
+infoline: 1800 626 477
+This document is available in alternative
+formats on application to Communication
+Services.
+
+State Planning Policy 5.1 III
+Land use planning in the vicinity of Perth Airport
+1 CITATION 1
+2 INTRODUCTION AND BACKGROUND 1
+2.1 Importance of Perth Airport 1
+2.2 Aircraft noise measurement 1
+2.3 Australian Noise Exposure Forecast 1
+2.4 Policy measures 1
+3 APPLICATION OF THE POLICY 1
+4 POLICY OBJECTIVES 1
+5 POLICY MEASURES 2
+5.1 Interpretation 2
+5.2 Areas below 20 ANEF 2
+5.3 Areas between 20 and 25 ANEF 2
+5.3.1 Zoning 2
+5.3.2 Residential density 2
+5.3.3 Subdivision and strata
+subdivision 3
+5.3.4 Development 3
+5.3.5 Noise insulation 3
+5.3.6 Notification on title 3
+5.3.7 Advice 3
+5.4 Areas above 25 ANEF 4
+5.4.1 Zoning 4
+5.4.2 Residential density 4
+5.4.3 Subdivision and strata
+subdivision 4
+5.4.4 Development 5
+5.4.5 Noise insulation 5
+5.4.6 Notification on title 6
+5.4.7 Advice 6
+6 IMPLEMENTATION 6
+6.1 Zoning and density coding 6
+6.2 Development control 6
+
+State Planning Policy 5.1 IV
+Land use planning in the vicinity of Perth Airport
+6.3 Subdivision control 7
+6.4 Referral arrangements 7
+6.5 Notification and advice 7
+APPENDIX 1 – Building site acceptability 8
+APPENDIX 2 – Indoor design sound levels 9
+APPENDIX 3 – Notification about aircraft noise to
+beplaced on property title 11
+GLOSSARY OF TERMS 12
+REFERENCES 13
+
+State Planning Policy 5.1 1
+Land use planning in the vicinity of Perth Airport
+1 CITATION 2.3 Australian Noise Exposure Forecast
+This policy is predicated upon the ANEF prepared by
+This is a State planning policy prepared under section
+Perth Airport Pty Ltd in consultation with Airservices
+26 of the Planning and Development Act 2005. It may
+Australia, which is incorporated by reference into this
+be cited as State Planning Policy 5.1: Land Use Planning
+policy. A copy of the current ANEF can be found on
+in the Vicinity of Perth Airport. For the purpose of this
+the Perth Airport website and is a requirement of the
+document, it will be referred to as ‘the policy’.
+Airports Act 1996. The noise modelling that determines
+the ANEF contours may be reviewed every five years
+in association with reviews of the master plan for
+2 INTRODUCTION AND
+Perth Airport. The updated ANEF resulting from such
+BACKGROUND reviews will be automatically included in this policy
+by reference. Updates to the ANEF are subject to a
+public consultation process by the Perth Airport Pty
+2.1 Importance of Perth Airport Ltd. There will be no additional public consultation
+or separate amendment process to this Policy as the
+Perth Airport is fundamental to the continued ANEF is updated from time to time, as amendments
+development of the Perth metropolitan region and the will occur automatically and concurrently. The effect
+State as a whole. Investment in airport infrastructure of amendments to the ANEF may include alterations
+and the economic opportunities associated with to the areas of land to which the development control
+the operation of the airport are now recognised provisions of this Policy apply.
+as important and perhaps critical elements in the
+prosperity of a city such as Perth.
+2.4 Policy measures
+Accordingly, the airport and its ongoing development
+need to be recognised in the planning of the region, Policy measures have been based on Table 2.1 from
+and its operation protected, as far as practicable, AS2021 – Building Site Acceptability Based on ANEF Zones.
+from development that could potentially prejudice its However, the policy measures included in this policy
+performance. One of the main issues to be addressed provide more definitive guidance on those matters
+in the planning of areas in the vicinity of the airport is identified as discretionary in AS2021. It should be
+aircraft noise, which is the focus of this policy. noted that AS2021 is purely advisory, and has no direct
+statutory application.
+2.2 Aircraft noise measurement
+3 APPLICATION OF THE
+The system of aircraft noise measurement used
+in Australia for the purposes of evaluating land POLICY
+use compatibility is known as the Australian Noise
+Exposure Forecast (ANEF) system. This system is
+This policy applies to land in the vicinity of Perth
+employed to produce the following noise measures,
+Airport, which is, or may be in the future affected by
+which are usually illustrated in the form of noise
+aircraft noise. Policy measures outlined in Section 5
+exposure contours.
+apply to the land within the 20 ANEF noise contour.
+• ANEF – being a noise exposure forecast for a
+particular time in the future or based on particular
+circumstances such as ultimate capacity; and 4 POLICY OBJECTIVES
+• ANEI – being a noise exposure index based on data
+for a previous year where the exact numbers and The objectives of this policy are to:
+types of aircraft that used the airport are known.
+• protect Perth Airport from unreasonable
+encroachment by incompatible (noise-sensitive)
+development, to provide for its ongoing
+development and operation; and
+• minimise the impact of airport operations on
+existing and future communities with reference to
+aircraft noise.
+
+State Planning Policy 5.1 2
+Land use planning in the vicinity of Perth Airport
+5 POLICY MEASURES however, noise nuisance may still be experienced in
+areas below the 20 ANEF exposure level, particularly in
+the case of newly exposed communities.
+5.1 Interpretation
+5.3 Areas between 20 ANEF
+ANEF level
+and 25 ANEF
+Refers to the level of noise exposure forecast under
+the ANEF. Noise exposure contours are illustrated at
+5.3.1 Zoning
+intervals of five ANEF units, beginning at 20 ANEF and
+ranging up to 40 ANEF, with 40 being closest to the (1) Zoning and associated development control
+airport. provisions should take into consideration the
+level of noise exposure forecast for the area and
+Noise exposure zone
+the building site acceptability for the particular
+Refers to the areas within a specified range of noise noise exposure zone as identified in Appendix
+exposure levels as illustrated on the current Airservices 1. This includes structure planning by which
+Australia endorsed ANEF. Noise exposure zones development is controlled.
+referred to in this policy include:
+(2) Land uses that provide for development of
+• areas below 20 ANEF; building types identified as ‘Conditionally
+Acceptable’ with reference to the building site
+• areas between 20 ANEF and 25 ANEF; and
+acceptability table in Appendix 1, should be subject
+• areas above 25 ANEF.
+to discretionary control under local planning
+In the case of sites that are dissected by one or more of schemes. Such development includes:
+the nominated noise exposure contours, the following
+• dwellings and caravan parks
+interpretation shall apply:
+• educational establishments
+(i) where the site has an area less than 1,000m2 the
+• child-care premises
+noise exposure zone for the whole site shall be
+deemed to be the level to which the majority of • hospitals and nursing homes
+the site is subject; and • places of worship
+(ii) where the site has an area greater than 1,000m2 • cinemas, theatres and exhibition centres.
+the noise exposure zone shall be determined
+(3) It is not intended that this policy would affect the
+separately for the individual parts of the site into
+existing use or zoning of land.
+which it is divided by the relevant noise exposure
+contour(s).
+5.3.2 Residential density
+Building site acceptability
+Where land is zoned for residential purposes or
+Refers to the acceptability of sites for particular
+to permit residential development, the maximum
+building types within various ANEF zones. Appendix 1
+dwelling density should generally be limited to R20,
+includes a classification of building site acceptability,
+except where:
+which has been adapted from AS2021. Building types
+are classified as ‘Acceptable’, ‘Conditionally Acceptable’ • land is identified as appropriate for more intensive
+or ‘Unacceptable’ depending on the sensitivity of development through strategic planning
+associated use or occupation of the building and the instruments such as a regional or sub-regional
+level of noise exposure forecast for the site. structure plan;
+• a higher density coding is desirable to facilitate
+5.2 Areas below 20 ANEF redevelopment or infill development of an existing
+residential area; and
+There is no restriction on zoning or development
+• it can be demonstrated that the public benefits
+within this noise exposure zone, which is identified as
+of higher density coding outweigh the negative
+‘Acceptable’ for all building types in the building site
+impacts of exposing additional residents to aircraft
+acceptability table in Appendix 1. According to AS2021
+noise.
+
+State Planning Policy 5.1 3
+Land use planning in the vicinity of Perth Airport
+5.3.3 Subdivision and strata subdivision • background noise level to which the site is
+subject;
+(1) Subdivision and/or strata subdivision may be
+approved, provided it is consistent with the zoning • times of day or night when overflights are likely
+and density coding of the land. to occur;
+(2) Where no density coding is prescribed for • frequency of overflights by the various classes
+‘Residential’ zoned land, the maximum density of aircraft; and
+should generally be limited to R20, except as • occupational characteristics of the proposed
+provided for in relation to the application of development.
+residential density controls under clause 5.3.2.
+(3) Closure of windows and other openings to
+habitable rooms can significantly reduce the
+5.3.4 Development
+intrusion of aircraft noise. This will normally require
+(1) Development may be approved provided it is forced ventilation, and may also necessitate some
+consistent with the zoning and density coding of form of active cooling, such as refrigerative air
+the land under the local planning scheme, local conditioning. The operational management of
+development plan or local structure plan. buildings however, is outside the ambit of this
+policy, and will therefore be subject only to advice.
+(2) In the case of development that is subject to
+(Refer clause 5.3.7).
+discretionary control under a local planning
+scheme (as provided for under clause 5.3.1), the
+5.3.6 Notification on title
+impact of aircraft noise on the users or occupiers
+of the development should be taken into A ‘notice on title’ advising of the potential for noise
+consideration in the determination of applications, nuisance is to be required as a condition of any
+and where relevant, in the imposition of conditions subdivision or planning approval within this noise
+of approval. exposure zone except where the proposed building
+(3) Where no density coding is prescribed for type is identified as ‘Acceptable’ in the building site
+‘Residential’ zoned land, the maximum density acceptability table in Appendix 1. Standard wording to
+should generally be limited to R20, except as be used in notices on title is included in Appendix 3.
+provided for in relation to the application of
+residential density controls under clause 5.3.2 5.3.7 Advice
+(1) Information should be given to prospective
+5.3.5 Noise insulation
+purchasers of noise-sensitive premises about the
+(1) Noise insulation is not mandatory for residential potential for aircraft noise nuisance. Such advice
+development within this noise exposure zone. should be provided by local government in
+Some areas however, may experience peak aircraft conjunction with the issue of zoning certificates
+noise levels in excess of the Indoor Design Sound and/or property inquiries.
+Levels specified in AS2021, and noise insulation is
+(2) Advice should be provided in association
+recommended in such cases. Guidance on noise
+with applications for planning approval and
+insulation measures are contained within the
+building permits, of the potential for noise
+Western Australian Planning Commission report,
+nuisance and any noise insulation requirements
+Aircraft Noise Insulation for Residential Development
+or recommendations in accordance with the
+in the Vicinity of Perth Airport, 2004.
+provisions of clause 5.3.5. Developers should also
+(2) Noise insulation requirements for development be made aware of the benefits of window closure
+other than residential that is identified as and the associated need for forced ventilation.
+‘Conditionally Acceptable’ in the building site
+(3) Information about aircraft types and the timing
+acceptability table in Appendix 1, should be
+and frequency of aircraft operations is available
+determined in consideration of:
+from Perth Airport Pty Ltd. AS2021 includes tables
+• levels of aircraft noise likely to be experienced of noise levels for selected aircraft types and
+at the site; locations, in terms of distance, in specific proximity
+to airport runways.
+• likely noise attenuation from the type of
+construction proposed;
+
+State Planning Policy 5.1 4
+Land use planning in the vicinity of Perth Airport
+5.4 Areas above 25 ANEF ‘Unacceptable’ with reference to the building site
+acceptability table in Appendix 1.
+5.4.1 Zoning (6) In considering the practicability of alternative land
+uses, local government should give particular
+(1) Zoning and associated development control
+emphasis to areas forecast to be affected by noise
+provisions should take into consideration the
+exposure levels above 30 ANEF.
+level of noise exposure forecast for the area and
+(7) It is not intended that this policy would affect the
+the building site acceptability for this particular
+existing use of land.
+noise exposure zone as identified in Appendix
+1. This includes structure planning by which
+development is controlled. 5.4.2 Residential density
+(2) There is a presumption against zoning which may (1) Where alternative (non-residential) zoning of
+permit development involving building types existing ‘Residential’ zoned land is not practicable,
+identified as ‘Unacceptable’ with reference to the the density of development should generally be
+building site acceptability table in Appendix 1. This limited to R12.5. Possible exceptions are where:
+includes particularly residential zoning where the
+• a higher density is necessary to facilitate
+predominant type of development is likely to be
+redevelopment or infill development of an existing
+housing.
+residential area;
+(3) Where land has already been zoned to permit
+• land is identified as appropriate for more intensive
+development defined as ‘Unacceptable’, and
+development through strategic planning
+where in the opinion of local government, it is not
+instruments such as a regional or sub-regional
+practicable to allocate the land for alternative uses,
+structure plan;
+existing zoning may remain.1
+• it can be demonstrated that the public benefits
+(4) Land uses that provide for development of
+of higher density coding outweigh the negative
+building types identified as either ‘Conditionally
+impacts of exposing additional residents to aircraft
+Acceptable’ or ‘Unacceptable’ in the building site
+noise; and
+acceptability table in Appendix 1, should be subject
+• a higher density would facilitate the concurrent
+to discretionary control under local planning
+provision of noise insulation in accordance with the
+schemes. Such development includes:
+indoor design sound levels prescribed in AS2021.
+• dwellings and caravan parks
+(2) In areas subject to noise exposure levels above
+• educational establishments
+30 ANEF, the permissible density of residential
+• child-care premises development should generally not be increased.
+• hospitals and nursing homes
+5.4.3 Subdivision and strata subdivision
+• places of worship
+(1) No further subdivision or strata subdivision is to
+• hotels and motels
+take place where it would result in an increase in
+• residential buildings
+the number of dwellings that may be developed,
+• offices and shops unless it is consistent with the zoning and density
+coding of the land under a local planning scheme.
+• medical centres
+(2) Where no density coding or minimum lot size
+• restaurants.
+is prescribed for ‘Residential’ zoned land, the
+(5) Under no circumstances should ‘Rural’ or other
+maximum density should generally be limited
+non-residential zoned land be rezoned for
+to R12.5, except as provided for in relation to the
+residential development or any other form of
+application of residential density controls under
+development involving building types identified as
+clause 5.4.2.
+1 Australian Standard 2021 recognises that many non-aviation
+factors have to be taken into account in decisions about land use,
+and that where established residential development exists, it is
+generally not appropriate to apply the recommended land use
+compatibility criteria unless the opportunity for re-zoning arises.
+
+State Planning Policy 5.1 5
+Land use planning in the vicinity of Perth Airport
+5.4.4 Development particular building type or activity in AS2021.
+(Refer to Indoor Design Sound Levels for
+(1) No further development is to take place where
+Determination of Aircraft Noise Reduction in
+it would result in an increase in the number of
+Appendix 2).
+people likely to be accommodated, unless it is
+consistent with the zoning and density coding of (4) Deemed-to-comply noise insulation specifications
+the land. for residential development are contained within
+section 6 of the Western Australian Planning
+(2) In the case of development that is subject to
+Commission report, Aircraft Noise Insulation for
+discretionary control under an operative local
+Residential Development in the Vicinity of Perth
+planning scheme (as provided for under clause
+Airport, 2004.
+5.4.1), the impact of aircraft noise on the users
+or occupiers of the development should be (5) Closure of windows and other openings to
+taken into consideration in the determination of habitable rooms which is necessary to achieve
+applications and where relevant, in the imposition the benefits of noise insulation, normally involves
+of conditions of approval. forced ventilation, and may also necessitate some
+form of active cooling, such as refrigerative air
+(3) Where no density coding is prescribed for
+conditioning. The operational management of
+‘Residential’ zoned land, the maximum density
+buildings however, is outside the ambit of this
+should generally be limited to R12.5, except as
+policy and will therefore be subject only to advice.
+provided for in relation to the application of
+(Refer clause 5.4.7).
+residential density controls under clause 5.4.2.
+(6) Heritage listed buildings and pre-existing housing
+5.4.5 Noise insulation within a designated heritage area may also
+be exempted from the requirements for noise
+(1) Noise insulation is required as a condition of
+insulation, as provided for under a local planning
+planning approval, for all development involving
+scheme.2
+building types identified as ‘Unacceptable’
+(7) Minor additions to existing residential
+with reference to the building site acceptability
+development involving no more than two
+table in Appendix 1. This includes in particular,
+habitable rooms and no more than a 25 percent
+all new residential development, educational
+increase in habitable floor space should be
+establishments, hospitals and nursing homes.
+exempted from the requirement for noise
+(2) Noise insulation requirements for development
+insulation.
+involving building types identified as ‘Conditionally
+(8) Where more substantial additions are proposed,
+Acceptable’ in the building site acceptability
+the additional areas should be insulated in
+table in Appendix 1, should be determined in
+accordance with the recommended indoor
+consideration of:
+design sound levels of AS2021 or otherwise
+• levels of aircraft noise likely to be experienced
+as provided for in sub-clause (3) above. Noise
+at the site;
+insulation is not mandatory for the existing areas
+• likely noise attenuation from the type of of the house, but is desirable and may, in some
+construction proposed; circumstances, be appropriate to meet the indoor
+design sound levels prescribed under AS2021 and
+• background noise level to which the site is
+or the variations provided for in sub-clause (3)
+subject;
+above. According to AS2021, the requirement for
+• times of day or night when overflights are likely
+different internal design sound levels for different
+to occur;
+indoor spaces could require the construction of
+• frequency of overflights by the various classes substantial barriers between habitable spaces.
+of aircraft; and Accordingly, consideration should be given to a
+uniform perimeter insulation approach.
+• occupational characteristics of the proposed
+development.
+2 Local planning schemes prepared in accordance with the
+(3) Where practicable, the standard of insulation
+Model Scheme Text (clause 7.5) already provide for variations to
+required should be based on achievement of development requirements where desirable to facilitate the
+indoor design sound levels recommended for the conservation of heritage buildings or preservation of heritage
+values in a designated heritage area.
+
+State Planning Policy 5.1 6
+Land use planning in the vicinity of Perth Airport
+5.4.6 Notification on title 6. IMPLEMENTATION
+A ‘notice on title’ advising of the potential for noise
+nuisance is to be required as a condition of any It is intended that this policy be implemented using a
+subdivision or planning approval, except where the combination of the following measures:
+proposed development is identified as ‘Acceptable’
+• zoning and density coding;
+for the relevant ANEF level in the building site
+• development controls;
+acceptability table in Appendix 1. Standard wording to
+be used on notices on title is included in Appendix 3. • subdivision control;
+• referral arrangements; and
+5.4.7 Advice
+• notification and advice.
+(1) Information should be given to prospective
+purchasers of noise-sensitive premises about the 6.1 Zoning and density coding
+potential for aircraft noise nuisance. Such advice
+should be provided by local government in (1) Local government should have due regard to the
+conjunction with the issue of zoning certificates objectives and policy measures outlined in Section
+and/or property inquiries. 5 when reviewing local planning schemes. This
+relates to all land forecast to be affected by noise
+(2) Advice should be provided, in association
+exposure levels above the 20 ANEF contour.
+with applications for planning approval and
+building permits, of the potential for noise (2) In those areas with potential for further subdivision
+nuisance and any noise insulation requirements or redevelopment, consideration should be given
+or recommendations in accordance with the to ways in which the effects of aircraft noise can
+provisions of clause 5.4.5. Developers should also be reduced. Where practicable, noise-sensitive
+be made aware of the benefits of window closure uses should be prohibited in noise exposure zones
+and the associated need for forced ventilation. for which the relevant building type is classified
+as ‘Unacceptable’ in the building site acceptability
+(3) Information about aircraft types and the timing
+table in Appendix 1.
+and frequency of aircraft operations is available
+from Perth Airport Pty Ltd. AS2021 includes tables
+6.2 Development control
+of noise levels for selected aircraft types and
+locations, in terms of distance, in specific proximity
+(1) Where practicable, local governments should
+to airport runways.
+include special control areas, or other provisions,
+in local planning schemes to provide an additional
+head of power to control development in areas
+within the 20 ANEF contour.
+(2) As well as being defined on local planning scheme
+maps, special control areas should provide for
+supplementary control of development in order to
+address the policy measures detailed in Section 5.
+Relevant provisions should include:
+• requirement for planning approval for all noise-
+sensitive development, including particularly
+single houses in noise-affected areas;
+• discretionary provisions to enable applications
+to be refused where the development would
+be inconsistent with this policy;
+• discretionary provisions to facilitate the
+imposition of conditions to address the
+requirements of this policy with respect to
+noise reduction in buildings, i.e. insulation; and
+
+State Planning Policy 5.1 7
+Land use planning in the vicinity of Perth Airport
+• discretionary provisions to facilitate the • Development involving penetration of the
+registration of notices on title where land is prescribed airspace or other controlled activities
+affected by aircraft noise above 20 ANEF. as prescribed in the Airports (Protection of Airspace)
+Regulations, 1996.
+6.3 Subdivision control • Prescribed airspace is defined under the Airports
+(Protection of Airspace) Regulations, 1996 as the
+(1) The Western Australian Planning Commission is
+airspace above any part of either an Obstacle
+responsible for the control of subdivision under
+Limitation Service (OLS) or Procedures for Air
+the Planning and Development Act, 2005 as well
+Navigation Systems Operations (PAN-OPS) surface.
+as certain classes of strata subdivision under the
+• Height above ground contours have been
+Strata Titles Act, 1985. In exercising its discretion
+prepared by Perth Airport Pty Ltd, to assist local
+in relation to applications for subdivision and
+government in relation to the referral process with
+strata subdivision the Western Australian Planning
+respect to prescribed airspace.
+Commission will have due regard to this policy.
+Land use
+(2) Local government should also have regard to
+this policy in making its recommendations to • Non-structural activities (artificial light, sunlight,
+the Western Australian Planning Commission on emissions of smoke, dust and other particulate
+applications for subdivision and those classes matter, and emissions of steam or other gas)
+of strata subdivision for which the approval of subject to approval under the Airports (Protection of
+the Commission is required or in making its Airspace) Regulations, 1996.
+decision where local government is the delegated
+• Further information concerning referral and
+authority.
+approval requirements under the Commonwealth
+legislation may be obtained from the Federal
+6.4 Referral arrangements Department of Infrastructure and Regional
+Development website.
+Proposals involving any of the following should be
+• Use or development of land in the vicinity of the
+referred by the relevant local government or in the
+airport that are likely to attract significant gathering
+case of subdivision, the Western Australian Planning
+of birds. Information on this issue may be obtained
+Commission, to Perth Airport Pty Ltd for comment and
+from Perth Airport Pty Ltd.
+advice.
+Scheme amendments
+6.5 Notification and advice
+• Increase in density coding above R20 in areas
+between 20 ANEF and 25 ANEF. (1) Advice concerning the potential for noise nuisance
+can most effectively be administered by the
+• Changes of zoning and/or density coding in
+relevant local government via property inquiries,
+areas above the 25 ANEF noise exposure contour,
+zoning certificates and conditions of planning
+which have the potential to enable an increase in
+approval requiring notices on title. A standard
+population density.
+notification has been included in Appendix 3.
+Subdivision
+(2) In the case of proposals involving land subdivision,
+• Subdivision of land for residential purposes, where the Western Australian Planning Commission has
+the lot sizes would enable development at a the principal role in the provision of advice to
+density in excess of that provided for under this applicants and/or the registration of notices on
+policy. title, where required.
+Development (3) Perth Airport Pty Ltd can provide information
+about aircraft noise and the operations of the
+• Development identified as ‘Unacceptable’ in the
+airport and should be contacted for specific
+building site acceptability table in Appendix 1, with
+information concerning these matters.
+the exception of residential development, which
+accords with the density coding applicable under a (4) Local governments may require proponents
+local planning scheme. to ensure that adequate information about
+the potential for noise nuisance is provided to
+prospective property purchases to enable them to
+make a fully informed decision.
+
+State Planning Policy 5.1 8
+Land use planning in the vicinity of Perth Airport
+Appendix 1
+Building site acceptability
+(Adapted from AS2021, Table 2.1: Building Site Acceptability Based on ANEF Zones)
+Forecast noise exposure level (ANEF)
+Building type
+less than 20 ANEF 20 to 25 ANEF
+25 to 30 ANEF 30 to 35 ANEF
+(Note 1) (Note 2)
+House, home unit, flat, Conditionally Unacceptable Unacceptable
+Acceptable
+caravan park Acceptable (Note 4) (Note 5) (Note 4) (Note 5)
+Conditionally Unacceptable Unacceptable
+School, university Acceptable
+Acceptable (Note 4) (Note 5) (Note 4) (Note 5)
+Conditionally Unacceptable Unacceptable
+Hospital, nursing home Acceptable
+Acceptable (Note 4) (Note 5) (Note 4) (Note 5)
+Conditionally Unacceptable
+Hotel, motel, hostel Acceptable Acceptable
+Acceptable (Note 4) (Note 5)
+Conditionally Conditionally Unacceptable
+Public building Acceptable
+Acceptable Acceptable (Note 4) (Note 5)
+Conditionally Conditionally
+Commercial building Acceptable Acceptable
+Acceptable Acceptable
+Conditionally
+Light Industrial Acceptable Acceptable Acceptable
+Acceptable
+Other industrial Acceptable Acceptable Acceptable Acceptable
+Relevant Notes from Table 2.1 of AS2021:
+1. The actual location of the 20 ANEF contour is difficult to define accurately, mainly because of variation in
+aircraft flight paths. Therefore, the procedure of Clause 2.3.2 of AS2021 may be followed for building sites
+outside but near to the 20 ANEF contour.
+2. Within 20 ANEF to 25 ANEF, some people may find that the land is not compatible with residential or
+educational uses. Land use authorities may consider that the incorporation of noise control features in the
+construction of residences or schools is appropriate.
+3. There will be cases where a building of a particular type will contain spaces used for activities which would
+generally be found in a different type of building (e.g. an office in an industrial building). In these cases, Table
+2.1 should be used to determine site acceptability, but internal design noise levels within the specific spaces
+should be determined by Table 3.3 (Appendix 2).
+4. This Standard does not recommend development in unacceptable areas. However, where the relevant
+planning authority determines that any development may be necessary within existing built-up areas
+designated as unacceptable, it is recommended that such development should achieve the required ANR
+determined according to Clause 3.2 of AS2021. For residences, schools, etc., the effect of aircraft noise on
+outdoor areas associated with the buildings should be considered.
+5. In no case should new development take place in greenfield sites deemed unacceptable because such
+development may impact airport operations.
+
+State Planning Policy 5.1 9
+Land use planning in the vicinity of Perth Airport
+Appendix 2
+Indoor design sound levels
+(Excerpt from AS2021: Table 3.3)
+Table 3.3 Indoor Design Sound Levels* for Determination of Aircraft Noise Reduction
+lndoor design sound
+Building type and activity
+level*, dB(A)
+Houses, home units, flats, caravan parks
+Sleeping areas, dedicated lounges 50
+Other habitable spaces 55
+Bathrooms, toilets, laundries 60
+Hotels, motels, hostels
+Relaxing, sleeping 55
+Social activities 70
+Service activities 75
+Schools, universities
+Libraries, study areas 50
+Teaching areas, assembly areas (see Note 5) 55
+Workshops, gymnasia 75
+Hospitals, nursing homes
+Wards, theatres, treatment and consulting rooms 50
+Laboratories 65
+Service areas 75
+Public buildings
+Churches, religious activities 50
+Theatres, cinemas, recording studios (see Note 4) 40
+Court houses, libraries, galleries 50
+Commercial buildings, offices and shops
+Private offices, conference rooms 55
+Drafting, open offices 65
+Typing, data processing 70
+Shops, supermarkets, showrooms 75
+Industrial
+Inspection, analysis, precision work 75
+Light machinery, assembly, bench work 80
+Notes from Table 3.3 of AS2021:
+* These indoor design sound levels are not intended to be used for measurement of adequacy of construction.
+For measurement of the adequacy of construction against aircraft noise intrusion see Appendix D of AS2021.
+1 The indoor design sound levels in Column 2 are hypothesized values based on Australian experience. A
+design sound level is the maximum level (dB(A)) from an aircraft flyover which, when heard inside a building
+by the average listener, will be judged as not intrusive or annoying by that listener while carrying out the
+specified activity. Owing to the variability of subjective responses to aircraft noise, these figures will not
+provide sufficiently low interior noise levels for occupants who have a particular sensitivity to aircraft noise.
+
+State Planning Policy 5.1 10
+Land use planning in the vicinity of Perth Airport
+2 Some of these levels, because of the short duration of individual aircraft flyovers, exceed some other criteria
+published by Standards Australia for indoor background noise levels (see AS2107).
+3 The indoor design sound levels are intended for the sole purpose of designing adequate construction against
+aircraft noise intrusion and are not intended to be used for assessing the effects of noise. Land use planning
+authorities may have their own internal noise level requirements which may be used in place of the levels
+above.
+4 For opera and concert halls and theatres, and for recording, broadcast and television studios and similar
+buildings where noise intrusion is unacceptable, specialist acoustic advice should always be obtained.
+5 Certain activities in schools may be considered particularly noise sensitive and 50 dB(A) may be a more
+desirable indoor sound level to select for any teaching areas used for such activities. However, the effect of
+other noise sources should be considered.
+6 The provisions of this standard relating to different internal design sound levels for different indoor
+spaces could result in the use of different construction and materials in contiguous spaces, and require
+the construction of substantial barriers between habitable spaces, e.g. heavy self-closing internal doors,
+detracting from the amenity of the building. Therefore consideration should be given to a uniform perimeter
+insulation approach.
+
+State Planning Policy 5.1 11
+Land use planning in the vicinity of Perth Airport
+Appendix 3
+Notification About Aircraft Noise To Be Placed On Property Title
+NOTIFICATION: This property is situated in the vicinity of Perth Airport and is currently affected, or may be
+affected in the future by aircraft noise. Noise exposure levels are likely to increase in the future as
+a result of an increase in aircraft using the airport, changes in aircraft type or other operational
+changes. Further information about aircraft noise is available from the Perth Airport website.
+Information regarding development restrictions and noise insulation requirements for noise-
+affected property is available on request from the relevant local government offices.
+
+State Planning Policy 5.1 12
+Land use planning in the vicinity of Perth Airport
+GLOSSARY OF TERMS
+ANEF
+Australian Noise Exposure Forecast – as endorsed by Airservices Australia and as amended from
+time to time. The ANEF is a cumulative measure of aircraft noise exposure that takes into account the
+following features of aircraft noise:
+• the intensity, duration, tonal content and spectrum of audible frequencies of the noise from
+aircraft take offs, approaches to landing, and reverse thrust after landing;
+• the forecast frequency of aircraft types and movements on the various flight paths; and
+• the average daily distribution of aircraft arrivals and departures in both daytime and night time.
+(Daytime is defined as being between the hours of 7.00am and 7.00pm).
+ANEI
+Australian Noise Exposure Index – based on data for a previous year where the exact numbers and
+types of aircraft that used the airport are known.
+AS2021
+Australian Standard 2021 Acoustics – Aircraft noise intrusion – Building siting and construction
+Building site acceptability
+Refers to the acceptability of sites for particular building types within various ANEF zones. Appendix 1
+includes a classification of building site acceptability, which has been adapted from AS2021. Building
+types are classified as ‘Acceptable’, ‘Conditionally Acceptable’ or ‘Unacceptable’ depending on the
+sensitivity of associated use or occupation of the building and the level of noise exposure forecast
+for the site.
+Noise exposure zone
+Refers to the areas within a specified range of noise exposure.
+Noise sensitive premises
+Premises occupied or designed for occupation or use for residential purposes (including dwellings,
+residential buildings or short-stay accommodation), caravan park, camping ground, educational
+establishment, child care premises, hospital, nursing home or place of worship.
+OLS
+Obstacle Limitation Surface.
+PANS OPS
+Procedures for Air Navigation Systems Operations.
+
+State Planning Policy 5.1 13
+Land use planning in the vicinity of Perth Airport
+REFERENCES
+Australian Capital Territory Planning Authority, 1996, Draft Noise Management Guidelines.
+Australian Standards, 2000, AS 2021-2000, Acoustics—Aircraft Noise Intrusion—Building Siting and
+Construction.
+Commonwealth Department of Transport and Regional Services, 2000, Expanding Ways to Describe
+and Assess Aircraft Noise.
+Department of the Environment, Transport and the Regions, United Kingdom, 1999, Public Safety
+Zones: A Consultation Document.
+Report on the Senate Select Committee on Aircraft Noise in Sydney, 1995, Falling on Deaf Ears.
+Riskcorp Australia Pty Ltd, 1992, Perth Airport Hazards of Airport Operations, September.
+Sinclair Knight Merz, 1999, Perth International Airport Master Plan and Environmental Strategy.
+Sinclair Knight Merz, 1999, Aircraft Noise—Supplementary Technical Report to the Perth International
+Airport Draft Master Plan and Environmental Strategy.
+State Planning Commission Western Australia, 1990, Land Use Planning in the Vicinity of Airports: Report
+of the Working Group.
+Westralia Airports Corporation, 1999, Perth International Airport Masterplan and Environment Strategy.
+Westralia Airports Corporation, 2000, Perth International Airport: Aircraft Noise Management Strategy.
+Western Australian Planning Commission, 2004, Aircraft Noise Insulation for Residential Development in
+the Vicinity of Perth Airport.

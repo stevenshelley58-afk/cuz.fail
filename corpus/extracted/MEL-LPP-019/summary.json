@@ -1,0 +1,46 @@
+{
+  "id": "MEL-LPP-019",
+  "title": "Non-Residential Development",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Melville",
+  "version_date": "October 2019",
+  "pages": 10,
+  "key_provisions": [
+    {
+      "heading": "1 General",
+      "summary": "(a) Be orientated towards the primary street frontage."
+    },
+    {
+      "heading": "1.1 Development should:",
+      "summary": "(a) Be orientated towards the primary street frontage."
+    },
+    {
+      "heading": "2 Corner Sites",
+      "summary": "2.1 Development on corner sites should be designed to accentuate the corner and face"
+    },
+    {
+      "heading": "3 Front Facades and Shopfronts",
+      "summary": "3.1 Facades fronting the street and public domain should incorporate window and door"
+    },
+    {
+      "heading": "4 Weather Protection",
+      "summary": "4.1 Where a building abuts a footpath, awnings for weather protection should be provided"
+    },
+    {
+      "heading": "4.4 The awning is not to be sited within 0.5m of a kerb.",
+      "summary": "4.5 New awnings should be designed and sited to integrate with those of adjoining"
+    }
+  ],
+  "cross_references": [
+    "LPP 2.1",
+    "Local Planning Scheme No. 6",
+    "National Construction Code",
+    "Planning and Development Act 2005",
+    "R-Codes",
+    "Residential Design Codes Volume 1",
+    "Residential Design Codes Volume 2",
+    "State Planning Policy 7.3"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:17Z"
+}

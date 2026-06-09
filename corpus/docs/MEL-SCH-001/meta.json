@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2026-02/melville_6_schemetext.pdf",
+  "fetched_at": "2026-06-09T22:34:46Z",
+  "http_status": 200,
+  "content_hash": "65257c95ff73ecc46e2a41b82441764a02e9617266eee111ddca952e264ae475",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2026-02/melville_6_schemetext.pdf",
+  "used_playwright": false,
+  "bytes": 973858
+}

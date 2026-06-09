@@ -1,0 +1,633 @@
+State Planning Policy 2.9
+Water
+December 2025
+Prepared under Part 3 of the Planning and Development Act 2005 by the
+Western Australian Planning Commission
+
+click to follow
+1 CITATION 1 7.6 Specific area measures:
+Peel-Harvey coastal plain
+catchment 7
+2 POLICY INTENT 1
+7.7 Specific area measures:
+Swan Canning
+3 WATER IN WESTERN river system 7
+Disclaimer AUSTRALIA 1
+This document has been produced by the
+Department of Planning, Lands and Heritage DEFINITIONS 8
+on behalf of the Western Australian Planning 4 APPLICATION OF THIS
+Commission. Any representation, statement, POLICY 2
+opinion or advice expressed or implied in this
+publication is made in good faith and on the
+basis that the Government, its employees and 5 POLICY OBJECTIVES 2
+agents are not liable for any damage or loss
+whatsoever which may occur as a result of
+action taken or not taken, as the case may be, 6 POLICY OUTCOMES 2
+in respect of any representation, statement,
+opinion or advice referred to herein.
+Professional advice should be obtained before 7 POLICY MEASURES 3
+applying the information contained in this
+7.1 General measures 3
+document to particular circumstances.
+7.2 Environmental, social
+and cultural values 3
+© Western Australian Planning Commission
+7.3 Riverine flooding 4
+Published by the
+7.4 Infrastructure and supply 5
+Western Australian Planning Commission
+Gordon Stephenson House 7.5 Specific area measures:
+140 William Street Public drinking water
+Perth WA 6000 source areas 6
+Locked Bag 2506
+Perth WA 6001
+Publication date: 16 December 2025
+Operational date: 18 December 2025
+website: www.dplh.wa.gov.au
+email: info@dplh.wa.gov.au
+tel: 08 6551 8002
+fax: 08 6551 9001
+National Relay Service: 13 36 77
+This document is available in alternative
+formats on application to Communication
+Services.
+
+State Planning Policy 2.9
+1
+Water
+December 2025
+1 CITATION 2 POLICY INTENT Planning plays an important role in responding to the
+pressures on water resources. This includes ensuring
+This is a State Planning Policy prepared under Part 3 of To ensure that planning and development considers all future development is located adequately, serviced with
+the Planning and Development Act 2005. It may be cited as water matters and delivers the outcomes in section 6 of appropriate wastewater, stormwater and groundwater
+State Planning Policy 2.9 Water. the policy. management infrastructure and contributes towards the
+management of water quality and quantity, ecological
+This policy, in accordance with Part 3 of the Planning and
+health and the social and cultural values of water
+Development (State Planning Policies) Regulations 2024,
+3 WATER IN WESTERN resources.
+repeals the following State Planning Policies:
+AUSTRALIA
+Future development will need to be supported by
+1. State Planning Policy 2.1 Peel-Harvey Coastal Plain
+drinking and non-drinking water supplies from a range
+Catchment
+Water is a basic requirement of life. The health and
+of sources, including surface water, groundwater,
+2. State Planning Policy 2.2 Gnangara Groundwater wellbeing of the community, environment and economy desalinated seawater, treated wastewater, stormwater and
+Protection are dependent on water that is of sufficient quantity and rainwater, and should be suited to the required purpose
+quality. Groundwater, surface water, desalinated and
+(that is ‘fit-for-purpose’).
+3. State Planning Policy 2.3 Jandakot Groundwater
+recycled water support a wide range of ecological values
+Protection and human use values such as drinking water, irrigation For the foreseeable future, surface water and groundwater
+4. State Planning Policy 2.7 Public Drinking Water Source of public open spaces, amenity, recreation, tourism, will continue to be the most cost-effective source of
+Policy agriculture, fishing, aquaculture, mining, industry, and high-quality public drinking water. The protection of
+cultural heritage. public drinking water source areas is essential to safeguard
+5. State Planning Policy 2.9 Water Resources
+public health and retain these strategically important
+Western Australia’s water resources are vulnerable and
+6. State Planning Policy 2.10 Swan-Canning River System supply resources. The State Government has adopted
+subject to increasing pressure from factors that can affect
+an integrated land use and water resource management
+7. Draft State Planning Policy 2.9 Planning for Water the quality and quantity of water, as well as the values that
+approach to protect public drinking water supplies, with
+depend on it. Climate change in Western Australia has
+an emphasis on the prevention of risks to water quality.
+This policy replaces the following policies and guidelines:
+already resulted in changes to rainfall patterns, increased
+1. Better Urban Water Management temperatures and sea level rise, which in turn have Development and water resource management are
+impacted the reliability and quality of our water resources. interrelated and need to be assessed and delivered
+2. Government Sewerage Policy
+For example, decreased rainfall in the South West Land in an integrated manner. Integrated water resource
+3. Government Sewerage Policy Explanatory Guidelines. Division is resulting in lower recharge to groundwater and management is essential for the sustainable growth of
+surface water flows into waterways and reservoirs. our state. It provides an opportunity to respond to the
+Where there are inconsistencies between this policy and
+pressures on water resources and enhance the values that
+the flood measures in Section 5.2 of the State Planning Land use change and development required to support
+depend on them. This includes improving the amenity,
+Policy 3.4 Natural Hazards and Disasters, this policy a growing population can impact water resources
+liveability and economic viability of our cities, towns and
+prevails. through changes to hydrological regimes, ecological
+rural areas.
+health, contamination, water demand, salinisation and
+eutrophication.
+
+State Planning Policy 2.9
+2
+Water
+December 2025
+Integrated water resource management requires a whole- • Swan Canning river system 6 POLICY OUTCOMES
+of-government approach. It involves a range of water,
+• Sensitive water resource areas
+environmental, planning, health and economic legislation, The outcomes listed below specify the role of planning
+policies and processes. and development in contributing to the overall objectives
+The policy mapping is available online and can be viewed
+of this policy. Due to the interrelated nature of water
+at www.dplh.wa.gov.au.
+resources, each outcome may contribute to multiple
+4 APPLICATION OF THIS objectives. The outcomes should be achieved through
+POLICY compliance with the policy measures. The outcomes may
+5 POLICY OBJECTIVES
+also provide a basis for policy evaluation.
+This policy and its guidelines outline how water resource
+The objectives of this policy are to:
+Environmental, social and cultural values
+management should be integrated into planning
+5.1 Protect and improve the environmental and the
+processes. For detailed guidance on the implementation
+6.1 Planning and development maintains or enhances
+social, cultural and economic values of the state’s
+and application of this policy, the policy is to be
+water quality and hydrological regimes to protect
+water resources.
+considered in conjunction with the policy mapping and
+public health and support healthy ecosystems
+the Water Guidelines (Guidelines). 5.2 Protect public health and the long-term supply of through the:
+good quality and affordable drinking water.
+This policy and its Guidelines apply to the preparation
+i. protection of sensitive water resources and
+and assessment of proposals in relation to water matters, 5.3 Manage the risk of flooding to people, property and other important environments;
+including regional and sub-regional frameworks, region infrastructure.
+ii. protection of existing vegetation and/or
+and local planning schemes and scheme amendments,
+5.4 Ensure the secure and sustainable supply, use, restoration of cleared or degraded vegetation,
+local planning policies, planning strategies, precinct
+disposal and re-use of water resources. preferably with endemic species;
+plans, activity centre plans, structure plans, subdivision
+applications and development applications across 5.5 Ensure future development is resilient to the water- iii. appropriate siting and management of land
+Western Australia. related impacts of climate change. uses; and
+This policy applies only to proposals prepared and 5.6 Minimise future costs and protect public health by iv. maintenance of natural flows in waterways,
+assessed under the Planning and Development Act 2005. ensuring that appropriate wastewater infrastructure groundwater levels and inundation of wetlands
+This policy is not intended to apply to a proposal for a is provided. to sustain aquatic and terrestrial habitats
+single house on a single lot unless a significant water through the delivery of appropriate stormwater
+resource matter has been identified for the lot within a and groundwater management systems.
+local planning scheme (e.g. sections 7.3, 7.5 and 7.7 of this
+6.2 Waterways and wetlands have adequate foreshore
+policy).
+areas and wetland buffers to protect, manage and
+The policy mapping includes: conserve water quality, native vegetation, aquatic
+and riparian habitats, ecological linkages and
+• Public drinking water source areas
+associated biodiversity values.
+• Peel Harvey coastal plain catchment
+
+State Planning Policy 2.9
+3
+Water
+December 2025
+6.3 Aboriginal heritage values in relation to water 6.10 Development connects to or provides for reticulated 7 POLICY MEASURES
+resources are identified and protected consistent sewerage to protect public health, amenity and the
+with the Aboriginal Heritage Act 1972. environment, and to minimise financial burden to 7.1 General measures
+future communities.
+6.4 Historic heritage values in relation to water resources
+a) All relevant water-related matters should be
+are protected consistent with the Heritage Act 2018. 6.11 Onsite wastewater disposal is provided only in
+considered at the earliest possible stage of the
+limited circumstances, where reticulated sewerage
+6.5 Planning and development maintains and enhances planning process and all subsequent stages in
+is not a viable option and where the associated risks
+public access to water resources where appropriate. accordance with the Guidelines.
+are appropriately managed without compromising
+6.6 Planning and development enhances amenity and public health and the environment. b) Proposals are to be accompanied by sufficient
+sense of place associated with water resources, information in accordance with the Guidelines, which
+6.12 The construction of dams, crossings and rural drains
+which in turn protect public health and increase specify instances where a Water Management Report
+does not adversely affect the environment, visual
+resilience of the community. is required and what it must contain.
+amenity, public health or other users (upstream or
+downstream) of the water resource. c) Proposals and supporting information should be
+Riverine flooding
+referred to relevant agencies and licensed water
+6.13 Safe, resilient and effective stormwater and
+6.7 Planning and development in and around flood- service providers in accordance with the Guidelines.
+groundwater management systems adopt water
+prone land:
+sensitive design approaches to protect and enhance d) Proposals should consider water resource-related
+i. does not introduce unacceptable risk to people, amenity, public health and environmental values. issues associated with climate change.
+property or infrastructure;
+e) Planning decisions (except development applications)
+Public drinking water source protection
+ii. does not impede the movement of or increase should consider cumulative impacts on water
+floodwater (upstream or downstream) in flood 6.14 Planning and development in public drinking water resources. Where the cumulative impact is considered
+events; and source areas maximises the long-term protection significantly detrimental, the proposal should not be
+and management of water quality and quantity for supported.
+iii. reduces, where possible, the impact of flooding
+public drinking water supply.
+on people, property and infrastructure.
+7.2 Environmental, social and
+cultural values
+Water use and infrastructure
+6.8 Water demand is minimised through water sensitive Wetlands and waterways
+design, and the efficient use and reuse of water.
+Proposals should, in accordance with the Guidelines:
+6.9 Development has access and contributes to secure,
+a) identify wetlands and their buffers and waterways and
+fit-for-purpose, sustainable and climate-resilient
+their foreshore areas and/or reserves;
+water supplies. Where practical, this involves
+recycled water and/or other fit-for-purpose water b) facilitate the transfer of wetlands and their buffers
+sources. and waterways and their foreshore areas to public
+ownership, where appropriate;
+
+State Planning Policy 2.9
+4
+Water
+December 2025
+c) retain and/or restore vegetation important for the – agriculture - intensive (particularly annual Cultural
+long-term health of water resources within wetlands horticulture)
+Proposals should, in accordance with the Guidelines:
+and their buffers, waterways and their foreshore
+– animal husbandry – intensive
+areas, preferably using endemic species to restore p) identify Aboriginal heritage and use best endeavours
+vegetation; – animal establishments or rural pursuits involving to protect, avoid or minimise harm consistent with
+stocking rates that exceed recommended the Aboriginal Heritage Act 1972; and
+d) where possible, maintain and restore ecological
+stocking rates
+linkages; q) identify, conserve and protect historic heritage places
+Flexibility to this measure may be applied, in and values.
+e) identify appropriate measures to protect public health
+accordance with the Guidelines, where the proposal is
+from mosquito-borne diseases;
+located within priority agricultural land. In areas where 7.3 Riverine flooding
+f) identify and protect sensitive water resources; nutrient export cannot be effectively managed, closed
+agricultural systems are encouraged; and The following measures apply to flood-prone areas
+g) where possible, protect and enhance vegetation
+dominated by riverine processes. Pluvial flooding,
+within sensitive water resource areas, in particular l) demonstrate that infrastructure and site management
+which occurs when an extreme rainfall event creates a
+endemic species; and practices are in place to manage nutrient and all
+flood independent of an overflowing water body,
+other contaminants, including sediment, particularly
+h) ensure land uses with the potential to significantly
+is addressed in the Stormwater and groundwater sub-
+within sensitive water resource areas and public
+alter the hydrological regime are managed to protect
+section of section 7.4 Infrastructure and supply. Coastal
+drinking water source areas, and adjacent to other
+water resources and associated ecological values and
+storm surge and other inundation associated with water
+important environments.
+other important environments.
+bodies dominated by tidal processes is to be addressed
+Local planning schemes and local planning policies
+in accordance with State Planning Policy 2.6 State Coastal
+Water quality should, in accordance with the Guidelines:
+Planning. Where there are inconsistencies between this
+Proposals should, in accordance with the Guidelines: m) include site-specific measures to prevent and/or policy and the flood measures in Section 5.2 of State
+manage the potential impacts on water quality and Planning Policy 3.4 Natural Hazards and Disasters, this policy
+i) minimise export of nutrient and all other
+protect water resources. prevails.
+contaminants, including sediment, entering water
+resources; Proposals should, in accordance with the Guidelines:
+Social
+j) avoid adverse effects on the natural and built a) identify flood-prone areas;
+Proposals should, in accordance with the Guidelines:
+environment and/or human health when undertaking b) not rezone, subdivide or propose additional
+subdivision and development of land containing acid n) maintain or enhance safe public access to water development that intensifies land use within a
+sulfate soils or contaminated sites; resources, except where at the detriment of defined floodway;
+ecosystem health and/or public drinking water source
+k) be located on land where nutrient export to sensitive protection; and c) maintain the free passage and temporary storage of
+water resources can be effectively managed, when floodwaters;
+they involve: o) maximise opportunities for water in the landscape
+to enhance amenity, sense of place, liveability and
+contribute to urban greening and mitigation of urban
+heat.
+
+State Planning Policy 2.9
+5
+Water
+December 2025
+d) incorporate a minimum habitable finished floor level Dams, crossings and rural drains groundwater discharges, while also protecting and
+of 0.5 metre above the expected one per cent annual enhancing environmental functionality, local amenity
+Proposals should, in accordance with the Guidelines:
+exceedance probability flood event (or alternative and liveability; and
+height above the defined flood event as defined in an c) demonstrate that the dam, crossing or rural drain
+h) In the early stages of the planning process, ensure
+endorsed floodplain development strategy); does not result in unacceptable on-site or off-site
+that:
+impacts.
+e) consider the flood risk management principles when
+i. sufficient land is set aside for stormwater and
+replacing existing development within a floodway; Local planning schemes and/or local planning policies
+groundwater management; and
+and should, in accordance with the Guidelines:
+ii. water sensitive design is part of the integrated
+f) be informed by advice from the Department of Water d) specify instances where the construction of
+water management system.
+and Environmental Regulation, if flooding is likely and dams, crossings and rural drains is exempt from
+no flood mapping exists. development approval; and
+Wastewater
+e) outline development requirements for dams,
+7.4 Infrastructure and supply i) Proposals are required to connect to or provide for
+crossings and rural drains in response to local
+reticulated sewerage where:
+conditions.
+Flooding dominated by riverine processes is addressed in
+i. deemed reasonable;
+section 7.3 Riverine flooding.
+Stormwater and groundwater
+ii. required on planning grounds; or
+Water demand and supply
+Proposals should, in accordance with the Guidelines:
+iii. the decision maker determines that the
+Proposals should, in accordance with the Guidelines:
+f) ensure stormwater and groundwater (including absence of reticulated sewerage will pose
+a) minimise future water demand by ensuring that pluvial floodwaters) management systems are an unacceptable risk to public health, the
+development is designed to conserve and use water designed and constructed in accordance with the environment or water resources.
+efficiently; and Decision process for stormwater management in
+Refer to the Guidelines for details on the assessment
+Western Australia, Stormwater Management Manual
+b) demonstrate secure, sustainable and fit-for-purpose of these criteria;
+for Western Australia, the Australian Rainfall and Runoff
+drinking and non-drinking water supply for domestic
+Guidelines, and the Water Resource Considerations j) Proposals for on-site wastewater disposal1 may be
+consumption, public open space irrigation and
+when Controlling Groundwater Levels in Urban considered where the decision-maker is satisfied that:
+industry. This should include consideration of future
+rainfall projections that incorporate climate change Development, and i. reticulated sewerage is not required in
+and, where a licence is required, within water g) in consultation with the relevant water management accordance with measure 7.4 i) of this policy;
+allocation limits. agency and/or infrastructure manager(s), provide for ii. each lot can accommodate on-site wastewater
+the retention, detention, conveyance and treatment disposal in accordance with AS/NZS 1547
+(where required) of stormwater and manage On-site domestic wastewater management
+groundwater inundation, including treatment of where relevant;
+1 On-site disposal of trade waste to be managed in accordance with an
+industry regulation approval under the Environmental Protection Act
+1986, where relevant.
+
+State Planning Policy 2.9
+6
+Water
+December 2025
+iii. the site requirements for on-site wastewater Proposals should, in accordance with the Guidelines: The Metropolitan Region Scheme (MRS) and
+disposal outlined in the Guidelines can be met; corresponding local planning schemes should, in
+a) be consistent with Water Quality Protection Note
+and accordance with the Guidelines:
+No.25: Land use compatibility tables for public drinking
+iv. development will be serviced by an appropriate water source areas. Proposals inconsistent with this g) include Priority 1 areas within the Water Catchment
+on-site wastewater system, which will manage document should not be supported; reservation;
+risk to the environment and public health where
+b) identify public drinking water source area boundaries, h) include Priority 2 areas within the ‘Rural-Water
+relevant.
+priority areas, wellhead protection zones, reservoir Protection’ zone (or equivalent);
+k) Proposals are, in accordance with the guidelines, protection zones and water off-take points (that is,
+i) identify Priority 3* areas as Special Control Area (or
+encouraged to incorporate the beneficial use and reservoirs and abstraction bores);
+equivalent) in the local planning scheme; and
+reuse of wastewater; and
+c) include measures to address risk to the drinking water
+j) include provisions in the local planning scheme for
+l) local planning schemes should, in accordance with resource. These measures should be incorporated into
+Priority 3 areas.
+the Guidelines, require the provision of reticulated a Water Management Report where required;
+sewerage where appropriate. Region schemes and local planning schemes outside the
+d) provide for connection to reticulated sewerage for all
+MRS area should, in accordance with the Guidelines:
+urban and industrial subdivisions;
+7.5 Specific area measures: Public drinking
+k) assign zones and reserves which reflect the intent
+water source areas e) where practical, maintain or increase native
+of the public drinking water source area priority and
+vegetation coverage to protect water quality; and
+facilitate compatible land uses; and
+In addition to all other measures contained in this policy,
+f) be referred to the Department of Water and
+l) identify and protect public drinking water source
+the following policy measures apply to public drinking
+Environmental Regulation and the relevant licensed
+areas (Priority 1, 2 and 3) as Special Control Areas.
+water source areas constituted under the Metropolitan
+water service provider for advice, prior to making a
+Water Supply, Sewerage, and Drainage Act 1909 or the determination on: Planning decisions involving the intensification of land
+Country Areas Water Supply Act 1947 (identified on the uses in Priority 1 and 2 areas should be based on the
+i. regional and sub-regional frameworks, region
+policy map of Public Drinking Water Source Areas). following and in accordance with the Guidelines:
+and local planning schemes and scheme
+They may also be used for guidance within
+amendments, planning strategies, precinct plans, m) there is a general presumption against the
+non-constituted drinking water source areas such
+activity centre plans and structure plans; intensification of land uses;
+as remote communities, mine sites and catchments
+identified as future public drinking water source areas. ii. subdivision applications inconsistent with n) proposals will be considered only where the land is
+Water Quality Protection Note No.25: Land use located in the MRS area and has been identified for
+The protection of public drinking water source areas
+compatibility tables for public drinking water source development in the manner proposed through a
+and other sources of public drinking water should
+areas; and strategic planning document prepared by the WAPC,
+not be compromised. There is a presumption against
+such as a sub-regional planning framework or sub-
+development or land uses that pose an increased risk to iii. development applications involving a use
+regional structure plan; and
+public drinking water source areas. class listed as ‘incompatible’, ‘compatible with
+conditions’, or not identified in Water Quality
+Protection Note No.25: Land use compatibility tables
+for public drinking water source areas.
+
+State Planning Policy 2.9
+7
+Water
+December 2025
+o) planning decisions should give due regard to – animal establishments or rural pursuits that exceed areas are identified on the policy map of Swan Canning
+the detailed assessment of the associated risk to recommended stocking rates River System).
+the drinking water source. Criteria to inform this
+In this regard: Proposals should, in accordance with the Guidelines:
+assessment are provided in the Guidelines.
+– the use of closed agricultural systems is a) maintain and enhance the ecological and
+Justification is to be provided in the instance a Special
+encouraged; hydrological functions of the river system, and
+Control Area is not proposed. Justification should address
+demonstrate detrimental impacts have been
+elements such as the size of the public drinking water – there is a presumption against non-closed
+prevented;
+source area, the site context and whether other sources of agricultural systems on sites with low or very low
+water are available. capability land for the intended land use or sites b) demonstrate a benefit to the community and a
+prone to nutrient export; and functional need to be located within the river and/or
+7.6 Specific area measures: Peel-Harvey foreshore reserves, where the proposal is located on
+– in all other instances, applicants should
+coastal plain catchment public land;
+demonstrate that nutrient export will be
+managed within acceptable levels. c) maintain and enhance public access to and along
+In addition to all other measures contained in this policy,
+the rivers and its foreshores, including through the
+Region and local planning schemes and local planning
+specifically 7.2 water quality, the following measures apply
+establishment of foreshore reserves;
+policies, should in accordance with the Guidelines:
+to planning proposals in the Peel-Harvey coastal plain
+d) consider the importance of the river as a strategic
+catchment (identified on the policy map of Peel-Harvey e) identify the Peel-Harvey coastal plain catchment in
+water transport network for commercial and
+Coastal Plain Catchment). scheme maps; and
+recreational use;
+Proposals should, in accordance with the Guidelines: f) include specific provisions in scheme text to protect
+e) maintain and enhance the natural landscape
+water resources.
+a) have regard to the water quality objectives contained
+character and sense of place of the river system;
+in Environmental Protection (Peel Inlet – Harvey Estuary)
+7.7 Specific area measures: f) maintain and enhance views of the Swan Canning
+Policy 1992 for the Peel Harvey estuarine system;
+Swan Canning river system river system from public places;
+b) protect remnant vegetation and maintain or increase
+g) Identify Whadjuk Noongar Aboriginal heritage and
+deep-rooted perennial vegetation coverage to
+In addition to all other measures contained in this policy,
+use best endeavours to protect, avoid or minimise
+improve water quality;
+the following measures apply to planning proposals
+harm consistent with the Aboriginal Heritage Act 1972;
+c) protect and revegetate waterways and drains with within the Swan Canning river system, which are wholly
+endemic plant species to improve the values to or partially within, abut the water or land of the Swan h) protect, maintain or increase vegetation coverage
+the Peel-Harvey estuarine system and/or manage Canning Development Control Area (DCA) or are, in the (preferably with endemic species); and
+discharge into or from rural drains to reduce nutrient opinion of the WAPC, likely to affect the waters of the i) maintain or establish ecological and public open
+export; and DCA. space linkages to the Swan Canning river system for
+d) manage nutrient export when they involve: The Swan Canning river system refers to the catchment wildlife habitat and movement and natural water
+areas of the Swan, Canning, Helena, Southern and Avon flows.
+– agriculture – intensive
+(to Moondyne Brook) rivers. The DCA was established in
+– animal husbandry – intensive the Swan and Canning Rivers Management Act 2006 (both
+
+State Planning Policy 2.9
+8
+Water
+December 2025
+8 DEFINITIONS Floodplain: the area inundated in a flood event on a On-site wastewater disposal: disposal of wastewater
+waterway, which may include the floodway and flood within the boundaries of the freehold lot or survey strata
+Agriculture – intensive: has the same meaning as fringe areas. For land planning purposes, the one per cent within which the wastewater was generated.
+the Planning and Development (Local Planning Schemes) (1 in 100) Annual Exceedance Probability flood event is
+On-site wastewater system: a wastewater treatment
+Regulations 2015. typically adopted.
+and disposal or reuse system that receives, treats and
+Animal husbandry – intensive: has the same meaning Floodway: the area of land that would be affected applies wastewater to a land application area within the
+as the Planning and Development (Local Planning Schemes) by river flooding in a one percent (one in 100) Annual boundaries of the freehold lot or survey strata within
+Regulations 2015. Exceedance Probability flood event for a waterway. which wastewater was generated.
+This area is generally a high flood risk area where
+Closed agricultural system: a system of intensive Priority agricultural land: has the same meaning as
+floodwaters are flowing fast and deep.
+agricultural production or animal husbandry where there State Planning Policy 2.5 Rural Planning.
+is zero or minimal discharge of nutrient-rich liquid or Flood fringe: the area of land that would be affected
+Priority areas: Priority 1, 2, 3 and 3* areas assigned by
+solids or non-nutrient contaminants to the immediate by river flooding in a one percent (one in 100) Annual
+the Department of Water and Environmental Regulation
+environment. Nutrient-enriched liquid and solids waste Exceedance Probability flood event but not designated as
+to guide land use and management decisions in public
+and non-nutrient contaminants are removed from the floodway.
+drinking water source areas, in accordance with
+property and disposed in an environmentally safe manner.
+Foreshore area: the land that adjoins or directly Water Quality Protection Note No.25: Land use compatibility
+Crossing: a structure or works such as a ford or low-level influences a waterway. It is the area of transition tables for public drinking water source areas.
+crossing, culvert, causeway or bridge to allow a waterway between the edge of the waterway channel and the
+Protection zones: Wellhead protection zones and
+to be crossed from one waterway bank to another by a farthest extent of riparian vegetation, the floodplain and
+reservoir protection zones that surround drinking water
+track, road, pipeline or railway. riverine landforms; or a negotiated area endorsed by
+off-take points assigned by the Department of Water
+the Department of Water and Environmental Regulation
+Dam: any artificial structure, barrier or levee, whether and Environmental Regulation, in accordance with
+(and on the advice of the Department of Biodiversity,
+temporary or permanent, which does or could impound, Water Quality Protection Note No.25: Land use compatibility
+Conservation and Attractions where it relates to the Swan
+divert or control water, silt, debris or liquid-borne tables for public drinking water source areas.
+Canning Development Control Area).
+materials, together with its appurtenant (associated)
+Public drinking water source area: underground
+works. Foreshore reserve: all or part of a foreshore area
+water pollution control areas, catchment areas and water
+publicly owned and vested with a local government
+Ecological linkages: a series of (contiguous and non- reserves constituted under the Metropolitan Water Supply,
+or State Government department. It may be reserved
+contiguous) patches which, by virtue of their proximity to Sewerage, and Drainage Act 1909 or the Country Areas
+under a planning scheme, for purposes such as foreshore
+each other, act as stepping stones of habitat that facilitate Water Supply Act 1947.
+protection or foreshore protection and public recreation.
+the maintenance of ecological process and the movement
+Public health: has the same meaning as Public Health Act
+of organisms within, and across, a landscape. Guidelines: refers to Water Guidelines.
+2016.
+Flood prone area: Land susceptible to inundation by Groundwater: the area of an aquifer in which all pores
+Reticulated sewerage: a network of sewers and
+the probable maximum flood event. Generally used and fractures are saturated with water. Also known as
+associated wastewater treatment plant managed by a
+interchangeably with floodplain. water in the phreatic zone.
+sewerage service provider.
+
+State Planning Policy 2.9
+9
+Water
+December 2025
+•
+Rural drain: is an artificial or constructed system of within 1km up groundwater gradient and 250m Stormwater: water that flows over ground surfaces and
+structures used to move and manage groundwater or down groundwater gradient of a significant wetland; in natural streams and drains, as a direct result of rainfall
+surface water in a rural landscape or catchment. or where the groundwater gradient is unknown over a catchment. Stormwater consists of rainfall runoff
+or seasonably variable within one kilometre of the and any material (soluble and insoluble) mobilised in its
+Sensitive water resource areas: areas where
+significant wetland; path of flow.
+development has the potential to affect water-dependent
+•
+ecosystems, natural waterways and estuaries, wetlands habitats of specially protected water-dependent Trade waste2: any wastewater, discharged from a
+and selected coastal inlets and embayment, which have fauna and the area within 1km of groundwater- business or industry, aside from that which comes from
+been recognised at either the State or National level as dependent threatened ecological communities staff amenities or office facilities.
+having high ecological, social, cultural and/or economic and groundwater dependent priority ecological
+Wastewater: sewage, not including stormwater, surface
+values and are sensitive to contamination associated with communities; and
+water or ground water of a type ordinarily drained from
+land use and development. They include: •
+wild rivers catchments. land as part of the provision of a drainage service. This
+•
+estuary catchments on the Swan and Scott Coastal includes trade waste.
+Site-specific assessments undertaken during the planning
+Plains;
+process may identify additional significant water Water management report: is a document that
+•
+land that drains to and is within 2km of Irwin Inlet, resources. addresses all water- related matters relevant to a planning
+Wilson Inlet, Torbay Inlet, Manarup Lagoon, Lake proposal to demonstrate the appropriate protection,
+The sensitive water resource area boundaries are
+Powell, Princess Royal Harbour and Oyster Harbour; management and use of water resources commensurate
+identified on the policy map of Sensitive Water Resource
+• with the level of risk to and from water resources from the
+land that drains to and is within 2km of the estuarine Areas and may be refined through higher resolution
+planning activity.
+areas of the following: Dampier Creek (Broome), mapping in accordance with the definition provided
+Hill River, Irwin River (Mid West), Margaret River above. Water resources: includes watercourses, waterways
+(South West), Murchison River, Hardy Inlet, Chapman and their estuaries, inlets and floodplains, wetlands,
+Sewage: any kind of sewage, faecal matter or urine, and
+River, Walpole-Nornalup Inlet, Wellstead Estuary and groundwater, surface water, stormwater and drainage. A
+any waste composed wholly or in part of liquid.
+Greenough River; water resource includes all aspects of the water resource,
+• Significant wetland: include Ramsar Wetlands and including water, organisms and other components and
+land that drains to and is within 2km of the following
+those listed in the Australian Government’s Directory of ecosystems that contribute to the physical condition and
+coastal embayments: Cockburn Sound, Coral Bay,
+Important Wetlands in Australia; wetlands categorised as ecological health of the water resource.
+Cowaramup Bay, Flinders Bay, Geographe Bay, Jurien
+Conservation Category in the Department of Biodiversity,
+Bay, Koombana Bay, Mangles Bay, Peaceful Bay, Water service provider: a person or entity providing
+Conservation and Attractions Swan Coastal Plain wetlands
+Roebuck Bay, Shark Bay (south of the northern tip of water services under and in accordance with the Water
+dataset, wetlands listed in the South Coast Significant
+Peron Peninsula) and Warnbro Sound; Service Act 2012.
+Wetlands dataset, other endorsed wetland dataset and
+•
+land that drains to and is within 1km of other other wetlands identified for protection during the land
+estuarine areas, except for portions approved by planning process.
+Government for uses such as ports;
+2 On-site disposal of trade waste to be managed in accordance with an
+industry regulation approval under the Environmental Protection Act
+1986, where relevant.
+
+State Planning Policy 2.9
+10
+Water
+December 2025
+Waterway: any river, creek, stream or brook, including its
+foreshore area or reserve, floodplain, estuary and inlet.
+This includes systems that flow permanently, for part of
+the year or occasionally; and parts of the waterway that
+have been artificially modified.
+Wetland: an area of seasonally, intermittently or
+permanently waterlogged or inundated land, whether
+natural or otherwise, and includes a lake, swamp, marsh,
+spring, dampland and sumplands.
+Wetland buffer: an area of terrestrial land immediately
+surrounding a wetland that provides spatial separation
+between the wetland and adjacent land use(s).

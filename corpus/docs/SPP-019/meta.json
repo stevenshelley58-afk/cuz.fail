@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-54-road-and-rail-noise",
+  "fetched_at": "2026-06-09T22:35:00Z",
+  "http_status": 200,
+  "content_hash": "91698be1213c8efb4b06ffb69dce02f25de91fd0e145840df98345cabfe2e4bd",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP_5-4_Road_and_Rail_Noise_Sept2019.pdf",
+  "used_playwright": false,
+  "bytes": 620603
+}

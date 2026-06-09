@@ -1,0 +1,10 @@
+{
+  "url": "https://www.melvillecity.com.au/our-city/publications-and-forms/building-and-development/flood-and-security-lighting",
+  "fetched_at": "2026-06-09T22:35:35Z",
+  "http_status": 200,
+  "content_hash": "7b4c51a13c35b374e0cc932229082fa44855fcb7b9cc8151c8fee8df1f099c24",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.melvillecity.com.au/getContentAsset/905dae3e-a5a7-4f62-9f84-3af9d3a652e6/3ca954ad-3848-47c6-8f97-68cebe0b47a2/LPP1-16-Flood-And-Security-Lighting-Policy.pdf?language=en",
+  "used_playwright": false,
+  "bytes": 46041
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://www.planning.wa.gov.au/state-planning-policy-2.9-water",
+  "fetched_at": "2026-06-09T22:34:50Z",
+  "http_status": 200,
+  "content_hash": "eeaac81de00c2b5fede41009d8f43248a30846b46a3d924319f5d3d25f170519",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.planning.wa.gov.au/docs/default-source/policy/spp/spp-2-9-water.pdf?sfvrsn=8ca294b4_5",
+  "used_playwright": false,
+  "bytes": 736826
+}

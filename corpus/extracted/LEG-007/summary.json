@@ -1,0 +1,139 @@
+{
+  "id": "LEG-007",
+  "title": "Western Australia",
+  "instrument_type": "legislation",
+  "issuing_authority": "Parliament of Western Australia",
+  "version_date": "28 May 2026",
+  "pages": 141,
+  "key_provisions": [
+    {
+      "heading": "Part 1 — Preliminary",
+      "summary": ""
+    },
+    {
+      "heading": "Part 2 — The Council",
+      "summary": ""
+    },
+    {
+      "heading": "Division 1 — Constitution of the Council",
+      "summary": "13. Execution of documents by Council 9"
+    },
+    {
+      "heading": "Division 2 — Functions and powers of Council",
+      "summary": "17. Functions of the Council 12"
+    },
+    {
+      "heading": "Division 3 — Relationship with other public",
+      "summary": "20. Public authorities must assist Council 15"
+    },
+    {
+      "heading": "Division 4 — Relationship between Minister",
+      "summary": "21. Administration of this Act 16"
+    },
+    {
+      "heading": "Division 5 — Staff",
+      "summary": "25. CEO to provide assistance, staff and facilities 18"
+    },
+    {
+      "heading": "Division 6 — Finance",
+      "summary": "27. Financial Management Act 2006 and Auditor"
+    },
+    {
+      "heading": "Part 3 — The State Register of",
+      "summary": ""
+    },
+    {
+      "heading": "Division 1 — The register",
+      "summary": "36. Form and content of register 23"
+    },
+    {
+      "heading": "Division 2 — Entry in the register",
+      "summary": "Subdivision 1 — Registration conditions"
+    },
+    {
+      "heading": "Division 3 — Amendment of register entries",
+      "summary": "43. Request for amendment of land description in"
+    },
+    {
+      "heading": "Division 4 — Removal of entries from register",
+      "summary": "48. Request for removal 32"
+    },
+    {
+      "heading": "Division 5 — Statements of cultural heritage",
+      "summary": "52. Adoption of statement of cultural heritage"
+    },
+    {
+      "heading": "Part 4 — Protection orders and",
+      "summary": ""
+    },
+    {
+      "heading": "Division 1 — Protection orders",
+      "summary": "57. Continuing protection order 40"
+    },
+    {
+      "heading": "Division 2 — Repair orders",
+      "summary": ""
+    },
+    {
+      "heading": "Part 5 — Proposals affecting places",
+      "summary": ""
+    },
+    {
+      "heading": "Division 1 — Preliminary",
+      "summary": "Subdivision 1 — Proposals that must be referred"
+    },
+    {
+      "heading": "Division 2 — Referral of proposals",
+      "summary": "Subdivision 1 — Proposals that must be referred"
+    },
+    {
+      "heading": "Division 3 — Proposed works for which there is",
+      "summary": "79. Permit for works affecting registered place 56"
+    },
+    {
+      "heading": "Part 6 — Support for conservation",
+      "summary": "81. Land to which this Division applies 59"
+    },
+    {
+      "heading": "Division 1 — Valuation of land",
+      "summary": "81. Land to which this Division applies 59"
+    },
+    {
+      "heading": "Division 2 — Conservation assistance",
+      "summary": "84. Provision of financial, technical and professional"
+    },
+    {
+      "heading": "Division 3 — Modification of planning",
+      "summary": "86. Council may recommend modification order 62"
+    },
+    {
+      "heading": "Part 7 — Heritage agreements",
+      "summary": "90. Heritage agreements 65"
+    },
+    {
+      "heading": "Part 8 — Local heritage surveys",
+      "summary": "102. Term used: local heritage survey 76"
+    },
+    {
+      "heading": "Part 9 — State government heritage",
+      "summary": "107. Guidelines about State government heritage 79"
+    },
+    {
+      "heading": "Part 10 — Acquisition and",
+      "summary": "109. Compulsory acquisition 81"
+    },
+    {
+      "heading": "Part 11 — Enforcement",
+      "summary": "114. Appointment of inspectors 85"
+    }
+  ],
+  "cross_references": [
+    "Building Act 2011",
+    "Environmental Protection Act 1986",
+    "Heritage Act 2018",
+    "Planning and Development Act 2005",
+    "Strata Titles Act 1985"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:37:27Z"
+}

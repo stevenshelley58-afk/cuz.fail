@@ -1,0 +1,2135 @@
+Western Australia
+Planning and Development Act 2005
+Planning and Development (Development
+Assessment Panels) Regulations 2011
+As at 01 Jul 2025 Official Version
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+
+
+Western Australia
+Planning and Development (Development
+Assessment Panels) Regulations 2011
+Contents
+Part 1 — Preliminary
+1. Citation 1
+2. Commencement 1
+3. Terms used 1
+4. Notes not part of the law 4
+Part 2 — Development applications
+and determinations
+Division 1 — DAP applications
+6. DAP applications 5
+7. Election in respect of r. 6 application 5
+8. DAP applications to be determined by DAPs 6
+9. Making DAP application: initial procedures 6
+Division 2 — Dealing with DAP applications
+10. Making DAP applications: notice and fees 7
+11. Local government must notify DAP of DAP
+application 8
+12. Responsible authority must report to DAP 10
+13. Further services from responsible authority 11
+14. Costs and expenses incurred by responsible
+authority 11
+15. Notification to applicant 12
+16. Determination by DAP 12
+16A. Commencement of development under
+development approval by DAP 13
+As at 01 Jul 2025 Official Version page i
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Contents
+17. Amendment or cancellation of development
+approval by DAP 14
+17A. Amendment or cancellation of development
+approval by responsible authority 16
+Division 3 — Review by State Administrative
+Tribunal
+18. Review by State Administrative Tribunal 17
+Part 3 — Delegation to DAPs
+19. Determination of certain development applications
+may be delegated to DAP 19
+20. Commencement of delegation 20
+21. Effect of delegation 20
+22. Payments in respect of exercise of delegated power 21
+Part 4 — Development assessment
+panels
+Division 1 — DAP members
+Subdivision 1 — Constitution of DAPs
+23. Constitution of DAPs 23
+24. Presiding DAP members 24
+Subdivision 2 — Local government DAP members
+25. Register of local government DAP members 24
+26. Alternate local government DAP members 25
+Subdivision 3 — Specialist DAP members
+27. Appointment of specialist DAP members 26
+28. Terms and conditions of appointment of specialist
+DAP members 27
+Subdivision 4 — General provisions
+30. Training of DAP members 28
+31. Fees and allowances for local government DAP
+members 29
+32. Casual vacancies 30
+32A. Suspension 32
+33. Leave of absence 32
+34. Extension of term of office during vacancy in
+membership 32
+page ii Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Contents
+Division 3 — Meetings
+39. Notice of meetings 33
+40. General procedure concerning meetings 34
+41. Quorum 35
+42. Voting 35
+43. Attending meeting remotely 36
+44. Minutes 36
+Division 4 — Conduct of DAP members
+45. Code of conduct 37
+46. Gifts 37
+47. Relations with local government and public sector
+employees 40
+48. Public comment 40
+Part 5 — Administration
+49. DAP executive director, staff and facilities to be
+made available 41
+50. Register of community housing providers 42
+51. DAP website 43
+52. Minister may require information 43
+53. Annual report 44
+Part 6 — Miscellaneous
+54. Amendment or revocation of order establishing
+DAP: transitional provisions 46
+54A. Approved forms 46
+54B. Fee waiver, reduction or refund 47
+55. Review of fees 47
+Part 7 — Transitional Provisions
+Division 1 — Provision for Planning
+Regulations Amendment Regulations 2020
+56. Application of amendments made by Planning
+Regulations Amendment Regulations 2020 48
+Division 2 — Provisions for Planning and
+Development (Development Assessment
+Panels) Amendment Regulations 2024
+57. Terms used 48
+58. Local government DAP members 49
+As at 01 Jul 2025 Official Version page iii
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Contents
+59. Specialist DAP members 50
+60. DAP applications 50
+61. Previous determinations of LDAPs and JDAPs 51
+Schedule 1 — Fees for applications
+Schedule 2 — Fees for local
+government DAP members
+Notes
+Compilation table 54
+Defined terms
+page iv Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development Act 2005
+Planning and Development (Development
+Assessment Panels) Regulations 2011
+Part 1 — Preliminary
+1. Citation
+These regulations are the Planning and Development
+(Development Assessment Panels) Regulations 2011.
+2. Commencement
+These regulations come into operation as follows —
+(a) regulations 1 and 2 — on the day on which these
+regulations are published in the Gazette;
+(b) the rest of the regulations — on the day on which the
+Approval and Related Reforms (No. 4) (Planning)
+Act 2010 Part 3 comes into operation.
+3. Terms used
+(1) In these regulations —
+accepted for assessment has a meaning affected by
+subregulation (3);
+accreditation body, for an area of expertise, means a body that
+accredits qualifications for the area of expertise;
+accredited, in relation to a tertiary qualification for an area of
+expertise, means accredited by an accreditation body for the
+area of expertise;
+applicant means a person who makes a DAP application;
+approved form means a form approved by the DAP executive
+director under regulation 54A;
+As at 01 Jul 2025 Official Version page 1
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 1 Preliminary
+r. 3
+community housing means housing for people on a very low,
+low or moderate income, or for people with additional needs,
+that is provided by a person other than an occupant of the
+housing;
+community housing provider means a body corporate or
+organisation that has as one of its objectives the provision of
+community housing;
+DAP application means a development application of a class or
+kind prescribed under regulation 6 in respect of which the
+applicant has made an election under regulation 7;
+DAP executive director means the DAP executive director
+designated under regulation 49;
+DAP member means —
+(a) a local government DAP member; or
+(b) a specialist DAP member;
+DAP website has the meaning given in regulation 51;
+department means the department of the Public Service
+principally assisting the Minister in the administration of the
+Act;
+deputy presiding member, in relation to a DAP, means the
+person designated as deputy presiding member of the DAP
+under regulation 24(1);
+Director General means the chief executive officer of the
+department;
+excluded development application means a development
+application for approval of —
+(a) construction of a single house and any associated
+carport, patio, outbuilding and incidental development;
+or
+(b) development in an improvement scheme area; or
+(c) a public work; or
+(d) development wholly within an area identified as a
+regional reserve under a region planning scheme;
+page 2 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Preliminary Part 1
+r. 3
+local government DAP member means a person designated as a
+local government DAP member or an alternate local
+government DAP member under regulation 25(2);
+member, in relation to the council of a local government, has
+the meaning given by the Local Government Act 1995
+section 1.4;
+planning instrument has the meaning given in section 171A(1)
+of the Act;
+presiding member, in relation to a meeting of a DAP, means the
+person presiding under regulation 24;
+R-codes means the planning codes entitled Residential Design
+Codes prepared by the Commission under Part 3A of the Act, as
+amended from time to time;
+registered community housing provider means a community
+housing provider that is included on the register under
+regulation 50;
+regular specialist DAP member means a person who holds the
+office of regular specialist DAP member under regulation 27(1);
+relevant planning instrument, in relation to a development
+application, means the planning instrument under which the
+application is made;
+sessional specialist DAP member means a person who holds the
+office of sessional specialist DAP member under
+regulation 27(3);
+specialist DAP member means a regular specialist DAP
+member or a sessional specialist DAP member.
+(2) In these regulations the following terms have the meaning given
+to them in the R-Codes —
+carport
+dwelling
+grouped dwelling
+incidental development
+As at 01 Jul 2025 Official Version page 3
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 1 Preliminary
+r. 4
+multiple dwelling
+outbuilding
+patio
+single house
+(3) A reference in these regulations to an application being
+accepted for assessment is —
+(a) in relation to a DAP application made under a local
+planning scheme — a reference to the application being
+accepted for assessment under the local planning
+scheme; or
+(b) in relation to a DAP application made under a planning
+instrument other than a local planning scheme — a
+reference to the application being made in accordance
+with the requirements of the planning instrument; or
+(c) in relation to an application under regulation 17(1) — a
+reference to the application being made in accordance
+with the requirements of these regulations.
+Note for these regulations:
+The terms DAP and responsible authority and other terms defined in
+the Planning and Development Act 2005 section 4(1) have the same
+respective meanings in these regulations as in that provision.
+[Regulation 3 amended: Gazette 25 Jan 2013 p. 272;
+17 Apr 2015 p. 1380; 16 Dec 2016 p. 5709-10; SL 2020/252
+r. 90; SL 2024/27 r. 4.]
+4. Notes not part of the law
+Notes in these regulations are provided to assist understanding
+and do not form part of the regulations.
+page 4 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development applications and determinations Part 2
+DAP applications Division 1
+r. 6
+Part 2 — Development applications and
+determinations
+Division 1 — DAP applications
+[Heading inserted: SL 2024/27 r. 5.]
+[4A, 5. Deleted: SL 2024/27 r. 6.]
+6. DAP applications
+(1) A development application for approval of development is
+prescribed for the purposes of section 171A(2)(ba) of the Act if
+the development is within a district for which a DAP is
+established and the development —
+(a) has an estimated cost of $2 million or more; or
+(b) is or includes community housing that is to be provided
+by a registered community housing provider.
+(2) This regulation does not apply to —
+(a) an excluded development application; or
+(b) a development application in respect of which the
+responsible authority has under regulation 19 delegated
+the power of determination; or
+(c) a development application made under Part 11B or 17 of
+the Act.
+Note for this regulation:
+Section 171A(2A) of the Act provides that a development application
+that relates to land in the Swan Valley cannot be a prescribed
+development application.
+[Regulation 6 inserted: SL 2024/27 r. 6.]
+7. Election in respect of r. 6 application
+(1) An applicant making a development application of a class or
+kind prescribed under regulation 6 may elect to have the
+application determined by a DAP.
+As at 01 Jul 2025 Official Version page 5
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 2 Development applications and determinations
+Division 1 DAP applications
+r. 8
+(2) The election must be made by —
+(a) completing a notice of election in the approved form;
+and
+(b) attaching it to the development application.
+[Regulation 7 amended: SL 2024/27 r. 7.]
+8. DAP applications to be determined by DAPs
+(1) Despite any other provision of the Act or a planning instrument,
+a DAP application for approval of development within a district
+for which a DAP is established —
+(a) must be determined by the DAP as if the DAP were the
+responsible authority under the relevant planning
+instrument in relation to the development; and
+(b) cannot be determined by the local government for the
+district or the Commission.
+(2) If a DAP application is for approval of development in more
+than 1 district and there is more than 1 DAP established for
+some or all of those districts, the application is to be determined
+by the DAP in whose area of jurisdiction the greatest area of
+land to which the application relates is situated.
+(3) In subregulation (2) —
+area of jurisdiction, for a DAP, means the district or districts
+for which the DAP is established.
+[Regulation 8 amended: SL 2024/27 r. 8.]
+9. Making DAP application: initial procedures
+(1) These regulations do not affect —
+(a) the manner and form in which a development
+application or an application for amendment or
+cancellation of a development approval must be made
+under a planning instrument; or
+page 6 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development applications and determinations Part 2
+Dealing with DAP applications Division 2
+r. 10
+(aa) the provisions of a planning instrument as to acceptance
+of a development application for assessment and
+requesting further information or material in relation to a
+development application; or
+(b) the requirements under a planning instrument as to
+notification, advertising and consultation procedures
+prior to determination of a development application or
+an application for amendment or cancellation of a
+development approval.
+(2) For the purposes of these regulations, a development application
+is made to the Commission even though it is lodged with or
+given to a local government if, under the planning instrument
+under which the application is made, the application would be
+determined by the Commission but for regulation 8 or a
+delegation under regulation 19.
+[Regulation 9 amended: SL 2020/252 r. 91; SL 2024/27 r. 9.]
+Division 2 — Dealing with DAP applications
+[Heading inserted: SL 2024/27 r. 10.]
+10. Making DAP applications: notice and fees
+(1) An applicant making a DAP application to a responsible
+authority for development approval under a planning instrument
+must, when lodging the application —
+(a) give to the local government with which the application
+for development approval is lodged the completed
+notice of election referred to in regulation 7(2)(a); and
+(b) pay to the local government the relevant fee in
+Schedule 1 item 1.
+(2) The notice required under subregulation (1) is required in
+addition to any application form required under the planning
+instrument.
+As at 01 Jul 2025 Official Version page 7
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 2 Development applications and determinations
+Division 2 Dealing with DAP applications
+r. 11
+(3) The fee payable under subregulation (1) is payable in addition
+to any fees, costs and expenses that are imposed by a local
+government in accordance with the Planning and Development
+Regulations 2009 in relation to the development application.
+(4) If a DAP application in respect of the same development is
+required to be made under both a local planning scheme and a
+region planning scheme, or under both a local interim
+development order and a regional interim development order,
+the fee referred to in subregulation (1)(b) is payable once only.
+(5) The local government must, within 30 days after the date on
+which it receives the DAP application, remit to the department
+the fee paid under subregulation (1).
+[Regulation 10 amended: SL 2024/27 r. 11.]
+[11A. Deleted: SL 2020/252 r. 92.]
+11. Local government must notify DAP of DAP application
+(1) A local government must, within 7 days after the date on which
+it accepts a DAP application for assessment, give the DAP
+executive director the following —
+(a) a copy of the DAP application;
+(b) a copy of the notice given under regulation 10(1) and
+completed by the local government;
+(c) confirmation that the applicant has paid the fee under
+regulation 10(1);
+(d) a copy of any notice requiring the applicant to amend
+the application, or provide further information or
+material in relation to the application, given to the
+applicant before the application was accepted for
+assessment under the relevant planning instrument;
+(e) any further information or material given to the local
+government in response to a notice referred to in
+paragraph (d).
+page 8 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development applications and determinations Part 2
+Dealing with DAP applications Division 2
+r. 11
+(1A) On receipt of a DAP application and notice under
+subregulation (1)(a) and (b) by the DAP executive director, the
+DAP that will determine the application is, for the purposes of
+these regulations, taken to have been notified of the application.
+(2) If, after a DAP application is accepted for assessment, the local
+government gives the applicant a notice under the relevant
+planning instrument requesting that the applicant give further
+information or material to the local government and the
+applicant accepts the request, the local government must —
+(a) within 3 days after the date on which the request is
+accepted, give the DAP executive director —
+(i) a copy of the notice of request; and
+(ii) confirmation of the date on which the request
+was accepted;
+and
+(b) within 7 days after the date on which the information or
+material (if any) is given to the local government in
+response to the request, give the DAP executive
+director —
+(i) the information or material; and
+(ii) confirmation of the date on which the
+information or material was given to the local
+government.
+(3) If, after a DAP application is accepted for assessment, the
+applicant gives the local government further information or
+material relevant to the application on the applicant’s own
+initiative, the local government must give the further
+information or material to the DAP executive director within
+7 days after the date on which it is given to the local
+government.
+[Regulation 11 amended: Gazette 17 Apr 2015 p. 1381-2;
+SL 2020/252 r. 93; SL 2024/27 r. 12.]
+As at 01 Jul 2025 Official Version page 9
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 2 Development applications and determinations
+Division 2 Dealing with DAP applications
+r. 12
+12. Responsible authority must report to DAP
+[(1) deleted]
+(2) A responsible authority to which a DAP application is made
+must give the DAP executive director a report on the application
+in the approved form.
+(3) The report must be given at least 12 days before the day on
+which the application would be taken to be refused under the
+relevant planning instrument.
+(4A) In calculating the period within which the report on the
+application must be given under subregulation (3), an excluded
+day or period is not to be counted.
+(4B) For the purposes of subregulation (4A), an excluded day or
+period is a day or period that, under the planning instrument
+under which the application is made, is not to be counted in
+determining when the application must be determined.
+(4) Despite subregulation (3), the DAP executive director may, by
+notice in writing given to the responsible authority and with the
+consent of the applicant, extend the period within which the
+report on the application must be given.
+(5) The report must provide sufficient information to enable the
+DAP to determine the application, including —
+(a) a recommendation as to how the application should be
+determined; and
+(b) copies of any advice received by the responsible
+authority from any other statutory or public authority
+consulted by the responsible authority in respect of the
+application; and
+(c) any other information that the responsible authority
+considers is relevant to determining the application.
+page 10 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development applications and determinations Part 2
+Dealing with DAP applications Division 2
+r. 13
+(6) A DAP, in determining a DAP application, must have regard to,
+but is not bound to give effect to, the recommendations in a
+report under subregulation (2).
+(7) A DAP may determine a DAP application in the absence of a
+report under subregulation (2) if a report is not given in
+accordance with this regulation.
+[Regulation 12 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1382 and 1386; 16 Dec 2016 p. 5711; SL 2020/252
+r. 94; SL 2024/27 r. 13.]
+13. Further services from responsible authority
+(1) The DAP executive director may, at any time after a DAP is
+notified of a DAP application made to a responsible authority,
+direct the responsible authority to provide either or both of the
+following services in connection with the application —
+(a) technical advice and assistance;
+(b) information in writing.
+(2) The direction must be in writing and must specify —
+(a) the services required; and
+(b) the time within which the responsible authority must
+comply with the direction.
+(3) A responsible authority must comply with a direction given to it
+under this regulation.
+(4) A DAP may determine a DAP application in the absence of a
+service required under this regulation if the service is not
+provided in accordance with this regulation.
+[Regulation 13 amended: Gazette 25 Jan 2013 p. 272;
+SL 2024/27 r. 14.]
+14. Costs and expenses incurred by responsible authority
+The costs and expenses incurred by a responsible authority in
+giving a report under regulation 12, or advice, assistance or
+As at 01 Jul 2025 Official Version page 11
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 2 Development applications and determinations
+Division 2 Dealing with DAP applications
+r. 15
+information in compliance with a direction under regulation 13,
+are, to the extent that they are not payable by an applicant under
+the Planning and Development Regulations 2009 regulation 49,
+to be borne by the responsible authority.
+15. Notification to applicant
+The DAP executive director must notify an applicant of the
+following dates —
+(a) the date on which a report under regulation 12(2) on a
+DAP application made by the applicant is received by
+the DAP executive director;
+(b) any date on which the DAP executive director directs a
+responsible authority under regulation 13(1) to give
+advice, assistance or further information in respect of
+the application;
+(c) the date on which the DAP that will determine the
+application will meet to consider it.
+[Regulation 15 amended: SL 2024/27 r. 15.]
+16. Determination by DAP
+(1) Except as provided in subregulations (2) and (3), the provisions
+of the Act and the planning instrument under which a DAP
+application is made apply to the making and notification of the
+DAP’s determination of the application as if the DAP were the
+responsible authority in relation to the planning instrument.
+(2) Subregulation (3) applies if the planning instrument provides
+that an application is taken to be refused if not determined
+within a specified period after the application is accepted for
+assessment.
+(3) In calculating, under the planning instrument, the period
+between when the application is accepted for assessment and
+when the application is determined, any excluded day or period
+page 12 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development applications and determinations Part 2
+Dealing with DAP applications Division 2
+r. 16A
+as defined in regulation 12(4B) must be excluded, in addition to
+any period of extension under regulation 12(4).
+(4) A dispute that arises in determining whether a day or period is
+excluded under the planning instrument or subregulation (3) is
+to be determined by the DAP executive director.
+(5) The DAP executive director must give the following a copy of
+any written notice of a determination of a DAP application,
+together with approved plans and other ancillary documents,
+given under subregulation (1) to the applicant —
+(a) the local government of each district in which land to
+which the application relates is situated;
+(b) if the Commission is the responsible authority — the
+Commission.
+[Regulation 16 inserted: SL 2024/27 r. 16.]
+16A. Commencement of development under development
+approval by DAP
+(1) In this regulation —
+substantially commenced has the meaning given in the
+Planning and Development (Local Planning Schemes)
+Regulations 2015 Schedule 2 clause 1.
+(2) If development approval is granted by a DAP, the development
+must be substantially commenced —
+(a) within the period specified in the approval; or
+(b) if no period is specified in the approval — within the
+period of 4 years beginning on the day on which the
+approval is granted.
+Note for this subregulation:
+The period can be extended by an amendment of the approval under
+regulation 17(1)(a) or the provisions applied by regulation 17A.
+(3) The approval lapses if the development has not substantially
+commenced within the period referred to in subregulation (2).
+As at 01 Jul 2025 Official Version page 13
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 2 Development applications and determinations
+Division 2 Dealing with DAP applications
+r. 17
+(4) Subregulations (2) and (3) apply despite any provision of the
+planning instrument under which the DAP application is made.
+[Regulation 16A inserted: SL 2020/252 r. 96; amended:
+SL 2024/27 r. 17.]
+17. Amendment or cancellation of development approval by
+DAP
+(1A) In subregulation (1) —
+relevant DAP, in relation to a development approval, means —
+(a) the DAP established for the district in which the land to
+which the development approval relates is situated; or
+(b) if there is more than 1 such district — the DAP
+established for the district in which the greatest area of
+land to which the development approval relates is
+situated.
+(1) An owner of land in respect of which a development approval
+has been granted by a DAP pursuant to a DAP application may
+apply for the relevant DAP to do any or all of the following —
+(a) to amend the approval so as to extend the period within
+which any development approved must be substantially
+commenced under regulation 16A(2);
+(b) to amend or delete any condition to which the approval
+is subject;
+(c) to amend an aspect of the development approved which,
+if amended, would not substantially change the
+development approved;
+(d) to cancel the approval.
+(2) An application under subregulation (1) —
+(a) may be made during or after the period within which the
+development approved must be substantially
+commenced under regulation 16A(2); and
+(b) must be made in the approved form; and
+page 14 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development applications and determinations Part 2
+Dealing with DAP applications Division 2
+r. 17
+(c) must be accompanied by the fee in Schedule 1 item 2;
+and
+(d) must be lodged with the local government with which
+the DAP application was lodged.
+(3) Unless otherwise provided in this regulation, regulations 10
+to 13 apply to an application under subregulation (1) as if the
+application were a DAP application.
+(4) The relevant DAP may determine the application under
+subregulation (1) by —
+(a) approving the application with or without conditions; or
+(b) refusing the application.
+(5) As soon as practicable after the application is determined, the
+DAP executive director must give the applicant and the relevant
+responsible authority written notification of the determination
+which must include the following —
+(a) the date of the determination;
+(b) the determination;
+(c) the terms of any condition to which the approval is
+subject;
+(d) reasons for any refusal;
+(e) unless the application is granted unconditionally, a
+statement of the effect of regulation 18.
+(6) The DAP executive director must ensure that the notification is
+published on the DAP website.
+[(7) deleted]
+[Regulation 17 amended: Gazette 16 Dec 2016 p. 5711;
+SL 2020/252 r. 97; SL 2024/27 r. 18.]
+As at 01 Jul 2025 Official Version page 15
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 2 Development applications and determinations
+Division 2 Dealing with DAP applications
+r. 17A
+17A. Amendment or cancellation of development approval by
+responsible authority
+(1) An owner of land in respect of which a development approval
+has been granted by a DAP pursuant to a DAP application may
+apply, under the relevant planning instrument, for the
+responsible authority under that instrument to amend or cancel
+the development approval (an application).
+(2) For the purposes of subregulation (1), the provisions of the Act,
+the Planning and Development (Local Planning Schemes)
+Regulations 2015, the Planning and Development
+Regulations 2009 and the relevant planning instrument apply to
+the making and determination of, and the review of a decision
+on, an application as if the development approval —
+(a) had not been granted pursuant to a DAP application; and
+(b) had been granted by the responsible authority.
+(3) As soon as practicable after an application is determined, the
+responsible authority must give the DAP executive director
+written notification of the determination which must include the
+following —
+(a) the date of the determination;
+(b) the determination;
+(c) the terms of any condition to which the approval of the
+application is subject;
+(d) reasons for any refusal of the application.
+[Regulation 17A inserted: Gazette 16 Dec 2016 p. 5712;
+amended: SL 2024/27 r. 19.]
+page 16 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development applications and determinations Part 2
+Review by State Administrative Tribunal Division 3
+r. 18
+Division 3 — Review by State Administrative Tribunal
+[Heading inserted: SL 2024/27 r. 20.]
+18. Review by State Administrative Tribunal
+(1) In this regulation —
+decision-maker has the meaning given in the State
+Administrative Tribunal Act 2004 section 3(1);
+deemed refused DAP application means a DAP application that
+is taken under the Act or a planning instrument to have been
+refused because a determination of the application was not
+made, or notice of the determination was not given to the
+applicant, within the time allowed under the Act or planning
+instrument.
+(2) A person who has made a DAP application or an application
+under regulation 17 may apply to the State Administrative
+Tribunal for a review, in accordance with Part 14 of the Act,
+of —
+(a) a determination by a DAP to refuse the application; or
+(b) any condition imposed by a DAP in the determination of
+the application; or
+(c) a deemed refused DAP application,
+as if the determination or deemed refusal were a determination
+of a responsible authority.
+(3) Despite section 171A(3) of the Act and any other provision of
+these regulations, for the purposes of the State Administrative
+Tribunal Act 2004, other than section 31, the DAP executive
+director is —
+(a) the decision-maker in respect of a determination of a
+DAP application, or an application under regulation 17,
+by a DAP or a deemed refused DAP application; and
+(b) the respondent in any application for review of the
+determination or deemed refusal.
+As at 01 Jul 2025 Official Version page 17
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 2 Development applications and determinations
+Division 3 Review by State Administrative Tribunal
+r. 18
+(4) For the purposes of reconsideration of a decision on an
+invitation made under the State Administrative Tribunal
+Act 2004 section 31, the decision-maker is the DAP that made
+the reviewable decision.
+[Regulation 18 amended: Gazette 17 Apr 2015 p. 1383;
+SL 2024/27 r. 21.]
+page 18 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Delegation to DAPs Part 3
+r. 19
+Part 3 — Delegation to DAPs
+19. Determination of certain development applications may be
+delegated to DAP
+(1) A development application is an application of a class
+prescribed for the purposes of this regulation if —
+(a) the application is for approval for development that —
+(i) has an estimated cost of $2 million or more; or
+(ii) is or includes community housing that is to be
+provided by a registered community housing
+provider;
+and
+(b) the application is not an excluded application or made
+under Part 11B or 17 of the Act.
+(2) A local government may, by written instrument, delegate to a
+DAP established for the district of the local government —
+(a) the power of the local government to determine a
+development application of a class prescribed under
+subregulation (1) that is made to the local government;
+and
+(b) the power of the local government to amend or cancel
+determinations of applications of that kind.
+(3) The power to delegate can be exercised by a local government
+only by or in accordance with a decision of an absolute majority
+(as defined in the Local Government Act 1995 section 1.4) of
+the council of the local government.
+(4) The Commission may, by written instrument, delegate to a
+DAP —
+(a) the power of the Commission to determine a
+development application of a class prescribed under
+subregulation (1) that is made to the Commission; and
+As at 01 Jul 2025 Official Version page 19
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 3 Delegation to DAPs
+r. 20
+(b) the power of the Commission to amend or cancel
+determinations of applications of that kind.
+(5) If a local government or the Commission delegates under this
+regulation, the local government or the Commission must notify
+the DAP executive director in writing of the delegation and
+must publish a copy of it on a website of the local government
+or Commission.
+[(6) deleted]
+(7) A DAP to which a power is delegated under this regulation
+cannot delegate that power.
+[Regulation 19 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1383-4; SL 2024/27 r. 22.]
+20. Commencement of delegation
+(1) An instrument of delegation under regulation 19, and any
+instrument amending or revoking the delegation, takes effect on
+the day specified in the instrument.
+(2) A body that delegates to a DAP under regulation 19 must give a
+copy of the instrument of delegation to the DAP executive
+director.
+[Regulation 20 inserted: Gazette 17 Apr 2015 p. 1384;
+amended: SL 2024/27 r. 23.]
+21. Effect of delegation
+(1) Nothing in regulation 19 or 20 or this regulation prevents or
+limits the application of the Interpretation Act 1984 sections 58
+and 59 to a delegation made under regulation 19.
+(2) If a local government or the Commission delegates under
+regulation 19 the power to determine a development
+application —
+(a) the applicant must, in addition to any application
+required under the planning instrument under which the
+page 20 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Delegation to DAPs Part 3
+r. 22
+application is made, give to the local government with
+which the application is lodged notice, in an approved
+form, that the application is to be determined by a DAP;
+and
+(b) regulations 11 to 16A apply as if the application were a
+DAP application.
+(3) If a local government or the Commission delegates under
+regulation 19 the power to amend or cancel the determination of
+a development application —
+(a) the applicant for amendment or cancellation must, in
+addition to any application required under the planning
+instrument under which the application is made, give to
+the local government with which the application is
+lodged notice, in an approved form, that the application
+is to be determined by a DAP; and
+(b) regulations 11 to 16A apply as if the application were a
+DAP application.
+(4) A DAP exercising a power that has been delegated to the DAP
+under this regulation is taken to do so in accordance with the
+terms of the delegation unless the contrary is shown.
+(5) A power exercised by a DAP pursuant to a delegation under this
+regulation is taken to be exercised by the body that delegated
+the power.
+[Regulation 21 amended: SL 2024/27 r. 24.]
+22. Payments in respect of exercise of delegated power
+(1) Subject to any agreement made under subregulation (3), a local
+government that under this Part delegates a power to determine
+a development application must pay to the department in respect
+of the application an amount equal to the amount that would
+have been payable under regulation 10(1)(b) by the applicant if
+regulation 10 were applicable to the application.
+As at 01 Jul 2025 Official Version page 21
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 3 Delegation to DAPs
+r. 22
+(2) Subject to any agreement made under subregulation (3), a local
+government that under this Part delegates a power to amend or
+cancel a development application must pay to the department in
+respect of the application an amount equal to the amount that
+would have been payable under regulation 17(2)(c) by the
+applicant if regulation 17 were applicable to the application.
+(3) The Director General may enter into an agreement with a local
+government as to the payments under subregulation (1) or (2).
+[Regulation 22 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1384 and 1386; SL 2024/27 r. 25.]
+page 22 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+DAP members Division 1
+r. 23
+Part 4 — Development assessment panels
+Division 1 — DAP members
+Subdivision 1 — Constitution of DAPs
+[Heading inserted: SL 2024/27 r. 26.]
+23. Constitution of DAPs
+(1) Subject to subregulation (4), a DAP, at any meeting of the DAP
+to determine or otherwise deal with a development application
+or an application to amend or cancel a development approval, is
+constituted by —
+(a) the 2 local government DAP members, designated under
+regulation 25(2)(a), for the relevant local government in
+relation to the application; and
+(b) 3 specialist DAP members appointed by the DAP
+executive director.
+(2) In subregulation (1)(a) —
+relevant local government, in relation to an application, means
+the local government of the district in which the land to which
+the application relates is situated.
+(3) At least 1 of the specialist DAP members appointed under
+subregulation (1)(b) must be a regular specialist DAP member.
+(4) If the application is for approval of development, or to amend or
+cancel a development approval for development, in more than 1
+district and the development is subject to approval under a
+region planning scheme or a regional interim development
+order, the DAP is constituted by —
+(a) 2 local government DAP members appointed by the
+DAP executive director; and
+(b) 3 specialist DAP members appointed by the DAP
+executive director.
+As at 01 Jul 2025 Official Version page 23
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 1 DAP members
+r. 24
+(5) The DAP executive director must not appoint, under
+subregulation (1)(b) or (4)(b), a specialist DAP member who
+is —
+(a) employed under the Local Government Act 1995
+section 5.36 by the local government of a district for
+which the DAP is established; or
+(b) a member of the council of the local government of a
+district for which the DAP is established.
+[Regulation 23 inserted: SL 2024/27 r. 27.]
+24. Presiding DAP members
+(1) The DAP executive director must, for a DAP constituted under
+regulation 23 for the purposes of dealing with an application,
+designate a specialist DAP member as the presiding member,
+and a specialist DAP member as the deputy presiding member,
+for each meeting of the DAP at which the DAP deals with the
+application.
+(2) If the DAP member designated as the presiding member is
+unable to preside by reason of illness, absence or other cause,
+the deputy is to preside.
+[Regulation 24 inserted: SL 2024/27 r. 27.]
+Subdivision 2 — Local government DAP members
+[Heading inserted: SL 2024/27 r. 27.]
+25. Register of local government DAP members
+(1) The DAP executive director must maintain a register of local
+government DAP members.
+(2) Subject to subregulation (4), the register must include, for each
+local government of a district for which a DAP is established,
+the names of 4 members of the council of the local
+government —
+page 24 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+DAP members Division 1
+r. 26
+(a) 2 of whom must be designated as the local government
+DAP members for the local government; and
+(b) 2 of whom must be designated as the alternate local
+government DAP members for the local government.
+(3) Whenever it is necessary to include a member of a council of a
+local government on the register, the Minister must —
+(a) in writing, request the local government to nominate a
+member of the council of the local government for
+inclusion on the register; and
+(b) unless subregulation (4) applies, include on the register
+the name of the person nominated.
+(4) If, within 40 days after the day on which the Minister makes a
+request under subregulation (3) or such longer period as the
+Minister may allow, the local government fails to nominate a
+person for inclusion on the register in accordance with the
+request, the Minister may instead include on the register a
+person who is an eligible voter of the district of the local
+government.
+(5) For the purposes of subregulation (4) a person is an eligible
+voter of a district if that person is eligible under the Local
+Government Act 1995 section 4.29 or 4.30 to be enrolled to vote
+at elections for the district.
+[Regulation 25 inserted: SL 2024/27 r. 27.]
+26. Alternate local government DAP members
+(1) If a local government DAP member designated under
+regulation 25(2)(a) for a local government is unable to perform
+the functions of a DAP member by reason of illness, absence or
+other cause, the DAP executive director may appoint an
+alternate local government DAP member for the local
+government to act in their place.
+(2) An alternate member acting in the place of a DAP member may,
+despite anything in these regulations, continue to act, after the
+As at 01 Jul 2025 Official Version page 25
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 1 DAP members
+r. 27
+occasion for so acting has ceased, for the purpose of completing
+a determination of an application.
+(3) An alternate member, while acting in the place of a DAP
+member, has the same functions and protection from liability as
+a DAP member.
+(4) No act or omission of an alternate member acting in the place of
+a DAP member is to be questioned on the ground that the
+occasion for so acting had not arisen or had ceased.
+[Regulation 26 inserted: SL 2024/27 r. 27.]
+Subdivision 3 — Specialist DAP members
+[Heading inserted: SL 2024/27 r. 27.]
+27. Appointment of specialist DAP members
+(1) The Minister may appoint a person to the office of regular
+specialist DAP member if satisfied that the person has
+experience in and an accredited tertiary qualification in urban
+and regional planning.
+(2) A regular specialist DAP member holds office on a full-time or
+part-time basis and cannot engage in any other paid employment
+without the written approval of the Minister.
+(3) The Minister may appoint a person to the office of sessional
+specialist DAP member if satisfied that the person —
+(a) has experience in 1 or more of the following areas of
+expertise —
+(i) urban and regional planning;
+(ii) architecture;
+(iii) urban design;
+(iv) civil or structural engineering;
+(v) landscape architecture;
+page 26 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+DAP members Division 1
+r. 28
+(vi) environmental impact assessment;
+and
+(b) has —
+(i) an accredited tertiary qualification in their area
+of expertise that is, in the opinion of the
+Minister, sufficient to allow them to perform the
+duties of a specialist DAP member; or
+(ii) extensive experience in their area of expertise
+that is, in the opinion of the Minister, sufficient
+to allow them to perform the duties of a
+specialist DAP member.
+(4) The following are not eligible to hold the office of specialist
+DAP member —
+(a) an officer of the department;
+(b) a member of a parliament as defined in the Local
+Government Act 1995 section 2.20(2).
+[Regulation 27 inserted: SL 2024/27 r. 27.]
+28. Terms and conditions of appointment of specialist DAP
+members
+(1) The terms and conditions of appointment of a specialist DAP
+member, including about remuneration, are to be determined by
+the Minister on the recommendation of the Public Sector
+Commissioner.
+(2) A specialist DAP member holds office for the term specified in
+their instrument of appointment, which cannot exceed 5 years.
+(3) A person may be appointed to the office of specialist DAP
+member more than once.
+(4) However, the Minister must ensure that if a person is appointed
+for 2 consecutive terms, a period of at least 3 years follows
+during which the person does not hold office as a specialist
+DAP member.
+As at 01 Jul 2025 Official Version page 27
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 1 DAP members
+r. 30
+(5) A failure to comply with subregulation (4) does not give rise to
+any invalidity.
+[Regulation 28 inserted: SL 2024/27 r. 27.]
+[29. Deleted: SL 2024/27 r. 27.]
+Subdivision 4 — General provisions
+[Heading inserted: SL 2024/27 r. 28.]
+30. Training of DAP members
+(1) A person who becomes a DAP member cannot perform the
+functions of a DAP member until the DAP executive director is
+of the opinion that the member has satisfactorily completed the
+training for DAP members provided by the department.
+(2) Subject to subregulation (3), a local government DAP member
+who satisfactorily completes —
+(a) the training for DAP members referred to in
+subregulation (1) is entitled to be paid the amount in
+Schedule 2 item 4; and
+(b) a course of re-training for DAP members is entitled to
+be paid the amount in Schedule 2 item 5.
+(3) Unless the Minister has given written consent to the payment,
+the amount referred to in subregulation (2) is not payable to a
+DAP member who is —
+(a) an employee as defined in the Public Sector
+Management Act 1994; or
+(b) an employee of a department or other agency of the
+Commonwealth; or
+(c) a local government employee; or
+(d) a judicial officer or retired judicial officer; or
+(e) an employee of a public academic institution.
+page 28 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+DAP members Division 1
+r. 31
+[Regulation 30 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386; 16 Dec 2016 p. 5714; SL 2024/27 r. 29.]
+31. Fees and allowances for local government DAP members
+(1) A local government DAP member who attends a meeting of a
+DAP is entitled to be paid —
+(a) if paragraph (b) does not apply — the fee in Schedule 2
+item 1; or
+(b) if the sole purpose of their attendance at the meeting is
+to amend or cancel a development approval — the fee in
+Schedule 2 item 2.
+(2) If a meeting of a DAP is cancelled after the agenda for the
+meeting is published under regulation 39(1), each local
+government DAP member who was to attend the meeting may,
+if the DAP executive director approves in writing, be paid 50%
+of the fee to which the member would have been entitled under
+subregulation (1).
+[(3A) deleted]
+(3) A local government DAP member who, at the invitation or
+requirement of the State Administrative Tribunal, attends a
+proceeding in the Tribunal in relation to the review of a
+determination of the DAP is entitled to be paid the fee in
+Schedule 2 item 3.
+[(3B) deleted]
+(4) A local government DAP member is entitled to be reimbursed
+for motor vehicle and travel expenses at the rate decided from
+time to time by the Public Sector Commissioner for members of
+Government boards and committees.
+(5) Fees and allowances for local government DAP members are
+payable by the department.
+(5A) Subregulations (1) to (4) have effect subject to
+subregulation (6).
+As at 01 Jul 2025 Official Version page 29
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 1 DAP members
+r. 32
+(6) Unless the Minister has given written consent to the payment,
+fees and allowances are not payable under this regulation to a
+local government DAP member who is —
+(a) an employee as defined in the Public Sector
+Management Act 1994; or
+(b) an employee of a department or other agency of the
+Commonwealth; or
+(c) a local government employee; or
+(d) a judicial officer or retired judicial officer; or
+(e) an employee of a public academic institution.
+[Regulation 31 amended: Gazette 17 Apr 2015 p. 1385;
+16 Dec 2016 p. 5714; SL 2024/27 r. 30.]
+32. Casual vacancies
+(1) The office of a DAP member becomes vacant if the member —
+(a) dies, resigns or is removed from office under this
+regulation; or
+(b) is, according to the Interpretation Act 1984 section 13D,
+a bankrupt or a person whose affairs are under
+insolvency laws; or
+(c) is convicted of an offence punishable by imprisonment
+for more than 12 months; or
+(d) is convicted of an offence against section 266 of the Act.
+(2) A DAP member may at any time resign from office by giving a
+written resignation to the Minister.
+(3) The Minister may, by notice in writing given to the member,
+remove a DAP member from office on the grounds of —
+(a) neglect of duty; or
+(b) misconduct or incompetence; or
+(c) mental or physical incapacity to carry out the member’s
+duties in a satisfactory manner; or
+page 30 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+DAP members Division 1
+r. 32
+(d) absence without leave granted under regulation 33 from
+3 consecutive meetings of a DAP of which the member
+had notice; or
+(e) unreasonable failure to undertake the training for DAP
+members referred to in regulation 30(1).
+(4) Failure to comply with regulation 45(2), 46(2), (2A), (3)
+or (3A), 47 or 48 is capable of constituting misconduct for the
+purposes of subregulation (3)(b).
+(5A) If the office of a local government DAP member becomes
+vacant, or the member resigns or is removed from office, the
+person ceases to be included on the register under regulation 25.
+(5B) A local government DAP member for a local government ceases
+to be included on the register under regulation 25 if —
+(a) the person ceases to be a member of the council of the
+local government; or
+(b) in the case of a local government DAP member included
+on the register under regulation 25(4) — another person
+is included on the register for the local government
+under regulation 25.
+(5) The Minister must, by notice in writing given to the member,
+remove a specialist DAP member from office if the member
+ceases to hold a qualification by virtue of which the member
+was appointed.
+(6) A notice given under subregulation (3) or (5) must specify the
+ground of removal.
+(7) The removal takes effect on the day on which the member is
+given the notice or on such later day as is specified in the notice.
+[Regulation 32 amended: Gazette 17 Apr 2015 p. 1385;
+16 Dec 2016 p. 5714; SL 2024/27 r. 31.]
+As at 01 Jul 2025 Official Version page 31
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 1 DAP members
+r. 32A
+32A. Suspension
+(1) The Minister may, by notice in writing given to the member,
+suspend a DAP member from office —
+(a) for a specified period; or
+(b) if the Minister proposes to remove the member from
+office under regulation 32(3) or (5) — until the Minister
+either removes the member from office or decides not to
+do so.
+(2) A notice given under subregulation (1) must specify the ground
+for suspension.
+(3) The suspension takes effect on the day on which the member is
+given the notice or on a later day specified in the notice.
+[Regulation 32A inserted: SL 2024/27 r. 32.]
+33. Leave of absence
+The Minister may grant leave of absence to a DAP member on
+the terms and conditions determined by the Minister.
+34. Extension of term of office during vacancy in membership
+(1) If the office of a DAP member becomes vacant because the
+member’s term of office expires, the member is taken to
+continue to be a member during that vacancy until the date on
+which the vacancy is filled (whether by reappointment of the
+member or appointment of a successor to the member).
+(2) However, subregulation (1) ceases to apply if the member
+resigns or is removed from office under these regulations.
+(3) The maximum period for which a DAP member is taken to
+continue to be a member under this regulation after the
+member’s term of office expires is 3 months.
+[Division 2: r. 35, 37 deleted: SL 2024/27 r. 33;
+r. 36, 38 deleted: Gazette 17 Apr 2015 p. 1385.]
+page 32 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+Meetings Division 3
+r. 39
+Division 3 — Meetings
+39. Notice of meetings
+(1) The time, date and location of each DAP meeting, and the
+agenda for the meeting, must be published at least 7 days before
+the day of the meeting —
+(a) on the DAP website; and
+(b) by each local government of a district in which
+development under a development application will be
+considered at the meeting —
+(i) on its website; or
+(ii) if the local government does not have an
+operating website, by means approved by the
+DAP executive director.
+(1A) The local government must, at least 7 days before the day of the
+DAP meeting, give written notice of the time, date and location
+of the DAP meeting, and the agenda for the meeting, to each
+person who made a written submission to the local government
+in relation to a DAP application to be considered at the meeting.
+(1B) However, the local government is not required to give a notice
+under subregulation (1A) if —
+(a) the submission was received after the period for receipt
+of submissions specified in the notice advertising the
+DAP application; or
+(b) it is not reasonably practicable to do so; or
+(c) the DAP application was not advertised.
+(1C) Notice under subregulation (1A) may be given by email or post.
+(2) The DAP executive director must notify local governments of
+the details necessary to enable the local governments to comply
+with subregulations (1)(b) and (1A).
+As at 01 Jul 2025 Official Version page 33
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 3 Meetings
+r. 40
+[Regulation 39 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386; 16 Dec 2016 p. 5715; SL 2024/27 r. 34.]
+40. General procedure concerning meetings
+(1) At a meeting of a DAP, the DAP may determine —
+(a) one or more development applications; or
+(b) one or more applications to amend or cancel
+development approvals.
+(2) Subject to subregulations (2B) and (4), a DAP meeting to
+determine a development application or to amend or cancel a
+development approval must be open to the public.
+(2A) The requirement in subregulation (2) is satisfied if members of
+the public can observe the meeting using audiovisual
+communication.
+(2B) Subregulation (2) does not apply to a meeting or a part of a
+meeting of a DAP that deals with 1 of the following matters —
+(a) legal advice obtained, or which may be obtained, for the
+purpose of advising the DAP in relation to a matter to be
+considered or determined at the meeting;
+(b) a matter that, if disclosed, would reveal any of the
+following —
+(i) a trade secret;
+(ii) information that has a commercial value to a
+person;
+(iii) information about the business, professional,
+commercial or financial affairs of a person;
+(c) a matter that, if disclosed, could reasonably be expected
+to —
+(i) impair the effectiveness of any lawful method or
+procedure for preventing, detecting, investigating
+or dealing with any contravention or possible
+contravention of the law; or
+page 34 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+Meetings Division 3
+r. 41
+(ii) prejudice the maintenance or enforcement of a
+lawful measure for protecting public safety.
+(3) The presiding member of a DAP may invite a person to advise
+or inform, or make a submission to, the DAP in respect of a
+development application.
+(4) The presiding member may direct that a DAP meeting to
+determine an application to amend or cancel a development
+approval is not open to the public.
+(5) The DAP executive director may issue practice notes about the
+practice and procedure of DAPs and each DAP must comply
+with those practice notes.
+[Regulation 40 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386; 16 Dec 2016 p. 5715; SL 2024/27 r. 35.]
+41. Quorum
+At a meeting of a DAP, 3 DAP members, including the
+presiding member, constitute a quorum.
+[Regulation 41 inserted: Gazette 17 Apr 2015 p. 1386;
+amended: SL 2024/27 r. 36.]
+42. Voting
+(1) A DAP member at a DAP meeting, including the presiding
+member, has a single vote on a decision to be made by the DAP
+and, in the case of an equality of votes, the presiding member
+also has a casting vote.
+(2) A matter that is to be decided by a DAP at a meeting of the
+DAP must be decided by a majority of votes of the members
+present.
+[Regulation 42 amended: SL 2024/27 r. 37.]
+As at 01 Jul 2025 Official Version page 35
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 3 Meetings
+r. 43
+43. Attending meeting remotely
+The presence of a person at a DAP meeting need not be by
+attendance in person but may be by that person and each other
+person at the meeting being simultaneously in contact by
+telephone, or other means of instantaneous communication.
+[Regulation 43 amended: SL 2024/27 r. 38.]
+44. Minutes
+(1) Accurate minutes of the meetings of a DAP must be kept, in a
+form approved by the DAP executive director, by a person
+approved by the DAP executive director.
+(1A) For each determination of a development application, or
+application to amend or cancel a development approval, by a
+DAP the minutes must include a record of —
+(a) the determination; and
+(b) reasons for the determination.
+(2) The person who takes the minutes must give the DAP executive
+director a copy of the minutes of the meeting within 5 days after
+the date of the meeting.
+(3) The minutes of a meeting given under subregulation (2) must be
+confirmed and signed by the person who was the presiding
+member at the meeting.
+(4) The minutes that are confirmed and signed under
+subregulation (3) must be published on the DAP website within
+10 days after the date of the meeting.
+[(5) deleted]
+(6) The DAP executive director must give each relevant local
+government a copy of the signed minutes.
+page 36 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+Conduct of DAP members Division 4
+r. 45
+(7) Each relevant local government must provide a link on its
+website to the signed minutes on the DAP website.
+[Regulation 44 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386; 16 Dec 2016 p. 5716; SL 2024/27 r. 39.]
+Division 4 — Conduct of DAP members
+45. Code of conduct
+(1) The Director General must make and maintain a written code of
+conduct in respect of DAPs.
+(2) Each person performing functions as a DAP member must
+comply with the code of conduct.
+(3) The Director General may amend the code of conduct from time
+to time.
+[Regulation 45 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386.]
+46. Gifts
+(1) In this regulation —
+gift has the meaning given in the Local Government Act 1995
+section 5.57 except that it does not include a gift from a relative
+as defined in section 5.74(1) of that Act;
+member’s district, in relation to a local government DAP
+member, means the district of the local government of which
+they are a member;
+notifiable gift, in relation to a DAP member, means —
+(a) a gift worth more than $50 and less than $300; or
+(b) a gift that is one of 2 or more gifts given to the member
+by the same person within a period of 6 months that are
+in total worth more than $50 and less than $300;
+As at 01 Jul 2025 Official Version page 37
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 4 Conduct of DAP members
+r. 46
+prohibited gift, in relation to a DAP member, means —
+(a) a gift worth $300 or more; or
+(b) a gift that is one of 2 or more gifts given to the member
+by the same person within a period of 6 months that are
+in total worth $300 or more.
+(2) A person who is a specialist DAP member must not accept a
+prohibited gift from a person who —
+(a) is undertaking development approved by a DAP; or
+(b) is seeking to undertake development of a kind that could
+be approved by a DAP; or
+(c) it is reasonable to believe, is intending to or is likely to
+undertake development of a kind that could be approved
+by a DAP.
+(2A) A person who is a local government DAP member must not
+accept a prohibited gift from a person who —
+(a) is undertaking, in the member’s district, development
+approved by a DAP established for the district; or
+(b) is seeking to undertake, in the member’s district,
+development of a kind that could be approved by a DAP
+established for the district; or
+(c) it is reasonable to believe, is intending to or is likely to
+undertake, in the member’s district, development of a
+kind that could be approved by a DAP established for
+the district.
+(3) A person who is a specialist DAP member and who accepts a
+notifiable gift from 1 of the following persons must, as soon as
+practicable, notify the DAP executive director of the acceptance
+of the gift —
+(a) a person who is undertaking development approved by a
+DAP;
+(b) a person who is seeking to undertake development of a
+kind that could be approved by a DAP;
+page 38 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Development assessment panels Part 4
+Conduct of DAP members Division 4
+r. 46
+(c) a person who, it is reasonable to believe, is intending to
+or likely to undertake development of a kind that could
+be approved by a DAP.
+(3A) A person who is a local government DAP member and who
+accepts a notifiable gift from 1 of the following persons must, as
+soon as practicable, notify the DAP executive director of the
+acceptance of the gift —
+(a) a person who is undertaking, in the member’s district,
+development approved by a DAP established for the
+district;
+(b) a person who is seeking to undertake, in the member’s
+district, development of a kind that could be approved
+by a DAP established for the district;
+(c) a person who, it is reasonable to believe, is intending to
+or is likely to undertake, in the member’s district,
+development of a kind that could be approved by a DAP
+established for the district.
+(4) Notification of the acceptance of a notifiable gift must be in
+writing and must include the following —
+(a) the name of the person who gave the gift;
+(b) the date on which the gift was accepted;
+(c) a description, and the estimated value, of the gift;
+(d) the nature of the relationship between the DAP member
+and the person who gave the gift;
+(e) if the gift is a notifiable gift under paragraph (b) of the
+definition of notifiable gift in subregulation (1) (whether
+or not it is also a notifiable gift under paragraph (a) of
+that definition) —
+(i) a description; and
+(ii) the estimated value; and
+(iii) the date of acceptance,
+of each other gift accepted within the 6 month period.
+As at 01 Jul 2025 Official Version page 39
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 4 Development assessment panels
+Division 4 Conduct of DAP members
+r. 47
+(5) The DAP executive director must maintain a register of gifts in
+which details of notices received under subregulation (4) are
+recorded.
+[Regulation 46 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386; SL 2024/27 r. 40.]
+47. Relations with local government and public sector
+employees
+A DAP member attending a DAP meeting must not, either
+orally, in writing or by any other means —
+(a) make a statement that a local government or public
+sector employee is incompetent or dishonest; or
+(b) use offensive or objectionable expressions in reference
+to a local government or public sector employee.
+48. Public comment
+(1) A DAP member must not publicly comment, either orally or in
+writing, on any action or determination of a DAP.
+(2) Subregulation (1) does not apply to comments made at a
+meeting of a DAP.
+[Regulation 48 amended: SL 2024/27 r. 41.]
+page 40 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Administration Part 5
+r. 49
+Part 5 — Administration
+49. DAP executive director, staff and facilities to be made
+available
+(1) In this regulation —
+departmental officer means a public service officer employed
+in the department;
+employed in the department includes seconded to perform
+functions or services for, or duties in the service of, the
+department;
+public service officer has the meaning given in the Public
+Sector Management Act 1994 section 3(1).
+(2) The Director General must designate a departmental officer as
+the DAP executive director.
+(3) The DAP executive director’s functions include assisting the
+DAPs in the performance of their functions.
+(4) The DAP executive director may, in performing their functions,
+consult DAP members.
+Examples for this subregulation:
+1. Consulting about the services to be sought under regulation 13.
+2. Consulting as part of preparing practice notes under regulation 40(5).
+(5) The departmental officer designated under subregulation (2)
+must have experience in and an accredited tertiary qualification
+in urban and regional planning.
+(6) The Director General may, from time to time, designate a
+departmental officer as the acting DAP executive director when
+the DAP executive director is unable, or expected to become
+unable, to act by reason of illness, absence or other cause or
+when no departmental officer is designated as the DAP
+executive director.
+As at 01 Jul 2025 Official Version page 41
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 5 Administration
+r. 50
+(7) The Director General must make other departmental officers
+available to assist, under the direction of the DAP executive
+director, the DAPs and the DAP executive director in the
+performance of their functions.
+(8) The Director General must make the services and facilities of
+the Department available for the purposes of the performance of
+the functions of the DAPs.
+[Regulation 49 inserted: SL 2024/27 r. 42.]
+50. Register of community housing providers
+(1) The Director General must maintain a register of community
+housing providers.
+(2) The Director General may include a body corporate or other
+organisation (an entity) on the register if —
+(a) the entity is registered as a community housing provider
+under a law of another Australian jurisdiction; or
+(b) the Director General is satisfied that the entity has as
+one of its objectives the provision of community
+housing.
+(3) The Director General must remove an entity from the register
+if —
+(a) the entity requests that it be removed; or
+(b) the entity is under external administration under the
+Corporations Act 2001 (Commonwealth).
+(4) The Director General may remove an entity from the register —
+(a) if an employee of, or a member of the governing body
+of, the entity is convicted of an offence involving fraud
+or dishonesty and the Director General is satisfied that
+the person is in a position of influence in or in relation to
+the entity; or
+page 42 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Administration Part 5
+r. 51
+(b) if the Director General is satisfied that the entity has, by
+act or omission, compromised the safety or security of
+tenants of community housing provided by the entity; or
+(c) for any other good reason.
+(5) The Director General must consult with the chief executive
+officer of the department of the Public Service principally
+assisting in the administration of the Housing Act 1980 before
+including an entity on the register or removing an entity from
+the register.
+(6) The Director General must ensure that the register is publicly
+available on the DAP website.
+[Regulation 50 inserted: SL 2024/27 r. 42.]
+51. DAP website
+The Director General must establish a website (the DAP
+website) containing —
+(a) information required under these regulations to be
+published on the website; and
+(b) such other information about DAPs as the Director
+General considers appropriate.
+[Regulation 51 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386.]
+52. Minister may require information
+(1) In this regulation —
+document includes any tape, disk or other device or medium on
+which information is recorded or stored;
+information means information specified, or of a description
+specified, by the Minister that relates to a DAP application.
+(2) The Minister is entitled —
+(a) to request a local government to obtain information; and
+As at 01 Jul 2025 Official Version page 43
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 5 Administration
+r. 53
+(b) to have information in the possession of a DAP or a
+local government; and
+(c) if the information is in or on a document, to have, and
+make and retain copies of, that document; and
+(d) to give to a DAP information furnished under this
+regulation or under section 18 of the Act.
+(3) For the purposes of subregulation (2) the Minister —
+(a) may request a local government to obtain information;
+and
+(b) may request a DAP or a local government to furnish
+information to the Minister; and
+(c) may request a DAP or a local government to give the
+Minister access to information; and
+(d) for the purposes of paragraph (c), may make use of staff
+of the local government to obtain the information and
+furnish it to the Minister.
+(4) A DAP must comply with a request made under
+subregulation (3) and the relevant local government is to make
+its staff and facilities available for the purposes of
+subregulation (3)(d).
+53. Annual report
+(1) The Director General must include in the annual report prepared
+by the Director General for the purposes of the Financial
+Management Act 2006 Part 5 a report on the operations of each
+DAP for the financial year.
+(2) The report must include details of the following —
+(a) the number, nature and outcome of DAP applications
+received by each DAP;
+(b) the time taken to determine each DAP application;
+page 44 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Administration Part 5
+r. 53
+(c) the number of determinations made by each DAP that
+have been the subject of an application for review by the
+State Administrative Tribunal;
+(d) any other information the Director General considers
+relevant.
+[Regulation 53 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386.]
+As at 01 Jul 2025 Official Version page 45
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 6 Miscellaneous
+r. 54
+Part 6 — Miscellaneous
+54. Amendment or revocation of order establishing DAP:
+transitional provisions
+(1) If an order made under section 171C of the Act establishing a
+DAP is revoked, any DAP application of which the DAP has
+been notified under regulation 11 and which has not been
+determined by the DAP must —
+(a) if, at the same time as the order is revoked, another DAP
+is established for the district in which the development
+is proposed, be determined by that DAP; or
+(b) otherwise, be determined by the responsible authority to
+which the application was made.
+(2) If an order made under section 171C of the Act establishing a
+DAP is amended so that it is no longer established for a district,
+any DAP application for development in that district of which
+the DAP has been notified under regulation 11 and which has
+not been determined by the DAP must —
+(a) if, at the same time as the order is amended, another
+DAP is established for the district in which the
+development is proposed, be determined by that DAP;
+or
+(b) otherwise, be determined by the responsible authority to
+which the application was made.
+[Regulation 54 amended: SL 2024/27 r. 43.]
+54A. Approved forms
+(1) The DAP executive director may approve forms for use under
+these regulations.
+(2) The DAP executive director must ensure that an approved form
+is published on the DAP website.
+page 46 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Miscellaneous Part 6
+r. 54B
+(3) A failure to comply with subregulation (2) does not give rise to
+any invalidity.
+[Regulation 54A inserted: SL 2024/27 r. 44.]
+54B. Fee waiver, reduction or refund
+The Director General may, on a case by case basis, refund,
+reduce or waive, in whole or in part, a fee paid or payable by a
+registered community housing provider under Schedule 1 if the
+Director General considers it appropriate to do so.
+[Regulation 54B inserted: SL 2024/27 r. 44.]
+55. Review of fees
+The Director General must —
+(a) cause a review of the fees prescribed under Schedule 1
+to be carried out as soon as practicable after each
+anniversary of the day on which these regulations come
+into operation; and
+(b) cause a report on the review to be prepared; and
+(c) provide a copy of the report, and any relevant
+information used for the purpose of the review, to the
+Minister.
+[Regulation 55 amended: Gazette 25 Jan 2013 p. 272-3; 17 Apr
+2015 p. 1386.]
+As at 01 Jul 2025 Official Version page 47
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 7 Transitional Provisions
+Division 1 Provision for Planning Regulations Amendment Regulations
+2020
+r. 56
+Part 7 — Transitional Provisions
+[Heading inserted: SL 2024/27 r. 45.]
+Division 1 — Provision for Planning Regulations Amendment
+Regulations 2020
+[Heading inserted: SL 2024/27 r. 45.]
+56. Application of amendments made by Planning Regulations
+Amendment Regulations 2020
+The amendments to these regulations made by the Planning
+Regulations Amendment Regulations 2020 Part 4 do not apply
+to a DAP application made before the day on which that Part
+comes into operation.
+[Regulation 56 inserted: SL 2020/252 r. 98.]
+Division 2 — Provisions for Planning and Development
+(Development Assessment Panels) Amendment Regulations 2024
+[Heading inserted: SL 2024/27 r. 46.]
+57. Terms used
+(1) In this Division —
+commencement day means 1 March 2024;
+JDAP has the meaning given in section 4(1) of the Act as in
+force immediately before commencement day;
+LDAP has the meaning given in section 4(1) of the Act as in
+force immediately before commencement day;
+local government register means the register maintained under
+old regulation 26.
+(2) In this Division, a reference to an old regulation is a reference to
+that regulation as in force before commencement day.
+[Regulation 57 inserted: SL 2024/27 r. 46.]
+page 48 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Transitional Provisions Part 7
+Provisions for Planning and Development (Development Division 2
+Assessment Panels) Amendment Regulations 2024
+r. 58
+58. Local government DAP members
+(1) The register maintained under regulation 25 is a continuation of
+the local government register.
+(2) Subregulation (3) applies to a person whose appointment under
+old regulation 23(1)(a) as a local government member of an
+LDAP established for a local government was in effect
+immediately before commencement day.
+(3) The name of the person is taken to be included on the register
+under regulation 25 and the person is taken to have been
+designated, on commencement day, under regulation 25(2)(a),
+as a local government DAP member for the local government.
+(4) Subregulation (5) applies to a person included on the local
+government register for a local government immediately before
+commencement day.
+(5) The person is taken to have been designated, on commencement
+day, under regulation 25(2)(a), as a local government DAP
+member for the local government.
+(6) Subregulation (7) applies to a person whose appointment under
+old regulation 28(1)(b) as an alternate member, for a person
+appointed under old regulation 23(1)(a) or included on the local
+government register, for a local government, was in effect
+immediately before commencement day.
+(7) The person is taken to have been designated, on commencement
+day, under regulation 25(2)(b), as an alternate local government
+DAP member for the local government.
+(8) The DAP executive director must amend the register to give
+effect to this regulation.
+[Regulation 58 inserted: SL 2024/27 r. 46.]
+As at 01 Jul 2025 Official Version page 49
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Part 7 Transitional Provisions
+Division 2 Provisions for Planning and Development (Development
+Assessment Panels) Amendment Regulations 2024
+r. 59
+59. Specialist DAP members
+(1) If a person was, immediately before commencement day,
+included on the register under old regulation 35, they are taken
+to hold the office of sessional specialist DAP member until the
+earliest of the following —
+(a) being appointed to an office under regulation 27;
+(b) their office being vacated under regulation 32;
+(c) the end of 31 December 2024.
+(2) The person’s terms and conditions of appointment under these
+regulations as in force immediately before commencement day
+continue until the earlier of the following —
+(a) the occurrence of an event described in
+subregulation (1);
+(b) the person’s terms and conditions of appointment being
+determined under regulation 28(1).
+(3) For the purposes of subregulation (2), a person’s terms and
+conditions of appointment may be determined under
+regulation 28(1) even though the person holds office under this
+regulation rather than under regulation 27.
+(4) Until 1 January 2025 —
+(a) regulation 23(3) need not be complied with; and
+(b) the DAP executive director may, under regulation 24(1),
+designate any of the DAP members as the presiding
+member.
+[Regulation 59 inserted: SL 2024/27 r. 46.]
+60. DAP applications
+(1) A DAP application, as defined in old regulation 3(1), of which a
+DAP had been notified under old regulation 11 and which,
+immediately before commencement day, had not been
+determined, is taken to be a DAP application.
+page 50 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Transitional Provisions Part 7
+Provisions for Planning and Development (Development Division 2
+Assessment Panels) Amendment Regulations 2024
+r. 61
+(2) This regulation does not prevent the applicant from
+discontinuing the application.
+[Regulation 60 inserted: SL 2024/27 r. 46.]
+61. Previous determinations of LDAPs and JDAPs
+Regulations 17 and 17A apply in relation to a development
+approval granted before commencement day by an LDAP or a
+JDAP as if the references in regulation 17(1) and 17A(1) to a
+development approval granted by a DAP included a reference to
+a development approval granted by an LDAP or a JDAP.
+[Regulation 61 inserted: SL 2024/27 r. 46.]
+As at 01 Jul 2025 Official Version page 51
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Schedule 1 Fees for applications
+Schedule 1 — Fees for applications
+[r. 10 and 17]
+[Heading inserted: SL 2025/109 r. 4.]
+Item Application Fee
+1. For a DAP application if the estimated cost of
+the development is —
+(a) less than $2 million $5 475
+(b) not less than $2 million and less than
+$7 million $6 322
+(c) not less than $7 million and less than
+$10 million $9 760
+(d) not less than $10 million and less than
+$12.5 million $10 620
+(e) not less than $12.5 million and less than
+$15 million $10 922
+(f) not less than $15 million and less than
+$17.5 million $11 226
+(g) not less than $17.5 million and less than
+$20 million $11 530
+(h) not less than $20 million and less than
+$50 million $11 833
+(i) not less than $50 million $17 097
+2. For an application under regulation 17 to amend
+or cancel a development approval $271
+[Schedule 1 inserted: SL 2025/109 r. 4.]
+page 52 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Fees for local government DAP members Schedule 2
+Schedule 2 — Fees for local government DAP members
+[r. 30 and 31]
+[Heading inserted: SL 2024/27 r. 47.]
+1. Fee for local government DAP member for
+attendance at a meeting $425
+2. Fee for local government DAP member for
+attendance at a meeting for the sole purpose
+of determining an application to amend or
+cancel a development approval $100
+3. Fee for a local government DAP member
+attending proceedings in the State
+Administrative Tribunal $425
+4. Fee for training for local government DAP
+members $400
+5. Fee for re-training for local government DAP
+members $200
+[Schedule 2 inserted: SL 2024/27 r. 47.]
+[Schedule 3 deleted: SL 2024/27 r. 47.]
+As at 01 Jul 2025 Official Version page 53
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Notes Compilation table
+Notes
+This is a compilation of the Planning and Development (Development Assessment
+Panels) Regulations 2011 and includes amendments made by other written laws. For
+provisions that have come into operation see the compilation table.
+Compilation table
+Citation Published Commencement
+Planning and Development 24 Mar 2011 r. 1 and 2: 24 Mar 2011
+(Development Assessment Panels) p. 1039-90 (see r. 2(a));
+Regulations 2011 Regulations other than r. 1 and 2:
+25 Mar 2011 (see r. 2(b) and
+Gazette 24 Mar 2011 p. 1035)
+Planning and Development 25 Jan 2013 r. 1 and 2: 25 Jan 2013
+(Development Assessment Panels) p. 271-7 (see r. 2(a));
+Amendment Regulations 2013 Regulations other than r. 1 and 2:
+26 Jan 2013 (see r. 2(b))
+Planning and Development 16 Jul 2013 r. 1 and 2: 16 Jul 2013
+(Development Assessment Panels) p. 3249-50 (see r. 2(a));
+Amendment Regulations (No. 2) 2013 Regulations other than r. 1 and 2:
+1 Aug 2013 (see r. 2(b))
+Planning and Development 17 Apr 2015 r. 1 and 2: 17 Apr 2015
+(Development Assessment Panels) p. 1380-6 (see r. 2(a));
+Amendment Regulations 2015 Regulations other than r. 1 and 2:
+1 May 2015 (see r. 2(b))
+Planning and Development 16 Dec 2016 r. 1 and 2: 16 Dec 2016 (see
+(Development Assessment Panels) p. 5709-21 r. 2(a));
+Amendment Regulations 2016 Regulations other than r. 1 and 2:
+1 Feb 2017 (see r. 2(b))
+Planning and Development 30 Jun 2017 r. 1 and 2: 30 Jun 2017
+(Development Assessment Panels) p. 3592-3 (see r. 2(a));
+Amendment Regulations 2017 Regulations other than r. 1 and 2:
+1 Jul 2017 (see r. 2(b))
+Planning and Development 26 Jun 2018 r. 1 and 2: 26 Jun 2018
+(Development Assessment Panels) p. 2389-90 (see r. 2(a));
+Amendment Regulations 2018 Regulations other than r. 1 and 2:
+1 Jul 2018 (see r. 2(b))
+Planning Regulations Amendment SL 2020/252 15 Feb 2021 (see r. 2(c))
+Regulations 2020 Pt. 4 18 Dec 2020
+page 54 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Compilation table Notes
+Citation Published Commencement
+Planning and Development SL 2021/104 r. 1 and 2: 29 Jun 2021
+(Development Assessment Panels) 29 Jun 2021 (see r. 2(a));
+Amendment Regulations (No. 2) 2021 Regulations other than r. 1 and 2:
+1 Jul 2021 (see r. 2(b))
+Planning and Development SL 2021/126 r. 1 and 2: 16 Jul 2021
+(Development Assessment Panels) 16 Jul 2021 (see r. 2(a));
+Amendment Regulations 2021 Regulations other than r. 1 and 2:
+1 Aug 2021 (see r. 2(b) and
+SL 2021/124 cl. 2)
+Planning and Development SL 2022/89 r. 1 and 2: 17 Jun 2022
+(Development Assessment Panels) 17 Jun 2022 (see r. 2(a));
+Amendment Regulations (No. 2) 2022 Regulations other than r. 1 and 2:
+1 Jul 2022 (see r. 2(b))
+Planning and Development SL 2023/72 r. 1 and 2: 16 Jun 2023
+(Development Assessment Panels) 16 Jun 2023 (see r. 2(a));
+Amendment Regulations (No. 2) 2023 Regulations other than r. 1 and 2:
+1 Jul 2023 (see r. 2(b))
+Planning and Development SL 2024/27 r. 1 and 2: 21 Feb 2024
+(Development Assessment Panels) 21 Feb 2024 (see r. 2(a));
+Amendment Regulations 2024 Regulations other than r. 1 and 2:
+1 Mar 2024 (see r. 2(b))
+Planning and Development SL 2025/109 r. 1 and 2: 25 Jun 2025
+(Development Assessment Panels) 25 Jun 2025 (see r. 2(a));
+Amendment Regulations 2025 Regulations other than r. 1 and 2:
+1 Jul 2025 (see r. 2(b))
+As at 01 Jul 2025 Official Version page 55
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Defined terms
+Defined terms
+[This is a list of terms defined and the provisions where they are defined.
+The list is not part of the law.]
+Defined term Provision(s)
+accepted for assessment ....................................................................... 3(1) and (3)
+accreditation body ............................................................................................ 3(1)
+accredited ......................................................................................................... 3(1)
+applicant ........................................................................................................... 3(1)
+application ................................................................................................... 17A(1)
+approved form .................................................................................................. 3(1)
+area of jurisdiction ........................................................................................... 8(3)
+carport .............................................................................................................. 3(2)
+commencement day ....................................................................................... 57(1)
+community housing .......................................................................................... 3(1)
+community housing provider ........................................................................... 3(1)
+DAP application ............................................................................................... 3(1)
+DAP executive director .................................................................................... 3(1)
+DAP member ................................................................................................... 3(1)
+DAP website .............................................................................................. 3(1), 51
+decision-maker ............................................................................................... 18(1)
+deemed refused DAP application ................................................................... 18(1)
+department ....................................................................................................... 3(1)
+departmental officer ....................................................................................... 49(1)
+deputy presiding member ................................................................................. 3(1)
+Director General .............................................................................................. 3(1)
+document ........................................................................................................ 52(1)
+dwelling ........................................................................................................... 3(2)
+employed in the department ........................................................................... 49(1)
+entity .............................................................................................................. 50(2)
+excluded day or period ................................................................................ 12(4B)
+excluded development application ................................................................... 3(1)
+gift .................................................................................................................. 46(1)
+grouped dwelling ............................................................................................. 3(2)
+incidental development .................................................................................... 3(2)
+information..................................................................................................... 52(1)
+JDAP .............................................................................................................. 57(1)
+LDAP ............................................................................................................. 57(1)
+local government DAP member ....................................................................... 3(1)
+local government register ............................................................................... 57(1)
+member ............................................................................................................ 3(1)
+member’s district ........................................................................................... 46(1)
+multiple dwelling ............................................................................................. 3(2)
+notifiable gift.................................................................................................. 46(1)
+page 56 Official Version As at 01 Jul 2025
+Published on www.legislation.wa.gov.au [PCO 00-u0-00]
+
+Planning and Development (Development Assessment Panels)
+Regulations 2011
+Defined terms
+outbuilding ....................................................................................................... 3(2)
+patio ................................................................................................................. 3(2)
+planning instrument ......................................................................................... 3(1)
+presiding member ............................................................................................ 3(1)
+prohibited gift ................................................................................................ 46(1)
+public service officer...................................................................................... 49(1)
+R-codes ............................................................................................................ 3(1)
+registered community housing provider........................................................... 3(1)
+regular specialist DAP member ....................................................................... 3(1)
+relevant DAP............................................................................................... 17(1A)
+relevant local government .............................................................................. 23(2)
+relevant planning instrument ............................................................................ 3(1)
+sessional specialist DAP member .................................................................... 3(1)
+single house...................................................................................................... 3(2)
+specialist DAP member.................................................................................... 3(1)
+substantially commenced ............................................................................ 16A(1)
+© State of Western Australia 2025.
+This work is licensed under a Creative Commons Attribution 4.0 International Licence (CC BY 4.0).
+To view relevant information and for a link to a copy of the licence, visit www.legislation.wa.gov.au.
+Attribute work as: © State of Western Australia 2025.
+By Authority: GEOFF O. LAWN, Government Printer
+As at 01 Jul 2025 Official Version page 57
+[PCO 00-u0-00] Published on www.legislation.wa.gov.au

@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-36-infrastructure-contributions",
+  "fetched_at": "2026-06-09T22:34:55Z",
+  "http_status": 200,
+  "content_hash": "f25c1f88e703c22eef68a984e6a8c9fe1e77d2ad49d0b20e8da7b366b491e4be",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP-3.6-Infrastructure-Contributions.pdf",
+  "used_playwright": false,
+  "bytes": 627032
+}

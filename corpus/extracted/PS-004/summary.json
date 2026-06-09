@@ -1,0 +1,35 @@
+{
+  "id": "PS-004",
+  "title": "Electric Vehicle Charging",
+  "instrument_type": "position_statement",
+  "issuing_authority": "Western Australian Planning Commission",
+  "version_date": "March 2024",
+  "pages": 9,
+  "key_provisions": [
+    {
+      "heading": "5.2 Exemptions from of chargers. infrastructure should engage with the",
+      "summary": "relevant local government and/or state"
+    },
+    {
+      "heading": "6.3 Building permit",
+      "summary": "proponents will be required to liaise"
+    },
+    {
+      "heading": "6.6 Local parking considerations",
+      "summary": "of energy use and facilitate easy retrofit"
+    },
+    {
+      "heading": "1 Minimum level of provision",
+      "summary": "The level of provision in Table 1 should be credited towards the general car parking requirement for the relevant land use/"
+    },
+    {
+      "heading": "2 Multi-storey developments",
+      "summary": "Where the new development or redevelopment/expansion is an ‘office’, ‘shop*’ or ‘car park’ land use, or mixed-use development,"
+    }
+  ],
+  "cross_references": [
+    "National Construction Code"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:35:59Z"
+}

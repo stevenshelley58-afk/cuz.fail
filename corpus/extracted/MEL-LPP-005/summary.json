@@ -1,0 +1,34 @@
+{
+  "id": "MEL-LPP-005",
+  "title": "Energy Efficiency in Building Design",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Melville",
+  "version_date": "August 2019",
+  "pages": 4,
+  "key_provisions": [
+    {
+      "heading": "1 Building Orientation/Passive Solar Design",
+      "summary": "Buildings are to be orientated on site to ensure outdoor living areas and openings to indoor"
+    },
+    {
+      "heading": "2 Solar Access",
+      "summary": "In conjunction with the provisions of the Residential Design Codes, the City shall have"
+    },
+    {
+      "heading": "4 Building Infrastructure Initiatives",
+      "summary": "The Building Code of Australia incorporates energy efficiency provisions for the design and"
+    }
+  ],
+  "cross_references": [
+    "Building Code of Australia",
+    "LPP 1.5",
+    "Local Planning Scheme No. 6",
+    "Planning and Development Act 2005",
+    "Residential Design Codes",
+    "Residential Design Codes Volume 1",
+    "Residential Design Codes Volume 2",
+    "State Planning Policy 7.3"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:09Z"
+}

@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2021-07/PB_72_Child_Care_Centres_0.pdf",
+  "fetched_at": "2026-06-09T23:08:28Z",
+  "http_status": 200,
+  "content_hash": "a537e22193335b41a01c93b745ee920a9eb2f681a5472254bdab9143c8ed7b62",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/PB_72_Child_Care_Centres_0.pdf",
+  "used_playwright": false,
+  "bytes": 224308
+}

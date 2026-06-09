@@ -1,0 +1,1016 @@
+State Planning Policy 4.2
+Activity Centres
+July 2023
+Prepared under Part Three of the Planning and Development Act 2005
+by the Western Australian Planning Commission
+
+The Department of Planning, Lands and
+Heritage acknowledges the traditional
+click to follow
+owners and custodians of this land. We pay
+our respect to Elders past and present, their
+1 CITATION 1 TABLES
+descendants who are with us today, and those
+who will follow in their footsteps.
+Table 1:
+2 POLICY INTENT 1 Major activity centre use
+Disclaimer floorspace thresholds 11
+This document has been produced by the 3 ACTIVITY CENTRES IN
+APPENDICES
+Department of Planning, Lands and Heritage WESTERN AUSTRALIA 1
+on behalf of the Western Australian Planning
+Appendix 1:
+Commission. Any representation, statement,
+opinion or advice expressed or implied in this 4 APPLICATION OF THIS Activity centre hierarchy –
+publication is made in good faith and on the POLICY 1 roles and characteristics 13
+basis that the Government, its employees and
+agents are not liable for any damage or loss
+whatsoever which may occur as a result of 5 POLICY OBJECTIVES 2
+action taken or not taken, as the case may be,
+in respect of any representation, statement,
+opinion or advice referred to herein. 6 POLICY OUTCOMES 2
+Professional advice should be obtained before
+applying the information contained in this
+document to particular circumstances. 7 POLICY MEASURES 3
+7.1 Activity centre hierarchy –
+roles and characteristics 3
+© State of Western Australian
+7.2 Needs assessment 3
+Published by the
+Western Australian Planning Commission 7.3 Requirement for precinct
+Gordon Stephenson House structure plans and local
+140 William Street development plans 4
+Perth WA 6000
+7.4 Land uses 5
+Locked Bag 2506
+7.5 Employment 6
+Perth WA 6001
+7.6 Urban form 7
+Gazettal date: 03/07/2023
+7.7 Movement and access 7
+Publication date: 19/06/2023
+Operational date: 03/07/2023 7.8 Net benefit test 8
+website: www.dplh.wa.gov.au 7.9 Out-of-centre
+email: info@dplh.wa.gov.au development 9
+tel: 08 6551 8002
+fax: 08 6551 9001 8. DEFINITIONS 10
+National Relay Service: 13 36 77
+This document is available in alternative
+formats on application to the Department
+of Planning, Lands and Heritage
+Communications Branch.
+
+State Planning Policy 4.2
+1
+Activity Centres
+July 2023
+1 CITATION 3 ACTIVITY CENTRES IN 4 APPLICATION OF THIS POLICY
+WESTERN AUSTRALIA
+This is a State planning policy made under Part 3 of the a) This policy and its Implementation Guidelines
+Planning and Development Act 2005. This policy may be Activity centres are mixed use urban areas where there is apply to the preparation and assessment of
+cited as State Planning Policy 4.2 Activity Centres (SPP 4.2). a concentration of commercial, residential and other land planning instruments and certain subdivision and
+uses. They are multi-functional community focal points development applications that relate to activity
+where people live, work, shop, meet and relax. They vary centres within the Metropolitan (Perth), Peel and
+2 POLICY INTENT in size and function and are generally well-serviced by Greater Bunbury Region Scheme areas, including:
+transport networks with a focus on public transport and
+Planning instruments:
+active transport. Activity centres may include land uses
+To ensure planning, development and decision making
+such as commercial, retail, food and hospitality, medium • regional, sub-regional, district and local
+adequately consider the distribution, function, broad land
+and high-density housing, entertainment, tourism, civic/ planning strategies and frameworks
+use, access and urban form considerations for activity
+community, higher education, and medical services. • local planning schemes, scheme reviews and
+centres.
+amendments
+It is the Western Australian Planning Commission’s
+• precinct structure plans for activity centres,
+(WAPC) intention that all activity centres perform the
+reviews of endorsed activity centre plans
+role outlined above (relative to their level in the hierarchy
+and any applicable specialisation) to provide for • standard structure plans where activity
+sustainable development and to benefit their community centres are proposed
+through efficient and equitable access to goods, services
+• local development plans for activity centres
+and employment.
+Certain subdivision and development applications:
+SPP 4.2 and precinct structure plans, in conjunction with
+• subdivision within activity centres, other than
+other related policies, provide for a land use planning
+on land zoned Residential
+framework that encourages and allows activity centres
+• development applications for major
+to develop appropriately. It is therefore imperative
+developments within activity centres
+to review the State and local planning frameworks
+applicable to activity centres. • development of Category A activity centre
+uses outside activity centres (out-of-centre
+In addition to planning, each activity centre requires
+development).
+investment in infrastructure, often early on, to unlock
+the centre’s development potential. Many existing b) The Greater Bunbury Region Scheme area includes
+activity centres that propose upgrades or expansions the Bunbury Metropolitan Area (refer Bunbury-
+will require improvements to the public realm and Geographe sub-regional strategy) and nearby
+provision of community facilities. Ongoing place making, towns. The provisions of this policy only apply
+management and monitoring are also essential to create to the activity centres within the Bunbury
+sustainable activity centres, integrated within their Metropolitan Area and do not apply to the
+community. surrounding towns.
+
+State Planning Policy 4.2
+2
+Activity Centres
+July 2023
+c) The objectives, outcomes and measures of 5 POLICY OBJECTIVES 6 POLICY OUTCOMES
+this policy may be applied outside of the
+abovementioned region scheme areas, as The objectives of this policy are to: The following outcomes specify the role of planning and
+applicable, to guide the preparation and development in contributing to the overall objectives of
+a) Locate people and the employment, goods and
+assessment of planning instruments at the this policy. The outcomes should be achieved through
+services they need close to each other within
+discretion of the WAPC (refer Implementation compliance with the policy measures. They are to
+activity centres.
+Guidelines section 3). Where this policy has been be used for the assessment of planning instruments,
+applied to an endorsed planning instrument b) Promote activity centres as the focus of integrated subdivision applications and development applications
+under this clause, subsequent subdivision and and well-designed medium and high-density and to guide discretion in decision-making.
+development applications [those outlined in residential and mixed use development.
+a) The activity centre network meets different levels
+sub-clause (a)] are also subject to SPP 4.2.
+c) Plan for the sustainable growth and development
+of community need and enables employment,
+d) This policy is to be read in conjunction with (but of activity centres ensuring development intensity housing, goods and services to be accessed
+not limited to): is appropriate to a centre’s position in the activity efficiently and equitably by the community.
+centre hierarchy.
+• the SPP 4.2 Implementation Guidelines b) The primacy of activity centres is reinforced, and
+d) Manage the hierarchy of activity centres to
+• State Planning Policy 7.0 Design of the Built out-of-centre development does not undermine
+ensure efficient and equitable access by the
+Environment (SPP 7.0) the hierarchy of activity centres.
+community to employment opportunities, housing
+• Liveable Neighbourhoods [to be replaced by choice and a broad range of goods and services. c) New activity centres or the intensification of
+State Planning Policy 7.1 Neighbourhood existing activity centres does not unreasonably
+e) Ensure activity centres are accessible and well-
+Design (SPP 7.1)] undermine existing centres.
+served by a range of transport options with a
+• State Planning Policy 7.2 Precinct Design priority on walking, cycling and public transport d) Sufficient development intensity and appropriate
+(SPP 7.2) use. land use mix is provided, that supports the role and
+• State Planning Policy 3.6 Infrastructure function of activity centres, promotes economic
+f) Ensure the urban form of activity centres enables
+Contributions (SPP 3.6) growth, provides employment opportunities and
+the primary focus of activity to be on the street, in
+enhances consumer choice.
+• Local Planning Strategy Guidelines the public realm and connected to public open
+• other relevant State Planning Policies, spaces. e) The density and diversity of housing in and around
+activity centres is maximised to improve land
+Operational Policies, Position Statements and
+efficiency, housing choice and housing affordability,
+Guidelines.
+and assists with delivering the urban consolidation
+objectives and outcomes of the strategic planning
+framework for the applicable region.
+
+State Planning Policy 4.2
+3
+Activity Centres
+July 2023
+f) Activity centres and development within them 7 POLICY MEASURES discretion of the WAPC through an appropriate
+are well-designed, cohesive and functional, provide strategic planning process, in accordance with the
+for the needs of their community and capitalise 7.1 Activity centre hierarchy – Implementation Guidelines (section 3).
+on the sustainable use of existing and planned roles and characteristics
+e) Decision-makers should ensure planning
+infrastructure.
+instrument approvals and subdivision and
+a) Appendix 1 outlines the roles and characteristics
+g) Activity centres have a compact urban form with development decisions support the established
+of the various classification levels of the activity
+pedestrian-dominant streetscapes and public realm and planned activity centre hierarchy. Decision-
+centre hierarchy. Appendix 1 also shows a
+based around a main street(s) and public open makers should not support planning instruments or
+consolidated list of the established and planned
+spaces. subdivision and development applications that are
+hierarchy of capital city, specialised, strategic,
+likely to:
+h) Street design and the urban structure is conducive secondary and district activity centres, as
+to and prioritises access to and within activity identified in regional, sub-regional and district- • undermine the established and planned
+centres by walking, cycling and public transport. level strategies, frameworks and structure activity centre hierarchy;
+plans. The established and planned hierarchy of
+i) Private vehicle trips to and within activity centres • be inconsistent with the objectives and
+neighbourhood and local centres are identified in
+are minimised, reducing the demand for parking. outcomes of SPP 4.2;
+the relevant local planning strategy.
+j) Planning and development of activity centres • result in a deterioration in the level of service to
+balances the environmental, social, health, b) The hierarchy is to be used when preparing and the local community;
+determining planning instruments and subdivision
+economic and cultural values of activity centres to • undermine public investment in infrastructure
+and development applications to coordinate the
+provide a net positive benefit to local communities. and services; or
+location and distribution of activity centres within
+an area, and the hierarchy classification, roles and • unreasonably affect the amenity of the locality
+characteristics of individual activity centres (also through traffic or other impacts.
+refer Implementation Guidelines sections 3 and 4).
+7.2 Needs Assessment
+c) Planning instruments and subdivision and
+development applications should be consistent
+a) A needs assessment provides an information
+with the activity centre’s classification in the
+base to support decision-making by including
+hierarchy and the roles and characteristics of that
+an assessment of projected land use needs of
+classification (as outlined in Appendix 1).
+communities in a local government area.
+d) The activity centre hierarchy provides for certainty The needs assessment should consider and
+and maintains level of service to the community assess the demand for all activity centre uses and
+in accordance with the objectives of this policy. is to be prepared as part of a local planning strategy
+In limited circumstances, new centres may be to guide future development.
+identified, and existing centres reclassified, at the
+
+State Planning Policy 4.2
+4
+Activity Centres
+July 2023
+b) Where a local planning strategy does not have a b) A precinct structure plan or a local development g) Precinct structure plans and local development
+Needs Assessment, or the Needs Assessment has plan may be prepared for neighbourhood and plans may be prepared by the WAPC, the relevant
+not been updated for more than five years, a new local activity centres, at the discretion of the local local government or by landowners. A consolidated
+Needs Assessment may be prepared in support of a: government and the WAPC. This requirement (or precinct structure plan or local development
+exemption) should be outlined in a local planning plan may be prepared that applies to a group of
+• local planning scheme/scheme amendment
+strategy and/or local planning scheme. activity centres where their walkable catchments
+• precinct structure plan
+overlap and where coordinated planning may
+c) Precinct structure plans and local development
+• standard structure plan at the district or local lead to greater efficiencies and improved planning
+plans are to be prepared in accordance with the
+level. outcomes. Each centre’s individual characteristics
+requirements of SPP 7.2 Precinct Design, SPP 7.2
+should be reflected in the plan.
+Note: Needs Assessments should not be prepared for Precinct Design Guidelines and other relevant policies
+development applications. In circumstances and guidelines.
+7.3.1 Major development in the absence of an
+where the relevant strategy or structure
+d) Precinct structure plans and local development endorsed precinct structure plan or local
+plan does not include a Needs Assessment,
+development plan
+plans (where required) should be endorsed by
+development applications should be
+the relevant decision-maker for that instrument
+accompanied by a Net Benefit Test. a) While it is expected that precinct structure plans
+prior to a major development being approved to
+or local development plans are endorsed prior to
+c) Once proposed floorspace and/or land ensure the development of the activity centre is
+major development, in exceptional circumstances
+requirements are identified, this information should integrated, cohesive and accessible.
+a major development may be considered in
+be shown spatially within the planning document
+e) To ensure cumulative development within a centre the absence of an endorsed precinct structure
+being prepared and include an indicative range of
+is considered, where the major development plan or local development plan (where one is
+activity centre use floorspace per activity centre.
+threshold (see Table 1) is not initially triggered by required) subject to achieving all the objectives and
+d) Guidance on the appropriate approach and a development, any subsequent development outcomes of this policy and:
+methodology for a Needs Assessment is provided application for additional floorspace on the same
+• the major development satisfying other
+within the Implementation Guidelines (Appendix lot within five years of development approval will
+relevant requirements of this policy, particularly
+G1). be classified as major development if the combined
+section 7.6 Urban Form, and the requirements
+floorspace exceeds the relevant threshold.
+of SPP 7.2 Precinct Design and SPP 7.2 Precinct
+7.3 Requirement for precinct structure f) Where a local planning scheme amendment (or Design Guidelines; and
+plans and local development plans new local planning scheme) proposes to rezone • demonstrating to the satisfaction of the
+a) A precinct structure plan is to be prepared for land in a way that could accommodate major decision-maker that:
+development, a precinct structure plan should
+strategic, secondary, district and specialised activity – the proposal delivers an immediate and
+be prepared and approved concurrently with the
+centres unless the WAPC is satisfied that one is not demonstrated local need (as identified in
+amendment (refer Implementation Guidelines
+required (refer Implementation Guidelines section an endorsed local planning strategy, refer
+section 3.3.2).
+3.3.2.1). section 7.2) for the proposed floorspace
+and land uses; or
+
+State Planning Policy 4.2
+5
+Activity Centres
+July 2023
+– the proposal delivers significant net benefit cultural/tourist, recreation (public and private), f) Subdivision applications should ensure that the
+to the community (as demonstrated by a community facilities, medium and high-density lot configuration, lot widths and lot depths are
+Net Benefit Test, refer section 7.8), above residential land uses in activity centres, having appropriate for the types of activity centre uses
+what is identified in current and emerging regard to the following: and dwellings that are planned for in the activity
+plans. centre to avoid prejudicing the ultimate vision for
+• the indicative land uses for the centre
+the activity centre (refer Implementation Guidelines
+b) An exceptional circumstances exemption should: (Appendix 1)
+section 4.2).
+• only be granted for proposals where the • employment requirements (refer section 7.5)
+g) Decision-makers should consider the provisions in
+proponent demonstrates that the development • whether the centre has a rail station or other
+this policy, such as Appendix 1, that guide location
+will proceed within the approval validity high frequency public transport
+and appropriate floorspace sizes when considering
+period (such as through funding arrangements
+• the extent of land in common ownership discretionary land uses in local planning schemes
+and/or engagement with future tenants and
+construction partners); • the existing land use mix (D and A uses).
+• not be granted more than once for the • the proposed scale of development
+7.4.2 Housing
+same activity centre, regardless of whether • the availability of quality public open space
+any previous approvals were substantially a) Medium and high-density housing should be
+• the extent to which the activity centre and its
+commenced or not; and incorporated within activity centre cores and
+catchment have already developed.
+frame areas and the walkable catchment(s) of
+• not be granted for planned activity centres
+d) Land uses that generate activity outside normal activity centres to support the non-residential
+(such as those in greenfield areas).
+business hours (e.g. hospitality and entertainment, functions of the activity centre, provide
+community facilities, gymnasiums) should be opportunities to live near services and employment,
+7.4 Land uses located in activity centres to generate additional establish a sense of community and increase
+evening and weekend activity and to take activity outside normal business hours. Average
+7.4.1 Land use diversity
+advantage of shared use of facilities such as car residential densities and preferred dwelling types
+a) A diversity of land uses in activity centres is parking and public transport. are provided in Appendix 1. These are intended as
+essential to their vitality and viability, and promotes a guide to inform precinct structure planning, local
+e) Major developments should achieve a diversity
+a more equitable distribution of services, activities planning strategies and local planning scheme
+of land uses to provide for the community that
+and employment for the community, including at reviews and amendments (refer Implementation
+they serve, consistent with any land use mix
+different times of the day. Guidelines section 3.3.6).
+requirements outlined in the relevant precinct
+b) It is expected that activity centres (neighbourhood structure plan and/or local planning strategy. b) Housing supply in specialised centres should
+and above) develop in a manner that does not Where market factors may not support a diversity be assessed on a case-by-case basis, with the
+result in a predominantly single purpose centre. of land uses in the near-term, the proposal exception of Perth and Jandakot Airports which
+should demonstrate that it can easily adapt over should not have housing.
+c) Planning instruments should provide for a wide
+time to achieve a diversity of land uses (refer
+range of office, commercial, retail, food and
+Implementation Guidelines section 4.3).
+hospitality, entertainment, education, leisure,
+
+State Planning Policy 4.2
+6
+Activity Centres
+July 2023
+c) In accordance with SPP 7.2 Precinct Design c) When assessing development applications for 7.4.4 Offices
+Guidelines and other relevant policies, precinct shops, decision-makers should consider the
+a) As outlined in Appendix 1, larger offices (office
+structure plans for activity centres should address following:
+– large) should be located in the capital city and
+the need generated by any increased population
+• maximising efficient and equitable access to strategic centres. Secondary centres and district
+for additional:
+essential goods and services, particularly fresh centres with rail stations, and some specialised
+• public open space and recreation facilities food, by the community centres are also suitable for larger offices.
+• schools and other community facilities • the zoning in the local planning scheme b) Office development in other secondary,
+• transport and servicing infrastructure • availability of land within existing or higher district centres and in neighbourhood centres
+order activity centres should generally be smaller and of a scale that
+• affordable housing.
+complements the function of the centre
+• urban design that facilitates the enhancement
+It may be appropriate that a range of mechanisms (office – small).
+of the public realm and supports a mix of retail
+are used to address some of this provision including
+scale and opportunity. c) Offices, unless ancillary to industrial developments,
+development incentives (refer section 2.8 of SPP 7.2
+should not be located on land zoned for industry
+Precinct Design Guidelines) and/or development d) Bulky goods showrooms are to be considered and
+under the region or local planning scheme.
+contributions (refer SPP 3.6 Infrastructure planned at all levels of the planning framework to
+Contributions). ensure that the opportunities for this land use are
+facilitated, while the impacts of this land use on the 7.5 Employment
+d) Planning and development in activity centres
+activity centre network and policy objectives are
+should meet the average residential density a) Activity centres are priority locations for
+managed.
+(outlined in Appendix 1) or demonstrate that it employment and employment-generating activities
+can be met in the future (refer Implementation e) Bulky goods showrooms should be located in and should contribute towards the achievement of
+Guidelines section 4.3). the activity centre frame due to their unique the relevant regional and sub-regional employment
+requirements (refer to section 7.6 Urban Form). self-sufficiency objectives.
+7.4.3 Shops and Bulky Goods Showrooms There are existing standalone precincts outside
+b) Some activity centres are well suited to providing
+the activity centre network, often adjacent to
+a) The location, distribution and design of shops and opportunities for strategic employment, in
+industrial areas, and this policy does not prevent
+bulky goods showrooms should support the addition to population-driven employment, due
+them from continuing. However, new standalone
+established and planned activity centre hierarchy. to their characteristics such as access to
+precincts of this nature outside the activity centre
+Appendix 1 and the major development high-frequency public transport and freight
+network should be considered for any potential to
+thresholds (Table 1) provide guidance on where networks, proximity to strategic employment
+undermine the activity centre hierarchy.
+different types and sizes of shop (small and large) lands and existing industry agglomerations, and
+and bulky goods showrooms should be located. high populations within their catchments.
+b) Shops are important anchors of activity centres c) Planning instruments are to facilitate:
+and should be located in activity centres wherever
+• employment opportunities in activity centres
+possible, particularly where those shops provide for
+by maximising the density and range of
+the daily and weekly needs of their community.
+activities to improve access to a range of jobs
+
+State Planning Policy 4.2
+7
+Activity Centres
+July 2023
+• where appropriate, strategic employment • pedestrian and cyclist prioritisation through enable permeability and legibility and to provide an
+opportunities providing wider footpaths, streets designed activity centre structure than can accommodate
+for lower vehicle speeds, and having carparks change over time.
+• development that can be a catalyst for further
+sleeved behind or integrated into buildings
+economic development and employment f) The urban form of an existing activity centre
+growth, both locally and for the State • street blocks that enable permeability and may need to change over time depending on
+• education and training, health and other legibility for pedestrians (indicative range of the existing development pattern, particularly for
+specialist facilities in higher-order activity 60-120 metres wide by 120-240 metres long), activity centres with an urban form dominated by
+centres including mid-block pedestrian links a shopping centre and large areas of car parking.
+• high-quality public realm and public open The existing form and function of an activity
+• co-locating retail, commercial, entertainment
+spaces incorporating plazas, malls, green centre should be investigated, and consideration
+and other compatible uses with tertiary
+spaces, green linkages and streetscapes/lanes given to how it may need to change to address the
+education, health and other suitable uses in
+accessible by residents, visitors and workers at key urban form elements of activity centres when
+specialised activity centres.
+all times of the day and night. preparing a precinct structure plan for an activity
+d) Major development should meaningfully centre. This may include the provision of new
+c) It is acceptable to adapt the key design elements
+contribute towards achieving employment public open spaces to provide for the needs of new
+to suit the smaller size of local and neighbourhood
+objectives outlined in the relevant precinct residents and increased visitors to the centre.
+centres, provided that the overall principle of a
+structure plan and/or within an endorsed local
+pedestrian-dominant compact urban form is not g) All precinct structure plans and local development
+planning strategy.
+compromised. plans for activity centres are to satisfy the
+requirements of SPP 7.2 Precinct Design and
+d) The activity centre frame and wider walkable
+7.6 Urban form SPP 7.2 Precinct Design Guidelines. Development
+catchment should relate to the core and be
+applications should satisfy the urban form guidance
+a) Activity centres are to be defined by a compact similarly pedestrian and cyclist focused with
+contained within an endorsed precinct structure
+urban form with pedestrian-dominant streetscapes appropriate amenities and weather protection
+plan or local development plan.
+where the primary focus of activity is on key public along key approaches to the centre core and public
+streets and open spaces. Appendix 1 outlines the transport stations/stops. h) Subdivision applications should consider and
+typical urban form for each of the activity centre support the future urban form of the activity
+e) Where activity centres also include service
+types. centre in accordance with the Implementation
+commercial sub-precincts (for bulky goods
+Guidelines (refer section 4.2).
+b) Activity centre cores should incorporate the showrooms and other similar land uses), these
+following key design elements: should be integrated with the centre and designed
+7.7 Movement and access
+• a main street (or main streets in larger centres), to ensure pedestrian safety whilst recognising that
+with buildings built to the street edge, active good vehicle access is necessary for these land uses. a) The physical organisation of the activity centre
+land uses at ground levels, frequent openings The preferred location for these sub-precincts is network and individual activity centres needs
+to the street, variable frontage widths, facade as part of the frame, adjacent the activity centre to support, and be supported by, a balanced
+articulation and weather protection for core, with access to regional road and public access and movement network that makes it safe,
+pedestrians (colonnades/awnings and/or street transport networks. Street blocks should be sized to
+trees)
+
+State Planning Policy 4.2
+8
+Activity Centres
+July 2023
+convenient and practical for residents, employees c) For strategic, specialised and secondary activity public transport, cycling infrastructure and paths)
+and visitors to maximise travel by walking, cycling centres the precinct structure plan is to include: in proportion to the number of trips generated
+and public transport both within and between by the proposal and in accordance with SPP 3.6
+• mode share targets to promote a shift away
+activity centres, while minimising the need to travel Infrastructure Contributions.
+from private vehicle use to the maximum
+by private car. The planning for activity centres
+extent possible based on the current and
+should seek to:
+planned capacity of the movement network 7.8 Net Benefit Test
+• ensure infrastructure investment and space and access needs of the activity centre
+a) Major development proposals within activity
+allocation for private car use does not
+• a parking cap to constrain private vehicle trip
+centres and out-of-centre developments can
+compromise the achievement of activity centre
+generation and promote mode shift
+have an adverse effect on the extent and adequacy
+land use and urban form objectives
+• a parking plan outlining how public parking of facilities and services available to a local
+• reduce private vehicle dependence, particularly
+will be supplied and managed across the whole community, and the ability to access them in an
+for commuter trips, and manage the impacts of
+activity centre to prioritise use and availability efficient and equitable manner by walking, cycling
+vehicle movements and parking
+between different user groups. and public transport.
+• enable a range of transport choices that meet
+The WAPC’s Guidelines for Integrated Transport b) It is therefore important to ensure that
+the access needs of residents, employees and
+Plans and the Department of Transport’s Transport development of activity centre uses within an
+visitors, including universal access
+Planning Guidelines relevant to activity centres area generally complies with the floorspace need
+• promote a balanced movement network that and large shopping centres should be used when identified for specific activity centres in local
+prioritises walking, cycling, public transport, preparing the above. planning strategies or structure plans (a Needs
+and shared mobility Assessment, refer section 7.2) and where a proposal
+d) The requirements in sub-clause (c) may be
+exceeds that floorspace need, the proposal is to
+• provide for safe and efficient freight and extended to district centres that have a rail station
+demonstrate a net benefit to the community of any
+delivery access to the activity centre. at the discretion of the WAPC. This requirement
+impacted centres.
+b) Precinct structure plans for activity centres are may be identified during preparation of the relevant
+to satisfy relevant requirements of SPP 7.2 Precinct local planning strategy or at a later stage. c) The purpose of the Net Benefit (NB) Test is to
+ensure that development applications and planning
+Design Guidelines (Design Element 4: Movement), e) Development applications for major development
+instruments align with the objectives of this policy.
+including the identification of upgrades to transport are to include travel plans and parking supply
+infrastructure to support the expected activity and management plans (prepared in accordance d) A net benefit occurs when the benefits (pros) to the
+centre uses and residential growth of the activity with Department of Transport’s Transport Planning community arising from a proposal out weigh any
+centre. The provisions of SPP 3.6 Infrastructure Guidelines) that support the mode share target identified impacts (cons) to the community arising
+Contributions should be considered as part of this identified in the precinct structure plan. from a proposal.
+process. The responsible authority may impose reasonable
+e) Unless exempt, a NB Test is required for:
+conditions on development approvals relating
+• development applications for major
+to contributions (financial or works) towards
+development
+upgrades to transport infrastructure (such as roads,
+
+State Planning Policy 4.2
+9
+Activity Centres
+July 2023
+• development applications for out-of-centre 7.9 Out-of-centre development f) Out-of-centre developments are to be assessed in
+development line with this policy, including the requirement for a
+a) There is a general presumption against the approval
+NB Test (refer section 7.8).
+• planning instruments that identify new land or of activity centre uses outside of activity centres
+rezone land to facilitate major development as they are likely to impact nearby activity centres g) Out-of-centre development may only be
+or out-of-centre development and the overall activity centre hierarchy. appropriate where it is:
+f) Where an endorsed local planning strategy or b) Out-of-centre development is: • sufficiently separated from nearby activity
+structure plan includes an indicative amount of centres to minimise negative impacts to those
+• any development application that proposes
+activity centre use floorspace for the activity activity centres (as demonstrated through the
+floorspace greater than 500m2 NLA for
+centre derived from a Needs Assessment, a NB Test);
+Category A activity centre uses located
+NB Test is only required where this indicative
+outside the boundary (refer Implementation • in proximity to existing housing at an average
+activity centre use floorspace is proposed to be
+Guidelines section 3.3.4) of an activity centre, dwelling density of at least 25 dwellings per
+exceeded.
+unless exempt [refer sub-clauses (c) and (d)]; gross Urban Zone (Region Schemes) hectare
+g) Perth Capital City and strategic centres are exempt and/or within a 400m walkable catchment of the
+from the requirement for a NB Test. development; and
+• any new planning instrument or amendment
+h) The NB Test is to demonstrate that the proposal to a planning instrument that will result in • accessible to its catchment community by
+will: new land being capable of accommodating walking and cycling, minimising the need for
+Category A or B activity centre uses outside additional private vehicle trips.
+• not have an unreasonable and detrimental
+of activity centres (regardless of land size).
+impact on the activity centre hierarchy or the
+existing or planned functions of activity centres c) Development applications for Category B activity
+centre uses are not considered to be out-of-
+• not have an unreasonable and detrimental
+centre developments where the existing zoning
+impact upon existing, committed and planned
+contemplates (P, D, A) those land uses. They are not
+public and private investment in activity
+required to be assessed against this policy.
+centres
+d) Development applications for Category A activity
+• deliver net benefit to the community and not
+centre uses up to 1500m2 NLA are not considered
+reduce the level of access to services by the
+to be out-of-centre developments where they
+community.
+are located substantially within the 400m walkable
+i) A NB Test is to be prepared by the proponent
+catchment of a rail station. Assessment against this
+in accordance with the methodology provided
+section of the policy is not required.
+within the Implementation Guidelines (section 5)
+e) For development within the Greater Bunbury
+and is to be submitted with the relevant planning
+Region Scheme, out-of-centre development
+instrument or development application.
+provisions are only applicable within the Bunbury
+Metropolitan Area.
+
+State Planning Policy 4.2
+10
+Activity Centres
+July 2023
+8 DEFINITIONS
+Category A uses Category B uses
+Activity centre
+Planning Land Use Triggers various policy requirements Only triggers policy requirements when
+Categories* when exceeding the major development preparing new or amendments to
+An activity centre shown in an endorsed regional,
+threshold planning instruments
+sub-regional, district-level or local-level strategy,
+framework or structure plan. Capital City, Strategic, Shop/Retail Shop Convenience store
+Specialised, Secondary and District activity centres (PLUC: 5-SHP)
+Liquor store – large Liquor store – small
+endorsed at the date of gazettal are shown in Appendix 1
+Fast food outlet / lunch bar Market
+for reference.
+Restaurant/café Restricted premises
+Activity centre core Service station
+The main focus(es) of activity within the activity centre. Other Retail Bulky goods showroom
+Cores contain any central points from which walkable (PLUC: 6-RET)
+Motor vehicle, boat or caravan sales
+catchments are measured (refer walkable catchment
+definition). Office / Business Medical centre
+(PLUC: 7-OFF)
+Office
+Activity centre frame
+Entertainment / Amusement parlour
+The secondary focus of activity within the activity centre,
+Recreation / Cultural
+Art gallery
+adjacent to the core. Walkable catchments are not
+(PLUC: 9-ENT)
+measured from the frame area. Smaller centres may not Cinema / theatre
+have a frame. Hotel
+Motel
+Activity centre hierarchy / network, hierarchy
+Nightclub
+All activity centres, existing and planned, within the Reception centre
+Metropolitan and Peel Region Scheme areas and the Recreation – private
+Bunbury Metropolitan Area, arranged into the seven Small bar
+classification levels being capital city, strategic, specialised,
+Tavern
+secondary, district, neighbourhood and local activity
+centres. Service Industry Motor vehicle repair
+(PLUC: 4-SER)
+Motor vehicle wash
+Activity centre use(s), category A and B
+* From the WAPC’s Land Use and Employment Survey.
+Includes the following land uses as defined in Schedule 1
+Note 1: Other land uses in local planning schemes may be suitable in activity centres (for example consulting rooms, trade
+of the Planning and Development (Local Planning Schemes)
+supplies) but are not subject to this policy as they may also be suitable outside activity centres.
+Regulations 2015, split into Categories A and B:
+Note 2: Where a land use in a local planning scheme reasonably aligns with the above land uses (for example personal care
+services which aligns with shop), decision-makers should consider whether this policy should apply to that land use.
+
+State Planning Policy 4.2
+11
+Activity Centres
+July 2023
+Bulky goods showroom
+Table 1: Major activity centre use floorspace thresholds
+As defined in the Planning and Development (Local
+Planning Schemes) Regulations 2015. Established Activity Centre Planned Activity Centre
+Activity Centre Hierarchy
+(m2 NLA) (m2 NLA)
+Bunbury Metropolitan Area
+Strategic 10000 0 – any development in
+As shown in the Bunbury-Geographe Sub-Regional Strategy. a planned centre is major
+Specialised 3000 development
+Established activity centre
+Secondary 10000
+There are existing activity centre uses (or use) within the
+activity centre. District 5000
+Existing or proposed train station Neighbourhood 3000
+An existing train station or a proposed train station
+Local 1500
+identified in a sub-regional planning framework, within a
+400m walkable catchment of the activity centre.
+High frequency public transport
+Needs Assessment Planned activity centre
+A public transport route, or multiple routes serving the
+same station/stop that if combined have timed stops As outlined in section 7.2 Needs Assessments, an There are no existing activity centre uses (or use)
+every 15 minutes during weekday peak periods (7am to information base to support decision-making by occurring within the activity centre.
+9am and 5pm to 7pm). including an assessment of projected land use needs of
+communities in a local government area, that considers Office
+Major development and assesses the demand for all activity centre uses.
+As defined in the Planning and Development (Local
+A development application is considered a major Planning Schemes) Regulations 2015. SPP 4.2 provides for
+Net Benefit Test
+development if the net additional floorspace for two different sizes:
+Category A activity centre use (or uses) is greater A test prepared in accordance with section 7.8 Net Benefit • Office – small – no greater than 1500m2 NLA
+than the thresholds in Table 1. Note, this includes a Test.
+• Office – large – greater than 1500m2 NLA
+development application for change of use from a
+Net lettable area (NLA)
+Category B use to a Category A use.
+As defined in the Planning and Development (Local
+Planning Schemes) Regulations 2015.
+
+State Planning Policy 4.2
+12
+Activity Centres
+July 2023
+Out-of-centre development square or main street, rail or bus station and/or important
+services such as a supermarket. Depending on the centre
+As outlined in section 7.9 Out-of-Centre Development,
+type (Appendix 1), the extent of the walkable catchment
+out-of-centre development is:
+is either 200m, 400m, 800m or 1200m with the inner
+• any development application that proposes 200m comprising the centre core.
+floorspace greater than 500m2 NLA for Category A
+activity centre uses located outside the boundary of
+an activity centre, unless exempt
+• any new planning instrument or amendment to a
+planning instrument that will result in new land being
+capable of accommodating Category A or B activity
+centre uses outside of activity centres (regardless of
+land size).
+Shop
+As defined in the Planning and Development (Local
+Planning Schemes) Regulations 2015. SPP 4.2 provides for
+two different sizes:
+• shop – small – no greater than 1500m2 NLA
+• shop – large – greater than 1500m2 NLA.
+Strategic employment
+Is associated with the production and transfer of goods,
+services and knowledge predominantly to serve markets
+beyond the immediate location or catchment. Also
+known as trade clusters, as distinct from local clusters,
+which comprise industries that serve local population and
+business driven demand.
+Walkable catchment
+Derived from application of the ped-shed technique
+to the existing or proposed street/footpath network
+measured from an agreed upon central point(s) within the
+activity centre core. The central point(s) may be a town
+
+State Planning Policy 4.2
+13
+Activity Centres
+July 2023
+APPENDIX 1: ACTIVITY CENTRE HIERARCHY – ROLES AND CHARACTERISTICS
+CAPITAL CITY
+Activity centres Roles and characteristics
+Metropolitan (Perth) and Main role and typical attributes
+Peel Region Scheme
+Perth Capital City (including Northbridge, East Perth and West Perth) is the largest of the activity centres, providing the most intensely concentrated
+Perth
+development in the Perth, Peel and Bunbury regions. It has the greatest range of high order services and jobs, and the largest commercial
+Northbridge component of any activity centre. It is generally comprised of the highest density residential and commercial buildings, has excellent multi-modal
+East Perth public transport connections and is the centre for cultural and entertainment facilities.
+West Perth
+Future indicative service population (trade) area
+Western Australia
+Typical transport connectivity and accessibility
+Focus of regional transport networks, including passenger rail and major bus routes.
+Desired land uses
+All land uses with a good distribution to ensure walkable access to daily and weekly goods and services for residents, visitors and workers. Local and
+neighbourhood centre land uses should be scattered throughout the capital city centre to ensure walkable access to daily and weekly goods and
+services for residents, visitors and workers.
+Typical urban form
+High density urban area characterised by high-rise office towers and podium and tower residential developments that support highly activated and
+pedestrianised streets and public spaces. New development should contribute to an attractive, dynamic and liveable city environment.
+Average residential density (dwellings per gross Central City Area Zone hectare within the walkable catchment)
+75+
+Preferred residential dwelling types
+Medium to high-rise apartments / multiple dwellings
+
+State Planning Policy 4.2
+14
+Activity Centres
+July 2023
+STRATEGIC CENTRES
+Activity centres Roles and characteristics
+Metropolitan (Perth) and Main role and typical attributes
+Peel Region Scheme
+Strategic centres are the main regional and sub-regional activity centres. They are multi-purpose centres that provide a diversity of uses and are
+ArmadaleT
+the main focus for housing and employment growth outside the Capital City. These centres provide the full range of economic and community
+CanningtonT services necessary for the communities in their catchments and wider region. These centres are expected to service substantial populations,
+FremantleT providing health, community and social services, be well-served by public transport and provide opportunities for business agglomeration.
+JoondalupT
+Future indicative service population (trade) area
+MandurahT
+MidlandT 300,000 – 400,000 persons
+Morley
+Typical transport connectivity and accessibility
+RockinghamT
+StirlingT Important focus for passenger rail and high frequency bus network with routes to multiple destinations.
+Yanchep CityT
+Desired land uses
+Greater Bunbury
+The centre core or cores should contain district centre land uses and office – large. Local and neighbourhood centre land uses should be scattered
+Region Scheme
+throughout the strategic centre to ensure walkable access to daily and weekly goods and services for residents, visitors and workers.
+Bunbury CBD
+Typical urban form
+High density urban area within the centre core(s) characterised by mid and high-rise office towers and podium and tower residential developments
+that support highly activated and pedestrianised street frontages and public spaces.
+Mid-rise buildings and contiguous, pedestrian friendly street frontages and public spaces outside the centre core(s) that include some activation.
+New development should contribute to an attractive, dynamic and liveable environment with a coherent street frontage that has a pedestrian scale.
+Average residential density (dwellings per gross Central City Area/Regional Centre Zone hectare within the walkable catchment)
+30+ (800m)
+50+ (800-1200m) where there is an existing or proposed train station within 400m of the centre
+Preferred residential dwelling types
+Medium to high-rise apartments / multiple dwellings
+T Indicates a centre with a train station
+
+State Planning Policy 4.2
+15
+Activity Centres
+July 2023
+SPECIALISED CENTRES AND NODES
+Activity centres Roles and characteristics
+Metropolitan (Perth) and Main role and typical attributes
+Peel Region Scheme
+Specialised centres focus on regionally significant economic and institutional activities, such as logistics-based businesses for airports or knowledge-
+Education, research and
+based for health and tertiary education precincts. Planning for these centres should aim to protect the specialisation while improving the growth
+health specialisation:
+and clustering of business activity of State and regional significance, particularly in knowledge-based or logistics-based industries. These areas are
+UWA/QE2 to be developed as places with a concentration of linked businesses and institutions providing a major contribution to the economy, with excellent
+transport links and potential to accommodate significant future growth in jobs and in some instances housing. Specialised nodes are smaller in
+Karnup (East)
+scale than specialised centres.
+Murdoch
+Future indicative service population (trade) area
+Education, research and
+n/a
+technology specialisation:
+Bentley/Curtin
+Typical transport connectivity and accessibility
+Aviation and logistics Important focus for passenger rail and/or high frequency bus network.
+specialisation:
+Desired land uses
+Perth Airport*
+Jandakot Airport* n/a
+Typical urban form
+Greater Bunbury
+Region Scheme
+n/a
+Education, research and
+health specialisation: Average residential density (dwellings per gross hectare within the walkable catchment)
+Bunbury Health and Education
+n/a
+Precinct (College Grove)
+Preferred residential dwelling types
+n/a
+* Under s112 of the Airports Act 1996 (Commonwealth), Perth and Jandakot Airports are not subject to the Western Australian planning framework, including SPP 4.2. Instead, Part 5
+of the Airports Act 1996 (Commonwealth) regulates land use planning through requiring the preparation of Airport master plans and Major development plans. These plans must
+consider their impacts on, among other things, “the local and regional economy and community, including… commercial and retail development in the adjacent area” and must
+address and justify any inconsistencies with adjoining planning schemes
+
+State Planning Policy 4.2
+16
+Activity Centres
+July 2023
+SECONDARY CENTRES
+Activity centres Roles and characteristics
+Metropolitan (Perth) and Main role and typical attributes
+Peel Region Scheme
+Secondary centres share some characteristics with strategic centres but serve smaller catchments and offer a more limited range of services, facilities
+Alkimos T
+and employment opportunities. They perform an important role in the regional economy and provide essential services to their catchments.
+Belmont Secondary centres with a rail station should be a focus for medium and high-density housing, employment growth and diversity of land uses.
+Booragoon
+Future indicative service population (trade) area
+Claremont T
+Clarkson Up to 150,000 persons
+Cockburn T
+Typical transport connectivity and accessibility
+Ellenbrook T
+Karrinyup Important focus for passenger rail and/or high frequency bus network with routes to multiple destinations.
+Kwinana
+Desired land uses
+Leederville T
+Maddington T All local, neighbourhood and district centre land uses.
+Mirrabooka Secondary centres with access to a rail station may be suitable for office – large.
+Pinjarra
+Typical urban form
+Subiaco T
+Two Rocks North Medium and high-density urban area within the centre core characterised by mid to high-rise buildings that provide contiguous, activated and
+Victoria Park pedestrian-friendly street frontages and public spaces.
+Wanneroo Outside the core, low to mid-rise buildings achieve a pedestrian scale at the street frontage and streetscapes retain an attractive landscaped
+character through street planting and landscaping of the private realm.
+Warwick
+Whitfords (Hillarys) New development should create an attractive and coherent street frontage that reflects the prevailing or planned pattern of street setbacks.
+Average residential density (dwellings per gross Urban Zone hectare within the walkable catchment)
+Greater Bunbury
+Region Scheme
+25+ (400m)
+Wanju (Waterloo)
+40+ (800-1200m) where there is an existing or proposed train station within 400m of the centre
+Preferred residential dwelling types
+Medium to high-rise apartments / multiple dwellings
+Town houses / Grouped dwellings – 2+ storeys
+T Indicates a centre with a train station
+
+State Planning Policy 4.2
+17
+Activity Centres
+July 2023
+DISTRICT CENTRES
+Activity centres
+Metropolitan (Perth) and Greater Bunbury
+Peel Region Scheme Region Scheme
+Central Sub-Region Northlands (Balcatta) North-West Sub-Region South Metropolitan Peel Bunbury Forum (East Bunbury)
+Ashfield T Oats Street (Carlisle) T Alexander Heights Sub-Region Dalyellup
+Bassendean T Petra Street Banksia Grove Baldivis Eaton Fair (Eaton)
+Bayswater T Riseley Street (Ardross) Butler T Byford T Parks Centre (Carey Park)
+Bentley Riverton/Parkwood Currambine Cockburn Coast (North Coogee) Treendale
+Bull Creek Scarborough Eglinton T Falcon
+Burswood Peninsula T Southlands (Willetton) Girrawheen Forrest Lakes (Thornlie)
+Canning Bridge T South Perth Gnangara T Gosnells T
+Cottesloe T Stirling Central (Westminster) Greenwood Halls Head
+Dianella Wembley/Jolimont Madeley Harrisdale
+Dog Swamp (Yokine) West Leederville T Sorrento Karnup
+East Victoria Park Two Rocks (Town Centre) Kelmscott T
+Fitzgerald Street (North Perth) Woodvale Lakelands
+Floreat Yanchep Central Mundijong (Whitby)
+Glendalough T Yanchep Centre E Phoenix (Spearwood)
+Inglewood Yanchep Centre F Ravenswood (Riverfront)
+Kardinya Secret Harbour
+Livingston (Canning Vale) North-East Sub-Region Southern River
+Main Street (Osborne Park) Brabham T Thornlie
+Maylands T Kingsford (Bullsbrook) Wandi
+Melville Forrestfield Warnbro
+Mount Hawthorn High Wycombe (Station) T Waroona
+Mount Lawley/Highgate Kalamunda Wungong (Hilbert)
+Mundaring
+Noranda
+North Fremantle T
+T Indicates a centre with a train station
+
+State Planning Policy 4.2
+18
+Activity Centres
+July 2023
+Roles and characteristics
+Main role and typical attributes
+District centres have a greater focus on servicing the daily and weekly needs of residents. Their relatively smaller scale and catchment enables them to have a greater local community focus
+and provide services, facilities and job opportunities that reflect the needs of their catchments. Many district centres also have a specialisation such as tourism or entertainment which serves a
+wider catchment. District centres with a rail station should be a focus for medium and high-density housing and employment growth.
+Future indicative service population (trade) area
+20,000 – 50,000 persons
+Typical transport connectivity and accessibility
+Focal point for rail and/or bus network, ideally with high frequency bus links.
+Desired land uses
+All local and neighbourhood centres land uses plus district centre land uses:
+Bulky goods showroom, nightclub, cinema/theatre, hotel, motel.
+District centres with access to a rail station may be suitable for office – large.
+Typical urban form
+Characterised by mid-rise buildings and contiguous, pedestrian friendly street frontages and public spaces that include some activation.
+New development should create an attractive and coherent street frontage that has a pedestrian scale and provides passive surveillance of the street.
+Average residential density (dwellings per gross Urban Zone hectare within the walkable catchment)
+25+ (400m)
+35+ (800-1200m) where there is an existing or proposed train station within 400m of the centre
+Preferred residential dwelling types
+Medium rise apartments / multiple dwellings
+Town houses / grouped dwellings – 2+ storeys
+
+State Planning Policy 4.2
+19
+Activity Centres
+July 2023
+NEIGHBOURHOOD CENTRES
+Activity centres Roles and characteristics
+Refer Local Planning Strategy Main role and typical attributes
+Neighbourhood centres are important local focal points that provide for daily to weekly household shopping needs, community facilities and a
+small range of other convenience services. They are also a focus for medium density housing. These centres play an important role in providing
+walkable access to services and facilities for local communities.
+Future indicative service population (trade) area
+2,000 – 15,000 persons
+Typical transport connectivity and accessibility
+Stopping / transfer point for bus network
+Desired land uses
+All local centre land uses plus neighbourhood centre land uses:
+Shop – large, liquor store – large, market, restricted premises, amusement parlour, educational establishment, recreation – private, small bar, tavern,
+office – small, medical centre, art gallery.
+Typical urban form
+A compact and cohesive urban form that complements the surrounding built form character in scale and style.
+New development should contribute to the public realm by enhancing and activating the streetscape and contributing to creating a distinct and
+appealing character for the centre.
+Average residential density (dwellings per gross Urban Zone hectare within the walkable catchment)
+25+ (200m)
+30+ (800m) where there is an existing or proposed train station within 400m of the centre
+Preferred residential dwelling types
+Low to medium-rise apartments/multiple dwellings
+Townhouses / grouped dwellings
+
+State Planning Policy 4.2
+20
+Activity Centres
+July 2023
+LOCAL CENTRES
+Activity centres Roles and characteristics
+Refer Local Planning Strategy Main role and typical attributes
+Local centres provide for the convenience and incidental needs of local communities. These centres provide an important role in providing
+walkable access to services and facilities for local communities.
+Future indicative service population (trade) area
+n/a
+Typical transport connectivity and accessibility
+n/a
+Desired land uses
+Local centre land uses:
+Convenience store, shop – small, liquor store – small, fast food outlet / lunch bar, restaurant/café, small bar.
+Typical urban form
+Streetscapes have a landscaped character and built form patterns are defined by overall scale of the streetscape rather than individual building
+height or style.
+New development should respond to the existing or planned scale of the area. Development should include on-site landscaping to enhance the
+public realm and provide amenity for residents and neighbours.
+Average residential density (dwellings per gross Urban Zone hectare within the walkable catchment)
+25+ (200m)
+Preferred residential dwelling types*
+Low-rise apartments / multiple dwellings
+Townhouses / grouped dwellings
+Single houses – Terrace
+* Where local centres are located within industrial areas (either zoned Industrial under the region scheme or surrounded by Industry zone
+or similar, there is no requirement to provide residential land uses within the walkable catchment.

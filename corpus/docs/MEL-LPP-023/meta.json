@@ -1,0 +1,10 @@
+{
+  "url": "https://www.melvillecity.com.au/getContentAsset/ff4acaa0-64a2-4767-b43b-e5ed1606c002/3ca954ad-3848-47c6-8f97-68cebe0b47a2/local-planning-policy-tennis-courts?language=en",
+  "fetched_at": "2026-06-09T22:35:38Z",
+  "http_status": 200,
+  "content_hash": "f3207a3aa4abd20ed9c1ad9aa18ec0c8ae1cca8d317c2136018b4fe97e1ad127",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.melvillecity.com.au/getContentAsset/1a67da7f-7609-4d87-9ad3-972c8bd3abce/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Tennis-Courts.pdf?language=en",
+  "used_playwright": false,
+  "bytes": 259923
+}

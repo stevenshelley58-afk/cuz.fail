@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/position-statement-purpose-built-student-accommodation",
+  "fetched_at": "2026-06-09T22:35:14Z",
+  "http_status": 200,
+  "content_hash": "db498cb1ff929b48c1140e24df384d55ae504b680199d187e7451210bcad3259",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2026-03/position-statement-purpose-built-student-accommodation-march-2026.pdf",
+  "used_playwright": false,
+  "bytes": 414932
+}

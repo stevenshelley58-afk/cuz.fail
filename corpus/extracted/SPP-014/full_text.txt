@@ -1,0 +1,656 @@
+State Planning Policy 4.1
+Industrial Interface
+July 2022
+Prepared under Part Three of the Planning and Development Act 2005
+by the Western Australian Planning Commission
+
+The Department of Planning, Lands and click to follow
+Heritage acknowledges the traditional
+owners and custodians of this land. We pay 1 CITATION 1
+our respect to Elders past and present, their
+descendants who are with us today, and those
+who will follow in their footsteps. 2 POLICY INTENT 1
+Disclaimer
+3 INDUSTRIAL INTERFACE
+This document has been produced by the PLANNING 1
+Department of Planning, Lands and Heritage
+on behalf of the Western Australian Planning
+Commission. Any representation, statement, 4 POLICY APPLICATION 2
+opinion or advice expressed or implied in this
+4.1 Where this policy applies 2
+publication is made in good faith and on the
+basis that the Government, its employees and 4.2 Policy exemptions 3
+agents are not liable for any damage or loss
+whatsoever which may occur as a result of
+action taken or not taken, as the case may be, 5 POLICY OBJECTIVES 3
+in respect of any representation, statement,
+opinion or advice referred to herein.
+6 POLICY MEASURES 3
+Professional advice should be obtained before
+applying the information contained in this
+6.1 Industrial impacts at all
+document to particular circumstances.
+planning stages 3
+6.2 Avoiding, minimising and
+© State of Western Australian managing impacts 6
+Published by the 6.3 Assessment of proposals 8
+Western Australian Planning Commission
+6.4 Advice of relevant
+Gordon Stephenson House
+authorities to be sought 9
+140 William Street
+Perth WA 6000 6.5 Precautionary principle 9
+Locked Bag 2506
+Perth WA 6001 7. DEFINITIONS 10
+Publication date: 29 July 2022
+Operational date: 29 July 2022
+Gazettal date: 29 July 2022
+website: www.dplh.wa.gov.au
+email: info@dplh.wa.gov.au
+tel: 08 6551 8002
+fax: 08 6551 9001
+National Relay Service: 13 36 77
+This document is available in alternative
+formats on application to the Department
+of Planning, Lands and Heritage
+Communications Branch.
+
+State Planning Policy 4.1
+1
+Industrial Interface
+July 2022
+1 CITATION 3 INDUSTRIAL INTERFACE The policy measure used to avoid, mitigate or manage
+PLANNING impacts at the industrial interface must be appropriate
+This is a State Planning Policy prepared under Part 3 of to each situation and the degree of existing or known
+the Planning and Development Act 2005. This policy may Industrial areas and land uses are critical to local, regional, future impact. The relevant planning decision-maker is
+be cited as State Planning Policy 4.1 Industrial Interface State and national economies and are significant responsible for considering:
+(SPP 4.1). employment generators. Industrial areas may also include a) potential risks to health and amenity of people and
+critical state and regional strategic infrastructure (for the environment
+example, wastewater treatment plants and waste transfer/
+b) any future strategic land use plans for the area
+2 POLICY INTENT landfill sites). These areas and the resulting activities can
+including potential long-term expansion of industrial
+generate dust, noise and odour in addition to other off-
+land uses
+The purpose of this policy is to seek to prevent conflict site impacts and/or safety risks. This may be as a result
+c) the best option for dealing with impacts at the
+and encroachment between industrial and sensitive land of a single industrial activity or the cumulative effect of
+interface of industrial land uses
+uses. It ensures planning decisions consider the locational off-site impacts and/or safety risks from a number of
+constraints of land uses, the significant investments activities and has the potential to affect the surrounding d) how to ensure a suitable transition is established
+represented, and the current and future benefits and costs environment and people’s health and amenity. between industrial and incompatible land uses.
+to communities when assessing proposals where land use
+Different types of off-site impacts and/or safety risks may Industrial proposals associated with substantial off-site
+conflict may exist or result. This will achieve:
+affect health and amenity in different ways. There should impacts and risks often require approvals, permits or
+a) appropriate siting and long-term operational be consideration of and encouragement for continuous licences from other government agencies under
+certainty for industry improvement that reduces emissions and safety risks in separate policy and legislation. This may occur
+b) appropriate siting of sensitive land uses for the line with the development of technological advances. concurrently with planning assessments being
+protection of health and amenity for people and the undertaken. These other government agencies have an
+To address adverse off-site impacts and/or safety
+environment integral role in the assessment of industrial emissions,
+risks, consideration must also be given to planning
+risks and the demarcation of impact areas. A detailed
+c) sustainable land use planning and development the interface between land uses in order to provide a
+description of the role other agencies play in the
+outcomes consistent with broader State strategic compatible transition. Industries with greater impacts
+consideration of industrial and infrastructure proposals is
+planning objectives. should have more extensive protections and stronger
+contained in the accompanying Industrial Planning Fact
+interface measures to minimise the impact area.
+Sheet.
+An impact area identifies land surrounding industrial land
+uses that is currently, or is expected in the future to be,
+affected by off-site impacts and/or safety risks. The extent
+and delineation of an impact area is determined through
+the technical assessment of impacts. This information is
+generally provided by the applicant, reviewed by relevant
+government agencies, and used to inform planning
+decision-making.
+
+State Planning Policy 4.1
+2
+Industrial Interface
+July 2022
+4 POLICY APPLICATION
+The planning framework provides for the establishment
+of industrial zones and includes State, regional and local
+The interaction between rural and industrial uses
+planning strategies, planning schemes, improvement
+schemes, structure plans, and subdivision and SPP 2.5 states that due to their size, scale and potential level of impact, some rural land uses
+development applications (including local development could be considered industrial, some rural land uses are located on industrial land, and some
+plans). In some instances, there is separate legislation industrial land uses are located on rural land. Planning decision-makers need to consider policy
+providing the planning framework where State Planning application in the context of each proposal.
+Policies prepared under the Planning and Development
+Section 5.11 of SPP 2.5 sets out broad locational criteria for regional facilities. These criteria apply
+Act 2005 do not apply, such as land within the Hope
+in this policy (SPP 4.1), such that rural industries may be suitably located on rural land where:
+Valley Wattleup Redevelopment Act 2000 and Metropolitan
+a) they are located on State roads, or roads of a suitable standard or treatment to
+Redevelopment Authority Act 2011. In these instances, it is
+accommodate the traffic volume and freight task of the land use
+recommended that this policy is given due regard by the
+relevant planning decision-maker. b) impacts of the land use are contained within the lot boundaries, or satisfactorily avoided,
+mitigated or managed, such that noise, amenity, and air and water quality do not
+detrimentally affect nearby sensitive land uses
+4.1 Where this policy applies
+c) they are not visually dominant within key viewsheds, and are visually compatible with
+surrounding land uses and development
+This policy applies to industrial land and land uses in
+Western Australia, in particular: d) they are provided with essential services commensurate with the intended land use.
+a) land zoned for industrial purposes in a region or local Other relevant planning considerations for rural industries are:
+planning scheme a) the role and function of the land use and whether it relates to primary production
+b) industrial land uses on land zoned for industrial b) biosecurity issues that may require the facility to achieve a separation distance that may not
+purposes be possible in an industrial estate
+c) industrial land uses on land that is not zoned for c) the availability of industrial land in the locality
+industrial purposes
+d) the strategic direction for rural land and land uses in an applicable local planning strategy.
+d) land that may be impacted by industrial land uses
+and strategic infrastructure.
+There is a relationship between this policy and the
+Western Australian Planning Commission State Planning
+Policy 2.5 Rural Planning (SPP 2.5), which applies to rural
+land and land uses, in that both policies address the
+separation of land uses.
+
+State Planning Policy 4.1
+3
+Industrial Interface
+July 2022
+Requirements for planning within industrial areas are 5 POLICY OBJECTIVES
+6.1 Industrial impacts at all
+outlined in Operational Policy 4.1 Industrial Planning.
+planning stages
+These provisions should be addressed at each relevant The objectives of this policy are to:
+planning stage as this may affect interface and/or land use a) Ensure the impacts of industrial land uses are
+6.1.1 State and regional planning strategies
+conflict outcomes. considered at all stages of the planning process.
+This policy applies to planning decision-making at b) Adequately separate industrial land uses and any State and regional strategies should identify:
+all stages of the planning process for new proposals resulting off-site impacts and/or safety risks from a) Strategic Industrial Areas (SIAs), including suitable
+involving, impacted by, or with the potential to impact, incompatible land uses to: co-location of compatible infrastructure and other
+existing or proposed industrial land uses. This includes – protect industrial areas to improve long-term complementary land uses
+land impacted by industrial or related activities exempt operational certainty b) industrial land and reserves to accommodate a wide
+from planning approval, such as mining operations under
+– avoid, mitigate or manage potential impacts variety of existing and future industrial development
+the Mining Act 1978.
+on the health and amenity of people and the and infrastructure needs
+environment c) existing and known future impact areas.
+4.2 Policy exemptions – promote co-location of like uses to minimise the
+impact area. 6.1.2 Local planning strategies
+This policy does not apply to land use conflict associated
+c) Plan the land use transition between industrial land
+with impacts generated by the following, as these are Local planning strategies should:
+uses/infrastructure facilities and sensitive land uses
+specifically addressed in separate planning policies and a) identify areas for Strategic, General and Light
+by providing compatible zones, reserves and land
+guidance documents: Industry, Industrial Development zones and
+uses.
+a) rural land uses investigation areas
+b) the extraction of basic raw materials b) identify, consider and plan for compatible zones,
+6 POLICY MEASURES reserves and land uses in impact areas to create a
+c) infrastructure corridors such as road and rail or gas
+suitable transition and interface.
+pipelines
+As per the Policy Objectives, industrial impacts should
+d) telecommunications infrastructure
+be considered at each stage of the planning framework, 6.1.3 Compatible zones, reserves and land uses
+e) aircraft noise. increasing in detail at each level. Strategic planning
+To ensure industrial impacts are avoided, mitigated or
+This policy does not apply retrospectively. documents and planning schemes should address land
+managed, where necessary, compatible zones, reserves
+use conflict and not defer its resolution or management
+and land uses should be provided to allow for a gradual
+to the subdivision or development application stage.
+land use transition between industrial and sensitive land
+This is because mitigation options may be more limited
+uses.
+and decisions may not adequately consider the protection
+of State and/or regionally significant industries, and Compatible zones, reserves and land uses are typically
+infrastructure facilities. those considered to be more accommodating or tolerant
+of, industrial off-site impacts and/or safety risks and help
+
+State Planning Policy 4.1
+4
+Industrial Interface
+July 2022
+maintain operational certainty for industry. The inclusion 6.1.3.2 Local planning schemes When determining proposals under a local planning
+of sensitive land uses in compatible zones and reserves scheme that involve industrial land use zones or reserves,
+Local planning schemes and amendments should:
+should be considered on a case by case basis, and the following should be considered:
+a) identify Strategic, General and Light Industry, and
+supported only if it can be demonstrated that the a) where required, identification of impact areas in the
+Industrial Development zones, and any other related
+use is compatible, and the industrial impacts can be local planning scheme with compatible zones and
+public purpose reserves that are likely to generate
+avoided, mitigated or managed. Compatible zones and reserves
+off-site impacts and/or safety risks
+reserves may include Light Industry, Service Commercial,
+b) rural zoned land located adjacent to Strategic or
+Commercial, Rural Enterprise, Rural, Mixed Use and Public b) provide for impact areas and compatible zones and/
+General Industry zones is compatible provided
+Open Space, among others. or reserves for SIAs, strategic industries, strategic
+sensitive land uses on the rural land are not located
+infrastructure and major hazard facilities
+Where it is considered appropriate and desirable for within the impact area. Consistent with SPP 2.5,
+c) align industrial zones and reserves and the
+industrial land to have an interface with rural zoned land, single dwellings on rural land are a sensitive land
+permissibility of land uses, including incidental or
+each instance should be considered on a case by case use and should be afforded a reasonable standard of
+ancillary uses, to the objectives as outlined in the
+basis and also be guided by SPP 2.5. The interface must rural amenity.
+deemed provisions (Planning and Development
+ensure existing rural operations can continue to function
+and any potential impacts on the health and amenity of (Local Planning Schemes) Regulations 2015) Strategic Industry zones and strategic infrastructure
+people and the environment are appropriately avoided, d) consider where existing industrial land uses are
+Land uses associated with SIAs, strategic industries,
+mitigated or managed. being phased out of an area, and ensure scheme
+strategic infrastructure, major hazard facilities and
+amendments for redevelopment incorporating
+the resulting impact areas should be located in an
+6.1.3.1 Region schemes sensitive land uses demonstrate that any impacts on appropriate zone, such as Strategic Industry, or reserve
+non-conforming land uses that continue operating
+in local planning schemes. This will establish a transition
+Region schemes should identify:
+are appropriately avoided, mitigated or managed
+of compatible zones, reserves and land uses that will
+a) industrial zones to accommodate SIAs and industrial
+e) in limited circumstances, where reservation or complement surrounding land uses, consistent with
+land uses
+rezoning of impact areas for strategic industrial planning strategies for the locality.
+b) reserves for strategic infrastructure and strategic proposals is not practicable:
+Zones, reserves and land uses that are incompatible
+hazard facilities.
+– utilise other local planning scheme mechanisms
+should not be permitted within the impact areas of SIAs,
+When considering a proposal involving industrial zones to control development of incompatible land
+strategic industries, strategic infrastructure or major
+or reserves under a region scheme, the impact areas uses including Special Use zones, special control
+hazard facilities.
+of SIAs, strategic industries, strategic infrastructure and areas and related scheme provisions
+New land use proposals that will affect the integrity of an
+major hazard facilities should not incorporate zones – review land use permissibilities to ensure
+established compatible interface should not be permitted
+which might allow sensitive land uses unless it has been incompatible land uses cannot be supported
+within SIAs or any impact areas.
+adequately demonstrated that the impacts on these uses within impact areas unless it has been adequately
+would be appropriately avoided, mitigated or managed. demonstrated that the impacts on these uses Where practicable, strategic infrastructure facilities should
+could be appropriately avoided, mitigated or be located in precincts or clusters of compatible and
+managed. complementary infrastructure and land uses to reduce the
+overall impact area.
+
+State Planning Policy 4.1
+5
+Industrial Interface
+July 2022
+General Industry zones supporting land uses that could be inconsistent with the
+Strategic Industrial Areas
+Industrial Development zone and future purpose of the
+General industry land uses, and ideally the associated
+area.
+impact area, should be contained within the General SIAs are areas of significant economic and strategic
+Industry zone. Impacts not able to be contained within importance for the State or region. SIAs should
+Light Industry zones and other compatible zones
+the General Industry zone may, following a technical incorporate impact areas that require suitable and
+and reserves
+impact assessment, be accommodated within compatible appropriate integration with surrounding compatible
+zones and reserves to provide an appropriate interface. zones, reserves and land uses to ensure the site can: The Light Industry zone can be used in conjunction
+The effect of future industrial development and a) expand and grow over time with other compatible zones and reserves, such as the
+expansion, and the potential resulting off-site impacts, Commercial zone, to achieve a compatible land use
+b) prevent or minimise the encroachment of
+should also be considered. transition at the interface of General Industry or Strategic
+incompatible land uses
+Industry zones. Public open space, and related reserves,
+Sensitive land uses should not be permitted in the c) ensure off-site impacts and/or safety risks are
+can be a compatible land use in some circumstances
+General Industry zone or the associated impact areas managed within a defined area.
+depending on its intended use, and the type and
+within General Industry zones. This includes discouraging
+It is important that proposals within a SIA follow extent of off-site impacts and/or safety risks that may be
+and, where possible, preventing the development of
+best practice approaches and include appropriate experienced.
+new sensitive land uses within the impact area on Rural
+standards according to licences or works approvals
+zoned land. The type and location of sensitive land uses The location of sensitive land uses within Light Industry
+from relevant agencies. These are often separate from
+in the surrounding compatible zones or reserves should zones should be considered on a case by case basis,
+the planning process.
+be contemplated on a case by case basis, and supported and supported only if it can be demonstrated that the
+only if it can be demonstrated that the use is compatible, use is compatible, and the industrial impacts can be
+and the industrial impacts can be appropriately avoided, appropriately avoided, mitigated or managed. There is a
+mitigated or managed. general presumption against land uses with a residential
+The Industrial Development zone should seek to contain purpose within the Light Industry zone.
+Industrial Development zones the impact area because land uses are often unknown.
+Light Industry zones and other compatible zones and
+Where off-site impacts are unable to be managed
+The Industrial Development zone designates land for reserves that directly adjoin sensitive land uses should be
+within the extent of the zone, the impact area should be
+future industrial development as an interim measure designed to:
+accommodated within compatible zones and reserves to
+ahead of more detailed planning taking place typically in
+a) ensure any emission and risk impacts do not exceed
+provide an appropriate interface, with consideration given
+the form of a structure plan.
+the site boundary
+to land use mix and the probability of future expansion.
+Planning for Industrial Development zones should have b) provide a high level of amenity to complement the
+The location of new sensitive land uses within Industrial
+consideration for the provision of a compatible transition land use transition.
+Development zones should be contemplated on a
+between industrial and sensitive zones, reserves and land
+case by case basis, and supported only if it can be Light industrial land use impacts are generally more
+uses.
+demonstrated that the use is compatible, and the manageable and require more stringent measures for
+industrial impacts can be appropriately avoided, mitigated those uses at the direct interface with sensitive land
+or managed. There is a general presumption against uses. Land uses in the Light Industry zone which have
+
+State Planning Policy 4.1
+6
+Industrial Interface
+July 2022
+the potential to generate emissions that affect adjoining 6.1.6 Subdivision and development Applications for development approval should generally
+land should not be located directly at the interface with only be supported where it has been adequately
+This section should be read in conjunction with
+sensitive land uses and should preferably be closer to an demonstrated that any industrial impacts can be
+Operational Policy 4.1 Industrial Planning.
+adjoining General Industry or Strategic Industry zone. managed within the existing extent of the impact area.
+Industrial subdivision should accommodate and
+design potential industrial land uses in such a way as
+6.1.4 Improvement schemes
+6.2 Avoiding, minimising and
+to sufficiently avoid, mitigate or manage impacts on
+Where an improvement scheme is being prepared, the adjoining land. managing impacts
+measures in this policy related to the preparation of
+The following should be considered in relation to this One of the key elements in achieving the objectives of
+region and local planning schemes are relevant.
+policy: this policy is ensuring that zones, reserves and sites are
+a) development associated with off-site impacts and/ suitable for their intended purpose. At each stage of
+6.1.5 Structure plans
+or safety risks is located within the appropriate zone the planning process, planning decision-makers need to
+or reserve and there is provision of a compatible land consider the broad suitability of land uses and the ability
+A structure plan may be needed where there is
+use transition between industry and sensitive zones to avoid, mitigate or manage industrial impacts. In the
+fragmented land requiring coordination, such as
+and reserves same way, planning decision-makers need to consider
+for freight roads and transport routes, infrastructure
+the broad suitability of sensitive land uses and the ability
+upgrades, drainage provision, contaminated sites, a b) development on land within impact areas is to
+to avoid future constraints imposed on industries located
+development contribution plan and/or if located in the be consistent with the purpose of providing a
+appropriately within the industry zone or scheme reserve.
+Industrial Development zone. A structure plan may be compatible land use transition between industries
+required to facilitate and coordinate the subdivision and and sensitive land uses, and should not include
+development of industrial land and infrastructure reserves. industrial proposals that would affect the integrity of 6.2.1 Defining an impact area
+This should provide for a transition of compatible zones the interface
+Where proposals have potentially detrimental impacts,
+and reserves between industrial and sensitive land uses. c) information on the nature and extent of any off-site
+including off-site impacts and/or safety risks which extend
+A well-planned transition will assist in the process of impacts, which may include technical assessments
+beyond zone and reserve boundaries, mitigation and
+normalising the structure plan area into the local planning and reports and/or proposed management plans
+management through the introduction of compatible
+scheme. to support development applications and local
+zones, reserves and land uses should be considered.
+development plans
+Structure planning over impact areas that are zoned
+This land use transition will make provision for sufficient
+urban and are related to SIAs and strategic proposals d) identification of any approvals, permits or licences
+separation of industry impacts from sensitive zones and
+more generally, should not permit sensitive land uses, required under other legislation, such as approvals
+land uses, and for any impact areas to be encapsulated
+unless it has been adequately demonstrated that the and licencing under the Environmental Protection Act
+within established compatible zones and reserves.
+impacts on these uses can be appropriately avoided, 1986 and safety requirements under the Dangerous
+Where it is anticipated that there will be adverse
+mitigated or managed. Goods Safety Act 2004 and Petroleum and Geothermal
+impacts on nearby sensitive land uses, it will need to be
+Energy Resources Act 1967, among others, as they
+demonstrated that adequate mitigation or management
+relate to the planning application.
+of off-site impacts and/or safety risks can be achieved by
+
+State Planning Policy 4.1
+7
+Industrial Interface
+July 2022
+way of management plans or similar. This information environmental policy and guidance, water resource
+or assessment should be included as part of a planning management policy, prescribed standards, accepted
+proposal. Management and/or mitigation requirements industry standards and/or codes of practice
+should not be imposed on existing surrounding sensitive h) whether, prior to issuing an approval, any
+land users. management plans associated with the proposal are
+In addition to those matters required under clause 67 of capable of being implemented.
+the deemed provisions (Planning and Development (Local Impact areas should be defined through appropriate
+Planning Schemes) Regulations 2015), determination of consideration of the adverse effects on nearby existing
+an impact area should consider: or future sensitive land uses using a combination of
+a) existing and, where known, future off-site impacts, monitoring and modelling, technical reporting, risk
+including atypical operating conditions and assessment and the consideration of strategies for the
+parameters (for example, shutdown, maintenance locality. When making a decision it may be appropriate
+activities, construction activities, failure of emission to consider the broader merits of the proposal for the
+control plant and equipment) precinct or region, compare likely impacts from similar
+b) the full build-out including any future expansion industrial uses, and apply general risk-based principles,
+plans and the likely ultimate extent such as the precautionary principle or a risk assessment
+matrix.
+c) potential cumulative impacts of existing land uses
+d) any separation distances recommended in
+government policy and guidance
+e) the existing or potential requirement for approvals,
+licenses and/or registration under the Environmental
+Protection Act 1986, among others
+f) whether the design and/or operation of the
+industrial proposal is in accordance with
+environmental policy and guidance, water resource
+management policy, prescribed standards, accepted
+industry standards or codes of practice as per referral
+advice from relevant agencies
+g) whether modelling and/or monitoring is required
+where impacts on sensitive land uses outside
+the property boundary are unknown and/or
+not anticipated to meet the parameters used in
+
+State Planning Policy 4.1
+8
+Industrial Interface
+July 2022
+6.3 Assessment of proposals
+Planning approach for impact areas
+The applicable planning measure(s) proposed for use within impact areas should reflect the Based on the advice of other authorities, the relevant
+type and scale of impacts, any related cumulative industrial impacts, and the strategic planning planning decision-maker should consider:
+direction for each proposal. This will be informed by: a) health, amenity and environmental impacts arising
+• the level of risk to the amenity and health of people and the environment from proposals
+• the level of risk to long-term operations of industry b) existing and proposed future land uses within the
+impact area and wider context, particularly the
+• the complexity in assessment, ongoing monitoring and control measures applied to manage
+location of sensitive land uses
+impacts and the practicality of applying these in perpetuity
+c) current monitoring and future modelling of any
+• the suitability of supporting information provided to ensure health and amenity are protected.
+cumulative impacts from other industries in the
+The preferred planning measure, or a combination thereof, that can be applied to proposals and industrial area including both point source and
+the associated impact areas include: fugitive emissions
+• zoning or reserving industry and infrastructure in region and local planning schemes d) potential for intensification of industrial land uses
+• providing for impact areas in local planning schemes and, where required, providing a land in the industrial area that may result in increased
+use transition between industry and sensitive land uses. cumulative off-site impacts and/or safety risks over
+time
+In limited circumstances, where the above planning measures may not be sufficient to address
+e) cost and benefit of any associated mitigation and
+the conflict, the following planning measures may be applied to industry/infrastructure facilities
+management measures, and whether it is sustainable
+and the associated impact areas:
+in perpetuity.
+• zoning industry and impact areas as Special Use in a local planning scheme, to provide for a
+specific compatible land use configuration To support the assessment process, applicants may be
+required to supply the following technical assessments:
+• designation of a special control area to prohibit incompatible land uses and impose specific
+building standards related to sensitive land uses a) information on activities undertaken at the facility,
+or associated with the facility, that may result in
+• other local planning scheme provisions, such as controls on land uses related to structure
+emissions or cumulative impacts
+plans, and notifications on titles to alert prospective landowners at subdivision and
+development application stages. b) impact modelling, such as contour mapping,
+illustrating standard operating conditions, based
+There are other planning measures used more broadly in land use planning that do not utilise
+on modelled separation distances and regulatory
+standard region or local planning scheme provisions, which can, in part, assist in addressing off-
+approvals and conditions
+site impacts and/or safety risks. These should only apply to unique situations, typically large areas
+c) impact modelling illustrating worst-case scenarios,
+that require specialised planning outcomes. The measures include:
+based on non-standard operating conditions
+• improvement plans and improvement schemes
+including but not limited to:
+• the establishment of specific legislation.
+
+State Planning Policy 4.1
+9
+Industrial Interface
+July 2022
+– shutdowns, accidents, start-ups and extreme discretion in planning decision-making to support
+6.5 Precautionary principle
+events innovative solutions to prevent or reduce the potential for
+– options for avoiding, mitigating or managing the land use conflict. The precautionary principle, as defined in this policy,
+impacts and associated costs, both financial and should be applied where there is a proposal involving
+social off-site impacts or risks where inadequate information
+6.4 Advice of relevant authorities
+is known or available about the impacts, and where
+d) risk analysis of impacts on sensitive land uses based
+to be sought these impacts are difficult to avoid, mitigate or manage,
+on:
+or where the cost to do so is not commensurate with
+– the type of use (for example, a residential area or Some planning proposals for industrial land uses lodged
+the risk. This will be particularly important if there are
+school) with the relevant planning decision-maker may need
+potential significant adverse health and amenity impacts
+– population and demographic statistics to to be referred to other authorities, such as government
+on existing or proposed sensitive land uses within impact
+determine the number of people potentially agencies and utility providers, for a review of the impact
+areas, where consequences and mitigation measures
+affected and their susceptibility assessment. An overview of relevant agencies to be
+need to be weighed more carefully.
+consulted can be found in the accompanying Industrial
+– hypothesis of impacts that may be reasonable
+Planning Fact Sheet. Where it has not been adequately demonstrated that
+under non-standard conditions (for example,
+the industrial impacts can be identified and avoided,
+the number of events exceeding the relevant The referral should include any accompanying technical
+mitigated or managed, and there is uncertainty regarding
+standard that would be tolerated by those and risk assessment reports related to impacts. This may
+the potential risk to health and amenity, a conservative
+affected) require a combination of quantitative technical analysis
+approach to defining the impact area should be applied.
+e) risk analysis exploring implications on long-term and qualitative risk and land use assessments.
+operations of industry
+In support of the proposal, the assessment of industrial
+f) any other relevant information required by the impacts will need to demonstrate:
+planning decision-maker and/or other government
+a) off-site impacts and/or safety risks are within
+agencies to demonstrate acceptability.
+acceptable limits within the impact area based on
+Where pre-development modelling is inconclusive and/or applicable standards and guidelines, and can be
+may result in a high level of risk, approval of new sensitive maintained within those limits (including worst-
+land uses should be avoided until post-construction case scenarios, based on non-standard operating
+monitoring has occurred, and actual impacts are better conditions)
+defined. This may result in sensitive land uses being b) an appropriate level of separation between industry
+refused if they are an incompatible land use within the emissions and risks and sensitive land uses can be
+impact area as per the precautionary principle. achieved to sufficiently avoid, mitigate or manage
+potential adverse health and amenity impacts on the
+This policy recognises that each proposal is to be
+surrounding environment and land uses.
+considered on a case by case basis, and that the
+determination of a proposal may involve the use of
+
+State Planning Policy 4.1
+10
+Industrial Interface
+July 2022
+7 DEFINITIONS Industry Precautionary principle
+As per the definition contained in the Planning and The presumption against approving further strategic
+Compatible zones and reserves
+Development (Local Planning Schemes) Regulations 2015. planning proposals, subdivision and development
+Zones and reserves which contain land uses that are applications or intensification of land uses where there
+generally tolerant of odour, dust, noise and other Infrastructure reserve is a lack of certainty that the potential for significant
+industrial emissions, and where sensitive land uses are adverse impacts can be adequately avoided, mitigated or
+Any reserve in a planning scheme which provides
+generally avoided or considered on a case by case basis. managed in the opinion of the decision-maker.
+for infrastructure, for example reserves for ports and
+The range of compatible land use zones and reserves may
+wastewater treatment plants.
+depend on the nature of off-site impacts and/or safety Rural land
+risks.
+Interface Land zoned or identified for agricultural or rural use in a
+region or local planning scheme or strategy.
+Impact areas A point where different types of land uses meet or are in
+close proximity.
+Land surrounding industrial land uses that is currently, Rural land use
+or is expected in the future to be, affected by off-site
+Major hazard facilities Land uses that are rural in nature and that support and
+impacts and/or safety risks that have the potential to be
+are associated with primary production, basic raw material
+detrimental to the health and amenity of people and Major hazard facilities are those involved in storage,
+extraction, biodiversity conservation, natural resource
+the environment. This may involve land affected by the handling or processing of specified dangerous goods that
+management, public purposes (for example, prisons,
+cumulative emissions and risks from an industrial area or a exceed specific quantity thresholds, as determined by the
+cemeteries, public utilities and waste management
+single industrial activity. Chief Dangerous Goods Officer of the State Government
+facilities) and protection of landscapes and views. Does
+agency responsible for major industry. These include
+not include rural living.
+Incompatible land use oil refineries, gas processing plants, large chemical
+manufacturing and large liquefied petroleum gas storage
+Incompatible land uses are those considered to conflict Sensitive land use
+and distribution facilities. Major hazard facilities of State
+with or be adversely affected by impacts arising from
+significance may be referred to as strategic hazard Land uses that are residential or institutional in nature,
+nearby industrial areas and land uses. For example,
+facilities. where people live or regularly spend extended periods
+residential land with high safety and amenity expectations
+of time. These include, but are not limited to, dwellings,
+could be incompatible with industrial land uses that
+Off-site impacts short stay accommodation, hospitals, educational
+generate substantial detrimental impacts. Land uses that
+establishments, childcare centres, corrective institutions
+attract a large number of people for an extended period Impacts such as odour, noise, spray drift, vibration, dust,
+and places of worship. It generally excludes commercial or
+of time are generally considered incompatible with land groundwater, air pollution or light spill that cannot be
+industrial premises. Public open space can be a sensitive
+uses associated with off-site impacts and/or safety risks. contained within a property boundary. These are impacts
+land use in some circumstances depending on its
+which remain after mitigation and management to
+intended use, for example, if it is intended that people will
+regulatory and/or policy standards.
+congregate and spend extended periods of time there.
+
+State Planning Policy 4.1
+11
+Industrial Interface
+July 2022
+Sensitive zone Strategic industries
+An umbrella term describing land use zones that High intensity industries of State significance such
+specifically provide for development of sensitive land as but not limited to mineral processing, advanced
+uses. These may include Urban, Urban Development, manufacturing, power generation or wastewater
+Residential, Rural Living and Community Purpose zones processing. Strategic industries can have substantial
+and proposals for lifting of Urban Deferment. emissions.
+Separation distance Strategic infrastructure
+As defined in Government environmental policy, a Infrastructure sites or precincts of State significance,
+separation distance is a recommended distance necessary such as, but not limited to, major power generation
+to separate a source of emissions (gaseous and particulate and transmission facilities, wastewater treatment plants,
+emissions, dust, odour and noise) from sensitive land uses water treatment plants including desalination and water
+in order to avoid impacts to health and amenity. recycling plants, major wastewater pump stations, major
+waste facilities, major trading ports, boat harbours and
+State significance intermodal terminals, or as determined by the State
+Government agency responsible for State development
+A land use, area or issue that is considered by the State
+and/or the Western Australian Planning Commission.
+to be of significance to the State of Western Australia
+by virtue of any or all of its economic, social, cultural or
+environmental values.
+Strategic Industrial Areas
+Industrial areas of significant economic and strategic
+importance to the State, zoned or planned for strategic
+industry, as identified by the State Government agency
+responsible for State development. Strategic Industrial
+Areas provide strategically located industrial land
+designed for investment in downstream processing and
+other heavy or strategic industrial activities which may
+generate off-site impacts. Strategic Industrial Areas are
+formally recognised in planning schemes, typically as a
+Strategic Industry zone.

@@ -1,0 +1,618 @@
+Planning Process and Decision Making
+This document outlines the planning procedures for advertising of development applications,
+subdivision referrals and local planning policies and the process for decision making of development
+applications. This policy is procedural in nature and does not contain development standards.
+If you are searching for general information in relation to planning requirements, please refer to the
+Planning Services page of our website https://www.melvillecity.com.au/ or alternatively you can
+speak to one of our planning officers either on the phone, 9364 0666 or in person at 10 Almondbury
+Road, Booragoon during business hours, 8.30am – 5:00pm Monday to Friday.
+Policy Type: Local Planning Policy Policy No. LPP 1.1
+Policy Owner: Director Urban Planning Last Review Date: 20 May 2025
+CITATION
+This is a Local Planning Policy prepared under Schedule 2 of the Planning and Development
+(Local Planning Schemes) Regulations 2015 (Regulations) and the City of Melville Local Planning
+Scheme No. 6 (LPS No.6). This Local Planning Policy may be cited as Local Planning Policy No.
+1.1 – Planning Processes and Decision Making (LPP 1.1)
+POLICY OBJECTIVES
+The objectives of this policy are as follows:
+• To promote a consistent approach by the City in the assessment and public advertising of
+development applications, local planning policies, subdivision referrals and other planning
+matters;
+• To facilitate community input into the decision making process; and
+• To provide information to Elected Members, the City administration, applicants and submitters
+regarding the process for dealing with planning matters.
+POLICY SCOPE
+This policy sets out the assessment and advertising processes relating to the assessment of
+applications for development approval and related matters.
+The requirements for advertising of planning matters generally are set out in the Planning and
+Development (Local Planning Schemes) Regulations 2015 (Regulations). Where there is conflict
+between this policy and the Regulations, the Regulations prevail.
+Clause 2.3 of the Residential Design Codes Volume 1 outlines the requirements for consultation for
+low and medium density residential development. This Local Planning Policy provides clarification
+on the consultation requirements development assessed under the Residential Design Codes
+Volume 1. It also provides information regarding the extent of, and methods of, consultation which
+will be undertaken by the City when it is required. This Local Planning Policy also covers
+development assessed under the Residential Design Codes Volume 2.
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 1 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+POLICY APPLICATION
+This policy applies to all development on land where Local Planning Scheme No. 6 applies.
+DEFINITIONS AND ABBREVIATIONS USED IN POLICY
+Definitions
+Decision Maker
+That body, organisation or authorised person legally vested with the power to make decisions,
+pursuant to relevant legislation and applicable planning policy frameworks.
+Relevant and Non-Relevant Planning Matters
+Relevant Planning Matters Non-Relevant Planning Matters
+a) Matters to be considered by the City a) Perceived loss of property value
+under Clause 67 of Schedule 2 of the b) Private disputes between neighbours
+Planning and Development (Local including access & egress and
+Planning Schemes) Regulations 2015 easements
+(the Regulations); and/or c) Dividing fence issues
+b) The requirements of Local Planning d) Matters that are usually dealt with by the
+Scheme No.6 or applicable Planning building permit or a subsequent approval
+Instrument (Activity Centre Plan, process
+Structure Plan, Local Development e) Impact of construction work
+Plan, Planning Code or Planning Policy) f) Trade competition concerns (in most
+which requires the decision maker to circumstances)
+exercise judgement; and/or g) Personal morals or views about the
+c) Any development standard requiring the applicant
+decision maker to exercise judgement h) Matters that are controlled under other
+against the Design Principles of the R- legislation
+Codes.
+Complex Development Applications
+For the purposes of this policy Complex Development Applications are outlined in the Regulations
+definitions as:
+a) an application for approval of development that is a use of land if the use is not specifically
+referred to in the zoning table for this Scheme in respect of the zone in which the development
+is located; or
+b) an application of a kind identified elsewhere in the Scheme, or in a local planning policy, as a
+complex application for development approval;
+In reference to clause (b) above, the City has the below development types included in complex
+development applications:
+(i) 10 or more grouped or multiple dwellings;
+(ii) 2,000 m2 or more of commercial floor space; and/or
+(iii) A Development Application which is to be determined under Part 11B of the Planning and
+Development Amendment Act 2023 (this is development which meets the value and
+significance threshold outlined in this legislation).
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 2 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+An amendment to a previous planning approval, is not classed as a complex development
+application, unless the amendment increases the number of dwellings or commercial floor space in
+the planning approval of a development such that the amended development would meet the
+definition of a complex development application.
+Standard Development
+For the purposes of this policy a Standard Development includes all of the following;
+• Residential development which requires a performance assessment against the Design
+Principles of Residential Design Codes Volume 1 or the Element Objectives of the Residential
+Design Codes Volume 2 and has a possible impact on the amenity of adjoining owners and
+occupiers.
+• A development which is required to be advertised in accordance with the Zoning Table (Table
+17) of LPS6.
+• Non-residential development which does not meet the definition of complex development
+application.
+Mixed Use Development
+A development is classed as Mixed Use when it incorporates an element of residential development
+in the form of multiple dwellings, and an element of non-residential development such as an office.
+Submitters
+Parties who lodge a written comment on a planning application, whether in support or objection.
+Abbreviations
+CEO Chief Executive Officer – City of Melville
+LPS6 City of Melville Local Planning Scheme No. 6
+DAP Development Assessment Panel
+DAU Development Advisory Unit
+DPLH Department of Planning, Lands and Heritage
+EMB Elected Members Bulletin
+GNC Geographic Names Committee of Landgate
+MRS Metropolitan Region Scheme (as amended)
+PAW Pedestrian Access Way
+RAR Responsible Authority Report
+R-Codes Residential Design Codes Volume 1
+and Residential Design Codes Volume 2 - Apartments (as amended)
+Regulations Planning and Development (Local Planning Schemes) Regulations 2015
+(as amended)*
+DAP Regulations Planning and Development (Development Assessment Panels)
+Regulations 2011 (as amended)
+SAT State Administrative Tribunal
+WAPC Western Australian Planning Commission
+* Note: unless otherwise stated Clauses referred to are contained in Schedule 2 of the Regulations
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 3 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+POLICY STATEMENT
+1.0 Applications for Development Approval
+1.1 The Planning and Development Act 2005 defines “development” as:
+“development’ means the development or use of any land, including –
+(a) any demolition, erection, construction, alteration of or addition to any building or
+structure on the land;
+(b) the carrying out on the land any excavation or other works;
+(c) in the case of a place to which a Conservation Order made under section 59 of the
+Heritage of Western Australia Act 1990 applies, any act or thing that –
+i. is likely to change the character of that place or external appearance of any
+building; or
+ii. would constitute an irreversible alteration of the fabric of any building.”
+1.2 Clause 60 of the Regulations states that all development requires approval prior to the
+commencement of works unless it is of a type referred to in Clause 61.
+1.3 Clauses 62 and 63 of the Regulations outline the information required to be provided as a
+part of the application for development approval. The City has also prepared a checklist to
+assist applicants in this respect. All applications for development approval are to include (at
+a minimum) all of the relevant information as outlined by the development application
+checklist. Where all of this information is not provided at lodgement, the application may be
+returned to the applicant.
+1.4 Once a preliminary assessment of the application has been undertaken, further information
+may be requested from the applicant to enable a complete or more detailed assessment to
+be undertaken.
+1.5 Clause 75 of the Regulations states that the local government is to determine applications for
+development approval within 60 days of the receipt of the application or 90 days where the
+application requires consultation with the public or other authorities. This timeframe may be
+extended if agreed in writing by the applicant and local government. If a decision is not made
+before the expiry date, the local government can be taken to have refused the development
+application, and an application for review to the State Administrative Tribunal may be
+triggered.
+1.6 For development applications which are to be determined by the DAP, the timeframe for
+preparing and submitting an RAR is determined by the DAP Regulations.
+2.0 Assessment
+2.1 Development applications are assessed having regard to the development controls
+established by the planning framework including LPS6, state planning policies, the R-Codes,
+adopted precinct structure plans and activity centre plans, local development plans, Council
+Policy and local planning policy provisions.
+2.2 Where a development application requires an assessment against the relevant performance
+standards, the following (as applicable) will be taken into consideration:
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 4 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+(a) For all applications:
+• The matters to be considered in Clause 67 of the Regulations.
+• Relevant planning documentation such as the Local Planning Strategy, Structure
+Plans, State Planning Policies and the like.
+• Any other planning document adopted pursuant to LPS6.
+• Any comments received from the City’s (or State’s) Design Review Panel.
+(b) For applications where an exercise of judgement is sought in relation to the development
+requirements in LPS6:
+• Whether Clause 34 of LPS6 provides the ability to consider the application.
+• Whether the proposal satisfies the objectives of each zone.
+(c) For applications where an exercise of judgement is sought in relation to the development
+requirements in a Local Planning Policy or Council Policy:
+• The objective of the policy.
+• Any additional assessment criteria within the policy.
+(d) For applications which require an exercise of judgement under the R-Codes:
+• The objective(s) of the provision.
+• The relevant Design Principle(s) or Element Objective(s).
+Note: For clarification in respect of this, refer to the Explanatory Guidelines and other supporting documentation of
+the R-Codes
+(e) For applications which require an exercise of judgement under an adopted structure plan,
+activity centre plan or local development plan:
+• The objectives and vision of the plan; and
+• The desired outcome for the relevant element in the Canning Bridge Activity
+Centre Plan (where assessment is required under this Activity Centre Plan).
+2.3 Where Local Planning Policy – 1.2: Design Review Panel is applicable the development
+application should be referred to the City’s Design Review Panel for its assessment and
+comment.
+2.4 Development applications may also be referred to other government departments for their
+assessment, comment and recommendation where required.
+• The City is bound to referral comments received by State Government agencies
+where required under the MRS and the relevant delegations and received within the
+required timeframe.
+• The City is not bound by comments received by State Government agencies where
+the referral is not required under the MRS and relevant delegations.
+• The City may elect to not determine applications under the MRS and instead refer
+the MRS component of the application to the Department of Planning, Lands and
+Heritage for determination. This would be in circumstances where the City does not
+agree with the comments received by the State Government Agency and be able to
+determine the LPS6 portion of the application.
+2.5 Where, after the granting of development approval, an amendment is sought to either the
+timeframe to substantially commence, to a condition of development approval or the works
+component, the City will assess the amendment as per the Regulations and clause 3.13
+and may waive the requirements of clause 2.1 to 2.4 depending on the nature of the
+amendment.
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 5 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+3.0 Advertising of Development Applications
+The public consultation, or advertising process (as it is also referred to), is intended to facilitate
+community input into the decision-making process. Consultation can take a number of forms
+including letters to adjoining landowners and occupiers, a sign on site and information on the City’s
+website. The written input received during the consultation process inform the decision-making
+process however neighbour consultation comments are not binding – they do not replace the role of
+the decision-maker. The decision maker is required to consider the comments received and balance
+these with a technical assessment against the relevant planning frameworks when making a
+judgement on the merit of a proposal. The following clauses outline the process the City will follow
+in relation to the advertising of Development Applications.
+3.1 The following table outlines the minimum public consultation requirements for Development
+Applications
+Application Time Period Sign on site Written City of
+Type (Calendar notification Melville
+Days) to owners Website
+and
+occupiers
+Residential 14 No Yes Yes
+Development* As per clause
+3.6
+Standard Non- 14 As per Clause Yes Yes
+Residential 64 of As per clause
+Development Regulations 3.6
+Complex 28 Yes Within 200 Yes
+Development metres of
+subject site
+*where the proposal does not meet the definition of a complex development and meets the criteria under clause
+3.3
+All advertising is required to adhere to the requirements of Clause 64 of the Regulations
+where applicable.
+3.2 Informal consultation and communication between the applicants and adjoining property
+owners is strongly encouraged prior to lodgement with the City. This more courteous,
+neighbourly approach will, in many situations enable an outcome to be achieved which best
+meets the interests of all parties involved.
+The City will either reduce or refund 25% of the standard development application fee where:
+a) The proponent has pro-actively consulted on their plans with the adjoining properties
+clause 3.1 and 3.6 of this policy prior to development application lodgement; and
+b) The City has been provided with the necessary evidence at the time of lodgement
+that pre-lodgement public consultation has occurred. The City can provide the
+proponent with a list of adjoining property owner and occupier postal addresses
+consistent with clause 3.1 and 3.6 of this policy. The evidence of pre-lodgement
+consultation must be completed by the owner/occupier for the relevant property at the
+time of lodgement. This will be verified by the City;
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 6 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+c) The City reserves the right to veto any pre-lodgement public consultation and will
+undertake separate consultation to any owners/occupies in the surrounding area; and
+d) If no response from an adjoining owner/occupier is received within 14 days from the
+proponent requesting comment, the proponent can submit that an attempt at contact
+was made at lodgement. This may be accepted in lieu of evidence of pre-lodgement
+consultation for that specific property only, enabling the proponent to still qualify for
+the pre-consultation concession (depending on the quality of evidence that
+consultation was attempted).
+3.3 Advertising of Residential Development.
+(a) Any application which seeks a performance assessment against the following the Design
+Principles of the R-Codes (Volume 1) and Element Objectives of the R-Codes (Volume
+2):
+Part B: Low Density
+• Clause 5.1.3 Lot boundary setback;
+• Clause 5.1.6 Building height;
+• Clause 5.3.7 Site works;
+• Clause 5.4.1 Visual privacy; and
+Clause 5.4.2 Solar access for adjoining sites
+Part C: Medium Density
+• Clause 3.2 Building height;
+• Clause 3.4 Lot boundary setbacks;
+• Clause 3.5 Site works and retaining walls;
+• Clause 3.9 Solar access for adjoining sites; and
+• Clause 3.10 Visual Privacy.
+Volume 2: Multiple Dwellings R80 and above (including Mixed Use Development)
+• All applications excluding subsequent additions which are considered minor in
+nature.
+The applications which meet the above criteria will be advertised to the adjoining owner(s)
+and occupier(s) as detailed in Clause 3.6 as there may be a possible impact on the amenity
+of adjoining properties.
+(b) Notwithstanding the advertising requirements for Part B and C of the R-Codes Vol.1 as
+outlined above, if the City Officers are of the opinion that the discretion sought under
+the above clauses is minor in nature, the requirement for advertising may be waived if:
+(i) the development clearly meets the performance requirements of the R-Codes;
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 7 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+(ii) the discretion sought has the less amenity impact as the deemed to comply
+requirement; and
+(iii) the proposal will result in a better outcome overall than a deemed to comply
+requirement scenario.
+Note: This exemption does not apply to performance assessments required under Clause 5.1.6
+Building height and Clause 5.4.2 Solar access for adjoining sites of Part B or Clause 3.2 Building
+height and Clause 3.9 Solar access for adjoining sites of Part C. Performance assessments under
+these clauses always need to be advertised.
+(c) Applications which seek a performance assessment in relation to Design Principles or
+Element Objectives, other than those listed above, may be advertised at the discretion
+of City officers if it is considered there may be a possible impact on the amenity of
+adjoining owners and occupiers.
+3.4 Advertising of Standard Non-Residential Development
+(a) The advertising of a ‘D’ or ‘I’ land use is generally only required to be undertaken where
+the scale or nature of the use may have impact on the amenity of the locality.
+(b) Advertising of land uses which have an X permissibility within the respective zone is not
+required – these land uses are not able to be considered and will be refused.
+(c) Non-residential development which seeks the exercise of judgement having regard to the
+LPS6 provisions, Council Policy, a Local Planning Policy, adopted precinct structure
+plans, activity centre plans or local development plans may be advertised at the discretion
+of City officers if it is considered there may be a possible impact on the amenity of
+adjoining owners and occupiers.
+3.5 Advertising of Complex Development Applications and under Clause 12 of the Regulations
+This is to be undertaken as per Clause 64 of the Regulations.
+3.6 Extent of advertising
+(a) Where advertising is to be undertaken, an assessment as to the potentially affected
+properties is required. This assessment is to take into account:
+• The size and configuration of the application site in relation to adjoining properties;
+and
+• The property(s) which are likely to be impacted as a result of the proposed
+development.
+(b) Limited public consultation – where a proposed development application is required to
+be advertised under the requirements of the Regulations or this policy, the extent of the
+advertising undertaken should be tailored to the perceived likely impacts.
+(c) Wider public consultation – where a proposal meets the definition of complex
+development, requires general advertisement in accordance with LPS6 is required by
+Clause 3.1 to 3.5 above or Clause 64 of the Regulations, the City will send letters to
+adjoining and nearby properties. In addition, a site notice will be installed for the duration
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 8 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+of the consultation period and notification will be placed on the City’s website. The notice
+will follow the requirements of Clause 64 of the Regulations.
+(d) Where wider engagement is considered to be necessary, the details of the proposal may
+be provided on the City’s social media platforms. In addition, more property owners and
+occupiers may be consulted directly, and a press notice may be initiated.
+3.7 Advertising to owners and occupiers
+Where advertising is undertaken, both the property owners and occupiers are consulted.
+3.8 Timeframes
+(a) Where advertising of a development application is required, it will be undertaken in
+accordance with the minimum timeframes within Clause 3.1. This will be extended to
+account for public holidays and the requirements of Clause 64 of the Regulations.
+Additional time may be provided at the discretion of the City to account for any mailing
+delays.
+(b) Persons can make formal request for additional time to make a submission, however, to
+enable the decision maker to achieve the statutory timeframes associated with the
+assessment of planning applications, formal requests for an extension to the advertising
+period may not always be facilitated. Submissions received after the closing date will be
+taken into account where possible, however will be noted as late submissions in any
+reporting.
+3.9 Advertising Process
+(a) Written correspondence will be provided via traditional post or via email.
+(b) Where the display of a sign on the property is required and/or a notice displayed in a
+local newspaper, these are to be undertaken by the applicant in accordance with Clause
+86(3) and 87 of the Regulations. This advertising is undertaken at the applicant’s cost as
+per Clause 64A of the Regulations.
+(c) Where a sign on site is required, the signage is to be displayed along each of the road
+frontages to the subject property. The sign size shall meet the requirements of Clause
+86(3) of the Regulations (unless varied as per Clause 88 of the Regulations).
+(d) The content of advertising documentation should include:
+(i) The description of the proposed development including its application reference
+number, property street address and any name associated with the property; and
+(ii) Details of why the application is being advertised, and
+(iii) How and where the details of the application can be viewed; and
+(iv) Details of how and to whom submissions should be made; and
+(v) The deadline for submissions.
+3.10 Amended Plans
+(a) During the course of the assessment of a planning application, the applicant may submit
+amended plans.
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 9 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+(b) Where an application has previously been advertised and amended plans are received
+post-advertising, the amended plans are to be the subject of a further consultation period
+where in the opinion of the decision maker:
+(i) The amended plans represent a significantly different proposal to that which was
+previously advertised; or
+(ii) The proposed amendment(s) will potentially have a greater amenity impact; or
+(iii) Where the development results in any additional exercise of judgement which may
+in the opinion of the City have an adverse impact upon the amenity of adjoining
+property owners and occupiers.
+(c) Where amended plans reduce the impact of a proposed development and/or where
+amended plans are lodged in order to address relevant planning related concerns as
+expressed by submitters, the amended plans need not be the subject of re-advertising.
+(d) Where amended plans are required to be the subject of re-advertising, the consultation
+process followed should be in accordance with Part 3 of this Policy.
+3.11 Amendment Development Applications
+(a) Where approval is sought to amend a development approval, and where the original
+development application was the subject of advertising, further consultation will be
+required in accordance with Part 3.0 of this Policy, unless the proposed amendments:
+(i) are minor in nature; and
+(ii) will not result in any additional impact upon any adjoining properties or the
+surrounding area.
+4.0 Submissions and Petitions
+4.1 Submissions
+(a) To be submitted in writing via letter, email, or via the City’s website.
+(b) Submissions should address ‘relevant planning matters’ (as defined in this policy) only.
+4.2 Petitions
+(a) Where a petition is received in relation to a planning application currently being
+considered by the City, the petition will be reported to the next available Council meeting.
+Where appropriate, petitions may then be reported to the DAU meeting, a further Council
+meeting and/or the DAP where the development proposal is being considered.
+(b) If a petition is received on a matter which the City’s Officers have delegation, then this
+petition will still be reported to Council, however the petition cannot delay the decision
+being made by City Officers.
+(b) The lead petitioner will receive advice in respect to any reporting to the Council, DAU
+and/or DAP and be informed of the final decision.
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 10 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+4.3 Consideration of Submissions & Petitions
+(a) The content of all submissions received will be considered prior to the determination of
+the development application.
+(b) Only relevant planning related matters (as outlined in the definitions section of this policy)
+in submissions can be taken into account. The decision maker has a duty to properly
+balance its consideration of all relevant factors in an objective and impartial manner in
+making recommendation or determination of a planning application.
+(c) Details of all submissions are confidential, and will not be released to an applicant or
+third party, unless required to by law. However, a written summary of the key issues
+raised within the submissions will be provided to the applicant upon request. The
+summary will not include the personal details of the submitter(s).
+(d) For applications which are to be determined by the DAU, Council or DAP, the Officer
+report will include a summary of the issues raised in all of the submissions. This summary
+will not include identification or personal details of the submitter(s), however full copies
+of the submissions may be provided to Elected Members upon request.
+(e) All persons who lodge submissions will receive advice of the final determination of the
+application. In addition, where the application is referred to a DAU meeting, Council
+meeting or DAP meeting for endorsement or determination; submitters will receive
+further notification by the City of those specific meeting dates and details.
+5.0 Metropolitan Region Scheme (MRS) Applications
+5.1 Applications for development on MRS zoned or reserved land are submitted to the City with
+all of the information required by the Planning Application checklist in addition to a completed
+MRS Form 1 application form.
+Note: Development which is wholly within the Development Control Area of the Swan Canning Riverpark are to be
+lodged with the Department of Biodiversity, Conservation and Attractions (DBCA) on the relevant form. The City
+are a referral agency for these types of applications.
+5.2 There are no applicable planning fees for these applications.
+5.3 The City’s role is to make a recommendation to the DPLH within 42 calendar days taking into
+account all those matters outlined in Part 2.2 above (where applicable) and the intent of the
+MRS reservation.
+6.0 Local Planning Policy
+6.1 Proposals to amend revoke or introduce new Local Planning Policies are to be advertised in
+accordance with Clause 4 of the Regulations.
+6.2 Where amendments are made following the advertising period, which significantly alter the
+intent of any of the policy provisions, the revised Policy will be re-advertised in accordance
+with Clause 4 of the Regulations.
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 11 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+7.0 Scheme Amendments
+7.1 Proposals to amend the wording of LPS6 and/or to change the zoning of any property can be
+initiated by an interested party or by the City as per the Regulations.
+7.2 All proposals to amend LPS6 are presented to Council to determine whether the proposal has
+merit or not. If the proposal has merit, the Council will resolve to initiate the proposal to allow
+public consultation and referral to relevant agencies to occur. If the endorsement of the Council
+is not given, the process will terminate. If able to be supported, the City officers may make
+recommendations to augment the Scheme Amendment either as part of the initiation
+recommendation or prior to presentation to Council.
+7.3 Part 5 of the Regulations provides detailed guidance with respect to the process to be
+undertaken in relation to scheme amendments. This Part outlines the process for basic,
+standard and complex scheme amendments. Once a scheme amendment is initiated, the City
+is required to follow the process outlines in Part 5 of the Regulations including advertising
+procedures.
+8.0 Pedestrian Access Way (PAW) closures
+8.1 A proposal to close an existing PAW can be submitted by an external party or can be initiated
+by the City.
+8.2 Applications for the closure of PAW’s are assessed in accordance with the Department of
+Planning’s Procedure for the Closure of Pedestrian Access Ways – Planning Guidelines
+(October 2009).
+8.3 All proposals are presented to Council to determine whether they have merit or not. If the
+proposal has merit, the Council will resolve to initiate the proposal to allow public consultation
+and referral to relevant agencies to occur. If the endorsement of the Council is not given, the
+proposal will not proceed further.
+8.4 Where Council resolves to endorse a PAW closure proposal for advertising, the application will
+be the subject of community consultation for a minimum of 30 calendar days as follows:
+(a) Letters sent to the owners and occupiers of all properties within a 100 metre radius of
+the subject PAW.
+(b) The applicant is required to display signage at each of the entrances to the PAW to
+Council specifications.
+(c) The applicant is to place an advert in a local newspaper circulating within the District to
+Council specifications.
+(d) Details of the proposed closure will be posted to the City’s website and social media
+platforms.
+8.5 Following advertising and referral to any relevant service agencies or government authorities,
+the proposal is re-presented to Council with a recommendation to endorse or not endorse the
+closure. The Officer report will include a summary of all submissions received.
+8.6 Following consideration by Council, the proposed amendment is forwarded to the DPLH to
+approve or refuse the proposal.
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 12 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+9.0 Restrictive Covenants
+9.1 Applications to modify or remove restrictive covenants are generally not advertised as they are
+only supported where the modification or removal is consistent with the requirements of LPS6,
+the R-Codes and Local Planning Policy.
+10.0 Determination of All Matters
+10.1 All applications for Planning Approval and related matters are determined in accordance with
+the City’s delegation requirements, LPS6, the R-Codes and Local Planning Policy.
+10.2 The consideration and determination of all applications is to be in accordance with Council
+Policy – 052: Quasi-Judicial Role.
+11.0 Refusal of applications without advertising
+Any planning proposal where the initial assessment determines that the proposal does not satisfy
+the requirements of LPS6, the R-Codes or Local Planning Policy may be refused under delegated
+authority without first being advertised unless required to be advertised under the Regulations.
+12.0 Internal Development Advisory Unit (DAU)
+Please refer to the DAU Terms of Reference.
+13.0 Council determination
+13.1 All meetings of Council are open to the public unless otherwise notified.
+13.2 Public statements, questions and deputations in relation to planning applications may be made
+at meetings of Council in accordance with the City of Melville Meeting Procedures Local Law
+2017 at the discretion of the CEO. Requests to make a public statement, ask a question or
+make a deputation should be made in writing to the City’s Governance Team by 9.00am of the
+Monday prior to the meeting.
+13.3 For applications which are to be determined by the Council, the City will notify both the
+applicant and any submitters of the meeting details and the subsequent decision of Council.
+13.4 The agendas and minutes of all meetings are available on the City’s website and at City of
+Melville libraries.
+14.0 Development Assessment Panel (DAP) applications
+14.1 DAPs are governed by the Planning and Development Act 2005, the Planning and
+Development (Development Assessment Panel) Regulations 2011 (the Regulations) and the
+Local Government (Development Assessment Panels) Regulations 2025.
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 13 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+14.2 The Metro Inner Development Assessment Panel (DAP) is the decision-making body
+responsible for determining all City of Melville DAP applications.
+14.3 For all DAP applications, the City’s Officers are required to prepare a Responsible Authority
+Report (RAR) to the DAP. This report outlines the proposal, the assessment undertaken, a
+summary of any submissions received and a recommendation.
+14.4 The DAP determines the application in the place of the City of Melville or other decision maker,
+taking into account all of the relevant provisions within LPS6, the R-Codes, Local Planning
+Policies and any other relevant planning document.
+14.5 Elected Members will be made aware of the details of DAP applications via the Elected
+Members Bulletin (EMB). At the appropriate time, further detail will also be provided via a link
+to the Melville Talks page on the City’s website.
+14.6 At the completion of the public advertising period Elected Members will be provided with a
+summary of the submissions received via the weekly EMB.
+14.7 The applicant and any submitters will be advised in writing of the details of the DAP meeting
+once details of the meeting are known and advised of the opportunity to make a deputation on
+the application at DAP meeting via the DAP meeting procedures. Submitters who are unable
+to attend the meeting location or attend online on their own will have option provided to attend
+the meeting online at the City’s offices.
+15.0 Significant Development Applications (Part 11B)
+15.1 Significant Development Applications made under Part 11B of the Planning and Development
+Act 2005 is a pathway available for developments which are of State or regional significance
+and/or meet a $20 million cost of development threshold.
+15.2 Part 11B applications are lodged with the DPLH and determined by the Statutory Planning
+Committee (SPC) which is a sub-committee or the Western Australian Planning Commission.
+The City is a referral agency for these applications with the City having 60 days to provide
+comment. The DPLH undertake any necessary advertising upon advice from the City.
+15.3 The City’s Officers are required to prepare a submission to the DPLH which may be in the
+manner and form of a report. This referral response needs to outline the assessment
+undertaken and a recommendation.
+15.4 The SPC determines the application in the place of the City of Melville or other decision maker,
+considering all of the relevant provisions within LPS6, the R-Codes, State Planning Policies,
+Local Planning Policies, Council Policies and any other relevant planning document.
+15.5 Elected Members will be made aware of the details of Part 11B applications via the Elected
+Members Bulletin (EMB). At the appropriate time, further detail will also be provided via a link
+to the Melville Talks page on the City’s website.
+15.6 The referral response will be presented to Council for adoption or modification. No delegation
+is provided for Part 11B applications to City Officers.
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 14 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.
+
+References that may be applicable to this Policy
+Legislative Requirements (as amended): Planning and Development Act 2005
+State Administrative Tribunal Act 2004
+Planning and Development (Development Assessment
+Panel) Regulations 2011
+Strata Titles Act 1995
+Planning and Development (Local Planning Schemes)
+Regulations 2015
+Planning and Development Regulations 2009
+Planning and Development (Development Assessment
+Panels) Regulations 2011
+Local Planning Scheme No. 6
+Procedure, Process Maps, Work Instructions: Planning Application Procedures
+Subdivision Procedure
+Pedestrian Access Way Closure Application Procedure
+Naming of Roads and Parks Procedure
+Scheme Amendment Procedure
+Development Assessment Panel Work Instruction
+Development Assessment Panel Process Map
+Part 11B – Significant Development Pathway Application
+Guide
+WAPC Planning Guidelines
+Other Plans, Frameworks, Documents Applicable to Policy: State Planning Policies and Development Control
+Policies
+Residential Design Codes Volume 1 and Volume 2
+All Local Planning Policies and Council Policies
+Local Planning Strategy
+Precinct Structure Plans or Activity Centre Plans
+Local Development Plans
+WAPC Planning Bulletins
+Delegated Authority No: DA-020: Planning and Related Matters
+ORIGIN/AUTHORITY ITEM NO.
+Ordinary Meeting of Council 19 June 2007 P07/1004
+REVIEWS
+Special Meeting of Council 9 November 2011 P10/3178
+Ordinary Meeting of Council 21 October 2014 P14/3560
+Ordinary Meeting of Council 18 November 2014 P14/3560
+Ordinary Meeting of Council 15 September 2015 P15/3658
+Ordinary Meeting of Council 21 June 2016 P16/3711
+Ordinary Meeting of Council 21 March 2017 P17/3747
+Administrative Review 6 August 2019
+(Council Resolution 18/6/2019)
+Ordinary Meeting of Council 20 October 2020 P20/3874
+Administrative Review 10 August 2023
+Ordinary Meeting of Council 19 November 2024 UP24/50
+Administrative Review 20 May 2025 UP25/69
+(Council Resolution 20 May 2025)
+UNCONTROLLED DOCUMENT WHEN PRINTED - THIS VERSION: 6/06/2025 11:19 AM Page 15 of 15
+Please refer to the City of Melville website (Public) or BMS (Internal) for the latest version.

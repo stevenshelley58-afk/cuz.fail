@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2024-04/r_code_practice_notes_april2024.pdf",
+  "fetched_at": "2026-06-09T22:40:55Z",
+  "http_status": 200,
+  "content_hash": "c708416e87f27b8148966ceac75cc75bed48f46a56dad23699316b621dc5f2c8",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2024-04/r_code_practice_notes_april2024.pdf",
+  "used_playwright": false,
+  "bytes": 1544046
+}

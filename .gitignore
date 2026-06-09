@@ -33,3 +33,11 @@ coverage/
 data/corpus/
 data/harvest/
 data/seed/*.pdf
+
+# WA planning corpus: text, summaries, analysis and fetch provenance are
+# committed; raw PDFs (250MB+) are re-fetchable via scripts/pipeline.py
+corpus/docs/**
+!corpus/docs/*/
+!corpus/docs/*/meta.json
+.venv-corpus/
+draftcheck-corpus.db

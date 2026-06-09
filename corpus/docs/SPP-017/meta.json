@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-52-telecommunications-infrastructure",
+  "fetched_at": "2026-06-09T22:34:57Z",
+  "http_status": 200,
+  "content_hash": "9a7fadf52351d2978387e8f8a4c4e09141477bc759dadf7db66726299cda3553",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP-5_2_Telecommunications_Infrastructure.pdf",
+  "used_playwright": false,
+  "bytes": 406123
+}

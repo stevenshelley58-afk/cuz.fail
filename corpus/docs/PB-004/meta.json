@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2024-03/planning_bulletin_114_mar20242.pdf",
+  "fetched_at": "2026-06-09T22:35:22Z",
+  "http_status": 200,
+  "content_hash": "eab65c0dd4dcaf0f890fe61c551d0ad3655a1ea63bbb09a2e1883be88ac2a983",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2024-03/planning_bulletin_114_mar20242.pdf",
+  "used_playwright": false,
+  "bytes": 227003
+}

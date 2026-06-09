@@ -1,0 +1,42 @@
+{
+  "id": "FRE-LPP-030",
+  "title": "Local Planning",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Fremantle",
+  "version_date": "",
+  "pages": 52,
+  "key_provisions": [
+    {
+      "heading": "188 Hampton Road House, 1 Harbour Road 1960s",
+      "summary": "House, 168 Hampton Road 1942"
+    },
+    {
+      "heading": "1898 House, 191 Hampton Road c. 1925 House, 3 Harbour Road c. 1950s",
+      "summary": "lockup (former), 170 Hampton Road"
+    },
+    {
+      "heading": "116 Attfield Street",
+      "summary": "House, 8 Lloyd Street c. 1900 House, 30 Mardie Street c. 1900"
+    },
+    {
+      "heading": "245 South Terrace 282 South Terrace Duplex, 356 South Terrace c. 1900",
+      "summary": "Shop and house, 247-249 South Terrace c. 1900 House, 296 South Terrace c. 1898 House, 358 South Terrace 1897"
+    },
+    {
+      "heading": "10 Wardie Street House, 19 Wesley Street c. 1900",
+      "summary": "Mills & Ware Factory, 11 Wardie Street c. 1950 House, 20 Wesley Street c. 1903"
+    }
+  ],
+  "cross_references": [
+    "LPP 3.21",
+    "LPP 3.6",
+    "Local Planning Policy 11",
+    "Local Planning Policy 3.6",
+    "Local Planning Policy 3.6: Heritage-Protected Places Built",
+    "Local Planning Policy 3.6: Heritage-Protected Places Built Form and Land Use",
+    "Local Planning Policy 3.6: Heritage-Protected Places Built Form and Land Use (LPP",
+    "Planning and Development (Local Planning Schemes) Regulations 2015"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:39:00Z"
+}

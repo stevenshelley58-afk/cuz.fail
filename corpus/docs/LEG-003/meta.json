@@ -1,0 +1,10 @@
+{
+  "url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s43955.html&view=consolidated",
+  "fetched_at": "2026-06-09T22:35:23Z",
+  "http_status": 200,
+  "content_hash": "563a8e5e9661f096f4c78a3c1b6a59db658a9ec49f173d4b7120284607f3aebe",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_49519.pdf/$FILE/Building%20Regulations%202012%20-%20%5B04-ac0-00%5D.pdf?OpenElement",
+  "used_playwright": false,
+  "bytes": 775427
+}

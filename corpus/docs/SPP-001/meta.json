@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2021-06/SPP_1_State_Planning_Framework.pdf",
+  "fetched_at": "2026-06-09T22:34:48Z",
+  "http_status": 200,
+  "content_hash": "caa9d0cee0f79da3d1cddbfba844280b8cc6fdb52bc630cefb1df1bec51f4306",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP_1_State_Planning_Framework.pdf",
+  "used_playwright": false,
+  "bytes": 1041095
+}

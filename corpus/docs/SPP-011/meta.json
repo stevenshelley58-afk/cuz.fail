@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-35-historic-heritage-conservation",
+  "fetched_at": "2026-06-09T22:34:55Z",
+  "http_status": 200,
+  "content_hash": "f4e2f79b39d2c80cfb6b4dacb7f11090769df87b648426d0037a4aeaf974f9d4",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP_3-5_historic_heritage_conservation.pdf",
+  "used_playwright": false,
+  "bytes": 119613
+}

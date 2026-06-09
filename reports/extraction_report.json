@@ -1,0 +1,1367 @@
+[
+  {
+    "id": "MEL-LPP-014",
+    "ok": true,
+    "pages": 3,
+    "chars": 5892,
+    "tables": 3,
+    "refs": 8
+  },
+  {
+    "id": "MEL-LPP-009",
+    "ok": true,
+    "pages": 5,
+    "chars": 7562,
+    "tables": 2,
+    "refs": 11
+  },
+  {
+    "id": "MEL-LPP-021",
+    "ok": true,
+    "pages": 8,
+    "chars": 17626,
+    "tables": 0,
+    "refs": 13
+  },
+  {
+    "id": "PC-001",
+    "ok": true,
+    "pages": 5,
+    "chars": 21233,
+    "tables": 1,
+    "refs": 5
+  },
+  {
+    "id": "FRE-LPP-006",
+    "ok": true,
+    "pages": 6,
+    "chars": 10788,
+    "tables": 1,
+    "refs": 2
+  },
+  {
+    "id": "SPP-001",
+    "ok": true,
+    "pages": 9,
+    "chars": 25588,
+    "tables": 8,
+    "refs": 7
+  },
+  {
+    "id": "SPP-002",
+    "ok": true,
+    "pages": 12,
+    "chars": 39398,
+    "tables": 0,
+    "refs": 0
+  },
+  {
+    "id": "MEL-SCH-001",
+    "ok": true,
+    "pages": 59,
+    "chars": 99562,
+    "tables": 30,
+    "refs": 7
+  },
+  {
+    "id": "SPP-003",
+    "ok": true,
+    "pages": 8,
+    "chars": 18876,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "SPP-007",
+    "ok": true,
+    "pages": 12,
+    "chars": 38510,
+    "tables": 0,
+    "refs": 11
+  },
+  {
+    "id": "SPP-004",
+    "ok": true,
+    "pages": 20,
+    "chars": 75044,
+    "tables": 9,
+    "refs": 17
+  },
+  {
+    "id": "SPP-005",
+    "ok": true,
+    "pages": 22,
+    "chars": 59792,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "SPP-006",
+    "ok": true,
+    "pages": 24,
+    "chars": 81404,
+    "tables": 0,
+    "refs": 8
+  },
+  {
+    "id": "SPP-008",
+    "ok": true,
+    "pages": 12,
+    "chars": 36831,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "SPP-009",
+    "ok": true,
+    "pages": 7,
+    "chars": 13018,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "SPP-010",
+    "ok": true,
+    "pages": 5,
+    "chars": 17125,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "SPP-011",
+    "ok": true,
+    "pages": 8,
+    "chars": 18165,
+    "tables": 0,
+    "refs": 2
+  },
+  {
+    "id": "SPP-013",
+    "ok": true,
+    "pages": 8,
+    "chars": 21060,
+    "tables": 2,
+    "refs": 2
+  },
+  {
+    "id": "SPP-014",
+    "ok": true,
+    "pages": 13,
+    "chars": 41481,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "SPP-012",
+    "ok": true,
+    "pages": 26,
+    "chars": 76327,
+    "tables": 11,
+    "refs": 3
+  },
+  {
+    "id": "SPP-016",
+    "ok": true,
+    "pages": 17,
+    "chars": 39825,
+    "tables": 2,
+    "refs": 3
+  },
+  {
+    "id": "SPP-015",
+    "ok": true,
+    "pages": 22,
+    "chars": 58142,
+    "tables": 10,
+    "refs": 9
+  },
+  {
+    "id": "SPP-017",
+    "ok": true,
+    "pages": 8,
+    "chars": 22809,
+    "tables": 0,
+    "refs": 2
+  },
+  {
+    "id": "REG-001",
+    "ok": true,
+    "pages": 273,
+    "chars": 460327,
+    "tables": 54,
+    "refs": 12
+  },
+  {
+    "id": "SPP-019",
+    "ok": true,
+    "pages": 11,
+    "chars": 26114,
+    "tables": 2,
+    "refs": 4
+  },
+  {
+    "id": "SPP-021",
+    "ok": true,
+    "pages": 8,
+    "chars": 17382,
+    "tables": 2,
+    "refs": 0
+  },
+  {
+    "id": "SPP-018",
+    "ok": true,
+    "pages": 15,
+    "chars": 44395,
+    "tables": 5,
+    "refs": 7
+  },
+  {
+    "id": "SPP-022",
+    "ok": true,
+    "pages": 12,
+    "chars": 21320,
+    "tables": 0,
+    "refs": 7
+  },
+  {
+    "id": "DC-001",
+    "ok": true,
+    "pages": 9,
+    "chars": 24697,
+    "tables": 1,
+    "refs": 4
+  },
+  {
+    "id": "SPP-023",
+    "ok": true,
+    "pages": 8,
+    "chars": 12393,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "DC-002",
+    "ok": true,
+    "pages": 8,
+    "chars": 22402,
+    "tables": 0,
+    "refs": 11
+  },
+  {
+    "id": "DC-005",
+    "ok": true,
+    "pages": 6,
+    "chars": 18564,
+    "tables": 2,
+    "refs": 2
+  },
+  {
+    "id": "DC-003",
+    "ok": true,
+    "pages": 7,
+    "chars": 15138,
+    "tables": 3,
+    "refs": 0
+  },
+  {
+    "id": "DC-004",
+    "ok": true,
+    "pages": 9,
+    "chars": 30957,
+    "tables": 5,
+    "refs": 2
+  },
+  {
+    "id": "DC-006",
+    "ok": true,
+    "pages": 48,
+    "chars": 128895,
+    "tables": 2,
+    "refs": 7
+  },
+  {
+    "id": "DC-008",
+    "ok": true,
+    "pages": 15,
+    "chars": 40725,
+    "tables": 1,
+    "refs": 6
+  },
+  {
+    "id": "DC-009",
+    "ok": true,
+    "pages": 9,
+    "chars": 24392,
+    "tables": 1,
+    "refs": 20
+  },
+  {
+    "id": "DC-011",
+    "ok": true,
+    "pages": 17,
+    "chars": 43481,
+    "tables": 13,
+    "refs": 1
+  },
+  {
+    "id": "DC-010",
+    "ok": true,
+    "pages": 7,
+    "chars": 22521,
+    "tables": 4,
+    "refs": 1
+  },
+  {
+    "id": "DC-013",
+    "ok": true,
+    "pages": 4,
+    "chars": 10936,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "DC-012",
+    "ok": true,
+    "pages": 11,
+    "chars": 26510,
+    "tables": 1,
+    "refs": 13
+  },
+  {
+    "id": "DC-014",
+    "ok": true,
+    "pages": 6,
+    "chars": 20183,
+    "tables": 0,
+    "refs": 0
+  },
+  {
+    "id": "DC-015",
+    "ok": true,
+    "pages": 4,
+    "chars": 8835,
+    "tables": 1,
+    "refs": 1
+  },
+  {
+    "id": "DC-016",
+    "ok": true,
+    "pages": 6,
+    "chars": 14007,
+    "tables": 1,
+    "refs": 2
+  },
+  {
+    "id": "DC-017",
+    "ok": true,
+    "pages": 5,
+    "chars": 9393,
+    "tables": 1,
+    "refs": 2
+  },
+  {
+    "id": "PS-001",
+    "ok": true,
+    "pages": 7,
+    "chars": 22601,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "PS-002",
+    "ok": true,
+    "pages": 10,
+    "chars": 32693,
+    "tables": 2,
+    "refs": 5
+  },
+  {
+    "id": "PS-003",
+    "ok": true,
+    "pages": 8,
+    "chars": 31240,
+    "tables": 0,
+    "refs": 5
+  },
+  {
+    "id": "PS-004",
+    "ok": true,
+    "pages": 9,
+    "chars": 23766,
+    "tables": 3,
+    "refs": 1
+  },
+  {
+    "id": "SPP-020",
+    "ok": true,
+    "pages": 31,
+    "chars": 86961,
+    "tables": 7,
+    "refs": 1
+  },
+  {
+    "id": "PS-005",
+    "ok": true,
+    "pages": 4,
+    "chars": 7929,
+    "tables": 0,
+    "refs": 12
+  },
+  {
+    "id": "PS-007",
+    "ok": true,
+    "pages": 12,
+    "chars": 29418,
+    "tables": 2,
+    "refs": 5
+  },
+  {
+    "id": "PS-006",
+    "ok": true,
+    "pages": 6,
+    "chars": 19570,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "PS-009",
+    "ok": true,
+    "pages": 4,
+    "chars": 8243,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "PS-008",
+    "ok": true,
+    "pages": 6,
+    "chars": 18064,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "DC-007",
+    "ok": true,
+    "pages": 12,
+    "chars": 24867,
+    "tables": 0,
+    "refs": 13
+  },
+  {
+    "id": "PS-010",
+    "ok": true,
+    "pages": 5,
+    "chars": 12075,
+    "tables": 1,
+    "refs": 1
+  },
+  {
+    "id": "PS-011",
+    "ok": true,
+    "pages": 12,
+    "chars": 27000,
+    "tables": 8,
+    "refs": 2
+  },
+  {
+    "id": "PB-002",
+    "ok": true,
+    "pages": 4,
+    "chars": 15668,
+    "tables": 1,
+    "refs": 5
+  },
+  {
+    "id": "PB-003",
+    "ok": true,
+    "pages": 2,
+    "chars": 7628,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "PB-001",
+    "ok": true,
+    "pages": 9,
+    "chars": 23262,
+    "tables": 0,
+    "refs": 2
+  },
+  {
+    "id": "PB-006",
+    "ok": true,
+    "pages": 2,
+    "chars": 9467,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "PB-004",
+    "ok": true,
+    "pages": 5,
+    "chars": 21233,
+    "tables": 1,
+    "refs": 5
+  },
+  {
+    "id": "PB-005",
+    "ok": true,
+    "pages": 7,
+    "chars": 24509,
+    "tables": 2,
+    "refs": 3
+  },
+  {
+    "id": "PB-007",
+    "ok": true,
+    "pages": 2,
+    "chars": 9782,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "LEG-002",
+    "ok": true,
+    "pages": 161,
+    "chars": 253740,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "LEG-003",
+    "ok": true,
+    "pages": 159,
+    "chars": 220911,
+    "tables": 47,
+    "refs": 6
+  },
+  {
+    "id": "LEG-001",
+    "ok": true,
+    "pages": 392,
+    "chars": 647475,
+    "tables": 0,
+    "refs": 8
+  },
+  {
+    "id": "LEG-006",
+    "ok": true,
+    "pages": 114,
+    "chars": 190410,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "LEG-004",
+    "ok": true,
+    "pages": 374,
+    "chars": 619919,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "RS-002",
+    "ok": true,
+    "pages": 1,
+    "chars": 1601,
+    "tables": 1,
+    "refs": 0
+  },
+  {
+    "id": "RS-003",
+    "ok": true,
+    "pages": 0,
+    "chars": 6026,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "LEG-005",
+    "ok": true,
+    "pages": 386,
+    "chars": 632290,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "REG-002",
+    "ok": true,
+    "pages": 63,
+    "chars": 95169,
+    "tables": 0,
+    "refs": 2
+  },
+  {
+    "id": "REG-003",
+    "ok": true,
+    "pages": 51,
+    "chars": 66545,
+    "tables": 7,
+    "refs": 3
+  },
+  {
+    "id": "PC-002",
+    "ok": true,
+    "pages": 152,
+    "chars": 340975,
+    "tables": 164,
+    "refs": 13
+  },
+  {
+    "id": "LEG-007",
+    "ok": true,
+    "pages": 141,
+    "chars": 208308,
+    "tables": 1,
+    "refs": 5
+  },
+  {
+    "id": "MEL-MAP-001",
+    "ok": true,
+    "pages": 1,
+    "chars": 4900,
+    "tables": 1,
+    "refs": 2
+  },
+  {
+    "id": "MEL-MAP-002",
+    "ok": true,
+    "pages": 1,
+    "chars": 6481,
+    "tables": 3,
+    "refs": 1
+  },
+  {
+    "id": "MEL-SCH-002",
+    "ok": true,
+    "pages": 192,
+    "chars": 388888,
+    "tables": 76,
+    "refs": 21
+  },
+  {
+    "id": "MEL-MAP-005",
+    "ok": true,
+    "pages": 1,
+    "chars": 5420,
+    "tables": 1,
+    "refs": 2
+  },
+  {
+    "id": "MEL-LPP-002",
+    "ok": true,
+    "pages": 7,
+    "chars": 15107,
+    "tables": 0,
+    "refs": 10
+  },
+  {
+    "id": "MEL-LPP-001",
+    "ok": true,
+    "pages": 15,
+    "chars": 40234,
+    "tables": 5,
+    "refs": 9
+  },
+  {
+    "id": "MEL-LPP-003",
+    "ok": true,
+    "pages": 13,
+    "chars": 22927,
+    "tables": 9,
+    "refs": 7
+  },
+  {
+    "id": "MEL-LPP-004",
+    "ok": true,
+    "pages": 7,
+    "chars": 18054,
+    "tables": 1,
+    "refs": 3
+  },
+  {
+    "id": "MEL-MAP-006",
+    "ok": true,
+    "pages": 1,
+    "chars": 9473,
+    "tables": 0,
+    "refs": 2
+  },
+  {
+    "id": "MEL-LPP-005",
+    "ok": true,
+    "pages": 4,
+    "chars": 8484,
+    "tables": 0,
+    "refs": 8
+  },
+  {
+    "id": "MEL-MAP-007",
+    "ok": true,
+    "pages": 1,
+    "chars": 3825,
+    "tables": 2,
+    "refs": 1
+  },
+  {
+    "id": "MEL-MAP-003",
+    "ok": true,
+    "pages": 1,
+    "chars": 10796,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "MEL-LPP-007",
+    "ok": true,
+    "pages": 7,
+    "chars": 16416,
+    "tables": 0,
+    "refs": 13
+  },
+  {
+    "id": "MEL-LPP-008",
+    "ok": true,
+    "pages": 3,
+    "chars": 5577,
+    "tables": 0,
+    "refs": 8
+  },
+  {
+    "id": "MEL-LPP-010",
+    "ok": true,
+    "pages": 4,
+    "chars": 10203,
+    "tables": 0,
+    "refs": 7
+  },
+  {
+    "id": "MEL-LPP-012",
+    "ok": true,
+    "pages": 3,
+    "chars": 6207,
+    "tables": 0,
+    "refs": 11
+  },
+  {
+    "id": "MEL-LPP-006",
+    "ok": true,
+    "pages": 21,
+    "chars": 47082,
+    "tables": 26,
+    "refs": 15
+  },
+  {
+    "id": "MEL-LPP-011",
+    "ok": true,
+    "pages": 5,
+    "chars": 10150,
+    "tables": 0,
+    "refs": 12
+  },
+  {
+    "id": "MEL-LPP-015",
+    "ok": true,
+    "pages": 2,
+    "chars": 2574,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "MEL-LPP-013",
+    "ok": true,
+    "pages": 3,
+    "chars": 5105,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "MEL-LPP-016",
+    "ok": false,
+    "error": "PdfminerException: No /Root object! - Is this really a PDF?"
+  },
+  {
+    "id": "MEL-LPP-017",
+    "ok": true,
+    "pages": 6,
+    "chars": 12295,
+    "tables": 0,
+    "refs": 14
+  },
+  {
+    "id": "MEL-LPP-019",
+    "ok": true,
+    "pages": 10,
+    "chars": 15617,
+    "tables": 0,
+    "refs": 8
+  },
+  {
+    "id": "MEL-LPP-018",
+    "ok": true,
+    "pages": 9,
+    "chars": 20700,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "MEL-LPP-022",
+    "ok": true,
+    "pages": 3,
+    "chars": 6134,
+    "tables": 0,
+    "refs": 11
+  },
+  {
+    "id": "MEL-LPP-023",
+    "ok": true,
+    "pages": 4,
+    "chars": 6639,
+    "tables": 0,
+    "refs": 8
+  },
+  {
+    "id": "MEL-LPP-020",
+    "ok": true,
+    "pages": 16,
+    "chars": 29603,
+    "tables": 3,
+    "refs": 3
+  },
+  {
+    "id": "MEL-LPP-024",
+    "ok": true,
+    "pages": 2,
+    "chars": 3466,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "MEL-LPP-025",
+    "ok": true,
+    "pages": 2,
+    "chars": 1317,
+    "tables": 0,
+    "refs": 5
+  },
+  {
+    "id": "MEL-MAP-004",
+    "ok": true,
+    "pages": 1,
+    "chars": 9920,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "FRE-LPP-001",
+    "ok": true,
+    "pages": 9,
+    "chars": 18168,
+    "tables": 27,
+    "refs": 5
+  },
+  {
+    "id": "FRE-LPP-002",
+    "ok": true,
+    "pages": 6,
+    "chars": 10749,
+    "tables": 1,
+    "refs": 2
+  },
+  {
+    "id": "FRE-LPP-003",
+    "ok": true,
+    "pages": 15,
+    "chars": 31199,
+    "tables": 4,
+    "refs": 5
+  },
+  {
+    "id": "MEL-LPP-026",
+    "ok": true,
+    "pages": 34,
+    "chars": 20663,
+    "tables": 20,
+    "refs": 3
+  },
+  {
+    "id": "MEL-LPP-027",
+    "ok": true,
+    "pages": 33,
+    "chars": 80138,
+    "tables": 26,
+    "refs": 3
+  },
+  {
+    "id": "FRE-LPP-007",
+    "ok": true,
+    "pages": 2,
+    "chars": 3883,
+    "tables": 8,
+    "refs": 4
+  },
+  {
+    "id": "FRE-LPP-005",
+    "ok": true,
+    "pages": 14,
+    "chars": 23620,
+    "tables": 1,
+    "refs": 5
+  },
+  {
+    "id": "FRE-LPP-008",
+    "ok": true,
+    "pages": 7,
+    "chars": 9922,
+    "tables": 3,
+    "refs": 2
+  },
+  {
+    "id": "FRE-LPP-009",
+    "ok": true,
+    "pages": 3,
+    "chars": 6336,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "FRE-LPP-004",
+    "ok": true,
+    "pages": 23,
+    "chars": 32890,
+    "tables": 23,
+    "refs": 10
+  },
+  {
+    "id": "FRE-LPP-010",
+    "ok": true,
+    "pages": 5,
+    "chars": 5035,
+    "tables": 0,
+    "refs": 0
+  },
+  {
+    "id": "FRE-LPP-012",
+    "ok": true,
+    "pages": 4,
+    "chars": 4796,
+    "tables": 1,
+    "refs": 2
+  },
+  {
+    "id": "FRE-LPP-013",
+    "ok": true,
+    "pages": 6,
+    "chars": 9995,
+    "tables": 1,
+    "refs": 4
+  },
+  {
+    "id": "MEL-MAP-008",
+    "ok": true,
+    "pages": 1,
+    "chars": 5173,
+    "tables": 2,
+    "refs": 2
+  },
+  {
+    "id": "FRE-LPP-011",
+    "ok": true,
+    "pages": 14,
+    "chars": 20153,
+    "tables": 4,
+    "refs": 1
+  },
+  {
+    "id": "FRE-LPP-015",
+    "ok": true,
+    "pages": 6,
+    "chars": 9400,
+    "tables": 1,
+    "refs": 5
+  },
+  {
+    "id": "FRE-LPP-016",
+    "ok": true,
+    "pages": 9,
+    "chars": 10838,
+    "tables": 1,
+    "refs": 2
+  },
+  {
+    "id": "FRE-LPP-014",
+    "ok": true,
+    "pages": 9,
+    "chars": 14431,
+    "tables": 1,
+    "refs": 6
+  },
+  {
+    "id": "FRE-LPP-017",
+    "ok": true,
+    "pages": 9,
+    "chars": 11324,
+    "tables": 6,
+    "refs": 8
+  },
+  {
+    "id": "FRE-LPP-020",
+    "ok": true,
+    "pages": 6,
+    "chars": 11803,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "FRE-LPP-018",
+    "ok": true,
+    "pages": 7,
+    "chars": 9988,
+    "tables": 6,
+    "refs": 6
+  },
+  {
+    "id": "FRE-LPP-021",
+    "ok": true,
+    "pages": 7,
+    "chars": 10414,
+    "tables": 6,
+    "refs": 5
+  },
+  {
+    "id": "FRE-LPP-022",
+    "ok": true,
+    "pages": 20,
+    "chars": 24392,
+    "tables": 15,
+    "refs": 5
+  },
+  {
+    "id": "FRE-LPP-024",
+    "ok": true,
+    "pages": 3,
+    "chars": 2976,
+    "tables": 3,
+    "refs": 2
+  },
+  {
+    "id": "FRE-LPP-023",
+    "ok": true,
+    "pages": 13,
+    "chars": 17151,
+    "tables": 11,
+    "refs": 4
+  },
+  {
+    "id": "FRE-LPP-027",
+    "ok": true,
+    "pages": 9,
+    "chars": 6440,
+    "tables": 3,
+    "refs": 5
+  },
+  {
+    "id": "FRE-LPP-025",
+    "ok": true,
+    "pages": 11,
+    "chars": 21797,
+    "tables": 10,
+    "refs": 8
+  },
+  {
+    "id": "FRE-LPP-028",
+    "ok": true,
+    "pages": 9,
+    "chars": 9504,
+    "tables": 3,
+    "refs": 6
+  },
+  {
+    "id": "FRE-LPP-019",
+    "ok": true,
+    "pages": 34,
+    "chars": 48501,
+    "tables": 1,
+    "refs": 7
+  },
+  {
+    "id": "FRE-LPP-026",
+    "ok": true,
+    "pages": 37,
+    "chars": 61658,
+    "tables": 13,
+    "refs": 5
+  },
+  {
+    "id": "JOO-LPP-002",
+    "ok": true,
+    "pages": 5,
+    "chars": 5658,
+    "tables": 4,
+    "refs": 3
+  },
+  {
+    "id": "JOO-LPP-001",
+    "ok": true,
+    "pages": 24,
+    "chars": 39833,
+    "tables": 20,
+    "refs": 2
+  },
+  {
+    "id": "FRE-LPP-031",
+    "ok": true,
+    "pages": 7,
+    "chars": 6844,
+    "tables": 3,
+    "refs": 7
+  },
+  {
+    "id": "JOO-LPP-005",
+    "ok": true,
+    "pages": 3,
+    "chars": 4157,
+    "tables": 0,
+    "refs": 5
+  },
+  {
+    "id": "JOO-LPP-003",
+    "ok": true,
+    "pages": 6,
+    "chars": 10254,
+    "tables": 8,
+    "refs": 3
+  },
+  {
+    "id": "JOO-LPP-004",
+    "ok": true,
+    "pages": 8,
+    "chars": 12672,
+    "tables": 2,
+    "refs": 4
+  },
+  {
+    "id": "FRE-LPP-032",
+    "ok": true,
+    "pages": 8,
+    "chars": 10217,
+    "tables": 11,
+    "refs": 8
+  },
+  {
+    "id": "JOO-LPP-007",
+    "ok": true,
+    "pages": 4,
+    "chars": 6873,
+    "tables": 7,
+    "refs": 4
+  },
+  {
+    "id": "JOO-LPP-006",
+    "ok": true,
+    "pages": 10,
+    "chars": 20503,
+    "tables": 15,
+    "refs": 3
+  },
+  {
+    "id": "JOO-LPP-009",
+    "ok": true,
+    "pages": 2,
+    "chars": 3660,
+    "tables": 0,
+    "refs": 2
+  },
+  {
+    "id": "JOO-LPP-008",
+    "ok": true,
+    "pages": 5,
+    "chars": 10440,
+    "tables": 0,
+    "refs": 4
+  },
+  {
+    "id": "JOO-LPP-010",
+    "ok": true,
+    "pages": 2,
+    "chars": 3277,
+    "tables": 0,
+    "refs": 2
+  },
+  {
+    "id": "JOO-LPP-011",
+    "ok": true,
+    "pages": 5,
+    "chars": 9362,
+    "tables": 0,
+    "refs": 7
+  },
+  {
+    "id": "FRE-SCH-001",
+    "ok": true,
+    "pages": 161,
+    "chars": 290938,
+    "tables": 103,
+    "refs": 14
+  },
+  {
+    "id": "FRE-LPP-029",
+    "ok": true,
+    "pages": 84,
+    "chars": 140223,
+    "tables": 70,
+    "refs": 15
+  },
+  {
+    "id": "FRE-LPP-030",
+    "ok": true,
+    "pages": 52,
+    "chars": 77240,
+    "tables": 103,
+    "refs": 8
+  },
+  {
+    "id": "RS-001",
+    "ok": true,
+    "pages": 110,
+    "chars": 131774,
+    "tables": 15,
+    "refs": 5
+  },
+  {
+    "id": "MEL-SP-003",
+    "ok": true,
+    "pages": 92,
+    "chars": 296864,
+    "tables": 20,
+    "refs": 12
+  },
+  {
+    "id": "PC-001",
+    "ok": true,
+    "pages": 142,
+    "chars": 297008,
+    "tables": 261,
+    "refs": 12
+  },
+  {
+    "id": "PC-003",
+    "ok": true,
+    "pages": 156,
+    "chars": 395586,
+    "tables": 57,
+    "refs": 9
+  },
+  {
+    "id": "MEL-SP-004",
+    "ok": true,
+    "pages": 51,
+    "chars": 171026,
+    "tables": 28,
+    "refs": 13
+  },
+  {
+    "id": "MEL-SP-005",
+    "ok": true,
+    "pages": 0,
+    "chars": 2074,
+    "tables": 0,
+    "refs": 0
+  },
+  {
+    "id": "MEL-SP-007",
+    "ok": true,
+    "pages": 0,
+    "chars": 841,
+    "tables": 0,
+    "refs": 0
+  },
+  {
+    "id": "PC-004",
+    "ok": true,
+    "pages": 16,
+    "chars": 47235,
+    "tables": 41,
+    "refs": 6
+  },
+  {
+    "id": "MEL-SP-001",
+    "ok": true,
+    "pages": 122,
+    "chars": 288989,
+    "tables": 101,
+    "refs": 18
+  },
+  {
+    "id": "MEL-SP-006",
+    "ok": true,
+    "pages": 16,
+    "chars": 45262,
+    "tables": 4,
+    "refs": 2
+  },
+  {
+    "id": "MEL-SP-002",
+    "ok": true,
+    "pages": 338,
+    "chars": 608509,
+    "tables": 0,
+    "refs": 28
+  },
+  {
+    "id": "PB-009",
+    "ok": true,
+    "pages": 3,
+    "chars": 10754,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "PB-008",
+    "ok": true,
+    "pages": 10,
+    "chars": 27786,
+    "tables": 1,
+    "refs": 0
+  },
+  {
+    "id": "PB-013",
+    "ok": true,
+    "pages": 12,
+    "chars": 11793,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "PB-010",
+    "ok": true,
+    "pages": 4,
+    "chars": 22151,
+    "tables": 0,
+    "refs": 1
+  },
+  {
+    "id": "PB-012",
+    "ok": true,
+    "pages": 2,
+    "chars": 7224,
+    "tables": 0,
+    "refs": 3
+  },
+  {
+    "id": "PB-011",
+    "ok": true,
+    "pages": 11,
+    "chars": 40282,
+    "tables": 10,
+    "refs": 2
+  },
+  {
+    "id": "JOO-SCH-001",
+    "ok": true,
+    "pages": 47,
+    "chars": 93700,
+    "tables": 43,
+    "refs": 12
+  }
+]

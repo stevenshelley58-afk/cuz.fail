@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/development-control-policy-26-residential-road-planning",
+  "fetched_at": "2026-06-09T22:35:09Z",
+  "http_status": 200,
+  "content_hash": "0c98a6a9cac25081e88c232b3a4747a78190416d7be037a80838b1051d6d3b76",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/DCP_2-6_residential_road_planning.pdf",
+  "used_playwright": false,
+  "bytes": 241507
+}

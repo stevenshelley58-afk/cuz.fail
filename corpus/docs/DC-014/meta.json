@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/development-control-policy-42-planning-hazards-and-safety",
+  "fetched_at": "2026-06-09T22:35:12Z",
+  "http_status": 200,
+  "content_hash": "8f710817cbac93e77f7ed4fc557c207f04b60c537d86ea2ad523cbc0ecc60040",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/DCP_4-2_hazards_safety.pdf",
+  "used_playwright": false,
+  "bytes": 43642
+}

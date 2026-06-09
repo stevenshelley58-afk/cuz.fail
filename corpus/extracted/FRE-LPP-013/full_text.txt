@@ -1,0 +1,172 @@
+Local Planning
+Policy 2.25
+Telecommunications
+fremantle.wa.gov.au
+
+Telecommunications
+Statutory background
+The Planning and Development (Local Planning Schemes) Regulations 2015 (the
+Regulations) provide the ability for local governments to prepare a local planning policy on
+any matter relevant to the planning scheme area.
+The development of telecommunications infrastructure across Australia is controlled by the
+Telecommunications Act 1997. Supplementing the Act is the Telecommunications (Low-
+impact Facilities) Determination 2018 that defines the classes of telecommunications
+infrastructure and location of the facility to determine if it is a low-impact facility. This
+policy should be read in conjunction with the Act.
+The Telecommunications Code of Practice 2018 outlines the requirements for the erection
+and/or installation and maintenance of telecommunications infrastructure.
+Introduction and purpose
+Telecommunications facilities that meet the requirements of the Telecommunications
+(Low-impact Facilities) Determination 2018 are exempt from the requirement to obtain
+development approval under City of Fremantle Local Planning Scheme No. 4 and the
+Metropolitan Region Scheme. The Mobile Phone Base Station Deployment Industry Code
+(C564:2020) supplements the Telecommunications (Low-impact Facilities) Determination
+2018 and is designed to:
+• allow the community and councils to have greater participation in decisions made by
+Carriers when deploying mobile phone base stations
+• provide greater transparency to local community and councils when a carrier is
+planning, selecting sites for, installing and operating mobile phone
+radiocommunications Infrastructure.
+The Code cannot change the regulatory and legislative regime at a local, state or federal
+level; however, it can supplement the existing requirements already imposed on carriers
+by requiring them to consult with the local community and to adopt a precautionary
+approach in planning, installing and operating mobile phone radiocommunications
+Infrastructure.
+This policy is intended to guide the development of non-low-impact telecommunications
+infrastructure, balancing the need for effective telecommunications services and effective
+roll-out of networks, with the community interest in protecting conservation and heritage
+values and the visual character of local areas.
+1/5
+
+Objectives
+• To guide carriers on the siting, location and design of telecommunication facilities,
+particularly mobile phone towers, antennae and associated infrastructure.
+• To facilitate the installation of an effective telecommunications network in the City of
+Fremantle that minimises adverse impacts on visual amenity, cultural heritage
+values and the natural environment.
+Application
+This policy applies to new facilities and the upgrading or relocating of existing facilities
+which do not qualify as low-impact facilities under the Telecommunications (Low-impact
+Facilities) Determination 2018.
+Policy statement
+1. Development Approval
+1.1 Development approval is required from the City of Fremantle for the erection and/or
+installation of all non-low-impact telecommunication facilities defined under the
+Telecommunications (Low-impact Facilities) Determination 2018. It is recognised
+that low-impact facilities do not require Council approval, but to facilitate better
+relations between carriers, Council and the community, it is encouraged that
+applications for all telecommunication facilities are referred to Council for
+assessment against this policy.
+1.2 Upon receipt of an application, the City will engage with the community in
+accordance with Local Planning Policy 1.3 – Community Consultation on Planning
+Proposals.
+1.3 Telecommunication facilities proposed on land reserved under the Metropolitan
+Region Scheme will be determined by the West Australian Planning Commission and
+the Commission will consider any recommendations from Council.
+2. Site Selection
+2.1 The siting process of telecommunication facilities is achieved through having regard
+to network requirements and minimising the adverse impacts to the community, and
+the natural and built environments.
+2.2 The siting of a facility will take into account:
+a) opportunity for co-location with another facility (refer part 3)
+b) maintenance of Fremantle’s unique heritage (refer part 5)
+c) minimising the impact on the visual amenity of the area (refer part 6)
+d) minimising the impact on vegetation and other natural aspects of the site
+(refer part 7).
+2/5
+
+3. Co-location
+3.1 Telecommunication facilities should preferably be co-located and any new facilities
+should be designed to accept additional future facilities required by carriers.
+3.2 All applications for telecommunications facilities must include a written assessment
+demonstrating that the carrier has undertaken a process to identify and assess the
+option of co-location.
+4. Preferred Sites for Telecommunication Facilities
+4.1 It Council’s preference that telecommunication facilities are located in industrial and
+commercial areas and applications for development approval must adequately
+demonstrate that this was explored in the first instance.
+5. Heritage
+5.1 Council will not approve the installation or upgrade of any telecommunications
+facility that:
+a) has an adverse impact or threatens the visual amenity or integrity of any
+heritage place included on the:
+• UNESCO World Heritage List
+• Australian Heritage Council National Heritage List
+• National Trust of Australia Heritage Register WA
+• Heritage Council of Western Australia State Register of Heritage Places,
+or
+• City of Fremantle Heritage List, or
+in any City of Fremantle Heritage Area or Aboriginal heritage site
+b) will obstruct significant vistas, or instances where they will adversely impact
+upon the cultural heritage significance of a place
+c) where attached upon a building or structure, negatively impacts upon identified
+heritage values and fabric
+d) has an adverse impact or threatens the visual amenity or integrity of a natural
+heritage site, conservation area or remnant vegetation area.
+6. Visual Amenity and Facility Design
+6.1 All telecommunication facilities should be located and designed to ensure visual
+compatibility with existing built form and maintain the landscape character of the
+local area.
+6.2 Broadband aerial telecommunication cabling is not permitted and any such cabling is
+to be located underground, within existing conduits or ducts where present.
+3/5
+
+6.3 Any new or upgraded telecommunication facility will not be permitted unless it:
+a) is integrated on or into any existing suitable structures on the site
+b) is screened, through design, artwork and/or landscaping to minimise the visual
+impact and maintain the amenity of the area
+c) is designed to blend in with the surrounding area through the use of non-
+reflective compatible colours, landscaping and/or artwork
+d) does not visually dominate the site or surrounding views into the site
+e) does not negatively impact on the architectural integrity of any existing
+building.
+6.4 Landscaping of facilities should occur using advanced species compatible with the
+surrounding vegetation, where appropriate (see section 7).
+7. Vegetation and Natural Aspects
+7.1 The installation, operation and maintenance of telecommunication facilities should be
+conducted in a manner to minimise the impact to vegetation and other natural
+aspects of the site and its immediate surrounds.
+7.2 Council will not approve facilities unless the installation or upgrading of a facility:
+a) results in zero net loss of native vegetation and where the site is cleared a
+vegetation enhancement program implemented using advanced species
+b) does not result in the destruction or alteration of any significant topographical
+forms including limestone outcrops.
+7.3 If earthworks are undertaken on the site, a site management plan is required to
+manage stormwater and soil erosion, noise and/or dust levels that may result from
+the installation, operation and maintenance of a telecommunications facility. The
+site management plan will be prepared to the satisfaction of the City.
+8. Public Health and Safety
+8.1 Council recognises the need for a telecommunications network within the locality and
+equally recognises the community’s concern over the potential health impacts from
+telecommunication facilities.
+However, telecommunications carriers must comply with the Australian
+Communications and Media Authority (ACMA) Radiocommunications Licence
+Conditions (Apparatus Licence) Determination 2015. These licence conditions make
+mandatory the limits in the Australian Radiation Protection and Nuclear Safety
+Agency (ARPANSA) Radiofrequency (RF) Standard which sets limits for human
+exposure to RF electromagnetic fields from all sources, including telecommunications
+infrastructure. ARPANSA is the primary Commonwealth agency responsible for
+protecting the health and safety of people and the environment from the harmful
+effects of radiation.
+4/5
+
+Measurement surveys undertaken by ARPANSA demonstrate that environmental
+radiofrequency levels near base stations for the mobile telephone network are
+extremely low. The ARPANSA surveys reported that typical exposures to
+radiofrequency fields were well below one per cent of the Standard’s public exposure
+limits. It concluded that “given the very low levels recorded and the relatively low
+power of these types of transmitters, it is unlikely that the radiofrequency radiation
+from base stations would cause any adverse health effects, based on current medical
+research.”
+Standards set by ARPANSA incorporate substantial safety margins to address human
+health and safety matters; therefore it is not within the scope of this Policy to
+address health and safety matters.
+Responsibility and review information
+Responsible officer: Manger Strategic Planning and City Design
+Document 23 July 2001 – SP34
+adoption/approval
+details
+Document 22 March 2023 – PC2303-7
+amendment details
+Next review date 22 March 2027
+5/5

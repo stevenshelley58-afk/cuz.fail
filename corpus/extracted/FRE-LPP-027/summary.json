@@ -1,0 +1,27 @@
+{
+  "id": "FRE-LPP-027",
+  "title": "Local Planning",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Fremantle",
+  "version_date": "",
+  "pages": 9,
+  "key_provisions": [
+    {
+      "heading": "3.1 The primary street setback to Eucla Court is 4m.",
+      "summary": "3.2 Primary street fencing to Lots 201 – 204 Rule Street should be a maximum of 1.3m"
+    },
+    {
+      "heading": "6.1 The primary street setback to Lime Street is 2.5m.",
+      "summary": "7. Sub Area 7 – Leighton Beach"
+    }
+  ],
+  "cross_references": [
+    "Local Planning Policy 3.22– North Fremantle (LPP",
+    "Local Planning Scheme No. 4",
+    "R-Codes",
+    "R-Codes Volume 1",
+    "Residential Design Codes Volume 1"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:41Z"
+}

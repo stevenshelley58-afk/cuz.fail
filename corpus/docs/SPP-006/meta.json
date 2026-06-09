@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-28-bushland-policy-the-perth-metropolitan-region",
+  "fetched_at": "2026-06-09T22:34:52Z",
+  "http_status": 200,
+  "content_hash": "144b5bccb5ddd17b0981a17af159e910befc0360d0ca93972fb49f783e8a7eb8",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP_2-8_bushland_policy_perth_metro.pdf",
+  "used_playwright": false,
+  "bytes": 1762689
+}

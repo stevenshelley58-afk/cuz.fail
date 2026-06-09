@@ -1,0 +1,1191 @@
+Department of Planning,
+Lands and Heritage
+State Planning Policy 3.6
+Infrastructure Contributions
+April 2021
+
+click to follow
+1 CITATION 1 6.11 Infrastructure
+contributions not to be
+imposed as a condition
+2 BACKGROUND 1
+of rezoning 13
+6.12 Transitional
+3 POLICY INTENT 1 arrangements 13
+Disclaimer
+6.13 Implementation 13
+This document has been produced by the
+Department of Planning, Lands and Heritage 4 APPLICATION OF THE
+on behalf of the Western Australian Planning POLICY 2 7 REVIEW OF POLICY 14
+Commission. Any representation, statement,
+opinion or advice expressed or implied in this
+publication is made in good faith and on the 5 POLICY OBJECTIVES 3 8 DEFINITIONS/
+basis that the Government, its employees and INTERPRETATIONS 14
+agents are not liable for any damage or loss
+whatsoever which may occur as a result of 6 POLICY MEASURES 3
+action taken or not taken, as the case may be, SCHEDULES
+in respect of any representation, statement, 6.1 Principles underlying
+opinion or advice referred to herein. infrastructure Schedule 1 –
+Professional advice should be obtained before contributions 3 Development Infrastructure:
+applying the information contained in this Standard Infrastructure
+6.2 Types of infrastructure 3
+document to particular circumstances.
+Contribution Requirements 15
+6.3 Scope 3
+Schedule 2 –
+6.4 Where infrastructure
+Community Infrastructure:
+contributions can be
+© State of Western Australian Items for inclusion in a
+sought 4
+Development Contribution
+Published by the
+Western Australian Planning Commission 6.5 Form of infrastructure Plan 18
+Gordon Stephenson House contributions 4 Schedule 3 –
+140 William Street 6.6 Variable and maximum Development Contribution
+Perth WA 6000
+costs levied 4 Plan Template 19
+Locked Bag 2506 6.7 Imposition of Schedule 4 –
+Perth WA 6001
+infrastructure Development Contribution
+Published April 2021 contributions 5 Plan – Required Information 22
+website: www.dplh.wa.gov.au 6.8 Subdivision and Schedule 5 –
+email: info@dplh.wa.gov.au development 5 Annual Report Template 24
+tel: 08 6551 8002 6.9 Developer Agreements 5
+fax: 08 6551 9001 6.10 Development
+National Relay Service: 13 36 77
+Contribution Plans 5
+This document is available in alternative
+formats on application to Communication
+Services.
+
+State Planning Policy 3.6 –
+1
+Infrastructure Contributions
+April 2021
+1 CITATION 2 BACKGROUND 3 POLICY INTENT
+This State Planning Policy is prepared under Part Three of In Western Australia, contributions for infrastructure The careful planning and coordination of infrastructure
+the Planning and Development Act 2005. It may be cited as through a State Planning Policy were first established in is fundamental to the economic and social well-being of
+State Planning Policy 3.6 Infrastructure Contributions (SPP 2009. They are collected by local governments or service any community. New development and redevelopment
+3.6). providers towards the cost of infrastructure necessary to needs to ensure the cost-efficient, and appropriately-
+accommodate urban growth. timed provision of infrastructure and facilities such as
+roads, public transport, water supply, sewerage, electricity,
+Contributions are levied directly through the subdivision
+gas, telecommunications, drainage, open space, schools,
+and development process, or where there are multiple
+health, community and recreation facilities.
+landowners, through Development Contribution Plans
+(DCPs). The provision of essential infrastructure influences the
+standard of living, mobility and lifestyle choices of a
+Infrastructure contributions are one of a number of ways
+community and underpins the ability to achieve compact,
+used to meet the physical and social infrastructure needs
+connected and consolidated urban growth.
+of growing urban communities. Other funding streams
+should also be considered to coordinate and deliver the The delivery of cost-efficient and appropriately-timed
+full suite of necessary infrastructure. infrastructure requires a co-ordinated commitment from
+State and local government, in partnership with the
+The policy is supplemented by the Infrastructure
+private sector.
+Contributions Guidelines that provide additional
+explanatory information regarding the application and The use of this policy does not prevent seeking additional
+implementation of this policy. State and Federal funding, to reduce costs and maintain
+housing affordability.
+The purpose of this policy is to set out the principles
+and requirements that apply to the establishment and
+collection of infrastructure contributions in new and
+established areas. The policy also provides the framework
+to facilitate the coordination and delivery of infrastructure
+in greenfield locations, infill locations, activity centres,
+corridors and high-frequency public transport routes,
+industrial nodes and station precincts, where there is
+demand for additional services and facilities.
+The key principle in the application of infrastructure
+contributions is that the ‘beneficiary’ pays. Sometimes
+benefits will be largely confined to the owners of new
+
+State Planning Policy 3.6 –
+2
+Infrastructure Contributions
+April 2021
+development. Sometimes, the benefits will accrue to 4 APPLICATION OF THE POLICY Alternative approaches to the funding and delivery of
+owners of both existing and new development. infrastructure should ensure that the allocation of costs
+Costs are apportioned proportional to the need for the The policy applies throughout Western Australia across all is transparent, equitable and accountable, and subject
+infrastructure and facilities, and the demand generated development settings where new development results to consultation with the community prior to being
+by the development. in a demand for additional infrastructure, services and implemented.
+facilities.
+This policy provides the framework to ensure that the Where the local government seeks to use alternative
+infrastructure contributions system is transparent, This may include new communities in greenfield approaches, it is recommended that early consultation
+equitable, and accountable and provides for efficient locations; existing urban areas; industrial areas; and occur with the Department of Planning, Lands and
+dispute resolution at critical junctures in the process to regional towns, where the principles outlined in the policy Heritage.
+ensure effective administration of the system. can be upheld.
+The application of mechanisms outlined in this policy,
+such as Development Contribution Plans (DCPs), may
+not be suitable for all development settings, where the
+rate of development may result in difficulties to realise
+the intended infrastructure within the life of the DCP,
+and principles such as certainty, and need and nexus are
+difficult to establish.
+Infill development and regional areas experiencing
+slow growth rates are examples where the use of such
+mechanisms need to be considered with a degree of
+caution.
+Alternative approaches and mechanisms for funding
+may need to be considered to ensure the timely and
+coordinated redevelopment of an area, especially where
+the early of delivery of infrastructure is essential.
+Alternative approaches may include:
+• incentive and performance-based provisions in local
+planning frameworks that are linked to the delivery of
+broader community benefits, including infrastructure
+and public realm upgrades or
+• use of rating mechanisms available under the Local
+Government Act 1995.
+
+State Planning Policy 3.6 –
+3
+Infrastructure Contributions
+April 2021
+5 POLICY OBJECTIVES 6 POLICY MEASURES h) Right of consultation and review: Land owners
+and developers have the right to be consulted on
+The objectives of this policy are: 6.1 Principles underlying infrastructure the manner in which development contributions are
+contributions determined, and the opportunity to seek a review by
+• to facilitate the efficient and effective provision of
+an independent third party regarding the calculation
+infrastructure and facilities that are essential to meet
+Contributions for all infrastructure must be levied in of costs, and return of funds.
+the demands arising from population growth and
+accordance with the following principles:
+development
+a) Need and the nexus: The need for the infrastructure 6.2 Types of Infrastructure
+• to provide a system for the coordinated delivery of
+must be clearly demonstrated (need) and the
+infrastructure necessary to facilitate new urban growth
+connection between the development and the Infrastructure is fundamental to the economic and social
+opportunities to achieve compact, consolidated towns
+demand created should be clearly established wellbeing of any community. For the purposes of this
+and cities
+(nexus). policy, essential infrastructure includes:
+• to provide clarity on the acceptable methods
+b) Transparency: Both the method for calculating the a) Development Infrastructure – infrastructure
+of collecting and coordinating contributions for
+infrastructure contribution and the manner in which it required to facilitate development and to support the
+infrastructure
+is applied should be clear, transparent, and simple to orderly development or redevelopment of an area.
+• to establish a system for apportioning, collecting understand and administer. b) Community Infrastructure – infrastructure required
+and spending contributions for infrastructure that is
+c) Equity: Infrastructure contributions should be levied for communities and neighbourhoods to function
+transparent, equitable, accountable and consistent
+equitably from identified stakeholders within a effectively.
+and
+contribution area, based on the relative contribution
+• to guide an efficient dispute resolution and arbitration to need. 6.3 Scope
+process.
+d) Certainty: The scope, timing, and priority for
+Infrastructure contributions can be sought for the
+delivering infrastructure items, and the cost of
+following types of infrastructure:
+infrastructure contributions and methods of
+a) Development Infrastructure: may be imposed
+accounting for escalation, should be clearly identified.
+through the subdivision and development process
+e) Efficiency: Contribution should be justified on
+without the need for a DCP.
+a whole-of-life capital cost basis consistent with
+Items are listed in Schedule 1: Development
+maintaining financial discipline on service providers
+Infrastructure - Standard Infrastructure Contribution
+by precluding the over-recovery of costs.
+Requirements. Standard Infrastructure items may be
+f) Consistency: The system for infrastructure
+included in a DCP when cost-sharing arrangements
+contributions for apportioning, collecting and
+are proposed, unless other existing mechanisms and
+spending contributions should be consistent, efficient
+process are in place for collection of contributions for
+and transparent.
+infrastructure such as primary schools.
+g) Accountable: That there is accountability in the
+manner in which infrastructure contributions are
+determined, collected and expended.
+
+State Planning Policy 3.6 –
+4
+Infrastructure Contributions
+April 2021
+b) Community Infrastructure: items that may be The contributions are for the initial capital requirements b) For Community Infrastructure – a maximum levy
+considered for inclusion in a DCP are listed in Schedule only and not for ongoing maintenance or operating costs for infrastructure of $5,000 per dwelling shall apply
+2: Community Infrastructure: Items for inclusion in a of the infrastructure, beyond that required of developers for local governments seeking contributions for the
+Development Contribution Plan. through the subdivision and development process. capital cost of community infrastructure, subject
+to the support of the Western Australian Planning
+6.4 Where infrastructure contributions Commission (WAPC).
+6.5 Form of infrastructure contributions
+can be sought
+Contributions cannot exceed the maximum amount
+Infrastructure contributions can be satisfied by one or any
+and all items are to be justified, with the demand for
+Contributions can be sought from developers and combination of the following methods:
+infrastructure demonstrated through a Community
+landowners for infrastructure items to support the orderly
+• ceding land for roads, public open space, primary Infrastructure Plan (CIP). Local governments will
+development of an area to cater to additional demand
+school sites, drainage and/or other reserves be required to set priorities, following consultation
+from increased population; to facilitate development and
+• constructing infrastructure works to be transferred to with the community, on the delivery of Community
+redevelopment of areas identified in strategic planning
+a relevant Government agency on completion (in-kind Infrastructure.
+instruments for consolidated urban growth; or to
+contributions)
+accommodate and facilitate industrial growth: It is expected that additional funding to deliver the
+• monetary contributions, to be used by the local full range of required Community Infrastructure will
+• a new item of infrastructure
+government or Government agency or utility provider come from other sources including general local
+• land for infrastructure to acquire land or undertake works (either directly government revenue, and State and Federal funding.
+• an upgrade in the standard of provision of an existing through the subdivision and development process, or
+The capped costs for Community Infrastructure is
+item of infrastructure, to meet the additional demand through a DCP) or
+to ensure there is a balance in the ability for local
+in a defined catchment • some other method acceptable to the relevant
+governments to deliver Community Infrastructure for
+Government agency or infrastructure provider, or a
+• an extension to an existing item of infrastructure to a growing population, while also limiting the impact
+combination of the above.
+avoid unnecessary duplication of facilities, to meet on housing affordability.
+the additional demand of new residents in a defined
+The capped costs should not be regarded as a target,
+6.6 Variable and maximum costs levied
+catchment
+with contributions required through a community
+• the total replacement of infrastructure once it has Costs levied are either variable or capped, depending on DCP to be justified, and the infrastructure able
+reached the end of its economic life where it can be the type of infrastructure: to be delivered within defined timeframes.
+demonstrated that new development has resulted in a) For Development Infrastructure – costs are Where possible, efforts should be made to obtain
+additional demand and variable depending on the infrastructure alternative or additional funding sources.
+requirements and location of the development
+• other costs reasonably associated with the
+area. Costs should be established based on industry
+preparation, implementation and administration of
+benchmarks for specifications at an appropriate
+a DCP.
+standard.
+
+State Planning Policy 3.6 –
+5
+Infrastructure Contributions
+April 2021
+6.7 Imposition of infrastructure • land contributions for public open space, foreshore 6.10 Development Contribution Plans
+contributions reserves, primary schools and roads
+• infrastructure works for essential services and roads 6.10.1 When a DCP is required
+Contributions for infrastructure are generally calculated
+• monetary contributions for standard servicing and Development Contribution Plans (DCPs) prescribe the
+and applied via the following mechanisms:
+utility charges or cost contributions for land owners in a development
+a) Subdivision and development process –
+• a combination of the above. contribution area for the provision of infrastructure to
+consistent with the requirements of this policy and
+service future growth.
+Schedule 1 - Standard Infrastructure Contribution
+6.9 Developer Agreements
+requirements, contributions are levied through the Where cost-sharing arrangements are proposed
+subdivision or development process and applied that cannot be implemented through alternative
+Contributions may also be implemented in limited
+directly via standard conditions of subdivision, strata arrangements, these can be supported by a DCP.
+circumstances through Developer Agreements or by a
+subdivision or development, or other methods
+voluntary agreement between a landowner or developer Infrastructure items can be included in a DCP where
+detailed in the local planning scheme.
+and the relevant local government, pursuant to a request costs are to be equitably shared between landowners,
+b) Development Contribution Plans – where cost- from the landowner or developer. based on the relative proportion of demand generated.
+sharing arrangements are proposed to deliver Where applicable, a DCP should also reflect the sharing of
+Circumstances include large-scale, single ownership
+Development or Community Infrastructure consistent costs of infrastructure, detailing any contribution to the
+projects with a long development timeframe, or in
+with the requirements of this policy (refer Schedule 1 delivery of infrastructure made by the local government
+regional areas where a formal DCP is not considered
+for Standard Development Infrastructure contribution or service provider.
+by local government and contributing owners to be
+requirements; and Schedule 2: Community
+necessary to achieve desired infrastructure delivery Infrastructure items included in a DCP should consider the
+Infrastructure items).
+outcomes. lifespan of the DCP, with the expectation that the item of
+c) Developer Agreements − in limited circumstances,
+infrastructure can be genuinely delivered consistent with
+and pursuant to a request from the landowner or Notwithstanding that Developer Agreements do not
+the timing and priorities established in the DCP.
+developer. form part of a local planning scheme, infrastructure
+contributions prepared under this arrangement should Infrastructure contributions can only be for the provision
+6.8 Subdivision and development be consistent with the principles outlined in this policy of capital items, and costs associated with design and
+and any decision to deviate from these principles, construction of infrastructure (including land costs).
+Developers, or landowners, are required to make including the provision of facilities of a higher quality The costs of administration, and other requirements, such
+contributions for new or upgraded infrastructure to or specification than standard, should be a voluntary as maintenance periods for public open space, required
+support the orderly development of an area. These may decision by all parties to the agreement. by State Government policy are considered capital items
+relate to the requirements of service providers, the State and may be included in a DCP.
+Government or local government.
+DCPs should not be considered the default instrument
+Schedule 1 details the standard requirements for for funding of infrastructure and should be carefully
+infrastructure contributions levied through the considered prior to commencement, and other
+subdivision and development process. This includes: approaches for the coordinated delivery of infrastructure
+should be explored.
+
+State Planning Policy 3.6 –
+6
+Infrastructure Contributions
+April 2021
+DCPs may not be suitable in established regional or • land excluded 6.10.3 Timing of DCPs to align with comprehensive
+metropolitan areas due to the difficulties in establishing • procedures relating to the DCP Report and Cost planning
+the need and nexus of additional infrastructure, or the Apportionment Schedule (CAS) Where a structure plan (Standard, Precinct or District
+uncertainty around the rate of growth and certainty
+• cost contributions based on estimates Structure Plan), or similar planning instrument, has been
+regarding the timing of delivery of infrastructure.
+prepared and cost-sharing arrangements are identified
+• valuation of land
+as being required to deliver infrastructure necessary for
+6.10.2 Operative Scheme Provisions • liabilities and triggers for cost contributions
+development, a DCP should be drafted at the earliest
+• payments of a cost contribution
+Where it has been determined that a DCP is required to opportunity, and advertised concurrently or within
+implement cost-sharing arrangements, it is to be prepared • unpaid contributions 6 months following approval of the structure plan.
+for a Development Contribution Area (DCA). This area is • administration of funds This is to ensure that the DCP has been prepared ahead
+to be identified on the scheme map and within the text, • procedures for shortfall or excess at the end of a DCP of subdivision and development, and that all parties are
+and incorporated into schemes via special control areas. aware of cost liabilities associated with the delivery of
+• closure procedures
+necessary infrastructure.
+A DCP does not have effect until it is incorporated into • powers of the local government and Minister and
+a local planning scheme. Prior to (or concurrent with) Consideration of structure plans by the local government
+• arbitration and dispute resolution avenues.
+identification of the first DCA within a local government and the WAPC should not be delayed where a local
+area, and associated formulation of a DCP, operative Infrastructure costs and estimates are not to be government has not yet prepared a DCP.
+scheme provisions must be included in the relevant incorporated into the local planning scheme, but shall
+local planning scheme to provide the framework for be formulated and advertised with the scheme report, or 6.10.4 Requirements of a DCP
+formulating and implementing a DCP, as provided in scheme amendment report, which introduces the DCP.
+Development Contribution Plans are detailed in
+the Planning and Development (Local Planning Schemes)
+While development contributions can be calculated, they the Scheme and supported by a DCP Report and
+Regulations 2015.
+cannot be collected prior to gazettal of the plan, without associated CAS, and other supporting strategic and
+Where a local government has advertised a development the agreement of the landowner. financial planning reports. In preparing a DCP, the local
+contribution plan, and the submissions have been government is to ensure that:
+Interim arrangements, such as Deed of Agreements,
+considered by the local government and the amendment
+should be agreed and implemented via conditions of a) there is a clear and sound basis with linkages to the
+forwarded to the WAPC for final approval, land within
+subdivision or development to contribute to the cost of local government’s strategic and financial planning
+that DCA will be considered to be subject to the DCP.
+providing community and/or development infrastructure. processes - infrastructure items must be included in
+The WAPC will support the imposition of a condition
+Further details regarding the recommended contents of a local government strategic community plan and
+of subdivision or development requiring contributions
+Deed of Agreements are provided in the supporting the capital works program
+for the provisions of infrastructure consistent with the
+guidelines and include:
+b) the need for that infrastructure, based on an analysis
+proposed DCP.
+• a provisional cost contribution amount, mutually of the demand generated, and the nexus, and where
+Provisions to be incorporated into local planning schemes agreeable to both parties the relationship between the need for infrastructure
+relating to DCAs include the following: • the timing of reconciliation of final payment and and the new development is clearly established
+• a sunset clause that defines the time period.
+
+State Planning Policy 3.6 –
+7
+Infrastructure Contributions
+April 2021
+c) that the DCP Report contains adequate justification The details of all items of infrastructure are to be detailed • primary schools – collection of contributions for
+for the infrastructure and construction standards in the DCP in the scheme. primary school land is coordinated via the Department
+identified in the DCP, and the authority responsible of Education
+DCP infrastructure items are to be included in the local
+for providing the infrastructure must be identified government strategic community plan and capital works • technical college (TAFE)/university - land acquired by
+d) the costs of infrastructure must be transparent, program such that the timing of delivery aligns between relevant government agency or provider
+appropriate and reviewed at least annually all documents. • non-government schools - land acquired by relevant
+e) estimated costs of infrastructure should be based on or provider
+Where a DCP is proposed, the scope of infrastructure
+the recommended reference rates, or indices, detailed items should be clearly defined in the local planning • administration costs associated with office
+in the policy and supporting guidelines, and relevant scheme, and should not be subject to change unless accommodation and facilities for staff undertaking
+references or industry standards used in estimating adequate justification is provided, such as when an item DCP administration
+costs are stated in the DCP Report
+of infrastructure is no longer required. • marketing features (eg estate boundary walls or
+f) there is a commitment to providing the infrastructure fencing, entry statements, public art, signage, artificial
+The scope of items of infrastructure in a DCP should
+in accordance with the timing and priorities outlined lake or waterway with no drainage function)
+not be expanded to ensure the principle of certainty is
+in the scheme; the DCP Report should include any
+upheld, unless any changes have been included in an • regional sports grounds and facilities (regional open
+scenarios under which this term may be extended or
+amendment to the Scheme, and the required public space designated in Region Scheme) and
+shortened
+consultation has been undertaken. • local government offices.
+g) commitments to funding, including external sources
+of funding are detailed in the DCP Infrastructure items considered inappropriate for
+6.10.6 Form and content of a DCP
+inclusion in a DCP, where other funding mechanisms
+h) the DCA to which the DCP applies must be
+should be sought, or where other processes are in place The DCP template in Schedule 3 should be used and
+appropriate and within an identified growth area or
+to collect contributions, include: incorporated into the local planning scheme to ensure
+location identified in a strategic planning document
+consistency in the application of the development
+and • infrastructure to be delivered by individual developers
+contribution system across Western Australia, and to
+i) cost-sharing arrangements between owners in the or landowners through subdivision and development
+provide certainty for system users.
+DCP area must be transparent, fair and reasonable. process, and which is not a shared cost in with other
+landowners in the DCA Any departure from the model template will need to be
+6.10.5 Scope of Items of Infrastructure in a DCP justified based on individual circumstances.
+• wetland management (including any rehabilitation)
+Infrastructure contributions can be sought for items – note that maintenance/ management costs The DCP is to include or specify the following:
+of infrastructure where cost-sharing arrangements are may be included as required of developers by
+a) the DCA to which the DCP applies including details of
+proposed. local governments through the subdivision and
+land or development to be excluded
+development process
+Acceptable items are listed in Schedule 1: Development b) the infrastructure and administrative items to be
+• regional drainage
+Infrastructure - Standard Infrastructure Contribution funded through the DCP
+Requirements and Schedule 2: Community Infrastructure: • high school and other education facilities - land
+c) details of funding, including the percentage being
+Items for inclusion in a Development Contribution Plan. acquired by relevant government agency or provider
+funded by the DCP, and the percentage from other
+funding sources
+
+State Planning Policy 3.6 –
+8
+Infrastructure Contributions
+April 2021
+d) the method and formula to be applied in determining Determining an appropriate lifespan should take into Administrative items may be included as a DCP item,
+the cost contribution of each property owner in the consideration strategic and infrastructure planning, but they must relate directly to the work local
+DCA (or unit of charge as determined in the DCP; the and financing cycles; reflect anticipated development government must do to prepare and implement the DCP.
+unit of charge applied may vary for residential and growth rates; and provide certainty that the identified All administration items are to be individually itemised in
+non-residential uses, and may include, but not limited infrastructure items can be delivered within the stipulated the DCP.
+to, per dwelling; per lot, per hectare, or per square timeframe of the DCP.
+Items that may be included are detailed in the Schedule
+metre)
+4 and may include: technical consultant fees for other
+e) the priority, timing, staging and delivery of each item 6.10.7 Supporting Information studies, plans, reports, and project management
+of infrastructure, including the party responsibility for Supporting information required to accompany a DCP is associated with the development of land if required to
+delivery of infrastructure specified in Schedule 4. Templates for DCP Reports and inform the preparation of the DCP.
+f) the term for which the DCP is to have effect the CAS are included in the guidelines for Infrastructure
+g) the applicable review process for the DCP, the DCP Contributions. 6.10.9 Consultation requirements
+Report, and infrastructure cost estimates, including
+Prior to undertaking advertising and consultation as
+the method to be used, indexing mechanisms for 6.10.8 Management and administration of a DCP
+part of the statutory requirements for an amendment
+credits accrued by a developer or property owner,
+The local government is to establish and maintain an to the local planning scheme, early consultation on the
+and land valuations and
+interest-bearing reserve account that will operate as the proposed content of the DCP should be undertaken with
+h) the policies, plans and other supporting documents Development Contribution Fund (DCF), in accordance relevant stakeholders, including key landowners in the
+providing justification for the infrastructure items with the Local Government Act 1995 for each DCA, into DCA, providers of any infrastructure to be included in the
+proposed for inclusion in the DCP. which cost contributions for that DCA will be credited, DCP, and State Government planning agencies.
+and from which all payments for infrastructure and
+The lifespan of a DCP should be linked to completion of To ensure the principles of transparency and equity
+administrative items within that DCA will be made.
+development or subdivision, and generally a maximum are maintained, the DCP Report is to be advertised
+lifespan of 10 years applies. A lifespan of longer than 10 The purpose of the reserve account and the use of money concurrently with the Scheme Amendment Report to
+years will only be considered in limited circumstances, in the reserve account must be limited to the application ensure that all parties are aware of their liabilities and
+if justification for such a timeframe can be demonstrated of funds for the DCA. responsibilities. The DCP Report should include the CAS
+and linked to a capital works and staging program. and other supporting documentation as required, that
+Information on the interest earned on reserve accounts
+provide details of the infrastructure costs and estimates,
+For Community Infrastructure, a longer lifespan may be are to be made available to the public by the local
+the priority and timing of the delivery of each item of
+considered in limited circumstances to deliver city-wide government upon request, and any interest earned on
+infrastructure, and other information necessary to justify
+Community Infrastructure or specific strategic urban cost contributions credited to a reserve account should
+the scope and contribution.
+projects, which may have a longer delivery timeframe. be applied in the DCA to which the reserve account
+While longer timeframes of up to 15 years may be relates.
+considered, there must be a clear link to infrastructure
+delivery, and there is certainty that the landowners
+contributing to the community infrastructure will benefit
+from the infrastructure delivered.
+
+State Planning Policy 3.6 –
+9
+Infrastructure Contributions
+April 2021
+6.10.10 Prioritisation of infrastructure in a DCP included in DCPs as the acquisition of land is a separate Contingencies should be reviewed through various
+process undertaken by the Department of Education. phases of the life of the DCP, consistent with the principle
+A DCP may identify infrastructure that:
+Consideration will be given by the Department of that contingency amounts will reduce as detailed design
+a) needs to be actioned with the first development in a
+Education to requests from landowners for early costs and cost estimates become more certain.
+DCA, such as a major road extension/connection and
+acquisition of land in cases of hardship.
+b) is predominantly located on an individual property 6.10.13 Disputes and right of review
+Further information regarding the provision of school sites
+owners’ land, such as construction of a recreation
+is provided in the WAPC’s Operational Policy which guides Landowners and developers can seek a review of the
+facility, or acquisition of public open space, to service
+School Site Planning. calculation of costs, and the timing of return of funds.
+the larger DCA.
+It is preferable that disputes relating to cost contributions
+6.10.11 Early acquisition of public purpose sites 6.10.12 Cost contributions based on estimates
+are resolved by negotiation between the parties to the
+The DCP should give priority to the acquisition of land The determination of infrastructure costs and dispute, determined by an independent third party.
+for public purposes early in the development process, administrative costs is to be based on amounts expended,
+However, it is acknowledged that this may not always be
+to ensure that those landowners whose land has been but when expenditure has not occurred, it is to be based
+possible and review by an independent decision-maker
+identified for a public purpose (such as public open on the best and latest estimated costs available to the
+may be required in some cases. This policy provides for
+space) are not disadvantaged or unduly impacted by the local government and adjusted accordingly, if necessary.
+the following pathways for the resolution of disputes.
+rate of development. Sites for acquisition should be able
+Where a cost apportionment schedule contains estimated
+When a party subject to a development contribution
+to be used for the purpose intended.
+costs, such estimated costs are to be prepared and
+objects to the amount of a cost contribution, that party
+Consideration is to be given by the local government to reviewed at least annually by the local government.
+may give notice to the local government within 28 days
+requests from landowners for early acquisition of land
+A local government is to provide available information after being informed of the cost contribution.
+in cases of hardship, where land is identified for public
+upon request to relevant stakeholders, including the DCP
+Supporting evidence may be submitted within 42
+purposes in the DCP area.
+Report, the CAS, and supporting information such as
+days after being informed of the cost contribution, and
+The Department of Planning, Lands and Heritage (the valuation advice, calculations and methodology used to
+prepared by a suitably qualified person detailing the basis
+Department) may, in limited circumstances, pre-fund a determine the costs, or adjustment of costs.
+of the objection, and include proposed alternative costs
+DCP for the purposes of acquiring land in hardship cases,
+Where a contribution has been paid based on estimated for consideration.
+where the local government has provided evidence to
+costs, this constitutes full and final discharge of the
+A review of the objection is to be undertaken by an
+the Department that it does not have funds to acquire
+owner’s liability.
+independent expert (a suitably qualified person agreed
+the land. Once funds are available in the DCP fund, the
+Consistent with industry standards, the estimated cost of by the local government and the owner), at the owner’s
+Department will be reimbursed for the cost of acquiring
+items of infrastructure may include project contingencies expense.
+land with interest.
+for design and construction:
+In the case of primary school sites, early consultation with
+Justification for proposed contingencies should be
+the Department of Education is required through the local
+provided in the DCP report. Recommended contingency
+structure plan process to establish commitment to timing
+percentages for the design and construction phases are
+of purchase of the land. Primary school sites are not
+provided in the supporting guidelines.
+
+State Planning Policy 3.6 –
+10
+Infrastructure Contributions
+April 2021
+If, following a review, the determination of the value of 6.10.14 Contribution credits – Principles of payment e) Where a developer, or land owner, has other land
+the cost contribution is still not acceptable to the owner, and refund holdings in the development contribution area,
+the value is to be determined: the credit is held by the local government until it is
+Where a developer or landowner has pre-funded
+a) by any method agreed between the local infrastructure within a DCA, land has been ceded to required to be used by the developer to offset future
+government and the landowner or allow early infrastructure delivery, the landowner and the contributions.
+b) if the local government and the owner cannot agree local government must negotiate a fair and reasonable f) Where a developer, or land owner, has no further
+on a method, by arbitration in accordance with the outcome in relation to the credit. holdings in the DCA, the amount is held by the local
+Commercial Arbitration Act 1985, with the costs to be government as a credit to the developer, or land
+Appropriate negotiated outcomes include the following,
+shared equally between the local government, on owner, until payments into the DCP fund are received
+however, alternative arrangements may be made when
+behalf of the DCP, and the owner. from subsequent developers to cover the credited
+agreed between the two parties:
+amount. The credit is then reimbursed to the
+Alternatively, it is proposed to introduced provisions into
+a) Where landowner has agreed, or been required developer, or land owner, as soon as circumstances
+the Planning and Development Local Planning Scheme
+to pre-fund an item of infrastructure, or to cede permit.
+Regulations 2015 (LPS Regulations) which would provide
+land early to allow early infrastructure delivery, this g) Where the DCP fund is in credit from developer, or
+for an application for review being made to the State
+pre-funding is to be held as a credit against future land owner, contributions already received, the credit
+Administrative Tribunal for:
+contributions, due from that owner. should be reimbursed as soon as circumstances
+• the amount of the contribution required to satisfy
+b) Pre-funding, the quantum of any credit, and the permit on completion of the works/ceding of land
+a related condition of subdivision or development
+timing of reimbursement to the landowner or and having regard to the priority and timing of DCP
+approval and
+developer are to be discussed and agreed between works.
+• a decision of local government regarding the timing the developer and the local government prior to the h) Contribution credits applied as a result of a pre-
+of return of a refund of a credit. commencement of any works related to the pre- funding arrangement for the cost of the infrastructure
+Consideration of applications for review made under funded infrastructure. item are to be:
+these proposed provisions would be guided by the c) Where a landowner has provided contributions via (i) as identified in the CEP and CAS and
+content of this this policy and supporting provisions an interim arrangement, such as Deed of Agreement,
+(ii) based on the infrastructure being constructed to
+proposed to be included in the LPS Regulations. this contribution is to be held as a credit against
+the same standard as was costed in the CEP.
+future contributions due from that owner if the credit
+These proposed changes respond to issues raised during i) The provision of infrastructure to a higher standard
+has not been previously reconciled.
+consultation on this policy. However, as stakeholders will require the relevant Government agency, or
+d) Where a developer, or land owner, has pre-funded
+have not had an opportunity to comment on the developer, or land owner, if on a voluntary basis, to
+infrastructure, or ceded land early, the credit may be
+proposed method to resolve these issues, any proposed meet the gap in costs.
+used as security for interim payments until such time
+amendment to the LPS Regulations will be subject to
+j) If the actual amount of expenditure incurred when
+as the DCP has been finalised.
+additional consultation before implementation.
+pre-funding an infrastructure item unexpectedly
+varies significantly from that identified in the CEP and
+CAS, the local government is to:
+
+State Planning Policy 3.6 –
+11
+Infrastructure Contributions
+April 2021
+(i) establish why the variation exists and whether 6.10.15 Indexation If a local government considers, and can demonstrate,
+such costs are justified and that the indexation isn’t keeping pace with the true costs
+Indexing ensures cost contributions remain consistent
+(ii) determine whether the CEP and CAS need to be with changing infrastructure costs. To achieve of a particular item, then the local government should
+reviewed. consistency in the use of indexing across local revise the cost estimates for that component/item.
+k) Where the review of the CEP and CAS results in a governments, the following indices are to be used, Indexation may be used in the annual review of cost
+significant change per unit of charge, a formal review where appropriate, as reference rates for various DCP estimates and/or as applied to credits and is to be
+of the DCP is required to ensure the principle of components including administration, development and detailed in the DCP. Indexation may be used for updating
+equity is upheld. community infrastructure, and land: final cost contributions as required after gazettal of
+l) The reimbursement of pre-funded works and early the DCP. The WAPC may support the use of alternative
+ceding of land for acquisition through the DCP, Community Infrastructure indexing to those listed in this policy.
+should be given priority according to timing that the • Australian Bureau of Statistics (ABS) Producer Price
+infrastructure was delivered, as soon as adequate Index for Non-Residential Building Construction 6.10.16 Review of infrastructure cost estimates
+funds have been collected in the DCP having regard • Australian Bureau of Statistics (ABS) Construction Work A review of infrastructure cost estimates should be
+to the priority and timing of DCP works. Done, Australia undertaken at least annually.
+m) Subject to the prior agreement of the local • WALGA Local Government Cost Index
+An annual review may be undertaken by:
+government, interest on loans and other borrowing (Non- Residential Building Construction).
+i) applying the recommended Indexes detailed in this
+costs directly associated with the pre-funded
+infrastructure can be included in contribution credits. Development Infrastructure policy, or as published by the WAPC and/ or
+n) Where a developer, or land owner, seeks to prefund • Australian Bureau of Statistics (ABS) Producer Price ii) reviewing each DCP component and undertaking a
+works in advance to the priorities and scheduling Index for Road and Bridge Construction full review of cost estimates.
+identified in the DCP, there should be a broader • Australian Bureau of Statistics (ABS) Engineering The method of the review of cost estimates should be
+demonstrated benefit to the DCP for indexation to be Construction Activity detailed in the DCP.
+applied to such works and applied to other owners’
+• WALGA Local Government Cost Index
+The review of cost estimates should be undertaken by a
+liabilities within the DCP. Indexation of pre-funding
+(Road and Bridge Construction)
+suitably qualified professional.
+works should be discussed with the local government
+• other WA based construction cost indices agreed
+and detailed in the DCP report. There may be circumstances where there is a substantial
+between the parties.
+o) Credits are only available for infrastructure items reduction in the cost contribution liability, due to factors
+included as an item in a DCP, including land Land including an overestimation of contingencies and
+acquisition. component costs, or an item of infrastructure is no longer
+• Valuation advice from a licensed valuer
+required. In such cases, including where a liability has
+Indexing is to apply to contribution credits to incorporate
+Credits been paid in full, the local government, on behalf of the
+escalation. At the time the credit/liability is calculated,
+DCP fund is to:
+the index agreed between the parties should be used • as per relevant index as, detailed above or
+until the liability is paid in full. • Reserve Bank of Australia (RBA) - Cash Rate
+
+State Planning Policy 3.6 –
+12
+Infrastructure Contributions
+April 2021
+(i) reconcile and adjust the liability for each unit of Any change to the proposed standards of infrastructure informing the status report is to be made available at the
+charge, and refund excess monies to owners that paid and facilities; deletion of an item of infrastructure; request of the Department of Local Government, Sport
+over the adjusted amount, as soon as circumstances or significant changes to the timing and priority of and Cultural Industries or the Department of Planning,
+permit or delivery of infrastructure, after a DCP has been finalised Lands and Heritage, to enable the effective collection of
+(ii) in cases where it is not reasonably practicable to and included in a local planning scheme, can only be information regarding the progress of all DCPs across the
+identify owners and issue their entitled amount of incorporated in a DCP through an amendment to that state.
+refund, any excess funds are to be held in the DCP scheme.
+fund until all cost contributions have been made 6.10.19 Shortfall or excess in cost contribution
+or accounted for and applied to the provision of 6.10.18 Monitoring and reporting at end of DCP
+additional facilities or infrastructure improvements in
+In addition to the annual review of cost estimates, At the end of a DCP, if there is a shortfall in the total
+that DCA.
+an annual status report is to be prepared by the local amount of cost contributions when all contributions have
+In the event that an external funding source (State, government, providing an overview of progress of the been accounted for in a DCA, the local government may
+Federal or other) is secured to fund infrastructure, the cost delivery of infrastructure specified in the DCP. make up the shortfall via other revenue sources; entering
+contribution should be adjusted, or contributors to the into agreements with owners to fund the shortfall, if
+The status report is to include:
+DCF should be refunded. agreed by both parties; or fund the shortfall via loans or
+• the timing and estimated percentage delivery of an
+borrowings.
+infrastructure item against that stated in the DCP,
+6.10.17 Delivery of infrastructure
+arising from review of the local government’s Capital If there is an excess in funding when all contributions
+Identification of infrastructure as a contribution item in a Expenditure Plan have been accounted for in a DCA, the local government
+gazetted DCP implies an agreement by local government • the financial position of the DCP, including interest is to:
+to deliver that infrastructure, and should align with the that has been accrued and a) For DCPs delivering Community Infrastructure only,
+local government’s long-term (10 year) financial plan. the local government should apply the excess
+• a summary of the review of the estimated costs in the
+funds to the provision of additional facilities or
+While it is acknowledged that some level of flexibility in CAS, including any changes in funding and revenue
+improvements in that DCA, following consultation
+delivery timeframes is required to respond to the rate sources, and any relevant indexation.
+with the community.
+of development, it is important that local government
+A model template for the annual report is provided in
+adheres to the estimated delivery timeframes for The local government is to publish details of how the
+Schedule 5. It is intended that the annual reporting
+infrastructure for which development contributions have excess funds are intended to be spent in the DCA,
+provide a snapshot, or high-level summary, of the
+been made to ensure that the principles of equity and before the funds are expended.
+progress of the DCP, to ensure the fundamental principles
+accountability are upheld. Notwithstanding, the delivery b) For all other DCPs, the local government is to refund
+of transparency and accountability are upheld throughout
+of infrastructure can only occur with consideration of the the excess funds to the contributing landowners
+the life of the DCP.
+use of available funds. for that DCA. Prior to distribution of excess funds,
+The annual status report is to be published by the local owners are to be advised in writing on the extent of
+government on its website, and should align with the excess funds; how the excess funds are intended to
+annual financial statements of local governments, be distributed; and the anticipated timing for return
+published no later than six months after the end of the of excess funds.
+financial year. Supporting documentation and data
+
+State Planning Policy 3.6 –
+13
+Infrastructure Contributions
+April 2021
+There may be circumstances where it is not possible or Once the cost contribution is paid in full, if requested to • Any DCP (scheme amendment) that is being prepared,
+practical to identify contributing owners. In such cases, do so by the owner of the land, the local government is to and has not been submitted to the WAPC on, or after
+and after making all reasonable efforts to identify and withdraw the caveat at soon as circumstances permit the day of gazettal of this policy will be subject to the
+contact the contributing owners, the local government is standards detailed in this policy.
+to expend the excess funds to provide additional facilities
+6.11 Infrastructure contributions not to be
+or improvements in that DCA, following consultation with 6.13 Implementation
+imposed as a condition of rezoning
+the community.
+Implementation of this policy will be primarily through
+Local governments are not to impose infrastructure
+The local government is to publish details of how the
+statutory instruments including, structure plans, local
+contributions beyond the scope of WAPC policy as
+excess funds are intended to be spent in the DCA before
+planning schemes or improvement schemes and the day-
+conditions or prerequisites for rezoning. Infrastructure
+the funds are expended
+to-day consideration of scheme amendment, subdivision,
+contributions must be formulated through an open and
+strata subdivision and development proposals and
+transparent process.
+6.10.20 Closing a DCP
+applications, together with the actions and advice of
+Once all infrastructure and facilities identified in a DCP agencies in carrying out their responsibilities.
+6.12 Transitional arrangements
+have been delivered, the local government is required
+to take the appropriate steps to close the DCP within 12
+The following transitional arrangements apply to the
+months, or as soon as practicable, having consideration
+application of this policy:
+for the policy provisions for a shortfall or excess funds in a
+• Existing DCPs will continue to remain valid for the
+DCP.
+lifespan of the DCP. DCPs that do not have a lifespan
+In circumstances where the delivery of remaining
+or review period shall be amended no longer than
+infrastructure is delayed by a small number of landowners
+three (3) years after this policy comes into effect, to
+unwilling or unable to develop their land, local
+include the anticipated lifespan of the DCP and priority
+governments should follow the options outlined in Clause
+and timing for delivery of infrastructure.
+6.9.19 to resolve the shortfall in funds, and where possible,
+• Existing DCPs are to adhere to all monitoring and
+deliver the remaining infrastructure.
+reporting requirements of the LPS Regulations and
+The amount of any cost contribution for which an owner SPP 3.6.
+is liable, and has not paid, as a result of not developing
+• DCPs that have been prepared prior to the gazettal of
+their land is to be a charge on the owners’ land to which
+this policy and having e been advertised, considered
+the cost contribution relates, and the local government
+by Council and submitted to the WAPC for approval,
+may lodge a caveat, at the owner’s expense, against the
+can be considered and assessed against SPP 3.6 (2009),
+owner’s certificate of title to that land.
+however, are to adhere to all operational, monitoring
+The local government may withdraw the caveat to permit and reporting requirements of the LPS Regulations
+a dealing, and then re-lodge the caveat, at the owner’s and this SPP 3.6.
+expense to prevent further dealings.
+
+State Planning Policy 3.6 –
+14
+Infrastructure Contributions
+April 2021
+7 REVIEW OF POLICY 8 DEFINITIONS/
+INTERPRETATIONS
+This policy shall be reviewed within five (5) years of the
+date that it is published in the Government Gazette. Unless otherwise defined within the relevant local
+Capped costs for community infrastructure will be planning scheme, all definitions and interpretations
+reconsidered at the time this policy is reviewed. relating to Infrastructure Contributions and DCPs, shall
+be as defined in the Planning and Development (Local
+Planning Schemes) Regulations 2015.
+
+State Planning Policy 3.6 –
+15
+Infrastructure Contributions
+April 2021
+SCHEDULES
+SCHEDULE 1: DEVELOPMENT INFRASTRUCTURE – STANDARD INFRASTRUCTURE CONTRIBUTION
+REQUIREMENTS
+Infrastructure items that may be required as an infrastructure contribution in any development setting imposed through the subdivision
+and development process, or contained within a Development Contribution Plan in cases where cost-sharing arrangements are proposed.
+Where item of infrastructure in this Schedule is included in a DCP, monetary contribution is based on need and nexus.
+ITEM STANDARD REQUIREMENT DELIVERY METHOD
+Public purposes
+Land for Public Open Public open space equivalent to 10% of the gross subdivisible area, or alternatively, a cash-in- Land
+1 Space (Local and lieu contribution, in accordance with WAPC policies and the Planning and Development Act or
+District) 2005.
+monetary contribution
+Basic Development – development of public open space consistent with the requirements
+of Liveable Neighbourhoods or other built environment policy of the WAPC, including full
+earthworks, basic reticulation, grassing of key areas, pathways that form part of the overall
+pedestrian and/or cycle network, trees, drainage, lighting, basic seating, and maintenance for
+two summers, and post water monitoring and establishment period of infrastructure such as
+Construction of infrastructure
+living streams where required by WAPC policy
+Development of Public
+2 or
+Open Space Additional facilities for public open space may be provided at the discretion of the
+landowner/developer and may include provision of basic playground equipment, water monetary contribution
+fountains/ features, litter bins.
+Upgrading of existing POS areas where comprehensive planning has been undertaken
+and public realm upgrade requirements are set out in a Structure Plan, or similar planning
+instrument.
+Land (ceded free of cost to the State as per WAPC
+3 Foreshore reserves Land for foreshore reserves on the coast, rivers and lakes in accordance with WAPC policies.
+policy)
+Foreshore reserve
+Delivery by and at discretion of developer, or land
+4 management plan and/ As part of development of public open space, including remediation works.
+owner/relevant government agency
+or upgrades
+
+State Planning Policy 3.6 –
+16
+Infrastructure Contributions
+April 2021
+ITEM STANDARD REQUIREMENT DELIVERY METHOD
+Wetlands are not suitable for inclusion in a DCP purely for environmental protection
+purposes. Such land should provide a community recreation benefit to be considered Land (ceded free of cost to the State as per WAPC
+for inclusion, and any valuation of the land should reflect the lack of development policy or as part of allowable 2% restricted public
+potential resulting from its environmental constraints. open space, if useable for recreational purposes)
+5 Wetlands
+Inclusion in a DCP can only be for recreation purposes as part of the overall public open or
+space network consistent with the provisions of Liveable Neighbourhoods. May include monetary contribution based on demonstrated
+initial rehabilitation works and costs for maintenance/ management that are required of need/nexus
+landowners/ developers through the subdivision and development process.
+As per the relevant Operational Policy for school site
+planning:
+- land (ceded free of cost to the State) or
+- pro-rata contribution by landowners via condition
+6 Primary schools Land for government primary schools.
+of subdivision.
+Collection of contributions are coordinated through
+the Department of Education via the subdivision and
+development process and are not included in a DCP
+Movement network
+Land for primary distributor roads including primary regional roads and railway reserves only Delivery by relevant government agency
+Primary distributor roads where justified by a new subdivision/ development i.e. in special circumstances where super- In most cases land for regional infrastructure such as
+7
+(proposed) lots are created on the urban fringe to allow for future subdivision. primary regional roads and railway reserves would be
+In other circumstances, land to be acquired by appropriate authority. acquired by the appropriate authority
+Where integrator arterials abut or are included within an area of subdivision or are required to
+Land and Construction of infrastructure
+connect to existing major roads outside the subdivision area but within the same landholding.
+Integrator arterials or
+8 Construction including earthworks for the whole road reserve, the construction of one
+(proposed) monetary contribution based on infrastructure
+carriageway comprised of two lanes and associated drainage works and shared paths or other
+demand
+works if shown in the structure plan, including intersection treatments where required.
+Neighbourhood Land for neighbourhood connectors, access streets and laneways where required. All roads Land and Construction of infrastructure
+connectors, access and traffic works required within a subdivision and linked to a constructed public road, or
+9
+streets and laneways including intersection treatments, and drainage. These roads provide access to individual lots monetary contribution based on infrastructure
+(proposed) and allow utility services to be reticulated in the road reserves. demand
+Land (ceded free of cost to the State as per WAPC
+policy, or acquired by relevant government agency,
+Where the proposal induces additional traffic movements and/ or benefits from it; and or
+Existing roads or subject to injurious affection)
+10 where development is a significant traffic generator.
+(land for widening) or
+In other circumstances, land to be acquired by appropriate authority.
+monetary contribution based on infrastructure
+demand.
+
+State Planning Policy 3.6 –
+17
+Infrastructure Contributions
+April 2021
+ITEM STANDARD REQUIREMENT DELIVERY METHOD
+Where existing roads are inadequate to accommodate traffic generated by proposal; and or
+Land and/or construction of infrastructure
+where development is a significant traffic generator.
+Existing roads or
+11 Upgrading, construction and widening of existing roads and laneways, including intersection
+(upgrades) monetary contribution based on infrastructure
+treatment where required, to accommodate additional demand generated by a subdivision
+demand
+or development.
+Required as part of items 8-11 - consistent with the requirements of Liveable Neighbourhoods Land and Construction of infrastructure
+or other WAPC policies. May include signs and signals, street furniture, trees, landscaping,
+Shared paths/cycle or
+12 planting and associated streetscape and public realm upgrades including public transport
+paths/footpaths/PAWs stops and shelters in accordance with approved Structure Plan, or similar planning monetary contribution based on infrastructure
+instrument. demand
+Land and/ or Construction of infrastructure
+or
+Grade separated and monetary contribution based on infrastructure
+13 at grade pedestrian Only in limited circumstances where set out in Structure Plan for the area. demand
+crossings
+In most cases land for regional infrastructure such as
+primary regional roads and railway reserves would be
+acquired by the appropriate authority
+Utilities and services
+Infrastructure for –
+• water
+• sewerage
+Land and Construction of infrastructure
+• drainage works
+or
+• telecommunications
+monetary contribution based on infrastructure
+14 Utilities and Services • electricity supply infrastructure – initial provision and upgrades to existing services demand
+This covers on-site works as well as off-site capital works such as major pump stations, trunk Note that works may be in addition to monetary
+sewers or transmission lines that are necessary to, or contribute to, the subdivision and/or charges by licensed service providers for off-site
+development, and the planning and implementation of urban water requirements. major infrastructure.
+If an area is in fragmented ownership, where the infrastructure is not pre-funded by a state
+government agency, monetary or in-kind contributions may be required in lieu of land or
+infrastructure works with reimbursement for other owners where costs are shared.
+Other
+Other contributions as
+15 provided for in WAPC As determined via WAPC policies As detailed in WAPC policies
+policies
+
+State Planning Policy 3.6 –
+18
+Infrastructure Contributions
+April 2021
+SCHEDULE 2: COMMUNITY INFRASTRUCTURE: ITEMS FOR INCLUSION IN
+A DEVELOPMENT CONTRIBUTION PLAN
+Community infrastructure includes structures and facilities which help communities and neighbourhoods to function
+effectively. Levying Community Infrastructure requires the preparation of a Development Contribution Plan.
+Caps on the levying of contributions for Community Infrastructure apply per dwelling.
+ITEM STANDARD REQUIREMENT DELIVERY METHOD
+Land (in some circumstances as part of provision of public open space)
+and Construction of infrastructure
+Local sports, cultural
+and recreation • Local sporting facilities such as tennis and bowling clubs, and cultural facilities. or
+1
+facilities (at local / • Includes car parking and landscaping. monetary contribution based on infrastructure demand
+neighbourhood parks)
+Note: Land for Public Open Space is a Standard Infrastructure Item under
+Schedule 1
+Land (in some circumstances as part of provision of public open space)
+Multi-purpose district • Sports facilities – including, but not limited to grassed playing surfaces, multi-purpose hard and Construction of infrastructure
+sports, cultural and surface outdoor courts, lighting and fencing.”
+or
+2 recreation facilities and/ • Buildings/pavilion - indoor sports facilities including toilets, change rooms, basic kiosk
+monetary contribution based on infrastructure demand
+or pavilion/building (at facilities
+district open space) • Associated car parking and landscaping. Note: Land for Public Open Space is a Standard Infrastructure Item under
+Schedule 1
+Land (in some circumstances as part of provision of public open space)
+Multi-purpose Includes meetings rooms, indoor recreation rooms, small scale flexible performance space, and Construction of infrastructure
+3 Community building
+kitchen facilities, toilets, car parking and landscaping or
+and basic facilities
+monetary contribution based on infrastructure demand
+Library building, and Land (in some circumstances as part of provision of public open space)
+other cultural facilities and Construction of infrastructure
+4 Excluding specialist interior fit-out and technology
+and buildings and basic or
+facilities monetary contribution based on infrastructure demand
+Land (in some circumstances as part of provision of public open space)
+Child care/after school and Construction of infrastructure
+5 centre buildings and Community-run centres only, excluding interior fit-out and technology
+or
+basic facilities
+monetary contribution based on infrastructure demand
+Requested by local government and approved by the WAPC, for which development
+Other community
+6 contributions may reasonably be requested, having regard to the objectives, scope and As determined by WAPC
+services and facilities
+provisions of this policy
+
+State Planning Policy 3.6 –
+19
+Infrastructure Contributions
+April 2021
+SCHEDULE 3: DEVELOPMENT CONTRIBUTION PLAN TEMPLATE
+Reference No. DCP X
+Area name DCA XX
+Relationship to other The development contribution plan generally conforms to strategic planning documents outlining the intended delivery
+planning instruments of infrastructure including the local government’s Strategic Community Plan and the 10-year Financial Management Plan.
+Example:
+1. District community centre
+• Single storey, xm2, plot ratio floor area building with x parking spaces situated on lot x, x street, x suburb
+i. planning and design
+ii. site acquisition
+iii. earthworks and site (including servicing)
+iv. construction of facility (including associated tender)
+v. associated parking
+Infrastructure and vi. associated landscaping
+administrative Items to 2. Proportional costs of widening and upgrading of xx Road (x %) - including upgrading of existing carriageway,
+be funded construction of one new carriageway, and associated drainage, lighting, landscaping etc
+3. Cost of land and works for the realignment of xxx Road. Works are to include the cost of one carriageway,
+earthworks, medium landscaping, drainage, lighting and paths
+2. Administrative costs including:
+i. costs to prepare and administer the plan during the period of operation (including legal expenses, valuation
+fees, proportion of staff salaries, computer software or hardware for purpose of administering the plan)
+ii. costs to prepare Annual Report and monitoring
+iii. costs to prepare and review cost estimates and the cost apportionment schedule
+iv. valuation costs
+
+State Planning Policy 3.6 –
+20
+Infrastructure Contributions
+April 2021
+Reference No. DCP X
+The contributions outlined in this plan have been based on the need for community infrastructure and/or non-community
+infrastructure generated by additional development in the development contribution plan. The local government’s
+Community Infrastructure Plan identifies the community infrastructure needs that impact on the development
+contribution plan. The method for calculating contributions excludes the:
+• demand for a facility that is generated by the current population
+• demand created by external usage - the proportion of use drawn from outside of the main catchment area
+• future usage – the proportion of usage that will be generated by future development outside of the development
+Method for calculating contribution plan timeframe
+contributions
+C = [ID x CR] x I,
+Where
+C = Cost Contribution
+ID = Infrastructure Demand – calculated using cost Apportionment Schedule CR = Contribution Rate - as set out in the
+Cost Apportionment Schedule
+I = Indexation factor.
+Period of operation A DCP must specify the period of operation (X years).
+(lifespan) Lifespan should be linked to completion of development or subdivision, and a maximum lifespan of 10 years
+applies. A lifespan longer than 10 years will only be considered in limited circumstances, if justification for such a
+timeframe can be demonstrated and linked to a capital works and staging program, and subject to the principle
+of equity being upheld. A longer lifespan of up to 15 years may be considered in limited circumstances delivering
+city-wide community infrastructure or specific strategic urban projects, which will have a longer delivery timeframe.
+Selected timeframes are to correspond with any related strategic and infrastructure planning, and financing cycles;
+reflects anticipated development growth rates; and provide certainty that the identified infrastructure items can be
+delivered within the stipulated timeframe of the DCP.
+Summary of the estimated timing and priority for the delivery of each item of infrastructure - details to align with the
+Development Contribution Plan Report and the Council’s long-term strategic plan and infrastructure plan.
+Timing and priorities
+1-3 years
+1. Upgrading of xx road
+Timing and priority 4-7 years
+2. Realignment of xx road (land acquisition)
+8-10 years
+3. Construction of District Community Centre
+Note: In accordance with LPS Regulations (2015) the priority and timing of delivery of infrastructure should be
+included in the Scheme. Further detail regarding delivery may be included in the accompanying DCP Report.
+
+State Planning Policy 3.6 –
+21
+Infrastructure Contributions
+April 2021
+Reference No. DCP X
+Review process Example
+(i) The plan will be reviewed five (5) years from the date of gazettal of the local planning scheme or amendment
+to the local planning scheme to incorporate the plan, or earlier should the local government consider it
+appropriate having regard to the rate of development in the area and the degree of development potential still
+existing.
+(ii) The estimated infrastructure costs shown in the cost apportionment schedule will be reviewed at least annually
+to reflect changes in funding and revenue sources and indexed based on the Building Cost Index or other
+appropriate index as approved by the qualified person undertaking the certification of costs.
+Participants and
+In accordance with the Cost Contribution Schedule adopted by the Local Government for DCA x
+contributions
+Reporting • Annual review of DCP
+requirements • A status report (annual report) in the form consistent with the template in Schedule 5
+
+State Planning Policy 3.6 –
+22
+Infrastructure Contributions
+April 2021
+SCHEDULE 4: DEVELOPMENT CONTRIBUTION PLANS – REQUIRED INFORMATION
+SCHEDULE 4 – REQUIREMENTS AND CONTENT OF A DEVELOPMENT CONTRIBUTION PLAN
+Required Information A DCP must be accompanied by a DCP Report which is to contain a Capital Expenditure Plan (CEP) and a Cost
+for all DCPs Apportioning Schedule (CAS), and, which between them:
+• identify the strategic basis for inclusion of each infrastructure item in the DCP
+• specify the details of priority, staging and timing for the provision of infrastructure, and include any scenarios
+under which this term may be extended or shortened
+• detail the methodology for land valuation, and or basis for a standard or specification used for items of
+infrastructure
+• set out in detail the calculation of the cost contribution for each owner, or other unit to be charged such as (per
+lot, dwelling, m2 etc) in the DCA, based on the methodology provided in the development contribution plan
+• include all supporting documentation, such as technical reports, that support or justify any aspect of the
+DCP to be included as Appendices to the DCP Report. eg traffic modelling for upgrading of roads to inform
+apportionment of demand for the new infrastructure among the DCP landowners; an analysis of comparable
+provision ratio statistics from adjoining established residential communities, where applicable, to support the
+apportionment calculations
+These documents do not form part of the scheme but provide important justification for the content of each DCP.
+Templates are provided in the Infrastructure Contributions Guidelines detailing the recommended form and content
+of the DCP Report and CAS.
+The DCP Report (and Appendices) and CAS must be adopted for advertising to all owners at the same time the
+related scheme amendment is advertised for comment.
+Where a local government is seeking contributions for community infrastructure, these need to be supported by:
+• a community infrastructure plan for the area, identifying the services and facilities required over the next 5-10
+years (supported by demand analysis and identification of service catchments)
+• a capital expenditure plan (with at least five years) which identifies the capital costs of facilities and the revenue
+Documentation to sources (including capital grants) and programs for provision
+support Community • projected growth figures, including the number of new dwellings to be created at catchment level (suburb or
+Infrastructure items district)
+• an analysis of comparable provision ratio statistics from adjoining established residential communities, where
+applicable, to support the apportionment calculations
+• methodology and supporting analysis for determining the proportion of costs of community infrastructure to be
+attributed to growth and the proportion to be attributed to existing areas.
+
+State Planning Policy 3.6 –
+23
+Infrastructure Contributions
+April 2021
+SCHEDULE 4 – REQUIREMENTS AND CONTENT OF A DEVELOPMENT CONTRIBUTION PLAN
+Administrative items may be included as a DCP item, however, must relate directly to the work local government must do
+to prepare and implement the DCP. Administration Items should be itemised in the DCP and include estimated costs for
+each item in the DCP report:
+• costs to prepare and review DCP cost estimates
+• costs to prepare DCP cost apportionment schedule
+• costs for undertaking valuations for DCP
+• costs associated with structure planning and technical studies but only when associated with the preparation of a
+DCP
+Administrative Items • fees for professional services directly linked to preparation and implementation of DCP (eg legal and accounting
+fees)
+• costs for computer software and/or hardware upgrades necessary to enable DCP preparation
+• proportion of staff salaries directly related to DCP administration – ‘management fees’ should directly relate to the
+cost of labour to manage the DCP, rather than a percentage of total DCP costs
+• details and justification of contingencies applied
+• financial institution fees and charges associated with administration of DCP funds
+• interest charged on loans taken out to pre-fund items included in DCP (established based on lending rates at the
+time DCP is prepared).
+
+State Planning Policy 3.6 –
+24
+Infrastructure Contributions
+April 2021
+SCHEDULE 5: ANNUAL REPORT TEMPLATE FOR DEVELOPMENT CONTRIBUTIONS PLANS
+Name of DCP -
+Report date -
+Financial Year –
+Table 1: Summary of delivery of infrastructure
+Scheduled delivery/ Progress/status % detail of funding (DCP Reasons for delay
+Item of infrastructure Expected delivery
+priority in DCP (% complete) and by other sources) (if applicable)
+Table 2: Financial position of DCF
+Received/value Interest earned on
+Current balance
+contributions collected DCP funds expended/value Value of credits DCP funds
+of DCF
+or land area (if applicable)
+Monetary component
+in levies ($)
+Works in kind
+Land contribution
+TOTAL
+1. Has the DCF account be independently audited? (Yes/No) (Insert date)
+2. Has the annual review of Cost Apportionment Schedule (CAS) and Cost Estimates been undertaken?
+(Yes/No) (Frequency/ insert date)
+3. Are dwelling forecasts current? (Yes/No) (Insert review date) – state any implications for the DCP
+4. Identify any matters that may require future modifications to the DCP (slow rate of growth, unlikely to
+develop) and if alternative funding needs to be investigated.
+Note: The data used in the annual status report is to be provided in .csv format.

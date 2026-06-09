@@ -1,0 +1,27 @@
+{
+  "id": "PS-003",
+  "title": "Department of Planning,",
+  "instrument_type": "position_statement",
+  "issuing_authority": "Western Australian Planning Commission",
+  "version_date": "November 2024",
+  "pages": 8,
+  "key_provisions": [
+    {
+      "heading": "3.1 Exclusions",
+      "summary": "Local governments are encouraged to"
+    },
+    {
+      "heading": "5.1 General measures",
+      "summary": "complementary and compatible tourism tourism sites and precincts are zoned as"
+    }
+  ],
+  "cross_references": [
+    "Metropolitan Region Scheme",
+    "National Construction Code",
+    "State Planning Policy 2.5",
+    "State Planning Policy 7.3: Residential",
+    "Strata Titles Act 1985"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:35:57Z"
+}

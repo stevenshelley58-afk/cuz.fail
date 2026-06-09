@@ -1,0 +1,135 @@
+{
+  "id": "MEL-MAP-007",
+  "title": "REGION SCHEME RESERVES (MRS)",
+  "instrument_type": "scheme_map",
+  "issuing_authority": "City of Melville",
+  "version_date": "",
+  "pages": 1,
+  "key_provisions": [
+    {
+      "heading": "LOCAL SCHEME RESERVES",
+      "summary": "District Distributor Road Public Open Space"
+    },
+    {
+      "heading": "LOCAL SCHEME ZONES",
+      "summary": "Light Industry Service Commercial"
+    },
+    {
+      "heading": "KEITH ROAD",
+      "summary": "Light Industry Service Commercial"
+    },
+    {
+      "heading": "OTHER CATEGORIES",
+      "summary": ""
+    },
+    {
+      "heading": "SEC M E",
+      "summary": "CUREDALE Local Government Boundary"
+    },
+    {
+      "heading": "S AL M O N D",
+      "summary": ""
+    },
+    {
+      "heading": "V AY EN",
+      "summary": ""
+    },
+    {
+      "heading": "E L L O E",
+      "summary": ""
+    },
+    {
+      "heading": "K A R E L",
+      "summary": ""
+    },
+    {
+      "heading": "RICHES WAY LARMER",
+      "summary": ""
+    },
+    {
+      "heading": "PLACE MCCULLOCKRISE N IR TS",
+      "summary": ""
+    },
+    {
+      "heading": "T N E C",
+      "summary": ""
+    },
+    {
+      "heading": "MOSSMAN",
+      "summary": ""
+    },
+    {
+      "heading": "GLEDDON ROAD",
+      "summary": ""
+    },
+    {
+      "heading": "MINCHIN",
+      "summary": ""
+    },
+    {
+      "heading": "AHERNEC",
+      "summary": ""
+    },
+    {
+      "heading": "E B R IE",
+      "summary": ""
+    },
+    {
+      "heading": "PLA C E C E",
+      "summary": "G O D DA R D W R20 C A M M R20"
+    },
+    {
+      "heading": "SELLARS",
+      "summary": ""
+    },
+    {
+      "heading": "Y M A Q UI",
+      "summary": ""
+    },
+    {
+      "heading": "EF R OY ROAD",
+      "summary": ""
+    },
+    {
+      "heading": "MCW A V",
+      "summary": ""
+    },
+    {
+      "heading": "PARRYAVENUE H A R C",
+      "summary": ""
+    },
+    {
+      "heading": "AL H P A E N U E",
+      "summary": ""
+    },
+    {
+      "heading": "KETT WAY",
+      "summary": ""
+    },
+    {
+      "heading": "HERTFORD",
+      "summary": ""
+    },
+    {
+      "heading": "WIRTH CLOSE",
+      "summary": ""
+    },
+    {
+      "heading": "L R RYAN COURT CAVE",
+      "summary": ""
+    },
+    {
+      "heading": "RODGERS PLACE DOBIE STREET",
+      "summary": ""
+    },
+    {
+      "heading": "PLACE NICHOLLS",
+      "summary": ""
+    }
+  ],
+  "cross_references": [
+    "Local Planning Scheme No. 6"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:12Z"
+}

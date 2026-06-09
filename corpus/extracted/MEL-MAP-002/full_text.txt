@@ -1,0 +1,269 @@
+LEGEND
+SU2
+SU1
+R12.5
+D R12.5 D U N C R AI G R O A S K HILL P L A C E R12.5 R12.5 R O R12.5
+R12.5
+R12.5 TU A R R12.5 R15 R12.5 LOCAL SCHEME RESERVES T A R15 R12.5 R D R12.5 R O S TR E E T S S R12.5 G A IR LO C H R12.5 R15 D Lo is c t a ri l c D t D is i t s ri t b ri u b t u o t r o R r R oa o d ad E P P u u b b l l i i c c O Pu p r e p n o S se p s a c : e Education R12.5 S T R E E T S TR E E T R12.5 Local Road IS Public Purposes : Infrastructure Services
+R15
+R15 R30 R15
+R15
+R12.5 R15
+KINTAIL ROAD R30
+R15 R-AC0
+R15 TWEEDDALE ROAD R-AC0 LOCAL SCHEME ZONES
+R40 R40 R15
+R12.5 C4 C4 R40 ROAD R-AC0 C2 R-AC0 R-AC0 R-A C C 2 0 Centre Residential R40 M A C L E O D R O A D R40 R40 MACDONAL R D 15 R15 E R15 R15 R15 R-AC0 R B E S R O A D C2 R-AC C 0 2 M O R E A U M E W S R-AC C 0 2 C2 L M P i r g i i x v h e a t d t I e n U d C s u l e u st b r s y , Institutions and Place of Worship S S U e p rb r e v a c i n c ia e D l U C e s v o e e m lo m p e m rc e i n a t l O R-AC0 G F LE N R15 E LG R15
+R15 R-AC0 R12.5 R15 R15 A R D R O S S R15 R15 S TR E E T R15 U LLA P O MACRAE ROAD R-AC0 R-AC0 C2 OTHER CATEGORIES
+O
+A LN E S R15 S R15
+L
+R O A D R-AC0 C2 C2 Scheme Area Boundary
+R12.5
+R15
+R15
+TA IN
+S T R E E
+R15 S S TR
+E E T
+TR E E T
+R15
+G A IR LO C H S
+T R E E T R60 R60 R
+R
+C 6
+6
+0 4
+0
+R40/60
+R-AC0 C2
+C2 R-AC0
+R- C A 2
+H
+C
+EL
+0
+M STREET
+R-AC0
+R-A
+C
+C
+2
+0
+L
+R A
+o
+2 1
+c
+0
+al
+A
+G
+R d
+o
+C d
+v
+i o
+e
+ti d
+r
+o
+n
+e n
+m
+s al
+e
+U
+nt
+s e
+B
+s
+oundary
+T
+S IM
+P S O R15 R60 R40/60
+C4
+R60 R40/60
+R-AC0 STREET
+R-AC0
+R-AC0
+R-AC0 R1 Restricted Uses N S TR
+E E T R15 R60 R40/60
+C4 WREN R-AC0
+KAVANAGH STREET SU1 Special Use Area
+R40/60 C4 R60
+R15 R60 R20 ROAD R60 R40/60 R40/60 STREET R20 R20 R20 No Zone
+R12.5
+R15
+R15 MACRAE R60
+R40/60 HIGHWAY R40/60
+R60 G LE
+N
+R60 BOMBARD ROOKWOOD STREET
+R15 C2 R60 R40/60 CANNING R40/60 R60 E LG R20 R20
+C2 R12.5
+NESS
+ROAD
+C2
+F LE
+T C H E R-AC0
+R-A
+C
+C
+2
+0
+R40/60
+A LN
+E S S
+S TR
+E E T R20 R12.5
+R
+R12 C . O 5 LLI
+T
+E R O R Y R 2 S 0 T R E E T STREET R20 R12.5 R40 R15
+C
+C C
+2
+R R - 2 A 2 5 C 0 0 C2 R-A RIS C C C E LE 2 2 Y 0 S TR R C E E T - 2 R A C C - C 2 A 2 R 0 C -A 0 C0 S T R E E C T 2 W R IL - C L A C C O R 2 0 CK - A STR C C C E C E 2 0 T 2 2 R C C -A 2 2 C S IM T 0 E P E R T S S O N R C R - C A 2 -A 2 C C 0 0 R6 T R A 0 IN 20 S TR R E E T 60 MI S T TR C E H E T ELL B S O TR M E B E A R T R R D 2 6 0 0 S W S E T E R
+TM
+EET A R D R O S S R20 S TR R E E T 2 R 0 4 G 0 R IBSO 2 N 0 C4 STRE R ET 20 R AY M O N D R20 R R 2 E Y N 0 O LD S R O A D R2 LO 0 CKE STREE C R T LIV 2 E 0 R1 U LLA 2 P O . O S S L T 5 O R T K O R E A D EET S TR E E T R HAW 1 K 2 IN . S 5 STREET
+R12.5 R20 R40 R-AC0 C2 R-AC0 R40 A N S TR E E T S TR E E T STREET R20
+C O CUNNINGHAM R20 R40 R40 R20 R40 O G E E R O A D R20 DAVID R20 R20 R20 R20
+R40 R20 R20
+ELE N
+STREET
+STREET R40
+R
+CA
+4
+RR
+0
+OLL
+STREET
+R20 MILLINGTON
+STREET R20 DREW
+R4
+RO
+0
+AD
+R40
+R20
+R20
+H ET T E E R20 S T R E T R20 E R T S R20 R20 R20 R20 R20 R20 R20 R20 R20 R20 C A R R E R12.5 R12.5 E E R40 T D R A T O S R R20 H C K E Y I R20 Y R20 DRUMFERN STREET R40 RI S E L E Y W A Y W E IV N A M E T A B VERSION No 1 E S CENTRAL AVENUE N U E R20 M R20 R20 E R40 P O R T R E R40 R E V IR FR A N CALGARY STREET R20 R20 R20 R20 R20 R20 R20 R20 R20 R20 R20 C IS R20 R O R40 R12.5 A D
+MAP OVERVIEW
+Authorised: T.Servaas
+City of Melville 1
+N Plot Date: 16 February 2023
+3 4
+Local Planning Scheme No. 6 7 G.Gazette: Friday, 27 May 2016
+5 6
+8
+( District Scheme ) Local Planning Scheme Map No. 2 of 8
+S
+REGION SCHEME RESERVES (MRS)
+Civic and Cultural Public Purposes
+CP Public Purposes - Car Park
+Other Regional Roads
+CG Public Purposes - Commonwealth Government
+Parks and Recreation
+HS Public Purposes - High School
+R Parks and Recreation - restricted
+H Public Purposes - Hospital
+Port Installations
+P Public Purposes - Prison
+Primary Regional Roads SU Public Purposes - Special Uses
+Railways SEC Public Purposes - State Energy Commission
+ROAD
+State Forests
+TS Public Purposes - Technical School
+FLANAGAN Waterways U Public Purposes - University # # WSD Public Purposes - Water Authority of WA STRAND # # # # # Water Catchments C
+THE
+N
+N A # # #
+NI
+G
+MAJESTICCLOSE G R O S S E N IS B E T R O A D A TK IN S S T R O M E R O A D C A R R O N R O A D B E A C H R O R O A D A D
+S
+O N R O A D DUNVEGAN ROAD R O A D
+R
+O A D
+M
+AT H E KILLIL A N
+RIVERWAY
+D A O
+R D N
+R R O A CLE N N A
+S E M A A
+R F D A U E R O A V E N M S T R O N G A V E N U E E N U E E SI X T H A R T H A V A V E N U CANNINGBEACH ROAD DEE ROAD KISHO
+M
+R
+A
+N
+C K
+R
+E
+O
+N
+A
+Z
+D
+IE
+ROAD F O U R T HI R D FI R S T
+P S
+L
+E
+A N
+E H
+A DE
+T JA N E
+ROAD
+SPEY ROAD
+MUNRO R O
+A D CANNING
+HIGHWAY
+H O R N
+R O A D
+S KI
+ROAD KINROSS
+D A O D R A O
+R
+D
+A O
+R O A D NAIRN ROAD L E A T VI E R
+S O
+N
+O
+GI L
+W
+T H E VI E A
+M
+E
+U N E V A
+D
+A
+O R
+N WI
+D C H A L A B E B L VIL L E CHORTIS LANE M E ELANE CONON ROAD FFIR E N C E R T ESCE NT KEARNS K WILENA LA NE OLYMPIC PLACE ROAD TH E KLEM
+P R
+MCCALLUM
+CRES C E N T
+H O P E R P U R D IE AV E N U E
+O M E N A D
+E PARK ROAD
+O A D BUSHELL PLACE
+RT
+U O
+C
+AVE N UE CHEYNEWALK E N ROAD N L LI H A LILIAN D U NKLEY A VENUE C A N TR AY AV E N U E S E A R LE R O A D D A O R S K N IL A R D P LA C E GRIMSAY DORNIE PLACE S W A Y Y A W N E V A L B D A O R D R O F D E B D A O R D N A L K C IR T S D A O R Y E L N E H E U N E V A R O N T N E V E C A R R E T L E A H C IM T S C E R A R E T W N T M V E O U I E E S H P T L A N A D S E A L G HS P O L FIONN COURT
+City of Melville
+This electronic planning map has been prepared and made If you have questions about the publication or certification of a
+available for public inspection by the Western Australian map, or suspect any omissions or errors in this electronic planning Local Planning Scheme No. 6
+Planning Commission pursuant to section 267B of the map, please advise the Department of Planning, Lands and
+P l a n n in g a n d D e v e l o p m e n t A c t 2 0 0 5 . Whilst all care has been Heritage at spatialdata@dplh.wa.gov.au
+taken to accurately portray the original map, spatial data can be ( District Scheme )
+subject to modification over time. If you wish to use a copy of Produced by Data Analytics, 0 150 300 450 600
+this map in any proceedings, a copy certified by the Department of Planning, Lands and Heritage.
+Commission (or its delegates) under section 267C is evidence Base Information Supplied by the Western Australian
+metres
+of the contents of the electronic map or a part of the map. Land Information Authority, SLIP 1180-2020-1
+MAP: Applecross and Mount Pleasant Localities

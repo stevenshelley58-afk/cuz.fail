@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/position-statement-renewable-energy-facilities",
+  "fetched_at": "2026-06-09T22:35:18Z",
+  "http_status": 200,
+  "content_hash": "42ba6df467dba751d4df4821aeffcc0e34cf6b0aedf6275bb8fb8629a9fdf2de",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/POS-Renewable-energy-facilities-position-statement.pdf",
+  "used_playwright": false,
+  "bytes": 720491
+}

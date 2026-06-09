@@ -1,0 +1,35 @@
+{
+  "id": "FRE-LPP-015",
+  "title": "Local Planning",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Fremantle",
+  "version_date": "January 2026",
+  "pages": 6,
+  "key_provisions": [
+    {
+      "heading": "1.2 On-site signage is required for all proposals and is:",
+      "summary": "a) Limited to sign plaques or plates affixed to the main frontage of the building."
+    },
+    {
+      "heading": "3.2 Grouped and Multiple Dwellings - Maximum occupancy of no more than two",
+      "summary": "persons per bedroom, excluding persons under 16, to a maximum of six persons."
+    },
+    {
+      "heading": "5.1 Development is to be connected to a reticulated potable water supply.",
+      "summary": "approved on-site effluent disposal system with adequate capacity for the proposed"
+    },
+    {
+      "heading": "5.2 Development is to be connected to a reticulated sewage or serviced by an",
+      "summary": "approved on-site effluent disposal system with adequate capacity for the proposed"
+    }
+  ],
+  "cross_references": [
+    "LPP 2.27",
+    "Local Planning Scheme No.4",
+    "Planning and Development (Local Planning Schemes) Regulations 2015",
+    "R-Codes",
+    "Residential Design Codes"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:36Z"
+}

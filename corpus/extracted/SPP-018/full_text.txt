@@ -1,0 +1,1019 @@
+State Planning Policy 5.3
+Land Use Planning in the
+Vicinity of Jandakot Airport
+January 2017
+Prepared under Part Three of the Planning and Development Act 2005
+by the Western Australian Planning Commission
+
+click to follow
+1. CITATION 1 APPENDIX 1
+- BUILDING SITE
+ACCEPTABILITY 9
+2. INTRODUCTION
+AND BACKGOUND 1
+APPENDIX 2
+2.1 Importance of
+- INDOOR DESIGN SOUND
+Disclaimer Jandakot Airport 1
+LEVELS 10
+This document has been produced by the
+2.2 Aircraft noise
+Department of Planning on behalf of the
+measurement 1
+Western Australian Planning Commission. Any
+APPENDIX 3:
+representation, statement, opinion or advice 2.3 Australian Noise
+NOTIFICATION ABOUT
+expressed or implied in this publication is Exposure Forecast 1
+made in good faith and on the basis that the AIRCRAFT NOISE TO BE
+Government, its employees and agents are 2.4 Policy measures 1 PLACED ON PROPERTY TITLE 11
+not liable for any damage or loss whatsoever
+which may occur as a result of action taken 3. APPLICATION
+or not taken, as the case may be, in respect FIGURE 1: FRAME AREA 12
+OF THE POLICY 1
+of any representation, statement, opinion or
+advice referred to herein. Professional advice 3.1 Other policies that
+should be obtained before applying the GLOSSARY OF TERMS 13
+relate to this policy 1
+information contained in this document to
+particular circumstances.
+4. POLICY OBJECTIVES 2 REFERENCES 13
+© Western Australian Planning Commission
+5. POLICY MEASURES 2
+Published by the
+Western Australian Planning Commission 5.1 Interpretation 2
+Gordon Stephenson House
+5.2 Areas below 20 ANEF 2
+140 William Street
+Perth WA 6000 5.3 Areas between 20
+ANEF and 25 ANEF 3
+Locked Bag 2506
+Perth WA 6001 5.4 Areas above 25 ANEF 4
+Published January 2017
+6. IMPLEMENTATION 7
+website: www.planning.wa.gov.au
+email: corporate@planning.wa.gov.au 6.1 Zoning and
+density coding 7
+tel: 08 6551 9000
+fax: 08 6551 9001 6.2 Subdivision control 7
+National Relay Service: 13 36 77
+6.3 Development control 7
+infoline: 1800 626 477
+6.4 Referral arrangements 7
+This document is available in alternative
+formats on application to Communication 6.5 Notification and advice 8
+Services.
+
+State Planning Policy 5.3
+1
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+1. CITATION 2.2 Aircraft noise measurement 2.4 Policy measures
+The system of aircraft noise measurement, which has The policy measures have been based on Table 2.1 from
+This is a State planning policy prepared under section 26
+traditionally been used in Australia for the purposes AS2021 – Building Site Acceptability Based on ANEF Zones,
+of the Planning and Development Act, 2005. It may be cited
+of evaluating land use compatibility, is known as the as amended. However, the policy measures included in
+as State Planning Policy 5.3: Land Use Planning in the Vicinity
+Australian Noise Exposure Forecast (ANEF) system. This this policy provide more definitive guidance on those
+of Jandakot Airport. For the purpose of this document it
+system is employed to produce the following noise matters identified as discretionary in AS2021. It should be
+will be referred to as ‘the policy’.
+measures, which are usually illustrated in the form of noise noted that AS2021 is advisory, and has no direct statutory
+exposure contours: application.
+2. INTRODUCTION • ANEF–being a noise exposure forecast for a particular
+AND BACKGROUND time in the future or based on particular circumstances
+3. APPLICATION OF THE POLICY
+such as ultimate capacity; and
+2.1 Importance of Jandakot Airport • ANEI–being a noise exposure index based on data for
+This policy applies to land in the vicinity of Jandakot
+a previous year where the exact numbers and types of
+Opened in 1963, Jandakot Airport is the principal general Airport, which is, or may be in the future affected by
+aircraft that used the airport are known.
+aviation airport in Western Australia. It is one of the busiest aircraft noise associated with the movement of aircraft.
+airfields and largest pilot training bases in Australia, and Policy measures in Section 5 apply to the land within the
+2.3 Australian Noise Exposure Forecast
+operates 24 hours per day, seven days per week. 20 ANEF contour and frame area.
+The airport is an important element of transport This policy is predicated upon the ANEF as prepared by
+infrastructure, servicing both the region and the State as Jandakot Airport Holdings and endorsed for technical 3.1 Other policies that relate to this policy
+a whole. It also makes a significant contribution to the accuracy by Airservices Australia, which is incorporated
+Other policies and planning instruments relevant to the
+economy of the area in which it is situated, providing by reference into this policy. A copy of the current ANEF
+implementation of this policy should be considered as
+employment and a range of local economic opportunities. can be found on the Jandakot Airport website and is a
+appropriate.
+The strategic importance of Jandakot Airport supports the requirement of the Airports Act 1996. The noise modelling
+need for it to be recognised in the planning of the region, that determines the ANEF contours may be reviewed Land within Jandakot Airport is reserved by the
+and for its operation to be protected as far as practicable, every five years in association with reviews of the master Metropolitan Region Scheme for ‘Public Purposes’ and
+from development that could potentially prejudice its plan for Jandakot Airport. The updated ANEF, as amended, ‘Water Catchments’, while land in the vicinity of the
+performance. At the same time however, it is important resulting from such reviews will be automatically included Jandakot Airport is predominantly zoned ‘Rural – Water
+to recognise the physical context in which the airport is in this policy as amended by reference. Updates to the Protection’.The policy provisions within State Planning
+situated; and to minimise as far as practicable, adverse ANEF are subject to consultation with State and local Policy 2.5 – Land Use Planning in Rural areas and State
+impacts on adjacent development such as aircraft noise. government agencies by Jandakot Airport Holdings. Planning Policy 2.3 – Jandakot Groundwater Protection
+The effect of amendments to the ANEF may include Policy should be considered where applicable.
+alterations to the areas of land to which this policy applies.
+
+State Planning Policy 5.3
+2
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+4. POLICY OBJECTIVES In the case of sites that are dissected by a noise exposure 5.2 Areas below 20 ANEF
+contour, the following interpretations shall apply:
+There is no restriction on zoning or development within
+The objectives of this policy are to:
+(i) where the site has an area less than 1,000m2 the
+this noise exposure zone under this policy, which is
+• protect Jandakot Airport from encroachment by noise exposure for the whole site shall be deemed identified as ‘Acceptable’ for all building types in the
+incompatible land use and development so as to to be the level to which the majority of the site is building site acceptability table in Appendix 1. According
+provide for its ongoing, safe, and efficient operation; subject; and to AS2021 however, noise nuisance may still be
+and (ii) where the site has an area greater than 1,000m2 the experienced in areas below the 20 ANEF exposure level,
+• minimise the impact of airport operations on existing noise exposure shall be determined separately for particularly in the case of newly exposed communities.
+and future communities, with reference to aircraft the individual parts of the site into which it is divided
+noise. by the relevant noise exposure contour. 5.2.1 Frame area
+Building site acceptability Given noise nuisance may still be experienced below the
+20 ANEF exposure level and that Jandakot Airport is a
+5. POLICY MEASURES
+Refers to the acceptability of sites for particular building
+general aviation airport which undertakes significant pilot
+types within various ANEF zones. Appendix 1 includes a
+training, a frame area has been identified (Figure 1). There
+5.1 Interpretation classification of building site acceptability. Development
+is no restriction on zoning or development within the
+types are classified as ‘Acceptable’, ‘Conditionally
+frame area which is outside the 20 ANEF exposure level.
+ANEF level Acceptable’ or ‘Unacceptable’ depending on the
+sensitivity of associated use or occupation of the building It is noted that the ANEF contours may exceed the frame
+Refers to the level of noise exposure forecast under the and the level of noise exposure forecast for the site. area. The appropriate noise exposure zone applies in
+ANEF. Noise exposure contours are illustrated at intervals these areas and the corresponding policy measures
+of five ANEF units beginning at 20 ANEF and ranging up AS2021 recognises that the exposure prediction below 25 should be applied as required for that noise exposure
+to 40 ANEF, with 40 being closest to the runways. ANEF may be inaccurate, and therefore caution should be zone.
+exercised in the evaluation of locations for noise sensitive
+Noise exposure zone premises outside the 25 ANEF contour. In these instances 5.2.2 Notification on title
+it may be appropriate to undertake supplementary
+Refers to the areas within a specified range of noise A ‘notice on title’ pursuant to s70a of the Transfer of Land
+noise measurements so that a sufficiently representative
+exposure levels as illustrated on the current ANEF Act 1893 advising of the potential for noise nuisance is to
+prediction of the noise exposure at the site under
+endorsed by Airservices Australia for technical accuracy. be required as a condition of any subdivision or planning
+evaluation can be obtained and mitigated, if required.
+Noise exposure zones referred to in this policy include: approval, within the frame area. Standard wording to be
+• areas below 20 ANEF; Frame area used in notices on title is included in Appendix 3.
+• areas between 20 ANEF and 25 ANEF; and
+This area is defined by Roe Highway, Ranford Road,
+• areas above 25 ANEF. Warton Road, Armadale Road and the Kwinana Freeway
+(see Figure 1), but does not include areas within the ANEF
+contours.
+
+State Planning Policy 5.3
+3
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+5.2.3 Advice (2) Caution should be exercised when determining • it can be demonstrated that the public benefits of
+whether an increase in sensitive land uses is higher density coding outweigh the negative impacts
+(1) Information should be given to prospective
+acceptable. Land uses that provide for the building of exposing additional residents to aircraft noise.
+purchasers of noise-sensitive premises about the
+types identified as ‘Conditionally Acceptable’ with
+potential for aircraft noise nuisance. Such advice 5.3.3 Subdivision and strata subdivision
+reference to the building site acceptability table
+should be provided by local government in
+in Appendix 1, should be subject to discretionary (1) Subdivision and/or strata subdivision may be
+conjunction with the issue of zoning certificates and/
+control under local planning schemes. Building types approved, provided it is consistent with the zoning
+or property inquiries.
+include: and density coding of the land under the local
+(2) Advice should be provided, in association with
+– dwellings and caravan parks planning scheme, local structure plan or local
+applications for planning approval and building
+development plan.
+permits, of the potential for noise nuisance and – educational establishments
+(2) Where no density coding is prescribed for
+any noise attenuation requirements. Developers
+– child-care premises ‘Residential’ zoned land, the maximum density
+should also be made aware of the benefits of
+window closure and the associated need for forced – hospitals and nursing homes should generally be limited to R20, except as
+provided for in relation to the application of
+ventilation.
+– places of worship
+residential density controls under clause 5.3.2.
+(3) Information about aircraft types and the timing and
+– cinemas, theatre and exhibition centres.
+frequency of aircraft operations is available from the
+5.3.4 Development
+Jandakot Airport website. AS2021 includes tables of (3) It is not intended that this policy would affect the
+noise levels for selected aircraft types and locations, existing zoning or use of land.
+(1) Development may be approved provided it is
+in terms of distance, in specific proximity to airport
+consistent with the zoning, development control and
+5.3.2 Residential density
+runways.
+density coding of the land under the local planning
+Residential uses are ‘Conditionally Acceptable’ within
+scheme, local structure plan or local development
+5.3 Areas between 20 ANEF and 25 ANEF 20 – 25 ANEF and consideration should be given to the plan.
+suitability of such uses within this noise exposure zone.
+(2) In the case of development that is subject to
+5.3.1 Zoning Where land is zoned for residential purposes or to permit discretionary control under a local planning scheme
+residential development, the maximum dwelling density (as provided for under clause 5.3.1), the impact
+(1) Zoning and associated development control
+should generally be limited to R20, except where: of aircraft noise on the users or occupiers of the
+provisions should take into consideration the level of
+development should be taken into consideration
+noise exposure forecast for the area and the building • land is identified as appropriate for more intensive
+in the determination of applications, and where
+site acceptability for the particular noise exposure development through strategic planning instruments
+relevant, in the imposition of conditions of approval.
+zone as identified in Appendix 1. This includes such as a regional or sub-regional structure plan;
+In some cases, a noise assessment and associated
+structure planning which guides subdivision and
+• a higher density coding is desirable to facilitate
+management plan may be required prior to the
+development. Caution should be exercised when
+redevelopment or infill development of an existing
+determination of an application.
+considering whether to facilitate the increase of
+residential area; and
+sensitive land uses within this zone.
+
+State Planning Policy 5.3
+4
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+(3) Where no density coding is prescribed for – occupational characteristics of the proposed (3) Information about aircraft types and the timing and
+‘Residential’ zoned land, the maximum density development. frequency of aircraft operations is available from the
+should generally be limited to R20, except as Jandakot Airport website. AS2021 includes tables of
+(3) Closure of windows and other openings to habitable
+provided for in relation to the application of noise levels for selected aircraft types and locations,
+rooms can significantly reduce the intrusion of
+residential density controls under clause 5.3.2. in terms of distance, in specific proximity to airport
+aircraft noise. This will normally require forced
+runways.
+5.3.5 Noise attenuation ventilation and may also necessitate some form of
+active cooling, such as refrigerated air conditioning.
+(1) Noise attenuation is not mandatory for residential 5.4 Areas above 25 ANEF
+The operational management of buildings however,
+uses within this noise exposure zone. Some areas
+is outside the ambit of this policy and will therefore
+however, may experience aircraft noise levels in be subject only to advice. (Refer clause 5.3.7) 5.4.1 Zoning
+excess of the Indoor Design Sound Levels specified
+(1) Zoning and associated development control
+in AS2021, and noise attenuation is recommended in 5.3.6 Notification on title
+provisions should take into consideration the level of
+such cases. Guidance on noise insulation measures
+A ‘notice on title’ advising of the potential for noise noise exposure forecast for the area and the building
+are contained within the Western Australian Planning
+nuisance is to be required as a condition of any site acceptability for this particular noise exposure
+Commission report, Aircraft Noise Insulation for
+subdivision or planning approval within this noise zone as identified in Appendix 1. This includes
+Residential Development in the Vicinity of Perth Airports,
+exposure zone. Standard wording to be used in notices structure planning which guides subdivision and
+2004.
+on title is included in Appendix 3. development.
+(2) Noise attenuation requirements for uses other
+(2) There is a presumption against zoning which may
+than residential that is identified as ‘Conditionally 5.3.7 Advice
+permit development involving building types
+Acceptable’ in the building site acceptability table in
+(1) Information should be given to prospective identified as ‘Unacceptable’, with reference to the
+Appendix 1, should be determined in consideration
+purchasers of noise-sensitive premises, about the building site acceptability table in Appendix 1. This
+of:
+potential for aircraft noise nuisance. Such advice includes residential, rural-residential or special rural
+– levels of aircraft noise likely to be experienced at
+should be provided by local government in zoning where the predominant type of development
+the site;
+conjunction with the issue of zoning certificates and/ is likely to be housing.
+– likely noise attenuation from the type of or property inquiries. (3) Where land has already been zoned to permit
+construction proposed; (2) Advice should be provided, in association with development involving building types identified as
+applications for planning approval and building ‘Unacceptable’, and where in the opinion of local
+– background noise level to which the site is
+permits, of the potential for noise nuisance and any government it is not practicable to allocate the land
+subject;
+noise attenuation requirements or recommendations for alternative uses, existing zoning may remain.1
+– times of day or night when overflights are likely in accordance with the provisions of clause 5.3.5.
+to occur; Developers should also be made aware of the
+1 Australian Standard 2021 recognises that many non-aviation factors
+– frequency of overflights by the various classes of benefits of window closure and the associated need
+have to be taken into account in decisions about land use, and that
+aircraft; and for forced ventilation. where established residential development exists, it is generally not
+appropriate to apply the recommended land use compatibility criteria
+unless the opportunity for re-zoning arises.
+
+State Planning Policy 5.3
+5
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+(4) Land uses that provide for development of (8) It is not intended that this policy would affect the density should generally be limited to R12.5, except
+building types identified as either ‘Conditionally existing zoning or use of land. as provided for in relation to the application of
+Acceptable’ or ‘Unacceptable’ in the building site residential density controls under clause 5.4.2.
+5.4.2 Residential density
+acceptability table in Appendix 1, should be subject to
+5.4.4 Development
+discretionary control under local planning schemes. (1) Where alternative (non-residential) zoning of existing
+Such development includes: ‘Residential’ zoned land is not practicable, the density (1) No further development is to take place where it
+– dwellings and caravan parks of development should generally be limited to R12.5. would result in an increase in the number of people
+Possible exceptions are where: likely to be accommodated, unless it is consistent
+– educational establishments
+– land is identified as appropriate for more with the zoning and density coding of the land.
+– child-care premises intensive development through strategic (2) In the case of development that is subject to
+– hospitals and nursing homes planning instruments such as a regional or discretionary control under an operative local
+sub-regional structure plan; planning scheme (as provided for under clause
+– places of worship
+5.4.1), the impact of aircraft noise on the users or
+– it can be demonstrated that the public benefits
+– cinemas, theatres and exhibition centres occupiers of the development should be taken into
+of higher density coding outweigh the negative
+consideration in the determination of applications
+– hotels and motels impacts of exposing additional residents to
+and where relevant, in the imposition of conditions
+aircraft noise; and
+– residential buildings of approval. In some cases, a noise assessment and
+– a higher density would facilitate the concurrent associated management plan may be required prior
+– offices and shops
+provision of noise attenuation in accordance to the determination of an application.
+– medical centres with the indoor design sound levels prescribed
+(3) Where no density coding is prescribed for
+in AS2021.
+– restaurants. ‘Residential’ zoned land, the maximum density
+(2) In areas subject to noise exposure levels above 25 should generally be limited to R12.5, except as
+(5) Requests for amendments to local planning schemes
+ANEF, the permissible density of existing residential provided for in relation to the application of
+that would facilitate an increase in the number of
+development should generally not be increased. residential density controls under clause 5.4.2.
+noise-sensitive premises should not be supported.
+(6) Under no circumstances should ‘Rural’ or other 5.4.3 Subdivision and strata subdivision 5.4.5 Noise attenuation
+non-residential zoned land be rezoned for residential
+(1) No further subdivision or strata subdivision is to take (1) Noise attenuation is required as a condition of
+development or any other form of development
+place where it would result in an increase in the planning approval for all development involving
+involving building types identified as ‘Unacceptable’
+number of dwellings that may be developed, unless building types identified as ‘Unacceptable’, with
+in the building site acceptability table in Appendix 1.
+it is consistent with the zoning and density coding of reference to the building site acceptability table
+(7) In considering the practicability of alternative land the land under a local planning scheme. in Appendix 1. In exceptional circumstances, noise
+uses, local government should give particular attenuation may be required for building types
+(2) Where no density coding or minimum lot size is
+emphasis to areas forecast to be affected by noise identified as ‘Conditionally Acceptable’.
+prescribed for ‘Residential’ zoned land, the maximum
+exposure levels above 30 ANEF.
+
+State Planning Policy 5.3
+6
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+(2) Noise attenuation requirements for development is outside the ambit of this policy and will therefore 5.4.6 Notification on title
+involving building types identified as ‘Conditionally be subject only to advice. (Refer clause 5.4.7).
+A ‘notice on title’ advising of the potential for noise
+Acceptable’ in the building site acceptability table in (5) Heritage listed buildings and pre-existing housing
+nuisance is to be required as a condition of any
+Appendix 1, should be determined in consideration of within a designated heritage area may also be
+subdivision or planning approval within this noise
+the: exempt from the requirements for noise attenuation,
+exposure zone. Standard wording to be used in notices
+– levels of aircraft noise likely to be experienced at as provided for under a local planning scheme.2
+on title is included in Appendix 3.
+the site; (6) Minor additions to existing residential development
+– likely noise attenuation from the type of involving no more than two habitable rooms and no 5.4.7 Advice
+construction proposed; more than a 25 per cent increase in habitable floor (1) Information should be given to prospective
+space should be exempted from the requirement for
+purchasers of noise-sensitive premises, about the
+– background noise level to which the site is
+noise insulation.
+potential for aircraft noise nuisance. Such advice
+subject;
+(7) Where more substantial additions are proposed, the should be provided by local government in
+– times of day or night when overflights are likely additional areas should be insulated in accordance conjunction with the issue of zoning certificates and/
+to occur; with the recommended indoor design sound levels or property inquiries.
+of AS2021 or otherwise as provided for in sub-clause
+– frequency of overflights by the various classes of (2) Advice should be provided, in association with
+(3) above. Noise attenuation is not mandatory for
+aircraft; and applications for planning approval and building
+existing areas of the house but is desirable and may,
+permits, of the potential for noise nuisance and any
+– occupational characteristics of the proposed
+in some circumstances, be appropriate to meet the
+noise attenuation requirements or recommendations
+development.
+indoor design sound levels prescribed under AS2021
+in accordance with the provisions of clause 5.4.5.
+(3) Where practicable, the standard of attenuation and/ or the variations provided for in sub-clause (3) Developers should also be made aware of the
+required should be based on achievement of indoor above. According to AS2021, the requirement for benefits of window closure and the associated need
+design sound levels recommended for the particular different internal design sound levels for different for forced ventilation.
+building type or activity in AS2021. (Refer to Indoor indoor spaces could require the construction of
+(3) Information about aircraft types and the timing and
+Design Sound Levels for Determination of Aircraft substantial barriers between habitable spaces.
+frequency of aircraft operations is available from the
+Noise Reduction in Appendix 2). In some cases, a Accordingly, consideration should be given to a
+Jandakot Airport website. AS2021 includes tables of
+noise assessment and associated management plan uniform perimeter insulation approach.
+noise levels for selected aircraft types and locations,
+may be required prior to the determination of an (8) Deemed-to-comply noise insulation specifications
+in terms of distance, in specific proximity to airport
+application. for residential development are contained within
+runways.
+(4) Closure of windows and other openings to habitable the Western Australian Planning Commission report,
+rooms, which is necessary to achieve the benefits Aircraft Noise Insulation for Residential Development in
+of noise attenuation, normally involves forced the Vicinity of Perth Airports 2004 (as amended).
+ventilation and may also necessitate some form of
+active cooling, such as refrigerative air conditioning. 2 Local planning schemes prepared in accordance with the Planning and Development (Local Planning Schemes) Regulations 2015 already provide for
+The operational management of buildings however, variations to development requirements where desirable to facilitate the conservation of heritage buildings or preservation of heritage values in a
+designated heritage area.
+
+State Planning Policy 5.3
+7
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+6. IMPLEMENTATION 6.2 Subdivision control – discretionary provisions to facilitate the
+imposition of conditions to address the
+It is intended that this policy be implemented using a (1) The Western Australian Planning Commission is requirements of this policy with respect to noise
+combination of the following measures: responsible for the control of subdivision under reduction; and
+the Planning and Development Act 2005, and strata
+• zoning and density coding under the operative subdivision under the Strata Titles Act 1985. In – discretionary provisions to facilitate the
+local planning scheme; exercising its discretion in relation to applications registration of notices on title where land is
+affected by aircraft noise above 20 ANEF.
+• subdivision control; for subdivision and strata subdivision the Western
+Australian Planning Commission will have due regard
+• development controls;
+to this policy. 6.4 Referral arrangements
+• referral arrangements; and
+(2) Local government should also have due regard
+• notification and advice. Proposals involving any of the following should be
+to this policy in making its recommendations to
+referred by the relevant local government or in the case of
+the Western Australian Planning Commission on
+6.1 Zoning and density coding subdivision, the Western Australian Planning Commission,
+applications for subdivision and those classes of
+to the operators of Jandakot Airport for comment and
+strata subdivision for which the approval of the
+(1) Local government should have due regard to the advice:
+Commission is required, or in making its decision
+objectives and policy measures outlined in Section 5
+where local government is the delegated authority.
+when reviewing local planning schemes. This relates Scheme amendments
+to all land forecast to be affected by noise exposure
+• Increase in density coding above R20 in areas between
+6.3 Development control
+levels above the 20 ANEF contour and/or within the
+20 ANEF and 25 ANEF.
+frame area where applicable.
+(1) Where practicable, local governments should include • Changes of zoning and/or density coding in areas
+(2) In those areas with potential for further subdivision
+special control areas, or other provisions, in local above the 25 ANEF noise exposure contour, which
+or redevelopment, consideration should be given
+planning schemes, to provide an additional head of have the potential to enable an increase in population
+to ways in which the effects of aircraft noise can be
+power to control development in areas within the 20 density.
+reduced. Where practicable, noise-sensitive premises
+ANEF contour.
+should be prohibited in noise exposure zones for Subdivision
+(2) As well as being defined on local planning scheme
+which the relevant development or use is classified
+maps, special control areas should provide for • Subdivision of land for residential purposes, where the
+as ‘Unacceptable’ in the building site acceptability
+supplementary control of development in order to lot sizes would enable development at a density in
+table in Appendix 1.
+address the policy measures detailed in Section 5. excess of that provided for under this policy.
+Relevant provisions should include:
+Development
+– requirement for planning approval for all noise-
+sensitive development, particularly single houses; • Development identified as ‘Unacceptable’ in the
+building site acceptability table in Appendix 1, with the
+– discretionary provisions to enable applications
+exception of residential development, which accords
+to be refused where the development would be
+with the density coding applicable under a local
+inconsistent with this policy;
+planning scheme.
+
+State Planning Policy 5.3
+8
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+• Development involving penetration of the prescribed 6.5 Notification and advice
+airspace or other controlled activities as prescribed in
+the Airports (Protection of Airspace) Regulations 1996. (1) Advice concerning the potential for noise nuisance
+can most effectively be administered by the relevant
+• Prescribed Airspace is defined under the Airports
+local government via property inquiries, zoning
+(Protection of Airspace) Regulations, 1996 as the airspace
+certificates and conditions of planning approval
+above any part of either an Obstacle Limitation
+requiring notices on title. Standard wording to be
+Surface (OLS) or Procedures for Air Navigation Systems
+used in notices on title is included in Appendix 3.
+Operations (PANS-OPS) surface. Details regarding
+prescribed airspace or controlled activities can be (2) In the case of proposals involving land subdivision,
+obtained from the Jandakot Airport website. the Western Australian Planning Commission has the
+principal role in the provision of advice to applicants
+Land use and/or the registration of notices on title, where
+required.
+• Non-structural activities (artificial light, sunlight,
+emissions of smoke, dust and other particulate (3) The Jandakot Airport website (www.jandakotairport.
+matter, and emissions of steam or other gas) subject com.au) provides information about aircraft noise
+to approval under the Airports (Protection of Airspace) and the operations of the airport.
+Regulations 1996. (4) Local governments may require proponents
+• Further information concerning referral and approval to ensure that adequate information about
+requirements under the Commonwealth legislation the potential for noise nuisance is provided to
+may be obtained from the Commonwealth prospective property purchases to enable them to
+Department of Infrastructure and Regional make a fully informed decision.
+Development website.
+• Use or development of land in the vicinity of the
+airport that is likely to attract significant numbers of
+birds and other wildlife. Information on this issue may
+be obtained from Jandakot Airport.
+
+State Planning Policy 5.3
+9
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+APPENDIX 1 - BUILDING SITE ACCEPTABILITY
+(Adopted from AS2021, Table 2.1: Building Site Acceptability Based on ANEF Zones)
+Relevant Notes from Table 2.1 of AS2021:
+BUILDING TYPE FORECAST NOISE EXPOSURE LEVEL (ANEF)
+less than 20 ANEF 20 to 25 ANEF 25 to 30 ANEF 30 to 35 ANEF 1. The actual location of the 20 ANEF contour is difficult to define
+(Note 1) (Note 2) accurately, mainly because of variation in aircraft flight paths.
+House, home unit, flat, Acceptable Conditionally Unacceptable Unacceptable Therefore, the procedure of Clause 2.3.2 of AS2021 may be
+caravan park acceptable* (Note 4) (Note 5) (Note 4) (Note 5) followed for building sites outside but near to the 20 ANEF
+contour.
+School, university Acceptable Conditionally Unacceptable Unacceptable
+2. Within 20 ANEF to 25 ANEF, some people may find that the land
+acceptable* (Note 4) (Note 5) (Note 4) (Note 5)
+is not compatible with residential or educational uses. Land
+Hospital, nursing home Acceptable Conditionally Unacceptable Unacceptable use authorities may consider that the incorporation of noise
+acceptable* (Note 4) (Note 5) (Note 4) (Note 5) control features in the construction of residences or schools is
+appropriate.
+Hotel, motel, hostel Acceptable Acceptable Conditionally Unacceptable
+3. There will be cases where a building of a particular type will
+acceptable* (Note 4) (Note 5)
+contain spaces used for activities which would generally
+Public building Acceptable Conditionally Conditionally Unacceptable be found in a different type of building (e.g. an office in an
+acceptable* acceptable* (Note 4) (Note 5) industrial building). In these cases, Table 2.1 should be used to
+determine site acceptability, but internal design noise levels
+Commercial building Acceptable Acceptable Conditionally Conditionally
+within the specific spaces should be determined by Table 3.3
+acceptable* acceptable
+(Appendix 2).
+Light Industrial Acceptable Acceptable Acceptable Conditionally 4. This Standard does not recommend development in
+acceptable unacceptable areas. However, where the relevant planning
+authority determines that any development may be necessary
+Other industrial Acceptable Acceptable Acceptable Acceptable
+within existing built-up areas designated as unacceptable, it
+is recommended that such development should achieve the
+required ANR determined according to Clause 3.2 of AS2021. For
+* Caution to be exercised residences, schools, etc., the effect of aircraft noise on outdoor
+areas associated with the buildings should be considered.
+5. In no case should new development take place in greenfield sites
+deemed unacceptable because such development may impact
+airport operations.
+
+State Planning Policy 5.3
+10
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+APPENDIX 2 - INDOOR DESIGN SOUND LEVELS
+(Excerpt from AS2021: Table 3.3)
+Table 3.3 Indoor Design Sound Levels* for Determination of Aircraft Noise Reduction
+2. Some of these levels, because of the short duration of individual
+Building type and activity Indoor design Building type and activity Indoor design
+aircraft flyovers, exceed some other criteria published by
+sound level*, sound level*,
+Standards Australia for indoor background noise levels (see
+dB(A) dB(A)
+AS2107).
+Houses, home units, flats, Commercial buildings, offices
+3. The indoor design sound levels are intended for the sole purpose
+caravan parks and shops
+of designing adequate construction against aircraft noise
+Sleeping areas, dedicated lounges 50 Private offices, conference rooms 55 intrusion and are not intended to be used for assessing the
+Other habitable spaces 55 Drafting, open offices 65 effects of noise. Land use planning authorities may have their
+Bathrooms, toilets, laundries 60 Typing, data processing 70 own internal noise level requirements which may be used in
+Shops, supermarkets, showrooms 75 place of the levels above.
+Hotels, motels, hostels
+4 For opera and concert halls and theatres, and for recording,
+Industrial
+Relaxing, sleeping 55 broadcast and television studios and similar buildings where
+Social activities 70 Inspection, analysis, precision work 75 noise intrusion is unacceptable, specialist acoustic advice should
+Service activities 75 Light machinery, assembly, bench always be obtained.
+Schools, universities work 80 Certain activities in schools may be considered particularly noise
+sensitive and 50 dB(A) may be a more desirable indoor sound
+Libraries, study areas 50 level to select for any teaching areas used for such activities.
+Notes from Table 3.3 of AS2021:
+Teaching areas, assembly areas 55 However, the effect of other noise sources should be considered.
+(see Note 5) * These indoor design sound levels are not intended to be used for 6 The provisions of this standard relating to different internal
+Workshops, gymnasia 75 measurement of adequacy of construction. For measurement of design sound levels for different indoor spaces could result in
+Hospitals, nursing homes the adequacy of construction against aircraft noise intrusion see the use of different construction and materials in contiguous
+Appendix D of AS2021. spaces, and require the construction of substantial barriers
+Wards, theatres, treatment and between habitable spaces, e.g. heavy self-closing internal
+1. The indoor design sound levels in Column 2 are hypothesized
+consulting rooms 50 doors, detracting from the amenity of the building. Therefore
+values based on Australian experience. A design sound level is
+Laboratories 65 consideration should be given to a uniform perimeter insulation
+the maximum level (dB(A)) from an aircraft flyover which, when
+Service areas 75 approach.
+heard inside a building by the average listener, will be judged as
+Public buildings not intrusive or annoying by that listener while carrying out the
+specified activity. Owing to the variability of subjective responses
+Churches, religious activities 50
+to aircraft noise, these figures will not provide sufficiently
+Theatres, cinemas, recording studios 40
+low interior noise levels for occupants who have a particular
+(see Note 4) sensitivity to aircraft noise.
+Court houses, libraries, galleries 50
+
+State Planning Policy 5.3
+11
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+APPENDIX 3: NOTIFICATION ABOUT AIRCRAFT
+NOISE TO BE PLACED ON PROPERTY TITLE
+Notification:
+This property is situated in the vicinity of Jandakot Airport and is currently affected,
+or may be affected in the future by aircraft noise. Noise exposure levels are likely to
+increase in the future as a result of an increase in the aircraft using the airport, changes
+in aircraft type, or other operational changes. Further information about aircraft noise
+is available from the Jandakot Airport website. Information regarding development
+restrictions and noise insulation requirements for noise-affected property is available on
+request from the relevant local government offices.
+
+State Planning Policy 5.3
+12
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+State Planning Policy 5.3 - Land Use Planning in the Vicinity of Jandakot Airport
+FIGURE 1: FRAME AREA
+M
+Fr
+a
+e
+n
+m
+du
+an
+ra
+tl
+h
+e Pe
+J
+S
+rt
+A
+E
+h
+M R
+R
+U R
+A
+P
+S
+R A
+R
+E
+W
+R H
+M
+N
+A
+A
+D
+T
+A
+Y
+N
+I
+A
+D
+N
+L
+A
+E
+E
+L
+-
+E
+Farrington Road
+City of Melville Karel
+Avenue
+Highway
+Bannister
+Road
+R
+C
+an
+it
+f
+y
+or d
+of Canning
+Am
+herst
+G
+F
+a
+o
+r
+r
+d
+e
+e
+s
+n
+tLakes
+D
+S
+r
+t
+i
+r
+v
+e
+e
+et
+Index to map area
+WAROONA
+Road
+Roe Road City of Gosnells
+HolmesStreet
+K
+w
+Drive
+in na
+a
+Road
+Bibra Nicholson
+City of Cockburn
+Acourt
+Road
+North
+Berrigan Drive Jandakot Road
+Lake
+Road
+Freew
+ay Road
+N
+Warton
+City of Armadale
+0 200 400 600 800
+metres
+Produced by GeoSpatial Planning Support,
+Department of Planning WA, on behalf of the
+W
+Co
+e
+p
+s
+y
+te
+ri
+r
+g
+n
+h
+A
+t ©
+us
+A
+tr
+p
+a
+r
+li
+i
+a
+l 2
+n
+0
+P
+1
+l
+5
+anning Commission Road
+\\Nts-per\magsprojects\
+L
+P
+F
+L
+B
+W
+D
+I
+i
+e
+a
+R
+e
+g
+e 6
+r
+s
+u
+A
+s
+g
+t
+4
+e
+h
+r
+t
+F
+6 e
+e
+e
+\
+i
+S
+T
+-
+n
+r
+1
+n
+2 n
+P
+f
+_
+F
+o
+0
+d
+A
+F
+P
+r
+O
+1
+m
+r
+u
+5
+4
+a
+R
+s
+3
+-
+a
+m
+t 3
+_
+t
+r
+P
+i
+a
+e
+L
+o
+U
+l
+A
+a
+n
+ia
+F
+B
+n
+r
+s
+e
+n
+d
+L
+r
+u
+a
+U
+I
+a
+L
+p
+C
+.m
+a
+s
+m
+p
+e
+n
+C
+l
+x
+i
+d
+P
+e
+e
+d
+O
+d
+l
+I
+a
+M
+n
+a
+n
+b
+f
+M
+o
+r
+n
+y
+e
+r
+i
+E
+n
+m
+a
+g
+N
+a
+J
+T
+t
+a
+io
+n
+n
+d a
+A
+k
+u
+o
+th
+tA
+o
+i
+r
+r
+i
+p
+ty
+ort\
+H am
+m ond
+R oad
+Beeliar
+Drive
+Armadale
+Road
+Liddelow
+Nicholson
+Road
+L b o o c u a n l d g a o ry vernment R oad Anstey
+Frame Area
+Figure 1
+
+State Planning Policy 5.3
+13
+Land Use Planning in the Vicinity of Jandakot Airport
+January 2017
+GLOSSARY OF TERMS Building site acceptability REFERENCES
+Refers to the acceptability of sites for particular building
+Commonwealth of Australia, 1996, Airports (Protection of
+ANEF types within various ANEF zones. Appendix 1 includes
+Airspace) Regulations 1996
+a classification of building site acceptability which
+Australian Noise Exposure Forecast as endorsed by
+has been adopted from AS2021. Building types are Airservices Australia, 1999, The Australian Noise Exposure
+Airservices Australia and as amended from time to time.
+classified as ‘Acceptable’, ‘Conditionally Acceptable’ or Forecast System and Associated Land Use Compatibility
+The ANEF is a cumulative measure of aircraft noise
+‘Unacceptable’, depending on the sensitivity of associated Advice for Areas in the Vicinity of Airports
+exposure that takes into account the following features
+use or occupation of the building and the level of noise
+of aircraft noise: Australian Standards, 2015, AS 2021:2015, Acoustics - Aircraft
+exposure forecast for the site.
+Noise Intrusion - Building Siting and Construction
+• the intensity, duration, tonal content and spectrum
+of audible frequencies of the noise from aircraft take Noise exposure zone Department of Transport and Regional Services, 2003,
+offs, approaches to landing, and reverse thrust after Going Beyond Noise Contours
+Refers to the areas within a specified range of noise
+landing;
+exposure. Department of Infrastructure, Transport, Regional
+• the forecast frequency of aircraft types and Development, and Local Government, 2009, National
+movements on the various flight paths; and Noise sensitive premises Aviation Policy White Paper
+• the average daily distribution of aircraft arrivals and Premises occupied or designed for occupation or use
+State Planning Commission Western Australia, 1990, Land
+departures in both daytime and night time. (Daytime for residential purposes (including dwellings, residential
+Use Planning in the Vicinity of Airports: Report of the Working
+is defined as being between the hours of 7.00am and buildings or short-stay accommodation), caravan park,
+Group
+7.00pm.) camping ground, educational establishment, child care
+Western Australian Government, Strata Titles Act 1985
+premises, hospital, nursing home or place of worship.
+ANEI
+Western Australian Government, Planning and
+Australian Noise Exposure Index based on data for a OLS Development Act 2005
+previous year where the exact numbers and types of
+Obstacle Limitation Surface.
+Western Australian Government, Transfer of Land Act 1983
+aircraft that used the airport are known.
+PANS OPS Western Australian Planning Commission, 2004, Aircraft
+AS 2021
+Noise Insulation for Residential Development in the Vicinity of
+Procedures for Air Navigation Systems Operations.
+Australian Standard 2021 Acoustics – Aircraft noise Perth Airports
+intrusion – Building siting and construction

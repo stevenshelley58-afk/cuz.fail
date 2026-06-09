@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-30-urban-growth-and-settlement",
+  "fetched_at": "2026-06-09T22:34:53Z",
+  "http_status": 200,
+  "content_hash": "dd5616606d917a2053c4ae41ca7dce093ab88bc7b09016d558f990feeb36ed94",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP_3_urban_growth_settlement.pdf",
+  "used_playwright": false,
+  "bytes": 213243
+}

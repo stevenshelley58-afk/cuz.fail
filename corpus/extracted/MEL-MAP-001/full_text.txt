@@ -1,0 +1,262 @@
+LEGEND
+LOCAL SCHEME RESERVES
+District Distributor Road Public Open Space
+Local Distributor Road E Public Purposes : Education
+Local Road IS Public Purposes : Infrastructure Services
+LOCAL SCHEME ZONES
+Centre Residential
+Light Industry Service Commercial
+Mixed Use Special Use
+Private Clubs, Institutions and Place of Worship Urban Development
+R12.5 OTHER CATEGORIES
+PAGE STREET
+Scheme Area Boundary
+Local Government Boundary
+R12.5
+R20 R Codes
+A1 Additional Uses
+R12.5 R1 Restricted Uses
+SU1 Special Use Area
+R15
+No Zone
+R12.5
+R12.5
+R12.5
+R15 R15 R12.5 R15 R15
+R15
+R15 R17.5 R17.5 R15 R12.5 R17.5 R15 R15
+R15 R15 R17.5 R15 R15 R15 R15
+R17.5 R17.5 R17.5 R17.5 R15 FARRIN R15 R12.5 R12.5 R12.5
+R15 R15
+MILNE STREET R15 R15 STREET R15 R15 R15 R15
+T R17.5 E E R15 R17.5 R17.5 R17.5 R15 R15 R15 ST R
+R15
+R15 R15
+O
+O
+K E R R15 MOTTLEY STREET
+B R15 R17.5 R17.5 R17.5 R17.5 R15 R15 R15 E T R15 R15 E R17.5 R ST
+R15 R15 R15 R15 R12.5 C4 R15 E R17.5 R17.5 R17.5 R17.5 R15 R15 R15 R RIE TT R15 THURLOE
+STREET
+R40
+S T R E
+ET M O
+R20 R25 R25 R12.5
+R17.5 R17.5 R17.5 R17.5 R20 R15 O W AY R15 R20 ALL R20
+G
+C
+R4
+4
+0
+R E
+ET
+R15 ST
+T R17.5 E E R25 R Y S T R R20 R25 WLI N G R15 R20 R12.5 R17.5 M A L S B U R17.5 R20 R20 R20 R20 R20 R20 C O R25 R15 R15 R15 R20 R17.5 R15 R15 R17.5 R17.5 VERSION No 1 R25 C4 R15 R40 R25 R17.5 R50 R20 R20 R20 R20 R20 R20 R20 R20 R25 R25 R25 R15 R25 R25 R25 R50 C4 R5 R 0 50 R30 R17.5 R17.5 R17.5 R17.5 R25 R40 R40 R60 R50 A10 R50
+MAP OVERVIEW
+Authorised: T.Servaas
+City of Melville 2
+N Plot Date: 11 May 2022
+3 4
+Local Planning Scheme No. 6 7 G.Gazette: Friday, 27 May 2016
+5 6 8
+( District Scheme ) Local Planning Scheme Map No. 1 of 8
+TEERTS SIRRAH
+REGION SCHEME RESERVES (MRS)
+Civic and Cultural Public Purposes
+CP Public Purposes - Car Park
+Other Regional Roads
+CG Public Purposes - Commonwealth Government
+Parks and Recreation
+HS Public Purposes - High School
+R Parks and Recreation - restricted
+H Public Purposes - Hospital
+Port Installations
+P Public Purposes - Prison
+Primary Regional Roads SU Public Purposes - Special Uses
+Railways SEC Public Purposes - State Energy Commission
+TS Public Purposes - Technical School
+State Forests
+U Public Purposes - University
+Waterways
+# # WSD Public Purposes - Water Authority of WA
+# # # Water Catchments
+# #
+# # #
+CARROLL
+DRIVE
+H
+O
+N
+O
+U R
+A
+V
+E
+N
+U
+E
+D
+A
+O
+R
+G
+N
+EI
+R
+O
+M
+CAW
+A D
+STON
+ROAD
+DOONGALLA
+PETER
+STREET O
+BLACK WALL
+RE
+C
+A
+R
+C H
+EWE
+PA RA DE KE
+S
+N
+T
+T
+REET
+STREET S T R AI N
+S T R E E T
+CLIVE STREET
+RESERVE STREET
+CLIVE STREET
+CANN KLEN
+R
+K
+R
+R
+O B
+O E A RT D S R O A D
+R O
+S
+A
+T
+D
+UDLEY
+ROAD
+O R M O N
+D R O A D
+LUFFCRES CE NT
+TA N S O N
+ST R E ET
+STONEHAM
+ROAD
+PAL M E R
+ST R E ET
+S E
+D WI C K
+S T R E E T Na
+A
+tu
+lfr
+r
+e
+e
+d
+R
+E V
+C
+e
+o
+se
+ve
+rve
+IR
+D
+BEACH STREET
+KINNANE
+PLACE CALPIN BIRCH
+E
+D A O BROWN D A O R ROAD HOUGH ROAD A RN O CRESCENT CRESCENT STREET R E S C E N T B U R K
+E
+NIL DSAYPLAC L
+E
+EEPLACE CAVAN STREET R R E T L A W
+T N IO P
+C
+P
+O
+E
+L
+M
+D
+B
+W
+R
+E
+O
+L
+K
+L
+E
+S
+S
+S
+T
+T
+R
+R
+E
+E
+E
+E
+T
+T
+R Y A
+O D R A D A O R L L E D D
+A W
+K C O T S HENLEY PLACE LAWLOR ROAD
+POWER PLACE
+WICHMANN
+ROAD
+SHEARMANSTREET
+H AI G
+R O A D W A R R A G O O N C
+C R
+A U P L M LUTEY ROAD R E
+K R
+A
+B
+ANGOVE LANE D U R D H A M CRESCEN T P HI P P S S T R E E T YEOVIL B C R R I E N S D CE A N L T CLOSE PRESTON POINT ROAD B RI S T O L A
+B
+V E N U E
+RAUNTON STREET T
+E E R T S T S R IF
+WREXHAM STREET
+T E E R T S D R IH T T E E R T S H T F IF PRESTON POINT D A O R G N IE R O M ROAD ALISON ROAD H LI I N L T L O P N L A R O C A E D D AV IS RO A D
+DAVIDS
+M O E N O Y R O A N D ROAD CAMPIO D A O R N O D Y A R B N
+LOYOLA
+C W R A E Y SCENT SWAN D A O R D E E R ROAD
+KINGSALL
+ROAD B RI I N C C K E N R E O L A L D R O A D HIS
+H
+LO
+U
+P
+RST S
+RO
+TR
+AD
+EET
+GROVES AVENUE L E N T B O N U A R R O A D KEDRIVE Co R v A e e l s f N r e e r a d v t e ure CANNING HIGHWAY City of Melville
+This electronic planning map has been prepared and made If you have questions about the publication or certification of a
+available for public inspection by the Western Australian map, or suspect any omissions or errors in this electronic planning Local Planning Scheme No. 6
+Planning Commission pursuant to section 267B of the map, please advise the Department of Planning, Lands and
+P l a n n in g a n d D e v e l o p m e n t A c t 2 0 0 5 . Whilst all care has been Heritage at spatialdata@dplh.wa.gov.au
+taken to accurately portray the original map, spatial data can be ( District Scheme )
+subject to modification over time. If you wish to use a copy of Produced by Data Analytics, 0 150 300 450 600
+this map in any proceedings, a copy certified by the Department of Planning, Lands and Heritage.
+Commission (or its delegates) under section 267C is evidence Base Information Supplied by the Western Australian metres
+of the contents of the electronic map or a part of the map. Land Information Authority, SLIP 1180-2020-1
+MAP: Attadale and Bicton Localities

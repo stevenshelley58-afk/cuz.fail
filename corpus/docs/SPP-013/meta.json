@@ -1,0 +1,10 @@
+{
+  "url": "https://www.planning.wa.gov.au/state-planning-policy-3.7-bushfire",
+  "fetched_at": "2026-06-09T22:34:53Z",
+  "http_status": 200,
+  "content_hash": "a8132db05435a17dbb3c68730db512c9a5335e558008e9dd9372034bc0e7c4ce",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.planning.wa.gov.au/docs/default-source/policy/spp-3-7-bushfire-2024.pdf?sfvrsn=630b433_6",
+  "used_playwright": false,
+  "bytes": 787100
+}

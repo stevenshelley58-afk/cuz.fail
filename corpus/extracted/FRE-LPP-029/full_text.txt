@@ -1,0 +1,2190 @@
+Local Planning
+Policy 3.6
+Heritage-protected Places
+Built Form and Land Use
+fremantle.wa.gov.au
+
+Citation .......................................................................................................... 1
+Introduction .................................................................................................. 1
+How to read this policy .................................................................................. 1
+Objectives ...................................................................................................... 2
+Application of this Policy ................................................................................ 2
+Related policies ............................................................................................ 2
+Policy Provisions ............................................................................................ 3
+1. Contributory places ................................................................................. 3
+2. Development Assessment ........................................................................ 3
+Part 1: All Heritage-Protected Places ............................................................. 4
+3. Conservation (excludes non-contributory properties) ................................... 4
+4. Change of Use (excludes non-contributory properties) ................................. 5
+5. Demolition (excludes non-contributory properties) ...................................... 6
+6. Archaeology ........................................................................................... 7
+7. Subdivision and Amalgamation ................................................................. 7
+8. Additions and Alterations to All Contributory and Individually Listed Places ..... 9
+8.1 Primary street setbacks ...................................................................... 9
+8.2 Internal Alterations ............................................................................ 9
+8.3 General ........................................................................................... 13
+8.4 Form .............................................................................................. 14
+8.5 Chimneys ........................................................................................ 15
+8.6 Roofs .............................................................................................. 16
+8.7 Roof Plumbing ................................................................................. 18
+8.8 Wall Materials and Colours ................................................................ 19
+8.9 Decorative Details ............................................................................ 22
+8.10 External fixtures .............................................................................. 23
+8.11 Outbuildings .................................................................................... 23
+8.12 Swimming pools and spas ................................................................. 23
+8.13 Limestone features ........................................................................... 24
+Part 2: Residential Building Typologies ........................................................ 25
+9. Additions and Alterations to All Contributory and Listed Residential Places .... 27
+9.1 Siting, Setbacks and Scale ................................................................ 27
+9.2 Verandahs, porches and awnings ....................................................... 32
+9.3 Doors and Windows .......................................................................... 33
+10. Non-contributory Properties Including New Infill ........................................ 35
+10.1 Siting and Scale ............................................................................... 35
+10.2 Building Form .................................................................................. 38
+10.3 Materials, Colours and Detailing ......................................................... 38
+10.4 Roofs .............................................................................................. 39
+10.5 Verandahs / Porches / Awnings .......................................................... 39
+10.6 Doors and Windows .......................................................................... 39
+1
+
+11. Garages and Carports to All Residential Buildings ....................................... 39
+12. Fencing to All Residential Buildings ........................................................... 42
+Part 3: Industrial Building Typologies .......................................................... 44
+13. Industrial buildings in Fremantle .............................................................. 44
+13.1 Conservation ................................................................................... 46
+13.2 Adaptive reuse ................................................................................. 47
+13.3 Siting ............................................................................................. 49
+13.4 Form and scale ................................................................................ 50
+13.5 Details and materials ........................................................................ 51
+13.6 Services .......................................................................................... 52
+13.7 Infill buildings .................................................................................. 52
+Part 4: Commercial Building Typologies ....................................................... 54
+14. Commercial buildings in Fremantle ........................................................... 54
+14.1 Conservation ................................................................................... 56
+14.2 Adaptive reuse ................................................................................. 58
+14.3 Verandahs ....................................................................................... 59
+14.4 Shopfronts ...................................................................................... 59
+14.5 Siting ............................................................................................. 61
+14.6 Form and scale ................................................................................ 62
+14.7 Details and materials ........................................................................ 63
+14.8 Services .......................................................................................... 64
+14.9 Infill buildings .................................................................................. 65
+Part 5: Criteria for Specific Heritage Areas .................................................. 66
+15. Hilton Garden Suburb Heritage Area ......................................................... 66
+15.1 Street Setbacks ............................................................................... 66
+15.2 Garage width ................................................................................... 67
+15.3 Street walls and fences ..................................................................... 68
+15.4 Vehicle Access ................................................................................. 69
+15.5 Building Height ................................................................................ 69
+15.6 Boundary walls ................................................................................ 70
+15.7 Form and proportion of new dwellings ................................................ 70
+15.8 Conservation of existing dwellings ...................................................... 70
+15.9 Rear lots ......................................................................................... 71
+15.10 Non-residential development ............................................................. 71
+15.11 Subdivision ..................................................................................... 71
+16. West End .............................................................................................. 71
+17. Other Heritage Areas .............................................................................. 71
+Appendix 1 - Definitions .............................................................................. 73
+Appendix 2 – Diagrams ................................................................................ 76
+Appendix 2 – Common Heritage Building Diagrams ..................................... 79
+2
+
+Heritage-protected Places Built Form and
+Land Use
+Citation
+This is a Local Planning Policy prepared under Schedule 2 of the Planning and Development
+(Local Planning Schemes) Regulations 2015. This policy may be cited as Local Planning Policy
+3.6 – Heritage-protected Places Built Form and Land Use (LPP 3.6).
+Introduction
+The purpose of this policy is to outline the general assessment criteria for development
+proposals for properties subject to heritage area protection, and their relationship with more
+detailed area-specific policies and plans applicable to individual heritage areas.
+The Policy Provisions are split into five parts:
+Part 1 applies to all heritage-protected places.
+Part 2 applies to all heritage-protected places with a residential built form.
+Part 3 applies to all heritage-protected places with an industrial built form.
+Part 4 applies to all heritage-protected places with a commercial built form.
+Part 5 applies to specific heritage areas.
+Where Part 5 criteria is inconsistent with Parts 1-4, Part 5 prevails to the extent of any
+inconsistency.
+How to read this policy
+If your property is… Then…
+In the Hilton Heritage Area Refer to Part 5.
+If any element is not addressed in Part 5, (ex:
+external doors, verandahs, etc.) refer to the
+general criteria in Parts 1 & 2.
+Within another Heritage Area listed in Deemed-to-comply primary street setbacks are
+Part 5 of this policy provided in Part 5.
+For all else, refer to the general criteria in Part 1,
+and Parts 2-4 based on your building typology.
+Not within a Heritage Area listed in Part 5 Refer to clauses 2, 6 and 7.
+of this policy, and neither contributory
+Then clauses 10-12 for residential typologies, or
+nor individually listed
+Parts 3 or 4 for Commercial or Industrial
+typologies.
+Not within a Heritage Area listed in Part 5 Refer to Part 1, then Parts 2-4 based on your
+of this policy, but is contributory and/or building typology.
+individually listed
+1
+
+Objectives
+The objectives of the policy are to ensure that:
+1. A consistent approach is applied to the assessment of heritage significance and impact
+for individual places and areas.
+2. Development is undertaken in a sympathetic manner which does not cause loss of
+historic cultural heritage significance.
+3. Development acknowledges, maintains and enhances the heritage significance of the
+place or area and is consistent with the principles of development set out within the
+policy.
+4. Key features which contribute to an understanding of cultural heritage significance of a
+place or an area are retained and enhanced.
+5. Development within heritage-protected places responds to the specific characteristics
+of an individual heritage place and/or area as outlined in the area’s statement of
+significance.
+6. New development in Heritage Areas is designed appropriately for its context and
+reflects and responds to the significance of the area.
+7. Existing places and fabric located in Heritage Areas which are, or may become, of
+cultural heritage significance are protected until such time as mapping of Contributory
+Places has been completed and any significant fabric added to the Heritage Area
+mapping and/or the Local Heritage Survey, or as otherwise determined by Council
+upon planning application.
+Application of this Policy
+This policy applies to all heritage-protected places as defined in the Planning and Development
+(Local Planning Schemes) Regulations 2015 (the Regulations) within the scheme area.
+Related policies
+This policy works in conjunction with the following local planning policies:
+• LPP 1.6: Heritage Administration and Procedures, which outlines the City’s broad
+approach to heritage assessment and protection;
+• LPP 1.7: Development Exempt from Approval Under Local Planning Scheme No. 4,
+which describes where development to a heritage-protected place does not require
+development approval;
+• LPP 3.6.1: Heritage Areas Listings, which identifies the heritage area boundaries of
+each area, its statement of significance, and a list of properties identified as being
+contributory (where such process has been carried out);
+• Any other local planning policy, conservation plan or local development plan that
+relates specifically to an area.
+Where a more specific local planning policy, conservation plan, structure plan or local
+development plan relating to heritage exists for a heritage area or place (such as LPP 3.21:
+West End Heritage Area), that policy or plan prevails over these more general heritage
+provisions. Otherwise, this policy prevails over other local planning policies to the extent of
+any inconsistency.
+2
+
+Policy Provisions
+1. Contributory places
+Places within heritage areas can be defined as either ‘contributory’ or ‘non-contributory’ to the
+significance of the area. Contributory places may include places which are not individually
+heritage listed. Contributory places are determined by Council having due regard to an
+assessment against the criteria of the Burra Charter1 and may include representative
+examples of a place type, period or style, places which contribute to the streetscape; and/or
+one which combines with other related places to demonstrate the historic development of a
+heritage area.
+Where mapping of contributory places has not been undertaken for a Heritage Area, or has
+not been completed due to the inaccessibility of the site or the inability to fully reveal the
+existence of potentially fabric of cultural significance, this will be assessed upon planning
+application.
+2. Development Assessment
+2.1 Development Application Requirements
+Refer to Local Planning Policy 1.6: Heritage Administration and Procedures, for information on
+the following additional application requirements:
+• A streetscape and/or landscape analysis may need to accompany any application for
+development in a heritage area that is visible from the street or public realm.
+• Additional information required for treatments to external surfaces of a Level 1 or 2
+heritage listed building.
+2.2 Principles for Development to Places and Areas
+Fundamentally, development of a place or area should acknowledge, maintain and enhance,
+the heritage significance of the place or area as set out below:
+Theme Non-Contributory Contributory Places Listed Places
+Heritage N/A Retain and conserve and
+Retain, conserve
+fabric restore significant places,
+or restore
+fabric and elements of
+significant places,
+the original building
+fabric and
+exterior, whilst
+elements of the
+supporting their
+place, whilst
+continued use.
+supporting their
+continued use.
+Pattern of Where visible from the public Recognise and respond to Recognise and
+development realm, recognise and the traditional pattern of respond to the
+respond sympathetically to development of the place traditional pattern
+the traditional pattern of or area. of development of
+development of the historic the place.
+streetscape without
+attempting faux heritage.
+1 Refer Local Planning Policy 1.6 – Heritage Administration and Procedures
+3
+
+Theme Non-Contributory Contributory Places Listed Places
+Traditional Reflect the
+Where visible from the public Where affecting the
+character traditional
+realm, reflect the traditional original building
+streetscape and
+streetscape and character of exterior, reflect the
+character of the
+the area (or, where this is traditional streetscape
+place, taking into
+very significantly modified, and character of the
+consideration the
+the prevailing streetscape), place or area (or, where
+same criteria as
+taking into consideration: this is significantly
+for contributory
+modified, the prevailing
+a) Siting and scale of
+places.
+streetscape), taking into
+development
+consideration:
+b) Form of development
+c) Traditional elements a) Siting and scale of
+including: development
+i. Roofs; b) Form of
+ii. Verandahs, porches development
+and awnings; c) Traditional elements
+iii. Windows and including:
+doors; a. Roofs;
+iv. Chimneys; b. Verandahs,
+v. Materials, colour porches and
+and detailing; awnings;
+vi. Fencing. c. Windows and
+doors;
+d. Chimneys;
+e. Materials, colour
+and detailing;
+f. Fencing.
+In larger and more diverse heritage areas and places with higher level significance, more site-
+specific consideration with higher degrees of restriction is applicable for more significant and
+intact parts.
+Part 1: All Heritage-Protected Places
+For contributory properties, this part only applies where development affects the original
+building exterior. For individually listed properties, this part applies to the whole of the
+place.
+3. Conservation (excludes non-contributory properties)
+Conservation is the process of managing change to a place in such a way that its cultural
+heritage significance is retained. This involves routine care and maintenance but may also
+require more significant adaptation at some stages of a building’s life. Conservation means all
+the processes of looking after a place to retain its cultural significance and can include
+maintenance, preservation, restoration, reconstruction and adaptation. It is recognised that
+adaptation of heritage buildings for appropriate new uses is an important way of ensuring their
+continued viability and safeguarding their long-term future. However, the need for change
+should always respect the underlying requirement to conserve heritage significance.
+The conservation of historic limestone and early brick buildings requires particular care and
+skills. Technical advice sheets are available on the City’s website, which provide further
+guidance on conservation practices.
+3.1 Conservation Criteria
+4
+
+3.1.1 Retain and conserve form, fabric and elements of the original building exterior,
+whilst supporting their continued use.
+3.1.2 Conservation of a place should identify and take into consideration all aspects of
+cultural and natural significance without unwarranted emphasis on any one value at
+the expense of others. Conservation work should ensure that the heritage fabric and
+other values are well maintained.
+3.1.3 Traditional techniques and materials should be used for the conservation of
+significant fabric. In some circumstances modern techniques and materials which
+offer substantial conservation benefits and have been demonstrated not to damage
+significant building fabric may be appropriate on the advice of the City.
+3.1.4 Preservation is appropriate where the existing fabric or its condition constitutes
+evidence of cultural heritage significance, or where insufficient evidence or
+investigation has been carried out to allow an informed approach to restoration and
+reconstruction.
+3.1.5 Restoration is appropriate only if there is sufficient evidence of an earlier state of the
+fabric.
+3.1.6 Reconstruction is appropriate only where a place is incomplete through damage or
+alteration, and only where there is sufficient evidence to reproduce an earlier state
+of the fabric. It should be identifiable on close inspection or through additional
+interpretation.
+3.1.7 Whilst new work should be identifiable, it should also:
+a) Not adversely affect the setting of the place.
+b) Have minimal impact on the cultural significance of the place.
+c) Not distort or obscure the cultural significance of the place, or detract from its
+interpretation and appreciation.
+d) Respect and have minimal impact on the cultural significance of the place.
+3.1.8 Brick and limestone walls constructed prior to 1950 are not to be painted with acrylic
+paints or rendered with cement render or other impervious materials such as sealers
+because this can damage the fabric and contribute to rising damp.
+3.1.9 Building maintenance should seek to avoid the removal of, or damage to, the
+existing fabric of the building or the use of new materials.
+3.1.10 Repairs, including replacing missing or deteriorated fabric with like-for-like fabric
+should not involve damage to the significant fabric of the building.
+3.1.11 Replacement of utility services should use existing routes or voids that do not
+involve the removal of, or damage to, the significant fabric of the building.
+3.1.12 Excavation for the purpose of exposing, inspecting, maintaining or replacing utility
+services is not to affect archaeological remains.
+3.1.13 Removal of significant landscaping is to be avoided as it may impact the heritage
+significance of the place.
+4. Change of Use (excludes non-contributory properties)
+The use of a heritage place, or a group of places within a heritage area is often intrinsically
+linked to its historical evolution and heritage significance. Generally, the retention of original
+or long-associated uses in encouraged. However, it is acknowledged that, as places evolve
+over time, the use of heritage places may also need to change. An empty, disused heritage
+place is more likely to deteriorate at a quicker rate, be subject to vandalism and lose its
+relevance to the local community. As such, one of the most effective ways to retain the
+heritage significance of a place or a heritage area is to ensure it has an ongoing, compatible
+5
+
+and viable use. Some new uses may not be appropriate for a place if the amount of adaptation
+required will result in the loss of significant heritage fabric or important heritage values.
+Introducing new building services as part of a use change can potentially disturb large
+portions of significant fabric and it is important that these are carefully considered when
+adapting places of heritage significance for new purposes.
+4.1 Change of Use Criteria
+4.1.1 The continuation of uses, or reinstatement of previous historic uses that are of
+cultural heritage significance and consistent with the zoning of the land, or are
+approved non-conforming uses, are the preferred form of conservation except for
+cases where the original use has evolved so much that the accommodating this will
+result in the loss of significant heritage fabric and values.
+4.1.2 Where continuation of a culturally significant use is not feasible, ensure a compatible
+use is sought that minimises alteration to the place, setting and streetscape.
+4.1.3 Interpret earlier uses where those uses were significant to the heritage of the place
+and/or area.
+4.1.4 Where a place has historically been accessible to the public, any change of use
+should consider the continuation of public accessibility in some form or publicly
+accessible interpretation.
+4.1.5 Should new services be required for a change of use for a heritage place, conceptual
+details of new services should be submitted at development application stage. New
+building services should be designed and integrated to minimise any impact on the
+significant fabric.
+5. Demolition (excludes non-contributory properties)
+Demolition is a permanent change that cannot be reversed. Even removal of places with lower
+levels of individual heritage significance in an area or minor fabric of a place can cumulatively
+undermine the significance of a heritage place or area.
+Demolition of any building or structure, or part thereof, on any heritage-protected place
+(including non-contributory buildings in a Heritage Area) requires development approval under
+the Local Planning Scheme unless otherwise exempt in Local Planning Policy 1.7: Development
+Exempt from Approval Under Local Planning Scheme No. 4.
+In considering a proposal for demolition on any site in a Heritage Area where the mapping of
+contributory places has not been completed and/or is incomplete, the local government shall
+determine whether any fabric located thereon qualifies as a contributory place as part of the
+development application assessment process. Applications will be assessed against Clause
+4.14 of Local Planning Scheme No. 4 with the following providing additional guidance.
+5.1 Demolition Criteria
+5.1.1 Demolition or removal of culturally significant fabric or a place is contrary to the
+principles and objectives of this policy and the scheme. The following factors are not
+considered justification for demolition:
+a. economic or other perceived gain from the redevelopment of the land;
+b. poor condition resulting from the place not being properly maintained; and/or
+c. the presence of hazardous materials, such as asbestos.
+5.1.2 When considering partial demolition, the original / early portion of the place is to be
+retained and conserved. For contributory properties, this relates only to the original
+6
+
+building exterior. For individually listed properties, this relates to the whole of the
+place.
+5.1.3 Facadism, where all building fabric is removed apart from the façade, is not
+supported due to the loss of significant historic meaning and heritage value.
+5.1.4 The removal and replacement of asbestos or other hazardous materials should be
+followed immediately by replacement with a matching (but non-hazardous) material.
+For example, flat asbestos wall sheeting with joint cover battens should be replaced
+with flat fibre cement sheeting with joint cover battens in the same configuration; a
+replacement with timber weatherboards or fibre cement weatherboards would not be
+considered to be a matching material.
+5.1.5 Where demolition is approved, an archival record prepared in a format approved by
+the City may be required as a condition of planning approval.
+6. Archaeology
+6.1 Where reasonable evidence exists that undisturbed archaeological material exists on a
+site on the Heritage List or in a Heritage Area, and where that material may be disturbed
+or destroyed as part of proposed building works, then an archaeological investigation will
+be required undertaken to the Council’s satisfaction prior to the commencement of
+building work. Refer to Local Planning Policy 1.6: Heritage Administration and Procedures
+for further information.
+7. Subdivision and Amalgamation
+The significance of a heritage place or area relies in part on the original setting and context of
+each building, inclusive of the pattern of development along the street. Subdivision and
+amalgamation can, therefore, have an impact on the cultural heritage significance of a
+heritage place or area. In providing advice to the Western Australian Planning Commission on
+subdivision applications referred to the City of Fremantle for comment, the City will have
+regard to the following matters.
+7.1 Subdivision and Amalgamation Criteria
+7.1.1 Proposals are not to necessitate the demolition of a place by proposing new lot
+boundaries which cut through a significant building or structure.
+7.1.2 The alignment of new lot boundaries is to ensure places are conserved with
+sufficient curtilage around them to maintain their significance and contribution to the
+heritage character of the place and streetscape.
+7.1.3 The alignment of new lot boundaries is to ensure places will not require the blocking
+up of doors or windows that would compromise their use or significance.
+7.1.4 Proposed subdivision layouts, even for non-contributory properties, are to reflect the
+traditional pattern and proportions of lots in the area. Consideration may be given to
+the introduction of new forms (e.g. battleaxe lots) where such a layout helps
+preserve the heritage character of the streetscape, or within zoned Development
+Areas.
+7.1.5 Access legs for battleaxe or survey strata subdivision shall provide reciprocal access
+to both the front and rear lots. Where such an arrangement is proposed, the City will
+recommend a condition of subdivision be imposed ensuring reciprocal rights of
+access.
+7.1.6 New lots are to be capable of being developed in a manner consistent with this
+policy.
+7
+
+Figure Series 1: Subdivision and amalgamation layouts
+8
+
+8. Additions and Alterations to All Contributory and Individually Listed Places
+When making alterations or additions to places, the outcome should enhance the cultural heritage significance of the place (whether this significance
+is individual to the site, or part of the broader significance of the area) or, at the least, not diminish it. This generally involves changing as little as
+possible but as much as necessary in order to retain the cultural heritage significance of the place and maintain its utility. Because the significance of
+each individual place and its context is different, assessment of the suitability of proposals requires that each proposal be assessed on its own merits.
+8.1 Primary street setbacks
+No additions or buildings to be located within the primary street, in front of a place, or within an established street setback area unless reinstating an
+original feature in the original architectural style or set out elsewhere in this policy (ex: carports, fences, etc.).
+8.2 Internal Alterations
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Interiors Conservation of original interior Internal changes may be considered. Non-structural minor internal changes may be
+detailing is encouraged. Conservation of original interior considered on a case by case basis. Conservation
+detailing is encouraged as a positive of original interior detailing is required.
+heritage outcome.
+ii. Historic N/A Historic patterns of access and Historic patterns of access and movement should
+patterns of movement are encouraged to be be retained and conserved (for example, original
+access and retained and conserved (for entrances and hallways).
+movement example, original entrances and
+hallways).
+iii. Ceilings, Conservation of original interior a) Retention and conservation of a) Retain and conserve early ceilings (such as
+cornices, ceilings, cornices, moldings, early ceilings (such as lathe and lathe and plaster ceilings), decorative cornices,
+moldings, roses, etc. is encouraged. plaster ceilings), decorative moldings, ceiling roses, etc.
+roses, etc. cornices, moldings, ceiling roses, b) Replacement decorative cornices, moldings and
+etc. is encouraged. ceiling roses should be based on evidence from
+b) New decorative cornices, the place.
+moldings, ceiling roses, etc.
+should be based on evidence from
+9
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+the place or on buildings of a
+similar period, style, original
+socioeconomic level and location.
+iv. Walls and new Conservation of original walls is a) Retention and conservation of a) Retain and a) Retain and conserve
+openings encouraged. early walls is encouraged. conserve early early walls.
+b) New openings in walls are walls. b) Do not remove whole
+preferred over the removal of b) Do not remove walls.
+whole walls. whole walls. c) New openings in walls
+c) Where new openings are c) New openings in will only be considered
+proposed, wall nibs and down walls are to be in exceptional
+stands are to be retained. kept to a circumstances and
+minimum in where there are no
+number and size other alternative.
+and to be non- d) New openings in walls
+structural. are to be kept to a
+d) Where new minimum in number
+openings are and size and to be
+proposed, wall non-structural.
+nibs and down e) Where new openings
+stands are to be are proposed, wall
+retained. nibs and down stands
+are to be retained.
+v. Wall detailing Early wall finishes and elements such as skirtings, timber panelling and Retain and conserve early wall finishes and
+picture rails are encouraged to be retained and conserved. elements such as skirtings, timber panelling and
+picture rails.
+vi. Render and It is encouraged to avoid Avoid introducing cement Do not introduce cement render/plaster and acrylic
+painting introducing cement render/plaster and acrylic paints to paints to walls that are not rendered, unpainted or
+render/plaster and acrylic paints walls that are not rendered, have lime plaster and /or limewash or mineral
+to walls that are not rendered, unpainted or have lime plaster and paint as this can cause damp issues for the
+unpainted or have lime plaster /or limewash or mineral paint as this building.
+10
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+and /or limewash or mineral can cause damp issues for the
+paint as this can cause damp building.
+issues for the building.
+vii. Wall vents Wall vents are encouraged to be retained, conserved or reinstated. Wall vents are to be retained, conserved or
+reinstated.
+viii. Replacement N/A where internal works do not Replacement elements are to be Replacement elements are to be based on
+elements have any impact on the original based on evidence from the place or evidence from the place.
+building exterior. on buildings of a similar period,
+style, original socioeconomic level
+and location.
+ix. Doors N/A where internal works do not Internal doors can be altered, Internal original / Internal original / early
+have any impact on the original blocked and new openings early doors can be doors are not to be
+building exterior. introduced in most circumstances. altered, blocked and altered.
+new openings
+introduced
+occasionally in
+certain
+circumstances.
+x. Floors It is encouraged not to replace a) Retain and conserve early timber a) Retain and conserve early timber floor structure
+timber floor structures with floor structure and timber
+and timber floorboards.
+concrete floors as this can cause floorboards.
+b) Do not replace timber floor structures with
+rising damp and airflow issues b) Do not replace timber floor
+concrete floors as this can cause rising damp
+for the building. structures with concrete floors as
+and airflow issues for the building.
+this can cause rising damp and
+c) Retain and conservate significant early floor
+airflow issues for the building.
+finishes such as terrazzo and tessellated tiling is
+c) The retention and conservation of
+encouraged.
+significant early floor finishes
+d) New floor finishes may be placed over existing
+such as terrazzo and tessellated
+early timber floors, though these new finishes
+tiling is encouraged.
+11
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+d) New floor finishes may be placed are not to cause damage to the timber floors
+over existing early timber floors, below.
+though these new finishes are not
+to cause damage to the timber
+floors below.
+xi. Staircases It is encouraged to retain Original / Early staircases are to be Original / Early staircases are to be retained and
+original staircases. retained and conserved rather than conserved rather than replaced. If not building
+replaced. Removal may only be code compliant, then sensitive adaptation is to be
+considered in exceptional undertaken rather than replacement.
+circumstances where no alternative
+is possible.
+xii. Fireplaces It is encouraged to retain Fireplaces, hearths and mantels are Fireplaces, hearths and mantels are to be retained
+fireplaces, hearths and mantels. to be retained and conserved. If no and conserved. If no longer operational, fireplace,
+longer operational, fireplace, hearth hearth and mantel elements are to remain in situ.
+and mantel elements are to remain If fireplace is to be blocked then this is no be done
+in situ. If fireplace is to be blocked in a non-intrusive and non-visible manner.
+then this is no be done in a non-
+intrusive and non-visible manner.
+Removal may be considered in
+exceptional circumstances, however,
+the chimney is to be retained.
+xiii. Stained glass It is encouraged to retain Damaged glass is encouraged to be Damaged glass is to be repaired rather than
+internal stained glass. Where repaired. replaced. If replacement is necessary, it must
+stained glass is on an external match the original design and craftsmanship.
+window and forms part of the
+original building exterior, it is to
+be retained.
+xiv. Cabinetry, It is encouraged to retain early a) Original / Early cabinetry, a) Original / Early cabinetry, fixtures, fittings, light
+fixtures, cabinetry, fixtures, fittings, light fixtures, fittings, light fittings, fittings, switches, door and window hardware
+fittings, light switches, door and window are to be retained and conserved.
+12
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+fittings, fittings, switches, door and hardware are to be retained and b) Replacement elements are to be based on
+switches, door window hardware. conserved. evidence from the place.
+and window b) Replacement elements are to be
+hardware based on evidence from the place
+or on buildings of a similar period,
+style, original socioeconomic level
+and location.
+xv. Internal It is encouraged not to chase Do not chase new services into original/early brick and limestone walls; instead run new
+services new services into original/early services through surface mounted conduits, existing service runs, masonry and timber
+brick and limestone walls; framed wall cavities, under floor spaces and/or ceiling spaces.
+instead run new services
+through surface mounted
+conduits, existing service runs,
+masonry and timber framed wall
+cavities, under floor spaces
+and/or ceiling spaces.
+8.3 General
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Additions and Alterations and additions to the original building exterior All alterations and additions are to respond sympathetically to
+alterations are to respond sympathetically to the heritage values of the the heritage values of the place, with changes designed and
+area as a whole and that part of the heritage area in the sited in a manner that retains, conserves, respects and
+vicinity of the proposed development, with changes complements the heritage significance of the place.
+designed and sited in a manner that retains, conserves,
+respects and complements the heritage significance of the
+area.
+ii. Significance Alterations and additions to the original building exterior All alterations and additions are to change as little as
+are to change as little as reasonably possible that would reasonably possible that would impact the significance of the
+impact the streetscape significance. place.
+13
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+iii. Restoration Where it can be demonstrated that original fabric of the Where it can be demonstrated that original fabric of a place has
+original building exterior has been previously removed been previously removed or unsympathetically altered, then the
+or unsympathetically altered, then the fabric is to be fabric is to be restored / reconstructed to the original form
+restored / reconstructed to the original form and detailing based on evidence such as photographs, old plans, or remnant
+based on evidence such as photographs, old plans, or fabric from the existing place or on buildings of a similar period,
+remnant fabric from the existing place or on buildings of a style, original socioeconomic level and location.
+similar period, style, original socioeconomic level and
+location.
+8.4 Form
+The form of the building is its overall shape, size and the general arrangement of its main parts.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. General Ensure that new development to the Ensure that new development is Ensure that new development is consistent with
+original building exterior is consistent with the form of the the form of the original place, including roof
+consistent with the predominant original place, including roof orientation, pitch, ridge height, size and
+form of the place or similar orientation, pitch, ridge height, orientation of windows, and eaves overhangs but
+contributory places in the prevailing size and orientation of windows, without mimicking the detailing of historic
+streetscape, including roof and eaves overhangs but without buildings.
+orientation, pitch, ridge height, size mimicking the detailing of historic
+and orientation of windows, and buildings.
+eaves overhangs but without
+mimicking the detailing of historic
+buildings.
+ii. Mock heritage New development to the original New development is to blend in with the place but be discernible as new when looked
+building exterior is to blend in with at more closely. ‘Faux’ or ‘mock’ heritage detracts from an understanding and
+the streetscape but be discernible as appreciation of the original place and is contrary to the objectives and principles of this
+new when looked at more closely. policy.
+‘Faux’ or ‘mock’ heritage detracts
+14
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+from an understanding and
+appreciation of the original place and
+is contrary to the objectives and
+principles of this policy.
+iii. Repetition and Where the building form of the place Where the building form of the place is highly repetitive, symmetric and/or
+symmetry is highly repetitive, symmetric
+asymmetric, new development is to continue this pattern.
+and/or asymmetric, new
+development of the original
+building exterior should continue
+this pattern.
+iv. Contemporary Contemporary style additions to the Contemporary style additions are to respond to, and interpret, the scale, articulation
+additions original building exterior are to and detail of the existing place in a modern, innovative and sympathetic way.
+respond to, and interpret, the scale,
+articulation and detail of the existing
+and nearby places in a modern,
+innovative and sympathetic way.
+8.5 Chimneys
+Chimneys are an integral part of the streetscape and are a key element of many heritage buildings. Chimneys are an element that is far less common
+in modern day buildings.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Existing All chimneys are to be retained and conserved.
+chimneys
+ii. New chimneys Any new chimney should be Chimneys, if altered, are encouraged to be Chimneys, if altered, are to be returned to match
+simple in design. returned to match the original. the original.
+15
+
+8.6 Roofs
+Traditionally, roof lines are a predominant element of the streetscape. Traditional roof materials were corrugated galvanised iron (often in short
+length sheets) or red clay tiles (predominantly in the Federation Period). It should be noted that certain roof materials are associated with particular
+periods of development and styles and care should be taken not to confuse the use of roof materials from different periods and styles.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Roof lines Additions visible from the public realm Additions are to respond to and reinforce the existing characteristics of a place with
+are to respond to and reinforce the regards to plate and wall heights, roof form, ridge lines, parapet lines, roof slopes
+existing characteristics of a place, and eaves overhangs.
+streetscape or neighbourhood with
+regards to plate and wall heights, roof
+form, ridge lines, parapet lines, roof
+slopes and eaves overhangs.
+ii. Form and Original roof forms and materials Original roof forms and materials are to be retained and conserved.
+material comprising the original building
+exterior are to be retained and
+conserved.
+iii. Contemporary Roof forms that are contemporary in Roof forms that are contemporary in style (i.e. flat / skillion) may be considered for
+roofs style (i.e. flat / skillion) may be rear and side additions.
+considered for rear and side additions,
+and are only permitted where not part
+of the original building exterior.
+iv. Replacement Roof replacements to the original Roof replacements are to be Roof replacements are to match the original
+building exterior are to be either like- either like-for-like or match the historical roof.
+for-like or to match the original period original historical period and style
+and style of the building. If the building of the building. If the building has
+has undergone substantial change over undergone substantial change
+time (for example changes from the over time (for example changes
+Post War Migrant Era) then the use of from the Post War Migrant Era)
+the original roof material may not be then the use of the original
+16
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+required – this will be assessed on a historical roof material may not be
+case-by-case basis. required – this will be assessed on
+a case-by-case basis.
+v. Additions and Where impacting the original building Extensions to the existing roof Extensions to the existing roof and maintenance
+maintenance exterior, extensions to the existing and maintenance of existing roofs of existing roofs may use the colour and
+roof and maintenance of existing roofs may use the colour and material material of the remainder of the existing roof.
+may use the colour and material of the of the remainder of the existing
+remainder of the existing roof. roof.
+vi. Metal roofs For corrugated metal roofs of the For corrugated metal roofs the For corrugated metal roofs the preferred
+original building exterior the preferred material is corrugated material is corrugated galvanised iron or steel.
+preferred material is corrugated galvanised iron or steel (short Short length sheets may be required in certain
+galvanised iron or steel (short length length sheets are NOT required). circumstances.
+sheets are NOT required).
+vii. Zincalume Zincalume metal roofing to the original Zincalume metal roofing may be Zincalume metal roofing is NOT an acceptable
+building exterior may be considered. considered in certain roof material.
+circumstances.
+viii. Colorbond Colorbond metal roofing to the original Colorbond metal roofing is NOT an acceptable roof material.
+building exterior may be considered
+in certain circumstances. Where
+considered, the colour is to be Shale
+Grey or similar unless it can be
+demonstrated the original roof was a
+different colour.
+ix. Dissimilar Dissimilar metals are not to be used together as they are not always compatible and can cause a galvanic reaction and
+metals deterioration of the metals.
+x. Tiles Tiles to the original building exterior A change from tiles to corrugated Tiles are to be replaced to match the original
+are encouraged to be replaced to match metal roofing may be considered historical place and not changed to corrugated
+the original and not changed to in certain circumstances. metal and vice versa.
+corrugated metal roofing.
+17
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+Do not use unusual roof cladding types Do not use unusual roof cladding Do not use unusual roof cladding types unless
+xi. Timber
+unless there is evidence of earlier use. types unless there is evidence of there is evidence of earlier use.
+shingles, Slate,
+earlier use.
+Copper Like for like replacement of original Replace original unusual roof claddings like for
+A change from an unusual
+Sheeting, Clay unusual cladding types is encouraged. like.
+cladding type may be considered
+Pan Tiles etc
+If the cladding type is no longer available then
+in certain circumstances.
+cladding with a similar profile, texture and
+colour may be acceptable.
+Replacement of asbestos and later Replacement of asbestos and later Replacement of Replacement of
+xii. Asbestos
+altered roof materials of the original altered roof materials are to asbestos and later asbestos and later
+building exterior are to match the match the original period and altered roof materials altered roof materials is
+original period and style of the building. style of the building. If the is to match the to match the original.
+If the building has undergone building has undergone original or to suit the
+substantial change over time (for substantial change over time (for original period and
+Where asbestos
+example changes from the Post War example changes from the Post style of the building.
+sheeting was part of the
+Migrant Era) then the use of the original War Migrant Era) then the use of
+original design, such as
+roof material may not be required – this the original roof material may not
+in WW2 or Post War
+will be assessed on a case-by-case be required – this will be assessed
+buildings, asbestos
+basis. on a case-by-case basis.
+sheeting to be replaced
+with a product with a
+similar profile.
+8.7 Roof Plumbing
+Traditional roof plumbing materials were generally galvanised iron for gutters, downpipes, rainheads, clips and brackets with cast iron downpipes,
+rainheads, clips and brackets sometimes used. Flashings were lead or galvanised iron. Copper and lead gutters, downpipes and flashings were
+occasionally used in high quality buildings. It should be noted that certain gutter, rainhead and downpipe profiles are associated with particular
+periods of development and styles of building and care should be taken to utilise these appropriate profiles.
+18
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Original Original roof plumbing elements to Original roof plumbing elements are to be retained and conserved and when required due
+elements the original building exterior are to deterioration replaced like for like.
+to be retained and conserved.
+ii. Dissimilar Dissimilar metals are not to be used together as they are not always compatible and can cause a galvanic reaction and
+metals deterioration of the metals.
+iii. Replacement If replacing roof plumbing elements If replacing roof plumbing elements, If replacing roof plumbing elements,
+of the original building exterior, traditional profiles are to be used and traditional profiles are to be used and are to
+traditional profiles are to be used based on evidence. Buildings of a similar be based on evidence from the place.
+based on the style of the place or period, style and location could be
+buildings of a similar period, style utilised to inform roof plumbing choices.
+and location.
+iv. PVC PVC downpipes to the original PVC downpipes are not acceptable.
+Downpipes building exterior are not
+acceptable.
+v. Rainheads, Rainheads, clips and brackets to the Rainheads, clips and brackets were Rainheads, clips and brackets were generally
+clips and original building exterior were generally utilitarian and simple in design utilitarian and simple in design and are not to
+brackets generally utilitarian and simple in and are not to be replaced with be replaced with decorative elements unless
+design and are not to be replaced decorative elements unless clear clear documentary evidence is available.
+with decorative elements. documentary evidence is available. Some places may have a level of decoration
+to these elements which should be retained,
+conserved and reinstated if missing.
+8.8 Wall Materials and Colours
+Traditional wall materials for buildings in Fremantle include limestone, early soft red clay bricks, later pressed clay bricks, timber weatherboards,
+corrugated metal sheeting, cement blocks and bricks and asbestos cement sheeting.
+Limestone and early brick (which was fired at a much lower temperature than bricks today) are very porous and susceptible to salt attack and
+rising/falling/lateral damp issues. Limestone and early brick buildings are very prevalent and are key elements within the significant heritage
+streetscapes of Fremantle.
+19
+
+Timber buildings are also prevalent mainly in the residential areas of Fremantle and contribute to the significant streetscape.
+Asbestos was a later used wall cladding material, particularly in the post WWII era of housing estates.
+Please refer to Technical Guidance Notes for rising damp and care of heritage buildings.
+For proposed external treatments to Level 1A, 1B and 2 listed buildings, refer to Local Planning Policy 1.6: Heritage Administration and Procedures for
+additional information required to accompany an application.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Original Original wall materials to the original Original wall materials are to be retained and conserved.
+materials building exterior are to be retained and
+conserved.
+ii. Replacement Wall materials to the original building Wall materials are to be replaced Walls materials are to be replaced like-
+exterior are to be replaced like-for-like to like-for-like to match the original, for-like to match the original.
+match the original. particularly to the parts of the
+original building exterior.
+iii. Render or paint To conserve the visual appearance and To conserve the visual appearance To conserve the visual appearance and
+prevent issues with damp: and prevent issues with damp: prevent issues with damp:
+- Do not cement render, paint or seal - Do not cement render, paint or - Do not cement render, paint or
+limestone or brick surfaces that were seal limestone or brick seal limestone or brick surfaces
+originally self-finished. surfaces that were originally that were originally self-finished.
+- Do not cement render, paint or seal self-finished. - Do not cement render, paint or
+lime rendered surfaces or those - Do not cement render, paint or seal lime rendered surfaces or
+painted with limewash or mineral seal lime rendered surfaces or those painted with limewash or
+paint. those painted with limewash mineral paint.
+or mineral paint.
+Remove paint, cement render and other
+The removal of intrusive finishes intrusive finishes from masonry wall
+such as acrylic paint and cement surfaces that were originally unpainted
+render from originally unpainted especially when the paint or render
+masonry wall surfaces is encouraged surface has begun to break down and
+especially when the paint or render
+surface has begun to break down
+20
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+and would require preparation before would require preparation before
+repainting. repainting.
+iv. Glossy materials Where impacting the original building a) Do not use glossy materials or a) Do not use glossy materials or
+and colour exterior: finishes unless there is historical finishes unless there is historical
+schemes a) Do not: precedent for their use. precedent for their use.
+i. use glossy materials or finishes b) Do not use monochromatic colour b) Do not use monochromatic colour
+unless there is historical precedent schemes. schemes.
+for their use; or c) Painting is to consist only of c) Paint colours are to be consistent
+ii. use monochromatic colour schemes. original colours (based on with the original colour schemes of
+b) Paint colours are to be compatible and physical inspection or paint the building based on evidence.
+complimentary to the heritage scrapes) or traditional colours Where it is not possible to
+character of the place and area based based on evidence (such as early determine the original colour
+on evidence (such as early photographs photographs or site-based scheme refer to clause 8.8.1
+or site-based evidence) from the evidence) from the existing place below.
+existing place or on buildings of a or on buildings of a similar period,
+similar period, style, original style, original socioeconomic level
+socioeconomic level and location. and location.
+8.8.1 For a Level 1A, 1B or 2 place where it is not possible to determine the original colour scheme, paint colour selection is to be consistent with
+the following key principles:
+a) The main body of the wall shall be natural wall colours that suggest the natural materials underneath (i.e. brick, stone or render).
+b) Where it is proposed to paint brick or stone quoining, colours shall be consistent with the natural materials underneath.
+c) Decorative elements - including cement rendered dressings (stucco), architraves, friezes, cornices, and pilasters – shall be highlighted
+with the use of no more than two muted tones in a lighter colour than the main body of the wall.
+d) Outer window frames shall be painted in dark colours (browns, deep reds, or dark greens), with light cream or white highlights
+accentuated in window sashes, and dividing joinery between individual window panes.
+e) In the case of verandahs and awnings, structural elements shall be dark tones (browns, deep reds, or dark greens) while decorative
+elements shall be highlighted with the use of light muted tones (cream or white).
+f) In the case of buildings with external timber cladding, paint colours shall be consistent with the original colour schemes of the
+building.
+21
+
+In addition to the above, regard is to be had for the following:
+g) Any established conservation management plan relating to the site;
+h) Any statement of heritage impact relating to the site; and
+i) Any advice received from the Heritage Council of Western Australia relating to the site.
+8.9 Decorative Details
+Decorative details on heritage buildings were particular in style, prevalence and level of detail for buildings of certain periods, styles, original
+socioeconomic level and location. Small workers cottages were unlikely to have much, if any, decorative detailing. Houses of a more substantial
+nature but still of the working class were likely to have some decorative detail (but not highly elaborate), whilst the homes of the wealthy were large
+and highly and elaborately detailed.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Existing detail Decorative detail of the original Decorative detail is to be retained and conserved.
+building exterior is to be retained and
+conserved.
+ii. Reintroduction The reintroduction of decorative detail to The reintroduction of decorative detail The reintroduction of decorative detail is to
+the original building exterior is to be is to be based on evidence (such as be based on evidence (such as early
+based on evidence (such as early early photographs or site-based photographs or site-based evidence) from
+photographs or site-based evidence) evidence) from the existing place or the existing place.
+from the existing place or on buildings of on buildings of a similar period, style,
+a similar period, style, original original socioeconomic level and
+socioeconomic level and location. location.
+iii. New detail Detail inappropriate to the period, style, Detail inappropriate to the period, Detail not based on evidence from the
+socio economic standing and location of style, socio economic standing and place is not to be introduced
+the place is not to be introduced to the location of the place is not to be
+original building exterior. introduced.
+22
+
+8.10 External fixtures
+The installation of service utilities (power, water, and gas connections and meter boxes, fire services, and letterboxes) and functional utilities (air
+conditioning units, television aerials, satellite dishes, solar collectors, water tanks etc.) requires careful placement and treatment so as not to
+negatively impact the significance of an individual building, structure, or landscape, or that of the wider heritage area.
+i. When utilities are not exempted from requiring development approval by Local Planning Policy 1.7 – Development Exempt from Approval
+Under Local Planning Scheme No. 4, ensure that:
+a) they will be located behind a building or structure and not impact the original building exterior;
+b) their installation will not result in damage to significant fabric of a place;
+c) their installation will not impact upon any archaeological remains; and
+d) their installation will not impact upon or detrimentally affect a significant streetscape or landscape.
+ii. Solar collectors are not to be installed on street-facing roof planes.
+8.11 Outbuildings
+Ancillary structures such as sheds and gazebos can have an impact on heritage places and areas through the introduction of elements that are not
+part of traditional development. Incorporation of these modern features requires careful placement and treatment to minimise impact. In some
+situations, they may not be appropriate at all.
+i. Ancillary structures and outbuildings are to be located behind the main wall of the original building and screened from view from the primary
+street and secondary streets in order to minimise their visual impact on the character of heritage places and areas.
+ii. Historic outbuildings such as stables, laundries and outdoor water closets are to be retained and conserved as they contribute to the
+significance of the heritage place or area.
+8.12 Swimming pools and spas
+Below-ground swimming pools and spas may not have an impact upon the significance of a place or the wider heritage area. However, they typically
+have associated fencing and equipment that can have a negative impact, as can above-ground swimming pools and spas. Therefore, their siting
+requires careful consideration.
+23
+
+i. Above-ground swimming pools and spas should be located behind the main wall of a building.
+ii. Where an in-ground swimming pool or spa is proposed to the front of a building, ensure that pool fencing is incorporated with other walls and
+/ or fencing to minimise its visual impact, and that it has a similar level of visual permeability as required by the fencing criteria of this policy.
+iii. Ensure that any equipment enclosures are sited in places that minimise their visual impact.
+8.13 Limestone features
+Parts of Fremantle are located on limestone ridges and low hills. Remnants of limestone outcrops and cuttings into limestone ridges for roads,
+footpaths and buildings are important features in some streetscapes.
+i. Limestone features such as outcrops and cuttings are to be conserved and retained.
+24
+
+Part 2: Residential Building Typologies
+This part relates to all heritage places with a residential built form. Note that form is distinctive from use. For example, a residential building typology
+is a building that was originally constructed as a residence even if it currently has a non-residential use operating within.
+Refer to Part 1 for criteria not covered within this Part.
+Victorian Era, large house with decoration Victorian Era, typical simple four room, central Victorian Era, typical simple three room with
+corridor house side corridor house
+25
+
+Federation Era large house with corner Victorian Era limestone duplex, partly modified Terrace house
+verandah in Inter-War Era
+Victorian Era house with Inter-War era Inter-War House Post War House with garage
+modifications
+26
+
+9. Additions and Alterations to All Contributory and Listed Residential Places
+9.1 Siting, Setbacks and Scale
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Primary street a) Refer to Part 5 for deemed-to-comply setbacks for specific heritage Refer to clause 8.1 above.
+setbacks areas.
+ii. Secondary a) No additions or buildings to be located within the secondary street Requirements generally as per Level 3 but to be
+street setbacks setback, in front of a place, or within an established street setback assessed on a case-by-case basis.
+area unless reinstating an original feature in the original architectural
+style.
+b) Single storey additions may be set back in line with the portion of
+dwelling on site fronting the secondary street.
+c) Second storey additions to the rear of a dwelling on a corner lot are to
+be set back an appropriate distance based on a streetscape analysis of
+the secondary street. Issues to consider include:
+i. Prevailing streetscape and setbacks of the secondary street.
+ii. Avoiding a continuous wall extending from the existing side
+wall.
+iii. Avoiding a two-storey height wall to the secondary street
+(unless this reflects the prevailing streetscape of the secondary
+street).
+iii. Side additions Notwithstanding the criteria discouraging openings, removal of walls, and Requirements generally as per Level 3 but to be
+– Refer to the like to the original building exterior elsewhere in this Policy, side assessed on a case-by-case basis.
+Figure 2 additions are permitted provided they:
+a) Are single storey and lower in height than the place;
+b) Are set back 1m min. from front building line;
+c) Have a new roof independent from the roof form of the place and
+which doesn’t continue the slope of the roof of the original building
+exterior; and
+a) Have no alteration to existing roof form.
+27
+
+Figure 2: Side Additions
+28
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+iv. Rear additions Ensure that development: Ensure that development: Requirements generally as per Level 3 but
+(single and a) has a maximum height a) is not visible from the street; to be assessed on a case-by-case basis.
+double storey) that is the lesser of the b) does not alter or impact the original
+– Refer to Scheme, the R-Codes, or building exterior;
+Figure Series the visible from the street c) does not extend over or into the roof of
+below line of sight; the existing place;
+b) does not alter the original d) is constructed so that the roof of the new
+building exterior; addition is independent from the original
+c) employs one of the place’s roof form (New roof may connect
+following methods to into back of roof of existing place as long
+retain the distinct form of as the extent of the original roof remains
+the place: clear);
+i. Be detached from the e) employs one of the following methods to
+place; retain the distinct form of the place:
+ii. Be attached by a i. Be detached from the place;
+linkage with a ii. Be attached by a linkage with a
+reduced scale and/or reduced scale and/or contrasting
+contrasting material; material;
+iii. Have side walls set in iii. Have side walls set in from the place;
+from the place; iv. Have a wall height lower than that of
+iv. Have a wall height the place; or
+lower than that of the v. Have differing finishes/materials from
+place; or the original place or a material change
+v. Have differing at the junction of the old and new.
+finishes/materials
+from the original
+place or a material
+change at the
+junction of the old
+and new.
+29
+
+30
+
+31
+
+9.2 Verandahs, porches and awnings
+Verandahs, porches and awnings were often an important element of the original form of a building. The era and style of the original construction will
+determine if the front façade had a verandah, porch or awning.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Form and a) Original verandah or porch forms and materials are to be retained and conserved.
+material b) Front verandahs, porches, etc. are not to be enclosed.
+ii. Concrete floor a) Do not replace timber verandah floors with concrete. This reduces airflow beneath the house and contributes to mould
+or rising damp.
+b) Removal of later concrete floor and reinstatement of timber floor is encouraged to improve ventilation.
+iii. Reconstruction Reconstructed verandahs, porches and awnings can be introduced Reconstructed verandahs, porches and awnings can be
+based on evidence or on buildings of a similar period, style, detail introduced based on evidence from the place on site.
+level and location.
+iv. Additions a) New verandahs, porches a) Should evidence not be a) Do not introduce a verandah, porch or awning
+and awnings can be available, then reinstatement of where the original building had a different element.
+introduced where they do a simple form of verandah,
+not involve removal of the porch or awning may be b) Do not introduce a verandah, porch or awning based
+original and are appropriate considered. This is to be done on conjecture. Any introduction of verandahs,
+to the streetscape without without mimicking heritage porches or awnings are to be based on historical
+too precisely mimicking the detail that was not original (i.e. evidence from the place.
+style of the original do not introduce a bullnose
+character, building elements verandah and turned timber
+or heritage detailing unless posts if there is no evidence that
+it is a reconstruction. this was an original detail of the
+building. Instead, introduce a
+b) Do not introduce a verandah pitched verandah with simple,
+where the original building square timber posts.)
+had a porch and vice versa.
+b) Do not introduce a verandah
+where the original building had a
+porch and vice versa.
+32
+
+9.3 Doors and Windows
+Doors and windows are significant elements in a place and their materials, shape, size and decoration are particular to the period and style of a place.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Original Original doors and windows of Original doors and windows are to Original doors and windows are to be retained and
+openings the original building be retained and conserved. Where conserved. Where they must be replaced due to irreparable
+exterior are to be retained they must be replaced due to damage, they are to match the original based on evidence.
+and conserved. Where they irreparable damage, they are to
+must be replaced due to match the original style of the The original configuration, size and style of windows and
+damage or age, they are to place or buildings of a similar doors is to be retained.
+match the original style of the period, style, original
+place or buildings of a similar socioeconomic level and location.
+period, style, original
+socioeconomic level and
+location.
+ii. New Do not add new openings to the front of the original building All new external openings considered on a case-by-case
+external exterior. Openings to the side may be considered. basis.
+openings
+iii. Design All windows and door openings of the original building exterior All windows and door openings are to have a vertical
+are to have a vertical emphasis, which means they should be taller emphasis, which means they should be taller and narrower in
+and narrower in appearance unless there is a predominance in the appearance unless there is a predominance in the prevailing
+prevailing streetscape of horizontal emphasis, Interwar and later streetscape of larger, Interwar and later windows.
+windows (for example, in the Hilton Heritage Area, etc.).
+iv. Front doors Front doors to be conserved and remain in use.
+v. Conversion Conversion of windows to Conversion of windows to doors of Conversion of windows to doors is not permitted if external
+of windows doors of the original the original building exterior is to the original building but may be possible in certain
+to doors building exterior may be not permitted but may be circumstances.
+considered in certain considered elsewhere in certain
+circumstances. circumstances.
+33
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+vi. Internal Internal doors can be altered, Internal doors can be altered, Internal original / early Internal original / early doors
+openings blocked and new openings blocked and new openings doors can be altered, are not to be altered.
+introduced. introduced in most circumstances, blocked and new
+unless it results in loss of a key openings introduced in
+internal feature such as a limited circumstances.
+fireplace.
+Interpret changes to record Interpret changes to
+original configuration. record original
+configuration.
+34
+
+10. Non-contributory Properties Including New Infill
+This section applies to new development, and includes new houses as well as additions and
+alterations to existing non-contributory buildings, within a heritage area.
+Where visible from the public realm, new development should respect and complement the
+heritage significance of the area. A respectful design approach gives special consideration to
+the siting, scale, architectural style and form, materials and finishes of the proposed
+development in relation to its neighbours, without copying historic detailing or decoration.
+New development that is visible from the public realm should respond sympathetically to the
+heritage values of the heritage area as a whole, and also to that part of the heritage area in
+the vicinity of the proposed development. Imaginative, well designed and harmonious
+construction is encouraged. Professional architectural services can be of great assistance in
+formulating appropriate designs.
+10.1 Siting and Scale
+10.1.1. New development is to maintain the scale, siting, bulk, form and streetscape
+appearance of the prevailing streetscape and so should be guided by the criteria
+for contributory places elsewhere in this policy, but with some greater degree of
+flexibility.
+10.1.2. New buildings within a heritage area shall:
+a) Maintain a setting that is consistent with the original streetscape, including
+front and side setback patterns (refer figure series below);
+b) Have a consistent bulk and scale in relation to the original street pattern.
+E.g. If the original street pattern is single storey then the new infill
+development should also be, or present as, single storey (at least to the
+front section of the lot); and
+c) Have a plate height consistent with the original street pattern. New
+developments often propose a lower plate height than the earlier and
+original buildings. To ensure a consistency of scale the plate height is an
+important element to ensure it is consistent with the original street pattern.
+10.1.3. Second storey additions to the rear of buildings on corner lots are to be set back
+an appropriate distance based on a streetscape analysis of the secondary street.
+Issues to consider include:
+a) Prevailing streetscape and setbacks of the side street;
+b) Avoiding a continuous wall extending from the existing side wall; and
+c) Avoiding a two-storey height wall to the side street (unless this reflects the
+prevailing streetscape).
+10.1.4. Street setbacks deemed to comply with the above are specified in Part 5 for some
+areas.
+35
+
+36
+
+37
+
+10.2 Building Form
+The form of the building is its overall shape, size and the general arrangement of its main
+parts.
+10.2.1 New residential development within a heritage area shall respect and harmonise
+with and be sympathetic to the predominant form of the prevailing streetscape
+without mimicking heritage detailing.
+10.2.2 Where an industrial or commercial building is a contrasting element in a
+predominantly residential streetscape, the contrasting element is not be used as
+a precedent for new infill development.
+10.2.3 Where the building form of contributory properties in the immediate area is
+highly repetitive, symmetric and/or asymmetric, new development visible from
+the public realm is to continue this repetition.
+10.2.4 The treatment of new infill buildings in terms of the roof form, proportions,
+materials, number, size and orientation of openings, ratio of window to wall etc.
+shall relate to that of its neighbours.
+10.2.5 Contemporary building designs shall respond to, and interpret, the scale,
+articulation and detail of the existing nearby buildings in a modern, innovative
+and sympathetic way.
+10.3 Materials, Colours and Detailing
+10.3.1 Materials, colours and level of detailing shall reflect / interpret the predominant
+materials and detailing of the original prevailing streetscape and not visually
+dominate the streetscape or adjacent heritage buildings.
+10.3.2 New development is to blend in with the streetscape but be discernible as new
+when looked at more closely. ‘Faux’ or ‘mock’ heritage detracts from an
+38
+
+understanding and appreciation of the original building and is contrary to the
+objectives and principles of this policy.
+10.3.3 Use of original or traditional colours is encouraged. Glossy materials or finishes
+are to be avoided unless a historical precedent for their use can be
+demonstrated.
+10.4 Roofs
+10.4.1 Traditionally, roof lines are a predominant element of the streetscape. All new
+development shall respond to and reinforce the existing characteristics of the
+prevailing streetscape regarding plate and wall heights, roof form, ridge lines,
+parapet lines, roof slopes and eaves overhangs.
+10.4.2 Roof forms that interpret the predominant roof forms of the prevailing
+streetscape may be considered.
+10.5 Verandahs / Porches / Awnings
+10.5.1 Verandahs, porches and awnings were often an important element of
+streetscapes. Inclusion of verandahs, porches and awnings appropriate to the
+streetscape are encouraged without too precisely mimicking the style of the
+original character-building elements or heritage detailing.
+10.6 Doors and Windows
+10.6.1 All windows and door openings visible from the public realm are to have a vertical
+emphasis, which means they should be taller and narrower in appearance unless
+there is a predominance in the prevailing streetscape of larger, interwar and later
+windows.
+10.6.2 Front doors are to address the street and be centrally located in the front façade
+of the new infill building unless there is a different original pattern in the
+prevailing streetscape.
+11. Garages and Carports to All Residential Buildings
+Single carports and garages were not constructed in Fremantle until the Inter-War Era and
+double carports were not common until the 1970s and 80s. Where provided at all, garages
+and carports to heritage places and within heritage areas were generally located to the rear
+or side of the original dwelling and so are not traditional features in Fremantle’s heritage
+streetscapes. As such, new garages or carports are to be visually unobtrusive when viewed
+from the street.
+11.1 Do not introduce new crossovers, driveways or parking areas where it would involve
+the removal of significant fabric of a place or would negatively impact upon the
+significance of the wider streetscape.
+11.2 Carports and garages are to be located behind the building, and visually unobtrusive.
+11.3 For non-contributory properties, a carport or garage to a new house that is under the
+main roof of the development may be set back in line with or behind the front
+building line of the new house (excluding its verandah / porch).
+11.4 Notwithstanding the above carport and garage location requirements, the following
+arrangements may be considered for non-contributory properties, contributory
+39
+
+properties, Level 3 listed places, and some Level 2 listed places (on a case-by-case
+basis):
+a) A single or double carport located to the side of an existing or new house
+set back a minimum of 1m from the front building line of the house. (This
+setback line is taken as the front wall of the building that is closest to the
+proposed addition and is not the verandah or porch line). The roof to the
+side carport is to be flat, skillion or simple hipped or gable.
+b) A single garage located to the side of an existing or new house set back a
+minimum of 1m from the front building line of the house. (This setback line
+is taken as the front wall of the building that is closest to the proposed
+addition and is not the verandah or porch line). The roof to the single side
+garage is to be flat, skillion or simple hipped or gable. The structure is to be
+no more than 3.5m wide.
+c) A double garage located to the side of the existing or new house set back a
+minimum of 2m from the front building line of the house. (This setback line
+is taken as the front wall of the building that is closest to the proposed
+addition and is not the verandah or porch line). The roof to the double side
+garage is to be flat, skillion or simple hipped or gable. The width of the
+structure is to be no more than 45 percent of the width of the front of the
+dwelling or 6 meters (whichever is the lesser).
+11.5 Where the site is not individually listed and no other location is available, a carport
+may be considered in front of a dwelling where:
+a) The carport does not exceed an average of 2.8 metres in height above
+natural ground level; and
+b) The carport is located so as to maintain visibility of the dwelling from the
+street and surveillance from the dwelling to the street; and
+c) The maximum width of the carport should not exceed 6 metres on a
+property with a frontage of 12 metres or greater, or 3 metres on a property
+with a frontage of less than 12 metres; and
+d) The carport is set back one metre or greater from any side boundary.
+11.6 Carports projecting forward of the building shall be:
+a) Open on at least 3 sides (including the side facing the street) with no door;
+and
+b) Of lightweight construction with timber or steel vertical supports no greater
+than 150mm in width in any direction; and
+c) Simple in design and visually subservient to the form and proportion of the
+dwelling.
+11.7 Variations to the above may be considered where development meets one of the
+following criteria:
+a) The proposal is consistent with the character of the prevailing streetscape
+(e.g. within a redevelopment precinct) and the proposal does not have a
+negative impact on the significance of the place or area; and/or
+b) The proposed setback does not result in a projecting element into an
+established streetscape vista by virtue of the road and/or lot layout in the
+locality or the topography of the land.
+40
+
+11.8 Access ways and car parking are to be designed to minimise the visual and physical
+impact on the heritage character of the place or streetscape (including landscaping)
+and are to be no more than 3.5m wide at the street crossover.
+Figure 3: Garage and carport setbacks
+41
+
+12. Fencing to All Residential Buildings
+Boundary walls and fences are the key physical elements at the interface between private
+properties and the public and private realms. Traditional fencing types can contribute greatly
+to a heritage area’s residential streetscape and so are encouraged.
+For Level 1A, 1B or 2 listed places:
+12.1 Retain and conserve original fences and retaining walls including brick, stone, timber
+and composite fences/walls. If beyond conservation, replace like-for-like.
+12.2 Retain and conserve limestone features such as natural outcrops, cuttings, etc.
+12.3 Fencing style and design is to match the style and design of the original historic
+place.
+12.4 Solid metal fences are not to be located within the primary or secondary street
+setback areas.
+For non-contributory properties, contributory places and Level 3 listed places:
+12.5 Retain and conserve original fences and retaining walls including brick, stone, timber
+and composite fences/walls. If beyond conservation, replace like-for-like.
+12.6 Retain and conserve limestone features such as natural outcrops, cuttings, etc.
+12.7 Fencing types and heights are to be of traditional design and style. Traditional fencing
+types depend on their location but can include:
+42
+
+12.8 Primary and secondary street fencing is to take the following forms:
+a) Solid fencing up to 0.9m in height.
+b) Traditional open style (picket, post and wire or slat) up to 1.2m in height.
+c) Hybrid with a solid portion up to 0.5m and open style of 0.7m above the solid
+portion, to a total of 1.2m in height.
+d) Piers up to 1.5m in height.
+12.9 Solid metal fences are not to be located within the primary or secondary street
+setback areas.
+12.10 Contemporary interpretations and variations are to demonstrate that they are
+consistent with the prevailing streetscape.
+12.11 Variations to the above may be considered where necessary to attenuate traffic noise
+for properties on primary distributor, district distributor A or integrator arterial roads.
+43
+
+Part 3: Industrial Building Typologies
+This part applies to all places that have the form of original industrial buildings. Refer to Part
+1 for general conservation and change of use principes, and criteria for demolition,
+archaeology, subdivision, primary street setbacks, general criteria, form, chimneys, roofs,
+roof plumbing, wall material and colours, and decorative details.
+13. Industrial buildings in Fremantle
+Fremantle’s historic industrial buildings are an important component of its heritage
+significance. They contribute to its unique urban form, character and sense of place and
+demonstrate how the city and its people evolved.
+Fremantle was largely developed in the late nineteenth to early twentieth centuries before
+modern planning codes and private car ownership. Industrial zones did not exist and
+residential, commercial and industrial uses were located in close proximity with people living
+near or at their place of work.
+The first warehouses and associated industrial buildings were in the West End, initially
+focused on the jetties in South Bay before migrating north towards the river following the
+construction of the Inner Harbour in the 1890s Gold Rush. The West End was almost
+completely rebuilt at this time with commercial offices, hotels and retail in High Street and
+an intensification of industrial and warehouse uses in the cross streets. Also at this time,
+wealthier residents departed for new residential areas on the limestone ridges on the then
+outskirts of the town.
+In the 1890s, extensions to the Fremantle to Guildford railway line for industry, such as the
+spur line to the limestone quarries around Rocky Bay and another to the Owen Anchorage,
+led to the rapid expansion of North and South Fremantle. Warehouses and factories sprang
+up along the new railway lines and modest worker housing clustered around the new
+industry contributing to the working class character of these areas. In the Inter-War era
+larger warehouses and wool stores followed.
+In the Post War Era there were efforts to increase industry and manufacturing on the
+outskirts of town with the establishment of industrial areas in OConnor, Kwinana and North
+Fremantle adjacent to North Quay. Warehousing and industry began to relocate to the new
+areas as changing technology in shipping, warehousing and manufacturing made the old
+warehouses and factories redundant and the rise in motor vehicle use reduced the benefits
+of being located near the railway lines.
+By the 1980s much of the industry in Fremantle had relocated leaving many vacant or
+underused buildings. In the 1990s increased interest in heritage buildings and alternative
+housing models leads to adaptive reuse of former industrial buildings and Fremantle’s
+working class suburbs began to change.
+Today many industrial buildings remain in Fremantle, but most have new uses as residential,
+commercial, educational or cultural buildings. The cultural heritage of these buildings has
+been retained in the retention of original building fabric, form and industrial character. Apart
+from the warehouse streets of the West End, these buildings are often a contrasting element
+in a predominantly residential streetscape but their presence makes a major contribution to
+the character and identity of these areas.
+44
+
+Gold Rush Era industrial building with offices Gold Rush era industrial building with
+facing street and warehousing behind, Mouat warehouse section facing onto laneway, Croke
+Street, West End Lane, West End
+Inter-War Era Mills and Wares Biscuit Factory, Inter-War Era Weeties Factory, North
+South Fremantle, 1980s. Fremantle, 1980s.
+Furniture manufacturer and warehouse, 1920s Wool Stores, 31 Scott Street, South
+Pakenham Street 1920s Fremantle
+45
+
+13.1 Conservation
+Industrial buildings are usually composed of large rectangular volumes with simple gable roof shapes, large open plan internal spaces and
+a clearly articulated structural grid. At their most modest industrial buildings are a simple ‘shed’ but more substantial buildings have a
+‘façade’ of traditional commercial offices facing the street and a cartway providing access to the large open plan industrial space behind.
+Industrial buildings did not traditionally have verandahs or porches to street entrances or make use of domestic scaled elements.
+Structural elements such as engaged masonry piers, window sills, parapet copings etc are often used to provide articulation and
+modulation of the façades of industrial buildings and give a distinctive rhythm and scale. While many industrial buildings feature a more
+detailed and refined street façade which makes a public statement about the value and solidity of the business, side and rear walls are
+more utilitarian. In some cases, there is a considerable contrast between the two sections such as a rendered brick façade to the front and
+corrugated iron sheeting to the rear.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Form, Retain and conserve the distinctive building form, Retain and conserve the distinctive building form, fabric, materials
+fabric, fabric and materials of the original building and spaces of the industrial building.
+materials exterior.
+ii. Component Retain aesthetic differences between parts of the Retain aesthetic differences between component parts of the building
+parts original building exterior with different with different character:
+character: • Do not gentrify industrial elements with materials and forms
+• Do not gentrify industrial elements with more suited to residential and commercial buildings.
+materials and forms more suited to • Do not change office/ commercial parts to look more
+residential and commercial buildings. industrial by stripping out more refined finishes such as wall
+• Do not change office/ commercial parts to plaster or ceiling linings.
+look more industrial by stripping out more
+refined finishes
+iii. Significant Retain and conserve original/ significant building Retain and conserve original/ significant building fabric and key
+fabric fabric and key features of the original building features of the industrial building that contribute to its heritage
+exterior that contribute to its heritage values such values such as:
+as: • facades, doors, windows, shopfronts, grills, signs;
+46
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+• Vehicle doors, windows, shopfronts, grills, • structural elements like floors, walls, ceilings, beams,
+signs; structural elements and industrial columns, trusses, and stairs; or
+equipment and hardware • equipment such as gantries, pullies, block and tackles, timber
+bumper rails, chimneys, flues, loading platforms, hatches,
+machinery and hardware.
+iv. Patina, Where patina, wear and tear and other signs of Where patina, wear and tear and other signs of earlier use contribute
+wear and earlier use contribute to the character and heritage to the character and heritage value of the building do not make old
+tear value of the original building exterior, do not fabric look new or replace with new if it is still serviceable.
+make old fabric look new or replace with new if it is
+still serviceable.
+v. Original Where original materials comprising the original Where original materials need to be replaced but are no longer
+materials building exterior need to be replaced but are no available seek alternatives which closely match the visual
+longer available seek alternatives which closely appearance of the original. For example, match the profiles of
+match the visual appearance of the original. For corrugated sheeting, weatherboards or steel frames in new materials
+example, match the profiles of corrugated sheeting, with similar colours.
+weatherboards or steel frames in new materials
+with similar colours.
+vi. Exposure of Avoid leaving original formerly internal building fabric exposed where it will be subject to deterioration. For example, do
+internal not expose roof timbers or steel trusses to the elements or in places that are difficult to maintain and do not expose the
+fabric inner faces of walls or window frames.
+13.2 Adaptive reuse
+Most surviving industrial buildings in Fremantle have undergone some degree of adaptation in the 1990s and 2000s.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Formerly Where formerly adapted buildings are to Where formerly adapted buildings are to be adapted again, retain all remaining
+adapted be adapted again, retain all remaining heritage fabric and reinstated items.
+buildings heritage fabric and reinstated items that
+47
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+form part of the original building
+exterior.
+ii. Original It is recommended that original historical Reinstate original forms and missing features and elements based on physical
+forms and forms and missing elements and or documentary evidence of the place.
+features features that are part of the original
+building exterior are reinstated based
+on physical or documentary evidence.
+iii. New uses New uses are to be compatible with the New uses are to be New uses are to be compatible with the
+original building and its contribution to compatible with the heritage heritage building and:
+the streetscape and: building and: a) minimise the loss and alteration of
+a) minimise the loss and alteration a) minimise the loss and significant fabric and spaces;
+b) suit the form, scale and structural grid;
+of significant external fabric of alteration of
+and
+the original building exterior; significant fabric and
+c) retain part of the large, internal spaces
+and spaces; and
+and expose the structural grid.
+b) suit the elements of the form, b) suit the form, scale
+scale and structural grid.
+and structural grid.
+iv. Windows Existing windows of the original Existing windows to be Existing windows to be utilised and activated
+building exterior to be utilised and utilised and activated and not and not blocked up.
+activated and not blocked up. blocked up.
+In rare instances, and where
+In rare instances, and where they will they will not compromise the
+not compromise the basic form and basic form and structure of
+structure of the building, openings may the building, openings may
+be permitted to be blocked up. Where be permitted to be blocked
+openings are blocked up, recess infill up. Where openings are
+material to retain the façade rhythm. blocked up, recess infill
+material to retain the façade
+rhythm.
+48
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+v. New New internal floors are to suit existing window layouts to actively engage with the facade.
+internal
+floors
+vi. Doors and Existing doors, gates and vehicle access Existing doors, gates and vehicle access openings to be retained. Glazing to be
+gates openings of the original building installed in redundant openings rather than solid materials.
+exterior to be retained. Glazing to be
+installed in redundant openings rather
+than solid materials.
+vii. New New openings to the original building New openings may be considered where they will not compromise the basic
+openings exterior may be acceptable where they form and structure of the building.
+will not compromise the basic form and
+structure of the building.
+viii. Balconies Recessed balconies are to be constructed behind existing or new openings rather than adding external balconies.
+13.3 Siting
+Most industrial buildings have a zero setback to the street (primary and secondary), and this often contrasts with surrounding residential
+development which is set back from the street.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Street Additions to industrial buildings are to match the existing setbacks of the heritage building rather than adjacent buildings
+setbacks of a different typology.
+49
+
+13.4 Form and scale
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Form and Additions to the original building exterior Additions are to make use of simple volumes and industrial forms such
+volume are to make use of simple volumes and as large rectangular volume with gable roofs or sawtooth truss roofs.
+industrial forms such as large rectangular
+volume with gable roofs or sawtooth truss
+roofs.
+ii. Scale, Additions to the original building exterior Additions are to sympathetically respond to the scale, proportions,
+proportions are to sympathetically respond to the scale, structural grid and rhythm of openings of the industrial building.
+and rhythm proportions, structural grid and rhythm of
+openings of the industrial building.
+iii. Rear Rear additions are to be designed so they do not adversely affect the original building exterior and are not visible
+additions from the street.
+iv. Secondary a) Second storey additions to the rear of a building on a corner lot are to
+Generally, as per Level 3 but assessed on
+street be set back an appropriate distance based on a streetscape analysis of
+a case-by-case basis
+setbacks the secondary street. Issues to consider include:
+i. Prevailing streetscape and setbacks of the secondary street.
+ii. Avoiding a two-storey height wall to the secondary street unless
+this reflects the prevailing streetscape of the secondary street.
+b) Rear additions are to be lower than the eaves of the industrial building
+on the secondary street side and clearly articulated. Rear additions may
+be higher where they are not visible from the secondary street.
+v. Side Side additions to the original building Side additions are to be Generally, as per Level 3 but assessed on
+additions exterior are to be lower than the eaves of the lower than the eaves of a case-by-case basis.
+industrial building and clearly articulated. the industrial building and
+Articulation can include: clearly articulated.
+Articulation can include:
+• a 1 meter setback behind the façade of
+the heritage building; • a 1 meter setback
+• a subtle change in materials; or behind the façade
+50
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+• a link element such as a glazed section. of the heritage
+building;
+• a subtle change in
+materials; or
+• a link element such
+as a glazed section.
+vi. Articulation New additions impacting the original building New additions are to sympathetically respond to the level of
+exterior are to sympathetically respond to the articulation and modulation of the significant industrial buildings.
+level of articulation and modulation of the
+significant industrial buildings.
+13.5 Details and materials
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Character of External detailing and materials of additions are to Detailing and materials of additions are to suit the industrial
+details and suit the industrial character of the heritage character of the heritage building and to avoid domestic scale,
+materials building and to avoid domestic scale, detailing and detailing and materials
+materials
+ii. Practical
+Use structural elements and practical detailing such as engaged piers, copings, sills, etc to provide modulation and
+decoration
+articulation of new facades
+and details
+iii. New New materials to the original building exterior
+New materials are to be sympathetic with the significant industrial
+materials are to be sympathetic with the significant
+buildings and not dominate them with highly contrasting colours,
+industrial buildings and not dominate them with
+textures or materials.
+highly contrasting colours, textures or materials.
+51
+
+Item Contributory Level 3 Level 2 Level 1A and 1B
+iv. Details to Additional details to the original building
+Additional details to sympathetically respond to the details and
+additions exterior are to sympathetically respond to the
+materials of the heritage building rather than directly replicating
+details and materials of the heritage building
+stylistic features of the heritage building.
+rather than directly replicating stylistic features of
+the heritage building.
+13.6 Services
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Screening New roof top services to be screened from view and integrated into overall building design. Access ladders, etc to roof
+top services to be discretely located and not impact on streetscape.
+ii. Services
+Services to the original building exterior: All new services:
+a) to be installed with minimal damage to a) to be installed with minimal damage to heritage fabric and
+heritage fabric. spaces.
+b) be discretely located and grouped to b) to be discretely located and grouped to minimise visual
+minimise visual impact. impact.
+c) to be surface mounted rather than chased c) to be surface mounted rather than chased into masonry.
+into masonry.
+Sufficient detail of new services to be provided at Development
+Sufficient detail of new services to be provided at Application stage to demonstrate that these elements will have
+Development Application stage to demonstrate minimal impact on heritage fabric and spaces.
+that these elements will have minimal impact on
+heritage fabric and spaces.
+13.7 Infill buildings
+Where industrial buildings are a contrasting element in a predominantly residential streetscape, the industrial building is not be used as a
+precedent for new infill development.
+52
+
+Where the prevailing streetscape is industrial in character, infill development is to sympathetically respond to the siting, form, articulation
+and materials of the industrial context.
+53
+
+Part 4: Commercial Building Typologies
+This part applies to all places that have the form of original commercial buildings.
+14. Commercial buildings in Fremantle
+In the Gold Rush Era banks and offices were located around the Victoria Quay and the Town Hall and mixed-use commercial buildings with
+retail, offices and residential uses were located along major roads and in local centres. These buildings were all constructed with a zero
+setback to the street and had a distinct public face with a more finely detailed façade treatment. Simpler utilitarian treatments were used
+on side and rear elevations except for corner buildings which often addressed the corner with an entrance and had two primary facades.
+Substantial banks and office buildings constructed in High Street and around Victoria Quay. were designed to express solidarity and
+permanence and often had complex façade treatments in the Federation Academic Classical Style. These buildings did not have shopfronts
+and the ground floor was often slightly elevated with recessed doorways to accommodate entrance steps. They did not have street
+verandahs although sometimes there were recessed porticos on the upper floor.
+More commonly commercial buildings were mixed use with retail, services, offices and residential uses. Buildings had a zero setback from
+the front boundary with large shopfronts on the ground floor sheltered by a verandah that extended over the footpath and encouraged
+window shopping. Offices or residences were located above behind a classically proportioned façade with either a separate entrance or stair
+in the shop. In the more suburban residential areas parades of single storey shops were established at local centres and corner shops with
+attached houses were scattered throughout the area.
+Fremantle’s mixed use commercial buildings were mostly constructed in the Gold Rush Era but this building type continued to be used
+through the Inter-War era with the only major differences being the architectural treatment of the front façade, the use of fine metal
+framed shopfronts rather than timber shopfronts and the use of cantilevered box awnings rather than verandahs. Gold Rush era buildings
+were often refurbished in the Inter-War era with new shopfronts, awnings and façade treatments to reflect evolving stylistic trends.
+54
+
+Mixed used commercial buildings Hotel
+Gold Rush Era shops with original timber Gold-Rush era shop with Inter-War alterations
+framed shopfronts and verandah to shopfronts and cantilevered awning
+55
+
+Detail – Timber shopfront Detail – Metal framed shopfront
+Two storey shop with residence/ storage Corner Shop with attached house, Fremantle
+above, North Fremantle
+14.1 Conservation
+Gold-Rush and Inter-War commercial buildings have a distinctive form and key architectural features including a decorative façade facing
+the primary street, large shopfronts edging the back of the footpath and a verandah or awning over the footpath to provide a pleasant
+environment to entice customers to visit and loiter. Attached residences were often located on upper floors or in the case of corner shops,
+56
+
+adjacent. Upper floors were also used for office and storage area or in some cases a separate staircase led up to ‘chambers’ or groups of
+small offices suites. Where buildings are located on a corner they often feature a corner entrance and address both primary and secondary
+streets.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Form, fabric, Retain and conserve the distinctive building form, Retain and conserve the distinctive building form, fabric, materials
+materials fabric, materials and spaces of the original and spaces of commercial buildings.
+building exterior of commercial buildings.
+ii. Component Retain any differences between the component Retain any differences between the component parts of the building
+parts parts of the original building exterior and the and the differing treatments of main and rear facades.
+differing treatments of main and side facades.
+iii. Original Retain and conserve original/ significant fabric and Retain and conserve original/ significant building fabric and key
+fabric key features of the original building exterior features of the commercial building that contribute to its heritage
+that contribute to its heritage values including: values, including:
+a) facades, shopfronts, doors, windows, grills, a) facades, shopfronts, doors, windows, grills, tiles and signs
+tiles and signs; a. verandahs and/ or awnings;
+b) verandahs and/ or awnings; and b) corner entrances;
+c) corner entrances. c) significant internal elements – timber floors, walls, ceilings,
+cornices, roses, exposed steel beams and columns, stairs; and
+d) significant internal features such as internal timber stairs,
+display platforms, tiling or terrazzo in entries and timber
+framed office partitions on upper floors.
+iv. Patina, wear Where patina, wear and tear and other signs of Where patina, wear and tear and other signs of earlier use contribute
+and tear earlier use contribute to the character and heritage to the character and heritage value of the building, do not make old
+value of the building and are part of the original fabric look new or replace with new if it is still serviceable.
+building exterior, do not make old fabric look
+new or replace with new if it is still serviceable and.
+57
+
+v. Replacement Where original materials of the original building Where original materials need to be replaced but are no longer
+exterior need to be replaced but are no longer available seek alternatives which closely match the visual appearance
+available seek alternatives which closely match the of the original. For example, match the profiles of corrugated
+visual appearance of the original. For example, sheeting, weatherboards or window frames in new materials with
+match the profiles of corrugated sheeting, similar colours.
+weatherboards or window frames in new materials
+with similar colours.
+14.2 Adaptive reuse
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. New use Acceptable new uses will retain heritage values New uses to be selected that will retain heritage values through the
+through the retention of original building fabric of the retention of original building fabric and significant spaces.
+original building exterior.
+ii. Existing Existing windows, doors and shopfronts of the Existing windows, doors and shopfronts to be utilised and activated
+Openings original building exterior are to be utilised and and not blocked up.
+activated and not blocked up.
+iii. New New openings to the original building exterior may No new external openings to significant facades.
+Openings be acceptable where they will not compromise the
+New internal openings may be acceptable where they will not
+basic form, original facade composition, architectural
+compromise the basic form, architectural features and structure of
+features and structure of the building.
+the building
+iv. Upper Proposals that bring the upper level of retail mixed Proposals that bring the upper level of Retail Mixed Use buildings into
+level use buildings into use are encouraged and new use are encouraged and new independent access arrangements may
+mixed independent access arrangements to the original be supported provided they do not undermine the recognised
+use building exterior may be supported provided they heritage value of the place.
+58
+
+do not undermine the recognised heritage value of
+the area.
+14.3 Verandahs
+Verandahs and cantilevered box awnings are an important feature of commercial buildings which contribute to the heritage value of the
+building and surrounding streetscape as well as the amenity of the public realm by providing sheltered public space to encourage
+pedestrian activation of the area. Some two storey commercial buildings have double storey verandahs attached to primary and secondary
+street frontages.
+i. Retain and conserve original verandahs and cantilevered box awnings.
+ii. Reinstatement of original verandahs is encouraged where evidence is available to indicate a verandah was once present.
+Reinstatements should use photographic records and physical remnants to ensure they are reasonably accurate. Reinstated
+verandahs may be structurally enhanced to comply with modern requirements where the modification to the original design is
+concealed, for example, more durable steel posts in place of timber posts in the road reserve may be considered where they are
+of the same size, shape and profile.
+iii. Verandahs are not to be enclosed.
+iv. Café blinds or similar elements that enclose the space under a street verandah would only be considered where they do not
+impede pedestrian usage of the footpath or visually obscure the building and its shopfronts.
+14.4 Shopfronts
+Large, glazed shopfronts are a key architectural feature of commercial buildings and make an important contribution to the heritage
+character of Fremantle and the quality of the built environment.
+The façade of a commercial building is divided into bays by the masonry building structure. Traditional shopfronts span for the full width of
+the structural bay and extend up to the underside of the verandah / awning roof. Some shops have a secondary highlight window over the
+verandah to provide extra light deep into the shop. The traditional shopfront consists of a recessed entrance door, large, glazed shopfront
+windows sitting on a low solid plinth or ‘stall bay’ and a glazed fanlight that extends over the door and shop window. There is usually a
+59
+
+glazed fanlight over the entrance door and shopfront which sometimes has decorative stained glass or lead lights. Inside the shop there
+was usually a raised platform to display goods.
+Gold Rush era shopfronts were of timber construction sometimes with decorative turned columns, stained glass fanlight windows and tiled
+entry recesses and dados to structural piers. The solid stall bay was usually part of the shopfront. Inter-War era shopfronts had a fine
+metal framed structure with Art Deco influenced proportioning and decorative motifs, leadlight fanlight windows and tiled or terrazzo entry
+recesses and dados to structural piers. The stall bay was usually a masonry plinth which was tiled to match the dado tiling on the masonry
+piers to the façade.
+14.4.1 Conservation and adaptation of heritage shopfronts:
+i. Heritage shopfronts are to be retained, conserved and, where possible, enhanced to maintain the character of the commercial
+building. Both the Gold Rush period timber frames and the interwar period, Art Deco influenced metal frames are significant.
+ii. Historic fabric and architectural features of the shopfront are to be retained including decorative features and glazing, metal
+vents, tiling, terrazzo features, shop numbers, remnant signage, pressed metal linings, etc.
+iii. Traditionally shopfront windows had fixed panes; modification of the shopfront to include some opening windows will only be
+considered where frames are invisible, and installation does not involve the removal of original fabric.
+iv. Do not remove transoms (horizontal elements) or mullions (vertical elements) from heritage shopfronts.
+v. Do not install bi-fold doors into heritage place shopfronts.
+vi. Do not install external roller doors, gates or roller shutters in front of shopfronts to heritage place buildings.
+vii. Glazing to shopfronts to be largely clear to activate the street and contribute to the ambience and character of the area.
+viii. Glazing above the shopfront and verandah level is to be retained and is not to be covered internally by bulkheads and ceilings.
+14.4.2 New shopfronts to heritage places
+i. New shopfronts to heritage places may be considered where the original shopfront, or an Inter-War era replacement shopfront,
+has been removed in the past.
+60
+
+ii. Reinstatement of missing shopfronts is highly encouraged where there is documentary evidence of the original shopfront
+(photos or plans) or physical evidence (a surviving shopfront or parts of a shopfront within the same building).
+iii. New shopfronts to a building with other surviving heritage shopfronts must either accurately reinstate the original shopfront or
+sympathetically respond to the form, architectural style, materials and colours of the original shopfront.
+iv. New shopfronts are to sympathetically respond to the traditional shopfront form and the architectural style and era of the
+building. Shopfronts are to include a recessed entrance, large shop window with a low solid plinth, fanlight and where
+appropriate highlight windows over the verandah / awning.
+14.4.3 Shopfront window signs
+i. Advertising on shopfronts not to significantly obstruct views into commercial tenancies so activity and shopfront displays will
+activate the street and contribute to the character of the area.
+ii. Fanlights to remain predominantly clear.
+iii. Traditional signage such as lettering or small logos on a clear background is encouraged.
+14.5 Siting
+Most commercial buildings have a zero setback to the street (primary and secondary), and this often contrasts with surrounding residential
+development which is set back from the street. The exception to this is a Corner Shop and House which is a hybrid typology.
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Existing Additions to commercial buildings are to match the existing setbacks of the heritage building rather than adjacent
+setbacks buildings of a different typology.
+ii. Corner
+Additions to Corner Shop and House buildings are to respect the established setbacks of the two parts. For the house,
+Shop and
+refer to Part 2: Residential Building Typology of this Policy.
+House
+61
+
+14.6 Form and scale
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Form and volume Additions to the original building Additions are to to sympathetically respond to the form and volumes of
+exterior are to to sympathetically the commercial building.
+respond to the form and volumes of the
+commercial building.
+ii. Scale, proportions Additions to the original building Additions are to sympathetically respond to the scale, proportions ,
+and rhythm exterior are to sympathetically respond structural grid and rhythm of openings of the commercial building.
+to the scale, proportions, structural grid
+and rhythm of openings of the industrial
+building.
+iii. Rear additions Rear additions are to be designed so they do not adversely affect the original building exterior and are not
+visible from the street.
+iv. Rear additions to a) Second storey additions to the rear of a building on a corner lot
+Generally, as per Level 3 but assessed on
+secondary street are to be set back an appropriate distance based on a streetscape
+a case-by-case basis
+analysis of the secondary street. Issues to consider include:
+i. Prevailing streetscape and setbacks of the secondary street.
+ii. Avoiding a two-storey height wall to the secondary street
+unless this reflects the prevailing streetscape of the secondary
+street.
+b) Rear additions are to be lower than the eaves of the commercial
+building on the secondary street side and clearly articulated. Rear
+additions may be higher where they are not visible from the
+secondary street.
+v. Side additions Side additions to the original building Side additions are to be Generally, as per Level 3 but assessed on
+exterior are to be lower than the eaves lower than the eaves of the a case-by-case basis.
+of the commercial building and clearly commercial building and
+articulated. Articulation can include:
+62
+
+• a 1 meter setback behind the clearly articulated.
+façade of the heritage building; Articulation can include:
+• a subtle change in materials; or
+• a 1 meter setback
+• a link element such as a glazed
+behind the façade of
+section.
+the heritage
+building;
+• a subtle change in
+materials; or
+• a link element such
+as a glazed section.
+vi. Articulation New additions impacting the original New additions are to sympathetically respond to the level of articulation
+building exterior are to and modulation of the significant commercial buildings.
+sympathetically respond to the level of
+articulation and modulation of the
+significant commercial buildings.
+14.7 Details and materials
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Character of External detailing and materials of additions are to Detailing and materials of additions are to suit the industrial
+details and suit the industrial character of the heritage character of the heritage building and to avoid domestic scale,
+materials building and to avoid domestic scale, detailing and detailing and materials
+materials
+ii. Practical
+Use structural elements and practical detailing such as engaged piers, copings, sills, etc to provide modulation and
+decoration
+articulation of new facades
+and details
+63
+
+iii. New New materials to the original building exterior
+New materials are to be sympathetic with the significant
+materials are to be sympathetic with the significant
+commercial buildings and not dominate them with highly
+commercial buildings and not dominate them with
+contrasting colours, textures or materials.
+highly contrasting colours, textures or materials.
+iv. Details to Additional details to the original building
+Additional details to sympathetically respond to the details and
+additions exterior are to sympathetically respond to the
+materials of the heritage building rather than directly replicating
+details and materials of the heritage building
+stylistic features of the heritage building.
+rather than directly replicating stylistic features of
+the heritage building.
+14.8 Services
+Item Contributory Level 3 Level 2 Level 1A and 1B
+i. Screening New roof top services to be screened from view and integrated into overall building design. Access ladders, etc to roof
+top services to be discretely located and not impact on streetscape.
+ii. Services
+Services to the original building exterior: All new services:
+d) to be installed with minimal damage to d) to be installed with minimal damage to heritage fabric and
+heritage fabric. spaces.
+e) be discretely located and grouped to e) to be discretely located and grouped to minimise visual
+minimise visual impact. impact.
+f) to be surface mounted rather than chased f) to be surface mounted rather than chased into masonry.
+into masonry.
+Sufficient detail of new services to be provided at Development
+Sufficient detail of new services to be provided at Application stage to demonstrate that these elements will have
+Development Application stage to demonstrate minimal impact on heritage fabric and spaces.
+that these elements will have minimal impact on
+heritage fabric and spaces.
+64
+
+14.9 Infill buildings
+Where commercial buildings are a contrasting element in a predominantly residential streetscape, the commercial building is not be used
+as a precedent for new infill development.
+Where the prevailing streetscape is commercial in character, infill development is to sympathetically respond to the siting, form,
+articulation and materials of the commercial context.
+65
+
+Part 5: Criteria for Specific Heritage Areas
+The heritage areas below have specific requirements in addition to the general requirements
+of Parts 1-4 above. Where Parts 1-4 are inconsistent with Part 5, the Part 5 requirements
+prevail to the extent of the inconsistency.
+15. Hilton Garden Suburb Heritage Area
+The Hilton Garden Suburb Heritage Area has a distinctive heritage character that is derived
+from its planning, development and construction by the State Housing Commission in the
+Post-War Era. The curvilinear road layout, parks, irregular shaped lots and large open front
+gardens all contribute to the garden suburb character and a high proportion of the original
+houses remain. The houses, which are a simplified form of popular Inter-War styles, have a
+high level of conformity due to limitations on floor area, scale and materials. Housing
+constructed in the early stage of development is timber framed with tiled roofs and variety
+was provided by variations in the simple hip and gable roof forms, the porch design and the
+wall cladding material. Later development east of Collick Street includes brick and tile house
+types with simplified elements of popular Post-War residential styles.
+15.1 Street Setbacks
+15.1.1 For the purpose of determining the setback of buildings, the street designated as
+the primary or secondary street shall be determined by the Council, taking into
+consideration the prevailing streetscape, lot and house orientation and physical
+characteristics of the lot.
+15.1.2 New extensions shall be located at the rear or side of the original dwelling.
+15.1.3 Deemed-to-comply setbacks for buildings, including garages/carports where under
+the main roof of the development, are as follows:
+Item Setback
+Primary Street 7m
+Secondary Street 3m
+Garages, Carports and Outbuildings Set back in line with or behind the front wall
+of the dwelling.
+15.1.4 Notwithstanding the above, carports may be located in front of the dwelling where
+the development meets all of the following criteria:
+a) The carport is open on all sides with no door;
+b) The carport is lightweight in construction with timber or steel vertical supports
+no greater than 150mm in width in any direction;
+c) No part of the carport exceeds 2.8 metres in height above natural ground
+level;
+66
+
+d) The carport appears simple in design and is visually subservient to the form
+and proportion of the dwelling;
+e) The carport is located so as to maintain visibility of the dwelling from the
+street and surveillance from the dwelling to the street;
+f) The maximum width of the carport is to be 6 metres on a property with a
+frontage of 14 metres or greater or on a property with a frontage of less than
+14 metres, the maximum width of a carport is to be 3 metres; and
+g) The carport complies with clause 5.1.3 – Lot boundary setbacks, of the
+Residential Design Codes.
+15.1.5 Variations to primary street setbacks may be considered where the development
+meets at least one of the following criteria:
+a) Where the proposed setback of the building is consistent with the setback of
+buildings within the prevailing streetscape;
+b) Where due to the nature of the road and/or lot layout in the locality or the
+topography of the land, the proposed setback of the building does not result in
+a projecting element into an established streetscape vista; or
+c) Where the proposed setback of the building will facilitate the retention of a
+mature, significant tree deemed by the Council to be worthy of retention.
+15.1.6 Variations to secondary street setbacks may be considered where the development
+meets criteria 15.1.5(b) above.
+15.1.7 Dwellings are to be oriented parallel with the front boundary of the property
+addressing the primary street unless one of the following apply:
+a) The proposed dwelling orientation is consistent with the orientation of
+dwellings within the prevailing streetscape; or
+b) The proposed dwelling orientation is consistent with the traditional angular
+orientation of buildings, particularly in the case of corner lots where dwellings
+are typically set square to the corner splay of the lot.
+15.2 Garage width
+15.2.1 Garage widths are as follows:
+Location Criteria
+Garage set back in line with or less than 2 Maximum garage width of 3.2 metres
+metres behind the front wall of the dwelling
+Garage set back 2 metres or more behind • Maximum garage width of 45% the
+the front wall of the dwelling width of the front of the dwelling
+• Driveway to taper gradually from the
+garage to the street and be a maximum
+width of 3.5 metres at the street
+boundary
+67
+
+Corner lots where the garage addresses the Maximum garage width of 6 metres
+secondary street
+15.2.2 The garage width may be varied where one of the following can be demonstrated:
+a) The visual impact of the garage on the streetscape is alleviated due to
+significant variations in the topography in the front setback area such that the
+garage floor level is situated well below the ground level of the street;
+b) The garage is setback a significant distance from the street boundary of the
+property and the width of the driveway is minimised to maintain a streetscape
+of open front setback areas and single residences separated by open space
+that are not dominated by garages; or
+c) The positioning of the garage will assist in producing an overall building design
+more in keeping with the form and proportions of traditional Hilton houses,
+including a simpler roof form and the width of the driveway is minimised to
+maintain a streetscape of open front setback areas and single residences
+separated by open space that are not dominated by garages.
+15.3 Street walls and fences
+15.3.1 Fencing with a high proportion of visual permeability and reflective of fencing
+styles and materials traditional to the area (primarily post and wire/mesh infill) is
+strongly encouraged.
+15.3.2 Street walls and fencing forward of the building line are to be a maximum height of
+1.5 metres and meet the following criteria:
+Where the maximum fence Visual permeability is to be…
+height is…
+Up to 0.9 metres Minimum 20% visually permeable above 0.3 metres
+1.0m to 1.2 metres Minimum 50% visually permeable above 0.3 metres
+1.3 to 1.5 metres Minimum 85% visually permeable above 0.3 metres
+15.3.3 Variations to the above may be considered where it is demonstrated that the
+proposal is consistent with character of the prevailing streetscape (including, in
+relation to this clause only, the house directly across the street and the three
+houses on either side of that opposing house, where these are located within the
+Hilton Heritage Areas) AND maintains clear surveillance between the street and the
+dwelling.
+15.3.4 Notwithstanding the above, front fencing shall be visually permeable above 1.2
+metres to a maximum height of 1.8 metres, with piers no higher than 2.0 metres
+for properties on the following streets:
+• South Street, between Stock Road and Lee Avenue;
+• Carrington Street, between South Street and Winterfold Road; or
+68
+
+• Winterfold Road, between Carrington Street and Collick Street.
+15.3.5 Solid masonry (brick) fencing of a maximum height of 2 metres is permitted to the
+rear boundary of properties backing onto Stock Road.
+15.4 Vehicle Access
+15.4.1 Where two or more lots share a vehicular access point (via an access easement,
+common property driveway, or the like), such a shared vehicular access point is to
+be the sole vehicle access for all of those lots to that street front.
+15.4.2 Where variations are permitted, new crossovers shall be a maximum width of 3 m,
+and the development is to provide a landscaping plan demonstrating high quality
+landscaping features to soften the impact of the additional hardstand on the
+streetscape appearance.
+15.5 Building Height
+15.5.1 Building heights are as follows:
+Item Height
+External wall height for elevations fronting Minimum 3.2 metres
+the primary and/or secondary streets
+External wall height Maximum 3.5 metres (equivalent to single
+storey with loft)
+Roof ridge height Maximum 6.5 metres
+15.5.2 Lesser external wall heights may be considered where the proposed height is
+consistent with the wall height of development within the prevailing streetscape
+and the development meets one of the following:
+a) The development incorporates design elements that give the development a
+greater, more traditional presence to the street such as gable ends greater
+than the minimum external wall height or a steeper roof pitch (within the
+maximum roof pitch requirement of 35 degrees); or
+b) The natural ground level of the site is higher than the street so the
+development maintains a greater, more traditional presence to the street.
+15.5.3 Greater external wall heights and/or roof ridge heights may be considered where
+the development meets one of the following criteria:
+a) The development is on a rear survey strata lot, battleaxe lot or the equivalent
+and has minimal presentation to the streetscape and the development
+complies with the Deemed-to-comply requirements of the Residential Design
+Codes for the following:
+i. Clause 5.1.3 Lot Boundary Setback,
+ii. Clause 5.1.4 Open Space, and
+69
+
+iii. Clause 5.4.2 Solar access for adjoining sites
+b) Excluding development on a rear survey strata lot, battleaxe lot or the
+equivalent, the front and side elevations of the development present generally
+as a single storey dwelling when viewed from the street with the predominant
+bulk of the element exceeding the prescribed maximum building height located
+at the rear of the dwelling; or
+c) Excluding development on a rear survey strata lot, battleaxe lot or the
+equivalent, the proposed building height is consistent with the building height
+of development within the prevailing streetscape.
+15.6 Boundary walls
+15.6.1 Boundary walls shall be located a significant distance from the front boundary to
+maintain a streetscape of separated single residences separated by open space.
+15.7 Form and proportion of new dwellings
+15.7.1 Unless it can be demonstrated that a proposal is consistent with the prevailing
+streetscape, roofs shall:
+a) Be hipped or gabled with a pitch between 27.5 and 35 degrees;
+b) Be simple in form, incorporating no more than 2 roof elements visible from the
+primary and/or secondary street; and
+c) Have eaves a minimum width of 450mm.
+15.7.2 Buildings shall:
+a) Have wall angles of the front face of the dwelling be 90 degrees; and
+b) Have a front door facing and clearly visible from the street.
+15.7.3 Variations to the above may be considered where a proposal is consistent with the
+prevailing streetscape, and provides street surveillance from a habitable room or
+active outdoor habitable space between the dwelling and the street.
+15.8 Conservation of existing dwellings
+15.8.1 Where the dwelling is an original timber framed or brick dwelling constructed
+during the establishment of the Hilton Garden Suburb Precinct (dwellings
+constructed prior to 1965), refer to Parts 1 & 2 of this Policy for criteria on
+conservation and any other items not addressed in this Part. If the dwelling is not
+an original dwelling constructed prior to 1965, refer to clause 10 of this Policy for
+criteria not addressed in this Part.
+15.8.2 Variations may be considered where the proposed development involves minor
+variations and is specifically designed according to solar passive design principles
+to achieve a significantly higher level of energy efficiency than could otherwise be
+achieved by complying with Parts 1,2 or 5 of this Policy.
+70
+
+15.9 Rear lots
+15.9.1 Where development is proposed on a site or lot that is either a battleaxe lot, rear
+survey strata lot or the equivalent and the proposed development has minimal
+presentation to the streetscape, only the maximum height and vehicle access
+provisions of this Part apply. For all else, refer to the Residential Design Codes.
+15.10 Non-residential development
+15.10.1 Where development is proposed on a site or lot not zoned Residential and/or
+where the development is associated with a non-Residential use class, the
+development shall be compatible with the heritage significance of the “Hilton
+Garden Suburb Precinct” Heritage Area as well as the relevant requirements of the
+Local Planning Scheme No. 4.
+15.11 Subdivision
+15.11.1 The historic pattern of subdivision within the Hilton Garden Suburb Precinct is
+characterised by wide lot frontages which contribute significantly to the
+streetscape character and amenity of Hilton. In order to preserve the traditional
+streetscape character and amenity of Hilton, the following criteria apply:
+a) The subdivision is in the form of battleaxe or survey strata (with or without
+common property) with one lot behind the other.
+b) The proposed front lot shall have a minimum frontage of 16 metres. In the
+case of corner lots, the minimum frontage of 16 metres shall apply to the
+primary street.
+c) Access legs for battleaxe or survey strata subdivision shall provide reciprocal
+access to both the front and rear lots. The City may impose a relevant
+condition on any subdivision.
+15.11.2 Variations to the above may be considered where the local government is satisfied
+that the proposal will be consistent with the form of subdivision within the
+prevailing streetscape.
+16. West End
+Refer to LPP 3.21: West End Heritage Area.
+17. Other Heritage Areas
+17.1 Street setbacks
+For the following areas, deemed-to-comply street setbacks to residential development in a
+residential zone are as per the Residential Streetscape Policy unless the lot is subject to a
+more area-specific policy, guideline or planning instrument:
+• Holland and Forrest Streets Heritage Area
+• Howard Street Heritage Area
+• Memorial Reserve Heritage Area
+71
+
+• North Fremantle Heritage Area
+• Ord and Bateman Streets Heritage Area
+• Ord Street Heritage Area
+• South Fremantle Heritage Area
+72
+
+Appendix 1 - Definitions
+The following definition of terms used in the policy apply in addition to those in Planning and
+Development Act and Heritage Act, and subsidiary regulations, and City of Fremantle Local
+Planning Scheme No.4.
+Adaptation means changing a place to suit the existing use or a proposed use.
+Additions are new elements to be added to an existing place – this could include
+extensions, outbuildings or ancillary structures.
+Alterations are changes to an existing place.
+Ancillary structures include sheds, patios and gazebos etc.
+Bulk is the combination of scale, massing and form of a building (three-dimensional
+perspective), e.g. a cube is of greater bulk than a pyramid of the same base size and
+elevation.
+Contributory place means a place that makes a positive contribution to the cultural
+heritage significance of a Heritage Area. A contributory place may or may not be
+included on the City’s Heritage List as an individual place.
+Curtilage the area of land around a building associated with its function and/or appropriate
+visual space.
+External fixtures – refer Residential Design Codes definition. (Includes air conditioning
+units, radio and television aerials, satellite dishes, solar panels, water tanks, service
+connections, meter boxes or similar structures appurtenant to buildings)
+Form means the overall shape and size of a building, structure or fabric and the
+arrangement of its parts and features.
+Heritage List is the list of places and areas that are considered to have cultural heritage
+significance to the City of Fremantle and are worthy of protection.
+Heritage-protected place is as defined in Schedule 2 Regulation 1A of the Planning and
+Development (Local Planning Schemes) Regulations 2015. For ease of reference, the
+definition includes state registered places, locally registered places, places the subject of a
+heritage order or heritage agreement, and all properties within a heritage area, including
+non-contributory properties.
+Individual place see Place.
+Interpretation means communicating the meanings of a cultural or historic place through
+a variety of media and includes the retention and conservation of the fabric of the place.
+Like-for-like means exchanging a part of a place in exactly matching material, colour,
+form, profile etc.
+Maintenance means the continuous protective care of a place and its setting, including
+regular inspection and cleaning. Maintenance is distinct from repair, which involves
+restoration or reconstruction. For roofs, maintenance includes partial repairs such as
+replacement of some roof sheets or some tiles, but not whole roof replacement.
+73
+
+Non-contributory means a place that does not contribute to the cultural heritage
+significance of the South Fremantle Heritage Area.
+Original building exterior means:
+a) the original external portions of a building that contribute to the area. It includes,
+the following:
+i. the main external walls under the original main roofline;
+ii. the roof, eaves, roof plumbing and chimneys of the original main building;
+iii. any lean-tos of the same material and constructed at roughly the same time
+as the original main rooms of the house;
+iv. porches, verandahs, front steps and the like;
+v. window frames, doors, shopfronts, and positioning of openings;
+vi. external detailing and features; and
+vii. colour, material, texture, and the like.
+But excludes:
+viii. portions of rear wall (inclusive of above items i-vii on the rear wall) at least
+250mm from a side corner;
+ix. rear portions of roofs and eaves from the corner of the rear roof or eaves to
+250mm in from the side corner of the wall; and
+x. any portions of roof at least 500mm behind the apex or parapet and down the
+length of the rear roof and not visible from the street.
+Refer to figures 4 and 5 in Appendix 2.
+Patina means the surface appearance of something evolving with age or use.
+Partial demolition is selective in nature since it only removes certain parts of a building
+instead of the entire structure.
+Place (Heritage place / Individual place / Individually listed place) has the meaning
+given by the Heritage Act 2018. It is the whole of the heritage lot or parcel of land which
+contains a heritage item that is considered to be the place. For purposes of this policy, the
+term excludes non-contributory properties unless as part of the term “heritage-protected
+place”.
+Preservation means maintaining a place in its existing state and preventing deterioration.
+Preservation would include, for example, repainting a previously painted timber element to
+protect it from the weather.
+Prevailing Streetscape means the characteristics of the 3 properties adjoining either side
+of the subject site, fronting the same street and in the same street block. In the case of a
+corner lot where the dwelling is orientated to the splay, the characteristics of the adjoining
+three properties, where appropriate, facing both streets shall be considered. Greater weight
+may be given to the characteristics of the two immediately adjoining properties on either
+side of the subject site fronting the same street(s). For the purpose of this definition,
+74
+
+properties separated by a street shall not be considered ‘adjoining’, nor shall intrusive or
+non-contributory properties be used to establish context.
+Public realm means publicly accessible areas such as footpaths and road reserves.
+Reconstruction means returning a place to a known earlier state and is distinguished from
+‘restoration’ by the introduction of new material. Reconstruction would include replacing
+decayed fabric with new fabric; for example, a rusted-out gutter being removed and a new
+(but matching gutter) being installed. Reconstruction should always be done in a ‘like for
+like’ replacement manner.
+Restoration means returning a place to a known earlier state by removing accretions or by
+reassembling existing elements without the introduction of new material. It generally
+involves returning dislodged or relocated fabric to its original location. E.g. loose roof gutters
+on a building or displaced stones from a wall.
+Scale is the two-dimensional elevation sizes of a building; the vertical height; horizontal
+width; and their relative proportions to surrounding buildings and places.
+Setback means the horizontal distance of building edge from a property boundary.
+Setting means the immediate and extended environment of a place that is part of, or
+contributes to, its cultural significance and distinctive character.
+Significant Fabric is the part(s) of a place or area that are important to its cultural heritage
+significance. For contributory properties this relates only to the external parts that form the
+original building exterior. For individually listed properties, it may include any or all of the
+place.
+Siting means the relationships and juxtaposition of buildings on a site and the space
+around/between buildings.
+Visible from the street – means based on an assumed line of sight measured at a
+perpendicular angle to the primary street boundary of the development site and the street or
+public open space, at an assumed point of 1 metre less than the street width and 1.6 metres
+above ground level. An area of public open space will be considered to have an assumed
+street width of 20 metres for the purpose of this definition. (Refer to diagram in Appendix 2)
+75
+
+Appendix 2 – Diagrams
+Figure 4: Original Building Exterior Outlined in Red
+76
+
+Min. roof offset from corner of eaves to
+250mm inset above rear wall
+Min. wall offset 250mm from corner of
+rear wall
+Figure 5: Figures illustrating development outside the original building exterior
+77
+
+Figure 6: Visible from the street line of sight
+78
+
+Appendix 2 – Common Heritage Building Diagrams
+Figure 7: Federation Bungalow
+Figure 8: Inter-war Californian Bungalow
+79
+
+Figure 9: Austerity Cottage
+Figure 10: Shop front
+80
+
+Figure 11: Corner shop
+Responsibility and review information
+Responsible officer: Manager Strategic Planning and City Design
+Document 27 August 2025 – Ordinary Meeting of Council – C2508-15
+adoption/approval details
+Document amendment
+details
+Next review date 27 August 2029
+81

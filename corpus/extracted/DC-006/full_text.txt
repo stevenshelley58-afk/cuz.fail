@@ -1,0 +1,2793 @@
+Development Control Policy 1.8
+Canal estates and artificial waterway developments
+May 2012
+Contents 7.3 Layout for navigation safety 13
+7.4 Moorings, jetties and launching ramps 14
+7.5 Property frontage to waterways 15
+1. Citation 1
+7.6 Flood mitigation 15
+2. Background 1 7.7 Soil stability 15
+7.8 Cyclonic areas 15
+3. Introduction 1
+7.9 Coastal and estuarine or river impacts 16
+4. Objectives 1 7.10 Maintenance dredging 16
+7.11 Water circulation 16
+5. Preliminary consultation 1
+7.12 Public open space 17
+5.1 Information for preliminary consultation 2
+5.2 Role and information requirements of 8. Guidelines for water quality management 18
+agencies 3 8.1 Environmental quality management
+5.2.1 WAPC and Department of Planning 3 framework 18
+5.2.2 Department of Transport 3 8.1.1 Water and sediment
+quality indicators 19
+5.2.3 Department of Environment and
+Conservation 3 8.1.2 Establishing the quality of the
+adjacent natural waterway, water
+5.2.3.1 Cockburn Sound
+body or source groundwater 19
+Management Council 5
+8.1.3 Compliance with environmental
+5.2.4 Swan River Trust 5
+quality objectives for artificial
+5.2.5 Department of Water 5
+waterways 20
+5.2.6 Environmental Protection Authority 5
+8.1.4 Compliance with environmental
+5.2.7 Office of the Environmental
+quality objectives for water and
+Protection Authority 6
+sediment quality in adjacent
+5.2.8 Department of Health 6 natural waterway or water body 20
+5.2.9 Department of Fisheries 6 8.1.5 General aesthetic guidelines 21
+5.2.10 Local government 6 8.1.6 Maintenance of artificial
+5.2.11 Other agencies 7 waterway water quality by
+natural process 21
+6. Approvals 7 8.1.7 Stormwater runoff and drainage 21
+6.1 General 7 8.1.8 Industrial and residential waste 21
+6.2 Region planning scheme 8 8.1.9 Vessel sullage 22
+6.3 Local planning scheme 8 8.1.10 Impact on fauna and flora 22
+6.4 Environmental assessment process 9 8.2 Artificial waterway flushing 22
+6.5 Subdivision 10
+6.6 Other approvals 10
+6.7 Deed of agreement 11
+7. Guidelines for the design of boat harbours,
+marinas and canal estates 12
+7.1 Dimensions of artificial waterways 12
+7.2 Canal walls and breakwaters 13
+Western Australian Planning Commission – May 2012 i
+
+Appendix
+Appendix 1
+Summary of procedures for assessment of
+canal estates and artificial waterway
+developments 23
+Appendix 2
+Canal zone in a local planning scheme 24
+Appendix 3
+Agency/proponent responsibilities and
+relevant legislation for canal estates and
+artificial waterway developments 26
+Appendix 4
+Definitions 45
+Disclaimer
+This document has been published by the Western
+Australian Planning Commission. Any representation,
+statement, opinion or advice expressed or implied in this
+publication is made in good faith and on the basis that the
+government, its employees and agents are not liable for any
+damage or loss whatsoever which may occur as a result of
+action taken or not taken, as the case may be, in respect of
+any representation, statement, opinion or advice referred
+to herein. Professional advice should be obtained before
+applying the information contained in this document to
+particular circumstances.
+© State of Western Australia
+Published by the
+Western Australian Planning Commission
+Gordon Stephenson House
+140 William Street
+Perth WA 6000
+Locked Bag 2506
+Perth WA 6001
+Published May 2012
+website: www.planning.wa.gov.au
+email: corporate@planning.wa.gov.au
+tel: 08 655 19000
+fax: 08 655 19001
+National Relay Service: 13 36 77
+infoline: 1800 626 477
+Western Australian Planning Commission owns all
+photography in this document unless otherwise stated. This
+document is available in alternative formats on application
+to Communication Services.
+ii Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 1
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+1. Citation • developments incorporating artificial
+waterways or lakes designed for navigation
+as well as ornamental and recreational
+This policy is Development Control Policy
+purposes; and
+1.8 Canal Estates and Artificial Waterway
+Developments, reviewed under Part 2 of the • private water frontage abutting or over
+Planning and Development Act 2005. waterways.
+2. Background
+4. Objectives
+The Western Australian Planning Commission
+Policy objectives are:
+(WAPC) adopted a policy on this matter on
+10 December 1991, which was the result of • establishing a consistent and coordinated
+review of a previously endorsed Cabinet policy. approach to the assessment of proposals
+Operation of the policy and experience of the for canal estates and artificial waterways;
+development of canal estates were reviewed and
+in 1998, and from 2007 to 2011. Emphasis has • establishing ongoing management and
+been on clarifying roles and responsibilities
+maintenance responsibilities for canal
+of State government agencies and affected
+estates and artificial waterways.
+stakeholders.
+This policy supersedes Development Control 5. Preliminary consultation
+Policy 1.8 Canal Estates and Other Artificial
+Waterway Developments (February 1999).
+Given the wide range of issues involved in
+proposals for canal estates and artificial
+Related State planning legislation, policies, waterways, it is in the proponents’ interest to
+strategies, guidelines, planning bulletins and conduct a round of preliminary consultations
+Australian standards are listed under Appendix with local government and other relevant
+3 as they apply to various State government agencies.
+agencies and affected stakeholders.
+Proponents should have preliminary
+3. Introduction discussions with agencies such as
+Department of Planning, Department of
+This policy sets out requirements of the WAPC Transport, Department of Environment and
+for assessment of canal estate proposals. Conservation, Swan River Trust, Cockburn
+General principles and procedures to be Sound Management Council, Office of the
+considered by those proposing to undertake Environmental Protection Authority, Department
+canal estate projects are set out in the of Water, Department of Health, Department of
+associated guidelines. Regional Development and Lands, Department
+of Fisheries and the applicable local
+government prior to lodging a formal proposal
+This policy and guidelines applies to canal
+that includes canal estates and/or artificial
+estate developments which propose to
+waterways.
+incorporate artificial waterways. The general
+principles of the policy and guidelines also
+apply to: Early consultation will be necessary to establish
+various government agency requirements to be
+• marinas and harbours, whether as a
+addressed over the design stage of the project.
+result of construction of breakwaters into
+Requirements include:
+natural water bodies or by dredging inland
+harbours; • the level of detail of relevant and adequate
+information to enable proposals to be
+considered;
+
+• staging of requirements for engineering and (2) sources of funding; and
+planning design guidelines;
+(3) obligations of the proponent, local
+• approach for best practice water governments, lot owners and other
+management; relevant State government agencies.
+• documentation to supplement rezoning of • A basic concept plan showing approximate
+marinas and canal estates; and shape of proposed waterways, mooring
+envelopes and connecting channels, and
+• scoping content for a deed of agreement.
+proposals for subdivision, land use and
+development (including preliminary building
+It is expected that proponents in this process footprints, bulk and scale form).
+will consult with all affected authorities and
+• Preliminary hydrodynamic analysis
+obtain general advice from those authorities on
+demonstrating that flushing rates will be
+the level of detail required for the proposal to
+adequate to maintain acceptable water
+be assessed.
+quality.
+It will also be necessary to determine whether • Basic hydraulic, environmental, geotechnical
+or not the local government is prepared to and ecological studies showing perceived
+initiate an amendment to its local planning impact of development on the natural and
+scheme to have the land appropriately zoned physical features, and processes of the site
+for the purpose proposed. and its environs including any public health
+implications.
+5.1 Information for preliminary • A map showing natural and proposed
+consultation waterways and drainage lines.
+• Relevant floodplain mapping showing the
+This section identifies requirements in addition
+floodway and flood fringe.
+to those specific to each agency listed under
+• A map showing any low-lying seasonally
+section 5.2, and the information required
+inundated breeding areas for mosquitoes
+for subdivision applications to the WAPC,
+in close proximity to the proposal. Approval
+development proposals under relevant local
+for mosquito control measures in areas
+government town planning Scheme provisions
+managed by the Department of Environment
+and Scheme amendments.
+and Conservation will be required from the
+Department.
+Proponents are to provide sufficient information
+to enable informed discussions to take place • Preliminary analysis and mapping of native
+between the proponent, local government vegetation, flora and fauna, threatened flora
+and other relevant agencies. The following and fauna records, threatened and priority
+information is recommended. ecological communities, classification and
+management category of any wetlands
+• A costed 25-year maintenance plan that in Department of Environment and
+includes: Conservation datasets and nationally and
+internationally listed wetlands’.
+(1) costs of maintenance, dredging
+(including dredge spoil treatment- • Preliminary Health Impact Assessment
+disposal and management), to Department of Health requirements
+environmental monitoring and including and not limited to, potential
+management (including contingency for disturbance of acid sulphate soils,
+management strategies) to be disturbing mineral deposits and radon gas
+implemented if environmental quality formation.
+objectives are not met, and maritime
+structure maintenance;
+2 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 3
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+• Any other information that may be If a proposal is acceptable in broad principle,
+reasonably requested by an agency or local the Department of Transport will be asked to
+government at this stage of the process. comment on the objections above and those
+set out below to assist in more detailed design
+work:
+5.2 Roles and information
+• sea level rise (SLR) in accordance with State
+requirements of agencies
+Planning Policy 2.6;
+(Refer to Appendix 3).
+• artificial waterway design and stability
+(including walls, banks and revetments);
+5.2.1 WAPC and Department of Planning • entrance design and stability;
+• siltation rates;
+It is recommended that a copy of the concept
+plans and supporting documentation be • navigation requirements;
+provided to the WAPC and the matter be
+• tide and storm surge levels;
+discussed with officers of the Department
+• mooring design requirements; and
+of Planning. These preliminary consultations
+will draw attention to any concerns relating • other relevant matters as applicable to the
+to the project or any issues that need to be proposal.
+addressed in the formulation of a detailed
+proposal. The Department of Planning will
+5.2.3 Department of Environment and
+provide a coordinating role by arranging joint Conservation
+meetings and discussions between affected
+parties when and where appropriate. The The Department of Environment and
+WAPC is responsible for amendment of region Conservation should be consulted at an early
+planning schemes, approval of local planning stage. This is necessary to ensure there are
+scheme amendments, endorsement of local no overriding environmental constraints that
+structure plans and approval of subdivision. could prohibit the proposed development
+Appendix 1 shows the dual process where from proceeding, and to assist the proponent
+the Environmental Protection Authority is identify environmental principles to be
+also involved with the statutory assessment incorporated in development concept designs.
+process. The proponent should identify environmental
+issues and determine potential environmental
+impacts of the proposal.
+5.2.2 Department of Transport
+Information required in this section should Prior to the EPA setting the level of assessment
+be sufficient for the Department of Transport on a scheme or proposal that relates to a canal
+to advise the proponent, as to whether estate or waterway development, the OEPA will
+fundamental objections to the proposal exist. generally request the DEC’s advice.
+Objections may arise or be the result of:
+The Department will usually require a
+• impact on coastal processes, such as
+description of environmental quality
+changes to the littoral drift regime at the
+management framework (see section 8) for
+entrance channel and their consequences
+the canal estate or artificial waterway and
+for subsequent management;
+adjacent natural waterways; environmental
+• exposure to damage by tide and storm values to be protected; environmental quality
+surge levels; and objectives; levels of protection; frequency of
+monitoring and environmental quality criteria to
+• navigation problems.
+be achieved;
+
+• current and/or anticipated water quality regard to both excavation and land-based
+(particularly nutrient and contaminant levels) dredge disposal, and to include:
+and its management, involving natural or
+– likely extent and severity of acid sulphate
+artificial flushing or water exchange;
+soils,
+• coastal, estuarine or river environments
+– potential impacts on surface and
+and potential for impacts upon those
+groundwater quality and quantity,
+environments;
+– potential impacts on ecosystems and
+• native vegetation, flora and fauna habitat,
+biodiversity,
+including waterbird habitat protected by
+Commonwealth or International treaty – potential impacts on infrastructure, and
+agreements;
+– cumulative impacts;
+• impacts from construction and operational
+• likely extent of monosulfidic sediments
+activities on marine fauna, marine fauna
+accumulation in poorly flushed estuaries
+habitats, benthic primary producer habitats
+and waterways that may be disturbed by
+and significance of species and habitats
+artificial waterway development;
+affected;
+• maintenance dredging of acid sulphate
+• description of wetland classification and
+soil sediments, their disposal and spoil
+management category from Department
+management;
+datasets; identification of conservation
+• quality of dredge spoil, in particular for
+category wetlands; wetlands of national
+heavy metals and hydrocarbons (required
+and international importance including
+for assessment of the impacts of both
+Ramsar-listed wetlands; description of likely
+onshore and offshore disposal methods);
+impacts on wetland water regime; regional
+groundwater and surface water interactions • waste disposal with particular regard to
+with local groundwater; and assessment disposal of wastewater (including vacuum or
+of system functions based on hydrological gravity sewage infrastructure proposed) and
+studies; contaminated surface water run-off; and
+• identification of any lands or waters • land clearing of native vegetation (Including
+gazetted and managed by the Department Indigenous aquatic and terrestrial
+under the Conservation and Land vegetation) and potential Impacts
+Management Act 1984 within footprint and on biodiversity and potential loss of
+proximity of the proposed development; biodiversity.
+a description of how the values of these
+If the Department of Environment and
+areas will be affected; and consideration
+Conservation is aware of a fundamental
+of consistency with the relevant area
+constraint to the proposal, it will advise
+management plan(s);
+the proponent of that constraint. In such
+• prospective impact upon groundwater circumstances, the proponent should
+reserves and such other matters as not proceed unless action can be taken
+saltwater intrusion and drawdown; impacts to overcome that constraint. The lack of
+from drawdown and/or saltwater intrusion identification of a fundamental constraint by
+on groundwater dependent ecosystems and the Department or any other agency during the
+wetlands; early consultation phase does not necessarily
+mean that the project is cleared of significant
+• likely extent of and distribution of acid
+issues, particularly when deficient information
+sulphate soils on the land; potential for
+is provided or there are substantial proposal
+acid regeneration; and capacity of the land
+modifications.
+to sustain proposed development, having
+4 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 5
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Any development adversely impacting upon • management of stormwater and drainage;
+important conservation areas, including and
+habitats for endangered species and species of
+• impact on natural waterways estuaries,
+high conservation significance, is unlikely to be
+groundwater aquifers and water quality.
+supported.
+The Departments of Water will need to be
+consulted regarding flood levels, dewatering,
+dredging, effluent disposal, provision of
+5.2.3.1 Cockburn Sound
+pollution control equipment, stormwater Management Council
+management, and licence for a bore or well and
+The Cockburn Sound Management Council potential impacts of proposals on aquatic and
+is responsible for implementing the State riparian habitats. Approvals are required under
+Environmental (Cockburn Sound) Policy 2005, provisions of the Waterways Conservation Act
+Environmental Management Plan 2005 and 1976 and the Rights in Water and Irrigation Act
+associated environmental quality criteria, and 1914.
+will need to be consulted for proposals within
+Cockburn Sound and Owen Anchorage. The above information should be provided to
+the Department of Water in the relevant water
+management report according to WAPC’s
+‘Better Urban Water Management’ document
+5.2.4 Swan River Trust
+(WAPC, 2008).
+The Swan River Trust should be consulted
+where any proposed development is located
+within or abutting the Trust Development
+5.2.6 Environmental Protection Authority
+Control Area boundary or is likely to affect
+waters within this area. Approvals may be The Environmental Protection Authority
+required under the Swan and Canning Rivers provides advice to the Minister for Environment
+Management Act 2006. regarding environmental protection in the State
+and for conducting environmental impact
+assessments for planning schemes and
+significant development proposals as required
+5.2.5 Department of Water
+under the Environmental Protection Act 1986.
+The Department of Water is concerned
+primarily with the impact of artificial channels Section 38 of the Environmental Protection
+on natural receiving bodies and regulation Act 1986 requires the WAPC and any
+under the Rights in Water and Irrigation Act other decision-making authority to refer
+1914 and Waterways Conservation Act 1976 to the Environmental Protection Authority
+where these apply. Consultation with the any proposal application that is likely, if
+Department at an early stage is encouraged implemented, to have a significant effect on the
+to discuss impacts on natural waterways, environment. This includes any canal estate
+licensing requirements and to assist the or marina proposal that is environmentally
+proponent identify principles to be incorporated significant and affects environmental values
+in development concept designs. mentioned in this document.
+The Department of Water will usually require a If a proposal for a canal estate is referred to
+description of: the Authority, it is required to make a decision
+on whether or not to assess the proposal, and
+• impact on general flooding regime;
+if so, the level of assessment. If it decides
+• exposure to flooding and flood damage;
+to formally assess a proposal, it will do so
+
+using levels of assessment and assessment medium Mosquito risk shall require a Mosquito
+procedures set out in the Environmental Impact management plan.
+Assessment Administrative Procedures 2010.
+Water quality is of concern in respect to
+The Planning and Development Act 2005 and pollution through illegal disposal of raw
+the Environmental Protection Act 1986 require sewage within waterways and subsequent
+that all planning schemes (including scheme contamination. It will ensure that potential
+amendments) be referred by the responsible public health risks caused by the development
+authority to the Environmental Protection are properly identified, assessed and managed
+Authority for a decision on whether or not the to ensure its relevant objectives are satisfied.
+scheme should be formally assessed. This
+would include any schemes which contemplate
+5.2.9 Department of Fisheries
+a canal estate or artificial waterway as a future
+land use. Allowing environmental issues to The Department of Fisheries has responsibility
+be considered ‘upfront’ during the scheme for fish habitat, aquatic environment protection,
+formulation process ensures that environmental fisheries management, fish health and the
+factors are given proper consideration by the prevention of marine pest incursions. In line
+Authority and the responsible authority before with these responsibilities, it provides advice
+subdivision and development occur. on development projects which have potential
+to impact these sectors, which include coastal
+developments such as canal estates.
+5.2.7 Office of the Environmental
+Protection Authority
+5.2.10 Local government
+The Office of the Environmental Protection
+Authority was established on 27 November The local government should be requested to
+2009 to support the Environmental Protection advise whether the proposal meets general
+Authority in conducting environmental impact planning and engineering criteria, and the
+assessments and developing policies to circumstances under which it would be
+protect the environment. The Office also prepared to proceed with an amendment to its
+monitors compliance with ministerial conditions town planning scheme (ie. land rezoning) when
+related to approvals. formally requested to do so.
+The Office should be consulted as early as Long-term maintenance of public areas
+possible during the planning stages to identify such as waterways, connecting channels,
+the most suitable mechanism and process breakwaters, and artificial waterway walls and
+by which a canal estate or artificial waterway embankments where these abut land set aside
+development may be best considered by the for use by the public at large, will normally be
+Authority under the Environmental Protection the responsibility of local government. Local
+Act 1986. government will need to be satisfied regarding
+economic viability of the proposal and the
+local government’s financial capacity to meet
+5.2.8 Department of Health
+ongoing water and canal wall-monitoring and
+The Department of Health is to be consulted in maintenance costs. Proponents shall provide
+the process, as it considers land use activities projected short and long-term costs related
+and evaluates risks to humans in the new to capital works and maintenance for local
+community. Examples of risks include the government assessment.
+possible location of residential canal housing
+in close proximity to mosquito-breeding areas The proponent will normally be responsible
+that can lead to high risk of disease infection for maintenance of the entire project for
+such as Ross River Virus. Proposals located the initial period (normally five years), apart
+within areas designated to have a high to from those responsibilities assumed by
+6 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 7
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+purchasers of lots within the canal estate. 6. Approvals
+Additional responsibilities may include the
+payment of specified area rates to provide 6.1 General
+the local government with additional financial
+contributions to undertake long term
+The general procedure for approval, including
+maintenance of the canal estate or artificial
+environmental assessment, to develop a canal
+waterway development.
+estate or other artificial waterway is shown in a
+flow diagram at Appendix 1.
+Local government may liaise with State
+government agencies in regard to obtaining
+Zoning
+information that the local government
+The site area of the proposal shall be zoned
+considers relevant when deciding whether
+for urban land use under a region planning
+to proceed with a scheme amendment and
+scheme where a region scheme applies to
+subsequent approvals.
+the subject land. An amendment to the local
+planning scheme to rezone the subject land
+5.2.11 Other agencies
+to an appropriate zone including applicable
+provisions following the gazettal of any region
+In addition to prior consultations, it will, in
+planning scheme amendment is required. A
+particular circumstances, be appropriate to
+local planning scheme amendment proposal
+confer with other authorities, for example, the
+requires a scheme amendment report to be
+Department of Indigenous Affairs may require
+prepared, which includes a concept plan of the
+an Aboriginal heritage survey in accordance
+development and any other details required
+with the Aboriginal Heritage Act 1972. The
+by the local government in support of the
+Department of Mines and Petroleum shall be
+proponents request to rezone the subject land.
+consulted to ascertain whether the proposal
+is located within a designated mineral field
+A prerequisite to rezoning will be the
+in accordance with the Mining Act 1978 and
+requirement for the proponent to enter into
+Land Administration Act 1997. In cases of likely
+a draft deed of agreement with the local
+environmental impacts of national significance,
+government concerning future waterways
+for example, proposals in close proximity to
+management. The deed will need to state
+Ramsar wetlands, consultation is required
+the waterways manager and be endorsed by
+with the Commonwealth Department of
+all affected parties prior to the amendment
+Sustainability, Environment, Water, Population
+being finalised. The deed shall be flexible
+and Communities under the Environment
+to accommodate provision for any matters
+Protection and Biodiversity Conservation
+determined by the WAPC arising from
+Act 1999.The Heritage Council of Western
+subsequent planning stages, such as Australia should also be consulted in regard
+structure plan subdivision/survey strata and
+to proposals, or in close proximity to places
+development assessment processes. listed on the State Register of Heritage Places.
+Also, consultation is recommended with
+Information supplied shall accord with the key
+infrastructure servicing authorities, such as
+stages shown the flow chart in Appendix 1.
+Western Power for electrical provision and
+All parties are expected to apply reasonable
+infrastructure upgrading and Water Corporation
+judgment related to the characteristics of the
+for sewerage and reticulated water servicing
+particular proposal to ensure that the level of
+and infrastructure upgrading.
+information is provided at the appropriate stage
+of the planning process.
+
+Local Structure Plan 6.3 Local planning scheme
+A Local Structure Plan may be required to be
+prepared and approved by the local government The following represent principal matters which
+and the WAPC as a prerequisite to subdivision may be covered by a local planning scheme
+and/or development. The requirement to and accompanying local structure plan, outline
+prepare a local structure plan will be identified development or subdivision guide plans (draft
+during the local scheme amendment process. model scheme text provisions for the Canal
+Zone are shown in Appendix 2):
+• information describing the existing
+Subdivision environment (social, physical and biological)
+Approvals to subdivide land and to commence of the development area and environs
+and carry out development will be considered and the potential environmental impacts
+(refer section 157 and 170 of the Planning and of the proposed development, as well as
+Development Act 2005) following finalisation contingency management strategies for
+of the region and local planning scheme mitigation potential environmental impacts.
+amendments and a local structure plan. Information should be sufficiently detailed
+to assist the Environmental Protection
+Authority to determine whether the
+Environmental Approvals
+amendment warrants formal environmental
+If a region and/or local scheme amendment
+assessment;
+has been formally assessed by the EPA then
+• a submission showing all of the matters
+a Ministerial Statement is issued under the
+believed by the proponent to be the basis
+Environmental Protection Act 1986. Further
+upon which a deed of agreement can be
+environmental approvals are likely to be
+entered into with the local government
+required at subsequent planning stages,
+(or alternative waterways manager). State
+particularly at the local structure plan stage.
+government agencies may also be parties to
+the deed of agreement at their discretion;
+6.2 Region planning scheme • building densities (based upon net
+developable area of dry lot);
+The WAPC may amend a region planning • layout of subdivision and/or development
+scheme in one of two ways: scale/form for land within the canal estate;
+(1) as a substantial or ‘‘major’’ amendment; or • layout of mooring envelopes within artificial
+waterways;
+(2) as a non-substantial or ‘‘minor’ ‘amendment.
+• location of lot boundaries in relation to
+retaining walls;
+Canal estate developments will be dealt with
+as major amendments due to their complex • artificial waterways, connecting channels
+and technical nature. A proposal deemed and the water body to which connection is
+to be a minor variation to an existing canal to be made;
+development may, in the opinion of the WAPC,
+• land to be ceded to the Crown as such as
+be considered a minor amendment. The
+waterways, foreshore reserves and public
+Planning and Development Act 2005 provides
+open space;
+opportunity for the simultaneous amendment of
+a local planning scheme where a region scheme • siting of buildings with particular reference
+is amended. to flood levels and to artificial waterway
+banks;
+The process for amending a region planning
+• ramps and hoists;
+scheme is set out in part 4 of the Planning and
+Development Act 2005.
+8 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 9
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+• pump-out facilities for non-residential vessel environmental issues raised in the submissions.
+moorings; The EPA then prepares an assessment report
+to the Minister for the Environment, making
+• a local water management strategy in
+recommendations as it sees fit. The report is
+accordance with the WAPC’s ‘Better
+publicly released and copies are forwarded to
+Urban Water Management ‘(WAPC,
+the responsible authority, any decision-making
+2008) framework to support the scheme
+authorities, the minister responsible and any
+amendment and/or structure plan and
+other minister concerned.
+demonstrate that water can be managed
+appropriately onsite;
+The contents of the report, including
+• particulars of any proposed sea bed lease recommended conditions, are subject to
+and Torrens title within the project area; and third party appeal to the Minister for the
+• other matters covered by Schedule 7 of the Environment. If appeal rights are exercised,
+Planning and Development Act 2005 which the amendment cannot be implemented while
+the local government deems appropriate. the appeal is pending. The Minister for the
+Environment consults with the Minister for
+Planning prior to setting any environmental
+Initiation of a local planning scheme is set out
+conditions to be incorporated in the
+in Part 5 of the Planning and Development
+amendment.
+Act 2005. The process for a local scheme
+amendment is set out in the Town Planning
+Alternatively, a development proposal may be
+Regulations 1967.
+referred under section 38 of the Environmental
+Protection Act 1986 for a decision on
+6.4 Environmental assessment whether to assess the proposal. Generally, a
+process development proposal would only be referred
+under this section 38:
+Following resolution of the WAPC to amend a
+• a corresponding scheme or rezoning has
+region scheme and/or the local government to
+not been assessed under section 48A;
+amend its local planning scheme, sections 38
+• it does not comply with requirements and
+and 81 of the Planning and Development Act
+conditions of the assessed scheme;
+2005 require referral of the amendment to the
+Environmental Protection Authority. • it is of a prescribed class which causes
+pollution;
+Upon receipt of sufficient information,
+• it raises environmental factors not
+the Authority will determine whether the
+addressed in the scheme assessment; or
+amendment warrants formal environmental
+assessment, and if so, at what level (under • the Environmental Protection Authority did
+section 48A of the Environmental Protection not have sufficient scientific or technical
+Act 1986), or whether it is incapable of being information at the time it assessed the
+environmentally acceptable. If an amendment scheme to assess all environmental factors
+warrants formal assessment, the Authority will raised by the proposed development.
+issue instructions regarding scope and content
+to be addressed by the responsible authority
+If the Authority decides to formally assess
+preparing the environmental review. The
+a proposal, it will do so using the levels of
+environmental review must be advertised with
+assessment and assessment procedures set
+the amendment during the public submission
+out in the Environmental Impact Assessment
+period.
+Administrative Procedures 2010. Canal estate
+developments are likely to require formal
+At the end of the public submission period,
+assessment by the Authority.
+the responsible authority is required to inform
+the Authority of its views and response to the
+
+The Waterways Conservation Act 1976 makes • public open space and other reserves; and
+provision for conservation and management
+• such other matters as the WAPC may
+of certain waters and of associated land and
+determine in consultation with local
+environment. The Act applies to declared
+government and State government
+waterways (currently the Peel-Harvey Estuary,
+agencies.
+Wilson Inlet and Albany Harbour).
+Furthermore, provisions of the Act regarding These conditions should accord with
+regulatory licensing apply only to certain requirements of the appropriate authority
+activities such as dredging, disposal and nominated in the approval processes set out in
+reclamation activities within the management this policy.
+area. Approvals under the Act should not
+occur before or interfere with the Authority’s 6.6 Other approvals
+consideration of a proposal. Should it decide
+to formally assess, approvals under the Act will
+If the project is in a declared waterways
+follow the Minister for Environment’s approval
+management area, the proponent is required
+and conditions, and be consistent with such
+to obtain a dredging licence from the relevant
+an approval and conditions. The Minister for
+agency prior to any dredging or reclamation
+Water and the Department of Water are to be
+being carried out, in accordance with the
+consulted on any proposal within a declared
+Waterways Conservation Act 1976.
+waterways management authority area.
+Under the Rights in Water and Irrigation Act
+6.5 Subdivision 1914, the taking of water for activities (e.g.
+dewatering, dust suppression, irrigation of
+The proponent should not lodge subdivision or public open space) within a proclaimed area
+applications for planning approval prior to the must be undertaken in accordance with a valid
+Minister granting final approval to a scheme water licence. Another licence will be required
+amendment, and until a structure plan for the to construct or alter any wells from which
+subject land (if required under the scheme groundwater will be taken. A permit will be
+amendment)) have been endorsed by the local required to interfere with bed and banks or to
+government and the WAPC. take water from a watercourse. Applications
+for licences and/or permits are made to the
+Conditions of subdivision will normally address:
+Department of Water.
+• construction of artificial waterways;
+The Department’s policy requires that
+• filling of land;
+proponents applying to draw large amounts of
+• construction of artificial waterway banks,
+water must prepare an operating strategy or
+retaining walls and artificial waterway and
+management plan demonstrating how effects
+navigation structures;
+to the aquifer, surrounding environment and
+• maintenance plans for dredging, disposal other users will be managed. Water quality
+and acid sulphate soils; monitoring is usually required and water is
+often treated before being released back to the
+• management plans for environmental
+aquifer or waterway. Groundwater modelling is
+matters such as acid sulphate soil
+sometimes required for large projects.
+management, and control of nutrients,
+pesticides algal accumulation and insects;
+Where a natural watercourse or collection of
+• environmental management plans for water is being modified to allow development
+impacted wetlands and buffers, flora and in a proclaimed area, a bed and banks permit
+fauna; will be required.
+• emergency, public or resident access along
+canal waterways;
+10 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 11
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+A Notice of No Objection may be required • transfer of the ‘waterway’ area at no cost to
+from the Commissioner for Soil and Land the Crown for subsequent vesting;
+Conservation. Preparation of a nutrient and
+• construct, including a development
+irrigation management plan, a dredging and
+contribution plan in accordance with State
+dredge spoil disposal management plan and a
+Planning Policy 3.6, monitor and maintain
+conservation and foreshore management plan
+specific artificial waterway and channel
+will also normally be required.
+works;
+Where native vegetation on-site is proposed • monitor and manage water quality to
+to be cleared (including marine), it will be specified requirements;
+necessary to obtain a native vegetation clearing • identify funding sources for construction
+permit, unless the clearing is exempt under and maintenance work referred to above,
+schedule 6 of the Environmental Protection which may include a development
+Act 1986 or exempt under the Environmental contribution plan where necessary, and
+Protection (Clearing of Native Vegetation) which will require amendment to the local
+Regulations 2004. planning scheme for implementation;
+• remain a party to the agreement until at
+Approvals are required under the Wildlife
+least five years after the date of practical
+Conservation Act 1950 for the taking of native
+completion of the project; should there be
+flora and fauna.
+a recurring problem, this period may be
+extended yearly with WAPC approval;
+Developments that occur within marine parks
+or reserves may require approval under the • apply the deed of agreement to each
+Conservation and Land Management Act 1984. stage of a development involving artificial
+waterways;
+The Commonwealth Department of
+• provide a sustainable maintenance program
+Sustainability, Environment, Water, Population
+including obligations for water quality
+and Communities advise on the need for
+and sediment monitoring programmes,
+referral of a proposal under the Environment
+monitoring water depths (ie. hydro graphic
+Protection and Biodiversity Conservation Act
+surveys), dredging, monitoring erosion or
+1999.
+accretion of shorelines associated with the
+waterways;
+Government agencies should be consulted that
+• provide maintenance bonds;
+have applicable legislation, and policies and
+procedures that need to be followed are listed • provide waterways headwork contributions;
+in Appendix 3.
+• make arrangements regarding source of
+revenue for ongoing maintenance; and
+6.7 Deed of agreement
+• provide a bank guarantee against default of
+the above commitments and to cover any
+The purpose of the deed of agreement between
+defects which may become evident during
+the local government and the proponent is to
+the period of the developer’s obligation.
+agree to:
+• establish the environmental values,
+• undertake development within a defined
+environmental quality objectives, levels of
+period;
+ecological protection and environmental
+• provide a feasibility assessment of the quality criteria for the artificial and
+proposal (Refer to section 5.1); adjacent natural waterways or water
+bodies and which define the objectives for
+• identification of the local government as the
+management; and
+waterways manager and any other party to
+the agreement;
+
+• describe contingency management Guidance for the design of boat harbours
+strategies that will be implemented if the and marinas can be found in AS 3962 2001:
+environmental quality objectives are not Guidelines for the Design of Marinas. However,
+met. these guidelines are not wholly applicable to
+canal estates, and do not include particular
+local requirements. Western Australian design
+Determine the extent to which local laws,
+standards are currently based upon a 1 in
+vessel mooring management plan and
+100 Annual Exceedence Probability (1%
+cyclone contingency plans may be required in
+AEP) event. Proponents of canal/marinas are
+consultation with relevant State government
+encouraged to voluntary adopt standards
+agencies, including Department of Transport,
+above 1% AEP and that the design standard
+Department of Planning and State Emergency
+be, via legal instrument, stated on lot/strata
+Service.
+titles.
+Funding sources of revenue may include
+The following supplementary guidelines have
+fees paid for use of public facilities such as
+been prepared.
+boat launching ramps, marine pen fees and
+commercial leases, lump sum payments
+made by the developer, and rating revenue
+via general, special area or differential rating 7.1 Dimensions of artificial
+methods. waterways
+A costed 25 year maintenance plan/feasibility To define navigable widths and depths for
+assessment to be finalized by the completion artificial waterways, lateral loads on mooring
+of the State government planning process. structures and dimensions of mooring areas, a
+‘design vessel’ (the largest vessel expected to
+The deed of agreement may not be required use the waterway) should be selected to guide
+to address all environmental issues, as these the design of the artificial waterway.
+will be the subject of development under the
+Environmental Protection Act 1986. Table 1 lists recommended sizes for a design
+vessel. These sizes are based on draughts
+The level of detail of items listed in section 6.7 appropriate to yachts, and beams appropriate
+can be addressed in consultation with local to power boats.
+government and State government agencies.
+There should be flexibility for inclusion of Table 1: Design vessel sizes
+any other relevant matters that apply to the
+Boat length Beam Draught
+particular proposal.
+(metres) (metres) (metres)
+6 2.8 1.4 (0.8)*
+8 3.4 1.5 (0.9)*
+10 4.0 1.8 (1.0)*
+7. Guidelines for the design of
+12 4.4 2.0 (1.0)*
+boat harbours, marinas and
+15 5.0 2.5 (1.2)*
+canal estates 18 5.4 2.7 (1.4)*
+20 5.7 2.9 (1.5)*
+These guidelines should be applied to the *It is possible that some inland canal estates
+rezoning, local structure plan and subdivision may cater for small power boats only. If this
+application process as required. Responsible is the case, these reduced draughts may be
+agencies should be consulted to clarify acceptable. (Source: AS 3962 2001, Australian
+the nature, extent and timing of particular Standards)
+requirements. Canal estates, boat harbours
+and marinas have some features which do not
+exist in conventional subdivisions.
+12 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 13
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+The depth of clear fairway and mooring areas • beam to moorings only are permitted in
+below Chart Datum shall be: main navigation channels.
+• not less than 1.0 metres;
+The length and cross-section of any artificial
+• not greater than the associated natural
+waterway shall relate hydraulically so that non-
+water body;
+scouring currents exist at the entrance and in
+• not less than the maximum draught of the the artificial waterways (note that this will be
+design vessel plus: dependent on soil type and bank construction).
+– half the predicted wave height;
+The Department of water provides technical
+– 0.3 metres for soft bed or 0.5 metres for
+advice (e.g. local government authorities,
+a rock bed;
+developers and Department of Planning) to
+– allowance for siltation that matches the incorporate into the approval process.
+proposed maintenance dredging regime.
+• The width of the navigation fairway shall be
+These currents are to be conservatively
+no less than 15 metres. In a Canal Zone the
+assessed against any annual event, and
+width shall be:
+may be limiting only at the 1 in 100 Annual
+– measured from boundaries of mooring
+Exceedence Probability (1% AEP) event.
+envelopes and (in the case of sloping
+walls) from the navigation depth contour,
+7.2 Canal walls and breakwaters
+whichever is appropriate;
+– twice the length of design vessel
+For all artificial waterways, all land retaining
+between the limits of the mooring
+structures and breakwaters shall:
+envelopes;
+• be designed to resist damaging erosion by
+– increased if more than 20 residential
+wind, current and wave action for a 1 in 100
+moorings are upstream of any channel
+Annual Exceedence Probability (1% AEP)
+cross section.
+event.
+• be geotechnical stable under expected
+The width across water between property
+range of active loads including earth loads,
+boundaries in a Canal Zone should not be less
+earthquake, hydrodynamic loads, building,
+than 30 metres. traffic and construction surcharges;
+• minimise maintenance requirements as far
+Mooring areas in a Canal Zone should be
+as practicable; and
+identified in an overall mooring arrangement
+plan that depicts the design vessel for each lot, • take account of predicted climate change
+all mooring areas, navigation clearances, and sea level rise under State Coastal Planning
+signage. Mooring areas should comply with the Policy 2.6.
+following requirements:
+• mooring envelope shall be shown in
+7.3 Layout for navigation safety
+the artificial waterway at each property
+boundary, of sufficient size to contain all
+It can be assumed that a vessel speed of five
+jetties, mooring piles and the design boat;
+knots or less will be required within the artificial
+• for single residential lots, lot width and waterways system. While power boats may be
+mooring location shall be such that the in the majority, use of canoes, rowing dinghies
+moored vessel is entirely in the water area and small sail boats must be expected.
+bounded by the extension of the property
+boundaries; and
+
+For all artificial waterways: associated with the canal estate lot in a
+suitable location adjacent or close to those
+• navigation safety requirements should
+facilities(AS 3962 2001: Guidelines for
+comply with the maritime safety regulations
+Design of Marinas — provides guidance on
+of the Department of Transport;
+car parking requirements); and
+• the artificial waterway system should
+• when a large number of similar structures
+contain clearly defined main waterways, and
+is expected (eg. boat ramps and jetties), a
+branches and cross-intersections should be
+policy relating to such structures (including
+avoided;
+standard designs for structures) shall be
+• junctions of artificial waterways should prepared by the developer, in consultation
+provide clear sight distances; with and to the satisfaction of, both the local
+government and the waterways manager.
+• navigation beacon piles shall be placed
+Consideration of implementing ISO 140001
+to identify the presence of any hazard to
+Environmental Management Systems is
+navigation for the design vessel and shall
+recommended.
+be marked with day marks and lights
+or reflective, coloured night marks in
+accordance with Department of Transport For all artificial waterways:
+requirements; • jetties, ramps and moorings may not be
+• bridge clearances appropriate to the needs constructed except with a jetty license from
+of the design vessel for height and width the Department of Transport, and approval
+should be provided in accordance with of the waterways manager and the local
+Department of Transport requirements; government where applicable;
+• lighting in the area should not be a hazard • as waste disposal from vessels could
+to safe navigation through excessive glare result in pollution of artificial waterways,
+or inappropriate colour; and sewage pump-out facilities, refuse and
+waste oil receptacles may be required by
+• a sign shall be erected at the entrance(s)
+the waterways manager for each project
+to the artificial waterways advising that the
+incorporating artificial waterways;
+artificial waterway is designed for a vessel
+of given maximum length and draught • to reduce pollution of artificial waterways,
+(the design vessel dimensions), and that separate drainage systems fitted with
+vessels of greater length and draught may pollutant traps may be required at boat
+encounter navigation difficulties. ramps to limit runoff via the ramp;
+• areas for activities with potential to
+7.4 Moorings, jetties and pollute waterways (such as the draining of
+launching ramps bilges) may be required to be constructed
+adjacent to boat ramps and should include
+appropriate drainage management systems.
+In the Canal Zone:
+Consideration should be given to installing
+• all moorings, jetties and launching ramps
+signage or other measures to discourage
+must be contained within the mooring
+boat users from undertaking bilge draining,
+envelope, and no intrusion into the
+wash down or other polluting activities on
+navigation channel will be permitted;
+ramps; and
+• mooring envelopes, jetty envelopes and
+• jetties and moorings shall not be attached
+launching ramps should be identified on the
+to retaining walls unless the retaining wall
+structure plan;
+has been designed for that purpose.
+• car parking areas, to the satisfaction of the
+local government, shall be provided for all
+jetties, ramps, and moorings not directly
+14 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 15
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+7.5 Property frontage to 7.6 Flood mitigation
+waterways
+For all artificial waterways:
+Within the Canal Zone:
+• impact of the proposed development
+• individual property owners with a water (including proposed fences or barriers) on
+frontage will be responsible for stability and flood flow should be evaluated, and in areas
+integrity of that water frontage; where they detrimentally impact the flooding
+regime, proposals should not be permitted;
+• a safe pedestrian public right of carriageway
+easement (Refer to Section 195/196 Land • flood flows from upstream catchments
+Administration Act 1997) shall be provided should not discharge directly to
+along the edge of the waterway and located proposed developments (eg. via natural
+within lot titles, and no obstructions such as or constructed channels or through
+fencing shall impede public and emergency constructed spillway structures) unless
+access along the waterway. Emergency the watercourse is specifically designed to
+access is preferably achieved via provision manage the flow of floodwaters through
+of public open space and /or location of the proposed development. Mooring
+roads. The provision of 8-metre wide public envelopes are generally not permitted within
+access ways must be avoided and are not watercourses acting as flow paths during
+supported, unless no other physical design major flows; and
+solution is available;
+• the proponent should consult with the
+• all buildings or load bearing structures Department of Water regarding proposed or
+should be set back at least six metres (or existing regional flood studies.
+such other distance as set out in the local
+planning scheme) from any waterway wall to
+7.7 Soil stability
+ensure no additional loads are placed on the
+waterway wall and to accommodate sight
+For all canals and artificial waterways:
+lines from adjoining properties;
+• the local government may require a
+• where a boundary abuts a waterway, the
+geotechnical report from an appropriately
+setback requirements shall be measured
+qualified consulting engineer to determine
+from the outer or artificial waterway side at
+whether any requirements apply to buildings
+the top of the waterway wall;
+prior to the issue of development approval
+• where a lot adjoins a canal or artificial or a building license; and
+waterway, the boundary of such lot
+• soil batters to be armoured to protect
+should not extend beyond any retaining
+against a 1 in 100 Annual Exceedence
+or revetment wall of the canal or artificial
+Probability (1% AEP) event prior to the issue
+waterway; and
+of a building licence for a dwelling.
+• in determining minimum lot frontages of
+a property adjoining a canal or artificial
+7.8 Cyclonic areas
+waterway, including the further subdivision
+of the property, desirable dimensions of
+a jetty envelope should be considered. Developments in cyclonic areas shall be
+The Department of Transport will provide designed for:
+guidance in this regard; and for all artificial
+• extreme wind loads (AS 1170.2 2002:
+waterways, all buildings or load bearing
+Structural design actions – wind actions) on
+structures should be sufficiently set back
+all marine structures;
+from any waterway wall in order to ensure
+• extreme water levels associated with
+no additional loads are placed on the
+cyclonic storm surge for all maritime
+waterway wall.
+structures; and
+
+• soil batters in cyclonic locations; along clearly identified prior to the finalization of the
+waterway frontage to property lots may local scheme amendment.
+require armour for a 1 in 100 Annual
+Exceedence Probability (1% AEP) event The proponent shall also clearly identify
+prior to clearance of titles. any environmental impacts associated
+with maintenance dredging prior to project
+approval. This shall include changes to water
+A cyclone contingency plan is required for
+quality, risks to marine fauna and impacts on
+each development for ongoing operation.
+benthic habitats. The proponent shall also
+Examples are available from the Department of
+prepare a maintenance dredging monitoring
+Transport. In cyclonic areas, the boat mooring
+and management plan (Including cumulative
+management plan is to include a cyclone
+impact of repeated dredging) that includes
+contingency plan.
+environmental values to be protected,
+environmental quality objectives, levels of
+protection and environmental quality criteria
+7.9 Coastal and estuarine or river
+to be achieved and contingency management
+impacts
+strategies for ensuring these objectives are
+met.
+Natural supply of littoral sand is a resource
+shared by all Western Australians. Interruption The waterways manager shall fund
+and trapping of sand and/or macro algae/ maintenance dredging. This funding or source
+seagrass wrack is discouraged. Any potential of revenue may include rating revenue via
+for this needs to be modelled and quantified, general, special area or differential rating
+and the artificial waterway or canal estate methods.
+designed to minimise impacts on the longshore
+movement of sand and seagrass wrack.
+7.11 Water circulation
+Should the artificial waterway canal estate
+The canal design must have the following basic
+change the natural supply of sand or trap
+design principles:
+macro algae seagrass wrack along the coast,
+the waterways manager shall be responsible • consideration will only be given to designs
+for funding and carrying out artificial sand with good circulation, and which maximise
+by passing of the interrupted supply, tidal flushing, mixing by wind action and
+managing any seagrass wrack accumulation vertical mixing (eg. ideally flushing within
+and managing any associated amenity, three days);
+environmental and public health impacts.
+• the water body bathymetry should not
+have holes or sills and shall be designed
+Potential impacts on estuarine and river
+so that the water body is shallower than
+systems shall be examined and appropriate
+the adjacent natural water body, generally
+mitigation measures addressed by approved
+increasing in depth towards the entrance;
+monitoring and management plans.
+• water depths shall be the minimum possible
+for safe navigation, allowing for siltation;
+and
+7.10 Maintenance dredging
+• design of canals shall minimise build up of
+organic material.
+Proponents shall minimise the need for
+maintenance dredging in their designs,
+Design shall allow for maintenance access.
+particularly in the connecting channel. The
+The proponent shall outline upfront the
+volume, cost, nature of the maintenance
+environmental quality management framework
+dredging material and disposal options shall be
+16 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 17
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+for operation of the canal estate, including • protection of additional areas to maintain
+environmental values, environmental significant biodiversity values; and
+quality objectives, levels of protection and
+• information to assist assessment processes
+environmental quality criteria to be met to
+during early consultation and formal
+maintain acceptable water and sediment
+approval processes.
+quality. These criteria are to be established in
+consultation with: • canal developments should consider
+public access to launching facilities for non
+• the Environmental Protection Authority or
+motorised recreation craft (kyaks etc) in the
+the Office of the Environmental Protection
+provision of waterside parklands.
+Authority;
+• the Department of Environment and
+Public open space calculations normally
+Conservation (Cockburn Sound
+exclude major roads, schools, commercial
+Management Council); and
+and major drainage areas, and, in a canal
+• Swan River Trust estate, the area of artificial waterways and the
+foreshore reserve should also be excluded from
+whichever is relevant.
+the area of land used to determine the 10 per
+cent public open space contribution.
+A monitoring and management program
+Consideration should be given to location of
+developed to demonstrate that the project can
+some public open space away from artificial
+be managed to comply with these criteria prior
+waterways, because casual or formal sporting
+to approval of canal or marina developments.
+activities and playgrounds for small children are
+not normally compatible with waterside sites.
+7.12 Public open space
+Small multipurpose reserves (generally a
+minimum of 1000m2) which can combine
+Public open space should be provided in a recreational function with areas for
+canal estates (and similar developments) management and maintenance of the
+in accordance with the WAPC Liveable waterways can be included in the 10 per cent
+Neighbourhoods policy and Policy No. DC contribution. It is not intended that these
+2.3 Public Open Space in Residential Areas. reserves should contain features which attract
+Waterwise design principles shall be applied large numbers of people, such as a public boat
+to the design and management of public open launching ramp.
+space.
+The foreshore reserve shall ensure public
+This requires the normal 10 per cent public access to the natural waterway unless
+open space contribution for residential conservation requires otherwise. Access shall
+subdivision and additional foreshore reserves not be confined to canal estate residents and
+for land abutting any natural watercourse. shall be provided from the nearest public road
+with adequate car parking facilities. A safe
+The 10 per cent public open space contribution public access way shall be provided along
+should provide: the edge of the waterway and located within
+lot titles, and no obstructions such as fencing
+• active and passive recreation areas;
+shall impede public and emergency access
+• the wider community with opportunity
+along the waterway. Emergency access may
+to take advantage of views and aspects
+be achieved via public open space, location
+created by the waterway;
+of adjoining roads, or if absolutely necessary,
+• suitable locations for emergency and 8-metre wide access ways.
+maintenance access;
+
+Pedestrian cycle access shall form a the project planning phase to establish an
+continuous link within the canal estate and appropriate environmental quality management
+shall link with existing or proposed paths on framework for the canal estate or artificial
+adjoining land. The design of canals should not waterway and any adjacent natural waterway
+interrupt or interfere with convenient pedestrian or water body. The main purpose for applying
+and cycle links, and where this is unavoidable, this framework is to ensure that environmental
+convenient alternative links or pedestrian quality in the artificial waterway is managed
+bridges should be provided. such that environmental quality and ecological
+integrity in the adjacent natural waterway, water
+Recreation in foreshore reserves should be body or groundwater is not compromised.
+passive and water-oriented. The reserve should
+exist for the benefit of the natural waterway and The framework should be based on the
+its users, rather than for land-based activities recommended approaches in National Water
+which can be located elsewhere. Quality Management Strategy Report 4
+Australian and New Zealand Guidelines for
+The foreshore reserve should: Fresh and Marine Water Quality and State
+Water Quality Management Strategy Report
+• measure 30–150 metres in width or
+6 Implementation Framework for Western
+greater, having regard to environmental,
+Australia for the Australian and New Zealand
+topographical, access and flood control
+Guidelines for Fresh and Marine Water Quality
+considerations, purpose of reserve and
+and Water Quality Monitoring and Reporting
+coastal processes;
+(Guidelines Nos. 4 and 7: National Water
+• avoid development within a designated Quality Management Strategy).
+floodway;
+The basis of the environmental quality
+• limit development within the flood fringe and
+management framework is the environmental
+plan for the effects of climate change; and
+values, environmental quality objectives and
+• be clearly delineated, by the proponent
+levels of protection that should be defined
+in consultation with local government,
+for the canal estate or artificial waterway and
+Department of Water, Department of
+adjacent natural waterway or water body.
+Environment and Conservation (Cockburn
+These represent the community’s desires and
+Sound Management Council), Swan
+aspirations for the waterway and form the
+River Trust and any other applicable
+primary management aims. Advice can be
+public authority, whichever is relevant, for
+sought from:
+subsequent vesting under Section 152 of
+• the Department of Environment and
+the Planning and Development Act 2005.
+Conservation (Cockburn Sound
+Management Council);
+8. Guidelines for water quality
+• Swan River Trust;
+management
+• the Department of Water;
+8.1 Environmental quality
+• Environmental Protection Authority or the
+management framework
+Office of the Environmental Protection
+Authority; and
+The Environmental Protection Authority or
+• the Department of Health
+the Office of the Environmental Protection
+Authority, Department of Environment and on primary management aims, whichever is
+Conservation (Cockburn Sound Management relevant. Environmental values that would
+Council), Swan River Trust, Department of generally need to be protected include
+Water and local government, whichever ‘ecosystem health’, ‘fishing’ (safe for
+is relevant, should be consulted during consumption) and ‘recreation and aesthetics’.
+18 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 19
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+The proponent should submit the final primary • toxic contaminants, particularly
+management aims to the EPA for review and hydrocarbons and metals;
+endorsement. The EPA has been tasked with
+• toxic algae; and
+the role of reviewing and endorsing primary
+management aims through the State Water • other factors, such as salinity, acid sulphate
+Quality Management Strategy (No.6).’ soil management or biota may be significant
+in some instances.
+To achieve primary management aims, a
+suitable set of environmental quality criteria The set of water, sediment or biological
+that represent an acceptable level of quality indicators measured for any particular canal
+for the water, sediment and/or biota should be estate or artificial waterway will depend on
+established for the most relevant indicators. the threatening activities and processes at
+The indicators should then be the focus of an that location and the risks they pose to the
+environmental monitoring program, and criteria waterway.
+should become the benchmarks for measuring
+environmental performance and triggering Water and sediment quality samples and
+implementation of contingency management measurements shall be collected in accordance
+plans if they are not met. with approved standard operating procedures
+and relevant standards
+For some indicators, it may be necessary to (eg. AS/NZS5667.1 1998: Water quality-
+derive appropriate environmental quality criteria sampling-Guidance on the design of sampling
+using data collected from a suitable reference programs, sampling techniques and the
+site that represents the desirable level of quality preservation and handling of samples;
+to be achieved in the canal estate or artificial AS/NZS 5667.4 1998: Water quality-sampling-
+waterway. In these situations, a reference guidance from lakes, natural and man-made;
+site water quality monitoring program shall
+AS/NZS5667.9 1998: Water Quality-Sampling
+be created prior to the assessment of the
+Guidance on sampling from marine Waters; and
+project and run for at least one year prior to
+AS/NZS5667.12 1998: Water Quality-Sampling
+development of works.
+Guidance on sampling of Bottom Sediments).
+8.1.1 Water and sediment quality
+8.1.2 Establishing the quality of the
+indicators
+adjacent natural waterway, water
+Indicators regarded as being significant for body or source groundwater
+assessing water and sediment quality include
+The Department of Water, Department of
+but are not limited to:
+Environment and Conservation (Cockburn
+• suspended solids Sound Management Council), Swan River
+Trust, Environmental Protection Authority or
+• pH and total acidity
+the Office of the Environmental Protection
+• density stratification
+Authority, the Department of Health and local
+• dissolved oxygen government, whichever is relevant, must be
+consulted during the project planning phase
+• bacteriological counts
+to establish whether the source water in the
+• chlorophyll ‘a’ adjacent waterway, water body or groundwater
+is of sufficient quality to be able to support a
+• sulfidic and monosulfidic materials
+canal estate or other artificial waterway.
+• phytoplankton
+• alkalinity This will require water quality assessment of
+the proposal, accounting for both temporal
+• nutrients
+and spatial variation in water quality. Historical
+• sediment organic carbon accumulation
+
+water and sediment quality data may be reporting shall be to the satisfaction of the
+available from the Department of Water’s WIN entities listed above and local government.
+database or the Waterways manager of the
+artificial waterway. Nevertheless, background Hydrodynamic and water quality modelling
+water quality data should be collected prior to of the artificial waterway is required prior to
+assessment of the project and should cover at construction. The modelling scope should be
+least one full season or preferably one year. endorsed by:
+• the Department of Environment and
+Additional data may also be required if the
+Conservation (Cockburn Sound
+period sampled does not represent typical
+Management Council);
+conditions. A background water quality
+monitoring program should therefore be • Swan River Trust;
+developed prior to approval of the project. If
+• the Department of Water;
+both background and reference site monitoring
+• Environmental Protection Authority or the
+programs (see 8.1.1) are required, it may
+Office of the Environmental Protection
+be possible to combine them into a single
+Authority; and
+monitoring program.
+• the Department of Health
+If quality of the adjacent waterway is not
+whichever is relevant.
+appropriate, a canal estate proposal for that
+location is probably inappropriate.
+Hydrodynamic modelling shall account for
+8.1.3 Compliance with environmental spatial and temporal variation in flushing
+quality objectives for artificial (e-folding) times throughout the waterway.
+waterways
+Typical and worst-case scenarios shall be
+modelled. Seasonal variations in key variables
+The proponent shall demonstrate that the
+such as winds, tides and groundwater inflows
+environmental quality objectives established
+should be considered and the associated
+for the artificial waterway (both ecological and
+meteorologic and oceanographic conditions for
+social) will be met to the satisfaction of:
+model runs should be included.
+• the Department of Environment and
+Conservation (Cockburn Sound Guidance on modelling should be sought from
+Management Council); State agencies named in this section.
+• Swan River Trust;
+• the Department of Water;
+8.1.4 Compliance with environmental
+• Environmental Protection Authority or the
+quality objectives for water and
+Office of the Environmental Protection sediment quality in adjacent
+Authority; natural waterway or water body
+• the Department of Health; and
+The proponent shall demonstrate that
+• the Department of Fisheries environmental quality objectives (both
+ecological and social) established for an
+whichever is relevant.
+adjacent natural waterway and water body will
+be met to the satisfaction of:
+Compliance with environmental quality • the Department of Environment and
+objectives during construction and post- Conservation (Cockburn Sound
+construction would be determined through Management Council);
+results of the environmental monitoring
+• Swan River Trust;
+and management program. Monitoring and
+20 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 21
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+• the Department of Water; • free from floating debris, oil, grease,
+scum, foam and other floating materials
+• Environmental Protection Authority or the
+in amounts sufficient to be unsightly or
+Office of the Environmental Protection
+otherwise objectionable; and
+Authority; and
+• free from materials that will produce colour,
+• the Department of Health
+odour, turbidity, or other conditions to such
+whichever is relevant. a degree as to be unsightly or otherwise
+objectionable.
+Prior to assessment of the canal development
+8.1.6 Maintenance of artificial waterway
+or artificial waterway, the proponent shall model
+water quality by natural process
+the zone of influence, zone of effect and zone
+of loss in the natural waterway or water body Maintenance of artificial waterway water
+that could potentially result from construction quality should be largely dependent on natural
+of the artificial waterway development or processes, thus minimising the need for active
+from the on-going operation of the waterway management. The monitoring and management
+post-construction. Environmental Assessment program developed by the proponent is to
+Guidelines (EAG) for the loss of benthic habitat include a reporting framework and contingency
+(EAG No.3) and dredging (EAG No.7) can be management plan for managing the impacts
+obtained from the Office of the Environmental of development should water quality criteria
+Protection Authority. It is important that or standards for the waterway not be met.
+construction and operation phases are The program should be developed before any
+considered separately.Compliance with approval is issued to enable relevant agencies
+environmental quality objectives established to review and endorse plans prior to approval.
+for the natural waterway would be determined
+through results of the environmental monitoring
+8.1.7 Stormwater runoff and drainage
+program conducted during the construction
+and post-construction phases. Monitoring and Stormwater runoff or drainage to artificial
+reporting shall be to the satisfaction of the waterways, particularly from vegetated or
+entities listed above and local government. vehicle use areas, is a potential source of
+nutrient or contaminant input to artificial
+Compliance with environmental quality waterways and adjacent source waters.
+objectives established for the natural waterway Developments must include appropriate
+or water body would be determined through design features and management strategies to
+results of the environmental monitoring minimise any inputs to an artificial waterway,
+program conducted during the construction which may adversely affect water quality. The
+and post-construction phases. Monitoring and Stormwater Management Manual for Western
+reporting shall be to the satisfaction of the Australia and the WAPC’s Planning Bulletin
+entities listed above and local government. No. 92 Urban Water Management provide
+guidelines for the treatment of stormwater.
+Stormwater management will need to be
+addressed in water management documents
+8.1.5 General aesthetic guidelines
+produced in accordance with Better Urban
+Proponents shall demonstrate how the Water Management (WAPC 2008).
+development has been designed and how it will
+be managed, to ensure that the waterway will
+8.1.8 Industrial and residential waste
+be:
+No industrial or residential waste or effluent of
+• free from materials that settle to form
+any nature (including air conditioner bleed-off)
+putrescent or otherwise objectionable
+can be discharged directly or indirectly into
+sludge deposits;
+artificial waterways. A waste management
+
+plan shall be developed to include measures 8.2 Artificial waterway flushing
+to reduce waste, monitor waste, educate
+users of appropriate waste disposal measures The proposal shall detail how the artificial
+and provide corrective actions should waste waterway design has followed best practice
+management measures prove ineffective. design principles, including the following
+aspects:
+8.1.9 Vessel sullage • the design shall maximise natural mixing so
+that flushing is largely dependent on natural
+There shall not be any discharge of boat
+processes;
+sullage to the artificial waterway or the natural
+waterway. The developer shall outline how • the waterway should not rely on mechanical
+vessel sullage will be managed for vessels means such as pumping to maintain water
+using the waterways. The Department of quality.
+Health and Water Corporation will need to
+be consulted and satisfied in regard to the
+Aspects that should be explored to maximise
+adequacy of the pump out facilities and
+water quality include, but should not be limited
+connection to the utility service.
+to:
+• depths and layouts that maximise efficiency
+of tidal mixing;
+8.1.10 Impact on fauna and flora
+• depths and layouts that minimise
+The proponent should demonstrate that the occurrence of vertical stratification;
+development will not impact the passage of
+• depths and layouts that avoid the creation
+fauna (including cetaceans, migratory bird
+of poorly flushed pockets;
+species and fish) in the natural waterway to the
+satisfaction of: • use of dominant wind directions to promote
+mixing;
+• the Department of Environment and
+Conservation (Cockburn Sound • where wind-mixing is important, ensuring
+Management Council); that wind shadowing by future buildings
+in the development will not compromise
+• Swan River Trust;
+performance; and
+• Environmental Protection Authority or the
+• design to minimise ingress of wrack and
+Office of the Environmental Protection
+algae from an adjacent water body.
+Authority; and
+• the Department of Fisheries
+whichever is relevant.
+Where risks to fauna are posed, the proponent
+will need to demonstrate avoidance,
+minimisation, mitigation and management
+measures to the satisfaction of the entities
+listed above. An assessment will need to be
+undertaken in regard to the impacts upon major
+benthic primary producers from dredging and
+increased turbidity.
+22 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 23
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Appendix 1
+Summary of procedures for assessment of canal estates and artificial
+waterway developments
+Developer prepares concept plan
+Preliminary consultation with local government and relevant State government agencies
+Department of Planning, Environmental Protection Authority/Office of Environmental Protection
+Authority, Department of Environment and Conservation (Cockburn Sound Management
+Council), Swan River Trust, Department of Water, Department of Transport, Department of Health,
+Department of Fisheries and to ascertain whether proposal is generally acceptable
+Drafting of deed of agreement between developer,
+local government and affected parties
+Refer to EPA to Developer submits relevant documentation
+consider need for to local government with request for local
+formal environmental planning scheme amendment To WAPC if there
+assessment* is a question as
+to consistency
+Local government considers proposed
+Developer prepares with regional
+amendment and, unless there is a question as
+environmental review planning scheme
+to consistency with regional planning scheme
+and submits to EPA or State policy,
+or State policy, decides whether to proceed
+for consent to
+advertise
+EPA checks review
+accords with Local government advertises
+instructions amendment (with environmental review)
+for public inspection and submission
+EPA considers
+submissions on Local government forwards environmental
+environmental review, submissions and responses to the
+prepares bulletin for Environmental Protection Authority
+decision of Minister for
+the Environment
+Local government considers submissions and
+outcome of environmental assessment, and
+decides whether to proceed with amendment
+Minister for the
+Environment sets
+conditions
+WAPC considers submissions and makes
+recommendation to Minister for Planning,
+who decides whether to grant final approval
+(with or without modifications)
+Finalise and sign
+deed of agreement
+Local government affects any required modifications,
+endorses amendment documents and returns to
+Subdivision/
+Minister for Planning for endorsement
+development
+applications dealt with
+Minister for Planning endorses in accordance with
+documents and Department of procedures in relevant
+Planning arranges gazettal legislation.
+
+Appendix 2 3.3 General provisions:
+The following typical clauses may be used as
+Canal zone in a local planning
+appropriate, in addition to other more specific
+scheme
+provisions as may be required in each case:
+1. General
+‘Clause No. # Development in Canal Zones
+Given the different construction of scheme
+3.3.1 The local government’s intention in
+texts and the variety of proposals falling
+controlling development within the
+within the definition of a canal estate, it is
+Canal Zone is to:
+clearly not possible to provide an exhaustive
+• encourage a high standard of development
+set of recommendations appropriate to all
+within the zone;
+schemes and proposals. It will therefore be
+necessary to examine the relevance of each • promote and safeguard health, safety,
+provision and customise any local planning convenience, environmental quality and the
+scheme amendment to suit each scheme and general welfare and amenity of the locality;
+circumstance. and
+• promote a high standard of maintenance
+2. Scheme amendment documents
+of artificial waterways and other waterways
+(through cooperation with the Waterway
+Where an amendment involves a local planning
+Manager and the Department of Transport).
+scheme where there is no current reference
+to a Canal Zone, there will be a need to 3.3.2 Land comprised of artificial waterways
+initiate changes to the scheme in accordance in a canal estate developed within a
+with the process set down in the Town Canal Zone is land for the purpose of
+Planning Regulations 1967 and Planning and this Scheme and, notwithstanding any
+Development Act 2005. other provision of this Scheme text,
+any development in, on, under, over or
+3. Scheme text provisions abutting any such waterways requires
+the local government’s prior approval
+3.1 Definitions: in accordance with the procedures set
+out in this Scheme.
+In most local planning schemes with no
+current provisions for the Canal Zone, the list 3.3.3 Any development proposed between
+of definitions and interpretations is likely to be the boundary of an artificial waterway
+inadequate for adequate control. Desirably, and the setback distance for any
+any scheme amendment should incorporate buildings on the land as prescribed
+definitions set out in Appendix 4. by this and other provisions of this
+Scheme, requires prior approval of
+3.2 List of zones and zoning table: local government in consultation
+within the Department of Transport in
+Appropriate amendments to the scheme text
+accordance with the procedures set
+will need to be made to include the zone
+out in this Scheme.
+classification – ‘Canal Zone’.
+3.3.4 Where development as described
+in clauses 3.3.2 and 3.3.3 above
+Where zoning is amended to include Canal
+is proposed on land, the local
+Zone, appropriate symbols will need to show
+government shall require the developer
+whether particular land uses are permitted
+to provide certification by a consulting
+within the zone, together with those uses
+engineer that the development is safe
+which may be permitted at local government
+under all conditions. Local government
+discretion.
+24 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 25
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+shall take into account any comments 3.3.11 No fence situated more than 7.5
+in making its determination. metres from an artificial waterway
+frontage shall exceed 2 metres above
+3.3.5 All artificial waterway retaining walls
+the original stabilised surface.
+along an artificial waterway frontage
+shall be kept in a structurally sound 3.3.12 General provisions may be varied
+condition and shall not be altered, where the local government adopts
+extended or removed without prior design guidelines for the alternative
+written approval of local government. urban form within the canal estate.
+The owner or vested manager of
+land adjoining the artificial waterway
+shall be responsible for stability of
+the interface between water of the
+artificial waterway and that land,
+and shall maintain this interface to
+the satisfaction of local government.
+Alternate management arrangements
+may be considered where applicable
+legislation exists, for example the
+Swan and Canning Rivers Management
+Act 2006.
+3.3.6 All dwellings shall be set back a
+minimum of 6 metres from an artificial
+waterway frontage measured from the
+outer side of the top of the waterway
+wall and 6 metres from a road frontage.
+3.3.7 No retaining wall or fencing shall be
+erected along the artificial waterway
+frontage or within 1 metre of the top of
+an artificial waterway wall or artificial
+waterway frontage whichever is the
+greater setback as determined by the
+local government.
+3.3.8 No retaining wall situated greater
+than 1 metre in height but less than
+7.5 metres from an artificial waterway
+frontage shall exceed 1 metre above
+the stabilised surface level.
+3.3.9 No retaining wall situated more that
+7.5 metres but less than 9 metres from
+an artificial waterway frontage shall
+exceed 1.5 metres above the stabilised
+surface level,
+3.3.10 No fence situated within 7.5 metres
+of an artificial waterway frontage shall
+exceed 1 metre above the original
+stabilised surface.
+
+Appendix 3
+Agency/proponent responsibilities and relevant legislation for canal estates
+and artificial waterway developments.
+Western Australian Planning Commission (WAPC)/Department of Planning
+www.planning.wa.gov.au
+Agency branch Current role/responsibility in canal management
+Regional Planning and
+Strategy Division
+• Perth and Peel ➝ Statutory referrals, structure plans, scheme amendments,
+Planning and Strategy development and subdivision applications.
+Division
+• Strategy Policy and ➝ Policy coordination and development.
+Projects Division
+➝ Strategic projects.
+Legislation
+• Planning and Development Act 2005 provides a system for land use planning and
+development in the State and for related purposes:
+– direct relevance to canal estates
+– outlines the processes of approval, etc.
+• Town Planning Regulations 1967:
+– Scheme amendment procedures
+– model scheme text provisions.
+Policies
+• Draft Coastal Zone Management Policy for Western Australia (2001):
+– the State policy aimed to achieve a balance between the conservation and development of
+the Western Australian coast.
+• State Planning Policy (SPP) No. 1 – State Planning Framework Policy (Variation 2):
+– A central framework which provides a context for decision-making on land use and
+development in Western Australia, taking into account issues associated with the
+environment, community, economy and infrastructure.
+• SPP 2.0 – Environment and Natural Resources Policy 2000:
+– defines the principles and considerations that represent good and responsible planning;
+– in terms of environment and natural resource issues within the framework of the State
+Planning Strategy.
+• SPP 2.6 – State Coastal Planning Policy (Amended 2006):
+– deals with issues relating to public interest, coastal foreshore reserve (and appropriate
+setbacks), coastal strategies and management plans, environment, development and
+settlement.
+• SPP 2.8 – Bushland Policy for the Perth Metropolitan Region:
+– This policy applies if the canal development is proposed on Bush Forever areas.
+26 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 27
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Western Australian Planning Commission (WAPC)/Department of Planning
+• SPP 2.9 – Water Resources Policy:
+– directly related to policy SPP2 and provides clarification and additional guidance to
+planning decision-makers for consideration of water resources in land use planning;
+– this policy is important when canal development is proposed on land containing wetlands,
+waterways or estuaries;
+– objectives of the policy are to:
+1. protect, conserve and enhance water resources identified as having significant
+economic, social, cultural and/or environmental values;
+2. assist in ensuring the availability of suitable water resources to maintain essential
+requirements for human and all other biological life with attention to maintaining or
+improving the quality and quantity of water resources; and
+3. promote and assist in the management and sustainable use of water resources.
+• SPP 3.4 Natural Hazards and Disasters (2006):
+– this policy applies to the planning and development of land that may be affected by natural
+disasters and hazards (such as floods, cyclones, storm surge, severe storms, landslide,
+bush fires and earthquakes). SPP. 3.6 Development Contributions for Infrastructure:
+• SPP 3.6 – Development Contributions for Infrastructure
+– This policy sets out the principles and considerations that apply to development
+contributions for the provision of infrastructure in new and established urban areas.
+• Development Control (DC) Policy No. 2.2 – Residential subdivision.
+• Development Control (DC) Policy No. 2.3 – Public open space in residential areas.
+• Development Control (DC) Policy No. 6.1 – Country Coastal Planning Policy (1989):
+– this policy is designed to provide uniform approach to land use planning, development and
+subdivision of coastal areas of the State outside the Perth metropolitan region. The policy
+is intended to assist local government, developers and planning consultants and to deal
+primarily with new development and subdivision.
+• Liveable Neighbourhoods (October 2007):
+– an operational policy to be followed in the design and approval of urban development. It
+applies to structure planning and subdivision for greenfield sites and for redevelopment of
+large brownfield and urban infill sites.
+Bulletins
+• Planning Bulletin 64 – Acid Sulfate Soils (2009):
+– supersedes Planning Bulletin 64 Acid Sulfate Soils (November 2003);
+– outlines the range of matters which need to be addressed at various stages of the planning
+process to ensure that subdivision and development of land containing acid sulphate
+soils is planned and managed to avoid potential adverse impacts on the natural and built
+environment.
+• Planning Bulletin 92 – Urban Water Management (2009):
+– provides guidance on urban water management matters to be taken into account by
+the WAPC, local governments and applicants in considering planning proposals and
+applications for new development such as residential, rural-residential and commercial;
+– ensures planning decision-making, where water issues are a consideration, is informed via
+relevant and appropriate information;
+– supersedes Planning Bulletin 61.
+
+Western Australian Planning Commission (WAPC)/Department of Planning
+Strategies
+• State Water Quality Management Strategy for Western Australia (2001):
+– State framework for implementation of the National Water Quality Management Strategy
+(1994);
+– prime objective of the national strategy is ‘‘to achieve sustainable use of the nation’s water
+resources by protecting and enhancing their quality while maintaining economic and social
+development.’’
+• Busselton Wetlands Conservation Strategy:
+– provides a framework to guide sustainable land use and wise management of the
+biodiversity and environmental values of the Busselton wetlands area;
+– applies if development is proposed in the Busselton wetlands area.
+• Coastal and Lakeland’s Planning Strategy Dawesville – Binningup:
+– provides a detailed resource information base and policy guidelines to assist in
+management of pressures for development and changes in land use activities within
+catchments to the Yalgorup Lakes and along the coastal strip;
+– applies if development proposed within the catchments to the Yalgorup Lakes and along
+the coastal strip.
+• Visual Landscape Planning in Western Australia – A manual for evaluation, assessment, siting
+and design (2008):
+– applies when deciding on a suitable site for a canal development;
+– developed to help public and private sector planners address visual landscape in the
+planning process;
+– explains fundamental planning tools of visual landscape evaluation and visual impact
+assessment;
+– provides guidelines for siting and design in relation to a range of landscape types and land
+uses.
+28 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 29
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Department of Transport
+www.transport.wa.gov.au
+Agency branch Current role/responsibility in canal management
+Coastal Infrastructure ➝ Facility design and development.
+➝ Assessment and clearance of marina and canal proposals.
+➝ Breakwater construction, dredging, moorings, jetties,
+boat harbours, boat ramps – planning and maintenance
+➝ Licensing of maritime structures (jetties).
+Marine Safety ➝ Moorings, navigation, placement and repair of navigational aids.
+➝ Emergency contact for incident and complaint.
+Legislation
+• Jetties Act 1926
+• Marine and Harbours Act 1981
+• WA Marine Act 1982.
+Standards
+AS 4997 2005: Guidelines for the Design of Maritime Structures, Standards Australia;
+AS 3962 2001: Guidelines for Design of Marinas, Standards Australia;
+AS 1170.2 2002: Structural design actions-wind actions, Standards Australia;
+AS 4678 2002: Earth-retaining structures, Standards Australia;
+Strategic Plan for Maritime Facilities, Department of Transport, 1996.
+
+Department of Environment and Conservation
+www.dec.wa.gov.au
+Agency branch Current role/responsibility in canal management
+• Department of The Department may provide advice to government agencies and
+Environment and proponents in relation to its key functions. Matters on which it may
+Conservation Regions
+provide advice include:
+are generally the
+• acid sulfate soil and contaminated sites;
+first point of contact
+for initial advice in
+• biodiversity conservation;
+relation to biodiversity
+conservation, • Department-managed areas and facilities;
+Department-
+• emissions and impacts on Department’s environmental regulation
+managed areas
+and environmental function;
+regulation pursuant to
+• climate change.
+Part V Environmental
+Protection Act 1986. Its roles include the regulation of:
+• The management • clearing of native vegetation;
+of lands and
+• taking of native flora and fauna;
+waters under the
+Conservation and • prescribed premises;
+Land Management Act
+1984. • pollution and environmental harm;
+• Contaminated Sites • contaminated sites.
+Branch for site
+contamination and
+acid sulfate soil.
+• Native Vegetation
+Conservation Branch
+for clearing permits.
+• Climate Change Unit
+Legislation
+• Conservation and Land Management Act 1984:
+– applies to land or waters comprising national parks, conservation parks, nature reserves,
+marine nature reserves, marine parks and marine management areas;
+– does not apply to land defined as ‘excluded waters’ (includes State coastal waters).
+• Environmental Protection Act 1986:
+– regulates pollution and environmental harm;
+– regulates clearing of native vegetation.
+(Where native vegetation on-site is proposed to be cleared, it will be necessary to obtain
+a vegetation clearing permit, unless the clearing is exempt under Schedule 6 of the
+Environmental Protection Act 1986 or exempt under the Environmental Protection (clearing of
+Native Vegetation) Regulations 2004).
+• Wildlife Conservation Act 1950:
+– regulates the taking of native flora and fauna.
+• Contaminated Sites Act 2003:
+– regulates contaminated sites.
+30 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 31
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Department of Environment and Conservation
+Policies
+Conservation Commission of Western Australia Policy Statement 1 July 2006 Mosquito Control:
+• Wetlands Conservation Policy For Western Australia (Government of Western Australia 1997):
+– applies to wetlands covered by the Ramsar definition;
+– aims to protect Western Australian wetlands – preventing further loss or degradation;
+– established a Wetlands Coordinating Committee.
+• Conservation of Endangered and Specially Protected Fauna in the Wild – CALM Policy
+Statement 33:
+– policy applies if the canal estate was proposed to be located in an area that is known to be
+home to endangered or specially protected fauna.
+• Conservation of Threatened Flora in the Wild – CALM Policy Statement 9:
+– as above – ie. policy only applies if the canal estate was proposed to be located in an area
+known to contain threatened flora.
+• Guidelines Checklist for Preparing a wetland Management Plan (Dec 2008):
+– used by developers and their consultants when required to prepare a wetland management
+plan to the satisfaction of Department of Environment and Conservation as a condition of
+development approval, subdivision or scheme amendment approvals.
+• Protecting our Wetlands in Western Australia 2007:
+– outlines importance of wetlands, existing protection mechanisms for wetlands in Western
+Australia and Department of Environment and Conservation incentive programs to help
+manage and protect wetlands.
+• Mooring Policy 59:
+– applies if the proposed canal estate includes proposed moorings in marine conservation
+reserves;
+– the has been developed to:
+– maintain ecological and social values of marine conservation reserves by minimising
+impacts of uncontrolled mooring and anchoring activities;
+– enhance user safety, access and equity in relation to moorings in marine conservation
+reserves, and
+– provide a framework to accommodate present and future mooring usage patterns in
+marine conservation reserves.
+• Setting Priorities for Conservation of WA’s Threatened Flora and Fauna – CALM Policy
+Statement 50.
+• Acid Sulfate Soil Guidelines:
+– Treatment and management of soils and water in acid sulfate soil landscapes (July 2011);
+– identification and investigation of acid sulfate soils and acidic landscapes (May 2009); and
+– direct relevance to canal estates.
+
+Department of Environment and Conservation
+(Cockburn Sound Management Council)
+http://csmc.environment.wa.gov.au
+Agency branch Current role/responsibility in canal management
+Cockburn Sound Assessment and advice to Minister for Environment and
+Management Council Environmental Protection Authority for marina and canal proposals.
+Breakwater construction, dredging within State Environmental
+(Cockburn Sound) Policy 2005 boundary areas.
+Cockburn Sound Management Council may provide advice to
+government agencies and proponents in relation to its key functions.
+Matters on which it may provide advice include:
+• water quality and seagrass health;
+• monitoring and management of pollution and environmental harm;
+• contaminants in water and sediments;
+• Council-managed areas;
+• biodiversity conservation;
+• emissions and impacts on Council’s environmental management
+function;
+• acid sulfate soil and contaminated sites;
+• climate change.
+Assessment and advice to Minister for Environment and
+Environmental Protection Authority for marina and canal proposals.
+Breakwater construction, dredging within State Environmental
+(Cockburn Sound) Policy 2005 boundary areas.
+Cockburn Sound Management Council may provide advice to
+government agencies and proponents in relation to its key functions.
+Matters on which it may provide advice include:
+• water quality and seagrass health;
+• monitoring and management of pollution and environmental harm;
+• contaminants in water and sediments;
+• Council-managed areas;
+• biodiversity conservation;
+• emissions and impacts on Council’s environmental management
+function;
+• acid sulfate soil and contaminated sites;
+• climate change.
+32 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 33
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Department of Environment and Conservation
+(Cockburn Sound Management Council)
+Standards
+Public authorities with management responsibilities in the State Environmental Policy area will,
+within their area of jurisdiction –
+1. make decisions and actions consistent with the objectives of the policy;
+2. develop best management practices for the control of drainage, sewage, ballast water and
+disposal of wastewater and discharge of wastes and nutrients, whether point or diffuse
+source, and directly or indirectly discharged into the policy area;
+3. incorporate into their work programs means of achieving the environmental quality
+objectives outlined in clause 7 of the policy, for activities which include but are not limited
+to diffuse sources of emissions and to licensed premises discharging wastes or nutrients,
+directly or indirectly, into the policy area;
+4. establish monitoring programs and inventories as appropriate, using the Manual of
+Standard Operating Procedures for Environmental Monitoring against the Cockburn Sound
+Environmental Quality Criteria (2003–2004), Environmental Protection Authority 2005 (as
+amended and published from time to time by the Environmental Protection Authority
+following public consultation); and
+5. report the results annually of monitoring programs to the Cockburn Sound Management
+Council.
+Policies
+• State Environmental (Cockburn Sound) Policy 2005:
+1. establishes the basis on which Cockburn Sound and the environment of adjacent land is to
+be protected;
+2. purposes of this policy are –
+i. to declare, protect and maintain the environmental values of Cockburn Sound;
+ii. to abate pollutants and restrict activities that diminish environmental values of Cockburn
+Sound;
+iii. to establish a program to protect and enhance environmental quality to support
+environmental values of Cockburn Sound;
+iv. to give effect to environmental quality objectives and environmental quality criteria for
+Cockburn Sound; and
+v. to give effect to the Environmental Management Plan for Cockburn Sound;
+vi. report to Minister for Environment and Parliament annually on the implementation of the
+State Environmental Policy and the State of Environment of Cockburn Sound and its
+surrounds.
+
+Swan River Trust
+www.swanrivertrust.wa.gov.au
+Agency branch Current role/responsibility in canal management
+‘The Trust has overall planning, protection and management
+responsibility for the Swan and Canning River system. The Trust
+provides advice, makes recommendations to and comes under the
+jurisdiction of the Minister for Environment. In accordance with the
+Swan and Canning Rivers Management Act 2006, the Trust is the
+‘owner’ of the river reserve on behalf of the Crown, and therefore
+would need to agree to an application being made within the river
+reserve.
+Proposals located within or abutting the Trust Development Control
+Area Boundary or proposals likely to affect the waters within the Trust
+Development control Area Boundary shall be referred to the Trust at
+preliminary consultation and formal approval stage. Proposals for
+canal estate or artificial waterway development wholly within the Trust
+Development Control Area will require Trust approval under Part 5 of
+the Swan and Canning Rivers Management Act 2006’.
+The Trust to provide planning and technical advice to local
+government, WAPC/Department of Planning on issues such as risk of
+pollution, erosion, and any other issue affecting the development and
+health of the Swan or Canning River system including its tributaries.
+This advice is incorporated into the approval process to determine
+whether a development application is required and whether it be
+approved with appropriate conditions or not.
+Legislation
+• Swan and Canning Rivers Management Act 2006:
+– Applies to development proposed in/adjoining Swan or Canning Rivers.
+– Objectives of this Act are to:
+1. provide for restoration and protection of the development control area and the River
+park;
+2. provide for management of activities that affect ecological and community benefits and
+amenity of the development control area and the River park;
+3. provide for the needs of future generations in relation to ecological and community
+benefits and amenity of the development control area and the River park;
+4. recognise interests of the Noongar community and other people in the community with
+an association with the development control area or the River park and to provide for
+their participation in management of those areas and management of activities affecting
+the ecological and community benefits and amenity of those areas;
+5. promote and facilitate good management of the catchment area to meet objectives
+referred to in paragraphs (a) to (d).
+– Swan and Canning Rivers (Consequential and Transitional Provisions) Act 2006
+– Swan and Canning Rivers Management Regulations 2007
+– Swan and Canning Rivers (Transitional) Regulations 2007.
+Strategy
+River Protection Strategy for the Swan and Canning Rivers
+34 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 35
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Swan River Trust
+Policy
+• SPP 2.10 – Swan and Canning River System:
+– relevant to development proposed within, abutting or affecting waters in the Swan Canning
+River system.
+The following policies are available on the Trust’s website under ‘Planning and Licensing’.
+SRT/EA – Conservation, environmental and landscape protection
+SRT/DE1 – Dredging
+SRT/DE15 – Yacht Clubs / Marinas
+SRT DE7 – River Retaining Walls
+SRT/D3 – Development Setback Requirements
+SRT/E5 – Heritage
+SRT/EA2 – Foreshore reserves
+SRT/DE24 – Slipping facilities
+SRT/D21 – Jetty Structures
+SRT D2 – Access Pathway and Cycle Access
+SRT DE9 – Commercial Development – General
+SRT/DE6 – Dewatering.
+Guidelines
+Healthy Rivers Action Plan 2008
+Legislation
+• Environmental Protection Act 1986 (Parts 2,3 & 4):
+– section 25;
+– reporting of pollution and environmental harm;
+– reporting of the clearing of native vegetation;
+– advise Minister for Environment and Environmental Protection Authority;
+– report on and implement environmental policies;
+– assess, report and advise on environmental impact assessments.
+
+Department of Water
+www.water.wa.gov.au
+Current role/responsibility in canal management
+Department of Water:
+• has statutory responsibility for maritime proposals in declared waterway (eg. Albany Harbour
+and Vasse);
+• is responsible for issuing approval and licences in declared waterways;
+• is responsible for issuing licences to extract ground and surface water and permits to interfere
+with bed and banks under the Rights in Water and Irrigation Act 1914;
+• provides floodplain management advice and recommends guidelines for development on
+floodplains with the object of minimising flood risk and damage;
+• provides technical advice to local government, proponents, and Department of Planning to
+incorporate into the approval process.
+Legislation
+• Waterways Conservation Act 1976:
+– provision for conservation and management of certain waters and the associated land and
+environment, to repeal the Swan River Conservation Act 1958, and for incidental and other
+purposes (Refer Part 2, Section 10);
+Part 2 (Section 10) of the Act specifically mentions artificial canal systems.
+• Land Drainage Act 1925:
+– provides for drainage of land, use of drains and drainage water and constitution of
+drainage districts and other relative purposes.
+• Water Agencies (Powers) Act 1984:
+– to give the Minister functions and powers, and the Water Corporation powers to make
+other provisions in respect of their functions, to establish the Water Resources Ministerial
+Body and the Water Resources Council, and for related and other purposes.
+• Rights in Water and Irrigation Act 1914:
+– relates to rights in water resources, to make provision for regulation, management, use and
+protection of water resources, to provide for irrigation schemes and for related purposes.
+This Act only applies to proclaimed surface and groundwater areas.
+Standards
+• AS/NZS 5667.1 1998: Water quality – Sampling – Guidance on the design of sampling
+programs, sampling techniques and the preservation and handling of samples, Standards
+Australia.
+• AS/NZS 5667.4 1998: Water quality – Sampling – guidance on sampling from lakes, natural
+and man-made, Standards Australia.
+• AS/NZS 5667.6 1998: Water quality – Sampling – Guidance on sampling of rivers and streams,
+Standards Australia.
+36 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 37
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Department of Water
+Policies
+‘Documents
+1. Stormwater management manual for Western Australia (Department of Water 2004-2007)
+Provides consistent advice on storm water management options for both new developments
+and redevelopments in various built environments across Western Australia.
+2. Foreshore policy No.1:identifying the foreshore area (Water and Rivers Commission,2002)
+This policy position forms the basis by which all future foreshore and riparian land
+management policy is developed.
+3. Wetland,waterway and estuary agreement, Department of Water)
+Clarifies agency roles, responsibilities and interactions regarding the provision of advice on
+planning and development referrals for various wetland, estuary, waterway, floodplain and
+catchment management issues.
+4. Water quality protection guidelines (Department of Water)
+These guidelines are prepared cooperatively with other government agencies, industry
+and community groups. They discuss water quality issues and promote the use of best
+environmental practice while taking into account environmental, social and economic
+considerations
+5. Better Urban Water Management
+Provides a framework for appropriately considering water resources at each stage of the state
+planning process.
+6. Water Facts 14 Floodplain management (Water and Rivers Commission,2000)
+No text.
+7. River Restoration manual (Department of Water)
+A series of guidelines on the nature, rehabilitation and long-term management of waterways in
+Western Australia.
+8. Fact Sheet: Supplementary information for permit applications to interfere with bed or banks
+of watercourses (Department of Water).
+No text.
+9. Operational policy 5.08-Use of operating strategies in the water licensing process (Department
+of Water, June 2011)
+No text.
+10. Water quality Protection Notes (Department of Water)
+– Wetland Buffers (2000)
+– Wetlands as Water bird Habitats (2000)
+– Herbicide Use in Wetlands (2001)
+These notes guide land use activities that may affect the quality of water resources.
+
+Environmental Protection Authority, Office of the Environmental Protection
+Authority
+www.epa.wa.gov.au
+Current role/responsibility in canal management
+Decision-making authorities for canal estates and artificial waterways have an obligation under
+Section 38 of the Environmental Protection Act 1986 to refer proposals to the Environmental
+Protection Authority where they are likely, if implemented, to have a significant effect on the
+environment. Decision-making authorities include agencies such as the Department of Water,
+Department of Transport and the WAPC.
+The Planning and Development Act and the Environmental Protection Act requires that all
+planning schemes (including scheme amendments) be:
+• referred by the responsible authority to the Authority for a decision on whether or not the
+scheme and amendments should be formally assessed. This would include any schemes
+which contemplate a canal estate or artificial waterway as a future land use. Allowing
+environmental issues to be considered ‘upfront’ during the scheme formulation process
+ensures that environmental factors are given proper consideration by the Authority and the
+responsible authority before subdivision and development occur.
+Should the Authority decide to assess a proposal or scheme there is opportunity for relevant
+decision-making authorities and other government agencies such as Department of Environment
+and Conservation and Department of Water to provide advice to the Authority during the
+assessment process on the environmental issues. This would occur during the Authority’s
+consideration of the proponent’s environmental scoping document and the advertising of the
+proponent’s environmental review document (eg. Public Environmental Review or Environmental
+Review and Management Program).
+The above information will be made available as part of the Authority’s advice to the Minister
+for Environment on whether the proposal or scheme should proceed and, if so, under what
+conditions. Government will make the final decision as to whether a proposal or scheme should
+proceed and under what conditions. The State Water Quality Management Strategy (No.6), which
+was endorsed by Cabinet in 2004, also tasks the EPA with the role of reviewing and endorsing the
+primary management objectives (environmental values, environmental quality objectives, levels
+of ecological protection and environmental quality criteria) proposed for waters under the State’s
+jurisdiction and which provide a framework for protecting and maintaining the quality of the
+State’s marine and fresh waters.
+Legislation
+• Environmental Protection Act 1986:
+– direct relevance;
+– provides for prevention, control and abatement of pollution and environmental harm, for
+conservation, preservation, protection, enhancement and management of the environment
+and for matters incidental to or connected with the foregoing;
+– Part IV establishes provisions for the Environmental Protection Authority to carry out
+environmental impact assessment in Western Australia.
+Policies
+• Environmental Protection Peel Inlet – Harvey Estuary Policy (1992):
+– sets out environmental quality objectives for the Estuary, which if achieved, will rehabilitate
+the Estuary and protect the Estuary from further degradation; and
+– outlines the means by which the environmental quality objectives for the Estuary are to be
+achieved and maintained.
+38 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 39
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Environmental Protection Authority, Office of the Environmental Protection
+Authority
+• Perth’s Coastal Waters Environmental Values and Objectives (February 2000):
+– developed by the Environmental Protection Authority as an environmental management
+framework aimed at protecting the coastal waters of Western Australia from effects of
+pollution;
+– framework is being applied to Perth’s coastal waters in consultation with the community
+and stakeholders;
+– a three-month public involvement and consultation program has been undertaken to help
+the Authority identify environmental values of these waters, develop a set of environmental
+quality objectives (ie. management goals) to protect environmental values, and provide an
+indication of where the objectives should apply within Perth’s coastal waters.
+• Environmental Protection (Swan Coastal Plain Lakes) Policy 1992.
+Guidance Statements
+• Guidance Statement No. 33:
+– resource for local government, State Government agencies, consultants, proponents and
+the public;
+– mainly describes processes the Environmental Protection Authority may apply for under
+the Environmental Protection Act 1986 to land use planning and development in Western
+Australia, in particular the environmental impact assessment process applied to schemes;
+and to provide information and advice on a range of environmental issues and their
+protection and management.
+• Guidance Statement No 40 – Management of Mosquitoes by Land Developers (June 2000)
+– provides information which the Environmental Protection Authority will consider when
+assessing proposals where mosquito management is a relevant environmental factor in
+assessment;
+– mosquitoes are important factor in canal estate development;
+– takes into account the factor of mosquitoes, where mosquitoes present a health risk
+or severe nuisance to residents, and protection of the environment as defined by the
+Environmental Protection Act 1986 (WA) with a focus on minimising environmental impacts
+associated with methods for mosquito management.
+• Environmental Assessment Guideline No. 3 – Protection of Benthic Primary Producer Habitat
+in Western Australia’s Marine Environment (December 2009):
+– recognises the fundamental importance of benthic primary producer habitats to the
+integrity of marine ecological communities;
+– defines benthic primary producer habitats as seabed communities within which algae,
+seagrass, mangroves, corals or mixtures of these groups are prominent components;
+– establishes the framework that the Environmental Protection Authority will use for
+considering the consequences of removing areas of benthic primary producer habitat.
+• Environmental Assessment Guideline No. 7 – Marine Dredging Proposals – Draft, (December
+2010):
+– guides proponents to improve clarity, consistency and certainty with respect to
+environmental impact assessment and management of marine dredging proposals.
+Strategies
+• State Water Quality Management Strategy No.6
+– Sets out the process and responsibilities for implementation of National Water Quality
+Management Strategy Guidelines No.’s 4 and 7 to State waters.
+
+Department of Health
+www.public.health.wa.gov.au
+Current role/responsibility in canal management
+The Department of Health is involved with:
+• mosquito-control;
+• water quality;
+• environmental health;
+• disease control and management.
+Legislation
+• Health Act 1911.
+Documents:
+• National Health and Medical Research (NHMRC) Guidelines for Managing Risk in Recreational
+Waters (2006).
+• Chironomid Midge and Mosquito Risk Assessment Guide for Constructed Water Bodies
+(2007).
+Policies:
+• Wastewater Overflow Response Procedures, Draft Department of Health, Nov 2010.
+• Harmful Algal Bloom Response Plan for Recreational Waters, Draft Department of Health Nov
+2009.
+Department of Fisheries
+www.fish.wa.gov.au
+Current role/responsibility in canal management
+The Department of Fisheries is involved with:
+• water quality and the effect on the health of aquatic animals;
+• fish diseases and human health;
+• marine biotoxins, algae and human health; and
+• marine pests.
+Legislation
+• Fish Resources Management Act 1994.
+• Fish Resources Management Regulations 1995.
+• Fisheries Act 1905.
+40 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 41
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Local government authorities (various)
+Agency branch Current role/responsibility in canal management
+• Town Planning Local governments are involved with:
+• Environmental Health
+• assessment of scheme amendments, subdivision and
+Services Branches
+development proposals;
+• Engineering.
+• formulation of local laws and vessel mooring management plan
+and cyclone contingency plan;
+• post-canal construction management/defects liability period;
+• provision of community facilities and infrastructure;
+• dredging and maintenance of waterway depth;
+• maintenance of breakwaters;
+• monitoring and management of water quality;
+• collection and removal of weed or waste;
+• repair and replacement of pumps and equipment required for
+water exchange and flushing;
+• water quality monitoring for microbes (ie. bacteria, viruses,
+protozoa, etc.) and chemical monitoring (ie. nutrients, heavy
+metals, etc.);
+• environmental pollution control;
+• mosquito control;
+• foreshore management; and
+• environmental audits.
+Legislation
+• Local Government Act 1995:
+– outlines responsibilities of local government authorities.
+• Town Planning Schemes.
+Policy
+• Relevant local government policies.
+
+Federal legislation
+Current role/responsibility in canal management
+Environment assessment and approval process:
+• a person must not take an action that has, will have or is likely to have a significant impact
+on any of the matters of environmental significance without approval from the Australian
+Government Minister for Sustainability, Environment, Water, Population and Communities;
+• an action is a project, a development, an undertaking, an activity or a series of activities, or an
+alteration of any of these things;
+• decide if a proposed action needs to be referred:
+– is the proposed action likely to have a significant impact on a matter of national
+environmental significance?
+– is the proposed action likely to have a significant impact on the environment in general (for
+actions by Commonwealth agencies or actions on Commonwealth land) or the environment
+on Commonwealth land (for actions outside Commonwealth land)?
+• If No, approval is not required from the Minister.
+• If Yes, person proposing to take the action makes a referral to the Minister.
+Legislation
+• Environment Protection and Biodiversity Conservation Act 1999:
+– the Australian Government’s central piece of environmental legislation;
+– provides a legal framework to protect and manage nationally and internationally important
+flora, fauna, ecological communities and heritage places – defined in the Act as ‘matters of
+national environmental significance’.
+Objectives of the Act are to:
+– provide for protection of the environment, especially matters of national environmental
+significance;
+– conserve Australian biodiversity;
+– provide a streamlined national environmental assessment and approvals process;
+– enhance protection and management of important natural and cultural places;
+– control international movement of plants and animals (wildlife), wildlife specimens and
+products made or derived from wildlife;
+– promote ecologically sustainable development through conservation and ecologically
+sustainable use of natural resources.
+Actions that have, or are likely to have, significant impact on a matter of national environmental
+significance require approval from the federal Minister for the Environment, Heritage and the
+Arts. The Minister will decide whether assessment and approval is required under the Act.
+There are seven matters of national environmental significance that are protected under the
+Act:
+1. World Heritage properties;
+2. National Heritage sites;
+3. wetlands of international importance;
+4. listed threatened species and ecological communities;
+5. migratory species protected under international agreements;
+6. Commonwealth marine areas; and
+7. nuclear actions (including uranium mines).
+42 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 43
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Federal legislation
+Other matters protected:
+– the environment, where actions proposed is on, or will affect, Commonwealth land and the
+environment;
+– the environment, where Commonwealth agencies are proposing to take an action;
+– actions include projects, developments, activities, or alteration of these things;
+– the Australian and New Zealand Environment Conservation Council provides national
+guidelines for water quality standards.
+Other legislation
+Relevant legislation/policy and documents
+Civil works includes: a road, railway, tramway, aircraft runway, canal, waterway, harbour, port or
+marina.
+• Public Works Act 1902:
+– ‘Public work and work’ includes canals (Part I).
+Australian Standards
+Relevant legislation/policy and documents
+• AS 3962 2001: Guidelines for design of marinas, Standards Australia:
+– Guides design of marinas in Australia. Sets guidelines for use by designers, manufacturers
+and operators of marinas for recreational and commercial vessels up to 50 metres in length
+– including fixed berth and floating pontoon marina systems, single pontoons and floating
+wave attenuators. Guidance is also given for on-shore facilities such as dry boat storage,
+boatlifts, boat ramps and parking facilities.
+• AS 4997 2005: Guidelines for the design of maritime structures, Standards Australia;
+• AS 1170.2 2002: Structural design actions – wind actions, Standards Australia;
+• AS 4678 2002: Earth-retaining structures, Standards Australia;
+• AS/NZS 5667.1 1998: Water quality – Sampling – Guidance on the design of sampling
+programs, sampling techniques and the preservation and handling of samples, Standards
+Australia;
+• AS/NZS 5667.4 1998: Water quality – Sampling – Guidance on sampling from lakes, natural
+and man-made, Standards Australia;
+• AS/NZS 5667.6 1998: Water quality – Sampling – Guidance on sampling from lakes, natural
+and man-made, Standards Australia.
+
+Proponents
+Agency branch Current role/responsibility in canal management
+All applicable agencies as Proponents:
+required
+• liaise with government agency and satisfy upfront project
+information requirements (eg. climate change and coastal process
+assessment);
+• 5-year maintenance period with potential for annual extension;
+• defects liability period negotiable with local government and
+agencies as applicable; and
+• develop to Australian Standards.
+Relevant legislation/policy and documents
+• Refer to Appendix 3.
+44 Western Australian Planning Commission – May 2012
+
+Western Australian Planning Commission – May 2012 45
+stnempoleveD
+yawretaW
+laicfiitrA
+dna
+setatsE
+lanaC
+8.1
+yciloP
+CD
+Appendix 4 Chart Datum means a permanently
+established surface from which soundings
+Definitions or tide heights are established, and are the
+theoretical level of water in any tidal area
+during the lowest possible astronomical tide as
+Artificial Waterway means any artificial
+defined in the Australian National Tide Tables.
+channel, lake, harbour or embayment for use
+or intended for use by vessels for navigation
+purposes and which may also be used for Connecting Channel means any channel
+in navigable water associated with the
+ornamental and recreational purposes.
+construction of an artificial waterway and
+The term includes any access channel or
+connected or intended to be connected to the
+connecting channel, any addition to or
+artificial waterway, and retaining wall or other
+alteration of any waterway within the meaning
+works associated with such channels. The term
+of this definition and any system of waterways
+includes any addition or alteration to any such
+within the meaning of this definition provided
+channel, retaining wall or other works.
+in any development of land. The term also
+includes any other waterway designed for
+other purposes such as drainage, but which Design life means the period over which a
+is capable of use as a waterway as herein structure or a structural element remains fit for
+defined. use for its intended purpose with appropriate
+maintenance.
+Artificial Waterway Structures means any
+structures on, in or over the artificial waterway, Development has the same meaning given
+and includes jetties, launching ramps, bridges, the term in the Planning and Development Act
+moorings and water control structures. 2005.
+Boat Harbour means an area of protected Floodplain means the extent of flooding in
+navigable waters where boats can shelter and a 1 to 100-year flood event for a particular
+where boat-to-shore (and vice versa) transfers watercourse, which includes the floodway and
+of people or goods can be made. Includes the flood fringe areas.
+associated land, breakwaters and dredged
+waterways. Floodway means the area of land that would
+be affected by river flooding in a 1 to 100-year
+Canal Estate means a development or flood event for a particular watercourse, where
+subdivision that adjoins or directly influences development and land uses should be limited
+an existing or proposed artificial waterway. For to those which would not affect the flow of
+planning purposes, any development where the floodwaters.
+titles to the subdivided lots extend into, abut or
+are proximate to an artificial waterway shall be Flood fringe means the area of land that would
+deemed to be part of a canal estate unless the be affected by river flooding in a 1 to 100-
+WAPC determines otherwise. year flood event, where development would
+normally be permitted subject to a specified
+Canal Zone means a zone (as created within minimum habitable floor level above the
+an operative town planning scheme) within relevant 1 in 100-year flood level to provide
+which an artificial waterway or canal estate is adequate flood protection.
+permitted. Individual areas of land included
+within a canal zone are subject to specific Foreshore Reserve means a reserve
+provisions of that town planning scheme which established for the management and protection
+may restrict development to certain types or of the foreshore of a natural waterway.
+classes.
+
+Marina means a discrete set of facilities
+operating under one management body within
+a boat harbour which provides safe permanent
+moorings and other boat related services for
+a group of small craft. There may be more
+than one marina operating within a single boat
+harbour.
+Natural water body means the water body
+adjacent to a proposed canal estate that will
+be used to provide the source water for natural
+flushing.
+Navigation Aids means aids such as lights,
+leads, buoys and beacons installed to guide
+the safe navigation of vessels.
+Navigable Waters for the purpose of this
+policy means rivers, lakes, inlets and other
+waters on which any vessel or any type of
+marine craft can be navigated.
+Waterway Banks means all natural or
+constructed boundaries to the waters,
+extending from the waterway bed to the upper
+level of the flood and wave affected waterway
+shore. This upper level shall be defined with
+respect to a 1: 100-year flood event.
+Waterway Bed means land below the water of
+the artificial waterway.
+Waterway Management Authority means the
+authority responsible for managing a natural
+waterway. Where the waterway is water defined
+under the Waterways Conservation Act 1976
+or the Swan and Canning Rivers Management
+Act 2006, it is the agency specified in that
+legislation.
+Waterways manager means the agency
+(normally local government) responsible for
+the management, monitoring and maintenance
+works within the boundaries of the water
+bodies of an artificial waterway and its entrance
+channel.
+46 Western Australian Planning Commission – May 2012

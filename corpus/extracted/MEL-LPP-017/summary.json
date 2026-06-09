@@ -1,0 +1,64 @@
+{
+  "id": "MEL-LPP-017",
+  "title": "Short-Term Rental Accommodation",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Melville",
+  "version_date": "August 2025",
+  "pages": 6,
+  "key_provisions": [
+    {
+      "heading": "1 General",
+      "summary": "Assessment of development applications for short term rental accommodation uses"
+    },
+    {
+      "heading": "2 Site Characteristics",
+      "summary": "2.1 Residential zone (including Residential Areas designated in Activity Centre Plans)"
+    },
+    {
+      "heading": "2.2 Other zones",
+      "summary": "Mixed use zones and the non-residential zones of activity centres are preferred for"
+    },
+    {
+      "heading": "3 Car Parking",
+      "summary": "3.1 On-site parking is to be provided in accordance with the relevant standards of the"
+    },
+    {
+      "heading": "4 Signage",
+      "summary": "4.1 In Residential Zones, no on-site signage is permitted in association with the short-"
+    },
+    {
+      "heading": "5 Operational Management Plan",
+      "summary": "5.1 An operational management plan is generally required to be submitted at the time of"
+    },
+    {
+      "heading": "6 Consultation",
+      "summary": "6.1 Proposals will be advertised for public comment in accordance with the Planning and"
+    },
+    {
+      "heading": "7 Temporary Approval",
+      "summary": "7.1 Where necessary to allow ongoing monitoring of the impacts of short-term rental"
+    },
+    {
+      "heading": "Schedule 2 of the Regulations. This is likely to be applied in circumstances where",
+      "summary": "discretion has been applied in the decision to enable monitoring of the use prior to"
+    }
+  ],
+  "cross_references": [
+    "Building Act 2011",
+    "Building Regulations 2012",
+    "LPP 1.21",
+    "LPP1.21",
+    "Local Planning Policy 1.6 – Parking and Access",
+    "Local Planning Scheme No. 6",
+    "National Construction Code",
+    "Planning and Development (Local Planning Schemes) Regulations 2015",
+    "Planning and Development Act 2005",
+    "R-Codes",
+    "Residential Design Codes",
+    "Residential Design Codes Volume 1",
+    "Residential Design Codes Volume 2",
+    "Strata Titles Act 1985"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:16Z"
+}

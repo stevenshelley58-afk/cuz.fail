@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-34-natural-hazards-and-disasters",
+  "fetched_at": "2026-06-09T22:34:54Z",
+  "http_status": 200,
+  "content_hash": "ad396d4bcc82dce223e39e11a221f7238c59d6a5f3c7cb964eb1d388f8e6ac72",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP_3-4_natural_hazards_disasters.pdf",
+  "used_playwright": false,
+  "bytes": 136769
+}

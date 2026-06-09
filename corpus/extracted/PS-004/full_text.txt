@@ -1,0 +1,431 @@
+Position
+Statement:
+Electric Vehicle Charging
+Infrastructure
+March 2024
+Disclaimer
+This document has been produced by the Department © State of Western Australian website: wa.gov.au/dplh
+of Planning, Lands and Heritage on behalf of the Western email: info@dplh.wa.gov.au
+Australian Planning Commission. Any representation, Published by the
+statement, opinion or advice expressed or implied in this Western Australian Planning Commission tel: 08 6551 8002
+publication is made in good faith and on the basis that the Gordon Stephenson House fax: 08 6551 9001
+Government, its employees and agents are not liable for 140 William Street National Relay Service: 13 36 77
+any damage or loss whatsoever which may occur as a result Perth WA 6000
+of action taken or not taken, as the case may be, in respect This document is available in alternative
+of any representation, statement, opinion or advice referred Locked Bag 2506 formats on application to the
+to herein. Professional advice should be obtained before Perth WA 6001 Communications Branch.
+applying the information contained in this document to Publication date: 06/03/2024
+particular circumstances. Operational date: 06/03/2024
+
+Position Statement:
+1
+Electric Vehicle Charging Infrastructure
+March 2024
+1. Policy intent 2. Electric vehicle 2.1 Electric vehicle charging
+charging infrastructure types
+This position statement outlines how
+infrastructure in
+electric vehicle (EV) charging infrastructure There are broadly three levels of charging
+should be considered and assessed in the Western Australia power: Level 1 (general power outlet),
+Western Australian planning system. Level 2 (alternating current – AC charging)
+The National Electric Vehicle Strategy and Level 3 (direct current – DC charging).
+2023 sets a vision to increase the uptake
+Level 1 General power outlet:
+of EVs to reduce emissions and improve
+A place in a wall to connect electrical
+the wellbeing of Australians. This includes
+equipment to the electricity supply,
+objectives and initiatives which relate to
+a common household socket/plug.
+establishing infrastructure and making it
+This is commonly known as trickle
+easy to charge.
+charging.
+The State Government released the State
+Level 2 AC-charger: Dedicated
+Climate Policy and State Electric Vehicle
+chargers with their own plug or socket.
+Strategy in November 2020 to prepare for
+Includes most high-powered wall-
+the transition to low and zero-emission
+chargers.
+vehicles and maximise economic, social
+and environmental benefits to Western Level 3 DC-charger: Supercharging
+Australia. A priority area of action in the and ultra-fast direct current charging.
+strategy is to implement and facilitate the
+EV charging infrastructure can range
+provision of EV infrastructure, including the
+from 2.3 kilowatts (kW) which typically
+charging stations.
+takes more than 8 hours to fully charge
+The role of planning in implementing EV an EV, through to greater than 350kW
+charging infrastructure across the state chargers that can take less than 20
+is to provide guidance on appropriate minutes. Estimated charge times also vary
+locations and development standards for depending on factors including the type of
+different land uses, and to facilitate the charger and plug, make of vehicle, battery
+timely delivery of infrastructure to ensure and technology specifications.
+an efficient EV charging network.
+It is acknowledged that EVs and charging
+The increased electrification of vehicles infrastructure technology continue
+will assist in reducing greenhouse gas to evolve at a rapid pace, with new
+emissions, as well as improve air quality, capabilities and improvements introduced
+amenity, and provide potential electricity regularly. Local governments should
+grid benefits for the community. consider this when establishing any
+
+Position Statement:
+2
+Electric Vehicle Charging Infrastructure
+March 2024
+minimum requirements for charging 3. Application of 4. Policy objectives 5. Policy measures
+infrastructure (levels) in the planning this policy
+framework, including local planning This position statement seeks to achieve 5.1 EV charging infrastructure
+schemes and local planning policies. This position statement applies across the following objectives: considerations
+Western Australia and provides general • coordinate the approach of planning
+With increases in demand for EV charging
+guidance to local governments in the decision-making for the provision of When considering planning for the
+infrastructure and the known peaks of
+preparation of local planning policies EV charging infrastructure throughout installation of publicly available EV
+the electricity network, smart charging
+with respect to EV charging infrastructure. Western Australia charging infrastructure, proponents/
+infrastructure that is capable of being
+providers and decision makers should
+remotely managed (through connection Policy measures should also be considered • establish recommended planning
+consider the broader EV charging network
+to the internet and compatible with in the preparation and assessment requirements and guidance for
+to ensure that strategic and coordinated
+Open Charge Point Protocol 1.6; and throughout all levels of planning, including the installation of EV charging
+outcomes are achieved across the State,
+includes features for managing tariffs for strategies, schemes, structure plans and infrastructure, including appropriate
+and the policy measures below.
+idle customers) will be increasingly more development applications. zonings, land uses, amenity and
+important and is recommended. This position statement applies to new locations In recognition of EVs being an emerging
+proposals or significant redevelopment • enable the safe, timely and efficient and fast-moving industry, innovative and
+and is not intended to apply roll-out of EV charging infrastructure alternative solutions for the provision of EV
+retrospectively. in support of the State Electric Vehicle charging infrastructure may be proposed
+Strategy and Western Australian in place of recommended requirements
+This position statement will be reviewed Climate Policy within this Position Statement and any
+and revised as policies and standards are adopted local planning policy.
+• to recommend specific EV charging
+updated.
+infrastructure proposals be exempt
+5.1.1 Location (Level 2 and above)
+from the requirement for planning
+approval. There are recognised benefits of EV fast
+charging infrastructure provided at the
+following preferred locations:
+• destinations: such as activity centres,
+beaches, food and entertainment
+precincts and civic centres
+• along major transport routes,
+prioritising regional freeway service
+centres and roadhouses offering a level
+of amenity and convenience
+• regional areas, prioritising locations
+that complement or contribute to the
+EV fast charging infrastructure network
+
+Position Statement:
+3
+Electric Vehicle Charging Infrastructure
+March 2024
+• public buildings: such as government Where publicly available EV charging and employment, particularly where traffic movement around nearby Regional
+office accommodation, hospitals, infrastructure is located adjacent or in solar energy is available, will also assist in and Distributor A roads. In some cases,
+educational establishments, civic and close proximity to residential and other reducing the evening electricity peak. a Transport Impact Assessment may be
+sports facilities. sensitive land uses, particularly on-street necessary.
+Recommended EV charging infrastructure
+parking options, minimal visual impacts
+When preparing or reviewing local requirements and ratios by land use are In determining the location for installation
+should be ensured, such as avoiding bulky
+planning strategies and structure plans, outlined in Table 1. Proponents and of EV charging infrastructure, including
+structures or excessive lighting.
+local governments and proponents should decision-makers of new proposals or within a building or in close proximity to
+consider identifying opportunities for significant redevelopment containing other structures, consideration should
+5.1.2 Land use
+community/public charging facilities at these land uses are encouraged be given to minimise damage and/or
+the above preferred locations, as well as With expectations that a large percentage to consider providing EV charging potential secondary impacts in emergency
+opportunities for Energy Storage Facilities of EV charging will occur at home, the infrastructure to align with these ratios and situations. This may include bays that are
+(large-scale batteries). availability of charging infrastructure in requirements, and local governments may easily accessible to emergency equipment
+residential settings is vital. General power use this Table to guide any relevant local and vehicles, and further away from
+On-street (kerbside) charging should be
+outlets in close proximity to car parking planning policies. significant infrastructure and emergency
+considered in areas subject to minimal
+bays assigned and/or available to each exits.
+on-site parking such as older established Futureproofing is particularly important
+residential dwelling are encouraged. Other
+suburbs, or areas with high volumes of for new residential and commercial While the risk of crime can be influenced
+places of over-night residence, including
+apartments. In determining appropriate developments such as multi-storey by a range of factors and cannot simply
+hotels, motels and tourist accommodation
+locations for on-street charging apartments, office buildings, stand- be prevented through well designed
+should consider providing EV charging
+infrastructure, local governments should alone car parks and shopping centres, as places alone, Crime Prevention Through
+infrastructure for guests/residents.
+liaise with service providers and consider retrofitting to accommodate EV charging Environmental Design (CPTED) is an
+factors such as electrical capacity, safety, The provision of facilities for EV charging infrastructure, can be challenging. important tool with proven benefits.
+lighting and amenity. Additionally, the equipment in car parking areas of Therefore, local governments can use the
+potential impact on the road, pedestrian new multi-storey development, in 5.1.3 Movement networks and safety WAPC’s Safer Places by Design Guidelines
+and bicycle paths, existing parking accordance with the requirements of the to enhance safety by minimising crime and
+Vehicle and pedestrian safety and sight
+restrictions, and demand should be National Construction Codes (NCC), is fear of crime.
+lines must be maintained, and EV charging
+evaluated. recommended, including for buildings/
+infrastructure should allow for clear and
+structures where NCC requirements are 5.1.4 Wayfinding
+It is acknowledged that in certain safe movement of pedestrians, bicycles,
+not yet mandatory. Future-proofing the
+locations, broader network upgrades and vehicles. EV charging infrastructure should be
+car parking areas of these structures and
+may be required to support fast charging easily identifiable. Identification and/or
+ensuring that buildings have the capacity Certain land uses such as fast-food
+infrastructure. The network provider signage should include directional signs
+to support EV charging will enable outlet/lunch bars and service stations can
+should confirm the availability of power and bay markings, especially where bays
+easier implementation of EV charging lead to queuing during peak periods.
+in the locality, whether from the grid or are located within a larger car park and/or
+infrastructure when demand arises or As such, the potential traffic impacts of EV
+off-grid sources, to support the selection not immediately visible from entry and exit
+increases. Charging EVs during day/work charging should be considered, including
+of sites for EV charging infrastructure points.
+hours at large-scale places of residence the assessment of vehicle queuing and
+installation.
+
+Position Statement:
+4
+Electric Vehicle Charging Infrastructure
+March 2024
+Traffic flow and accessibility requirements, • all EV charging infrastructure contained 6. Other matters 6.1.2 Development applications
+ease of connection to existing onsite within a building/structure
+Local governments are encouraged to
+electricity points, clear identification of • the installation of electrical conduits 6.1 Local planning policy
+introduce exemptions to the requirement
+EV charging bays and proximity to car and other unobtrusive facilities for
+park entrances, should be prioritised over electric vehicle charging equipment Local governments may consider adopting for development approval through the
+locations in close proximity to internal a local planning policy to: adoption of a local planning policy.
+• EV charging infrastructure that is
+building entrances. • introduce the requirement to provide These exemptions may apply to
+specified in a local planning policy as
+EV charging infrastructure when certain unobtrusive EV charging infrastructure
+not requiring development approvall.
+5.1.5 Amenity land use and development is proposed; where it is considered incidental to the
+Where EV charging infrastructure is • specify the types of EV charging predominant use of the site, and/or
+The impact of EV charging infrastructure
+considered incidental and unobtrusive, infrastructure development and works complies with the land use, movement
+on the quality of the public realm, and
+planning decision-makers should not that are exempt from the requirement network and safety, wayfinding, and
+existing amenity of surrounding areas,
+require development approval. to obtain development approval, amenity considerations. Examples are
+including residential and sensitive land
+In addition, local governments can pursuant to Schedule 2, Part 7, Clause outlined in Section 5.1.
+uses, should be minimised. Proponents
+adopt a local planning policy to
+61(1) of the Regulations; and
+should consider potential amenity impacts In addition, where a development
+provide for further exemptions to the
+such as: • outline the planning matters application is required, the local
+requirement for development approval.
+considered when determining EV government may set out specific
+• Light pollution. The exemptions may apply when certain
+charging infrastructure applications. considerations in a local planning policy.
+• Noise. criteria are met, such as being incidental
+to the predominant use of the land, not A level of discretion should be provided
+• Views and landscape values.
+obstructing sight lines and emitting for in any local planning policy, as the EV 6.2 Applications for
+• Unnecessary, excessive, and/or third- low illumination. This will minimise the industry is fast-changing, and there may be development approval
+party advertising.
+potential for land use conflicts and amenity variances in grid capacity which affect the
+Proponents seeking to install EV charging
+impact from EV charging infrastructure. ability to provide a certain level, or number
+5.2 Exemptions from of chargers. infrastructure should engage with the
+relevant local government and/or state
+the requirement for
+government as part of the site selection
+development approval 6.1.1 Provisioning ratios
+process. This early engagement will allow
+In accordance with the Planning and To encourage the provision of EV charging the decision maker to assess if the site (and
+Development (Local Planning Schemes) infrastructure, local governments may location within the site) being proposed
+Regulations 2015 (the Regulations), consider establishing provisioning ratios is appropriate, how it might relate to the
+installation of certain infrastructure does for certain land uses. Recommended levels EV charging network more broadly and
+not require development approval. of provision for a number of land uses have determine if development approval is
+This includes: been provided in Table 1. required.
+• all EV charging infrastructure associated
+with single house and grouped
+dwellings for private use
+
+Position Statement:
+5
+Electric Vehicle Charging Infrastructure
+March 2024
+For EV charging infrastructure greater than 6.4 Public works restrictions should match the expected
+Level 2, proponents should also consult dwell time at the site time required to
+The Public Works Act 1902 is available
+with the applicable energy providers to obtain a reasonable charge from the level
+on the State Law Publisher’s website and
+ascertain the grid capacity and/or any of charger provided. This may include
+defines what constitutes a public work.
+other infrastructure requirements. consideration of charging/parking time
+Certain land use and development (works)
+limits, no-parking for non-EVs, and EVs not
+In the case of significant batteries and may be considered “public works”.
+utilising the charging facility.
+energy storage facilities or retrofitting Further guidance is available at -
+of multiple dwellings, the Department Approvals and exemptions for public
+of Fire and Emergency Services should works.
+be consulted to ensure that safety
+Where there is no public works
+considerations are identified.
+exemption and the proposed EV
+charging infrastructure is within a reserve,
+6.3 Building permit
+proponents will be required to liaise
+requirements
+with the relevant local government and/
+or reserve management body, and the
+Building permits are generally not required
+Department of Planning, Lands and
+for the installation of electrical appliances
+Heritage (Land Use Management).
+as those processes are regulated by
+electrical standards. However, the relevant
+permit authority should be consulted 6.5 Operation
+about the need for a building permit if the
+To ensure the continued operation
+installation process involves alterations to
+of EV charging infrastructure and to
+an existing building which could affect the
+facilitate easy reporting of faults or
+way in which the building or incidental
+inoperability, publicly available EV charging
+structure complies with each applicable
+infrastructure should prominently display
+building standard that applies to the
+the contact details of the provider and/or
+building or incidental structure.
+responsible party.
+It is noted that Part J9 of the NCC sets out
+provisions that enable the monitoring
+6.6 Local parking considerations
+of energy use and facilitate easy retrofit
+of renewable energy and EV charging
+Where necessary, the local government
+equipment.
+may resolve to expand on its local laws
+to ensure that its public EV charging
+infrastructure and bays, including on-street
+parking are utilised as intended. In this
+regard, it is recommended that parking
+
+Position Statement:
+6
+Electric Vehicle Charging Infrastructure
+March 2024
+Definitions / Abbreviations
+Electric vehicle (EV) means a battery electric vehicle, plug-in hybrid electric vehicle, or a
+fuel cell electric vehicle.
+EV charging infrastructure any outlet that provides electricity including general power outlets
+to charging stations that provides electrical currents to charge the
+battery in an electric vehicle.
+EV charging bay a parking bay that is serviced by EV charging infrastructure and is
+identified for EV charging.
+Facilities for electric vehicle as per Part J9 of the National Construction Code (NCC).
+charging equipment
+Level 1 general power outlet / wall socket – a place in a wall to connect
+electrical equipment to the electricity supply, a common household
+socket/plug; standard 3-pin earthed power outlets in Australia.
+Level 1; trickle charging
+Level 2 or greater alternating current (AC) direct current (DC) charging –
+charging – an apparatus or an apparatus or facility with
+facility with one or more one or more electrical outlets
+electrical outlets for recharging for recharging the batteries
+the batteries of electric vehicles of electric vehicles through
+through an alternate current. direct current.
+Level 2; fast charging. Level 3; fast or rapid charging.
+The Regulations means the Planning and Development (Local Planning Schemes)
+Regulations 2015 prepared under the Planning and Development Act
+2005.
+
+Position Statement:
+7
+Electric Vehicle Charging Infrastructure
+March 2024
+TABLE 1
+Requirements
+Electric vehicle charging
+Preferred
+infrastructure –
+Encouraged
+recommended provisioning
+ratios
+Land use EV charging infrastructure (minimum level of provision)1
+Where EV charging infrastructure is not
+considered ‘preferred’, it is otherwise
+bed and breakfast Level 1 – one communal bay
+encouraged or accepted.
+caravan park Level 1 – one bay per powered site
+Notwithstanding levels of provision
+Level 1 – 50% of communal bays
+outlined in Table 1, the following variations
+to ‘preferred’ requirements apply: caretaker’s dwelling Level 1 – one per dwelling
+• Where the electrical grid capacity car park2 Level 2 – 2% of bays
+or availability is constrained, or in where >50 bays
+other extenuating circumstances
+cinema/theatre Level 2 – 2% of bays with a minimum of one bay
+where it can be demonstrated that where >200 people accommodated *
+an alternative level of infrastructure is excludes open air cinemas
+appropriate, discretion to the preferred
+civic use Level 2 – 2% of bays with a minimum of one bay
+requirement may be applied. where >1,000m2 floorspace *
+• Where alternative and/or innovative
+club premises Encouraged
+solutions are provided for in multi-
+storey developments (including car community purpose Encouraged
+parks and apartments), discretion to
+exhibition centre Level 2 – 2% of bays with a minimum of one bay
+the preferred requirement may be where >1,500m2 floorspace *
+applied.
+freeway service centre Level 2/3 – four bays
+holiday accommodation Level 1 – to each bay
+holiday house Level 1 – one per dwelling
+hospital Encouraged
+hotel Level 1 – to each bay assigned for hotel guest use; and
+Level 2 – 2% of bays where communal parking (including associated bar/
+restaurant/hospitality areas) is available with a minimum of one bay
+medical centre Encouraged
+
+Position Statement:
+8
+Electric Vehicle Charging Infrastructure
+March 2024
+Land use EV charging infrastructure (minimum level of provision)1
+motel Level 1 – to each bay assigned for motel guest use; and
+Level 2 – 2% of bays where communal parking (including associated bar/
+restaurant/hospitality areas) is available with a minimum of one bay
+office2 Encouraged
+park home park Level 1 – one per site
+recreation – private Level 2 – 2% of bays with a minimum of one bay
+where >1,500m2 floorspace *
+restaurant/cafe Encouraged
+road house Level 2/3 – two bays
+serviced apartment Level 1 – one per dwelling
+service station Encouraged
+shop2 Level 2 – one bay per 10,000m2, with a minimum of 2 bays
+where >1,500m2 floorspace * i.e 5,001-10,000m2 = 2 EV bays
+10,001-20,000m2 = 2 EV bays
+20,001-30,000m2 = 3 EV bays...
+...100,001-110,000m2 = 11 EV bays
+tourist development Level 1 – to 50% of bays assigned for guest use
+residential Level 1 – to each parking bay assigned to a dwelling
+single house
+grouped dwelling
+multiple dwelling
+single bedroom dwelling
+aged and dependents dwelling
+Table 1: Recommended EV Charging Infrastructure requirements by land use
+1 Minimum level of provision
+The level of provision in Table 1 should be credited towards the general car parking requirement for the relevant land use/
+development and should only apply where a general car parking requirement applies.
+2 Multi-storey developments
+Where the new development or redevelopment/expansion is an ‘office’, ‘shop*’ or ‘car park’ land use, or mixed-use development,
+and the development is multi-storey, it is recommended that provisions in J9 of the National Construction Code be considered.
+* Minimum threshold
+The threshold at which EV charging infrastructure is deemed ‘preferred’. For any proposal beneath the floor space threshold, EV
+charging infrastructure is encouraged.

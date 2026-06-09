@@ -1,0 +1,20 @@
+{
+  "id": "FRE-LPP-012",
+  "title": "Local Planning",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Fremantle",
+  "version_date": "January 2022",
+  "pages": 4,
+  "key_provisions": [
+    {
+      "heading": "3.1 Waste management plans should demonstrate how developments will actively",
+      "summary": "promote waste reduction and resource recovery in line with the City’s sustainability"
+    }
+  ],
+  "cross_references": [
+    "LPP 2.24",
+    "Residential Design Codes Volume 2"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:34Z"
+}

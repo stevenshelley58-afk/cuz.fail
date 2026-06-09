@@ -1,0 +1,10 @@
+{
+  "url": "https://www.fremantle.wa.gov.au/planning-and-building/town-planning/town-planning-documents/",
+  "fetched_at": "2026-06-09T22:35:45Z",
+  "http_status": 200,
+  "content_hash": "3bb6f8309b1de2c1f2b1a327136785291fee886d31ec41660f8f2f01ac6daa4e",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2026/01/LPS4-Text-Local-Planning-Scheme-No.-4-text-8-May-2026-OFFICIAL-DOCUMENT.pdf",
+  "used_playwright": false,
+  "bytes": 8202888
+}

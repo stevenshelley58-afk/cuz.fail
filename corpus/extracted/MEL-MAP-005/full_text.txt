@@ -1,0 +1,284 @@
+LEGEND
+LOCAL SCHEME RESERVES District Distributor Road Public Open Space
+Local Distributor Road E Public Purposes : Education
+Local Road IS Public Purposes : Infrastructure Services
+OTHER CATEGORIES
+Scheme Area Boundary
+Local Government Boundary
+R20 R Codes
+A1 Additional Uses
+R1 Restricted Uses
+SU1 Special Use Area
+MAP OVERVIEW
+Authorised: T.Servaas
+City of Melville 1 2
+N Plot Date: 07 November 2024
+3 4
+Local Planning Scheme No. 6 7 G.Gazette: Friday, 27 May 2016
+6
+8
+( District Scheme ) Local Planning Scheme Map No. 5 of 8
++++ ++++++ +++
+R20 MOIR ROAD R20 A H O N W AY R20 SOMERVILLE R20 BOULEVARD R20 R20 M C M C4
+R40 R20
+R25
+WAY
+T R20 E
+E R S T R25
+R20
+F D RI V E R20 A S W H O T C H IN R W 2 AY 0 RO A D R20 + + + + ++++ PI + ERC + Y + CO + U+ + + + R PI E R C Y T M O H A T A W S Y R25 E + + R20 O U S E L R20 R20 + + + + R40 + + + + ++++++ R ++ 2 + 5 ++++++++++ + +
+D R EI + + R40 + +
+R20
++ +
++ +
+DALSTON CRESCENT +++++++++++++
++ R40 + R20 + + + ++++++++++++ + + ++++++++ +++++++++++++ + + R20
+CUSACK
+WAY
+R20 C O L EBATCH HILLELI M T A N HEI GHTS CLE WS STREET
+R20
+R20
+R20
+R20
++
++ +
++ +
++ + + + + + + + + + +
+KI
+R
+DS
+4
+ON
+0
+STR
+Y E SNU O M
+E
+STRE
+E
+ET
+T
+R
+R
+4
+4
+0
+0
++
++ +
++ +
++ + + + + + + + + + ++++++++++++++++
+R20
+S
+SOUTH
+R20
+R20
+CRESCENT
+R20
++
++
++
++ +
++
++
+BLYTH ROW
+R60
+R60
++
++
++
++ +
++
++
+R20 A R D E N S G STREET TOWNSING C A L L A W A Y R20 ROAD + + + + + + + + C2 R A -A R C 1 0 + +++ + + + + + + + R20 R20 R20 + + + +
+Y E + + +++++++++++++++++++++ LOCAL SCHEME ZONES + +
+R20 PETTE RS ON R20 MORRO W W S E M AVENUE R2 L D A H 0 R20 R20 R20 JULLCOURT R20 + + + + + + + + + +++ R ++ 6 + + 0 ++++ + + + + ++++++ + + + + + + + + + + SOUTH R60 STREET C L M i e g ix n h e t t r d e I n U d s u e stry + + + + + + + + + + + ++++++++++++++++++++++ + + R S S e p e r e s v i c d i i c a e e l n U C tia s o l e mmercial + +
++ +
+R20 + + + R40 R40 Private C + l + u + b + s + , + In + s + t + i + tu + t + io + n + s + + a + n + d ++ + + Place of Worship Urban Development
+R20 R20 + + + + R20 + + R20 R20 MOORE G A R DE N S R20 + + + + + +++++ B + EL + L + AIR + S ++++++++R +OA +D +++++++++++++++++++++++ C E R R60
+S
+C E
+R20
+DRIVE
+T
+N
+R25
+R20
+R20 BUCKINGHAM
+M
+C
+R20 B
+E
+LAWRENCE WAY Y E R20 T H S E LG N A R20 W A Y R25
+R20 HOAD COURT DAY STREET R20
+IS
+R20
+WINTERFOLD ROAD A
+R N O
+D L AR1 Kardinya Activity Centre Plan
+++++++
+R25
+C
+R
+E
+S No Zone
+C
+E
+N
+T
+VERSION No 1
+TSEW
+R O B ERTSO ROAD R E F NIE GARDENS N JAGGS WAY T H A Y R W U
+L A N E Y A E Y R V AH CRESC E N T M W A Y N IC O L H T O R W M AT REGION SCHEME RESERVES (MRS)
+W
+N S O
+N
+E
+C
+S L O ALSOP PLA
+CE
+R
+KI
+Civic and Cultural Public Purposes
+A P
+CP Public Purposes - Car Park Other Regional Roads
+CG Public Purposes - Commonwealth Government
+WEATHERB U R N ROAD M U N N ANDREWS WAY N E S LI AI R P P a a r r k k s s a a n n d d R R e e c c r r e e a a t t i i o o n n - restricted H H S P P u u b b l l i i c c P P u u r r p p o o s s e e s s - - H H i o g s h p S ita c l hool S Port Installations P Public Purposes - Prison P S E M A J C E A L U O C T R LORIS WAY P R r a im ilw a a ry y s Regional Roads S S E U C P P u u b b l l i i c c P P u u r r p p o o s s e e s s - - S S p ta e t c e i a E l n U e s rg e y s Commission
+B
+R E N D
+DRIVE DIAM
+O ND PLACE RILEY C U R RI E P
+L A E C WHELAN
+RO A D
+ATTY E ECALP
+G NINNUB BARBLETT
+WAY
+# # W
+St
+a
+a
+t
+t
+e
+e
+r
+F
+w
+o
+a
+r
+y
+e
+s
+sts
+W
+T
+U
+S
+SD
+P
+P P
+u
+u u
+b
+b b
+l
+l l
+i
+i i
+c
+c c
+P
+P P
+u
+u u
+r
+r r
+p
+p p
+o
+o o
+s
+s s
+e
+e e
+s
+s s
+-
+- -
+T
+U W
+e
+n a
+c
+i t v
+h
+e e
+n
+r r
+i
+A
+c
+s
+a
+i u ty
+l
+t h
+S
+o
+c
+r
+h
+it
+o
+y
+o
+o
+l
+f WA R IAG ROAD # # # # # Water Catchments
+# # #
+W O
+MO O SE L L N EY O H U ILL GH S T H H E GI R O A D BAYLIS S E B R WAY S IC A WNSHEND D
+A
+COURT
+TO O R
+H T AY U CO NES RT ANGNEY HANRAHAN L O P O W E R O M IL S R O S S D A O R
+G R
+O V E S T C R E S C E N T SH ANN G R O V E W O C O D O U RT P R E ID R C O U R T N E S V P E LA C E GILLE TT EVI R D C R E S E C N T
+PLACE
+PURCE
+STAM PEL
+G A R D E PASSE Y P
+L A C E
+A V E I D S
+O N X ID
+LL G N S R O CRESCENT V E TO RL UIV OE CR
+E R O N
+M O
+L
+IH
+P
+M A N N IO N Y A W W
+Y A
+BORELL
+PLACE FOXC
+T
+R
+R
+O
+U
+F
+O C
+T
+HS
+City of Melville
+This electronic planning map has been prepared and made available for public inspection © 2024 Western Australian Land Information Authority
+by the Western Australian Planning Commission pursuant to section 267B of the Location information data licensed from Western Australian Local Planning Scheme No. 6
+P l a n n in g a n d D e v e l o p m e n t A c t 2 0 0 5 . Whilst all care has been taken to accurately portray Land Information Authority (WALIA) trading as Landgate.
+the original map, spatial data can be subject to modification over time. If you wish to use Copyright in the location information data remains with WALIA.
+a copy of this map in any proceedings, a copy certified by the Commission (or its delegates) WALIA does not warrant the accuracy or completeness of the ( District Scheme )
+under section 267C is evidence of the contents of the electronic map or a part of the map. location information data or its suitability for any particular purpose. 0 150 300 450 600
+If you have questions about the publication or certification of a map, or suspect any
+omissions or errors in this electronic planning map, please advise the Department of Produced by Data Analytics,
+metres
+Planning, Lands and Heritage at spatialdata@dplh.wa.gov.au Department of Planning, Lands and Heritage.
+MAP: Kardinya Locality

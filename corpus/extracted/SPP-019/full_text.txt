@@ -1,0 +1,479 @@
+State Planning Policy 5.4
+Road and Rail Noise
+September 2019
+Prepared under Part Three of the Planning and Development Act 2005
+by the Western Australian Planning Commission
+
+click to follow
+1. CITATION 1
+2. POLICY INTENT 1
+3. ROAD AND RAIL NOISE
+Disclaimer IN WESTERN AUSTRALIA 1
+This document has been produced by the
+Department of Planning, Lands and Heritage
+on behalf of the Western Australian Planning 4. POLICY APPLICATION 2
+Commission. Any representation, statement,
+opinion or advice expressed or implied in this 4.1 When and where
+publication is made in good faith and on the it applies 2
+basis that the Government, its employees and
+4.2 Planning horizon 3
+agents are not liable for any damage or loss
+whatsoever which may occur as a result of 4.3 Policy exemptions 3
+action taken or not taken, as the case may be,
+in respect of any representation, statement,
+5. POLICY OBJECTIVES 4
+opinion or advice referred to herein.
+Professional advice should be obtained before
+applying the information contained in this
+6. POLICY MEASURES 4
+document to particular circumstances.
+6.1 Noise targets 4
+6.2 Noise exposure forecast 6
+© Western Australian Planning Commission
+6.3 Noise level contour map 6
+Published by the
+Western Australian Planning Commission 6.4 Noise management plan 6
+Gordon Stephenson House 6.5 Implementation 6
+140 William Street
+Perth WA 6000
+7. DEFINITIONS 9
+Locked Bag 2506
+Perth WA 6001
+Published September 2019
+website: www.dplh.wa.gov.au
+email: info@dplh.wa.gov.au
+tel: 08 6551 8002
+fax: 08 6551 9001
+National Relay Service: 13 36 77
+This document is available in alternative
+formats on application to the Department
+of Planning, Lands and Heritage
+Communications Branch.
+
+State Planning Policy 5.4
+1
+Road and Rail Noise
+September 2019
+1 CITATION 2 POLICY INTENT 3 ROAD AND RAIL NOISE IN
+WESTERN AUSTRALIA
+This is a State Planning Policy prepared under Part Three The purpose of SPP 5.4 is to minimise the adverse impact
+of the Planning and Development Act 2005. It may be of road and rail noise on noise-sensitive land-use and/ Road and rail transport corridors play a vital role in moving
+cited as State Planning Policy No. 5.4 Road and Rail Noise or development within the specified trigger distance people and goods safely and efficiently around the State
+(SPP 5.4). of strategic freight and major traffic routes and other and provide wide-ranging economic and social benefits
+significant freight and traffic routes. to the community. However, road and rail noise can have
+an adverse impact on human health and the amenity of
+SPP 5.4 seeks to ensure that the community is protected
+nearby communities, so it is important that a balanced
+from unreasonable levels of transport noise, whilst
+approach is taken in land-use planning and development.
+also ensuring the future operations of these transport
+corridors. Urban consolidation brings challenges when planning for
+land near busy transport corridors. SPP 5.4 aims to ensure
+SPP 5.4 should be read in conjunction with the Road and
+acceptable levels of acoustic amenity can be achieved
+Rail Noise Guidelines (the guidelines); and is supported by
+through consideration of interface issues that balances
+the Department of Planning, Lands and Heritage mapping
+reasonable and practical considerations when noise-
+which specifies the State’s transport routes and the
+sensitive land-use and/or development is proposed in
+policy’s trigger distances which can be viewed at www.
+areas impacted by road and rail noise.
+dplh.wa.gov.au.
+
+State Planning Policy 5.4
+2
+Road and Rail Noise
+September 2019
+4 POLICY APPLICATION Table 1: Transport corridor classification and trigger distances
+Trigger Distance
+Transport corridor classification
+4.1 When and where it applies distance measured from
+SPP 5.4 applies to the preparation and assessment of
+Roads
+planning instruments, including region and local planning
+schemes; planning strategies, structure plans; subdivision Strategic freight and major traffic routes
+Road
+and development proposals in Western Australia, where Roads as defined by Perth and Peel Planning Frameworks and/or roads 300
+carriageway
+with either 500 or more Class 7 to 12 Austroads vehicles per day, and/or metres
+there is proposed: edge
+50,000 per day traffic volume
+(a) noise-sensitive land-use within the policy’s trigger
+Other significant freight/traffic routes
+distance of a transport corridor as specified in Table 1;
+These are generally any State administered road and/or local government 200
+Road
+b) new or major upgrades of roads as specified in road identified as being a future State administered road (red road) metres
+carriageway
+Table 1 and maps (Schedule 1, 2 and 3); or and other roads that meets the criteria of either >= 100 Class 7 to 12 edge
+Austroads vehicles daily or >= 23,000 daily traffic count (averaged
+c) new railways or major upgrades of railways as equivalent to 25,000 vehicles passenger car units under region schemes).
+specified in maps (Schedule 1, 2 and 3); or any
+other works that increase capacity for rail vehicle Passenger railways
+storage or movement and will result in an increased
+100 Centreline of the
+level of noise.
+metres closest track
+4.1.2 Policy trigger distances Freight railways
+Table 1 identifies the State’s transport corridors and the 200 Centreline of the
+trigger distances to which the policy applies. metres closest track
+The designation of land within the trigger distances
+outlined in Table 1 should not be interpreted to imply
+that land is affected by noise and/or that areas outside the
+trigger distances are un-affected by noise.
+Where any part of the lot is within the specified trigger
+distance, an assessment against the policy is required
+to determine the likely level of transport noise and
+management/ mitigation required. An initial screening
+assessment (guidelines: Table 2: noise exposure
+forecast) will determine if the lot is affected and to what
+extent.
+
+State Planning Policy 5.4
+3
+Road and Rail Noise
+September 2019
+Proponents are advised to consult with the decision c) modifications which may improve road capacity, b) planning proposals that do not result in
+making authority as site specific conditions (significant performance or function, such as an intersection intensification of land-use for example no proposed
+differences in ground levels, extreme noise levels) may expansion, grade separation or the like. increase in the number of approved dwellings from
+influence the noise mitigation measures required, that that existing;
+may extend beyond the trigger distance. 4.1.5 Railways c) to increases in road and rail traffic noise in the
+absence of physical construction works;
+Passenger and freight railways are identified in maps
+4.1.3 Noise-sensitive land-use and/or d) to ongoing works such as routine maintenance,
+(Schedule 1, 2 and 3) and the Department’s public
+development re-sealing, minor changes in alignment or minor
+mapping viewer.
+changes required for safety reasons, unless such
+This is generally determined by land-uses or development A major upgrade of a railway means:
+works would result in a significant increase in
+as zoned by a local planning scheme or structure plan
+a) a proposed realignment, either inside or outside the transport noise levels that has an adverse impact
+that is occupied or designed for occupation or use for
+existing corridor; on human health and the amenity of nearby
+residential purposes (including dwellings, residential
+communities;
+buildings or short-stay accommodation), caravan park, b) a rail track duplication; or
+e) to fixed sources of noise such as, but not limited
+camping ground, educational establishment, child care c) works that are likely to adversely affect a noise-
+to, horns, warning bells and sirens, safety warning
+premises, hospital, nursing home, corrective institution; or sensitive land-use, such as the installation of
+devices installed on road or rail vehicles;
+place of worship. switches/turnouts, signalling systems, spurs or
+passing loops, the modification to the track support f) to freight handling facilities;
+4.1.4 Roads structure, crossovers, refuges, and relief lines. g) to any noise produced during the actual construction
+of new road and rail infrastructure, which is governed
+Roads to which the policy applies are identified in maps 4.2 Planning horizon by the Environmental Protection (Noise) Regulations
+(Schedule 1, 2 and 3) and the Department’s public 1997; and
+mapping viewer. These roads have been identified as their The application of SPP 5.4 should consider future
+h) to aircraft or watercraft transport noise.
+freight function and or high traffic volumes are considered development and associated increases in traffic
+to significantly generate noise in excess of the policies anticipated for the next 20 years from when the noise
+noise targets. assessment has been undertaken. This includes any
+transport corridor proposals where there is sufficient
+A major upgrade of an existing road involves:
+certainty regarding the corridor’s alignment and function.
+a) physical construction works designed to facilitate
+an increase in traffic-carrying capacity (such as
+4.3 Policy exemptions
+carriageway duplication or the addition of a traffic
+lane); SPP 5.4 does not apply:
+a) substantial change in the alignment that moves the
+a) retrospectively to existing noise-sensitive land-use
+asset closer to existing noise-sensitive land-use; or
+and/or development within the policy’s trigger
+distance of existing railways or roads;
+
+State Planning Policy 5.4
+4
+Road and Rail Noise
+September 2019
+5. POLICY OBJECTIVES 6 POLICY MEASURES 6.1 Noise targets
+Table 2 sets out noise targets that are to be achieved
+The objectives of SPP 5.4 are to: The policy applies a performance-based approach to
+by proposals under which the policy applies. Where
+the management and mitigation of transport noise. The
+(a) protect the community from unreasonable levels of
+exceeded, an assessment is required to determine
+policy measures and resultant noise mitigation will be
+transport noise;
+the likely level of transport noise and management/
+influenced by the function of the transport corridor and
+b) protect strategic and other significant freight mitigation required.
+the type and intensity of the land-use proposed. Where
+transport corridors from incompatible urban
+there is risk of future land-use conflict in close proximity to In the application of the noise targets the objective is to
+encroachment;
+strategic freight routes, a precautionary approach should achieve:
+c) ensure transport infrastructure and land-use can be applied.
+• indoor noise levels as specified in Table 2 in noise-
+mutually exist within urban corridors;
+Planning should also consider other broader planning sensitive areas (for example, bedrooms and living
+d) ensure that noise impacts are addressed as early as
+policies. This is to ensure a balanced approach takes into rooms of houses, and school classrooms); and
+possible in the planning process; and
+consideration reasonable and practical considerations.
+• a reasonable degree of acoustic amenity for outdoor
+e) encourage best practice noise mitigation design and Refer to the guidelines for more information.
+living areas on each residential lot. For non-residential
+construction standards.
+noise-sensitive developments, for example schools
+and child care centres the design of outdoor areas
+should take into consideration the noise target.
+It is recognised that in some instances, it may not be
+reasonable and/or practicable to meet the outdoor noise
+targets. Where transport noise is above the noise targets,
+measures are expected to be implemented that balance
+reasonable and practicable considerations with the need
+to achieve acceptable noise protection outcomes.
+
+State Planning Policy 5.4
+5
+Road and Rail Noise
+September 2019
+Table 2: Noise targets
+Noise targets
+Outdoor Indoor
+Proposals New/upgrade
+Day Night
+(LAeq(Day) dB) (LAeq(Night) dB) (LAeq dB)
+(6 am–10 pm) (10 pm–6 am)
+Noise-sensitive New noise-sensitive land-use L (Day)
+Aeq
+land-use and/or and/or development within 40 (living and work
+development the trigger distance of an 55 50 areas)
+existing/proposed transport L (Night) 35
+Aeq
+corridor (bedrooms)
+New 55 50 NA
+Roads
+Upgrade 60 55 NA
+New 55 50 NA
+Railways
+Upgrade 60 55 NA
+Notes:
+• The noise target is to be measured at one metre from the most exposed, habitable façade of the proposed building,
+which has the greatest exposure to the noise-source. A habitable room has the same meaning as defined in State
+Planning Policy 3.1 Residential Design Codes
+• For all noise-sensitive land-use and/or development, indoor noise targets for other room usages may be reasonably
+drawn from Table 1 of Australian Standard/New Zealand Standard AS/NZS 2107:2016 Acoustics – Recommended
+design sound levels and reverberation times for building interiors (as amended) for each relevant time period.
+• The 5dB difference in the criteria between new and upgrade infrastructure proposals acknowledges the challenges in
+achieving noise level reduction where existing infrastructure is surrounded by existing noise-sensitive development.
+• Outdoor targets are to be met at all outdoor areas as far as is reasonable and practical to do so using the various noise
+mitigation measures outlined in the guidelines. For example, it is likely unreasonable for a transport infrastructure
+provider to achieve the outdoor targets at more than 1 or 2 floors of an adjacent development with direct line of sight
+to the traffic.
+
+State Planning Policy 5.4
+6
+Road and Rail Noise
+September 2019
+6.2 Noise exposure forecast If the noise level contour map identifies that no part of the 6.5 Implementation
+site is estimated to be affected by noise levels above the
+When it is determined that SPP 5.4 applies to a planning As a general principle, noise should be considered at the
+criteria, no further measures are required.
+proposal as outlined in Section 4, proponents and/or earliest stages of the planning process and not defer its
+decision makers are required to undertake a preliminary resolution or management to subdivision or development
+6.4 Noise management plan
+assessment using Table 2: noise exposure forecast assessment stage, where mitigation options are more
+in the guidelines. This will provide an estimate of the limited.
+Preparation of a noise management plan by a suitably
+potential noise impacts on noise-sensitive land-use and/
+qualified professional acoustics engineer or consultant is Planning proposals are generally to be accompanied by
+or development within the trigger distance of a specified
+required early in the planning process to determine actual the following information where deemed appropriate and
+transport corridor. The outcomes of the initial assessment
+noise levels across the subject site and demonstrate that prepared in accordance with the guidelines:
+will determine whether:
+the proposal can adequately mitigate the noise impacts
+• Noise exposure forecast table assessment; and/or
+• no further measures is required; through use of noise attenuation measures. Noise
+• Noise level contour map; and/or
+management plans already approved by the relevant state
+• noise-sensitive land-use and/or development is
+agency responsible for noise at the time of gazettal of this • Noise management plan, outlining the proposed noise
+acceptable subject to deemed-to-comply mitigation
+policy are deemed to be satisfactory. mitigations measures.
+measures; or
+• noise-sensitive land-use and/or development is not Noise management plans are required where: The level and recommended type of noise management
+recommended. Any noise-sensitive land-use and/ and mitigation measure will be dependent on the
+a) proposals fall into exposure categories D and E in the
+or development is subject to mitigation measures severity of the noise source, the type and intensity of the
+noise exposure forecast table;
+outlined in a noise management plan. proposed land-use, the function of the transport corridor
+b) strategic planning, region and local planning scheme
+and the information available at the particular stage of the
+and amendments, structure plans and activity centre
+6.3 Noise level contour map planning.
+plans adjacent to a specified proposed road or
+Where it is determined that noise impacts on noise- railway identified in the policy’s mapping, which is There is a general presumption against approving
+sensitive land-use and/or development within the trigger not yet planned for construction but is anticipated proposals that cannot achieve the policy’s noise targets.
+distance of Table 1 is likely, then a noise level contour within 20 years; However it is acknowledged that in some circumstances, it
+may not be reasonable or practicable for the policy’s noise
+map can be used to inform planning proposals on the c) a new or major upgrade of a road or railway is
+targets to be met.
+likely impacts of transport noise upon the subject site. located adjacent to urban zoned land with the
+The map illustrates the likely noise levels and associated potential to accommodate noise-sensitive land-use Discretion may be exercised by the decision-maker to
+noise exposure categories as per Table 2: noise exposure and/or development; and take into consideration reasonable and practical matters
+forecast in the guidelines and can be either prepared d) where all practicable steps to avoid or minimise including:
+using the noise level information contained within transport noise have been taken but the noise levels
+• the requirements of other relevant plans and policies;
+the noise exposure forecast table or more commonly are predicted or measured to exceed the policy’s
+• the impact of proposed mitigation measures on the
+prepared using site-specific noise level information noise target.
+amenity of the built environment;
+provided by a suitably qualified acoustic consultant/
+engineer at the discretion of the decision maker.
+
+State Planning Policy 5.4
+7
+Road and Rail Noise
+September 2019
+• the seasonality of train movements, particularly in 6.5.2 Region and local planning scheme and c) quiet house requirements and or other noise
+regional towns; and amendments, structure plans and activity mitigation in accordance with the guidelines.
+centre plans
+• advice received from relevant referral agencies.
+6.5.3.1 Conditions of subdivision and development
+The above planning instrument’s will address the impact
+Justification as to why the noise targets cannot be
+achieved and whether the noise can be reduced to of noise through: The decision-maker may impose conditions on
+an acceptable level should be documented by the a) identification of appropriate compatible land-use subdivision and development applications requiring
+proponent and considered by the decision maker. zoning that is commensurate with the function of the implementation of mitigation measures as outlined
+in the guidelines in particular Table 2: noise exposure
+the transport corridor;
+The guidelines assist in outlining ways in which some
+forecast or a noise management plan. These may
+reasonable and practicable limitations can be addressed in b) design solutions that utilise street and lot
+include the construction of physical barriers, quiet house
+a manner that also minimise transport noise. configuration to screen and/or buffer noise;
+requirements or the need for more detailed planning
+c) consideration of density and built form outcomes
+through the preparation of a local development plan.
+6.5.1 High-order strategic planning that will help alleviate and/or manage noise; Noise management plans must be completed and
+d) outlining the need for additional noise mitigation approved prior to conditional approval of the subdivision
+Strategic planning documents such as planning
+measures through quiet house requirements and or proposal.
+frameworks and strategies should seek to avoid the risk of
+noise barriers in accordance with the guidelines; and
+future land-use conflict with noise by: Notifications on title are required as a condition
+e) consideration to appropriate future planning
+of subdivision (including strata subdivision) and
+(a) identifying the location of relevant transport corridors provisions to ensure more detailed planning is
+development approval informing of the existence of
+on maps and clearly distinguishing the function of undertaken at the subdivision and development
+transport noise where existing and or forecasted noise
+the transport corridor; stage.
+levels are to exceed the policy’s outdoor noise targets.
+(b) outlining design solutions commensurate with the
+function of the transport corridor and preferred land- 6.5.3 Subdivision and development
+6.5.4 Major road and railway proposals
+use interface; and
+Subdivision and development applications should
+(c) demonstrating that the noise impact on the New or major upgrades of roads and railway construction
+take into consideration any previous planning, noise
+proposed noise-sensitive land-use and/or proposals in existing reserves generally do not require
+assessment and/or noise management plan conducted
+development is to be addressed at the next stage planning approval as public works are exempt from the
+earlier in the planning process and any existing planning
+of the planning process to meet the policy’s noise development assessment process under the deemed
+controls in place.
+targets. provisions of the Public Works Act 1902. However
+Subdivision and development should seek to manage and infrastructure providers, operators and governing bodies
+avoid land-use conflict through: are encouraged to continuously enhance assets to reduce
+noise and to carry out works in a manner that is consistent
+a) the design of the street, lot and building
+with SPP 5.4.
+configuration in accordance with the guidelines;
+b) consideration to the preparation of a site specific
+local development plan; and
+
+State Planning Policy 5.4
+8
+Road and Rail Noise
+September 2019
+To achieve overall noise management outcomes, Proposals that fall within the policies trigger distance for
+proposals for new or major upgrade of roads and railways a railway that is subject to a State Agreement Act shall
+within the scope of this policy should consider: be referred to the relevant agency responsible for the
+administration of the State Agreement Act.
+a) route selection and alignment that is commensurate
+with the function of the transport corridor and
+preferred land-use interface;
+b) natural topography to shield the transport corridor,
+reducing the reliance on noise walls; and
+c) acquiring or preserving adequate space in the
+corridor reserve to ensure that mitigation measures
+can be achieved.
+Proposals for a major road and railway are to be
+accompanied by the following information in accordance
+with the guidelines:
+a) A noise management plan to determine actual noise
+levels accounting for any relevant adjacent zoning
+under an applicable region or local scheme.
+b) Demonstrate that the proposal can adequately
+mitigate the noise impacts which include at-source
+mitigation.
+6.5.5 State authority advice on noise
+The advice of the State authority responsible for noise
+regulation is to be sought and considered by the decision-
+maker in the preparation and determination of all
+proposals outlined in Sections 6.5.1 to 6.5.4 where:
+a) compliance with these policy measures is unlikely to
+be achieved;
+b) additional/alternative noise mitigation measures are
+proposed; and/or
+c) assumptions informing noise management plans are
+not agreed to by a decision-maker.
+
+State Planning Policy 5.4
+9
+Road and Rail Noise
+September 2019
+7 DEFINITIONS
+A- weighted level L noise management plan
+Aeq
+A level which includes the frequency-weighting network The equivalent steady-state, A-weighted sound level Site specific noise assessment and recommended
+‘A’ (see AS IEC 61672.2-2004) to approximate the which in a specified time period contains the same mitigation measures to accompany planning proposals.
+frequency response of the normal human ear. acoustic energy as the time-varying level during the same
+period. noise-sensitive land-use and/or development
+dB
+Land-uses or development occupied or designed
+L (Day)
+Decibel. A unit used to measure the intensity of a sound. Aeq for occupation or use for residential purposes
+The L (16 hour) for the time period 6 am to 10 pm. (including dwellings, residential buildings or short-
+Aeq
+development stay accommodation), caravan park, camping ground,
+L (Night) educational establishment, child care premises, hospital,
+As defined in the Planning and Development Act 2005. Aeq
+nursing home, corrective institution or place of worship.
+Development includes land-use, but for the purpose of The L (8 hour) for the time period 10 pm to 6 am.
+Aeq
+this policy does not include subdivision.
+outdoor living area
+noise
+Class 7 to 12 As defined in the State Planning Policy 3.1 Residential
+Sound that is unwanted, unpleasant or loud. For
+Austroads Design Codes as the area external to a single house,
+the purposes of this policy, noise does not include
+vehicles per day grouped or multiple dwelling to be used in conjunction
+regenerated noise or vibration.
+with that dwelling such that it is capable of active or
+Refer to appendix 6 of the guidelines.
+passive use and is readily accessible from the dwelling.
+noise exposure forecast
+intensification of land-use
+Table 2- Noise exposure forecast table of the guidelines reasonable and practicable
+Creation of a new noise-sensitive land-use and/or which provides noise forecast levels that are used to
+Refer to section 3.2.1 of the guidelines.
+development. inform an initial screening assessment.
+transport infrastructure provider
+a habitable room noise level contour map
+An agency responsible for the design, construction and/
+As defined in State Planning Policy 3.1 Residential Design Scale map to illustrate noise forecast levels and associated
+or management of transport infrastructure as identified
+Codes. noise exposure categories informed by either an
+by this policy, including local and State government
+initial screening assessment or by more detailed noise
+agencies.
+prediction calculations in a noise management plan.

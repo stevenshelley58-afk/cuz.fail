@@ -1,0 +1,10 @@
+{
+  "url": "https://www.melvillecity.com.au/getContentAsset/e33ebad7-9b3a-46a6-a5c8-71466ac52510/3ca954ad-3848-47c6-8f97-68cebe0b47a2/non-residential-development?language=en",
+  "fetched_at": "2026-06-09T22:35:36Z",
+  "http_status": 200,
+  "content_hash": "f1bd11085a8b7caf3696e4eeaa6e558b36e21ea63f37425c7a9ca98ef7329589",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.melvillecity.com.au/getContentAsset/ebfa08e6-a40a-40b1-a38e-083c43b82e0d/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Non-Residential-Development.pdf?language=en",
+  "used_playwright": false,
+  "bytes": 969397
+}

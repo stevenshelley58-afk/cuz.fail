@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/position-statement-special-residential-zone",
+  "fetched_at": "2026-06-09T22:35:16Z",
+  "http_status": 200,
+  "content_hash": "39a3e8aa867a26078bcadf1ae466eb6db2f8aa84fe0327718f6ec11594d781bb",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/POS-Special-Residential-Zone.pdf",
+  "used_playwright": false,
+  "bytes": 480285
+}

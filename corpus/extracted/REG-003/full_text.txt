@@ -1,0 +1,1655 @@
+Western Australia
+Planning and Development Act 2005
+Planning and Development Regulations 2009
+As at 19 Feb 2026 Official Version
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+
+
+Western Australia
+Planning and Development Regulations 2009
+Contents
+Part 1 — Preliminary matters
+1. Citation 1
+2. Commencement 1
+3. Terms used 1
+4. Utility services prescribed (Act s. 4(1)) 1
+Part 2 — Activities on certain State
+land
+Division 1 — Preliminary matters
+5. Terms used 2
+6. Application of this Part 2
+Division 2 — Wardens
+7. Appointment 3
+8. Functions 3
+Division 3 — General matters
+9. Defences to charges of offences against this Part 4
+10. Signs and wardens’ directions or orders to be
+obeyed 4
+11. Camping etc. and fires prohibited 4
+12. Public events prohibited 5
+13. Animals on identified State land 5
+14. Vehicles on identified State land 5
+15. Protection of nature 5
+16. Rubbish and signs prohibited 6
+17. Firearms, weapons and explosives prohibited 7
+18. Unauthorised removal of material 7
+As at 19 Feb 2026 Official Version page i
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Contents
+Part 3 — Subdivision and
+development control
+Division 1 — Subdivisions and similar matters
+19. Term used: section 135 application 8
+20. How to apply for approval under Act s. 135 8
+21. Matters to be considered on application for
+subdivision 8
+22. Notice of Commission’s decision under Act s. 143 9
+23. How to apply for approval of diagram or plan of
+survey (Act s. 145) 9
+24. Commission’s duties on application under
+Act s. 145 9
+Division 2 — Applications for approval of
+certain transactions
+25. How to apply for approval under Act s. 136 10
+26. How to apply for approval under Act s. 139 10
+27. Commission’s duties on applications under
+Act s. 136 and 139 10
+Division 3 — Road access conditions
+28. Terms used 11
+29. Commission’s power to impose conditions not
+limited 11
+30. Imposing road access conditions 11
+31. Offences 12
+32. Modifying and discharging covenants 12
+Division 3A — Integration of subdivision and
+development
+32A. Commission or responsible authority to consider
+policy or position statements 14
+Division 4 — Easements
+33. Terms used 14
+34. Other Acts’ operation not affected by this Division 15
+35. How easements to be depicted on plans 15
+36. Rights, powers and privileges under easements
+(Act s. 167(2)) 15
+page ii Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Contents
+Part 4 — Compensation and
+acquisition
+37. Term used: Board 17
+38. Notice of intention to sell (Act s. 181(11)) 17
+39. Application for valuation (Act s. 183(1)) 17
+40. Board of Valuers, procedure for 17
+41. Fees for valuation 18
+Part 5 — Enforcement and legal
+proceedings
+42. Prescribed offences and their modified penalties
+(Act s. 227) 19
+43. Prescribed forms (Act s. 229 and 231) 20
+Part 6 — Applications for review
+44. Submissions considered by Minister
+(Act s. 246(7)) 21
+45. Fee for Minister’s reasons (Act s. 247(4)) 21
+Part 7 — Local government planning
+charges
+Division 1 — Preliminary matters
+46. Terms used 22
+Division 2 — Fees and other charges
+47. Fees for certain planning services (Sch. 2) 22
+48A. Fees for DAP applications 23
+48. Fees for scheme amendments, structure plans and
+local development plans 23
+49. Additional costs and expenses payable by
+applicants 25
+50. Itemised account to be provided on request 26
+51. Dispute as to amount payable 27
+52. Local government may waive or refund fee 27
+53. Exemption 27
+Division 3 — Fees Arbitration Panels
+54. Fees Arbitration Panels 28
+55. Panel meetings 28
+56. Decisions of a Panel 29
+As at 19 Feb 2026 Official Version page iii
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Contents
+Part 8 — Miscellaneous matters
+57. False or misleading information 30
+Part 9 — Transitional matters
+59. Term used: commencement 31
+60. Wardens’ appointments continued 31
+Schedule 1 — Forms
+1. Infringement notice (r. 43(1)) 32
+2. Withdrawal of infringement notice (r. 43(2)) 34
+Schedule 2 — Maximum fees for
+certain planning services
+Schedule 3 — Form of estimate of
+fees for services for local
+planning scheme amendments
+Schedule 4 — Form of estimate of
+fees for services for structure
+plans and local development
+plans
+Notes
+Compilation table 43
+Other notes 44
+Defined terms
+page iv Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Act 2005
+Planning and Development Regulations 2009
+Part 1 — Preliminary matters
+1. Citation
+These regulations are the Planning and Development
+Regulations 2009.
+2. Commencement
+These regulations come into operation as follows —
+(a) regulations 1 and 2 — on the day on which these
+regulations are published in the Gazette;
+(b) the rest of these regulations — when section 150 and
+Part 13 Division 3 of the Act come into operation.
+3. Terms used
+In these regulations, unless the contrary intention appears —
+Act means the Planning and Development Act 2005;
+Registrar of Titles means the person designated under the
+Transfer of Land Act 1893 to be the Registrar of Titles;
+section means a section of the Act.
+4. Utility services prescribed (Act s. 4(1))
+These services are prescribed for the purposes of the definition
+of utility services in section 4(1) —
+(a) gas supply services;
+(b) telecommunications supply services.
+As at 19 Feb 2026 Official Version page 1
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 2 Activities on certain State land
+Division 1 Preliminary matters
+r. 5
+Part 2 — Activities on certain State land
+Division 1 — Preliminary matters
+5. Terms used
+In this Part —
+identified State land means any land that is unallocated Crown
+land (within the meaning given by the Land Administration
+Act 1997), or that is vested in or owned by the Crown, the State
+or the Commission, and —
+(a) is reserved under a planning scheme for a public
+purpose; or
+(b) is subject to an improvement plan in force under
+section 119; or
+(c) is subject to a State development area declaration;
+road vehicle means any thing on wheels or tracks that is capable
+of transporting people or things by road, other than any such
+thing —
+(a) that is propelled solely by human power; or
+(b) that has 3 or more wheels, is self-propelled and is
+designed to transport a single person with a physical
+disability at a pedestrian speed;
+warden means a person appointed under regulation 7 as a
+warden.
+[Regulation 5 amended: SL 2026/10 r. 4.]
+6. Application of this Part
+(1) This Part does not apply to a warden acting in the course of
+duty.
+page 2 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Activities on certain State land Part 2
+Wardens Division 2
+r. 7
+(2) If any identified State land is leased by the State or the
+Commission to a person, this Part —
+(a) does not prevent the lessee, or a person acting with the
+lessee’s authority, from doing any act on that land that is
+authorised by the lease; and
+(b) does not authorise the lessee or any other person to do
+any act on that land that is prohibited by the lease.
+Division 2 — Wardens
+7. Appointment
+(1) Any act done by the Commission under this regulation must be
+in writing.
+(2) The Commission may appoint any person to be a warden.
+(3) A warden may be appointed on an honorary basis.
+(4) The Commission may cancel a warden’s appointment.
+(5) The Commission must give each warden a certificate of his or
+her appointment signed by the chairperson.
+(6) A person whose appointment as a warden is cancelled must
+return his or her certificate of appointment to the Commission
+within 21 days after the date on which he or she is notified of
+the cancellation.
+Penalty: a fine of $500.
+8. Functions
+(1) A warden’s functions are those set out in this Part and in any
+other written law and include the enforcement of this Part.
+(2) A warden may give a person on identified State land any
+direction that is reasonably necessary —
+(a) for the proper control and management of the land; or
+(b) to enable the public to peacefully use and enjoy the land.
+As at 19 Feb 2026 Official Version page 3
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 2 Activities on certain State land
+Division 3 General matters
+r. 9
+(3) A warden who reasonably believes a person on identified State
+land has committed or is committing an offence against this Part
+may order the person to leave the land, or a part of it specified
+by the warden.
+(4) If, while performing any of a warden’s functions, a warden is
+asked to do so by any person, the warden must produce his or
+her certificate of appointment for inspection by the person.
+Division 3 — General matters
+9. Defences to charges of offences against this Part
+It is a defence to a charge of an offence against this Part to
+prove the accused was acting —
+(a) under an authority conferred under a written law; or
+(b) with the written permission of the Commission.
+10. Signs and wardens’ directions or orders to be obeyed
+(1) A person who is given a direction or order by a warden under
+regulation 8 must obey it.
+(2) A person must obey any sign that is erected on or near identified
+State land by or on behalf of the Commission.
+Penalty: a fine of $5 000.
+11. Camping etc. and fires prohibited
+(1) A person must not place or use a temporary dwelling (such as a
+tent or caravan) on identified State land.
+(2) A person must not light or attempt to light a fire on identified
+State land.
+Penalty: a fine of $2 000.
+page 4 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Activities on certain State land Part 2
+General matters Division 3
+r. 12
+12. Public events prohibited
+A person must not arrange, advertise or take part in an event on
+identified State land to which the public is invited.
+Penalty: a fine of $2 000.
+13. Animals on identified State land
+(1) A person must not bring or allow an animal on identified State
+land.
+(2) A person who brings an animal on identified State land must
+keep it under control by means of a rein or leash.
+(3) A person must not ride an animal on identified State land.
+(4) A person who rides an animal on identified State land without
+due care and attention commits an offence.
+Penalty: a fine of $2 000.
+14. Vehicles on identified State land
+A person must not bring or use a road vehicle on identified State
+land.
+Penalty: a fine of $2 000.
+15. Protection of nature
+(1) In this regulation —
+fauna means any living thing or the eggs of any living thing,
+but not a human being or flora;
+flora means any form of, or any part of, plant life or a fungus;
+take —
+(a) in relation to fauna, includes to catch, kill, remove, snare
+and trap;
+(b) in relation to flora, includes to cut, pull up, dig up, pick
+and remove.
+As at 19 Feb 2026 Official Version page 5
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 2 Activities on certain State land
+Division 3 General matters
+r. 16
+(2) A person must not chase, injure, interfere with, take or attempt
+to take any fauna on identified State land.
+(3) A person must not interfere with or destroy any nest or habitat
+of fauna on identified State land.
+(4) A person must not damage, destroy or take any flora, living or
+dead, on identified State land.
+(5) A person must not disturb or remove any soil or rock on
+identified State land.
+(6) A person must not take any water from, or interfere with the
+flow of any water on, identified State land.
+Penalty: a fine of $5 000.
+16. Rubbish and signs prohibited
+(1) In this regulation —
+place a sign, includes to draw, erect, paint, post, stick, stencil
+and otherwise affix the sign;
+rubbish in a person’s possession, means any solid or liquid
+matter in the person’s possession that the person has no use for,
+no longer wants or has rejected;
+sign includes graffiti and an advertisement, bill, notice, placard
+and poster.
+(2) A person must not deposit, discharge, leave or allow to escape
+on identified State land any rubbish in the person’s possession.
+(3) Subregulation (2) does not apply to the deposit of solid rubbish
+in a receptacle provided for the deposit of rubbish.
+(4) A person must not place a sign on identified State land.
+Penalty: a fine of $5 000.
+page 6 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Activities on certain State land Part 2
+General matters Division 3
+r. 17
+17. Firearms, weapons and explosives prohibited
+(1) A person must not carry or use a firearm (as defined in the
+Firearms Act 2024 section 6) on identified State land.
+(2) A person must not carry or use a dangerous or offensive weapon
+or instrument on identified State land.
+(3) A person must not carry or use an explosive on identified State
+land.
+Penalty: a fine of $5 000.
+[Regulation 17 amended: SL 2024/293 r. 4.]
+18. Unauthorised removal of material
+A person must not interfere with or take from identified State
+land any thing on State land that the person does not own or is
+not entitled to possess.
+Penalty: a fine of $10 000.
+As at 19 Feb 2026 Official Version page 7
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 3 Subdivision and development control
+Division 1 Subdivisions and similar matters
+r. 19
+Part 3 — Subdivision and development control
+Division 1 — Subdivisions and similar matters
+19. Term used: section 135 application
+In this Division —
+section 135 application means an application for the approval
+of the Commission under section 135.
+20. How to apply for approval under Act s. 135
+To make a section 135 application, a person must give the
+Commission the following —
+(a) an application in a form approved by the Commission;
+(b) 8 copies (or such other number as the Commission
+requires) of a plan, in a form approved by the
+Commission, that —
+(i) clearly illustrates the proposed subdivision,
+amalgamation or road, as the case may be; and
+(ii) contains any other information the Commission
+requires;
+(c) any fee set under section 20.
+21. Matters to be considered on application for subdivision
+When considering a section 135 application, the Commission
+must have regard to all relevant matters including but not
+limited to these —
+(a) the size, shape and dimensions of each lot;
+(b) the services available to each lot;
+(c) drainage of the land;
+(d) access to each lot;
+(e) the amount of public open space to be provided;
+(f) any relevant planning scheme;
+page 8 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Subdivision and development control Part 3
+Subdivisions and similar matters Division 1
+r. 22
+(g) any relevant regulations made by the Minister under the
+Act;
+(h) any relevant local laws relating to town planning.
+22. Notice of Commission’s decision under Act s. 143
+(1) The Commission must give the applicant written notice of any
+decision it makes on a section 135 application.
+(2) If the Commission refuses to approve a section 135 application,
+the written notice must set out the reasons for the refusal.
+23. How to apply for approval of diagram or plan of survey
+(Act s. 145)
+A person who, under section 145, submits to the Commission a
+diagram or plan of survey of a plan of subdivision that has been
+approved, must also submit a request in a form approved by the
+Commission.
+24. Commission’s duties on application under Act s. 145
+(1) If the Commission, under section 145, endorses its approval on
+a diagram or plan of survey it must —
+(a) give the diagram or plan to the Registrar of Titles; and
+(b) give a copy of the diagram or plan to the local
+government of the district where the land is situated.
+(2) If under section 145 the Commission refuses to endorse its
+approval on a diagram or plan of survey, it must give the person
+who made the request under section 145 written notice of and
+reasons for its decision.
+As at 19 Feb 2026 Official Version page 9
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 3 Subdivision and development control
+Division 2 Applications for approval of certain transactions
+r. 25
+Division 2 — Applications for approval of certain transactions
+25. How to apply for approval under Act s. 136
+To apply for the Commission’s approval, under section 136, of a
+transaction referred to in section 136(1), a person must give the
+Commission the following —
+(a) an application in a form approved by the Commission;
+(b) a copy of the transaction;
+(c) 8 copies (or such other number as the Commission
+requires) of a sketch showing the land to which the
+transaction relates;
+(d) any other information the Commission requires;
+(e) any fee set under section 20.
+26. How to apply for approval under Act s. 139
+To apply for the Commission’s approval, under section 139, of a
+class of lease or licence in respect of a person, the person must
+give the Commission the following —
+(a) an application in a form approved by the Commission;
+(b) an example of a lease or licence of the class concerned;
+(c) any other information the Commission requires;
+(d) any fee set under section 20.
+27. Commission’s duties on applications under Act s. 136
+and 139
+(1) The Commission must give the applicant written notice of any
+decision it makes on an application for its approval under
+section 136 or 139.
+(2) If the Commission refuses to give the approval requested, the
+written notice must set out the reasons for the refusal.
+(3) If the Commission grants an approval under section 136, it must
+give a copy of the approval and the sketch of the land concerned
+to the local government of the district where the land is situated.
+page 10 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Subdivision and development control Part 3
+Road access conditions Division 3
+r. 28
+Division 3 — Road access conditions
+28. Terms used
+In this Division —
+plan includes a deposited plan, a diagram, a plan of survey of a
+subdivision, and a scheme plan lodged for registration under the
+Strata Titles Act 1985 or the Community Titles Act 2018;
+road access condition means a condition imposed under
+section 143 and in accordance with section 150.
+[Regulation 28 amended: Gazette 31 Dec 2019 p. 4653;
+SL 2021/78 r. 4.]
+29. Commission’s power to impose conditions not limited
+This Division does not affect the Commission’s power under
+section 143 to impose any condition it thinks fit to ensure that a
+road access condition it imposes in respect of land is obeyed,
+including but not limited to a condition requiring the erection of
+a barrier or other means to physically prevent the access that the
+condition prohibits.
+30. Imposing road access conditions
+(1) A road access condition imposed in respect of land must specify
+the following —
+(a) by annotations on an approved plan that shows the land,
+the portion or portions of the boundary between the land
+and a road across which access to or from the land is
+restricted or prohibited;
+(b) details of the restriction or prohibition and to whom or
+what it applies and when and in what circumstances;
+(c) as the covenantee, either or both of these persons —
+(i) the Commission;
+(ii) the road control authority,
+and no other person.
+As at 19 Feb 2026 Official Version page 11
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 3 Subdivision and development control
+Division 3 Road access conditions
+r. 31
+(2) If a road access condition specifies the road control authority as
+the covenantee (whether or not the Commission is also
+specified), the reference in the condition to the road control
+authority is to be taken as a reference to whichever of the
+following from time to time has the control and management of
+the portion of the road to which the condition relates —
+(a) the Commissioner of Main Roads established under the
+Main Roads Act 1930;
+(b) the Minister administering the Public Works Act 1902;
+(c) the local government of the district in which the portion
+is situated.
+31. Offences
+(1) The owner of land subject to a road access condition must not
+contravene or permit another person to contravene the condition.
+(2) The owner of land subject to a road access condition must not
+damage, destroy or remove any barrier or other structure erected
+on the land in compliance with a condition imposed under
+section 143 to ensure the road access condition is obeyed.
+Penalty: a fine of $50 000.
+32. Modifying and discharging covenants
+(1) If land is subject to a covenant referred to in section 150
+because of a road access condition, the owner of the land may
+apply to the Commission for its consent to modifying or
+discharging the covenant.
+(2) The application must —
+(a) be made in a form approved by the Commission; and
+(b) be accompanied by any fee set under section 20.
+page 12 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Subdivision and development control Part 3
+Road access conditions Division 3
+r. 32
+(3) The Commission may consent to modifying or discharging the
+covenant if it is satisfied —
+(a) that the circumstances that justified imposing the road
+access condition have materially changed since the
+condition was imposed; and
+(b) that the current circumstances justify modifying or
+discharging the covenant.
+(4) If the Commission consents to modifying or discharging the
+covenant, the Commission must give the applicant a written
+notice that specifies either —
+(a) the modification to which the Commission consents; or
+(b) that the Commission consents to the discharge of the
+covenant.
+(5) If the owner of the land —
+(a) applies to the Registrar of Titles to have the covenant
+modified or discharged (as the case may be); and
+(b) gives the Registrar the Commission’s written notice
+given under subregulation (4) in relation to the covenant,
+the Registrar may, by order, modify or discharge the covenant
+accordingly and may make any entries or endorsements that
+may be necessary or proper to evidence the modification or
+discharge.
+(6) If the Commission refuses its consent on an application made
+under this regulation, it must give the applicant a written notice
+of its decision that includes its reasons for refusing.
+(7) A person who is dissatisfied with the Commission’s decision
+made on an application by the person under this regulation may
+apply to the State Administrative Tribunal for a review, in
+accordance with Part 14 of the Act, of the decision.
+As at 19 Feb 2026 Official Version page 13
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 3 Subdivision and development control
+Division 3A Integration of subdivision and development
+r. 32A
+Division 3A — Integration of subdivision and development
+[Heading inserted: SL 2021/78 r. 5.]
+32A. Commission or responsible authority to consider policy or
+position statements
+The Commission or responsible authority must have regard to
+any relevant Commission policy or position statement when
+determining whether subdivision and development approvals
+should be integrated under section 164A.
+[Regulation 32A inserted: SL 2021/78 r. 5.]
+Division 4 — Easements
+33. Terms used
+In this Division —
+affected land, in relation to an easement, means that part of any
+land comprised in a plan that the plan shows is subject to the
+easement;
+easement means an easement created under section 167;
+easement holder means —
+(a) a local government in whose favour an easement exists
+for the purposes of sewerage or drainage or access to
+sewerage or drainage works;
+(b) a licensee as defined in the Water Services Act 2012 in
+whose favour an easement exists for the purpose of
+water supply, sewerage, irrigation or drainage works or
+access to water supply, sewerage, irrigation or drainage
+works;
+(c) the holder of a licence under the Electricity Industry
+Act 2004 in whose favour an easement exists for the
+purpose of the supply of electricity or access to
+electricity supply works;
+page 14 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Subdivision and development control Part 3
+Easements Division 4
+r. 34
+(d) the holder of a distribution licence under the Energy
+Coordination Act 1994 in whose favour an easement
+exists for the purpose of the supply of gas, or access to
+gas supply works, under the authority of that licence;
+(e) the holder of a licence under a written law in whose
+favour an easement exists for the purpose of the supply
+of a utility service or access to a utility service under the
+authority of that licence;
+plan includes a deposited plan, a diagram, a plan of survey of a
+subdivision, and a scheme plan lodged for registration under the
+Strata Titles Act 1985 or the Community Titles Act 2018.
+[Regulation 33 amended: Gazette 14 Nov 2013 p. 5059;
+31 Dec 2019 p. 4654; SL 2021/78 r. 6.]
+34. Other Acts’ operation not affected by this Division
+This Division does not affect —
+(a) any right, power or authority conferred by any other Act
+on an easement holder; or
+(b) the operation of any Act that applies to land that is
+subject to an easement.
+35. How easements to be depicted on plans
+An easement must be depicted on a plan in such a manner as to
+identify the easement holder.
+36. Rights, powers and privileges under easements
+(Act s. 167(2))
+(1) An easement holder may at any time, for the purpose for which
+the easement exists, do any or all of the following —
+(a) enter the affected land with or without vehicles and
+other equipment;
+(b) survey the affected land and conduct tests of soil or
+other materials on it;
+As at 19 Feb 2026 Official Version page 15
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 3 Subdivision and development control
+Division 4 Easements
+r. 36
+(c) subject to the Environmental Protection Act 1986, clear
+and remove any vegetation or other material or any thing
+on the affected land (including any thing the owner or
+occupier of the land has placed or permitted on the land)
+that, in the opinion of the easement holder, hinders —
+(i) the carrying out of any work needed for the
+purpose for which the easement exists; or
+(ii) the exercise of any powers in this regulation;
+(d) disturb and excavate the affected land;
+(e) use any material cleared or excavated from the affected
+land;
+(f) construct, install, reconstruct, replace, reinstate and
+extend over, on or under the affected land any thing
+needed for the purpose for which the easement exists;
+(g) alter, maintain, repair, inspect and service any such
+thing.
+(2) An easement holder may use any thing constructed or installed
+over, on or under the affected land under this regulation for the
+purpose for which the easement exists.
+(3) An easement holder does not have to fence off the affected land
+or any part of it but may install any gate that the holder needs in
+any fence that crosses the affected land.
+(4) Any thing constructed or installed on or under the affected land
+by an easement holder remains the property of the easement
+holder even if it is fixed to the land.
+page 16 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Compensation and acquisition Part 4
+r. 37
+Part 4 — Compensation and acquisition
+37. Term used: Board
+In this Part —
+Board means the Board of Valuers established under
+section 182.
+38. Notice of intention to sell (Act s. 181(11))
+For the purposes of section 181(11), a written notice given by an
+owner of land to the responsible authority must state —
+(a) whether the owner intends to subdivide the land; and
+(b) whether the owner intends to sell the land.
+39. Application for valuation (Act s. 183(1))
+(1) For the purposes of section 183(1) an application by an owner
+of land for a valuation of the land must be made by posting or
+delivering a written application to the Board at the office of the
+Commission.
+(2) The application must —
+(a) describe the land to which it relates; and
+(b) state whether the owner wants to be heard by the Board
+on the making of the valuation.
+40. Board of Valuers, procedure for
+(1) On receiving an application made under section 183(1) the
+Board’s chairperson must —
+(a) appoint a member of the Board (other than the
+chairperson) to —
+(i) inspect the land concerned; and
+(ii) prepare and summarise the data necessary for the
+making of a valuation; and
+(iii) give the Board a preliminary report,
+As at 19 Feb 2026 Official Version page 17
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 4 Compensation and acquisition
+r. 41
+before the day fixed for the making of the valuation; and
+(b) give the applicant written notice of the day and time
+fixed for the making of the valuation.
+(2) Any evidence presented to the Board by an applicant must be in
+the form of a statutory declaration.
+(3) An applicant is entitled to be heard by the Board, either in
+person or by counsel.
+(4) The Board may adjourn its proceedings from time to time and
+from place to place.
+(5) Proceedings of the Board shall not be impugned for want of
+formality.
+41. Fees for valuation
+(1) A person who applies under section 183(1) for a valuation is
+liable to reimburse the State the fees it pays to the Board under
+Schedule 9 clause 5 of the Act in relation to determining the
+application.
+(2) The Board must give a person written notice of the amount
+payable to the State under subregulation (1) as soon as
+practicable after determining the person’s application.
+(3) The State may recover an amount payable under
+subregulation (1) in a court of competent jurisdiction as debt
+due and payable.
+page 18 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Enforcement and legal proceedings Part 5
+r. 42
+Part 5 — Enforcement and legal proceedings
+42. Prescribed offences and their modified penalties (Act s. 227)
+(1) For the purposes of section 227 —
+(a) each offence against a provision of the Act listed in
+column 1 of the Table is prescribed to be an offence for
+which an infringement notice may be issued under
+Part 13 Division 3 of the Act; and
+(b) the amount opposite the provision in column 2 of the
+Table is prescribed as the modified penalty for the
+offence.
+Table
+Provision of the Act Modified penalty
+s. 214 $500
+s. 218 $500
+s. 220 $500
+s. 221 $500
+(2) For the purposes of section 227 —
+(a) each offence against a provision of these regulations
+listed in column 1 of the Table is prescribed to be an
+offence for which an infringement notice may be issued
+under Part 13 Division 3 of the Act; and
+(b) the amount opposite the provision in column 2 of the
+Table is prescribed as the modified penalty for the
+offence.
+Table
+Provision of these regulations Modified penalty
+Part 2 10% of the maximum penalty
+provided for the offence
+r. 31 $500
+As at 19 Feb 2026 Official Version page 19
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 5 Enforcement and legal proceedings
+r. 43
+43. Prescribed forms (Act s. 229 and 231)
+(1) For the purposes of section 229, Schedule 1 Form 1 is the
+prescribed form of an infringement notice.
+(2) For the purposes of section 231, Schedule 1 Form 2 is the
+prescribed form of the withdrawal of an infringement notice.
+page 20 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Applications for review Part 6
+r. 44
+Part 6 — Applications for review
+44. Submissions considered by Minister (Act s. 246(7))
+For the purposes of section 246(7)(b), a copy or transcript of a
+submission must be published by making it available to the
+public during office hours at the Commission’s office.
+45. Fee for Minister’s reasons (Act s. 247(4))
+(1) For the purposes of section 247(4)(c), the fee for a copy of
+reasons is $45.00.
+(2) The fee for the supply of a copy is payable before the copy is
+supplied.
+(3) Despite subregulations (1) and (2), the Minister or the executive
+officer of the State Administrative Tribunal may, in a particular
+case for special reasons, direct that —
+(a) a fee be waived or reduced; or
+(b) the whole or part of a fee be refunded; or
+(c) that the payment of the whole or part of a fee be deferred
+until such time, and upon such conditions, if any, as the
+Minister or executive officer thinks fit.
+As at 19 Feb 2026 Official Version page 21
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 7 Local government planning charges
+Division 1 Preliminary matters
+r. 46
+Part 7 — Local government planning charges
+Division 1 — Preliminary matters
+46. Terms used
+In this Part —
+applicant includes a person making a request;
+DAP application has the meaning given in the Planning and
+Development (Development Assessment Panels)
+Regulations 2011 regulation 3(1);
+fee includes charge;
+local development plan has the meaning given in the Planning
+and Development (Local Planning Schemes) Regulations 2015
+Schedule 2 clause 46;
+Panel means a Fees Arbitration Panel appointed under
+regulation 54;
+structure plan —
+(a) has the meaning given in the Planning and Development
+(Local Planning Schemes) Regulations 2015 Schedule 2
+clause 14; and
+(b) includes a plan taken to be a precinct structure plan or
+standard structure plan under the Planning and
+Development (Local Planning Schemes)
+Regulations 2015 Schedule 2 clause 92 (as that clause
+applies as part of local planning schemes).
+[Regulation 46 amended: Gazette 24 Mar 2011 p. 1037;
+25 Aug 2015 p. 3380-1; SL 2020/252 r. 83.]
+Division 2 — Fees and other charges
+47. Fees for certain planning services (Sch. 2)
+(1) A local government may impose a fee for a service listed in
+Schedule 2 provided by the local government.
+page 22 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Local government planning charges Part 7
+Fees and other charges Division 2
+r. 48A
+(2) The fee imposed by a local government for a service listed in
+Schedule 2 must be decided by the local government but must
+not exceed the fee specified in that Schedule for the service
+unless the local government is exempted under regulation 53.
+(3) Any fee imposed for a service listed in Schedule 2 must be paid
+by the applicant when applying for or requesting the service.
+48A. Fees for DAP applications
+(1) A local government may impose a fee for services in respect of
+a DAP application made to it notwithstanding that it will not
+itself determine the application.
+(2) The fee must be decided by the local government but must not
+exceed the maximum fee specified in Schedule 2 in relation to a
+development application in respect of the same kind of
+development.
+(3) Any fee imposed under subregulation (1) must be paid to the
+local government by the applicant when making the DAP
+application.
+[Regulation 48A inserted: Gazette 24 Mar 2011 p. 1038.]
+48. Fees for scheme amendments, structure plans and local
+development plans
+(1) A local government may impose a fee for a service provided by
+the local government pursuant to a request for —
+(a) a local planning scheme amendment; or
+(b) the adoption of a structure plan or local development
+plan provided by the applicant; or
+(c) an amendment to a structure plan or local development
+plan provided by the applicant.
+(2) No fee can be imposed for a service provided pursuant to a
+request for a local planning scheme amendment if the sole
+purpose of the amendment requested is to amend the local
+As at 19 Feb 2026 Official Version page 23
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 7 Local government planning charges
+Division 2 Fees and other charges
+r. 48
+planning scheme to make it consistent with a region planning
+scheme.
+(3) A local government that receives a request for a local planning
+scheme amendment must give the applicant an estimate, in the
+form in Schedule 3, of —
+(a) the hours that the local government’s staff will spend
+dealing with the request; and
+(b) the total fee, calculated in accordance with that form,
+that the local government will impose for dealing with
+the request.
+(4) A local government that receives a request to adopt or amend a
+structure plan or local development plan provided by the
+applicant must give the applicant an estimate, in the form in
+Schedule 4, of —
+(a) the hours that the local government’s staff will spend
+dealing with the request; and
+(b) the total fee, calculated in accordance with that form,
+that the local government will impose for dealing with
+the request.
+(5) In an estimate given under subregulation (3) or (4), the hourly
+rates for the local government’s staff must be decided by the
+local government but must not exceed —
+(a) for the person in charge of planning at the local
+government, $88.00 per hour;
+(b) for a senior planner or manager, $66.00 per hour;
+(c) for a planning officer, environmental health officer or
+other officer with qualifications relevant to the request,
+$36.86 per hour;
+(d) for a secretary or administrative officer, $30.20 per hour,
+unless the local government is exempted under regulation 53.
+(6) A local government may reduce the estimated total fee specified
+in an estimate given under subregulation (3) or (4).
+page 24 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Local government planning charges Part 7
+Fees and other charges Division 2
+r. 49
+(7) A local government may refuse to deal with a request referred to
+in subregulation (3) until —
+(a) the estimated total fee specified in the estimate given in
+accordance with the subregulation is paid; or
+(b) if that fee is reduced under subregulation (6), the
+reduced fee is paid.
+(8A) A local government may refuse to advertise a structure plan or
+local development plan or an amendment to a structure plan or
+local development plan related to a request referred to in
+subregulation (4) until —
+(a) the estimated total fee specified in the estimate given in
+accordance with the subregulation is paid; or
+(b) if that fee is reduced under subregulation (6), the
+reduced fee is paid.
+(8) If the local government —
+(a) decides not to initiate the local planning scheme
+amendment or the adoption or amendment of a structure
+plan or local development plan; or
+(b) decides to discontinue the preparation or adoption of a
+local planning scheme amendment or the adoption or
+amendment of a structure plan or local development
+plan,
+moneys paid by the applicant to the local government for the
+planning service and not expended by the local government on
+the provision of that service must be refunded to the applicant.
+[Regulation 48 amended: Gazette 14 May 2010 p. 2009-10;
+6 May 2011 p. 1617; 21 May 2013 p. 2011-12; 25 Aug 2015
+p. 3381-2; SL 2020/252 r. 84.]
+49. Additional costs and expenses payable by applicants
+(1) The following costs and expenses, if incurred by a local
+government in providing a service listed in Schedule 2 items 1
+to 12 or referred to in regulation 48A(1) or 48, are payable by
+As at 19 Feb 2026 Official Version page 25
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 7 Local government planning charges
+Division 2 Fees and other charges
+r. 50
+the applicant in addition to the fee for the provision of the
+service —
+(a) costs and expenses of advertising the application and
+advertising matters related to the application;
+(b) costs and expenses of any specific assessment, such as
+an environmental assessment, required in relation to the
+application;
+(c) costs and expenses of consultation procedures required
+in relation to the application;
+(d) costs and expenses of technical resources and
+equipment, such as computer modelling, required in
+relation to the application;
+(e) costs and expenses of specialist advice, such as advice in
+relation to heritage matters, required in relation to the
+application.
+(2) A local government, in a bill given to the applicant, may —
+(a) require the applicant to pay the costs and expenses
+referred to in subregulation (1) that the local government
+estimates it will incur; or
+(b) require the applicant to pay the actual costs and
+expenses referred to in subregulation (1) after they are
+incurred.
+(3) Any moneys paid in advance by an applicant to a local
+government for estimated costs or expenses referred to in
+subregulation (1) that are not incurred by the local government
+must be refunded to the applicant on the completion of the
+service.
+[Regulation 49 amended: Gazette 24 Mar 2011 p. 1038.]
+50. Itemised account to be provided on request
+If an applicant so requests, a local government must give the
+applicant an itemised account of any fee the local government
+has imposed on the applicant under regulation 48 or 49.
+page 26 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Local government planning charges Part 7
+Fees and other charges Division 2
+r. 51
+51. Dispute as to amount payable
+(1) If a dispute arises as to an amount payable for or in relation to
+services to be provided pursuant to a request for —
+(a) a local planning scheme amendment; or
+(b) adoption or amendment of a structure plan or local
+development plan provided by the applicant,
+the dispute may be referred in writing by the relevant local
+government or applicant to a Panel for its decision.
+(2) The referral of a dispute to a Panel does not affect the provision
+of the service in respect of which the fee is paid or the
+requirement to pay that fee, but the Panel may order the local
+government to refund any part of the fee paid.
+(3) A Panel’s decision on a dispute is final.
+[Regulation 51 amended: Gazette 25 Aug 2015 p. 3382;
+SL 2020/252 r. 85.]
+52. Local government may waive or refund fee
+A local government may waive or refund, in whole or in part,
+payment of a fee for a planning service.
+53. Exemption
+(1) Any act by the Minister under this regulation must be done in a
+written notice that is given to the local government concerned.
+(2) The Minister may exempt a local government from the
+requirement to impose fees in accordance with regulations 47
+and 48.
+(3) The exemption may include any condition the Minister decides.
+(4) Regulations 47 to 52 do not apply to a local government while
+an exemption given to it under subregulation (2) is in force and
+the local government complies with any condition in the
+exemption.
+As at 19 Feb 2026 Official Version page 27
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 7 Local government planning charges
+Division 3 Fees Arbitration Panels
+r. 54
+(5) The Minister may amend or cancel an exemption given under
+subregulation (2).
+Division 3 — Fees Arbitration Panels
+54. Fees Arbitration Panels
+(1) A Fees Arbitration Panel consists of the following members
+appointed by the Minister —
+(a) a person nominated by WALGA;
+(b) a person nominated by the Commission;
+(c) a planning consultant nominated by the Royal Australian
+Planning Institute;
+(d) a person selected by the Minister from a panel of names
+submitted by industry planning groups under
+subregulation (2).
+(2) When it is necessary to appoint a person under
+subregulation (1)(d) the Minister must request the following to
+each nominate a person for appointment —
+(a) the Housing Industry Association;
+(b) the Urban Development Institute of Australia;
+(c) the Property Council of Australia;
+(d) the Building Designers Association;
+(e) the Real Estate Institute of Western Australia.
+(3) The Minister must appoint one of the members as chairperson of
+the Panel.
+(4) The function of a Panel is to determine a dispute referred to it
+under regulation 51.
+55. Panel meetings
+(1) A Panel may hold a meeting to decide a dispute referred to the
+Panel.
+page 28 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Local government planning charges Part 7
+Fees Arbitration Panels Division 3
+r. 56
+(2) A Panel may invite a person to be present at a meeting of the
+Panel to advise or inform, or make a submission to, the Panel.
+(3) The applicant, or a representative of the applicant, and a
+representative of the local government are entitled to be present
+whenever a person invited under subregulation (2) is present at a
+meeting of the Panel.
+56. Decisions of a Panel
+(1) A Panel member, including the chairperson, has a single vote on
+a decision to be made by the Panel and, in the case of an
+equality of votes, the chairperson also has a casting vote.
+(2) A matter that is to be decided by a Panel must be decided by a
+majority of votes.
+(3) A decision is a valid decision of the Panel even though it is not
+made at a meeting of the Panel, if each member of the Panel
+agrees in writing to the proposed decision.
+As at 19 Feb 2026 Official Version page 29
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Part 8 Miscellaneous matters
+r. 57
+Part 8 — Miscellaneous matters
+57. False or misleading information
+(1) A person must not give any false or misleading information in,
+or in relation to, an application or request made under these
+regulations.
+(2) A person making an application or request made under these
+regulations must not withhold information that is or may be
+material to the application or request.
+Penalty: a fine of $50 000.
+[58. Omitted under the Reprints Act 1984 s. 7(4)(f).]
+page 30 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Transitional matters Part 9
+r. 59
+Part 9 — Transitional matters
+59. Term used: commencement
+In this Division —
+commencement means the day on which these regulations
+commence.
+60. Wardens’ appointments continued
+If immediately before commencement a person holds an
+appointment as a warden or honorary warden made under the
+Metropolitan Region Planning Authority (Reserved Land
+Regulations) 1, then on commencement the person is to be taken
+to be appointed as a warden under regulation 7 on the same
+basis as he or she was appointed immediately before
+commencement.
+As at 19 Feb 2026 Official Version page 31
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Schedule 1 Forms
+Form 1
+Schedule 1 — Forms
+1. Infringement notice (r. 43(1))
+Planning and Development Act 2005 s. 229 Infringement notice
+Planning and Development Regulations 2009 Number:
+Alleged Family name
+offender
+Given names
+Address
+Date of birth Male/Female
+Driver’s No.: State/Country:
+licence Type: Class(es): Expiry date:
+Description of Date Time
+alleged offence
+Place
+Details1
+Law Planning and Development Act 2005 s.
+contravened
+Relevant  Planning scheme
+planning  Planning control area declaration
+document2  Interim development order
+Name of scheme/details of declaration or order, and
+[Tick one box number of any provision contravened —
+and insert other
+details]
+Modified The modified penalty for the alleged offence is $
+penalty
+Vehicle details3 Plate No. State
+Licence Vin/Chassis
+expiry date No.
+Make Colour
+Body type
+Date of notice
+Service details This notice was served — Date
+[Tick one box]  in person  by post
+page 32 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Forms Schedule 1
+Form 1
+Officer issuing Name
+notice
+Office
+Responsible
+authority
+Signature
+Notice to It is alleged that you have committed the above offence.
+alleged offender If you want the alleged offence dealt with in court, tick the box
+below, post this notice to the address below, and do not pay the
+modified penalty above.
+If you do not wish to be prosecuted for the alleged offence in court,
+pay the modified penalty above within 28 days after the date on
+which you receive this notice.
+To pay, tick the relevant box below and post this notice and any
+cheque or credit card details for the modified penalty to the address
+below.
+If you want an extension of time to pay the modified penalty, contact
+the officer named below at the address below.
+Paying the modified penalty will not be taken to be an admission
+for the purposes of any civil or criminal court case.
+If you do not pay the modified penalty, you may be prosecuted in
+court for the alleged offence and, if convicted, you will be liable to a
+penalty and costs.
+Alleged To —4
+offender’s
+response
+ I want this alleged offence dealt with by a court.
+[Tick one box]  I want to pay the modified penalty. A cheque for the modified
+penalty enclosed.
+ I want to pay the modified penalty by using a credit card. The
+credit card’s details are —
+Notes to Form 1 —
+1. The details should say what the alleged offender has done that is a
+contravention of the law.
+2. Complete this if an offence against s. 218, 220 or 221 of the Act is alleged.
+3. Include vehicle details if alleged offence relates to a vehicle or to a person
+driving a vehicle.
+4. Insert the name and address of the responsible authority and the officer
+responsible for dealing with infringement notices.
+As at 19 Feb 2026 Official Version page 33
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Schedule 1 Forms
+Form 2
+2. Withdrawal of infringement notice (r. 43(2))
+Planning and Development Act 2005 s. 231 Withdrawal of infringement
+Planning and Development Regulations 2009 notice
+Alleged Family name
+offender
+Given names
+Address
+Infringement Number
+notice
+Date issued
+Description of Date Time
+alleged offence
+Place
+Details
+Law Planning and Development Act 2005 s.
+contravened
+Date of this
+notice
+Officer issuing Name
+this notice
+Office
+Responsible
+authority
+Signature
+Notice to The above infringement notice, which was issued for the above
+alleged offender alleged offence, has been withdrawn.
+If you have already paid the modified penalty in accordance with the
+infringement notice, you are entitled to a refund of the money.
+To obtain a refund post this notice to —1
+Notes to Form 2 —
+1. Insert the name and address of the responsible authority and the officer
+responsible for dealing with application for refunds.
+page 34 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Maximum fees for certain planning services Schedule 2
+Schedule 2 — Maximum fees for certain planning services
+[r. 47]
+[Heading inserted: Gazette 21 May 2013 p. 2012.]
+Item Planning service Maximum fee
+1. Determining a development application
+(other than for an extractive industry)
+where the development has not
+commenced or been carried out and the
+estimated cost of the development is —
+(a) not more than $50 000 $147
+(b) more than $50 000 but not more 0.32% of the estimated
+than $500 000 cost of development
+(c) more than $500 000 but not more $1 700 + 0.257% for every
+than $2.5 million $1 in excess of $500 000
+(d) more than $2.5 million but not more $7 161 + 0.206% for every
+than $5 million $1 in excess of
+$2.5 million
+(e) more than $5 million but not more $12 633 + 0.123% for
+than $21.5 million every $1 in excess of
+$5 million
+(f) more than $21.5 million $34 196
+2. Determining a development application The fee in item 1 plus, by
+(other than for an extractive industry) way of penalty, twice that
+where the development has commenced or fee
+been carried out
+3. Determining a development application for $739
+an extractive industry where the
+development has not commenced or been
+carried out
+4. Determining a development application for The fee in item 3 plus, by
+an extractive industry where the way of penalty, twice that
+development has commenced or been fee
+carried out
+As at 19 Feb 2026 Official Version page 35
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Schedule 2 Maximum fees for certain planning services
+Item Planning service Maximum fee
+5A. Determining an application to amend or $295
+cancel development approval
+5B. Determining an application for advice $295
+made under the Planning and Development
+(Local Planning Schemes)
+Regulations 2015 Sch. 2 cl. 61A (as that
+clause applies as part of the local planning
+scheme)
+5. Providing a subdivision clearance for —
+(a) not more than 5 lots $73 per lot
+(b) more than 5 lots but not more than $73 per lot for the first
+195 lots 5 lots and then $35 per lot
+(c) more than 195 lots $7 393
+6. Determining an initial application for $222
+approval of a home occupation where the
+home occupation has not commenced
+7. Determining an initial application for The fee in item 6 plus, by
+approval of a home occupation where the way of penalty, twice that
+home occupation has commenced fee
+8. Determining an application for the renewal $73
+of an approval of a home occupation where
+the application is made before the approval
+expires
+9. Determining an application for the renewal The fee in item 8 plus, by
+of an approval of home occupation where way of penalty, twice that
+the application is made after the approval fee
+has expired
+10. Determining an application for a change of $295
+use or for an alteration or extension or
+change of a non-conforming use to which
+item 1 does not apply, where the change or
+the alteration, extension or change has not
+commenced or been carried out
+page 36 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Maximum fees for certain planning services Schedule 2
+Item Planning service Maximum fee
+11. Determining an application for a change of The fee in item 10 plus, by
+use or for an alteration or extension or way of penalty, twice that
+change of a non-conforming use to which fee
+item 2 does not apply, where the change or
+the alteration, extension or change has
+commenced or been carried out
+12. Providing a zoning certificate $73
+13. Replying to a property settlement $73
+questionnaire
+14. Providing written planning advice $73
+[Schedule 2 inserted: Gazette 21 May 2013 p. 2012-13; amended:
+Gazette 25 Aug 2015 p. 3382; SL 2020/252 r. 86.]
+As at 19 Feb 2026 Official Version page 37
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Schedule 3 Form of estimate of fees for services for local planning scheme
+amendments
+Schedule 3 — Form of estimate of fees for services for local
+planning scheme amendments
+[r. 48(3)]
+Task Estimated hours 1
+Head of Senior Planning Other staff e.g. Secretary/
+planning Planner Officer environmental administrative
+health officer officer
+1. Preliminaries:
+Preliminary
+discussions and
+registration of
+application
+2. Decision to initiate:
+(a) Information and
+site visit
+(b) Applicant
+discussion
+(c) Development
+Control Unit
+(DCU) meeting
+(d) Action DCU
+recommendation
+(e) Assessment
+report and
+agenda
+preparation
+MINOR
+MAJOR
+3. Approval to advertise:
+(a) Action local
+government
+recommendation
+(b) Refer to
+Commission for
+approval
+(c) Advertising,
+notifications,
+referrals
+(d) Deal with
+enquiries
+(e) Assess
+submissions
+page 38 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Form of estimate of fees for services for local planning scheme Schedule 3
+amendments
+(f) Liaise with
+external
+agencies
+(g) Applicant
+discussion and
+liaison
+4. Decision to adopt:
+(a) Finalise
+amendment,
+plan, report and
+agenda
+preparation
+(b) Applicant
+discussion
+(c) Action local
+government
+recommendation
+5. Amendment/plan approved:
+(a) Report on
+Minister’s
+approval
+(b) Notify
+submissions
+(c) Update text and
+maps
+Total hours
+Hourly rate (r. 48(5)) $ $ $ $ $
+Total hours x rate = $ $ $ $ $ $
++ 33.3% (To recover $ $ $ $ $
+operating
+overhead costs)
+= Total salary costs $ $ $ $ $
+Total salary costs b/f $
+(sum of amounts in previous row)
++ Direct costs $
++ Special costs $
++ Scheme map and text preparation costs $
+= Estimated total fee $
+Notes to Form —
+1. If readvertising of substantial modifications is required, the hours needed to
+arrange the readvertising and review the submissions and the direct costs
+incurred in readvertising the amendment are to be included in items 3, 4
+and 5.
+As at 19 Feb 2026 Official Version page 39
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Schedule 4 Form of estimate of fees for services for structure plans and
+local development plans
+Schedule 4 — Form of estimate of fees for services for
+structure plans and local development plans
+[r. 48(4)]
+[Heading amended: Gazette 25 Aug 2015 p. 3382; SL 2020/252
+r. 87.]
+Task 1 Estimated hours 2
+Head of Senior Planning Other staff e.g. Secretary/
+planning Planner Officer environmental administrative
+health officer officer
+1. Preliminaries:
+Preliminary
+discussions and
+registration of
+application
+2. Decision to advertise:
+(a) Information and
+site visit
+(b) Proponent
+discussion
+(c) Development
+Control Unit
+(DCU) meeting
+(d) Action DCU
+recommendation
+(e) Assessment
+report and
+agenda
+preparation
+3. Approval to advertise:
+(a) Action local
+government
+recommendation
+(b) Advertising,
+notifications,
+referrals
+(c) Deal with
+enquiries
+(d) Assess
+submissions
+page 40 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Form of estimate of fees for services for structure plans and Schedule 4
+local development plans
+(e) Liaise with
+external
+agencies
+(f) Proponent
+discussion and
+liaison
+4. Decision to adopt or amend:
+(a) Finalise report
+and agenda
+preparation
+(b) Proponent
+discussion
+(c) Action local
+government
+recommendation
+5. Plan adopted:
+(a) Refer to
+Commission for
+endorsement
+(b) Notification and
+deposit of plan
+Total hours
+Hourly rate (r. 48(5)) $ $ $ $ $
+Total hours x rate = $ $ $ $ $
++ 33.3% (To recover $ $ $ $ $
+operating
+overhead costs)
+= Total salary costs $ $ $ $ $
+Total salary costs b/f $
+(sum of amounts in previous row)
++ Direct costs $
++ Special costs $
+= Estimated total fee $
+Notes to Form —
+1. This form is based on the provisions for the adoption and amendment of
+structure plans and local development plans set out in the Planning and
+Development (Local Planning Scheme) Regulations 2015. Item 5 should
+not be included for local development plans as these are not referred to
+the Commission.
+As at 19 Feb 2026 Official Version page 41
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Schedule 4 Form of estimate of fees for services for structure plans and
+local development plans
+2. If readvertising of a proposed structure plan or local development plan or
+a proposed amendment to one of those plans is required, the hours needed
+to arrange the readvertising and review the submissions and the direct
+costs incurred in readvertising the plan or the amendment are to be
+included in items 3, 4 and 5.
+[Schedule 4 amended: Gazette 25 Aug 2015 p. 3382-3; SL 2020/252
+r. 88.]
+page 42 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Compilation table Notes
+Notes
+This is a compilation of the Planning and Development Regulations 2009 and includes
+amendments made by other written laws. For provisions that have come into operation,
+and for information about any reprints, see the compilation table.
+Compilation table
+Citation Published Commencement
+Planning and Development 19 Jun 2009 r. 1 and 2: 19 Jun 2009
+Regulations 2009 p. 2271-318 (see r. 2(a));
+Regulations other than r. 1 and 2:
+1 Jul 2009 (see r. 2(b) and
+Gazette 19 Jun 2009 p. 2225)
+Planning and Development 14 May 2010 r. 1 and 2: 14 May 2010
+Amendment Regulations 2010 p. 2007-12 (see r. 2(a));
+Regulations other than r. 1 and 2:
+1 Jul 2010 (see r. 2(b))
+Planning and Development 24 Mar 2011 r. 1 and 2: 24 Mar 2011
+Amendment Regulations 2011 p. 1037-8 (see r. 2(a));
+Regulations other than r. 1 and 2:
+25 Mar 2011 (see r. 2(b) and
+Gazette 24 Mar 2011 p. 1035)
+Planning and Development 6 May 2011 r. 1 and 2: 6 May 2011
+Amendment Regulations (No. 4) 2011 p. 1617-19 (see r. 2(a));
+Regulations other than r. 1 and 2:
+1 Jul 2011 (see r. 2(b))
+Planning and Development 21 May 2013 r. 1 and 2: 21 May 2013
+Amendment Regulations 2013 p. 2011-13 (see r. 2(a));
+Regulations other than r. 1 and 2:
+1 Jul 2013 (see r. 2(b))
+Reprint 1: The Planning and Development Regulations 2009 as at 23 Aug 2013
+(includes amendments listed above)
+Planning and Development 14 Nov 2013 r. 1 and 2: 14 Nov 2013
+Amendment Regulations (No. 2) 2013 p. 5059 (see r. 2(a));
+Regulations other than r. 1 and 2:
+18 Nov 2013 (see r. 2(b) and
+Gazette 14 Nov 2013 p. 5027)
+Planning and Development 25 Aug 2015 r. 1 and 2: 25 Aug 2015
+Amendment Regulations 2015 p. 3380-3 (see r. 2(a));
+Regulations other than r. 1 and 2:
+19 Oct 2015 (see r. 2(b))
+As at 19 Feb 2026 Official Version page 43
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au
+
+Planning and Development Regulations 2009
+Notes Other notes
+Citation Published Commencement
+Planning and Development 31 Dec 2019 r. 1 and 2: 31 Dec 2019
+Amendment Regulations 2019 p. 4653-4 (see r. 2(a));
+Regulations other than r. 1 and 2:
+1 May 2020 (see r. 2(b) and
+SL 2020/39 cl. 2)
+Planning Regulations Amendment SL 2020/252 15 Feb 2021 (see r. 2(c))
+Regulations 2020 Pt. 3 18 Dec 2020
+Planning and Development SL 2021/78 r. 1 and 2: 18 Jun 2021
+Amendment Regulations 2021 18 Jun 2021 (see r. 2(a));
+Regulations other than r. 1 and 2:
+30 Jun 2021 (see r. 2(b) and
+SL 2021/69 cl. 2)
+Planning and Development SL 2024/293 r. 1 and 2: 21 Dec 2024
+Amendment Regulations 2024 21 Dec 2024 (see r. 2(a));
+Regulations other than r. 1 and 2:
+31 Mar 2025 (see r. 2(b) and
+SL 2024/289 cl. 2)
+Planning and Development SL 2026/10 r. 1 and 2: 18 Feb 2026
+Amendment (State Development) 18 Feb 2026 (see r. 2(a));
+Regulations 2026 Regulations other than r. 1 and 2:
+19 Feb 2026 (see r. 2(b) and
+SL 2026/13 cl. 2)
+Other notes
+1 Repealed by the Planning and Development (Repeal) Regulations 2009.
+page 44 Official Version As at 19 Feb 2026
+Published on www.legislation.wa.gov.au [PCO 01-m0-00]
+
+Planning and Development Regulations 2009
+Defined terms
+Defined terms
+[This is a list of terms defined and the provisions where they are defined.
+The list is not part of the law.]
+Defined term Provision(s)
+Act......................................................................................................................... 3
+affected land ........................................................................................................ 33
+applicant .............................................................................................................. 46
+Board................................................................................................................... 37
+commencement ................................................................................................... 59
+DAP application .................................................................................................. 46
+easement ............................................................................................................. 33
+easement holder .................................................................................................. 33
+fauna .............................................................................................................. 15(1)
+fee ....................................................................................................................... 46
+flora ................................................................................................................ 15(1)
+identified State land .............................................................................................. 5
+local development plan ....................................................................................... 46
+Panel ................................................................................................................... 46
+place ............................................................................................................... 16(1)
+plan ............................................................................................................... 28, 33
+Registrar of Titles ................................................................................................. 3
+road access condition .......................................................................................... 28
+road vehicle ........................................................................................................... 5
+rubbish ........................................................................................................... 16(1)
+section ................................................................................................................... 3
+section 135 application ....................................................................................... 19
+sign ................................................................................................................. 16(1)
+structure plan....................................................................................................... 46
+take ................................................................................................................. 15(1)
+warden ................................................................................................................... 5
+© State of Western Australia 2026.
+This work is licensed under a Creative Commons Attribution 4.0 International Licence (CC BY 4.0).
+To view relevant information and for a link to a copy of the licence, visit www.legislation.wa.gov.au.
+Attribute work as: © State of Western Australia 2026.
+By Authority: ROGER JACOBS, Acting Government Printer
+As at 19 Feb 2026 Official Version page 45
+[PCO 01-m0-00] Published on www.legislation.wa.gov.au

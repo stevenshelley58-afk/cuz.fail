@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/development-control-policy-17-general-road-planning",
+  "fetched_at": "2026-06-09T22:35:05Z",
+  "http_status": 200,
+  "content_hash": "f8e4eef7648ceeb7e8a680cb6a1df981e6b7f3516916d4abd2f7ecfbeaf2cbce",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/DCP_1-7_general_road_planning.pdf",
+  "used_playwright": false,
+  "bytes": 61152
+}

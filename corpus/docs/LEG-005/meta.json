@@ -1,0 +1,10 @@
+{
+  "url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a252.html&view=consolidated",
+  "fetched_at": "2026-06-09T22:35:24Z",
+  "http_status": 200,
+  "content_hash": "b209f9d74b8982b175f43eddbd3b998a147124acb1b8acd622b2e4308531a1f6",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.legislation.wa.gov.au/legislation/prod/filestore.nsf/FileURL/mrdoc_49200.pdf/$FILE/Environmental%20Protection%20Act%201986%20-%20%5B09-y0-00%5D.pdf?OpenElement",
+  "used_playwright": false,
+  "bytes": 1620120
+}

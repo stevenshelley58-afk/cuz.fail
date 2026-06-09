@@ -1,0 +1,10 @@
+{
+  "url": "https://www.melvillecity.com.au/getContentAsset/a4315d6b-c817-426e-8ed7-ddabdf53755f/3ca954ad-3848-47c6-8f97-68cebe0b47a2/short-term-accommodation?language=en",
+  "fetched_at": "2026-06-09T22:35:35Z",
+  "http_status": 200,
+  "content_hash": "f3dbab310826c376b354751e3502011990e16536941936d3c97efabf58b4531e",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.melvillecity.com.au/getContentAsset/2788ceb2-a691-41ba-a03f-f948eb32b470/3ca954ad-3848-47c6-8f97-68cebe0b47a2/LPP1-21-Short-Term-Accommodation-Final-Version.pdf?language=en",
+  "used_playwright": false,
+  "bytes": 202692
+}

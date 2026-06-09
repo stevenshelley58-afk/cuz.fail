@@ -1,0 +1,373 @@
+State Planning Policy 3.7
+Bushfire
+November 2024
+Prepared under Section 26 of the Planning and Development Act 2005
+
+The Department of Planning, Lands and Heritage
+acknowledges the traditional owners and custodians
+of land and waterways across Western Australia.
+The Department is committed to reconciliation to
+improve outcomes for Aboriginal and Torres Strait click to follow
+Islander peoples and to work together to provide a
+culturally-safe and inclusive environment. 1 CITATION 1
+2 POLICY INTENT 1
+Disclaimer
+This document has been produced by the
+3 BUSHFIRE IN
+Department of Planning, Lands and Heritage on behalf
+WESTERN AUSTRALIA 1
+of the Western Australian Planning Commission.
+Any representation, statement, opinion or advice
+expressed or implied in this publication is made in
+4 APPLICATION OF THIS
+good faith and on the basis that the Government, its
+POLICY 1
+employees and agents are not liable for any damage or
+loss whatsoever which may occur as a result of action
+taken or not taken, as the case may be, in respect of any
+5 POLICY OBJECTIVES 3
+representation, statement, opinion or advice referred to
+herein. Professional advice should be obtained before
+applying the information contained in this document to
+6 POLICY OUTCOMES 3
+particular circumstances.
+7 POLICY MEASURES 3
+© State of Western Australia
+7.1 General measures 3
+Published by the
+7.2 Broader landscape 4
+Western Australian Planning Commission
+Gordon Stephenson House 7.3 Siting in BAL-40 or
+140 William Street BAL-Flame Zone 4
+Perth WA 6000
+7.4 Vulnerable land uses 4
+Locked Bag 2506 7.5 Outcomes-based
+Perth WA 6001
+approach 4
+Publication date: 18/11/2024
+Operational date: 18/11/2024
+DEFINITIONS 5
+This policy, on 18/11/2024, in accordance with Part 3,
+Section 20(1)(a) of the Planning and Development
+(State Planning Policies) Regulations 2024, repeals
+SPP 3.7 Planning in Bushfire Prone Areas (2015)
+website: wa.gov.au/dplh
+email: info@dplh.wa.gov.au
+tel: 08 6551 8002
+fax: 08 6551 9001
+National Relay Service: 13 36 77
+This document is available in alternative formats on
+application to the Department of Planning, Lands and
+Heritage Communications Branch.
+
+State Planning Policy 3.7
+1
+Bushfire
+November 2024
+1 CITATION injury or property damage. Bushfire threat can never be • the Deemed Provisions contained in the Planning and
+completely eliminated, and landowners should recognise Development (Local Planning Schemes) Amendment
+This is a State Planning Policy prepared under Part 3 of the need for management and evacuation measures Regulations 2015 that form part of every local
+the Planning and Development Act 2005. It may be cited as when accepting a level of personal risk and responsibility planning scheme;
+State Planning Policy 3.7 Bushfire (SPP 3.7). through choosing to live in bushfire prone areas.
+• where relevant, any supplementary provisions of a
+Reducing vulnerability to bushfire is the collective local planning scheme; and
+responsibility of State and local governments, landowners, • Australian Standard 3959: Construction of Buildings in
+2 POLICY INTENT industry and the community. It requires ongoing Bushfire-Prone Areas.
+commitment and diligence to locate and design
+To implement effective, risk-based land use planning development appropriately, manage potential fuel
+and development which in the first instance avoids the loads, implement bushfire management plans, provide
+bushfire risk, but where unavoidable, manages and/or emergency services, increase awareness of the potential A designated bushfire prone area is an area that
+mitigates the risk to people, property and infrastructure risk through education, and ensure bushfire emergency has been identified and designated by the Fire
+to an acceptable level. The preservation of life and the plans are in place, among other management measures. and Emergency Services Commissioner (FES
+management of bushfire impact are paramount. Such measures, working in conjunction with planning Commissioner) under the Fire and Emergency
+policy and building controls, have the effect of increasing Services Act 1998 (as amended). Such areas
+community resilience to bushfire. are identified on the Map of Bush Fire Prone
+Areas as either Area 1 (Urban) or Area 2. Area 1
+3 BUSHFIRE IN WESTERN (Urban) comprises built-up urban areas where the
+AUSTRALIA risk posed by bushfire to people, property and
+4 APPLICATION OF THIS POLICY
+infrastructure is lower. Area 2 covers the rest of
+Bushfires are an inherent part of the Australian the designated areas of Western Australia.
+This policy in conjunction with the Planning for Bushfire
+environment. In many parts of Western Australia, bushfire
+Guidelines (Guidelines) provide the foundation for land
+threat is increasing due to hotter, drier weather conditions
+use planning to address bushfire management in Western
+associated with long-term climatic changes and
+Australia. It is to be used to inform and guide decision-
+development expansion where urban, rural and natural Where the planning proposal or development is within an
+makers, referral agencies and landowners/proponents to
+areas interface. The personal and community devastation area designated as bushfire prone on the Map of Bush Fire
+help achieve acceptable bushfire protection outcomes.
+that can be caused by uncontrolled bushfires requires Prone Areas, and:
+consistent application of policy objectives that avoid, The policy is to be read in conjunction with: • results in the intensification of development (or land
+manage or mitigate such effects. • the Map of Bush Fire Prone Areas; use); or
+Under certain weather conditions, bushfire incidents can • the supporting Planning for Bushfire Guidelines • results in an increase of visitors, residents or
+reach catastrophic magnitudes. Fire conditions may be (Guidelines); employees; or
+such that even development consistent with planning • adversely impacts or increases the bushfire risk to the
+policy and building controls may not be enough to
+subject or surrounding site(s),
+ensure the bushfire threat is sufficiently reduced to avoid
+
+State Planning Policy 3.7
+2
+Bushfire
+November 2024
+then the following trigger the application of the policy: Figure: Application of
+Area 1
+• a strategic planning proposal within Area 2 on the policy Strategic planning (urban) Do not require a bushfire assessment
+Map of Bush Fire Prone Areas, that has or will have a
+Bushfire Hazard Level (BHL) above LOW
+Undertake a bushfire assessment,
+* Note there is no requirement for strategic planning Strategic planning Area 2 with a focus on demonstrating compliance
+proposals within Area 1 (Urban) to apply the policy with Element 1: location
+• a structure plan where lot layout and/or the internal
+road network is known, or a subdivision, that has or Structure plan Subdivision, that has or will have
+and subdivision a Bushfire Attack Level (BAL) rating
+will have a Bushfire Attack Level (BAL) rating above
+above BAL-LOW
+BAL-LOW
+• a development application where the development
+Change of use to
+site(s) has a BAL rating above BAL-LOW, where the hosted or unhosted SPP does not apply
+application is for the: accommodation
+– construction of a habitable building (single house
+Single house or
+or ancillary dwelling) on a lot more than 1, 100 m2,
+ancillary dwelling SPP does not apply
+which is not connected to reticulated water; and/ under 1,100m2
+or
+– construction and/or use of a habitable building Development application
+required for BAL – 40 and above
+(other than a single house or ancillary dwelling),
+Single house or (construction only)
+for a vulnerable land use
+ancillary dwelling
+over 1,100m2
+– construction and/or use of a caravan park, If no reticulated water, development
+application required for above BAL LOW
+nature-based park or camping ground (whether it
+(construction only)
+contains a habitable building(s) or not)
+• a development application where the development
+Development application
+site(s) has a radiant heat impact exceeding 29kW/m2 required for BAL – 40 and above
+(BAL-40 or BAL-Flame Zone), where the application is Commercial and (construction only)
+industrial habitable
+for the: buildings and
+specified buildings If no reticulated water, development
+– construction of a habitable building (single house application required for above BAL LOW
+(construction only)
+or ancillary dwelling) on a lot more than 1, 100 m2,
+Vulnerable habitable
+which is connected to reticulated water; and/or
+buildings and vulnerable
+land uses Development application
+– construction of a habitable building (other than a for above BAL – LOW
+&
+single house or ancillary dwelling). (construction or use, or construction and use)
+Caravan and camping
+grounds (with or without
+habitable buildings)
+
+State Planning Policy 3.7
+3
+Bushfire
+November 2024
+5 POLICY OBJECTIVES 6 POLICY OUTCOMES 7 POLICY MEASURES
+The objectives of this policy are to: The outcomes listed below specify the role of planning 7.1 General measures
+and development in contributing to the overall objectives
+5.1 Avoid the bushfire risk in the first instance, but i. Bushfire should be considered at the earliest
+of this policy. Each outcome is reflected within the
+where unavoidable, manage and/or mitigate possible stage of the planning process and
+elements of the Guidelines – Location, Siting and design,
+the risk to people, property and infrastructure, to all subsequent stages in accordance with the
+Vehicular access and Water supply. The outcomes
+ensure the risks are acceptable and appropriate to Guidelines.
+are achieved through compliance with the bushfire
+the land use and the location.
+protection criteria, utilising the acceptable solutions ii. Strategic planning, subdivisions and development
+5.2 Improve the bushfire resilience of communities or through an outcomes-based approach. applications to which this policy applies are to be
+through the provision of appropriate community The outcomes may also provide a basis for evaluation accompanied by a bushfire management plan,
+infrastructure, for use by emergency services and of the implementation of this policy. prepared in accordance with the Guidelines and
+the community in the event of a bushfire. include the following information:
+Strategic planning, subdivision and development should:
+5.3 Ensure development is resilient to increasingly a. an assessment of the broader landscape
+severe and more frequent bushfires compounded 6.1 Avoid broader landscapes that present an (where required);
+by climate change. unacceptable bushfire risk to people, property and
+b. the identification of any environmental,
+infrastructure.
+5.4 Prioritise the retention of native vegetation biodiversity or conservation values on the
+for biodiversity conservation, environmental 6.2 Ensure siting and design solutions: subject site, including vegetation that may
+protection and landscape amenity. • manage or mitigate the bushfire risk to be impacted by any proposed clearing or
+people, property and infrastructure; and modification, necessary to mitigate bushfire
+risk;
+• avoid, or where unavoidable, minimises
+clearing of native vegetation. c. a Bushfire Hazard Level, Bushfire Attack Level
+(BAL), Contour Map or BAL assessment;
+6.3 Ensure the design and capacity of vehicular access
+and egress provide: d. the identification of any bushfire hazard issues
+arising from the assessment; and
+• for efficient and effective evacuation to a
+suitable destination(s); and/or e. assessment against the bushfire protection
+criteria contained within the Guidelines,
+• as a contingency measure for vulnerable
+demonstrating compliance via either the
+tourism land uses, an on-site shelter, where
+acceptable solutions, or through an outcomes-
+demonstrated appropriate, as a last resort
+based approach.
+option.
+iii. Proposals should be accompanied by sufficient
+6.4 Ensure that sufficient water is available and
+information relevant to the applicable stage of
+accessible for emergency services, to enable
+the planning process and in accordance with the
+people, property and infrastructure to be
+Guidelines.
+defended from bushfire.
+
+State Planning Policy 3.7
+4
+Bushfire
+November 2024
+iv. Proposals and supporting information should be 7.4 Vulnerable land uses c) detail how the design addresses bushfire
+referred to relevant agencies in accordance with risk and where additional bushfire risk
+i. Strategic proposals, subdivision and development
+the Guidelines. management measures have been deemed
+applications for vulnerable land uses should
+necessary and included to minimise the risk;
+comply with policy measure 7.1.
+7.2 Broader landscape
+d) detail if there are any community net-benefits,
+ii. Development applications for vulnerable land
+i. Proposals located within a Broader Landscape such as improvements to the public road
+uses, should include a bushfire emergency plan
+Type B in accordance with the methodology network;
+prepared in accordance with the Guidelines
+within the Guidelines, will not be supported
+e) include any fire engineering solutions or
+unless the proposal has demonstrated through iii. A bushfire emergency plan may not be
+written evidence such as publications and
+an outcomes-based approach that the required for strategic proposals and subdivision
+State Administrative Tribunal decisions to
+broader landscape risk to people, property and applications to facilitate vulnerable land uses,
+support the proposal (where available);
+infrastructure is acceptable.. as at this level there is generally not sufficient
+f) outline how the policy outcomes have been
+information or detail available. Consideration of
+7.3 Siting in BAL-40 or BAL-Flame Zone achieved; and
+bushfire emergency procedures and options for
+evacuation, off-site shelter and where relevant, g) outline why approval is warranted by the
+i. There is a presumption against approving
+on-site shelter, should be included within the decision-maker in this instance.
+development site(s) or habitable building(s) in
+bushfire management plan.
+areas with a radiant heat impact exceeding iii. Where an outcomes-based approach is unable to
+29kW/m2 (BAL-40 or BAL-FZ). demonstrate that the outcomes of this policy can
+7.5 Outcomes-based approach
+be achieved, to the satisfaction of the decision-
+ii. However, the siting of a habitable building that is
+i. This policy recognises that some sites are unable maker, refusal should be contemplated.
+not considered vulnerable may be considered in
+to fully comply with the acceptable solutions of
+the following limited circumstances:
+the Guidelines due to complex site characteristics
+a) the lot was created prior to December 2015; and/or environmental values, but through
+and the use of innovative, alternative bushfire risk
+b) there are demonstrated site characteristics management measures may be able to satisfy the
+and/or environmental, biodiversity or outcomes of this policy.
+conservation values that prevent the
+ii. Where an outcomes-based approach is used, an
+achievement of a radiant heat impact not
+assessment is to be undertaken in accordance
+exceeding 29 kW/m2 (BAL-29); and
+with this policy, and the following criteria:
+c) it is demonstrated that the reduction of the
+a) address the acceptable solutions to the
+building footprint or a redesign to manage
+greatest extent possible;
+or mitigate the risk, is not practical or
+b) identify the non-compliance with the
+appropriate.
+acceptable solutions and why these cannot be
+achieved;
+
+State Planning Policy 3.7
+5
+Bushfire
+November 2024
+DEFINITIONS Bushfire hazard issues: issues identified Bushfire risk: the chance of a bushfire igniting,
+during the examination of the results of the bushfire spreading and causing damage to people, property and
+Bushfire Attack Level (BAL): a means of assessment, environmental considerations and broader infrastructure.
+measuring the severity of a building’s potential exposure landscape (where necessary), for a planning proposal.
+to ember attack, radiant heat and direct flame contact, Identified issues are to be addressed through the Bushfire risk management measures: means
+using increments of radiant heat expressed in kilowatts bushfire protection measures and/or may need special the application of the bushfire protection criteria
+per metre squared, and the basis for establishing the consideration. contained in the Planning for Bushfire Guidelines (2024).
+requirements for construction to improve protection of
+building elements from attack by bushfire. This is set out Bushfire Hazard Level (BHL) assessment: Development site: means that part of a lot on
+in the Australian Standard 3959: Construction of buildings in a pre- or post-development assessment that provides which a building(s) that is the subject of development
+bushfire-prone areas, as referenced in the Building Code of a measure of the likely intensity of a bushfire and the stands or is to be constructed, as defined in the Planning
+Australia (as amended). likely level of bushfire attack on a site determined by and Development (Local Planning Schemes) Regulations
+categorising and mapping land as having a low, moderate 2015, section 78A.
+BAL assessment: an assessment prepared in or extreme BHL in accordance with the methodology set
+accordance with AS 3959 or Planning for Bushfire out in the Guidelines. Habitable Building: means a permanent or
+Guidelines, to determine a bushfire attack level (BAL). temporary structure on land that –
+Bushfire emergency plan (BEP): a documented
+a. Is fully or partially enclosed; and
+BAL Contour Map: a BAL Contour Map is a scale scheme of assigned responsibilities, actions and
+b. Has at least one wall of solid material and a roof of
+map of the subject lot(s) illustrating the potential radiant procedures, required in the event of a bushfire
+solid material; and
+heat impacts and associated indicative BAL ratings in emergency. It consists of the preparedness, prevention
+reference to classified vegetation. The BAL Contour Map and response activities. c. Is used for a purpose that involves the use of the
+is to be prepared in accordance with the Planning for interior of the structure by people for living, working,
+Bushfire Guidelines. Bushfire management plan (BMP): A document studying or being entertained, as defined in the
+that sets out short, medium and long-term risk Planning and Development (Local Planning Schemes)
+Broader Landscape Assessment (BLA):
+management strategies for the life of the development. Regulations 2015.
+the BLA examines the area external to the planning
+proposal, extending for a distance of approximately Bushfire prone area: an area that has been Off-site shelter: another location, some distance
+two kilometres. It provides a means of quantifying the designated by the FES Commissioner under s. 18P of away from the site that is able to accommodate all the
+characteristics and the potential impacts of bushfire in the Fire and Emergency Services Act 1998 as an area that is people being evacuated. The place is not under threat
+the broader landscape, when considering the suitability subject, or likely to be subject, to bushfires. from a bushfire.
+of a location for the intensification of land use or
+development. Bushfire protection criteria: an outcomes-based On-site shelter: an on-site location where people
+system of assessing bushfire risk management measures facing an immediate threat to their personal safety or
+Bushfire: a generic term that may include fire involving contained in the Guidelines. property can gather and seek shelter from the threat of
+grassfire, scrub fires or forest fire. a bushfire.
+
+State Planning Policy 3.7
+6
+Bushfire
+November 2024
+Strategic planning proposal: any strategic-level • involves visitors who are unfamiliar with the
+planning document or proposal including regional surroundings.
+and sub-regional frameworks, region schemes and
+amendments, sub-regional strategies, structure plans, Examples are provided within the Guidelines.
+local planning strategies and local planning scheme
+reviews, scheme amendments, but does not include
+structure plans where the lot layout and/or the internal
+road layout is known.
+Subject site: the entirety of the lot(s), subject to and
+affected by the planning proposal.
+Suitable destination: an area that is not designated
+as bushfire prone on the Map of Bush Fire Prone Areas or
+is greater than 100 metres from classified vegetation, or
+50 metres from Class G Grassland, as per AS 3959 and
+can provide protection during and after a bushfire event.
+A suitable destination is located within an urban area,
+townsite or similar. This also includes any evacuation
+centre, dedicated by the local government, for use during
+a bushfire event.
+Unacceptable bushfire risk: a level of risk that is
+so high that bushfire risk management measures are not
+considered appropriate and only avoidance enables the
+elimination of the risk.
+Vulnerable land use: a land use which:
+• is designed to accommodate people who are less
+physically or mentally able and likely to present
+evacuation challenges; and/or
+• due to the building design or use, or the number of
+people accommodated, likely to present evacuation
+challenges; and/or

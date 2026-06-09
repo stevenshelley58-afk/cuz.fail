@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2024-09/planning_bulletin_115_2024_0.pdf",
+  "fetched_at": "2026-06-09T22:35:22Z",
+  "http_status": 200,
+  "content_hash": "1329ee5ad5162a373a811d403d295da5122cbd75094ad806b3835b9a950c7d5a",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2024-09/planning_bulletin_115_2024_0.pdf",
+  "used_playwright": false,
+  "bytes": 221117
+}

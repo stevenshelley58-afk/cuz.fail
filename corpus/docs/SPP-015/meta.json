@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-42-activity-centres-perth-and-peel",
+  "fetched_at": "2026-06-09T22:34:56Z",
+  "http_status": 200,
+  "content_hash": "957fea497d3f650a4fd4e66614fb4c923b79a80b1373dc8d2341a5a70793ab96",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2023-07/spp_4.2-activity-centres.pdf",
+  "used_playwright": false,
+  "bytes": 834344
+}

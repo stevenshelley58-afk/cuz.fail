@@ -1,0 +1,1165 @@
+PLANNING AND DEVELOPMENT ACT 2005
+_________
+STATE PLANNING POLICY 2.8
+BUSHLAND POLICY FOR THE
+PERTH METROPOLITAN REGION
+———————————
+PREPARED UNDER SECTION 26 OF THE PLANNING AND
+DEVELOPMENT ACT 2005 BY THE WESTERN AUSTRALIAN
+PLANNING COMMISSION.
+
+
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2743
+PLANNING AND DEVELOPMENT ACT 2005
+STATE PLANNING POLICY 2.8
+BUSHLAND POLICY FOR THE PERTH METROPOLITAN REGION
+CONTENTS
+1. Citation
+2. Introduction and background
+2.1 Policy aims
+2.2 Perth’s bushland
+2.3 General policy context
+3. Application of the policy
+3.1 Bush Forever areas
+3.2 Local bushland
+4. Policy objectives
+5. Policy measures
+5.1 Bush Forever areas
+5.2 Local bushland
+6. Implementation
+Figure 1: Policy measures framework
+Figure 2: Impact assessment process for Bush Forever areas
+Appendix 1: Bush Forever areas (all) impact assessment process
+Appendix 2: Bush Forever areas (all) impact assessment criteria
+Appendix 3: Bush Forever areas (rural lands)—Best practice criteria for rural-living subdivision
+for conservation and rural development
+Appendix 4: Bush Forever areas (all) Offsets Criteria
+Glossary
+References
+Map 1: Bush Forever areas
+
+
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2745
+PLANNING AND DEVELOPMENT ACT 2005
+STATE PLANNING POLICY 2.8
+BUSHLAND POLICY FOR THE PERTH METROPOLITAN REGION
+1. CITATION
+This is a State Planning Policy prepared under section 26 of the Planning and Development Act 2005.
+It may be cited as State Planning Policy 2.8: Bushland Policy for the Perth Metropolitan Region. For
+the purpose of this document, it will be referred to as the policy.
+2. INTRODUCTION AND BACKGROUND
+2.1 Policy aims
+The aim of the policy is to provide a policy and implementation framework that will ensure bushland
+protection and management issues in the Perth Metropolitan Region are appropriately addressed and
+integrated with broader land use planning and decision-making. This will secure long-term protection
+of biodiversity and associated environmental values.
+The policy recognises the protection and management of significant bushland areas as a fundamental
+consideration in the planning process, while also seeking to integrate and balance wider
+environmental, social and economic considerations. In general terms, the policy does not prevent
+development where it consistent with the policy measures in this policy and other planning and
+environmental considerations.
+2.2 Perth’s bushland
+The South-West Botanical Province, in which Perth lies, is one of the most biologically diverse regions
+in the world and is home to a broad range of ecological communities and plant species, a large portion
+of which are endemic to the province.
+Aside from its botanical and habitat values, bushland plays a crucial role in meeting a variety of
+environmental, social and economic needs (sometimes referred to as ecosystem services), such as:
+maintaining water and air quality; wetland protection and hydrological functions; the prevention of
+land degradation; visual amenity and areas for walking and informal nature-based recreation and
+education. Bushland is therefore an essential part of an area’s environmental (green) infrastructure
+and a critical ingredient in the successful delivery of wider biodiversity, ecological, natural resource
+management and sustainability outcomes. Bush Forever sites identified in Bush Forever (Government
+of Western Australia 2000a, 2000b and 2000c) are a key component of this environmental
+infrastructure and key elements in our move towards achieving an ecologically sustainable city.
+2.3 Legislative Context—Clearing Controls
+On 8 July 2004 new clearing controls came into effect regulating the clearing of native vegetation
+under Part 9 of the Environmental Protection Act 1986. The clearing controls generally require the
+obtaining of permits for the clearing of native vegetation.
+As part of the regulatory changes, under the Environmental Protection (Environmentally Sensitive
+Areas) Notice 2005 the Bush Forever sites were classified as environmentally sensitive areas except to
+the extent to which the site is approved to be developed by the Western Australian Planning
+Commission (WAPC) to recognise the environmental significance of these sites. To the extent of such
+development approval, a clearing permit will not be required under the clearing controls if the
+clearing is “prescribed clearing” defined in Regulation 5 of the Environmental Protection (Clearing of
+Native Vegetation) Regulations 2004. Thus, in respect of prescribed clearing on a Bush Forever site, a
+decision of the WAPC will be the decision under the clearing controls.
+Additionally, in considering whether to grant a permit under the clearing controls in respect of a
+Bush Forever site, the Department of Environment and Conservation will have due regard to the
+advice of planning authorities on planning issues.
+It is therefore imperative that planners understand the environmental significance of the Bush
+Forever sites and the range of policies, processes and outcomes to consider in making planning
+decisions and recommendations that will operate under and be consistent with the clearing controls.
+
+2746 GOVERNMENT GAZETTE, WA 22 June 2010
+2.4 General policy context
+The WAPC has prepared State Planning Policy 2: Environment and Natural Resources Policy, as a
+broad overarching sectoral policy for environmental and natural resource planning in Western
+Australia. Under its biodiversity policy measures, areas of high biodiversity and conservation value
+are identified, which include sites identified in Bush Forever. This policy is a supplementary policy
+under the environment and natural resources policy and seeks to address, in more detail, the
+protection and management of significant bushland areas, particularly those identified for protection
+through strategies and processes at the regional and local level in the Perth Metropolitan Region.
+More specifically, it addresses the protection and management of Bush Forever sites, as identified in
+Bush Forever.
+Bush Forever has been endorsed by the Western Australian Government and, for the area covered by
+the plan, undertakes to implement components of the Western Australian Government’s
+commitments in the Environmental Protection Act 1986, Urban Bushland Strategy (Government of
+Western Australia 1995); the international Convention on Biological Diversity (1992); the
+Commonwealth Government’s National Strategy for the Conservation of Australia’s Biodiversity
+(1996); the Environmental Protection and Biodiversity Conservation Act 1999, and other
+international, national and State level policies and agreements.
+Bush Forever identifies 51 200 hectares of regionally significant bushland recommended for protection
+and management in 287 Bush Forever sites, and includes lands with either some level of protection or
+unprotected land in both public and private ownership.
+Through a range of mechanisms, including reservation and acquisition, negotiated planning solutions
+and the use of advice, assistance and incentive programs to support private conservation
+management, Bush Forever seeks to protect a target of at least 10 per cent of the original extent of
+each vegetation complex within the Perth Metropolitan Region portion of the Swan Coastal Plain.
+Some areas of bushland and wetlands outside Bush Forever sites may have regional values, but were
+not identified for protection and management because of wider social and economic considerations.
+Rare flora, threatened ecological communities or regionally significant wetlands outside Bush Forever
+sites are protected through other government policies and legislation.
+This policy provides the policy and implementation framework for Bush Forever areas shown in the
+Metropolitan Region Scheme, which cover Bush Forever sites.
+The policy also supports the preparation of local bushland protection strategies by all local
+governments in the Perth Metropolitan Region. This will enable the identification of locally
+significant bushland sites for protection and management outside Bush Forever areas. The need for
+such strategies was identified in Bush Forever, the Urban Bushland Strategy and the State Planning
+Strategy. In addition, the National Local Government Biodiversity Strategy (Australian Local
+Government Association 1999) identified the need to prepare local biodiversity strategies. Bushland is
+an important component of biodiversity and therefore local bushland protection strategies should
+form part of a wider local biodiversity strategy, or similar, where possible. Local biodiversity
+strategies recognise the importance of natural areas of native vegetation that do not fall within the
+definition of bushland, or naturally non-vegetated environments.
+Local bushland protection strategies, biodiversity strategies or similar, should form part of or be set
+in the context of local or regional planning strategies and wider social and economic considerations.
+To assist local government, draft local biodiversity planning guidelines have been prepared by the
+Western Australian Local Government Association (2004).
+3. APPLICATION OF THE POLICY
+The policy applies to the Perth Metropolitan Region, and deals with two distinct subjects, being Bush
+Forever areas and local bushland.
+3.1 Bush Forever areas
+The policy measures in section 5.1 apply to any proposal or decision-making that is likely to have an
+adverse impact on regionally significant bushland within a Bush Forever area.
+For the purposes of clarity, an adverse impact includes direct impacts (through the clearing of
+regionally significant bushland) and indirect impacts (such as development abutting regionally
+significant bushland within a Bush Forever area which will have a significant indirect impact). The
+policy does not apply if a proposal or decision has no adverse impact on regionally significant
+bushland within a Bush Forever area.
+Existing cleared or developed areas within Bush Forever areas are not intended for protection
+through this policy or excluded from future development. However, any likely significant indirect
+impact on regionally significant bushland may be subject to planning or environmental controls.
+Map 1 (at the rear of this policy) identifies Bush Forever areas, their associated site implementation
+categories (section 5.1.2) and mapped regionally significant bushland within Bush Forever areas.
+Bush Forever areas are also identified in the Metropolitan Region Scheme.
+Map 1 forms part of this State Planning Policy and Bush Forever areas may be amended from time to
+time through amendments to this policy and complementary amendments to the Metropolitan Region
+Scheme. Site implementation categories may also be amended through amendments to this policy.
+Mapped regionally significant bushland within a Bush Forever area as shown on map 1 is for
+indicative purposes only and may be subject to on-site verification.
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2747
+3.2 Local bushland
+The policy measures in section 5.2 apply to all areas of bushland outside Bush Forever areas within
+the Perth Metropolitan Region.
+4. POLICY OBJECTIVES
+The three key objectives of this policy are—
+• to establish a conservation system at the regional level (through Bush Forever areas and to
+operate with the clearing controls under the Environmental Protection Act 1986) that is, as
+far as is achievable, comprehensive, adequate and representative of the ecological
+communities of the Swan Coastal Plain portion of the Perth Metropolitan Region;1
+• to seek to protect and manage significant bushland recommended for protection and
+management for conservation purposes through a range of implementation mechanisms and
+as a collective and shared responsibility and general duty of care on the part of government,
+landowners and the community; and
+• to provide a policy and implementation framework for significant bushland areas
+recommended for protection and management to assist conservation planning, planning
+assessment and decision-making processes.
+This implementation framework will ensure—
+• consistency, transparency and certainty for landowners, decision-makers and the
+broader community;
+• integrated and balanced environmental, social and economic outcomes;
+• existing planning or environmental commitments or approvals are recognised; and
+• development and land uses which are compatible with bushland protection and/or
+provide for an improved environmental outcome are supported and incorporate best-
+practice, performance-based planning, design and management outcomes.
+5. POLICY MEASURES
+The policy measures in this policy (Figure 1) identify specific information requirements, issues
+requiring special consideration and, more specifically, planning assessment and decision-making
+criteria and processes for bushland areas in the Perth Metropolitan Region.
+Bush Forever areas (section 5.1)
+The general policy measures (section 5.1.1) apply to regionally significant bushland within all Bush
+Forever areas. The specific policy measures (section 5.1.2) apply to regionally significant bushland
+within Bush Forever area site implementation categories, as applicable, and apply in addition to the
+general policy measures. Map 1 identifies the Bush Forever areas and their associated site
+implementation categories.
+The five site implementation categories defined by this policy include Bush Forever reserves (existing
+or proposed); urban, industrial or resource development; government lands or public infrastructure;
+rural lands; and regional creek lines. The key characteristics of these categories are explained in the
+glossary at the rear of this policy.
+Local bushland (section 5.2)
+The local bushland policy measures apply to all areas of bushland outside Bush Forever areas and
+support the preparation of a local bushland protection strategy by all local governments within the
+Perth Metropolitan Region as a preferred basis for decision-making.
+5.1 Bush Forever areas
+5.1.1 General policy measures for all Bush Forever areas
+Application: Regionally significant bushland within all Bush Forever areas identified in the
+Metropolitan Region Scheme and on map 1 (and any subsequent amendments).
+Impact assessment process
+Proposals or decision-making should—
+(i) Recognise regionally significant bushland protection and its management as a primary
+purpose and a fundamental planning consideration in its own right as part of an area’s
+essential environmental (green) infrastructure.
+(ii) Ensure that all reasonable steps have been taken to avoid, minimise or offset (in combination,
+generally meaning to mitigate) any likely adverse impacts on regionally significant bushland
+consistent with the requirements of this policy.
+1 For this purpose, this policy and Bush Forever recognise a target of at least 10 per cent of the original extent of
+each vegetation complex (as representative of ecological communities at the regional scale) for the Swan Coastal
+Plain portion of the Perth Metropolitan Region, which is recognised as a constrained area. However, there may be
+further opportunities to achieve greater representation through the protection of vegetation complexes on less
+constrained portions of the Swan Coastal Plain outside the Perth Metropolitan Region (with reference to the 30
+per cent target established for ecological communities in the Commonwealth Government’s National Objectives
+and Targets for Biodiversity Conservation (2001–2005), which is the threshold level below which species loss
+appears to accelerate exponentially (Environment Protection Authority Position Statement No. 2, 2000).
+
+2748 GOVERNMENT GAZETTE, WA 22 June 2010
+(iii) Adopt or incorporate the impact assessment process and criteria as set out in Appendix 1 and
+2 where there is likely to be an unavoidable adverse impact on regionally significant
+bushland within a Bush Forever area consistent with the requirements of the policy (Figure 2
+provides guidance on the impact assessment process which applies in addition to normal
+planning and environmental information requirements and considerations).
+(iv) Recognise that once a site has been negotiated and an outcome agreed in accordance with the
+policy measures in this policy, there will be a general presumption against the clearing of
+regionally significant bushland identified for protection, unless there is an improved
+environmental outcome.
+(v) Have regard to other relevant policies in respect to bushland and wetland areas, including
+Bush Forever (Government of Western Australia 2000a and 2000c) and its related site
+implementation Practice Notes (Government of Western Australia 2000b), A Strategic Plan
+for Perth’s Greenways Final Report (Alan Tingay and Associates, 1997), and any detailed
+guidelines, planning bulletins, practice notes and operational policies that supplement this
+policy on particular matters.
+These should be read in conjunction with this policy. In the event of any inconsistencies, this policy
+will prevail.
+Bush Forever area boundaries
+Proposals or decision-making should—
+(vi) Recognise that Bush Forever area boundaries and the regionally significant bushland
+therein, have been defined using the best available information but may be subject to further
+analysis, verification and changes as a result of new information, on-ground site
+investigations, landowner consultation or as part of the implementation of this policy.
+Regionally significant bushland within a Bush Forever area as shown on map 1 is for
+information purposes only and may be subject to on-site verification.
+Regionally significant bushland management
+Proposals or decision-making should—
+(vii) Encourage, support and require, consistent with this policy, bushland management plans and
+the management of regionally significant bushland for conservation purposes.
+(viii) Support co-ordinated bushland management advice and assistance through the Department
+of Environment and Conservation, in conjunction with other relevant government and non-
+government agencies.
+5.1.2 Specific policy measures for Bush Forever area (BFA) site implementation categories
+5.1.2.1 BFA—Bush Forever reserves (existing or proposed)
+Application
+Where land includes—
+• regionally significant bushland within the Bush Forever reserves (existing or proposed) site
+implementation category on map 1 (and any subsequent amendments); or
+• regionally significant bushland proposed for and/or reserved for parks and recreation in the
+Metropolitan Region Scheme through the ongoing implementation of Bush Forever located
+within another site implementation category on map 1.
+Proposals or decision-making should—
+(i) Support a general presumption against the clearing of regionally significant bushland, or
+other degrading activities, except where a proposal or decision—
+(a) is consistent with existing approved uses or existing planning/environmental
+commitments or approvals; or
+(b) is in accordance with a management plan approved under the Conservation and Land
+Management Act 1984; or
+(c) is a compatible operation or necessary operation carried out under the Conservation
+and Land Management Act 1984; or
+(d) is in accordance with a management plan, or similar, which has been endorsed by the
+WAPC and has appropriately considered bushland protection requirements; or
+(e) is consistent with the overall purpose and intent of an existing Crown reserve or can be
+reasonably justified with regard to wider environmental, social, economic or
+recreational needs, and all reasonable alternatives have been considered in order to
+avoid or minimise any direct loss of regionally significant bushland, and reasonable
+offset strategies are secured to offset any loss of regionally significant bushland, where
+appropriate and practical.
+(ii) Consider opportunities for reviews, rationalisations and reconfigurations of existing Bush
+Forever reserves that do not contain regionally significant bushland and have no ecosystem
+value, or which provide for an improved environmental outcome.
+(iii) Consider private land conservation initiatives to protect and manage Bush Forever reserves
+(existing or proposed) in private ownership as an alternative to State acquisition, where
+appropriate, particularly where public access or public land management for conservation is
+not requirement.
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2749
+(iv) Support management orders in favour of conservation for Crown reserves under the
+Land Administration Act 1997, where appropriate, to provide added long-term security.
+(v) Require the preparation and implementation of a bushland management plan to
+manage the Bush Forever reserve for conservation purposes once it is consolidated in
+government ownership; and, prior to this, support the implementation of interim land
+management measures by the responsible authority for areas in government
+ownership.
+(vi) Seek to reserve all government-owned Bush Forever reserves (existing or proposed) for
+parks and recreation in the Metropolitan Region Scheme to provide added planning
+security and protection.
+5.1.2.2 BFA—Urban, industrial or resource development
+Application
+Where land includes—
+• regionally significant bushland within the urban, industrial or resource development site
+implementation category on map 1 (and any subsequent amendments); or
+• regionally significant bushland identified as a priority resource location, key extraction area
+or extraction area in State Planning Policy 2.4: Basic Raw Materials (Government of Western
+Australia 2000), or containing pre-existing mining commitments or approvals, or with Mining
+Act 1978 tenements that contain identified titanium mineralisation, all of which may be
+located within another site implementation category on map 1.
+Proposals or decision-making should—
+(i) Recognise regionally significant bushland in this category as constrained by existing
+commitments, approvals (including existing mining operations, which may continue to
+operate in accordance with their existing levels of extraction approvals) and policies and seek
+a reasonable balance between conservation and development or resource extraction through a
+negotiated outcome, having regard for the specific conservation values involved.
+(ii) Recognise that for urban and industrial land/s appropriately zoned in the local town planning
+scheme and able to be developed in isolation this will generally involve a ‘stand-alone’
+negotiated planning solution with a bushland retention target for each site determined on a
+case-by-case basis, but with a retention benchmark of generally not less than 30 per cent,
+subject to an area’s overall planning and environmental opportunities and constraints.
+(iii) Seek strategic outcomes, which include the following—
+(a) Structure planning to facilitate the strategic co-ordination of bushland protection and
+development requirements to set aside regionally significant bushland for protection
+and management in its entirety, where possible.
+This approach will apply at the early stages of planning where development or
+subdivision approval has not been granted or where an affected area is in fragmented
+ownership and requires land co-ordination to enable it to be developed. This may
+involve cost contributions or other equitable cost-sharing arrangements, towards the
+protection of regionally significant bushland as part of an area’s essential
+environmental infrastructure.
+(b) Wider strategic packages in accordance with the relevant principles established for
+Bush Forever sustainability strategies (section 5.1.2.3, specific policy measure ii) where
+a landowner or company has a number of land assets and there will be greater scope to
+protect regionally significant bushland in its entirety.
+(iv) Recognise that for resource extraction areas, a strategic outcome (specific policy measure
+5.1.2.2, iii, b above) is the favoured approach, and that there may be overriding restrictions
+on future extraction for environmental reasons.
+Opportunities for improved environmental outcomes for lands with existing resource
+commitments, approvals and operations should be sought.
+(v) Ensure that regionally significant bushland identified for protection and management as part
+of a negotiated outcome is clearly demarcated on any plan of approval as a reserve for
+conservation and is vested with an appropriate management body under the relevant
+legislation and in accordance with standard requirements, unless it is agreed that equivalent
+protection and management measures can be secured through other statutory controls, such
+as a conservation covenant and management agreement.
+(vi) Seek to reserve the conservation area to be protected through a negotiated outcome for parks
+and recreation in the Metropolitan Region Scheme once it has been secured for conservation
+through the planning process or through a legal agreement, unless agreed otherwise.
+(vii) Recognise that the conservation area will be generally set aside free of cost over and above
+the normal 10 per cent public open space contribution and will not form part of the
+developable area for the purposes of calculating the 10 per cent public open space
+contribution.
+The WAPC may accept whole or part of the conservation area as a component of the 10 per
+cent open space contribution where it is demonstrated that—
+• the conservation area or portion serves a local passive recreational function which is
+consistent with the values of the bushland and the conservation management objectives
+for the site;
+
+2750 GOVERNMENT GAZETTE, WA 22 June 2010
+• management infrastructure and other measures are provided that support the use and
+management of the conservation area in accordance with an endorsed management
+plan;
+• it is acceptable to the future proposed management body, relevant environmental
+agencies and local government;
+• the overall “land take” for open space is likely to jeopardise the overall development
+viability of the project, based on evidence supplied to the decision-making body; and
+• other planning and environmental considerations and policies of the WAPC have been
+taken into account.
+5.1.2.3 BFA—Government lands or public infrastructure
+Application
+Where land includes—
+• regionally significant bushland within the government lands or public infrastructure site
+implementation category on map 1 (and any subsequent amendments); or
+• regionally significant bushland located within another site implementation category on map 1
+that is likely to be adversely affected by existing or proposed public infrastructure or utility
+services.
+Proposals or decision-making should—
+(i) Seek to protect regionally significant bushland as a priority, except where a proposal or
+decision—
+(a) is consistent with the overall purpose and intent of an existing reserve, existing
+approved uses and/or existing planning or environmental commitments or approvals, in
+particular, existing reserves for roads (regional or local), railways, pipelines, water or
+drainage services and any associated emergency maintenance works, with any impacts
+minimised and managed, where practical, in accordance with existing environmental
+management plan best practice requirements; or
+(b) is in accordance with a master plan, management plan, or similar, which has been
+endorsed by the WAPC and has appropriately considered bushland protection
+requirements; or
+(c) can be reasonably justified with regard to wider environmental, social and economic
+considerations (in particular, future road (regional or local) and rail requirements) and
+all reasonable alternatives have been considered to avoid or minimise any direct loss of
+regionally significant bushland, and reasonable offset strategies are considered to offset
+any loss of regionally significant bushland, where appropriate and practical.
+(d) is the subject of an agreement between the public authority and the Commission
+(ii) Seek to optimise the protection of regionally significant bushland through strategic
+assessments of land assets (named Bush Forever sustainability strategies) owned by each
+affected State government agency as part of government agency sustainability action plans,
+as required by the State Sustainability Strategy 2003 and with reference to Leading by
+Example: The sustainability code of practice for government agencies and resource guide for
+implementation (Government of Western Australia, 2004); and support similar approaches by
+local government and Commonwealth agencies.
+Bush Forever sustainability strategies should review affected land assets to achieve strategic
+outcomes that effectively integrate and balance environmental, social and economic
+considerations, in consultation and agreement with the WAPC and other relevant
+government agencies. In the interim, elements of these strategies should be implemented; in
+particular management plans for lands in government ownership.
+(iii) Seek to reserve lands that are already managed or recognised for conservation, or lands of the
+highest conservation value, for parks and recreation in the Metropolitan Region Scheme to
+provide added planning security and protection, while recognising existing management
+arrangements, uses and the future management requirements of the responsible
+management body.
+(iv) Support management orders in favour of conservation under the Land Administration
+Act 1997 for Crown reserves already managed or recognised for conservation or unallocated,
+or of the highest conservation value.
+5.1.2.4 BFA—Rural lands
+Application: Regionally significant bushland within the rural lands site implementation category on
+map 1 (and any subsequent amendments).
+Proposals or decision-making should—
+(i) Support private land conservation initiatives through planning mechanisms and processes
+and through wider government and non-government programs and measures, such as
+conservation covenants, management advice, assistance, agreements and funding incentives
+(including State land tax and local rate incentives).
+(ii) Only support future rural-living subdivision for conservation and rural development
+(including a single residential building envelope) in areas not already committed or approved
+for development where appropriate having particular regard to the best practice criteria
+identified in Appendix 3, subject to other planning and environmental considerations.
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2751
+(iii) Seek opportunities for improved environmental outcomes for intensive rural-living
+subdivision (ie lots generally below 10 hectares) or development with existing planning or
+environmental commitments or approvals.
+5.1.2.5 BFA—Regional creeklines
+Application: Regionally significant bushland within the Regional creeklines site implementation
+category on map 1 (and any subsequent amendments).
+Proposals or decision-making should—
+(i) Support the protection and management of regionally significant bushland, and any related
+buffer and foreshore requirements, along regional creeklines in accordance with other
+relevant government Acts, policies and initiatives.
+(ii) Support a general presumption against the clearing of regionally significant bushland along
+regional creeklines, subject to other relevant government Acts, policies and initiatives.
+(iii) Ensure that any future subdivision retains regionally significant bushland along creeklines
+within a single lot, where possible, and avoids lot boundaries severing regionally significant
+bushland.
+5.2 Local bushland
+Application: All areas of bushland outside Bush Forever areas within the Perth Metropolitan Region.
+Local government should—
+(i) Seek to prepare a local bushland protection strategy, which should—
+(a) be part of a wider local biodiversity strategy (which may include an assessment of local
+natural areas) or similar, where possible;
+(b) be a component of a wider local planning strategy, where possible, and as part of a
+review of a local government town planning scheme, or as an independent strategy
+where there are significant issues and pressures relevant to the protection of local
+bushland, while taking into consideration the broader planning framework;
+(c) be based on metropolitan-wide guidelines endorsed by the WAPC;
+(d) identify, or establish processes to identify significant bushland sites for protection and
+management based on environmental, social and economic criteria and taking into
+consideration existing approvals and commitments—in particular, site identification
+should utilise structure planning and rezoning processes and avoid onerous information
+requirements at the detailed planning stage;
+(e) identify decision-making processes and include an implementation strategy to protect
+those sites recommended for protection and management through a range of
+mechanisms;
+(f) be in consultation with affected landowners, the broader community, the WAPC and
+other relevant government agencies;
+(g) exclude the Conservation Commission of WA managed conservation estate and parks
+and recreation reserves in the Metropolitan Region Scheme, which are part of the State
+reserve system and are of regional importance; and
+(h) be formally considered and endorsed by council and the WAPC, with particular
+reference to the policy measures listed above.
+(ii) As an interim measure, prior to formal endorsement of a local bushland protection strategy,
+local government should seek to identify and protect significant bushland through other
+planning processes or studies, such as structure planning and rezoning processes.
+The lack of a formally endorsed local bushland protection strategy should not, in itself, be a
+reason to refuse a planning proposal. Each proposal should be considered on its merits, with
+particular regard to specific policy measure 5.2 (iv) below, and existing planning processes or
+studies that identify significant bushland for protection.
+Proposals or decision-making should—
+(iii) Have regard to the protection of significant bushland sites recommended for protection and
+management in an endorsed local bushland protection strategy or through other planning
+processes or studies that have been formally endorsed by council and the WAPC.
+(iv) Support a general presumption against the clearing of bushland, or other degrading
+activities, for area’s containing—
+• the environmental values identified in Appendix 2 (ix) b; and
+• System 6 recommendation areas (Department of Conservation and Environment
+(1983), Conservation Reserves for Western Australia), the Conservation Commission of
+WA conservation estate and parks and recreation reserves in the Metropolitan Region
+Scheme outside the Swan Coastal Plain portion of the Perth Metropolitan Region,
+except where it is in accordance with the exemptions identified in policy measure
+5.1.2.1 (i).
+(v) Proactively seek to safeguard, enhance and establish ecological linkages between Bush
+Forever areas; and between Bush Forever areas and those areas identified for protection
+through the implementation of the specific policy measures in this section.
+
+2752 GOVERNMENT GAZETTE, WA 22 June 2010
+6. IMPLEMENTATION
+The purpose of this policy is to guide and inform agencies, authorities, landowners and the broader
+community on bushland protection and management issues that are to be taken into account and
+given effect by the WAPC and local governments when considering a planning proposal or in
+undertaking any decision-making affecting significant bushland areas.
+With regard to regionally significant bushland, a Bush Forever area has been established as an
+overlay in the Metropolitan Region Scheme to alert the public and to identify regionally significant
+bushland protection that overlap zone and reserve boundaries and requires special consideration
+through the application of this Policy. Related requirements have been established in notice of
+delegation under the Western Australian Planning Commission Act 1985, which establishes
+development control requirements under the Metropolitan Region Scheme. The Bush Forever area
+also provides a basis for planning policy to operate in conjunction with the statutory clearing controls
+under the Environmental Protection Act 1986.
+Proposals will be judged on their merits with decision-making bodies having due regard to the policy
+measures in this policy and other planning and environmental considerations. Where a proposal or
+decision-making is likely to have an unavoidable adverse impact on regionally significant bushland
+within a Bush Forever area, the impact assessment process outlined in Appendix 1 will apply.
+Significant adverse impacts will trigger additional information requirements. As part of this
+approach, this policy seeks to closely align land use planning with environmental protection and
+management to secure long-term, improved environmental outcomes through planning processes and
+decision-making, set within the context of wider social and economic considerations.
+The onus is on the proponent to provide sufficient evidence and to demonstrate to the decision-making
+body that a proposal or decision is consistent with this policy or that a deviation is justified. Early
+consultation with the decision-making body is recommended. Any proposal that deviates from this
+policy will not be supported without overriding justification. Statements of fact, conclusions or
+theories used to justify arguments should be substantiated or supported by technical work. Where
+this is not provided, the decision-making body may request further scientific information or refuse the
+proposal on the basis that it is not supported by sufficient technical arguments.
+The policy will also integrate and co-ordinate the activities of other agencies and bodies that influence
+the use and development of land. This policy does not constrain the independence of other statutory
+decision-making bodies or remove the obligation to obtain the necessary approvals under other
+legislation. However, in accordance with the Environment Protection Authority Bulletin 1007
+(Environmental Protection Authority 2001, 2003a), it is expected that if a proposal achieves a
+reasonable conservation outcome in compliance with this policy, it is unlikely to be formally assessed
+under part IV of the Environmental Protection Act 1986, unless there are other significant
+environmental factors requiring assessment.
+The State Government will provide support to local governments in the preparation of strategies,
+schemes, policies and plans to address the issues raised in this policy. Most development control
+powers under the Metropolitan Region Scheme are delegated to local government, but the WAPC
+retains specific powers and certain developments are exempt from the need to obtain development
+approval under the Metropolitan Region Scheme. With the introduction of Bush Forever areas,
+development control delegation provisions to local government under the notice of delegation are
+retained. Subdivision powers reside with the WAPC.
+As noted above, under amendments to the Environmental Protection Act 1986, clearing of native
+vegetation in Western Australia generally requires a clearing permit, submitted to, and approved by
+the Department of Environment and Conservation. This does not replace the need for planning to
+consider native vegetation in decision-making as clearing permit exemptions apply to some planning
+approvals, such as a subdivision approval, and the planning decision-making body is required to have
+due regard to this policy.
+Prior to making a development control decision that involves the clearing of native vegetation within
+a Bush Forever area, local authorities are advised to consult with the Department of Environment
+and Conservation regarding vegetation-clearing aspects, where appropriate. This process facilitates
+closer integration of decision-making under separate legislation where development involves clearing.
+Further guidance on the policy measures and requirements of this policy is proposed. These should be
+read in conjunction with this policy. The policy will be monitored on an ongoing basis and reviewed as
+required or at least within five years of its operation.
+————
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2753
+Figure 1
+SPP 2.8: POLICY MEASURES FRAMEWORK
+
+2754 GOVERNMENT GAZETTE, WA 22 June 2010
+Figure 2
+SPP 2.8: IMPACT ASSESSMENT PROCESS FOR BUSH FOREVER AREAS (BFA)
+————
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2755
+Appendix 1
+BUSH FOREVER AREAS (ALL)
+IMPACT ASSESSMENT PROCESS
+This appendix applies to any proposal or decision-making that is likely to have an unavoidable
+adverse impact on regionally significant bushland within a Bush Forever area consistent with the
+requirements of the policy (specific policy measure 5.1.1 iii). Figure 2 provides guidance on the impact
+assessment process.
+All reasonable steps should be taken to avoid and minimise any likely adverse impacts in the first
+instance. However, where there is likely to be an unavoidable adverse impact on regionally significant
+bushland within a Bush Forever area consistent with the requirements of this policy, the planning
+assessment process outlined below will be adopted. The proponent should determine what the likely
+level of impact on regionally significant bushland will be in consultation with the decision-making
+body and shall provide sufficient information, as outlined below, to permit an assessment by the
+decision-making body.
+The purpose of the planning assessment process is to ensure the appropriate integration of bushland
+protection considerations in decision-making by ensuring planning decisions are supported by the
+best available information and decision criteria, in order to promote ecologically sustainable design
+outcomes.
+Ideally, the assessment process should be employed early in the planning process and at a broad
+strategic level to achieve the best outcomes.
+Accompanying material
+Significant impacts
+A statement of environmental effects shall be prepared by the proponent where there is likely to be a
+significant adverse impact on regionally significant bushland within a Bush Forever area.
+The statement of environmental effects shall include, but is not limited to, the following information
+requirements—
+(i) provide evidence and demonstrate that a proposal or decision is consistent with this policy, in
+particular the planning assessment criteria set out in Appendix 2;
+(ii) describe and provide a rationale and planning context for the proposal;
+(iii) describe the impacted area’s bushland values and environmental attributes (to be consistent
+with the information sets in Bush Forever and with reference to the site descriptions therein;
+and Environmental Protection Authority Guidance Statements 51 and 56 (EPA 2003b and
+2003c), where appropriate);
+(iv) demonstrate that all reasonable steps have been taken to avoid or minimise any likely
+adverse impacts consistent with the requirements of this policy, including a review of
+reasonable alternatives and details of any bushland-sensitive design measures to be adopted;
+(v) provide an evaluation of and justification for any likely adverse impacts;
+(vi) provide an environmental and/or bushland management plan, where appropriate, and details
+of proposed conservation management measures to be adopted; or, where agreed, the
+environmental and/or bushland management plan or related measures may be a requirement
+through the statutory planning process; and
+(vii) provide details of proposed long-term protection, management, offset measures and
+implementation commitments to be adopted.
+Where this is not required as part of the normal planning process, the statement of environmental
+effects may be made available to the public.
+Minimal impacts
+Where there is likely to be a minimal adverse impact on regionally significant bushland within a
+Bush Forever area, sufficient information shall be presented by the proponent to enable an
+assessment of the impacts of a proposal or decision-making on the bushland values of the site; shall
+demonstrate that the proposal has been designed to avoid or minimise impacts and will not cause a
+significant impact; is consistent with this policy; and shall provide details of any proposed design,
+protection and management measures to be adopted.
+The decision-making body may waive the information requirements set out above for significant and
+minimal impacts and modify or request additional information, as appropriate. Further guidance on
+the above information requirements is proposed to supplement this policy.
+The above information requirements do not remove the need for other information requirements to
+support a planning decision and may form part of a planning proposal (such as a structure plan or
+town planning scheme amendment), or for information required through other policies or legislation,
+and by other agencies.
+Matters to be considered
+Where there is likely to be an adverse impact on regionally significant bushland within a Bush
+Forever area, the decision-making body will have regard to the policy measures in this policy, and
+shall have particular regard to the impact assessment criteria (Appendix 2) as a basis for a
+determining a reasonable outcome and the acceptability of a proposal.
+
+2756 GOVERNMENT GAZETTE, WA 22 June 2010
+The policy measures and decision criteria in this policy apply in addition to normal planning and
+environmental considerations.
+The extent to which the above information requirements and criteria apply, and the weight given to
+them, will depend on the circumstances of each case, with regard to—
+(i) what is appropriate and reasonable;
+(ii) the scale and nature of the proposal and its level of impacts;
+(iii) the bushland values of the subject site, particularly its sensitivity and significance;
+(iv) the level of decision-making and stage in the planning process;
+(v) planning and environmental opportunities and constraints;
+(vi) the landowner’s future intentions and capacity to deliver any requirements; and
+(vii) the advice received from any person, organisation or government agency consulted.
+————
+Appendix 2
+BUSH FOREVER AREAS (ALL)
+IMPACT ASSESSMENT CRITERIA
+As part of the impact assessment process outlined in Appendix 1, the decision-making body shall have
+particular regard to the following impact assessment criteria as a basis for determining a reasonable
+outcome and the acceptability of a proposal.
+For significant adverse impacts, the proponent shall be required to supply evidence and demonstrate
+to the decision-making body that a proposal or decision is consistent with the criteria.
+While not constraining or obviating the need for approvals under other legislation, the criteria and
+outcome achieved will be a consideration in environmental approval processes.
+The impact assessment criteria are as follows—
+Site implementation considerations
+(i) Have particular regard to a Bush Forever area’s site implementation category and any
+associated specific policy measures in this policy (section 5.1.2), as applicable.
+(ii) Seek bushland protection outcomes early in the planning process and wider strategic
+outcomes, including the use of local planning strategies, structure planning and land co-
+ordination mechanisms, or the consideration of a number of land assets as part of a strategic
+package (including those areas of indigenous heritage value).
+(iii) Recognise the regional and strategic targets, objectives and implementation guidelines
+contained in Bush Forever and its related Practice Notes (Government of Western Australia
+2000a and b).
+(iv) Recognise existing planning or environmental commitments or approvals (including those
+relating to Aboriginal heritage sites within the meaning of the Aboriginal Heritage Act 1972),
+and future commitments and approvals that are made through formal planning and
+environmental processes in compliance with this policy.
+(v) Support future development or land uses in areas not already subject to an existing planning
+or environmental commitment or approval that is compatible with this policy and bushland
+protection or provides for an improved environmental outcome.
+(vi) Recognise the protection of regionally significant bushland as part of an integrated and
+balanced environmental, social and economic outcome and encourage sustainability
+assessments consistent with the State Sustainability Strategy (2003), where possible.
+(vii) Recognise the viability of appropriate development consistent with this policy, based on
+evidence supplied to the decision-making body.
+(viii) Support a general presumption against future urban, industrial or resource development in
+areas not already subject to an existing planning or environmental commitment, approval or
+policy (which includes resource extraction outside priority resource locations, key extraction
+areas and extraction areas identified in the State Planning Policy 2.4: Basic raw materials
+(Government of Western Australia 2000)), unless there is an improved environmental
+outcome.
+Conservation and design considerations
+(ix) Have regard to the conservation values of the subject site and seek to protect the core
+(highest) conservation values in the following ways—
+(a) Protect bushland with the highest conservation value, with reference to the site’s
+bushland values and environmental attributes (to be identified in the statement of
+environmental effects, where required); and, the selection criteria for regionally
+significant bushland and site descriptions in Bush Forever (Government of Western
+Australia, 2000c).
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2757
+(b) Seek to avoid unacceptable losses, which includes a general presumption against
+clearing bushland, or other degrading activities, for area’s containing—
+• threatened ecological communities and species listed under the Commonwealth’s
+Environmental Protection and Biodiversity Act 1999;
+• an ecological community that has been determined by the Minister for the
+Environment to be a threatened ecological community, and is referred to in the list of
+threatened ecological communities maintained by the Chief Executive of the
+Department principally assisting in the administration of the Conservation and Land
+Management Act 1984;
+• threatened and poorly reserved plant communities (preliminary maps,
+Environmental Protection Authority, 1994);
+• declared rare flora or specially protected fauna; and, where possible, priority or
+significant flora or fauna;
+• lakes or wetlands listed in the Environmental Protection (Swan Coastal Plain Lakes)
+Policy 1992 and the Revised Draft Environmental Protection (Swan Coastal Plain
+Wetlands) Policy and Regulations 2004, and other significant vegetated wetlands
+(most notably conservation category wetlands as identified by the Department of
+Environment’s Geomorphic Wetlands Swan Coastal Plain dataset and recognised
+Aboriginal sites), and appropriate buffer and foreshore requirements consistent with
+other relevant government polices;
+• vegetation complexes where less than 10 per cent of the original extent currently
+remains (this generally correlates with vegetation on the eastern side of the Swan
+Coastal Plain portion of the Perth Metropolitan Region); and
+• wetland dependent vegetation fringing creeks, rivers and estuaries and appropriate
+buffer and foreshore requirements in accordance with other relevant government
+policies and initiatives.
+This general presumption is subject to—
+• on-site verification, where required, of the values, presence, condition and boundaries
+of bushland and wetland areas—to be prepared as part of the statement of
+environmental effects, where required, and consistent with guidelines prepared by
+the Environment Protection Authority (2003b and 2003c), where appropriate;
+• an assessment of the bushland’s long-term viability, such as size, shape, connectivity
+and key threatening processes;
+• consideration of other impact assessment criteria in this appendix and other relevant
+policy measures in this policy; and
+• any advice received from key State government agencies with regard to other
+statutory requirements and policies.
+(x) Seek to adopt and implement any relevant bushland-sensitive design measures (with
+particular reference to Bush Forever, Practice Notes 5 and 10, Government of Western
+Australia 2000b), particularly—
+• seek to avoid or minimise any likely adverse impacts (including a review of reasonable
+alternatives) and maximise the retention of regionally significant bushland, consistent
+with the requirements of this policy, through best-practice planning, design and
+management outcomes;
+• focus development within cleared, degraded and less intact areas of native vegetation
+and minimise the development “footprint”;
+• seek to avoid fragmentation of the bushland area and provide for ecological linkages
+and ‘stepping stones’; and
+• seek to achieve a viable conservation outcome, with reference to bushland size, shape,
+connectivity, diversity, representation, development interface and edge effects, key
+threatening processes, environmental limits and the ability of the conservation area to
+retain biodiversity values in the long-term.
+Long-term protection and management considerations
+(xi) Require long-term protection and management measures for regionally significant bushland
+identified for protection and management through this process, which include, but are not
+limited to—
+• a statutory conservation covenant and associated management plan;
+• the preparation and implementation of an environmental and/or bushland
+management plan, or similar, to manage the bushland for conservation purposes, which
+should be linked and enforced through either the local government town planning
+scheme, a legal agreement and/or conservation covenant;
+• a management agreement to protect and control use and development within the
+bushland, to be secured through a legal agreement;
+• statutory planning controls, including conditions of approval, local government town
+planning scheme rezoning and scheme provisions, which are designed to protect and
+manage the bushland area;
+• setting aside regionally significant bushland as a conservation reserve (usually free of
+cost) for management by a public body; and/or
+
+2758 GOVERNMENT GAZETTE, WA 22 June 2010
+• land donation to an accredited nature conservation trust to enable a Federal income tax
+deduction at market value.
+Offset considerations
+(xii) Where a proposal cannot avoid negatively impacting a Bush Forever area, the applicant
+needs to provide documentation showing how they minimised the impact. If any clearing of
+native vegetation within the Bush Forever area is to occur, then the applicant needs to
+provide proposed offset measures (both on-site and off-site), where appropriate and practical,
+with particular reference to the following site implementation categories—
+• BFA—Bush Forever reserves; or
+• BFA—Government lands or public infrastructure.
+The offset package should provide for a net environmental gain (see Appendix 4 for a
+breakdown of the offset requirements).
+Other considerations
+(xiii) Take into account any significant issues arising from the statement of environmental effects,
+where required.
+(xiv) Have regard to other relevant policy measures within this policy, and other planning and
+environmental considerations (including fire protection and control requirements and the
+protection of Aboriginal heritage sites recognised by the Aboriginal Heritage Act 1972).
+————
+Appendix 3
+BUSH FOREVER AREAS (RURAL LANDS)
+BEST PRACTICE CRITERIA FOR RURAL LIVING SUBDIVISION AND
+RURAL DEVELOPMENT
+This appendix applies to future rural-living subdivision for conservation and rural development under
+the rural lands site implementation category (specific policy measures 5.1.2.4 ii).
+In order to facilitate private land management for conservation and secure long-term protection, this
+policy supports future rural-living subdivision for conservation and rural development (including a
+single residential building envelope), where appropriate, subject to other planning and environmental
+considerations.
+When considering rural subdivision and development the decision-making body shall have particular
+regard to the following best practice criteria, which apply in addition to the impact assessment
+criteria in Appendix 2—
+(i) There is an overall bushland retention benchmark of generally not less than 90 per cent for
+each lot, or for the whole site where multiple lots are proposed, except where there are
+cleared, degraded or less intact areas, which should be developed first.
+(ii) The proposal is supported by suitable site-specific long-term protection and management
+measures through statutory planning controls (notably local town planning scheme
+provisions) that aim to secure an improved environmental outcome.
+These should include, but are not limited to, one or a combination of the following measures,
+subject to the circumstances of each case—
+(a) no clearing, grazing or development to be permitted outside a designated development
+envelope, except where it is associated with essential services or infrastructure;
+(b) subdivision and development to be in accordance with an approved subdivision or
+development guide plan, which shall include the location of development envelopes
+within cleared or degraded areas, where possible, and one dwelling per lot;
+(c) once an initial subdivision has occurred in accordance with the criteria set out in
+Appendix 3 of this policy, there will be a presumption against further subdivision;
+(d) rural development should be consistent with local government town planning scheme
+zoning requirements, but statutory planning controls should restrict land uses and
+development that are likely to be incompatible with the bushland protection objectives
+and requirements of this policy, with particular reference to any current permitted uses
+under a local government town planning scheme, for example, agriculture, market
+gardens, horticultural, grazing and the keeping of livestock may be considered to be
+discretionary uses in the scheme and should be contained within cleared and/or
+degraded areas and within designated development envelopes, with consideration given
+to any indirect adverse impacts;
+(e) a statutory conservation covenant to be placed on the title of each lot;
+(f) areas being set aside as a conservation reserve and vested with an appropriate
+management body under section 152 of the Planning and Development Act 2005 where
+appropriate, with particular reference to area’s containing conservation values
+identified in Appendix 2 (ix) b;
+(g) future landowner/s to be notified of the existence of regionally significant bushland and
+related controls and provisions;
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2759
+(h) an environmental and/or bushland management plan, or similar, is prepared and
+implemented to manage the land for conservation purposes, which should be linked and
+enforced through either the local government town planning scheme, a legal agreement
+or conservation covenant;
+(i) the preparation and implementation of whole-of-site management plans for areas
+within multiple ownerships, where possible, as a framework for more detailed
+management plans for individual landowners;
+(j) a management agreement to protect and control use and development within the
+bushland, to be secured through a legal agreement; and
+(k) relevant bushland-sensitive design measures to be adopted (with particular reference
+to Bush Forever Practice Note 10, Government of Western Australia 2000b) and
+implemented consistent with the bushland values of the site, such as the location, size
+and design of building envelopes, fencing, firebreaks, access ways and servicing
+requirements.
+(iii) Lot sizes for rural living subdivision will be considered on their merits, with an emphasis on
+the creation of large bush blocks, generally over 10 hectares. However, lot sizes will be
+dependent upon, but not limited to, consideration of the following—
+(a) the conservation values and characteristics of the site;
+(b) a presumption against intensive rural-living subdivision (ie lots generally below 4
+hectares), except where it forms part of a planning solution designed to secure an
+improved environmental outcome, such as an averaging of lot sizes, the ceding of land
+as a conservation reserve for management by an appropriate body, the creation of some
+smaller lots within cleared or degraded areas combined with a larger lot for the core
+conservation area, and/or cluster-style rural subdivision and development; or it is in
+accordance with existing planning or environmental commitments or approvals;
+(c) the current size of the subject lot and its surrounds; and
+(d) in the event of any inconsistencies with current lot size requirements, the following
+shall generally prevail, subject to other planning and environmental considerations—
+• where a there is a current minimum lot size below 10 hectares, there is an
+expectation for larger lots consistent with the criteria set out in Appendix 3 of this
+policy; or
+• where there is a current minimum lot size above 10 hectares, this is supported, but if
+a lot is incapable of subdivision because of its current size, subdivision to create one
+additional lot may be supported, subject to the criteria set out in Appendix 3 of this
+policy.
+(iv) A complementary local government town planning scheme rezoning amendment is prepared
+and implemented, where appropriate, to facilitate the application and implementation of the
+measures identified in (i) to (iii) above and more detailed site-specific controls and provisions,
+provided they are consistent with this policy as a minimum requirement.
+(v) Should agreement not be reached, or where it is considered the most appropriate option, the
+WAPC may opt (subject to agreement of the landowner and the availability of funds) to
+purchase the land and covenant and on-sell it to a landowner who is willing to manage the
+land for conservation. In some cases, the land may be reconfigured and/or subdivided to
+optimise the conservation outcome, to separate the cleared areas from the conservation
+component, or for marketing purposes; or shall be retained by the WAPC to form part of a
+BFA—Bush Forever reserve.
+(vi) Other relevant policy measures in this policy and other planning and environmental
+considerations, in particular, fire protection and control requirements and aboriginal heritage
+considerations.
+Please also refer to Bush Forever, Practice Notes 7 to 12, Government of Western Australia 2000b.
+————
+Appendix 4
+OFFSETS CRITERIA
+SUMMARY OF OFFSET CRITERIA GRADED ACCORDING TO
+CONSERVATION SIGNIFICANCE
+(adapted from Victoria’s Native Vegetation Management—A Framework for Action and
+addresses mitigation as required in section 5.1.1 (ii) and Planning Bulletin 69 and
+EPA Position Statement No. 9)
+Conservation
+Very High High Medium Low
+Significance
+Response to Based on the environmental attributes of the site on a case-by-case basis, assessing
+proposal to attributes such as vegetation complex type, presence of TEC/DRF/priority flora/fauna, CCW
+clear and offset and condition of vegetation.
+Presumption against the Clearing Clearing generally Clearing may be
+clearing of any regionally generally not not permitted. permitted but only
+
+2760 GOVERNMENT GAZETTE, WA 22 June 2010
+Conservation
+Very High High Medium Low
+Significance
+significant vegetation, permitted. as part of an
+except where the proposal appropriate
+is consistent with the sustainable use
+intent of the reserve, or response as
+has existing determined by the
+environmental or planning responsible
+commitments or planning authority.
+approvals. All reasonable
+steps should be taken to
+avoid, and minimise any
+impacts on the bushland.
+If some clearing is to be permitted, the following offset requirements must be met
+Net Substantial net gain Net gain Equivalent gain Equivalent gain
+Outcome i.e. at least 2 x the calculated i.e. at least 1.5 i.e. at least 1 x the i.e. at least 1 x the
+loss in habitat hectares 1 x the calculated loss in calculated loss in
+calculated loss habitat hectares 1, 2 habitat hectares 1, 2
+in habitat
+hectares 1
+Formal Requirements to achieve offsets must be identified in the associated management agreements
+agreement and / or the permit conditions.
+to achieve
+Gains must be of an on-going and secure nature. Once achieved the offset must be maintained
+and secure
+and the relevant planning authorities must maintain adequate and readily accessible records of
+offset
+agreed offset arrangements.
+1 Gains can include active improvements of quality and/or avoiding potential losses of quality by agreement to
+forego permitted uses. Note that applying all of the following offset criteria (where relevant) may require more
+than the minimum habitat hectares specified by these multipliers.
+2 Where gains are achieved in vegetation/habitat of a higher significance than the vegetation lost, then the amount
+of the offset will be proportionally reduced (e.g. offsetting losses in medium conservation significance with very
+high conservation significance gains will reduce the amount of the offsets required by half, i.e. the medium
+multiplier divided by the very high multiplier).
+Conservation
+Very High High Medium Low
+Significance
+Like-for-Like
+Vegetation or The same vegetation / The same vegetation / habitat type OR a Very High significance
+habitat type of habitat type vegetation / habitat in the same Bioregion.
+offset
+Landscape role Similar or more Similar or more Similar or more effective land protection
+effective ecological effective ecological function as impacted by the loss.
+function AND land function AND land
+protection function as protection function
+impacted by the loss. as impacted by the
+loss.
+Quality The existing vegetation The existing The existing vegetation proposed as the
+objectives for proposed as the basis of vegetation basis of an offset must be at least 50% of
+offset an offset must be at proposed as the the quality in the area being lost.
+least 90% of the quality basis of an offset
+in the area being lost. must be at least
+70% of the quality
+in the area being
+lost.
+The proportion of revegetation included in the offset (in habitat hectares) is limited to
+10% 25% 50% 100%
+Large old tree For remnant patches of native vegetation that contain large mature trees 4
+objective for
+offset 4 For each large mature tree removed as part of the permitted clearing 3
+8 other large mature 4 other large 2 other large No specific “other
+trees to be protected mature trees to be mature trees to be large mature tree”
+AND 40 new trees to be protected AND 20 protected AND 10 protection required.
+planted 5. new trees to be new trees to be
+planted 5. planted 5.
+For each medium mature tree removed as part of permitted clearing 3
+4 other large mature 2 other large 1 other large 5 new trees to be
+trees to be protected mature trees to be mature trees to be planted 5.
+AND 20 new trees to be protected AND 10 protected AND 5
+planted 5. new trees to be new trees to be
+planted 5. planted 5.
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2761
+Conservation
+Very High High Medium Low
+Significance
+Vicinity Gains must be in the same bioregion as the loss OR an adjacent bioregion if offsets are in
+Very High or High significance vegetation.
+Timing Offsets to be initiated prior to the loss
+3 These offsets are only required as a consequence of native vegetation clearing which requires and receives a
+clearing permit, and not where tree removal is exempt from the requirement to have such a permit.
+4 Mature trees, large or medium, are defined as individuals of key long-lived dominant tree species that are
+greater than certain diameters (for large or medium) at 1.3 metres above ground level
+5 On a case-by-case basis at the discretion of the planning or environment authority, this requirement to plant new
+trees may be either through plantings to a prescribed standard (e.g. species composition, density, survivorship)
+and/or through regeneration associated with protection of other mature trees.
+————
+GLOSSARY
+Adverse impact—is a harmful effect and will generally involve, but is not limited to—
+• a direct impact on a Bush Forever area through the clearing of regionally significant
+bushland; or
+• a significant indirect impact on a Bush Forever area through development directly abutting
+regionally significant bushland that is likely to result in, but not limited to, significant
+hydrological impacts, the spread of dieback, direct drainage into regionally significant
+bushland, significant access and weed infestation issues, fire management issues and other
+significant management implications or threatening processes arising from development.
+Bushland is land on which there is vegetation which is either a remainder of the natural vegetation
+of the land, or, if altered, is still representative of the structure and floristics of the natural
+vegetation, and provides the necessary habitat for native fauna (Bush Forever, Government of
+Western Australia 2000a and 2000c).
+Bush Forever areas refer to a classification of land in the Metropolitan Region Scheme (established
+through Metropolitan Region Scheme Amendment 1082/33) to protect and manage regionally
+significant bushland in accordance with this Policy.
+Bush Forever reserves (existing or proposed) site implementation category includes lands reserved
+or proposed to be reserved for parks and recreation in the Metropolitan Region Scheme; areas of the
+conservation estate vested with the Conservation Commission of Western Australia; and/or Crown
+reserves and local government town planning scheme reserves vested for conservation, or similar.
+These lands are regarded to be lands with some level of protection (existing or proposed) and are
+currently within or intended for public ownership and management.
+Bush Forever sites are specific localities identified and described in Bush Forever as endorsed by
+Cabinet (Government of Western Australia, 2000), which identify regionally significant bushland
+recommended for protection.
+Decision-making bodies are public authorities empowered to make a planning decision in respect
+of a proposal, including, for the purpose of this policy, the WAPC or local government. Non-planning
+agencies have decision-making responsibilities under other legislation and, as such, they may have
+regard to but cannot be fettered by this policy.
+Government lands or public infrastructure site implementation category includes State,
+Commonwealth or local government lands in freehold ownership, or vested Crown reserves; and
+public infrastructure on lands zoned and reserved in the Metropolitan Region Scheme. This generally
+includes lands in the government lands, major road and railway reserves, cemeteries and local town
+planning scheme reserve implementation categories in Bush Forever.
+Improved environmental outcome is where a proposal or decision-making, consistent with the
+requirements of this policy, provides for, but is not limited to—
+• “no net loss” or a “net gain” of regionally significant bushland (on-site or off-site) protected
+and/or managed for conservation purposes;
+• a large or significant area (on-site or off-site) of unprotected regionally significant bushland in
+a Bush Forever area (this will generally involve regionally significant bushland outside the
+BFA—Bush Forever reserves site implementation category) is protected and/or managed
+(which includes, but is not limited to rehabilitation, revegetation or regeneration) for
+conservation purposes, while allowing some development in accordance with existing
+approvals and commitments or an outcome consistent with the impact assessment criteria in
+this policy (Appendix 2); or
+• improved management of the regionally significant bushland for conservation purposes,
+which includes, but is not limited to rehabilitation, revegetation or regeneration.
+Local bushland strategies are prepared by or for local government to identify locally significant
+bushland sites for protection and management. Local bushland strategies focus on bushland areas
+and are not intended to cover parkland cleared areas, isolated trees in cleared settings or local
+natural areas. However, they may form part of a local biodiversity strategy, or similar, which
+recognise the importance of local natural areas of native vegetation that do not fall within the
+definition of bushland, or naturally non-vegetated environments
+
+2762 GOVERNMENT GAZETTE, WA 22 June 2010
+Management plans may be either of the following—
+Bushland management plans
+These contain specific and detailed guidelines for the management of natural areas. They cover
+matters such as the nurturing or reintroduction of native species and procedures for the
+mitigation of adverse influences such as weeds, fire and feral animals (Government of Western
+Australia, 2000a).
+Environmental management plans
+These contain specific or detailed guidelines on the management of any likely adverse impacts of
+development on natural areas, and how these impacts are to be avoided, minimised, managed and
+monitored prior to and during the construction phase of the proposed development and post
+development. They may include, through an action plan, environmental management measures
+or commitments to address any likely adverse impacts to ensure the conservation values of the
+bushland are maintained.
+Mitigate is used in this policy to refer to reasonable steps to avoid, minimise or offset any likely
+adverse impacts.
+The Environment Protection Authority refers to a sequence of considerations designed to help manage
+environmental impacts, which includes (in order of preference) avoidance, minimisation, rectification,
+reduction and offsets (EPA Position Statement No. 9 Environmental Offset, January 2006 and EPA
+Guidance Statement No. 19 Environmental Offsets, September 2008).
+Natural Areas are naturally vegetated or non-vegetated areas such as water bodies (generally
+rivers, lakes and estuaries), bare ground (generally sand or mud) and rock outcrops (Environment
+Protection Authority 2003a), but excludes parkland cleared areas, isolated trees in cleared settings,
+ovals and turfed areas (as adapted from the Western Australian Local Government Association,
+2004).
+Offsets: commonly referred to as “environmentally beneficial activities” undertaken to
+counterbalance an environmental impact and achieve a “net environmental benefit” outcome. In
+Position Statement No. 9 (EPA, 2006) these are discussed in terms of—
+• Direct Offsets, which are environmentally beneficial activities undertaken to counterbalance
+an adverse environmental impact or harm, with the goal of achieving a “net environmental
+benefit”. Examples of direct offsets may include ecosystem restoration (offsite), rehabilitation
+(offsite), land acquisition for conservation and re-establishment. See definition of “off-site”.
+• Contributing Offsets, which are environmentally beneficial activities undertaken to
+complement and enhance direct offset activities. Contributing offset activities may not
+immediately assist in a “net environmental benefit” outcome, but instead materially add to
+environmental knowledge, research, management and protection, and ultimately lead to
+improved environmental outcomes.
+Offsets package: the set of offset activities undertaken to counterbalance an adverse environmental
+impact. It should consider direct and contributing offsets, as appropriate.
+Proposals or decision-making are strategies, policies, town planning scheme zonings or
+amendments, structure plans, master plans, subdivision, development applications, and any other
+proposal or issue requiring a decision, request, action or application under planning legislation or as
+part of the planning process. Other non-planning decision-making bodies under other legislation may
+also have regard to this policy.
+Protected bushland refers to bushland that is under a management regime that provides for its
+continuing protection (Government of Western Australia 2000a).
+Reasonable outcome—the definition will vary depending upon the circumstances of each case and
+through the implementation of this policy, but with particular regard to the impact assessment
+criteria in this policy (Appendix 2) and the specific policy measures for each Bush Forever area site
+implementation category, as applicable.
+Regional creeklines site implementation category includes mapped vegetation along regional
+creeklines in private or public ownership and generally includes lands in the regional creekline
+implementation category in Bush Forever.
+Regionally Significant Bushland is all bushland (which may include wetland areas) within a Bush
+Forever area, and other bushland outside a Bush Forever area that meets the Bush Forever criteria
+for regional significance (Government of Western Australia 2000a and 2000c).
+Bush Forever areas are based on Bush Forever sites and were initially selected using the criteria set
+out in Bush Forever. The regionally significant bushland within a Bush Forever area as mapped on
+map 1 in this policy, is based on Agriculture WA native vegetation mapping (2001) and is for
+indicative purposes only and may be subject to on-site verification.
+Regionally significant bushland outside Bush Forever areas may be protected through other
+government policies and legislation.
+Rural lands site implementation category primarily includes private rural zoned land in the
+Metropolitan Region Scheme and generally includes lands in the rural complementary
+implementation category in Bush Forever.
+Urban, industrial or resource development site implementation category includes private or
+public lands zoned for urban, urban deferred or industrial purposes in the Metropolitan Region
+Scheme or committed for future development through planning and environmental processes, or lands
+committed or approved for resource extraction (including any policy areas within SPP 2.4). This
+
+22 June 2010 GOVERNMENT GAZETTE, WA 2763
+generally includes lands in the urban, urban deferred, industrial, basic raw materials and titanium
+minerals, and strategic negotiated planning solution implementation categories in Bush Forever.
+Swan Coastal Plain—is a bioregion as defined by Thackway and Cresswell (1995) as part of the
+Interim Biogeographic Regionalisation of Australia.
+————
+REFERENCES
+Department of Conservation and Environment (1983, Conservation Reserves for Western Australia.
+The Darling System—System 6, parts 1 and 2. Report 13. Department of Conservation and
+Environment, Perth, Western Australia.
+Department of Sustainability and Environment, Victoria (2002) Native Vegetation Management—A
+Framework for Action.
+Environmental Protection Authority (2000) Environmental Protection of Native Vegetation in Western
+Australia. Position Statement No. 2. December 2000. Perth, Western Australia.
+Environmental Protection Authority 2001, Advice on aspects of Bush Forever. Advice from the
+Minister for the Environment from the EPA under Section 16(e) of the Environment Protection Act
+1986. Bulletin 1007. January 2001, Perth, Western Australia.
+Environmental Protection Authority 2003a, Guidance No. 10: Guidance for the Assessment of
+Environmental Factors—Level of Assessment for Proposals Affecting Natural Areas within the System
+6 Region and Swan Coastal Plain portion of System 1 region.
+Environmental Protection Authority 2003b, Guidance No. 51: Guidance for the Assessment of
+Environmental Factor: Terrestrial Flora and Vegetation Surveys for Environmental Impact
+Assessment in Western Australia. June 2004.
+Environmental Protection Authority 2003c, Guidance No. 56: Guidance for the Assessment of
+Environmental Factors: Terrestrial Fauna Surveys for Environmental Impact Assessment in Western
+Australia. June 2004.
+Environmental Protection Authority 2006, Position Statement No. 9 Environmental Offset.
+Environmental Protection Authority 2008, Guidance Statement No. 19 Environmental Offsets.
+Government of Western Australia 1998, Perth’s Bushplan. Western Australian Planning Commission,
+Perth, Western Australia.
+Government of Western Australia 2000a, Bush Forever Volume 1, Western Australian Planning
+Commission, Perth, Western Australia.
+Government of Western Australia 2000b, Bush Forever Volume 1, Appendix 3, Site Implementation
+Guidelines Practice Notes, Western Australian Planning Commission, Perth, Western Australia.
+Government of Western Australia 2000c, Bush Forever Volume 2, Department of Environmental
+Protection, Perth, Western Australia.
+Government of Western Australia 2003, Hope for the Future: The Western Australia State
+Sustainability Strategy, Department of Premier and Cabinet, Perth, WA.
+New South Wales Department of Land and Water Conservation 2001, Offsets, Salinity and Native
+Vegetation Discussion Paper.
+Tingay, A and Associates 1998, A Strategic Plan for Perth’s Greenway Final Report. Prepared for
+Environment Australia, Ministry for Planning, Department of Conservation and Land Management,
+WA Municipal Association, Department of Environmental Protection, Water and Rivers Commission,
+Main Roads WA, Swan Catchment Centre, Conservation Council, Greening Australia and the
+Australian Trust for Conservation Volunteers.
+Western Australian Local Government Association 2004, Local Government Biodiversity Planning
+Guidelines for the Perth Metropolitan Region. First Edition.
+Western Australian Planning Commission (1997), State Planning Strategy, Perth, WA.
+Western Australian Planning Commission 2003, Statement of Planning Policy 2: Environment and
+Natural Resources policy, Perth, WA.
+————
+
+2764 GOVERNMENT GAZETTE, WA 22 June 2010
+Map 1
+BUSH FOREVER AREAS

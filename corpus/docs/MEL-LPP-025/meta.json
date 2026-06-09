@@ -1,0 +1,10 @@
+{
+  "url": "https://www.melvillecity.com.au/getContentAsset/3f701d20-cefa-45ba-9a49-ed0fe6a30941/3ca954ad-3848-47c6-8f97-68cebe0b47a2/local-planning-policy-royal-australian-air-force?language=en",
+  "fetched_at": "2026-06-09T22:35:39Z",
+  "http_status": 200,
+  "content_hash": "198cfd8b02e7d13022fe07b0f329157dd2c497f37b5544347d1374a7be8abede",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.melvillecity.com.au/getContentAsset/3418c681-d7e1-4f1c-b028-14a5965d3b46/3ca954ad-3848-47c6-8f97-68cebe0b47a2/RAAFA-Masterplan.pdf?language=en",
+  "used_playwright": false,
+  "bytes": 656289
+}

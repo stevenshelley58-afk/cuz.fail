@@ -1,0 +1,838 @@
+Residential Design Codes – Volume 1
+R-Codes Volume 1
+practice notes
+April 2024
+The Department of Planning, Lands and Heritage acknowledges © State of Western Australia
+the traditional owners and custodians of this land. We pay our Published by the
+respect to Elders past and present, their descendants who are Western Australian Planning Commission
+with us today, and those who will follow in their footsteps. Gordon Stephenson House
+140 William Street
+Perth WA 6000
+Disclaimer
+Locked Bag 2506
+This document has been produced by the Department
+Perth WA 6001
+of Planning, Lands and Heritage on behalf of the Western
+Australian Planning Commission. Any representation, Published April 2024
+statement, opinion or advice expressed or implied in this website: www.dplh.wa.gov.au
+publication is made in good faith and on the basis that the email: info@dplh.wa.gov.au
+Government, its employees and agents are not liable for any
+tel: 08 6551 8002
+damage or loss whatsoever which may occur as a result of
+fax: 08 6551 9001
+action taken or not taken, as the case may be, in respect of
+National Relay Service: 13 36 77
+any representation, statement, opinion or advice referred to
+herein. Professional advice should be obtained before applying This document is available in alternative formats
+the information contained in this document to particular on application to the Department of Planning, Lands and
+circumstances. Heritage Communications Branch.
+
+Residential Design Codes – practice notes
+Introduction
+The Residential Design Codes Volume 1 (R-Codes)
+are a Planning Code prepared by the Western
+Australian Planning Commission (WAPC) and made
+under Part 3A of the Planning and Development Act
+2005. The R-Codes outline standards for residential
+development in Western Australia; and, with the
+exception of some lot/site or precinct-specific
+circumstances, they form the basis for the design
+and assessment of most residential development in
+Western Australia.
+Right of review
+Where a decision-maker refuses an application or
+imposes conditions considered unreasonable by the
+applicant, a right of review exists and an application
+may be lodged with the State Administrative
+Tribunal (SAT), under the provisions of the Planning
+and Development Act 2005. Further information
+about the SAT review process and its application
+procedures and fees is available online at
+www.sat.justice.wa.gov.au/
+Practice Notes
+These Practice Notes address the most common The R-Codes Vol. 1 Part C are provided with
+technical matters that arise in the interpretation and similar advice in the Explanatory Guidelines under
+implementation of the R-Codes Vol. 1 Part B. ‘assessment guidance’.
+They aim to provide clarity and certainty to
+The Practice Notes do not form part of the R-Codes
+applicants, assessors and decision-makers through
+and may be updated from time to time as a
+consistent application of the R-Codes.
+supplement to the R-Codes Explanatory guidelines.
+Words bolded in these Practice Notes are defined
+in the R-Codes.
+2
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 What is the role of the The WAPC has prepared the R-Codes Explanatory Guidelines in consultation with decision-makers and
+1.5 Explanatory Guidelines stakeholders to give context to R-Codes Vol. 1 standards and guidance, and assist in the interpretation
+Explanatory and the Practice Notes and assessment of proposals. The Explanatory Guidelines should be considered in the determination of
+Guidelines and how do they proposals but should not be rigidly applied nor fetter discretion.
+differ?
+While both the R-Codes Explanatory Guidelines and Practice Notes are supplementary to the R-Codes
+Vol. 1, the Explanatory Guidelines provide a comprehensive guide for the assessment of residential
+development against all R-Codes Vol. 1 ‘deemed-to-comply’ and ‘design principles’. In comparison, the
+Practice Notes seek to address specific technical queries and matters regarding the interpretation of
+certain ‘deemed-to-comply’ standards of the R-Codes Vol. 1 that are regularly the subject of application
+uncertainty and consequential assessment and determination inconsistency. Clarification of these
+queries/matters through the Practice Notes aims to improve understanding and application consistency
+for applicants, assessors and decision-makers.
+R-Codes Vol. 1 Does the erection In accordance with Schedule 2, clause 61 of the Planning and Development (Local Planning Schemes)
+2.2 or extension of Regulations 2015, the erection or extension of a single house, ancillary dwelling, outbuilding,
+Single house a single house external fixtures, boundary wall or fence, patio, pergola, verandah, deck, garage, carport or
+approvals require development swimming pool that satisfies the ‘deemed-to-comply’ provisions of the R-Codes Vol. 1 does not require
+approval? development approval, unless the development is located in a place that is a heritage-protected place.
+If a proposal for a single house does not satisfy a ‘deemed-to-comply’ requirement/s of the R-Codes
+Vol. 1, the decision-maker will require an application for development approval and payment of a fee to
+process that application.
+Development approval may be required where a proposal does not comply with any applicable
+requirement of a scheme, structure plan, local development plan or local planning policy that modifies
+the deemed-to-comply provisions of the R-Codes.
+How is compliance If a single house requires development approval, then this approval must be obtained prior to
+with the R-Codes submitting a certified application for a building permit. A permit authority must not grant a building
+Vol. 1 determined permit where development approval is required but has not been obtained. If development approval is
+for development not required, the local government would need to establish that the development proposal satisfies all
+proposals subject to ‘deemed-to-comply’ requirements of the R-Codes Vol. 1 prior to issuing a building permit.
+a certified application
+for a building permit?
+R-Codes Vol. 1 How do decision- ‘Exercise of judgement’ is linked to ‘discretion’. Judgement and discretion are exercised by the decision-
+2.5 makers exercise maker on individual (case-by-case) merit – applying a combination of relevant facts, circumstances and
+Exercise of judgement to applicable laws and policies to guide decision-making.
+judgement determine if approval
+Guidance on how judgement or discretion is to be exercised is outlined in the R-Codes Vol. 1, the
+should be granted to a
+R-Codes Explanatory Guidelines, local planning schemes, local planning policies and should be
+proposal which does
+applied in conjuction with broad planning and administrative law principles. Schedule 2, clause 67 of the
+not meet R-Codes Vol.
+Regulations sets out the matters to be considered in determining a development application.
+1 ‘deemed-to-comply’
+standards? Local planning policies can also provide clarification/guidance for the R-Codes Vol. 1 ‘design
+principles’ by clearly outlining the parameters where discretion would be favourably exercised by the
+decision-maker.
+The Development Assessment Panel Practice Notes: Making Good Planning Decisions guidelines
+on making good planning decisions are available to assist Development Assessment Panels and are
+recommended for use by other decision-makers to help in the assessment and determination of
+development applications.
+3
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 Can a decision- Yes, but only in very limited circumstances. The decision-maker shall not reduce the minimum or
+Part D 1.1 – maker approve a average site area per dwelling requirements set out in R-Codes Vol. 1 Table D, except as provided for
+Site area development proposal in the R-Codes Vol. 1 or relevant local planning scheme. R-Codes Vol. 1, Part D, 1.1 Site Area, C1.1.3
+with a minimum and allows for certain site area adjustments depending upon site location (corner sites and battle-axe sites
+average site area per adjoining open areas) and R-Codes Vol. 1, Part D, 1.1, Site Area, C1.1.4 allows for certain site area
+dwelling less than the reductions depending upon development type (aged or dependent persons’, single bedroom dwellings,
+area required under accessible dwellings or small dwellings), new lots granted WAPC subdivision approval and existing lots
+R-Codes Vol. 1 with areas less than that required in R-Codes Vol. 1 Table D.
+Table D?
+In the case of a local government determining a development application that involves the assessment
+of minimum and average lot sizes, adjustments to the minimum and average lot sizes are only permitted
+in accordance with R-Codes Vol. 1, Part D, 1.1 Site Area, C1.1.3 of the ‘deemed-to-comply’ criteria.
+Only the WAPC has discretion – through the subdivision process – to vary lot sizes under the ‘design
+principles’ of R-Codes Vol. 1, Part D, 1.1 Site Area and WAPC Development Control Policy 2.2
+Residential Subdivision.
+If a minimum site Yes, but only the WAPC may approve a reduction through the subdivision process and only in
+area reduction has circumstances where the further proposed reduction can meet the criteria set out under the design
+been obtained under principle and relevant WAPC residential subdivision policies. The extent to which the WAPC will exercise
+‘deemed to-comply’ its discretion in approving reduced lot sizes for single houses and grouped dwellings below the
+R-Codes Vol. 1 Part minimum and average site area requirements, is limited. Further guidance can be found in the WAPC’s
+D, 1.1 Site Area , Development Control Policy 2.2 Residential Subdivision.
+C1.1.3-C1.1.4, can a
+further 5% reduction
+be obtained under
+design principle
+P1.1.2?
+Are development Yes, however the WAPC would impose subdivision condition(s) and Certificate of Title notification
+concessions for single regarding the use and development of the land for single bedroom dwellings or aged and dependent
+bedroom dwellings, persons’ dwellings.
+aged and dependent
+persons’ dwellings,
+accessible dwellings
+and small dwellings
+under
+R-Codes Vol. 1, Part
+D, 1.1 Site Area,
+C1.1.6 applied to
+subdivision?
+Does R-Codes Vol. 1, No. R-Codes Vol. 1 1.1 Site Area, C1.4ii allows development on lots with minimum and average site
+Part D, 1.1 Site Area, areas less than those set out in R-Codes Vol. 1 Table D, which have previously been granted subdivision
+C1.1.4ii allow the approval (including lots yet to be developed).
+WAPC to approve any
+R-Codes Vol. 1 design principle P1.1.3 provides discretion to the WAPC, in consultation with the local
+lot area, regardless
+government, to approve the creation of a survey strata or strata (built strata) lot of lesser area than
+of the minimum site
+required under the relevant R-Coding in Table D, but only for an existing authorised development that
+areas in R-Codes Vol.
+has been granted all necessary approvals constructed in accordance with those approvals.
+1 Table D?
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 Can common property Yes. Common property can be used in
+5.1.2 be used in averaging? averaging the primary street setback of a
+Street setback dwelling where averaging is permitted.
+The access leg for a battle-axe lot cannot
+be used for averaging the primary street
+setback of the front dwelling because the
+access leg is not in common ownership –
+it is exclusively owned and forms part of the
+lot of the rear dwelling.
+DIAGRAM - 1
+4
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+Are the setbacks for All required setbacks are to be measured
+dwellings that adjoin from the common property boundary, not
+a communal street, the edge of the driveway. This includes
+right-of-way or shared front setbacks for dwellings that front a
+vehicle access way communal street.
+measured from the
+property boundary
+or the edge of the
+driveway?
+DIAGRAM - 2
+How is the setback Where a single house or grouped
+assessed for a dwelling in area coded R15 or higher
+dwelling that fronts fronts a right-of-way and the right-of-way
+a right-of-way? And is the primary street:
+how is the setback • the dwelling is to be setback a
+assessed for a garage minimum of 2.5 metres;
+or carport that fronts a
+• with the porch, verandah, balcony
+right-of-way?
+or equivalent setback a minimum of
+1.5 metres; and
+• the garage that directly faces a
+right-of-way being setback:
+– a minimum of 4.5 metres
+(Diagram 3A); or
+– a minimum of 0.5 metres behind the
+dwelling alignment, excluding any
+porch, verandah or balcony.
+If a carport fronting a right-of-way is DIAGRAM - 3A DIAGRAM - 3B
+proposed, the setback may be reduced by
+half that of the garage i.e. a minimum of
+2.25m garage setback (refer R-Codes Vol. 1
+clause 5.1.2, C2.1).
+For a single house or grouped dwelling
+(including garage or carport) in an area
+coded R12.5 or below fronting a right-
+of-way, there is no reduced setback
+allowance from the right-of-way and so the
+standard setback rules at C31.i, C2.1ii and
+C2.1iii apply.
+Where a dwelling fronts the primary
+street and has a rear lot boundary that
+abuts a right-of-way (i.e. the right-of-way
+is not the primary or secondary street
+boundary), the garage or carport setback
+may be reduced to nil, provided there is
+at least 6 metres in front of the garage or
+carport to allow for manoeuvring (Diagram
+3B). This applies regardless of the density
+coding.
+5
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 How is the setback for For the purpose of measuring setback,
+5.1.3 verandahs and patios the length of a patio, verandah or similar
+Lot boundary assessed? Are they is assessed as a continuation of the wall patio
+setback a continuation of the of the dwelling where the patio, verandah
+wall of the dwelling or similar is 10 metres or longer in length
+or are they measured (Diagram 4A). Where there is a distance of
+separately? 4 metres or greater separating the patio,
+verandah or similar (that is 10 metres or
+longer in length) from the dwelling, the
+setbacks shall be assessed independently.
+Where a patio, verandah or similar is
+10m or less in length and no more than
+2.7m in height, it is not to be treated as a primary street
+continuation of the dwelling wall and the DIAGRAM - 5A
+setback from the boundary can be nil
+Diagram 4B).
+Setbacks for patios, verandahs or similar
+are to be assessed as walls with no major
+openings, unless the floor level is elevated
+0.5 metres or greater above natural
+ground level and in that case, the setback
+shall be assessed as a wall with a major
+opening.
+The above principles for assessing
+setbacks to patios, verandahs or similar
+applies to both new dwellings as well as
+additions.
+6
+erehw
+htgnel
+llaw
+latoT
+htgnel
+ni
+m01
+sdeecxe
+oitap
+patio Less than 10m
+Total wall length
+verandah Less than 10m
+primary street
+DIAGRAM - 4A DDIAIAGGRRAAMM - -5 B4B
+On a lot with an No. In order to satisfy the ‘deemed-to-
+angled boundary, can comply’ standards of R-Codes Vol. 1 clause
+a portion of the wall 5.1.3, the entire length of a wall must be
+be setback less than setback the minimum required distance
+the required minimum from the boundary, regardless of angled or
+if a majority of the irregular shaped lots.
+wall length and any
+major openings are
+setback the minimum
+distance?
+DIAGRAM - 5
+Can walls be built to a Yes. Boundary walls to a common property/strata boundary may satisfy the ‘deemed-to-comply’
+common property and/ standards subject to compliance with the boundary wall provisions of R-Codes Vol. 1 clause 5.1.3, C3.2.
+or strata boundary? All walls on or less than 600mm from any site boundary, including common property/strata boundaries
+If so, can these walls are assessed as a boundary wall in accordance with R-Codes Vol. 1 clause 5.1.3, C3.2.
+have windows in
+Any walls set back greater than 600mm from a common property/strata boundary and/or contain major
+them?
+openings are required to be setback in accordance with R-Codes Vol. 1 clause 5.1.3, C3.1.
+Boundary walls containing windows not defined as major openings are subject to Building Code of
+Australia Standards and such windows shall not be capable of opening so that any part of the window
+encroaches over a boundary (i.e. awning windows).
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+How are minor Minor projections may extend up to 0.75
+projections such as metres into the setback area as measured
+chimneys and eaves from the wall from which they protrude.
+referenced at R-Codes For example, a wall required to be setback
+Vol. 1 clause 5.1.3, 1.5 metres from a boundary may have
+C3.1iv measured? Is it eaves which extend 0.75 metres from the
+from the boundary or wall into the setback area, resulting in a
+from the wall? 0.75 metres setback from the eaves to the
+boundary.
+DIAGRAM - 6
+In R-Codes Vol. 1 No. In column 7 of R-Codes Vol. 1 Table B, under ‘Other/rear’, ‘*/6’ means the provisions should be read
+TableB, are the side consecutively. That is, the ‘other’ side setback is to be determined from R-Codes Vol. 1 Tables 2a or 2b,
+and rear boundaries and the ‘rear’ boundary setback is 6 metres. These could only be interchanged by assessment under
+set out in column 7 the ‘design principle’. Where only a single setback value is prescribed, it applies to both side and rear
+under ‘Other/rear’ boundaries.
+interchangeable?
+In relation to a gable Yes. In the case of determining the required setback for a gable end or skillion in accordance with
+or skillion wall, is R-Codes Vol. 1 clause 5.1.3, the height of the wall is to be measured from the natural ground level
+there a different (NGL) at the lot boundary adjacent to the wall to the highest point of the gable or skillion as illustrated
+measure of wall height in Figure 3g. To measure wall height for the purpose of calculating building height, the distance is to be
+used for determining taken from where the base of the wall meets the NGL and is to be taken to the highest point of the wall
+lot boundary setbacks vertically above that point. The issue of height in relation to gable ends and skillions is more critical than
+under R-Codes Vol. 1 for other walls in the calculation of lot boundary setbacks because of the increased potential for impact,
+clause 5.1.3, C3.1 and particularly overshadowing of adjoining properties.
+R-Codes Vol. 1 Tables
+It is important to note that measuring the height of a gable or skillion wall for the purpose of determining
+2a and 2b, from that
+setbacks is different to the calculation of building height, and the two are separate and distinct design
+used in determining
+elements of the R-Codes Vol. 1 that are assessed in isolation of one another.
+building height under
+R-Codes Vol. 1 clause
+5.1.6, C6 and R-Codes
+Vol. 1 Table 3.
+Are boundary Generally, yes, subject to the maximum wall height and the maximum length not exceeding the
+walls permitted maximum dimensions specified in R-Codes Vol. 1 clause 5.1.3, C3.2 and the boundary walls being
+anywhere behind limited to a maximum of two site boundaries. Boundary walls must also not exceed the solar access
+the front setback limits under R-Codes Vol. 1 clause 5.4.2 (particularly for north/south facing boundary walls). Additional
+line, regardless of walls and/or variations in the dimensional limits may still be considered under the ‘design principles’.
+their impact on the
+adjoining property?
+How do the boundary Boundary walls are defined in Appendix 1 and includes walls either on the site boundary or closer
+wall length and height than 600mm between the site boundary and the wall. Any wall or part of a wall set back 600mm or less
+limits in R-Codes Vol. from a boundary will be assessed as a boundary wall as per R-Codes Vol. 1 clause 5.1.3, C3.2.
+1 clause 5.1.3 apply
+Walls setback greater than 600mm from a site boundary will be assessed in accordance with R-Codes
+to buildings set back
+Vol. 1 clause 5.1.3, C3.1.
+from the boundary
+less than the standard
+setback distance (i.e.
+between the standard
+setback and the
+boundary)?
+Where the side of the Yes. When calculating the setback of the building from the boundary, the boundary wall (if on the
+building includes a same boundary) should be included within the total length of the building to that boundary
+portion of wall that (refer to Figure 4b of the R-Codes Vol. 1).
+is a boundary wall,
+The inclusion of the boundary wall within the calculation of the total building length ensures that the
+does the setback
+setback has regard to the combined impact of both the building and the boundary wall to the adjoining
+calculation for the
+property.
+remainder of the
+building, under clause
+5.1.3 C3.1i, factor
+in the length of the
+boundary wall?
+7
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 Can the site area No. The truncation cannot be included in the site area for the purpose of calculating open space in
+5.1.4 measurement shown accordance with R-Codes Vol. 1 clause 5.1.4.
+Open space at R-Codes Vol. 1
+Figure 1a (truncation)
+be used when
+calculating open
+space?
+Is the area under Yes. The definition of open space provided
+eaves included when at R-Codes Vol. 1 Appendix 1 states that
+calculating open areas beneath eaves constitute open
+space? space provided it is unenclosed.
+DIAGRAM - 7
+What is the situation If a patio is enclosed it would become a habitable room as defined at R-Codes Vol. 1 Appendix 1 and
+under the R-Codes could not be considered as open space. The patio would have to comply with the relevant R-Code
+Vol. 1 when a patio is Vol. 1 and local planning scheme provisions, as well as the relevant requirements of the building code
+later proposed to be requirements.
+enclosed?
+R-Codes Vol. 1 How do you measure The building height requirements of Table
+5.1.6 the building height 3 are to be separately applied to each
+Building Height of a building with individual part of the roof that reflect the
+multiple roof types? relevant roof type (Diagram 8).
+For example, where a building in Category B
+has a combination of a gable and a hipped A
+roof, the gable portion of the roof should not B
+exceed 8m while the hipped portion should
+not exceed 10m. Gable roof Hipped or pitched roof Hip with gable roof
+A - Max. total building height for hipped or pitched roof
+B - Max. total building height for gable roof
+DIAGRAM - 8
+R-Codes Vol. 1 What is the ‘deemed- Notwithstanding the minimum setback
+5.2.1 to-comply’ setback for requirement for a garage or a carport
+Setback of a garage or a carport under R-Codes Vol. 1 clause 5.2.1,
+garages and (with a boundary wall) boundary walls are assessed as a separate
+carport on the boundary? design element regardless of the use
+associated with the wall. In accordance
+with R-Codes Vol. 1 clause 5.1.3, C3.2,
+boundary walls are only ‘deemed-to-
+comply’ when behind the primary street
+setback.
+* Garages with a boundary wall may come forward of the 4.5m setback requirement of
+clause 5.2.1, C1.1 where the garage adjoins a dwelling and the garage is at least 0.5m
+behind the dwelling alignment, and the ‘averaging’ primary setback requirements of
+clause 5.1.2 C2.1iii are met.
+DIAGRAM - 9
+8
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 Can a carport be A carport should be entirely open to the front (without a door), sides and rear, except where it is
+5.2.1 enclosed on any physically attached to a dwelling or incorporates a boundary wall on one side.
+Setback of sides?
+Whilst the definition of ‘carport’ references the defined term of ‘unenclosed’ (which allows for permanent
+carports and
+walls up to two sides), the definition that is specific to ‘carport’ and that limits carports to having one
+garages
+permanent wall to one side, prevails.
+R-Codes Vol. 1 When measuring For the purpose of calculating the width
+5.2.2 garage width, is the of a garage in accordance with clause
+Garage width width determined 5.2.2, the entire frontage of the garage,
+based on just the including piers and supporting structures
+garage opening or is to be assessed as the garage width. For
+does it include pillars example, a garage with an opening (door)
+and supporting of 5.2 metres and with 0.4 metres piers
+structures? either side would be assessed as having a
+garage width of 6.0 metres.
+DIAGRAM - 10
+Is there any No. The only allowance made for garages wider than 50% of the lot frontage is where a two-storey
+dispensation given dwelling is proposed with an upper floor or balcony above and extending more than half of the width of
+to garage width where the garage and its supporting structures, and where the entrance to the dwelling is clearly visible from
+a lot is less than 12 the primary street. In these instances, a garage and its supporting structures may extend across up to
+metres wide, given 60% of the lot frontage.
+the width of a double
+For single storey dwellings, the garage width must either be 50% or less of the frontage to satisfy the
+garage is 6 metres?
+‘deemed-to-comply’ requirements of R-Codes Vol. 1 clause 5.2.2.
+R-Codes Vol. 1 Does the letterbox Yes, a letterbox is required to be located on the same frontage as the entrance to the dwelling, also
+5.2.3 need to be on the defined as the primary street. It is important for letterboxes to be located on the primary street as this
+Street same frontage as is what is used to assign street numbering. If a letterbox is located on an alternate street frontage, the
+surveillance the entrance to the street name would not correlate with the registered property address, resulting in issues with postal and
+dwelling? emergency services and more generally, property identity.
+Does the entry point The term ‘entry point’ to a dwelling does not just refer to the actual entry (front) door itself; it also
+to the dwelling need includes a clearly defined pathway and other design features that identify the entrance to the dwelling.
+to face the street Whilst not mandatory for the entry point (including the entry (front) door) to face the street, it must be
+to avoid property visible from the street to allow for ease of navigation and surveillance. An entry point that is screened or
+confusion? obscured from street view would not satisfy the ‘deemed-to-comply’ standards of R-Codes Vol. 1 clause
+5.2.3 and should be avoided to maximise resident, visitor and public safety.
+Where a dwelling has two or more street frontages, the primary street is generally determined by the
+street to which the entry (front) door faces, meaning by default, the entry point would face the primary
+street.
+9
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+For a battle-axe lot or Yes. A dwelling must be designed so that
+a grouped dwelling at least one major opening faces both the
+with access from a street and the approach to the dwelling. It
+common driveway, need not be the same major opening but
+is a major opening in many cases, a major opening that faces
+required to face the the street would also provide surveillance
+street as well as of the approach to the dwelling (Diagram
+the approach to the 11A).
+dwelling?
+Where grouped dwellings have sole
+access and frontage to a common
+property driveway, the term ‘street’ as
+defined by the R Codes Vol. 1, includes a
+communal street. The dwelling therefore,
+need not have a major opening facing a
+public street, only the communal street
+(Diagram 11B).
+DIAGRAM - 11A
+DIAGRAM - 11B
+10
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 What constitutes Street fences above 1.2 metres in height gaps 50mm or greater
+5.2.4 ‘visually permeable’ are required to be visually permeable in
+Street walls and for the purpose of order to satisfy the ‘deemed-to-comply’
+fences assessing fencing standards of R-Codes Vol. 1 clause 5.2.4.
+material above This type of fencing is commonly referred to
+1.2 metres in height? as ‘open style’ and allows for surveillance
+from the dwelling to the street (and vice
+versa) and assists to reduce unsightly and
+bulky solid front fences which attract graffiti
+and vandalism, and reduce property safety.
+In accordance with the definition in R-Codes
+Vol. 1 Appendix 1, a visually permeable
+front fence, as viewed directly from the
+street, has either:
+• continuous vertical or horizontal gaps
+of 50 millimetres or greater width
+gaps less than 50mm
+occupying not less than one third of the
+total surface area
+• continuous vertical or horizontal gaps
+less than 50 millimetres in width,
+occupying at least one half of the total
+surface area in aggregate
+• a surface offering equal or lesser
+obstruction to view
+Further, pillars that do not exceed 1.8
+metres in height and with horizontal
+dimensions not greater than 400
+millimetres by 400 millimetres are accepted
+as part of the deemed-to-comply fence
+profile where they are separated by a
+section of visually permeable fence.
+11
+m2.1
+3\1
+muminim
+elbaemrep
+yllausiv
+or
+m2.1
+eb
+ot
+slenap
+llfini
+elbaemrep
+yllausiv
+)denfied
+sa(
+DIAGRAM - 12
+Is there any maximum Where a fence is located within a 1.5 metres truncation of where a driveway intersects the front
+overall height for property boundary or where two streets intersect, the fence is not permitted to be greater than 0.75
+visually permeable metres in height regardless of whether it is visually permeable or not.
+fencing along the
+Outside of this circumstance, the fence pillars are not to exceed 1.8 metres in height, however visually
+primary street
+permeable infill components of the fence are not subject to a height restriction.
+frontage?
+Front fencing standards may be varied by way of local planning policy, prepared by the decision-maker,
+which may alter the overall height of the visually permeable section of fencing and/or may reduce the
+maximum 1.2 metre height standard for the solid section or the 1.8 metre height standard for the
+pillars.
+The relevant local government may also have local laws or other local planning policies or local
+development plans relating to fencing which limit maximum overall height.
+R-Codes Vol. 1 Would a visually No. In accordance with the ‘deemed-to-comply’ standards of R-Codes Vol. 1 clause 5.2.5, no structures
+5.2.5 permeable structure above 0.75 metres in height whether visually permeable or not are permitted within 1.5 metres of a
+Sight lines above 0.75 metres vehicle access point where a driveway meets a public street and where the two streets intersect.
+in height and within
+1.5 metres of vehicle
+access points satisfy
+the ‘deemed-to-
+comply’ standards of
+R-Codes Vol. 1 clause
+5.2.5?
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 Are there any limits R-Codes Vol. 1 clause 5.2.6, C6 refers to the appearance of the retained dwelling being upgraded
+5.2.6 to the upgrading of externally to an equivalent maintenance standard of the new or rest of the development. This suggests
+Appearance an existing dwelling, any required works should be limited to maintenance rather than any additional development (for
+of retained under R-Codes Vol. 1 example, re-cladding/re-roofing of the existing dwelling to match the new or rest of the development).
+dwelling clause 5.2.6, C6, when However, a local planning policy may be made by the decision-maker to amend or replace the ‘deemed-
+retained as part of to-comply’ provisions under R-Codes Vol. 1 clause 5.2.6 C6 to clearly outline upgrading
+a grouped dwelling standards/requirements.
+development?
+How is R-Codes Clause 5.2.6 C6 applies where an existing dwelling that is proposed to be a grouped dwelling is
+Vol. 1 clause 5.2.6, located within the parent lot of the development.
+C6 applied where
+There is no scope to apply a condition requiring upgrading of an existing grouped dwelling once the
+subdivision precedes
+title to the property containing this dwelling has been separated from that of the development site/
+development?
+parent lot.
+Where the subdivision is of a type that proposes for an existing dwelling to be retained as a single
+house, clause 5.2.6 C6 would technically not apply. However, the WAPC may impose a condition of
+subdivision approval requiring that the retained dwelling comply with the requirements of the R-Codes
+Vol. 1, for example, the provision of parking spaces to satisfy 5.3.3 C3.1.
+R-Codes Vol. 1 Is the two-thirds Only two-thirds of the minimum required
+5.3.1 uncovered outdoor living area defined at R-Codes
+Outdoor living outdoor living Vol. 1 Table B is required to be uncovered to
+areas area requirement satisfy the ‘deemed-to-comply’ standards of
+determined based on R-Codes Vol. 1 clause 5.3.1. If an outdoor
+the physical area of living area is proposed that exceeds the
+a proposed outdoor minimum requirement, then a proponent
+living area or only the does not need to provide additional
+minimum required uncovered space.
+outdoor living area as
+For example, a dwelling on an R20 coded
+defined at R-Codes
+lot must provide an outdoor living area
+Vol. 1 Table B?
+that has 20m² of uncovered space. If an
+DIAGRAM - 13
+applicant proposes an outdoor living area
+that has a total area of 50m², the dwelling
+would still only need to provide 20m² of
+that area as uncovered space to satisfy the
+‘deemed-to-comply’ standards of R-Codes
+Vol. 1 clause 5.3.1.
+What is ‘permanent Any solid roof material designed to provide constant shade or shelter constitutes ‘permanent roof cover’
+roof cover’ and what and includes common materials such as tiles, various forms of metal, perspex or plastic roof sheeting.
+constitutes being As a general rule, any roof material that is fixed, permanent and impermeable to water is considered to
+‘without permanent be ‘permanent roof cover’.
+roof cover’?
+The term ‘non-permanent roof cover’ refers to construction materials that are designed to be operated
+by the resident so that they can be either open or closed. Examples of this include louvered roofs that
+can be angled so as to allow light and water to penetrate or closed to provide shade and shelter. The
+same principle would also apply to retractable roofs which would also be considered ‘non-permanent
+roof cover’.
+Can an outdoor living To satisfy the ‘deemed-to-comply’ requirements of R-Codes Vol. 1 clause 5.3.1, C1.1, an outdoor
+area, required under living area must be behind the primary street setback. This line is to be drawn parallel to the primary
+R-Codes Vol. 1 clause street boundary at the prescribed minimum primary street setback distance at R-Codes Vol. 1
+5.3.1, C1.1, be situated Table B. However, under the ‘design principles’, an application could be made to locate the required
+in the front setback outdoor living area within or partly within the street setback area, particularly where it faces north.
+area?
+R-Codes Vol.1 Can the tree planting Yes, although it must be located within the uncovered portion and free of impervious surfaces.
+5.3.2 area requirement at
+Landscaping clause 5.3.2 C2.2 be
+located within the
+outdoor living area?
+12
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 If a grouped dwelling No, because there is not four or more dwellings being served by a communal driveway. Developments
+5.3.3 development that have four or more dwellings with access from a communal driveway are to provide visitor parking
+Parking containing six at the following rates:
+dwellings has three
+4 dwellings = 1 visitor bays
+dwellings using a
+communal driveway 5-8 dwellings = 2 visitor bays
+and three dwellings
+each individually
+9-12 dwellings = 3 visitor bays
+gaining access 13-16 dwellings = 4 visitor bays, and so forth.
+directly from a public
+road, is there any
+requirement for visitor
+parking?
+R-Codes Vol. 1 Where a driveway No. The entire access leg including the driveway and 0.5 metre landscaping strips must be wholly
+5.3.5 is located within a located within common property. Allocating a 0.5 metre landscaping strip for the exclusive use of a lot
+Vehicular access common property is considered to not be appropriate as the landscape strip cannot be used for any meaningful purpose
+access leg, can by the occupants of the dwelling on the lot to which it is assigned. The landscape strip also commonly
+a portion of the performs a utility services (power, water and sewer) role.
+0.5 metre wide
+landscaped strip
+either side of the
+driveway be allocated
+for the exclusive use
+of a strata lot?
+Under R-Codes Vol. The point of reference is not defined in the R-Codes Vol. 1, however the street corner is considered
+1 clause 5.3.5 C5.3 to be the point at which the road alignment begins to deviate towards the intersecting road. Under
+a 6 metre separation Australian Standard (AS) 2890.1, a 6 metre separation distance is defined with reference to the corner
+is required between truncation or the point at which the carriageway begins to deviate. The intent of this clause is to limit
+the driveway and traffic conflict and AS 2890.1 should be used as a suitable reference.
+the street corner or
+(Refer to Figure 3.1 in AS 2890.1 for a representation of prohibited driveway locations within proximity
+the point at which a
+to street corners).
+carriageway begins
+to deviate. From
+what point is this
+measured?
+Under clause 5.3.5 The driveway width requirements under R-Codes Vol. 1 clauses 5.3.5, C5.2-C5.6 relate to the width of
+various driveway the paved/hardstand vehicle access way as per the definition of driveway in R-Codes Vol. 1 Appendix 1.
+widths are required.
+R-Codes Vol. 1 clause 5.3.5, C5.3 requires a 0.5 metre setback to a side lot boundary or street pole
+What standards apply?
+and this is applicable to both sides of the driveway where it is located between two lot boundaries.
+The width of access legs is also limited by the WAPC’s Development Control Policy 2.2 Residential
+Subdivision.
+R-Codes Vol. 1 Are privacy screens Yes, if they form part of the building. However, screening that does not take the form of a building
+5.4.1 subject to the (as defined) will not generally be subject to standard setback requirements (for example, pergolas).
+Visual privacy setbacks applicable to It is possible to utilise boundary fencing as a privacy screen, subject to the requirements of the Dividing
+buildings? Fences Act 1961 and any relevant local laws relating to fencing. These often involve consultation
+with adjacent owners where fencing exceeds a particular height. Care needs to be taken not to
+impose conditions requiring screen fencing or accept a proposal for such screening in the absence of
+agreement from the adjoining neighbour.
+Does the cone of No, R-Codes Vol. 1 clause 5.4.1, C1.1 refers only to those areas of another residential property behind
+vision and associated its primary street setback (i.e. the primary street setback of the property being overlooked).
+visual privacy
+requirements apply
+to the street setback
+area?
+Can visual privacy Yes, but only by the decision-maker through the application of relevant ‘design principles’ and
+standards be varied consultation with adjoining owners/occupiers.
+where both affected
+properties can
+benefit?
+13
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 How should dividing There is no recognition of partial shadowing under R-Codes Vol. 1 clause 5.4.2, C2.1. Where such
+5.4.2 fences, translucent a situation arises, it should be identified in the shadow calculations, as translucent materials and
+Solar access for materials and screening still casts a shadow. The ‘design principles’ allow for variation and the extent and impact of
+adjoining sites screening of outdoor any partial shadowing in excess of the ‘deemed-to-comply’ requirements. Level of translucency can be
+areas be assessed taken into consideration under the ‘design principles’.
+for the purposes of
+As per the note below Clause 5.4.2 C2.1, any shadow cast by a dividing fence up to 2m in height is
+shadow calculations
+to be not included for the purposes of ‘deemed-to-comply’ shadow calculation and/or any ‘design
+under R-Codes Vol. 1
+principle’ assessment.
+clause 5.4.2, where
+the screening results
+in partial shadowing
+of the adjoining
+property?
+Are there any potential The BCA and R-Codes Vol. 1 should be complementary. The R-Codes Vol. 1 address solar access in
+conflicts between the respect of adjoining sites and, in particular, seek to minimise the potential for new development to
+R-Codes Vol. 1 and overshadow north facing major openings to habitable rooms and roof mounted solar collectors. House/
+the Building Code building energy efficiency is addressed in the BCA.
+of Australia’s (BCA)
+energy efficiency
+requirements?
+R-Codes Vol. 1 Is habitable floor No. An outbuilding is specifically defined in the R-Codes Vol. 1 to include an enclosed non-habitable
+5.4.3 space, provided in the structure and therefore a free standing building containing habitable room(s) is not subject to R-Code
+Outbuildings form of a separate Vol. 1 provisions applicable to outbuildings. It would be deemed either as a second grouped dwelling,
+building from the main an ancillary dwelling or a detached extension to a single house and subject to other provisions of the
+dwelling, classified R-Codes Vol. 1.
+as an outbuilding and
+therefore subject to
+area and height limits
+provided for under
+R-Codes Vol. 1 clause
+5.4.3, C3?
+R-Codes Vol. 1 Under R-Codes Vol. Yes, there is an element of discretion involved in the assessment of compliance with this clause. Where
+5.4.4 1 clause 5.4.4, C4.3, the decision-maker is of the opinion that the particular fixture is not visually obtrusive, it should approve
+External fixtures external fixtures other the application, and where not, it may consider the proposal in terms of the ‘design principles’, with the
+than those referred option of undertaking neighbour consultation.
+to in R-Codes Vol. 1
+clause 5.4.4, C4.1
+and 4.2 will meet the
+requirements where
+they are ‘located so
+as not to be visually
+obtrusive’. Does
+this determination
+involve the exercise
+of discretion and if
+so, does the local
+government have the
+power to refuse such
+applications?
+Do external water Yes, rainwater storage tanks are included in the definition of external fixtures. R-Codes Vol. 1 clause
+tanks classify as 5.4.4, C4.3 requires that they are not visible from the primary street or are designed to integrate with
+external fixtures? If the building or located so as not to be visually obtrusive. However, it is important to appreciate that
+so, are they required external fixtures constitute a structure under the definition of a building under the R-Codes Vol. 1 and
+to be set back in still need to meet the relevant setback and height requirements applicable to buildings.
+accordance with
+normal wall setbacks?
+14
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 Now the family Any development approval conditions regarding ancillary dwelling occupancy continue to apply until
+5.5.1 occupancy restriction superseded by a subsequent development approval. In addition, any notification on title, covenant
+Ancillary for ancillary dwellings or other similar restrictions regarding ancillary dwelling occupancy would continue to apply unless
+dwellings has been removed removed in conjunction with an amendment to the development approval to amend/remove the relevant
+under the R-Codes condition. The WAPC would support removal of occupancy restrictions not consistent with the R-Codes
+Vol. 1, what Vol. 1, however landowners should obtain their own advice and liaise with the decision-maker to
+happens to existing ascertain the appropriate means of removal.
+development/
+approvals that have
+the restriction as a
+condition of planning
+approval and/or as
+a notification on the
+Certificate of Title?
+Can more than one No, only one ancillary dwelling can be provided on the same site as the primary dwelling.
+ancillary dwelling be
+provided on a lot?
+Must the owner reside No, the single house and the ancillary dwelling may be occupied by any person(s), at the
+in either the single owner’s choice.
+house or the ancillary
+Further information on ancillary dwelling occupancy is available online at
+dwelling?
+www.commerce.wa.gov.au
+R-Codes Vol. 1 Under R-Codes Yes, provided the occupation of the dwellings complies with the requirements for the respective classes
+5.5.2 Vol. 1 clause 5.5.2, of dwelling (for example, aged 55 or over in the case of Aged Persons’ Dwellings).
+Aged and C2.1, the maximum
+dependant internal floor area for
+person’s Aged and Dependant
+dwellings Persons’ Dwellings
+is 100m² (80m² for
+Multiple Dwellings).
+Can these limits be
+exceeded through
+the application of the
+‘design principles’?
+Are the adaptable Yes, under R-Codes Vol. 1 clause 5.5.2, C2.3 and 2.4 all dwellings are required to be constructed
+housing requirements using the identified adaptable house requirements set out in AS 4299.
+set out in AS 4299,
+The ‘design principles’ only require that they are ‘designed to meet the needs of aged or dependant
+mandatory for all
+persons’. However, there is an expectation that all dwellings for ‘aged and dependant persons’ meet
+aged and dependant
+AS 4299.
+persons’ dwellings?
+15
+
+Residential Design Codes – practice notes
+R-Codes clause Query/matter Response/interpretation Diagram/illustration (where relevant)
+R-Codes Vol. 1 Is a free standing Yes. A free standing garage is defined and assessed as an outbuilding. If habitable space forms part
+Appendix 1 garage an of the freestanding/detached structure, it is not considered an outbuilding or garage.
+– Definitions outbuilding?
+What is the difference These terms are defined in R-Codes Vol. 1 Appendix 1. The main difference is a verandah is a roofed
+between a patio, open platform attached to a dwelling while a patio or pergola may or may not be attached. Also, while
+verandah and a both a patio and pergola are unenclosed, a patio is covered in a water impermeable material whereas
+pergola? a pergola is an unroofed, open-framed structure that is uncovered or covered in a water permeable
+material (for example, shade cloth).
+In the definition of Stairs not common to two or more dwellings are included in the calculation of the plot ratio as they
+‘plot ratio area’ are comprise the gross total area of the building (dwelling). The exclusion relates to stairs and landings
+stairs that are not common to more than one dwelling (i.e. lift shafts, shared stairs and stair landings).
+common to two or
+more dwellings (for
+example, internal or
+external stairs serving
+a single dwelling)
+included or excluded
+from the calculation of
+the plot ratio?
+16

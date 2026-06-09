@@ -1,0 +1,25 @@
+{
+  "id": "FRE-LPP-010",
+  "title": "CITY OF FREMANTLE",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Fremantle",
+  "version_date": "",
+  "pages": 5,
+  "key_provisions": [
+    {
+      "heading": "CITY OF FREMANTLE",
+      "summary": "LOCAL PLANNING POLICY 2.19"
+    },
+    {
+      "heading": "STATUTORY BACKGROUND",
+      "summary": "This Local Planning Policy is prepared under the provisions of Part 2 of Local Planning Scheme"
+    },
+    {
+      "heading": "PURPOSE",
+      "summary": "The purpose of this Local Planning Policy is to provide criteria upon which Council can require"
+    }
+  ],
+  "cross_references": [],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:33Z"
+}

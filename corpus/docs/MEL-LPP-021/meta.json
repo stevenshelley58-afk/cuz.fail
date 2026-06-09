@@ -1,0 +1,10 @@
+{
+  "url": "https://www.melvillecity.com.au/getContentAsset/916d8eac-8f3d-4b2a-9e26-66baeefe4e16/3ca954ad-3848-47c6-8f97-68cebe0b47a2/local-planning-policy-residential-development?language=en",
+  "fetched_at": "2026-06-09T22:34:45Z",
+  "http_status": 200,
+  "content_hash": "1e8d00180f25a614532405d2b922a01738012c53790c3c6042a28c1e4e3ea23b",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.melvillecity.com.au/getContentAsset/6886849d-402b-47cb-97a4-a687907b24be/3ca954ad-3848-47c6-8f97-68cebe0b47a2/LPP-3-1-Residential-Development-Policy.pdf?language=en",
+  "used_playwright": false,
+  "bytes": 296706
+}

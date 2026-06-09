@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/position-statement-workforce-accommodation",
+  "fetched_at": "2026-06-09T22:35:19Z",
+  "http_status": 200,
+  "content_hash": "af55b441a1a3fd056fc724092b6cbe8b32c4f97a8d8a3f37bb6bbbb79b07b1e0",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/POS-Position-Statement_Workforce_Accommodation.pdf",
+  "used_playwright": false,
+  "bytes": 542549
+}

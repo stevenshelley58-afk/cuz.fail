@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/position-statement-container-deposit-scheme-infrastructure",
+  "fetched_at": "2026-06-09T22:35:17Z",
+  "http_status": 200,
+  "content_hash": "9c8da6f0376a7640c04796f32c7c6c4a49062b482c9fdf69784ecf32cd678e57",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/POS-Container_Deposit_Scheme_Infrastructure.pdf",
+  "used_playwright": false,
+  "bytes": 1864606
+}

@@ -1,0 +1,344 @@
+POLICY DC 4.2
+PLANNING FOR HAZARDS AND SAFETY
+BACKGROUND NOTES
+Planning for hazardous industry has become an increasingly
+important facet of land use planning in recent years.
+Overseas catastrophes have heightened public awareness of
+the hazards associated with some industry and activities.
+The Government of Western Australia has responded by
+developing a more informed approach to hazardous
+industry siting and has established controls and standards, in
+consultation with the public of Western Australia (EPA
+Bulletin 278).
+In recognition of the importance, yet complexity, of
+hazardous industry planning, the Australian Planning
+Ministers established a National Task Force into Hazardous
+Industry and Safety Planning in 1986. This Task Force has
+been chaired by the NSW Department of Planning, which is
+a recognised leader in this area. Policies and Guidelines in
+areas related to hazardous industry planning have been
+developed in NSW and these have been considered in the
+development of this policy.
+In addition there is a need to provide guidance in other land
+use planning matters where there is a real, or perceived,
+level of risk. These include storage and transport of
+dangerous goods, planning for contaminated land, and the
+need to carefully plan areas prone to bushfires and coastal
+areas prone to storm surge and severe shoreline movement.
+This policy seeks to provide guidance to planners, local
+authorities and developers in planning to prevent the
+occurrence of potentially hazardous events and to mitigate
+the effects of any such events, should they occur and in
+ensuring that the appropriate procedures are followed in
+the consideration of proposals.
+Other relevant policies contained in the Development
+Control (including subdivision) Policy Manual include;
+DC 3.4 Rural Land Use Planning Policy
+DC 4.1 Industrial Subdivision
+DC 6.1 Country Coastal Planning Policy
+Guidelines - Planning for Better Bushfire Protection.
+Adopted June 1991.
+
+POLICY DC 4.2
+PLANNING FOR HAZARDS AND SAFETY
+CONTENTS:
+1. INTRODUCTION
+2. DEFINITIONS FOR THE PURPOSE OF THIS
+POLICY
+3. OBJECTIVES
+4. GENERAL POLICIES FOR HAZARDOUS
+DEVELOPMENT
+4.1 General State Planning Commission policy for
+hazardous development
+4.2 Procedural guidelines
+5. HAZARDOUS INDUSTRY
+5. 1 State Planning Commission policy on
+hazardous industry
+5.2 Procedural guidelines
+6. STORAGE OF DANGEROUS GOODS
+6.1 State Planning Commission policy on storage of
+dangerous goods
+6.2 Procedural guidelines
+7. TRANSPORTATION OF DANGEROUS GOODS
+7.1 State Planning Commission policy on
+transportation of dangerous goods
+7.2 Procedural guidelines
+8. NON-HAZARDOUS DEVELOPMENT IN OR
+ADJACENT TO HAZARDOUS LOCATIONS
+8.1 State Planning Commission policy on planning
+near hazardous locations
+8.2 State Planning Commission policy on planning
+for natural events
+9. PLANNING FOR CONTAMINATED LAND
+9.1 State Planning Commission policy on
+contaminated land
+9.2 Procedural guidelines
+
+1. INTRODUCTION Goods) Order 1988 pursuant to Section 42 (2) (b) of the
+Explosives and Dangerous Goods Act 1961 of a sufficient
+1. 1. No "risk" is defined as the likelihood of any unwanted quantity to require a premises to be placarded under that
+consequences. The basis for determining the Act.
+acceptability of risk relates to standards or guidelines.
+Risk means the likelihood of any unwanted
+1.2. Various levels of risks are tolerated on a daily basis. consequences such as death, injury, damage to
+Risk taken with free choice and full knowledge may be property or damage to the environment.
+described as voluntary risk. Where the individual does
+not have knowledge of the risks or is not entirely free Hazard means a set of conditions that has the
+to choose to avoid the risk exposure, then the risk may potential to cause such unwanted consequences.
+be termed non-voluntary. While people may be
+prepared to expose themselves to quite high levels of Individual Riskmeans the likelihood that a person
+risk in undertaking certain activities (such as playing will die or will he injured.
+sports or driving cars), involuntarily imposed risks (such
+as that arising from a hazardous industrial Risk Analysis refers to the quantified risk analysis
+development) generally are only acceptable to society required by the EPA at an early stage of the
+at quite low levels of risk. environmental impact assessment process where a
+project involves a significant element of risk. The
+1.3. When a risk is to be imposed on an individual or group analysis should include identification of the relevant
+the concept of 'acceptability' of that risk for the decision hazards, a quantification of their consequences and
+making process is that it should be low relative to other the likelihood of their occurrence.
+known and tolerated risks.
+1.4. The determination of risk guidelines for hazardous 3. POLICY OBJECTIVES
+development and the definition of hazardous activities
+are matters within the domain of the Environmental • To ensure that developments are reviewed with a
+Protection Authority (EPA) under the Environmental view to maintaining appropriate public safety.
+Protection Act 1986 and the Department of Mines
+under the Explosives and Dangerous Goods Act 1961. • To maintain acceptably low risk exposure through
+While the technical determination of risk levels will be appropriate planning procedures.
+considered by these authorities, planning authorities
+should be familiar with the issues and consider the • To provide guidelines for the consideration of the
+planning implications and strategies for minimising risk influence of existing risk levels in the planning
+exposure. process.
+1. 5. The main objective of this policy is to ensure that the • To provide for the development of industries and
+planning process addresses exposure of the public to activities which are hazardous but which are
+risk from man-made and natural events. The risk desirable for the benefit of the wider community.
+implications of a proposed development should be
+taken account of and weighed against factors which 4. GENERAL POLICIES FOR HAZARDOUS
+need to be considered in land use planning. The policy DEVELOPMENT
+highlights the principles which will guide the State
+Planning Commission in its considerations and also 4.1GENERAL STATE PLANNING COMMISSION
+identifies the procedures within and associated with the POLICY FOR HAZARDOUS DEVELOPMENT
+planning process which should be followed to ensure
+that appropriate considerations and referrals are taken 4.1.1 Development should he planned to minimise
+account of. and otherwise control risks. Land use
+planning should contribute to safety by;
+2. DEFINITIONS FOR THE PURPOSE OF
+THIS POLICY • securing compatible land uses,
+Contaminated Landis defined as land which, because of • providing adequate buffers and
+previous or present uses at or near the site, contains providing for safe transport routes,
+materials that give rise either directly or indirectly to
+immediate or long-term hazards to human health or the • ensuring that infrastructure, such as fire
+environment. and other emergency services, are
+considered and will have appropriate
+Hazardous Industry means an industry which, when in access.
+operation and when all measures proposed to minimise its
+impact on the locality have been employed (including 4.2 PROCEDURAL GUIDELINES
+measures to isolate the industry from existing or likely future
+development on other land in the locality), would pose a 4.2.1 Generally the environmental impact
+significant risk in relation to the locality, to human health, assessment process will require that
+life or property, or to the biophysical environment. alternative locations will be investigated to
+Examples of such industry include oil refineries and ensure that all steps have been taken to
+chemical plants but would generally exclude light, rural or minimise risks.
+service industries.
+4.2.2 The consequences of the more likely
+Dangerous Goods are those substances declared as hazardous events should be contained within
+dangerous goods listed in the Schedule to the Explosives the boundaries of the installation by
+and Dangerous Goods (Classification of Dangerous
+
+appropriate engineering design. Calculation 5.2 PROCEDURAL GUIDELINES
+of distances relating to such events within the
+boundary of a site (and their impact outside 5.2.1 Proposals that are likely to be hazardous may
+the site) will be undertaken by the proponent require assessment by the EPA under the
+subject to audits by the EPA and the Environmental Protection Act or the
+Department of Mines. Department of Mines under section 45 of the
+Explosives and Dangerous Goods Act.
+4.2.3 Where there is an existing risk from a
+hazardous installation, additional hazardous 5.2.2 For a particular proposal it will usually be
+development should not add significantly to necessary to prepare a Preliminary Risk
+the existing risk. In such circumstances the Analysis to quantify the risk levels in areas
+cumulative effect of hazardous developments around the proposal. The proponent would
+should not exceed the risk criteria laid down also be expected to identify the existing land
+and determined by the EPA. uses exposed to various risk levels. Of
+particular concern is the location of the most
+exposed residents or other members of the
+5. HAZARDOUS INDUSTRY public.
+5.1 STATE PLANNING COMMISSION POLICY ON 5.2.3 If exposure, and all other potential impacts,
+HAZARDOUS INDUSTRY are judged to be acceptable the EPA would
+recommend that the proposal could proceed,
+5. 1. 1 New hazardous development shah be located subject to certain recommendations relating
+in industrial areas, separated from residential to the management of impacts. These would
+areas. include more detailed levels of hazard and risk
+analysis as the design and construction of the
+5.1.2 Where practicable, town planning schemes proposal proceeds. Normally there would be
+should provide zones specifically for recommendations to cover emergency
+hazardous industry which prohibit all planning, both on-site and off-site.
+habitation -(such as caretakers residence) and
+non-hazardous industries that are labour 5.2.4 In making the decision on permitting a
+intensive and/or that have a retail proposal, the Minister for the Environment
+component. may adopt some or all of the EPA's
+recommendations as conditions, and may add
+5.1.3 Hazardous industry areas should have buffer additional conditions at the request of other
+zones. The extent of buffer zones should he decision makers. These conditions then are
+determined in the context of an assessment of binding on the proponent and other decision
+the type of existing or likely industry to be makers.
+accommodated in the hazardous industry
+zone. 5.2.5 Planning authorities should participate fully in
+the assessment process, firstly to provide the
+5.1.4 The likely future use of the land in the buffer most up-to-date information on surrounding
+zone should be considered when assessing existing and proposed land uses, and secondly
+hazardous development, and controls should to obtain feedback on the implications of the
+be provided within the town planning scheme final Ministerial conditions for land use
+to ensure that uses likely to increase planning. Such feedback could include
+residential use, or commercial activities recommendations as to the adequate
+attracting significant volumes of employees or separation distances from other land uses or
+customers, are restricted. the views of the public conveyed through any
+public participation process or assessment of
+5.1.5 Any development which introduces a social impact.
+substantial number of people into an area
+where the individual risks are significant when 5.2.6 Separation distances generally will be
+compared with other risks to which they are determined by the Department of Mines and
+exposed in everyday fife should be avoided. the EPA in the context of these assessments.
+Some people such as hospital patients, Standard setbacks and conditions have been
+children at school or the elderly are more used for the approval of existing dangerous
+vulnerable to hazards and less able to take goods premises. It is therefore important to
+evasive action relative to the general ensure the maintenance of these setbacks
+residential population. Uses likely to attract when developments are occurring in the
+these groups should be particularly vicinity of existing premises. The planning
+discouraged in proximity to hazardous authority should contact the Explosives and
+industry. Dangerous Goods Division of the Mines
+Department for advice on separation
+5.1.6 In planning for new industrial development it distances.
+is desirable to select areas where a buffer zone
+can be maintained in the long term. Public 5.2.7 The EPA's Guidelines on Risks and Hazard of
+ownership of a buffer zone may be the most Industrial Developments on Residential Areas
+appropriate safeguard to ensure that use of in Western Australia (Bulletin 278) establish
+land in the buffer zone is secured. risk guidelines for adjacent residential land
+and for assessing the acceptability of risk
+levels. The criteria include all components of
+risk including fire, explosion and toxic gas
+emissions.
+
+6. STORAGE OF DANGER01 IS GOODS 8. NON-HAZARDOUS DEVELOPMENT
+OR ADJACENT TO HAZARDOUS
+6.1 STATE PLANNING COMMISSION POLICY ON LOCATIONS
+STORAGE OF DANGEROUS GOODS
+8.1 STATE PLANNING COMMISSION POLICY
+6.1.1 Significant quantities of dangerous Goods ON PLANNING NEAR HAZARDOUS LOCATIONS
+should be stored in areas zoned Industrial or
+reserved for an appropriate special purpose. 8.1.1 Hazard may be an additional consideration to
+be addressed in the siting of major new
+6.1.2 In considering proposals for development of facilities such as airports, ocean ports or
+warehouses, open air storage and industries major installations or the planning of land
+involving storage, a planning authority should around existing such facilities. It will generally
+establish whether dangerous goods, or be expected that a risk analysis be undertaken
+materials that may cause a hazard in the event as part of the preparation of airport Master
+of a fire, are to be stored on site. Plans.
+6.2 PROCEDURAL GUIDELINES (Noise is the main problem associated with
+planning near airports. This will be addressed in a
+6.2.1 The storage of dangerous goods must meet separate policy.)
+the -regulatory requirements of the
+Department of Mines and EPA and the 8.2 STATE PLANNING COMMISSION POLICY ON
+relevant Australian Standards in terms of PLANNING FOR NATURAL EVENTS
+design and separation distances. Referral of
+applications involving the storage of 8.2.1 Natural events include tropical and mid-
+dangerous goods should be to the latitude cyclones as well as earthquakes and
+Department of Mines and the EPA to their associated consequences, such as floods
+determine the appropriate standards and the and land slip. Bushfires could also be regarded
+need, in some instances, for a risk as hazardous natural events.
+assessment.
+8.2.2 A planning authority is bound to consider
+6.2.2 A risk analysis, should one be required, would information relating to the probability of
+identify the ways m which the storage could extreme natural events in making planning
+be so designed to reduce or eliminate risk. decisions. (Legal advice is that a planning
+Regulatory controls administered by the authority has a limited and general liability m
+Department of Mines establish the procedures terms of human safety and property damage
+for dealing with emergencies. 9 it gives approval to a development in the
+knowledge of a level of risk).
+8.2.3 Rezonings in cyclone prone areas should
+7. TRANSPORTATION OF DANGEROUS proceed after account is taken of the storm
+GOODS surge hazard zone and there may be a need to
+refuse applications or require developers to
+7.1 STATE PLANNING COMMISSION POLICY ON raise floor levels in areas subject to storm
+TRANSPORT OF DANGEROUS GOODS surge hazard. Similarly, allowance should be
+made to accommodate naturally occurring
+7.1.1 While this matter is not necessarily related to shoreline movement particularly where that
+land use planning and is generally covered by occurs m response to storm activity. The
+other legislation, planners should take allowance to accommodate shoreline
+account of the resulting transport movement is necessarily additional to any
+requirements when locating a hazardous reservation of coastal land for recreational
+facility. Consideration should be given to road purposes. The Country Coastal Planning
+reserve widths and routes to facilitate safe Policy (DC 6.1) of the State Planning
+road or rail transport options. Commission, addresses these matters.
+7.1.2 In granting development approval a planning 8.2.4 In areas prone to tropical cyclones it may be
+authority may consider it to be appropriate to appropriate to place power lines underground
+specify the way in which goods will access the to avoid possible risk and communications
+site from adjacent roads. breakdown in the event of a cyclone.
+7.2 PROCEDURAL GUIDELINES 8.2.5 Land within the floodways of river systems, as
+defined by the Water Authority of Western
+7.2.1 In negotiations with a proponent, in Australia, or watercourses liable to flooding,
+conjunction with the regulatory agencies, it should not generally be developed for
+may be appropriate to consider the actual residential or commercial purposes. While
+route to be taken in transporting goods to and recreational land use may be appropriate,
+from a site or specify a particular mode of improvements which could result in
+transport, such as rail. It would be interference with the free flow of flood water
+inappropriate to impose such conditions on a should be avoided.
+development approval.
+8.2.6 The development of land for residential or
+intensive rural uses should take account of fire
+hazard with development being strongly
+
+discouraged in high hazard areas. Areas in • The extent to which future purchasers
+which fire control measures, (firebreaks, should be forewarned of any hazard by
+buffer zones, fire access tracks, water supplies memorandum or covenants on titles or
+and fire suppression arrangements), cannot through appropriate town planning
+be practically met should he avoided. Details scheme provisions.
+of bush fire evaluation and/or mitigation
+measures which have been or will be
+undertaken to the satisfaction of the Bush
+Fires Board and the local authority, should be
+provided in local rural strategies and
+applications to rezone and subdivide rural
+land likely to be prone to fire hazard. Account
+should be taken of the Planning for Better
+Bushfire Protection Guidelines.
+8.2.7 Where land is subject to risks and possible
+hazards arising from radiation the advice of
+the Radiological Council should be sought.
+9. PLANNING FOR CONTAMINATED LAND
+9.1 STATE PLANNING COMMISSION POLICY ON
+CONTAMINATED LAND
+9.1.1 The State Planning Commission will not
+approve applications to rezone, develop or
+subdivide land which has been contaminated
+unless it is satisfied that the approval of the
+proposal is in the long term interest of the
+community, having regard to the advice of the
+EPA.
+9.2 PROCEDURAL GUIDELINES
+9.2.1 Where land may have been contaminated
+from past uses or current activities,
+redevelopment of the land should not proceed
+until a site history, description and
+preliminary sampling and investigation
+program has been completed. The results of
+such a program will indicate an appropriate
+course of action. Proposals to develop
+contaminated land, with a potential to cause
+significant environmental impacts, should be
+referred to the EPA for assessment.
+9.2.2 Where it is proposed to rezone potentially
+contaminated land, and land adjacent to
+potentially contaminated land, for residential
+use, the EPA will normally require a full
+assessment to be undertaken to satisfactorily
+address the following:
+• An audit of all contaminants that could
+be present in the sod, in the water table
+or on adjacent land.
+• Sampling and testing of soil and water
+samples for possible contaminants.
+• The safeguards which should be
+imposed on future development to
+ensure that chemicals are isolated and
+contained so as not to affect surface
+contact or water extraction or
+subsequent users.

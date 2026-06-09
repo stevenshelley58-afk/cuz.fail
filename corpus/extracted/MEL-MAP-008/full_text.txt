@@ -1,0 +1,397 @@
+R20
+R20
+R20
+CIRCLE
+LEGEND
+E R20 DARLEY R20
+D
+RI V E R20 R20 D RI V
+DRIVE
+E
+Y
+L R20
+R20 BULL W A H E T G T O N R20 N R20 R20 W E S T C O U R T R H 2 EN 0 RY TR U O C N A G A H R20 R20 R20 NICH OLAY COURT R20 R20 H E T H E RI
+SOUTH STREET
+R40
+R20 R20
+SOUTH
+D R20 STREET
+R2 R 0 20 FI N D L A Y R R O A 20 B E R E S F O R D P L A C C E OLLIN H S E O W G N R O IS 2 W O 0 T N R H E 2 R 0 W ST A R Y E S E T T REET M A T T H E W A V E N UE R20 ABB O TT O C R U T W E S T M O R L A N D D IR E V R20 WILT S P L A C E R20 S T R E E T R20 R R 20 20 R20 R20 WI N C H E S T E R R 20 WAY R V 2 IN 0 ES R C 2 O 0 URT R20 R G A A FF L L P IN LA C R C O E N O L T O L E U O H 2 R S P T 0 PE H NN A O H R C A R O N U N I R N A T H G PL T ACE ONC R RE 2 S 0 CENT UPS R O 2 N 0 COURT CAI N R PLA 2 CE 0 BYA R SS 2 RIS 0 E R20 R20 R20 R SO 4 U 0 TH STREET R40 R20 R20 R20
+REILLYCOURT
+MILFORD CLOSE
+R20
+R2
+H A R T
+FI
+0
+E
+L D
+CRESCENT
+W
+ATTS
+PLA
+R
+CE
+20 H AY E S R O A D
+EW T H E R E D
+R2
+G A
+0
+RIVER
+STREET
+R2
+RAD
+0
+N
+O
+R STREET CARDINAL
+G
+C
+R
+R
+T E E R T S A
+ES
+C
+C
+E
+E
+C
+N
+H
+T
+UR
+R
+CH
+20 C
+E
+R E S C E N T
+R20
+S H W A Y
+R20 MCGUINES
+B
+S
+OWRACOURT
+DRIVE
+R20
+LOCA D
+L
+L
+L
+o
+o
+is
+c
+c
+t
+a
+a
+r S i
+l
+l
+c
+D
+R
+t C D
+o
+is
+a
+i
+t
+s
+r
+d
+H
+i
+t
+b
+ri
+u
+b E
+t
+u
+o
+t
+r
+o M
+R
+r R
+o
+E
+a
+o
+d
+a d RESERVES
+E
+IS
+P
+P
+P
+u
+u
+u
+b
+b
+b
+l
+l
+l
+i
+i
+i
+c
+c
+c
+O
+P
+pu
+p
+u
+r
+e
+r
+p
+p
+n
+o
+o
+s
+S
+s
+e
+e
+p
+s
+s
+a c
+:
+:
+e
+I
+E
+n
+d
+fr
+u
+a
+c
+s
+a
+tr
+ti
+u
+o
+c
+n
+ture services NI E V S D E HYNE COURT R20 K C IH
+LOCAL SCHEME ZONES GLADSTONE ROAD E N U E BRICE CLOSE Centre Residential AV R20 R20 R20 Light Industry Service Commercial
+L
+R20 K A
+R E BEASLEY
+G
+HTS
+Mixed Use Special Use
+R20
+ROAD
+N
+H EI
+C4 AI Private Clubs, Institutions and Place of Worship Urban Development
+C O U RT
+WESTMINSTER ROAD
+BLAIN COURT R40 R20 A S T L E
+M
+DL E R20 C
+N
+HI
+R20 E
+C
+E A L
+P
+R
+BRITNALL PLACE E G G D
+R20
+REARD ON
+COURT
+R20
+TRUO
+C SNO SRAP
+MEHARRY ROAD T T
+U R N
+E
+A
+B
+V E N U E
+R20
+U R K
+TERRY R
+R
+2
+2
+0
+0
+ROAD
+U N D E E
+S T R
+N
+E E
+O
+T
+RE
+LO
+A
+V
+T
+AT
+T
+T C
+P
+O
+L
+UR
+A
+T
+CECHIPPER CLOSE
+H WAY
+O (se T e H sc E he
+S L
+R
+o
+m
+c c h a
+e
+e l
+C
+m
+t
+G
+e
+e o
+A x
+A v
+t
+e r
+T
+e
+f
+r
+o
+n a
+E
+m
+r
+B
+a
+e
+G
+o n
+d
+u t n
+d O
+B d
+i
+o
+t
+a
+i
+u r
+o R
+y n
+n
+d
+a I
+a
+E l
+r y
+in S formation)
+G
+HI
+CANNON COURT R20 R Codes
+C O U TR R20 R OE A1 Additional Uses
+DN
+A LL
+O R
+R20
+LEAHY COURT
+D
+A O
+R N R1 Restricted Uses
+D O
+A O R20 T N
+R20 R R20 IA B SU1 Special Use Area
+N
+A
+G
+O L G R FARRINGTON ROAD
+O V No Zone E R B
+C A R20
+O U R C R20 R O T M
+B E
+R20
+W
+A R20
+Y
+VERSION No 1
+MAP OVERVIEW
+Authorised: T.Servaas
+City of Melville 1 2
+N Plot Date: 07 December 2017
+3 4
+Local Planning Scheme No. 6 7 G.Gazette: Friday, 27 May 2016
+5 6
+( District Scheme ) Local Planning Scheme Map No. 8 of 8
+DAOR
+NOSTUB
+R
+CRESCENT
+WAY
+E
+K TA H TI W
+S
+E
+K ANSTIEWAY
+E
+W E C A S PL E A Y W Y M O N O C L RI ID N G WAY O W G A N REGION SCHEME RESERVES (MRS) H E E S Civic and Cultural Public Purposes C LO
+CP Public Purposes - Car Park
+Other Regional Roads
+CG Public Purposes - Commonwealth Government
+R T Parks and Recreation O U HS Public Purposes - High School
+C R Parks and Recreation - restricted
+H Public Purposes - Hospital
+N O L T CAMP COURT R T Port Installations P Public Purposes - Prison U Primary Regional Roads SU Public Purposes - Special Uses O FLINT NIGEL E R C Railways SEC Public Purposes - State Energy Commission COURT COURT W Y A APEX CLOSE B U N T State Forests TS Public Purposes - Technical School H FOX COURT O Y M L E SPENCE COURT MOSS CLOSE RAE W AY PLACE AMPHION PLAC E G R E N F E L L SUDBURYCOURT L L O C I K C IR C LE P E A K C O U RT ATKINSONGARDENS # # # # # # # # # # W W a a t t e e r r w C a a y t s chments W U SD P P u u b b l l i i c c P P u u r r p p o o s s e e s s - - U W n a iv te e r r s A it u y thority of WA C O U R T C L O E S LAUGHTON BRUCE M HIGHA CL O S E CO U R T
+E PAY N U R T FAULL CLOSE O O R C RISE R T MELL U JEFFERIESWAY C T T O U R T R T DENIC E O U N N C C O B E N E N ALLARD PLACE
+D AI OL S T T IM R B O W C U O RELL W AY DL
+WARAKER W H A
+A Y
+WOODRISE
+HAR
+CAPILL
+COURT CLUELOW
+RISE
+R E N
+R
+OC
+D
+R
+O
+F F A T
+S
+DUNCTON COURT
+COURT
+L L E W
+E
+S
+Y A W
+N
+WI D O
+BARRACLOS E G O
+City of Melville
+This electronic planning map has been prepared and made If you have questions about the publication or certification of a
+available for public inspection by the Western Australian map, or suspect any omissions or errors in this electronic planning Local Planning Scheme No. 6
+Planning Commission pursuant to section 267B of the map, please advise the Department of Planning, Lands and
+P l a n n in g a n d D e v e l o p m e n t A c t 2 0 0 5 . Whilst all care has been Heritage at spatialdata@dplh.wa.gov.au
+taken to accurately portray the original map, spatial data can be ( District Scheme )
+subject to modification over time. If you wish to use a copy of Produced by Data Analytics,
+0 125 250 375 500
+this map in any proceedings, a copy certified by the Department of Planning, Lands and Heritage.
+Commission (or its delegates) under section 267C is evidence Base Information Supplied by the Western Australian
+metres of the contents of the electronic map or a part of the map. Land Information Authority, SLIP 1180-2020-1
+MAP: Leeming Locality

@@ -1,0 +1,718 @@
+Development Control Policy 1.6
+Planning to Support Transit Use and Transit
+Oriented Development
+Background notes 2
+1 Introduction 3
+2 Application of the policy 4
+3 Policy objectives 4
+4 Policy measures 5
+4.1 Transit-supportive development patterns 5
+4.2 Land use to support transit 5
+4.3 The public domain in transit oriented precincts 6
+4.4 Transit supportive design 7
+4.5 Integrating transit infrastructure 7
+4.6 Precinct planning 8
+5 Implementation 8
+Indicative area of application of policy 9
+January 2006
+1
+
+Background notes
+Amendments to Development Control Policy 1.6 Planning To Enhance Public Transport Use DC
+1.6 1999,was adopted by the Western Australian Planning Commission (WAPC) in 2005 to
+reflect the Government's vision for a sustainable future as outlined in the Network city and the
+State Sustainability Strategy. The amended policy is titled Development Control Policy 1.6
+Planning to Support Transit Use and Transit Oriented Development.
+The Perth and Peel region now has a public transport system that is sufficiently extensive to
+consistently promote land uses that maximise the opportunities for land use and public transport
+integration. This integrated approach serves to enhance accessibility by travel modes other than
+the private car,and plays a significant part in the promotion and maintenance of urban
+sustainability.
+Within existing developed areas,there are clear opportunities to intensify existing activities and to
+promote new uses that will make better use of transit facilities and services. As the public
+transport system is further refined and extended,there will be emerging opportunities for new
+development that is focused upon,and maximises the benefits derived from significant new public
+investments in transit infrastructure.
+There are obvious benefits of a planning policy that encourages the integration of land use and
+transit facilities. Higher residential densities and mixed use developments in the walkable
+catchments of transit facilities have the potential to reduce car dependence; to increase
+accessibility for those without access to private cars; to reduce congestion on the road network
+and the demand for new road space; to reduce fuel consumption and air pollution; and to provide
+quality diverse and affordable forms of housing and development. These benefits combine to
+produce an attractive and viable alternative to car-based suburban and urban fringe development.
+Mixing compatible uses in transit-oriented precincts within an environment that favours walking
+and cycling makes it possible to reduce private vehicle use. It becomes feasible for trips to
+become multi-purpose (ie to serve several trip purposes at the one location) and to include travel
+on multiple modes,therefore reducing the number of separate trips requiring private vehicle use.
+Mixing uses also promotes more efficient operation of the system by generating travel demand in
+both directions and spreading transit use beyond the morning and evening peak periods.
+This policy seeks to maximise the benefits to the community of an effective and well used public
+transit system by promoting planning and development outcomes that will support and sustain
+public transport use,and which will achieve the more effective integration of land use and public
+transport infrastructure.
+The policy is an integral part of a range of policies directed towards greater urban sustainability,
+in accordance with the State Planning Strategy and Statement of Planning Policy 3 Urban Growth
+and Settlements (SPP3). The following policy measures from SPP3 are particularly relevant to
+this policy:
+• Supporting higher residential densities in and around neighbourhood centres,high
+frequency public transport nodes and interchanges.
+• Clustering retail,employment,recreational and other activities which attract large
+numbers of people in activity centres around major public transport nodes so as to
+reduce the need to travel,encourage non-car modes and create attractive,
+high amenity mixed-use urban centres.
+• Providing access for all to employment,health,education,shops,leisure
+and community facilities by locating new development so as to be
+accessible by foot,bicycle or public transport rather than having to
+depend on access by car.
+2 Development Control Policy 1.6 Planning to Support Transit Use and January 2006
+Transit Oriented Development
+
+1 Introduction • about 10-15 minutes walking time,or
+an 800 m distance,for rail stations,
+transit interchanges or major bus transfer
+Policy approach
+stations or terminals,and
+The development potential related to transit • about 5-7 minutes walking time,or
+facilities in metropolitan Perth is variable,and 400 m,for bus stops located on bus
+the nature of the relationship between transit routes with multiple bus services that are
+and land use cannot easily be classified into a high frequency of 15 minutes or less
+consistent set of development scenarios that during peak periods (see map attached).
+readily lend themselves to corresponding
+individual policy approaches. It is also accepted that these distances may be
+exceeded under particular circumstances,for
+The nature and role of transit facilities example where a rail station lies centrally
+themselves is also not static,but changes over within a confined ‘corridor’of development
+time,sometimes in response to localised that may somewhat exceed 1600 m in total
+factors but also in response to wider policy width. They may also be limited in some local
+decisions,for example on service frequencies, cases,for example where physical barriers
+fare structures and other operational factors. prevent access.
+The actual physical form of transit facilities
+may also change,through the improvement of Where the nature of bus services and facilities
+individual components of the system,or are such that they can be considered to offer
+through wider network revisions and the same level of service and ‘permanence’as
+extensions. rail-based services,the provisions of this
+Policy will normally be applied to the
+In this context,and in recognition of the level precincts around those facilities. In the case of
+at which the WAPC is able to influence these typical on-road bus stops on normal local
+issues,this policy takes a generalised rather routes,it is accepted that the potential lack of
+than geographically place-based approach, permanence of such facilities and services
+while still seeking to ensure that the may make a direct transit oriented
+provisions reflect and address the variety of development (TOD) response difficult,
+situations in which the relationship between however the general guidance provided in this
+urban form,land use and transit may be Policy on planning for bus-based transit in the
+enhanced,promoted and planned for. urban structure should still be applied.
+This approach places much of the emphasis It is accepted that the development potential in
+for the detailed delivery of transit related TOD precincts as defined in this policy will be
+development outcomes upon local government variable. The policy establishes principles that
+planning processes,through the preparation should be adhered to wherever possible,but
+and consistent application of appropriate TOD requires a place-based approach to
+provisions within town planning schemes,and precinct planning and design to define,protect
+associated planning policies and design and secure optimal TOD outcomes.
+controls,developed and applied under the
+guidance provided by this WAPC policy. Measuring accessibility
+Achieving the policy’s objectives will
+therefore require a collaborative approach In making a broad assessment of accessibility
+between the WAPC and local governments. to transit facilities,and in reviewing the
+associated urban structure,the threshold
+It is also critical to the effectiveness of the
+distances described above can be taken as
+policy that state government agencies apply its
+simple radial measurements,however a much
+principles in the development and
+more accurate picture of real accessibility can
+implementation of government projects.
+be obtained by using the ‘ped-shed’,or
+walkable catchment,technique,plotting actual
+Defining ‘transit oriented precincts’
+walking distances against the existing or
+proposed street network.
+Research into the relationship between
+accessibility and the use of transit facilities As well as providing a very good picture of
+consistently indicates that there is a common the overall level of accessibility to transit
+'threshold' for walking to those facilities. This afforded by neighbourhood structure,this
+equates to: technique can also be very helpful in
+identifying specific issues and shortcomings of
+a development pattern that may be addressed
+Development Control Policy 1.6 Planning to Support Transit Use and January 2006 3
+Transit Oriented Development
+
+by making in some cases relatively simple 3 Policy objectives
+changes that have a significant impact on the
+overall level of accessibility within a place.
+• To promote and facilitate the use of
+public transport as a more sustainable
+The WAPC therefore encourages the use of the
+alternative to the private car for personal
+‘ped-shed’and related techniques for
+travel,to enhance community
+designing and testing subdivisions for
+accessibility to services and facilities,
+accessibility to transit facilities,and will itself
+including employment opportunities,
+apply those techniques in assessing relevant
+community services and recreational
+proposals.
+facilities,and to improve equity in
+accessibility for those who do not own or
+have access to a car.
+2 Application of the
+• To encourage spatial patterns of
+policy
+development that make it easier to plan
+and efficiently operate public transport
+This policy applies to all areas of the state,
+services,and for the existing and
+within transit precincts as defined under the
+potential users of public transport to
+policy,and is intended to inform government
+access those services.
+agencies,local government,landowners and
+prospective developers of the policy approach • To encourage balanced public transport
+which will be applied by the WAPC when rider-ship along transit corridors by
+considering: creating places that are destinations as
+well as points of departure.
+• development or redevelopment within
+transit oriented precincts as defined in • To ensure the optimal use of land within
+section 1 of this policy; transit oriented precincts by encouraging
+the development of uses and activities
+• the need for transit services and the
+that will benefit from their proximity and
+provision proposed to be made for those
+accessibility to public transport,and
+services in new development areas; and
+which will in turn generate a demand for
+the use of transit infrastructure and
+• proposals for the redevelopment of
+services.
+existing transit facilities and other
+network changes and improvements. • To ensure that opportunities for transit
+supportive development are realised,both
+The policy will be applied by the WAPC:
+on public and privately owned land,and
+• in determining subdivision and that transit infrastructure is effectively
+development applications; integrated with other development,to
+maximise safety,security and
+• in advising on town planning schemes, convenience for transit users.
+scheme amendments and local planning
+strategies; • To promote and facilitate walking and
+cycling within transit oriented precincts
+• in preparing and reviewing structure by establishing and maintaining high
+plans for developing areas and areas levels of amenity,safety and permeability
+undergoing redevelopment; in the urban form,and to promote and
+facilitate opportunities for integrating
+• in preparing amendments to the
+transport modes by creating opportunities
+Metropolitan Region Scheme and to
+for convenient,safe and secure mode
+country region schemes; and
+interchange.
+• in providing advice to the Minister for
+Planning and Infrastructure on matters
+relevant to the application of the policy.
+4 Development Control Policy 1.6 Planning to Support Transit Use and January 2006
+Transit Oriented Development
+
+4 Policy measures 4.1.5 Structure plan preparation and
+subdivision design in ‘greenfield’
+situations should make appropriate
+4.1 Transit-supportive development
+provision for the planning and operation
+patterns of bus services. A grid-based street
+pattern is supported because it provides
+Urban structure is the foundation of a transit
+for more direct,better spaced transit
+supportive environment. Effective transit is
+routes,disperses general traffic more
+fostered by a more compact urban form,
+effectively to limit congestion that can
+mixed uses,higher development densities and
+impede bus services,and provides
+activity levels,and especially by spatial
+permeability and maximum flexibility in
+patterns of development that make it easier to
+bus route planning. Road network
+plan and efficiently operate transit services,
+planning should also ensure that all
+and for users to access those services once
+relevant local and district facilities,
+they are in place. For these reasons:
+including shopping facilities,recreation
+4.1.1 The street pattern within transit-oriented facilities,schools and other community
+precincts should be designed to enhance facilities,can be accessed by bus
+general walkability,and to facilitate services.
+pedestrian access to transit facilities. A
+4.1.6 As with rail stations,bus stations and
+responsive grid pattern provides good
+major bus interchanges should be
+general permeability and connectivity
+serviced by a well connected network of
+and a choice of routes,but may need to
+local streets that maximises accessibility
+be modified to accommodate radial
+for those within walking distance of the
+connections focused on transit stops,
+facilities,and in general,the provisions
+particularly closer to the stop,to provide
+of this policy relating to matters such as
+more direct access and reduce the need
+accessibility,amenity,safety and security
+for pedestrians to ‘zigzag’through the
+also apply to the bus services and
+grid of streets.
+facilities provided at those locations.
+4.1.2 Street patterns that require pedestrians to
+divert from the most direct routes,and 4.2 Land use to support transit
+especially to backtrack,should be
+The level of transit patronage is closely linked
+avoided. If absolutely necessary,short
+to the quality and frequency of the service
+lengths of pedestrian access way may be
+provided. In turn,the service able to be
+used to provide ‘missing links’through
+provided is a function of the density and mix
+the grid,provided that their safety and
+of land uses that generate potential transit
+security can be ensured,however under
+users. An appropriate mix and balance of land
+most circumstances good street layout
+uses can be a major contributor to the use and
+and design should be used to minimise
+effectiveness of transit facilities. Within
+walking distances,rather than a
+transit-oriented precincts,the emphasis should
+segregated system of pedestrian routes.
+be on uses which are likely to promote transit
+4.1.3 The street pattern within transit-oriented use,and which will benefit by being
+precincts should be designed to enhance accessible to and by transit facilities.
+commuter and recreational cycling,and
+Mixing compatible uses in transit-oriented
+to facilitate cyclist access to transit
+precincts within an environment that favours
+facilities. A responsive grid pattern with
+walking,makes it possible for one transit trip
+on and off road facilities provides good
+to serve a wide variety of purposes,compared
+general permeability and connectivity
+to dispersed uses that are more likely to
+and a choice of routes.
+generate several separate trips,which will be
+4.1.4 A diversity of lot sizes in subdivisions made mainly by car. For these reasons:
+within transit oriented precincts,
+matched with a robust street layout,is 4.2.1 Residential development should be
+encouraged close to transit facilities,to
+encouraged as it provides greater
+help in creating a sense of place that
+flexibility of development options,and
+makes a TOD precinct more than just a
+enhances the robustness of the urban
+place where transit is available,giving
+structure,making it easier for the
+places an individual identity within the
+precinct to evolve over time through a
+urban fabric.
+progressive intensification of activities
+and change to uses that will more
+effectively support transit use.
+Development Control Policy 1.6 Planning to Support Transit Use and January 2006 5
+Transit Oriented Development
+
+4.2.2 Higher density residential development, for example playing fields,should not be
+in particular,places greater numbers of dominant elements within the walkable
+residents close to transit services, catchment of transit facilities.
+increasing the potential for those
+residents to look to transit as a travel 4.2.6 Encouraging the greater use of transit
+services for journeys to work is an
+option,with a corresponding increase in
+important policy objective; however,
+patronage. In reviewing town planning
+land-extensive,low development-and-
+schemes and proposed scheme
+employment density activities such as
+amendments that include transit
+some general industrial uses,bulky
+precincts as defined by this policy,the
+goods retailing and business parks,and
+WAPC will expect local governments to
+warehousing should not be located
+identify and promote opportunities for
+within transit-oriented precincts unless it
+residential development at a minimum
+can be demonstrated that the particular
+density of 25 dwellings per hectare,and
+circumstances of a development will
+will expect the application of densities
+favour transit use.
+substantially higher than 25 dwellings
+per hectare where sites have the
+4.2.7 Building robustness into the planning of
+advantage of close proximity to a rail
+transit oriented precincts is also
+station,major bus interchange or bus
+encouraged because it can make it easier
+route that provides service frequencies
+for the area to evolve,and for the
+equivalent to rail. The WAPC will also
+progressive replacement of less intensive
+work with local governments in the
+uses and activities,for example
+development of measures and incentives
+replacing surface level car parking with
+to ensure that coded densities are
+structured parking and more intensive
+achieved in practice.
+uses,including more compact mixed use
+developments and higher density
+4.2.3 Densities should be increased through a
+residential uses.
+subdivision pattern,which allows for the
+progressive intensification of activities.
+4.2.8 The development of transit supportive
+In newer suburbs it is sometimes not
+uses on publicly owned land has the
+practical to achieve higher densities at
+potential to catalyse other similar
+the initial stages of subdivision,
+changes within transit-oriented precincts,
+particularly when public transport
+especially where the public land is
+services are not yet fully implemented.
+strategically located. The WAPC will
+In such cases the subdivision pattern
+encourage public agencies,in either
+should be robust,to allow for future
+disposing of surplus publicly owned land
+more intensive subdivision and
+within transit oriented precincts,or
+development as the suburbs mature and
+developing their own land for public
+demand for public transport increases.
+purposes,to consider the implications
+for accessibility to,and the use of transit
+4.2.4 Other uses that are likely to be
+services.
+significant generators of transit trips
+should also be located close to transit
+4.2.9 It is can be particularly desirable to
+facilities wherever possible. Relevant
+locate major civic buildings in TOD
+uses include offices and other ‘high-
+precincts,where they can actively
+density’employment- generating
+contribute to the amenity of the area and
+activities,intensive leisure facilities,and
+act as significant generators of transit
+retailing. Similar considerations apply to
+use.
+uses such as aged persons development,
+schools and tertiary education uses,
+4.3 The public domain in transit
+hospitals,community facilities and
+oriented precincts
+social services.
+4.2.5 Locating educational buildings within Almost all transit users are pedestrians for at
+transit-oriented precincts is appropriate least a part of their journey,even if only for a
+where they include the more intensive short walk from a train or bus to a park-and-
+elements of the institution such as ride facility. The amenity,quality and safety of
+teaching facilities and indoor recreation the public domain within transit oriented
+facilities,however the more land- precincts are therefore important factors in
+extensive/low-intensity elements of establishing and maintaining an environment
+schools and other similar ‘public’uses, that will encourage people to access transit
+6 Development Control Policy 1.6 Planning to Support Transit Use and January 2006
+Transit Oriented Development
+
+facilities on foot,as well as promoting support the station,for example retail
+walking generally within these uses that will provide services to,and
+neighbourhoods. For these reasons: benefit from the custom of transit users.
+4.3.1 Streetscapes should include features that 4.4.3 The design of developments,especially
+will help to promote walking by in proximity to stations,should be
+improving the general level of amenity robust,to allow for the use of buildings
+along pedestrian routes to and from the to change over time,to uses that may be
+transit facility. Climate moderation in the more appropriate to a transit-oriented
+form of verandas,canopies and arcades, precinct and supportive of transit use.
+and landscaping,will help to increase
+the level of comfort for pedestrians and 4.5 Integrating transit infrastructure
+the likelihood that people will see
+walking to the transit stop as an The integration of transit facilities and other
+attractive option. Well-lit pedestrian land uses is actively promoted by this policy,
+routes and waiting areas are also and the design and operation of transit
+essential for convenience and safety. infrastructure should assist in integrating
+transit facilities with their surroundings. For
+4.3.2 Continuity of footpaths should be these reasons:
+ensured along both sides of the street
+within transit precincts. Neighbourhood 4.5.1 Transit infrastructure should be designed
+layouts should be planned to avoid to suit the scale and character of its
+pedestrians having to cross major roads, surroundings.
+or to traverse or be forced out of their
+4.5.2 Transit facilities should be designed to
+direct way to by-pass other obstacles to
+provide a high standard of amenity for
+access transit facilities.
+transit users,with appropriate station-
+4.4 Transit supportive design based facilities,and a safe and secure
+environment,especially for those users
+Section 1 of this policy highlights the accessing the facilities on foot or by
+importance of an appropriate framing urban bicycle.
+structure in transit-oriented precincts. Design
+4.5.3 Transit facilities should be designed to
+and structure planning,including subdivision
+facilitate mode interchange in a safe,
+plans and road design,must also take into
+secure and convenient manner,and
+account bus services and their design
+without dominating the station setting or
+requirements . The design of individual
+restricting easy pedestrian access.
+developments,especially where they have an
+immediate relationship with transit facilities,
+4.5.4 Where the transit facility includes
+can be a significant factor in encouraging
+significant building structures,it should
+increased use of public transport. For these
+be designed to reflect the civic nature of
+reasons:
+the transit function,to contribute to the
+quality of the public realm,and to assist
+4.4.1 Land uses that promote interest,
+in the legibility of the station in its
+interaction and activity should be used to
+precinct setting.
+animate frontages along the principal
+pedestrian routes leading to and from the
+4.5.5 The development of new transit
+transit facility. Uses should be oriented
+infrastructure should consider the
+to the street and the public domain,and
+possible severance effects of new line
+should include activities at ground floor
+work on existing and future local
+level that promote interaction and
+community connections. Where an
+surveillance,provide interest for
+existing or proposed station development
+pedestrians,enhance security,and
+incorporates a pedestrian crossing point
+increase the attractiveness of walking to
+that plays an important role in assisting
+access transit facilities.
+local connectivity and accessibility,the
+design of the station should allow for
+4.4.2 Development should be designed to
+that crossing to be available for public
+facilitate access to and enhance the
+use at all times,rather than just during
+legibility of transit facilities. There may
+the operating hours of the station.
+be opportunities for the physical
+integration of developments with transit
+infrastructure,incorporating uses that
+Development Control Policy 1.6 Planning to Support Transit Use and January 2006 7
+Transit Oriented Development
+
+4.6 Precinct planning • the potential to use planning provisions
+to provide incentives for appropriate
+In order to maximise the potential of transit development in transit oriented precincts,
+oriented precincts to support and engender including reduced parking standards and
+increased use of transit services,they will floor-space ‘bonuses’.
+typically require comprehensive planning,
+which has regard for community values. In the For the immediate environs of transit facilities,
+case of new development areas,this will local government is encouraged to consider
+generally occur through the preparation of a the preparation of precinct plans that provide
+structure plan. In the case of already- greater detail with respect to both land use and
+developed areas,it may be through the the physical form and relationship of
+preparation of a precinct plan,either on an development in the precinct to the transit
+individual basis or as a part of the process for facility,including design guidelines.
+developing a local planning strategy,and
+leading to the inclusion of appropriate
+provisions within the local town planning 5 Implementation
+scheme. Liaison with the Public Transport
+Authority is highly desirable at this stage.
+This policy will be implemented by the WAPC
+in the following ways:
+Local planning strategies should describe the
+existing and proposed public transport
+• In providing advice to the Minister on
+network serving the strategy or plan area,
+the preparation,review and amendment
+should identify specific opportunities for
+of town planning schemes.
+integrating land use and public transport and
+maximising the use of transit facilities within • In providing advice to local government
+the study area,and should clearly articulate on the preparation,review and
+how those opportunities will be realised amendment of town planning schemes,
+through the inclusion of appropriate planning and the preparation of local planning
+provisions within the local town planning strategies.
+scheme. The WAPC will work collaboratively
+with local government to ensure that relevant • In considering applications to subdivide
+opportunities are identified and optimised. land within transit oriented precincts.
+In carrying out the necessary analysis as part • In determining applications to develop
+of the local planning strategy process,and in land within transit oriented precincts.
+developing related planning provisions,local
+• In considering structure plans for new
+governments should have particular regard to
+development areas and for the
+matters such as:
+redevelopment of existing urban areas.
+• residential density and diversity;
+The WAPC will support the policy by:
+• the scale and intensity of non residential
+• promoting and publicising successful
+uses; especially car oriented land uses;
+transit oriented development projects;
+• the encouragement of public transport
+• supporting the ongoing development of a
+use over car use;
+TOD program within government as a
+• the encouragement of mixed use key mechanism for implementing the
+development,both generally and within principles of Network city;
+individual developments;
+• encouraging community engagement in
+• flexible and robust planning provisions local visioning processes with a TOD
+that allow for uses and activities in a focus;
+transit oriented precinct to change and
+• working to develop local and state
+intensify over time;
+government partnerships for the
+• the development and application of implementation of TOD;
+scheme parking standards that reflect the
+• providing ongoing guidance to the
+availability within the precinct of transit
+development industry and local
+facilities and that provide discretion to
+government in the application of this
+vary standards,and to progressively
+policy; and
+replace surface level car parking close to
+stations with other more transit • providing incentives for affordable
+supportive uses over time; and housing near transit.
+8 Development Control Policy 1.6 Planning to Support Transit Use and January 2006
+Transit Oriented Development
+
+Indicative area of application of policy
+City of Wanneroo
+City of Swan
+City of Joondalup
+City of Stirling
+Shire of Mundaring
+River
+Swan Shire of Kalamunda
+City of Fremantle City of
+Gosnells
+Indian
+City of Cockburn
+City of Armadale
+Town of
+Kwinana
+Shire of Serpentine-Jarrahdale
+Ocean
+City of Rockingham
+Shire of Murray
+City of Mandurah
+Development Control Policy 1.6 Planning to Support Transit Use and January 2006 9
+Transit Oriented Development
+●
+●
+●
+●
+●
+●
+●●
+●●
+●
+●
+●
+●
+●
+● ●
+●
+●
+●●●
+●
+●
+●
+●
+●
+●
+● ● ●
+●
+●●●
+●
+●
+●
+●
+● ●
+●
+●
+●
+●
+●
+●
+●
+● ●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+●
+● ●
+●
+●
+●
+●
+●
+●
+N
+GEOCENTRIC DATUM OF AUSTRALIA 0 2 4 6 8 10
+kilometres
+Produced by Project Mapping Section,
+Mapping and GeoSpatial Data Branch,
+Department for Planning and Infrastructure,
+on behalf of the Western Australian Planning
+Commission, Perth, WA January 2006
+Legend
+●
+●
+●
+Base information supplied by DLI PA 23-2003
+●
+●
+● ●
+●
+● ●
+●
+●
+● ●
+●
+●
+●
+●
+●
+●
+●
+●
+ntw-map9\projects\pol\urb\gro_man\DCP1.6\
+bus_services\hi_frequency_bus_services_V8.dgn
+train and bus stations,
+bus transfers and park’n’ride
+high frequency bus services
+transit oriented precinct (as defined in the policy)
+local government boundary
+Note:
+This map is intended to indicate, rather than define, the
+coverageoftransitorientedprecincts(asdescribedatDefining
+’TransitOrientedPrecincts’ withinthepolicy)which thepolicy
+appliesto. Itisbasedonpublictransportfacilitiesandservices
+at the date of printing, which over time will evolve with
+development. This map should be interpreted in conjunction
+withthepolicy’sprovisionsandadvicefromtheDepartmentfor
+Planning and Infrastructure and Public Transport Authority to
+confirm the public transport facilities and services.
+Please notethat thetransitoriented precincts related tohigh
+frequencybusservicesarebasedononlythestopsutilisedby
+those services rather than the entire route.

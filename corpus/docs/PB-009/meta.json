@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/system/files/2021-07/PB_70_caretakers_dwellings_industrial_areas.pdf",
+  "fetched_at": "2026-06-09T23:08:28Z",
+  "http_status": 200,
+  "content_hash": "33eafcbad85de8078d148ac436c4d69a0e114b22b0cebdea5131c7f84fe3dca3",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/PB_70_caretakers_dwellings_industrial_areas.pdf",
+  "used_playwright": false,
+  "bytes": 108366
+}

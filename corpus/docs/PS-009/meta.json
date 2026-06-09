@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/position-statement-housing-lots-less-100m2",
+  "fetched_at": "2026-06-09T22:35:18Z",
+  "http_status": 200,
+  "content_hash": "77b5e467f2bc17f55a4ca4489cf6af99d2bd58a2bb370c4cc9fb60057d49485a",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2024-06/position-statement-housing-on-lots-less-than-100m2-2024-active.pdf",
+  "used_playwright": false,
+  "bytes": 924626
+}

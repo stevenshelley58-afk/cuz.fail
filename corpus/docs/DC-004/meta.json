@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/development-control-policy-16-planning-support-transit-use-and-development",
+  "fetched_at": "2026-06-09T22:35:05Z",
+  "http_status": 200,
+  "content_hash": "534dff8e9f08ec65dd954ccd5cd63c9b63218ebfb157d6250e02999ccbb37265",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-07/DCP_1-6_transit_use.pdf",
+  "used_playwright": false,
+  "bytes": 313737
+}

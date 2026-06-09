@@ -1,0 +1,20 @@
+{
+  "id": "FRE-LPP-016",
+  "title": "Local Planning",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Fremantle",
+  "version_date": "",
+  "pages": 9,
+  "key_provisions": [
+    {
+      "heading": "1.1 Development applications proposing greater than 50 dwellings shall be",
+      "summary": "supplemented with a formal risk assessment. The assessment shall clearly"
+    }
+  ],
+  "cross_references": [
+    "LPP 2.3",
+    "State Planning Policy 5.4: Road and Rail Noise"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:36Z"
+}

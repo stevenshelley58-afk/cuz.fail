@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/draft-position-statement-electric-vehicle-charging-infrastructure",
+  "fetched_at": "2026-06-09T22:35:15Z",
+  "http_status": 200,
+  "content_hash": "bdaf01deed6a02d8cd761e127cc6766f29ab1d83ea93084e9cb9764bb1884e72",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2024-03/electric-vehicle-charging-infrastructure-mar2024.pdf",
+  "used_playwright": false,
+  "bytes": 536698
+}

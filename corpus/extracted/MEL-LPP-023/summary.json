@@ -1,0 +1,54 @@
+{
+  "id": "MEL-LPP-023",
+  "title": "Tennis Courts",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Melville",
+  "version_date": "October 2019",
+  "pages": 4,
+  "key_provisions": [
+    {
+      "heading": "1 Occupancy",
+      "summary": "1.1 Tennis courts constructed within the residential curtilage of a residential property or"
+    },
+    {
+      "heading": "2 Fencing",
+      "summary": "2.1 Tennis court fencing shall not exceed a height of 3.05m (grass courts) or 3.66m (hard"
+    },
+    {
+      "heading": "2.2 Fencing shall be:",
+      "summary": "(a) Where located within the front setback area, visually permeable as defined by"
+    },
+    {
+      "heading": "3 Landscaping",
+      "summary": "3.1 Where a tennis court is to be located adjacent to a street boundary, landscaping may"
+    },
+    {
+      "heading": "4 Lighting",
+      "summary": "4.1 Floodlighting for tennis courts shall comply with the following requirements and be"
+    },
+    {
+      "heading": "5 Use of Tennis Court",
+      "summary": "5.2 The use of a tennis court for any purpose is to comply with the Environmental"
+    },
+    {
+      "heading": "5.1 Approved tennis courts may be utilised for other sporting codes",
+      "summary": "5.2 The use of a tennis court for any purpose is to comply with the Environmental"
+    },
+    {
+      "heading": "6 Applications",
+      "summary": "6.1 Applications for the installation of tennis courts are to be made in accordance with the"
+    }
+  ],
+  "cross_references": [
+    "LPP 3.4",
+    "Local Planning Scheme No. 6",
+    "Planning and Development (Local Planning Schemes) Regulations 2015",
+    "Planning and Development Act 2005",
+    "R-Codes",
+    "Residential Design Codes Volume 1",
+    "Residential Design Codes Volume 2",
+    "State Planning Policy 7.3"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:38:18Z"
+}

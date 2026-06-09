@@ -1,0 +1,49 @@
+{
+  "id": "MEL-LPP-009",
+  "title": "Height of Buildings",
+  "instrument_type": "LPP",
+  "issuing_authority": "City of Melville",
+  "version_date": "June 2020",
+  "pages": 5,
+  "key_provisions": [
+    {
+      "heading": "1.9 LPS6 - Local Planning Scheme No. 6.",
+      "summary": "1.10 R-Codes – State Planning Policy 7.3 Residential Design Codes Volume 1 and State Planning"
+    },
+    {
+      "heading": "2.1 Permitted building height",
+      "summary": "2.1.1 General Residential and Mixed Use zone"
+    },
+    {
+      "heading": "3 Column C;",
+      "summary": "For multiple dwellings as per R-Codes Volume 2 Tables 2.1 Primary"
+    },
+    {
+      "heading": "2.2 Measurement of Height",
+      "summary": "The height of a building is taken as the highest point at any part of the development"
+    },
+    {
+      "heading": "2.3 Minor Projections",
+      "summary": "Minor Projections may be approved at a height greater than that allowed in LPS6 and in"
+    },
+    {
+      "heading": "2.4 Skillion Roof",
+      "summary": "Where a skillion roof is proposed, the eave height measurement shall be taken from natural"
+    }
+  ],
+  "cross_references": [
+    "LPP1.7",
+    "LPP1.9",
+    "LPP2.1",
+    "Local Planning Scheme No. 6",
+    "Planning and Development Act 2005",
+    "R-Codes",
+    "R-Codes Volume 1",
+    "R-Codes Volume 2",
+    "Residential Design Codes Volume 1",
+    "Residential Design Codes Volume 2",
+    "State Planning Policy 7.3"
+  ],
+  "tables_skipped": false,
+  "extracted_at": "2026-06-09T22:34:48Z"
+}

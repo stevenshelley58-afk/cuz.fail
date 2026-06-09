@@ -1,0 +1,10 @@
+{
+  "url": "https://www.wa.gov.au/government/publications/state-planning-policy-20-environment-and-natural-resources-policy",
+  "fetched_at": "2026-06-09T22:34:48Z",
+  "http_status": 200,
+  "content_hash": "03b0969706fb4a444dd3bce141b9bdff2694d18e1ab81be0fe8d92557d279209",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-06/SPP_2-0_environment_natural_resources.pdf",
+  "used_playwright": false,
+  "bytes": 91729
+}
