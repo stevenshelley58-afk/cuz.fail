@@ -25,7 +25,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo, type PropertyProfileResponse, type PropertyFactResponse, type ProposalRequest, type ProposalResponse, type RuleSummary, type CandidateSummary } from "./api";
+import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo, type PropertyProfileResponse, type PropertyFactResponse, type ProposalRequest, type ProposalResponse, type RuleSummary, type CandidateSummary, type ComplianceRunResponse, type ComplianceResultItem, type ExtractedFact, type DocumentUploadResponse } from "./api";
 import "./styles.css";
 
 /* ── dev login ──
@@ -527,12 +527,14 @@ function ProposalForm({
 /* ── ConfirmationStep (Step 3) ── */
 
 function ConfirmationStep({
+  projectId,
   address,
   property,
   proposal,
   onBack,
   onStart,
 }: {
+  projectId: string;
   address: string;
   property: PropertyProfileResponse | null;
   proposal: ProposalRequest;
@@ -624,19 +626,577 @@ function ConfirmationStep({
         </div>
       </div>
 
-      <div style={{ background: "var(--paper)", border: "1px dashed var(--line)", borderRadius: 14, padding: "12px 14px", marginBottom: 16 }}>
-        <div style={{ fontSize: ".78rem", fontWeight: 700, color: "var(--ink-soft)", marginBottom: 4 }}>Coming soon</div>
-        <div style={{ fontSize: ".82rem", color: "var(--ink-soft)" }}>
-          Tier-1 compliance checks (setbacks, site coverage, open space) will be available here once the compliance engine is built.
-        </div>
-      </div>
+      <DocumentUpload projectId={projectId} />
+
+      <CompliancePanel projectId={projectId} />
 
       <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
         <button className="btn alt" onClick={onBack}>← Back to edit</button>
-        <button className="btn" onClick={onStart} disabled>
-          <Icon name="check_circle" />Start checking (coming soon)
+        <button className="btn" onClick={onStart}>
+          <Icon name="check_circle" />Start checking
         </button>
       </div>
+    </div>
+  );
+}
+
+/* ── CompliancePanel ── */
+
+type CompliancePanelProps = {
+  projectId: string;
+};
+
+function StatusBadge({ status }: { status: ComplianceResultItem["status"] }) {
+  if (status === "likely_pass")
+    return (
+      <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#16a34a", fontWeight: 600 }}>
+        <CheckCircle2 size={16} /> Pass
+      </span>
+    );
+  if (status === "likely_fail")
+    return (
+      <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#dc2626", fontWeight: 600 }}>
+        <CircleAlert size={16} /> Fail
+      </span>
+    );
+  if (status === "needs_more_info")
+    return (
+      <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#ca8a04", fontWeight: 600 }}>
+        <CircleHelp size={16} /> More info needed
+      </span>
+    );
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#6b7280", fontWeight: 600 }}>
+      — Unsupported
+    </span>
+  );
+}
+
+function ComplianceResultRow({
+  item,
+  onUploadDrawing,
+}: {
+  item: ComplianceResultItem;
+  onUploadDrawing?: () => void;
+}) {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <div
+      style={{
+        border: "1px solid #e5e7eb",
+        borderRadius: 8,
+        marginBottom: 8,
+        overflow: "hidden",
+      }}
+    >
+      <button
+        onClick={() => setExpanded((v) => !v)}
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "10px 14px",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          textAlign: "left",
+        }}
+      >
+        <span style={{ fontWeight: 500, fontSize: 14 }}>{item.check_name}</span>
+        <StatusBadge status={item.status} />
+      </button>
+
+      {expanded && (
+        <div style={{ padding: "0 14px 14px", fontSize: 13, color: "#374151" }}>
+          {(item.measured_value !== null || item.threshold_value !== null) && (
+            <div
+              style={{
+                display: "flex",
+                gap: 24,
+                background: "#f9fafb",
+                borderRadius: 6,
+                padding: "8px 12px",
+                marginBottom: 10,
+              }}
+            >
+              <div>
+                <div style={{ fontSize: 11, color: "#6b7280", marginBottom: 2 }}>Measured</div>
+                <div style={{ fontWeight: 600 }}>
+                  {item.measured_value ?? "—"}{" "}
+                  {item.threshold_unit ? <span style={{ fontWeight: 400, color: "#6b7280" }}>{item.threshold_unit}</span> : null}
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: 11, color: "#6b7280", marginBottom: 2 }}>Threshold</div>
+                <div style={{ fontWeight: 600 }}>
+                  {item.threshold_value ?? "—"}{" "}
+                  {item.threshold_unit ? <span style={{ fontWeight: 400, color: "#6b7280" }}>{item.threshold_unit}</span> : null}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {item.rule_quote && (
+            <blockquote
+              style={{
+                margin: "0 0 8px",
+                paddingLeft: 10,
+                borderLeft: "3px solid #d1d5db",
+                color: "#4b5563",
+                fontStyle: "italic",
+                fontSize: 12,
+              }}
+            >
+              {item.rule_quote}
+            </blockquote>
+          )}
+
+          {item.citation && (
+            <div style={{ fontSize: 12, color: "#6b7280", marginBottom: 8 }}>
+              <span style={{ fontWeight: 500 }}>Source:</span> {item.citation}
+            </div>
+          )}
+
+          {item.status === "needs_more_info" && (
+            <div
+              style={{
+                background: "#fffbeb",
+                border: "1px solid #fde68a",
+                borderRadius: 6,
+                padding: "8px 12px",
+                marginTop: 8,
+              }}
+            >
+              <div style={{ fontWeight: 500, marginBottom: 4, color: "#92400e" }}>Missing information</div>
+              {item.missing_data && item.missing_data.length > 0 ? (
+                <ul style={{ margin: "0 0 8px", paddingLeft: 16 }}>
+                  {item.missing_data.map((d) => (
+                    <li key={d} style={{ fontSize: 12 }}>{d}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {onUploadDrawing && (
+                <button
+                  onClick={onUploadDrawing}
+                  style={{
+                    fontSize: 12,
+                    padding: "4px 10px",
+                    background: "#f59e0b",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: 4,
+                    cursor: "pointer",
+                  }}
+                >
+                  Upload drawing to provide this data
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CompliancePanel({ projectId }: CompliancePanelProps) {
+  const [runResult, setRunResult] = useState<ComplianceRunResponse | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [uploadPrompted, setUploadPrompted] = useState(false);
+
+  useEffect(() => {
+    api.compliance.matrix(projectId).then((r) => {
+      if (r.kind === "ok") setRunResult(r.data);
+    });
+  }, [projectId]);
+
+  async function runCheck() {
+    setLoading(true);
+    setError(null);
+    const r = await api.compliance.run(projectId);
+    setLoading(false);
+    if (r.kind === "ok") {
+      setRunResult(r.data);
+    } else if (r.kind === "notBuilt") {
+      setError("Compliance check endpoint not yet available on this server.");
+    } else if (r.kind === "auth") {
+      setError("Sign in required.");
+    } else if (r.kind === "error") {
+      setError(r.message);
+    } else {
+      setError("Could not reach server.");
+    }
+  }
+
+  const results = runResult?.results ?? [];
+  const passCount = results.filter((r) => r.status === "likely_pass").length;
+  const failCount = results.filter((r) => r.status === "likely_fail").length;
+  const moreInfoCount = results.filter((r) => r.status === "needs_more_info").length;
+
+  return (
+    <div style={{ padding: "0 0 24px" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
+        <div>
+          <h3 style={{ margin: 0, fontSize: 16, fontWeight: 600 }}>Compliance check</h3>
+          {results.length > 0 && (
+            <div style={{ fontSize: 12, color: "#6b7280", marginTop: 4 }}>
+              {passCount} pass · {failCount} fail · {moreInfoCount} needs info · {results.filter(r => r.status === "unsupported").length} unsupported
+            </div>
+          )}
+        </div>
+        <button
+          onClick={() => void runCheck()}
+          disabled={loading}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            padding: "8px 16px",
+            background: loading ? "#e5e7eb" : "#2563eb",
+            color: loading ? "#6b7280" : "#fff",
+            border: "none",
+            borderRadius: 6,
+            cursor: loading ? "not-allowed" : "pointer",
+            fontWeight: 500,
+            fontSize: 14,
+          }}
+        >
+          <RefreshCw size={15} style={loading ? { animation: "spin 1s linear infinite" } : {}} />
+          {loading ? "Running…" : "Run compliance check"}
+        </button>
+      </div>
+
+      {error && (
+        <div
+          style={{
+            background: "#fef2f2",
+            border: "1px solid #fecaca",
+            borderRadius: 6,
+            padding: "8px 12px",
+            color: "#b91c1c",
+            fontSize: 13,
+            marginBottom: 12,
+          }}
+        >
+          {error}
+        </div>
+      )}
+
+      {results.length === 0 && !loading && !error && (
+        <div style={{ color: "#6b7280", fontSize: 14 }}>
+          No compliance results yet. Run a check to get started.
+        </div>
+      )}
+
+      {results.map((item) => (
+        <ComplianceResultRow
+          key={item.check_key}
+          item={item}
+          onUploadDrawing={item.status === "needs_more_info" ? () => setUploadPrompted(true) : undefined}
+        />
+      ))}
+
+      {uploadPrompted && (
+        <div
+          style={{
+            marginTop: 12,
+            padding: "10px 14px",
+            background: "#eff6ff",
+            border: "1px solid #bfdbfe",
+            borderRadius: 8,
+            fontSize: 13,
+            color: "#1e40af",
+          }}
+        >
+          Scroll down to the Documents section to upload a drawing or plan.
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── DocumentUpload ── */
+
+function ConfidenceBar({ value }: { value: number }) {
+  const pct = Math.round(value * 100);
+  const color = pct >= 80 ? "#16a34a" : pct >= 50 ? "#ca8a04" : "#dc2626";
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+      <div
+        style={{
+          flex: 1,
+          height: 6,
+          background: "#e5e7eb",
+          borderRadius: 3,
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            width: `${pct}%`,
+            height: "100%",
+            background: color,
+            borderRadius: 3,
+            transition: "width 0.3s",
+          }}
+        />
+      </div>
+      <span style={{ fontSize: 11, color: "#6b7280", minWidth: 32 }}>{pct}%</span>
+    </div>
+  );
+}
+
+function FactCard({
+  fact,
+  docId,
+  onConfirmed,
+}: {
+  fact: ExtractedFact;
+  docId: string;
+  onConfirmed: (factKey: string) => void;
+}) {
+  const [confirming, setConfirming] = useState(false);
+  const [confirmed, setConfirmed] = useState(fact.confirmed ?? false);
+  const [err, setErr] = useState<string | null>(null);
+
+  async function confirm() {
+    setConfirming(true);
+    setErr(null);
+    const r = await api.documents.confirmFact(docId, fact.fact_key);
+    setConfirming(false);
+    if (r.kind === "ok" || r.kind === "notBuilt") {
+      setConfirmed(true);
+      onConfirmed(fact.fact_key);
+    } else {
+      setErr("Could not confirm fact.");
+    }
+  }
+
+  return (
+    <div
+      style={{
+        border: `1px solid ${confirmed ? "#bbf7d0" : "#e5e7eb"}`,
+        borderRadius: 8,
+        padding: "10px 14px",
+        marginBottom: 8,
+        background: confirmed ? "#f0fdf4" : "#fff",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 8 }}>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontWeight: 500, fontSize: 13, marginBottom: 4 }}>
+            {fact.fact_key.replace(/_/g, " ")}
+          </div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: "#111827", marginBottom: 4 }}>
+            {fact.numeric_value !== null ? (
+              <>
+                {fact.numeric_value}
+                {fact.unit ? <span style={{ fontWeight: 400, fontSize: 12, color: "#6b7280", marginLeft: 4 }}>{fact.unit}</span> : null}
+              </>
+            ) : (
+              <span style={{ color: "#9ca3af" }}>No numeric value</span>
+            )}
+          </div>
+          <ConfidenceBar value={fact.confidence} />
+          {fact.source_text && (
+            <div
+              style={{
+                marginTop: 6,
+                fontSize: 11,
+                color: "#6b7280",
+                fontStyle: "italic",
+                background: "#f9fafb",
+                borderRadius: 4,
+                padding: "4px 8px",
+                borderLeft: "2px solid #d1d5db",
+              }}
+            >
+              {fact.source_text.length > 120
+                ? fact.source_text.slice(0, 120) + "…"
+                : fact.source_text}
+            </div>
+          )}
+        </div>
+        <div style={{ flexShrink: 0 }}>
+          {confirmed ? (
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#16a34a", fontSize: 12 }}>
+              <CheckCircle2 size={14} /> Confirmed
+            </span>
+          ) : (
+            <button
+              onClick={() => void confirm()}
+              disabled={confirming}
+              style={{
+                fontSize: 12,
+                padding: "4px 10px",
+                background: confirming ? "#e5e7eb" : "#2563eb",
+                color: confirming ? "#6b7280" : "#fff",
+                border: "none",
+                borderRadius: 4,
+                cursor: confirming ? "not-allowed" : "pointer",
+              }}
+            >
+              {confirming ? "Confirming…" : "Confirm"}
+            </button>
+          )}
+        </div>
+      </div>
+      {err && <div style={{ color: "#dc2626", fontSize: 11, marginTop: 4 }}>{err}</div>}
+    </div>
+  );
+}
+
+function DocumentUpload({ projectId }: { projectId: string }) {
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [uploadResult, setUploadResult] = useState<DocumentUploadResponse | null>(null);
+  const [confirmedKeys, setConfirmedKeys] = useState<Set<string>>(new Set());
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    setUploadError(null);
+    setUploadResult(null);
+    const r = await api.documents.upload(projectId, file);
+    setUploading(false);
+    if (r.kind === "ok") {
+      setUploadResult(r.data);
+    } else if (r.kind === "notBuilt") {
+      setUploadError("Document upload endpoint not yet available on this server.");
+    } else if (r.kind === "auth") {
+      setUploadError("Sign in required.");
+    } else if (r.kind === "error") {
+      setUploadError(r.message);
+    } else {
+      setUploadError("Could not reach server.");
+    }
+    if (fileRef.current) fileRef.current.value = "";
+  }
+
+  function handleConfirmed(factKey: string) {
+    setConfirmedKeys((prev) => new Set([...prev, factKey]));
+  }
+
+  const facts = uploadResult?.extracted_facts ?? [];
+
+  return (
+    <div style={{ padding: "0 0 24px" }}>
+      <h3 style={{ margin: "0 0 12px", fontSize: 16, fontWeight: 600 }}>Documents</h3>
+
+      <label
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 8,
+          border: "2px dashed #d1d5db",
+          borderRadius: 10,
+          padding: "24px 16px",
+          cursor: "pointer",
+          background: uploading ? "#f9fafb" : "#fff",
+          transition: "border-color 0.15s",
+        }}
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={(e) => {
+          e.preventDefault();
+          const file = e.dataTransfer.files?.[0];
+          if (file && fileRef.current) {
+            const dt = new DataTransfer();
+            dt.items.add(file);
+            fileRef.current.files = dt.files;
+            fileRef.current.dispatchEvent(new Event("change", { bubbles: true }));
+          }
+        }}
+      >
+        {uploading ? (
+          <>
+            <RefreshCw size={24} style={{ color: "#2563eb", animation: "spin 1s linear infinite" }} />
+            <span style={{ fontSize: 13, color: "#6b7280" }}>Uploading…</span>
+          </>
+        ) : (
+          <>
+            <Sparkles size={24} style={{ color: "#9ca3af" }} />
+            <span style={{ fontSize: 14, fontWeight: 500 }}>
+              Upload a drawing or document
+            </span>
+            <span style={{ fontSize: 12, color: "#9ca3af" }}>
+              PDF, DOCX, TXT, DXF — click or drag and drop
+            </span>
+          </>
+        )}
+        <input
+          ref={fileRef}
+          type="file"
+          accept=".pdf,.docx,.txt,.dxf"
+          style={{ display: "none" }}
+          onChange={(e) => void handleFile(e)}
+        />
+      </label>
+
+      {uploadError && (
+        <div
+          style={{
+            marginTop: 10,
+            background: "#fef2f2",
+            border: "1px solid #fecaca",
+            borderRadius: 6,
+            padding: "8px 12px",
+            color: "#b91c1c",
+            fontSize: 13,
+          }}
+        >
+          {uploadError}
+        </div>
+      )}
+
+      {uploadResult && (
+        <div style={{ marginTop: 16 }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              marginBottom: 12,
+              fontSize: 14,
+              color: "#374151",
+            }}
+          >
+            <BookOpen size={16} />
+            <span style={{ fontWeight: 500 }}>{uploadResult.filename}</span>
+            <span style={{ color: "#6b7280" }}>·</span>
+            <span style={{ color: "#6b7280" }}>
+              {facts.length} fact{facts.length !== 1 ? "s" : ""} extracted
+            </span>
+            {confirmedKeys.size > 0 && (
+              <>
+                <span style={{ color: "#6b7280" }}>·</span>
+                <span style={{ color: "#16a34a" }}>{confirmedKeys.size} confirmed</span>
+              </>
+            )}
+          </div>
+
+          {facts.length === 0 && (
+            <div style={{ color: "#6b7280", fontSize: 13 }}>
+              No measurable facts were extracted from this document.
+            </div>
+          )}
+
+          {facts.map((fact) => (
+            <FactCard
+              key={fact.fact_key}
+              fact={{ ...fact, confirmed: confirmedKeys.has(fact.fact_key) }}
+              docId={uploadResult.document_id}
+              onConfirmed={handleConfirmed}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -716,6 +1276,7 @@ function WizardShell({
 
       {state.step === 3 && (
         <ConfirmationStep
+          projectId={state.projectId}
           address={state.address}
           property={state.property}
           proposal={state.proposal}

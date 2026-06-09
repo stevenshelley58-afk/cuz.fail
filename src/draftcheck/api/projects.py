@@ -7,6 +7,11 @@ Implements the four frozen-contract endpoints:
   POST /projects/{id}/property/override  → 200 PropertyFactResponse  [authenticated]
   POST /projects/{id}/proposal  → 200 ProposalResponse  [idempotent upsert]
 
+Stage 3 additions:
+  GET    /projects/{id}        → 200 ProjectResponse
+  PATCH  /projects/{id}        → 200 ProjectResponse
+  DELETE /projects/{id}        → 204 No Content  (hard delete)
+
 HARD STOPS — intentionally not implemented here:
   POST /projects/{id}/resolve-address  — owned by api/address.py
   GET  /projects/{id}/property         — owned by api/address.py
@@ -93,6 +98,17 @@ DbSession = Annotated[Session, Depends(get_db_session)]
 class CreateProjectRequest(BaseModel):
     name: str = Field(min_length=1, max_length=240)
     council_scope: str | None = Field(default=None, max_length=200)
+
+
+class UpdateProjectRequest(BaseModel):
+    name: str | None = Field(default=None, min_length=1, max_length=240)
+    council_scope: str | None = Field(default=None, max_length=200)
+    proposal_type: str | None = Field(default=None, max_length=80)
+    dwelling_type: str | None = Field(default=None, max_length=80)
+    building_class: str | None = Field(default=None, max_length=40)
+    work_type: str | None = Field(default=None, max_length=80)
+    new_or_existing: str | None = Field(default=None, max_length=40)
+    lot_type: str | None = Field(default=None, max_length=80)
 
 
 class ProjectResponse(BaseModel):
@@ -234,6 +250,17 @@ def _resolve_org_id(active_session: ActiveSession, project: Project | None) -> s
     )
 
 
+def _get_project_or_404(project_id: str, db: Session) -> Project:
+    """Fetch a project by id or raise 404."""
+    project = _project_svc.get_project(project_id=project_id, session=db)
+    if project is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Project {project_id!r} not found.",
+        )
+    return project
+
+
 # ---------------------------------------------------------------------------
 # Endpoints
 # ---------------------------------------------------------------------------
@@ -275,6 +302,104 @@ def list_projects(
     org_id = _resolve_org_id(active_session, None)
     projects = _project_svc.list_projects(org_id=org_id, session=db)
     return [_project_response(p) for p in projects]
+
+
+@router.get(
+    "/{project_id}",
+    response_model=ProjectResponse,
+    summary="Get a project by id",
+)
+def get_project(
+    project_id: str,
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    db: DbSession,
+) -> ProjectResponse:
+    project = _get_project_or_404(project_id, db)
+    # Ensure the caller belongs to this project's org (or is a guest with org resolved from project).
+    _resolve_org_id(active_session, project)
+    return _project_response(project)
+
+
+@router.patch(
+    "/{project_id}",
+    response_model=ProjectResponse,
+    summary="Update a project's name or metadata fields",
+)
+def update_project(
+    project_id: str,
+    payload: UpdateProjectRequest,
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    db: DbSession,
+) -> ProjectResponse:
+    """Partial update — only supplied (non-None) fields are written.
+
+    Updatable fields:
+      name           — project display name
+      council_scope  — stored in metadata_json["council_scope"]
+
+    Proposal-level fields (proposal_type, dwelling_type, building_class,
+    work_type, new_or_existing, lot_type) are accepted here for convenience
+    but are written via ProposalService.upsert_proposal so the Proposal
+    invariants (dwelling_type lives in Proposal, not PropertyFact) are
+    always respected.
+    """
+    project = _get_project_or_404(project_id, db)
+    _resolve_org_id(active_session, project)
+
+    # Update core project fields.
+    if payload.name is not None:
+        project.name = payload.name
+
+    if payload.council_scope is not None:
+        meta = dict(project.metadata_json) if isinstance(project.metadata_json, dict) else {}
+        meta["council_scope"] = payload.council_scope
+        project.metadata_json = meta
+
+    # Update proposal-level fields if any were supplied.
+    proposal_fields = {
+        k: v
+        for k, v in {
+            "proposal_type": payload.proposal_type,
+            "dwelling_type": payload.dwelling_type,
+            "building_class": payload.building_class,
+            "work_type": payload.work_type,
+            "new_or_existing": payload.new_or_existing,
+            "lot_type": payload.lot_type,
+        }.items()
+        if v is not None
+    }
+    if proposal_fields:
+        try:
+            _proposal_svc.upsert_proposal(
+                project_id=project_id,
+                data=proposal_fields,
+                session=db,
+            )
+        except ValueError as exc:
+            raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail=str(exc)) from exc
+
+    db.flush()
+    return _project_response(project)
+
+
+@router.delete(
+    "/{project_id}",
+    status_code=status.HTTP_204_NO_CONTENT,
+    summary="Delete a project (hard delete)",
+)
+def delete_project(
+    project_id: str,
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    db: DbSession,
+) -> None:
+    """Hard-delete a project and all child rows (cascaded by FK constraints).
+
+    Returns 204 No Content on success, 404 if the project does not exist.
+    """
+    project = _get_project_or_404(project_id, db)
+    _resolve_org_id(active_session, project)
+    db.delete(project)
+    db.flush()
 
 
 @router.post(
