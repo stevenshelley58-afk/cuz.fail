@@ -9,6 +9,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from pydantic import BaseModel, Field
 
+from draftcheck.api.rate_limit import limiter
 from draftcheck.config import Settings, get_settings
 from draftcheck.domain.identity import (
     ActiveSession,
@@ -192,6 +193,7 @@ def get_current_session(
     status_code=status.HTTP_202_ACCEPTED,
     include_in_schema=False,
 )
+@limiter.limit("10/minute")
 def request_magic_link(
     payload: MagicLinkRequest,
     request: Request,
@@ -203,6 +205,7 @@ def request_magic_link(
 
 
 @router.post("/auth/magic-link/verify", response_model=VerifyMagicLinkResponse, include_in_schema=False)
+@limiter.limit("10/minute")
 def verify_magic_link(
     payload: MagicLinkVerifyRequest,
     request: Request,
@@ -214,6 +217,7 @@ def verify_magic_link(
 
 
 @router.post("/auth/dev-login", response_model=VerifyMagicLinkResponse, include_in_schema=False)
+@limiter.limit("10/minute")
 def dev_login(
     payload: DevLoginRequest,
     request: Request,

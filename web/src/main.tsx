@@ -1,5 +1,6 @@
 import { StrictMode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { marked } from "marked";
+import DOMPurify from "dompurify";
 import { createRoot } from "react-dom/client";
 import {
   ArrowUp,
@@ -1594,7 +1595,7 @@ function Home({
               ) : (
                 <div key={i} className={`a${m.tone ? ` ${m.tone}` : ""}`}>
                   {m.thinking && <ThinkBlock text={m.thinking} />}
-                  <div className="md" dangerouslySetInnerHTML={{ __html: marked.parse(m.text) as string }} />
+                  <div className="md" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(marked.parse(m.text) as string) }} />
                   {m.chips && (
                     <div className="src">
                       {m.chips.map((c, j) => (

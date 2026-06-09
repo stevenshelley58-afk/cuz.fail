@@ -11,13 +11,15 @@ import os
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter
+from typing import Annotated
+
+from fastapi import APIRouter, Depends
 from sqlalchemy import text
 
 from draftcheck.db.engine import create_runtime_engine
 
 from draftcheck.api.address import router as address_router
-from draftcheck.api.auth import router as auth_router
+from draftcheck.api.auth import get_current_session, router as auth_router
 from draftcheck.api.compliance import router as compliance_router
 from draftcheck.api.documents import router as documents_router
 from draftcheck.api.health import router as health_router
@@ -75,10 +77,10 @@ def _ready_probe_database() -> dict[str, str]:
             "status": "ok",
             "detail": f"{engine.dialect.name} connection ok",
         }
-    except Exception as exc:
+    except Exception:
         return {
             "status": "error",
-            "detail": f"database probe failed: {exc}",
+            "detail": "database probe failed",
         }
     finally:
         if engine is not None:
@@ -141,7 +143,9 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
     api_router.include_router(agent_router)
 
     @api_router.get("/ops/dashboard", tags=["ops"])
-    def ops_dashboard() -> dict[str, Any]:
+    def ops_dashboard(
+        _active_session: Annotated[Any, Depends(get_current_session)],  # Any: ActiveSession not imported here
+    ) -> dict[str, Any]:
         queue_configured = bool(os.getenv("PROCRASTINATE_DB_URI") or os.getenv("DATABASE_URL"))
         source_status = _ops_source_status(source_library)
         counts = source_status.get("counts") if isinstance(source_status.get("counts"), dict) else {}

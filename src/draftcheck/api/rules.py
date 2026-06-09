@@ -17,7 +17,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field
 
-from draftcheck.api.auth import get_current_session
+from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.rules.service import (
     approve_rule,
@@ -241,6 +241,7 @@ def review_candidate_endpoint(
     candidate_id: UUID,
     payload: CandidateReviewPayload,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
 ) -> dict[str, Any]:
     """Set review_status to 'pending_review' or 'rejected' (operator only)."""
     _require_operator(active_session)
@@ -336,6 +337,7 @@ def review_rule_endpoint(
     rule_id: UUID,
     payload: RuleReviewPayload,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
 ) -> dict[str, Any]:
     """Set lifecycle_status to 'approved' or 'rejected' (operator only).
 

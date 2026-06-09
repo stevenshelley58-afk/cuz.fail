@@ -12,12 +12,13 @@ import os
 from typing import Annotated, Any
 from uuid import uuid4
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from draftcheck.ai import DbJobTraceStore, InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
 from draftcheck.api.auth import get_current_session, require_allowed_origin
+from draftcheck.api.rate_limit import limiter
 from draftcheck.providers import get_chat_provider
 from draftcheck.db.engine import create_session_factory, database_url_from_env
 from draftcheck.domain.identity import ActiveSession
@@ -971,7 +972,9 @@ def create_sources_router(
         return {"items": [_hit_payload(hit) for hit in hits], "count": len(hits)}
 
     @api_router.post("/search/ask", tags=["search"])
+    @limiter.limit("30/minute")
     def search_ask(
+        request: Request,
         payload: SearchAskPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
         _active_session: Annotated[ActiveSession, Depends(get_current_session)],
@@ -987,9 +990,12 @@ def create_sources_router(
         return _answer_payload(traced_answer)
 
     @api_router.post("/assistant", tags=["search"])
+    @limiter.limit("30/minute")
     def assistant_chat(
+        request: Request,
         payload: AssistantPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         question = _required_query(payload.message, payload.question, payload.query, payload.q)
         provider = get_chat_provider()

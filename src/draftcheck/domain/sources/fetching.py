@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import ipaddress
+import socket
 from dataclasses import dataclass
 from hashlib import sha256
 from io import BytesIO
@@ -589,13 +591,31 @@ def _label_from_url(url: str) -> str:
     return cleaned or url
 
 
+_PRIVATE_NETWORKS = [
+    ipaddress.ip_network("10.0.0.0/8"),
+    ipaddress.ip_network("172.16.0.0/12"),
+    ipaddress.ip_network("192.168.0.0/16"),
+    ipaddress.ip_network("169.254.0.0/16"),
+    ipaddress.ip_network("127.0.0.0/8"),
+    ipaddress.ip_network("::1/128"),
+    ipaddress.ip_network("fc00::/7"),
+]
+
+
 def _assert_lawful_public_url(url: str, *, licence_notes: str) -> None:
     parsed = urlparse(url)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         raise ValueError("only absolute public HTTP(S) URLs can be fetched")
     host = (parsed.hostname or "").lower()
-    if host in {"localhost", "127.0.0.1", "::1"} or host.endswith(".local"):
-        raise ValueError("private/local URLs cannot be fetched as source material")
+    # Resolve DNS eagerly to prevent SSRF via DNS rebinding or RFC-1918 aliases.
+    try:
+        infos = socket.getaddrinfo(host, None)
+    except OSError as exc:
+        raise ValueError(f"cannot resolve host: {exc}") from exc
+    for _fam, _type, _proto, _canon, sockaddr in infos:
+        addr = ipaddress.ip_address(sockaddr[0])
+        if any(addr in net for net in _PRIVATE_NETWORKS):
+            raise ValueError("private/reserved IP addresses cannot be fetched as source material")
     lowered = f"{url} {licence_notes}".lower()
     if any(term in lowered for term in RESTRICTED_TERMS):
         raise ValueError("restricted source URL or licence notes require automated validation")
