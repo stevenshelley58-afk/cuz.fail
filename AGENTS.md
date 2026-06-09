@@ -19,7 +19,7 @@
   operator shell. For exact deploy commands and verification, use
   `docs/PRODUCTION_DEPLOYMENT.md`.
 - This grants process autonomy only. It does not loosen the product's legal governance
-  below (rule approval, signoffs, citation requirements), which are runtime product
+  below (rule approval, automated validation gates, citation requirements), which are runtime product
   features — they gate what the app emits, not what agents may build.
 
 - Build toward one repo, one VPS, one `/api/v1` mount, one PostgreSQL database, one
@@ -37,11 +37,11 @@
 - No `likely_pass` or `likely_fail` may be emitted without an approved rule, promoted
   measurement, official citation, and decision trace.
 - Prefer deterministic calculations for measurements. If measurements are absent or
-  ambiguous, return missing information or human review status.
+  ambiguous, return missing information or operator review status.
 - No raster/PDF-derived measurement may be used without explicit calibration.
 - Approved rules never silently change; changed sources create new source versions.
 - No paid Standards Australia full text may be stored unless lawfully supplied and reviewed.
-- No export is submission-ready without human signoff.
+- No export is submission-ready without automated validation gate.
 - Numeric/legal examples in docs are illustrative only; hardcoding them is a defect.
 - Alembic is the only schema authority for the new app. `create_all` must not ship in V3.
 

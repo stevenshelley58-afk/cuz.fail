@@ -136,7 +136,7 @@ the BAL/bushfire trigger your compliance checks already reference.
 
 Standards Australia full text (e.g. **AS 3959** bushfire construction) is **paid/proprietary**. Per the
 plan's safety boundary, **do not scrape or store the full text** — store public metadata + an access
-note only, and use a lawfully licensed copy for any human review. <https://www.standards.org.au/>
+note only, and use a lawfully licensed copy for any licensed review. <https://www.standards.org.au/>
 
 ## 8. Accounts to create now (the action list)
 

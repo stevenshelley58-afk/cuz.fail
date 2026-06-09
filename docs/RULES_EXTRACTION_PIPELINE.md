@@ -105,7 +105,7 @@ Run as Hermes/BackgroundJob chain. Every step writes JobTrace rows.
   misread) or hold with a quoted justification. Concede → accepted at 0.85.
   Hold → `pending_review` (human).
 - **No 2-way agreement** → `pending_review` with all three candidates attached.
-- Human review UI shows: clause text, highlighted quotes, the candidate rows
+- Operator review UI shows: clause text, highlighted quotes, the candidate rows
   side by side. One click approve/edit/reject. Target: minutes per document.
 
 ### 2.5 Coverage audit (the "did we miss anything" answer)

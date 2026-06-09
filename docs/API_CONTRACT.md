@@ -54,8 +54,8 @@ The API is exposed under `/v1`. Compatibility aliases are also mounted under `/a
 - `POST /v1/projects/{project_id}/exports`
 - `GET /v1/projects/{project_id}/exports`
 - `GET /v1/projects/{project_id}/exports/{export_id}/download`
-- `POST /v1/projects/{project_id}/signoffs`
-- `GET /v1/projects/{project_id}/signoffs`
+- `POST /v1/projects/{project_id}/validations`
+- `GET /v1/projects/{project_id}/validations`
 - `GET /v1/jobs/{job_id}`
 - `POST /v1/jobs/{job_id}/retry`
 - `POST /v1/jobs/{job_id}/cancel`

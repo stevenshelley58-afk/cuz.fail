@@ -20,7 +20,7 @@ Keep from the current design — these are right:
 - Content-addressed source versions (SHA-256), supersession chains, licence gates.
 - Cite-or-refuse: every regulatory answer carries source_version/chunk citations or an explicit unsupported status.
 - Deterministic compliance verdicts (calculators + resolved rules); `missing_info` / `needs_human_review` as honest outcomes.
-- Append-only audit events; human signoff gating exports.
+- Append-only audit events; automated validation gate for exports.
 - Lawful scraping constraints (robots, licence notes, Standards Australia metadata-only).
 - Job traces with model/tokens/cost per LLM call.
 
@@ -119,9 +119,9 @@ Consolidation rules: satellite tables become JSONB or status columns; provenance
 
 **compliance (3)** — `check_runs` (as_of_date, basis, status), `resolved_rules` (rule snapshot chosen for a run, with selection trace), `check_results` (verdict, decision trace JSONB inline, citations, human override fields). Decision traces don't need their own table until something queries them independently.
 
-**rfi & output (4)** — `rfi_items`, `response_drafts` (drafting model + skill version + human-edited flag), `exports` (manifest JSONB, storage path), `signoffs`.
+**rfi & output (4)** — `rfi_items`, `response_drafts` (drafting model + skill version + human-edited flag), `exports` (manifest JSONB, storage path), `validations`.
 
-**agent & governance (7 + queue)** — `job_traces` (every LLM/agent call: model, tokens, cost, prompt hash, artifacts), `agent_memory` (§8), `skill_versions` (§8), `eval_cases` + `eval_runs` count as one concern (two tables; ship with the first skill, not before), `audit_events` (append-only), `review_items` (one generic human-review queue: subject_type + subject_id + reason + status). Procrastinate owns its own queue tables.
+**agent & governance (7 + queue)** — `job_traces` (every LLM/agent call: model, tokens, cost, prompt hash, artifacts), `agent_memory` (§8), `skill_versions` (§8), `eval_cases` + `eval_runs` count as one concern (two tables; ship with the first skill, not before), `audit_events` (append-only), `review_items` (one generic operator-review queue: subject_type + subject_id + reason + status). Procrastinate owns its own queue tables.
 
 That folds: users/organisations dupes, 6 spatial tables, separate embeddings table, clause_references/dispositions, rule_overrides/carveouts, decision_traces, extracted_measurements, assumptions, tasks, background_jobs, document_assets, source_artifacts/supersessions/references/update_events (supersession becomes `superseded_by_version_id` on source_versions; references become JSONB) — from 57 to 36 with no provenance loss.
 
@@ -138,8 +138,8 @@ Single mount: `/api/v1`. No aliases — one canonical path per operation; old na
 /rules         clauses · candidates (promote/reject) · rules (review) · coverage-audit
 /compliance    run → check_run · results · matrix · result override (human)
 /rfi           parse → items · item status · draft-response → job · drafts
-/exports       create (json|docx|xlsx|html|csv) · list · download   [blocked until signoff]
-/signoffs      create · list
+/exports       create (json|docx|xlsx|html|csv) · list · download   [blocked until automated validation]
+/validations   create · list
 /reviews       generic review queue (subject_type filter)
 /agent         jobs (status/retry/cancel) · traces · memory (browse/edit) ·
                skills (versions, activate, diff) · evals (cases, runs, scores)
@@ -213,7 +213,7 @@ Standards Australia: metadata-only, enforced at import (as today). Retrieval (`/
 
 ## 10. Compliance engine
 
-Unchanged in philosophy, simplified in plumbing: `resolve_rules(project, as_of_date)` snapshots applicable rules (zone, overlays, proposal type, date) → calculators run against `document_facts` measurements → verdict ∈ {likely_pass, likely_fail, missing_info, needs_human_review, not_applicable} with decision trace JSONB (inputs, rule snapshot, arithmetic) and citations. LLMs never touch this path. `likely_fail`/`likely_pass` require both a resolved rule and sufficient measurements — else honest `missing_info`. Matrix endpoint renders the latest run; signoff required before export, as today.
+Unchanged in philosophy, simplified in plumbing: `resolve_rules(project, as_of_date)` snapshots applicable rules (zone, overlays, proposal type, date) → calculators run against `document_facts` measurements → verdict ∈ {likely_pass, likely_fail, missing_info, needs_operator_review, not_applicable} with decision trace JSONB (inputs, rule snapshot, arithmetic) and citations. LLMs never touch this path. `likely_fail`/`likely_pass` require both a resolved rule and sufficient measurements — else honest `missing_info`. Matrix endpoint renders the latest run; automated validation gate required before export, as today.
 
 ## 11. Frontend (web/)
 
@@ -259,7 +259,7 @@ Data migration: none needed — current DB is dev/test junk (300+ throwaway proj
 3. **Projects + documents**: upload, parse, facts, evidence viewer.
 4. **Compliance**: resolve rules (seeded manually at first) → runs → matrix UI.
 5. **Hermes v1**: agent runtime + `extract_rules` + `classify_clauses` skills, memory, agent console. Rule candidates start flowing.
-6. **RFI + exports + signoffs**.
+6. **RFI + exports + validations**.
 7. **Self-learning loop**: label capture → improve_skill → eval gate → activation UI. *(Last, because it needs accumulated human dispositions to learn from.)*
 
 Each milestone deploys to the VPS. Nothing merges without its tests; nothing ships tables for future milestones.
