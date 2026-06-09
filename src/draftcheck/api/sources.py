@@ -8,8 +8,10 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import replace
+import logging
 import os
-from typing import Annotated, Any
+import re
+from typing import Annotated, Any, Literal
 from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, Query, status
@@ -34,6 +36,18 @@ from draftcheck.domain.sources import (
     SourceSearchHit,
 )
 from draftcheck.domain.sources.sqlalchemy_store import SqlAlchemySourceLibrary
+
+_logger = logging.getLogger(__name__)
+
+# --- Assistant retrieval tuning (env-overridable, no redeploy needed) ---
+_ASSISTANT_MIN_SCORE: float = float(os.getenv("DRAFTCHECK_ASSISTANT_MIN_SCORE", "0.15"))
+_ASSISTANT_RELATIVE_FLOOR: float = float(os.getenv("DRAFTCHECK_ASSISTANT_RELATIVE_FLOOR", "0.35"))
+_ASSISTANT_MAX_CONTEXT_CHUNKS: int = int(os.getenv("DRAFTCHECK_ASSISTANT_MAX_CONTEXT_CHUNKS", "5"))
+
+_ASSISTANT_HISTORY_MAX_TURNS: int = 12
+_ASSISTANT_HISTORY_MAX_CHARS: int = 6000
+
+_CITATION_MARKER_RE = re.compile(r"\[(\d[\d,\s]*)\]")
 
 
 class SourceImportPayload(BaseModel):
@@ -79,6 +93,11 @@ class SearchAskPayload(BaseModel):
     limit: int = Field(default=4, ge=1, le=12)
 
 
+class AssistantTurn(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str = Field(max_length=2000)
+
+
 class AssistantPayload(BaseModel):
     question: str | None = Field(default=None, max_length=1000)
     message: str | None = Field(default=None, max_length=1000)
@@ -86,6 +105,18 @@ class AssistantPayload(BaseModel):
     q: str | None = Field(default=None, max_length=1000)
     web_search_requested: bool = False
     limit: int = Field(default=6, ge=1, le=12)
+    history: list[AssistantTurn] = Field(default_factory=list)
+
+    @field_validator("history", mode="after")
+    @classmethod
+    def _cap_history(cls, turns: list[AssistantTurn]) -> list[AssistantTurn]:
+        if len(turns) > _ASSISTANT_HISTORY_MAX_TURNS:
+            turns = turns[-_ASSISTANT_HISTORY_MAX_TURNS:]
+        total = sum(len(t.content) for t in turns)
+        while total > _ASSISTANT_HISTORY_MAX_CHARS and len(turns) > 0:
+            total -= len(turns[0].content)
+            turns = turns[1:]
+        return turns
 
 
 _ASSISTIVE_DISCLAIMER = (
@@ -93,30 +124,35 @@ _ASSISTIVE_DISCLAIMER = (
     "source versions and project facts before relying on this output."
 )
 
-_GROUNDED_SYSTEM_PROMPT = (
-    "You are LotFile's expert assistant for Western Australian residential planning and design. "
-    "Answer the question thoroughly and helpfully using the numbered SOURCES provided. "
-    "Format your response using Markdown: use **bold** for key terms, bullet lists or numbered steps where they help, "
-    "and ## headings to separate major sections when the answer is long. "
-    "Cite sources inline by number, e.g. [1]. "
-    "Do not invent requirements, figures, clause numbers, or compliance outcomes not present in the SOURCES. "
-    "If the sources only partially answer the question, give the best answer you can from them and note the gap. "
-    "Never state that a specific property, drawing, or design is compliant or approved — outputs are advisory only."
-)
+_ASSISTANT_SYSTEM_PROMPT = """\
+You are LotFile's expert assistant for Western Australian residential planning and design \
+— R-Codes, local planning schemes, development application (DA) process, WAPC policies, and council requirements.
 
-_GENERAL_SYSTEM_PROMPT = (
-    "You are LotFile's expert assistant for Western Australian residential planning and design. "
-    "LotFile checks WA residential drawings against the Residential Design Codes (R-Codes), "
-    "local planning schemes, and other approved planning instruments. "
-    "Answer questions helpfully and clearly using your knowledge of WA planning law, the R-Codes, "
-    "development application processes, WAPC policies, and council requirements. "
-    "Format your response using Markdown: use **bold** for key terms, bullet lists or numbered steps where they help, "
-    "and ## headings to separate major sections when the answer is long. "
-    "When you give a specific figure (setback, height, site cover, etc.) that comes from general knowledge "
-    "rather than a cited source extract, clearly label it as 'general knowledge — verify against approved source version'. "
-    "For property-specific compliance questions, ask for the address and relevant project evidence. "
-    "Do not refuse to help just because a source extract wasn't retrieved — use your expertise and flag when verification is needed."
-)
+**Match the question's altitude.**
+General question (how does a DA work?, what are the R-Codes?) → short, clear general answer; do not enumerate source extracts.
+Specific question with sources → specific answer with exact figures drawn from SOURCES.
+
+**Cite selectively.**
+Cite inline as [n] only for claims actually drawn from a SOURCES entry. Never list a source you did not draw from.
+For a general answer, use at most 2–3 citations as pointers — or none if your answer does not rely on a specific source.
+If SOURCES are present but irrelevant to the question, ignore them rather than forcing them in.
+
+**Figures discipline (governance).**
+Never invent figures, clause numbers, or compliance outcomes not present in SOURCES.
+Any figure from general knowledge must be labelled "general knowledge — verify against approved source version".
+Never state that a specific property, drawing, or design is compliant or approved — all outputs are advisory only.
+
+**Follow-up policy.**
+If the answer would materially change based on missing context (e.g. R-Code density zone, number of storeys, council/local scheme), \
+give the best general answer first, then ask exactly ONE question at the end.
+Only ask a follow-up if the answer genuinely depends on it.
+Never re-ask for context already provided earlier in the conversation.
+If no follow-up would change your answer, ask nothing.
+
+**Length and format.**
+Default to concise. Use Markdown headings and bullets only when the answer is long enough to need them.
+No boilerplate intro ("Great question!") or outro ("I hope this helps!").\
+"""
 
 _GENERAL_FALLBACK_ANSWER = (
     "I can help with Western Australian residential planning questions — setbacks, site cover, "
@@ -229,12 +265,93 @@ def _assistant_payload_from_answer(
     return {
         "answer": answer.answer,
         "citations": jsonable_encoder(answer.citations),
+        "citation_map": [],
         "grounded": bool(answer.citations),
         "model": model,
         "provider": provider,
         "used_fallback": used_fallback,
         "disclaimer": _ASSISTIVE_DISCLAIMER if answer.citations else None,
     }
+
+
+def _filter_relevant_hits(hits: tuple[SourceSearchHit, ...]) -> tuple[SourceSearchHit, ...]:
+    if not hits:
+        return hits
+    top_score = hits[0].score
+    threshold = max(_ASSISTANT_MIN_SCORE, _ASSISTANT_RELATIVE_FLOOR * top_score)
+    filtered = tuple(h for h in hits if h.score >= threshold)
+    return filtered[:_ASSISTANT_MAX_CONTEXT_CHUNKS]
+
+
+def _parse_cited_indices(answer: str) -> frozenset[int]:
+    indices: set[int] = set()
+    for m in _CITATION_MARKER_RE.finditer(answer):
+        for part in m.group(1).split(","):
+            try:
+                indices.add(int(part.strip()))
+            except ValueError:
+                pass
+    return frozenset(indices)
+
+
+def _build_grounded_response(
+    answer: str,
+    hits: tuple[SourceSearchHit, ...],
+) -> tuple[str, list[dict[str, Any]], list[dict[str, Any]], bool]:
+    """Return (rewritten_answer, citations, citation_map, grounded)."""
+    cited = _parse_cited_indices(answer)
+    valid = sorted(i for i in cited if 1 <= i <= len(hits))
+
+    if not valid:
+        if hits:
+            _logger.warning("assistant answer cited no sources despite %d hits", len(hits))
+        return answer, [], [], False
+
+    old_to_new: dict[int, int] = {old: new for new, old in enumerate(valid, start=1)}
+    citations = [jsonable_encoder(hits[i - 1].citation) for i in valid]
+    citation_map = [
+        {"marker": new, "citation": jsonable_encoder(hits[old - 1].citation)}
+        for old, new in old_to_new.items()
+    ]
+    citation_map.sort(key=lambda x: x["marker"])
+
+    def _replace(m: re.Match) -> str:  # type: ignore[type-arg]
+        parts = [p.strip() for p in m.group(1).split(",")]
+        new_parts = []
+        for p in parts:
+            try:
+                idx = int(p)
+                if idx in old_to_new:
+                    new_parts.append(str(old_to_new[idx]))
+            except ValueError:
+                pass
+        return f"[{', '.join(new_parts)}]" if new_parts else ""
+
+    rewritten = _CITATION_MARKER_RE.sub(_replace, answer)
+    return rewritten, citations, citation_map, True
+
+
+def _build_retrieval_query(question: str, history: list[AssistantTurn]) -> str:
+    prev_user = next((t.content for t in reversed(history) if t.role == "user"), None)
+    return f"{prev_user} {question}" if prev_user else question
+
+
+def _build_chat_messages(
+    question: str,
+    hits: tuple[SourceSearchHit, ...],
+    history: list[AssistantTurn],
+) -> list[dict[str, str]]:
+    messages: list[dict[str, str]] = [{"role": t.role, "content": t.content} for t in history]
+    # Anthropic requires messages to start with 'user'
+    while messages and messages[0]["role"] != "user":
+        messages = messages[1:]
+    user_content = (
+        f"Question: {question}\n\nSOURCES:\n{_assistant_source_context(hits)}"
+        if hits
+        else question
+    )
+    messages.append({"role": "user", "content": user_content})
+    return messages
 
 
 def _default_source_library() -> Any:
@@ -993,43 +1110,28 @@ def create_sources_router(
     ) -> dict[str, Any]:
         question = _required_query(payload.message, payload.question, payload.query, payload.q)
         provider = get_chat_provider()
-        hits = search_service.search_chunks(question, limit=payload.limit)
+
+        retrieval_query = _build_retrieval_query(question, payload.history)
+        raw_hits = search_service.search_chunks(retrieval_query, limit=payload.limit)
+        hits = _filter_relevant_hits(raw_hits)
 
         if getattr(provider, "is_live", False):
             try:
-                if hits:
-                    answer = provider.complete(
-                        _GROUNDED_SYSTEM_PROMPT,
-                        (
-                            f"Question: {question}\n\n"
-                            f"SOURCES:\n{_assistant_source_context(hits)}"
-                        ),
-                    )
-                    return {
-                        "answer": answer,
-                        "citations": _dedupe_assistant_citations(hits),
-                        "grounded": True,
-                        "model": provider.model,
-                        "provider": provider.name,
-                        "used_fallback": False,
-                        "disclaimer": _ASSISTIVE_DISCLAIMER,
-                    }
-                answer = provider.complete(
-                    _GENERAL_SYSTEM_PROMPT,
-                    f"Question: {question}",
-                )
+                messages = _build_chat_messages(question, hits, payload.history)
+                raw_answer = provider.complete_chat(_ASSISTANT_SYSTEM_PROMPT, messages)
+                rewritten, citations, citation_map, grounded = _build_grounded_response(raw_answer, hits)
                 return {
-                    "answer": answer,
-                    "citations": [],
-                    "grounded": False,
+                    "answer": rewritten,
+                    "citations": citations,
+                    "citation_map": citation_map,
+                    "grounded": grounded,
                     "model": provider.model,
                     "provider": provider.name,
                     "used_fallback": False,
-                    "disclaimer": None,
+                    "disclaimer": _ASSISTIVE_DISCLAIMER if grounded else None,
                 }
             except Exception:
-                # Keep chat live even when the model provider is unavailable:
-                # fall back to the deterministic cite-or-refuse source answer.
+                # Keep chat live on provider failure — fall through to deterministic path.
                 pass
 
         if hits:
@@ -1043,6 +1145,7 @@ def create_sources_router(
         return {
             "answer": _GENERAL_FALLBACK_ANSWER,
             "citations": [],
+            "citation_map": [],
             "grounded": False,
             "model": provider.model,
             "provider": provider.name,

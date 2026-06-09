@@ -28,7 +28,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo, type PropertyProfileResponse, type PropertyFactResponse, type ProposalRequest, type ProposalResponse, type RuleSummary, type CandidateSummary, type ComplianceRunResponse, type ComplianceResultItem, type ExtractedFact, type DocumentUploadResponse } from "./api";
+import { api, type ApiResult, type AssistantTurn, type ChatReply, type CitationMapEntry, type HealthInfo, type ProjectSummary, type SessionInfo, type PropertyProfileResponse, type PropertyFactResponse, type ProposalRequest, type ProposalResponse, type RuleSummary, type CandidateSummary, type ComplianceRunResponse, type ComplianceResultItem, type ExtractedFact, type DocumentUploadResponse } from "./api";
 import "./styles.css";
 
 const DEV_LOGIN = false;
@@ -69,6 +69,8 @@ type Msg = {
   thinking?: string;
   tone?: "note" | "warn";
   chips?: string[];
+  citation_map?: CitationMapEntry[];
+  disclaimer?: string;
   action?: { label: string; run: () => void };
 };
 
@@ -1375,6 +1377,16 @@ function Home({
   onProjectOpen: (projectId: string) => void;
 }) {
   const [msgs, setMsgs] = useState<Msg[]>([]);
+
+  function renderMsgHtml(text: string, msgIndex: number, chips?: string[]): string {
+    const html = marked.parse(text) as string;
+    if (!chips?.length) return html;
+    return html.replace(/\[(\d+)\]/g, (match, n: string) => {
+      const idx = parseInt(n, 10);
+      if (idx < 1 || idx > chips.length) return match;
+      return `<sup><a href="#cite-${msgIndex}-${idx}" class="cite-ref">[${idx}]</a></sup>`;
+    });
+  }
   const [busy, setBusy] = useState(false);
   const [webOn, setWebOn] = useState(false);
   const [recents, setRecents] = useState<ProjectSummary[]>([]);
@@ -1508,6 +1520,10 @@ function Home({
     if (!t || busy) return;
     if (el) { el.value = ""; el.style.height = "auto"; }
     setBusy(true);
+    // Capture history before pushing the current question
+    const history: AssistantTurn[] = msgs
+      .filter((m) => m.role === "q" || m.role === "a")
+      .map((m) => ({ role: m.role === "q" ? "user" : "assistant" as const, content: m.text }));
     push({ role: "q", text: t });
     if (looksLikeAddress(t)) {
       await startCheck(t);
@@ -1517,7 +1533,7 @@ function Home({
         setBusy(false);
         return;
       }
-      const r = await api.ask(t, { web: webOn });
+      const r = await api.ask(t, { web: webOn }, history);
       if (r.kind === "ok") {
         const d: ChatReply = r.data;
         const chips = (d.citations ?? [])
@@ -1534,6 +1550,8 @@ function Home({
           text: cleanAnswer || "I couldn't get an answer just now.",
           thinking: thinkParts.length ? thinkParts.join("\n\n") : undefined,
           chips: chips.length ? chips : undefined,
+          citation_map: d.citation_map,
+          disclaimer: d.disclaimer ?? undefined,
         });
       } else if (r.kind === "auth") {
         if (!authed) {
@@ -1548,7 +1566,7 @@ function Home({
       }
     }
     setBusy(false);
-  }, [authed, busy, webOn, startCheck, onGuestChatStart, onNeedSignIn, onShowPaywall, pushGuestChatPreview]);
+  }, [authed, busy, webOn, msgs, startCheck, onGuestChatStart, onNeedSignIn, onShowPaywall, pushGuestChatPreview]);
 
   const fill = (t: string) => {
     if (inputRef.current) {
@@ -1594,13 +1612,24 @@ function Home({
               ) : (
                 <div key={i} className={`a${m.tone ? ` ${m.tone}` : ""}`}>
                   {m.thinking && <ThinkBlock text={m.thinking} />}
-                  <div className="md" dangerouslySetInnerHTML={{ __html: marked.parse(m.text) as string }} />
-                  {m.chips && (
+                  <div className="md" dangerouslySetInnerHTML={{ __html: renderMsgHtml(m.text, i, m.chips) }} />
+                  {m.chips && m.chips.length > 0 && (
                     <div className="src">
-                      {m.chips.map((c, j) => (
-                        <span key={j} className="srcchip"><Icon name="verified" />{c}</span>
+                      {m.chips.slice(0, 3).map((c, j) => (
+                        <span key={j} id={`cite-${i}-${j + 1}`} className="srcchip"><Icon name="verified" />{c}</span>
                       ))}
+                      {m.chips.length > 3 && (
+                        <details className="src-more">
+                          <summary className="srcchip"><Icon name="verified" />Sources ({m.chips.length})</summary>
+                          {m.chips.slice(3).map((c, j) => (
+                            <span key={j} id={`cite-${i}-${j + 4}`} className="srcchip"><Icon name="verified" />{c}</span>
+                          ))}
+                        </details>
+                      )}
                     </div>
+                  )}
+                  {m.disclaimer && (
+                    <p className="disclaimer">{m.disclaimer}</p>
                   )}
                   {m.action && (
                     <div className="act">

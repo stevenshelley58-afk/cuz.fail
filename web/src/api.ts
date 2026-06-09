@@ -36,9 +36,20 @@ export type ChatCitation = {
   quote?: string;
 } & Record<string, unknown>;
 
+export type CitationMapEntry = {
+  marker: number;
+  citation: ChatCitation;
+};
+
+export type AssistantTurn = {
+  role: "user" | "assistant";
+  content: string;
+};
+
 export type ChatReply = {
   answer: string;
   citations?: ChatCitation[];
+  citation_map?: CitationMapEntry[];
   grounded?: boolean;
   model?: string;
   provider?: string;
@@ -254,8 +265,8 @@ export const api = {
     return call<CandidateSummary[]>("GET", `/rules/candidates${qs ? `?${qs}` : ""}`);
   },
   getCandidate: (id: string) => call<CandidateSummary>("GET", `/rules/candidates/${id}`),
-  ask: (question: string, scope: { web: boolean }) =>
-    call<ChatReply>("POST", "/assistant", { message: question, web_search_requested: scope.web }),
+  ask: (question: string, scope: { web: boolean }, history?: AssistantTurn[]) =>
+    call<ChatReply>("POST", "/assistant", { message: question, web_search_requested: scope.web, history: history ?? [] }),
   compliance: {
     run: (projectId: string) =>
       call<ComplianceRunResponse>("POST", `/compliance/projects/${projectId}/run`, {}),
