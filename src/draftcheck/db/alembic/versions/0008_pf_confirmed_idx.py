@@ -1,10 +1,10 @@
-"""Add partial index on property_facts for confirmed promoted facts."""
+"""Add index on property_facts for confirmed facts."""
 
 from __future__ import annotations
 
 from alembic import op
 
-revision: str = "0008_property_facts_confirmed_index"
+revision: str = "0008_pf_confirmed_idx"
 down_revision: str | None = "0007_nullable_org_job_traces"
 branch_labels = None
 depends_on = None
