@@ -1,17 +1,20 @@
-"""Parse source_version text artifacts into clauses table rows."""
+"""Parse source_version text into clauses table rows."""
+
 from __future__ import annotations
-import hashlib
-import json
+
 import re
-import logging
-import uuid
-from dataclasses import dataclass, field
+from dataclasses import dataclass
+from datetime import UTC, datetime
+from uuid import uuid4
 
-logger = logging.getLogger(__name__)
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import AsyncSession
 
-_CLAUSE_RE = re.compile(r"^(\d+(?:\.\d+)*)\s+(.+)$", re.MULTILINE)
-_RULE_BEARING = frozenset(
-    [
+
+CLAUSE_PATTERN = re.compile(r"^(\d+\.(?:\d+\.)*\d*)\s+(.+)$", re.MULTILINE)
+
+RULE_BEARING_KEYWORDS = frozenset(
+    {
         "must",
         "shall",
         "not exceed",
@@ -20,204 +23,145 @@ _RULE_BEARING = frozenset(
         "maximum",
         "required",
         "permitted",
-        "no more than",
-        "no less than",
-    ]
+        "shall not",
+        "must not",
+        "prohibited",
+    }
 )
-_DEFINITION_RE = re.compile(r'^[""]|\bmeans\b|\bis defined\b', re.IGNORECASE)
 
-# Dimension for stub zero-vector embeddings (must match SOURCE_CHUNK_EMBEDDING_DIMENSION)
-_EMBEDDING_DIM = 1536
+_SLUG_RE = re.compile(r"[^\w]+")
 
 
 @dataclass
 class ClauseParseResult:
-    clauses_created: int = 0
-    clauses_updated: int = 0
-    errors: list[str] = field(default_factory=list)
+    clauses_created: int
+    clauses_updated: int
 
 
-def _disposition(heading: str, body: str) -> str:
-    text = (heading + " " + body).lower()
-    if any(kw in text for kw in _RULE_BEARING):
+def _slugify(heading: str) -> str:
+    """Convert '5.1.1 Front Setback' → '5_1_1_front_setback'."""
+    normalized = heading.lower().replace(".", "_")
+    return _SLUG_RE.sub("_", normalized).strip("_")
+
+
+def _determine_disposition(heading: str, body: str) -> str:
+    """Classify a clause into one of the five valid dispositions."""
+    combined = (heading + " " + body).lower()
+    if any(kw in combined for kw in RULE_BEARING_KEYWORDS):
         return "rule_bearing"
-    if _DEFINITION_RE.search(body[:120]):
-        return "definition"
-    if any(
-        w in heading.lower()
-        for w in ("application", "lodgement", "procedure", "process")
-    ):
+    stripped = body.lstrip()
+    if stripped.startswith('"') or combined.startswith("means ") or " means " in combined[:80]:
+        return "definitional"
+    heading_lower = heading.lower()
+    if any(w in heading_lower for w in ("application", "lodgement", "lodgment", "procedure")):
         return "procedural"
     return "informational"
 
 
-def _clause_key(number: str, heading: str) -> str:
-    slug = re.sub(r"[^a-z0-9]+", "_", heading.lower()).strip("_")[:40]
-    return f"{number.replace('.', '_')}_{slug}"
-
-
-# Stub zero vector for source_chunks.embedding (pgvector, NOT NULL)
-_ZERO_VECTOR = "[" + ",".join(["0"] * _EMBEDDING_DIM) + "]"
-
-
 class ClauseParser:
+    """Stateless parser: converts raw source text into Clause ORM rows."""
+
     async def parse_source_version(
-        self, source_version_id: str, session
+        self, source_version_id: str, session: AsyncSession
     ) -> ClauseParseResult:
-        from sqlalchemy import text
+        """Parse the text artifact for *source_version_id* and upsert clause rows.
 
-        result_obj = ClauseParseResult()
-
-        r = await session.execute(
+        Expects an artifact row with kind='parsed_text' linked to the source version.
+        Falls back gracefully if no artifact is found (returns 0/0).
+        """
+        # Load the parsed_text artifact for this source version
+        result = await session.execute(
             text(
-                "SELECT id, storage_path FROM artifacts "
-                "WHERE subject_id = :sv_id AND kind = 'parsed_text' "
-                "ORDER BY created_at DESC LIMIT 1"
+                """
+                SELECT a.content
+                FROM artifacts a
+                WHERE a.subject_id = :sv_id
+                  AND a.kind = 'parsed_text'
+                ORDER BY a.created_at DESC
+                LIMIT 1
+                """
             ),
             {"sv_id": source_version_id},
         )
-        artifact = r.fetchone()
-        if not artifact:
-            logger.warning(
-                "No parsed_text artifact for source_version %s", source_version_id
-            )
-            return result_obj
+        row = result.fetchone()
+        if row is None:
+            return ClauseParseResult(clauses_created=0, clauses_updated=0)
 
-        try:
-            import pathlib
+        raw_text: str = row[0] or ""
+        matches = list(CLAUSE_PATTERN.finditer(raw_text))
 
-            text_content = pathlib.Path(artifact[1]).read_text(encoding="utf-8")
-        except Exception as exc:
-            result_obj.errors.append(str(exc))
-            return result_obj
+        created = 0
+        updated = 0
+        now = datetime.now(UTC)
 
-        matches = list(_CLAUSE_RE.finditer(text_content))
-        for i, m in enumerate(matches):
-            number = m.group(1)
-            heading = m.group(2).strip()
-            end = matches[i + 1].start() if i + 1 < len(matches) else len(text_content)
-            body = text_content[m.end() : end].strip()
-            key = _clause_key(number, heading)
-            disp = _disposition(heading, body)
+        for i, match in enumerate(matches):
+            number = match.group(1)  # e.g. "5.1.1"
+            heading = match.group(2).strip()  # e.g. "Front Setback"
 
+            # Body is everything between this match and the next (or end of text)
+            body_start = match.end()
+            body_end = matches[i + 1].start() if i + 1 < len(matches) else len(raw_text)
+            body = raw_text[body_start:body_end].strip()
+
+            clause_key = _slugify(f"{number} {heading}")
+            disposition = _determine_disposition(heading, body)
+
+            # Check if clause already exists
             existing = await session.execute(
                 text(
-                    "SELECT id FROM clauses "
-                    "WHERE clause_key = :ck AND source_version_id = :sv"
+                    """
+                    SELECT id FROM clauses
+                    WHERE source_version_id = :sv_id AND clause_key = :key
+                    """
                 ),
-                {"ck": key, "sv": source_version_id},
+                {"sv_id": source_version_id, "key": clause_key},
             )
-            if existing.fetchone():
-                result_obj.clauses_updated += 1
-                continue
+            existing_row = existing.fetchone()
 
-            # Generate a new clause id
-            clause_id = str(uuid.uuid4())
-
-            # Upsert a source_chunk aligned to this clause
-            chunk_text_val = body
-            chunk_sha = hashlib.sha256(chunk_text_val.encode()).hexdigest()
-            chunk_index = i  # use match ordinal as chunk_index
-
-            chunk_row = await session.execute(
-                text("""
-                    INSERT INTO source_chunks (
-                        id, source_version_id, chunk_index, text,
-                        token_count, embedding_provider, embedding_model,
-                        embedding_dimension, embedding, metadata_json,
-                        created_at, updated_at
-                    )
-                    VALUES (
-                        gen_random_uuid(), :sv_id, :chunk_idx, :txt,
-                        :token_count, 'stub', 'text-embedding-3-small', 1536,
-                        :embedding::vector, :meta,
-                        now(), now()
-                    )
-                    ON CONFLICT (source_version_id, chunk_index) DO UPDATE
-                        SET text = EXCLUDED.text,
-                            metadata_json = EXCLUDED.metadata_json,
-                            updated_at = now()
-                    RETURNING id
-                """),
-                {
-                    "sv_id": source_version_id,
-                    "chunk_idx": chunk_index,
-                    "txt": chunk_text_val,
-                    "token_count": len(chunk_text_val.split()),
-                    "embedding": _ZERO_VECTOR,
-                    "meta": json.dumps({"clause_key": key, "sha256": chunk_sha}),
-                },
-            )
-            chunk_id = chunk_row.scalar()
-
-            # Insert clause, linking to the source_chunk
-            await session.execute(
-                text(
-                    "INSERT INTO clauses "
-                    "(id, clause_key, clause_path, clause_type, disposition, "
-                    "source_version_id, source_chunk_id, text, created_at, updated_at) "
-                    "VALUES (:id, :ck, :cp, 'clause', :disp, :sv, :sc_id, :txt, now(), now())"
-                ),
-                {
-                    "id": clause_id,
-                    "ck": key,
-                    "cp": number,
-                    "disp": disp,
-                    "sv": source_version_id,
-                    "sc_id": str(chunk_id),
-                    "txt": body,
-                },
-            )
-            result_obj.clauses_created += 1
-
-        # After all clauses are processed, populate legal_edges for definition cross-references
-        def_rows = await session.execute(
-            text(
-                "SELECT clause_key FROM clauses "
-                "WHERE source_version_id = :sv_id AND disposition = 'definition'"
-            ),
-            {"sv_id": source_version_id},
-        )
-        def_keys = {row[0] for row in def_rows.fetchall()}
-
-        if def_keys:
-            non_def_rows = await session.execute(
-                text(
-                    "SELECT id, clause_key, text FROM clauses "
-                    "WHERE source_version_id = :sv_id AND disposition != 'definition'"
-                ),
-                {"sv_id": source_version_id},
-            )
-            for clause_row in non_def_rows.fetchall():
-                _clause_id_val, clause_key_val, clause_text_val = clause_row
-                if not clause_text_val:
-                    continue
-                for def_key in def_keys:
-                    # Extract a searchable term from the definition clause key
-                    # clause_key format: "{number}_{slug}", e.g. "1_2_setback"
-                    parts = def_key.split("_", 2)
-                    term = parts[-1].replace("_", " ") if len(parts) >= 1 else ""
-                    if not term or len(term) <= 3:
-                        continue
-                    if term.lower() in clause_text_val.lower():
-                        await session.execute(
-                            text("""
-                                INSERT INTO legal_edges (
-                                    id, from_type, from_ref, to_type, to_ref,
-                                    relation, confidence, review_status,
-                                    metadata_json, created_at, updated_at
-                                )
-                                VALUES (
-                                    gen_random_uuid(), 'clause', :from_ref,
-                                    'clause', :to_ref,
-                                    'references_definition', 0.7, 'pending_review',
-                                    '{}', now(), now()
-                                )
-                                ON CONFLICT (from_type, from_ref, to_type, to_ref, relation)
-                                DO NOTHING
-                            """),
-                            {"from_ref": clause_key_val, "to_ref": def_key},
-                        )
+            if existing_row is None:
+                await session.execute(
+                    text(
+                        """
+                        INSERT INTO clauses
+                            (id, source_version_id, clause_key, heading, body,
+                             disposition, created_at, updated_at)
+                        VALUES
+                            (:id, :sv_id, :key, :heading, :body,
+                             :disposition, :now, :now)
+                        """
+                    ),
+                    {
+                        "id": str(uuid4()),
+                        "sv_id": source_version_id,
+                        "key": clause_key,
+                        "heading": heading,
+                        "body": body,
+                        "disposition": disposition,
+                        "now": now,
+                    },
+                )
+                created += 1
+            else:
+                await session.execute(
+                    text(
+                        """
+                        UPDATE clauses
+                        SET heading = :heading,
+                            body = :body,
+                            disposition = :disposition,
+                            updated_at = :now
+                        WHERE id = :id
+                        """
+                    ),
+                    {
+                        "heading": heading,
+                        "body": body,
+                        "disposition": disposition,
+                        "now": now,
+                        "id": str(existing_row[0]),
+                    },
+                )
+                updated += 1
 
         await session.commit()
-        return result_obj
+        return ClauseParseResult(clauses_created=created, clauses_updated=updated)
