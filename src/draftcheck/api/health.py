@@ -8,7 +8,7 @@ import os
 from typing import Any
 
 from fastapi import APIRouter
-from fastapi.responses import PlainTextResponse, Response
+from fastapi.responses import PlainTextResponse
 from sqlalchemy import text
 
 from draftcheck.db.engine import create_runtime_engine
