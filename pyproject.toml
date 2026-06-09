@@ -65,3 +65,8 @@ name = "Checks layer must not depend on AI workers"
 type = "forbidden"
 source_modules = ["draftcheck.checks"]
 forbidden_modules = ["draftcheck.ai"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]

@@ -166,6 +166,47 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<Ap
   return { kind: "error", status: res.status, message: d?.detail ?? d?.title ?? res.statusText };
 }
 
+// ── Compliance types ──
+
+export type ComplianceResultItem = {
+  check_key: string;
+  check_name: string;
+  status: "likely_pass" | "likely_fail" | "needs_more_info" | "unsupported";
+  threshold_value: number | string | null;
+  threshold_unit: string | null;
+  measured_value: number | string | null;
+  rule_id: string | null;
+  rule_quote: string | null;
+  citation: string | null;
+  missing_data?: string[] | null;
+};
+
+export type ComplianceRunResponse = {
+  run_id: string;
+  project_id: string;
+  status: "pending" | "running" | "complete" | "error";
+  created_at: string;
+  results: ComplianceResultItem[];
+};
+
+// ── Document upload types ──
+
+export type ExtractedFact = {
+  fact_key: string;
+  numeric_value: number | null;
+  unit: string | null;
+  confidence: number; // 0–1
+  source_text: string | null;
+  confirmed?: boolean;
+};
+
+export type DocumentUploadResponse = {
+  document_id: string;
+  filename: string;
+  project_id: string;
+  extracted_facts: ExtractedFact[];
+};
+
 export const api = {
   health: () => call<HealthInfo>("GET", "/health"),
   ready: () => call<Record<string, unknown>>("GET", "/ready"),
@@ -213,4 +254,41 @@ export const api = {
   getCandidate: (id: string) => call<CandidateSummary>("GET", `/rules/candidates/${id}`),
   ask: (question: string, scope: { web: boolean }) =>
     call<ChatReply>("POST", "/assistant", { message: question, web_search_requested: scope.web }),
+  compliance: {
+    run: (projectId: string) =>
+      call<ComplianceRunResponse>("POST", `/compliance/run`, { project_id: projectId }),
+    matrix: (projectId: string) => {
+      const params = new URLSearchParams({ project_id: projectId });
+      return call<ComplianceRunResponse>("GET", `/compliance/matrix?${params}`);
+    },
+  },
+  documents: {
+    upload: async (projectId: string, file: File): Promise<ApiResult<DocumentUploadResponse>> => {
+      const form = new FormData();
+      form.append("file", file);
+      form.append("project_id", projectId);
+      let res: Response;
+      try {
+        res = await fetch(`${base()}/documents/upload`, {
+          method: "POST",
+          credentials: "include",
+          body: form,
+        });
+      } catch (err) {
+        return { kind: "down", message: err instanceof Error ? err.message : "network error" };
+      }
+      let data: unknown = null;
+      const text = await res.text();
+      if (text) { try { data = JSON.parse(text); } catch { data = text; } }
+      if (res.ok) return { kind: "ok", status: res.status, data: data as DocumentUploadResponse };
+      if (res.status === 401 || res.status === 403) return { kind: "auth" };
+      if (res.status === 501) { const d = data as { detail?: string } | null; return { kind: "notBuilt", detail: d?.detail }; }
+      if (res.status === 404) return { kind: "missing" };
+      const d = data as { detail?: string } | null;
+      return { kind: "error", status: res.status, message: d?.detail ?? res.statusText };
+    },
+    facts: (docId: string) => call<{ facts: ExtractedFact[] }>("GET", `/documents/${docId}/facts`),
+    confirmFact: (docId: string, factKey: string) =>
+      call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/confirm`, {}),
+  },
 };
