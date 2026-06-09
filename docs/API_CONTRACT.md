@@ -1,70 +1,103 @@
 # API Contract
 
-The API is exposed under `/v1`. Compatibility aliases are also mounted under `/api` for the earlier endpoint names.
+The API is exposed under `/api/v1` (see `src/draftcheck/api/main.py`,
+`app.include_router(create_v1_router(), prefix="/api/v1")`). All paths below are
+relative to that prefix unless stated otherwise.
+
+## Authentication & access
+
+Production auth is passwordless magic-link only:
+
+- `POST /auth/magic-link/request` — body `{ email, org_slug? }`. Emails a link to
+  `{FRONTEND_URL}/auth/magic-link/verify?token=…`. Requires an allowed `Origin`
+  header. In production with no SMTP configured this returns `503`.
+- `POST /auth/magic-link/verify` — body `{ token }`. Consumes the token and sets
+  an httponly session cookie (`draftcheck_session`, 30-day TTL; `secure` defaults
+  on in production, `samesite=lax`).
+- `GET /auth/session` — returns the active session for the cookie, else `401`.
+- `POST /auth/logout` — revokes the session and clears the cookie.
+- `POST /auth/dev-login` — dev-only username/password convenience login, hidden
+  from the schema. Reachable only when **both** `app_env != production` **and**
+  `DEV_LOGIN_ENABLED` is explicitly truthy; otherwise `404`. Credentials default
+  to `jemma`/`jemma6969` (override via `DEV_LOGIN_USERNAME`/`DEV_LOGIN_PASSWORD`).
+
+Route access tiers:
+
+- **Public (no session):** `GET /health`, `GET /ready`, `GET /ops/dashboard`,
+  `GET /sources`, `GET /sources/freshness`, `GET /sources/ingestion-status`,
+  `GET /sources/{id}`, `GET /sources/{id}/versions`.
+- **Session required (`401` without cookie):** `/search/chunks`, `/search/ask`,
+  `/assistant`, address resolve, project document endpoints, and all writes.
+- **Reviewer role required (`403` otherwise):** source import/review/refresh,
+  fact review, and other mutating governance actions.
+
+Guest ("no login") mode is a **client-only** concept implemented in
+`web/src/main.tsx`; the backend grants unauthenticated users nothing beyond the
+public reads above. Guest usage counters live in `localStorage` and guest
+"answers" are non-grounded preview text rendered locally, clearly labelled as
+previews — they are not source-backed API responses.
 
 ## Core Endpoints
 
-- `POST /v1/auth/dev-login` (development only; disabled when durable deployment flags are enabled)
-- `GET /v1/me`
-- `POST /v1/address/resolve`
-- `GET /v1/address/autocomplete?q=...`
-- `POST /v1/projects`
-- `GET /v1/projects`
-- `GET /v1/projects/{project_id}`
-- `PATCH /v1/projects/{project_id}`
-- `DELETE /v1/projects/{project_id}`
-- `PUT /v1/projects/{project_id}/property`
-- `GET /v1/projects/{project_id}/property`
-- `POST /v1/projects/{project_id}/property/resolve`
-- `GET /v1/projects/{project_id}/property/profile`
-- `PUT /v1/projects/{project_id}/proposal`
-- `GET /v1/projects/{project_id}/proposal`
-- `POST /v1/projects/{project_id}/documents`
-- `POST /v1/projects/{project_id}/documents/upload`
-- `GET /v1/projects/{project_id}/documents`
-- `GET /v1/projects/{project_id}/documents/{document_id}`
-- `POST /v1/projects/{project_id}/documents/{document_id}/analyze`
-- `GET /v1/projects/{project_id}/documents/{document_id}/pages`
-- `GET /v1/projects/{project_id}/documents/{document_id}/facts`
-- `GET /v1/projects/{project_id}/document-search?q=...`
-- `POST /v1/sources/manifest/import`
-- `POST /v1/sources/hermes-corpus/import`
-- `POST /v1/sources/seed`
-- `POST /v1/sources/ingest`
-- `GET /v1/sources`
-- `GET /v1/sources/{source_id}`
-- `GET /v1/sources/{source_id}/versions`
-- `POST /v1/sources/{source_id}/refresh`
-- `GET /v1/source-chunks/search?q=...`
-- `POST /v1/ask-source-library`
-- `POST /v1/projects/{project_id}/ask-source`
-- `POST /v1/projects/{project_id}/resolved-rules`
-- `POST /v1/projects/{project_id}/compliance/run`
-- `GET /v1/projects/{project_id}/compliance/matrix`
-- `GET /v1/projects/{project_id}/checks`
-- `PATCH /v1/projects/{project_id}/checks/{check_result_id}`
-- `GET /v1/projects/{project_id}/checks/{check_result_id}/decision-trace`
-- `POST /v1/projects/{project_id}/measurements`
-- `GET /v1/projects/{project_id}/measurements`
-- `POST /v1/projects/{project_id}/rfi/parse`
-- `GET /v1/projects/{project_id}/rfi/items`
-- `PATCH /v1/projects/{project_id}/rfi/items/{rfi_item_id}`
-- `POST /v1/projects/{project_id}/rfi/draft-response`
-- `GET /v1/projects/{project_id}/responses`
-- `POST /v1/projects/{project_id}/exports`
-- `GET /v1/projects/{project_id}/exports`
-- `GET /v1/projects/{project_id}/exports/{export_id}/download`
-- `POST /v1/projects/{project_id}/validations`
-- `GET /v1/projects/{project_id}/validations`
-- `GET /v1/jobs/{job_id}`
-- `POST /v1/jobs/{job_id}/retry`
-- `POST /v1/jobs/{job_id}/cancel`
-- `GET /v1/jobs/{job_id}/traces`
-- `GET /v1/audit?project_id=...`
+- `POST /address/resolve`
+- `GET /address/autocomplete?q=...`
+- `POST /projects`
+- `GET /projects`
+- `GET /projects/{project_id}`
+- `PATCH /projects/{project_id}`
+- `DELETE /projects/{project_id}`
+- `PUT /projects/{project_id}/property`
+- `GET /projects/{project_id}/property`
+- `POST /projects/{project_id}/property/resolve`
+- `GET /projects/{project_id}/property/profile`
+- `PUT /projects/{project_id}/proposal`
+- `GET /projects/{project_id}/proposal`
+- `POST /projects/{project_id}/documents`
+- `POST /projects/{project_id}/documents/upload`
+- `GET /projects/{project_id}/documents`
+- `GET /projects/{project_id}/documents/{document_id}`
+- `POST /projects/{project_id}/documents/{document_id}/analyze`
+- `GET /projects/{project_id}/documents/{document_id}/pages`
+- `GET /projects/{project_id}/documents/{document_id}/facts`
+- `GET /projects/{project_id}/document-search?q=...`
+- `POST /sources/manifest/import`
+- `POST /sources/hermes-corpus/import`
+- `POST /sources/seed`
+- `POST /sources/ingest`
+- `GET /sources`
+- `GET /sources/{source_id}`
+- `GET /sources/{source_id}/versions`
+- `POST /sources/{source_id}/refresh`
+- `GET /source-chunks/search?q=...`
+- `POST /ask-source-library`
+- `POST /projects/{project_id}/ask-source`
+- `POST /projects/{project_id}/resolved-rules`
+- `POST /projects/{project_id}/compliance/run`
+- `GET /projects/{project_id}/compliance/matrix`
+- `GET /projects/{project_id}/checks`
+- `PATCH /projects/{project_id}/checks/{check_result_id}`
+- `GET /projects/{project_id}/checks/{check_result_id}/decision-trace`
+- `POST /projects/{project_id}/measurements`
+- `GET /projects/{project_id}/measurements`
+- `POST /projects/{project_id}/rfi/parse`
+- `GET /projects/{project_id}/rfi/items`
+- `PATCH /projects/{project_id}/rfi/items/{rfi_item_id}`
+- `POST /projects/{project_id}/rfi/draft-response`
+- `GET /projects/{project_id}/responses`
+- `POST /projects/{project_id}/exports`
+- `GET /projects/{project_id}/exports`
+- `GET /projects/{project_id}/exports/{export_id}/download`
+- `POST /projects/{project_id}/validations`
+- `GET /projects/{project_id}/validations`
+- `GET /jobs/{job_id}`
+- `POST /jobs/{job_id}/retry`
+- `POST /jobs/{job_id}/cancel`
+- `GET /jobs/{job_id}/traces`
+- `GET /audit?project_id=...`
 
 Deprecated compatibility aliases remain available where practical, including
-`POST /v1/projects/{project_id}/checks/run` and
-`GET /v1/projects/{project_id}/compliance-matrix`. New clients should use the
+`POST /projects/{project_id}/checks/run` and
+`GET /projects/{project_id}/compliance-matrix`. New clients should use the
 canonical `/compliance/run` and `/compliance/matrix` routes.
 
 ## Safety Schema Rules
@@ -72,23 +105,4 @@ canonical `/compliance/run` and `/compliance/matrix` routes.
 Regulatory answers include:
 
 - `answer`
-- `citations`
-- `source_version_ids`
-- `assumptions`
-- `missing_information`
-- `confidence`
-- `human_review_required`
-- `risk_level`
-- `status`
-
-Statuses are deliberately non-final: `likely_pass`, `likely_fail`, `missing_info`, `needs_human_review`, `not_applicable`, or `unsupported`.
-
-## Source Import Contracts
-
-`POST /v1/sources/hermes-corpus/import` imports a Hermes `source_inventory.jsonl` corpus, matching the same behavior as `scripts/import_hermes_corpus.py`. Public/open rows with parsed PDF/text content become versioned source text and chunks, but default to `pending_review` and cannot support citable chat/retrieval until accepted through source governance. Pass `request_acceptance: true` only when the operator wants the import to request acceptance through the governance gate. Blocked, paid, login-gated, captcha-gated, robots-denied, unknown-access, restricted-licence, and otherwise non-public rows are skipped. Standards Australia rows are metadata-only and must not store paid Australian Standards full text.
-
-When `inventory_path` is used, `corpus_root` defaults to the inventory file's parent folder. Parsed/raw file paths in rows are resolved under `corpus_root`; paths outside that root are rejected. The import response reports `imported`, `skipped`, `metadata_only`, `duplicates`, `error_count`, `errors`, and row-level `items`.
-
-## Project Document Extraction
-
-`POST /v1/projects/{project_id}/documents/upload` accepts project PDFs, DOCX, HTML, text files, and DXF files. Uploaded documents produce stored document pages, chunks for project-local search, extracted facts, extracted measurements, and `/v1/projects/{project_id}/document-search?q=...` results. CAD/DXF geometry is treated conservatively: extraction may summarize layers, entity types, drawing text, coordinates, and measurement-like values, but ambiguous geometry remains missing information or human-review evidence rather than an invented measurement.
+- `citati

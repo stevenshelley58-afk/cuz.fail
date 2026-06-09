@@ -277,8 +277,19 @@ def _dev_login_enabled(settings: Settings) -> bool:
     """Dev-only password login is disabled in production (operator decision 2026-06-08).
 
     Production continues to use magic-link auth only; see docs/MASTER_REBUILD_PLAN.md.
+
+    Two independent guards must both pass before the default-credential login is
+    reachable, so a single misconfigured env var cannot expose it:
+      1. ``app_env`` must not be ``production``.
+      2. ``DEV_LOGIN_ENABLED`` must be explicitly truthy.
+    The explicit opt-in matters because ``app_env`` defaults to ``local`` when
+    unset, so a prod deploy that forgets ``APP_ENV`` would otherwise ship the
+    public default credentials as a reviewer-role backdoor.
     """
-    return settings.app_env.strip().lower() != "production"
+    if settings.app_env.strip().lower() == "production":
+        return False
+    flag = os.getenv("DEV_LOGIN_ENABLED", "")
+    return flag.strip().lower() in {"1", "true", "yes", "on"}
 
 
 @router.post("/auth/dev-login", response_model=VerifyMagicLinkResponse, include_in_schema=False)

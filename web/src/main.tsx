@@ -276,9 +276,9 @@ function Home({
         ];
     push({
       role: "a",
-      tone: "note",
-      text: `${label} for ${address}: I can build the dossier shell, run the address-first workflow, and line the property up with parcel, council, zoning, overlays, source-library search, drawing upload, and Tier-1 check readiness when the live API has authoritative data.`,
-      chips,
+      tone: "warn",
+      text: `Preview only — not a source-backed answer. ${label} for ${address}: in the full app I can build the dossier shell, run the address-first workflow, and line the property up with parcel, council, zoning, overlays, source-library search, drawing upload, and Tier-1 check readiness once the live API has authoritative data. Sign in to run the real check.`,
+      chips: ["guest preview", ...chips],
     });
     push({
       role: "a",
@@ -302,14 +302,14 @@ function Home({
     }
     push({
       role: "a",
-      tone: "note",
-      text,
+      tone: "warn",
+      text: `Preview only — not a source-backed answer. ${text} Sign in to ask against the live source library.`,
       chips: authed
-        ? ["library-first", "preview fallback", "citations required"]
+        ? ["guest preview", "library-first", "citations required"]
         : [
             `chat ${Math.min(guestUsage.chatMessages + 1, GUEST_CHAT_LIMIT)}/${GUEST_CHAT_LIMIT}`,
-            "library-first",
             "guest preview",
+            "not a real answer",
           ],
     });
   }, [authed, guestUsage.chatMessages, webOn]);
@@ -801,6 +801,7 @@ function App() {
   const [signInOpen, setSignInOpen] = useState(false);
   const [paywall, setPaywall] = useState<PaywallState | null>(null);
   const [guestUsage, setGuestUsage] = useState<GuestUsage>(() => loadGuestUsage());
+  const [autoPrompted, setAutoPrompted] = useState(false);
 
   const refreshSession = useCallback(() => { void api.session().then(setSession); }, []);
 
@@ -821,6 +822,16 @@ function App() {
   }, [refreshSession]);
 
   const authed = session?.kind === "ok";
+
+  useEffect(() => {
+    // Greet unauthenticated visitors with the sign-in / create-account popup once
+    // the session has resolved. Dismissable via the modal's "Continue as guest".
+    if (session === null) return; // still loading
+    if (authed || autoPrompted || signInOpen) return;
+    setSignInOpen(true);
+    setAutoPrompted(true);
+  }, [session, authed, autoPrompted, signInOpen]);
+
   const goSignIn = useCallback(() => setSignInOpen(true), []);
   const showPaywall = useCallback((feature: GuestFeature) => {
     const used = feature === "address" ? guestUsage.addressChecks : guestUsage.chatMessages;
