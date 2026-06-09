@@ -158,6 +158,10 @@ a{color:var(--green)}
 .plans span{display:block;font-size:.72rem;color:var(--ink-soft);line-height:1.35}
 .paywall .btn+.btn{margin-top:8px}
 
+/* wizard selects */
+select{font:inherit;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px;outline:none;appearance:auto}
+select:focus{border-color:var(--green-bright)}
+
 /* mobile */
 .tabbar{display:none}
 .sheetwrap{display:none}

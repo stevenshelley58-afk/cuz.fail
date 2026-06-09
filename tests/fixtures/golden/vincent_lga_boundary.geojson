@@ -1,0 +1,22 @@
+{
+  "type": "Feature",
+  "properties": {
+    "lga_name": "City of Vincent",
+    "state": "WA",
+    "lga_code": "58750",
+    "source": "SLIP LGA boundaries (demo fixture)",
+    "licence": "CC BY 4.0",
+    "srid": 7844,
+    "note": "Simplified bounding polygon — not authoritative"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [[
+      [115.840, -31.940],
+      [115.870, -31.940],
+      [115.870, -31.910],
+      [115.840, -31.910],
+      [115.840, -31.940]
+    ]]
+  }
+}

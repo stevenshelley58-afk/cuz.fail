@@ -1,0 +1,68 @@
+{
+  "project_id": "PROJECT_GOLDEN_VINCENT_001",
+  "org_id": "ORG_DEMO_001",
+  "resolution_status": "resolved",
+  "confidence": "medium",
+  "address": "244 Vincent Street, North Perth WA 6006",
+  "local_government": "City of Vincent",
+  "target_crs": "EPSG:7844",
+  "issues": [],
+  "facts": [
+    {
+      "fact_id": "FACT_001",
+      "fact_type": "address",
+      "value": "244 Vincent Street, North Perth WA 6006",
+      "confidence": "high",
+      "review_status": "approved",
+      "provenance": {
+        "kind": "spatial_dataset",
+        "method": "gnaf_exact_match",
+        "target_crs": "EPSG:7844",
+        "dataset_id": "gnaf_wa_2022-01-01",
+        "licence_status": "licensed"
+      }
+    },
+    {
+      "fact_id": "FACT_002",
+      "fact_type": "zone",
+      "value": {"zone_code": "R60", "zone_label": "Residential R60"},
+      "confidence": "medium",
+      "review_status": "pending_review",
+      "provenance": {
+        "kind": "spatial_dataset",
+        "method": "parcel_planning_feature_intersection",
+        "target_crs": "EPSG:7844",
+        "dataset_id": "dplh_wms_display",
+        "licence_status": "unlicensed"
+      }
+    },
+    {
+      "fact_id": "FACT_003",
+      "fact_type": "r_code",
+      "value": "R60",
+      "confidence": "medium",
+      "review_status": "pending_review",
+      "provenance": {
+        "kind": "spatial_dataset",
+        "method": "parcel_planning_feature_intersection",
+        "target_crs": "EPSG:7844",
+        "dataset_id": "dplh_wms_display",
+        "licence_status": "unlicensed"
+      }
+    },
+    {
+      "fact_id": "FACT_004",
+      "fact_type": "local_government",
+      "value": "City of Vincent",
+      "confidence": "high",
+      "review_status": "approved",
+      "provenance": {
+        "kind": "spatial_dataset",
+        "method": "point_in_polygon_fallback",
+        "target_crs": "EPSG:7844",
+        "dataset_id": "slip_lga_boundaries",
+        "licence_status": "licensed"
+      }
+    }
+  ]
+}

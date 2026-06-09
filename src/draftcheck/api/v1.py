@@ -19,6 +19,7 @@ from draftcheck.db.engine import create_runtime_engine
 from draftcheck.api.address import router as address_router
 from draftcheck.api.auth import router as auth_router
 from draftcheck.api.documents import router as documents_router
+from draftcheck.api.projects import router as projects_router
 from draftcheck.api.sources import _default_source_library, _fallback_ingestion_status, create_sources_router
 
 
@@ -127,6 +128,7 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
     api_router = APIRouter()
     api_router.include_router(auth_router)
     api_router.include_router(address_router)
+    api_router.include_router(projects_router)
     api_router.include_router(create_sources_router(library=source_library))
     api_router.include_router(documents_router)
 
@@ -225,16 +227,6 @@ def ready() -> dict[str, object]:
     }
 
 
-@router.get("/projects", tags=["projects"])
-def list_projects() -> None:
-    _stub("projects.list")
-
-
-@router.post("/projects", tags=["projects"])
-def create_project(payload: dict[str, Any]) -> None:
-    _stub("projects.create")
-
-
 @router.get("/projects/{project_id}", tags=["projects"])
 def get_project(project_id: str) -> None:
     _stub("projects.get")
@@ -248,16 +240,6 @@ def update_project(project_id: str, payload: dict[str, Any]) -> None:
 @router.delete("/projects/{project_id}", tags=["projects"])
 def delete_project(project_id: str) -> None:
     _stub("projects.delete")
-
-
-@router.post("/projects/{project_id}/property/override", tags=["projects"])
-def override_project_property(project_id: str, payload: dict[str, Any]) -> None:
-    _stub("projects.property_override")
-
-
-@router.post("/projects/{project_id}/proposal", tags=["projects"])
-def post_project_proposal(project_id: str, payload: dict[str, Any]) -> None:
-    _stub("projects.proposal")
 
 
 @router.get("/rules/clauses", tags=["rules"])

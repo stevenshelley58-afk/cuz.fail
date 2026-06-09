@@ -1,0 +1,17 @@
+{
+  "gnaf_pid": "GA_VINCENT_DEMO_001",
+  "address_text": "244 Vincent Street, North Perth WA 6006",
+  "street_number": "244",
+  "street_name": "Vincent",
+  "street_type": "Street",
+  "locality_name": "North Perth",
+  "state": "WA",
+  "postcode": "6006",
+  "latitude": -31.9318,
+  "longitude": 115.8518,
+  "geocode_type": "PROPERTY_CENTROID",
+  "reliability": 2,
+  "gnaf_date_created": "2022-01-01",
+  "licence": "CC BY 4.0",
+  "source": "G-NAF WA (demo fixture)"
+}

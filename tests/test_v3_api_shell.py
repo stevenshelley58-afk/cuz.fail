@@ -102,13 +102,23 @@ def test_v3_ready_degrades_when_database_probe_fails(monkeypatch) -> None:
 
 
 def test_v3_contract_stub_uses_problem_json() -> None:
+    # Use a route that is still a 501 stub (rules/clauses is unimplemented)
     client = TestClient(app)
 
-    response = client.get("/api/v1/projects")
+    response = client.get("/api/v1/rules/clauses")
 
     assert response.status_code == 501
     assert response.headers["content-type"] == "application/problem+json"
     assert response.json()["title"] == "Not Implemented"
+
+
+def test_v3_projects_list_requires_auth() -> None:
+    # The real projects router is live — unauthenticated GET /projects returns 401
+    client = TestClient(app)
+
+    response = client.get("/api/v1/projects")
+
+    assert response.status_code in (401, 503)  # 503 when DATABASE_URL not set
 
 
 def test_v3_app_emits_cors_headers_for_configured_frontend_origin() -> None:

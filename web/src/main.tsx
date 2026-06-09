@@ -25,7 +25,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo } from "./api";
+import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo, type PropertyProfileResponse, type PropertyFactResponse, type ProposalRequest, type ProposalResponse } from "./api";
 import "./styles.css";
 
 /* ── dev login ──
@@ -197,6 +197,538 @@ function citationChip(citation: NonNullable<ChatReply["citations"]>[number]): st
   ].filter(Boolean).join(" · ");
 }
 
+/* ── wizard types ── */
+
+type WizardStep = 1 | 2 | 3;
+
+type WizardState = {
+  step: WizardStep;
+  projectId: string;
+  address: string;
+  property: PropertyProfileResponse | null;
+  proposal: ProposalRequest;
+  savedProposal: ProposalResponse | null;
+};
+
+/* ── helpers for wizard display ── */
+
+function resolutionBadge(status: PropertyProfileResponse["resolution_status"]) {
+  const map: Record<string, { label: string; bg: string; color: string }> = {
+    resolved: { label: "Resolved", bg: "var(--mint)", color: "var(--green-800)" },
+    missing_info: { label: "Missing info", bg: "var(--flag-bg)", color: "var(--flag)" },
+    needs_human_review: { label: "Needs human review", bg: "#EFF6FF", color: "#1D4ED8" },
+    unsupported: { label: "Unsupported", bg: "#FEF2F2", color: "#B91C1C" },
+  };
+  const s = map[status] ?? { label: status, bg: "#EFF1F1", color: "var(--ink-soft)" };
+  return (
+    <span style={{ fontSize: ".72rem", fontWeight: 700, padding: "3px 10px", borderRadius: 99, background: s.bg, color: s.color, display: "inline-flex", alignItems: "center", gap: 5 }}>
+      {s.label}
+    </span>
+  );
+}
+
+function confidenceBadge(confidence: string) {
+  const colors: Record<string, string> = { high: "var(--green-800)", medium: "var(--flag)", low: "#B91C1C", none: "var(--ink-soft)" };
+  return (
+    <span style={{ fontSize: ".72rem", fontWeight: 700, padding: "3px 10px", borderRadius: 99, background: "var(--paper)", border: "1px solid var(--line)", color: colors[confidence] ?? "var(--ink-soft)", display: "inline-flex", alignItems: "center", gap: 4 }}>
+      Confidence: {confidence}
+    </span>
+  );
+}
+
+function groupFactsByType(facts: PropertyFactResponse[]): Map<string, PropertyFactResponse[]> {
+  const m = new Map<string, PropertyFactResponse[]>();
+  for (const f of facts) {
+    const arr = m.get(f.fact_type) ?? [];
+    arr.push(f);
+    m.set(f.fact_type, arr);
+  }
+  return m;
+}
+
+function formatFactValue(v: unknown): string {
+  if (v === null || v === undefined) return "—";
+  if (typeof v === "string") return v;
+  if (typeof v === "number" || typeof v === "boolean") return String(v);
+  return JSON.stringify(v);
+}
+
+const NOT_LEGAL_PROOF_NOTE = (
+  <div style={{ fontSize: ".72rem", fontWeight: 600, color: "var(--flag)", background: "var(--flag-bg)", border: "1px solid #F5DEB9", borderRadius: 10, padding: "6px 12px", margin: "8px 0", display: "flex", alignItems: "flex-start", gap: 6 }}>
+    <Icon name="error" />
+    <span>Not legal proof of property boundaries. Resolution status is advisory only and must not be used as a substitute for a registered survey or certificate of title.</span>
+  </div>
+);
+
+/* ── ProvenanceAccordion ── */
+
+function ProvenanceAccordion({ provenance }: { provenance: PropertyProfileResponse["provenance"] }) {
+  const [open, setOpen] = useState(false);
+  if (!provenance || provenance.length === 0) return null;
+  return (
+    <div style={{ marginTop: 8 }}>
+      <button
+        style={{ fontSize: ".72rem", fontWeight: 700, color: "var(--ink-soft)", display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", cursor: "pointer" }}
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+      >
+        <Icon name="verified" />
+        {open ? "Hide" : "Show"} data provenance ({provenance.length})
+      </button>
+      {open && (
+        <div style={{ marginTop: 6, display: "flex", flexDirection: "column", gap: 6 }}>
+          {provenance.map((p, i) => (
+            <div key={i} style={{ fontSize: ".72rem", background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "8px 12px" }}>
+              <div><b>Kind:</b> {p.kind}</div>
+              <div><b>Method:</b> {p.method}</div>
+              <div><b>CRS:</b> {p.target_crs}</div>
+              {p.dataset_id && <div><b>Dataset:</b> {p.dataset_id}</div>}
+              {p.licence_status && <div><b>Licence:</b> {p.licence_status}</div>}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ── AddressResolverPanel ── */
+
+function AddressResolverPanel({ property, onContinue, onBack }: { property: PropertyProfileResponse; onContinue: () => void; onBack?: () => void }) {
+  const factsByType = groupFactsByType(property.facts ?? []);
+
+  const zoneEntry = factsByType.get("zone");
+  const rCodeEntry = factsByType.get("r_code");
+  const overlayEntries = factsByType.get("overlay");
+
+  return (
+    <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
+      <h3 style={{ marginBottom: 12 }}><Icon name="location_on" />Property Resolution</h3>
+
+      {NOT_LEGAL_PROOF_NOTE}
+
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 10 }}>
+        {resolutionBadge(property.resolution_status)}
+        {confidenceBadge(property.confidence)}
+      </div>
+
+      {property.address && (
+        <div style={{ fontSize: ".85rem", marginBottom: 6 }}><b>Address:</b> {property.address}</div>
+      )}
+      {property.local_government && (
+        <div style={{ fontSize: ".85rem", marginBottom: 6 }}><b>Local government:</b> {property.local_government}</div>
+      )}
+
+      {property.resolution_status !== "resolved" && property.issues.length > 0 && (
+        <div className="state" style={{ marginTop: 8 }}>
+          <Icon name="error" />
+          <div>
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>Issues preventing full resolution:</div>
+            <ul style={{ margin: 0, paddingLeft: 16 }}>
+              {property.issues.map((issue, i) => <li key={i}>{issue}</li>)}
+            </ul>
+          </div>
+        </div>
+      )}
+
+      {(zoneEntry || rCodeEntry || overlayEntries) && (
+        <div style={{ marginTop: 10, fontSize: ".85rem" }}>
+          <div style={{ fontWeight: 700, marginBottom: 6, color: "var(--ink)" }}>Planning facts</div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            {zoneEntry?.map((f) => (
+              <div key={f.fact_id} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--line)" }}>
+                <span style={{ color: "var(--ink-soft)" }}>Zone</span>
+                <span style={{ fontWeight: 600 }}>{formatFactValue(f.value)}</span>
+              </div>
+            ))}
+            {rCodeEntry?.map((f) => (
+              <div key={f.fact_id} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--line)" }}>
+                <span style={{ color: "var(--ink-soft)" }}>R-Code</span>
+                <span style={{ fontWeight: 600 }}>{formatFactValue(f.value)}</span>
+              </div>
+            ))}
+            {overlayEntries?.map((f) => (
+              <div key={f.fact_id} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--line)" }}>
+                <span style={{ color: "var(--ink-soft)" }}>Overlay</span>
+                <span style={{ fontWeight: 600 }}>{formatFactValue(f.value)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {factsByType.size > 0 && (
+        <div style={{ marginTop: 10, fontSize: ".85rem" }}>
+          <div style={{ fontWeight: 700, marginBottom: 6, color: "var(--ink)" }}>All facts ({property.facts.length})</div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
+            {Array.from(factsByType.entries()).map(([factType, entries]) =>
+              entries.map((f) => (
+                <div key={f.fact_id} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--line)" }}>
+                  <span style={{ color: "var(--ink-soft)" }}>{factType}</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                    <span style={{ fontWeight: 600 }}>{formatFactValue(f.value)}</span>
+                    <span style={{ fontSize: ".66rem", color: "var(--ink-faint)" }}>{f.confidence}</span>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      )}
+
+      <ProvenanceAccordion provenance={property.provenance} />
+
+      <div style={{ display: "flex", gap: 8, marginTop: 16, justifyContent: "flex-end" }}>
+        {onBack && (
+          <button className="btn alt" onClick={onBack}>← Back</button>
+        )}
+        <button className="btn" onClick={onContinue}>Next: Proposal details →</button>
+      </div>
+    </div>
+  );
+}
+
+/* ── ProposalForm (Step 2) ── */
+
+function ProposalForm({
+  projectId,
+  initial,
+  onSaved,
+  onBack,
+}: {
+  projectId: string;
+  initial: ProposalRequest;
+  onSaved: (proposal: ProposalResponse, data: ProposalRequest) => void;
+  onBack: () => void;
+}) {
+  const [data, setData] = useState<ProposalRequest>(initial);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const update = (patch: Partial<ProposalRequest>) => setData((d) => ({ ...d, ...patch }));
+
+  const save = async () => {
+    setBusy(true);
+    setError(null);
+    const r = await api.upsertProposal(projectId, data);
+    setBusy(false);
+    if (r.kind === "ok") {
+      onSaved(r.data, data);
+    } else if (r.kind === "notBuilt") {
+      setError("Proposal saving not yet available (endpoint not built).");
+      onSaved({ id: "", org_id: "", project_id: projectId, created_at: "", updated_at: "" }, data);
+    } else if (r.kind === "auth") {
+      setError("Sign in required to save proposal.");
+    } else {
+      setError(r.kind === "error" ? r.message : `Failed (${r.kind}).`);
+    }
+  };
+
+  const selectStyle = {
+    width: "100%",
+    border: "1.5px solid var(--line)",
+    borderRadius: 12,
+    padding: "10px 14px",
+    outline: "none",
+    background: "var(--paper)",
+    fontSize: ".85rem",
+    color: "var(--ink)",
+    fontFamily: "inherit",
+  } as React.CSSProperties;
+
+  const labelStyle = { fontSize: ".75rem", fontWeight: 700, color: "var(--ink-soft)", display: "block", marginBottom: 4 } as React.CSSProperties;
+
+  const fieldWrap = { marginBottom: 14 } as React.CSSProperties;
+
+  return (
+    <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
+      <h3 style={{ marginBottom: 16 }}><Icon name="home_work" />Proposal details</h3>
+
+      <div style={fieldWrap}>
+        <label style={labelStyle} htmlFor="proposal_type">Proposal type</label>
+        <select id="proposal_type" style={selectStyle} value={data.proposal_type ?? ""} onChange={(e) => update({ proposal_type: e.target.value || null })}>
+          <option value="">— select —</option>
+          <option value="residential">Residential</option>
+          <option value="commercial">Commercial</option>
+          <option value="mixed_use">Mixed use</option>
+        </select>
+      </div>
+
+      {data.proposal_type === "residential" && (
+        <div style={fieldWrap}>
+          <label style={labelStyle} htmlFor="dwelling_type">Dwelling type</label>
+          <select id="dwelling_type" style={selectStyle} value={data.dwelling_type ?? ""} onChange={(e) => update({ dwelling_type: e.target.value || null })}>
+            <option value="">— select —</option>
+            <option value="single_house">Single house</option>
+            <option value="grouped_dwelling">Grouped dwelling</option>
+            <option value="multiple_dwelling">Multiple dwelling</option>
+            <option value="ancillary_dwelling">Ancillary dwelling</option>
+            <option value="short_stay">Short stay</option>
+          </select>
+        </div>
+      )}
+
+      <div style={fieldWrap}>
+        <label style={labelStyle} htmlFor="work_type">Work type</label>
+        <select id="work_type" style={selectStyle} value={data.work_type ?? ""} onChange={(e) => update({ work_type: e.target.value || null })}>
+          <option value="">— select —</option>
+          <option value="new_construction">New construction</option>
+          <option value="extension">Extension</option>
+          <option value="renovation">Renovation</option>
+          <option value="demolition">Demolition</option>
+          <option value="change_of_use">Change of use</option>
+        </select>
+      </div>
+
+      <div style={fieldWrap}>
+        <span style={labelStyle}>New or existing building</span>
+        <div style={{ display: "flex", gap: 16 }}>
+          {(["new", "existing"] as const).map((v) => (
+            <label key={v} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: ".85rem", cursor: "pointer" }}>
+              <input
+                type="radio"
+                name="new_or_existing"
+                value={v}
+                checked={data.new_or_existing === v}
+                onChange={() => update({ new_or_existing: v })}
+              />
+              {v.charAt(0).toUpperCase() + v.slice(1)}
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div style={fieldWrap}>
+        <label style={labelStyle} htmlFor="lot_type">Lot type</label>
+        <select id="lot_type" style={selectStyle} value={data.lot_type ?? ""} onChange={(e) => update({ lot_type: e.target.value || null })}>
+          <option value="">— select —</option>
+          <option value="green_title">Green title</option>
+          <option value="strata_title">Strata title</option>
+          <option value="survey_strata">Survey strata</option>
+        </select>
+      </div>
+
+      {error && (
+        <div className="state" style={{ marginBottom: 10 }}>
+          <Icon name="error" /><span>{error}</span>
+        </div>
+      )}
+
+      <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+        <button className="btn alt" onClick={onBack} disabled={busy}>← Back</button>
+        <button className="btn" onClick={() => void save()} disabled={busy}>
+          {busy ? "Saving…" : "Save & Continue →"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ── ConfirmationStep (Step 3) ── */
+
+function ConfirmationStep({
+  address,
+  property,
+  proposal,
+  onBack,
+  onStart,
+}: {
+  address: string;
+  property: PropertyProfileResponse | null;
+  proposal: ProposalRequest;
+  onBack: () => void;
+  onStart: () => void;
+}) {
+  const factsByType = property ? groupFactsByType(property.facts ?? []) : new Map<string, PropertyFactResponse[]>();
+  const zone = factsByType.get("zone")?.[0];
+  const rCode = factsByType.get("r_code")?.[0];
+
+  return (
+    <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
+      <h3 style={{ marginBottom: 16 }}><Icon name="check_circle" />Confirm and start</h3>
+
+      <div style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 4 }}>Project</div>
+        <div style={{ fontWeight: 700, fontSize: ".95rem" }}>{address}</div>
+      </div>
+
+      {NOT_LEGAL_PROOF_NOTE}
+
+      {property && (
+        <div style={{ marginBottom: 16 }}>
+          <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 8 }}>Property summary</div>
+          <div style={{ fontSize: ".85rem", display: "flex", flexDirection: "column", gap: 4 }}>
+            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Status</span>
+              {resolutionBadge(property.resolution_status)}
+            </div>
+            {property.local_government && (
+              <div style={{ display: "flex", gap: 8 }}>
+                <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>LGA</span>
+                <span style={{ fontWeight: 600 }}>{property.local_government}</span>
+              </div>
+            )}
+            {zone && (
+              <div style={{ display: "flex", gap: 8 }}>
+                <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Zone</span>
+                <span style={{ fontWeight: 600 }}>{formatFactValue(zone.value)}</span>
+              </div>
+            )}
+            {rCode && (
+              <div style={{ display: "flex", gap: 8 }}>
+                <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>R-Code</span>
+                <span style={{ fontWeight: 600 }}>{formatFactValue(rCode.value)}</span>
+              </div>
+            )}
+            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Confidence</span>
+              {confidenceBadge(property.confidence)}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div style={{ marginBottom: 16 }}>
+        <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 8 }}>Proposal summary</div>
+        <div style={{ fontSize: ".85rem", display: "flex", flexDirection: "column", gap: 4 }}>
+          {proposal.proposal_type && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Type</span>
+              <span style={{ fontWeight: 600 }}>{proposal.proposal_type}</span>
+            </div>
+          )}
+          {proposal.dwelling_type && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Dwelling</span>
+              <span style={{ fontWeight: 600 }}>{proposal.dwelling_type}</span>
+            </div>
+          )}
+          {proposal.work_type && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Work type</span>
+              <span style={{ fontWeight: 600 }}>{proposal.work_type}</span>
+            </div>
+          )}
+          {proposal.new_or_existing && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>New / existing</span>
+              <span style={{ fontWeight: 600 }}>{proposal.new_or_existing}</span>
+            </div>
+          )}
+          {proposal.lot_type && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Lot type</span>
+              <span style={{ fontWeight: 600 }}>{proposal.lot_type}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div style={{ background: "var(--paper)", border: "1px dashed var(--line)", borderRadius: 14, padding: "12px 14px", marginBottom: 16 }}>
+        <div style={{ fontSize: ".78rem", fontWeight: 700, color: "var(--ink-soft)", marginBottom: 4 }}>Coming soon</div>
+        <div style={{ fontSize: ".82rem", color: "var(--ink-soft)" }}>
+          Tier-1 compliance checks (setbacks, site coverage, open space) will be available here once the compliance engine is built.
+        </div>
+      </div>
+
+      <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+        <button className="btn alt" onClick={onBack}>← Back to edit</button>
+        <button className="btn" onClick={onStart} disabled>
+          <Icon name="check_circle" />Start checking (coming soon)
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ── WizardShell ── */
+
+function WizardShell({
+  wizard,
+  onClose,
+}: {
+  wizard: WizardState;
+  onClose: () => void;
+}) {
+  const [state, setState] = useState<WizardState>(wizard);
+
+  const setStep = (step: WizardStep) => setState((s) => ({ ...s, step }));
+
+  const steps = ["Address & property", "Proposal details", "Confirm"] as const;
+
+  return (
+    <div className="view" style={{ paddingTop: 16 }}>
+      {/* stepper */}
+      <div style={{ display: "flex", alignItems: "center", gap: 0, marginBottom: 20, maxWidth: 640, margin: "0 auto 20px" }}>
+        {steps.map((label, idx) => {
+          const stepNum = (idx + 1) as WizardStep;
+          const isCurrent = state.step === stepNum;
+          const isDone = state.step > stepNum;
+          return (
+            <div key={idx} style={{ display: "flex", alignItems: "center", flex: idx < 2 ? 1 : undefined }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+                <div style={{
+                  width: 28, height: 28, borderRadius: 99, display: "flex", alignItems: "center", justifyContent: "center",
+                  background: isCurrent ? "var(--green-900)" : isDone ? "var(--green)" : "var(--paper)",
+                  border: isCurrent || isDone ? "none" : "1.5px solid var(--line)",
+                  color: isCurrent || isDone ? "#fff" : "var(--ink-faint)",
+                  fontSize: ".75rem", fontWeight: 800,
+                }}>
+                  {isDone ? <Icon name="check_circle" /> : stepNum}
+                </div>
+                <div style={{ fontSize: ".65rem", fontWeight: 700, color: isCurrent ? "var(--green-800)" : "var(--ink-faint)", whiteSpace: "nowrap" }}>
+                  {label}
+                </div>
+              </div>
+              {idx < 2 && (
+                <div style={{ flex: 1, height: 2, background: isDone ? "var(--green)" : "var(--line)", margin: "0 6px 16px" }} />
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {state.step === 1 && state.property && (
+        <AddressResolverPanel
+          property={state.property}
+          onContinue={() => setStep(2)}
+          onBack={onClose}
+        />
+      )}
+
+      {state.step === 1 && !state.property && (
+        <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
+          <div className="state"><Icon name="error" /><span>Property data unavailable. Address was submitted but no profile returned.</span></div>
+          <div style={{ marginTop: 12 }}>
+            <button className="btn alt" onClick={onClose}>← Back</button>
+          </div>
+        </div>
+      )}
+
+      {state.step === 2 && (
+        <ProposalForm
+          projectId={state.projectId}
+          initial={state.proposal}
+          onSaved={(saved, data) => setState((s) => ({ ...s, savedProposal: saved, proposal: data, step: 3 }))}
+          onBack={() => setStep(1)}
+        />
+      )}
+
+      {state.step === 3 && (
+        <ConfirmationStep
+          address={state.address}
+          property={state.property}
+          proposal={state.proposal}
+          onBack={() => setStep(2)}
+          onStart={() => {
+            // future: navigate to compliance step
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
 /* ── status bar (live health/ready) ── */
 
 function StatusBar() {
@@ -249,6 +781,7 @@ function Home({
   const [busy, setBusy] = useState(false);
   const [webOn, setWebOn] = useState(false);
   const [recents, setRecents] = useState<ProjectSummary[]>([]);
+  const [wizard, setWizard] = useState<WizardState | null>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const threadRef = useRef<HTMLDivElement>(null);
 
@@ -325,11 +858,28 @@ function Home({
       push({ role: "a", tone: "note", text: `Project created for ${address}. Resolving the property…`, chips: ["POST /projects · live"] });
       const resolved = await api.resolveAddress(id, address);
       if (resolved.kind === "ok") {
-        push({ role: "a", tone: "note", text: "Property resolved. Drawings upload and Tier-1 checks are the next build steps — this project is saved and waiting.", chips: ["resolve-address · live"] });
+        // Launch the Stage 2 wizard
+        setWizard({
+          step: 1,
+          projectId: id,
+          address,
+          property: resolved.data,
+          proposal: {},
+          savedProposal: null,
+        });
       } else if (!authed && (resolved.kind === "auth" || resolved.kind === "notBuilt" || resolved.kind === "missing")) {
         pushGuestAddressPreview(address, "guest");
       } else if (resolved.kind === "notBuilt") {
-        pushGuestAddressPreview(address, "fallback");
+        // resolveAddress not built yet — show wizard with null property so user can still enter proposal
+        push({ role: "a", tone: "note", text: "Property resolution not yet available. You can still enter proposal details.", chips: ["resolve-address · not built"] });
+        setWizard({
+          step: 1,
+          projectId: id,
+          address,
+          property: null,
+          proposal: {},
+          savedProposal: null,
+        });
       } else if (resolved.kind === "auth") {
         onNeedSignIn();
       } else {
@@ -402,6 +952,26 @@ function Home({
       void send();
     }
   };
+
+  if (wizard) {
+    return (
+      <>
+        <div style={{ flex: "none", width: "100%", maxWidth: "min(760px,100%)", padding: "12px 0 0", display: "flex", alignItems: "center", gap: 10 }}>
+          <button
+            className="btn alt"
+            style={{ fontSize: ".75rem", padding: "6px 12px" }}
+            onClick={() => setWizard(null)}
+          >
+            ← Back to home
+          </button>
+          <span style={{ fontSize: ".78rem", color: "var(--ink-faint)", fontWeight: 600 }}>
+            {wizard.address}
+          </span>
+        </div>
+        <WizardShell wizard={wizard} onClose={() => setWizard(null)} />
+      </>
+    );
+  }
 
   return (
     <>
