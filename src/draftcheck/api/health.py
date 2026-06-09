@@ -58,8 +58,8 @@ def metrics() -> PlainTextResponse:
             try:
                 r = conn.execute(
                     text(
-                        "SELECT COALESCE(SUM(cost_cents), 0) FROM job_traces "
-                        "WHERE created_at >= date_trunc('day', now())"
+                        "SELECT COALESCE(ROUND(SUM(cost_usd) * 100), 0) FROM job_traces "
+                        "WHERE started_at >= date_trunc('day', now() AT TIME ZONE 'UTC')"
                     )
                 )
                 spend = float(r.scalar() or 0)
