@@ -39,6 +39,7 @@ from draftcheck.domain.sources.fetching import (
 )
 from draftcheck.domain.sources.library import (
     _chunk_text,
+    _embed,
     _hash_embedding,
     _safe_quote,
     default_embedding_config,
@@ -2291,7 +2292,7 @@ class SqlAlchemySourceLibrary:
                 embedding_provider=self.embedding_config.provider,
                 embedding_model=self.embedding_config.model,
                 embedding_dimension=self.embedding_config.dimension,
-                embedding=list(_hash_embedding(chunk_text, self.embedding_config)),
+                embedding=list(_embed(chunk_text, self.embedding_config)),
                 metadata_json={"source_id": str(db_source.id)},
             )
             session.add(chunk)

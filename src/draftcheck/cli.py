@@ -325,6 +325,22 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
         default=DEFAULT_ORG_NAME,
         help="Organisation display name when provisioning a new org.",
     )
+    re_embed_parser = subparsers.add_parser(
+        "re-embed",
+        help="Re-generate embeddings for source chunks using the current embedding model.",
+    )
+    re_embed_parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=100,
+        metavar="N",
+        help="Chunks to process per batch (default: 100)",
+    )
+    re_embed_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print what would be done without making changes",
+    )
     return parser
 
 
@@ -535,6 +551,99 @@ def _run_discover_source_links(
     return 0
 
 
+def _run_re_embed(
+    args: argparse.Namespace,
+    *,
+    stdout: TextIO,
+    stderr: TextIO,
+) -> int:
+    """Re-embed source chunks that don't match the current embedding model."""
+    from sqlalchemy import create_engine, text
+    from sqlalchemy.orm import Session
+
+    database_url = os.environ.get("DATABASE_URL", "")
+    if not database_url:
+        stderr.write("error: DATABASE_URL not set\n")
+        return 2
+
+    provider = os.environ.get("DRAFTCHECK_EMBEDDING_PROVIDER", "api")
+    model = os.environ.get("DRAFTCHECK_EMBEDDING_MODEL", "text-embedding-3-small")
+    dimension = int(os.environ.get("DRAFTCHECK_EMBEDDING_DIMENSION", "1536"))
+
+    engine = create_engine(database_url)
+    with Session(engine) as session:
+        count_q = text(
+            "SELECT COUNT(*) FROM source_chunks "
+            "WHERE embedding_provider != :p OR embedding_model != :m"
+        )
+        total = session.execute(count_q, {"p": provider, "m": model}).scalar() or 0
+        stdout.write(f"Chunks needing re-embedding: {total}\n")
+        if args.dry_run or total == 0:
+            return 0
+
+        from draftcheck.domain.sources.library import (
+            _batch_embed,
+            EmbeddingConfig,
+            default_embedding_config,
+        )
+
+        config = default_embedding_config()
+        processed = 0
+        last_id = None
+        while True:
+            if last_id is None:
+                rows_q = text(
+                    "SELECT id, text FROM source_chunks "
+                    "WHERE (embedding_provider != :p OR embedding_model != :m) "
+                    "ORDER BY id LIMIT :batch"
+                )
+                rows = session.execute(
+                    rows_q, {"p": provider, "m": model, "batch": args.batch_size}
+                ).fetchall()
+            else:
+                rows_q = text(
+                    "SELECT id, text FROM source_chunks "
+                    "WHERE (embedding_provider != :p OR embedding_model != :m) AND id > :last_id "
+                    "ORDER BY id LIMIT :batch"
+                )
+                rows = session.execute(
+                    rows_q,
+                    {"p": provider, "m": model, "last_id": last_id, "batch": args.batch_size},
+                ).fetchall()
+            if not rows:
+                break
+
+            texts = [r[1] for r in rows]
+            ids = [r[0] for r in rows]
+            embeddings = _batch_embed(texts, config)
+
+            for chunk_id, embedding in zip(ids, embeddings):
+                update_q = text(
+                    "UPDATE source_chunks SET embedding = :emb, "
+                    "embedding_provider = :p, embedding_model = :m, embedding_dimension = :d "
+                    "WHERE id = :id"
+                )
+                session.execute(
+                    update_q,
+                    {
+                        "emb": list(embedding),
+                        "p": provider,
+                        "m": model,
+                        "d": dimension,
+                        "id": str(chunk_id),
+                    },
+                )
+            session.commit()
+
+            processed += len(rows)
+            last_id = str(ids[-1])
+            stdout.write(f"\rProcessed {processed}/{total}")
+            stdout.flush()
+
+        stdout.write(f"\nDone. Re-embedded {processed} chunks.\n")
+    return 0
+
+
 def main(
     argv: Sequence[str] | None = None,
     *,
@@ -561,6 +670,8 @@ def main(
         return _run_repair_parse_quality_sources(args, stdout=out, stderr=err)
     if args.command == "discover-source-links":
         return _run_discover_source_links(args, stdout=out, stderr=err)
+    if args.command == "re-embed":
+        return _run_re_embed(args, stdout=out, stderr=err)
 
     err.write("error: unsupported command\n")
     return 2

@@ -67,6 +67,101 @@ def _hash_embedding(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
     return tuple(values)
 
 
+def _api_embedding(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
+    """Call OpenAI /v1/embeddings via urllib (no SDK dependency)."""
+    import json
+    import time
+    from urllib.error import HTTPError, URLError
+    from urllib.request import Request, urlopen
+
+    api_key = os.environ.get("OPENAI_API_KEY", "")
+    body = json.dumps({
+        "model": config.model,
+        "input": text,
+        "encoding_format": "float",
+        "dimensions": config.dimension,
+    }).encode()
+    req = Request(
+        "https://api.openai.com/v1/embeddings",
+        data=body,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+    )
+    delays = [1.0, 2.0, 4.0]
+    last_exc: Exception | None = None
+    for delay in [0.0, *delays]:
+        if delay:
+            time.sleep(delay)
+        try:
+            with urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read())
+            return tuple(data["data"][0]["embedding"])
+        except (HTTPError, URLError) as exc:
+            last_exc = exc
+    raise RuntimeError(f"Embedding API failed after retries: {last_exc}") from last_exc
+
+
+def _embed(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
+    import logging
+    provider = os.environ.get("DRAFTCHECK_EMBEDDING_PROVIDER", config.provider)
+    app_env = os.environ.get("APP_ENV", "development")
+    if provider == "stub" or not os.environ.get("OPENAI_API_KEY"):
+        if app_env == "production":
+            raise RuntimeError(
+                "Real embeddings required in production. "
+                "Set OPENAI_API_KEY or DRAFTCHECK_EMBEDDING_PROVIDER=stub to override."
+            )
+        logging.getLogger(__name__).warning(
+            "Using hash embeddings stub (OPENAI_API_KEY not set or DRAFTCHECK_EMBEDDING_PROVIDER=stub). "
+            "Vector search will not be meaningful."
+        )
+        return _hash_embedding(text, config)
+    return _api_embedding(text, config)
+
+
+def _batch_embed(texts: list[str], config: EmbeddingConfig) -> list[tuple[float, ...]]:
+    """Embed multiple texts in one API call (up to 100 per batch)."""
+    import json
+    import time
+    from urllib.error import HTTPError, URLError
+    from urllib.request import Request, urlopen
+
+    MAX_BATCH = 100
+    results: list[tuple[float, ...]] = []
+    for i in range(0, len(texts), MAX_BATCH):
+        batch = texts[i:i + MAX_BATCH]
+        api_key = os.environ.get("OPENAI_API_KEY", "")
+        body = json.dumps({
+            "model": config.model,
+            "input": batch,
+            "encoding_format": "float",
+            "dimensions": config.dimension,
+        }).encode()
+        req = Request(
+            "https://api.openai.com/v1/embeddings",
+            data=body,
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        )
+        delays = [1.0, 2.0, 4.0]
+        last_exc: Exception | None = None
+        for delay in [0.0, *delays]:
+            if delay:
+                time.sleep(delay)
+            try:
+                with urlopen(req, timeout=60) as resp:
+                    data = json.loads(resp.read())
+                for item in sorted(data["data"], key=lambda x: x["index"]):
+                    results.append(tuple(item["embedding"]))
+                break
+            except (HTTPError, URLError) as exc:
+                last_exc = exc
+        else:
+            raise RuntimeError(f"Batch embedding API failed: {last_exc}") from last_exc
+    return results
+
+
 def _chunk_text(text: str, *, max_chars: int = 1200) -> tuple[str, ...]:
     normalized = text.strip()
     if not normalized:
