@@ -15,7 +15,6 @@ def upgrade() -> None:
         """
         CREATE INDEX IF NOT EXISTS ix_property_facts_project_review
         ON property_facts (project_id, review_status)
-        WHERE promoted_to_measurement = TRUE
         """
     )
 

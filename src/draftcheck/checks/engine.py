@@ -144,7 +144,6 @@ class ComplianceEngine:
             session.query(PropertyFact)
             .filter(
                 PropertyFact.project_id == UUID(project_id),
-                PropertyFact.promoted_to_measurement == True,  # type: ignore[attr-defined]  # noqa: E712
                 PropertyFact.review_status == "confirmed",
             )
             .all()
