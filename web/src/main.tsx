@@ -1450,9 +1450,7 @@ function Home({
         push({
           role: "a",
           tone: "note",
-          text: DEV_LOGIN
-            ? "Sign in first with the local dev account."
-            : "Sign in first — LotFile uses email magic links, no passwords.",
+          text: "Sign in first.",
           action: { label: "Go to sign in", run: onNeedSignIn },
         });
       }
@@ -1712,8 +1710,6 @@ function Library({ onNeedSignIn }: { onNeedSignIn: () => void }) {
 /* ── settings / auth ── */
 
 function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null; refresh: () => void }) {
-  const [email, setEmail] = useState("");
-  const [sent, setSent] = useState<string | null>(null);
   const authed = session?.kind === "ok";
   const who = authed ? (session.data.email ?? session.data.user?.email ?? "signed in") : null;
   return (
@@ -1727,26 +1723,8 @@ function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null
               <button className="btn alt" onClick={() => { void api.logout().then(refresh); }}>Sign out</button>
             </div>
           </>
-        ) : DEV_LOGIN ? (
-          <>
-            <p>Local development login — magic links are off while we build.</p>
-            <DevLoginForm variant="panel" onSignedIn={refresh} />
-          </>
         ) : (
-          <>
-            <p>LotFile signs you in with an email magic link — no passwords.</p>
-            <div className="field">
-              <input
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onKeyDown={(e) => { if (e.key === "Enter") { void api.magicLinkRequest(email).then((r) => setSent(r.kind)); } }}
-              />
-              <button className="btn" onClick={() => { void api.magicLinkRequest(email).then((r) => setSent(r.kind)); }}>Send link</button>
-            </div>
-            {sent === "ok" && <div className="state okay" style={{ marginTop: 10 }}><Icon name="mark_email_read" /><span>Link sent — check your email for your sign-in link.</span></div>}
-            {sent && sent !== "ok" && <div className="state"><Icon name="error" /><span>Couldn't send the link just now — please try again in a moment.</span></div>}
-          </>
+          <DevLoginForm variant="panel" onSignedIn={refresh} />
         )}
       </div>
       <div className="panel">
@@ -1819,53 +1797,12 @@ function DevLoginForm({ variant, onSignedIn }: { variant: "modal" | "panel"; onS
 /* ── sign in / create account popup ── */
 
 function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onSignedIn: () => void }) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  const submit = useCallback(async () => {
-    const value = email.trim();
-    if (!value || status === "sending") return;
-    setStatus("sending");
-    const r = await api.magicLinkRequest(value);
-    setStatus(r.kind === "ok" ? "sent" : "error");
-  }, [email, status]);
-
   return (
     <div className="modal-backdrop" onClick={() => onClose?.()}>
-      <div className="modal" role="dialog" aria-modal="true" aria-label="Sign in or create your account" onClick={(e) => e.stopPropagation()}>
+      <div className="modal" role="dialog" aria-modal="true" aria-label="Sign in" onClick={(e) => e.stopPropagation()}>
         <div className="modal-logo">Lot<span>File</span></div>
-        {DEV_LOGIN ? (
-          <>
-            <h2>Dev sign in</h2>
-            <p>Local development login — magic links are off while we build.</p>
-            <DevLoginForm variant="modal" onSignedIn={onSignedIn} />
-          </>
-        ) : status === "sent" ? (
-          <>
-            <h2>Check your email</h2>
-            <p>We sent a sign-in link to <b>{email.trim()}</b>. Open it on this device to continue.</p>
-            <button className="btn block" onClick={() => setStatus("idle")}>Use a different email</button>
-          </>
-        ) : (
-          <>
-            <h2>Sign in or create your account</h2>
-            <p>Enter your email and we’ll send you a magic link. You can also keep exploring as a guest, with limited address checks and chat.</p>
-            <input
-              className="modal-input"
-              type="email"
-              autoFocus
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onKeyDown={(e) => { if (e.key === "Enter") void submit(); }}
-            />
-            <button className="btn block" onClick={() => void submit()} disabled={status === "sending"}>
-              {status === "sending" ? "Sending…" : "Email me a magic link"}
-            </button>
-            {status === "error" && <p className="modal-err">Couldn’t send the link just now — please try again in a moment.</p>}
-          </>
-        )}
-        {onClose && <button className="modal-skip" onClick={onClose}>Continue as guest</button>}
+        <h2>Sign in</h2>
+        <DevLoginForm variant="modal" onSignedIn={onSignedIn} />
       </div>
     </div>
   );
