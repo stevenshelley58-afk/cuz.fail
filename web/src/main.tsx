@@ -31,8 +31,7 @@ import type { LucideIcon } from "lucide-react";
 import { api, type ApiResult, type ChatReply, type HealthInfo, type ProjectSummary, type SessionInfo, type PropertyProfileResponse, type PropertyFactResponse, type ProposalRequest, type ProposalResponse, type RuleSummary, type CandidateSummary, type ComplianceRunResponse, type ComplianceResultItem, type ExtractedFact, type DocumentUploadResponse } from "./api";
 import "./styles.css";
 
-// Magic link is disabled — always use the username/password login form.
-const DEV_LOGIN = true;
+const DEV_LOGIN = false;
 
 const GUEST_USAGE_KEY = "lotfile_guest_usage_v1";
 const GUEST_ADDRESS_LIMIT = envNumber("VITE_GUEST_ADDRESS_LIMIT", 2);
@@ -720,7 +719,7 @@ function ComplianceResultRow({
           textAlign: "left",
         }}
       >
-        <span style={{ fontWeight: 500, fontSize: 14 }}>{item.check_name}</span>
+        <span style={{ fontWeight: 500, fontSize: 14 }}>{item.display_name ?? item.check_key}</span>
         <StatusBadge status={item.status} />
       </button>
 
@@ -898,6 +897,22 @@ function CompliancePanel({ projectId }: CompliancePanelProps) {
           }}
         >
           {error}
+        </div>
+      )}
+
+      {runResult?.advisory_disclaimer && (
+        <div
+          style={{
+            background: "#fffbeb",
+            border: "1px solid #fcd34d",
+            borderRadius: 6,
+            padding: "8px 12px",
+            color: "#92400e",
+            fontSize: 12,
+            marginBottom: 12,
+          }}
+        >
+          {runResult.advisory_disclaimer}
         </div>
       )}
 
@@ -1222,9 +1237,11 @@ function DocumentUpload({ projectId }: { projectId: string }) {
 function WizardShell({
   wizard,
   onClose,
+  onProjectOpen,
 }: {
   wizard: WizardState;
   onClose: () => void;
+  onProjectOpen: (projectId: string) => void;
 }) {
   const [state, setState] = useState<WizardState>(wizard);
 
@@ -1298,7 +1315,8 @@ function WizardShell({
           proposal={state.proposal}
           onBack={() => setStep(2)}
           onStart={() => {
-            // future: navigate to compliance step
+            if (state.projectId) onProjectOpen(state.projectId);
+            else onClose();
           }}
         />
       )}
@@ -1346,6 +1364,7 @@ function Home({
   onGuestChatStart,
   onNeedSignIn,
   onShowPaywall,
+  onProjectOpen,
 }: {
   authed: boolean;
   guestUsage: GuestUsage;
@@ -1353,6 +1372,7 @@ function Home({
   onGuestChatStart: () => boolean;
   onNeedSignIn: () => void;
   onShowPaywall: (feature: GuestFeature) => void;
+  onProjectOpen: (projectId: string) => void;
 }) {
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [busy, setBusy] = useState(false);
@@ -1552,7 +1572,7 @@ function Home({
             {wizard.address}
           </span>
         </div>
-        <WizardShell wizard={wizard} onClose={() => setWizard(null)} />
+        <WizardShell wizard={wizard} onClose={() => setWizard(null)} onProjectOpen={(id) => { setWizard(null); onProjectOpen(id); }} />
       </>
     );
   }
@@ -1638,7 +1658,7 @@ function Home({
           <h2>Recent</h2>
           <div className="strip">
             {recents.map((p) => (
-              <button key={p.id} className="proj">
+              <button key={p.id} className="proj" onClick={() => onProjectOpen(p.id)}>
                 <Icon name="home_work" />
                 <span className="t">{p.name ?? p.address ?? p.id}<small>{p.created_at ?? ""}</small></span>
               </button>
@@ -1651,16 +1671,62 @@ function Home({
   );
 }
 
+/* ── ProjectDetail — opens when a project card is clicked ── */
+
+type ProjectDoc = { id: string; title: string; document_type: string; status: string; created_at: string | null; fact_count: number };
+
+function ProjectDetail({ projectId, onClose }: { projectId: string; onClose: () => void }) {
+  const [docs, setDocs] = useState<ProjectDoc[]>([]);
+  const [docsLoading, setDocsLoading] = useState(false);
+
+  useEffect(() => {
+    setDocsLoading(true);
+    void api.documents.listForProject(projectId).then((r) => {
+      if (r.kind === "ok") setDocs(r.data.items ?? []);
+      setDocsLoading(false);
+    });
+  }, [projectId]);
+
+  return (
+    <div className="view">
+      <div style={{ marginBottom: 12 }}>
+        <button className="btn alt" style={{ fontSize: ".75rem", padding: "6px 12px" }} onClick={onClose}>← Back</button>
+      </div>
+      <div className="panel">
+        <CompliancePanel projectId={projectId} />
+      </div>
+      <div className="panel">
+        <h3 style={{ margin: "0 0 12px", fontSize: 15, fontWeight: 600 }}>Uploaded documents</h3>
+        {docsLoading && <p style={{ color: "#6b7280", fontSize: 14 }}>Loading…</p>}
+        {!docsLoading && docs.length === 0 && (
+          <p style={{ color: "#6b7280", fontSize: 14 }}>No documents uploaded yet.</p>
+        )}
+        {docs.map((doc) => (
+          <div key={doc.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, padding: "8px 0", borderBottom: "1px solid #f3f4f6" }}>
+            <div>
+              <span style={{ color: "#374151", fontWeight: 500 }}>{doc.title}</span>
+              <small style={{ color: "#9ca3af", marginLeft: 8 }}>{doc.document_type} · {doc.fact_count} facts</small>
+            </div>
+            <span style={{ color: "#6b7280", fontSize: 12 }}>{doc.created_at ?? ""}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ── projects view ── */
 
 function Projects({
   authed,
   guestUsage,
   onNeedSignIn,
+  onProjectOpen,
 }: {
   authed: boolean;
   guestUsage: GuestUsage;
   onNeedSignIn: () => void;
+  onProjectOpen: (projectId: string) => void;
 }) {
   const [result, setResult] = useState<ApiResult<ProjectSummary[] | { projects?: ProjectSummary[] }> | null>(null);
   useEffect(() => {
@@ -1683,7 +1749,7 @@ function Projects({
             {guestItems.length > 0 && (
               <div className="strip" style={{ marginTop: 10 }}>
                 {guestItems.map((p) => (
-                  <button key={p.id} className="proj">
+                  <button key={p.id} className="proj" onClick={() => onProjectOpen(p.id)}>
                     <Icon name="home_work" />
                     <span className="t">{p.address ?? p.id}<small>Guest preview · {p.created_at ?? ""}</small></span>
                   </button>
@@ -1700,7 +1766,7 @@ function Projects({
         {result?.kind === "ok" && items.length > 0 && (
           <div className="strip" style={{ marginTop: 10 }}>
             {items.map((p) => (
-              <button key={p.id} className="proj">
+              <button key={p.id} className="proj" onClick={() => onProjectOpen(p.id)}>
                 <Icon name="home_work" />
                 <span className="t">{p.name ?? p.address ?? p.id}<small>{p.created_at ?? ""}</small></span>
               </button>
@@ -1764,8 +1830,10 @@ function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null
               <button className="btn alt" onClick={() => { void api.logout().then(refresh); }}>Sign out</button>
             </div>
           </>
-        ) : (
+        ) : DEV_LOGIN ? (
           <DevLoginForm variant="panel" onSignedIn={refresh} />
+        ) : (
+          <MagicLinkForm variant="panel" onSignedIn={refresh} />
         )}
       </div>
       <div className="panel">
@@ -1779,7 +1847,7 @@ function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null
 /* ── dev username/password form (used in place of magic link while DEV_LOGIN) ── */
 
 function DevLoginForm({ variant, onSignedIn }: { variant: "modal" | "panel"; onSignedIn: () => void }) {
-  const [username, setUsername] = useState("jemma");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState(false);
@@ -1837,13 +1905,71 @@ function DevLoginForm({ variant, onSignedIn }: { variant: "modal" | "panel"; onS
 
 /* ── sign in / create account popup ── */
 
+function MagicLinkForm({ variant, onSignedIn }: { variant: "modal" | "panel"; onSignedIn: () => void }) {
+  type Stage = "idle" | "sending" | "check_email";
+  const [email, setEmail] = useState("");
+  const [stage, setStage] = useState<Stage>("idle");
+  const [error, setError] = useState<string | null>(null);
+
+  async function submit() {
+    const trimmed = email.trim();
+    if (!trimmed) return;
+    setStage("sending");
+    setError(null);
+    const r = await api.magicLinkRequest(trimmed);
+    if (r.kind === "ok") {
+      setStage("check_email");
+    } else {
+      setError(r.kind === "error" ? (r.message ?? "Could not send link") : "Could not reach server");
+      setStage("idle");
+    }
+  }
+
+  if (stage === "check_email") {
+    return (
+      <div>
+        <p style={{ fontSize: 14, color: "#374151", marginBottom: 16 }}>
+          Check your email — we sent a sign-in link to <b>{email}</b>.
+        </p>
+        <p style={{ fontSize: 13, color: "#6b7280" }}>No email? <button className="btn alt" style={{ padding: "4px 10px", fontSize: 12 }} onClick={() => setStage("idle")}>Resend</button></p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <p style={{ fontSize: 13, color: "#6b7280", marginBottom: 12 }}>Enter your email — we'll send a sign-in link. New? Your account is created automatically.</p>
+      <div className="field">
+        <input
+          className="inp"
+          type="email"
+          placeholder="your@email.com"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          onKeyDown={(e) => { if (e.key === "Enter") void submit(); }}
+          autoFocus={variant === "modal"}
+        />
+      </div>
+      {error && <p style={{ color: "#b91c1c", fontSize: 13 }}>{error}</p>}
+      <div className="field">
+        <button className="btn block" onClick={() => void submit()} disabled={stage === "sending" || !email.trim()}>
+          {stage === "sending" ? "Sending…" : "Send sign-in link"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onSignedIn: () => void }) {
   return (
     <div className="modal-backdrop" onClick={() => onClose?.()}>
       <div className="modal" role="dialog" aria-modal="true" aria-label="Sign in" onClick={(e) => e.stopPropagation()}>
         <div className="modal-logo">Lot<span>File</span></div>
         <h2>Sign in</h2>
-        <DevLoginForm variant="modal" onSignedIn={onSignedIn} />
+        {DEV_LOGIN
+          ? <DevLoginForm variant="modal" onSignedIn={onSignedIn} />
+          : <MagicLinkForm variant="modal" onSignedIn={onSignedIn} />}
+        {onClose && <button className="modal-skip" onClick={onClose}>Continue as guest</button>}
       </div>
     </div>
   );
@@ -1935,14 +2061,41 @@ function formatValueJson(v: number | object | null): string {
   return JSON.stringify(v);
 }
 
-function RuleDetail({ rule, onBack }: { rule: RuleSummary; onBack: () => void }) {
+function RuleDetail({ rule, onBack, onApproved }: { rule: RuleSummary; onBack: () => void; onApproved?: (ruleId: string) => void }) {
+  const [approving, setApproving] = useState(false);
+  const [approveError, setApproveError] = useState<string | null>(null);
+
+  async function handleApprove() {
+    setApproving(true);
+    setApproveError(null);
+    const r = await api.rules.approve(rule.id);
+    setApproving(false);
+    if (r.kind === "ok") {
+      onApproved?.(rule.id);
+      onBack();
+    } else {
+      setApproveError(r.kind === "error" ? (r.message ?? "Failed to approve") : "Could not reach server");
+    }
+  }
+
   return (
     <div className="panel" style={{ marginTop: 12 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
         <button className="btn alt" style={{ fontSize: ".75rem", padding: "5px 10px" }} onClick={onBack}>← Back</button>
         <span style={{ fontWeight: 700, fontSize: ".9rem" }}>{rule.rule_key}</span>
         {lifecycleBadge(rule.lifecycle_status)}
+        {(rule.lifecycle_status === "auto_accepted" || rule.lifecycle_status === "pending_review") && (
+          <button
+            className="btn"
+            style={{ fontSize: ".75rem", padding: "5px 12px", marginLeft: "auto" }}
+            onClick={() => void handleApprove()}
+            disabled={approving}
+          >
+            {approving ? "Approving…" : "Approve rule"}
+          </button>
+        )}
       </div>
+      {approveError && <p style={{ color: "#b91c1c", fontSize: 13 }}>{approveError}</p>}
       <div style={{ display: "flex", flexDirection: "column", gap: 5, fontSize: ".83rem" }}>
         {[
           ["ID", rule.id],
@@ -2083,7 +2236,7 @@ function RulesView() {
         {tab === "rules" && (
           <>
             {selectedRule ? (
-              <RuleDetail rule={selectedRule} onBack={() => setSelectedRule(null)} />
+              <RuleDetail rule={selectedRule} onBack={() => setSelectedRule(null)} onApproved={() => { void api.listRules({ limit: 100 }).then(setRules); }} />
             ) : (
               <>
                 {rules === null && <p>Loading…</p>}
@@ -2203,6 +2356,7 @@ function App() {
   const [paywall, setPaywall] = useState<PaywallState | null>(null);
   const [guestUsage, setGuestUsage] = useState<GuestUsage>(() => loadGuestUsage());
   const [autoPrompted, setAutoPrompted] = useState(false);
+  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
 
   const refreshSession = useCallback(() => { void api.session().then(setSession); }, []);
 
@@ -2331,7 +2485,9 @@ function App() {
       </aside>
 
       <main className="stage">
-        {view === "home" && (
+        {activeProjectId ? (
+          <ProjectDetail projectId={activeProjectId} onClose={() => setActiveProjectId(null)} />
+        ) : view === "home" ? (
           <Home
             authed={authed}
             guestUsage={guestUsage}
@@ -2339,12 +2495,17 @@ function App() {
             onGuestChatStart={startGuestChat}
             onNeedSignIn={openSignIn}
             onShowPaywall={showPaywall}
+            onProjectOpen={(id) => setActiveProjectId(id)}
           />
-        )}
-        {view === "projects" && <Projects authed={authed} guestUsage={guestUsage} onNeedSignIn={openSignIn} />}
-        {view === "library" && <Library onNeedSignIn={goSignIn} />}
-        {view === "rules" && <RulesView />}
-        {view === "settings" && <Settings session={session} refresh={refreshSession} />}
+        ) : view === "projects" ? (
+          <Projects authed={authed} guestUsage={guestUsage} onNeedSignIn={openSignIn} onProjectOpen={(id) => setActiveProjectId(id)} />
+        ) : view === "library" ? (
+          <Library onNeedSignIn={goSignIn} />
+        ) : view === "rules" ? (
+          authed ? <RulesView /> : <div className="view"><div className="panel"><div className="state"><Icon name="lock" /><span>Sign in to view rules. <button className="btn alt" style={{ marginLeft: 8 }} onClick={openSignIn}>Sign in</button></span></div></div></div>
+        ) : view === "settings" ? (
+          <Settings session={session} refresh={refreshSession} />
+        ) : null}
       </main>
 
       <div className="tabbar">

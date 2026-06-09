@@ -6,6 +6,7 @@ Endpoints
   GET  /documents/parsers/accuracy                 → accuracy report
 
   POST /documents/upload                           → upload + fact extraction
+  GET  /documents/projects/{project_id}             → list documents for a project
   GET  /documents/{doc_id}/facts                   → list extracted facts
   PATCH /documents/{doc_id}/facts/{fact_id}        → update value or status
   POST  /documents/{doc_id}/facts/{fact_id}/promote → promote to PropertyFact
@@ -447,13 +448,36 @@ def promote_document_fact(
     Creates a new PropertyFact row linked to the document fact's project.
     """
     fact = _get_fact_or_404(db, doc_id, fact_id)
-    fact.review_status = "confirmed"
-    fact.promoted_to_measurement = True
 
     v = fact.value_json or {}
     numeric_value = v.get("numeric_value")
     unit = v.get("unit", "")
     fact_key = fact.check_key or fact.fact_kind
+
+    _confidence_threshold = float(os.getenv("FACT_CONFIDENCE_THRESHOLD", "0.7"))
+    promotion_errors: list[str] = []
+    if numeric_value is None:
+        promotion_errors.append("numeric_value required for promotion")
+    if not unit:
+        promotion_errors.append("unit required for promotion")
+    if not fact_key:
+        promotion_errors.append("check_key or fact_kind required for promotion")
+    if (fact.confidence or 0.0) < _confidence_threshold:
+        promotion_errors.append(
+            f"confidence {fact.confidence} below threshold {_confidence_threshold}"
+        )
+    if fact.fact_kind == "drawing_dimension" and not fact.metadata_json.get("calibration_ref"):
+        promotion_errors.append(
+            "drawing_dimension facts require calibration_ref in metadata before promotion"
+        )
+    if promotion_errors:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={"errors": promotion_errors},
+        )
+
+    fact.review_status = "confirmed"
+    fact.promoted_to_measurement = True
 
     property_fact = PropertyFact(
         id=uuid.uuid4(),
@@ -576,6 +600,47 @@ def review_document_fact(
     except DocumentNotFoundError as exc:
         raise _not_found(exc) from exc
     return _inmem_fact_payload(fact)
+
+
+# ---------------------------------------------------------------------------
+# GET /documents/projects/{project_id} — list documents for a project (DB-backed)
+# ---------------------------------------------------------------------------
+
+
+@router.get("/documents/projects/{project_id}", tags=["documents"])
+def list_project_documents(
+    project_id: str,
+    db: DbSession,
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+) -> dict[str, Any]:
+    """Return all documents uploaded for a project, with their fact counts."""
+    try:
+        project_uuid = uuid.UUID(project_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail="Invalid project UUID.") from exc
+
+    docs = (
+        db.query(Document)
+        .filter(Document.project_id == project_uuid)
+        .order_by(Document.created_at.desc())
+        .all()
+    )
+    result = []
+    for doc in docs:
+        fact_count = (
+            db.query(OrmDocumentFact)
+            .filter(OrmDocumentFact.document_id == doc.id)
+            .count()
+        )
+        result.append({
+            "id": str(doc.id),
+            "title": doc.title,
+            "document_type": doc.document_type,
+            "status": doc.status,
+            "created_at": doc.created_at.isoformat() if doc.created_at else None,
+            "fact_count": fact_count,
+        })
+    return {"items": result, "count": len(result)}
 
 
 # ---------------------------------------------------------------------------
