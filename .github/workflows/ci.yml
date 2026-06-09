@@ -66,6 +66,8 @@ jobs:
         run: |
           ! grep -R "create_all" src web
           ! grep -rE "human.?review|NEEDS_HUMAN_REVIEW|human_review_required" src tests --exclude-dir=alembic --exclude-dir='*.egg-info'
+      - name: Run migrations
+        run: alembic upgrade head
       - name: Run tests
         run: pytest tests/ -x -q
 
