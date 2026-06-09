@@ -228,7 +228,7 @@ class SourceReview:
     source_version_id: str
     review_status: SourceReviewStatus
     licence_status: LicenceStatus
-    reviewer_id: str
+    actor_id: str
     reviewed_at: datetime
     notes: str | None = None
 
