@@ -16,6 +16,7 @@ it does NOT write lifecycle_status='approved'.  Approval is always an operator a
 
 from __future__ import annotations
 
+import logging
 import re
 from collections import Counter
 from datetime import UTC, datetime
@@ -26,6 +27,8 @@ from sqlalchemy.orm import Session
 
 from draftcheck.ai.substrate import ModelAdapter, ModelRequest
 from draftcheck.db.models import Rule, RuleCandidate
+
+_logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -267,6 +270,8 @@ def _maybe_promote(
         try:
             allowed = gate_fn(candidate.id, skill_version_id, session)
         except Exception:
+            # Fail closed, but never silently: a gate crash is a bug, not a veto.
+            _logger.exception("Promotion gate raised for candidate %s; blocking promotion.", candidate.id)
             allowed = False
         if not allowed:
             return []

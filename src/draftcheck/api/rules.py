@@ -115,32 +115,6 @@ def _require_operator(active_session: ActiveSession) -> None:
         )
 
 
-def _get_db_session():
-    """Yield a SQLAlchemy session if DATABASE_URL is configured, else raise 503."""
-    from draftcheck.db.engine import database_url_from_env
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import sessionmaker
-
-    database_url = database_url_from_env()
-    if not database_url:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="database not configured",
-        )
-    engine = create_engine(database_url)
-    SessionLocal = sessionmaker(bind=engine)
-    db = SessionLocal()
-    try:
-        yield db
-        db.commit()
-    except Exception:
-        db.rollback()
-        raise
-    finally:
-        db.close()
-        engine.dispose()
-
-
 # ---------------------------------------------------------------------------
 # Router
 # ---------------------------------------------------------------------------

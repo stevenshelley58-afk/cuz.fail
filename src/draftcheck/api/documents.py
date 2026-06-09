@@ -23,10 +23,8 @@ return 503 when the database is not configured.
 from __future__ import annotations
 
 import hashlib
-import io
 import os
 import uuid
-from collections.abc import Generator
 from pathlib import Path, PurePath
 from typing import Annotated, Any
 
@@ -36,7 +34,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy.orm import Session
 
 from draftcheck.api.auth import get_current_session, require_allowed_origin
-from draftcheck.db.engine import create_session_factory
+from draftcheck.api.deps import get_db_session
 from draftcheck.db.models import (
     Document,
     DocumentFact as OrmDocumentFact,
@@ -46,9 +44,13 @@ from draftcheck.db.models import (
 from draftcheck.domain.documents import (
     DocumentFact,
     DocumentNotFoundError,
+    DocumentParseError,
     DocumentParser,
     DocumentReviewStatus,
     InMemoryDocumentLibrary,
+    decode_text_bytes,
+    extract_docx_text,
+    extract_pdf_pages,
     sample_parser_accuracy_report,
 )
 from draftcheck.domain.documents.facts import DocumentFactService
@@ -73,30 +75,6 @@ def get_document_library() -> InMemoryDocumentLibrary:
     if _document_library is None:
         _document_library = InMemoryDocumentLibrary()
     return _document_library
-
-
-# ---------------------------------------------------------------------------
-# DB session dependency (mirrors projects.py)
-# ---------------------------------------------------------------------------
-
-
-def get_db_session() -> Generator[Session, None, None]:
-    database_url = os.getenv("DATABASE_URL")
-    if not database_url:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="DATABASE_URL is not configured; durable document storage unavailable.",
-        )
-    factory = create_session_factory(database_url)
-    db: Session = factory()
-    try:
-        yield db
-        db.commit()
-    except Exception:
-        db.rollback()
-        raise
-    finally:
-        db.close()
 
 
 DbSession = Annotated[Session, Depends(get_db_session)]
@@ -177,56 +155,23 @@ def _extract_text_from_content(media_type: str, filename: str, content: bytes) -
 
     if media_type == "application/pdf" or suffix == ".pdf":
         parser_name = "draftcheck.pdf_text_parser"
-        pages = _pdf_pages(content)
+        pages = extract_pdf_pages(content)
         return pages, parser_name
 
     if media_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" or suffix == ".docx":
         parser_name = "draftcheck.docx_text_parser"
-        text = _docx_text(content)
+        text = extract_docx_text(content)
         return [text] if text.strip() else [], parser_name
 
     if suffix == ".dxf" or "dxf" in media_type:
         parser_name = "draftcheck.dxf_text_parser"
         # DXF: decode as text for metadata / entity labels only
-        text = _decode_bytes(content)
+        text = decode_text_bytes(content)
         return [text] if text.strip() else [], parser_name
 
     # TXT / CSV / anything else
-    text = _decode_bytes(content)
+    text = decode_text_bytes(content)
     return [text] if text.strip() else [], parser_name
-
-
-def _pdf_pages(content: bytes) -> list[str]:
-    try:
-        from pypdf import PdfReader
-    except ImportError:
-        return [_decode_bytes(content)]
-    try:
-        reader = PdfReader(io.BytesIO(content))
-        return [page.extract_text() or "" for page in reader.pages]
-    except Exception:
-        return [_decode_bytes(content)]
-
-
-def _docx_text(content: bytes) -> str:
-    try:
-        from docx import Document as DocxDocument
-    except ImportError:
-        return _decode_bytes(content)
-    try:
-        doc = DocxDocument(io.BytesIO(content))
-        return "\n".join(p.text for p in doc.paragraphs if p.text.strip())
-    except Exception:
-        return _decode_bytes(content)
-
-
-def _decode_bytes(content: bytes) -> str:
-    for enc in ("utf-8", "utf-16", "cp1252", "latin-1"):
-        try:
-            return content.decode(enc)
-        except UnicodeDecodeError:
-            continue
-    return content.decode("utf-8", errors="replace")
 
 
 def _safe_filename(filename: str) -> str:
@@ -340,7 +285,13 @@ async def upload_document(
     db.flush()  # get the id before adding pages/facts
 
     # --- Extract text + create DocumentPage rows ---
-    page_texts, parser_name = _extract_text_from_content(media_type, filename, content)
+    try:
+        page_texts, parser_name = _extract_text_from_content(media_type, filename, content)
+    except DocumentParseError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=str(exc),
+        ) from exc
     orm_pages: list[OrmDocumentPage] = []
     for page_number, page_text in enumerate(page_texts, start=1):
         page = OrmDocumentPage(

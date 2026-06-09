@@ -30,8 +30,6 @@ Stage 2 safety invariants (must all hold):
 
 from __future__ import annotations
 
-import os
-from collections.abc import Generator
 from datetime import datetime
 from typing import Annotated, Any
 
@@ -40,7 +38,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
 from draftcheck.api.auth import get_current_session
-from draftcheck.db.engine import create_session_factory
+from draftcheck.api.deps import get_db_session
 from draftcheck.db.models import Project, PropertyFact, Proposal
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.projects.service import (
@@ -57,34 +55,6 @@ _property_svc = PropertyService()
 _proposal_svc = ProposalService()
 
 
-# ---------------------------------------------------------------------------
-# DB session dependency
-# ---------------------------------------------------------------------------
-
-
-def get_db_session() -> Generator[Session, None, None]:
-    """Yield a SQLAlchemy session if DATABASE_URL is configured.
-
-    Falls back to raising a 503 when no database is configured so that the
-    non-DB test suite can still import and route-test against this module with
-    dependency overrides.
-    """
-    database_url = os.getenv("DATABASE_URL")
-    if not database_url:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="DATABASE_URL is not configured; durable project storage unavailable.",
-        )
-    factory = create_session_factory(database_url)
-    db: Session = factory()
-    try:
-        yield db
-        db.commit()
-    except Exception:
-        db.rollback()
-        raise
-    finally:
-        db.close()
 
 
 DbSession = Annotated[Session, Depends(get_db_session)]
