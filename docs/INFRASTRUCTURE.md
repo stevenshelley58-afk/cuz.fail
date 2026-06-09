@@ -2,7 +2,7 @@
 
 The V3 repository includes the backend core and the LotFile web UI under `web/`. Caddy serves the
 production web UI from the compiled static artifact at `/srv/draftcheck/app/web/dist` on the VPS.
-See `docs/PRODUCTION_DEPLOYMENT.md` for the current `app.cuz.fail` deploy procedure.
+See `docs/PRODUCTION_DEPLOYMENT.md` for the current `lotfile.app` deploy procedure.
 
 ## Local stack
 
@@ -83,7 +83,7 @@ The live VPS is `srv1625369` (`76.13.209.160`) and is reachable from the operato
 The active production checkout is `/srv/draftcheck/app`. Caddy terminates HTTP/TLS and routes:
 
 - `api.cuz.fail` to the backend API mounted at `/api/v1`.
-- `app.cuz.fail` to `/srv/draftcheck/app/web/dist`.
+- `lotfile.app` to `/srv/draftcheck/app/web/dist`.
 
 For UI-only releases, rebuild `web/dist` on the VPS after resetting the checkout to `origin/main`.
 No Vercel deploy and no container restart are required for static frontend changes.
@@ -92,7 +92,7 @@ Do not put paid Australian Standards full text into MinIO or backups. Store only
 
 ## Production bootstrap (VPS-only)
 
-Vercel is retired. The only production target is the VPS at `76.13.209.160` serving `app.cuz.fail`.
+Vercel is retired. The only production target is the VPS at `76.13.209.160` serving `lotfile.app`.
 
 To deploy or redeploy the UI:
 

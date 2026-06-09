@@ -8,8 +8,8 @@ verified against the code — not what the planning docs say should exist. Compa
 ## Production topology (locked 2026-06-10)
 
 - Single host: VPS `srv1625369` (76.13.209.160)
-- Canonical app URL: `https://app.cuz.fail`
-- `cuz.fail`, `www.cuz.fail`, `lotfile.app` all redirect to `app.cuz.fail`
+- Canonical app URL: `https://lotfile.app`
+- `cuz.fail`, `www.cuz.fail`, `lotfile.app` all redirect to `lotfile.app`
 - SPA served from `/srv/draftcheck/app/web/dist`
 - API at `/api/v1` (proxied by Caddy to `api:8000`, same-origin)
 - Vercel: retired. No split-brain.

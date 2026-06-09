@@ -2,8 +2,8 @@
 
 ## Deployment architecture — LOCKED (2026-06-10)
 Single host: VPS at 76.13.209.160 (Caddy). No Vercel. No split-brain.
-- Canonical URL: https://app.cuz.fail
-- cuz.fail, www.cuz.fail, lotfile.app all redirect to app.cuz.fail
+- Canonical URL: https://lotfile.app
+- cuz.fail, www.cuz.fail, app.cuz.fail all redirect to lotfile.app
 - SPA is served from /srv/draftcheck/app/web/dist
 - API runs at /api/v1 (same-origin, proxied to api:8000 by Caddy)
 - NEVER set VITE_API_BASE_URL — same-origin makes it unnecessary
