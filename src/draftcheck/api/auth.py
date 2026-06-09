@@ -5,7 +5,6 @@ from __future__ import annotations
 from datetime import datetime
 import os
 from typing import Annotated
-from urllib.parse import urlencode
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from pydantic import BaseModel, Field
@@ -14,15 +13,9 @@ from draftcheck.config import Settings, get_settings
 from draftcheck.domain.identity import (
     ActiveSession,
     DevLogEmailSender,
-    EmailConfigurationError,
-    EmailDeliveryError,
     EmailSender,
     IdentityRole,
     InMemoryIdentityStore,
-    InvalidIdentityInputError,
-    MagicLinkTokenConsumedError,
-    MagicLinkTokenExpiredError,
-    MagicLinkTokenNotFoundError,
     MissingEmailSender,
     SESSION_TTL,
     SmtpEmailSender,
@@ -143,11 +136,6 @@ def require_allowed_origin(
     _assert_allowed_origin(request, settings)
 
 
-def _magic_link_url(settings: Settings, token: str) -> str:
-    query = urlencode({"token": token})
-    return f"{settings.frontend_url}/auth/magic-link/verify?{query}"
-
-
 def _session_response(active_session: ActiveSession) -> SessionResponse:
     return SessionResponse(
         id=str(active_session.session.id),
@@ -202,6 +190,7 @@ def get_current_session(
     "/auth/magic-link/request",
     response_model=MagicLinkRequestedResponse,
     status_code=status.HTTP_202_ACCEPTED,
+    include_in_schema=False,
 )
 def request_magic_link(
     payload: MagicLinkRequest,
@@ -210,38 +199,10 @@ def request_magic_link(
     store: Annotated[InMemoryIdentityStore, Depends(get_identity_store)],
     email_sender: Annotated[EmailSender, Depends(get_email_sender)],
 ) -> MagicLinkRequestedResponse:
-    _assert_allowed_origin(request, settings)
-    try:
-        issue = store.request_magic_link(
-            email=payload.email,
-            org_slug=payload.org_slug,
-            now=None,
-            requested_ip=_client_host(request),
-            user_agent=request.headers.get("user-agent"),
-        )
-    except InvalidIdentityInputError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(exc)) from exc
-
-    try:
-        email_sender.send_magic_link(
-            issue.user.email,
-            _magic_link_url(settings, issue.token),
-            issue.record.expires_at,
-        )
-    except EmailConfigurationError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=str(exc),
-        ) from exc
-    except EmailDeliveryError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY,
-            detail="Magic-link email delivery failed",
-        ) from exc
-    return MagicLinkRequestedResponse(status="accepted", expires_at=issue.record.expires_at)
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
 
 
-@router.post("/auth/magic-link/verify", response_model=VerifyMagicLinkResponse)
+@router.post("/auth/magic-link/verify", response_model=VerifyMagicLinkResponse, include_in_schema=False)
 def verify_magic_link(
     payload: MagicLinkVerifyRequest,
     request: Request,
@@ -249,47 +210,7 @@ def verify_magic_link(
     settings: Annotated[Settings, Depends(get_settings)],
     store: Annotated[InMemoryIdentityStore, Depends(get_identity_store)],
 ) -> VerifyMagicLinkResponse:
-    _assert_allowed_origin(request, settings)
-    try:
-        user, org, _record = store.consume_magic_link(payload.token)
-    except MagicLinkTokenExpiredError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Magic link expired") from exc
-    except MagicLinkTokenConsumedError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Magic link already used") from exc
-    except MagicLinkTokenNotFoundError as exc:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid magic link") from exc
-
-    session_issue = store.create_session(
-        user=user,
-        org=org,
-        ip_address=_client_host(request),
-        user_agent=request.headers.get("user-agent"),
-    )
-    _set_session_cookie(response, settings, session_issue.token)
-    return VerifyMagicLinkResponse(
-        session=_session_response(
-            ActiveSession(session=session_issue.session, user=session_issue.user, org=session_issue.org)
-        )
-    )
-
-
-def _dev_login_enabled(settings: Settings) -> bool:
-    """Dev-only password login is disabled in production (operator decision 2026-06-08).
-
-    Production continues to use magic-link auth only; see docs/MASTER_REBUILD_PLAN.md.
-
-    Two independent guards must both pass before the default-credential login is
-    reachable, so a single misconfigured env var cannot expose it:
-      1. ``app_env`` must not be ``production``.
-      2. ``DEV_LOGIN_ENABLED`` must be explicitly truthy.
-    The explicit opt-in matters because ``app_env`` defaults to ``local`` when
-    unset, so a prod deploy that forgets ``APP_ENV`` would otherwise ship the
-    public default credentials as an unauthenticated backdoor.
-    """
-    if settings.app_env.strip().lower() == "production":
-        return False
-    flag = os.getenv("DEV_LOGIN_ENABLED", "")
-    return flag.strip().lower() in {"1", "true", "yes", "on"}
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
 
 
 @router.post("/auth/dev-login", response_model=VerifyMagicLinkResponse, include_in_schema=False)
@@ -300,19 +221,10 @@ def dev_login(
     settings: Annotated[Settings, Depends(get_settings)],
     store: Annotated[InMemoryIdentityStore, Depends(get_identity_store)],
 ) -> VerifyMagicLinkResponse:
-    """Local/dev convenience login.
-
-    Trades the magic-link round-trip for a fixed username/password while building.
-    Hard-disabled (404) in production so the shipped surface stays magic-link only.
-    Credentials default to jemma/jemma6969 and can be overridden via
-    DEV_LOGIN_USERNAME / DEV_LOGIN_PASSWORD.
-    """
-    if not _dev_login_enabled(settings):
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
     _assert_allowed_origin(request, settings)
 
     expected_username = os.getenv("DEV_LOGIN_USERNAME", "jemma").strip().lower()
-    expected_password = os.getenv("DEV_LOGIN_PASSWORD", "jemma6969")
+    expected_password = os.getenv("DEV_LOGIN_PASSWORD", "jemma123")
     if payload.username.strip().lower() != expected_username or payload.password != expected_password:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

@@ -94,26 +94,36 @@ _ASSISTIVE_DISCLAIMER = (
 )
 
 _GROUNDED_SYSTEM_PROMPT = (
-    "You are LotFile's assistant for Western Australian residential planning and design. "
-    "Answer using only the numbered SOURCES provided below. Do not invent requirements, "
-    "figures, clause numbers, property facts, or compliance outcomes that are not present "
-    "in the SOURCES. If the sources do not answer the question, say so plainly. "
-    "Never state that a specific property, drawing, or design is compliant or approved."
+    "You are LotFile's expert assistant for Western Australian residential planning and design. "
+    "Answer the question thoroughly and helpfully using the numbered SOURCES provided. "
+    "Format your response using Markdown: use **bold** for key terms, bullet lists or numbered steps where they help, "
+    "and ## headings to separate major sections when the answer is long. "
+    "Cite sources inline by number, e.g. [1]. "
+    "Do not invent requirements, figures, clause numbers, or compliance outcomes not present in the SOURCES. "
+    "If the sources only partially answer the question, give the best answer you can from them and note the gap. "
+    "Never state that a specific property, drawing, or design is compliant or approved — outputs are advisory only."
 )
 
 _GENERAL_SYSTEM_PROMPT = (
-    "You are LotFile's assistant. LotFile checks Western Australian residential drawings "
-    "against approved source versions and deterministic rules. Be concise and helpful, "
-    "but do not assert specific regulatory requirements, clause numbers, setbacks, site "
-    "cover, height figures, or compliance outcomes without cited source context. For "
-    "property-specific questions, ask for the address and project evidence."
+    "You are LotFile's expert assistant for Western Australian residential planning and design. "
+    "LotFile checks WA residential drawings against the Residential Design Codes (R-Codes), "
+    "local planning schemes, and other approved planning instruments. "
+    "Answer questions helpfully and clearly using your knowledge of WA planning law, the R-Codes, "
+    "development application processes, WAPC policies, and council requirements. "
+    "Format your response using Markdown: use **bold** for key terms, bullet lists or numbered steps where they help, "
+    "and ## headings to separate major sections when the answer is long. "
+    "When you give a specific figure (setback, height, site cover, etc.) that comes from general knowledge "
+    "rather than a cited source extract, clearly label it as 'general knowledge — verify against approved source version'. "
+    "For property-specific compliance questions, ask for the address and relevant project evidence. "
+    "Do not refuse to help just because a source extract wasn't retrieved — use your expertise and flag when verification is needed."
 )
 
 _GENERAL_FALLBACK_ANSWER = (
-    "I can help with LotFile workflows now: start with a property address, then use approved "
-    "source versions and uploaded project evidence for cited answers. I do not have a cited "
-    "source match for that question yet, so I will not guess a WA planning requirement. Try "
-    "asking for a specific rule or add the property address first."
+    "I can help with Western Australian residential planning questions — setbacks, site cover, "
+    "height limits, R-Codes, development applications, and more. "
+    "I don't have a matching source extract for your question right now, but ask me anything about WA planning "
+    "and I'll give you the best answer I can from the R-Codes and planning framework, clearly noting "
+    "where you should verify against the approved source version."
 )
 
 
@@ -964,7 +974,6 @@ def create_sources_router(
     def assistant_chat(
         payload: AssistantPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         question = _required_query(payload.message, payload.question, payload.query, payload.q)
         provider = get_chat_provider()
@@ -991,10 +1000,7 @@ def create_sources_router(
                     }
                 answer = provider.complete(
                     _GENERAL_SYSTEM_PROMPT,
-                    (
-                        f"Question: {question}\n\n"
-                        "No approved citable source chunk matched this question."
-                    ),
+                    f"Question: {question}",
                 )
                 return {
                     "answer": answer,

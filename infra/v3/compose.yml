@@ -34,6 +34,7 @@ services:
         alembic upgrade head &&
         (procrastinate --app "$${PROCRASTINATE_APP}" schema --apply ||
         echo "procrastinate schema already present; continuing") &&
+        ([ "$${DRAFTCHECK_ENV}" != "production" ] && python scripts/dev_approve_sources.py || true) &&
         uvicorn draftcheck.api.main:app --host 0.0.0.0 --port 8000
     environment:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW}@db:5432/${POSTGRES_DB:-draftcheck}
@@ -44,12 +45,13 @@ services:
       REQUIRE_LOCAL_CONTENT_STORAGE: "true"
       DRAFTCHECK_ENV: ${DRAFTCHECK_ENV:-staging}
       DEV_LOGIN_ENABLED: ${DEV_LOGIN_ENABLED:-true}
-      FRONTEND_URL: ${FRONTEND_URL:-https://app.cuz.fail}
+      FRONTEND_URL: ${FRONTEND_URL:-https://lotfile.app}
       AUTH_TOKEN_HASH_PEPPER: "${AUTH_PEPPER}"
       SESSION_COOKIE_SECURE: "true"
+      SESSION_COOKIE_SAMESITE: "none"
       API_MOUNT: /api/v1
       API_AUTH_ENABLED: "true"
-      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-https://app.cuz.fail}
+      CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-https://lotfile.app,https://app.cuz.fail}
       SMTP_HOST: ${SMTP_HOST:-}
       SMTP_PORT: ${SMTP_PORT:-587}
       SMTP_USERNAME: ${SMTP_USERNAME:-}
@@ -60,15 +62,17 @@ services:
       SMTP_SSL: ${SMTP_SSL:-false}
       SMTP_TIMEOUT_SECONDS: ${SMTP_TIMEOUT_SECONDS:-10}
       LLM_PROVIDER: ${LLM_PROVIDER:-mock}
-      LLM_MODEL: ${LLM_MODEL:-gpt-5.5}
+      LLM_MODEL: ${LLM_MODEL:-MiniMax-M3}
       LLM_TIMEOUT_SECONDS: ${LLM_TIMEOUT_SECONDS:-30}
-      LLM_MAX_OUTPUT_TOKENS: ${LLM_MAX_OUTPUT_TOKENS:-700}
+      LLM_MAX_OUTPUT_TOKENS: ${LLM_MAX_OUTPUT_TOKENS:-1200}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
       OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
       OPENROUTER_BASE_URL: ${OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}
-      OPENROUTER_SITE_URL: ${OPENROUTER_SITE_URL:-https://app.cuz.fail}
+      OPENROUTER_SITE_URL: ${OPENROUTER_SITE_URL:-https://cuz.fail}
       OPENROUTER_APP_NAME: ${OPENROUTER_APP_NAME:-LotFile}
+      MINIMAX_API_KEY: ${MINIMAX_API_KEY:-}
+      MINIMAX_BASE_URL: ${MINIMAX_BASE_URL:-https://api.minimax.chat/v1}
     volumes:
       - ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}:${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
     depends_on:

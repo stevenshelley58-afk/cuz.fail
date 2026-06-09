@@ -8,6 +8,7 @@ WORKDIR /app
 
 COPY pyproject.toml README.md alembic.ini ./
 COPY src ./src
+COPY scripts ./scripts
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
