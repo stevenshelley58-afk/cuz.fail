@@ -25,7 +25,7 @@ from uuid import UUID, uuid4
 from sqlalchemy.orm import Session
 
 from draftcheck.ai.substrate import ModelAdapter, ModelRequest
-from draftcheck.db.models import AuditEvent, Rule, RuleCandidate
+from draftcheck.db.models import Rule, RuleCandidate
 
 
 # ---------------------------------------------------------------------------

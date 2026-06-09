@@ -1,0 +1,7 @@
+{
+  "stage": 3,
+  "wave": 1,
+  "eval_suites": ["classify_clauses_v1", "extract_rules_tier1_v1"],
+  "created": "2026-06-09",
+  "purpose": "Eval seeds for Stage 3 automated promotion gate. Fixtures Owner canonical set."
+}

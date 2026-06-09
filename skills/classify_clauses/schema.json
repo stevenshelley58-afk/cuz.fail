@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ClassifyClausesOutput",
+  "type": "object",
+  "required": ["disposition", "trigger_words", "confidence"],
+  "properties": {
+    "disposition": {
+      "type": "string",
+      "enum": ["rule_bearing", "definitional", "procedural", "informational", "not_applicable"]
+    },
+    "trigger_words": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  },
+  "additionalProperties": false
+}
