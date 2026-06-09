@@ -24,6 +24,7 @@ from draftcheck.api.health import router as health_router
 from draftcheck.api.projects import router as projects_router
 from draftcheck.api.rules import router as rules_router
 from draftcheck.api.sources import _default_source_library, _fallback_ingestion_status, create_sources_router
+from draftcheck.api.agent_routes import router as agent_router
 
 
 COCKBURN_CANARY_ADDRESS = "3 Black Swan Rise, Beeliar WA 6164"
@@ -137,6 +138,7 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
     api_router.include_router(documents_router)
     api_router.include_router(rules_router)
     api_router.include_router(compliance_router)
+    api_router.include_router(agent_router)
 
     @api_router.get("/ops/dashboard", tags=["ops"])
     def ops_dashboard() -> dict[str, Any]:
