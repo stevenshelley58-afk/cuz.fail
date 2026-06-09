@@ -191,6 +191,65 @@ export type ComplianceRunResponse = {
   results: ComplianceResultItem[];
 };
 
+// ── Document types ──
+
+export type DocumentSummary = {
+  id: string;
+  filename: string;
+  project_id: string;
+  created_at?: string;
+} & Record<string, unknown>;
+
+// ── RFI types ──
+
+export type RfiItem = {
+  id: string;
+  project_id: string;
+  check_key: string | null;
+  question: string;
+  status: "open" | "answered" | "closed";
+  answer: string | null;
+  created_at: string;
+  updated_at: string;
+} & Record<string, unknown>;
+
+// ── Export types ──
+
+export type ExportSummary = {
+  id: string;
+  project_id: string | null;
+  format: string;
+  status: "pending" | "ready" | "error";
+  download_url: string | null;
+  created_at: string;
+} & Record<string, unknown>;
+
+export type ExportRequest = {
+  project_id?: string | null;
+  format?: string;
+  include?: string[];
+} & Record<string, unknown>;
+
+// ── Coverage audit types ──
+
+export type CoverageAuditItem = {
+  check_key: string;
+  has_rule: boolean;
+  rule_id: string | null;
+  lifecycle_status: string | null;
+} & Record<string, unknown>;
+
+// ── Search chunk types ──
+
+export type SearchChunk = {
+  chunk_id: string;
+  source_title: string;
+  clause_id: string | null;
+  heading: string | null;
+  text: string;
+  score: number;
+} & Record<string, unknown>;
+
 // ── Document upload types ──
 
 export type ExtractedFact = {
@@ -287,6 +346,7 @@ export const api = {
       const d = data as { detail?: string } | null;
       return { kind: "error", status: res.status, message: d?.detail ?? res.statusText };
     },
+    list: () => call<DocumentSummary[] | { documents?: DocumentSummary[] }>("GET", "/documents"),
     facts: (docId: string) => call<{ items: ExtractedFact[] }>("GET", `/documents/${docId}/facts`),
     listForProject: (projectId: string) => call<{ items: Array<{ id: string; title: string; document_type: string; status: string; created_at: string | null; fact_count: number }> }>("GET", `/documents/projects/${projectId}`),
     confirmFact: (docId: string, factKey: string) =>
@@ -294,4 +354,22 @@ export const api = {
   },
   approveRule: (ruleId: string) =>
     call<{ id: string; lifecycle_status: string }>("POST", `/rules/${ruleId}/approve`, {}),
+  candidates: {
+    promote: (id: string) => call<CandidateSummary>("POST", `/rules/candidates/${id}/promote`, {}),
+    reject: (id: string) => call<CandidateSummary>("POST", `/rules/candidates/${id}/reject`, {}),
+  },
+  coverageAudit: () => call<CoverageAuditItem[]>("GET", "/rules/coverage-audit"),
+  rfi: {
+    list: (projectId: string) => call<RfiItem[]>("GET", `/rfi/projects/${projectId}/items`),
+  },
+  exports: {
+    list: () => call<ExportSummary[] | { exports?: ExportSummary[] }>("GET", "/exports"),
+    create: (req: ExportRequest) => call<ExportSummary>("POST", "/exports", req),
+  },
+  search: {
+    ask: (question: string, opts?: { web?: boolean; scope?: string }) =>
+      call<ChatReply>("POST", "/search/ask", { question, web_search_requested: opts?.web, scope: opts?.scope }),
+    chunks: (query: string, opts?: { limit?: number; source_ids?: string[] }) =>
+      call<{ chunks: SearchChunk[] }>("POST", "/search/chunks", { query, ...opts }),
+  },
 };
