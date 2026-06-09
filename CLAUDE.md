@@ -1,9 +1,17 @@
 # DraftCheck WA Core Claude Rules
 
+## Deployment architecture — LOCKED (2026-06-10)
+Single host: VPS at 76.13.209.160 (Caddy). No Vercel. No split-brain.
+- Canonical URL: https://app.cuz.fail
+- cuz.fail, www.cuz.fail, lotfile.app all redirect to app.cuz.fail
+- SPA is served from /srv/draftcheck/app/web/dist
+- API runs at /api/v1 (same-origin, proxied to api:8000 by Caddy)
+- NEVER set VITE_API_BASE_URL — same-origin makes it unnecessary
+- NEVER redeploy Vercel — it is retired
+- Source-of-truth Caddyfile: infra/v3/Caddyfile
+
 - Active implementation source: `docs/MASTER_REBUILD_PLAN.md` (single authority for the V3
-  rebuild) plus refreshed `REPO_AUDIT.md`, `DATA_INVENTORY.md`, and `VERCEL_AUDIT.md`.
-  (`docs/MASTER_IMPLEMENTATION_PLAN.md`, `MASTER_PLAN_ADDENDUM.md`, and
-  `docs/PLAN_LOCK_NOTICE.md` are superseded background context.)
+  rebuild) plus refreshed `REPO_AUDIT.md` and `DATA_INVENTORY.md`.
 - Older planning docs are background context only where they conflict with the active implementation
   source.
 

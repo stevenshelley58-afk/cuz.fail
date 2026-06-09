@@ -19,7 +19,7 @@ Credentials are discovered, never requested interactively:
 VPS        $DRAFTCHECK_VPS_HOST or `Host draftcheck` in ~/.ssh/config (root@76.13.209.160)
 DNS        $CLOUDFLARE_API_TOKEN (or provider equivalent) if present → automate; else report records
 Restic     $RESTIC_REPOSITORY + $RESTIC_PASSWORD + B2/R2 keys if present → configure; else local-only
-Vercel     $VERCEL_TOKEN if present → API; else the vercel.json guard below is sufficient
+Vercel     RETIRED — no token needed; no Vercel deploys.
 GitHub     gh auth status (already authenticated on this machine)
 ```
 
@@ -48,9 +48,9 @@ VPS             srv1625369 is reachable as `ssh draftcheck`; app.cuz.fail serves
                 `/srv/draftcheck/app/web/dist` from the VPS.
 Web UI          web/index.html title is `LotFile`; live deploy requires rebuilding web/dist
                 on the VPS because Caddy serves compiled files.
-Vercel          legacy production, ACTIVE. Guarded by step A0 — then proceed freely.
+Vercel          RETIRED. Only deploy target is the VPS. UI deploy = `cd web && npm ci && npm run build`
+                into `/srv/draftcheck/app/web/dist`. Reload Caddy after if Caddyfile changed.
 V3 app          Phases 0–2: auth, sources, address/spatial. Product routes are 501 stubs.
-                Deploying now ships the shell, not the product. Expected.
 ```
 
 ## Automated tripwires (not approvals — enforced by tooling, cost zero time)
@@ -71,21 +71,10 @@ Anything not on those two lists is yours to do without asking.
 
 ## Phase A — Local → GitHub
 
-### A0. Vercel deploy guard (autonomous — replaces the old human check)
+### A0. (Vercel guard — RETIRED)
 
-Risk: if the Vercel project is Git-connected, the first push could fire a broken build over
-the live legacy deployment. Mitigation needs no human: disable git-triggered deploys in
-`vercel.json` as part of the materialisation commit. Existing CLI-deployed production stays
-live and untouched.
-
-Edit `vercel.json`, add:
-
-```json
-"git": { "deploymentEnabled": false }
-```
-
-If `$VERCEL_TOKEN` exists, additionally verify/disconnect via the Vercel API. Either way,
-proceed.
+Vercel is retired. No guard steps needed. The only deploy target is the VPS.
+UI deploy: `cd web && npm ci && npm run build` into `/srv/draftcheck/app/web/dist`.
 
 ### A1. Preflight
 
@@ -281,19 +270,13 @@ curl -fsS https://app.cuz.fail/ | head -5
 curl -s -o /dev/null -w "%{http_code}" https://api.cuz.fail/api/v1/projects   # 401/501, not 404
 ```
 
-3. Dual-run window is discretionary, not mandated: the old Vercel deployment stays live as the
-   rollback target (rollback = revert the two A records). Default: proceed immediately once
-   the checks above are green. Legacy `ui/` pages call `api.cuz.fail/v1` and will break at
-   cutover — accepted; they are design references, pre-M1, with no real users. Do not build a
-   `/v1` proxy overlay unless the operator later asks for one.
-4. Post-cutover, same run: if `$VERCEL_TOKEN` exists, disconnect the Vercel integration via
-   API and confirm a trivial push fires no Vercel deploy. Without the token, the
-   `deploymentEnabled: false` guard from A0 already prevents git deploys — sufficient.
-5. Archive (don't delete) in one commit: move `vercel.json`, `api/index.py`, root `index.py`,
-   `.vercelignore`, `scripts/configure-vercel-production.ps1` under `deploy/legacy-vercel/`;
-   update `VERCEL_AUDIT.md`. (`.vercel/` stays local-only; gitignored.)
-   Do this only AFTER the VPS answers on both domains — the archived `vercel.json` carries the
-   deploy guard with it, which is fine once Vercel is no longer serving traffic.
+3. VPS is the only production target. Rollback = revert the two A records. Legacy `ui/` pages
+   call `api.cuz.fail/v1` and will break at cutover — accepted; they are design references,
+   pre-M1, with no real users. Do not build a `/v1` proxy overlay unless the operator asks.
+4. Vercel is retired. No disconnect step needed; no Vercel deploys fire.
+5. Legacy Vercel files (`vercel.json`, `api/index.py`, root `index.py`, `.vercelignore`,
+   `scripts/configure-vercel-production.ps1`) remain archived under `deploy/legacy-vercel/`
+   for reference. (`.vercel/` stays local-only; gitignored.)
 
 ---
 

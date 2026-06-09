@@ -1,10 +1,10 @@
 # Production Deployment
 
-Date: 2026-06-08
+Date: 2026-06-10 (updated — Vercel retired, VPS is sole production target)
 
 This is the operator guide for the live VPS deployment at `app.cuz.fail` and
 `api.cuz.fail`. It is written for Codex/PowerShell on Steven's Windows machine and the
-VPS `srv1625369`.
+VPS `srv1625369`. Vercel is retired — do not deploy there.
 
 ## Authority
 
@@ -74,8 +74,9 @@ srv1625369
 - VPS IP: `76.13.209.160`
 - Repo checkout: `/srv/draftcheck/app`
 - Live static root: `/srv/draftcheck/app/web/dist`
-- UI deploy: rebuild `web/dist`; no Vercel action and no container restart.
+- UI deploy: rebuild `web/dist` on VPS; no Vercel, no container restart.
 - API health check: `https://api.cuz.fail/api/v1/health`
+- Vercel: RETIRED
 
 ## UI-Only Deploy From Main
 

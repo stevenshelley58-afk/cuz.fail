@@ -41,6 +41,11 @@ http://{$CADDY_WWW_HOST:www.cuz.fail} {
 	redir https://{$CADDY_APP_HOST:app.cuz.fail}{uri} permanent
 }
 
+http://lotfile.app {
+	import security_headers
+	redir https://{$CADDY_APP_HOST:app.cuz.fail}{uri} permanent
+}
+
 http://{$CADDY_APP_HOST:app.cuz.fail} {
 	import security_headers
 	encode zstd gzip
@@ -51,6 +56,3 @@ http://{$CADDY_APP_HOST:app.cuz.fail} {
 		file_server
 	}
 }
-
-# Transition note: keep any temporary legacy /v1 proxy in a separate commented
-# operator overlay. This V3 Caddyfile actively serves only /api/v1 for API traffic.

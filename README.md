@@ -1,5 +1,7 @@
 # DraftCheck WA Core
 
+**Production:** https://app.cuz.fail — served by Caddy on a single VPS; no Vercel.
+
 Backend core and V3 rebuild workspace for a WA residential drafting assistant. It manages projects,
 source ingestion, citation-backed retrieval, deterministic compliance checks, RFI parsing, draft
 response packs, Hermes job delegation, exports, validation gates, audit events, and the new address-first
