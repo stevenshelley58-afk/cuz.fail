@@ -46,7 +46,7 @@ http://{$CADDY_APP_HOST:app.cuz.fail} {
 	encode zstd gzip
 	import api_routes
 	handle {
-		root * /srv/draftcheck/web/dist
+		root * /srv/draftcheck/app/web/dist
 		try_files {path} /index.html
 		file_server
 	}

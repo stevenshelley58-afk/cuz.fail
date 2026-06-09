@@ -143,6 +143,7 @@ services:
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}:/srv/draftcheck/storage:ro
+      - /srv/draftcheck/app/web/dist:/srv/draftcheck/app/web/dist:ro
       - caddy_data:/data
       - caddy_config:/config
     networks:
