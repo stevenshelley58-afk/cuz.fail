@@ -80,7 +80,7 @@ def _extract_numeric(value_json: dict[str, object] | None) -> float | None:
     if raw is None:
         return None
     try:
-        return float(raw)
+        return float(str(raw))
     except (TypeError, ValueError):
         return None
 
@@ -133,9 +133,9 @@ class ComplianceEngine:
 
         # Build lookup: rule_key -> Rule (last approved wins on key collision)
         rule_by_key: dict[str, Rule] = {}
-        for rule in rules:
-            if rule.rule_key:
-                rule_by_key[rule.rule_key] = rule
+        for _r in rules:
+            if _r.rule_key:
+                rule_by_key[_r.rule_key] = _r
 
         # ------------------------------------------------------------------
         # 3. Load PropertyFacts for this project
@@ -203,7 +203,7 @@ class ComplianceEngine:
             threshold_value: float | None = None
             if threshold_raw is not None:
                 try:
-                    threshold_value = float(threshold_raw)
+                    threshold_value = float(str(threshold_raw))
                 except (TypeError, ValueError):
                     threshold_value = None
 

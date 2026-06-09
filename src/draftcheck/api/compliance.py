@@ -138,17 +138,22 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
     citations = row.citations_json or []
     citation = citations[0] if citations else None
 
+    _tv = req.get("threshold_value")
+    _tu = req.get("threshold_unit")
+    _mv = prop.get("measured_value")
+    _ri = req.get("rule_id")
+    _note = trace.get("note")
     return CheckResultItemResponse(
         check_key=row.check_key,
         display_name=CHECK_DISPLAY.get(row.check_key, row.check_key),
         status=row.status,
-        threshold_value=req.get("threshold_value"),
-        threshold_unit=req.get("threshold_unit"),
-        measured_value=prop.get("measured_value"),
-        rule_id=req.get("rule_id"),
+        threshold_value=float(_tv) if _tv is not None else None,
+        threshold_unit=str(_tu) if _tu is not None else None,
+        measured_value=float(_mv) if _mv is not None else None,
+        rule_id=str(_ri) if _ri is not None else None,
         rule_quote=row.why_this_applies,
         citation=str(citation) if citation is not None else None,
-        note=trace.get("note"),
+        note=str(_note) if _note is not None else None,
     )
 
 
