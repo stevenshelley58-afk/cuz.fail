@@ -1,0 +1,12 @@
+[Unit]
+Description=Run DraftCheck V3 backup nightly at 02:00 UTC
+
+[Timer]
+# Fire at 02:00 UTC every day.
+OnCalendar=*-*-* 02:00:00 UTC
+# If the VPS was down at fire-time, run immediately on next boot.
+Persistent=true
+Unit=draftcheck-backup.service
+
+[Install]
+WantedBy=timers.target

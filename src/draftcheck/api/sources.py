@@ -16,10 +16,10 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-from draftcheck.ai import InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
+from draftcheck.ai import DbJobTraceStore, InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
 from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.providers import get_chat_provider
-from draftcheck.db.engine import database_url_from_env
+from draftcheck.db.engine import create_session_factory, database_url_from_env
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.sources import (
     AnswerStatus,
@@ -772,7 +772,15 @@ def create_sources_router(
 ) -> APIRouter:
     source_library = library or _default_source_library()
     search_service = InMemorySourceSearchService(source_library)
-    governed_model_adapter = model_adapter or LocalDeterministicModelAdapter(mode="local")
+    if model_adapter is not None:
+        governed_model_adapter = model_adapter
+    else:
+        db_url = database_url_from_env()
+        if db_url:
+            trace_store = DbJobTraceStore(create_session_factory(db_url))
+            governed_model_adapter = LocalDeterministicModelAdapter(mode="local", trace_store=trace_store)
+        else:
+            governed_model_adapter = LocalDeterministicModelAdapter(mode="local")
     api_router = APIRouter()
 
     @api_router.post("/sources/import", tags=["sources"])
