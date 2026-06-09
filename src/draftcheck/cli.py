@@ -165,7 +165,7 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
     seed_sources.add_argument(
         "--operator-email",
         default=None,
-        help="Provision/reuse this reviewer to record source fetch log rows.",
+        help="Provision/reuse this actor to record source fetch log rows.",
     )
     seed_sources.add_argument(
         "--org-slug",
@@ -216,7 +216,7 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
     fetch_sources.add_argument(
         "--operator-email",
         required=True,
-        help="Provision/reuse this reviewer to own fetch log rows.",
+        help="Provision/reuse this actor to own fetch log rows.",
     )
     fetch_sources.add_argument(
         "--org-slug",
@@ -261,7 +261,7 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
     repair_sources.add_argument(
         "--operator-email",
         required=True,
-        help="Provision/reuse this reviewer to own repair log rows.",
+        help="Provision/reuse this actor to own repair log rows.",
     )
     repair_sources.add_argument(
         "--org-slug",
@@ -313,7 +313,7 @@ def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
     discover_links.add_argument(
         "--operator-email",
         required=True,
-        help="Provision/reuse this reviewer to own discovery fetch log rows.",
+        help="Provision/reuse this actor to own discovery fetch log rows.",
     )
     discover_links.add_argument(
         "--org-slug",

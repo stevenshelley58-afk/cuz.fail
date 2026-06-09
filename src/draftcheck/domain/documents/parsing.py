@@ -299,7 +299,7 @@ def sample_parser_accuracy_report() -> dict[str, Any]:
     return {
         "demo_fixture_status": "passed" if matched_count == expected_count and not mismatched else "failed",
         "beta_status": "not_beta_ready",
-        "reason": "The canary parser check passed, but real-project beta needs a broader fixture set and reviewer promotion workflow.",
+        "reason": "The canary parser check passed, but real-project beta needs a broader fixture set and automated validation workflow.",
         "expected_fact_count": expected_count,
         "extracted_fact_count": extracted_count,
         "matched_fact_count": matched_count,
@@ -311,7 +311,7 @@ def sample_parser_accuracy_report() -> dict[str, Any]:
         "blocked_for_beta": [
             "real PDF/DOCX/DXF/IFC fixture pack",
             "per-field precision/recall report across real samples",
-            "reviewer promotion workflow connected to persistence",
+            "automated validation workflow connected to persistence",
             "no image/PDF/raster measurement without explicit calibration",
         ],
     }

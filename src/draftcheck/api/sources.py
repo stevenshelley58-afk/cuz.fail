@@ -911,7 +911,7 @@ def create_sources_router(
                 review_status=payload.review_status,
                 licence_status=payload.licence_status,
                 org_id=str(active_session.org.id),
-                reviewer_id=str(active_session.user.id),
+                actor_id=str(active_session.user.id),
                 notes=payload.notes,
             )
         except SourceNotFoundError as exc:
@@ -928,7 +928,7 @@ def create_sources_router(
             result = source_library.refresh_source(
                 source_id,
                 org_id=str(active_session.org.id),
-                reviewer_id=str(active_session.user.id),
+                actor_id=str(active_session.user.id),
             )
         except SourceNotFoundError as exc:
             raise _source_not_found(exc) from exc
