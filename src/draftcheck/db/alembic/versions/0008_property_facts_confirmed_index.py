@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from alembic import op
 
-revision: str = "0007_property_facts_confirmed_index"
-down_revision: str | None = "0006_fix_role_constraint"
+revision: str = "0008_property_facts_confirmed_index"
+down_revision: str | None = "0007_nullable_org_job_traces"
 branch_labels = None
 depends_on = None
 
