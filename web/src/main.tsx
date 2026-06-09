@@ -1,4 +1,5 @@
-import { StrictMode, useCallback, useEffect, useRef, useState } from "react";
+import { StrictMode, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { marked } from "marked";
 import { createRoot } from "react-dom/client";
 import {
   ArrowUp,
@@ -1545,7 +1546,7 @@ function Home({
                 <div key={i} className="q">{m.text}</div>
               ) : (
                 <div key={i} className={`a${m.tone ? ` ${m.tone}` : ""}`}>
-                  {m.text}
+                  <div className="md" dangerouslySetInnerHTML={{ __html: marked.parse(m.text) as string }} />
                   {m.chips && (
                     <div className="src">
                       {m.chips.map((c, j) => (
