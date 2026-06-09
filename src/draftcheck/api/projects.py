@@ -34,7 +34,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from draftcheck.api.auth import get_current_session, require_reviewer_session
+from draftcheck.api.auth import get_current_session, require_reviewer_session  # type: ignore[attr-defined]
 from draftcheck.db.engine import create_session_factory
 from draftcheck.db.models import Project, PropertyFact, Proposal
 from draftcheck.domain.identity import ActiveSession
