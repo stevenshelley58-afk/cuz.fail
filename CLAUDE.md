@@ -1,5 +1,17 @@
 # DraftCheck WA Core Claude Rules
 
+## Deployment architecture — LOCKED (2026-06-09). Do not relitigate.
+
+- **One host: the VPS (Caddy, `76.13.209.160`). Same-origin. Vercel is RETIRED.**
+- The SPA (`web/src/api.ts`) calls **same-origin `/api/v1`**. The host serving the SPA MUST
+  proxy `/api/v1` to the FastAPI backend. `infra/v3/Caddyfile` is the source of truth and does
+  this for `app.cuz.fail` (canonical product URL). `cuz.fail` / `www.cuz.fail` redirect there.
+- **Never** set `VITE_API_BASE_URL`, add CORS, or use cross-origin cookies. Same-origin removes
+  the need. Reintroducing a split frontend/backend (Vercel + api.cuz.fail) is what repeatedly
+  broke the app — do not do it.
+- Do not deploy to Vercel. If a domain serves the blank "LotFile" shell, its DNS is pointing at
+  Vercel instead of the VPS — fix DNS, do not touch the build. See `docs/FIX_ONE_HOST_VPS.md`.
+
 - Active implementation source: `docs/MASTER_REBUILD_PLAN.md` (single authority for the V3
   rebuild) plus refreshed `REPO_AUDIT.md`, `DATA_INVENTORY.md`, and `VERCEL_AUDIT.md`.
   (`docs/MASTER_IMPLEMENTATION_PLAN.md`, `MASTER_PLAN_ADDENDUM.md`, and
