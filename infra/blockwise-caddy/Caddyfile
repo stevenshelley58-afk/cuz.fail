@@ -1,0 +1,27 @@
+# Global reverse-proxy (blockwise-caddy). Live path: /opt/blockwise/infra/caddy/Caddyfile
+
+hermes.blockwise.sale {
+        encode gzip
+        basic_auth {
+                operator $2a$14$LBvFy40UQeYTfisScLLIv.EbUYhC53M476Kq/ArGz/2nS5E76rFl6
+        }
+        reverse_proxy hermes:9119
+}
+
+api.cuz.fail {
+        encode gzip
+        reverse_proxy draftcheck-v3-caddy:80
+}
+
+lotfile.app {
+        encode gzip
+        reverse_proxy draftcheck-v3-caddy:80
+}
+
+app.cuz.fail {
+        redir https://lotfile.app{uri} permanent
+}
+
+cuz.fail, www.cuz.fail {
+        redir https://lotfile.app{uri} permanent
+}
