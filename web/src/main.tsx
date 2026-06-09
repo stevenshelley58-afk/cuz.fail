@@ -7,6 +7,8 @@ import {
   BookOpen,
   Building2,
   CheckCircle2,
+  ChevronDown,
+  ChevronUp,
   CircleAlert,
   CircleHelp,
   CreditCard,
@@ -65,6 +67,7 @@ type PaywallState = {
 type Msg = {
   role: "q" | "a";
   text: string;
+  thinking?: string;
   tone?: "note" | "warn";
   chips?: string[];
   action?: { label: string; run: () => void };
@@ -78,6 +81,8 @@ const ICONS: Record<string, LucideIcon> = {
   credit_card: CreditCard,
   construction: Construction,
   error: CircleAlert,
+  expand_less: ChevronUp,
+  expand_more: ChevronDown,
   forum: MessageCircle,
   gavel: Gavel,
   gauge: Gauge,
@@ -104,6 +109,21 @@ function Icon({ name, size }: { name: string; size?: number }) {
       size={size}
       strokeWidth={2.25}
     />
+  );
+}
+
+function ThinkBlock({ text }: { text: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="think">
+      <button className="think-toggle" onClick={() => setOpen(!open)}>
+        <Icon name={open ? "expand_less" : "expand_more"} />
+        Thinking
+      </button>
+      <div className={`think-body${open ? " open" : ""}`}>
+        <div className="think-inner">{text}</div>
+      </div>
+    </div>
   );
 }
 
@@ -1350,7 +1370,7 @@ function Home({
     void api.projects().then((r) => setRecents(projectList(r).slice(0, 2)));
   }, [authed, guestUsage]);
   useEffect(() => {
-    threadRef.current?.scrollTo({ top: threadRef.current.scrollHeight });
+    threadRef.current?.lastElementChild?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [msgs]);
 
   const push = (m: Msg) => setMsgs((prev) => [...prev, m]);
@@ -1466,7 +1486,7 @@ function Home({
     const el = inputRef.current;
     const t = el?.value.trim() ?? "";
     if (!t || busy) return;
-    if (el) el.value = "";
+    if (el) { el.value = ""; el.style.height = "auto"; }
     setBusy(true);
     push({ role: "q", text: t });
     if (looksLikeAddress(t)) {
@@ -1483,9 +1503,16 @@ function Home({
         const chips = (d.citations ?? [])
           .map(citationChip)
           .filter((chip) => chip.length > 0);
+        const rawAnswer = d.answer ?? "I couldn't get an answer just now.";
+        const thinkParts: string[] = [];
+        const cleanAnswer = rawAnswer.replace(/<think>([\s\S]*?)<\/think>/gi, (_, t: string) => {
+          thinkParts.push(t.trim());
+          return "";
+        }).trim();
         push({
           role: "a",
-          text: d.answer ?? "I couldn't get an answer just now.",
+          text: cleanAnswer || "I couldn't get an answer just now.",
+          thinking: thinkParts.length ? thinkParts.join("\n\n") : undefined,
           chips: chips.length ? chips : undefined,
         });
       } else if (r.kind === "auth") {
@@ -1546,6 +1573,7 @@ function Home({
                 <div key={i} className="q">{m.text}</div>
               ) : (
                 <div key={i} className={`a${m.tone ? ` ${m.tone}` : ""}`}>
+                  {m.thinking && <ThinkBlock text={m.thinking} />}
                   <div className="md" dangerouslySetInnerHTML={{ __html: marked.parse(m.text) as string }} />
                   {m.chips && (
                     <div className="src">
@@ -1562,6 +1590,11 @@ function Home({
                 </div>
               ),
             )}
+            {busy && (
+              <div className="a typing">
+                <span /><span /><span />
+              </div>
+            )}
           </div>
         )}
         <div className="onebox">
@@ -1573,6 +1606,11 @@ function Home({
                 e.preventDefault();
                 void send();
               }
+            }}
+            onInput={(e) => {
+              const t = e.currentTarget;
+              t.style.height = "auto";
+              t.style.height = t.scrollHeight + "px";
             }}
           />
           <div className="belt">
