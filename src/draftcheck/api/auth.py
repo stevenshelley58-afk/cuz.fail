@@ -284,7 +284,7 @@ def _dev_login_enabled(settings: Settings) -> bool:
       2. ``DEV_LOGIN_ENABLED`` must be explicitly truthy.
     The explicit opt-in matters because ``app_env`` defaults to ``local`` when
     unset, so a prod deploy that forgets ``APP_ENV`` would otherwise ship the
-    public default credentials as a reviewer-role backdoor.
+    public default credentials as an unauthenticated backdoor.
     """
     if settings.app_env.strip().lower() == "production":
         return False

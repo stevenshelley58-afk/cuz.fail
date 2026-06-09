@@ -142,10 +142,10 @@ class DocumentParser:
         text, extraction_notes = _extract_text(normalized_media_type, filename, content)
         pages = _pages(document_id, text, parser_name, self.version, extraction_notes)
         facts = _facts(document_id, text, parser_name, normalized_media_type)
-        parse_status = "parsed" if text.strip() or facts else "needs_human_review"
+        parse_status = "parsed" if text.strip() or facts else "needs_more_info"
         metadata = {
             "extraction_notes": extraction_notes,
-            "measurement_policy": "Measurements are pending review until promoted by a human reviewer.",
+            "measurement_policy": "Measurements are advisory pending automated validation.",
             "raster_measurement_policy": "Raster/PDF/image measurements are not compliance-ready without calibration.",
         }
         return normalized_media_type, parser_name, parse_status, pages, facts, metadata
@@ -299,7 +299,7 @@ def sample_parser_accuracy_report() -> dict[str, Any]:
     return {
         "demo_fixture_status": "passed" if matched_count == expected_count and not mismatched else "failed",
         "beta_status": "not_beta_ready",
-        "reason": "The canary parser check passed, but real-project beta needs a broader fixture set and reviewer promotion workflow.",
+        "reason": "The canary parser check passed, but real-project beta needs a broader fixture set and automated validation workflow.",
         "expected_fact_count": expected_count,
         "extracted_fact_count": extracted_count,
         "matched_fact_count": matched_count,
@@ -311,7 +311,7 @@ def sample_parser_accuracy_report() -> dict[str, Any]:
         "blocked_for_beta": [
             "real PDF/DOCX/DXF/IFC fixture pack",
             "per-field precision/recall report across real samples",
-            "reviewer promotion workflow connected to persistence",
+            "automated validation workflow connected to persistence",
             "no image/PDF/raster measurement without explicit calibration",
         ],
     }

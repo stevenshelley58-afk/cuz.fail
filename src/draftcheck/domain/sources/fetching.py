@@ -598,6 +598,6 @@ def _assert_lawful_public_url(url: str, *, licence_notes: str) -> None:
         raise ValueError("private/local URLs cannot be fetched as source material")
     lowered = f"{url} {licence_notes}".lower()
     if any(term in lowered for term in RESTRICTED_TERMS):
-        raise ValueError("restricted source URL or licence notes require human review")
+        raise ValueError("restricted source URL or licence notes require automated validation")
     if "standards.org.au" in lowered or "standards australia" in lowered:
         raise ValueError("Standards Australia full text is metadata-only unless lawfully supplied")

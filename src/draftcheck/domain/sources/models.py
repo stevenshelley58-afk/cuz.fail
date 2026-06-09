@@ -228,7 +228,7 @@ class SourceReview:
     source_version_id: str
     review_status: SourceReviewStatus
     licence_status: LicenceStatus
-    reviewer_id: str
+    actor_id: str
     reviewed_at: datetime
     notes: str | None = None
 
@@ -261,7 +261,7 @@ class SourceAnswer:
     assumptions: tuple[str, ...] = ()
     missing_information: tuple[str, ...] = ()
     confidence: float = 0.0
-    human_review_required: bool = True
+    needs_verification: bool = True
     risk_level: Literal["unknown", "low", "medium", "high"] = "unknown"
     trace_id: str | None = None
 

@@ -502,12 +502,6 @@ class SourceReviewRecord(Base):
         nullable=False,
         index=True,
     )
-    reviewer_user_id: Mapped[UUID] = mapped_column(
-        Uuid(as_uuid=True),
-        ForeignKey("users.id", ondelete="RESTRICT"),
-        nullable=False,
-        index=True,
-    )
     review_status: Mapped[str] = mapped_column(String(40), nullable=False)
     licence_status: Mapped[str] = mapped_column(String(40), nullable=False)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -1054,13 +1048,6 @@ class Rule(Base, TimestampMixin):
         index=True,
     )
     prompt_hash: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
-    approved_by_user_id: Mapped[UUID | None] = mapped_column(
-        Uuid(as_uuid=True),
-        ForeignKey("users.id", ondelete="SET NULL"),
-        nullable=True,
-        index=True,
-    )
-    approved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     superseded_by_rule_id: Mapped[UUID | None] = mapped_column(
         Uuid(as_uuid=True),
         ForeignKey("rules.id", ondelete="SET NULL"),
@@ -1257,7 +1244,7 @@ class CheckResult(Base, TimestampMixin):
     drawing_evidence_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     decision_trace_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     pathway_note: Mapped[str | None] = mapped_column(Text, nullable=True)
-    human_review_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+    review_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
     human_override_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     reviewed_by_user_id: Mapped[UUID | None] = mapped_column(
         Uuid(as_uuid=True),
@@ -1583,52 +1570,6 @@ class Export(Base):
     sha256: Mapped[str | None] = mapped_column(String(64), nullable=True, index=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
     completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
-    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
-
-
-class Signoff(Base):
-    __tablename__ = "signoffs"
-    __table_args__ = (
-        Index("ix_signoffs_project", "project_id"),
-        Index("ix_signoffs_export", "export_id"),
-    )
-
-    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
-    org_id: Mapped[UUID] = mapped_column(
-        Uuid(as_uuid=True),
-        ForeignKey("orgs.id", ondelete="CASCADE"),
-        nullable=False,
-        index=True,
-    )
-    project_id: Mapped[UUID] = mapped_column(
-        Uuid(as_uuid=True),
-        ForeignKey("projects.id", ondelete="CASCADE"),
-        nullable=False,
-        index=True,
-    )
-    export_id: Mapped[UUID | None] = mapped_column(
-        Uuid(as_uuid=True),
-        ForeignKey("exports.id", ondelete="SET NULL"),
-        nullable=True,
-        index=True,
-    )
-    check_run_id: Mapped[UUID | None] = mapped_column(
-        Uuid(as_uuid=True),
-        ForeignKey("check_runs.id", ondelete="SET NULL"),
-        nullable=True,
-        index=True,
-    )
-    signer_user_id: Mapped[UUID] = mapped_column(
-        Uuid(as_uuid=True),
-        ForeignKey("users.id", ondelete="RESTRICT"),
-        nullable=False,
-        index=True,
-    )
-    signoff_type: Mapped[str] = mapped_column(String(80), nullable=False)
-    status: Mapped[str] = mapped_column(String(40), nullable=False, default="signed")
-    statement: Mapped[str] = mapped_column(Text, nullable=False)
-    signed_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
-    revoked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
 
 

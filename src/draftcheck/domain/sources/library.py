@@ -327,7 +327,7 @@ class InMemorySourceLibrary:
         review_status: SourceReviewStatus = SourceReviewStatus.APPROVED,
         licence_status: LicenceStatus | None = None,
         org_id: str = "system",
-        reviewer_id: str = "system",
+        actor_id: str = "system",
         notes: str | None = None,
     ) -> SourceVersion:
         with self._lock:
@@ -367,13 +367,13 @@ class InMemorySourceLibrary:
             self.sources[source_id] = replace(source, licence_status=updated.licence_status)
             self.reviews.append(
                 SourceReview(
-                    id=_stable_id("sr", source_id, version_id, reviewer_id, str(len(self.reviews))),
+                    id=_stable_id("sr", source_id, version_id, actor_id, str(len(self.reviews))),
                     org_id=org_id,
                     source_id=source_id,
                     source_version_id=version_id,
                     review_status=updated.review_status,
                     licence_status=updated.licence_status,
-                    reviewer_id=reviewer_id,
+                    actor_id=actor_id,
                     reviewed_at=utc_now(),
                     notes=notes,
                 )
@@ -385,9 +385,9 @@ class InMemorySourceLibrary:
         source_id: str,
         *,
         org_id: str | None = None,
-        reviewer_id: str | None = None,
+        actor_id: str | None = None,
     ) -> SourceRefreshResult:
-        del org_id, reviewer_id
+        del org_id, actor_id
         with self._lock:
             self.get_source(source_id)
             requested_at = utc_now()
@@ -467,7 +467,7 @@ class InMemorySourceSearchService:
                 citations=(),
                 source_version_ids=(),
                 missing_information=("approved source version citation",),
-                human_review_required=True,
+                needs_verification=True,
             )
 
         citations = tuple(hit.citation for hit in hits)
@@ -481,6 +481,6 @@ class InMemorySourceSearchService:
             assumptions=(),
             missing_information=(),
             confidence=min(0.95, 0.5 + sum(hit.score for hit in hits) / max(len(hits), 1) / 2),
-            human_review_required=True,
+            needs_verification=True,
             risk_level="unknown",
         )

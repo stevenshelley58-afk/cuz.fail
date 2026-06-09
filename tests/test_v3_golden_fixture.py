@@ -20,7 +20,7 @@ REQUIRED_MANIFEST_FILES = {
     "document_facts",
     "expected_compliance",
 }
-CONSERVATIVE_STATUSES = {"needs_human_review", "missing_information", "not_assessed"}
+CONSERVATIVE_STATUSES = {"needs_more_info", "missing_information", "not_assessed"}
 PROVEN_STATUSES = {"likely_pass", "likely_fail"}
 REGULATORY_PROPERTY_FACT_TYPES = {
     "council",
@@ -310,4 +310,4 @@ def test_expected_results_are_conservative_unless_fully_proven() -> None:
         assert trace["promoted_measurement_ids"], result["id"]
         assert trace["calculation_trace_id"], result["id"]
         assert trace["not_excluded_by_precedence"] is True, result["id"]
-        assert trace["human_review_required"] is False, result["id"]
+        assert trace["needs_verification"] is False, result["id"]

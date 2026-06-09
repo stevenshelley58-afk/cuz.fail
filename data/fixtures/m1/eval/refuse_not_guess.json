@@ -37,7 +37,7 @@
     "likely_fail_emitted": false,
     "reason": "Measurement not promoted: promoted_to_measurement=false, review_status=unconfirmed, calibration_evidence=null. Raster/PDF measurements at assumed scale cannot produce likely_pass or likely_fail without explicit calibration evidence and human promotion confirmation.",
     "missing_information": ["calibration_evidence", "promoted_measurement_confirmation"],
-    "human_review_required": true,
+    "needs_verification": true,
     "decision_trace": {
       "result": "needs_more_info",
       "gate_failed": "promotion_contract",

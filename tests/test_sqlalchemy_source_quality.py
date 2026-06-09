@@ -87,7 +87,7 @@ def test_source_quality_gates_surface_parse_repair_input_readiness() -> None:
     }
 
 
-def test_count_signal_allows_complete_short_ocr_document_for_human_review() -> None:
+def test_count_signal_allows_complete_short_ocr_document_for_automated_review() -> None:
     assert (
         _count_signal_requires_review(
             chunk_count=1,

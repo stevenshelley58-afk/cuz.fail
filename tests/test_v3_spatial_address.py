@@ -157,7 +157,7 @@ def test_black_swan_rise_canary_resolves_without_inventing_planning_facts() -> N
 
     assert response.status_code == 200
     body = response.json()
-    assert body["resolution_status"] == "needs_human_review"
+    assert body["resolution_status"] == "needs_more_info"
     assert body["address"] == "3 Black Swan Rise, Beeliar WA 6164"
     assert body["local_government"] == "City of Cockburn"
     assert "parcel_needs_authoritative_import" in body["issues"]
@@ -200,8 +200,8 @@ def test_manual_override_provenance_appears_without_authoritative_claim() -> Non
 
     assert response.status_code == 200
     body = response.json()
-    assert body["resolution_status"] == "needs_human_review"
-    assert "manual_override_requires_human_review" in body["issues"]
+    assert body["resolution_status"] == "needs_more_info"
+    assert "manual_override_requires_review" in body["issues"]
     assert body["facts"][0]["review_status"] == "pending_review"
     provenance = body["facts"][0]["provenance"]
     assert provenance["kind"] == "manual_override"

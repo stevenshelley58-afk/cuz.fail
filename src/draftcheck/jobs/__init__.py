@@ -71,7 +71,7 @@ def hermes_governance_canary() -> dict[str, object]:
         "trace_required": True,
         "skill_version_required": True,
         "spend_capped": True,
-        "allowed_outputs": ["source candidates", "review worklists", "drafts requiring signoff"],
+        "allowed_outputs": ["source candidates", "review worklists", "drafts requiring validation"],
         "forbidden_outputs": ["compliance verdicts", "rule approval", "submission-ready exports"],
     }
 

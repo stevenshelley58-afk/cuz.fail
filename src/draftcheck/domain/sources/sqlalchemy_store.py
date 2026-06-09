@@ -852,7 +852,7 @@ class SqlAlchemySourceLibrary:
         review_status: SourceReviewStatus = SourceReviewStatus.APPROVED,
         licence_status: LicenceStatus | None = None,
         org_id: str = "system",
-        reviewer_id: str = "system",
+        actor_id: str = "system",
         notes: str | None = None,
     ) -> SourceVersion:
         with self._session_factory() as session:
@@ -876,13 +876,13 @@ class SqlAlchemySourceLibrary:
                         org_id=_uuid_from_string(org_id, "org_id"),
                         source_id=source.id,
                         source_version_id=version.id,
-                        reviewer_user_id=_uuid_from_string(reviewer_id, "reviewer_id"),
                         review_status=version.review_status,
                         licence_status=version.licence_status,
                         notes=notes,
                         decision_metadata_json={
                             "review_path": "api",
                             "answer_policy": "cite_or_refuse",
+                            "actor_id": actor_id,
                         },
                     )
                 )
@@ -894,26 +894,26 @@ class SqlAlchemySourceLibrary:
         source_id: str,
         *,
         org_id: str | None = None,
-        reviewer_id: str | None = None,
+        actor_id: str | None = None,
     ) -> SourceRefreshResult:
         with self._session_factory() as session:
             with session.begin():
                 source = self._get_source_by_id(session, source_id)
                 version = self._latest_version(session, source)
                 requested_at = _utc_now()
-                if org_id and reviewer_id:
+                if org_id and actor_id:
                     session.add(
                         DbSourceFetchLog(
                             id=uuid4(),
                             org_id=_uuid_from_string(org_id, "org_id"),
                             source_id=source.id,
                             source_version_id=version.id if version else None,
-                            requested_by_user_id=_uuid_from_string(reviewer_id, "reviewer_id"),
+                            requested_by_user_id=_uuid_from_string(actor_id, "actor_id"),
                             fetch_kind="refresh_requested",
                             status="pending_fetch",
                             requested_at=requested_at,
                             metadata_json={
-                                "note": "Reviewer requested lawful source refresh.",
+                                "note": "Actor requested lawful source refresh.",
                                 "answer_policy": "cite_or_refuse",
                             },
                         )

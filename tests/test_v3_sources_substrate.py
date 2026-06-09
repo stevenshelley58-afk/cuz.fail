@@ -99,7 +99,7 @@ def test_search_ask_refuses_until_source_version_is_approved_and_citable() -> No
         source_version_id=imported.version.id,
         review_status=SourceReviewStatus.APPROVED,
         licence_status=LicenceStatus.VERIFIED_OPEN,
-        reviewer_id="reviewer-fixture",
+        actor_id="reviewer-fixture",
     )
 
     answered = search.ask("primary street setbacks")
@@ -124,7 +124,7 @@ def test_superseded_approved_source_versions_do_not_support_retrieval() -> None:
         source_version_id=first.version.id,
         review_status=SourceReviewStatus.APPROVED,
         licence_status=LicenceStatus.VERIFIED_OPEN,
-        reviewer_id="reviewer-fixture",
+        actor_id="reviewer-fixture",
     )
     second = library.import_source(
         title="Fixture Planning Policy",
@@ -138,7 +138,7 @@ def test_superseded_approved_source_versions_do_not_support_retrieval() -> None:
         source_version_id=second.version.id,
         review_status=SourceReviewStatus.APPROVED,
         licence_status=LicenceStatus.VERIFIED_OPEN,
-        reviewer_id="reviewer-fixture",
+        actor_id="reviewer-fixture",
     )
 
     old_answer = search.ask("old-site-cover")
@@ -319,7 +319,6 @@ def test_api_source_review_requires_authenticated_reviewer() -> None:
             "source_version_id": imported["version"]["id"],
             "review_status": "approved",
             "licence_status": "verified_open",
-            "reviewer_id": "attacker",
         },
     )
     asked_before = reviewer_client.post("/api/v1/search/ask", json={"query": "open space"})
@@ -435,7 +434,7 @@ def test_api_source_quality_report_requires_reviewer_and_reports_blocking_gates(
         source_version_id=approved.version.id,
         review_status=SourceReviewStatus.APPROVED,
         licence_status=LicenceStatus.VERIFIED_OPEN,
-        reviewer_id="reviewer-fixture",
+        actor_id="reviewer-fixture",
     )
     metadata_only = library.import_source(
         title="Large Metadata Only Fixture",
