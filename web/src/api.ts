@@ -256,11 +256,9 @@ export const api = {
     call<ChatReply>("POST", "/assistant", { message: question, web_search_requested: scope.web }),
   compliance: {
     run: (projectId: string) =>
-      call<ComplianceRunResponse>("POST", `/compliance/run`, { project_id: projectId }),
-    matrix: (projectId: string) => {
-      const params = new URLSearchParams({ project_id: projectId });
-      return call<ComplianceRunResponse>("GET", `/compliance/matrix?${params}`);
-    },
+      call<ComplianceRunResponse>("POST", `/compliance/projects/${projectId}/run`, {}),
+    matrix: (projectId: string) =>
+      call<ComplianceRunResponse>("GET", `/compliance/projects/${projectId}/matrix`),
   },
   documents: {
     upload: async (projectId: string, file: File): Promise<ApiResult<DocumentUploadResponse>> => {
@@ -289,6 +287,6 @@ export const api = {
     },
     facts: (docId: string) => call<{ facts: ExtractedFact[] }>("GET", `/documents/${docId}/facts`),
     confirmFact: (docId: string, factKey: string) =>
-      call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/confirm`, {}),
+      call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/review`, {}),
   },
 };
