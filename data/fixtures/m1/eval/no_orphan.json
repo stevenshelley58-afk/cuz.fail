@@ -1,0 +1,43 @@
+{
+  "_fixture_meta": {
+    "schema": "draftcheck-wa-v3-eval-stub/1.0",
+    "stage": "pre-stage-session-b",
+    "illustrative": true,
+    "bind_source_version_at_stage": 3
+  },
+  "suite_name": "extract_rules",
+  "case_key": "no_orphan_table_without_clause_context",
+  "skill_name": "extract_rules",
+  "source_version_id": "__BIND_AT_STAGE_3__",
+  "status": "active",
+  "input_json": {
+    "clause_id": null,
+    "clause_text": "Table 1\n| Zone | Min setback (m) |\n| R40  | 4.5             |\n| R60  | 4.0             |\n| R80  | 3.0             |",
+    "parent_clause_id": null,
+    "normative_context": "not_provided",
+    "candidate_rule": {
+      "rule_key": "front_setback_r40",
+      "operator": ">=",
+      "value_json": {"value": 4.5},
+      "unit": "m",
+      "quote": "R40  | 4.5",
+      "clause_id": null,
+      "pathway": "deemed_to_comply"
+    }
+  },
+  "expected_json": {
+    "valid": false,
+    "error": "orphan_table_no_clause_context",
+    "detail": "Table values cannot be promoted to rule candidates without a parent normative clause providing applicability context (jurisdiction, zone applicability, condition_json). clause_id is null and no normative_context was supplied.",
+    "audit_flag": "no_orphan_violation",
+    "action": "flag_for_manual_review",
+    "extraction_allowed": false
+  },
+  "metadata_json": {
+    "track": "extract_rules",
+    "name": "No-orphan — table without normative clause context rejected",
+    "notes": "Validates the no-orphan audit: isolated table values or numbers that lack a parent normative clause (clause_id=null, no applicability/condition context) must be flagged and not promoted to rule candidates. This prevents phantom rules from tables extracted out of context. Ref: MASTER_REBUILD_PLAN.md §8.1 'no-orphan audit'. Illustrative table values only (R40/R60/R80 setbacks are not real). source_version_id must be replaced at Stage 3.",
+    "invariant_ref": "MASTER_REBUILD_PLAN.md §8.1 no-orphan + normative-language audits",
+    "tier": 1
+  }
+}

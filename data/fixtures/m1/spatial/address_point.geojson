@@ -1,0 +1,61 @@
+{
+  "type": "FeatureCollection",
+  "name": "m1_fixture_address_point",
+  "synthetic": true,
+  "crs": {
+    "type": "name",
+    "properties": {"name": "urn:ogc:def:crs:EPSG::7844"}
+  },
+  "_fixture_meta": {
+    "schema": "draftcheck-wa-v3-spatial-stub/1.0",
+    "stage": "pre-stage-session-b",
+    "datum": "GDA2020",
+    "epsg": 7844,
+    "illustrative": true,
+    "note": "Synthetic G-NAF-shaped address point. NOT a real G-NAF record. Address: 15 Loftus Street North Perth WA 6006 (synthetic). Placed at parcel centroid. GDA2020 EPSG:7844."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "m1_addr_001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [115.848579, -31.932356]
+      },
+      "properties": {
+        "address_point_id": "m1_addr_001",
+        "gnaf_pid": "SYNTHETIC-WA123456789ABC",
+        "full_address": "15 LOFTUS STREET NORTH PERTH WA 6006",
+        "address_site_name": null,
+        "building_name": null,
+        "flat_type": null,
+        "flat_number_prefix": null,
+        "flat_number": null,
+        "flat_number_suffix": null,
+        "level_type": null,
+        "level_number": null,
+        "number_first_prefix": null,
+        "number_first": 15,
+        "number_first_suffix": null,
+        "number_last_prefix": null,
+        "number_last": null,
+        "number_last_suffix": null,
+        "street_name": "LOFTUS",
+        "street_type_code": "ST",
+        "street_suffix_code": null,
+        "locality_name": "NORTH PERTH",
+        "state_territory": "WA",
+        "postcode": "6006",
+        "geocode_type": "PROPERTY CENTROID",
+        "geocode_reliability": 4,
+        "parcel_id": "m1_parcel_001",
+        "lga_name": "City of Vincent",
+        "source_dataset": "m1_synthetic_gnaf_2026",
+        "source_crs": "GDA2020 EPSG:7844",
+        "licence_status": "synthetic_no_licence_required",
+        "synthetic": true,
+        "note": "Synthetic G-NAF address point. Street 'Loftus Street North Perth' exists in City of Vincent; number 15 and all other details are illustrative only."
+      }
+    }
+  ]
+}

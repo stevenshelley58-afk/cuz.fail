@@ -1,0 +1,39 @@
+{
+  "_fixture_meta": {
+    "schema": "draftcheck-wa-v3-eval-stub/1.0",
+    "stage": "pre-stage-session-b",
+    "illustrative": true,
+    "bind_source_version_at_stage": 3
+  },
+  "suite_name": "extract_rules",
+  "case_key": "quote_anchoring_mismatch_rejected",
+  "skill_name": "extract_rules",
+  "source_version_id": "__BIND_AT_STAGE_3__",
+  "status": "active",
+  "input_json": {
+    "clause_id": "__BIND_AT_STAGE_3__",
+    "clause_text": "The minimum side setback for a dwelling shall be 1.0 metre from each side boundary.",
+    "candidate_rule": {
+      "rule_key": "side_setback_min",
+      "operator": ">=",
+      "value_json": {"value": 1.0},
+      "unit": "m",
+      "quote": "minimum setback shall be 1.0 metre",
+      "pathway": "deemed_to_comply"
+    }
+  },
+  "expected_json": {
+    "valid": false,
+    "error": "quote_not_found_verbatim_in_clause",
+    "detail": "Candidate quote 'minimum setback shall be 1.0 metre' does not appear verbatim in the clause text. Extraction rejected — quote must be an exact substring of the source clause.",
+    "required_verbatim_quote_example": "minimum side setback for a dwelling shall be 1.0 metre from each side boundary"
+  },
+  "metadata_json": {
+    "track": "extract_rules",
+    "name": "Quote anchoring — non-verbatim quote rejected",
+    "notes": "Validates that rule extraction rejects any candidate whose 'quote' field is not an exact verbatim substring of the source clause text. This is the quote-anchoring invariant from MASTER_REBUILD_PLAN.md §8.1: 'every candidate has quote + clause + source version; invalid quotes rejected'. Illustrative clause text only — real R-Codes text must not be stored here. source_version_id must be replaced with the UUID of the approved WA R-Codes source version at Stage 3.",
+    "invariant_ref": "MASTER_REBUILD_PLAN.md §8.1 quote-anchor validation",
+    "tier": 1,
+    "outcome_if_passing": "validation rejects non-verbatim quote; skill must only accept exact substrings"
+  }
+}

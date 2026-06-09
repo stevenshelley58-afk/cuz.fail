@@ -1,0 +1,59 @@
+{
+  "_fixture_meta": {
+    "schema": "draftcheck-wa-v3-eval-stub/1.0",
+    "stage": "pre-stage-session-b",
+    "illustrative": true,
+    "bind_source_version_at_stage": 3
+  },
+  "suite_name": "extract_rules",
+  "case_key": "unit_normalization_mm_to_m",
+  "skill_name": "extract_rules",
+  "source_version_id": "__BIND_AT_STAGE_3__",
+  "status": "active",
+  "input_json": {
+    "clause_id": "__BIND_AT_STAGE_3__",
+    "clause_text": "The minimum side setback for a dwelling shall be 1000 millimetres from each side boundary.",
+    "candidate_rule": {
+      "rule_key": "side_setback_min",
+      "operator": ">=",
+      "value_json": {"value": 1000, "value_as_extracted": "1000"},
+      "unit": "mm",
+      "quote": "minimum side setback for a dwelling shall be 1000 millimetres from each side boundary",
+      "pathway": "deemed_to_comply"
+    },
+    "proposed_measurement": {
+      "check_key": "side_setback",
+      "value": 0.9,
+      "unit": "m",
+      "promoted_to_measurement": true,
+      "review_status": "confirmed"
+    }
+  },
+  "expected_json": {
+    "valid": true,
+    "normalization": {
+      "rule_value_original": {"value": 1000, "unit": "mm"},
+      "rule_value_normalized": {"value": 1.0, "unit": "m"},
+      "proposed_value_normalized": {"value": 0.9, "unit": "m"},
+      "conversion_applied": "1000 mm → 1.0 m (factor: 0.001)"
+    },
+    "comparison": {
+      "formula": "proposed >= required",
+      "comparison_string": "0.9 m >= 1.0 m",
+      "result": "likely_fail",
+      "unit_conversions": [
+        {"from": "1000 mm", "to": "1.0 m", "factor": "0.001"}
+      ],
+      "rounding_policy": "no_rounding_before_comparison",
+      "tolerance": "0.001 m"
+    }
+  },
+  "metadata_json": {
+    "track": "extract_rules",
+    "name": "Unit normalization — 1000 mm equals 1.0 m",
+    "notes": "Validates that the engine normalizes all length units to metres before comparison. 1000mm must equal 1.0m; 4500mm must equal 4.5m; 100cm must equal 1.0m. The resulting comparison (0.9m < 1.0m) should produce likely_fail. Illustrative clause and values only. source_version_id must be replaced at Stage 3.",
+    "invariant_ref": "MASTER_REBUILD_PLAN.md §5.5 decision_trace_json unit_conversions",
+    "additional_cases": ["4500mm == 4.5m", "100cm == 1.0m", "4.50m == 4.5m"],
+    "tier": 1
+  }
+}
