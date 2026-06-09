@@ -1,7 +1,7 @@
 """V3 Stage 3 extraction schema — rule_candidates and clauses delta columns.
 
-Revision ID: 0003_v3_stage3_extraction_schema
-Revises: 0002_v3_complete_target_schema
+Revision ID: 0005_v3_stage3_extraction_schema
+Revises: 0004_spatial_approval_status
 """
 
 from __future__ import annotations
@@ -13,8 +13,8 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 
-revision: str = "0003_v3_stage3_extraction_schema"
-down_revision: str | None = "0002_v3_complete_target_schema"
+revision: str = "0005_v3_stage3_extraction_schema"
+down_revision: str | None = "0004_spatial_approval_status"
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
 
