@@ -170,7 +170,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<Ap
 
 export type ComplianceResultItem = {
   check_key: string;
-  check_name: string;
+  display_name: string;
   status: "likely_pass" | "likely_fail" | "needs_more_info" | "unsupported";
   threshold_value: number | string | null;
   threshold_unit: string | null;
@@ -178,6 +178,7 @@ export type ComplianceResultItem = {
   rule_id: string | null;
   rule_quote: string | null;
   citation: string | null;
+  note: string | null;
   missing_data?: string[] | null;
 };
 
@@ -185,7 +186,8 @@ export type ComplianceRunResponse = {
   run_id: string;
   project_id: string;
   status: "pending" | "running" | "complete" | "error";
-  created_at: string;
+  as_of_date: string;
+  advisory_disclaimer: string;
   results: ComplianceResultItem[];
 };
 
@@ -285,8 +287,11 @@ export const api = {
       const d = data as { detail?: string } | null;
       return { kind: "error", status: res.status, message: d?.detail ?? res.statusText };
     },
-    facts: (docId: string) => call<{ facts: ExtractedFact[] }>("GET", `/documents/${docId}/facts`),
+    facts: (docId: string) => call<{ items: ExtractedFact[] }>("GET", `/documents/${docId}/facts`),
+    listForProject: (projectId: string) => call<{ items: Array<{ id: string; title: string; document_type: string; status: string; created_at: string | null; fact_count: number }> }>("GET", `/documents/projects/${projectId}`),
     confirmFact: (docId: string, factKey: string) =>
-      call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/review`, {}),
+      call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/review`, { review_status: "confirmed" }),
   },
+  approveRule: (ruleId: string) =>
+    call<{ id: string; lifecycle_status: string }>("POST", `/rules/${ruleId}/approve`, {}),
 };

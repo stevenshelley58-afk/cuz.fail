@@ -1,9 +1,9 @@
-"""Read-only rules and candidates API router for Stage 3.
+"""Rules and candidates API router for Stage 3.
 
 Invariants:
-  - No approve button.  lifecycle_status='approved' is NEVER written here.
-  - review endpoints only allow 'pending_review' or 'rejected'.
-  - Mutation endpoints (POST .../review) verify the caller has role=owner (operator).
+  - Approval is operator-only and always routed through service.approve_rule()
+    so an AuditEvent row is written.
+  - Mutation endpoints verify the caller has role=owner (operator).
   - Rule INSERT is not exposed; rules are created by the extraction job only.
   - Read endpoints (GET) do not require auth so they don't shadow contract stubs.
 """
@@ -20,6 +20,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from draftcheck.api.auth import get_current_session
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.rules.service import (
+    approve_rule,
     get_candidate,
     get_rule,
     list_candidates,
@@ -91,6 +92,12 @@ class RuleReviewPayload(BaseModel):
         description="Must be 'approved' or 'rejected'.",
         pattern="^(approved|rejected)$",
     )
+    reason: str | None = Field(default=None, max_length=1000)
+
+
+class ApproveRulePayload(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     reason: str | None = Field(default=None, max_length=1000)
 
 
@@ -368,10 +375,65 @@ def review_rule_endpoint(
                 )
                 raise HTTPException(status_code=code, detail=str(exc)) from exc
         else:
-            # approved — operator-only, requires reason for audit.
-            rule.lifecycle_status = "approved"
-            db.flush()
+            # approved — route through service so an AuditEvent is written.
+            try:
+                rule = approve_rule(
+                    rule_id=rule_id,
+                    actor_id=active_session.user.id,
+                    reason=payload.reason or "operator approval",
+                    session=db,
+                )
+            except (PermissionError, ValueError) as exc:
+                code = (
+                    status.HTTP_403_FORBIDDEN
+                    if isinstance(exc, PermissionError)
+                    else status.HTTP_422_UNPROCESSABLE_ENTITY
+                )
+                raise HTTPException(status_code=code, detail=str(exc)) from exc
 
+        db.commit()
+        out = jsonable_encoder(RuleOut.model_validate(rule))
+    engine.dispose()
+    return out
+
+
+@router.post("/{rule_id}/approve", response_model=dict[str, Any])
+def approve_rule_endpoint(
+    rule_id: UUID,
+    payload: ApproveRulePayload,
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+) -> dict[str, Any]:
+    """Approve a rule (operator only).  Writes an AuditEvent row."""
+    _require_operator(active_session)
+
+    from draftcheck.db.engine import database_url_from_env
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+
+    database_url = database_url_from_env()
+    if not database_url:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail="database not configured")
+
+    engine = create_engine(database_url)
+    SessionLocal = sessionmaker(bind=engine)
+    with SessionLocal() as db:
+        rule = get_rule(rule_id, db)
+        if rule is None:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="rule not found")
+        try:
+            rule = approve_rule(
+                rule_id=rule_id,
+                actor_id=active_session.user.id,
+                reason=payload.reason or "operator approval",
+                session=db,
+            )
+        except (PermissionError, ValueError) as exc:
+            code = (
+                status.HTTP_403_FORBIDDEN
+                if isinstance(exc, PermissionError)
+                else status.HTTP_422_UNPROCESSABLE_ENTITY
+            )
+            raise HTTPException(status_code=code, detail=str(exc)) from exc
         db.commit()
         out = jsonable_encoder(RuleOut.model_validate(rule))
     engine.dispose()

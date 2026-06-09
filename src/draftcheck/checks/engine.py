@@ -22,7 +22,7 @@ from uuid import UUID
 
 from sqlalchemy.orm import Session
 
-from draftcheck.checks.tier1 import CHECK_FACT_MAP, TIER1_CHECK_KEYS
+from draftcheck.checks.registry import TIER1_CHECKS
 from draftcheck.db.models import (
     CheckResult,
     CheckRun,
@@ -170,7 +170,11 @@ class ComplianceEngine:
         # ------------------------------------------------------------------
         facts: list[PropertyFact] = (
             session.query(PropertyFact)
-            .filter(PropertyFact.project_id == UUID(project_id))
+            .filter(
+                PropertyFact.project_id == UUID(project_id),
+                PropertyFact.promoted_to_measurement == True,  # type: ignore[attr-defined]  # noqa: E712
+                PropertyFact.review_status == "confirmed",
+            )
             .all()
         )
         # Build lookup: fact_type -> PropertyFact (most-recent wins)
@@ -235,7 +239,8 @@ class ComplianceEngine:
         any_fail = False
         any_missing = False
 
-        for check_key in TIER1_CHECK_KEYS:
+        for check_def in TIER1_CHECKS:
+            check_key = check_def.key
             # Find matching rule
             rule: Rule | None = rule_by_key.get(check_key)
 
@@ -265,7 +270,7 @@ class ComplianceEngine:
                     threshold_value = None
 
             # Find the PropertyFact for this check
-            fact_keys = CHECK_FACT_MAP.get(check_key, [])
+            fact_keys = list(check_def.fact_keys)
             measured_value: float | None = None
             matched_fact: PropertyFact | None = None
             for fk in fact_keys:
@@ -280,6 +285,23 @@ class ComplianceEngine:
 
             # Build citation string from rule
             citation = _build_citation(rule)
+
+            # Assumption-backed facts must not produce definitive pass/fail.
+            if matched_fact and matched_fact.method == "assumption":
+                item = CheckResultItem(
+                    check_key=check_key,
+                    status="needs_more_info",
+                    threshold_value=threshold_value,
+                    threshold_unit=rule.unit,
+                    measured_value=measured_value,
+                    rule_id=str(rule.id),
+                    rule_quote=rule.quote,
+                    citation=citation,
+                    note="Fact sourced from assumption; confirmation required before compliance use",
+                )
+                results.append(item)
+                any_missing = True
+                continue
 
             if measured_value is None:
                 status = "needs_more_info"

@@ -130,7 +130,9 @@ def _resolve_org_id(active_session: ActiveSession) -> str:
 
 
 def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
-    from draftcheck.checks.tier1 import CHECK_DISPLAY
+    from draftcheck.checks.registry import TIER1_CHECKS, TIER2_CHECKS
+
+    _display_map = {cd.key: cd.name for cd in TIER1_CHECKS + TIER2_CHECKS}
 
     req = row.requirement_json or {}
     prop = row.proposed_json or {}
@@ -145,7 +147,7 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
     _note = trace.get("note")
     return CheckResultItemResponse(
         check_key=row.check_key,
-        display_name=CHECK_DISPLAY.get(row.check_key, row.check_key),
+        display_name=_display_map.get(row.check_key, row.check_key),
         status=row.status,
         threshold_value=float(str(_tv)) if _tv is not None else None,
         threshold_unit=str(_tu) if _tu is not None else None,

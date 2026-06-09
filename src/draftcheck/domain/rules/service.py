@@ -1,16 +1,14 @@
 """Rules domain services for Stage 3.
 
 Design invariants (must all hold):
-  1. Disposition values: "rule_bearing", "definitional", "procedural",
-     "informational", "not_applicable".
+  1. Disposition values: "rule_bearing", "definition", "procedural",
+     "informational", "not_applicable", "manual_review".
   2. Only rule_bearing clauses get extraction enqueued.
   3. Every model call goes through the adapter (ModelRequest → adapter.complete()
      → in-memory JobTrace written by the adapter).  No raw LLM calls here.
-  4. lifecycle_status='approved' is NEVER written directly by this service.
-     Auto-promotion (by the extraction job) sets lifecycle_status='pending_review'
-     with auto_promoted_at; operator approval happens via the API review endpoint.
-  5. reject_candidate and reject_rule require the actor to have role=owner
-     (the only operator-level role in V3).
+  4. approve_rule, reject_candidate, and reject_rule require the actor to have
+     role=owner (the only operator-level role in V3).
+  5. Every lifecycle transition writes an AuditEvent row.
 """
 
 from __future__ import annotations
@@ -38,10 +36,11 @@ log = logging.getLogger(__name__)
 VALID_DISPOSITIONS = frozenset(
     {
         "rule_bearing",
-        "definitional",
+        "definition",       # plan vocabulary (was "definitional")
         "procedural",
         "informational",
         "not_applicable",
+        "manual_review",
     }
 )
 
@@ -92,7 +91,7 @@ def _classify_from_text(text: str) -> str:
         return "rule_bearing"
     lower = text.lower()
     if any(w in lower for w in ("means", "definition", "defined as", "refers to")):
-        return "definitional"
+        return "definition"
     if any(w in lower for w in ("procedure", "process", "step", "application", "lodgement")):
         return "procedural"
     return "informational"
@@ -401,6 +400,46 @@ def reject_rule(
         subject_id=rule_id,
         before_json={"lifecycle_status": before_status},
         after_json={"lifecycle_status": "rejected", "reason": reason.strip()},
+        metadata_json={},
+    )
+    session.add(audit)
+    session.flush()
+    return rule
+
+
+def approve_rule(
+    rule_id: UUID,
+    actor_id: UUID,
+    reason: str,
+    session: Session,
+) -> Rule:
+    """Set lifecycle_status='approved' on a Rule.
+
+    Invariant: actor must have role=owner (operator).
+    Writes an AuditEvent row.  Idempotent if already approved.
+    """
+    actor = _require_operator(actor_id, session)
+
+    rule = session.get(Rule, rule_id)
+    if rule is None:
+        raise ValueError(f"rule {rule_id} not found")
+
+    if rule.lifecycle_status == "approved":
+        return rule  # idempotent
+
+    before_status = rule.lifecycle_status
+    rule.lifecycle_status = "approved"
+
+    audit = AuditEvent(
+        id=uuid4(),
+        org_id=actor.org_id,
+        actor_user_id=actor_id,
+        event_type="rule.approved",
+        action="approve",
+        subject_type="rule",
+        subject_id=rule_id,
+        before_json={"lifecycle_status": before_status},
+        after_json={"lifecycle_status": "approved", "reason": (reason or "").strip()},
         metadata_json={},
     )
     session.add(audit)
