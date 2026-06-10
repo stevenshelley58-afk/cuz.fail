@@ -33,4 +33,4 @@ coverage/
 data/corpus/
 data/harvest/
 data/seed/*.pdf
-reports/
+# reports/ are committed proof artifacts (DB build-out WPs)
