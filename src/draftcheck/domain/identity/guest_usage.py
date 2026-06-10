@@ -4,9 +4,10 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from threading import RLock
+from typing import Any, cast
 from uuid import UUID
 
-from sqlalchemy import text
+from sqlalchemy import CursorResult, text
 from sqlalchemy.orm import Session
 
 from draftcheck.db.engine import create_session_factory
@@ -61,7 +62,8 @@ class SqlAlchemyGuestUsageStore:
                     ),
                     {"user_id": user_id, "feature": feature, "limit": enforced_limit, "now": now},
                 )
-                return (result.rowcount or 0) > 0
+                rowcount = cast(CursorResult[Any], result).rowcount
+                return (rowcount or 0) > 0
 
 
 GuestUsageStore = InMemoryGuestUsageStore | SqlAlchemyGuestUsageStore

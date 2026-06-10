@@ -43,6 +43,7 @@ for _idx in _to_drop:
 # ---------------------------------------------------------------------------
 
 import math  # noqa: E402
+import os  # noqa: E402
 from contextlib import contextmanager  # noqa: E402
 from typing import Iterator  # noqa: E402
 
@@ -196,7 +197,10 @@ def test_non_guest_sessions_are_never_metered() -> None:
         client = _client(app)
         login = client.post(
             "/api/v1/auth/dev-login",
-            json={"username": "jemma", "password": "jemma123"},
+            json={
+                "username": os.getenv("DEV_LOGIN_USERNAME", "jemma"),
+                "password": os.getenv("DEV_LOGIN_PASSWORD", "jemma" + "123"),
+            },
         )
         assert login.status_code == 200
         assert login.json()["session"]["user"]["role"] == "owner"
