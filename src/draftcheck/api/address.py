@@ -276,12 +276,15 @@ def suggest_addresses(
         LIMIT :limit
         """
     )
+    # word_similarity compares the query against the best-matching slice of
+    # the address, so a partial typo ("42 Banskia") still finds "42 BANKSIA
+    # ROAD ..." where whole-string similarity() returns nothing.
     fuzzy_sql = sql_text(
         """
         SELECT address_text, gnaf_pid
         FROM address_points
-        WHERE address_text % :q
-        ORDER BY similarity(address_text, :q) DESC, address_text
+        WHERE :q <% address_text
+        ORDER BY word_similarity(:q, address_text) DESC, address_text
         LIMIT :limit
         """
     )
@@ -292,7 +295,7 @@ def suggest_addresses(
             rows = list(conn.execute(prefix_sql, params))
             if len(rows) < limit:
                 try:
-                    conn.execute(sql_text("SET LOCAL pg_trgm.similarity_threshold = 0.5"))
+                    conn.execute(sql_text("SET LOCAL pg_trgm.word_similarity_threshold = 0.5"))
                     rows += list(conn.execute(fuzzy_sql, params))
                 except Exception:
                     # pg_trgm unavailable — prefix results alone are fine
