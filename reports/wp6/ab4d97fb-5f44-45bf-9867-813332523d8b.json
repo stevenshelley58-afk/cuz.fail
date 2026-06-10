@@ -1,0 +1,213 @@
+{
+  "source_version_id": "ab4d97fb-5f44-45bf-9867-813332523d8b",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 26,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 10,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 2,
+    "atoms_pending_review": 14,
+    "validator_rejects": 11,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 26,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "auto_promoted": 2,
+      "pending_review": 14,
+      "validator_failed": 11,
+      "validators_passed": 38
+    },
+    "rules_approved_wp6": 2,
+    "review_items_open": 164,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 45,
+      "claimed": 7,
+      "clauses_with_orphans": 8,
+      "detail": [
+        {
+          "clause_path": "chunk-1",
+          "orphan_numbers": [
+            "3",
+            "5.1",
+            "61"
+          ]
+        },
+        {
+          "clause_path": "chunk-3",
+          "orphan_numbers": [
+            "1",
+            "3",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "chunk-5",
+          "orphan_numbers": [
+            "05",
+            "14",
+            "4",
+            "4514044",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "chunk-7",
+          "orphan_numbers": [
+            "05",
+            "14",
+            "20",
+            "4514044",
+            "5",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "chunk-10",
+          "orphan_numbers": [
+            "05",
+            "14",
+            "4514044",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "chunk-14",
+          "orphan_numbers": [
+            "05",
+            "1",
+            "14",
+            "3",
+            "4",
+            "4514044",
+            "5",
+            "50",
+            "7",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "chunk-15",
+          "orphan_numbers": [
+            "5",
+            "6"
+          ]
+        },
+        {
+          "clause_path": "chunk-20",
+          "orphan_numbers": [
+            "1800",
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-22"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "building_height.all",
+      "operator": "gt",
+      "value_json": {
+        "value": 2.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "Retaining Walls measured from Natural Ground Level",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "building_height"
+      },
+      "unit": "m",
+      "pathway": "none",
+      "quote_anchor": "greater than 2m in height (measured from the Natural Ground Level)",
+      "applicability": {
+        "condition": "Retaining Walls measured from Natural Ground Level",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "side_setback.all",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "for new shade sails",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "side_setback"
+      },
+      "unit": "m",
+      "pathway": "none",
+      "quote_anchor": "provided the development is setback a minimum of 2m from any lot boundary or road reserve",
+      "applicability": {
+        "condition": "for new shade sails",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

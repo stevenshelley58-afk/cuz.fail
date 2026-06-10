@@ -1,0 +1,511 @@
+{
+  "source_version_id": "d0329abc-e488-4195-9851-11364ea2fc11",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 2357,
+    "clauses_updated": 129
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 55,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 2,
+    "atoms_pending_review": 23,
+    "validator_rejects": 109,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 2357,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "validators_passed": 32,
+      "pending_review": 23,
+      "validator_failed": 109,
+      "auto_promoted": 2
+    },
+    "rules_approved_wp6": 2,
+    "review_items_open": 136,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 1051,
+      "claimed": 121,
+      "clauses_with_orphans": 54,
+      "detail": [
+        {
+          "clause_path": "4.3",
+          "orphan_numbers": [
+            "220",
+            "3",
+            "4.3",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "4.4",
+          "orphan_numbers": [
+            "3",
+            "4.4",
+            "45",
+            "8",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "chunk-45",
+          "orphan_numbers": [
+            "1.3",
+            "1.4",
+            "110",
+            "13",
+            "135",
+            "15",
+            "280",
+            "285",
+            "3",
+            "31",
+            "36",
+            "5.4",
+            "525",
+            "6",
+            "7",
+            "705",
+            "707",
+            "8",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "chunk-46",
+          "orphan_numbers": [
+            "1.5",
+            "1.6",
+            "3",
+            "3.7",
+            "37",
+            "5.4",
+            "500",
+            "6",
+            "7",
+            "8"
+          ]
+        },
+        {
+          "clause_path": "chunk-48",
+          "orphan_numbers": [
+            "20",
+            "22.8",
+            "3",
+            "30",
+            "300",
+            "39",
+            "500",
+            "596",
+            "6",
+            "7",
+            "7521"
+          ]
+        },
+        {
+          "clause_path": "chunk-13",
+          "orphan_numbers": [
+            "20",
+            "3",
+            "30",
+            "40",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "chunk-16",
+          "orphan_numbers": [
+            "29",
+            "3",
+            "32",
+            "35",
+            "7",
+            "750",
+            "8"
+          ]
+        },
+        {
+          "clause_path": "3.3.6",
+          "orphan_numbers": [
+            "1000",
+            "13",
+            "17.94",
+            "3",
+            "3.3",
+            "500",
+            "6",
+            "7",
+            "8"
+          ]
+        },
+        {
+          "clause_path": "chunk-28",
+          "orphan_numbers": [
+            "19",
+            "20",
+            "3.5",
+            "30",
+            "35",
+            "40",
+            "5.3",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "4.1.1",
+          "orphan_numbers": [
+            "1.1",
+            "4",
+            "4.1",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "4.6.1",
+          "orphan_numbers": [
+            "1000",
+            "4.6",
+            "500",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "4.6.6",
+          "orphan_numbers": [
+            "3",
+            "4.6",
+            "6",
+            "7",
+            "70",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "5.12",
+          "orphan_numbers": [
+            "12",
+            "13",
+            "15",
+            "3",
+            "5.12",
+            "6",
+            "7",
+            "705",
+            "707"
+          ]
+        },
+        {
+          "clause_path": "2.05",
+          "orphan_numbers": [
+            "0.42",
+            "0.55",
+            "0.98",
+            "105",
+            "109",
+            "11",
+            "1117",
+            "12",
+            "124",
+            "125",
+            "1297",
+            "13",
+            "130",
+            "1308",
+            "1329",
+            "137",
+            "14",
+            "1432",
+            "15",
+            "16"
+          ]
+        },
+        {
+          "clause_path": "5.5.1",
+          "orphan_numbers": [
+            "10.29",
+            "13",
+            "15",
+            "19.69",
+            "20",
+            "22",
+            "3",
+            "30",
+            "39",
+            "40",
+            "5.5",
+            "500",
+            "550",
+            "6",
+            "7",
+            "700"
+          ]
+        },
+        {
+          "clause_path": "5.5.2",
+          "orphan_numbers": [
+            "260",
+            "3",
+            "5.5"
+          ]
+        },
+        {
+          "clause_path": "13.5",
+          "orphan_numbers": [
+            "13.5",
+            "15",
+            "3",
+            "3.2",
+            "3.5",
+            "5.5",
+            "6",
+            "6.0",
+            "7",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "5.6.4",
+          "orphan_numbers": [
+            "1.5",
+            "2.0",
+            "3",
+            "363",
+            "4",
+            "5.6",
+            "6",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "5.7.2",
+          "orphan_numbers": [
+            "06",
+            "2.1",
+            "5.7",
+            "6",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "5.10",
+          "orphan_numbers": [
+            "13",
+            "14",
+            "3",
+            "326",
+            "4",
+            "5.10",
+            "500",
+            "6",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "22.4.20",
+          "orphan_numbers": [
+            "104",
+            "20",
+            "22.4",
+            "3",
+            "6"
+          ]
+        },
+        {
+          "clause_path": "1.1.21",
+          "orphan_numbers": [
+            "1.1",
+            "16",
+            "17",
+            "18",
+            "200",
+            "21",
+            "245",
+            "3",
+            "30",
+            "325",
+            "4.1",
+            "520",
+            "6",
+            "63216",
+            "7",
+            "80",
+            "800",
+            "851"
+          ]
+        },
+        {
+          "clause_path": "chunk-267",
+          "orphan_numbers": [
+            "009",
+            "012",
+            "09",
+            "1.12",
+            "1.3",
+            "10.15",
+            "11",
+            "139",
+            "15",
+            "2.6",
+            "20",
+            "200",
+            "3",
+            "4",
+            "500",
+            "509",
+            "512",
+            "53.7",
+            "6",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "chunk-268",
+          "orphan_numbers": [
+            "009",
+            "012",
+            "09",
+            "20",
+            "29",
+            "3959",
+            "60",
+            "70"
+          ]
+        },
+        {
+          "clause_path": "chunk-288",
+          "orphan_numbers": [
+            "009",
+            "012",
+            "09",
+            "11",
+            "20",
+            "29",
+            "33",
+            "34",
+            "4",
+            "6"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "4.4",
+      "chunk-45",
+      "chunk-28",
+      "chunk-34",
+      "chunk-205",
+      "5.10",
+      "5.11.5",
+      "25.9.20",
+      "chunk-171",
+      "chunk-179",
+      "1.12.20",
+      "3.1",
+      "3.4.1",
+      "chunk-352",
+      "chunk-700",
+      "4.2",
+      "chunk-843",
+      "26.50",
+      "28.70"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "open_space.all",
+      "operator": "pct_gte",
+      "value_json": {
+        "value": 25.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "open space within structure plan",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "open_space"
+      },
+      "unit": "%",
+      "pathway": "none",
+      "quote_anchor": "25% open space",
+      "applicability": {
+        "condition": "open space within structure plan",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "side_setback.all",
+      "operator": "gte",
+      "value_json": {
+        "value": 10.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "minimum separation distance between kerb of new road carriageway and boundary of existing adjoining residential lots; may be reduced for demonstrated improved environmental outcome such as retaining significant tree(s)",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "side_setback"
+      },
+      "unit": "m",
+      "pathway": "none",
+      "quote_anchor": "Generally maintain a 10 metre wide minimum separation distance",
+      "applicability": {
+        "condition": "minimum separation distance between kerb of new road carriageway and boundary of existing adjoining residential lots; may be reduced for demonstrated improved environmental outcome such as retaining significant tree(s)",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

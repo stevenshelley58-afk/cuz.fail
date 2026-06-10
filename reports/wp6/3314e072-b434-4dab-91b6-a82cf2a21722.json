@@ -1,0 +1,199 @@
+{
+  "source_version_id": "3314e072-b434-4dab-91b6-a82cf2a21722",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 29,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 6,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 0,
+    "atoms_pending_review": 6,
+    "validator_rejects": 15,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 29,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "pending_review": 6,
+      "validator_failed": 15,
+      "validators_passed": 6
+    },
+    "rules_approved_wp6": 0,
+    "review_items_open": 89,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 90,
+      "claimed": 0,
+      "clauses_with_orphans": 6,
+      "detail": [
+        {
+          "clause_path": "1.2",
+          "orphan_numbers": [
+            "1",
+            "1.2",
+            "12",
+            "160061",
+            "2",
+            "22",
+            "341",
+            "350",
+            "375",
+            "39",
+            "798",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "1.3",
+          "orphan_numbers": [
+            "1",
+            "1.3",
+            "10",
+            "160061",
+            "2",
+            "3",
+            "6",
+            "8",
+            "8.9"
+          ]
+        },
+        {
+          "clause_path": "chunk-11",
+          "orphan_numbers": [
+            "1",
+            "12",
+            "120",
+            "16",
+            "20",
+            "22",
+            "25",
+            "26.03",
+            "3.4",
+            "400",
+            "5",
+            "51.44",
+            "6",
+            "7",
+            "8",
+            "9.35"
+          ]
+        },
+        {
+          "clause_path": "chunk-13",
+          "orphan_numbers": [
+            "3",
+            "51.44",
+            "6",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "chunk-4",
+          "orphan_numbers": [
+            "1",
+            "11",
+            "112",
+            "12",
+            "15",
+            "18",
+            "181",
+            "19",
+            "2",
+            "20",
+            "22",
+            "23",
+            "25",
+            "28",
+            "29",
+            "3",
+            "4",
+            "40",
+            "5",
+            "6"
+          ]
+        },
+        {
+          "clause_path": "chunk-9",
+          "orphan_numbers": [
+            "1",
+            "100",
+            "18",
+            "181",
+            "191",
+            "20",
+            "21",
+            "25",
+            "2500",
+            "3",
+            "30",
+            "31",
+            "40",
+            "414",
+            "5",
+            "5.1",
+            "5.3",
+            "500",
+            "5000",
+            "6"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-2",
+      "chunk-7"
+    ]
+  },
+  "sample_approved_atoms": [],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}
