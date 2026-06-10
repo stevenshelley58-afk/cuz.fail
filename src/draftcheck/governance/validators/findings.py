@@ -43,7 +43,7 @@ def validate(session: "Session") -> list[GovernanceFailure]:
                     message=(
                         f"GovernanceFinding {f.id} has been 'proposed' since "
                         f"{f.created_at} (> {_PROPOSED_STALE_DAYS} days). "
-                        "Per GOV-FIND-001 it is overdue for human review."
+                        "Per GOV-FIND-001 it is overdue for reviewer sign-off."
                     ),
                 )
             )

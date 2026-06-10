@@ -68,6 +68,37 @@ def _hash_embedding(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
     return tuple(values)
 
 
+def _coerce_embedding(raw: Any) -> list[float] | None:
+    """Normalise a pgvector cell to ``list[float]`` for dot-product math.
+
+    Raw ``text()`` selects bypass the PgVector SQLAlchemy type, so the
+    driver hands back pgvector's wire-format string ``"[0.1,0.2,...]"``.
+    We accept list / tuple / numpy / string and return floats; any
+    unparseable input yields ``None`` so the caller can fall back to
+    FTS-only scoring.
+    """
+    if raw is None:
+        return None
+    if isinstance(raw, (list, tuple)):
+        try:
+            return [float(x) for x in raw]
+        except (TypeError, ValueError):
+            return None
+    if isinstance(raw, str):
+        stripped = raw.strip()
+        if not stripped or stripped in ("[]", "()"):
+            return None
+        inner = stripped[1:-1] if stripped[:1] in "[(" else stripped
+        try:
+            return [float(x) for x in inner.split(",") if x.strip()]
+        except ValueError:
+            return None
+    try:
+        return [float(x) for x in raw]  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return None
+
+
 def _api_embedding(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
     """Call OpenAI /v1/embeddings via urllib (no SDK dependency)."""
     import json
@@ -678,23 +709,29 @@ class SqlAlchemySourceSearchService:
             if not fts_rows:
                 return ()
 
-            # Vector re-rank using stored embeddings and a hash-based query vector
+            # Vector re-rank using stored embeddings and a hash-based query vector.
+            # `r.embedding` is selected via raw text() so the PgVector result
+            # processor is NOT applied — pgvector's wire format returns a string
+            # like "[0.1,0.2,...]". Coerce defensively to a list[float] before
+            # the dot product; a malformed row falls back to FTS-only scoring.
             query_vec = _hash_embedding(query, self._embedding_config)
             max_fts = max((float(r.fts_score) for r in fts_rows), default=1.0) or 1.0
+            qv = list(query_vec)
 
             scored: list[tuple[Any, float]] = []
             for r in fts_rows:
                 fts_norm = float(r.fts_score) / max_fts
-                emb = r.embedding
-                if emb:
-                    vec = list(emb)
-                    qv = list(query_vec)
+                vec = _coerce_embedding(r.embedding)
+                if vec:
                     min_len = min(len(vec), len(qv))
-                    dot = sum(vec[i] * qv[i] for i in range(min_len))
-                    norm_v = sum(x * x for x in vec[:min_len]) ** 0.5 or 1.0
-                    norm_q = sum(x * x for x in qv[:min_len]) ** 0.5 or 1.0
-                    cosine_sim = dot / (norm_v * norm_q)
-                    hybrid = 0.4 * fts_norm + 0.6 * max(0.0, cosine_sim)
+                    if min_len == 0:
+                        hybrid = fts_norm
+                    else:
+                        dot = sum(vec[i] * qv[i] for i in range(min_len))
+                        norm_v = sum(x * x for x in vec[:min_len]) ** 0.5 or 1.0
+                        norm_q = sum(x * x for x in qv[:min_len]) ** 0.5 or 1.0
+                        cosine_sim = dot / (norm_v * norm_q)
+                        hybrid = 0.4 * fts_norm + 0.6 * max(0.0, cosine_sim)
                 else:
                     hybrid = fts_norm
                 scored.append((r, hybrid))
