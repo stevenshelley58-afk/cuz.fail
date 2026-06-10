@@ -111,8 +111,13 @@ a{color:var(--green)}
 .a .md strong{font-weight:700}.a .md em{font-style:italic}
 .a .src{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
 .srcchip{font-size:.66rem;font-weight:700;padding:3px 9px;border-radius:8px;background:var(--mint);
-         color:var(--green-800);border:1px solid var(--mint-deep);display:flex;align-items:center;gap:4px}
+         color:var(--green-800);border:1px solid var(--mint-deep);display:flex;align-items:center;gap:4px;
+         transition:background-color .25s ease, transform .25s ease}
+.srcchip.flash{background:var(--green-bright);transform:scale(1.05)}
 .srcchip .icon{width:12px;height:12px}
+.a .md .citeref{font-size:.7em;font-weight:700;background:transparent;border:none;color:var(--green-bright);
+                 padding:0 1px;cursor:pointer;vertical-align:super;line-height:1}
+.a .md .citeref:hover{color:var(--green-800);text-decoration:underline}
 .a .act{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
 .a .act button,.btn{background:var(--green-900);color:#fff;font-weight:700;font-size:.8rem;
                     padding:9px 16px;border-radius:11px;display:inline-flex;align-items:center;gap:7px}

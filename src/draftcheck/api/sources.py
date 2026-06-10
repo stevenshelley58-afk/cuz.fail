@@ -161,6 +161,10 @@ _GENERAL_FALLBACK_ANSWER = (
     "and I'll give you the best answer I can from the R-Codes and planning framework, clearly noting "
     "where you should verify against the approved source version."
 )
+# Assistant tuning configs (can be overridden by environment variables)
+_ASSISTANT_MIN_SCORE = float(os.getenv("DRAFTCHECK_ASSISTANT_MIN_SCORE", "0.15"))  # absolute floor
+_ASSISTANT_RELATIVE_FLOOR = float(os.getenv("DRAFTCHECK_ASSISTANT_RELATIVE_FLOOR", "0.35"))  # relative to top score
+_ASSISTANT_MAX_CONTEXT_CHUNKS = int(os.getenv("DRAFTCHECK_ASSISTANT_MAX_CONTEXT_CHUNKS", "5"))
 
 
 def _required_query(*values: str | None) -> str:
@@ -1107,8 +1111,10 @@ def create_sources_router(
     def assistant_chat(
         payload: AssistantPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+        _active_session: Annotated[ActiveSession, Depends(get_current_session)],
     ) -> dict[str, Any]:
         question = _required_query(payload.message, payload.question, payload.query, payload.q)
+        # history field accepted but silently discarded (stateless single-turn endpoint)
         provider = get_chat_provider()
 
         retrieval_query = _build_retrieval_query(question, payload.history)

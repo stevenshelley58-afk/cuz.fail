@@ -27,13 +27,18 @@ export type ProjectSummary = {
 export type HealthInfo = { status?: string; service?: string; version?: string } & Record<string, unknown>;
 
 export type ChatCitation = {
-  source_title?: string;
-  locator?: string;
+  id: string;
+  source_id?: string;
+  source_version_id: string;
+  chunk_id?: string;
+  source_title: string;
+  locator?: string | null;
+  quote?: string | null;
+  uri?: string | null;
   clause_id?: string | null;
   heading?: string | null;
   page_number?: number | null;
   canonical_url?: string | null;
-  quote?: string;
 } & Record<string, unknown>;
 
 export type CitationMapEntry = {

@@ -9,7 +9,7 @@ import json
 import re
 import time
 from dataclasses import dataclass
-from typing import Any, Protocol
+from typing import Any, Protocol, Sequence, TypedDict
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
@@ -22,15 +22,22 @@ MINIMAX_DEFAULT_CHAT_MODEL = "MiniMax-M3"
 MINIMAX_DEFAULT_BASE_URL = "https://api.minimax.chat/v1"
 
 
+class ChatMessage(TypedDict):
+    role: str  # "system" | "user" | "assistant"
+    content: str
+
+
 class ChatProvider(Protocol):
     name: str
     model: str
     is_live: bool
 
     def complete(self, system_prompt: str, user_prompt: str) -> str:
+        """Single-turn wrapper. Default impl routes to complete_chat."""
         ...
 
-    def complete_chat(self, system_prompt: str, messages: list[dict[str, str]]) -> str:
+    def complete_chat(self, system_prompt: str, messages: Sequence[ChatMessage]) -> str:
+        """Multi-turn chat. Default impl falls back to complete() with the last user msg."""
         ...
 
 
@@ -42,8 +49,39 @@ class MockChatProvider:
     def complete(self, system_prompt: str, user_prompt: str) -> str:
         return "The live assistant model is not configured in this environment."
 
-    def complete_chat(self, system_prompt: str, messages: list[dict[str, str]]) -> str:
-        return self.complete(system_prompt, messages[-1]["content"] if messages else "")
+    def complete_chat(self, system_prompt: str, messages: Sequence[ChatMessage]) -> str:
+        return self.complete(system_prompt, _last_user_message(messages))
+
+
+def _last_user_message(messages: Sequence[ChatMessage]) -> str:
+    """Pull the most recent user-role message; used as the default single-turn fallback."""
+    for message in reversed(messages):
+        if message.get("role") == "user" and message.get("content"):
+            return str(message["content"])
+    # If no user message, concatenate everything as a single user turn (last resort).
+    return "\n".join(str(message.get("content", "")) for message in messages)
+
+
+def _normalise_messages(
+    system_prompt: str,
+    messages: Sequence[ChatMessage],
+) -> list[dict[str, str]]:
+    """Coalesce any system-role messages into a single leading system turn."""
+    system_parts: list[str] = [system_prompt] if system_prompt else []
+    out: list[dict[str, str]] = []
+    for message in messages:
+        role = str(message.get("role", "")).strip().lower()
+        content = str(message.get("content", ""))
+        if not content:
+            continue
+        if role == "system":
+            system_parts.append(content)
+        elif role in {"user", "assistant"}:
+            out.append({"role": role, "content": content})
+    if system_parts:
+        joined = "\n\n".join(part for part in system_parts if part)
+        out.insert(0, {"role": "system", "content": joined})
+    return out
 
 
 @dataclass
@@ -61,15 +99,15 @@ class OpenAIChatProvider:
     def complete(self, system_prompt: str, user_prompt: str) -> str:
         return self.complete_chat(system_prompt, [{"role": "user", "content": user_prompt}])
 
-    def complete_chat(self, system_prompt: str, messages: list[dict[str, str]]) -> str:
+    def complete_chat(self, system_prompt: str, messages: Sequence[ChatMessage]) -> str:
         if not self.api_key:
             raise RuntimeError(f"API key is required when LLM_PROVIDER={self.name}.")
+        normalised = _normalise_messages(system_prompt, messages)
+        if not any(msg["role"] == "user" for msg in normalised):
+            raise RuntimeError(f"{self.error_label} chat request requires at least one user message.")
         body: dict[str, Any] = {
             "model": self.model,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                *messages,
-            ],
+            "messages": normalised,
             "max_completion_tokens": self.max_output_tokens,
         }
         headers = {
