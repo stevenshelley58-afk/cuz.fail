@@ -1,4 +1,4 @@
-# LotFile / DraftCheck WA — Launch Readiness Handoff Plan
+# LotFile — Launch Readiness Handoff Plan
 
 Date: 2026-06-10
 Audience: a code agent executing work packages (WPs) in order. Each WP is one PR with acceptance criteria.

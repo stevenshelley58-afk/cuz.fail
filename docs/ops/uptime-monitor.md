@@ -1,4 +1,4 @@
-# Uptime Monitoring — DraftCheck V3
+# Uptime Monitoring — LotFile V3
 
 ## Monitor targets
 

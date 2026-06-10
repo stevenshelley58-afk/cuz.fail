@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Monthly DraftCheck V3 restore drill.
+# Monthly LotFile V3 restore drill.
 # Restores the latest restic snapshot into a scratch DB and prints a structured summary.
 #
 # Usage:
@@ -26,7 +26,7 @@ DRILL_START="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 DRILL_DIR="/tmp/draftcheck-v3-restore-$(date -u +%Y%m%dT%H%M%SZ)"
 SCRATCH_DB="draftcheck_restore_drill"
 
-echo "# DraftCheck V3 Restore Drill"
+echo "# LotFile V3 Restore Drill"
 echo ""
 echo "date: $DRILL_START"
 echo ""

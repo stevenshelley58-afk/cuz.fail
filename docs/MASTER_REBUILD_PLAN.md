@@ -1,4 +1,4 @@
-# DraftCheck WA — Master Rebuild Plan (v3)
+# LotFile — Master Rebuild Plan (v3)
 
 Date: 2026-06-07
 Status: **single implementation authority** for the greenfield rebuild.

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Nightly DraftCheck V3 backup: pg_dump → timestamped file → restic.
+# Nightly LotFile V3 backup: pg_dump → timestamped file → restic.
 # Run as: bash infra/v3/backup/backup.sh
 # Env (from /etc/draftcheck/backup.env or exported by caller):
 #   RESTIC_REPOSITORY, RESTIC_PASSWORD_FILE, POSTGRES_USER, POSTGRES_DB,

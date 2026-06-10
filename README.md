@@ -1,4 +1,4 @@
-# DraftCheck WA Core
+# LotFile
 
 **Production:** https://lotfile.app — served by Caddy on a single VPS; no Vercel.
 
@@ -6,6 +6,10 @@ Backend core and V3 rebuild workspace for a WA residential drafting assistant. I
 source ingestion, citation-backed retrieval, deterministic compliance checks, RFI parsing, draft
 response packs, Hermes job delegation, exports, validation gates, audit events, and the new address-first
 frontend under `web/`.
+
+> The Python package, env var prefix, container name prefix, and repo name still carry the
+> historical "draftcheck" identifier from before the public brand settled on **LotFile**. That's
+> intentional — the internal identifiers are stable infra, the brand is what users see.
 
 ## Plan Lock
 
@@ -56,7 +60,7 @@ Key variables:
 
 ## Safety Boundaries
 
-DraftCheck WA Core is assistive only. It must not claim final compliance, approval, certification, legal advice, or building-surveyor signoff.
+LotFile is assistive only. It must not claim final compliance, approval, certification, legal advice, or building-surveyor signoff.
 
 Every regulatory answer must either cite approved source versions and chunks or say the approved source library cannot support the answer. Australian Standards full text must not be scraped or stored; store public metadata and access notes only.
 
@@ -97,4 +101,4 @@ compatibility checks, and baseline tests only. Do not expand it as the V3 produc
 6. Show issue cards with citations, drawing evidence, and decision traces.
 7. Block exports until automated validation gate.
 
-# cuz.fail
+# lotfile.app
