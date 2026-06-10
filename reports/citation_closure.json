@@ -1,0 +1,240 @@
+{
+  "generated_at": "2026-06-10T00:18:50Z",
+  "summary": {
+    "total_edges": 901,
+    "resolved": 871,
+    "unresolved": 5,
+    "unresolvable_by_design": 25
+  },
+  "unresolved": [
+    {
+      "from_id": "FRE-LPP-013",
+      "to_reference": "Local Planning Policy 1.3 \u2013 Community Consultation on Planning",
+      "in_text_quote": "accordance with Local Planning Policy 1.3 \u2013 Community Consultation on Planning",
+      "proposed_action": "add manifest row FRE-LPP-033 (LPP 1.3 Community Consultation on Planning Proposals) \u2014 pending acquisition",
+      "proposed_id": "FRE-LPP-033"
+    },
+    {
+      "from_id": "FRE-LPP-026",
+      "to_reference": "Local Planning Policy 2.7 - Archaeological Investigation as a Condition of Planning",
+      "in_text_quote": "2 Refer Local Planning Policy 2.7 - Archaeological Investigation as a Condition of Planning",
+      "proposed_action": "add manifest row FRE-LPP-034 (LPP 2.7 Archaeological Investigation) \u2014 pending acquisition",
+      "proposed_id": "FRE-LPP-034"
+    },
+    {
+      "from_id": "FRE-LPP-028",
+      "to_reference": "Local Planning Policy 3.15 \u2013 Former Kim Beazley Primary School -",
+      "in_text_quote": "",
+      "proposed_action": "add manifest row FRE-LPP-037 (LPP 3.15 Former Kim Beazley School Site - White Gum Valley) \u2014 pending acquisition",
+      "proposed_id": "FRE-LPP-037"
+    },
+    {
+      "from_id": "FRE-LPP-028",
+      "to_reference": "Local Planning Policy 3.5",
+      "in_text_quote": "White Gum Valley, Local Planning Policy 3.5",
+      "proposed_action": "add manifest row FRE-LPP-035 (LPP 3.5 Local Planning Area 5 - Beaconsfield) \u2014 pending acquisition",
+      "proposed_id": "FRE-LPP-035"
+    },
+    {
+      "from_id": "FRE-LPP-028",
+      "to_reference": "Local Planning Policy 3.9 - Samson",
+      "in_text_quote": "",
+      "proposed_action": "add manifest row FRE-LPP-036 (LPP 3.9 Local Planning Area 9 - Samson) \u2014 pending acquisition",
+      "proposed_id": "FRE-LPP-036"
+    }
+  ],
+  "unresolvable_by_design": [
+    {
+      "from_id": "DC-002",
+      "to_reference": "Planning Bulletin 14",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 14 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "policy and practices was described in Planning Bulletin 14"
+    },
+    {
+      "from_id": "DC-002",
+      "to_reference": "Planning Bulletin 19",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 19 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": ""
+    },
+    {
+      "from_id": "DC-006",
+      "to_reference": "Planning Bulletin 61",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 61 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "\u2013 supersedes Planning Bulletin 61."
+    },
+    {
+      "from_id": "DC-006",
+      "to_reference": "Planning Bulletin 64",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 64 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "\u2022 Planning Bulletin 64 \u2013 Acid Sulfate Soils (2009):"
+    },
+    {
+      "from_id": "DC-006",
+      "to_reference": "Planning Bulletin 92",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 92 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "\u2022 Planning Bulletin 92 \u2013 Urban Water Management (2009):"
+    },
+    {
+      "from_id": "DC-007",
+      "to_reference": "Development Control Policy 1.4",
+      "category": "phantom_instrument",
+      "rationale": "DC Policy 1.4 does not exist in the published DC series (1.3 -> 1.5)",
+      "in_text_quote": "\u2022 Development Control Policy 1.4: Functional Road Classification for"
+    },
+    {
+      "from_id": "DC-007",
+      "to_reference": "Planning Bulletin 83/2013",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 83 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "\u2022 Planning Bulletin 83/2013 Planning for Tourism (WAPC, 2013)"
+    },
+    {
+      "from_id": "DC-009",
+      "to_reference": "State Planning Policy 7.1",
+      "category": "phantom_instrument",
+      "rationale": "SPP 7.1 does not exist in the published 7.x Design series (SPP 7.0/7.2/7.3)",
+      "in_text_quote": "State Planning Policy 7.1 \u2013 Neighbourhood"
+    },
+    {
+      "from_id": "DC-009",
+      "to_reference": "State Planning Policy 7.1 \u2013 Neighbourhood",
+      "category": "phantom_instrument",
+      "rationale": "SPP 7.1 does not exist in the published 7.x Design series (SPP 7.0/7.2/7.3)",
+      "in_text_quote": "State Planning Policy 7.1 \u2013 Neighbourhood"
+    },
+    {
+      "from_id": "FRE-LPP-025",
+      "to_reference": "LPP 2.4",
+      "category": "revoked_council_lpp",
+      "rationale": "Fremantle LPP 2.4 (Boundary Walls in Residential Development) was revoked by Council in Dec 2023; coverage in current LPPs",
+      "in_text_quote": "\uf0d8 Other local Planning policies relating to development control; such as LPP 2.4:"
+    },
+    {
+      "from_id": "FRE-LPP-030",
+      "to_reference": "Local Planning Policy 11",
+      "category": "page_number_artifact",
+      "rationale": "FRE-LPP-030 (Heritage Areas Listings) contains the page footer '11/46' which the summary extractor mis-parsed as 'LPP 11'; the City of Fremantle does not have a LPP 11 instrument (LPP series is 1.x/2.x/3.x and DGF1..DGF11 for design guidelines)",
+      "in_text_quote": ""
+    },
+    {
+      "from_id": "FRE-SCH-001",
+      "to_reference": "Town Planning Scheme No. 3",
+      "category": "predecessor_scheme",
+      "rationale": "TPS 3 is the predecessor to the current Local Planning Scheme; see FRE-SCH-001 (City of Fremantle LPS4) in the manifest",
+      "in_text_quote": "(a) Town Planning Scheme No. 3 \u2014 gazetted on 18 December 1987."
+    },
+    {
+      "from_id": "JOO-SCH-001",
+      "to_reference": "Town Planning Scheme No. 6",
+      "category": "predecessor_scheme",
+      "rationale": "TPS 6 is the predecessor to the current Local Planning Scheme; see JOO-SCH-001 (City of Joondalup LPS3) / MEL-SCH-001 (City of Melville LPS6) in the manifest",
+      "in_text_quote": "\u2022 Town Planning Scheme No. 6 \u2013 gazetted April 1972."
+    },
+    {
+      "from_id": "MEL-LPP-001",
+      "to_reference": "Local Planning Policy 6.1",
+      "category": "section_number_artifact",
+      "rationale": "MEL-LPP-001 (Planning Process and Decision Making) contains '6.0 Local Planning Policy / 6.1 Proposals to amend...' \u2014 this is a clause number within MEL-LPP-001, not a separate LPP 6.1. The current City of Melville does not have a LPP 6.1 instrument (the LPP series is 1.x/2.x/3.x/4.x); references in DAP agendas to 'LPP 6.1' refer to the same clause within MEL-LPP-001",
+      "in_text_quote": ""
+    },
+    {
+      "from_id": "MEL-LPP-012",
+      "to_reference": "Planning Bulletin 94",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 94 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "Planning Bulletin 94: Approval Requirements for Public"
+    },
+    {
+      "from_id": "MEL-SCH-002",
+      "to_reference": "Planning Bulletin 64/2009",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 64 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "The Planning Guidelines set out in the WAPC Planning Bulletin 64/2009 provide"
+    },
+    {
+      "from_id": "MEL-SCH-002",
+      "to_reference": "Planning Bulletin 83",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 83 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "planning framework for tourism. It is recommended in WAPC Planning Bulletin 83 that the"
+    },
+    {
+      "from_id": "MEL-SP-001",
+      "to_reference": "Town Planning Scheme No 6",
+      "category": "predecessor_scheme",
+      "rationale": "TPS 6 is the predecessor to the current Local Planning Scheme; see JOO-SCH-001 (City of Joondalup LPS3) / MEL-SCH-001 (City of Melville LPS6) in the manifest",
+      "in_text_quote": "Planning Scheme No. 5 (CPS5) and the City of South Perth Town Planning Scheme No 6 (TPS6). In"
+    },
+    {
+      "from_id": "PB-005",
+      "to_reference": "Position Statement Local government will play an important",
+      "category": "clipped_position_statement_phrase",
+      "rationale": "PB-005 cites Position Statement: Planning for Tourism and Short-term Rental Accommodation (PS-003 in manifest) \u2014 the summary extractor captured a clipped phrase starting mid-sentence ('Local government will play an important role...') rather than the full title",
+      "in_text_quote": ""
+    },
+    {
+      "from_id": "PB-006",
+      "to_reference": "Planning Bulletin 18",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 18 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "on Planning Bulletin 18 Developer facilities or the augmentation and facilities to be provided;"
+    },
+    {
+      "from_id": "PB-006",
+      "to_reference": "Planning Bulletin 41",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 41 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "Planning Bulletin 41 Draft Model facilities beyond the normal \u2022 to ensure consistency and"
+    },
+    {
+      "from_id": "PS-002",
+      "to_reference": "Position Statement Expenditure of",
+      "category": "rescinded_position_statement",
+      "rationale": "The Sep 2021 WAPC 'Position Statement: Expenditure of Cash-in-Lieu of Public Open Space' was rescinded; superseded by PS-002 (Position Statement: Public Open Space, Dec 2025) which is in the manifest",
+      "in_text_quote": "2. Position Statement Expenditure of"
+    },
+    {
+      "from_id": "PS-008",
+      "to_reference": "Planning Bulletin 67",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 67 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "It supersedes Planning Bulletin 67 Guidelines"
+    },
+    {
+      "from_id": "SPP-006",
+      "to_reference": "Planning Bulletin 69",
+      "category": "withdrawn_planning_bulletin",
+      "rationale": "PB 69 is a withdrawn WA planning bulletin; no current wa.gov.au source",
+      "in_text_quote": "addresses mitigation as required in section 5.1.1 (ii) and Planning Bulletin 69 and"
+    },
+    {
+      "from_id": "SPP-015",
+      "to_reference": "State Planning Policy 7.1",
+      "category": "phantom_instrument",
+      "rationale": "SPP 7.1 does not exist in the published 7.x Design series (SPP 7.0/7.2/7.3)",
+      "in_text_quote": "State Planning Policy 7.1 Neighbourhood existing activity centres does not unreasonably"
+    }
+  ],
+  "fixpoint_reached": false,
+  "coordination_note": "Coordination for the approve-gate task: this pass surfaces 5 truly-unresolved edges corresponding to 5 proposed manifest rows (FRE-LPP-033, FRE-LPP-034, FRE-LPP-035, FRE-LPP-036, FRE-LPP-037). These are CURRENT active Fremantle LPPs that are real corpus gaps. The propose-gate task should NOT need to re-run ingest for these \u2014 they are unapproved and will not be citable until acquire+extract+approve is performed. The unresolvable_by_design edges are also out of the approval-gate's scope (withdrawn PBs, predecessor schemes, etc.).",
+  "walker_inputs": {
+    "alias_file_consulted": "data/instrument_aliases.json",
+    "manifest_rows_loaded": 180,
+    "documents_walked": 169,
+    "oos_categories_seen": [
+      "clipped_position_statement_phrase",
+      "page_number_artifact",
+      "phantom_instrument",
+      "predecessor_scheme",
+      "rescinded_position_statement",
+      "revoked_council_lpp",
+      "section_number_artifact",
+      "withdrawn_planning_bulletin"
+    ]
+  }
+}
