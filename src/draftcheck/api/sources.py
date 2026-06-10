@@ -20,7 +20,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from draftcheck.ai import DbJobTraceStore, InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
 from draftcheck.api.auth import get_current_session, require_allowed_origin
-from draftcheck.providers import get_chat_provider
+from draftcheck.providers import ChatMessage, get_chat_provider
 from draftcheck.db.engine import create_session_factory, database_url_from_env
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.sources import (
@@ -344,8 +344,8 @@ def _build_chat_messages(
     question: str,
     hits: tuple[SourceSearchHit, ...],
     history: list[AssistantTurn],
-) -> list[dict[str, str]]:
-    messages: list[dict[str, str]] = [{"role": t.role, "content": t.content} for t in history]
+) -> list[ChatMessage]:
+    messages: list[ChatMessage] = [{"role": t.role, "content": t.content} for t in history]
     # Anthropic requires messages to start with 'user'
     while messages and messages[0]["role"] != "user":
         messages = messages[1:]

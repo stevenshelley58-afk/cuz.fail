@@ -163,15 +163,18 @@ class AnthropicChatProvider:
     def complete(self, system_prompt: str, user_prompt: str) -> str:
         return self.complete_chat(system_prompt, [{"role": "user", "content": user_prompt}])
 
-    def complete_chat(self, system_prompt: str, messages: list[dict[str, str]]) -> str:
+    def complete_chat(self, system_prompt: str, messages: Sequence[ChatMessage]) -> str:
         if not self.api_key:
             raise RuntimeError("API key is required when LLM_PROVIDER=anthropic.")
+        normalised = _normalise_messages(system_prompt, messages)
         body = json.dumps(
             {
                 "model": self.model,
                 "max_tokens": self.max_output_tokens,
                 "system": system_prompt,
-                "messages": messages,
+                "messages": [
+                    msg for msg in normalised if msg.get("role") in {"user", "assistant"}
+                ],
             }
         ).encode("utf-8")
         req = Request(
