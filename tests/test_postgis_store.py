@@ -231,6 +231,28 @@ class TestLicenceGateApprovalStatus:
         )
         assert not meta.is_authoritative()
 
+    def test_db_metadata_coercion_tolerates_legacy_status_strings(self) -> None:
+        """Bulk-loaded rows with non-enum statuses must degrade safely, not crash."""
+        from draftcheck.domain.address.postgis_store import (
+            _coerce_approval_status,
+            _coerce_licence_status,
+        )
+
+        assert _coerce_licence_status("approved") == LicenceStatus.UNKNOWN
+        assert _coerce_licence_status("review") == LicenceStatus.UNKNOWN
+        assert _coerce_licence_status("licensed") == LicenceStatus.LICENSED
+        assert _coerce_approval_status("bogus") == SourceApprovalStatus.PENDING_REVIEW
+        assert _coerce_approval_status("approved") == SourceApprovalStatus.APPROVED
+
+    def test_metadata_round_trip_preserves_source_version_id(self) -> None:
+        """source_version_id must survive import -> read-back via metadata_json,
+        otherwise no PostGIS-registered dataset is ever authoritative."""
+        from draftcheck.domain.address.postgis_store import _metadata_to_dict
+
+        meta = _make_licensed_metadata("round-trip-ds")
+        stored = _metadata_to_dict(meta)
+        assert stored["source_version_id"] == "test:version:1.0"
+
     def test_in_memory_store_does_not_overwrite_approved_with_rejected(self) -> None:
         """Existing test from test_v3_spatial_address.py — replicated here for
         PostGIS-independent verification of the guard logic."""

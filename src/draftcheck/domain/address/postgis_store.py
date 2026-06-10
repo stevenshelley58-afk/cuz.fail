@@ -82,21 +82,52 @@ def _metadata_to_dict(metadata: SpatialDatasetMetadata) -> dict[str, Any]:
         "approval_status": str(metadata.approval_status),
         "target_crs": metadata.target_crs,
         "refresh_due": metadata.refresh_due.isoformat() if metadata.refresh_due else None,
+        # The logical source-version string must round-trip: the FK column
+        # holds a source_versions UUID which bulk loaders rarely link, and a
+        # dataset with no source_version_id is never authoritative.
+        "source_version_id": metadata.source_version_id,
     }
+
+
+def _coerce_licence_status(value: Any) -> LicenceStatus:
+    """Map stored licence_status to the enum, degrading unknowns safely.
+
+    Bulk loaders have written non-enum strings (e.g. 'approved', 'review').
+    Anything unrecognised becomes UNKNOWN — i.e. never authoritative — rather
+    than crashing every read of the dataset row.
+    """
+    try:
+        return LicenceStatus(value)
+    except ValueError:
+        logger.warning("spatial_datasets row has unrecognised licence_status %r", value)
+        return LicenceStatus.UNKNOWN
+
+
+def _coerce_approval_status(value: Any) -> SourceApprovalStatus:
+    try:
+        return SourceApprovalStatus(value)
+    except ValueError:
+        logger.warning("spatial_datasets row has unrecognised approval_status %r", value)
+        return SourceApprovalStatus.PENDING_REVIEW
 
 
 def _db_dataset_to_metadata(row: DbSpatialDataset) -> SpatialDatasetMetadata:
     meta = row.metadata_json or {}
+    source_version_id = (
+        str(row.source_version_id)
+        if row.source_version_id
+        else (str(meta["source_version_id"]) if meta.get("source_version_id") else None)
+    )
     return SpatialDatasetMetadata(
         dataset_id=row.dataset_id,
         name=row.name,
         provider=row.provider,
         version=row.version,
         licence=row.licence or "",
-        licence_status=LicenceStatus(row.licence_status),
+        licence_status=_coerce_licence_status(row.licence_status),
         source_crs=row.source_crs,
-        source_version_id=str(row.source_version_id) if row.source_version_id else None,
-        approval_status=SourceApprovalStatus(row.approval_status),
+        source_version_id=source_version_id,
+        approval_status=_coerce_approval_status(row.approval_status),
         target_crs=str(meta.get("target_crs", GDA2020_TARGET_CRS)),
         fetched_at=row.fetched_at or __import__("datetime").datetime.now(__import__("datetime").timezone.utc),
     )
