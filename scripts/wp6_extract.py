@@ -725,6 +725,7 @@ def main() -> int:
     ap.add_argument("--structure-only", action="store_true")
     ap.add_argument("--limit", type=int, default=0, help="cap rule-bearing clauses processed")
     ap.add_argument("--report", default="")
+    ap.add_argument("--workers", type=int, default=1, help="concurrent clause workers (each gets its own DB connection)")
     args = ap.parse_args()
 
     dsn = os.environ["DATABASE_URL"].replace("postgresql+asyncpg://", "postgresql://").replace(
@@ -761,11 +762,54 @@ def main() -> int:
             if args.limit:
                 clauses = clauses[: args.limit]
             print(f"rule-bearing tier1 clauses to process: {len(clauses)}", flush=True)
-            for cid, chunk_id, path, text in clauses:
-                stats["clauses_processed"] += 1
-                print(f"[{stats['clauses_processed']}/{len(clauses)}] {path}", flush=True)
-                extract_for_clause(conn, endpoints, sv_id, str(cid), str(chunk_id) if chunk_id else None,
-                                   path or "?", text, stats)
+            if args.workers <= 1:
+                for cid, chunk_id, path, text in clauses:
+                    stats["clauses_processed"] += 1
+                    print(f"[{stats['clauses_processed']}/{len(clauses)}] {path}", flush=True)
+                    extract_for_clause(conn, endpoints, sv_id, str(cid), str(chunk_id) if chunk_id else None,
+                                       path or "?", text, stats)
+            else:
+                import threading
+                from concurrent.futures import ThreadPoolExecutor, as_completed
+
+                lock = threading.Lock()
+                tls = threading.local()
+
+                def thread_conn() -> psycopg.Connection:
+                    if getattr(tls, "conn", None) is None:
+                        tls.conn = psycopg.connect(dsn)
+                    return tls.conn
+
+                def work(item: tuple) -> dict:
+                    cid, chunk_id, path, text = item
+                    local_stats = {
+                        "clauses_processed": 1,
+                        "atoms_auto_accepted": 0,
+                        "atoms_challenge_accepted": 0,
+                        "atoms_pending_review": 0,
+                        "validator_rejects": 0,
+                        "llm_errors": [],
+                    }
+                    extract_for_clause(thread_conn(), endpoints, sv_id, str(cid),
+                                       str(chunk_id) if chunk_id else None,
+                                       path or "?", text, local_stats)
+                    return local_stats
+
+                with ThreadPoolExecutor(max_workers=args.workers) as pool:
+                    futures = {pool.submit(work, item): item for item in clauses}
+                    for fut in as_completed(futures):
+                        item = futures[fut]
+                        try:
+                            local_stats = fut.result()
+                        except Exception as exc:  # noqa: BLE001 — keep the run alive, record the failure
+                            local_stats = {"clauses_processed": 1, "llm_errors": [f"{item[2]}: {exc}"]}
+                        with lock:
+                            for k, v in local_stats.items():
+                                if k == "llm_errors":
+                                    stats["llm_errors"].extend(v)
+                                else:
+                                    stats[k] = stats.get(k, 0) + v
+                            print(f"[{stats['clauses_processed']}/{len(clauses)}] {item[2]}", flush=True)
             report["extraction_stats"] = stats
 
         report["audit"] = audit(conn, sv_id)
