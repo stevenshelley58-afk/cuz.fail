@@ -373,6 +373,9 @@ class SourceVersion(Base, TimestampMixin):
     __table_args__ = (
         UniqueConstraint("source_id", "sha256", name="uq_source_versions_source_sha256"),
         Index("ix_source_versions_review", "licence_status", "review_status"),
+        # Additive indexes added by Alembic 0010_governance_schema (PR-2).
+        Index("ix_source_versions_owner", "owner_user_id"),
+        Index("ix_source_versions_review_due", "review_due_date"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -399,6 +402,19 @@ class SourceVersion(Base, TimestampMixin):
         index=True,
     )
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+    # Additive columns added by Alembic 0010_governance_schema (PR-2 of the
+    # process-control / source-governance feature). The migration is the
+    # source of truth for DDL; this class mirrors the column set so the
+    # ORM can read and write them. All columns are nullable for backward
+    # compatibility with the 83 pre-existing source_versions rows.
+    owner_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    review_due_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    next_required_action: Mapped[str | None] = mapped_column(String(200), nullable=True)
 
 
 class SourceChunk(Base, TimestampMixin):
@@ -1726,6 +1742,10 @@ class ReviewItem(Base, TimestampMixin):
         Index("ix_review_items_org_status", "org_id", "status"),
         Index("ix_review_items_project_status", "project_id", "status"),
         Index("ix_review_items_subject", "subject_type", "subject_id"),
+        # Additive indexes added by Alembic 0010_governance_schema (PR-2).
+        # The migration owns the column DDL; the ORM mirrors the schema.
+        Index("ix_review_items_severity", "severity"),
+        Index("ix_review_items_closure_evidence", "closure_evidence_id"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -1762,6 +1782,30 @@ class ReviewItem(Base, TimestampMixin):
     resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     source_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+    # Additive columns added by Alembic 0010_governance_schema (PR-2 of the
+    # process-control / source-governance feature). The migration is the
+    # source of truth for DDL; this class mirrors the column set so the
+    # ORM can read and write them. All columns are nullable for backward
+    # compatibility with the 155 pre-existing review_items rows.
+    severity: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    root_cause: Mapped[str | None] = mapped_column(Text, nullable=True)
+    closure_evidence_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("artifacts.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    effectiveness_check_due_date: Mapped[date | None] = mapped_column(Date, nullable=True)
+    effectiveness_result: Mapped[str | None] = mapped_column(Text, nullable=True)
+    proposed_by_finding_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        # use_alter breaks the circular FK with governance_findings
+        # (which has linked_capa_id back to review_items). The migration
+        # is the source of truth for DDL; this just resolves the cycle
+        # at ORM-metadata time so Base.metadata.sorted_tables works.
+        ForeignKey("governance_findings.id", ondelete="SET NULL", use_alter=True),
+        nullable=True,
+    )
 
 
 # ---------------------------------------------------------------------------
