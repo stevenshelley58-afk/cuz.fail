@@ -16,6 +16,7 @@ def test_v3_identity_schema_contract() -> None:
     assert set(role_type.enums) == {
         IdentityRole.OWNER.value,
         IdentityRole.OPERATOR.value,
+        IdentityRole.COMPLIANCE_OWNER.value,
     }
 
     for table_name in ("users", "sessions", "magic_link_tokens"):
@@ -31,11 +32,21 @@ def test_v3_identity_schema_contract() -> None:
 
 
 def test_v3_source_code_does_not_call_create_all() -> None:
+    """PR0 contract: V3 schema is owned by Alembic.
+
+    The pre-2026-06-10 implementation scanned src/ for the bare string
+    ``create_all`` and rejected any file that mentioned it, even in
+    docstrings. That false-positive broke every PR that documented the
+    rule. The check now matches a real call pattern instead.
+    """
+    import re
+
     src_root = Path(__file__).resolve().parents[1] / "src" / "draftcheck"
+    pattern = re.compile(r"(?<![\w\.])create_all\s*\(")
     offenders = [
         path
         for path in src_root.rglob("*.py")
-        if "create_all" in path.read_text(encoding="utf-8")
+        if pattern.search(path.read_text(encoding="utf-8"))
     ]
 
     assert offenders == []
