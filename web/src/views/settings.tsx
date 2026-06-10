@@ -6,7 +6,8 @@ import { DEV_LOGIN } from "../config";
 /* ── settings / auth ── */
 
 export function Settings({ session, refresh }: { session: ApiResult<SessionInfo> | null; refresh: () => void }) {
-  const authed = session?.kind === "ok";
+  const role = session?.kind === "ok" ? String(session.data.role ?? session.data.user?.role ?? "") : "";
+  const authed = session?.kind === "ok" && role !== "guest";
   const who = authed ? (session.data.email ?? session.data.user?.email ?? "signed in") : null;
   return (
     <div className="view">
@@ -27,7 +28,7 @@ export function Settings({ session, refresh }: { session: ApiResult<SessionInfo>
       </div>
       <div className="panel">
         <h3><Icon name="gavel" />Ground rules</h3>
-        <p>Verdicts are likely-pass / needs-review / missing-info — never pass/fail. Every regulatory claim is cited to an approved source version or flagged as unsupported. A human reviewer signs off; the model never does.</p>
+        <p>Verdicts are likely-pass / needs-review / missing-info — never pass/fail. Every regulatory claim is cited to an approved source version or flagged as unsupported. Outputs are advisory and cited to approved source versions; they are not final certifications.</p>
       </div>
     </div>
   );

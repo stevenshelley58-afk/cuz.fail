@@ -1,7 +1,12 @@
 import { useCallback, useState } from "react";
 import type { ProjectSummary } from "../api";
-import { GUEST_ADDRESS_LIMIT, GUEST_CHAT_LIMIT, GUEST_USAGE_KEY } from "../config";
-import type { GuestCheck, GuestUsage, PaywallState } from "../types";
+import { GUEST_USAGE_KEY } from "../config";
+import type { GuestCheck, GuestUsage } from "../types";
+
+// Soft counters only — the server enforces the real budget. These exist so the
+// usage chip and the Recent strip work; they never block a request.
+
+const MAX_RECENT_CHECKS = 6;
 
 function emptyGuestUsage(): GuestUsage {
   return {
@@ -17,7 +22,7 @@ function normalizeGuestUsage(value: Partial<GuestUsage> | null | undefined): Gue
   return {
     addressChecks: Math.max(0, Number(value?.addressChecks ?? 0) || 0),
     chatMessages: Math.max(0, Number(value?.chatMessages ?? 0) || 0),
-    checks: Array.isArray(value?.checks) ? value.checks.slice(0, 4) : [],
+    checks: Array.isArray(value?.checks) ? value.checks.slice(0, MAX_RECENT_CHECKS) : [],
     updatedAt: typeof value?.updatedAt === "string" ? value.updatedAt : empty.updatedAt,
   };
 }
@@ -61,50 +66,40 @@ export function guestProjectList(usage: GuestUsage): ProjectSummary[] {
   }));
 }
 
-export function useGuestUsage(authed: boolean, onLimitReached: (state: PaywallState) => void) {
+export function useGuestUsage(isGuest: boolean) {
   const [guestUsage, setGuestUsage] = useState<GuestUsage>(() => loadGuestUsage());
 
-  const startGuestAddress = useCallback((address: string): boolean => {
-    if (authed) return true;
-    if (guestUsage.addressChecks >= GUEST_ADDRESS_LIMIT) {
-      onLimitReached({ feature: "address", used: guestUsage.addressChecks, limit: GUEST_ADDRESS_LIMIT });
-      return false;
-    }
+  // Record a successful guest address check (a real project) for the Recent strip.
+  const recordGuestAddress = useCallback((address: string, projectId: string) => {
+    if (!isGuest) return;
     const now = new Date().toISOString();
-    const next = normalizeGuestUsage({
-      ...guestUsage,
-      addressChecks: guestUsage.addressChecks + 1,
-      checks: [
-        {
-          id: `guest-${Date.now().toString(36)}`,
-          address,
-          createdAt: now,
-          mode: "guest" as const,
-        },
-        ...guestUsage.checks,
-      ].slice(0, 4),
-      updatedAt: now,
+    setGuestUsage((prev) => {
+      const next = normalizeGuestUsage({
+        ...prev,
+        addressChecks: prev.addressChecks + 1,
+        checks: [
+          { id: projectId, address, createdAt: now, mode: "guest" as const },
+          ...prev.checks,
+        ].slice(0, MAX_RECENT_CHECKS),
+        updatedAt: now,
+      });
+      saveGuestUsage(next);
+      return next;
     });
-    saveGuestUsage(next);
-    setGuestUsage(next);
-    return true;
-  }, [authed, guestUsage, onLimitReached]);
+  }, [isGuest]);
 
-  const startGuestChat = useCallback((): boolean => {
-    if (authed) return true;
-    if (guestUsage.chatMessages >= GUEST_CHAT_LIMIT) {
-      onLimitReached({ feature: "chat", used: guestUsage.chatMessages, limit: GUEST_CHAT_LIMIT });
-      return false;
-    }
-    const next = normalizeGuestUsage({
-      ...guestUsage,
-      chatMessages: guestUsage.chatMessages + 1,
-      updatedAt: new Date().toISOString(),
+  const recordGuestChat = useCallback(() => {
+    if (!isGuest) return;
+    setGuestUsage((prev) => {
+      const next = normalizeGuestUsage({
+        ...prev,
+        chatMessages: prev.chatMessages + 1,
+        updatedAt: new Date().toISOString(),
+      });
+      saveGuestUsage(next);
+      return next;
     });
-    saveGuestUsage(next);
-    setGuestUsage(next);
-    return true;
-  }, [authed, guestUsage, onLimitReached]);
+  }, [isGuest]);
 
-  return { guestUsage, startGuestAddress, startGuestChat };
+  return { guestUsage, recordGuestAddress, recordGuestChat };
 }

@@ -5,6 +5,7 @@ const DEFAULT_BASE = "/api/v1";
 export type ApiResult<T> =
   | { kind: "ok"; status: number; data: T }
   | { kind: "auth" }                       // 401/403 — sign in required
+  | { kind: "quota"; feature: "address" | "chat" } // 429 — guest allowance used
   | { kind: "notBuilt"; detail?: string }  // 501 — endpoint not shipped yet
   | { kind: "missing" }                    // 404 — route absent
   | { kind: "error"; status: number; message: string }
@@ -173,6 +174,13 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<Ap
   }
   if (res.ok) return { kind: "ok", status: res.status, data: data as T };
   if (res.status === 401 || res.status === 403) return { kind: "auth" };
+  if (res.status === 429) {
+    const d = data as { detail?: string } | null;
+    if (d?.detail === "guest_allowance_used") {
+      const feature = res.headers.get("x-lotfile-feature");
+      return { kind: "quota", feature: feature === "address" ? "address" : "chat" };
+    }
+  }
   if (res.status === 501) {
     const d = data as { detail?: string; title?: string } | null;
     return { kind: "notBuilt", detail: d?.detail ?? d?.title };
@@ -235,6 +243,7 @@ export const api = {
   devLogin: (username: string, password: string) =>
     call<Record<string, unknown>>("POST", "/auth/dev-login", { username, password }),
   logout: () => call<Record<string, unknown>>("POST", "/auth/logout"),
+  guestSession: () => call<Record<string, unknown>>("POST", "/auth/guest"),
   projects: () => call<ProjectSummary[] | { projects?: ProjectSummary[] }>("GET", "/projects"),
   createProject: (address: string) => call<ProjectSummary>("POST", "/projects", {
     name: address,

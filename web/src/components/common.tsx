@@ -108,7 +108,7 @@ export function StatusBar() {
       {pill("api", health)}
       {pill("ready", ready)}
       <span className="grow" />
-      <span>LotFile · /api/v1{version ? ` · v${version}` : ""} · advisory only — a reviewer signs off, never the model</span>
+      <span>LotFile · /api/v1{version ? ` · v${version}` : ""} · advisory only — cited to approved sources, not a certification</span>
     </div>
   );
 }
