@@ -384,6 +384,116 @@ def test_property_response_contains_row_per_fact_provenance() -> None:
         assert provenance["target_crs"] == GDA2020_TARGET_CRS
 
 
+def test_search_address_points_finds_canary_from_partial_query() -> None:
+    """'3 black swan rise' (no suburb, no postcode) must surface the canary."""
+    service = AddressResolutionService()  # default fixture store
+    hits = service.store.search_address_points("3 black swan rise")
+    assert hits, "partial address query returned no hits"
+    assert hits[0].formatted_address == "3 Black Swan Rise, Beeliar WA 6164"
+    assert hits[0].score >= 0.55
+    assert hits[0].lat and hits[0].lon
+
+
+def test_search_address_points_expands_street_type_abbreviations() -> None:
+    service = AddressResolutionService()
+    hits = service.store.search_address_points("1 example st spearwood")
+    assert hits
+    assert hits[0].formatted_address == "1 Example Street, Spearwood WA 6163"
+
+
+def test_search_address_points_suppresses_wrong_house_number() -> None:
+    """A query for number 7 must not credibly match the number-3 canary."""
+    service = AddressResolutionService()
+    hits = service.store.search_address_points("7 black swan rise")
+    assert all(hit.score < 0.55 for hit in hits)
+
+
+def test_search_address_points_unknown_address_returns_empty() -> None:
+    service = AddressResolutionService()
+    assert service.store.search_address_points("404 Unknown Road, Nowhere WA") == []
+
+
+def test_search_addresses_excludes_non_authoritative_datasets() -> None:
+    store = InMemorySpatialDatasetStore()
+    store.import_dataset(
+        SpatialDatasetMetadata(
+            dataset_id="restricted-display",
+            name="Display-only addresses",
+            provider="fixture",
+            version="2026",
+            licence="display only",
+            licence_status=LicenceStatus.RESTRICTED,
+            approval_status=SourceApprovalStatus.PENDING_REVIEW,
+            source_crs=GDA2020_TARGET_CRS,
+        ),
+        require_authoritative=False,
+    )
+    store.add_address_point(
+        AddressPoint(
+            address_id="address-display-1",
+            formatted_address="5 Display Street, Perth WA 6000",
+            lon=115.86,
+            lat=-31.95,
+            parcel_id="",
+            dataset_id="restricted-display",
+        )
+    )
+    service = AddressResolutionService(store)
+    assert service.search_addresses("5 Display Street, Perth WA 6000") == []
+
+
+def test_partial_address_resolves_to_canonical_gnaf_address() -> None:
+    """Resolution accepts a clear fuzzy winner and returns the canonical text."""
+    client = _client(AddressResolutionService())
+
+    response = client.post(
+        "/api/v1/projects/project-partial/resolve-address",
+        json={"address": "3 black swan rise"},
+    )
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["address"] == "3 Black Swan Rise, Beeliar WA 6164"
+    assert body["resolution_status"] == "needs_more_info"  # canary parcel pending
+    assert {fact["fact_type"] for fact in body["facts"]} == {
+        "address",
+        "parcel",
+        "local_government",
+    }
+
+
+def test_address_search_endpoint_returns_ranked_candidates() -> None:
+    client = _client(AddressResolutionService())
+
+    response = client.get("/api/v1/address/search", params={"q": "black swan rise"})
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["count"] == len(body["items"]) == 1
+    item = body["items"][0]
+    assert item["address"] == "3 Black Swan Rise, Beeliar WA 6164"
+    assert item["gnaf_pid"] == "GNAF-WA-BLACK-SWAN-RISE-CANARY"
+    assert 0.0 < item["score"] <= 1.0
+    assert item["lat"] and item["lon"]
+    assert "not legal proof" in body["disclaimer"]
+
+
+def test_address_search_endpoint_requires_authenticated_session() -> None:
+    client = _client(AddressResolutionService(), authenticated=False)
+
+    response = client.get("/api/v1/address/search", params={"q": "black swan rise"})
+
+    assert response.status_code == 401
+
+
+def test_address_search_endpoint_rejects_short_query() -> None:
+    client = _client(AddressResolutionService())
+
+    response = client.get("/api/v1/address/search", params={"q": "ab"})
+
+    assert response.status_code == 422
+
+
 def _client(
     service: AddressResolutionService,
     *,

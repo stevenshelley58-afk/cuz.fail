@@ -84,6 +84,76 @@ def normalize_address(value: str) -> str:
     return " ".join(value.replace(",", " ").casefold().split())
 
 
+# Common WA street-type abbreviations -> the full words G-NAF stores.
+# Only unambiguous expansions belong here; "st" is included because trigram /
+# token search still matches "St Georges Terrace" through the unexpanded query.
+STREET_TYPE_EXPANSIONS: dict[str, str] = {
+    "st": "street",
+    "rd": "road",
+    "ave": "avenue",
+    "av": "avenue",
+    "cres": "crescent",
+    "ct": "court",
+    "pl": "place",
+    "dr": "drive",
+    "drv": "drive",
+    "hwy": "highway",
+    "tce": "terrace",
+    "pde": "parade",
+    "bvd": "boulevard",
+    "blvd": "boulevard",
+    "cl": "close",
+    "gr": "grove",
+    "gdns": "gardens",
+    "cct": "circuit",
+    "esp": "esplanade",
+    "prom": "promenade",
+    "qy": "quay",
+    "ln": "lane",
+    "wy": "way",
+    "ent": "entrance",
+    "bwl": "bowl",
+    "rtt": "retreat",
+    "hts": "heights",
+}
+
+
+def expand_street_abbreviations(normalized: str) -> str:
+    """Expand street-type abbreviations in an already-normalized address.
+
+    The first token (house/lot number) is never expanded.
+    """
+    tokens = normalized.split()
+    if len(tokens) < 2:
+        return normalized
+    expanded = [tokens[0]] + [STREET_TYPE_EXPANSIONS.get(token, token) for token in tokens[1:]]
+    return " ".join(expanded)
+
+
+# Shared address-match thresholds (used by both stores): a hit below the
+# floor is not a credible match; hits within the gap of the best hit are
+# treated as ambiguous and surfaced for disambiguation instead of guessed at.
+ADDRESS_MATCH_SCORE_FLOOR = 0.55
+ADDRESS_MATCH_AMBIGUITY_GAP = 0.08
+
+
+def leading_house_number(normalized: str) -> str:
+    """Return the leading house number token of a normalized address, or ''.
+
+    Handles plain numbers ("3"), unit/lot composites ("3/42" -> "42" is NOT
+    assumed — the whole token must be digits to count), and "lot 5" prefixes.
+    """
+    tokens = normalized.split()
+    if not tokens:
+        return ""
+    first = tokens[0]
+    if first == "lot" and len(tokens) > 1 and tokens[1].isdigit():
+        return tokens[1]
+    if first.isdigit():
+        return first
+    return ""
+
+
 def prohibited_manual_fact_value_keys(value: FactValue) -> frozenset[str]:
     found: set[str] = set()
     if isinstance(value, dict):
@@ -175,6 +245,23 @@ class AddressPoint:
         normalized = normalize_address(address)
         candidates = (self.formatted_address, *self.aliases)
         return any(normalize_address(candidate) == normalized for candidate in candidates)
+
+
+@dataclass(frozen=True)
+class AddressSearchHit:
+    """A ranked G-NAF address candidate.
+
+    Indicative geocode only — never legal proof of title or property identity.
+    ``score`` is 0.0-1.0 where 1.0 is an exact normalized match.
+    """
+
+    address_id: str
+    formatted_address: str
+    lat: float
+    lon: float
+    dataset_id: str
+    score: float
+    gnaf_pid: str | None = None
 
 
 @dataclass(frozen=True)
@@ -309,7 +396,79 @@ class InMemorySpatialDatasetStore:
         return bool(dataset and dataset.is_authoritative())
 
     def exact_address_points(self, address: str) -> list[AddressPoint]:
-        return [point for point in self.address_points.values() if point.matches_exactly(address)]
+        """Best address-point match(es) — exact first, then ranked search.
+
+        Mirrors ``PostGISSpatialDatasetStore.exact_address_points``: exact
+        normalized matches win; otherwise a clear search winner is returned
+        alone, near-tied candidates are all returned (reported as ambiguous
+        by the resolution service), and weak matches return nothing.
+        """
+        exact = [point for point in self.address_points.values() if point.matches_exactly(address)]
+        if exact:
+            return exact
+        hits = self.search_address_points(address, limit=5)
+        strong = [hit for hit in hits if hit.score >= ADDRESS_MATCH_SCORE_FLOOR]
+        if not strong:
+            return []
+        top = strong[0]
+        ties = [hit for hit in strong if (top.score - hit.score) < ADDRESS_MATCH_AMBIGUITY_GAP]
+        selected = ties if len(ties) > 1 else [top]
+        by_id = {point.address_id: point for point in self.address_points.values()}
+        return [by_id[hit.address_id] for hit in selected if hit.address_id in by_id]
+
+    def search_address_points(self, query: str, limit: int = 8) -> list[AddressSearchHit]:
+        """Rank address points against a free-text query (typeahead search).
+
+        Token-based scoring: exact normalized match scores 1.0; prefix matches
+        0.95; otherwise the fraction of query tokens present in the candidate
+        (scaled to 0.9). When the query leads with a house number, candidates
+        missing that number are suppressed so "3 X Rise" never outranks the
+        right street with the wrong number.
+        """
+        normalized_query = normalize_address(query)
+        if not normalized_query:
+            return []
+        query_variants = {normalized_query, expand_street_abbreviations(normalized_query)}
+        house_number = leading_house_number(normalized_query)
+
+        scored: list[tuple[float, AddressPoint]] = []
+        for point in self.address_points.values():
+            best = 0.0
+            for candidate in (point.formatted_address, *point.aliases):
+                normalized_candidate = normalize_address(candidate)
+                candidate_tokens = set(normalized_candidate.split())
+                for variant in query_variants:
+                    if normalized_candidate == variant:
+                        score = 1.0
+                    elif normalized_candidate.startswith(variant):
+                        score = 0.95
+                    else:
+                        variant_tokens = variant.split()
+                        matched = sum(1 for token in variant_tokens if token in candidate_tokens)
+                        score = (matched / len(variant_tokens)) * 0.9 if variant_tokens else 0.0
+                    if house_number and house_number not in candidate_tokens:
+                        score = min(score, 0.4)
+                    best = max(best, score)
+            if best >= 0.5:
+                scored.append((best, point))
+
+        scored.sort(key=lambda item: (-item[0], item[1].formatted_address))
+        return [
+            AddressSearchHit(
+                address_id=point.address_id,
+                formatted_address=point.formatted_address,
+                lat=point.lat,
+                lon=point.lon,
+                dataset_id=point.dataset_id,
+                score=round(score, 4),
+                gnaf_pid=point.gnaf_pid,
+            )
+            for score, point in scored[: max(1, limit)]
+        ]
+
+    def parcel_for_address_point(self, point: AddressPoint) -> Parcel | None:
+        """Return the parcel an address point belongs to, or None."""
+        return self.parcels.get(point.parcel_id)
 
     def planning_for_parcel(self, parcel_id: str) -> list[PlanningFeature]:
         return [feature for feature in self.planning_features if feature.parcel_id == parcel_id]
@@ -391,15 +550,12 @@ class AddressResolutionService:
             return profile
 
         point = authoritative_matches[0]
-        parcel = self.store.parcels.get(point.parcel_id)
+        parcel = self.store.parcel_for_address_point(point)
         if parcel is None or not self.store.is_authoritative_dataset(parcel.dataset_id):
-            profile = self._empty_profile(
+            profile = self._point_only_profile(
                 org_id=org_id,
                 project_id=project_id,
-                address=address,
-                status=ResolutionStatus.MISSING_INFO,
-                confidence=Confidence.LOW,
-                issues=("parcel_not_verified",),
+                point=point,
             )
             self.store.save_profile(profile)
             return profile
@@ -413,6 +569,15 @@ class AddressResolutionService:
         )
         self.store.save_profile(profile)
         return profile
+
+    def search_addresses(self, query: str, limit: int = 8) -> list[AddressSearchHit]:
+        """Search authoritative address points for typeahead/disambiguation.
+
+        Results are indicative geocodes only — never legal proof of title or
+        property identity.
+        """
+        hits = self.store.search_address_points(query, limit=limit)
+        return [hit for hit in hits if self.store.is_authoritative_dataset(hit.dataset_id)]
 
     def property_for_project(self, *, org_id: str, project_id: str) -> PropertyProfile:
         profile = self.store.profile_for_project(org_id=org_id, project_id=project_id)
@@ -567,6 +732,54 @@ class AddressResolutionService:
             issues=()
             if parcel_verified
             else ("parcel_needs_authoritative_import", "planning_sources_pending_import"),
+        )
+
+    def _point_only_profile(
+        self,
+        *,
+        org_id: str,
+        project_id: str,
+        point: AddressPoint,
+    ) -> PropertyProfile:
+        """Profile for an address point matched without parcel coverage.
+
+        The canonical G-NAF address and coordinates are still returned so the
+        user gets the specific match even where cadastre import is pending.
+        """
+        point_dataset = self.store.dataset_for(point.dataset_id)
+        facts: tuple[PropertyFact, ...] = ()
+        provenance: tuple[ResolutionProvenance, ...] = ()
+        if point_dataset is not None:
+            point_provenance = point_dataset.provenance(
+                method="gnaf_address_match",
+                detail="Address point matched; cadastral parcel not yet available.",
+            )
+            facts = (
+                PropertyFact(
+                    fact_id=f"{project_id}:address",
+                    fact_type="address",
+                    value={
+                        "formatted_address": point.formatted_address,
+                        "gnaf_pid": point.gnaf_pid,
+                        "lat": point.lat,
+                        "lon": point.lon,
+                    },
+                    provenance=point_provenance,
+                    confidence=Confidence.MEDIUM,
+                    review_status="pending_review",
+                ),
+            )
+            provenance = (point_provenance,)
+        return PropertyProfile(
+            org_id=org_id,
+            project_id=project_id,
+            resolution_status=ResolutionStatus.MISSING_INFO,
+            confidence=Confidence.LOW,
+            address=point.formatted_address,
+            address_point_id=point.address_id,
+            facts=facts,
+            provenance=provenance,
+            issues=("parcel_not_verified",),
         )
 
     def _empty_profile(

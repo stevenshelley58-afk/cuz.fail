@@ -53,6 +53,11 @@ a{color:var(--green)}
 .onebox:focus-within{border-color:var(--green-bright);box-shadow:0 0 0 3px rgba(31,164,104,.12),var(--shadow)}
 .onebox textarea{width:100%;min-width:0;border:none;outline:none;resize:none;background:none;color:var(--ink);font-size:1.02rem;height:auto;min-height:44px;max-height:180px;overflow-y:auto}
 .onebox textarea::placeholder{color:var(--ink-faint)}
+.sugs{display:flex;flex-direction:column;gap:2px;margin:4px 0 6px;border-top:1px solid var(--line);padding-top:6px}
+.sugs button{display:flex;align-items:center;gap:8px;text-align:left;font-size:.86rem;color:var(--ink-soft);
+             padding:8px 10px;border-radius:10px;background:none;width:100%}
+.sugs button:hover{background:var(--mint);color:var(--green-800)}
+.sugs button .icon{width:15px;height:15px;color:var(--green);flex:none}
 .belt{display:flex;align-items:center;gap:6px;margin-top:4px;flex-wrap:wrap}
 .chip{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:99px;display:flex;align-items:center;gap:5px;
       border:1px solid var(--line);color:var(--ink-faint);background:var(--paper)}
@@ -122,6 +127,10 @@ a{color:var(--green)}
 .a .act button,.btn{background:var(--green-900);color:#fff;font-weight:700;font-size:.8rem;
                     padding:9px 16px;border-radius:11px;display:inline-flex;align-items:center;gap:7px}
 .a .act button:hover,.btn:hover{background:var(--green-800)}
+.a .act.opts{flex-direction:column;align-items:stretch;gap:6px}
+.a .act button.opt{background:var(--card);color:var(--ink-soft);border:1.5px solid var(--line);
+                   font-weight:600;justify-content:flex-start;text-align:left}
+.a .act button.opt:hover{background:var(--card);border-color:var(--green-bright);color:var(--green-800)}
 .btn.alt{background:var(--card);color:var(--ink-soft);border:1.5px solid var(--line)}
 .btn.alt:hover{border-color:var(--green-bright);color:var(--green-800);background:var(--card)}
 
