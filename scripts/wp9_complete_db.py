@@ -159,31 +159,49 @@ def automated_licence_review(conn: psycopg.Connection) -> dict:
 
 
 def populate_legal_edges(conn: psycopg.Connection) -> dict:
-    # 1. references_definition — clause mentions a term defined in the same
-    #    source version. Set-based SQL; term derived from clause_key slug.
-    def_edges = conn.execute(
-        """
-        WITH defs AS (
-            SELECT source_version_id, clause_key,
-                   replace(regexp_replace(clause_key, '^[0-9_]+', ''), '_', ' ') AS term
-            FROM clauses WHERE disposition = 'definition'
-        )
-        INSERT INTO legal_edges (id, from_type, from_ref, to_type, to_ref, relation,
-            confidence, review_status, metadata_json, created_at, updated_at)
-        SELECT gen_random_uuid(), 'clause', c.clause_key, 'clause', d.clause_key,
-               'references_definition', 0.7, 'pending_review',
-               jsonb_build_object('wp9', true, 'term', d.term,
-                                  'source_version_id', c.source_version_id::text),
-               now(), now()
-        FROM clauses c
-        JOIN defs d ON d.source_version_id = c.source_version_id
-        WHERE c.disposition IN ('rule_bearing', 'procedural')
-          AND length(d.term) > 3
-          AND c.clause_key <> d.clause_key
-          AND position(lower(d.term) IN lower(c.text)) > 0
-        ON CONFLICT (from_type, from_ref, to_type, to_ref, relation) DO NOTHING
-        """
-    ).rowcount
+    import re
+
+    # 1. references_definition — a rule-bearing/procedural clause uses a term
+    #    that a definition clause in the same source version defines.
+    #    Definition clauses are bags of entries like:
+    #      "Access" means ... / 'coastal hazard' means ... / Servicing Report – means ...
+    #    Clause keys are synthetic, so terms come from the definition text.
+    quoted = re.compile(r"['‘\"“]([A-Za-z][A-Za-z \-]{2,40}?)['’\"”]\s+means\b")
+    dashed = re.compile(r"(?m)^\s*([A-Z][A-Za-z \-]{2,40}?)\s*[–—-]\s*means\b")
+
+    defs = conn.execute(
+        "SELECT source_version_id, clause_key, text FROM clauses "
+        "WHERE disposition = 'definition'"
+    ).fetchall()
+
+    terms: list[tuple[str, str, str]] = []  # (source_version_id, def_clause_key, term)
+    for sv_id, def_key, text in defs:
+        found = set(quoted.findall(text or "")) | set(dashed.findall(text or ""))
+        for t in found:
+            t = t.strip().lower()
+            if len(t) > 3:
+                terms.append((str(sv_id), def_key, t))
+
+    def_edges = 0
+    for sv_id, def_key, term in terms:
+        def_edges += conn.execute(
+            """
+            INSERT INTO legal_edges (id, from_type, from_ref, to_type, to_ref, relation,
+                confidence, review_status, metadata_json, created_at, updated_at)
+            SELECT gen_random_uuid(), 'clause', c.clause_key, 'clause', %(def_key)s,
+                   'references_definition', 0.7, 'pending_review',
+                   jsonb_build_object('wp9', true, 'term', %(term)s::text,
+                                      'source_version_id', %(sv_id)s::text),
+                   now(), now()
+            FROM clauses c
+            WHERE c.source_version_id = %(sv_id)s
+              AND c.disposition IN ('rule_bearing', 'procedural')
+              AND c.clause_key <> %(def_key)s
+              AND position(%(term)s IN lower(c.text)) > 0
+            ON CONFLICT (from_type, from_ref, to_type, to_ref, relation) DO NOTHING
+            """,
+            {"sv_id": sv_id, "def_key": def_key, "term": term},
+        ).rowcount
 
     # 2. performance_alternative_to — design_principle rule is the performance
     #    pathway alternative to a deemed_to_comply rule with the same base key
@@ -211,7 +229,11 @@ def populate_legal_edges(conn: psycopg.Connection) -> dict:
         """
     ).rowcount
     conn.commit()
-    return {"references_definition": def_edges, "performance_alternative_to": alt_edges}
+    return {
+        "definition_terms_found": len(terms),
+        "references_definition": def_edges,
+        "performance_alternative_to": alt_edges,
+    }
 
 
 # ---------------------------------------------------------------------------
