@@ -1,4 +1,4 @@
-"""DraftCheck operational CLI."""
+"""LotFile operational CLI."""
 
 from __future__ import annotations
 
@@ -107,7 +107,7 @@ def _default_identity_store(settings: Settings) -> InMemoryIdentityStore | SqlAl
 def build_parser(*, stderr: TextIO | None = None) -> argparse.ArgumentParser:
     parser = _ArgumentParser(
         prog="draftcheck",
-        description="DraftCheck operational CLI.",
+        description="LotFile operational CLI.",
         stderr=stderr,
     )
     subparsers = parser.add_subparsers(

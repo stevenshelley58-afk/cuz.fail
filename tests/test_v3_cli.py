@@ -60,7 +60,7 @@ def test_login_link_outputs_only_one_time_url_and_hashes_token(
     assert "pepper" not in stdout.getvalue()
     assert record.email == "owner@example.test"
     assert user.role == IdentityRole.OWNER
-    assert store.orgs_by_slug["pilot"].name == "DraftCheck WA"
+    assert store.orgs_by_slug["pilot"].name == "LotFile"
 
     consumed_user, consumed_org, consumed_record = store.consume_magic_link(raw_token)
     assert consumed_user.id == user.id
@@ -348,7 +348,7 @@ sources:
     }
     assert calls["identity_database_url"] == "postgresql+psycopg://fixture"
     assert calls["source_database_url"] == "postgresql+psycopg://fixture"
-    assert calls["org"] == {"slug": "draftcheck", "name": "DraftCheck WA"}
+    assert calls["org"] == {"slug": "draftcheck", "name": "LotFile"}
     assert calls["user"] == {
         "org_id": org_id,
         "email": "reviewer@example.test",

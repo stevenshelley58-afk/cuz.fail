@@ -1,4 +1,4 @@
-"""Eval runner for DraftCheck WA v3.
+﻿"""Eval runner for LotFile v3.
 
 Runs EvalCase fixtures against the current skill version and records
 EvalRun results.  The eval gate (§7 of MASTER_REBUILD_PLAN.md) blocks
