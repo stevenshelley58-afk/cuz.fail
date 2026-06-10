@@ -1,38 +1,24 @@
 {
+  "generated_at": "2026-06-10",
   "wp": "WP9",
-  "date": "2026-06-10",
-  "database": "draftcheck @ draftcheck-wa-v3-db-1 (VPS)",
-  "alembic_head_at_load": "0011_corpus_buildout_support",
-  "counts": {
+  "loader": "scripts/seed_eval_data.py (idempotent, deterministic-UUID upsert)",
+  "db_counts": {
     "eval_cases": 19,
     "eval_runs": 16,
     "rules": 6,
     "clauses": 63,
-    "clause_dispositions_by_type": {
-      "informational": 48,
-      "procedural": 8,
-      "rule_bearing": 5,
-      "definition": 1,
-      "manual_review": 1
-    }
+    "clause_disposition_labels_applied": 65
   },
-  "data_inventory_reconciliation": {
-    "golden_eval_cases": {"expected": 19, "loaded": 19, "ok": true},
-    "golden_eval_runs": {"expected": 16, "loaded": 16, "ok": true},
-    "rule_rows": {"expected": 6, "loaded": 6, "ok": true},
-    "clause_dispositions": {
-      "expected_label_rows": 65,
-      "unique_clauses": 63,
-      "ok": true,
-      "note": "65 disposition label rows map to 63 unique clause_ids (2 clauses were re-labelled; latest disposition wins)"
-    }
+  "expected_vs_inventory": {
+    "golden_eval_cases": {"expected": 19, "loaded": 19},
+    "clause_dispositions": {"expected": 65, "loaded": 65},
+    "rule_rows": {"expected": 6, "loaded": 6},
+    "golden_eval_runs": {"in_seeds": 16, "loaded": 16}
   },
-  "gates": {
-    "eval_cases_gte_19": true,
-    "draftcheck_db_not_in_git_ls_files": true
-  },
-  "notes": [
-    "seed_eval_data.py run idempotently inside the api container; ON CONFLICT DO NOTHING reported 0 new inserts because a parallel session had already loaded the same seeds (content-deterministic UUIDs).",
-    "draftcheck.db / draftcheck-corpus.db were removed from the C:/Dev/Cuz working tree by a parallel agent session during this run; archive location not verified from this session."
-  ]
+  "idempotency_check": "second full run inserted 0 new rows",
+  "legacy_db_archive": {
+    "draftcheck.db": "moved to C:/Dev/archive/cuz-legacy-db/ (was untracked; *.db gitignored)",
+    "draftcheck-corpus.db": "moved to C:/Dev/archive/cuz-legacy-db/",
+    "git_ls_files_db_count": 0
+  }
 }

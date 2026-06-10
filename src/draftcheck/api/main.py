@@ -1,4 +1,4 @@
-"""FastAPI shell for the V3 DraftCheck API."""
+"""FastAPI shell for the V3 LotFile API."""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ def create_app() -> FastAPI:
     settings = get_settings()
     init_sentry(settings.sentry_dsn, app_env=settings.app_env)
     app = FastAPI(
-        title="DraftCheck WA API",
+        title="LotFile API",
         version="0.1.0",
         docs_url="/api/v1/docs",
         openapi_url="/api/v1/openapi.json",

@@ -1,4 +1,4 @@
-"""Deterministic compliance engine for DraftCheck WA.
+﻿"""Deterministic compliance engine for LotFile.
 
 The engine loads approved rules, looks up measured PropertyFacts, and
 produces advisory results.  It never hardcodes thresholds — every

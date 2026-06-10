@@ -1,4 +1,4 @@
-"""Source library domain package for DraftCheck V3."""
+﻿"""Source library domain package for LotFile V3."""
 
 from draftcheck.domain.sources.library import (
     InMemorySourceLibrary,
