@@ -17,7 +17,7 @@ from draftcheck.extraction.vocabulary import NORMATIVE_WORDS, RULE_KEYS
 _MIN_QUOTE_LEN = 5
 
 # Canonical unit set that the pipeline must produce.
-_CANONICAL_UNITS: frozenset[str | None] = frozenset({"m", "%", None})
+_CANONICAL_UNITS: frozenset[str | None] = frozenset({"m", "m2", "%", "storeys", None})
 
 # Aliases that should have been normalized away before reaching validators.
 _UNIT_ALIASES: frozenset[str] = frozenset({
@@ -25,6 +25,8 @@ _UNIT_ALIASES: frozenset[str] = frozenset({
     "cm", "centimetre", "centimeter",
     "metre", "meter",
     "percent", "per cent",
+    "sqm", "square metres", "square meters",
+    "storey", "stories",
 })
 
 
