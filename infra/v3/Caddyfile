@@ -48,11 +48,6 @@ http://app.cuz.fail {
 
 http://lotfile.app {
 	import security_headers
-	redir https://lotfile.app{uri} permanent
-}
-
-http://lotfile.app {
-	import security_headers
 	encode zstd gzip
 	import api_routes
 	handle {
