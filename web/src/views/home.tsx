@@ -17,10 +17,33 @@ type Msg = {
   citation_map?: CitationMapEntry[];
   disclaimer?: string;
   action?: { label: string; run: () => void };
+  options?: { label: string; run: () => void }[];
 };
 
+// WA street types incl. abbreviations — fallback heuristic only; the server-side
+// G-NAF search (/address/search) is the authority on whether text is an address.
+const STREET_TYPES =
+  "st|street|rd|road|ave|av|avenue|ln|lane|way|wy|cres|crescent|ct|court|pl|place|" +
+  "dr|drv|drive|hwy|highway|tce|terrace|pde|parade|bvd|blvd|boulevard|cl|close|" +
+  "gr|grove|gdns|gardens|cct|circuit|esp|esplanade|prom|promenade|qy|quay|rise|" +
+  "loop|mews|gate|vista|heights|hts|entrance|ent|retreat|circle|chase|cove|dale|" +
+  "edge|elbow|end|fairway|gap|glade|glen|green|grange|haven|hill|key|link|mall|" +
+  "nook|outlook|pass|path|ridge|rest|square|sq|trail|view|vw|walk|approach|bend|" +
+  "brace|brook|corner|crest|crossing|dell|driveway|gateway|lookout|meander|parkway|ramble";
+
+const STREET_TYPE_RE = new RegExp(
+  `^(lot\\s+\\d+\\s+|\\d+[a-z]?(?:[/-]\\d+[a-z]?)?\\s+)\\S+.*\\b(${STREET_TYPES})\\b`,
+  "i",
+);
+
 function looksLikeAddress(t: string): boolean {
-  return /^\d+\s+\w+.*(st|street|rd|road|ave|avenue|lane|ln|way|cres|crescent|court|ct|pl|place)\b/i.test(t.trim());
+  return STREET_TYPE_RE.test(t.trim());
+}
+
+// Loose "could be an address" check — house/lot number followed by words.
+// Used to decide whether the server address search is worth consulting.
+function addressish(t: string): boolean {
+  return /^(lot\s+)?\d+[a-z]?([/-]\d+[a-z]?)?\s+[a-z]/i.test(t.trim());
 }
 
 // Looser than looksLikeAddress — fires while the user is still typing
@@ -85,6 +108,7 @@ export function Home({
   const [wizard, setWizard] = useState<WizardState | null>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const threadRef = useRef<HTMLDivElement>(null);
+  const busyRef = useRef(false);
   const [sugs, setSugs] = useState<AddressSuggestion[]>([]);
   const [sugIdx, setSugIdx] = useState(-1);
   const sugTimer = useRef<number | undefined>(undefined);
@@ -191,74 +215,160 @@ export function Home({
     }
   }, [isGuest, onGuestAddressDone, onNeedSignIn, onShowPaywall]);
 
+  const runChat = useCallback(async (t: string, history: AssistantTurn[]) => {
+    const r = await api.ask(t, { web: webOn }, history);
+    if (r.kind === "ok") {
+      if (isGuest) onGuestChatDone();
+      const d: ChatReply = r.data;
+      const chips = (d.citations ?? [])
+        .map(citationChip)
+        .filter((chip) => chip.length > 0);
+      const rawAnswer = d.answer ?? "I couldn't get an answer just now.";
+      const thinkParts: string[] = [];
+      const cleanAnswer = rawAnswer.replace(/<think>([\s\S]*?)<\/think>/gi, (_, t: string) => {
+        thinkParts.push(t.trim());
+        return "";
+      }).trim();
+      push({
+        role: "a",
+        text: cleanAnswer || "I couldn't get an answer just now.",
+        thinking: thinkParts.length ? thinkParts.join("\n\n") : undefined,
+        chips: chips.length ? chips : undefined,
+        citation_map: d.citation_map,
+        disclaimer: d.disclaimer ?? undefined,
+      });
+    } else if (r.kind === "quota") {
+      push({
+        role: "a",
+        tone: "note",
+        text: "You've used the free allowance — sign in to keep going, it's free.",
+        action: { label: "Keep going", run: () => onShowPaywall("chat") },
+      });
+    } else if (r.kind === "auth") {
+      push({ role: "a", tone: "note", text: "Session expired — please sign in again.", action: { label: "Sign in", run: onNeedSignIn } });
+    } else {
+      const reason =
+        r.kind === "down"
+          ? "Can't reach the API right now."
+          : r.kind === "missing" || r.kind === "notBuilt"
+            ? "endpoint not available"
+            : r.message || "the assistant hit an unexpected error";
+      push({ role: "a", tone: "warn", text: `Ask failed (${reason}).` });
+    }
+  }, [isGuest, webOn, onGuestChatDone, onNeedSignIn, onShowPaywall]);
+
+  // Option-button handlers — run after the original turn finished, so they
+  // manage their own busy cycle (via busyRef to dodge stale closures).
+  const chooseAddress = useCallback(async (address: string) => {
+    if (busyRef.current) return;
+    busyRef.current = true;
+    setBusy(true);
+    push({ role: "q", text: address });
+    await startCheck(address);
+    busyRef.current = false;
+    setBusy(false);
+  }, [startCheck]);
+
+  const chooseChat = useCallback(async (t: string, history: AssistantTurn[]) => {
+    if (busyRef.current) return;
+    busyRef.current = true;
+    setBusy(true);
+    await runChat(t, history);
+    busyRef.current = false;
+    setBusy(false);
+  }, [runChat]);
+
+  /** Try to handle `t` as an address via the server-side G-NAF search.
+   *  Returns false when it's not credibly an address (caller falls through
+   *  to chat). The G-NAF library is the authority — the regex is only a
+   *  fallback when the search endpoint is unavailable. */
+  const routeAddress = useCallback(async (t: string, history: AssistantTurn[]): Promise<boolean> => {
+    const sr = await api.searchAddress(t, 6);
+    if (sr.kind !== "ok") {
+      // Search unavailable (old API / network blip) — legacy regex routing.
+      if (looksLikeAddress(t)) {
+        await startCheck(t);
+        return true;
+      }
+      return false;
+    }
+    const items = sr.data.items;
+    const top = items[0];
+    if (top) {
+      const runnerUp = items[1];
+      const clearWinner = runnerUp === undefined || top.score - runnerUp.score >= 0.08;
+      if (top.score >= 0.95 && clearWinner) {
+        await startCheck(top.address);
+        return true;
+      }
+      const candidates = items.filter((h) => h.score >= 0.45).slice(0, 5);
+      if (candidates.length === 1 && top.score >= 0.55) {
+        await startCheck(top.address);
+        return true;
+      }
+      if (candidates.length > 1) {
+        push({
+          role: "a",
+          tone: "note",
+          text: "That matches more than one address — which one did you mean?",
+          options: [
+            ...candidates.map((h) => ({ label: h.address, run: () => { void chooseAddress(h.address); } })),
+            { label: "None of these — answer as a question", run: () => { void chooseChat(t, history); } },
+          ],
+        });
+        return true;
+      }
+    }
+    if (looksLikeAddress(t)) {
+      push({
+        role: "a",
+        tone: "warn",
+        text: `Couldn't find “${t}” in the WA address library — check the street number, spelling or suburb.`,
+        options: [
+          { label: "Start a check with it anyway", run: () => { void chooseAddress(t); } },
+          { label: "Answer as a question", run: () => { void chooseChat(t, history); } },
+        ],
+      });
+      return true;
+    }
+    return false;
+  }, [startCheck, chooseAddress, chooseChat]);
+
   const send = useCallback(async () => {
     const el = inputRef.current;
     const t = el?.value.trim() ?? "";
     if (!t || busy) return;
     if (el) { el.value = ""; el.style.height = "auto"; }
     closeSugs();
+    busyRef.current = true;
     setBusy(true);
     // Capture history before pushing the current question
     const history: AssistantTurn[] = msgs
       .filter((m) => m.role === "q" || m.role === "a")
       .map((m) => ({ role: m.role === "q" ? "user" : "assistant" as const, content: m.text }));
     push({ role: "q", text: t });
-    if (looksLikeAddress(t)) {
-      await startCheck(t);
-    } else {
-      const r = await api.ask(t, { web: webOn }, history);
-      if (r.kind === "ok") {
-        if (isGuest) onGuestChatDone();
-        const d: ChatReply = r.data;
-        const chips = (d.citations ?? [])
-          .map(citationChip)
-          .filter((chip) => chip.length > 0);
-        const rawAnswer = d.answer ?? "I couldn't get an answer just now.";
-        const thinkParts: string[] = [];
-        const cleanAnswer = rawAnswer.replace(/<think>([\s\S]*?)<\/think>/gi, (_, t: string) => {
-          thinkParts.push(t.trim());
-          return "";
-        }).trim();
-        push({
-          role: "a",
-          text: cleanAnswer || "I couldn't get an answer just now.",
-          thinking: thinkParts.length ? thinkParts.join("\n\n") : undefined,
-          chips: chips.length ? chips : undefined,
-          citation_map: d.citation_map,
-          disclaimer: d.disclaimer ?? undefined,
-        });
-      } else if (r.kind === "quota") {
-        push({
-          role: "a",
-          tone: "note",
-          text: "You've used the free allowance — sign in to keep going, it's free.",
-          action: { label: "Keep going", run: () => onShowPaywall("chat") },
-        });
-      } else if (r.kind === "auth") {
-        push({ role: "a", tone: "note", text: "Session expired — please sign in again.", action: { label: "Sign in", run: onNeedSignIn } });
-      } else {
-        const reason =
-          r.kind === "down"
-            ? "Can't reach the API right now."
-            : r.kind === "missing" || r.kind === "notBuilt"
-              ? "endpoint not available"
-              : r.message || "the assistant hit an unexpected error";
-        push({ role: "a", tone: "warn", text: `Ask failed (${reason}).` });
-      }
+    const handledAsAddress = (addressish(t) || looksLikeAddress(t))
+      ? await routeAddress(t, history)
+      : false;
+    if (!handledAsAddress) {
+      await runChat(t, history);
     }
+    busyRef.current = false;
     setBusy(false);
-  }, [isGuest, busy, webOn, msgs, startCheck, closeSugs, onGuestChatDone, onNeedSignIn, onShowPaywall]);
+  }, [busy, msgs, routeAddress, runChat, closeSugs]);
 
   const pickSuggestion = useCallback(async (s: AddressSuggestion) => {
-    if (busy) return;
+    if (busyRef.current) return;
     const el = inputRef.current;
     if (el) { el.value = ""; el.style.height = "auto"; }
     closeSugs();
+    busyRef.current = true;
     setBusy(true);
     push({ role: "q", text: s.address });
     await startCheck(s.address);
+    busyRef.current = false;
     setBusy(false);
-  }, [busy, closeSugs, startCheck]);
+  }, [closeSugs, startCheck]);
 
   const fill = (t: string) => {
     if (inputRef.current) {
@@ -325,6 +435,13 @@ export function Home({
                   {m.action && (
                     <div className="act">
                       <button onClick={m.action.run}>{m.action.label}</button>
+                    </div>
+                  )}
+                  {m.options && m.options.length > 0 && (
+                    <div className="act opts">
+                      {m.options.map((o, j) => (
+                        <button key={j} className="opt" onClick={o.run}>{o.label}</button>
+                      ))}
                     </div>
                   )}
                 </div>

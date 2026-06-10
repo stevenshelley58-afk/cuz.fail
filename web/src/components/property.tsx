@@ -8,6 +8,7 @@ export function resolutionBadge(status: PropertyProfileResponse["resolution_stat
   const map: Record<string, { label: string; bg: string; color: string }> = {
     resolved: { label: "Resolved", bg: "var(--mint)", color: "var(--green-800)" },
     missing_info: { label: "Missing info", bg: "var(--flag-bg)", color: "var(--flag)" },
+    needs_more_info: { label: "Needs more info", bg: "#EFF6FF", color: "#1D4ED8" },
     needs_human_review: { label: "Needs human review", bg: "#EFF6FF", color: "#1D4ED8" },
     unsupported: { label: "Unsupported", bg: "#FEF2F2", color: "#B91C1C" },
   };

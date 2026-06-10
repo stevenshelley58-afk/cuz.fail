@@ -131,6 +131,10 @@ a{color:var(--green)}
 .a .act button,.btn{background:var(--green-900);color:#fff;font-weight:700;font-size:.8rem;
                     padding:9px 16px;border-radius:11px;display:inline-flex;align-items:center;gap:7px}
 .a .act button:hover,.btn:hover{background:var(--green-800)}
+.a .act.opts{flex-direction:column;align-items:stretch;gap:6px}
+.a .act button.opt{background:var(--card);color:var(--ink-soft);border:1.5px solid var(--line);
+                   font-weight:600;justify-content:flex-start;text-align:left}
+.a .act button.opt:hover{background:var(--card);border-color:var(--green-bright);color:var(--green-800)}
 .btn.alt{background:var(--card);color:var(--ink-soft);border:1.5px solid var(--line)}
 .btn.alt:hover{border-color:var(--green-bright);color:var(--green-800);background:var(--card)}
 

@@ -78,6 +78,8 @@ class TestPostGISStoreInterface:
         "dataset_for",
         "is_authoritative_dataset",
         "exact_address_points",
+        "search_address_points",
+        "parcel_for_address_point",
         "planning_for_parcel",
         "save_profile",
         "profile_for_project",
@@ -103,6 +105,8 @@ class TestPostGISStoreInterface:
         methods_to_check = [
             "import_dataset",
             "exact_address_points",
+            "search_address_points",
+            "parcel_for_address_point",
             "planning_for_parcel",
             "save_profile",
         ]
@@ -227,6 +231,28 @@ class TestLicenceGateApprovalStatus:
         )
         assert not meta.is_authoritative()
 
+    def test_db_metadata_coercion_tolerates_legacy_status_strings(self) -> None:
+        """Bulk-loaded rows with non-enum statuses must degrade safely, not crash."""
+        from draftcheck.domain.address.postgis_store import (
+            _coerce_approval_status,
+            _coerce_licence_status,
+        )
+
+        assert _coerce_licence_status("approved") == LicenceStatus.UNKNOWN
+        assert _coerce_licence_status("review") == LicenceStatus.UNKNOWN
+        assert _coerce_licence_status("licensed") == LicenceStatus.LICENSED
+        assert _coerce_approval_status("bogus") == SourceApprovalStatus.PENDING_REVIEW
+        assert _coerce_approval_status("approved") == SourceApprovalStatus.APPROVED
+
+    def test_metadata_round_trip_preserves_source_version_id(self) -> None:
+        """source_version_id must survive import -> read-back via metadata_json,
+        otherwise no PostGIS-registered dataset is ever authoritative."""
+        from draftcheck.domain.address.postgis_store import _metadata_to_dict
+
+        meta = _make_licensed_metadata("round-trip-ds")
+        stored = _metadata_to_dict(meta)
+        assert stored["source_version_id"] == "test:version:1.0"
+
     def test_in_memory_store_does_not_overwrite_approved_with_rejected(self) -> None:
         """Existing test from test_v3_spatial_address.py — replicated here for
         PostGIS-independent verification of the guard logic."""
@@ -301,3 +327,91 @@ class TestPostGISStoreIntegration:
             project_id=str(uuid.uuid4()),
         )
         assert result is None
+
+    def test_search_address_points_returns_empty_for_unknown_address(self, store) -> None:
+        results = store.search_address_points("zzz qqq xxx totally unmatchable 99999")
+        assert results == []
+
+    @pytest.fixture()
+    def seeded_address(self, store):
+        """Register a dataset and one address point with real geometry."""
+        import uuid
+
+        from draftcheck.domain.address.spatial import AddressPoint
+
+        suffix = uuid.uuid4().hex[:8]
+        # Unique coordinates per run so re-runs against a persistent DB never
+        # leave two parcels containing the same point.
+        offset = int(suffix[:6], 16) / 10**9
+        dataset_id = f"integration-search-ds-{suffix}"
+        store.import_dataset(_make_licensed_metadata(dataset_id))
+        point = AddressPoint(
+            address_id=f"GNAF-INT-{suffix}",
+            gnaf_pid=f"GNAF-INT-{suffix}",
+            formatted_address=f"7 Integration Loop, Testville{suffix} WA 6999",
+            lon=115.7501 + offset,
+            lat=-32.0501 - offset,
+            parcel_id="",
+            dataset_id=dataset_id,
+        )
+        store.add_address_point(point)
+        return point
+
+    def test_search_address_points_trigram_finds_partial_query(self, store, seeded_address) -> None:
+        suburb = seeded_address.formatted_address.split(",")[1].split()[0]
+        hits = store.search_address_points(f"7 integration loop {suburb.lower()}")
+        assert hits, "trigram search returned nothing for a seeded address"
+        top = hits[0]
+        assert top.formatted_address == seeded_address.formatted_address
+        assert top.score >= 0.55
+        assert abs(top.lat - seeded_address.lat) < 1e-6
+        assert abs(top.lon - seeded_address.lon) < 1e-6
+
+    def test_exact_address_points_matches_despite_comma_and_case(self, store, seeded_address) -> None:
+        query = seeded_address.formatted_address.replace(",", "").lower()
+        results = store.exact_address_points(query)
+        assert len(results) == 1
+        assert results[0].formatted_address == seeded_address.formatted_address
+        assert results[0].lat and results[0].lon
+
+    def test_parcel_for_address_point_uses_spatial_containment(self, store, seeded_address) -> None:
+        import uuid as _uuid
+
+        from sqlalchemy import create_engine, text as _text
+
+        from draftcheck.domain.address.spatial import Parcel
+
+        suffix = _uuid.uuid4().hex[:8]
+        dataset_id = f"integration-parcel-ds-{suffix}"
+        store.import_dataset(_make_licensed_metadata(dataset_id))
+        parcel = Parcel(
+            parcel_id=f"CAD-INT-{suffix}",
+            lot_plan="Lot 7 on P70007",
+            local_government="City of Integration",
+            area_m2=420.0,
+            dataset_id=dataset_id,
+        )
+        store.add_parcel(parcel)
+        # Give the parcel a small polygon centred on the seeded address point.
+        lon, lat = seeded_address.lon, seeded_address.lat
+        d = 0.00005
+        ring = (
+            f"{lon - d} {lat - d}, {lon + d} {lat - d}, "
+            f"{lon + d} {lat + d}, {lon - d} {lat + d}, {lon - d} {lat - d}"
+        )
+        engine = create_engine(os.environ["DATABASE_URL"])
+        with engine.begin() as conn:
+            conn.execute(
+                _text(
+                    "UPDATE parcels SET geom = ST_GeomFromEWKT("
+                    f"'SRID=7844;MULTIPOLYGON((({ring})))') "
+                    "WHERE cadastre_id = :cid"
+                ),
+                {"cid": parcel.parcel_id},
+            )
+
+        resolved = store.parcel_for_address_point(seeded_address)
+        assert resolved is not None
+        assert resolved.parcel_id == parcel.parcel_id
+        assert resolved.local_government == "City of Integration"
+        assert resolved.area_m2 == 420.0

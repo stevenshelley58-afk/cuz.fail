@@ -10,13 +10,14 @@ from datetime import datetime
 from typing import Annotated, Any, Literal
 from uuid import uuid4
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pydantic import BaseModel, Field
 
 from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.domain.address import (
     GDA2020_TARGET_CRS,
     AddressResolutionService,
+    AddressSearchHit,
     ManualFact,
     ManualOverride,
     PropertyFact,
@@ -205,6 +206,46 @@ def _profile_response(profile: PropertyProfile) -> PropertyProfileResponse:
         facts=facts,
         property_facts=facts,
     )
+
+
+class AddressSearchItem(BaseModel):
+    address: str
+    address_point_id: str
+    gnaf_pid: str | None
+    lat: float
+    lon: float
+    score: float
+
+
+class AddressSearchResponse(BaseModel):
+    items: list[AddressSearchItem]
+    count: int
+    disclaimer: str = (
+        "Indicative geocode matches from the approved address library — "
+        "not legal proof of title or property identity."
+    )
+
+
+def _search_item(hit: AddressSearchHit) -> AddressSearchItem:
+    return AddressSearchItem(
+        address=hit.formatted_address,
+        address_point_id=hit.address_id,
+        gnaf_pid=hit.gnaf_pid,
+        lat=hit.lat,
+        lon=hit.lon,
+        score=hit.score,
+    )
+
+
+@router.get("/address/search", response_model=AddressSearchResponse)
+def search_addresses(
+    service: Annotated[AddressResolutionService, Depends(get_address_service)],
+    _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    q: str = Query(min_length=3, max_length=200),
+    limit: int = Query(default=8, ge=1, le=20),
+) -> AddressSearchResponse:
+    hits = service.search_addresses(q, limit=limit)
+    return AddressSearchResponse(items=[_search_item(hit) for hit in hits], count=len(hits))
 
 
 class AddressSuggestion(BaseModel):

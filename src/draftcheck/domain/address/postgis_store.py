@@ -22,7 +22,7 @@ from __future__ import annotations
 import logging
 from typing import Any
 
-from sqlalchemy import Engine, func, select, text
+from sqlalchemy import ColumnElement, Engine, case, func, literal, literal_column, or_, select, text
 from sqlalchemy.orm import Session
 
 from draftcheck.db.models import (
@@ -34,7 +34,10 @@ from draftcheck.db.models import (
     SpatialDataset as DbSpatialDataset,
 )
 from draftcheck.domain.address.spatial import (
+    ADDRESS_MATCH_AMBIGUITY_GAP,
+    ADDRESS_MATCH_SCORE_FLOOR,
     AddressPoint,
+    AddressSearchHit,
     Confidence,
     DatasetImportResult,
     GDA2020_TARGET_CRS,
@@ -48,6 +51,8 @@ from draftcheck.domain.address.spatial import (
     ResolutionStatus,
     SourceApprovalStatus,
     SpatialDatasetMetadata,
+    expand_street_abbreviations,
+    leading_house_number,
     normalize_address,
 )
 
@@ -77,21 +82,52 @@ def _metadata_to_dict(metadata: SpatialDatasetMetadata) -> dict[str, Any]:
         "approval_status": str(metadata.approval_status),
         "target_crs": metadata.target_crs,
         "refresh_due": metadata.refresh_due.isoformat() if metadata.refresh_due else None,
+        # The logical source-version string must round-trip: the FK column
+        # holds a source_versions UUID which bulk loaders rarely link, and a
+        # dataset with no source_version_id is never authoritative.
+        "source_version_id": metadata.source_version_id,
     }
+
+
+def _coerce_licence_status(value: Any) -> LicenceStatus:
+    """Map stored licence_status to the enum, degrading unknowns safely.
+
+    Bulk loaders have written non-enum strings (e.g. 'approved', 'review').
+    Anything unrecognised becomes UNKNOWN — i.e. never authoritative — rather
+    than crashing every read of the dataset row.
+    """
+    try:
+        return LicenceStatus(value)
+    except ValueError:
+        logger.warning("spatial_datasets row has unrecognised licence_status %r", value)
+        return LicenceStatus.UNKNOWN
+
+
+def _coerce_approval_status(value: Any) -> SourceApprovalStatus:
+    try:
+        return SourceApprovalStatus(value)
+    except ValueError:
+        logger.warning("spatial_datasets row has unrecognised approval_status %r", value)
+        return SourceApprovalStatus.PENDING_REVIEW
 
 
 def _db_dataset_to_metadata(row: DbSpatialDataset) -> SpatialDatasetMetadata:
     meta = row.metadata_json or {}
+    source_version_id = (
+        str(row.source_version_id)
+        if row.source_version_id
+        else (str(meta["source_version_id"]) if meta.get("source_version_id") else None)
+    )
     return SpatialDatasetMetadata(
         dataset_id=row.dataset_id,
         name=row.name,
         provider=row.provider,
         version=row.version,
         licence=row.licence or "",
-        licence_status=LicenceStatus(row.licence_status),
+        licence_status=_coerce_licence_status(row.licence_status),
         source_crs=row.source_crs,
-        source_version_id=str(row.source_version_id) if row.source_version_id else None,
-        approval_status=SourceApprovalStatus(row.approval_status),
+        source_version_id=source_version_id,
+        approval_status=_coerce_approval_status(row.approval_status),
         target_crs=str(meta.get("target_crs", GDA2020_TARGET_CRS)),
         fetched_at=row.fetched_at or __import__("datetime").datetime.now(__import__("datetime").timezone.utc),
     )
@@ -347,54 +383,199 @@ class PostGISSpatialDatasetStore:
     # ------------------------------------------------------------------
 
     def exact_address_points(self, address: str) -> list[AddressPoint]:
-        """Return address points matching ``address`` exactly (case-insensitive).
+        """Return the best address-point match(es) for ``address``.
 
-        Falls back to ILIKE when no exact match is found.
+        Exact normalized matches win outright.  Otherwise the trigram search
+        is consulted: a clear best candidate is returned alone, near-tied
+        candidates are all returned (the resolution service reports them as
+        ambiguous), and weak matches return an empty list.
 
-        NOTE: Results are indicative geocodes only — not legal proof of title or
-        property identity.
+        NOTE: Results are indicative geocodes only — not legal proof of title
+        or property identity.
         """
         normalized = normalize_address(address)
+        if not normalized:
+            return []
+        variants = {normalized, expand_street_abbreviations(normalized)}
+
+        hits = self.search_address_points(address, limit=5)
+        if not hits:
+            return []
+
+        exact = [hit for hit in hits if normalize_address(hit.formatted_address) in variants]
+        if exact:
+            selected = exact
+        else:
+            strong = [hit for hit in hits if hit.score >= ADDRESS_MATCH_SCORE_FLOOR]
+            if not strong:
+                return []
+            top = strong[0]
+            ties = [hit for hit in strong if (top.score - hit.score) < ADDRESS_MATCH_AMBIGUITY_GAP]
+            selected = ties if len(ties) > 1 else [top]
+
+        return [
+            AddressPoint(
+                address_id=hit.address_id,
+                formatted_address=hit.formatted_address,
+                lon=hit.lon,
+                lat=hit.lat,
+                parcel_id="",  # parcel resolution is spatial — see parcel_for_address_point
+                dataset_id=hit.dataset_id,
+                gnaf_pid=hit.gnaf_pid,
+                target_crs=GDA2020_TARGET_CRS,
+            )
+            for hit in selected
+        ]
+
+    def search_address_points(self, query: str, limit: int = 8) -> list[AddressSearchHit]:
+        """Rank address points against a free-text query using pg_trgm.
+
+        Uses the ``ix_address_points_address_text_trgm`` GIN index (migration
+        0009) via the ``<%`` word-similarity operator, querying both the raw
+        normalized input and a street-type-expanded variant ("st" -> "street")
+        so abbreviated queries still rank well.  A small boost is applied when
+        the query's leading house number appears in the candidate, so
+        "3 Black Swan Rise" outranks other numbers on the same street.
+
+        Results are indicative geocodes only — never legal proof of title or
+        property identity.
+        """
+        normalized = normalize_address(query)
+        if not normalized:
+            return []
+        expanded = expand_street_abbreviations(normalized)
+        house_number = leading_house_number(normalized)
+
+        wsim = func.greatest(
+            func.word_similarity(normalized, DbAddressPoint.address_text),
+            func.word_similarity(expanded, DbAddressPoint.address_text),
+        )
+        boost: ColumnElement[float]
+        if house_number:
+            boost = case(
+                (DbAddressPoint.address_text.op("~")(rf"\m{house_number}\M"), 0.05),
+                else_=0.0,
+            )
+        else:
+            boost = literal(0.0)
+        score = func.least(wsim + boost, 1.0).label("score")
+
+        stmt = (
+            select(
+                DbAddressPoint.id,
+                DbAddressPoint.gnaf_pid,
+                DbAddressPoint.address_text,
+                func.ST_Y(DbAddressPoint.geom).label("lat"),
+                func.ST_X(DbAddressPoint.geom).label("lon"),
+                DbSpatialDataset.dataset_id,
+                score,
+            )
+            .join(
+                DbSpatialDataset,
+                DbAddressPoint.spatial_dataset_id == DbSpatialDataset.id,
+            )
+            .where(
+                or_(
+                    literal(normalized).op("<%")(DbAddressPoint.address_text),
+                    literal(expanded).op("<%")(DbAddressPoint.address_text),
+                )
+            )
+            .order_by(text("score DESC"), DbAddressPoint.address_text.asc())
+            .limit(max(1, min(int(limit), 20)))
+        )
+
         with Session(self._engine) as session:
-            # Exact normalised match first
-            rows = session.execute(
-                select(DbAddressPoint, DbSpatialDataset)
+            try:
+                # Lower the word-similarity floor for this transaction so
+                # moderate typos still surface candidates; ranking puts the
+                # best match first regardless.
+                session.execute(text("SET LOCAL pg_trgm.word_similarity_threshold = 0.45"))
+                rows = session.execute(stmt).all()
+            except Exception:
+                logger.warning(
+                    "search_address_points: trigram search failed, falling back to ILIKE",
+                    exc_info=True,
+                )
+                session.rollback()
+                rows = self._ilike_search_rows(session, normalized, expanded, limit)
+
+        results: list[AddressSearchHit] = []
+        for row in rows:
+            results.append(
+                AddressSearchHit(
+                    address_id=str(row[0]),
+                    gnaf_pid=row[1],
+                    formatted_address=row[2],
+                    lat=float(row[3]) if row[3] is not None else 0.0,
+                    lon=float(row[4]) if row[4] is not None else 0.0,
+                    dataset_id=row[5],
+                    score=round(float(row[6]), 4),
+                )
+            )
+        return results
+
+    def _ilike_search_rows(
+        self, session: Session, normalized: str, expanded: str, limit: int
+    ):
+        """Substring fallback used only when pg_trgm is unavailable."""
+        patterns = {f"%{normalized}%", f"%{expanded}%"}
+        stmt = (
+            select(
+                DbAddressPoint.id,
+                DbAddressPoint.gnaf_pid,
+                DbAddressPoint.address_text,
+                func.ST_Y(DbAddressPoint.geom).label("lat"),
+                func.ST_X(DbAddressPoint.geom).label("lon"),
+                DbSpatialDataset.dataset_id,
+                literal_column("0.6").label("score"),
+            )
+            .join(
+                DbSpatialDataset,
+                DbAddressPoint.spatial_dataset_id == DbSpatialDataset.id,
+            )
+            .where(or_(*[DbAddressPoint.address_text.ilike(p) for p in patterns]))
+            .order_by(DbAddressPoint.address_text.asc())
+            .limit(max(1, min(int(limit), 20)))
+        )
+        return session.execute(stmt).all()
+
+    def parcel_for_address_point(self, point: AddressPoint) -> Parcel | None:
+        """Spatially resolve the cadastral parcel containing an address point.
+
+        G-NAF rows carry no parcel linkage, so this is a PostGIS ST_Within
+        lookup of the point coordinate against ``parcels.geom`` (both
+        EPSG:7844).  Returns ``None`` when no parcel covers the point (e.g.
+        LGAs whose cadastre has not been imported yet).
+        """
+        if not point.lat and not point.lon:
+            return None
+        with Session(self._engine) as session:
+            row = session.execute(
+                select(DbParcel, DbSpatialDataset.dataset_id)
                 .join(
                     DbSpatialDataset,
-                    DbAddressPoint.spatial_dataset_id == DbSpatialDataset.id,
+                    DbParcel.spatial_dataset_id == DbSpatialDataset.id,
                 )
-                .where(func.lower(DbAddressPoint.address_text) == normalized)
-            ).all()
-
-            if not rows:
-                # ILIKE fallback — match each token
-                like_pattern = f"%{address.strip()}%"
-                rows = session.execute(
-                    select(DbAddressPoint, DbSpatialDataset)
-                    .join(
-                        DbSpatialDataset,
-                        DbAddressPoint.spatial_dataset_id == DbSpatialDataset.id,
-                    )
-                    .where(DbAddressPoint.address_text.ilike(like_pattern))
-                ).all()
-
-            results: list[AddressPoint] = []
-            for ap_row, ds_row in rows:
-                meta = ap_row.metadata_json or {}
-                results.append(
-                    AddressPoint(
-                        address_id=meta.get("address_id", str(ap_row.id)),
-                        formatted_address=ap_row.address_text,
-                        lon=0.0,  # coordinates not retrieved (use geometry column directly)
-                        lat=0.0,
-                        parcel_id=meta.get("parcel_id", ""),
-                        dataset_id=meta.get("dataset_id", ds_row.dataset_id),
-                        aliases=tuple(meta.get("aliases", [])),
-                        gnaf_pid=ap_row.gnaf_pid or None,
-                        target_crs=meta.get("target_crs", GDA2020_TARGET_CRS),
+                .where(
+                    func.ST_Within(
+                        func.ST_SetSRID(func.ST_MakePoint(point.lon, point.lat), 7844),
+                        DbParcel.geom,
                     )
                 )
-            return results
+                .limit(1)
+            ).first()
+            if row is None:
+                return None
+            parcel_row, dataset_id = row
+            meta = parcel_row.metadata_json or {}
+            return Parcel(
+                parcel_id=parcel_row.cadastre_id or str(parcel_row.id),
+                lot_plan=parcel_row.lot_plan or "",
+                local_government=parcel_row.local_government or "",
+                area_m2=float(parcel_row.area_m2 or 0.0),
+                dataset_id=str(meta.get("dataset_id", dataset_id)),
+                verification_status=str(meta.get("verification_status", "verified")),
+            )
 
     def planning_for_parcel(self, parcel_id: str) -> list[PlanningFeature]:
         """Return planning features whose geometry intersects the given parcel.

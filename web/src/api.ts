@@ -123,10 +123,25 @@ export type PropertyFactResponse = {
   provenance: ProvenanceResponse;
 };
 
+export type AddressSearchHit = {
+  address: string;
+  address_point_id: string;
+  gnaf_pid?: string | null;
+  lat: number;
+  lon: number;
+  score: number;
+};
+
+export type AddressSearchResponse = {
+  items: AddressSearchHit[];
+  count: number;
+  disclaimer?: string;
+};
+
 export type PropertyProfileResponse = {
   org_id: string;
   project_id: string;
-  resolution_status: "resolved" | "missing_info" | "needs_human_review" | "unsupported";
+  resolution_status: "resolved" | "missing_info" | "needs_more_info" | "needs_human_review" | "unsupported";
   confidence: "high" | "medium" | "low" | "none";
   address?: string | null;
   local_government?: string | null;
@@ -262,6 +277,8 @@ export const api = {
     project_type: "single_house",
     stage: "concept",
   }),
+  searchAddress: (q: string, limit = 8) =>
+    call<AddressSearchResponse>("GET", `/address/search?q=${encodeURIComponent(q)}&limit=${limit}`),
   suggestAddresses: (q: string) =>
     call<AddressSuggestResponse>("GET", `/addresses/suggest?q=${encodeURIComponent(q)}`),
   resolveAddress: (projectId: string, address: string) =>

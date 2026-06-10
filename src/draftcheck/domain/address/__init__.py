@@ -5,6 +5,7 @@ from draftcheck.domain.address.spatial import (
     GDA2020_TARGET_CRS,
     AddressPoint,
     AddressResolutionService,
+    AddressSearchHit,
     Confidence,
     DatasetImportResult,
     FactValue,
@@ -22,6 +23,8 @@ from draftcheck.domain.address.spatial import (
     SourceApprovalStatus,
     SpatialDatasetMetadata,
     create_default_spatial_store,
+    expand_street_abbreviations,
+    leading_house_number,
     normalize_address,
 )
 
@@ -30,6 +33,7 @@ __all__ = [
     "ALLOWED_MANUAL_PROPERTY_FACT_TYPES",
     "AddressPoint",
     "AddressResolutionService",
+    "AddressSearchHit",
     "Confidence",
     "DatasetImportResult",
     "FactValue",
@@ -47,5 +51,7 @@ __all__ = [
     "SourceApprovalStatus",
     "SpatialDatasetMetadata",
     "create_default_spatial_store",
+    "expand_street_abbreviations",
+    "leading_house_number",
     "normalize_address",
 ]
