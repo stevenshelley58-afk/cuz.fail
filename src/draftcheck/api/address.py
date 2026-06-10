@@ -262,53 +262,48 @@ def suggest_addresses(
 
     from sqlalchemy import text as sql_text
 
-    # Both predicates are served by the gin_trgm_ops index on address_text
-    # (migration 0014): ILIKE via trigram extraction, `%` via the similarity
-    # threshold. similarity() appears only in ORDER BY, computed on the few
-    # index-matched rows — never as a table-scan filter.
-    trigram_sql = sql_text(
+    # Two-step lookup, both arms served by the gin_trgm_ops index (migration
+    # 0014). Prefix ILIKE alone touches ~10 index entries (~6ms at 1.7M rows);
+    # the fuzzy `%` arm at the default 0.3 threshold expands to tens of
+    # thousands of weak candidates (~150ms), so it only runs when the prefix
+    # match comes up short, and with a tighter threshold.
+    prefix_sql = sql_text(
         """
         SELECT address_text, gnaf_pid
         FROM address_points
         WHERE address_text ILIKE :prefix
-           OR address_text % :q
-        ORDER BY (address_text ILIKE :prefix) DESC,
-                 similarity(address_text, :q) DESC,
-                 address_text
+        ORDER BY address_text
         LIMIT :limit
         """
     )
-    ilike_sql = sql_text(
+    fuzzy_sql = sql_text(
         """
         SELECT address_text, gnaf_pid
         FROM address_points
-        WHERE address_text ILIKE :contains
-        ORDER BY (address_text ILIKE :prefix) DESC, address_text
+        WHERE address_text % :q
+        ORDER BY similarity(address_text, :q) DESC, address_text
         LIMIT :limit
         """
     )
-    params = {
-        "q": query,
-        "prefix": f"{query}%",
-        "contains": f"%{query}%",
-        "limit": limit,
-    }
+    params = {"q": query, "prefix": f"{query}%", "limit": limit}
     rows: list[Any] = []
     try:
         with engine.connect() as conn:
-            rows = list(conn.execute(trigram_sql, params))
-    except Exception:
-        # pg_trgm unavailable or query failed — fall back to plain ILIKE
-        try:
-            with engine.connect() as conn:
-                rows = list(conn.execute(ilike_sql, params))
-        except Exception:  # pragma: no cover – table absent / DB down
-            import logging
+            rows = list(conn.execute(prefix_sql, params))
+            if len(rows) < limit:
+                try:
+                    conn.execute(sql_text("SET LOCAL pg_trgm.similarity_threshold = 0.5"))
+                    rows += list(conn.execute(fuzzy_sql, params))
+                except Exception:
+                    # pg_trgm unavailable — prefix results alone are fine
+                    pass
+    except Exception:  # pragma: no cover – table absent / DB down
+        import logging
 
-            logging.getLogger(__name__).warning(
-                "suggest_addresses: lookup failed", exc_info=True
-            )
-            rows = []
+        logging.getLogger(__name__).warning(
+            "suggest_addresses: lookup failed", exc_info=True
+        )
+        rows = []
 
     seen: set[str] = set()
     suggestions: list[AddressSuggestion] = []
