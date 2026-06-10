@@ -19,7 +19,9 @@ if [ -f "$ENV_FILE" ] && grep -q "^CORS_ALLOWED_ORIGINS=" "$ENV_FILE"; then
   fi
 fi
 
-(cd web && npm ci && npm run build)
+# --include=dev: vite/tsc are devDependencies; a production npm config on the
+# host would otherwise omit them and break the build.
+(cd web && npm ci --include=dev && npm run build)
 
 cd infra/v3
 compose_args=(--env-file "$ENV_FILE" -f "../../$COMPOSE_FILE")
@@ -28,7 +30,7 @@ if [ -f "../../$EXTRA_COMPOSE_FILE" ]; then
 fi
 
 docker compose "${compose_args[@]}" build api
-docker compose "${compose_args[@]}" up -d --wait
+docker compose "${compose_args[@]}" up -d --wait --remove-orphans
 docker compose "${compose_args[@]}" exec -T api python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=5).read()"
 
 echo "deployed $(git -C "$APP_DIR" rev-parse --short HEAD)"
