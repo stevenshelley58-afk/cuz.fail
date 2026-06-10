@@ -119,14 +119,14 @@ def adjudicate_clause(
                          str(cand["id"]), atom, 0.85)
             conn.execute(
                 "UPDATE rule_candidates SET review_status='auto_promoted', confidence=0.85, "
-                "auto_promoted_at=now(), metadata_json = metadata_json || %s, updated_at=now() "
+                "auto_promoted_at=now(), metadata_json = metadata_json || %s::jsonb, updated_at=now() "
                 "WHERE id = %s",
                 (Json(meta_update), cand["id"]),
             )
             stats["promoted"] += 1
         elif votes == 1:
             conn.execute(
-                "UPDATE rule_candidates SET metadata_json = metadata_json || %s, "
+                "UPDATE rule_candidates SET metadata_json = metadata_json || %s::jsonb, "
                 "updated_at=now() WHERE id = %s",
                 (Json(meta_update), cand["id"]),
             )
@@ -134,7 +134,7 @@ def adjudicate_clause(
         else:
             conn.execute(
                 "UPDATE rule_candidates SET review_status='rejected', "
-                "metadata_json = metadata_json || %s, updated_at=now() WHERE id = %s",
+                "metadata_json = metadata_json || %s::jsonb, updated_at=now() WHERE id = %s",
                 (Json(meta_update), cand["id"]),
             )
             stats["rejected"] += 1
