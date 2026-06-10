@@ -1,0 +1,237 @@
+{
+  "source_version_id": "ed4dba7b-bf1f-482e-bea1-523269670bfe",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 273,
+    "clauses_updated": 3
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 8,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 1,
+    "atoms_pending_review": 3,
+    "validator_rejects": 6,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 273,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "auto_promoted": 1,
+      "pending_review": 3,
+      "validator_failed": 6,
+      "validators_passed": 6
+    },
+    "rules_approved_wp6": 1,
+    "review_items_open": 179,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 93,
+      "claimed": 8,
+      "clauses_with_orphans": 8,
+      "detail": [
+        {
+          "clause_path": "chunk-7",
+          "orphan_numbers": [
+            "29",
+            "3",
+            "3959"
+          ]
+        },
+        {
+          "clause_path": "chunk-10",
+          "orphan_numbers": [
+            "1",
+            "10",
+            "12.5",
+            "19",
+            "29",
+            "3",
+            "40",
+            "5",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "5.4",
+          "orphan_numbers": [
+            "0.3654",
+            "0.8",
+            "1",
+            "1.1798",
+            "10",
+            "18",
+            "3",
+            "326",
+            "40",
+            "5",
+            "5.4",
+            "6",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "12.5",
+          "orphan_numbers": [
+            "02",
+            "03",
+            "09",
+            "1",
+            "12.5",
+            "14",
+            "14110",
+            "16",
+            "19",
+            "210",
+            "29",
+            "3",
+            "32",
+            "3959",
+            "40",
+            "6",
+            "7",
+            "8"
+          ]
+        },
+        {
+          "clause_path": "chunk-140",
+          "orphan_numbers": [
+            "19",
+            "29",
+            "3",
+            "3959",
+            "4",
+            "6"
+          ]
+        },
+        {
+          "clause_path": "4.5",
+          "orphan_numbers": [
+            "02",
+            "03",
+            "05",
+            "1",
+            "10",
+            "12.5",
+            "15",
+            "19",
+            "29",
+            "3",
+            "3959",
+            "4",
+            "4.5",
+            "40",
+            "5.4",
+            "6",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "5.1.1",
+          "orphan_numbers": [
+            "1",
+            "3",
+            "4",
+            "5.1"
+          ]
+        },
+        {
+          "clause_path": "chunk-160",
+          "orphan_numbers": [
+            "14110",
+            "210",
+            "3",
+            "3.1",
+            "3.2",
+            "3.3",
+            "31",
+            "32",
+            "4",
+            "4.1",
+            "4.2",
+            "4.3",
+            "4.4",
+            "5.4",
+            "6"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-126"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "side_setback.all",
+      "operator": "gte",
+      "value_json": {
+        "value": 20.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "BAL 19 (Bushfire Attack Level) setback requirement",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "side_setback"
+      },
+      "unit": "m",
+      "pathway": "none",
+      "quote_anchor": "Minimum distance from Lot boundary will be 20 metres",
+      "applicability": {
+        "condition": "BAL 19 (Bushfire Attack Level) setback requirement",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

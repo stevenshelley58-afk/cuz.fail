@@ -1,0 +1,499 @@
+{
+  "source_version_id": "53d1da5b-3393-4146-8f39-b3e90b5a8023",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 535,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 42,
+    "atoms_auto_accepted": 1,
+    "atoms_challenge_accepted": 3,
+    "atoms_pending_review": 47,
+    "validator_rejects": 71,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 535,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "validators_passed": 70,
+      "pending_review": 47,
+      "validator_failed": 71,
+      "auto_promoted": 4
+    },
+    "rules_approved_wp6": 4,
+    "review_items_open": 127,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 317,
+      "claimed": 73,
+      "clauses_with_orphans": 42,
+      "detail": [
+        {
+          "clause_path": "4.4.1",
+          "orphan_numbers": [
+            "20",
+            "3",
+            "4",
+            "4.4",
+            "900"
+          ]
+        },
+        {
+          "clause_path": "4.4.2",
+          "orphan_numbers": [
+            "30",
+            "4.4",
+            "60"
+          ]
+        },
+        {
+          "clause_path": "4.4.3",
+          "orphan_numbers": [
+            "06",
+            "13",
+            "25",
+            "3",
+            "4.4",
+            "6",
+            "61"
+          ]
+        },
+        {
+          "clause_path": "4.4.5",
+          "orphan_numbers": [
+            "02",
+            "149",
+            "4.4"
+          ]
+        },
+        {
+          "clause_path": "5.1.1",
+          "orphan_numbers": [
+            "3",
+            "5.1",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "4.4.6",
+          "orphan_numbers": [
+            "02",
+            "149",
+            "4.4",
+            "6",
+            "70"
+          ]
+        },
+        {
+          "clause_path": "4.9.1",
+          "orphan_numbers": [
+            "4.9"
+          ]
+        },
+        {
+          "clause_path": "4.10.12",
+          "orphan_numbers": [
+            "07",
+            "09",
+            "12",
+            "4.10",
+            "6",
+            "72"
+          ]
+        },
+        {
+          "clause_path": "chunk-100",
+          "orphan_numbers": [
+            "3",
+            "58"
+          ]
+        },
+        {
+          "clause_path": "4.15.2",
+          "orphan_numbers": [
+            "22",
+            "4.15"
+          ]
+        },
+        {
+          "clause_path": "chunk-125",
+          "orphan_numbers": [
+            "20",
+            "25"
+          ]
+        },
+        {
+          "clause_path": "chunk-110",
+          "orphan_numbers": [
+            "3",
+            "3.0",
+            "65",
+            "8"
+          ]
+        },
+        {
+          "clause_path": "chunk-112",
+          "orphan_numbers": [
+            "01",
+            "06",
+            "08",
+            "09",
+            "102",
+            "12",
+            "13",
+            "14",
+            "142",
+            "15",
+            "156",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20182",
+            "24",
+            "28",
+            "3",
+            "30"
+          ]
+        },
+        {
+          "clause_path": "chunk-115",
+          "orphan_numbers": [
+            "06",
+            "1170",
+            "1172",
+            "13",
+            "23939",
+            "26",
+            "3",
+            "6",
+            "68",
+            "7",
+            "99271"
+          ]
+        },
+        {
+          "clause_path": "chunk-174",
+          "orphan_numbers": [
+            "1500",
+            "17",
+            "18",
+            "19",
+            "20",
+            "25",
+            "30",
+            "3500",
+            "40",
+            "80"
+          ]
+        },
+        {
+          "clause_path": "chunk-175",
+          "orphan_numbers": [
+            "07",
+            "101",
+            "20",
+            "23",
+            "3",
+            "32",
+            "60",
+            "80"
+          ]
+        },
+        {
+          "clause_path": "chunk-179",
+          "orphan_numbers": [
+            "06",
+            "12",
+            "25",
+            "27",
+            "3",
+            "3.0",
+            "31",
+            "4"
+          ]
+        },
+        {
+          "clause_path": "chunk-183",
+          "orphan_numbers": [
+            "1.7",
+            "104",
+            "27",
+            "3",
+            "33",
+            "4"
+          ]
+        },
+        {
+          "clause_path": "5.2.1",
+          "orphan_numbers": [
+            "111",
+            "3",
+            "5.2"
+          ]
+        },
+        {
+          "clause_path": "5.2.4",
+          "orphan_numbers": [
+            "4",
+            "5.2"
+          ]
+        },
+        {
+          "clause_path": "5.3.2",
+          "orphan_numbers": [
+            "5.3"
+          ]
+        },
+        {
+          "clause_path": "chunk-203",
+          "orphan_numbers": [
+            "114",
+            "3",
+            "34"
+          ]
+        },
+        {
+          "clause_path": "chunk-205",
+          "orphan_numbers": [
+            "115",
+            "3"
+          ]
+        },
+        {
+          "clause_path": "chunk-206",
+          "orphan_numbers": [
+            "14",
+            "17",
+            "27",
+            "3",
+            "3.79",
+            "35",
+            "4",
+            "4.2",
+            "52",
+            "90"
+          ]
+        },
+        {
+          "clause_path": "chunk-207",
+          "orphan_numbers": [
+            "05",
+            "06",
+            "116",
+            "14",
+            "22",
+            "27",
+            "3",
+            "36",
+            "4",
+            "7240",
+            "93"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-8",
+      "1.7.5",
+      "2.2.1",
+      "3.3.3",
+      "chunk-65",
+      "3.5.1",
+      "3.6.1",
+      "4.3.1",
+      "4.1.2",
+      "4.3.2",
+      "4.4.4",
+      "4.4.5",
+      "4.8.2",
+      "4.8.4",
+      "4.8.5",
+      "4.9.2",
+      "4.9.4",
+      "4.9.5",
+      "4.10.2",
+      "4.10.8",
+      "4.10.11",
+      "chunk-95",
+      "4.10.12",
+      "chunk-98",
+      "4.12.1",
+      "chunk-108",
+      "chunk-115",
+      "chunk-119",
+      "chunk-124",
+      "chunk-132",
+      "chunk-135",
+      "5.3.1",
+      "5.3.11",
+      "chunk-148",
+      "5.3.20",
+      "chunk-156",
+      "chunk-164",
+      "chunk-173",
+      "chunk-167",
+      "chunk-168",
+      "chunk-172",
+      "chunk-174",
+      "chunk-190",
+      "chunk-239",
+      "chunk-235",
+      "chunk-245",
+      "chunk-251",
+      "chunk-257",
+      "chunk-258",
+      "chunk-294"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "building_height.R60_R80",
+      "operator": "lte",
+      "value_json": {
+        "value": 21.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "residential R60 and R80 areas",
+          "density_codes": [
+            "R60",
+            "R80"
+          ],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "building_height"
+      },
+      "unit": "m",
+      "pathway": "none",
+      "quote_anchor": "not exceeding 21 metres",
+      "applicability": {
+        "condition": "residential R60 and R80 areas",
+        "density_codes": [
+          "R60",
+          "R80"
+        ],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "open_space.all",
+      "operator": "pct_gte",
+      "value_json": {
+        "value": 10.0,
+        "confidence": 0.95,
+        "applicability": {
+          "condition": "subdivider's minimum public open space contribution for Treeby East playing field",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "open_space"
+      },
+      "unit": "%",
+      "pathway": "none",
+      "quote_anchor": "minimum 10% public open space",
+      "applicability": {
+        "condition": "subdivider's minimum public open space contribution for Treeby East playing field",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.95"
+    },
+    {
+      "rule_key": "side_setback.all",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.5,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "building envelope in Rural Living Zone",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "side_setback"
+      },
+      "unit": "m",
+      "pathway": "none",
+      "quote_anchor": "side setback of not less than 2.5 metres",
+      "applicability": {
+        "condition": "building envelope in Rural Living Zone",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "site_cover.all",
+      "operator": "pct_lte",
+      "value_json": {
+        "value": 50.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "building envelope in Rural Living Zone",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "site_cover"
+      },
+      "unit": "%",
+      "pathway": "none",
+      "quote_anchor": "shall not exceed 50% of the lot area",
+      "applicability": {
+        "condition": "building envelope in Rural Living Zone",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

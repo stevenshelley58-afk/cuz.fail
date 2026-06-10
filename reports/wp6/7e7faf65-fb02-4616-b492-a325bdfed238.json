@@ -1,0 +1,198 @@
+{
+  "source_version_id": "7e7faf65-fb02-4616-b492-a325bdfed238",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 272,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 13,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 0,
+    "atoms_pending_review": 6,
+    "validator_rejects": 13,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 272,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "pending_review": 6,
+      "validator_failed": 13,
+      "validators_passed": 6
+    },
+    "rules_approved_wp6": 0,
+    "review_items_open": 147,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 49,
+      "claimed": 0,
+      "clauses_with_orphans": 12,
+      "detail": [
+        {
+          "clause_path": "3.4",
+          "orphan_numbers": [
+            "14",
+            "3.4"
+          ]
+        },
+        {
+          "clause_path": "5.3",
+          "orphan_numbers": [
+            "15",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.8",
+            "6.2",
+            "6.5"
+          ]
+        },
+        {
+          "clause_path": "6.5.1",
+          "orphan_numbers": [
+            "1",
+            "6.5"
+          ]
+        },
+        {
+          "clause_path": "chunk-124",
+          "orphan_numbers": [
+            "1000",
+            "25",
+            "30",
+            "35",
+            "4.2",
+            "5",
+            "70"
+          ]
+        },
+        {
+          "clause_path": "chunk-126",
+          "orphan_numbers": [
+            "17",
+            "3"
+          ]
+        },
+        {
+          "clause_path": "chunk-135",
+          "orphan_numbers": [
+            "2"
+          ]
+        },
+        {
+          "clause_path": "chunk-147",
+          "orphan_numbers": [
+            "5",
+            "5.4",
+            "51"
+          ]
+        },
+        {
+          "clause_path": "chunk-163",
+          "orphan_numbers": [
+            "17.5"
+          ]
+        },
+        {
+          "clause_path": "chunk-175",
+          "orphan_numbers": [
+            "04.05",
+            "11487",
+            "12",
+            "1457",
+            "15000",
+            "19",
+            "252",
+            "28.03",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "chunk-20",
+          "orphan_numbers": [
+            "3",
+            "30",
+            "5.6"
+          ]
+        },
+        {
+          "clause_path": "chunk-3",
+          "orphan_numbers": [
+            "1",
+            "19",
+            "2",
+            "20",
+            "28",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "clause_path": "chunk-57",
+          "orphan_numbers": [
+            "4.2"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-124",
+      "chunk-15",
+      "chunk-43"
+    ]
+  },
+  "sample_approved_atoms": [],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

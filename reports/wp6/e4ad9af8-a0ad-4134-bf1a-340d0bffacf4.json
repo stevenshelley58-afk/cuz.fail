@@ -1,0 +1,222 @@
+{
+  "source_version_id": "e4ad9af8-a0ad-4134-bf1a-340d0bffacf4",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 184,
+    "clauses_updated": 1
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 12,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 0,
+    "atoms_pending_review": 21,
+    "validator_rejects": 22,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 184,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "pending_review": 21,
+      "validator_failed": 22,
+      "validators_passed": 23
+    },
+    "rules_approved_wp6": 0,
+    "review_items_open": 169,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 72,
+      "claimed": 0,
+      "clauses_with_orphans": 12,
+      "detail": [
+        {
+          "clause_path": "6.0",
+          "orphan_numbers": [
+            "0.394",
+            "6.0"
+          ]
+        },
+        {
+          "clause_path": "chunk-8",
+          "orphan_numbers": [
+            "2.0",
+            "25",
+            "30",
+            "4.0"
+          ]
+        },
+        {
+          "clause_path": "chunk-42",
+          "orphan_numbers": [
+            "1",
+            "1.0",
+            "12",
+            "14",
+            "15",
+            "17",
+            "18",
+            "2",
+            "20",
+            "24",
+            "29",
+            "3",
+            "41",
+            "500",
+            "63"
+          ]
+        },
+        {
+          "clause_path": "chunk-43",
+          "orphan_numbers": [
+            "25",
+            "3",
+            "3.2",
+            "30",
+            "6.2",
+            "6.3"
+          ]
+        },
+        {
+          "clause_path": "chunk-52",
+          "orphan_numbers": [
+            "2",
+            "25",
+            "30",
+            "4",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "chunk-50",
+          "orphan_numbers": [
+            "230",
+            "243.5",
+            "5.3"
+          ]
+        },
+        {
+          "clause_path": "5.9",
+          "orphan_numbers": [
+            "5.9"
+          ]
+        },
+        {
+          "clause_path": "chunk-55",
+          "orphan_numbers": [
+            "13.0",
+            "20",
+            "25",
+            "3.0",
+            "30",
+            "4.0"
+          ]
+        },
+        {
+          "clause_path": "chunk-56",
+          "orphan_numbers": [
+            "1",
+            "1.0",
+            "14",
+            "18",
+            "2",
+            "20",
+            "25",
+            "3",
+            "30",
+            "35",
+            "4.0",
+            "41",
+            "5",
+            "500"
+          ]
+        },
+        {
+          "clause_path": "chunk-57",
+          "orphan_numbers": [
+            "1.0",
+            "14",
+            "18",
+            "2.0",
+            "36",
+            "4",
+            "4.0",
+            "41",
+            "5",
+            "500",
+            "6.0"
+          ]
+        },
+        {
+          "clause_path": "3.9129",
+          "orphan_numbers": [
+            "10",
+            "3.9129"
+          ]
+        },
+        {
+          "clause_path": "chunk-87",
+          "orphan_numbers": [
+            "1",
+            "10",
+            "3.2"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-6",
+      "chunk-7",
+      "chunk-76",
+      "chunk-89"
+    ]
+  },
+  "sample_approved_atoms": [],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

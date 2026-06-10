@@ -1,0 +1,189 @@
+{
+  "source_version_id": "67847ed1-5ab1-429f-8b4a-28d3a966aa11",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 134,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 4,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 1,
+    "atoms_pending_review": 8,
+    "validator_rejects": 14,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 134,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "auto_promoted": 1,
+      "pending_review": 8,
+      "validator_failed": 14,
+      "validators_passed": 10
+    },
+    "rules_approved_wp6": 1,
+    "review_items_open": 136,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 106,
+      "claimed": 11,
+      "clauses_with_orphans": 4,
+      "detail": [
+        {
+          "clause_path": "2.1.4",
+          "orphan_numbers": [
+            "03200.00",
+            "12",
+            "2.1",
+            "25",
+            "30",
+            "33",
+            "37",
+            "4",
+            "40",
+            "60",
+            "72"
+          ]
+        },
+        {
+          "clause_path": "2.1.5",
+          "orphan_numbers": [
+            "0.36",
+            "0.397",
+            "0.400",
+            "11.03",
+            "2.1",
+            "3.60",
+            "3970",
+            "4.0"
+          ]
+        },
+        {
+          "clause_path": "chunk-26",
+          "orphan_numbers": [
+            "003",
+            "1",
+            "1.897",
+            "100",
+            "106",
+            "108",
+            "11",
+            "110",
+            "1122",
+            "114",
+            "125",
+            "126",
+            "18",
+            "1812",
+            "20",
+            "25",
+            "30",
+            "3200.5",
+            "38",
+            "4"
+          ]
+        },
+        {
+          "clause_path": "chunk-28",
+          "orphan_numbers": [
+            "1",
+            "1.017",
+            "1.997",
+            "100",
+            "106",
+            "108",
+            "11",
+            "110",
+            "114",
+            "120",
+            "122",
+            "125",
+            "126",
+            "13.5",
+            "15",
+            "1836",
+            "20",
+            "25",
+            "30",
+            "3200"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": []
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "site_area.all",
+      "operator": "lt",
+      "value_json": {
+        "value": 350.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "lots requiring Detailed Area Plan",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "site_area"
+      },
+      "unit": "m2",
+      "pathway": "none",
+      "quote_anchor": "lots with an area less than 350m2",
+      "applicability": {
+        "condition": "lots requiring Detailed Area Plan",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

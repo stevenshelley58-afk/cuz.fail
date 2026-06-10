@@ -1,0 +1,291 @@
+{
+  "source_version_id": "e28d75af-ef47-4d36-8c33-b512e6883ace",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 498,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 11,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 1,
+    "atoms_pending_review": 8,
+    "validator_rejects": 15,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 498,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "auto_promoted": 1,
+      "pending_review": 8,
+      "validator_failed": 15,
+      "validators_passed": 12
+    },
+    "rules_approved_wp6": 1,
+    "review_items_open": 176,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 100,
+      "claimed": 16,
+      "clauses_with_orphans": 11,
+      "detail": [
+        {
+          "clause_path": "chunk-484",
+          "orphan_numbers": [
+            "1",
+            "3",
+            "34",
+            "37",
+            "38",
+            "3959",
+            "74",
+            "76",
+            "77",
+            "78",
+            "81",
+            "82",
+            "84",
+            "89"
+          ]
+        },
+        {
+          "clause_path": "chunk-204",
+          "orphan_numbers": [
+            "03",
+            "1",
+            "25",
+            "252",
+            "26",
+            "3",
+            "34",
+            "5",
+            "87",
+            "97"
+          ]
+        },
+        {
+          "clause_path": "chunk-250",
+          "orphan_numbers": [
+            "03",
+            "1",
+            "120",
+            "16",
+            "64"
+          ]
+        },
+        {
+          "clause_path": "chunk-264",
+          "orphan_numbers": [
+            "03",
+            "1",
+            "12",
+            "127"
+          ]
+        },
+        {
+          "clause_path": "chunk-335",
+          "orphan_numbers": [
+            "03",
+            "1",
+            "13",
+            "165"
+          ]
+        },
+        {
+          "clause_path": "2.4",
+          "orphan_numbers": [
+            "1",
+            "10",
+            "14",
+            "200",
+            "3",
+            "6"
+          ]
+        },
+        {
+          "clause_path": "chunk-328",
+          "orphan_numbers": [
+            "03",
+            "1",
+            "161",
+            "61",
+            "7",
+            "8"
+          ]
+        },
+        {
+          "clause_path": "chunk-333",
+          "orphan_numbers": [
+            "03",
+            "1",
+            "12",
+            "164",
+            "5",
+            "61",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "chunk-392",
+          "orphan_numbers": [
+            "03",
+            "1",
+            "194",
+            "252",
+            "77",
+            "80"
+          ]
+        },
+        {
+          "clause_path": "chunk-440",
+          "orphan_numbers": [
+            "03",
+            "1",
+            "218",
+            "3",
+            "68",
+            "84"
+          ]
+        },
+        {
+          "clause_path": "chunk-468",
+          "orphan_numbers": [
+            "0.035",
+            "01",
+            "03",
+            "1",
+            "1.27",
+            "155",
+            "176",
+            "187",
+            "204",
+            "233",
+            "255",
+            "3",
+            "45.00",
+            "80",
+            "89",
+            "9"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-199",
+      "chunk-131",
+      "chunk-214",
+      "chunk-148",
+      "chunk-152",
+      "chunk-153",
+      "chunk-240",
+      "chunk-194",
+      "chunk-202",
+      "chunk-230",
+      "chunk-232",
+      "chunk-250",
+      "chunk-276",
+      "chunk-270",
+      "chunk-282",
+      "chunk-290",
+      "chunk-320",
+      "chunk-302",
+      "chunk-308",
+      "chunk-316",
+      "chunk-322",
+      "chunk-324",
+      "chunk-346",
+      "chunk-348",
+      "chunk-368",
+      "chunk-372",
+      "chunk-378",
+      "chunk-384",
+      "chunk-388",
+      "chunk-390",
+      "chunk-392",
+      "chunk-394",
+      "chunk-396",
+      "chunk-402",
+      "chunk-404",
+      "chunk-414",
+      "chunk-416",
+      "chunk-418",
+      "chunk-420",
+      "chunk-430",
+      "chunk-440"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "building_height.all",
+      "operator": "lte",
+      "value_json": {
+        "value": 2.4,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "tank not fixed to building, more than 1m from boundary",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "building_height"
+      },
+      "unit": "m",
+      "pathway": "deemed_to_comply",
+      "quote_anchor": "2.4 m",
+      "applicability": {
+        "condition": "tank not fixed to building, more than 1m from boundary",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

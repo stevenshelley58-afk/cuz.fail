@@ -1,0 +1,442 @@
+{
+  "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 0,
+    "clauses_updated": 792
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 4,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 0,
+    "atoms_pending_review": 0,
+    "validator_rejects": 0,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 768,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "validators_passed": 459,
+      "pending_review": 302,
+      "validator_failed": 628,
+      "auto_promoted": 38
+    },
+    "rules_approved_wp6": 20,
+    "review_items_open": 52,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 1087,
+      "claimed": 605,
+      "clauses_with_orphans": 127,
+      "detail": [
+        {
+          "clause_path": "5.5.5",
+          "orphan_numbers": [
+            "13",
+            "40",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "49",
+            "5.5",
+            "51",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "62",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "5.1",
+          "orphan_numbers": [
+            "5.1",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.5"
+          ]
+        },
+        {
+          "clause_path": "P1.2",
+          "orphan_numbers": [
+            "1.2"
+          ]
+        },
+        {
+          "clause_path": "C1.1",
+          "orphan_numbers": [
+            "1.1",
+            "4.5"
+          ]
+        },
+        {
+          "clause_path": "C1.2",
+          "orphan_numbers": [
+            "1.2",
+            "2.1",
+            "5.1"
+          ]
+        },
+        {
+          "clause_path": "5.1",
+          "orphan_numbers": [
+            "5.1",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.5"
+          ]
+        },
+        {
+          "clause_path": "5.1",
+          "orphan_numbers": [
+            "5.1",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.5"
+          ]
+        },
+        {
+          "clause_path": "C1.1",
+          "orphan_numbers": [
+            "1.1",
+            "13"
+          ]
+        },
+        {
+          "clause_path": "C1.2",
+          "orphan_numbers": [
+            "1.2"
+          ]
+        },
+        {
+          "clause_path": "5.1",
+          "orphan_numbers": [
+            "5.1",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.5"
+          ]
+        },
+        {
+          "clause_path": "C2.1",
+          "orphan_numbers": [
+            "2.1",
+            "2.2"
+          ]
+        },
+        {
+          "clause_path": "C2.2",
+          "orphan_numbers": [
+            "1000",
+            "2.2",
+            "700"
+          ]
+        },
+        {
+          "clause_path": "C7.1",
+          "orphan_numbers": [
+            "5.1",
+            "5.3",
+            "5.4",
+            "7.1"
+          ]
+        },
+        {
+          "clause_path": "C1.1",
+          "orphan_numbers": [
+            "1.1",
+            "4.5",
+            "7.5"
+          ]
+        },
+        {
+          "clause_path": "C1.2",
+          "orphan_numbers": [
+            "1.2",
+            "1.6"
+          ]
+        },
+        {
+          "clause_path": "C2.1",
+          "orphan_numbers": [
+            "2.0",
+            "2.1",
+            "21",
+            "35",
+            "40",
+            "5.1",
+            "5.4"
+          ]
+        },
+        {
+          "clause_path": "5.3.3",
+          "orphan_numbers": [
+            "1.1",
+            "3.1",
+            "5.2",
+            "5.3"
+          ]
+        },
+        {
+          "clause_path": "5.3",
+          "orphan_numbers": [
+            "1.0",
+            "2.0",
+            "3.0",
+            "40",
+            "5.3"
+          ]
+        },
+        {
+          "clause_path": "2.1",
+          "orphan_numbers": [
+            "1.1",
+            "2.1",
+            "2.2",
+            "3.4",
+            "3.8"
+          ]
+        },
+        {
+          "clause_path": "C2.1.12",
+          "orphan_numbers": [
+            "2.1"
+          ]
+        },
+        {
+          "clause_path": "C2.2.2",
+          "orphan_numbers": [
+            "2.2"
+          ]
+        },
+        {
+          "clause_path": "C2.2.3",
+          "orphan_numbers": [
+            "2.2"
+          ]
+        },
+        {
+          "clause_path": "chunk-50",
+          "orphan_numbers": [
+            "1.1",
+            "110",
+            "41"
+          ]
+        },
+        {
+          "clause_path": "chunk-51",
+          "orphan_numbers": [
+            "1.1",
+            "42",
+            "70"
+          ]
+        },
+        {
+          "clause_path": "5.1",
+          "orphan_numbers": [
+            "3.5",
+            "5.1",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.5",
+            "9"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "5.1",
+      "C7.1",
+      "C2.1",
+      "5.3.3",
+      "5.1",
+      "C3.7.1",
+      "C1.1.2",
+      "3.4",
+      "chunk-128",
+      "chunk-129",
+      "3.2.3",
+      "2.1",
+      "C3.3.2",
+      "C3.9.2",
+      "C3.10.3",
+      "C1.1.4"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "building_height.all",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.2,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "large and multiple outbuildings - ridge height",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "building_height"
+      },
+      "unit": "m",
+      "pathway": "deemed_to_comply",
+      "quote_anchor": "does not exceed a ridge height of 4.2m",
+      "applicability": {
+        "condition": "large and multiple outbuildings - wall height",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "garage_dominance.all",
+      "operator": "pct_lte",
+      "value_json": {
+        "value": 60.0,
+        "confidence": 0.95,
+        "applicability": {
+          "condition": "",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "garage_dominance"
+      },
+      "unit": "%",
+      "pathway": "deemed_to_comply",
+      "quote_anchor": "60 per cent of the frontage",
+      "applicability": {
+        "condition": "garage door facing primary street",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "garage_width.all",
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "garages and carports built up to boundary abutting communal street or right-of-way",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "garage_width"
+      },
+      "unit": "m",
+      "pathway": "deemed_to_comply",
+      "quote_anchor": "manoeuvring space of at least 6m",
+      "applicability": {
+        "condition": "garages and carports built up to boundary abutting communal street or right-of-way",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "open_space.all.grouped_dwelling",
+      "operator": "pct_lte",
+      "value_json": {
+        "value": 20.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "communal open space as common property, aggregate deducted area does not exceed communal open space area, outdoor living area not reduced",
+          "density_codes": [],
+          "dwelling_type": "grouped_dwelling"
+        },
+        "base_rule_key": "open_space"
+      },
+      "unit": "%",
+      "pathway": "deemed_to_comply",
+      "quote_anchor": "may be reduced by up to 20 per cent of the required open space area",
+      "applicability": {
+        "condition": "communal open space as common property, aggregate deducted area does not exceed communal open space area, outdoor living area not reduced",
+        "density_codes": [],
+        "dwelling_type": "grouped_dwelling"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "outdoor_living_area.all",
+      "operator": "gte",
+      "value_json": {
+        "value": 15.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "outdoor_living_area"
+      },
+      "unit": "m2",
+      "pathway": "deemed_to_comply",
+      "quote_anchor": "minimum area of 15m 2",
+      "applicability": {
+        "condition": "or 10% site area, whichever is lesser",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.95"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

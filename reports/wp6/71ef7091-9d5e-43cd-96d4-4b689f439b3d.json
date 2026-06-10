@@ -1,0 +1,469 @@
+{
+  "source_version_id": "71ef7091-9d5e-43cd-96d4-4b689f439b3d",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 1105,
+    "clauses_updated": 8
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 24,
+    "atoms_auto_accepted": 2,
+    "atoms_challenge_accepted": 2,
+    "atoms_pending_review": 22,
+    "validator_rejects": 71,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 1105,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "auto_promoted": 4,
+      "pending_review": 22,
+      "validator_failed": 71,
+      "validators_passed": 34
+    },
+    "rules_approved_wp6": 2,
+    "review_items_open": 105,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 303,
+      "claimed": 55,
+      "clauses_with_orphans": 24,
+      "detail": [
+        {
+          "clause_path": "4.2",
+          "orphan_numbers": [
+            "4.2"
+          ]
+        },
+        {
+          "clause_path": "chunk-12",
+          "orphan_numbers": [
+            "03",
+            "09",
+            "20",
+            "29",
+            "3",
+            "5.4",
+            "8000",
+            "8697",
+            "8999"
+          ]
+        },
+        {
+          "clause_path": "1.1.1",
+          "orphan_numbers": [
+            "1.1"
+          ]
+        },
+        {
+          "clause_path": "chunk-22",
+          "orphan_numbers": [
+            "03",
+            "09",
+            "15",
+            "17.2",
+            "20",
+            "22",
+            "26.28",
+            "29",
+            "30",
+            "32",
+            "8000",
+            "8697",
+            "8999"
+          ]
+        },
+        {
+          "clause_path": "3.2",
+          "orphan_numbers": [
+            "0.36",
+            "1.75",
+            "10.51",
+            "1535.8",
+            "18",
+            "1828",
+            "1828.20",
+            "18282",
+            "1920.8",
+            "20",
+            "3.2",
+            "320",
+            "365.64",
+            "602",
+            "65",
+            "8.4",
+            "8.40"
+          ]
+        },
+        {
+          "clause_path": "chunk-32",
+          "orphan_numbers": [
+            "03",
+            "09",
+            "100",
+            "20",
+            "24",
+            "29",
+            "8000",
+            "8697",
+            "8999"
+          ]
+        },
+        {
+          "clause_path": "chunk-33",
+          "orphan_numbers": [
+            "03",
+            "09",
+            "1.2",
+            "20",
+            "25",
+            "29",
+            "8000",
+            "8697",
+            "8999"
+          ]
+        },
+        {
+          "clause_path": "3.3.1",
+          "orphan_numbers": [
+            "3.3",
+            "5.4"
+          ]
+        },
+        {
+          "clause_path": "12.5",
+          "orphan_numbers": [
+            "010",
+            "09",
+            "098697",
+            "10.5",
+            "12.5",
+            "124.2",
+            "1250",
+            "129.53",
+            "177",
+            "2020.12",
+            "20201112",
+            "2123",
+            "2715444",
+            "277",
+            "29",
+            "301",
+            "3012.5375",
+            "313",
+            "3212",
+            "381"
+          ]
+        },
+        {
+          "clause_path": "3.4.2",
+          "orphan_numbers": [
+            "1000",
+            "13.2",
+            "14.2",
+            "20",
+            "3.4"
+          ]
+        },
+        {
+          "clause_path": "chunk-49",
+          "orphan_numbers": [
+            "1.3",
+            "1.86",
+            "150",
+            "2.2",
+            "29",
+            "3.2",
+            "3.7",
+            "3959",
+            "50",
+            "6.11"
+          ]
+        },
+        {
+          "clause_path": "2.2",
+          "orphan_numbers": [
+            "100",
+            "2.2",
+            "3.2",
+            "3959"
+          ]
+        },
+        {
+          "clause_path": "5.1.2",
+          "orphan_numbers": [
+            "100",
+            "2.1",
+            "2.2",
+            "3",
+            "3.2",
+            "3959",
+            "5.1"
+          ]
+        },
+        {
+          "clause_path": "chunk-98",
+          "orphan_numbers": [
+            "047",
+            "29",
+            "3",
+            "3.7",
+            "3959"
+          ]
+        },
+        {
+          "clause_path": "chunk-99",
+          "orphan_numbers": [
+            "007",
+            "03",
+            "043",
+            "18",
+            "27",
+            "50"
+          ]
+        },
+        {
+          "clause_path": "3.1",
+          "orphan_numbers": [
+            "193",
+            "3",
+            "3.1",
+            "50"
+          ]
+        },
+        {
+          "clause_path": "4.2.3",
+          "orphan_numbers": [
+            "3",
+            "4.2"
+          ]
+        },
+        {
+          "clause_path": "chunk-205",
+          "orphan_numbers": [
+            "123",
+            "30",
+            "93"
+          ]
+        },
+        {
+          "clause_path": "chunk-274",
+          "orphan_numbers": [
+            "006",
+            "043",
+            "05",
+            "18",
+            "50"
+          ]
+        },
+        {
+          "clause_path": "chunk-354",
+          "orphan_numbers": [
+            "02",
+            "11",
+            "15",
+            "19105234",
+            "2.4",
+            "20",
+            "21",
+            "4.2",
+            "5.4",
+            "51",
+            "53",
+            "54",
+            "57",
+            "9"
+          ]
+        },
+        {
+          "clause_path": "chunk-359",
+          "orphan_numbers": [
+            "11",
+            "12",
+            "13",
+            "150",
+            "16",
+            "20",
+            "25",
+            "28",
+            "3",
+            "31",
+            "35",
+            "40",
+            "45",
+            "51",
+            "53",
+            "58",
+            "600",
+            "75",
+            "9.5",
+            "90"
+          ]
+        },
+        {
+          "clause_path": "chunk-361",
+          "orphan_numbers": [
+            "11",
+            "110",
+            "12",
+            "13",
+            "150",
+            "2.4",
+            "20",
+            "200",
+            "220",
+            "24",
+            "25",
+            "28",
+            "3",
+            "3.0",
+            "31",
+            "32",
+            "34",
+            "35",
+            "40",
+            "50"
+          ]
+        },
+        {
+          "clause_path": "chunk-395",
+          "orphan_numbers": [
+            "100",
+            "63"
+          ]
+        },
+        {
+          "clause_path": "3694.2",
+          "orphan_numbers": [
+            "11",
+            "12.512",
+            "12.53012",
+            "12.5315",
+            "1211",
+            "123456789",
+            "13",
+            "1328",
+            "15274.212446",
+            "153015450",
+            "193",
+            "20191817161514",
+            "2020.09",
+            "20200929",
+            "24.222",
+            "24.53024",
+            "25.110",
+            "25.112",
+            "25.212",
+            "25132.82315374"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-14",
+      "2.2.3",
+      "chunk-33",
+      "chunk-112",
+      "chunk-155",
+      "9.3",
+      "chunk-500"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "open_space.all",
+      "operator": "pct_gte",
+      "value_json": {
+        "value": 80.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "Minimum unrestricted POS proportion",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "open_space"
+      },
+      "unit": "%",
+      "pathway": "none",
+      "quote_anchor": "Min. 80% unrestricted POS 1462.56 m 2",
+      "applicability": {
+        "condition": "",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "site_area.all",
+      "operator": "lt",
+      "value_json": {
+        "value": 260.0,
+        "confidence": 0.95,
+        "applicability": {
+          "condition": "lots of irregular shape or less than 260m2 in area require Local Development Plan",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "site_area"
+      },
+      "unit": "m2",
+      "pathway": "none",
+      "quote_anchor": "less than 260m2 in area",
+      "applicability": {
+        "condition": "lots of irregular shape or less than 260m\u00b2 in area",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.95"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "source_version_id": "4f2487cc-0e65-453f-9525-90f45906517a",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 0,
+    "clauses_updated": 10
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 0,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 0,
+    "atoms_pending_review": 0,
+    "validator_rejects": 0,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 10,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "validator_failed": 8
+    },
+    "rules_approved_wp6": 0,
+    "review_items_open": 78,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 11,
+      "claimed": 0,
+      "clauses_with_orphans": 1,
+      "detail": [
+        {
+          "clause_path": "chunk-8",
+          "orphan_numbers": [
+            "05",
+            "13.5",
+            "14",
+            "15",
+            "2",
+            "3",
+            "4",
+            "4.5",
+            "4514799",
+            "6",
+            "8"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-7",
+      "chunk-8"
+    ]
+  },
+  "sample_approved_atoms": [],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

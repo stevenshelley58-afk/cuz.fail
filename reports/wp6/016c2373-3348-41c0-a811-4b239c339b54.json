@@ -1,0 +1,89 @@
+{
+  "source_version_id": "016c2373-3348-41c0-a811-4b239c339b54",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 148,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 1,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 0,
+    "atoms_pending_review": 0,
+    "validator_rejects": 0,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 148,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {},
+    "rules_approved_wp6": 0,
+    "review_items_open": 63,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 1,
+      "claimed": 0,
+      "clauses_with_orphans": 1,
+      "detail": [
+        {
+          "clause_path": "chunk-56",
+          "orphan_numbers": [
+            "27"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-17"
+    ]
+  },
+  "sample_approved_atoms": [],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

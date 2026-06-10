@@ -1,0 +1,491 @@
+{
+  "source_version_id": "9554ea37-dd7d-47ad-833b-ebec2e99fcac",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 115,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 31,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 2,
+    "atoms_pending_review": 107,
+    "validator_rejects": 139,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 115,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "auto_promoted": 2,
+      "pending_review": 107,
+      "validator_failed": 139,
+      "validators_passed": 124
+    },
+    "rules_approved_wp6": 2,
+    "review_items_open": 145,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 279,
+      "claimed": 14,
+      "clauses_with_orphans": 31,
+      "detail": [
+        {
+          "clause_path": "3.1.1",
+          "orphan_numbers": [
+            "04",
+            "1",
+            "12",
+            "15",
+            "18",
+            "3.1",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "3.1.2",
+          "orphan_numbers": [
+            "04",
+            "12",
+            "18",
+            "2",
+            "3.1",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "3.1.3",
+          "orphan_numbers": [
+            "2.4",
+            "3",
+            "3.1"
+          ]
+        },
+        {
+          "clause_path": "3.1.6",
+          "orphan_numbers": [
+            "3.1",
+            "6"
+          ]
+        },
+        {
+          "clause_path": "4.3",
+          "orphan_numbers": [
+            "0.5",
+            "04",
+            "1.2",
+            "12",
+            "14",
+            "18",
+            "2",
+            "3.8",
+            "4.3",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "4.3",
+          "orphan_numbers": [
+            "0.5",
+            "04",
+            "1.2",
+            "12",
+            "14",
+            "18",
+            "2",
+            "3.8",
+            "4.3",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-12",
+          "orphan_numbers": [
+            "04",
+            "12",
+            "18",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-14",
+          "orphan_numbers": [
+            "04",
+            "1",
+            "12",
+            "14",
+            "18",
+            "2",
+            "4.6",
+            "4518689",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "chunk-15",
+          "orphan_numbers": [
+            "01",
+            "04",
+            "1",
+            "12",
+            "15",
+            "18",
+            "2",
+            "3",
+            "3.4",
+            "4.6",
+            "40",
+            "4518689",
+            "5",
+            "6"
+          ]
+        },
+        {
+          "clause_path": "chunk-16",
+          "orphan_numbers": [
+            "0.6",
+            "04",
+            "12",
+            "16",
+            "18",
+            "2",
+            "3.1",
+            "3.2",
+            "3.5",
+            "3.6",
+            "3.8",
+            "4.3",
+            "4.5",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-17",
+          "orphan_numbers": [
+            "04",
+            "12",
+            "14",
+            "17",
+            "18",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-18",
+          "orphan_numbers": [
+            "04",
+            "05",
+            "1.0",
+            "1.2",
+            "18",
+            "4.6"
+          ]
+        },
+        {
+          "clause_path": "chunk-19",
+          "orphan_numbers": [
+            "02",
+            "04",
+            "06",
+            "1",
+            "12",
+            "18",
+            "19",
+            "2",
+            "3",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-20",
+          "orphan_numbers": [
+            "04",
+            "1",
+            "12",
+            "18",
+            "2",
+            "20",
+            "3",
+            "3.4",
+            "4.6",
+            "40",
+            "4518689",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "chunk-21",
+          "orphan_numbers": [
+            "0.6",
+            "04",
+            "12",
+            "18",
+            "2",
+            "21",
+            "3.1",
+            "3.2",
+            "3.5",
+            "3.6",
+            "3.8",
+            "4.3",
+            "4.5",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-22",
+          "orphan_numbers": [
+            "04",
+            "12",
+            "14",
+            "18",
+            "22",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-23",
+          "orphan_numbers": [
+            "04",
+            "06",
+            "07",
+            "1.0",
+            "1.2",
+            "12",
+            "18",
+            "23",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-26",
+          "orphan_numbers": [
+            "03",
+            "04",
+            "1",
+            "12",
+            "18",
+            "2",
+            "26",
+            "3",
+            "4.6",
+            "4518689",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "chunk-28",
+          "orphan_numbers": [
+            "04",
+            "1.0",
+            "1.2",
+            "12",
+            "18",
+            "28",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-32",
+          "orphan_numbers": [
+            "04",
+            "1",
+            "12",
+            "18",
+            "2",
+            "3",
+            "32",
+            "4.6",
+            "4518689",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "chunk-33",
+          "orphan_numbers": [
+            "0.5",
+            "04",
+            "1.2",
+            "12",
+            "14",
+            "18",
+            "2",
+            "235",
+            "239",
+            "247",
+            "259",
+            "3.1",
+            "3.8",
+            "33",
+            "4.3",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-34",
+          "orphan_numbers": [
+            "04",
+            "1",
+            "1.2",
+            "12",
+            "18",
+            "34",
+            "4.6",
+            "4518689"
+          ]
+        },
+        {
+          "clause_path": "chunk-35",
+          "orphan_numbers": [
+            "13",
+            "35",
+            "4.6"
+          ]
+        },
+        {
+          "clause_path": "chunk-36",
+          "orphan_numbers": [
+            "04",
+            "1",
+            "12",
+            "18",
+            "2",
+            "3",
+            "36",
+            "4.6",
+            "4518689",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "chunk-37",
+          "orphan_numbers": [
+            "04",
+            "1",
+            "12",
+            "14",
+            "18",
+            "2",
+            "3",
+            "37",
+            "4.6",
+            "4518689",
+            "5"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "chunk-15",
+      "chunk-16",
+      "chunk-20",
+      "chunk-21",
+      "chunk-54"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "open_space.all",
+      "operator": "pct_gte",
+      "value_json": {
+        "value": 80.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "commercial street level frontages glazed",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "open_space"
+      },
+      "unit": "%",
+      "pathway": "deemed_to_comply",
+      "quote_anchor": "minimum of 80% of the frontage shall be glazed",
+      "applicability": {
+        "condition": "commercial street level frontages glazed",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    },
+    {
+      "rule_key": "primary_street_setback.all",
+      "operator": "eq",
+      "value_json": {
+        "value": 4.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "setback to public parkland",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "primary_street_setback"
+      },
+      "unit": "m",
+      "pathway": "none",
+      "quote_anchor": "permitted within the 4m setback to public parkland",
+      "applicability": {
+        "condition": "setback to public parkland",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}
