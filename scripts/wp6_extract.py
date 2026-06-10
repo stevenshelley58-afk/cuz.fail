@@ -9,14 +9,22 @@ Runs INSIDE the api container (psycopg3 + LLM env present):
 Pipeline (docs/CORPUS_COMPLETENESS_PLAN.md Phase 4 / DB_BUILDOUT_AGENT_PLAN WP6):
   1. Structure pass: split source_chunks into clauses rows (idempotent on
      (source_version_id, clause_key)).
-  2. For each Tier-1-relevant rule-bearing clause: 3 blind extraction passes,
-     temperature 0, strict JSON, mandatory verbatim quote anchor per atom.
-     Pass 1+2 = MiniMax, pass 3 = OpenAI (different model family) when
-     OPENAI_API_KEY is set, else MiniMax for all three (escalation logged).
+  2. For EVERY clause containing a number (no topic regex, no keyword
+     disposition gate — the LLM decides whether a clause yields rule atoms):
+     3 blind extraction passes, temperature 0, strict JSON, mandatory
+     verbatim quote anchor per atom. Pass 1+2 = MiniMax, pass 3 = OpenAI
+     (different model family) when available (escalation logged otherwise).
   3. Deterministic validators (draftcheck.extraction.validators) plus range
      priors, R-code sanity (R5..R80 + RAC/R-AC excluded), mandatory pathway.
-  4. Adjudication: 3/3 -> rules (lifecycle approved, confidence 0.95);
-     2/3 -> one challenge round; else rule_candidates + review_items.
+     An atom whose ONLY failure is an unknown rule_key is kept as a
+     pending_review candidate (vocabulary_gap) instead of being discarded —
+     vocabulary growth is a review decision, not a silent drop.
+  4. Adjudication (draftcheck.extraction.adjudication): votes are counted on
+     the deterministic core (rule_key, operator, value, unit) per MODEL
+     FAMILY — two temp-0 passes of the same model are one vote. 2 families
+     agreeing -> approved rule with conservatively merged applicability;
+     single-family cores get one challenge round against the other family;
+     all remaining disagreement -> rule_candidates + review_items.
   5. Per-doc acceptance audit JSON (orphan numbers, exception language,
      pending_review counts).
 
@@ -46,12 +54,20 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 import psycopg  # noqa: E402
 from psycopg.types.json import Json  # noqa: E402
 
+from draftcheck.extraction.adjudication import (  # noqa: E402
+    PROMOTE,
+    REASON_SINGLE_FAMILY,
+    Vote,
+    adjudicate,
+    core_of,
+    model_family,
+)
 from draftcheck.extraction.normalize import normalize_unit, whitespace_normalize  # noqa: E402
 from draftcheck.extraction.validators import run_all_validators  # noqa: E402
 from draftcheck.extraction.vocabulary import OPERATORS, RULE_KEYS  # noqa: E402
 
 ORG_ID = "1d31c315-5087-47df-a8d4-ebfd08efad5d"  # DraftCheck WA
-SKILL_VERSION_ID = "wp6-extractor-v1"
+SKILL_VERSION_ID = "wp6-extractor-v2"
 PATHWAYS = {"deemed_to_comply", "design_principle", "none"}
 VALID_R_CODES = {f"R{n}" for n in (5, 10, 12.5, 15, 17.5, 20, 25, 30, 35, 40, 50, 60, 80)}
 VALID_R_CODES = {c.replace(".0", "") for c in VALID_R_CODES} | {"R12.5", "R17.5", "R100", "R160", "R-AC", "R100-SL"}
@@ -442,11 +458,11 @@ def parse_atoms(payload: dict | None, pass_no: int, model: str) -> list[Atom]:
     return atoms
 
 
-def validate_atom(atom: Atom, clause_text: str) -> None:
+def validate_atom(atom: Atom, clause_text: str, disposition: str = "rule_bearing") -> None:
     results = run_all_validators(
         quote=atom.quote,
         clause_text=clause_text,
-        disposition="rule_bearing",
+        disposition=disposition,
         value_json={"value": atom.value},
         unit=atom.unit,
         rule_key=atom.rule_key,
@@ -480,6 +496,29 @@ def validate_atom(atom: Atom, clause_text: str) -> None:
     atom.valid = all(v["pass"] for v in results.values())
 
 
+def vocab_gap_only(atom: Atom) -> bool:
+    """True when the ONLY validator failure is an unknown rule_key."""
+    if atom.valid or not atom.validators:
+        return False
+    rk = atom.validators.get("rule_key", {"pass": True})
+    others_ok = all(v["pass"] for k, v in atom.validators.items() if k != "rule_key")
+    return others_ok and not rk["pass"]
+
+
+def vote_from_atom(atom: Atom) -> Vote:
+    return Vote(
+        rule_key=atom.rule_key,
+        rule_type=atom.rule_type,
+        pathway=atom.pathway,
+        operator=atom.operator,
+        value=atom.value,
+        unit=atom.unit,
+        density_codes=tuple(sorted(str(c) for c in (atom.applicability.get("density_codes") or []))),
+        dwelling_type=str(atom.applicability.get("dwelling_type") or "any"),
+        model=atom.model,
+    )
+
+
 def prompt_for_clause(clause_path: str, clause_text: str) -> str:
     return (
         f"Clause reference: {clause_path}\n"
@@ -489,15 +528,15 @@ def prompt_for_clause(clause_path: str, clause_text: str) -> str:
     )
 
 
-def challenge_prompt(clause_path: str, clause_text: str, variants: list[tuple]) -> str:
+def challenge_prompt(clause_path: str, clause_text: str, votes: list[Vote]) -> str:
     lines = []
-    for sig in variants:
+    for v in votes:
         lines.append(
-            f"- rule_key={sig[0]} operator={sig[1]} value={sig[2]} unit={sig[3]} "
-            f"density_codes={list(sig[4])} pathway={sig[5]} dwelling_type={sig[6]}"
+            f"- rule_key={v.rule_key} operator={v.operator} value={v.value} unit={v.unit} "
+            f"density_codes={list(v.density_codes)} pathway={v.pathway} dwelling_type={v.dwelling_type}"
         )
     return (
-        "Independent extractions of the same clause disagree:\n" + "\n".join(lines) +
+        "An independent extraction of the same clause produced:\n" + "\n".join(lines) +
         "\n\nRe-read the clause carefully and produce your own corrected extraction. "
         "Do not assume any variant above is right; only the clause text decides.\n\n"
         + prompt_for_clause(clause_path, clause_text)
@@ -514,6 +553,7 @@ def insert_candidate(
     review_status: str,
     confidence: float | None,
     prompt_text: str,
+    metadata: dict | None = None,
 ) -> str:
     cid = str(uuid.uuid4())
     conn.execute(
@@ -532,7 +572,7 @@ def insert_candidate(
             Json({"value": atom.value}), atom.unit, Json(atom.applicability), atom.quote,
             atom.model, hashlib.sha256(prompt_text.encode()).hexdigest(),
             confidence, review_status,
-            Json({"wp6": True}), group_id, atom.extraction_pass, Json(atom.validators),
+            Json({"wp6": True, **(metadata or {})}), group_id, atom.extraction_pass, Json(atom.validators),
         ),
     )
     return cid
@@ -606,6 +646,7 @@ def extract_for_clause(
     clause_path: str,
     clause_text: str,
     stats: dict,
+    disposition: str = "rule_bearing",
 ) -> None:
     group_id = str(uuid.uuid4())
     prompt = prompt_for_clause(clause_path, clause_text)
@@ -619,70 +660,104 @@ def extract_for_clause(
             continue
         atoms = parse_atoms(parse_llm_json(raw), i, f"{ep.name}:{ep.model}")
         for atom in atoms:
-            validate_atom(atom, clause_text)
-            if not atom.valid:
+            validate_atom(atom, clause_text, disposition)
+            if atom.valid:
+                insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
+                                 "validators_passed", None, prompt)
+            elif vocab_gap_only(atom):
+                # Unknown rule_key but quote/number/unit all check out: this is
+                # vocabulary growth material, not garbage. Keep it reviewable.
+                insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
+                                 "pending_review", None, prompt,
+                                 metadata={"pending_reason": "vocabulary_gap"})
+                stats["vocab_gap_atoms"] += 1
+            else:
                 stats["validator_rejects"] += 1
-            insert_candidate(
-                conn, sv_id, clause_id, chunk_id, atom, group_id,
-                "validator_failed" if not atom.valid else "validators_passed",
-                None, prompt,
-            )
+                insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
+                                 "validator_failed", None, prompt)
         pass_atoms.append([a for a in atoms if a.valid])
     conn.commit()
 
-    # Adjudication per signature
-    sig_by_pass: list[set] = [{a.signature() for a in p} for p in pass_atoms]
-    all_sigs = set().union(*sig_by_pass) if sig_by_pass else set()
-    atom_by_sig: dict[tuple, Atom] = {}
-    for p in pass_atoms:
-        for a in p:
-            atom_by_sig.setdefault(a.signature(), a)
+    # Family-aware adjudication on the deterministic core (see
+    # draftcheck.extraction.adjudication for the policy and its rationale).
+    import dataclasses
 
-    pending_signatures: list[tuple] = []
-    for sig in sorted(all_sigs):
-        votes = sum(1 for s in sig_by_pass if sig in s)
-        atom = atom_by_sig[sig]
-        if votes == 3:
-            cid = insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
-                                   "auto_promoted", 0.95, prompt)
-            promote_rule(conn, sv_id, clause_id, cid, atom, 0.95)
-            stats["atoms_auto_accepted"] += 1
-        elif votes == 2:
-            # one challenge round against the dissenting pass's endpoint
-            dissent_idx = next(i for i, s in enumerate(sig_by_pass) if sig not in s)
-            ep = endpoints[dissent_idx]
-            disagreeing = [s for s in all_sigs if s[0] == sig[0]]
-            ch_prompt = challenge_prompt(clause_path, clause_text, disagreeing)
-            agreed = False
-            try:
-                raw = ep.complete(SYSTEM_PROMPT, ch_prompt)
-                re_atoms = parse_atoms(parse_llm_json(raw), dissent_idx + 1, f"{ep.name}:{ep.model}:challenge")
-                for a in re_atoms:
-                    validate_atom(a, clause_text)
-                agreed = any(a.valid and a.signature() == sig for a in re_atoms)
-            except RuntimeError as exc:
-                stats["llm_errors"].append(f"{clause_path} challenge: {exc}")
-            if agreed:
-                cid = insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
-                                       "auto_promoted", 0.9, prompt)
-                promote_rule(conn, sv_id, clause_id, cid, atom, 0.9)
+    valid_atoms = [a for p in pass_atoms for a in p]
+    groups: dict[tuple, list[tuple[Vote, Atom]]] = {}
+    for a in valid_atoms:
+        v = vote_from_atom(a)
+        groups.setdefault(core_of(v), []).append((v, a))
+
+    pending_cores: list[tuple[tuple, str]] = []
+    for core in sorted(groups, key=str):
+        pair_group = groups[core]
+        decision = adjudicate([v for v, _ in pair_group])
+        challenged = False
+
+        if decision.outcome != PROMOTE and decision.reason == REASON_SINGLE_FAMILY:
+            # One challenge round against an endpoint from a DIFFERENT family.
+            fam = model_family(pair_group[0][0].model)
+            other_ep = next((ep for ep in endpoints if ep.name.lower() != fam), None)
+            if other_ep is not None:
+                ch_prompt = challenge_prompt(clause_path, clause_text, [v for v, _ in pair_group])
+                try:
+                    raw = other_ep.complete(SYSTEM_PROMPT, ch_prompt)
+                    re_atoms = parse_atoms(parse_llm_json(raw), 0,
+                                           f"{other_ep.name}:{other_ep.model}:challenge")
+                    for a in re_atoms:
+                        validate_atom(a, clause_text, disposition)
+                        if not a.valid:
+                            continue
+                        v = vote_from_atom(a)
+                        if core_of(v) == core:
+                            insert_candidate(conn, sv_id, clause_id, chunk_id, a, group_id,
+                                             "validators_passed", None, prompt)
+                            pair_group.append((v, a))
+                            challenged = True
+                    decision = adjudicate([v for v, _ in pair_group])
+                except RuntimeError as exc:
+                    stats["llm_errors"].append(f"{clause_path} challenge: {exc}")
+
+        rep_atom = max((a for _, a in pair_group), key=lambda a: len(a.quote))
+        if decision.outcome == PROMOTE:
+            merged = dataclasses.replace(
+                rep_atom,
+                pathway=decision.pathway,
+                rule_type=decision.rule_type,
+                applicability={
+                    **rep_atom.applicability,
+                    "density_codes": list(decision.density_codes),
+                    "dwelling_type": decision.dwelling_type,
+                },
+            )
+            cid = insert_candidate(
+                conn, sv_id, clause_id, chunk_id, merged, group_id,
+                "auto_promoted", decision.confidence, prompt,
+                metadata={"adjudication": "v2-core-family",
+                          "families": list(decision.families),
+                          "dissent": list(decision.dissent)},
+            )
+            promote_rule(conn, sv_id, clause_id, cid, merged, decision.confidence)
+            if challenged:
                 stats["atoms_challenge_accepted"] += 1
             else:
-                insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
-                                 "pending_review", 0.6, prompt)
-                pending_signatures.append(sig)
-                stats["atoms_pending_review"] += 1
+                stats["atoms_auto_accepted"] += 1
         else:
-            insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
-                             "pending_review", 0.3, prompt)
-            pending_signatures.append(sig)
+            insert_candidate(
+                conn, sv_id, clause_id, chunk_id, rep_atom, group_id,
+                "pending_review", 0.5, prompt,
+                metadata={"pending_reason": decision.reason},
+            )
+            pending_cores.append((core, decision.reason))
             stats["atoms_pending_review"] += 1
 
+    pending_signatures = pending_cores
     if pending_signatures:
         open_review_item(
             conn, clause_id,
-            f"WP6 ensemble disagreement on clause {clause_path}: "
-            f"{len(pending_signatures)} atom(s) without majority/challenge agreement",
+            f"WP6 v2 adjudication on clause {clause_path}: "
+            f"{len(pending_signatures)} core(s) unresolved: "
+            + "; ".join(f"{c[0]} ({reason})" for c, reason in pending_signatures[:6]),
         )
     conn.commit()
     flush_spend_events(conn, "wp6_extraction", run_meta={"source_version_id": sv_id})
@@ -825,7 +900,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--source-version", required=True)
     ap.add_argument("--structure-only", action="store_true")
-    ap.add_argument("--limit", type=int, default=0, help="cap rule-bearing clauses processed")
+    ap.add_argument("--limit", type=int, default=0, help="cap clauses processed")
     ap.add_argument("--report", default="")
     ap.add_argument("--workers", type=int, default=1, help="concurrent clause workers (each gets its own DB connection)")
     args = ap.parse_args()
@@ -850,26 +925,31 @@ def main() -> int:
                 "atoms_auto_accepted": 0,
                 "atoms_challenge_accepted": 0,
                 "atoms_pending_review": 0,
+                "vocab_gap_atoms": 0,
                 "validator_rejects": 0,
                 "llm_errors": [],
             }
+            # Every clause containing a number is extraction-worthy. The LLM —
+            # not a keyword/topic regex — decides whether it yields rule atoms
+            # ({"atoms": [], "no_rules": true} is a valid, cheap outcome).
             clauses = conn.execute(
-                "SELECT c.id, c.source_chunk_id, c.clause_path, c.text FROM clauses c "
-                "WHERE c.source_version_id = %s AND c.disposition = 'rule_bearing' "
+                "SELECT c.id, c.source_chunk_id, c.clause_path, c.text, c.disposition "
+                "FROM clauses c "
+                "WHERE c.source_version_id = %s "
                 "AND NOT EXISTS (SELECT 1 FROM rule_candidates rc WHERE rc.clause_id = c.id) "
                 "ORDER BY c.clause_key",
                 (sv_id,),
             ).fetchall()
-            clauses = [c for c in clauses if TIER1_TOPIC_RE.search(c[3]) and re.search(r"\d", c[3])]
+            clauses = [c for c in clauses if re.search(r"\d", c[3])]
             if args.limit:
                 clauses = clauses[: args.limit]
-            print(f"rule-bearing tier1 clauses to process: {len(clauses)}", flush=True)
+            print(f"numeric clauses to process: {len(clauses)}", flush=True)
             if args.workers <= 1:
-                for cid, chunk_id, path, text in clauses:
+                for cid, chunk_id, path, text, disp in clauses:
                     stats["clauses_processed"] += 1
                     print(f"[{stats['clauses_processed']}/{len(clauses)}] {path}", flush=True)
                     extract_for_clause(conn, endpoints, sv_id, str(cid), str(chunk_id) if chunk_id else None,
-                                       path or "?", text, stats)
+                                       path or "?", text, stats, disp or "rule_bearing")
             else:
                 import threading
                 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -883,18 +963,20 @@ def main() -> int:
                     return tls.conn
 
                 def work(item: tuple) -> dict:
-                    cid, chunk_id, path, text = item
+                    cid, chunk_id, path, text, disp = item
                     local_stats = {
                         "clauses_processed": 1,
                         "atoms_auto_accepted": 0,
                         "atoms_challenge_accepted": 0,
                         "atoms_pending_review": 0,
+                        "vocab_gap_atoms": 0,
                         "validator_rejects": 0,
                         "llm_errors": [],
                     }
                     extract_for_clause(thread_conn(), endpoints, sv_id, str(cid),
                                        str(chunk_id) if chunk_id else None,
-                                       path or "?", text, local_stats)
+                                       path or "?", text, local_stats,
+                                       disp or "rule_bearing")
                     return local_stats
 
                 with ThreadPoolExecutor(max_workers=args.workers) as pool:
