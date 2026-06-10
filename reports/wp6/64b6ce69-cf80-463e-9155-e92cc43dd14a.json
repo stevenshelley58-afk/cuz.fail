@@ -1,0 +1,138 @@
+{
+  "source_version_id": "64b6ce69-cf80-463e-9155-e92cc43dd14a",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 76,
+    "clauses_updated": 0
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 5,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 0,
+    "atoms_pending_review": 1,
+    "validator_rejects": 20,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 76,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "pending_review": 1,
+      "validator_failed": 20,
+      "validators_passed": 1
+    },
+    "rules_approved_wp6": 0,
+    "review_items_open": 89,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 25,
+      "claimed": 0,
+      "clauses_with_orphans": 5,
+      "detail": [
+        {
+          "clause_path": "1.3.1",
+          "orphan_numbers": [
+            "1",
+            "1.3",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "1.3.2",
+          "orphan_numbers": [
+            "1.3",
+            "2"
+          ]
+        },
+        {
+          "clause_path": "3.7.1",
+          "orphan_numbers": [
+            "1",
+            "3.7",
+            "400",
+            "60"
+          ]
+        },
+        {
+          "clause_path": "chunk-16",
+          "orphan_numbers": [
+            "17",
+            "2.6",
+            "3",
+            "4",
+            "5"
+          ]
+        },
+        {
+          "clause_path": "chunk-17",
+          "orphan_numbers": [
+            "1",
+            "10",
+            "199818",
+            "2.6",
+            "200",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "3.2.1",
+      "3.6.6"
+    ]
+  },
+  "sample_approved_atoms": [],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

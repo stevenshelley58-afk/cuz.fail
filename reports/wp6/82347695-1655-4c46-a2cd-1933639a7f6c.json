@@ -1,0 +1,150 @@
+{
+  "source_version_id": "82347695-1655-4c46-a2cd-1933639a7f6c",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 0,
+    "clauses_updated": 5
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 0,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 0,
+    "atoms_pending_review": 0,
+    "validator_rejects": 0,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 5,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "auto_promoted": 1,
+      "pending_review": 2,
+      "validator_failed": 4,
+      "validators_passed": 4
+    },
+    "rules_approved_wp6": 1,
+    "review_items_open": 147,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 27,
+      "claimed": 2,
+      "clauses_with_orphans": 3,
+      "detail": [
+        {
+          "clause_path": "chunk-1",
+          "orphan_numbers": [
+            "0.3",
+            "1",
+            "1.2",
+            "1.5",
+            "18",
+            "19",
+            "2",
+            "28",
+            "30",
+            "39",
+            "4",
+            "40",
+            "50",
+            "57"
+          ]
+        },
+        {
+          "clause_path": "chunk-2",
+          "orphan_numbers": [
+            "1",
+            "2",
+            "50"
+          ]
+        },
+        {
+          "clause_path": "chunk-3",
+          "orphan_numbers": [
+            "157",
+            "158",
+            "2.0",
+            "27",
+            "30",
+            "40",
+            "50",
+            "60"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": []
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "building_storeys.all",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "building_storeys"
+      },
+      "unit": "storeys",
+      "pathway": "design_principle",
+      "quote_anchor": "Development internally may extend to a maximum of 3 storeys in height",
+      "applicability": {
+        "condition": "",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

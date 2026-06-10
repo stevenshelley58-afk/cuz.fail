@@ -11,6 +11,10 @@ RULE_KEYS = frozenset({
     "garage_width",
     "boundary_wall_length",
     "building_height",
+    "site_area",
+    "outdoor_living_area",
+    "soft_landscaping",
+    "building_storeys",
 })
 
 OPERATORS = frozenset({"lte", "gte", "eq", "lt", "gt", "range", "pct_lte", "pct_gte"})

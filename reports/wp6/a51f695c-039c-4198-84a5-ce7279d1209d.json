@@ -1,0 +1,172 @@
+{
+  "source_version_id": "a51f695c-039c-4198-84a5-ce7279d1209d",
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "structure_pass": {
+    "clauses_created": 139,
+    "clauses_updated": 1
+  },
+  "ensemble_models": [
+    "minimax:MiniMax-M2",
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "extraction_stats": {
+    "clauses_processed": 7,
+    "atoms_auto_accepted": 0,
+    "atoms_challenge_accepted": 1,
+    "atoms_pending_review": 7,
+    "validator_rejects": 8,
+    "llm_errors": []
+  },
+  "audit": {
+    "clauses_total": 139,
+    "clauses_dispositioned_pct": 100.0,
+    "rule_candidates_by_status": {
+      "auto_promoted": 1,
+      "pending_review": 7,
+      "validator_failed": 8,
+      "validators_passed": 9
+    },
+    "rules_approved_wp6": 1,
+    "review_items_open": 152,
+    "orphan_number_sweep": {
+      "tier1_numeric_tokens": 22,
+      "claimed": 4,
+      "clauses_with_orphans": 7,
+      "detail": [
+        {
+          "clause_path": "7.5",
+          "orphan_numbers": [
+            "195",
+            "196",
+            "7.5",
+            "8"
+          ]
+        },
+        {
+          "clause_path": "3.3.7",
+          "orphan_numbers": [
+            "3.3",
+            "7"
+          ]
+        },
+        {
+          "clause_path": "6.1",
+          "orphan_numbers": [
+            "6.1"
+          ]
+        },
+        {
+          "clause_path": "6.3",
+          "orphan_numbers": [
+            "157",
+            "170",
+            "2",
+            "6.3"
+          ]
+        },
+        {
+          "clause_path": "6.6",
+          "orphan_numbers": [
+            "6.6"
+          ]
+        },
+        {
+          "clause_path": "chunk-19",
+          "orphan_numbers": [
+            "1.8",
+            "1000",
+            "17",
+            "2",
+            "8"
+          ]
+        },
+        {
+          "clause_path": "2.3",
+          "orphan_numbers": [
+            "2.3"
+          ]
+        }
+      ]
+    },
+    "exception_language_clauses": [
+      "7.5",
+      "chunk-6",
+      "chunk-13",
+      "chunk-16",
+      "7.6",
+      "chunk-19",
+      "chunk-25",
+      "chunk-47"
+    ]
+  },
+  "sample_approved_atoms": [
+    {
+      "rule_key": "open_space.all",
+      "operator": "pct_gte",
+      "value_json": {
+        "value": 10.0,
+        "confidence": 0.9,
+        "applicability": {
+          "condition": "public open space contribution for canal estates",
+          "density_codes": [],
+          "dwelling_type": "any"
+        },
+        "base_rule_key": "open_space"
+      },
+      "unit": "%",
+      "pathway": "none",
+      "quote_anchor": "10 per cent public open space contribution",
+      "applicability": {
+        "condition": "public open space contribution for canal estates",
+        "density_codes": [],
+        "dwelling_type": "any"
+      },
+      "confidence": "0.9"
+    }
+  ],
+  "legacy_seed_cross_check": [
+    {
+      "expectation": [
+        "primary_street_setback",
+        "R30",
+        "gte",
+        4.0,
+        "m"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "site_cover",
+        "R30",
+        "lte",
+        60.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "open_space",
+        "R30",
+        "gte",
+        45.0,
+        "%"
+      ],
+      "status": "not_extracted"
+    },
+    {
+      "expectation": [
+        "outdoor_living_area",
+        "R30",
+        "gte",
+        24.0,
+        "m2"
+      ],
+      "status": "not_extracted"
+    }
+  ]
+}

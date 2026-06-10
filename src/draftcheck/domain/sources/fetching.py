@@ -164,6 +164,13 @@ def extract_source_text_with_metadata(
     lowered_url = final_url.lower()
     if "pdf" in lowered_type or lowered_url.endswith(".pdf"):
         return _extract_pdf_text_with_metadata(content)
+    if (
+        "wordprocessingml" in lowered_type
+        or lowered_url.endswith(".docx")
+        or ("-docx" in lowered_url and content[:2] == b"PK")
+        or (content[:2] == b"PK" and _zip_has_docx_document(content))
+    ):
+        return _extract_docx_text_with_metadata(content)
     if "html" in lowered_type or lowered_url.endswith((".html", ".htm", "/")):
         return SourceTextExtraction(
             text=_extract_html_text(content, final_url=final_url),
@@ -187,6 +194,74 @@ def extract_source_text_with_metadata(
             },
             "parse_quality": {
                 "status": "text_extracted" if text else "no_parseable_text",
+            },
+        },
+    )
+
+
+def _zip_has_docx_document(content: bytes) -> bool:
+    import zipfile
+    from io import BytesIO as _BytesIO
+
+    try:
+        with zipfile.ZipFile(_BytesIO(content)) as archive:
+            return "word/document.xml" in archive.namelist()
+    except (zipfile.BadZipFile, OSError):
+        return False
+
+
+def _extract_docx_text_with_metadata(content: bytes) -> SourceTextExtraction:
+    """Extract paragraph text from a DOCX file using only the standard library."""
+
+    import xml.etree.ElementTree as ElementTree
+    import zipfile
+    from io import BytesIO as _BytesIO
+
+    namespace = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    paragraphs: list[str] = []
+    try:
+        with zipfile.ZipFile(_BytesIO(content)) as archive:
+            if "word/document.xml" not in archive.namelist():
+                raise ValueError("docx archive has no word/document.xml")
+            root = ElementTree.fromstring(archive.read("word/document.xml"))
+            for paragraph in root.iter(f"{namespace}p"):
+                runs: list[str] = []
+                for node in paragraph.iter():
+                    if node.tag == f"{namespace}t" and node.text:
+                        runs.append(node.text)
+                    elif node.tag in (f"{namespace}tab",):
+                        runs.append("\t")
+                    elif node.tag in (f"{namespace}br", f"{namespace}cr"):
+                        runs.append("\n")
+                text = "".join(runs).strip()
+                if text:
+                    paragraphs.append(text)
+    except (zipfile.BadZipFile, ElementTree.ParseError, KeyError, OSError) as exc:
+        return SourceTextExtraction(
+            text="",
+            metadata={
+                "extraction": {
+                    "content_kind": "docx",
+                    "method": "stdlib_zip_xml",
+                    "error": str(exc),
+                },
+                "parse_quality": {
+                    "status": "no_parseable_text",
+                },
+            },
+        )
+    text = "\n\n".join(paragraphs).strip()
+    return SourceTextExtraction(
+        text=text,
+        metadata={
+            "extraction": {
+                "content_kind": "docx",
+                "method": "stdlib_zip_xml",
+                "paragraph_count": len(paragraphs),
+            },
+            "parse_quality": {
+                "status": "text_extracted" if text else "no_parseable_text",
+                "text_char_count": len(text),
             },
         },
     )
