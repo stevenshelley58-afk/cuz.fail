@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { marked } from "marked";
 import { api, type AddressSuggestion, type AssistantTurn, type ChatReply, type CitationMapEntry, type ProjectSummary } from "../api";
-import { Icon, StatusBar, ThinkBlock } from "../components/common";
+import { Icon, ThinkBlock } from "../components/common";
 import { GUEST_ADDRESS_LIMIT, GUEST_CHAT_LIMIT } from "../config";
 import { guestProjectList } from "../hooks/useGuestUsage";
 import type { GuestFeature, GuestUsage, WizardState } from "../types";
@@ -138,9 +138,13 @@ export function Home({
     }
     sugTimer.current = window.setTimeout(async () => {
       const seq = ++sugSeq.current;
-      const r = await api.suggestAddresses(t);
+      // Same endpoint send() routes through, so the dropdown and the
+      // send-time decision can never disagree about what an address is.
+      const r = await api.searchAddress(t, 6);
       if (seq !== sugSeq.current) return; // stale response
-      const list = r.kind === "ok" ? r.data.suggestions : [];
+      const list = r.kind === "ok"
+        ? r.data.items.map((i) => ({ address: i.address, gnaf_pid: i.gnaf_pid }))
+        : [];
       if (r.kind === "ok") cacheSugs(key, list);
       setSugs(list.slice(0, 6));
       setSugIdx(-1);
@@ -411,7 +415,7 @@ export function Home({
       <div className={`conv${msgs.length ? " active" : ""}`}>
         {msgs.length === 0 && (
           <div className="greet">
-            <h1>Where do we start?</h1>
+            <h1>Know your block before you build.</h1>
           </div>
         )}
         {msgs.length > 0 && (
@@ -552,7 +556,6 @@ export function Home({
           </div>
         </div>
       )}
-      <StatusBar />
     </>
   );
 }
