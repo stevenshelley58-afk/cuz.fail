@@ -29,6 +29,18 @@ function addressIntent(t: string): boolean {
   return /^\d+[a-z]?([\s/,]|$)/i.test(t.trim()) && t.trim().length >= 3;
 }
 
+// Session-lived suggestion cache so backspacing/retyping renders instantly
+// without a round-trip. Bounded to keep memory flat.
+const sugCache = new Map<string, AddressSuggestion[]>();
+const SUG_CACHE_MAX = 200;
+function cacheSugs(key: string, value: AddressSuggestion[]) {
+  if (sugCache.size >= SUG_CACHE_MAX) {
+    const oldest = sugCache.keys().next().value;
+    if (oldest !== undefined) sugCache.delete(oldest);
+  }
+  sugCache.set(key, value);
+}
+
 function citationChip(citation: NonNullable<ChatReply["citations"]>[number]): string {
   return [
     citation.source_title,
@@ -92,18 +104,23 @@ export function Home({
       closeSugs();
       return;
     }
+    const key = t.toLowerCase();
+    const cached = sugCache.get(key);
+    if (cached) {
+      sugSeq.current += 1; // cancel any in-flight lookup
+      setSugs(cached.slice(0, 6));
+      setSugIdx(-1);
+      return;
+    }
     sugTimer.current = window.setTimeout(async () => {
       const seq = ++sugSeq.current;
       const r = await api.suggestAddresses(t);
       if (seq !== sugSeq.current) return; // stale response
-      if (r.kind === "ok" && r.data.suggestions.length) {
-        setSugs(r.data.suggestions.slice(0, 6));
-        setSugIdx(-1);
-      } else {
-        setSugs([]);
-        setSugIdx(-1);
-      }
-    }, 200);
+      const list = r.kind === "ok" ? r.data.suggestions : [];
+      if (r.kind === "ok") cacheSugs(key, list);
+      setSugs(list.slice(0, 6));
+      setSugIdx(-1);
+    }, 120);
   }, [closeSugs]);
 
   useEffect(() => () => window.clearTimeout(sugTimer.current), []);

@@ -262,14 +262,18 @@ def suggest_addresses(
 
     from sqlalchemy import text as sql_text
 
+    # Both predicates are served by the gin_trgm_ops index on address_text
+    # (migration 0014): ILIKE via trigram extraction, `%` via the similarity
+    # threshold. similarity() appears only in ORDER BY, computed on the few
+    # index-matched rows — never as a table-scan filter.
     trigram_sql = sql_text(
         """
         SELECT address_text, gnaf_pid
         FROM address_points
         WHERE address_text ILIKE :prefix
-           OR similarity(lower(address_text), lower(:q)) > 0.3
+           OR address_text % :q
         ORDER BY (address_text ILIKE :prefix) DESC,
-                 similarity(lower(address_text), lower(:q)) DESC,
+                 similarity(address_text, :q) DESC,
                  address_text
         LIMIT :limit
         """
