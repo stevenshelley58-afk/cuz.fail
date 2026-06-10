@@ -45,6 +45,93 @@ _OPERATORS: dict[str, Any] = {
     "eq":  lambda measured, threshold: float(measured) == float(threshold),
 }
 
+# Spelling variants written by extractors (WP6 percent atoms, legacy seeds).
+_OPERATOR_ALIASES: dict[str, str] = {
+    "pct_lte": "lte",
+    "pct_gte": "gte",
+    "<=": "lte",
+    ">=": "gte",
+    "<": "lt",
+    ">": "gt",
+    "==": "eq",
+    "=": "eq",
+}
+
+
+def _normalize_operator(operator: str | None) -> str:
+    op = (operator or "lte").strip()
+    return _OPERATOR_ALIASES.get(op, op)
+
+
+# Maps each Tier-1 check key to the extractor base rule keys that satisfy it,
+# in preference order. WP6 rules carry value_json.base_rule_key (rule_key is
+# suffixed with density/dwelling codes, e.g. "site_area.R40.grouped_dwelling").
+_CHECK_TO_BASE_RULE_KEYS: dict[str, tuple[str, ...]] = {
+    "setback_front": ("primary_street_setback", "front_setback"),
+    "setback_rear": ("rear_setback",),
+    "setback_side_primary": ("side_setback",),
+    "setback_side_secondary": ("secondary_street_setback", "side_setback"),
+    "site_cover": ("site_cover",),
+    "open_space": ("open_space",),
+    "garage_width": ("garage_width",),
+    "garage_dominance": ("garage_dominance",),
+    "boundary_wall_length": ("boundary_wall_length", "boundary_wall"),
+}
+
+
+def _base_rule_key(rule: Rule) -> str:
+    if isinstance(rule.value_json, dict):
+        base = rule.value_json.get("base_rule_key")
+        if base:
+            return str(base)
+    return (rule.rule_key or "").split(".", 1)[0]
+
+
+def _dwelling_type(rule: Rule) -> str:
+    cond = rule.condition_json if isinstance(rule.condition_json, dict) else {}
+    return str(cond.get("dwelling_type") or "any")
+
+
+def _select_rule(
+    rules: list[Rule],
+    check_key: str,
+    r_codes: list[str],
+) -> Rule | None:
+    """Pick the best approved rule for a check key.
+
+    Ranking: a usable numeric threshold dominates, then an R-code-specific
+    match beats a global rule, then dwelling-type-agnostic beats specific,
+    then base-key preference order, then newest.
+    """
+    base_keys = _CHECK_TO_BASE_RULE_KEYS.get(check_key, ())
+    accepted = (check_key, *base_keys)
+    best: Rule | None = None
+    best_rank: tuple = ()
+    for rule in rules:
+        base = _base_rule_key(rule)
+        if rule.rule_key != check_key and base not in accepted:
+            continue
+        raw = rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
+        try:
+            has_threshold = raw is not None and float(str(raw)) == float(str(raw))
+        except (TypeError, ValueError):
+            has_threshold = False
+        specific = bool(
+            rule.applicable_r_codes
+            and r_codes
+            and set(r_codes) & set(rule.applicable_r_codes)
+        )
+        rank = (
+            1 if has_threshold else 0,
+            2 if specific else (1 if not rule.applicable_r_codes else 0),
+            1 if _dwelling_type(rule) == "any" else 0,
+            len(accepted) - accepted.index(base if base in accepted else check_key),
+            rule.created_at or datetime.min.replace(tzinfo=UTC),
+        )
+        if rank > best_rank:
+            best, best_rank = rule, rank
+    return best
+
 
 @dataclass
 class CheckResultItem:
@@ -204,11 +291,6 @@ class ComplianceEngine:
             r_codes=r_codes or None,
         )
 
-        # Build lookup: rule_key -> Rule (last approved wins on key collision)
-        rule_by_key: dict[str, Rule] = {}
-        for _r in rules:
-            if _r.rule_key:
-                rule_by_key[_r.rule_key] = _r
 
         # ------------------------------------------------------------------
         # 5. Create the CheckRun record
@@ -240,8 +322,8 @@ class ComplianceEngine:
 
         for check_def in TIER1_CHECKS:
             check_key = check_def.key
-            # Find matching rule
-            rule: Rule | None = rule_by_key.get(check_key)
+            # Find the best matching approved rule for this check
+            rule: Rule | None = _select_rule(rules, check_key, r_codes)
 
             if rule is None:
                 # No approved rule covers this check for this context
@@ -311,7 +393,7 @@ class ComplianceEngine:
                 note = "Rule threshold value is missing or non-numeric"
                 any_missing = True
             else:
-                operator = rule.operator or "lte"
+                operator = _normalize_operator(rule.operator)
                 op_fn = _OPERATORS.get(operator)
                 if op_fn is None:
                     status = "needs_more_info"
