@@ -1,4 +1,4 @@
-"""Configuration for the V3 DraftCheck app."""
+﻿"""Configuration for the V3 LotFile app."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Tier-1 check key definitions for DraftCheck WA.
+﻿"""Tier-1 check key definitions for LotFile.
 
 TIER1_CHECK_KEYS   — ordered list of check keys the engine evaluates
 CHECK_FACT_MAP     — maps each check_key to one or more PropertyFact.fact_type

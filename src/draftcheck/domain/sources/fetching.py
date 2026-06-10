@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 import httpx
 
 
-USER_AGENT = "DraftCheckWA-Core/0.1 lawful-public-source-fetcher"
+USER_AGENT = "LotFile-Core/0.1 lawful-public-source-fetcher"
 RESTRICTED_TERMS = (
     "login",
     "signin",

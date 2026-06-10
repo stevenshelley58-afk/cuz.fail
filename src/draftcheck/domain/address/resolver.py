@@ -1,4 +1,4 @@
-﻿"""Address resolver orchestration for DraftCheck WA v3.
+﻿"""Address resolver orchestration for LotFile v3.
 
 Converts a free-text address into ``Property`` and ``PropertyFact`` rows via
 the PostGIS spatial pipeline:

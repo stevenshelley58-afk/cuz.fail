@@ -20,7 +20,7 @@ from draftcheck.domain.identity.tokens import (
 )
 
 
-DEFAULT_ORG_NAME = "DraftCheck WA"
+DEFAULT_ORG_NAME = "LotFile"
 DEFAULT_ORG_SLUG = "draftcheck"
 
 

@@ -1,4 +1,4 @@
-"""Alembic environment for the V3 DraftCheck schema."""
+﻿"""Alembic environment for the V3 LotFile schema."""
 
 from __future__ import annotations
 
