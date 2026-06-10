@@ -1,10 +1,12 @@
 {
-  "url": "https://www.melvillecity.com.au/planning-and-building/local-planning-strategy,-scheme-policies-and-plans/activity-centre-and-structure-plans/murdoch-specialised-activity-centre",
-  "fetched_at": "2026-06-09T22:40:55Z",
+  "url": "https://www.wa.gov.au/system/files/2021-05/PRJ-Murdoch-Specialist_activity_Centre_SP_Part_1.pdf",
+  "fetched_at": "2026-06-10T00:18:02Z",
   "http_status": 200,
-  "content_hash": "f8356aeb6d0291ae9ec6d66b89206917568093a545a346ca96d7de0e0b6d98ab",
-  "mime_type": "text/html",
-  "final_url": "https://www.melvillecity.com.au/planning-and-building/local-planning-strategy,-scheme-policies-and-plans/activity-centre-and-structure-plans/murdoch-specialised-activity-centre",
+  "content_hash": "8bf0516361cb6f3c1f659a69df15801b2a36b33fa2035904bdf2786513a9e7d6",
+  "mime_type": "application/pdf",
+  "final_url": "https://www.wa.gov.au/system/files/2021-05/PRJ-Murdoch-Specialist_activity_Centre_SP_Part_1.pdf",
   "used_playwright": false,
-  "bytes": 86451
+  "bytes": 10699824,
+  "repair_round": "round_1",
+  "repair_note": "re-acquired from official source after wrong-doc finding"
 }

@@ -1,0 +1,25 @@
+{
+  "id": "MEL-SP-005",
+  "normalized_title": "Murdoch Specialised Activity Centre Structure Plan",
+  "instrument_no": "Murdoch SAC Structure Plan",
+  "version_date": "January 2014 (endorsed)",
+  "operative_status": "current",
+  "scope_summary": "Structure plan for the Murdoch Specialised Activity Centre - a 9.6 ha precinct at the south-west corner of South Street and the Kwinana Freeway, Murdoch, within Perth's Health and Knowledge Precinct. Provides for 14 lots, an estimated ultimate yield of approximately 1,000 dwellings and 33,000 m2 of commercial floorspace, supported by Design Guidelines. Establishes land use, density, building form and access arrangements for the precinct, integrating with the Murdoch University Master Plan and the surrounding health/knowledge land uses.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Metropolitan Region Scheme",
+      "manifest_id": null
+    },
+    {
+      "cited": "State Planning Policy 4.2",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Part 1 of 7 - Parts 2-7 (appendices, design guidelines) acquired separately if needed"
+  ],
+  "pages": 20
+}
