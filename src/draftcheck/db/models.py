@@ -2022,3 +2022,98 @@ class GovernanceReview(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), nullable=False, default=utc_now,
     )
+
+
+class TargetManifest(Base, TimestampMixin):
+    """Corpus completeness manifest (WP1): one row per instrument version."""
+
+    __tablename__ = "target_manifest"
+    __table_args__ = (
+        UniqueConstraint(
+            "instrument_name",
+            "expected_version_hint",
+            name="uq_target_manifest_instrument_version",
+        ),
+        Index("ix_target_manifest_status", "status"),
+        Index("ix_target_manifest_category", "category"),
+        Index("ix_target_manifest_source_document", "source_document_id"),
+        CheckConstraint(
+            "status IN ('pending', 'acquired', 'metadata_only', 'blocked', 'out_of_scope')",
+            name="ck_target_manifest_status",
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    instrument_name: Mapped[str] = mapped_column(String(500), nullable=False)
+    category: Mapped[str] = mapped_column(String(120), nullable=False)
+    issuing_authority: Mapped[str] = mapped_column(String(200), nullable=False)
+    index_source_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+    canonical_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+    expected_version_hint: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending")
+    source_document_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("source_documents.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    last_checked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    notes: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+
+class InstrumentAlias(Base, TimestampMixin):
+    """Alias resolution for citation closure (WP1/Phase 3)."""
+
+    __tablename__ = "instrument_aliases"
+    __table_args__ = (
+        UniqueConstraint(
+            "alias_text",
+            "canonical_manifest_id",
+            name="uq_instrument_aliases_alias_manifest",
+        ),
+        Index("ix_instrument_aliases_manifest", "canonical_manifest_id"),
+        CheckConstraint(
+            "match_kind IN ('exact', 'regex')",
+            name="ck_instrument_aliases_match_kind",
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    alias_text: Mapped[str] = mapped_column(String(500), nullable=False)
+    canonical_manifest_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("target_manifest.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    match_kind: Mapped[str] = mapped_column(String(20), nullable=False, default="exact")
+
+
+class AdversarialFinding(Base, TimestampMixin):
+    """Adversarial-round findings (WP1/Phase 5)."""
+
+    __tablename__ = "adversarial_findings"
+    __table_args__ = (
+        Index("ix_adversarial_findings_status", "status"),
+        Index("ix_adversarial_findings_round_role", "round", "agent_role"),
+        CheckConstraint(
+            "agent_role IN ('re_extractor', 'prosecutor', 'gap_hunter', "
+            "'conflict_prosecutor', 'defense')",
+            name="ck_adversarial_findings_agent_role",
+        ),
+        CheckConstraint(
+            "severity IN ('critical', 'major', 'minor')",
+            name="ck_adversarial_findings_severity",
+        ),
+        CheckConstraint(
+            "status IN ('open', 'confirmed', 'rejected', 'fixed')",
+            name="ck_adversarial_findings_status",
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    round: Mapped[int] = mapped_column(Integer, nullable=False)
+    agent_role: Mapped[str] = mapped_column(String(40), nullable=False)
+    target: Mapped[str] = mapped_column(Text, nullable=False)
+    claim: Mapped[str] = mapped_column(Text, nullable=False)
+    evidence_quote: Mapped[str | None] = mapped_column(Text, nullable=True)
+    severity: Mapped[str] = mapped_column(String(20), nullable=False, default="minor")
+    status: Mapped[str] = mapped_column(String(20), nullable=False, default="open")

@@ -35,6 +35,28 @@ jobs:
           # decision 2026-06-08) and is hard-disabled in production by app_env.
           # See src/draftcheck/api/auth.py:_dev_login_enabled and docs/MASTER_REBUILD_PLAN.md.
 
+  migrations:
+    # WP1 gate: upgrade head -> downgrade -1 -> upgrade head against the same
+    # PostGIS+pgvector image production runs (infra/v3/db).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install backend
+        run: python -m pip install -e ".[dev]"
+      - name: Start database
+        run: |
+          docker compose up -d --wait db
+      - name: Migration roundtrip
+        env:
+          DATABASE_URL: postgresql+psycopg://draftcheck:local@localhost:5432/draftcheck
+        run: |
+          alembic upgrade head
+          alembic downgrade -1
+          alembic upgrade head
+
   web:
     runs-on: ubuntu-latest
     steps:

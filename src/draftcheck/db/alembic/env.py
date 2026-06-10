@@ -43,6 +43,15 @@ def run_migrations_online() -> None:
     )
 
     with connectable.connect() as connection:
+        # Alembic's default version table is VARCHAR(32); our revision ids
+        # (e.g. 0008_property_facts_confirmed_index) exceed that, so fresh
+        # databases fail mid-upgrade. Pre-create it at 64 (matches prod).
+        connection.exec_driver_sql(
+            "CREATE TABLE IF NOT EXISTS alembic_version ("
+            "version_num VARCHAR(64) NOT NULL, "
+            "CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num))"
+        )
+        connection.commit()
         context.configure(connection=connection, target_metadata=target_metadata)
         with context.begin_transaction():
             context.run_migrations()
