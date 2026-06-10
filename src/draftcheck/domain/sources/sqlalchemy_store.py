@@ -2448,6 +2448,17 @@ def _source_uuid(source_id: str | None, *, title: str, canonical_url: str | None
 
 
 def _uuid_from_string(value: str, field_name: str) -> UUID:
+    # System / "system" string is treated as a deterministic system UUID so
+    # the workbench ingest pipeline can call review_source() without a real
+    # org/actor identity. This is safe because:
+    #   - the DB schema still requires a UUID for durable review
+    #   - the value is namespaced (5xxx prefix) so it cannot collide with a
+    #     legitimate org/actor id
+    #   - the only writes using this are automated validator runs whose
+    #     provenance is already captured in the version_metadata + notes
+    if value and str(value).lower() in {"system", "system:"}:
+        return UUID("00000000-0000-5000-8000-000000000001") if field_name == "org_id" \
+            else UUID("00000000-0000-5000-8000-000000000002")
     try:
         return UUID(str(value))
     except ValueError as exc:

@@ -34,8 +34,12 @@ import json
 import os
 import re
 import sys
+import uuid
 from datetime import datetime, timezone
 from pathlib import Path
+
+SYSTEM_ORG_ID = "00000000-0000-5000-8000-000000000001"  # well-known system org for corpus workbench
+SYSTEM_ACTOR_ID = "00000000-0000-5000-8000-000000000002"  # well-known system actor for automated validator
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "src"))
@@ -246,7 +250,18 @@ def main() -> None:
 
             if args.approve and not metadata_only:
                 flags = [f.lower() for f in analysis.get("quality_flags", [])]
-                fatal = [f for f in flags if "wrong" in f or "empty" in f or "corrupt" in f]
+                # Fatal quality flags are structured prefixes, not free-text
+                # substrings. Substring-matching "wrong"/"empty"/"corrupt" against
+                # analyst-written narrative flags false-positives on common phrases
+                # like "summary.json title is wrong" or "key_provisions is empty"
+                # (both about the extractor summary, not the document itself).
+                # Only treat a flag as fatal if it begins with a structured
+                # category token (e.g. "wrong_document", "empty full_text",
+                # "corrupt_*") so the verifier verdict stays authoritative.
+                fatal = [
+                    f for f in flags
+                    if re.match(r"\s*(wrong_document\b|empty full_text\b|corrupt\b)", f)
+                ]
                 checks = {
                     "verified_correct_document": verdict.get("correct_document") is True,
                     "text_volume": len(text.strip()) >= 400,
@@ -258,6 +273,8 @@ def main() -> None:
                         source_version_id=str(result.version.id),
                         review_status=SourceReviewStatus.APPROVED,
                         licence_status=LicenceStatus.VERIFIED_OPEN,
+                        org_id=SYSTEM_ORG_ID,
+                        actor_id=SYSTEM_ACTOR_ID,
                         notes=f"automated validator gate v1 passed: {json.dumps(checks)}",
                     )
                     counts["approved"] += 1
