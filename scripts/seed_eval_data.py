@@ -22,11 +22,12 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-import psycopg2
-import psycopg2.extras
+import psycopg
+from psycopg.rows import dict_row
 
 SEEDS_DIR = Path("/app/evals/seeds")
-DATABASE_URL = os.environ["DATABASE_URL"]
+# Accept the SQLAlchemy-style URL the containers carry.
+DATABASE_URL = os.environ["DATABASE_URL"].replace("postgresql+psycopg://", "postgresql://")
 
 # Deterministic UUID v5 namespace for legacy ID mapping
 LEGACY_NS = uuid.UUID("a1b2c3d4-e5f6-7890-abcd-ef1234567890")
@@ -325,10 +326,85 @@ def seed_eval_runs(cur, case_id_map):
     return inserted
 
 
+def seed_clause_dispositions(cur, org_id: str) -> int:
+    """Load legacy clause-disposition labels as clause rows.
+
+    Clauses already created by seed_rules get their disposition updated;
+    unknown clause_ids get stub clause rows under one shared stub
+    source_version, same deterministic-UUID scheme as seed_rules.
+    """
+    rows = load_jsonl(SEEDS_DIR / "clause_dispositions.jsonl")
+    inserted = 0
+    now = datetime.now(timezone.utc).isoformat()
+
+    cur.execute("SELECT id FROM source_documents LIMIT 1")
+    src_doc_row = cur.fetchone()
+    if not src_doc_row:
+        print("  WARNING: no source_documents found, cannot seed dispositions", file=sys.stderr)
+        return 0
+    src_doc_id = str(src_doc_row["id"])
+
+    stub_sv_uuid = legacy_id_to_uuid("sv_legacy_dispositions")
+    cur.execute(
+        """
+        INSERT INTO source_versions
+            (id, source_id, version_label, sha256, storage_manifest_json,
+             licence_status, review_status, fetched_at, created_at, updated_at)
+        VALUES (%s, %s, %s, %s, %s::jsonb, %s, %s, %s, %s, %s)
+        ON CONFLICT (id) DO NOTHING
+        """,
+        (
+            stub_sv_uuid,
+            src_doc_id,
+            "legacy-seed:dispositions",
+            "legacy-seed-dispositions",
+            "{}",
+            "approved",
+            "approved",
+            now, now, now,
+        ),
+    )
+
+    for row in rows:
+        cl_uuid = legacy_id_to_uuid(row["clause_id"])
+        metadata = {
+            "legacy_disposition_id": row["id"],
+            "rationale": row.get("rationale", ""),
+            "reviewer": row.get("reviewer", ""),
+        }
+        cur.execute(
+            """
+            INSERT INTO clauses
+                (id, source_version_id, clause_key, clause_type, disposition,
+                 text, metadata_json, created_at, updated_at)
+            VALUES (%s, %s, %s, %s, %s, %s, %s::jsonb, %s, %s)
+            ON CONFLICT (id) DO UPDATE SET
+                disposition = EXCLUDED.disposition,
+                metadata_json = clauses.metadata_json || EXCLUDED.metadata_json,
+                updated_at = EXCLUDED.updated_at
+            """,
+            (
+                cl_uuid,
+                stub_sv_uuid,
+                row["clause_id"],
+                "clause",
+                row.get("disposition", "informational"),
+                "Legacy seed clause: " + row["clause_id"],
+                json.dumps(metadata),
+                parse_ts(row.get("created_at")) or now,
+                parse_ts(row.get("updated_at")) or now,
+            ),
+        )
+        if cur.rowcount > 0:
+            inserted += 1
+
+    return inserted
+
+
 def main():
-    conn = psycopg2.connect(DATABASE_URL)
+    conn = psycopg.connect(DATABASE_URL)
     conn.autocommit = False
-    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    cur = conn.cursor(row_factory=dict_row)
 
     try:
         cur.execute("SELECT id FROM orgs ORDER BY created_at LIMIT 1")
@@ -342,6 +418,10 @@ def main():
         print("Seeding rules...")
         rules_count = seed_rules(cur, org_id)
         print("  rules inserted: " + str(rules_count))
+
+        print("Seeding clause dispositions...")
+        disp_count = seed_clause_dispositions(cur, org_id)
+        print("  clause dispositions applied: " + str(disp_count))
 
         print("Seeding eval_cases...")
         cases_count, case_id_map = seed_eval_cases(cur)
