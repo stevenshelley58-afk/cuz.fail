@@ -29,6 +29,7 @@ from sqlalchemy import (
     Text,
     UniqueConstraint,
     Uuid,
+    CheckConstraint,
     text,
 )
 from sqlalchemy.dialects.postgresql import JSONB, UUID as PgUUID
@@ -1761,3 +1762,219 @@ class ReviewItem(Base, TimestampMixin):
     resolved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     source_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+# ---------------------------------------------------------------------------
+# Governance schema (PR-2 of process-control implementation map)
+# ---------------------------------------------------------------------------
+# These classes are the SQLAlchemy metadata for the new governance tables
+# added by Alembic migration 0010_governance_schema. They are read-side
+# metadata only; the dynamic-table API is forbidden in V3 (see
+# tests/test_v3_schema_contract.py for the contract).
+
+
+class GovernancePipelineStep(Base, TimestampMixin):
+    __tablename__ = "governance_pipeline_steps"
+    __table_args__ = (
+        UniqueConstraint("function_path", name="uq_governance_pipeline_steps_function"),
+        Index("ix_governance_pipeline_steps_stage", "stage"),
+        Index("ix_governance_pipeline_steps_critical", "is_critical"),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    stage: Mapped[str] = mapped_column(String(80), nullable=False)
+    function_path: Mapped[str] = mapped_column(String(300), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    is_critical: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+    owner_role: Mapped[str] = mapped_column(String(40), nullable=False, default="operator")
+
+
+class GovernanceRisk(Base, TimestampMixin):
+    __tablename__ = "governance_risks"
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    code: Mapped[str] = mapped_column(String(80), nullable=False, unique=True)
+    name: Mapped[str] = mapped_column(String(200), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    severity: Mapped[str] = mapped_column(String(40), nullable=False, default="major")
+    default_owner_role: Mapped[str] = mapped_column(String(40), nullable=False, default="operator")
+
+
+class GovernanceControl(Base, TimestampMixin):
+    __tablename__ = "governance_controls"
+    __table_args__ = (
+        UniqueConstraint("name", name="uq_governance_controls_name"),
+        Index("ix_governance_controls_risk", "code"),
+        Index("ix_governance_controls_last_tested", "last_tested_at"),
+        CheckConstraint(
+            "control_type IN ('preventive', 'detective', 'corrective')",
+            name="ck_governance_controls_type",
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    code: Mapped[str] = mapped_column(
+        String(80),
+        ForeignKey("governance_risks.code", ondelete="RESTRICT"),
+        nullable=False,
+    )
+    name: Mapped[str] = mapped_column(String(200), nullable=False)
+    control_type: Mapped[str] = mapped_column(String(40), nullable=False, default="detective")
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    control_function_path: Mapped[str | None] = mapped_column(String(300), nullable=True)
+    owner_role: Mapped[str] = mapped_column(String(40), nullable=False, default="operator")
+    test_frequency_days: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    last_tested_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class GovernanceKpi(Base, TimestampMixin):
+    __tablename__ = "governance_kpis"
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    code: Mapped[str] = mapped_column(String(80), nullable=False, unique=True)
+    name: Mapped[str] = mapped_column(String(200), nullable=False)
+    description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    sql_template: Mapped[str] = mapped_column(Text, nullable=False)
+    warning_threshold: Mapped[Decimal | None] = mapped_column(Numeric(18, 6), nullable=True)
+    breach_threshold: Mapped[Decimal | None] = mapped_column(Numeric(18, 6), nullable=True)
+    review_cadence_days: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    owner_role: Mapped[str] = mapped_column(String(40), nullable=False, default="operator")
+
+
+class GovernanceKpiResult(Base):
+    __tablename__ = "governance_kpi_results"
+    __table_args__ = (
+        Index("ix_governance_kpi_results_kpi_period", "kpi_id", text("period_end DESC")),
+        Index("ix_governance_kpi_results_status", "status"),
+        CheckConstraint(
+            "status IN ('green', 'amber', 'red')",
+            name="ck_governance_kpi_results_status",
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    kpi_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("governance_kpis.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    period_start: Mapped[date] = mapped_column(Date, nullable=False)
+    period_end: Mapped[date] = mapped_column(Date, nullable=False)
+    value: Mapped[Decimal | None] = mapped_column(Numeric(18, 6), nullable=True)
+    status: Mapped[str] = mapped_column(String(16), nullable=False, default="green")
+    evidence_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("artifacts.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    computed_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, default=utc_now,
+    )
+
+
+class GovernanceFinding(Base):
+    __tablename__ = "governance_findings"
+    __table_args__ = (
+        Index("ix_governance_findings_status_severity", "status", "severity"),
+        Index("ix_governance_findings_org_status", "org_id", "status"),
+        Index("ix_governance_findings_proposed_by_job_trace", "proposed_by_job_trace_id"),
+        Index("ix_governance_findings_subject", "subject_type", "subject_id"),
+        Index("ix_governance_findings_created_at", "created_at"),
+        # Partial unique index mirrors the migration:
+        # same (subject, risk) cannot be in 'proposed' state twice.
+        Index(
+            "uq_governance_findings_subject_risk_proposed",
+            "subject_type",
+            "subject_id",
+            "risk_code",
+            unique=True,
+            postgresql_where=text("status = 'proposed'"),
+        ),
+        CheckConstraint(
+            "status IN ('proposed', 'accepted', 'rejected', 'converted_to_capa', 'superseded')",
+            name="ck_governance_findings_status",
+        ),
+        CheckConstraint(
+            "severity IN ('critical', 'major', 'minor')",
+            name="ck_governance_findings_severity",
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=True,
+        index=True,
+    )
+    risk_code: Mapped[str] = mapped_column(
+        String(80),
+        ForeignKey("governance_risks.code", ondelete="RESTRICT"),
+        nullable=False,
+    )
+    severity: Mapped[str] = mapped_column(String(40), nullable=False, default="major")
+    subject_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    subject_id: Mapped[UUID | None] = mapped_column(Uuid(as_uuid=True), nullable=True)
+    summary: Mapped[str] = mapped_column(Text, nullable=False)
+    evidence_refs_json: Mapped[list[object]] = mapped_column(
+        JSONB, nullable=False, default=list,
+    )
+    proposed_remediation: Mapped[str | None] = mapped_column(Text, nullable=True)
+    proposed_by_job_trace_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("job_traces.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    proposed_by_model: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    skill_version_id: Mapped[str | None] = mapped_column(String(160), nullable=True)
+    status: Mapped[str] = mapped_column(String(40), nullable=False, default="proposed")
+    decision_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    decision_reason: Mapped[str | None] = mapped_column(Text, nullable=True)
+    decision_evidence_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("artifacts.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    decision_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    linked_capa_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("review_items.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, default=utc_now,
+    )
+
+
+class GovernanceReview(Base):
+    __tablename__ = "governance_reviews"
+    __table_args__ = (
+        Index("ix_governance_reviews_period", "period_start", "period_end"),
+        Index("ix_governance_reviews_chair", "chair_user_id"),
+        CheckConstraint(
+            "review_type IN ('monthly', 'quarterly', 'annual', 'ad_hoc')",
+            name="ck_governance_reviews_type",
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    review_type: Mapped[str] = mapped_column(String(40), nullable=False, default="ad_hoc")
+    period_start: Mapped[date] = mapped_column(Date, nullable=False)
+    period_end: Mapped[date] = mapped_column(Date, nullable=False)
+    chair_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    summary: Mapped[str | None] = mapped_column(Text, nullable=True)
+    decisions_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    open_actions_json: Mapped[list[object]] = mapped_column(JSONB, nullable=False, default=list)
+    evidence_pack_refs_json: Mapped[list[object]] = mapped_column(JSONB, nullable=False, default=list)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, default=utc_now,
+    )

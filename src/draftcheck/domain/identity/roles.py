@@ -8,6 +8,7 @@ from enum import StrEnum
 class IdentityRole(StrEnum):
     OWNER = "owner"
     OPERATOR = "operator"
+    COMPLIANCE_OWNER = "compliance_owner"
 
 
 def normalize_role(role: IdentityRole | str) -> IdentityRole:

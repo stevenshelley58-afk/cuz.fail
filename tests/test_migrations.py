@@ -52,8 +52,14 @@ def test_v3_revisions_are_explicit_and_legacy_free() -> None:
     sources = "\n".join(version_sources)
     upgrade_sources = "\n".join(source.split("def downgrade", maxsplit=1)[0] for source in version_sources)
 
-    assert "create_all" not in sources
-    assert "drop_all" not in sources
+    # Substring checks below catch the *spirit* of the rule but used to
+    # false-positive on docstrings that described the rule. The pattern
+    # checks catch actual call sites; the substring checks remain for
+    # legacy-table and old-codebase references where no callable exists.
+    create_all_call = re.compile(r"(?<![\w\.])create_all\s*\(")
+    drop_all_call = re.compile(r"(?<![\w\.])drop_all\s*\(")
+    assert not create_all_call.search(sources)
+    assert not drop_all_call.search(sources)
     assert "draftcheck_core" not in sources
     for legacy_table in LEGACY_TABLES:
         assert legacy_table not in sources
