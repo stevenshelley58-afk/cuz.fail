@@ -72,3 +72,23 @@ jobs:
       - name: Build web
         working-directory: web
         run: npm run build
+
+  corpus-gates:
+    # Phase 6 closure gates (docs/CORPUS_COMPLETENESS_PLAN.md): pure-file checks
+    # over the committed reports/ closure artifacts. Stdlib only — no install step.
+    # Currently ADVISORY (always green) while the DB build completes on the VPS.
+    # Once reports/ is fully green, flip to enforcing by adding --strict below:
+    #   run: python scripts/corpus_gates.py --strict --json reports/corpus_gates.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Corpus closure gates (advisory)
+        run: python scripts/corpus_gates.py --json reports/corpus_gates.json
+      - name: Upload gate summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-gates-summary
+          path: reports/corpus_gates.json
