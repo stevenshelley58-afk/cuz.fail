@@ -188,16 +188,16 @@ def populate_legal_edges(conn: psycopg.Connection) -> dict:
             """
             INSERT INTO legal_edges (id, from_type, from_ref, to_type, to_ref, relation,
                 confidence, review_status, metadata_json, created_at, updated_at)
-            SELECT gen_random_uuid(), 'clause', c.clause_key, 'clause', %(def_key)s,
+            SELECT gen_random_uuid(), 'clause', c.clause_key, 'clause', %(def_key)s::varchar,
                    'references_definition', 0.7, 'pending_review',
                    jsonb_build_object('wp9', true, 'term', %(term)s::text,
                                       'source_version_id', %(sv_id)s::text),
                    now(), now()
             FROM clauses c
-            WHERE c.source_version_id = %(sv_id)s
+            WHERE c.source_version_id = %(sv_id)s::uuid
               AND c.disposition IN ('rule_bearing', 'procedural')
-              AND c.clause_key <> %(def_key)s
-              AND position(%(term)s IN lower(c.text)) > 0
+              AND c.clause_key <> %(def_key)s::varchar
+              AND position(%(term)s::text IN lower(c.text)) > 0
             ON CONFLICT (from_type, from_ref, to_type, to_ref, relation) DO NOTHING
             """,
             {"sv_id": sv_id, "def_key": def_key, "term": term},
