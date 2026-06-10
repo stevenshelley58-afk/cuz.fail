@@ -26,6 +26,7 @@ def test_v3_sources_spatial_foundation_tables_present() -> None:
     tables = Base.metadata.tables
 
     assert set(tables) == {
+        "adversarial_findings",
         "agent_memory",
         "address_points",
         "audit_events",
@@ -47,6 +48,7 @@ def test_v3_sources_spatial_foundation_tables_present() -> None:
         "governance_pipeline_steps",
         "governance_reviews",
         "governance_risks",
+        "instrument_aliases",
         "job_traces",
         "legal_edges",
         "lg_areas",
@@ -75,6 +77,7 @@ def test_v3_sources_spatial_foundation_tables_present() -> None:
         "source_versions",
         "spatial_datasets",
         "spend_events",
+        "target_manifest",
         "users",
     }
 
