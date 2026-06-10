@@ -1,0 +1,23 @@
+{
+  "id": "FRE-LPP-005",
+  "normalized_title": "City of Fremantle Local Planning Policy 1.9 - Design Advisory Committee & Principles of Design",
+  "instrument_no": "LPP 1.9",
+  "version_date": "Version 3, adopted 13 May 2026 (OCM C2605-7); prior versions 11 Jun 2013 and 27 Jul 2022; DAC Terms of Reference effective 1 July 2018",
+  "operative_status": "current",
+  "scope_summary": "Details which development applications and planning proposals the City of Fremantle refers to its Design Advisory Committee (DAC) under Schedule A clause 78B(6) of Local Planning Scheme No. 4, and sets out seven qualitative principles of design (character, continuity and enclosure, quality of the public realm, ease of movement, legibility, adaptability, diversity) the Committee uses when advising on design quality. Annexure 1 contains the DAC Terms of Reference covering membership, terms of office and meeting procedure; Annexure includes a DAC report template.",
+  "key_numeric_standards": [
+    {"topic": "mandatory DAC referral height threshold", "value": "11.0 (or 3 storeys)", "unit": "m", "applies_to": "buildings in any zone other than Residential or Industrial; also any development under LPS4 cl 5.7 small infill special control provisions", "clause_ref": "Application cl 1 / LPS4 Sch A cl 78B(6)(b)"}
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Local Planning Scheme No. 4 (Schedule A cl 78B(6), cl 5.7)", "manifest_id": "FRE-SCH-001"},
+    {"cited": "Design Review: how CABE evaluates quality in architecture and urban design (CABE)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "extractor summary.json version_date ('23 May 2012') is wrong - that is the original DAC terms-of-reference adoption date; the policy version is 13 May 2026",
+    "'OFFICIAL' watermark text repeats at each page break in extracted text",
+    "objective numbering in principle 3 jumps (i-iv, vi, viii) - appears to reflect the source document rather than extraction loss"
+  ]
+}

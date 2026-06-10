@@ -1,0 +1,18 @@
+{
+  "id": "MEL-LPP-015",
+  "normalized_title": "City of Melville Local Planning Policy 1.19 - Canning Bridge Activity Centre Plan: Community Benefit for Ceding of Road Widening Land",
+  "instrument_no": "LPP 1.19",
+  "version_date": "2020-02-18",
+  "operative_status": "current",
+  "scope_summary": "A short interpretive policy applying only to land within the Canning Bridge Activity Centre Plan (CBACP) area in the City of Melville. It clarifies Element 22.1.10 of the CBACP, which allows land ceded free of charge for road widening to be recognised as a community benefit for bonus height assessment; the policy confirms this applies only to land located adjoining Canning Highway. It is to be read in conjunction with a proposed amendment to the CBACP that reiterates this interpretation.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Canning Bridge Activity Centre Plan", "manifest_id": "MEL-SP-001"},
+    {"cited": "Local Planning Scheme No.6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": ["extractor summary.json title is truncated ('Canning Bridge Activity Centre Plan - Community'); full title spans two lines in the source", "policy notes a CBACP amendment had been initiated as at February 2020; current status of that amendment is not determinable from this text"]
+}

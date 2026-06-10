@@ -1,0 +1,37 @@
+{
+  "id": "SPP-018",
+  "normalized_title": "State Planning Policy 5.3 Land Use Planning in the Vicinity of Jandakot Airport",
+  "instrument_no": "SPP 5.3",
+  "version_date": "January 2017 (published January 2017)",
+  "operative_status": "current",
+  "scope_summary": "Protects Jandakot Airport from encroachment by incompatible noise-sensitive land use and development, and minimises aircraft noise impacts on existing and future communities. Applies to land within the 20 ANEF noise contour and an additional defined 'frame area' (bounded by Roe Highway, Ranford Road, Warton Road, Armadale Road and the Kwinana Freeway) reflecting circuit pilot-training noise. Controls zoning, residential density, subdivision/strata subdivision, development, noise attenuation and notification on title across noise exposure zones based on AS2021 building site acceptability.",
+  "key_numeric_standards": [
+    {"topic": "maximum residential density - 20 to 25 ANEF zone", "value": "R20", "unit": "R-Code density code", "applies_to": "land zoned for residential purposes between 20 and 25 ANEF (with listed exceptions)", "clause_ref": "cl 5.3.2"},
+    {"topic": "maximum residential density where no density coding prescribed - 20 to 25 ANEF", "value": "R20", "unit": "R-Code density code", "applies_to": "'Residential' zoned land without a density coding, 20-25 ANEF zone", "clause_ref": "cl 5.3.3(2), cl 5.3.4(3)"},
+    {"topic": "maximum residential density - above 25 ANEF zone", "value": "R12.5", "unit": "R-Code density code", "applies_to": "existing 'Residential' zoned land above 25 ANEF where non-residential zoning is not practicable (with listed exceptions)", "clause_ref": "cl 5.4.2(1)"},
+    {"topic": "no density increase above 25 ANEF", "value": "25", "unit": "ANEF", "applies_to": "permissible density of existing residential development should generally not be increased above 25 ANEF", "clause_ref": "cl 5.4.2(2)"},
+    {"topic": "site dissection interpretation threshold", "value": "1000", "unit": "m2", "applies_to": "sites dissected by a noise exposure contour - below 1,000m2 the majority-level zone applies to the whole site", "clause_ref": "cl 5.1 Interpretation"},
+    {"topic": "indoor design sound level - sleeping areas, dedicated lounges (houses)", "value": "50", "unit": "dB(A)", "applies_to": "aircraft noise indoor design sound level per AS2021 Table 3.3", "clause_ref": "Appendix 2"},
+    {"topic": "indoor design sound level - other habitable spaces (houses)", "value": "55", "unit": "dB(A)", "applies_to": "aircraft noise indoor design sound level per AS2021 Table 3.3", "clause_ref": "Appendix 2"},
+    {"topic": "indoor design sound level - bathrooms, toilets, laundries (houses)", "value": "60", "unit": "dB(A)", "applies_to": "aircraft noise indoor design sound level per AS2021 Table 3.3", "clause_ref": "Appendix 2"}
+  ],
+  "definitions": ["ANEF level", "Noise exposure zone", "Building site acceptability", "Frame area", "ANEF", "ANEI"],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "State Planning Policy 2.5 - Land Use Planning in Rural Areas", "manifest_id": "SPP-004"},
+    {"cited": "State Planning Policy 2.3 - Jandakot Groundwater Protection Policy", "manifest_id": null},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Transfer of Land Act 1893 (s70A notification)", "manifest_id": null},
+    {"cited": "Airports Act 1996 (Cth)", "manifest_id": null},
+    {"cited": "AS2021 (Acoustics - Aircraft Noise Intrusion - Building Siting and Construction)", "manifest_id": null},
+    {"cited": "AS2107 (indoor background noise levels)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Exact gazettal date not stated in extracted text; only the publication month (January 2017) appears.",
+    "Three-column PDF extraction interleaves columns in places; Figure 1 (frame area map) extracts as scattered single characters (expected for a map figure).",
+    "summary.json contains a stray 'WAROONA' heading artefact from map/figure text."
+  ]
+}

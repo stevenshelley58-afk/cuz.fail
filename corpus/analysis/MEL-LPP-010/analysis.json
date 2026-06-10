@@ -1,0 +1,32 @@
+{
+  "id": "MEL-LPP-010",
+  "normalized_title": "City of Melville Local Planning Policy 1.10 - Amenity",
+  "instrument_no": "LPP 1.10",
+  "version_date": "2026-03-17",
+  "operative_status": "current",
+  "scope_summary": "Procedural and assessment policy governing how amenity impacts of proposed development are considered in the City of Melville for residential, commercial and mixed use development. Requires an Amenity Impact Statement (context analysis by a qualified professional, justification against R-Codes performance criteria/LPS6 objectives, and mitigation measures) where a proposal departs from LPS6, local planning policies or the deemed-to-comply/acceptable-outcome provisions of the R-Codes, and lists the amenity factors the City may weigh (daylight, sunlight, building bulk, trees, views, streetscape, open space, etc.). Significant proposals may be referred to the City's Design Review Panel.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Amenity",
+    "LPS6",
+    "R-Codes",
+    "Regulations"
+  ],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6 (LPS6)", "manifest_id": "MEL-SCH-001"},
+    {"cited": "R-Codes (Residential Design Codes Volume 1)", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Environmental Protection (Noise) Regulations 1997", "manifest_id": null},
+    {"cited": "City of Melville Local Planning Strategy", "manifest_id": null},
+    {"cited": "City of Melville Design Review policy", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "clean extraction, 4 pages, full text legible",
+    "summary.json title misparsed (captured the intro sentence instead of the document title 'Amenity'); manifest name 'LPP 1.10 Amenity Policy' matches the document, which cites itself as 'Local Planning Policy No. 1.10 - Amenity (LPP1.10)'",
+    "source typo carried into extraction: 'Environmental Protection (Nosie) Regulations 1997'",
+    "reviewed OMC 17/03/2026 (UP25/96); print footer 'This Version: 8/04/2026'"
+  ]
+}

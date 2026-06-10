@@ -1,0 +1,26 @@
+{
+  "id": "PB-009",
+  "normalized_title": "Planning Bulletin 70 Caretakers Dwellings in Industrial Areas",
+  "instrument_no": "PB 70",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "There should be a general caretakers\u2019 dwellings",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "100",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "State Planning Framework",
+      "manifest_id": "SPP-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

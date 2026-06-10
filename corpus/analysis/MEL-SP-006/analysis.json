@@ -1,0 +1,54 @@
+{
+  "id": "MEL-SP-006",
+  "normalized_title": "Riseley Activity Centre Structure Plan (City of Melville)",
+  "instrument_no": null,
+  "version_date": "March 2015 (adopted by Council 17 June 2014; Modifications 1 and 2 adopted by Council 5 March 2015)",
+  "operative_status": "current",
+  "scope_summary": "Structure plan for the Riseley Activity Centre, a district centre in Applecross and Ardross (Riseley Street / Canning Highway / Kearns Crescent area), City of Melville, prepared under the City of Melville Community Planning Scheme No. 5. Part One (statutory) divides the centre into five precincts (Riseley Core, Canning Corridor, The Crescent, Transitional Frame, Residential Frame) and sets binding land use permissibility, retail floorspace, residential density, building height and setback standards that vary the Scheme. Part Two (non-statutory) provides explanatory context on movement, urban form, activity and implementation.",
+  "key_numeric_standards": [
+    {"topic": "residential density", "value": "no maximum", "unit": null, "applies_to": "Precincts 1, 2 and 3 (Riseley Core, Canning Corridor, The Crescent)", "clause_ref": "cl 9.3.1"},
+    {"topic": "residential density", "value": "R50", "unit": "R-Code", "applies_to": "Precincts 4 and 5 (Transitional Frame, Residential Frame), per Residential Design Codes", "clause_ref": "cl 9.3.2"},
+    {"topic": "site cover / plot ratio / open space", "value": "no requirement", "unit": null, "applies_to": "whole structure plan area unless otherwise specified", "clause_ref": "cl 9.5"},
+    {"topic": "private open space (terrace/balcony/courtyard connected to living space)", "value": "15", "unit": "m2 minimum per dwelling", "applies_to": "residential development in all precincts", "clause_ref": "cl 9.16"},
+    {"topic": "private open space minimum dimension", "value": "3", "unit": "m", "applies_to": "terrace, balcony or courtyard, all precincts", "clause_ref": "cl 9.17"},
+    {"topic": "visual privacy", "value": "R-100 provisions", "unit": "R-Codes standard", "applies_to": "lots within Precincts 1, 2 and 3", "clause_ref": "cl 9.19"},
+    {"topic": "right of way (laneway) widening", "value": "6.0", "unit": "m minimum width (proportionate ceding at subdivision/development)", "applies_to": "lots adjacent to a right of way", "clause_ref": "cl 9.39"},
+    {"topic": "maximum building height", "value": "3 to 6", "unit": "storeys (per Structure Plan Map, Plan 1)", "applies_to": "all precincts; heights distributed by map", "clause_ref": "cl 9.2 / Plan 1"},
+    {"topic": "minimum building height", "value": "2", "unit": "storeys", "applies_to": "Precincts 1, 2 and 3", "clause_ref": "cl 10.3.2 / 10.12.2 / 10.22.2"},
+    {"topic": "ground floor commercial floor-to-floor height", "value": "4.0", "unit": "m minimum", "applies_to": "ground floor commercial tenancies, Precincts 1, 2 and 3", "clause_ref": "cl 10.3.3 / 10.12.3 / 10.22.3"},
+    {"topic": "street setback", "value": "nil (required)", "unit": null, "applies_to": "first 2 storeys to public streets, Precincts 1 and 2 (and Kearns Crescent in Precinct 3), unless exceptions apply", "clause_ref": "cl 10.4 / 10.13 / 10.23"},
+    {"topic": "side/rear setback to adjoining properties", "value": "nil up to 5 storeys; min 1.5 m above 5 storeys", "unit": "m", "applies_to": "adjoining properties within Precincts 1, 2 and 3", "clause_ref": "cl 10.5 / 10.14 / 10.24"},
+    {"topic": "setback to adjoining properties (development up to 3 storeys)", "value": "3 (residential, per R50 R-Codes) / 4 (non-residential)", "unit": "m minimum", "applies_to": "adjoining properties outside Precinct 2; similar standard in Precinct 4 and outside structure plan area", "clause_ref": "cl 10.15.1 / 10.25.1 / 10.36.1 / 10.41.1"},
+    {"topic": "setback to adjoining properties (development over 3 storeys)", "value": "8", "unit": "m minimum", "applies_to": "adjoining properties outside Precinct 2", "clause_ref": "cl 10.15.2"},
+    {"topic": "setback to adjoining properties (development over 2 storeys)", "value": "6", "unit": "m minimum", "applies_to": "adjoining properties in Precinct 4", "clause_ref": "cl 10.25.2"},
+    {"topic": "rear setback to adjoining properties outside structure plan area (over 2 storeys)", "value": "8", "unit": "m minimum", "applies_to": "Precinct 5 / edges of structure plan area", "clause_ref": "cl 10.36.2 / 10.41.2"},
+    {"topic": "upper level street setback", "value": "5", "unit": "m from building line of 3rd storey", "applies_to": "any level above 3 storeys facing a gazetted street (Precinct 4); 3 m where facing Kearns Crescent in Precinct 3", "clause_ref": "cl 10.34 / 10.22.4"},
+    {"topic": "storey definition - excluded roof structures", "value": "3.0", "unit": "m maximum height", "applies_to": "roof plant screening and unenclosed roof structures excluded from storey count", "clause_ref": "cl 3.8"}
+  ],
+  "definitions": [
+    "storey (cl 3.8, including mezzanine note and roof-structure exclusions)",
+    "P - use permitted by the Scheme subject to compliance (cl 7.2)",
+    "D - use not permitted unless discretion exercised by planning approval (cl 7.2)",
+    "A - use not permitted unless approval granted after special notice (cl 7.2)",
+    "X - use not permitted by the Scheme (cl 7.2)",
+    "other words and expressions take meanings given in City of Melville Community Planning Scheme No. 5 (cl 3.1)"
+  ],
+  "cross_references": [
+    {"cited": "City of Melville Community Planning Scheme No. 5", "manifest_id": null},
+    {"cited": "Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 4.2 - Activity Centres for Perth and Peel", "manifest_id": "SPP-015"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Directions 2031 and Beyond", "manifest_id": null},
+    {"cited": "Local Commercial and Activity Centres Strategy (City of Melville)", "manifest_id": null},
+    {"cited": "Crime Prevention Through Environmental Design of Buildings Local Planning Policy", "manifest_id": "MEL-LPP-008"},
+    {"cited": "Energy Efficiency in Building Design Local Planning Policy", "manifest_id": "MEL-LPP-005"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Two-column PDF layout interleaved during extraction: many lines merge fragments from adjacent columns, so clause text frequently reads out of order and needs careful reassembly",
+    "Cover date OCR artifact 'MAJRUCLHY 22001154' is the interleaving of 'MARCH 2015' and 'JULY 2014'",
+    "Extracted text contains cover pages, executive summary and Part One (Statutory Section, clauses 1-10.41, internal pages 1-8) only; Part Two (Non-Statutory Explanatory Section, contents pages 11-51) and Appendices A-B listed in the table of contents are absent - the source PDF appears to be the 16-page statutory extract",
+    "Structure Plan Map (Plan 1) rendered as fragmented single-character vertical text; precinct/height map content is not reliable from text alone (R50 and 3-6 storey height labels visible)",
+    "Mojibake encoding artifacts present (e.g. 'a€“' sequences for en-dash)"
+  ]
+}

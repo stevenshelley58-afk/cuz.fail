@@ -1,0 +1,51 @@
+{
+  "id": "LEG-002",
+  "normalized_title": "Building Act 2011 (WA)",
+  "instrument_no": null,
+  "version_date": "Official Version as at 28 May 2026 (consolidation PCO 01-k0-00)",
+  "operative_status": "current",
+  "scope_summary": "Western Australia's principal building control statute. It requires building and demolition permits (Part 2, including certified vs uncertified applications under s 14), mandates compliance with applicable building standards (Part 3), governs occupancy permits and building approval certificates (Parts 4-5), regulates work affecting other land such as party walls, encroachments and protection structures (Part 6), and provides for enforcement, building orders, review rights, permit authorities and the register of permits (Parts 8-11). It applies state-wide to all buildings and incidental structures, sitting downstream of planning approval in the residential development pipeline; the substantive technical standards it invokes are prescribed by the Building Regulations 2012 and the National Construction Code rather than in the Act itself.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "building (s 3)",
+    "building work (s 3)",
+    "demolition work (s 3)",
+    "building permit (s 3)",
+    "demolition permit (s 3)",
+    "occupancy permit (s 3)",
+    "incidental structure (s 3)",
+    "independent building surveyor (s 3, s 4(2))",
+    "owner (s 3, s 5(1), s 76(2))",
+    "occupier (s 40, s 81(1), s 94)",
+    "permit authority for a building (s 3)",
+    "uncertified application (s 13)",
+    "unauthorised work (s 51(1))",
+    "party wall (s 75)",
+    "dividing fence (s 75)",
+    "substantial dividing fence (s 75)",
+    "protection structure (s 75)",
+    "encroachment permission (s 189(1))",
+    "underpinning consent (s 185(1))",
+    "party wall building consent (s 183(1))",
+    "entry warrant (s 94)",
+    "designating permit authority (s 95)",
+    "technical certificate (s 3)",
+    "strata lease (s 3)",
+    "Registration Act (s 3, meaning the Building Services (Registration) Act 2011)"
+  ],
+  "cross_references": [
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Heritage Act 2018", "manifest_id": "LEG-007"},
+    {"cited": "Building Services (Registration) Act 2011", "manifest_id": null},
+    {"cited": "Building Services (Complaint Resolution and Administration) Act 2011", "manifest_id": null},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Land Administration Act 1997", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "summary.json title is the generic jurisdiction header 'Western Australia' rather than the Act name; the Act name is on line 2 of the full text",
+    "Table of contents entries carry trailing page numbers interleaved with headings",
+    "Running headers/footers ('As at 28 May 2026 Official Version', '[PCO 01-k0-00]') repeat throughout the text",
+    "Body text otherwise complete: 161 pages ending with compilation table and defined-terms index"
+  ]
+}

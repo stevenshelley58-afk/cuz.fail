@@ -1,0 +1,44 @@
+{
+  "id": "FRE-LPP-010",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.19 - Contributions for Public Art and/or Heritage Works",
+  "instrument_no": "LPP 2.19",
+  "version_date": "2012-12-11",
+  "operative_status": "current",
+  "scope_summary": "Enables the City of Fremantle to condition certain commercial and multiple residential development within mapped Contribution Areas (Appendix 1) to contribute 1% of estimated total development cost toward public art and/or heritage works. Exempts single houses and grouped dwellings, industrial buildings, development under 1000 sq m GLA, most refurbishments, and development costing under $1,000,000. Council may redirect the contribution to heritage works on City-owned Heritage List places nearby, or waive it where equivalent-value public art is provided on or near the site.",
+  "key_numeric_standards": [
+    {
+      "topic": "public art / heritage works contribution",
+      "value": "1",
+      "unit": "% of estimated total development cost",
+      "applies_to": "applicable commercial and multiple residential development in Contribution Areas",
+      "clause_ref": "cl 2"
+    },
+    {
+      "topic": "gross lettable area applicability threshold",
+      "value": "1000",
+      "unit": "sq m GLA",
+      "applies_to": "development below this GLA is exempt",
+      "clause_ref": "cl 1(c)"
+    },
+    {
+      "topic": "development cost applicability threshold",
+      "value": "1000000",
+      "unit": "AUD estimated total cost",
+      "applies_to": "development below this cost is exempt",
+      "clause_ref": "cl 1(e)"
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Local Planning Scheme No. 4 (the Scheme)",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Appendix 1 Contribution Areas (pages 3-5) are map images; no map content extracted, only repeated page headings - expected for map appendix but means contribution area boundaries are not machine-readable",
+    "Smart-quote characters rendered as low-quote artifacts in extraction (e.g. development‚s)",
+    "Adopted 11/12/2012; no amendment history recorded in extracted text"
+  ]
+}

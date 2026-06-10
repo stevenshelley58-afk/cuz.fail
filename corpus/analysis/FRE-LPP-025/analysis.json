@@ -1,0 +1,115 @@
+{
+  "id": "FRE-LPP-025",
+  "normalized_title": "City of Fremantle LPP 3.20 | Special Control Area Provisions for Small Infill Development 704.1 KB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "LOCAL PLANNING POLICY 3.20; ADOPTION DATE: 28 MARCH 2018; The purpose of this policy is to complement the planning controls set out in Local Planning; This policy applies to areas designated on the scheme map of LPS4 as Special Control; Clause 5.7 in LPS4 sets out the requirements for development under this policy.",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "600",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "120",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\uf8e7 A maximum of three dwellings, including existing dwellings",
+      "value": "750",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "All buildings shall be set back a minimum 5.0m from the rear",
+      "value": "5.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\uf0a7 An existing ground level 1.0m or more higher than the subj",
+      "value": "1.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\uf0d8 A minimum 30m2 of outdoor living area shall be provided pe",
+      "value": "30",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "length and width dimension of 4.0m, directly accessible from",
+      "value": "4.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\uf0d8 The outdoor living area (balcony) may be reduced to a mini",
+      "value": "15",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\uf0d8 At least 3m in height and/or have a trunk with a diameter ",
+      "value": "3",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "metre from the ground and/or has a canopy of 3.0m or more or",
+      "value": "3.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "3.0",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2.75",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "National Construction Code",
+      "manifest_id": "NCC-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "LPS4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

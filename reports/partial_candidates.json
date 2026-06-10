@@ -1,0 +1,518 @@
+[
+  {
+    "id": "LEG-001",
+    "chars": 663930,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "LEG-005",
+    "chars": 648062,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "LEG-004",
+    "chars": 635694,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-SP-002",
+    "chars": 623997,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "REG-001",
+    "chars": 472563,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PC-003",
+    "chars": 402952,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-SCH-002",
+    "chars": 398416,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PC-002",
+    "chars": 349050,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PC-001",
+    "chars": 303836,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-SP-003",
+    "chars": 301701,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-SP-001",
+    "chars": 301214,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "FRE-SCH-001",
+    "chars": 298958,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "LEG-002",
+    "chars": 260275,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "LEG-003",
+    "chars": 227252,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-SP-004",
+    "chars": 174355,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-006",
+    "chars": 133028,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-SCH-001",
+    "chars": 102361,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-006",
+    "chars": 82976,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-LPP-027",
+    "chars": 82478,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-012",
+    "chars": 77870,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-004",
+    "chars": 76367,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-015",
+    "chars": 59410,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PC-004",
+    "chars": 48408,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-SP-006",
+    "chars": 46377,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-018",
+    "chars": 45691,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-011",
+    "chars": 44958,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-014",
+    "chars": 42181,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-008",
+    "chars": 41649,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-LPP-001",
+    "chars": 41007,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-007",
+    "chars": 39219,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-008",
+    "chars": 37505,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "FRE-LPP-004",
+    "chars": 33879,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-002",
+    "chars": 33290,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-004",
+    "chars": 31988,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "FRE-LPP-003",
+    "chars": 31884,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-003",
+    "chars": 31874,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-LPP-020",
+    "chars": 30190,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-007",
+    "chars": 29958,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-011",
+    "chars": 27651,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-012",
+    "chars": 27069,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-019",
+    "chars": 26666,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-001",
+    "chars": 26020,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-007",
+    "chars": 25566,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PB-005",
+    "chars": 25466,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-001",
+    "chars": 25217,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-009",
+    "chars": 25026,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-004",
+    "chars": 24331,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PB-001",
+    "chars": 23793,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-LPP-003",
+    "chars": 23456,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-017",
+    "chars": 23243,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-010",
+    "chars": 23098,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-001",
+    "chars": 23030,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-002",
+    "chars": 22919,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PB-004",
+    "chars": 21792,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-022",
+    "chars": 21702,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-013",
+    "chars": 21493,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "FRE-LPP-011",
+    "chars": 21230,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-014",
+    "chars": 20548,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-006",
+    "chars": 20041,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-003",
+    "chars": 19305,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-005",
+    "chars": 19105,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "FRE-LPP-001",
+    "chars": 18606,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-011",
+    "chars": 18498,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-008",
+    "chars": 18472,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-021",
+    "chars": 18019,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-LPP-021",
+    "chars": 17933,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PB-002",
+    "chars": 16013,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-003",
+    "chars": 15669,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-016",
+    "chars": 14277,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-009",
+    "chars": 13326,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "SPP-023",
+    "chars": 12651,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-LPP-017",
+    "chars": 12526,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-010",
+    "chars": 12348,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-013",
+    "chars": 11123,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "JOO-LPP-003",
+    "chars": 10565,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PB-007",
+    "chars": 10026,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PB-006",
+    "chars": 9732,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-MAP-006",
+    "chars": 9622,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-017",
+    "chars": 9579,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "DC-015",
+    "chars": 9145,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-009",
+    "chars": 8438,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PS-005",
+    "chars": 8148,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PB-003",
+    "chars": 7795,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "PB-012",
+    "chars": 7409,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-LPP-012",
+    "chars": 6356,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  },
+  {
+    "id": "MEL-MAP-008",
+    "chars": 5569,
+    "confidence": "medium",
+    "reason": "extraction noted quality issues but text is present and looks like the right document"
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "id": "FRE-LPP-012",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.24 - Waste Management Plans",
+  "instrument_no": "LPP 2.24",
+  "version_date": "2025-08-13",
+  "operative_status": "current",
+  "scope_summary": "Specifies when a waste management plan must accompany a development application in the City of Fremantle and sets broad expectations for on-site waste storage and collection. A plan is mandatory for developments of 4 or more grouped dwellings, all multiple dwellings, constrained lots, and all new non-residential/mixed-use development or substantial changes affecting waste generation. Plans must follow the City's Waste Management Guidelines and relevant WALGA guidelines; all waste storage and removal should occur on-site.",
+  "key_numeric_standards": [
+    {
+      "topic": "waste management plan trigger - grouped dwellings",
+      "value": "4",
+      "unit": "or more grouped dwellings",
+      "applies_to": "grouped dwelling developments requiring a waste management plan",
+      "clause_ref": "cl 1.1"
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015 (Schedule 2 Deemed Provisions, cl 65A and 67(2))",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Residential Design Codes Volume 2 - Apartments (Waste Management Acceptable Outcomes 4.17)",
+      "manifest_id": "PC-002"
+    },
+    {
+      "cited": "WALGA Waste Management Plan Guidelines for New Multi Dwelling Developments",
+      "manifest_id": null
+    },
+    {
+      "cited": "WALGA Better Practice Guidelines for Multi Dwelling Developments",
+      "manifest_id": null
+    },
+    {
+      "cited": "WALGA Commercial and Industrial Waste Management Plan Guidelines",
+      "manifest_id": null
+    },
+    {
+      "cited": "City of Fremantle Waste Management Guidelines",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Adopted 19 January 2022 (PC2201-09); amended 13 August 2025 (Ordinary Meeting of Council C2508-6); next review 13 August 2029",
+    "Text complete and clean (4 pages); largely procedural with few numeric standards"
+  ]
+}

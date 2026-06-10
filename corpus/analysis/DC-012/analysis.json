@@ -1,0 +1,49 @@
+{
+  "id": "DC-012",
+  "normalized_title": "Development Control Policy 3.4 Subdivision of Rural Land",
+  "instrument_no": "DC 3.4",
+  "version_date": "December 2016",
+  "operative_status": "current",
+  "scope_summary": "Sets out the principles the WAPC applies when determining applications for the subdivision (including amalgamation and survey-strata) of rural-zoned land throughout Western Australia, consistent with SPP 2.5 Rural Planning. Creation of new or smaller rural lots is by exception, with subdivision considered only in defined circumstances: significant physical divisions, subdivision for other (non-rural-living) purposes, property rationalisation, conservation of heritage or biodiversity, and homestead lots within the mapped Homestead Lot Policy Area. Rural living subdivision is expressly excluded and dealt with under SPP 2.5 cl 5.3. Supersedes the March 2012 version of DC 3.4.",
+  "key_numeric_standards": [
+    {"topic": "homestead lot area", "value": "1-4 (up to 20 in site-specific circumstances)", "unit": "ha", "applies_to": "homestead lots excised from farm holdings in the Homestead Lot Policy Area", "clause_ref": "cl 6.6(b)"},
+    {"topic": "rural living lot size range (lots created via property rationalisation)", "value": "1-40", "unit": "ha", "applies_to": "rural living sized lots resulting from boundary rationalisation", "clause_ref": "cl 6.3(e)"},
+    {"topic": "conservation lot size threshold triggering adequacy assessment", "value": "40", "unit": "ha", "applies_to": "conservation lots (agency advice required on adequacy if smaller)", "clause_ref": "cl 6.5(a)(i)"},
+    {"topic": "maximum homestead lots per rural lot (one-off; more where multiple approved dwellings exist)", "value": "1", "unit": "lot", "applies_to": "homestead lot applications", "clause_ref": "cl 6.6"}
+  ],
+  "definitions": [
+    "Homestead lot",
+    "Conservation covenant",
+    "Restrictive covenant",
+    "Water supply - non-potable"
+  ],
+  "cross_references": [
+    {"cited": "Development Control Policy 3.4: Subdivision of rural land (March 2012) (superseded)", "manifest_id": null},
+    {"cited": "State Planning Policy 2.5: Rural Planning", "manifest_id": "SPP-004"},
+    {"cited": "State Planning Policy 1: State Planning Framework", "manifest_id": "SPP-001"},
+    {"cited": "State Planning Policy 2: Environment and Natural Resources Policy", "manifest_id": "SPP-002"},
+    {"cited": "Development Control Policy 1.1: Subdivision of Land - General Principles", "manifest_id": "DC-001"},
+    {"cited": "State Planning Policy 4.1: State Industrial Buffer Policy", "manifest_id": "SPP-014"},
+    {"cited": "State Planning Policy 2.7: Public Drinking Water Source Policy", "manifest_id": null},
+    {"cited": "State Planning Policy 2.2: Gnangara Groundwater Protection", "manifest_id": null},
+    {"cited": "State Planning Policy 2.3: Jandakot Groundwater Protection", "manifest_id": null},
+    {"cited": "State Planning Policy 2.10: Swan Canning River System", "manifest_id": null},
+    {"cited": "State Planning Policy 2.9: Water Resources", "manifest_id": "SPP-007"},
+    {"cited": "State Planning Policy 2.1: Peel-Harvey Coastal Plain Catchment", "manifest_id": null},
+    {"cited": "State Planning Policy 6.1: Leeuwin-Naturaliste Ridge", "manifest_id": "SPP-020"},
+    {"cited": "Greater Bunbury Region Scheme", "manifest_id": "RS-003"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "State Planning Strategy", "manifest_id": null},
+    {"cited": "Better Urban Water Management", "manifest_id": null},
+    {"cited": "Guidelines for Planning in Bushfire Prone Areas", "manifest_id": null},
+    {"cited": "Rural Planning Guidelines", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "summary.json title is garbled ('December 2016') from cover-page layout",
+    "Appendix 2 Homestead Lot Policy Area map extracted as a noisy list of local government names and GIS legend fragments (expected for a map page)",
+    "two/three-column PDF text interleaved in places",
+    "SPP 2.9 cited in text as 'Water Resources'; mapped to SPP-007 which the manifest titles 'Planning for Water' (same policy number, renamed in later version)"
+  ]
+}

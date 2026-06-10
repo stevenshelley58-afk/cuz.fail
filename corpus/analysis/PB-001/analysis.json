@@ -1,0 +1,43 @@
+{
+  "id": "PB-001",
+  "normalized_title": "Planning Bulletin 33/2017: Rights-of-way or Laneways in Established Areas",
+  "instrument_no": "PB 33/2017",
+  "version_date": "January 2017",
+  "operative_status": "current",
+  "scope_summary": "WAPC policy, practice and procedures for residential and commercial development and subdivision (including strata and survey-strata) adjoining existing private and public rights-of-way (laneways) in established areas across WA. It explains legal rights to use private rights-of-way (s 167A Transfer of Land Act 1893), sets expectations for sealing/draining and upgrading on redevelopment, gives design standards for width, length, truncations, parking, lighting and surveillance, and outlines dedication and widening mechanisms under the Land Administration Act 1997 and Planning and Development Act 2005. Greenfield laneways are excluded (covered by DC 1.7 and Liveable Neighbourhoods).",
+  "key_numeric_standards": [
+    {"topic": "minimum right-of-way width for vehicular access", "value": "6", "unit": "m", "applies_to": "rights-of-way used for vehicular access (per Liveable Neighbourhoods); widening to 6 m may be required free of cost on subdivision/development", "clause_ref": "s 6.1 / s 7.2"},
+    {"topic": "minimum width for WAPC support of dedication", "value": "5", "unit": "m", "applies_to": "dedication of right-of-way as public road; vehicles can pass at low speed at 5 m", "clause_ref": "s 6.1"},
+    {"topic": "garage setback from right-of-way boundary", "value": "1", "unit": "m", "applies_to": "garages at right angles to a 5 m wide right-of-way (manoeuvring space)", "clause_ref": "s 6.1"},
+    {"topic": "visibility splay at garage entrance", "value": "45", "unit": "degrees", "applies_to": "either side of garage entrance onto right-of-way", "clause_ref": "s 6.1"},
+    {"topic": "pedestrian access leg width", "value": "1.5 (1.0 where constrained by existing buildings)", "unit": "m", "applies_to": "rear lots with sole vehicular access via a right-of-way", "clause_ref": "s 5.1"},
+    {"topic": "maximum right-of-way length for dedication support", "value": "140", "unit": "m", "applies_to": "rights-of-way without alternative pedestrian access to the street", "clause_ref": "s 6.2"},
+    {"topic": "indicative maximum traffic volume", "value": "300", "unit": "vehicles per day", "applies_to": "rights-of-way (per Liveable Neighbourhoods)", "clause_ref": "s 6.3"},
+    {"topic": "target maximum design speed", "value": "15", "unit": "km/h", "applies_to": "rights-of-way (per Liveable Neighbourhoods)", "clause_ref": "s 6.3"},
+    {"topic": "corner truncation", "value": "2.8 (2 m x 2 m)", "unit": "m", "applies_to": "where two rights-of-way meet, a right-of-way meets a public street, or at bends of 60 degrees or more (per DC 1.7)", "clause_ref": "s 6.4"}
+  ],
+  "definitions": [
+    "Dedication",
+    "Laneway",
+    "Private road",
+    "Private right-of-way",
+    "Public right-of-way",
+    "Public road"
+  ],
+  "cross_references": [
+    {"cited": "Development Control Policy 1.7 - General Road Planning (DC 1.7)", "manifest_id": "DC-005"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": null},
+    {"cited": "State Planning Policy 3.6 Development contributions for provision of infrastructure", "manifest_id": "SPP-012"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Transfer of Land Act 1893", "manifest_id": null},
+    {"cited": "Land Administration Act 1997", "manifest_id": null},
+    {"cited": "Road Traffic (Administration) Act 2008", "manifest_id": null},
+    {"cited": "Prescription Act 1832", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Multi-column PDF interleaving scrambles sentence order in places (e.g. section 6.5/6.6 headings merged with body text)",
+    "Typical laneway cross-section diagrams (document pages 6-8) are images with no extracted content",
+    "instrument_aliases.json maps 'Liveable Neighbourhoods' to DC-009, but manifest DC-009 is Development Control Policy 2.2 Residential Subdivision - alias appears stale so manifest_id left null"
+  ]
+}

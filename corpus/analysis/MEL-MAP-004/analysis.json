@@ -1,0 +1,21 @@
+{
+  "id": "MEL-MAP-004",
+  "normalized_title": "City of Melville Local Planning Scheme No. 6 - Scheme Map No. 4 of 8 (Booragoon Locality)",
+  "instrument_no": "LPS6 Map 4 of 8",
+  "version_date": "Plot date 11 May 2022 (Version No 1; LPS6 gazetted Friday 27 May 2016)",
+  "operative_status": "current",
+  "scope_summary": "Statutory scheme map sheet 4 of 8 under the City of Melville Local Planning Scheme No. 6 covering the Booragoon locality. Depicts local scheme zones (Residential, Centre, Light Industry, Service Commercial), local scheme reserves, Metropolitan Region Scheme region reserves (including public purposes - car park, Commonwealth Government, high school), R-Codes density codings (predominantly R20 with R12.5, R25, R40 and C4 areas), and an A1 additional-use notation. Used to determine the zoning and density coding applicable to individual lots in Booragoon.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Metropolitan Region Scheme (MRS)", "manifest_id": "RS-001"},
+    {"cited": "Planning and Development Act 2005 (s 267C)", "manifest_id": "LEG-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "scheme map drawing: low text volume is expected; extracted text (110 lines) is map labels and legend only",
+    "extractor-generated summary.json title is garbled OCR of density-code labels ('R20 R20 R20 D A R IS...')",
+    "OCR of map labels yields fragmented and reversed street-name strings (e.g. 'DAOR SDLONYER'); spatial zoning/coding assignments are not recoverable from text alone - use the original PDF or GIS data for lot-level determinations"
+  ]
+}

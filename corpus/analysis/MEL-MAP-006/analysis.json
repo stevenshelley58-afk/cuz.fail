@@ -1,0 +1,22 @@
+{
+  "id": "MEL-MAP-006",
+  "normalized_title": "City of Melville Local Planning Scheme No. 6 - Scheme Map No. 6 of 8 (Murdoch Locality)",
+  "instrument_no": "LPS6 Map 6 of 8",
+  "version_date": "2024-11-07",
+  "operative_status": "current",
+  "scope_summary": "Statutory zoning map sheet 6 of 8 for City of Melville Local Planning Scheme No. 6, covering the Murdoch locality (and adjoining parts of Kardinya/Winthrop street network). It depicts local scheme reserves (district/local distributor roads, public open space, public purposes), local scheme zones (Centre, Residential, Light Industry, Service Commercial, Mixed Use, Special Use, Urban Development) and R-Codes density codings (R20-R80, R-AC0) parcel by parcel, plus Additional Use (A1), Restricted Use (R1) and Special Use Area (SU1) annotations. The scheme was gazetted on Friday 27 May 2016; this sheet is Version No 1 with a plot date of 7 November 2024.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "R Codes", "manifest_id": "PC-001"},
+    {"cited": "Kardinya Activity Centre Plan", "manifest_id": null},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "scheme map drawing: low text volume is expected, not a defect",
+    "OCR of map labels is heavily scrambled (street names fragmented and reordered); only the legend, title block and density codes are reliable",
+    "density codes (R20/R25/R30/R40/R60/R80/R-AC0) are present in text but cannot be tied to specific parcels from the extraction; the PDF/GIS map must be consulted for site-specific zoning"
+  ]
+}

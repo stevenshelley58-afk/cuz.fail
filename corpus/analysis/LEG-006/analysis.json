@@ -1,0 +1,28 @@
+{
+  "id": "LEG-006",
+  "normalized_title": "Bush Fires Act 1954 (WA)",
+  "instrument_no": null,
+  "version_date": "2022-09-01",
+  "operative_status": "current",
+  "scope_summary": "State Act for the prevention, control and extinguishment of bush fires across Western Australia. It empowers the Minister and FES Commissioner to declare prohibited and restricted burning times and total fire bans, regulates burning permits and garden refuse burning, lets local governments require occupiers to plough or clear fire-breaks (s 33), and provides for bush fire risk treatment standards (Part III Division 7) and bush fire brigades. It applies to land statewide, including residential lots in bushfire-prone districts subject to local government fire-break notices.",
+  "key_numeric_standards": [
+    {"topic": "fire-break width before burning land adjoining exempt land", "value": "3", "unit": "m (minimum)", "applies_to": "occupier of land adjoining exempt land burning during prohibited times", "clause_ref": "s 22(3)(b)"},
+    {"topic": "maximum distance of fire-break from exempt land boundary", "value": "60", "unit": "m", "applies_to": "fire-break parallel to common boundary with exempt land", "clause_ref": "s 22(3)(b), s 22(7)"},
+    {"topic": "roadside burning between two fire-breaks", "value": "20 m apart maximum; each at least 2 m wide", "unit": "m", "applies_to": "burning during prohibited burning times under permit", "clause_ref": "s 23"},
+    {"topic": "fire-break surrounding clover-burning area", "value": "3", "unit": "m (minimum width)", "applies_to": "burning subterranean clover during prohibited burning times", "clause_ref": "s 24(b)(ii)"}
+  ],
+  "definitions": ["bush", "bush fire", "bush fire brigade", "bush fire risk treatment standards", "burn garden refuse", "common boundary", "conservation land", "exempt land", "FES Act", "FES Commissioner", "forest land", "incendiary material", "limited burning times", "occupier of land", "owner or occupier of land", "prohibited burning times", "restricted burning times", "rubbish tip", "total fire ban", "volunteer fire fighter"],
+  "cross_references": [
+    {"cited": "Fire and Emergency Services Act 1998", "manifest_id": null},
+    {"cited": "Emergency Management Act 2005", "manifest_id": null},
+    {"cited": "Conservation and Land Management Act 1984", "manifest_id": null},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Fire Brigades Act 1942", "manifest_id": null},
+    {"cited": "Interpretation Act 1984", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Copyright attribution on final page contains unresolved Word field-code artifact: 'Error! Unknown document property name.' (extraction reflects source PDF defect, text otherwise clean)",
+    "Compilation is 'As at 01 Sep 2022' official version; manifest expects current consolidated - verify no amendments commenced after Sep 2022"
+  ]
+}

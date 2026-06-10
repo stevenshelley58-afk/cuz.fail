@@ -1,0 +1,28 @@
+{
+  "id": "PB-003",
+  "normalized_title": "Planning Bulletin 113/2015: Multiple Dwellings in R40 Coded Areas and Variation to R-Codes Multiple Dwelling Development Standards",
+  "instrument_no": "PB 113/2015",
+  "version_date": "July 2015",
+  "operative_status": "current",
+  "scope_summary": "Guidance to WA local governments on acceptable local planning scheme amendments to restrict multiple dwelling development in R40 coded areas, by applying the average site area per grouped dwelling standard in lieu of plot ratio for R40 lots located outside defined core/activity-centre walkable catchments. It also outlines the WAPC-supported approach to local planning policies dealing with proposals seeking variation to R-Codes multiple dwelling deemed-to-comply standards, including maximum plot ratio bonuses and the qualitative criteria that should be achieved.",
+  "key_numeric_standards": [
+    {"topic": "core area catchment - activity centre / rail station", "value": "800", "unit": "m", "applies_to": "R40 lots within 800 m of a strategic metropolitan, secondary, district or specialised activity centre or high-frequency rail station are excluded from multiple-dwelling restriction", "clause_ref": "s 3"},
+    {"topic": "optional locational criterion - public open space", "value": "200", "unit": "m", "applies_to": "proximity to public open space (at local government discretion)", "clause_ref": "s 3"},
+    {"topic": "optional locational criterion - local/neighbourhood activity centre", "value": "400", "unit": "m", "applies_to": "proximity to a local or neighbourhood activity centre (at local government discretion)", "clause_ref": "s 3"},
+    {"topic": "optional locational criterion - high frequency bus stop", "value": "250", "unit": "m", "applies_to": "proximity to a bus stop on a high frequency bus route (at local government discretion)", "clause_ref": "s 3"},
+    {"topic": "maximum plot ratio bonus", "value": "25", "unit": "% above deemed-to-comply plot ratio (R-Codes Table 4)", "applies_to": "multiple dwellings in R30 to R80 coded areas", "clause_ref": "s 4"},
+    {"topic": "maximum plot ratio bonus", "value": "50", "unit": "% above deemed-to-comply plot ratio (R-Codes Table 4)", "applies_to": "multiple dwellings in R100 and greater coded areas", "clause_ref": "s 4"}
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "Liveable Neighbourhoods (Appendix 3 walkable catchment technique)", "manifest_id": null},
+    {"cited": "Model Scheme Text (MST clauses 5.3 and 5.5, Part 2)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Bulletin is grounded in the pre-2015 framework (Model Scheme Text clauses, R-Codes 2015 amendments, R-Codes clause 6.1.1/Table 4 plot ratio); the R-Codes Vol.1 2024 removed plot ratio control for R40-R60 multiple dwellings in favour of average site area per dwelling (see PB 114/2024), so this bulletin's operative weight today is doubtful even though it remains the latest published version",
+    "Multi-column PDF interleaving scrambles sentence order in places",
+    "summary.json key_provisions is empty despite extractable section content"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "MEL-SCH-001",
+  "normalized_title": "City of Melville Local Planning Scheme No. 6 (Scheme Text)",
+  "instrument_no": "LPS 6",
+  "version_date": "Consolidation updated to include AMD 16 (GG 24 February 2026); original scheme gazetted 27 May 2016",
+  "operative_status": "current",
+  "scope_summary": "District local planning scheme for the City of Melville (Perth metropolitan area, also subject to the Metropolitan Region Scheme), revoking Community Planning Scheme No 5 (gazetted 14 December 1999). It reserves land, zones the district (Residential, Centre C1-C4, Mixed Use, Service Commercial, Light Industry, Private Clubs/Institutions/Places of Worship, Special Use), sets the zoning table (Table 3), additional uses (Table 4) and restricted uses, adopts the R-Codes (cl 25, modified by cl 26 split-coding rules) and SPP 3.6 (cl 27) as part of the Scheme, and sets additional site and development requirements (cl 32, Table 7) with a variation power (cl 34). It is read with the deemed provisions in Schedule 2 of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+  "key_numeric_standards": [
+    {"topic": "building height (to eaves)", "value": "11.0", "unit": "m", "applies_to": "Centre Zone C3 and C4 sites coded R30-R50", "clause_ref": "cl 32(1) Table 7 Nos 1-2 (2)"},
+    {"topic": "building height (external wall, concealed roof)", "value": "12.0", "unit": "m", "applies_to": "Centre Zone C3 and C4 sites coded R30-R50", "clause_ref": "cl 32(1) Table 7 Nos 1-2 (2)"},
+    {"topic": "building height (maximum)", "value": "13.5", "unit": "m", "applies_to": "Centre Zone C3 and C4 sites coded R30-R50", "clause_ref": "cl 32(1) Table 7 Nos 1-2 (2)"},
+    {"topic": "building height (to eaves)", "value": "15.0", "unit": "m", "applies_to": "Centre Zone C3 and C4 sites coded R60 and above", "clause_ref": "cl 32(1) Table 7 Nos 1-2 (2)"},
+    {"topic": "building height (external wall, concealed roof)", "value": "16.0", "unit": "m", "applies_to": "Centre Zone C3 and C4 sites coded R60 and above", "clause_ref": "cl 32(1) Table 7 Nos 1-2 (2)"},
+    {"topic": "building height (maximum)", "value": "17.5", "unit": "m", "applies_to": "Centre Zone C3 and C4 sites coded R60 and above", "clause_ref": "cl 32(1) Table 7 Nos 1-2 (2)"},
+    {"topic": "plot ratio (total)", "value": "1.0", "unit": "ratio", "applies_to": "Centre Zone C3 District Centres (Palmyra, Bull Creek) and Centre Zone C4", "clause_ref": "cl 32(1) Table 7 Nos 1-2 (3) (AMD 3 GG 12/05/17; AMD 15 GG 5/11/24)"},
+    {"topic": "open space (minimum)", "value": "10", "unit": "% of development site", "applies_to": "Centre C3/C4, Mixed Use, Service Commercial and Light Industrial zones", "clause_ref": "cl 32(1) Table 7 Nos 1-5 (4)"},
+    {"topic": "plot ratio (total)", "value": "0.6", "unit": "ratio", "applies_to": "Mixed Use zone (no adjacent Activity Centre Plan)", "clause_ref": "cl 32(1) Table 7 No 3 (3)"},
+    {"topic": "front (street) setback", "value": "6.0", "unit": "m", "applies_to": "Service Commercial zone (streets other than Leach Highway) and Light Industrial zone", "clause_ref": "cl 32(1) Table 7 Nos 4-5 (1)"},
+    {"topic": "front setback to Leach Highway", "value": "15", "unit": "m", "applies_to": "Service Commercial zone", "clause_ref": "cl 32(1) Table 7 No 4 (1)(b)"},
+    {"topic": "landscape strip inside front boundary (minimum width)", "value": "3", "unit": "m", "applies_to": "Service Commercial and Light Industrial zones", "clause_ref": "cl 32(1) Table 7 Nos 4-5 (1)"},
+    {"topic": "building height (overall)", "value": "13.5", "unit": "m", "applies_to": "Service Commercial and Light Industrial zones (reduced to 10.5 m where Service Commercial adjoins Residential zone)", "clause_ref": "cl 32(1) Table 7 Nos 4-5 (2)"},
+    {"topic": "plot ratio", "value": "1.0", "unit": "ratio", "applies_to": "Service Commercial and Light Industrial zones", "clause_ref": "cl 32(1) Table 7 Nos 4-5 (3)"},
+    {"topic": "minimum lot size to apply higher code of R40/60 split coding", "value": "3000", "unit": "m2", "applies_to": "Willagee R40/60 split-coded land (single or grouped dwellings only)", "clause_ref": "cl 26(2)"}
+  ],
+  "definitions": [
+    "building envelope", "building height", "commencement day", "commercial vehicle", "floor area", "frontage", "incidental use", "net lettable area (nla)", "non-conforming use", "plot ratio", "precinct", "predominant use", "retail", "wall height", "wholesale",
+    "amusement parlour", "art gallery", "betting agency", "brewery", "consulting rooms", "convenience store", "corrective institution", "educational establishment", "exhibition centre", "family day care", "fast food outlet/lunch bar", "fuel depot", "garden centre", "home business", "home occupation", "home office", "home store", "hospital", "hotel", "industry", "industry - light", "liquor store - large", "liquor store - small", "marina", "marina filling station", "market", "medical centre", "motor vehicle, boat sales/hire", "motor vehicle repair", "motor vehicle wash", "nightclub", "office", "place of worship", "reception centre", "recreation - private", "resource recovery", "restaurant/cafe", "restricted premises", "service station", "shop", "small bar", "tavern", "telecommunications infrastructure", "tourist and visitor accommodation", "trade display", "trade supplies", "transport depot", "veterinary centre", "warehouse/storage"
+  ],
+  "cross_references": [
+    {"cited": "R-Codes / Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 3.6 - Development Contributions for Infrastructure", "manifest_id": "SPP-012"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015 Schedule 2 (deemed provisions)", "manifest_id": "REG-001"},
+    {"cited": "Environmental Protection Act 1986", "manifest_id": "LEG-005"},
+    {"cited": "Building Code", "manifest_id": "NCC-001"},
+    {"cited": "Canning Bridge Activity Centre Plan", "manifest_id": "MEL-SP-001"},
+    {"cited": "Kardinya Activity Centre Plan", "manifest_id": null},
+    {"cited": "City of Melville Community Planning Scheme No 5 (revoked)", "manifest_id": null},
+    {"cited": "Interpretation Act 1984", "manifest_id": null},
+    {"cited": "Transfer of Land Act 1893", "manifest_id": null},
+    {"cited": "Racing and Wagering Western Australia Act 2003", "manifest_id": null},
+    {"cited": "Liquor Control Act (producer's/liquor licences)", "manifest_id": null},
+    {"cited": "AS 2890.1 (parking facilities)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "zoning table (Table 3) rotated column headers extracted as reversed/scrambled character strings (e.g. line 'la itn e d is e r t n e C ...'); zone-column mapping for use permissibility symbols must be reconstructed with care",
+    "some zoning table rows interleave stray characters from rotated text and footnote markers (e.g. 'community purpose', 'consulting rooms', 'convenience store' rows)",
+    "page headers/footers ('City of Melville LPS 6', page numbers) interleaved through body text",
+    "amendment table column order ambiguous in extraction (gazettal vs updated dates); original gazettal 27/05/16 confirmed by 'Original Town Planning Scheme Gazettal May 2016' header",
+    "WAPC/Ministerial signature dates on execution pages are blank in this consolidated electronic copy (normal for DPLH consolidations)",
+    "document is the DPLH electronic consolidation with disclaimer that it is not the legal version"
+  ]
+}

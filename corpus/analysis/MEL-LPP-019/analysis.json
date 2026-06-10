@@ -1,0 +1,34 @@
+{
+  "id": "MEL-LPP-019",
+  "normalized_title": "City of Melville Local Planning Policy 2.1 - Non-Residential Development",
+  "instrument_no": "LPP 2.1",
+  "version_date": "2019-10-25",
+  "operative_status": "current",
+  "scope_summary": "Design policy applying to all non-residential development and the non-residential element of mixed use development in the City of Melville. Sets built form and amenity provisions covering building design and articulation, corner sites, front facades and shopfronts, awnings and weather protection, ground floor active uses, landscaping, visual privacy where development adjoins residential properties, vehicle access, loading and parking, plant screening, waste storage, and site works. Operates in addition to LPS6 and other applicable local planning policies.",
+  "key_numeric_standards": [
+    {"topic": "ground floor facade transparency", "value": "60", "unit": "% minimum of facade length adjacent to a footpath", "applies_to": "ground floor level facades of non-residential development", "clause_ref": "cl 3.6"},
+    {"topic": "roller door visual permeability", "value": "75", "unit": "% minimum", "applies_to": "security shutters/roller doors interfacing with the public domain", "clause_ref": "cl 3.7"},
+    {"topic": "awning minimum depth", "value": "2.5", "unit": "m (where possible)", "applies_to": "awnings where a building abuts a footpath", "clause_ref": "cl 4.2"},
+    {"topic": "awning minimum clearance above ground", "value": "2.75", "unit": "m", "applies_to": "awnings and any future under-awning signage", "clause_ref": "cl 4.3"},
+    {"topic": "awning setback from kerb", "value": "0.5", "unit": "m minimum", "applies_to": "awnings (not to be sited within 0.5m of a kerb)", "clause_ref": "cl 4.4"},
+    {"topic": "car park shade trees", "value": "1 per 6", "unit": "trees per parking bays", "applies_to": "at-grade car parking areas containing more than six bays", "clause_ref": "cl 6.1(d)"},
+    {"topic": "visual privacy setback - operational rooms", "value": "6", "unit": "m minimum within cone of vision (or 1.6m permanent vertical screening)", "applies_to": "openings to operational rooms with finished floor level raised 0.5m+ above NGL overlooking adjoining residential property", "clause_ref": "cl 7.1(a)"},
+    {"topic": "visual privacy setback - unenclosed outdoor spaces", "value": "7.5", "unit": "m minimum within cone of vision (or 1.6m permanent vertical screening)", "applies_to": "balconies, decks, verandahs with finished floor level raised 0.5m+ above NGL overlooking adjoining residential property", "clause_ref": "cl 7.1(b)"},
+    {"topic": "on-site loading area trigger", "value": "500", "unit": "m2 Gross Floor Area", "applies_to": "non-residential portion of development exceeding this GFA must provide on-site loading/unloading areas", "clause_ref": "cl 8.5"},
+    {"topic": "basement/undercroft headway clearance", "value": "2.85", "unit": "m minimum", "applies_to": "basement or undercroft levels containing a loading or accessible bay", "clause_ref": "cl 8.6"},
+    {"topic": "sight line truncation height limit", "value": "0.6", "unit": "m maximum height within 1.5m x 1.5m of access way / street boundary intersection", "applies_to": "structures (walls, fencing, services) and vegetation at vehicle access points", "clause_ref": "cl 8.7"}
+  ],
+  "definitions": ["Operational Rooms", "LPS6", "R-Codes"],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6 (LPS6)", "manifest_id": "MEL-SCH-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "National Construction Code 2012 (as amended)", "manifest_id": "NCC-001"},
+    {"cited": "AS 4970: Protection of Trees", "manifest_id": null},
+    {"cited": "Council Street Tree Policy", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": ["source numbering error: clause number 3.5 is used twice ('Windows at ground floor level should remain visually permeable' and 'Reflective or heavily tinted glazing'), so subsequent clauses 3.6/3.7 are offset", "diagrams 1-5 referenced in text are not captured in the extracted text (images)", "cites NCC 2012 for disabled parking, an outdated edition relative to NCC 2022 in the manifest"]
+}

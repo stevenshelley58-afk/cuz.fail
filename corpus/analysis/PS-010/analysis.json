@@ -1,0 +1,23 @@
+{
+  "id": "PS-010",
+  "normalized_title": "Position Statement: Workforce Accommodation",
+  "instrument_no": null,
+  "version_date": "January 2018",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement on land use planning for workforce accommodation (temporary worker accommodation, common in the Pilbara and Goldfields) across Western Australia. It outlines when development approval is required under the Planning and Development Act 2005, the overriding effect of the Mining Act 1978 and State Agreement Acts, and guides local governments on addressing workforce accommodation through local planning strategies, scheme zoning tables and local planning policies. Its position is that workforce accommodation should, where practicable, be located in established towns and integrated with town services.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Workforce Accommodation (as defined in the Planning and Development (Local Planning Schemes) Regulations 2015)"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Mining Act 1978", "manifest_id": null},
+    {"cited": "State Agreement Acts", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "Multi-column PDF layout extracted with interleaved sentence fragments across columns; content recoverable but line order is scrambled in places",
+    "summary.json title field is mis-extracted as 'Department of Planning,' (publisher header captured instead of the document title)"
+  ]
+}

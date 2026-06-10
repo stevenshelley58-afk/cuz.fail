@@ -1,0 +1,20 @@
+{
+  "id": "PB-007",
+  "normalized_title": "Planning Bulletin 107/2012 - Model Subdivision Conditions",
+  "instrument_no": "PB 107/2012",
+  "version_date": "August 2012",
+  "operative_status": "current",
+  "scope_summary": "WAPC advisory bulletin announcing the revised Model Subdivision Conditions Schedule (2012), which reduced the 2009 schedule from 178 conditions and 86 advice notes to 108 conditions and 25 advice notes across 13 parts (administration, amenity, buildings and use, drainage, lot design, reserves, transport, water and sewer, etc.). It explains the SAT/Newbury validity test for subdivision conditions, the limited use of non-standard conditions and advice notes, and the process for amending the schedule. Applies state-wide to WAPC subdivision, survey-strata and strata approvals.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Model Subdivision Conditions Schedule (2012)", "manifest_id": null},
+    {"cited": "Model Subdivision Conditions Schedule (January 2009)", "manifest_id": null},
+    {"cited": "Planning Makes it Happen - A Blueprint for Planning Reform (September 2009)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "two-column PDF layout caused interleaved sentence fragments in extracted text (readable but lines from adjacent columns are merged)",
+    "internal date inconsistency: header/title states 107/2012 August 2012 but the colophon reads 'Published August 2010' (likely a typo in the source document or a column-merge artifact)"
+  ]
+}

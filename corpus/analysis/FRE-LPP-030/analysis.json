@@ -1,0 +1,22 @@
+{
+  "id": "FRE-LPP-030",
+  "normalized_title": "City of Fremantle LPP 3.6.1 | Heritage Areas Listings 6.6 MB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "House, 168 Hampton Road 1942; lockup (former), 170 Hampton Road; House, 8 Lloyd Street c. 1900 House, 30 Mardie Street c. 1900; Shop and house, 247-249 South Terrace c. 1900 House, 296 South Terrace c. 1898 House, 358 South Terrace 1897; Mills & Ware Factory, 11 Wardie Street c. 1950 House, 20 Wesley Street c. 1903",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

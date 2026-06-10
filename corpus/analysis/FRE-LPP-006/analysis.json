@@ -1,0 +1,32 @@
+{
+  "id": "FRE-LPP-006",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.2 - Split Density Codes and Energy Efficiency and Sustainability Schedule",
+  "instrument_no": "LPP 2.2",
+  "version_date": "Adopted 17 October 2007 (C0710-04); amended 16 April 2014 (PSC1404-74) and 19 January 2022 (PC2201-10)",
+  "operative_status": "current",
+  "scope_summary": "Implements clause 4.3.4 of Local Planning Scheme No. 4 for sites with a split residential density code (e.g. R35/R40) connected to reticulated sewerage. The higher density code may only be applied via one of four pathways: retention of a building of cultural heritage significance, provision of 'low income housing', compliance with the City's Energy Efficiency and Sustainability Schedule (Part B), or removal of a non-conforming use; otherwise the lower code prevails. Applies to new dwelling development on split-coded land, not to renovations/additions to existing dwellings.",
+  "key_numeric_standards": [
+    {"topic": "energy efficiency rating uplift", "value": "+1", "unit": "NatHERS star above current BCA class 1A requirement", "applies_to": "new dwellings seeking the higher density code via the Energy Efficiency and Sustainability Schedule", "clause_ref": "Part B cl 1.1"},
+    {"topic": "photovoltaic solar panel system minimum capacity", "value": "3", "unit": "kW", "applies_to": "new dwellings under the Energy Efficiency and Sustainability Schedule", "clause_ref": "Part B cl 1.2"},
+    {"topic": "rainwater tank minimum capacity", "value": "3000", "unit": "L", "applies_to": "tank plumbed to toilet or laundry (alternatives: approved greywater reuse system, or registration and retention of a significant tree)", "clause_ref": "Part B cl 1.3"},
+    {"topic": "alternative compliance star rating uplift", "value": "+0.5", "unit": "NatHERS star per unmet item", "applies_to": "where Part B cl 1.2 and/or 1.3 cannot reasonably be met", "clause_ref": "Part B cl 2 (final paragraph)"}
+  ],
+  "definitions": [
+    "building of cultural heritage significance (Part A cl 1.1)",
+    "low income housing (as defined in Schedule 1 of the Scheme)",
+    "non-conforming use (as defined in the Scheme)"
+  ],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 4 (cl 4.3.4, Schedule 1)", "manifest_id": "FRE-SCH-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Building Codes of Australia (class 1A energy efficiency requirement)", "manifest_id": "NCC-001"},
+    {"cited": "City's Significant Tree and Vegetation Areas Register (LPP 2.23)", "manifest_id": "FRE-LPP-011"},
+    {"cited": "AS4970-2009 Protection of Trees on Development Sites", "manifest_id": null},
+    {"cited": "Nationwide House Energy Rating Scheme (NatHERS)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "first line of extracted text is a 'CheckPointThreatExtractionsecuredthisdocument GetOriginal' sanitiser artifact (source PDF is the '.cleaned' Check Point Threat Extraction copy); extractor summary.json title is polluted by it",
+    "stated next review date (19 January 2026) has passed as of 2026-06-10, but this remains the version published on the Fremantle LPP index"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "FRE-LPP-018",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.9 - Residential Streetscapes",
+  "instrument_no": "LPP 2.9",
+  "version_date": "2026-05-13",
+  "operative_status": "current",
+  "scope_summary": "Modifies R-Codes Volume 1 deemed-to-comply provisions for street setbacks, garage/carport setbacks, building height design principles and vehicular access for all residential development in the City of Fremantle assessed under R-Codes Volume 1, excluding heritage-protected places and areas covered by more localised instruments. Sets suburb-specific primary street setbacks (Fremantle, North Fremantle, Beaconsfield, White Gum Valley) and detailed standards for carports forward of dwellings and driveway widths. Version 4 (13 May 2026) recast the policy into deemed-to-comply format and reverted some setbacks to the R-Codes.",
+  "key_numeric_standards": [
+    {"topic": "primary street setback - ground floor", "value": "5", "unit": "m", "applies_to": "dwellings in Fremantle and North Fremantle suburbs", "clause_ref": "C2.1(i) Table 1.1a / C3.3.1"},
+    {"topic": "primary street setback - upper floor", "value": "7", "unit": "m", "applies_to": "dwellings in Fremantle and North Fremantle suburbs (walls above 4m street-elevation wall height)", "clause_ref": "C2.1(i) Table 1.1a"},
+    {"topic": "primary street setback - ground floor", "value": "7", "unit": "m", "applies_to": "dwellings in Beaconsfield and White Gum Valley suburbs", "clause_ref": "C2.1(i) Table 1.1a"},
+    {"topic": "primary street setback - upper floor", "value": "10", "unit": "m", "applies_to": "dwellings in Beaconsfield and White Gum Valley suburbs", "clause_ref": "C2.1(i) Table 1.1a"},
+    {"topic": "ground/upper floor setback wall height threshold", "value": "4", "unit": "m wall height on street elevation", "applies_to": "determining whether ground or upper floor setback applies", "clause_ref": "C2.1(i)"},
+    {"topic": "street setback reduction with open space compensation", "value": "up to 50", "unit": "%", "applies_to": "South Fremantle, Samson, O'Connor and Hilton (excluding heritage areas), with equal compensating open space incl. min 50% soft landscaping", "clause_ref": "C2.1(iii)"},
+    {"topic": "minor projections into street setback", "value": "0.75", "unit": "m maximum", "applies_to": "chimneys, eaves, window hoods and other architectural features", "clause_ref": "C3.3.1"},
+    {"topic": "garage/carport setback", "value": "in line with or behind front wall of dwelling", "unit": "n/a", "applies_to": "garages and carports (deemed-to-comply)", "clause_ref": "C1.1 / C3.3.4"},
+    {"topic": "carport forward of dwelling - street setback", "value": "1.5", "unit": "m minimum from primary and secondary street boundaries", "applies_to": "entire carport incl. roof, eaves, pillars/posts", "clause_ref": "C3.3.5(i)"},
+    {"topic": "carport pillar/post maximum dimension", "value": "450 x 450", "unit": "mm", "applies_to": "carports located in front of dwelling", "clause_ref": "C3.3.5(ii)"},
+    {"topic": "carport maximum height", "value": "3", "unit": "m above natural ground level as viewed from street", "applies_to": "carports located in front of dwelling", "clause_ref": "C3.3.5(iii)"},
+    {"topic": "carport maximum width", "value": "6 (frontage >=12m) / 3 (frontage <12m)", "unit": "m", "applies_to": "carports located in front of dwelling", "clause_ref": "C3.3.5(vi)"},
+    {"topic": "carport length allowing boundary pillars", "value": "<10", "unit": "m", "applies_to": "pillars/posts may be built to lot boundary where carport under 10m long", "clause_ref": "C3.3.5(vii)"},
+    {"topic": "driveway minimum width", "value": "3", "unit": "m at street boundary", "applies_to": "driveways serving four dwellings or less", "clause_ref": "C5.2"},
+    {"topic": "driveway maximum width", "value": "4.5", "unit": "m at street boundary", "applies_to": "any driveway", "clause_ref": "C5.2 / C3.7.3ii"},
+    {"topic": "aggregate driveway maximum width", "value": "6", "unit": "m per property", "applies_to": "all driveways for any one property", "clause_ref": "C5.2"}
+  ],
+  "definitions": ["Prevailing streetscape"],
+  "cross_references": [
+    {"cited": "Residential Design Codes (R-Codes) Volume 1, Parts B & C", "manifest_id": "PC-001"},
+    {"cited": "Local Planning Policy 3.6 Heritage-protected Places Built Form and Land Use", "manifest_id": "FRE-LPP-029"},
+    {"cited": "Local Planning Policy 2.8: Fences", "manifest_id": "FRE-LPP-017"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "NCC (National Construction Code)", "manifest_id": "NCC-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Carport clause label 'C2.1 & C3.3.5' (line under Deemed-to-comply Parts B & C) appears to be a numbering error for 'C1.2 & C3.3.5' in the source document",
+    "Sightline figure referenced after Note 2 is an image with no extractable text (expected)"
+  ]
+}

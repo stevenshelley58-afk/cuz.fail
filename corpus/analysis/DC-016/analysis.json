@@ -1,0 +1,26 @@
+{
+  "id": "DC-016",
+  "normalized_title": "Operational Policy 5.3 - Use of Land Reserved for Regional Open Space (formerly Development Control Policy 5.3 Use of Land Reserved for Parks, Recreation and Regional Open Space)",
+  "instrument_no": "OP 5.3 (formerly DC 5.3)",
+  "version_date": "Publication and operational date 31 March 2025 (content last reviewed March 2025; originally adopted 1999)",
+  "operative_status": "current",
+  "scope_summary": "WAPC operational policy outlining the circumstances in which the WAPC may approve use and development of land reserved for Regional Open Space under the Metropolitan Region Scheme, Greater Bunbury Region Scheme and Peel Region Scheme. It restricts uses to those consistent with recreation/conservation purposes, sets the three-step application/referral/determination process for sporting clubs, community groups and private businesses, and prescribes lease-agreement matters where the land is WAPC-owned. The policy supersedes DC 5.3 with unchanged content, converted to the Operational Policy format to align with SPP 1.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Development Control Policy 5.3 Use of Land Reserved for Parks and Recreation and Regional Open Space (superseded predecessor)", "manifest_id": "DC-016"},
+    {"cited": "SPP 1 State Planning Framework", "manifest_id": "SPP-001"},
+    {"cited": "Metropolitan Region Scheme (cl 27, cl 35)", "manifest_id": "RS-001"},
+    {"cited": "Greater Bunbury Region Scheme (cl 24, cl 34)", "manifest_id": "RS-003"},
+    {"cited": "Peel Region Scheme (cl 18, cl 28)", "manifest_id": "RS-002"},
+    {"cited": "Planning and Development Act 2005 (s 14(c)(vi))", "manifest_id": "LEG-001"},
+    {"cited": "SPP 3.7 Bushfire", "manifest_id": "SPP-013"},
+    {"cited": "Liquor Control Act 1988", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "manifest instrument_name uses the superseded DC 5.3 title; the extracted (and current) document is Operational Policy 5.3 'Use of Land Reserved for Regional Open Space' - same instrument lineage, content stated as unchanged",
+    "front-page disclaimer/contact block extracted as scrambled interleaved characters (line 12 of extract)",
+    "three-column layout extracted with column interleaving in body sections (e.g. sections 1, 6 and 7 mix sentences across columns)"
+  ]
+}

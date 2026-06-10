@@ -1,0 +1,26 @@
+{
+  "id": "MEL-LPP-008",
+  "normalized_title": "City of Melville Local Planning Policy 1.8 - Crime Prevention Through Environmental Design of Buildings",
+  "instrument_no": "LPP 1.8",
+  "version_date": "2019-08-27",
+  "operative_status": "current",
+  "scope_summary": "Applies Crime Prevention Through Environmental Design (CPTED) principles, drawn from the WAPC 'Designing Out Crime' Planning Guidelines (2006), to all residential and non-residential development in the City of Melville. Requires passive surveillance (ground-floor windows viewing the primary/secondary street, overlooking of car parks and open space reserves), avoidance of blank walls or anti-graffiti treatment, visually permeable front fencing, and for non-residential and multiple dwelling developments, avoidance of blind corners/recessed alcoves and lighting or CCTV for parking areas. Where these elements conflict with R-Codes visual privacy provisions, the R-Codes prevail.",
+  "key_numeric_standards": [
+    {"topic": "front fence visual permeability threshold", "value": "1.2", "unit": "m (visually permeable above this height)", "applies_to": "fencing within the front setback of properties", "clause_ref": "cl 1.3(a)"}
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "WAPC Designing Out Crime - Planning Guidelines (2006)", "manifest_id": null},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1 (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "clean extraction, 3 pages, full text legible",
+    "summary.json title ends mid-phrase ('...Environmental Design of') because the title wraps over two lines; full title is 'Crime Prevention Through Environmental Design of Buildings'",
+    "administrative review 27/8/2019 (Council Resolution 18/6/2019); print footer 'This Version: 31/10/2019'"
+  ]
+}

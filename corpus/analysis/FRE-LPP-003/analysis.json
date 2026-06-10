@@ -1,0 +1,30 @@
+{
+  "id": "FRE-LPP-003",
+  "normalized_title": "City of Fremantle Local Planning Policy 1.6 - Heritage Administration and Procedures",
+  "instrument_no": "LPP 1.6",
+  "version_date": "Adopted 27 August 2025 (Ordinary Meeting of Council, C2508-15)",
+  "operative_status": "current",
+  "scope_summary": "Sets the City of Fremantle's administrative procedures for heritage management across the Local Planning Scheme No. 4 area: when Heritage Assessments and Heritage Impact Statements are required with development applications, assessment of cultural heritage significance and listing categories (Level 1A/1B, 2, 3), processes for adding/removing places on the Local Heritage Survey or Heritage List (Part 1); criteria triggering archaeological investigations under clause 13B of LPS4 (Part 2); and guidance on varying scheme site/development requirements (height, setbacks, plot ratio, parking) on heritage grounds under clause 12 of the Deemed Provisions, including the required Statement of Justification (Part 3).",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Heritage Assessment",
+    "Heritage Impact Statement",
+    "suitably qualified person (archaeology)",
+    "reasonable evidence (archaeological investigation trigger)"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015 (Deemed Provisions, cl 12 and cl 64)", "manifest_id": "REG-001"},
+    {"cited": "Heritage Act 2018", "manifest_id": "LEG-007"},
+    {"cited": "Local Planning Scheme No. 4", "manifest_id": "FRE-SCH-001"},
+    {"cited": "LPP 3.6: Heritage-protected Places Built Form and Land Use", "manifest_id": "FRE-LPP-029"},
+    {"cited": "LPP 3.6.1: Heritage Areas Listings", "manifest_id": "FRE-LPP-030"},
+    {"cited": "LPP 1.7: Development Exempt from Approval Under Local Planning Scheme No. 4", "manifest_id": "FRE-LPP-004"},
+    {"cited": "The Burra Charter - Australia ICOMOS Charter for Places of Cultural Significance", "manifest_id": null},
+    {"cited": "Heritage of Western Australia Act 1990", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Appendix 1 quick-reference table extracted with interleaved category/requirement columns (readable but misaligned)",
+    "extractor summary.json title and version_date fields are empty/generic ('Local Planning') though the actual document text is complete"
+  ]
+}

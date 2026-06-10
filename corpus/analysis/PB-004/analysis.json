@@ -1,0 +1,31 @@
+{
+  "id": "PB-004",
+  "normalized_title": "Planning Bulletin 114/2024: Residential Design Codes Volume 1 and 2 - Deferred Gazettal, Special Transition Period and Relationship with Pre-Existing Local Planning Frameworks",
+  "instrument_no": "PB 114/2024",
+  "version_date": "8 March 2024",
+  "operative_status": "current",
+  "scope_summary": "Explains which version of the Residential Design Codes applies to development applications and approval-exempt development during the 'deferred gazettal period' (R-Codes Vol.1 2021 / Vol.2 2019 until gazettal of the 2024 codes on 10 April 2024) and the 24-month 'special transition period' ending 10 April 2026. It also sets the WAPC's position on how pre-existing local planning instruments (local planning policies, local development plans, structure plans, precinct plans and schemes) that modify deemed-to-comply provisions interact with the R-Codes Vol.1 2024, including the replacement of multiple-dwelling plot ratio with average site area per dwelling, and provides a clause conversion table from R-Codes Vol.1 2021 to Vol.1 2024 Part C.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Deemed provisions",
+    "Local planning instrument",
+    "R-Codes Vol.1 2021",
+    "R-Codes Vol.1 2024",
+    "R-Codes Vol.2 2019",
+    "R-Codes Vol.2 2023",
+    "WAPC"
+  ],
+  "cross_references": [
+    {"cited": "Residential Design Codes Volume 1 (R-Codes Vol.1 2021 and 2024)", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 (R-Codes Vol.2 2019 and 2023/2024)", "manifest_id": "PC-002"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015 (deemed provisions, cl 61, cl 67(2), cl 75, r.66)", "manifest_id": "REG-001"},
+    {"cited": "Planning Bulletin 112/2024 (previously Planning Bulletin 112/2016)", "manifest_id": "PB-002"},
+    {"cited": "Miller v City of Stirling [2007] 247", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "summary.json version_date of '2 July 2021' is wrong - that is the gazettal date of R-Codes Vol.1 2021 quoted in the bulletin's definitions; the bulletin itself was published 8 March 2024",
+    "The special transition period and special transitional deemed-to-comply provisions described ceased to have effect on 10 April 2026 (before the corpus check date of 2026-06-10), so the transitional arrangements are now largely spent; the guidance on local planning instrument alignment with R-Codes Vol.1 2024 remains relevant",
+    "Multi-column PDF interleaving scrambles sentence order in places; Appendix 1 conversion table extracted cleanly"
+  ]
+}

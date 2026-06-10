@@ -1,0 +1,48 @@
+{
+  "id": "SPP-014",
+  "normalized_title": "State Planning Policy 4.1 Industrial Interface",
+  "instrument_no": "SPP 4.1",
+  "version_date": "29 July 2022 (publication, operational and gazettal date)",
+  "operative_status": "current",
+  "scope_summary": "State Planning Policy prepared under Part 3 of the Planning and Development Act 2005 to prevent conflict and encroachment between industrial and sensitive land uses across Western Australia. It applies to industrial-zoned land, industrial land uses (zoned or not), and land impacted by industrial uses and strategic infrastructure, requiring impact areas around industry to be identified through technical assessment and protected with compatible zones, reserves and land use transitions at every planning stage (strategies, region and local schemes, improvement schemes, structure plans, subdivision and development). It also sets a precautionary principle creating a presumption against approving proposals (including sensitive land uses such as dwellings) within impact areas where impacts cannot be adequately avoided, mitigated or managed.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Compatible zones and reserves",
+    "Impact areas",
+    "Incompatible land use",
+    "Industry",
+    "Infrastructure reserve",
+    "Interface",
+    "Major hazard facilities",
+    "Off-site impacts",
+    "Precautionary principle",
+    "Rural land",
+    "Rural land use",
+    "Sensitive land use",
+    "Sensitive zone",
+    "Separation distance",
+    "State significance",
+    "Strategic Industrial Areas",
+    "Strategic industries",
+    "Strategic infrastructure"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "State Planning Policy 2.5 Rural Planning (SPP 2.5)", "manifest_id": "SPP-004"},
+    {"cited": "Operational Policy 4.1 Industrial Planning", "manifest_id": null},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015 (deemed provisions, cl 67)", "manifest_id": "REG-001"},
+    {"cited": "Environmental Protection Act 1986", "manifest_id": "LEG-005"},
+    {"cited": "Mining Act 1978", "manifest_id": null},
+    {"cited": "Dangerous Goods Safety Act 2004", "manifest_id": null},
+    {"cited": "Petroleum and Geothermal Energy Resources Act 1967", "manifest_id": null},
+    {"cited": "Hope Valley Wattleup Redevelopment Act 2000", "manifest_id": null},
+    {"cited": "Metropolitan Redevelopment Authority Act 2011", "manifest_id": null},
+    {"cited": "Industrial Planning Fact Sheet", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "manifest note claims 'instrument exists only as draft' but the extracted document states 'Gazettal date: 29 July 2022' with operational date 29 July 2022 and contains no draft markings - this is the final gazetted SPP 4.1; the manifest note and draft-publication canonical_url appear outdated",
+    "two-column PDF layout extracted with interleaved reading order in places (TOC and side-by-side sections merge)",
+    "no fixed numeric separation distances are prescribed - impact areas are case-by-case via technical assessment, so empty key_numeric_standards is expected"
+  ]
+}

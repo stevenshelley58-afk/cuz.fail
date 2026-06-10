@@ -1,0 +1,52 @@
+{
+  "id": "PS-003",
+  "normalized_title": "Position Statement: Planning for Tourism and Short-term Rental Accommodation",
+  "instrument_no": null,
+  "version_date": "November 2024 (publication date 24/09/2024; operational date 18/11/2024)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement guiding the location and management of tourism land uses and short-term rental accommodation (hosted and unhosted) through the WA planning framework. It applies to all tourism and short-term rental accommodation proposals across Western Australia and directs how local planning strategies, schemes, policies, structure plans and development/subdivision decisions should treat tourism zones, caravan parks and short-term rentals. Within the Perth Metropolitan Area it sets a single rule requiring development approval for unhosted short-term rental accommodation outside tourism zones exceeding 90 nights in a 12-month period.",
+  "key_numeric_standards": [
+    {
+      "topic": "unhosted short-term rental exemption threshold (Perth Metropolitan Area)",
+      "value": "90",
+      "unit": "nights per 12-month period",
+      "applies_to": "unhosted short-term rental accommodation of a dwelling; letting for 90 nights or less requires no development approval",
+      "clause_ref": "s 5.4.2.2"
+    },
+    {
+      "topic": "development approval trigger for unhosted short-term rental (Perth Metropolitan Area)",
+      "value": ">90",
+      "unit": "nights per 12-month period",
+      "applies_to": "unhosted short-term rental accommodation outside tourism zones; zoning tables must make it a D or A use requiring approval",
+      "clause_ref": "s 5.4.2.2"
+    }
+  ],
+  "definitions": [
+    "tourist accommodation",
+    "short-term rental accommodation",
+    "hosted short-term rental accommodation",
+    "unhosted short-term rental accommodation"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015 (LPS Regulations)", "manifest_id": "REG-001"},
+    {"cited": "State Planning Policy 7.3: Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 2.5: Rural Planning", "manifest_id": "SPP-004"},
+    {"cited": "State Planning Policy 2.6: State Coastal Planning", "manifest_id": "SPP-005"},
+    {"cited": "draft State Planning Policy 2.9: Planning for Water", "manifest_id": "SPP-007"},
+    {"cited": "State Planning Policy 3.4: Natural Hazards and Disasters", "manifest_id": "SPP-010"},
+    {"cited": "State Planning Policy 3.7 Bushfire", "manifest_id": "SPP-013"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Community Titles Act 2018", "manifest_id": null},
+    {"cited": "National Construction Code", "manifest_id": "NCC-001"},
+    {"cited": "Planning for Tourism and Short-term Rental Accommodation Guidelines", "manifest_id": null},
+    {"cited": "State Government Strategy for Tourism in Western Australia 2020 (as amended)", "manifest_id": null},
+    {"cited": "Planning for Bushfire Guidelines", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "multi-column PDF extraction interleaves columns, scrambling sentence order throughout",
+    "file ends mid-list ('nuisance; and') - remaining list items appear earlier in the file due to column interleaving rather than as a clean ending",
+    "summary.json title is garbled ('Department of Planning,') - publisher header captured instead of instrument title"
+  ]
+}

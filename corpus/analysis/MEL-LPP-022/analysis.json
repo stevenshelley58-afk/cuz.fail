@@ -1,0 +1,36 @@
+{
+  "id": "MEL-LPP-022",
+  "normalized_title": "City of Melville Local Planning Policy 3.3 - Exhibition and Display Homes",
+  "instrument_no": "LPP 3.3",
+  "version_date": "2026-03-17",
+  "operative_status": "current",
+  "scope_summary": "Sets assessment criteria and operational controls for exhibition and display homes (dwellings designed for future permanent residential use and used for an initial display period) within the City of Melville, applying to residential, commercial and mixed use developments. Exhibition/display home is a use not listed under LPS6 and is assessed under the use-not-listed procedures; the policy covers parking, fencing, flood lighting, signage, the approval period and public advertising. It does not apply to sales suites.",
+  "key_numeric_standards": [
+    {"topic": "off-street parking", "value": "1", "unit": "lot set aside for parking", "applies_to": "developments of more than three exhibition/display homes (up to three: R-Codes parking only)", "clause_ref": "cl 1.1(ii)"},
+    {"topic": "front fence height", "value": "1.8", "unit": "m", "applies_to": "front wire fence permitted for display homes (no barbed wire)", "clause_ref": "cl 1.2"},
+    {"topic": "security lighting wattage", "value": "400", "unit": "watts maximum", "applies_to": "flood/security lighting at display homes", "clause_ref": "cl 1.3(i)"},
+    {"topic": "light mounting height", "value": "4", "unit": "m maximum (standard mountings, ground-mounted preferred)", "applies_to": "flood/security lighting at display homes", "clause_ref": "cl 1.3(ii)"},
+    {"topic": "distance between light mountings", "value": "15", "unit": "m minimum", "applies_to": "flood/security lighting at display homes", "clause_ref": "cl 1.3(iii)"},
+    {"topic": "number of floodlights", "value": "4", "unit": "maximum per lot", "applies_to": "flood/security lighting at display homes", "clause_ref": "cl 1.3(iv)"},
+    {"topic": "floodlight curfew", "value": "10.15", "unit": "pm (extinguished no later than, off overnight)", "applies_to": "flood/security lighting at display homes (time clock required)", "clause_ref": "cl 1.3(v)"},
+    {"topic": "approval period", "value": "24", "unit": "months from issue of approval", "applies_to": "period of operation of exhibition/display home", "clause_ref": "cl 2.1"}
+  ],
+  "definitions": [
+    "Exhibition / Display Home",
+    "LPS6",
+    "R-Codes",
+    "Regulations"
+  ],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "LPP3.1 Residential Development", "manifest_id": "MEL-LPP-021"},
+    {"cited": "Outdoor Advertisements and Signage Policy (LPP 2.2)", "manifest_id": "MEL-LPP-020"},
+    {"cited": "LPP 1.1", "manifest_id": "MEL-LPP-001"}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": []
+}

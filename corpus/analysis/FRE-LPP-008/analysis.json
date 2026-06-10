@@ -1,0 +1,106 @@
+{
+  "id": "FRE-LPP-008",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.14 - Advertisements and Signs",
+  "instrument_no": "LPP 2.14",
+  "version_date": "2026-03-11",
+  "operative_status": "current",
+  "scope_summary": "Sets requirements for advertisements and signage requiring planning approval under Local Planning Scheme No. 4, applying to all land zoned and reserved under the Scheme (and as guidance elsewhere). Part 1 contains general provisions (no signs on primarily residential properties unless tied to a home business, no hazardous distraction, no third-party advertising); Part 2 sets dimensional and quantity controls for specific sign types; Part 3 adds protections for heritage-protected places.",
+  "key_numeric_standards": [
+    {
+      "topic": "awning/verandah fascia signs per frontage",
+      "value": "3",
+      "unit": "signs per street frontage per tenancy",
+      "applies_to": "awning fascia or verandah fascia signs",
+      "clause_ref": "cl 2.2.1(b)"
+    },
+    {
+      "topic": "below-awning sign headway",
+      "value": "2.75",
+      "unit": "m above footpath",
+      "applies_to": "below awning or verandah signs",
+      "clause_ref": "cl 2.3.1(a)"
+    },
+    {
+      "topic": "below-awning signs per frontage",
+      "value": "1",
+      "unit": "sign per street frontage per tenancy",
+      "applies_to": "below awning or verandah signs",
+      "clause_ref": "cl 2.3.1(d)"
+    },
+    {
+      "topic": "projecting sign headway",
+      "value": "2.75",
+      "unit": "m above footpath",
+      "applies_to": "projecting signs",
+      "clause_ref": "cl 2.4.1(a)"
+    },
+    {
+      "topic": "wall/fascia/projecting signs per frontage",
+      "value": "3",
+      "unit": "signs per street frontage per tenancy",
+      "applies_to": "wall, fascia or projecting signs",
+      "clause_ref": "cl 2.4.1(d)"
+    },
+    {
+      "topic": "free standing/pole/pylon sign maximum height",
+      "value": "6.0",
+      "unit": "m (or height of adjoining building, whichever lesser)",
+      "applies_to": "free standing, pole or pylon signs",
+      "clause_ref": "cl 2.5.1(a)"
+    },
+    {
+      "topic": "free standing signs per site",
+      "value": "1",
+      "unit": "sign per site",
+      "applies_to": "free standing, pole or pylon signs",
+      "clause_ref": "cl 2.5.1(d)"
+    },
+    {
+      "topic": "window sign maximum coverage",
+      "value": "50",
+      "unit": "% of total window area of tenancy",
+      "applies_to": "window signs",
+      "clause_ref": "cl 2.6.1(b)"
+    },
+    {
+      "topic": "roof sign maximum projection above roofline",
+      "value": "1.5",
+      "unit": "m",
+      "applies_to": "roof signs",
+      "clause_ref": "cl 2.7.1(a)"
+    }
+  ],
+  "definitions": [
+    "Awning or verandah fascia sign",
+    "Below awning or verandah sign",
+    "Building identification sign and wall or fascia sign",
+    "Pole, pylon or freestanding sign",
+    "Projecting sign",
+    "Roof sign",
+    "Illuminated sign",
+    "Animated Sign",
+    "Other sign",
+    "Exempt Advertisement",
+    "Heritage-protected place"
+  ],
+  "cross_references": [
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "Local Planning Policy 1.7: Development Exempt from Planning Approval",
+      "manifest_id": "FRE-LPP-004"
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "Document control table shows versions 1 (27 July 2016), 2 (4 October 2019) and 4 (11 March 2026, OCM C2603-8); version 3 row is absent from extracted text",
+    "Clause 2.7.1 contains duplicated sub-clause lettering '(c)' for two different provisions in the source",
+    "No clause 2.1 exists; Part 2 numbering starts at 2.2"
+  ]
+}

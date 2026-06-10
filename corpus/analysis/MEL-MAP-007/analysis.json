@@ -1,0 +1,23 @@
+{
+  "id": "MEL-MAP-007",
+  "normalized_title": "City of Melville Local Planning Scheme No. 6 - Scheme Map No. 7 of 8 (Bull Creek Locality)",
+  "instrument_no": "LPS6 Map 7 of 8",
+  "version_date": "2018-04-03",
+  "operative_status": "current",
+  "scope_summary": "Statutory zoning map sheet 7 of 8 for City of Melville Local Planning Scheme No. 6, covering the Bull Creek locality (title block reads 'MAP: Bull Creek Locaity', a typo in the source). It depicts Metropolitan Region Scheme reserves (regional roads, parks and recreation, public purposes), local scheme reserves and zones (Centre, Residential, Light Industry, Service Commercial, Mixed Use, Special Use, Private Clubs/Institutions, Urban Development) and R-Codes density codings (e.g. R20) parcel by parcel. The scheme was gazetted on Friday 27 May 2016; this sheet is Version No 1 with a plot date of 3 April 2018.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "R Codes", "manifest_id": "PC-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "scheme map drawing: low text volume is expected, not a defect",
+    "OCR of map labels is heavily scrambled (street names fragmented and reordered); only the legend, title block and density codes are reliable",
+    "manifest canonical_url filename says 'Kardinya-Locality' but document content is the Bull Creek locality sheet (Map No. 7 of 8), which matches the manifest instrument_name; the wa.gov.au filename appears mislabelled",
+    "source title block contains typo 'Bull Creek Locaity'"
+  ]
+}

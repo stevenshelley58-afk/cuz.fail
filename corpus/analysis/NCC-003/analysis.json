@@ -1,0 +1,15 @@
+{
+  "id": "NCC-003",
+  "normalized_title": "NCC 2022 Housing Provisions Standard",
+  "instrument_no": "",
+  "version_date": "NCC 2022",
+  "operative_status": "metadata_only",
+  "scope_summary": "(metadata-only / registration wall)",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [],
+  "residential_relevance": "none",
+  "quality_flags": [
+    "empty full_text.txt (< 400 chars); treated as metadata-only"
+  ]
+}

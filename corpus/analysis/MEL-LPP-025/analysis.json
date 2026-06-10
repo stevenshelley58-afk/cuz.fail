@@ -1,0 +1,23 @@
+{
+  "id": "MEL-LPP-025",
+  "normalized_title": "City of Melville Local Planning Policy 4.1 - Royal Australian Air Force Association Masterplan",
+  "instrument_no": "LPP 4.1",
+  "version_date": "2019-10-25",
+  "operative_status": "current",
+  "scope_summary": "Site-specific local planning policy relating to the Royal Australian Air Force Association (RAAFA) masterplan within the City of Melville. The extracted text contains only the policy header (Policy No. LPP 4.1, last review 25 October 2019) and the references/review history; the substantive policy statement and masterplan content are absent from the extraction, so the controls it applies cannot be analysed from this text. References indicate it operates alongside LPS6 and SPP 7.3 Residential Design Codes Volumes 1 and 2.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Policy statement/body missing from extracted text - only the header block and references/review history were captured (2 pages)",
+    "Masterplan content (objectives, controls, plans) likely graphical or contained in attachments not captured by text extraction; no numeric standards or definitions analysable",
+    "Source PDF itself may be a header/registry sheet only - recommend re-fetch or manual check of the canonical URL"
+  ]
+}

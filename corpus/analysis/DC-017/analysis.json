@@ -1,0 +1,30 @@
+{
+  "id": "DC-017",
+  "normalized_title": "Operational Policy 5.4 - Advertising on Reserved Land (formerly Development Control Policy 5.4 Advertising on Reserved Land)",
+  "instrument_no": "OP 5.4 (formerly DC 5.4)",
+  "version_date": "Publication and operational date 31 March 2025 (content last reviewed March 2025; originally adopted 1988)",
+  "operative_status": "current",
+  "scope_summary": "WAPC operational policy establishing the objectives and considerations applied when determining applications to erect, alter or extend advertisements on land reserved under a region planning scheme. Policy measures cover general requirements, effect on amenity (including cumulative signage impacts and Regional Open Space reserves), road safety and efficiency, and protection of the reservation (advertisements treated as temporary uses, with removal/reinstatement conditions). It exempts small mobile and business signage meeting size and location limits. The policy supersedes DC 5.4 with unchanged content, converted to the Operational Policy format to align with SPP 1.",
+  "key_numeric_standards": [
+    {"topic": "maximum sign area for exemption from approval", "value": "1", "unit": "m2", "applies_to": "mobile 'specials' signage and on-site business signage on reserved land (limited to one per business)", "clause_ref": "s 1 Background"},
+    {"topic": "maximum distance of exempt sign from the business location", "value": "5", "unit": "m", "applies_to": "exempt business signage on reserved land", "clause_ref": "s 1 Background"}
+  ],
+  "definitions": [
+    "Advertisement (adopting the deemed provisions definition in the Planning and Development (Local Planning Schemes) Regulations 2015)"
+  ],
+  "cross_references": [
+    {"cited": "Development Control Policy 5.4 Advertising on reserved land (superseded predecessor)", "manifest_id": "DC-017"},
+    {"cited": "SPP 1 State Planning Framework", "manifest_id": "SPP-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015 (deemed provisions)", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005 (s 14(c)(vi))", "manifest_id": "LEG-001"},
+    {"cited": "Main Roads WA Policy and Assessment Guidelines for Digital Advertising Signs", "manifest_id": null},
+    {"cited": "Main Roads WA Policy and Assessment Guidelines for Static Advertising Signs", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "manifest instrument_name uses the superseded DC 5.4 title; the extracted (and current) document is Operational Policy 5.4 - same instrument lineage, content stated as unchanged",
+    "front-page disclaimer/contact block extracted as scrambled interleaved characters (line 11 of extract)",
+    "three-column layout extracted with column interleaving in body sections",
+    "citation inconsistency in the source document itself: section 2 says the policy 'may be cited as Operational Policy 5.4: Advertising on Reserved Land (DC 5.4)' while the Background says '(OP 5.4)'"
+  ]
+}

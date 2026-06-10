@@ -1,0 +1,112 @@
+{
+  "id": "FRE-LPP-027",
+  "normalized_title": "City of Fremantle LPP 3.22 | North Fremantle 1.3 MB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "3.2 Primary street fencing to Lots 201 \u2013 204 Rule Street should be a maximum of 1.3m; 7. Sub Area 7 \u2013 Leighton Beach",
+  "key_numeric_standards": [
+    {
+      "topic": "6m from the foreshore reserve boundary. Small, single storey",
+      "value": "6",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "considered within the rear setback, to within 4m of the rear",
+      "value": "4",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "should be visually permeable above 1.2m and with a maximum h",
+      "value": "1.2",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "3",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "structure projecting into the front setback area does not ex",
+      "value": "7",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "garage may have a minimum primary street setback of 1.5 metr",
+      "value": "1.5",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "9",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "this frontage is to be self-supporting, set back a minimum o",
+      "value": "1",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "3.2 Primary street fencing to Lots 201 \u2013 204 Rule Street sho",
+      "value": "1.3",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2.5",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "R-Codes Volume 1",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes Volume 1",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

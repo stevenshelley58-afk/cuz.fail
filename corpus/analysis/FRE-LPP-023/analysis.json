@@ -1,0 +1,119 @@
+{
+  "id": "FRE-LPP-023",
+  "normalized_title": "City of Fremantle LPP 3.17 | Hilton Neighbourhood Centre (South Street, Hilton) 443.5 KB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "determining an application.; including height and density for sub areas 7.3.1 (Area 1 and Area 2) the subject of this local; 3 Applies to ground floor level of development to South Street only. The 6.0m maximum; City\u2019s current template, including updated \u2018Statutory",
+  "key_numeric_standards": [
+    {
+      "topic": "a) All new non-residential buildings shall be a minimum of 7",
+      "value": "7",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "7.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "17.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "South Street frontage New ground floors shall not be more th",
+      "value": "600",
+      "unit": "mm",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "4.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "5",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "10.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "12.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "6.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "20.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2400",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "LPS4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

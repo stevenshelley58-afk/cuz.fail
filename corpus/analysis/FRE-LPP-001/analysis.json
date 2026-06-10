@@ -1,0 +1,25 @@
+{
+  "id": "FRE-LPP-001",
+  "normalized_title": "City of Fremantle Local Planning Policy 1.1 - Planning Refunds, Amendments, and Community Consultation",
+  "instrument_no": "LPP 1.1",
+  "version_date": "Adopted 14 May 2025 (Ordinary Meeting of Council, C2505-12)",
+  "operative_status": "current",
+  "scope_summary": "Administrative policy made under Schedule 2 of the LPS Regulations 2015 setting out when the City of Fremantle will refund, waive or reduce planning fees (Part 1), how it assesses amendments and extensions to the term of development approvals (Part 2), and a consultation matrix governing public notification of planning proposals including R-Codes Volume 1 and Volume 2 variations (Part 3). It applies to all development proposals administered or partially administered by the City under Local Planning Scheme No. 4.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "adjoining property (properties sharing any common boundary, diagonally opposite, across the street, or separated by a right-of-way or access way less than 6.0m wide - cl 3.4)",
+    "complex application (cl 3.11, per Regulation 1 of the LPS Regulations)"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Regulations 2009", "manifest_id": "REG-003"},
+    {"cited": "R-Codes Volume 1 (Residential Design Codes)", "manifest_id": "PC-001"},
+    {"cited": "R-Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Local Planning Scheme No. 4 (the Scheme)", "manifest_id": "FRE-SCH-001"}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "consultation matrix table (Part 3, cl 3.1) extracted with scrambled column alignment - header rows and day counts interleaved, needs care when machine-reading",
+    "extractor summary.json title and version_date fields are empty/generic ('Local Planning') though the actual document text is complete"
+  ]
+}

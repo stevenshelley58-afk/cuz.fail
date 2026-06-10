@@ -1,0 +1,57 @@
+{
+  "id": "SPP-013",
+  "normalized_title": "State Planning Policy 3.7 Bushfire",
+  "instrument_no": "SPP 3.7",
+  "version_date": "18 November 2024 (publication and operational date; repeals SPP 3.7 Planning in Bushfire Prone Areas (2015))",
+  "operative_status": "current",
+  "scope_summary": "State Planning Policy prepared under section 26 / Part 3 of the Planning and Development Act 2005 implementing risk-based land use planning for bushfire: avoid the risk first, otherwise manage and mitigate it to an acceptable level. It applies (with the Planning for Bushfire Guidelines and the Map of Bush Fire Prone Areas) to strategic planning proposals, structure plans, subdivision and development applications in designated bushfire prone areas that intensify development, increase people on site, or increase bushfire risk, with specific triggers tied to Bushfire Hazard Level, BAL ratings, lot size and vulnerable land uses. It sets a presumption against development in BAL-40/BAL-Flame Zone and provides an outcomes-based assessment pathway where acceptable solutions cannot be met.",
+  "key_numeric_standards": [
+    {"topic": "presumption against development - radiant heat threshold", "value": "29", "unit": "kW/m2 (radiant heat impact exceeding this = BAL-40 or BAL-Flame Zone)", "applies_to": "development sites or habitable buildings in bushfire prone areas", "clause_ref": "cl 7.3(i) and s 4"},
+    {"topic": "lot size trigger for development application requirements", "value": "1100", "unit": "m2 (lot area greater than)", "applies_to": "single house or ancillary dwelling in a designated bushfire prone area above BAL-LOW without reticulated water (or BAL-40+ with reticulated water)", "clause_ref": "s 4 (Application of this policy)"},
+    {"topic": "siting exception - lot creation date", "value": "December 2015", "unit": "date (lot created prior to)", "applies_to": "limited circumstances allowing a non-vulnerable habitable building in BAL-40/BAL-FZ", "clause_ref": "cl 7.3(ii)(a)"},
+    {"topic": "suitable destination separation from classified vegetation", "value": "100", "unit": "m (greater than)", "applies_to": "evacuation destination relative to classified vegetation per AS 3959", "clause_ref": "Definitions - Suitable destination"},
+    {"topic": "suitable destination separation from Class G Grassland", "value": "50", "unit": "m", "applies_to": "evacuation destination relative to Class G grassland per AS 3959", "clause_ref": "Definitions - Suitable destination"},
+    {"topic": "broader landscape assessment extent", "value": "2", "unit": "km (approximately, around the proposal area)", "applies_to": "Broader Landscape Assessment for intensification proposals", "clause_ref": "Definitions - Broader Landscape Assessment"}
+  ],
+  "definitions": [
+    "Bushfire Attack Level (BAL)",
+    "BAL assessment",
+    "BAL Contour Map",
+    "Broader Landscape Assessment (BLA)",
+    "Bushfire",
+    "Bushfire emergency plan (BEP)",
+    "Bushfire hazard issues",
+    "Bushfire Hazard Level (BHL) assessment",
+    "Bushfire management plan (BMP)",
+    "Bushfire prone area",
+    "Bushfire protection criteria",
+    "Bushfire risk",
+    "Bushfire risk management measures",
+    "Development site",
+    "Habitable building",
+    "Off-site shelter",
+    "On-site shelter",
+    "Strategic planning proposal",
+    "Subject site",
+    "Suitable destination",
+    "Unacceptable bushfire risk",
+    "Vulnerable land use"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (State Planning Policies) Regulations 2024", "manifest_id": null},
+    {"cited": "SPP 3.7 Planning in Bushfire Prone Areas (2015) (repealed)", "manifest_id": "SPP-013"},
+    {"cited": "Planning for Bushfire Guidelines (2024)", "manifest_id": null},
+    {"cited": "Map of Bush Fire Prone Areas", "manifest_id": null},
+    {"cited": "Deemed Provisions - Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Australian Standard 3959: Construction of Buildings in Bushfire-Prone Areas", "manifest_id": null},
+    {"cited": "Building Code of Australia", "manifest_id": "NCC-001"},
+    {"cited": "Fire and Emergency Services Act 1998", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "manifest instrument_name 'Planning in Bushfire Prone Areas' is the repealed 2015 title; the extracted document is the current renamed version 'SPP 3.7 Bushfire' (operational 18/11/2024)",
+    "two-column PDF layout extracted with interleaved reading order in places; the application flowchart (Figure, page 2) is garbled into fragmented text",
+    "policy text, measures and definitions otherwise complete"
+  ]
+}

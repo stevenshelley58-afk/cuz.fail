@@ -1,0 +1,22 @@
+{
+  "id": "MEL-LPP-024",
+  "normalized_title": "City of Melville Local Planning Policy 3.5 - Home Occupations and Home Businesses Relative to Sexual Services Businesses",
+  "instrument_no": "LPP 3.5",
+  "version_date": "2019-10-25",
+  "operative_status": "current",
+  "scope_summary": "Guides the determination of applications for Home Occupation or Home Business approval where the proposed activity is a Sexual Services Business, within the Residential zones of the City of Melville. Council will not grant Home Occupation or Home Business approval for the establishment and conduct of a Sexual Services Business, and the policy defines 'Nuisance' to provide clarity in the determination of all home occupation applications. Prepared in the context of the (unproclaimed) Prostitution Amendment Act 2008.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Nuisance"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Prostitution Amendment Act 2008", "manifest_id": null},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "summary.json title is truncated ('Home Occupations and Home Businesses Relative to') - full title in the document text wraps across two lines; extraction of the document itself is complete"
+  ]
+}

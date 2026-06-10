@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-06-10T00:26:55Z",
+  "verified_correct": 180,
+  "verified_incorrect": 0,
+  "rounds": [
+    {
+      "round": 1,
+      "findings": [
+        {
+          "severity": "low",
+          "status": "documented",
+          "target": "SPP-014",
+          "claim": "draft-only SPP, manifest status=extracted, URL serves current draft"
+        },
+        {
+          "severity": "low",
+          "status": "documented",
+          "target": "PS-004",
+          "claim": "draft-only position statement, same as above"
+        },
+        {
+          "severity": "low",
+          "status": "documented",
+          "target": "PS-011",
+          "claim": "draft-only position statement, same as above"
+        },
+        {
+          "severity": "low",
+          "status": "documented",
+          "target": "PB-008",
+          "claim": "planning bulletin URL is the 'draft' variant"
+        }
+      ],
+      "confirmed": 0,
+      "documented_gaps": 4
+    },
+    {
+      "round": 2,
+      "findings": [],
+      "confirmed": 0,
+      "documented_gaps": 0
+    }
+  ],
+  "closure_ok": true,
+  "note": "v0 closure: 2 consecutive zero-confirmed-finding rounds (rounds 1, 2). To re-run adversarial review: re-spawn gap-hunter + re-extractor + prosecutor agents; each finding must produce a new golden eval case."
+}

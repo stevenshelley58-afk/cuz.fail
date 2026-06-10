@@ -1,0 +1,30 @@
+{
+  "id": "FRE-LPP-029",
+  "normalized_title": "City of Fremantle LPP 3.6 | Heritage-Protected Places Built Form and Land Use 4.5 MB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "Where Part 5 criteria is inconsistent with Parts 1-4, Part 5 prevails to the extent of any; Where Part 5 criteria is inconsistent with Parts 1-4, Part 5 prevails to the extent of any; Where Part 5 criteria is inconsistent with Parts 1-4, Part 5 prevails to the extent of any",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Heritage Act 2018",
+      "manifest_id": "LEG-007"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

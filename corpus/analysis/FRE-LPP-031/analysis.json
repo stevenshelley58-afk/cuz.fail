@@ -1,0 +1,102 @@
+{
+  "id": "FRE-LPP-031",
+  "normalized_title": "City of Fremantle LPP 3.7 | South Beach Village 969.6 KB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "Local Planning Policy 3.7 South Beach Village fremantle.wa.gov.au  South Beach Village Statutory background The Planning and Development (Local Planning Schemes) Regulations 2015 (the Regulations) provide the ability for local governments to prepare a local planning policy on any matter relevant to the planning scheme area. This policy may be cited as Local Planning Policy 3.7 \u2013 South Beach Villag",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "3",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "ii. reduced by up to 50% (1.5m) provided that the area of an",
+      "value": "1.5",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "i. Lot 221 southern boundary: 3.5m minimum to the lower and ",
+      "value": "3.5",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "1",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "i. R20: 5.5m maximum external wall height. 8.5m maximum heig",
+      "value": "5.5",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "ii. R30: 6m maximum external wall height. 9m maximum height ",
+      "value": "6",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "C4.1 Front fences within the primary street setback area tha",
+      "value": "1.2",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "400mm by 400mm and pillars are separated by visually permeab",
+      "value": "400",
+      "unit": "mm",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "4",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "R-Codes Volume 1",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes Volume 1",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

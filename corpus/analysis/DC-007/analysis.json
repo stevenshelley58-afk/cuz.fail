@@ -1,0 +1,46 @@
+{
+  "id": "DC-007",
+  "normalized_title": "Development Control Policy 1.10 Freeway Service Centres and Roadhouses, including Signage",
+  "instrument_no": "DC 1.10",
+  "version_date": "August 2016",
+  "operative_status": "current",
+  "scope_summary": "Guides WAPC and local government decision-making on the location, siting and design (including signage) of freeway service centres on freeways and roadhouses on other State roads in Western Australia. It applies when considering scheme amendments, structure plans and development applications for such facilities, and does not apply to ordinary service stations. It supersedes DC 1.10 - Location and Design of Freeway Service Centres (August 2001).",
+  "key_numeric_standards": [
+    {"topic": "minimum spacing between freeway service centres and similar existing/approved facilities on a freeway", "value": "40", "unit": "km", "applies_to": "freeway service centres", "clause_ref": "cl 3.1.9"},
+    {"topic": "general minimum site size", "value": "2-5", "unit": "ha", "applies_to": "freeway service centre / roadhouse sites", "clause_ref": "cl 3.2.1"},
+    {"topic": "maximum combined restaurant seating", "value": "150", "unit": "seated customers", "applies_to": "freeway service centre restaurant facilities", "clause_ref": "cl 3.3.12"},
+    {"topic": "number of pylon signs (single multi-tenancy sign to avoid visual clutter)", "value": "1", "unit": "sign", "applies_to": "service centre signage", "clause_ref": "cl 3.3.7"}
+  ],
+  "definitions": [
+    "Freeway",
+    "State road (primary distributor road)",
+    "Service station",
+    "Freeway service centre",
+    "Roadhouse"
+  ],
+  "cross_references": [
+    {"cited": "Development Control Policy 1.10 - Location and Design of Freeway Service Centres (August 2001) (superseded)", "manifest_id": null},
+    {"cited": "Development Control Policy 1.4 Functional Road Classification for Planning", "manifest_id": null},
+    {"cited": "Development Control Policy 1.7 General Road Planning", "manifest_id": "DC-005"},
+    {"cited": "Development Control Policy 5.1 Regional Roads (Vehicular Access)", "manifest_id": "DC-015"},
+    {"cited": "Development Control Policy 5.4 Advertising on Reserved Land", "manifest_id": "DC-017"},
+    {"cited": "State Planning Policy 1: State Planning Framework", "manifest_id": "SPP-001"},
+    {"cited": "State Planning Policy 2: Environment and Natural Resources", "manifest_id": "SPP-002"},
+    {"cited": "State Planning Policy 2.2: Gnangara Groundwater Protection", "manifest_id": null},
+    {"cited": "State Planning Policy 2.5: Land Use Planning in Rural Areas", "manifest_id": "SPP-004"},
+    {"cited": "State Planning Policy 3.2: Aboriginal Settlements", "manifest_id": "SPP-009"},
+    {"cited": "State Planning Policy 5.4: Road and Rail Transport Noise and Freight", "manifest_id": "SPP-019"},
+    {"cited": "Planning Bulletin 83/2013", "manifest_id": null},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Main Roads Act 1930", "manifest_id": null},
+    {"cited": "Main Roads (Control of Advertisements) Regulations 1996", "manifest_id": null},
+    {"cited": "Liquor Licensing Act 1988", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "two-column PDF text interleaved in places",
+    "summary.json title is truncated ('- Freeway service centres and') - cover-page layout confused the extractor",
+    "Appendix 1 freeway network map yields little meaningful text (expected for a map page)"
+  ]
+}

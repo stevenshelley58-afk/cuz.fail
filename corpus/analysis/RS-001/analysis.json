@@ -1,0 +1,96 @@
+{
+  "id": "RS-001",
+  "normalized_title": "Metropolitan Region Scheme (WA)",
+  "instrument_no": null,
+  "version_date": "2026-06-02",
+  "operative_status": "current",
+  "scope_summary": "The statutory region planning scheme applying to all land in the Perth metropolitan region (subject to the Swan Valley Planning Act 2020 s. 9), continued in force under the Planning and Development Act 2005 s. 33(1). It reserves land for regional purposes (regional open space, regional roads, railways, port installations, waterways, water catchments, State forests, civic and cultural, public purposes), classifies land into zones (urban, urban deferred, central city area, industrial, special industrial, industrial deferred, rural, rural - water protection, private recreation), identifies Bush Forever areas and special control areas, and sets when Commission development approval is required and how applications are made, considered and determined. Where the urban zone provides for residential development, day-to-day residential assessment occurs under local planning schemes, which the MRS prevails over to the extent of any inconsistency (Act s. 124(1)). This compilation is the Official Version as at 2 June 2026: the modern Parts 1-13 text was inserted by the Planning and Development Amendment (Metropolitan Region Scheme) Act 2024 (Act No. 41 of 2024, operative 31 Mar 2025), with subsequent minor amendments 1344/57 (gazetted 9 Sep 2025) and 1388/57 (gazetted 29 May 2026, correction 2 Jun 2026).",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Bush Forever area",
+    "commencement day",
+    "Commission website",
+    "development approval under this Scheme",
+    "district structure plan",
+    "heritage-protected place",
+    "local government",
+    "non-conforming use",
+    "owner",
+    "plan area",
+    "region planning scheme policy",
+    "reserved land",
+    "Swan Canning development control area",
+    "zoned land",
+    "adopted plan",
+    "affected person",
+    "amendment Act",
+    "old Scheme",
+    "publication day",
+    "relevant public authority",
+    "reserved land owned by or vested in a public authority",
+    "reviewable determination",
+    "SCRM Minister",
+    "Trust"
+  ],
+  "cross_references": [
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Peel Region Scheme",
+      "manifest_id": "RS-002"
+    },
+    {
+      "cited": "Heritage Act 2018",
+      "manifest_id": "LEG-007"
+    },
+    {
+      "cited": "Strata Titles Act 1985",
+      "manifest_id": "LEG-004"
+    },
+    {
+      "cited": "Community Titles Act 2018",
+      "manifest_id": null
+    },
+    {
+      "cited": "Swan Valley Planning Act 2020",
+      "manifest_id": null
+    },
+    {
+      "cited": "Main Roads Act 1930",
+      "manifest_id": null
+    },
+    {
+      "cited": "Swan and Canning Rivers Management Act 2006",
+      "manifest_id": null
+    },
+    {
+      "cited": "Administration Act 1903",
+      "manifest_id": null
+    },
+    {
+      "cited": "Metropolitan Region Town Planning Scheme Act 1959",
+      "manifest_id": null
+    },
+    {
+      "cited": "Planning and Development Amendment (Metropolitan Region Scheme) Act 2024",
+      "manifest_id": null
+    },
+    {
+      "cited": "Perth and Peel @3.5million (sub-regional strategy)",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Scheme Map (sheets 1-38) is not included in the compilation, so actual reservation and zoning extents are not in the extracted text; map must be sourced separately",
+    "Schedule 1 environmental conditions are amendment-area tables flattened to plain text; readable but column alignment is lost",
+    "extracted summary.json title is generic ('Western Australia') taken from the cover line; actual instrument title appears on page 1",
+    "text extraction otherwise clean: full contents, compilation table and defined-terms index present"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "SPP-003",
+  "normalized_title": "State Planning Policy 2.4 - Planning for Basic Raw Materials",
+  "instrument_no": "SPP 2.4",
+  "version_date": "July 2021 (publication, operational and gazettal date 16/07/2021)",
+  "operative_status": "current",
+  "scope_summary": "Ensures basic raw materials (sand, clay, hard rock, limestone, agricultural lime, gravel, gypsum and similar construction materials) and extractive industry matters are considered in planning and development decision-making across Western Australia. It applies to planning instruments, subdivision and development proposals over or adjacent to identified BRM resources, protecting Significant Geological Supply areas and Extraction Sites from encroachment by incompatible (including residential/sensitive) land uses. Exempts Mining Act 1978 matters, State Agreement Act areas and tidal dredging; SPP 2.5 covers BRM on rural land with this policy prevailing on conflict.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Basic raw materials (BRM)",
+    "Crown land",
+    "Exclusion areas",
+    "Extraction sites (ES)",
+    "Industry - extractive",
+    "Interface",
+    "Rehabilitation",
+    "Sensitive land use",
+    "Separation distances",
+    "Significant Geological Supplies (SGS)",
+    "Special Control Areas",
+    "Transitional land uses",
+    "Transport impact assessment"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "State Planning Policy 2.5 Rural Planning", "manifest_id": "SPP-004"},
+    {"cited": "Mining Act 1978", "manifest_id": null},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Land Administration Act 1997", "manifest_id": null},
+    {"cited": "EPA Guidance Statement No. 3 - Separation Distances between Industrial and Sensitive Land Uses", "manifest_id": null},
+    {"cited": "Planning for BRM guidelines (BRM guidelines)", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "two-column PDF extraction interleaves columns in places (sentences from adjacent columns merged)",
+    "summary.json title is wrong ('Department of Planning,' - publisher line captured instead of the policy title)",
+    "separation distances are incorporated by reference to EPA Guidance Statement No. 3 - no numeric distances stated in the policy itself"
+  ]
+}

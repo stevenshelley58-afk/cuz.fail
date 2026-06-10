@@ -1,0 +1,40 @@
+{
+  "id": "MEL-LPP-007",
+  "normalized_title": "City of Melville Local Planning Policy 1.7 - Telecommunications Facilities and Communications Equipment",
+  "instrument_no": "LPP 1.7",
+  "version_date": "2026-03-17",
+  "operative_status": "current",
+  "scope_summary": "Provides location, siting and design criteria for telecommunications facilities and communications equipment in the City of Melville that are not exempt low-impact facilities under the Telecommunications Act 1997. Preferred locations are existing telecommunications sites (co-location), then specified non-residential zones or MRS-reserved land; there is a presumption against facilities in conservation/foreshore areas including Wireless Hill Park. Also sets standards for residential communications equipment (TV aerials permitted as of right; antennae/dishes not visible from the street; otherwise assessed against R-Codes Design Principles), decommissioning, application documentation per SPP 5.2 cl 5.3, and advertising/notification requirements.",
+  "key_numeric_standards": [
+    {"topic": "communications equipment projection above building", "value": "1", "unit": "m max", "applies_to": "communications equipment on non-residential properties not meeting clauses 4-5", "clause_ref": "cl 7"},
+    {"topic": "communications equipment height adjoining residential property", "value": "3", "unit": "m max above ground level (or screened from view)", "applies_to": "equipment on non-residential property adjoining a residential property", "clause_ref": "cl 7"},
+    {"topic": "maximum communications structures per building", "value": "2", "unit": "structures", "applies_to": "communications equipment on non-residential buildings", "clause_ref": "cl 7"},
+    {"topic": "sensitive-use proximity trigger for design scrutiny", "value": "200", "unit": "m", "applies_to": "new telecommunications infrastructure near residential properties, schools, child day care", "clause_ref": "cl 2"}
+  ],
+  "definitions": [
+    "Telecommunications infrastructure",
+    "Communications equipment",
+    "Regulations",
+    "R-Codes"
+  ],
+  "cross_references": [
+    {"cited": "Statement of Planning Policy 5.2 Telecommunications Infrastructure", "manifest_id": "SPP-017"},
+    {"cited": "Guidelines for the Location, Siting and Design of Telecommunications Infrastructure (March 2004)", "manifest_id": null},
+    {"cited": "Telecommunications Act 1997 (Cth)", "manifest_id": null},
+    {"cited": "Telecommunications (Low Impact Facilities) Determination 1997", "manifest_id": null},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Residential Design Codes Volume 1 (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "R-Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Local Planning Policy 1.1 - Planning Processes and Decision Making", "manifest_id": "MEL-LPP-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Industry Code for the Deployment of Radio Communications Infrastructure 2002", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "clean extraction, 7 pages, full text legible",
+    "summary.json title truncated to 'Telecommunications Facilities and' (title wraps over two lines in source); full title confirmed from body text",
+    "reviewed OMC 17/03/2026 (UP25/95); print footer 'This Version: 8/04/2026'"
+  ]
+}

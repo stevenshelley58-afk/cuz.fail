@@ -1,0 +1,26 @@
+{
+  "id": "MEL-LPP-005",
+  "normalized_title": "City of Melville Local Planning Policy 1.5 - Energy Efficiency in Building Design",
+  "instrument_no": "LPP 1.5",
+  "version_date": "2019-08-06",
+  "operative_status": "current",
+  "scope_summary": "Local planning policy encouraging environmentally sustainable and energy efficient design principles in all development within the City of Melville. Covers building orientation/passive solar design, solar access protection (including strata lot development), waterwise landscaping and tree retention, and building infrastructure initiatives such as rainwater tanks, greywater systems, solar water heaters, photovoltaics, insulation and roof colours. Provisions are framed as encouragement ('encouraged', 'are to have regard to') rather than mandatory numeric standards; the City applies them case by case alongside the R-Codes.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Building Code of Australia", "manifest_id": "NCC-001"},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Water Corporation of Western Australia (waterwise plant definitions)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "clean extraction, 4 pages, full text legible",
+    "policy is advisory/encouragement-based: no mandatory measurable development standards to capture",
+    "document footer shows 'This Version: 31/10/2019' print date; operative version is the 6 August 2019 administrative review (Council Resolution 18/6/2019)"
+  ]
+}

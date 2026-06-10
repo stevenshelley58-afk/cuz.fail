@@ -1,0 +1,33 @@
+{
+  "id": "DC-014",
+  "normalized_title": "Development Control Policy 4.2 - Planning for Hazards and Safety",
+  "instrument_no": "DC 4.2",
+  "version_date": "Adopted June 1991",
+  "operative_status": "current",
+  "scope_summary": "State Planning Commission (now WAPC) policy on managing public risk in land use planning across Western Australia. It sets policy and procedural guidance for hazardous industry siting, storage and transportation of dangerous goods, non-hazardous development in or adjacent to hazardous locations, planning for natural events (cyclones, storm surge, flooding, bushfire), and rezoning/development of contaminated land. It defers technical risk determination to the EPA and Department of Mines and contains no prescriptive measurable standards.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Risk",
+    "Hazard",
+    "Individual Risk",
+    "Risk Analysis",
+    "Contaminated Land",
+    "Hazardous Industry",
+    "Dangerous Goods"
+  ],
+  "cross_references": [
+    {"cited": "DC 3.4 Rural Land Use Planning Policy", "manifest_id": "DC-012"},
+    {"cited": "DC 4.1 Industrial Subdivision", "manifest_id": "DC-013"},
+    {"cited": "DC 6.1 Country Coastal Planning Policy", "manifest_id": null},
+    {"cited": "Guidelines - Planning for Better Bushfire Protection", "manifest_id": null},
+    {"cited": "Environmental Protection Act 1986", "manifest_id": "LEG-005"},
+    {"cited": "Explosives and Dangerous Goods Act 1961", "manifest_id": null},
+    {"cited": "EPA Bulletin 278 (Guidelines on Risks and Hazard of Industrial Developments on Residential Areas in Western Australia)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "two-column PDF extracted with column interleaving - headings and sentences from adjacent columns are merged",
+    "OCR character errors throughout (e.g. 'shah' for 'shall', 'fife' for 'life', 'DANGER01 IS' for 'DANGEROUS', 'm' for 'in', 'he' for 'be')",
+    "1991 policy predating the SPP framework (subject matter now substantially covered by SPP 3.4 Natural Hazards and Disasters, SPP 3.7 Bushfire and SPP 4.1 Industrial Interface); no amendment markers in text"
+  ]
+}

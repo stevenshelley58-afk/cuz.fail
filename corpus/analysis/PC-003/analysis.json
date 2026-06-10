@@ -1,0 +1,26 @@
+{
+  "id": "PC-003",
+  "normalized_title": "Residential Design Codes Volume 1 Explanatory Guidelines",
+  "instrument_no": null,
+  "version_date": "8 March 2024 (Version 1)",
+  "operative_status": "current",
+  "scope_summary": "Non-statutory companion guidance prepared by the WAPC to explain and assist interpretation and application of the Residential Design Codes Volume 1 (SPP 7.3) across Western Australia. It mirrors the structure of Volume 1 (Parts A-D), providing design guidance, assessment guidance, design tips and local planning framework considerations for each design element, plus guidance on the design process and the scope for local planning frameworks to modify R-Codes provisions. It contains no standards of its own and is to be read in conjunction with the R-Codes Volume 1.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Residential Design Codes Volume 1 (R-Codes Volume 1)", "manifest_id": "PC-001"},
+    {"cited": "R-Codes Volume 2", "manifest_id": "PC-002"},
+    {"cited": "State Planning Policy 7.0 Design of the Built Environment", "manifest_id": "SPP-022"},
+    {"cited": "Schedule 2 of the Planning and Development (Local Planning Schemes) Regulations 2015 (deemed provisions)", "manifest_id": "REG-001"},
+    {"cited": "Development Control Policy 2.2 / Operational Policy 2.2 (Residential Subdivision)", "manifest_id": "DC-009"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "guidance document only - all numeric standards it discusses restate R-Codes Volume 1 provisions, so none are recorded here as standards of this instrument",
+    "defined terms are not set out in this document; bolded terms defer to Appendix 1 of the R-Codes Volume 1",
+    "Version 1 (8 March 2024) was written against the 2024 R-Codes Volume 1; the corpus copy of Volume 1 (PC-001) is the later Version 3 of 10 April 2026, so cross-references between the two may be slightly out of step",
+    "multi-column layout interleaves text across columns in extraction; some sentences merge fragments from adjacent columns",
+    "alias note: instrument_aliases.json maps 'Liveable Neighbourhoods' to DC-009, whose manifest name is 'Development Control Policy 2.2 Residential Subdivision' - mapping followed as instructed but Liveable Neighbourhoods is historically a distinct WAPC operational policy"
+  ]
+}

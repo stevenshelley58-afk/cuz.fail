@@ -1,0 +1,50 @@
+{
+  "id": "PC-001",
+  "normalized_title": "State Planning Policy 7.3 Residential Design Codes Volume 1",
+  "instrument_no": "SPP 7.3",
+  "version_date": "10 April 2026 (Version 3)",
+  "operative_status": "current",
+  "scope_summary": "The R-Codes Volume 1 provides the planning and design provisions for residential development (single houses, grouped dwellings and multiple dwellings) across Western Australia, applied through local planning schemes. Part B covers single houses R40 and below, grouped dwellings R25 and below and multiple dwellings R10-R25; Part C covers single houses R50 and above, grouped dwellings R30 and above and multiple dwellings R30-R60; Part D sets site area requirements and dwelling yield. Assessment is via deemed-to-comply or design principle (merit) pathways; multiple dwellings in R80+ areas are dealt with by Volume 2.",
+  "key_numeric_standards": [
+    {"topic": "open space", "value": "50", "unit": "% of site", "applies_to": "R15-R25 single house or grouped dwelling", "clause_ref": "Table B column 3 (Open Space)"},
+    {"topic": "minimum outdoor living area", "value": "30", "unit": "m2", "applies_to": "R20-R25 single house or grouped dwelling", "clause_ref": "Table B (Min outdoor living)"},
+    {"topic": "primary street setback", "value": "6", "unit": "m", "applies_to": "R15-R25 single house or grouped dwelling", "clause_ref": "Table B / cl 5.1.2"},
+    {"topic": "primary street setback", "value": "4", "unit": "m", "applies_to": "R30-R40 single house", "clause_ref": "Table B / cl 5.1.2"},
+    {"topic": "secondary street setback", "value": "1.5", "unit": "m", "applies_to": "R15-R35 single house or grouped dwelling", "clause_ref": "Table B"},
+    {"topic": "side boundary setback (wall no major openings)", "value": "1.0", "unit": "m", "applies_to": "wall up to 3.5m high and 9m or less long (nil possible under cl 5.1.3)", "clause_ref": "Table 2a"},
+    {"topic": "side boundary setback (wall with major openings)", "value": "1.5", "unit": "m", "applies_to": "wall up to 3.5m high and 9m or less long", "clause_ref": "Table 2b"},
+    {"topic": "maximum wall height", "value": "7", "unit": "m", "applies_to": "Category B building (default), gable/skillion/concealed roof", "clause_ref": "Table 3 / cl 5.1.6"},
+    {"topic": "maximum total building height", "value": "10", "unit": "m", "applies_to": "Category B building (default)", "clause_ref": "Table 3 / cl 5.1.6"},
+    {"topic": "visual privacy cone-of-vision setback - bedrooms and studies", "value": "4.5", "unit": "m", "applies_to": "major openings, areas coded R50 or lower (3m above R50)", "clause_ref": "cl 5.4.1 C1.1"},
+    {"topic": "visual privacy cone-of-vision setback - other habitable rooms", "value": "6", "unit": "m", "applies_to": "major openings, areas coded R50 or lower (4.5m above R50)", "clause_ref": "cl 5.4.1 C1.1"},
+    {"topic": "visual privacy cone-of-vision setback - outdoor active habitable spaces", "value": "7.5", "unit": "m", "applies_to": "floor level more than 0.5m above natural ground level, R50 or lower (6m above R50)", "clause_ref": "cl 5.4.1 C1.1"},
+    {"topic": "screening device height", "value": "1.6", "unit": "m", "applies_to": "screening to major openings, minimum 75% obscure and permanently fixed", "clause_ref": "cl 5.4.1 C1.2"},
+    {"topic": "overshadowing limit at midday 21 June", "value": "25", "unit": "% of adjoining site area", "applies_to": "adjoining properties coded R25 and lower (35% for R30-R40; 50% above R40), climate zones 4-6", "clause_ref": "cl 5.4.2 C2.1"},
+    {"topic": "on-site car parking", "value": "2", "unit": "spaces per dwelling", "applies_to": "2+ bedroom single house/grouped/special purpose dwelling in Location B (1 space in Location A)", "clause_ref": "cl 5.3.3 C3.1"},
+    {"topic": "visitor car parking", "value": "1 per 4", "unit": "spaces per dwellings", "applies_to": "grouped and multiple dwellings served by common access, in excess of four dwellings", "clause_ref": "cl 5.3.3 C3.2"},
+    {"topic": "multiple dwelling visitor parking", "value": "0.25", "unit": "spaces per dwelling", "applies_to": "multiple dwellings (Locations A and B)", "clause_ref": "cl 5.3.3 C3.3"},
+    {"topic": "minimum site area per dwelling", "value": "350 (min) / 450 (average)", "unit": "m2", "applies_to": "R20 single house or grouped dwelling", "clause_ref": "Part D Table D"},
+    {"topic": "minimum site area per dwelling", "value": "180 (min) / 220 (average)", "unit": "m2", "applies_to": "R40 single house or grouped dwelling", "clause_ref": "Part D Table D"},
+    {"topic": "minimum lot frontage", "value": "10", "unit": "m", "applies_to": "R20 single house", "clause_ref": "Part D Table D"},
+    {"topic": "minimum site area per dwelling", "value": "100 (min) / 120 (average)", "unit": "m2", "applies_to": "R80 single house or grouped dwelling (also applies to R100, R160, R-AC)", "clause_ref": "Part D Table D"},
+    {"topic": "Location A walkable catchment to train station", "value": "800", "unit": "m", "applies_to": "reduced parking Location A qualification (250m to high-frequency transit stop)", "clause_ref": "cl 5.3.3 C3.1"}
+  ],
+  "definitions": ["accessible housing / dwellings", "active habitable space", "activity centre", "adaptable housing / dwellings", "adjoining property", "aged person", "AHD", "amenity", "ancillary dwelling", "at-grade", "balcony", "basement", "carport", "communal street", "cone of vision", "courtyard", "dependant person", "design principles", "development", "development site", "driveway", "dual key dwelling", "dwelling", "dwelling alignment", "effective lot area", "enclosed", "external fixtures", "freehold scheme", "frontage", "garage", "green title lot", "grouped dwelling", "habitable room/space", "heritage area", "high-frequency route", "impervious area/surface/material", "internal floor area", "laneway", "leasehold scheme", "lightwell", "local character / local identity", "local development plan", "local planning framework", "local planning scheme", "local planning strategy", "loft", "lot", "lot in a strata scheme", "lot in a survey-strata scheme", "major opening", "minor rainfall event", "outbuilding", "outdoor living area", "parapet", "parent lot", "passive surveillance", "patio", "pedestrian access leg", "pergola", "permeable surface/pavement/material", "plot ratio", "porch", "precinct structure plan", "primary street", "residential development", "scheme", "screening/screened", "secondary street", "sense of place", "service area", "service utilities", "setback", "sightlines", "significant existing tree", "single aspect", "site area", "site cover", "storey"],
+  "cross_references": [
+    {"cited": "Residential Design Codes Volume 2 (R-Codes Volume 2)", "manifest_id": "PC-002"},
+    {"cited": "Residential Design Codes Volume 1 Explanatory Guidelines", "manifest_id": "PC-003"},
+    {"cited": "State Planning Policy 7.0 Design of the Built Environment", "manifest_id": "SPP-022"},
+    {"cited": "State Planning Policy 7.2", "manifest_id": "SPP-023"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "National Construction Code", "manifest_id": "NCC-001"},
+    {"cited": "Design Review Guide", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "two/three-column PDF layout interleaves text across columns in extraction; some sentences merge fragments from adjacent columns",
+    "Table C (Part C primary controls) column headers are lost in extraction, so several Part C values (site cover 60-85%, heights 8-16m, street setbacks 4m-1m) cannot be reliably attributed to specific R-Codes from text alone",
+    "minor mirrored-text artifacts from rotated figure labels (e.g. 'yradnuob edis' for 'side boundary')",
+    "internal amendment note confirms Table B columns 3-5 were deleted and replaced by Part D Table D by amendment dated 10 April 2024; this extraction is the consolidated Version 3 of 10 April 2026"
+  ]
+}

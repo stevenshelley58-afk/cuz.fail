@@ -1,0 +1,38 @@
+{
+  "id": "DC-008",
+  "normalized_title": "Operational Policy 1.11 Community Schemes",
+  "instrument_no": "OP 1.11",
+  "version_date": "June 2021",
+  "operative_status": "current",
+  "scope_summary": "Sets out the principles and requirements the WAPC uses to assess and determine statements of grounds and community development statements under the Community Titles Act 2018, and the criteria for subsequent subdivision and development within community schemes. It applies statewide to freehold land proposed to be subdivided as a community (titles) scheme of up to three tiers, and explains when an approved community development statement is binding on, or must be given due regard in, subdivision and development decisions. Procedural timeframes, consultation, amendment, right of review and cessation provisions are included.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "community scheme",
+    "community development statement",
+    "statement of grounds",
+    "community titles (land) scheme",
+    "community titles (building) scheme",
+    "Approval Period",
+    "Development Period"
+  ],
+  "cross_references": [
+    {"cited": "Community Titles Act 2018", "manifest_id": null},
+    {"cited": "Community Titles Regulations 2021", "manifest_id": null},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Transfer of Land Act 1893", "manifest_id": null},
+    {"cited": "Caravan Park and Camping Grounds Act 1995", "manifest_id": null},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "State Planning Policy 1 State Planning Framework", "manifest_id": "SPP-001"},
+    {"cited": "Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "Development Control Policy 2.3 Public Open Space in Residential Areas", "manifest_id": null},
+    {"cited": "State Planning Policy 3.6 Infrastructure Contributions", "manifest_id": "SPP-012"},
+    {"cited": "Community Schemes Guidelines", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "document is styled 'Operational Policy 1.11', not 'Development Control Policy 1.11' as the manifest instrument_name says (same instrument, re-badged by WAPC)",
+    "publication/operational/last-reviewed dates all June 2021 per imprint page",
+    "imprint/disclaimer block extracted as heavily garbled interleaved text on page 1",
+    "procedural timeframes (4-year approval period, 10-year development period, 28/42-day referrals, 120-day WAPC assessment) are process rules, not development standards, so key_numeric_standards left empty"
+  ]
+}

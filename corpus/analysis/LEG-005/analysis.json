@@ -1,0 +1,25 @@
+{
+  "id": "LEG-005",
+  "normalized_title": "Environmental Protection Act 1986 (WA)",
+  "instrument_no": null,
+  "version_date": "2026-02-19",
+  "operative_status": "current",
+  "scope_summary": "WA's principal environmental statute. It establishes the Environmental Protection Authority, provides for environmental protection policies, environmental impact assessment of proposals and of planning schemes (Part IV, including assessment of region and local planning schemes, State planning policies and planning codes referred under the Planning and Development Act 2005), and regulates pollution, environmental harm, clearing of native vegetation (clearing permits, environmentally sensitive areas), prescribed premises, works approvals and licences, and enforcement. Applies state-wide in Western Australia.",
+  "key_numeric_standards": [],
+  "definitions": ["environment", "environmental harm", "material environmental harm", "serious environmental harm", "pollution", "emission", "unreasonable emission", "unreasonable noise", "waste", "native vegetation", "clearing", "unlawful clearing", "environmentally sensitive area", "vegetation conservation notice", "proposal", "scheme", "assessed scheme", "proposal under an assessed scheme", "prescribed premises", "works approval", "licence", "Tier 1 offence", "Tier 3 offence", "Western Australian Planning Commission", "watercourse", "wetland"],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Bush Fires Act 1954", "manifest_id": "LEG-006"},
+    {"cited": "Swan Valley Planning Act 2020", "manifest_id": null},
+    {"cited": "Hope Valley-Wattleup Redevelopment Act 2000", "manifest_id": null},
+    {"cited": "Contaminated Sites Act 2003", "manifest_id": null},
+    {"cited": "Land Administration Act 1997", "manifest_id": null},
+    {"cited": "Interpretation Act 1984", "manifest_id": null},
+    {"cited": "Corporations Act 2001", "manifest_id": null},
+    {"cited": "Environmental Protection (Landfill) Levy Act 1998", "manifest_id": null},
+    {"cited": "Waste Avoidance and Resource Recovery Act 2007", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": ["tables skipped during extraction (extractor metadata tables_skipped=true)", "minor encoding artifacts (Â© mojibake) in copyright footer lines", "repeated page header/footer lines interleaved in body text (standard WA legislation PDF extraction)"]
+}

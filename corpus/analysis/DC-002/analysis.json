@@ -1,0 +1,47 @@
+{
+  "id": "DC-002",
+  "normalized_title": "Development Control Policy 1.3 Strata Titles",
+  "instrument_no": "DC 1.3",
+  "version_date": "June 2009 (revised June 2009; earlier revisions May 1998 and September 2003)",
+  "operative_status": "current",
+  "scope_summary": "WAPC policy dealing with the classes of strata title proposals that require WAPC approval (certificate of approval under s25 Strata Titles Act 1985, and survey strata under Part 10 of the Planning and Development Act 2005), and the criteria for determining them. It covers general requirements, approval procedures, vacant strata and survey strata lots (residential and non-residential), strata titled caravan parks, strata titles in rural areas, and appeal/reconsideration mechanisms, including the June 2009 delegation of built strata approvals to local governments.",
+  "key_numeric_standards": [
+    {"topic": "exemption from WAPC approval - maximum dwelling units", "value": "5", "unit": "dwelling units", "applies_to": "strata subdivision of residential developments under regulation 15 of the Strata Titles General Regulations 1996 (each strata lot containing one existing dwelling)", "clause_ref": "cl 1.5(ii)"},
+    {"topic": "exemption from WAPC approval - maximum land parcel area", "value": "2500", "unit": "m2", "applies_to": "land parcel subject to built strata application (delegation/exemption criteria)", "clause_ref": "cl 1.4(iv)"},
+    {"topic": "small survey strata lot information threshold", "value": "350", "unit": "m2", "applies_to": "survey strata lots below this area - WAPC may require details of existing/proposed buildings, fences, driveways to assess against DC 2.2", "clause_ref": "cl 3.3.4(d)"},
+    {"topic": "communal open space credit", "value": "50", "unit": "% (maximum, of the total 10% public open space provision)", "applies_to": "survey strata subdivision - communal open space usable and developed for general recreation", "clause_ref": "cl 3.3.3"},
+    {"topic": "community facilities site credit", "value": "20", "unit": "% (maximum, of the 10% open space contribution)", "applies_to": "allocation of a site for community facilities credited toward communal open space", "clause_ref": "cl 3.3.3"},
+    {"topic": "driveway design threshold", "value": "6", "unit": "dwellings", "applies_to": "survey strata driveways up to six dwellings designed per R-Codes; access ways in excess of six dwellings per DC 2.6", "clause_ref": "cl 3.3.4(e)"},
+    {"topic": "determination period - built strata", "value": "40", "unit": "days", "applies_to": "WAPC/local government determination of built strata certificate of approval applications", "clause_ref": "cl 4.1.1"},
+    {"topic": "determination period - vacant lot strata", "value": "90", "unit": "days", "applies_to": "determination of vacant lot strata applications", "clause_ref": "cl 4.1.1"},
+    {"topic": "review period - strata (SAT)", "value": "30", "unit": "days", "applies_to": "application for review under s27 Strata Titles Act of a WAPC strata decision", "clause_ref": "cl 4.1.1"},
+    {"topic": "review/reconsideration period - survey strata", "value": "28", "unit": "days", "applies_to": "SAT review under s251 P&D Act, and WAPC reconsideration requests", "clause_ref": "cl 4.1.2 / cl 4.2"}
+  ],
+  "definitions": [
+    "survey strata lots (cl 1.3: lots consisting of surveyed land boundaries, buildings not part of the scheme)",
+    "vacant strata title lots (cl 3.3.1)",
+    "built strata (cl 1.4, delegation to local government)",
+    "common property (Appendix 1 examples)"
+  ],
+  "cross_references": [
+    {"cited": "Strata Titles Act 1985 (and Amendment Acts 1995, 1996)", "manifest_id": "LEG-004"},
+    {"cited": "Planning and Development Act 2005 (ss 135, 136, 142, 251, Part 10)", "manifest_id": "LEG-001"},
+    {"cited": "Strata Titles General Regulations 1996 (reg 15)", "manifest_id": null},
+    {"cited": "State Planning Policy 3.1 Residential Design Codes (Variation 1) (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "Development Control Policy 2.2 Residential Subdivision", "manifest_id": "DC-009"},
+    {"cited": "Development Control Policy 2.3 Public Open Space in Residential Areas", "manifest_id": null},
+    {"cited": "Development Control Policy 2.6 Residential Road Planning", "manifest_id": "DC-011"},
+    {"cited": "Development Control Policy 3.4 Subdivision of Rural Land", "manifest_id": "DC-012"},
+    {"cited": "Guidelines for the Design and Geometric Layout of Residential Roads", "manifest_id": null},
+    {"cited": "Planning Bulletin 14 Amendments to Strata Titles Act May 1996", "manifest_id": null},
+    {"cited": "Planning Bulletin 19 Strata Titles Amendment Act 1996 - Update on Policy and Practice February 1997", "manifest_id": null},
+    {"cited": "Caravan and Camping Grounds Act 1995", "manifest_id": null},
+    {"cited": "Transfer of Land Act 1893 (s129A)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "two-column layout interleaving: clause text from adjacent columns merged on the same lines in places (e.g. cl 1.1-1.5 block), text recoverable",
+    "policy predates the Strata Titles Amendment Act 2018 / Strata Titles (General) Regulations 2019 - statutory references (Strata Titles General Regulations 1996, s25 certificate of approval regime) are dated even though the policy remains the current published version",
+    "summary.json title is bare 'Development Control Policy 1.3' (subject 'Strata Titles' appears in body); identity confirmed"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "MEL-MAP-003",
+  "normalized_title": "City of Melville Local Planning Scheme No. 6 - Scheme Map No. 3 of 8 (Melville and Myaree Localities)",
+  "instrument_no": "LPS6 Map 3 of 8",
+  "version_date": "Plot date 27 February 2026 (Version No 1; LPS6 gazetted Friday 27 May 2016)",
+  "operative_status": "current",
+  "scope_summary": "Statutory scheme map sheet 3 of 8 under the City of Melville Local Planning Scheme No. 6 covering the Melville and Myaree localities. Depicts local scheme zones and reserves, region scheme reserves (railways, public purposes including prison and infrastructure services), R-Codes density codings (R20, R35, R40 and others visible in the extracted labels), and an AR1 additional-requirements notation for the Kardinya Activity Centre Plan. Used to determine the zoning and density coding applicable to individual lots in these localities.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Kardinya Activity Centre Plan (AR1)", "manifest_id": null},
+    {"cited": "Planning and Development Act 2005 (ss 267B-267C)", "manifest_id": "LEG-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "scheme map drawing: low text volume of meaningful content is expected; extracted text is map labels and legend only",
+    "this sheet produced an unusually large volume of fragmented OCR label text (~1000 lines of single-character and reversed street-name strings); spatial zoning/coding assignments are not recoverable from text alone - use the original PDF or GIS data for lot-level determinations",
+    "extractor-generated summary.json title is garbled OCR ('5 W E S T B U R Y C') and its version_date is empty - the plot date 27 February 2026 appears in full_text.txt",
+    "this is the most recent plot (Feb 2026) of the five Melville sheets in this batch, consistent with the 2026-03 wa.gov.au upload in the manifest"
+  ]
+}

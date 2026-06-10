@@ -1,0 +1,37 @@
+{
+  "id": "DC-010",
+  "normalized_title": "Development Control Policy 2.4 School Sites",
+  "instrument_no": "DC 2.4",
+  "version_date": "October 1998",
+  "operative_status": "current",
+  "scope_summary": "Contains the WAPC's general criteria and design standards for the provision of school and TAFE college sites in residential areas of Western Australia, applied during district/local structure planning and subdivision design for new residential subdivisions. It covers demand ratios for school sites, location within catchments, site size and physical requirements, site selection, access and road safety, relationships to nearby land uses, children's services facilities and consultation with education authorities.",
+  "key_numeric_standards": [
+    {"topic": "primary school site provision rate", "value": "1 per 1,500-1,800", "unit": "housing units", "applies_to": "government primary schools in new residential areas", "clause_ref": "cl 3.1.2"},
+    {"topic": "secondary school site provision rate", "value": "1 per 4-5", "unit": "primary schools", "applies_to": "government secondary schools", "clause_ref": "cl 3.1.2"},
+    {"topic": "primary school site size", "value": "4", "unit": "ha", "applies_to": "government and non-government primary schools", "clause_ref": "cl 3.3.1"},
+    {"topic": "secondary school site size", "value": "10 (govt) / 8-10 (non-govt)", "unit": "ha", "applies_to": "secondary schools", "clause_ref": "cl 3.3.1"},
+    {"topic": "district high school site size", "value": "6", "unit": "ha", "applies_to": "district high schools", "clause_ref": "cl 3.3.1"},
+    {"topic": "combined primary and secondary school site size", "value": "10-12", "unit": "ha", "applies_to": "non-government combined schools", "clause_ref": "cl 3.3.1"},
+    {"topic": "additional site area for children's services facilities", "value": "3000", "unit": "m2", "applies_to": "school sites with associated children's services facilities", "clause_ref": "cl 3.3.2 (refer cl 3.7)"},
+    {"topic": "Catholic primary school site size where church/community facilities included", "value": "5", "unit": "ha", "applies_to": "Catholic Education Commission primary school sites", "clause_ref": "cl 3.3.2"},
+    {"topic": "reduced primary school site size where co-located with public open space", "value": "3.5", "unit": "ha", "applies_to": "primary schools co-located with POS under management agreements", "clause_ref": "cl 3.3.4"},
+    {"topic": "minimum feasible TAFE college site / optimal size for growth", "value": "11 (min) / 25 (optimal)", "unit": "ha", "applies_to": "TAFE colleges", "clause_ref": "cl 3.3.5"}
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Policy No. DC 2.1 - Residential Planning Codes", "manifest_id": null},
+    {"cited": "Policy No. DC 2.2 - Residential Subdivision", "manifest_id": "DC-009"},
+    {"cited": "Policy No. DC 2.3 - Public Open Space", "manifest_id": null},
+    {"cited": "Policy No. DC 2.6 - Residential Road Planning", "manifest_id": "DC-011"},
+    {"cited": "Liveable Neighbourhoods: Community Design Code", "manifest_id": null},
+    {"cited": "Guidelines for the Preparation of Local Structure Plans for Urban Release Areas", "manifest_id": null},
+    {"cited": "Task Force on Road Safety at Schools Report 1992", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "vertical sidebar banner text extracted as one-character-per-line strings at page starts ('SCHOOL SITES POLICY NO. DC 2.4')",
+    "two-column PDF text interleaved in places (headings merged across columns)",
+    "missing spaces in some scanned-era phrases (e.g. '1992for', 'Codewhich')",
+    "policy dates from October 1998 and predates Liveable Neighbourhoods finalisation and current structure-planning framework; treat numeric standards as historical guidance unless confirmed still applied"
+  ]
+}

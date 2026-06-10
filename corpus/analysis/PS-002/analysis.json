@@ -1,0 +1,54 @@
+{
+  "id": "PS-002",
+  "normalized_title": "WAPC Position Statement: Public Open Space",
+  "instrument_no": null,
+  "version_date": "19 December 2025 (operational date 19/12/2025; publication date stated as 08/05/2026)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement (prepared under Part 14 of the Planning and Development Act 2005) governing the planning, provision and contribution of Public Open Space across all urban areas of Western Australia. It applies to local planning strategies, schemes, structure plans and all subdivision (including strata), continuing the Stephenson-Hepburn minimum of 10 per cent of gross subdivisible area for POS, with reduced contribution rates and caps for infill and mixed use sites, regional variations, and detailed rules for cash in lieu collection, expenditure, disposal and management of POS. It replaces DC 2.3 Public Open Space in Residential Areas and the Position Statement on Expenditure of Cash in Lieu of Public Open Space.",
+  "key_numeric_standards": [
+    {"topic": "minimum public open space provision", "value": "10", "unit": "% of gross subdivisible area", "applies_to": "all residential subdivision (green title, all strata types, community title) across all urban areas", "clause_ref": "cl 6.1 / 6.4.1 / 6.4.3"},
+    {"topic": "infill POS contribution during deferral period (19 Dec 2025 - 18 Dec 2027)", "value": "0", "unit": "% (default)", "applies_to": "infill subdivision of any number of lots, unless already required under the local planning scheme", "clause_ref": "Table 1"},
+    {"topic": "infill POS contribution exemption from 19 Dec 2027", "value": "5", "unit": "lots or less", "applies_to": "infill subdivision (including built strata) of 5 lots or less - no POS contribution unless justified by local planning strategy/scheme", "clause_ref": "Table 1"},
+    {"topic": "infill POS contribution where locality has less than 10% POS", "value": "5", "unit": "% of gross subdivisible area (capped at $4,000 per lot)", "applies_to": "infill subdivision of 6 lots or more, from 19 Dec 2027", "clause_ref": "Table 1"},
+    {"topic": "infill POS contribution where locality has 10% or more POS", "value": "2", "unit": "% of gross subdivisible area (capped at $1,600 per lot)", "applies_to": "infill subdivision of 6 lots or more, from 19 Dec 2027", "clause_ref": "Table 1"},
+    {"topic": "infill POS contribution for strata with communal open space exceeding R-Codes requirements", "value": "2.5", "unit": "% of gross subdivisible area (capped at $2,000 per lot)", "applies_to": "strata infill subdivision of 6 lots or more, from 19 Dec 2027", "clause_ref": "Table 1"},
+    {"topic": "built strata POS exemption window", "value": "no contribution where development approval issued on or before 19 Dec 2029 and subdivision approved on or before 19 Dec 2033", "unit": "dates", "applies_to": "built strata subdivision of 6 lots or more", "clause_ref": "Table 1(c) / Table 2(b)"},
+    {"topic": "mixed use site minimum POS contribution (density up to and including R80/R-AC4, or up to 3 storeys)", "value": "5", "unit": "% of total mixed use site area", "applies_to": "greenfield/brownfield mixed use sites", "clause_ref": "cl 6.4.3 Mixed Use Sites (a)"},
+    {"topic": "mixed use site minimum POS contribution (density exceeding R80/R-AC4)", "value": "7.5", "unit": "% of total mixed use site area", "applies_to": "greenfield/brownfield mixed use sites", "clause_ref": "cl 6.4.3 Mixed Use Sites (b)"},
+    {"topic": "staged subdivision POS rate where POS not fully provided in first stage", "value": "equal or exceed 10", "unit": "% of gross subdivisible area per stage", "applies_to": "staged subdivisions without an agreed POS sharing arrangement", "clause_ref": "cl 6.5"}
+  ],
+  "definitions": [
+    "Brownfield",
+    "Built Strata",
+    "Demand analysis",
+    "Greenfield",
+    "Gross Subdivisible Area",
+    "Infill",
+    "Locality",
+    "Public Open Space",
+    "Regional Areas",
+    "Regional Open Space",
+    "Strata"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005 (Part 14; ss 153, 154(1), 155, 156)", "manifest_id": "LEG-001"},
+    {"cited": "Development Control Policy 2.3 Public Open Space in Residential Areas (replaced)", "manifest_id": null},
+    {"cited": "Position Statement Expenditure of cash in lieu of public open space (replaced)", "manifest_id": null},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Residential Design Codes (communal open space requirements)", "manifest_id": "PC-001"},
+    {"cited": "SPP 3.6 (Infrastructure Contributions)", "manifest_id": "SPP-012"},
+    {"cited": "SPP 7.2 (Precinct Design)", "manifest_id": "SPP-023"},
+    {"cited": "Local Government Act 1995 (s 6.11)", "manifest_id": null},
+    {"cited": "Land Administration Act 1997", "manifest_id": null},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Stephenson-Hepburn Plan (1955 Plan for the Metropolitan Region Perth and Fremantle)", "manifest_id": null},
+    {"cited": "WAPC Fact Sheet Strata - Form 15 Applications", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "multi-column layout extracted with column interleaving - Tables 1 and 2 (infill contribution rates) are flattened into interleaved prose and need careful reading",
+    "source document date anomaly: publication date (08/05/2026) postdates the operational date (19/12/2025); the document is dated and cited as 19 December 2025",
+    "note: the aliases file maps 'Liveable Neighbourhoods' to DC-009, whose manifest instrument_name is 'Development Control Policy 2.2 Residential Subdivision' - mapping followed as instructed but the alias may warrant verification"
+  ]
+}

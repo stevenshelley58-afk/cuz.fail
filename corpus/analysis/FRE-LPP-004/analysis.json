@@ -1,0 +1,59 @@
+{
+  "id": "FRE-LPP-004",
+  "normalized_title": "City of Fremantle Local Planning Policy 1.7 - Development Exempt from Planning Approval",
+  "instrument_no": "LPP 1.7",
+  "version_date": "Version 4, adopted 11 March 2026 (OCM C2603-5); prior versions 23 Sep 2020, 22 Feb 2023, 9 Oct 2024",
+  "operative_status": "current",
+  "scope_summary": "Specifies classes of works and land uses exempt from development approval under City of Fremantle Local Planning Scheme No. 4, in addition to the clause 61 Deemed Provisions exemptions. Table 1 sets conditional exemptions by zone for demolition, change of use, residential additions and alterations, outbuildings, patios, fences, pools, site works, painting/cladding/roofing, external fixtures and minor structures - with tighter conditions for heritage-protected places and Heritage Areas - and Appendix 1 exempts certain advertisements and signs. Exemptions generally do not apply to State-registered places or places under a Heritage Order or Agreement.",
+  "key_numeric_standards": [
+    {"topic": "patio/carport/shade structure maximum height", "value": "3.5", "unit": "m", "applies_to": "non-residential development in Commercial/Industrial zones (with min 1m setback to residential zoned land)", "clause_ref": "Table 1 item 13"},
+    {"topic": "side addition setback behind front building line", "value": "1", "unit": "m", "applies_to": "single storey additions to contributory Single Houses/Grouped Dwellings in a Heritage Area", "clause_ref": "Table 1 item 14(c)(ii)"},
+    {"topic": "shop net lettable area cap for exempt change of use", "value": "300", "unit": "m2", "applies_to": "change of use to Shop in Neighbourhood Centre zone", "clause_ref": "Table 1 item 10"},
+    {"topic": "patio maximum height", "value": "3", "unit": "m", "applies_to": "patios to Level 3 heritage-listed Single House/Grouped Dwelling, behind dwelling", "clause_ref": "Table 1 item 18"},
+    {"topic": "shade structure maximum height / area", "value": "3 / 25", "unit": "m / m2", "applies_to": "shade structures to dwellings in Heritage Areas or Level 3 listed places", "clause_ref": "Table 1 item 19"},
+    {"topic": "fence maximum height near open space", "value": "1.2", "unit": "m", "applies_to": "fences within 3m of local open space or regional parks/recreation reserve, heritage-listed/Heritage Area lots (1.8m in all other cases)", "clause_ref": "Table 1 item 20(b)"},
+    {"topic": "street fence solid portion maximum height", "value": "0.9", "unit": "m", "applies_to": "primary/secondary street fences in Heritage Areas (visually permeable to 1.2m total; hybrid solid to 0.5m; piers to 1.5m)", "clause_ref": "Table 1 item 21"},
+    {"topic": "Hilton Heritage Area street fence maximum height", "value": "1.5", "unit": "m", "applies_to": "street walls/fences forward of building line, Hilton Heritage Area (20%/50%/85% visual permeability bands by height)", "clause_ref": "Table 1 item 22"},
+    {"topic": "swimming pool/spa maximum height", "value": "1.8", "unit": "m", "applies_to": "private pools and outdoor spas behind dwellings in Heritage Areas", "clause_ref": "Table 1 item 24"},
+    {"topic": "exempt fill/excavation maximum change to natural ground level", "value": "500", "unit": "mm", "applies_to": "all zones and reserves (also retaining walls under 500mm, item 26)", "clause_ref": "Table 1 items 25-27"},
+    {"topic": "external fixture maximum height on wall", "value": "1.8", "unit": "m", "applies_to": "external fixtures and air conditioners on rear/side walls of heritage-listed places or in Heritage Areas", "clause_ref": "Table 1 items 33-35"},
+    {"topic": "freestanding water tank maximum height", "value": "2.4", "unit": "m", "applies_to": "tank more than 1m from any boundary (1.8m if within 1m of a boundary), heritage-listed places/Heritage Areas", "clause_ref": "Table 1 item 36"},
+    {"topic": "minor structure maximum height", "value": "2", "unit": "m", "applies_to": "freestanding minor structures within the primary street setback area (3m outside it)", "clause_ref": "Table 1 item 37"},
+    {"topic": "flag pole maximum height", "value": "6", "unit": "m", "applies_to": "freestanding flag poles not used for advertising", "clause_ref": "Table 1 item 38"},
+    {"topic": "exempt property disposal/construction/temporary sign maximum area", "value": "2 (sites <5000m2) / 5 (sites >5000m2)", "unit": "m2", "applies_to": "one sign per street frontage, all zones", "clause_ref": "Appendix 1"}
+  ],
+  "definitions": [
+    "External fixtures",
+    "Heritage Act",
+    "Heritage Area",
+    "Heritage List",
+    "Heritage Order or Agreement",
+    "Heritage-protected place",
+    "Maintenance and repair",
+    "Minor structures",
+    "Original building exterior",
+    "Shade structures",
+    "State Heritage Register",
+    "Visually permeable"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015 (Deemed Provisions cl 60, 61)", "manifest_id": "REG-001"},
+    {"cited": "Local Planning Scheme No. 4 (LPS4)", "manifest_id": "FRE-SCH-001"},
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "Local Planning Policy 2.26: Tree Retention", "manifest_id": "FRE-LPP-014"},
+    {"cited": "Local Planning Policy 2.14: Advertisements and Signs", "manifest_id": "FRE-LPP-008"},
+    {"cited": "LPP 3.6.1: Heritage Area Listings", "manifest_id": "FRE-LPP-030"},
+    {"cited": "LPP 3.6 (original building exterior definition)", "manifest_id": "FRE-LPP-029"},
+    {"cited": "LPP3.8: O'Connor", "manifest_id": "FRE-LPP-032"},
+    {"cited": "Building Act", "manifest_id": "LEG-002"},
+    {"cited": "Strata Titles Act", "manifest_id": "LEG-004"},
+    {"cited": "Heritage of Western Australia Act 1990", "manifest_id": null},
+    {"cited": "Dividing Fences Act", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Table 1 column layout (development type / zones / conditions) interleaved in extraction - condition text wraps across columns and needs care when machine-reading",
+    "illustrative figures for the 'original building exterior' definition referenced as 'Refer to figures overleaf' are not captured in extracted text",
+    "extractor summary.json title and version_date fields are empty/generic ('Local Planning') though the actual document text is complete"
+  ]
+}

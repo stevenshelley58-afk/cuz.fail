@@ -1,0 +1,27 @@
+{
+  "id": "DC-003",
+  "normalized_title": "Development Control Policy 1.5 Bicycle Planning",
+  "instrument_no": "DC 1.5",
+  "version_date": "July 1998 (policy reconsidered and updated July 1998; original commitments date from State Planning Commission meeting of 27 June 1987)",
+  "operative_status": "current",
+  "scope_summary": "WAPC policy describing the planning considerations for improving the safety and convenience of cycling in Western Australia. It sets objectives and measures for integrating cyclists into the road network, providing cycling facilities and route networks in new subdivisions (particularly residential areas), considering bicycles in local area traffic management schemes, imposing development conditions for bicycle parking and end-of-trip facilities, dual-mode (bicycle plus public transport) travel, and including cycling in planning studies and structure plans.",
+  "key_numeric_standards": [
+    {"topic": "local access road operating speed for cycling safety", "value": "below 40", "unit": "km/h", "applies_to": "local access roads forming part of the cycle route network in residential subdivisions", "clause_ref": "Figure 1 (Bicycle Planning and Subdivisions Design Principles)"}
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Policy No. DC 1.4 Functional Road Classification for Planning", "manifest_id": null},
+    {"cited": "Policy No. DC 2.2 Residential Subdivision", "manifest_id": "DC-009"},
+    {"cited": "Policy No. DC 2.6 Residential Road Planning", "manifest_id": "DC-011"},
+    {"cited": "AUSTROADS Guide to Traffic Engineering Practice Pt 14, Bicycles, 1993", "manifest_id": null},
+    {"cited": "Perth Bicycle Network Plan (1996)", "manifest_id": null},
+    {"cited": "Bike Ahead (1996)", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "rotated sidebar text ('BICYCLE PLANNING POLICY NO. DC 1.5') extracted one character per line, repeated before each page (lines 1-29 and similar blocks) - scan/layout artifact",
+    "missing-space ligature artifacts: 'Acycling', 'Acycle' for 'A cycling', 'A cycle'",
+    "Figure 1 diagram labels extracted as scrambled fragmentary text (lines 363-397)",
+    "1998 policy: references to Transperth/Westrail and Bikewest are dated; no formal definitions section and almost no numeric standards (guidance defers to AUSTROADS engineering standards)"
+  ]
+}

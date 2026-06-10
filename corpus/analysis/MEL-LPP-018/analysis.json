@@ -1,0 +1,26 @@
+{
+  "id": "MEL-LPP-018",
+  "normalized_title": "City of Melville Local Planning Policy 1.22 - Construction Management Plans",
+  "instrument_no": "LPP 1.22",
+  "version_date": "2022-11-15",
+  "operative_status": "current",
+  "scope_summary": "Establishes when the City of Melville will condition development approvals to require a Construction Management Plan (CMP) and what the CMP must contain. It applies to all 'major developments' (more than 10 dwellings or more than 2,000 m2 of non-residential floor space, as defined in LPP 1.1) and any other development the City considers warrants a CMP. Content requirements cover site plans, stakeholder engagement and complaints management, protection of footpaths/verges/City assets (including dilapidation reports and street tree protection), worksite parking and delivery management, environmental management (noise, dust, vibration, stormwater, dewatering, hazardous materials), site storage, cranes, staging and compliance.",
+  "key_numeric_standards": [
+    {"topic": "major development threshold (dwellings)", "value": ">10", "unit": "dwellings", "applies_to": "development approvals automatically conditioned to require a CMP", "clause_ref": "Policy Scope"},
+    {"topic": "major development threshold (non-residential floor space)", "value": ">2,000", "unit": "m2", "applies_to": "development approvals automatically conditioned to require a CMP", "clause_ref": "Policy Scope"},
+    {"topic": "site plan scale", "value": "1:100 or 1:200", "unit": "drawing scale", "applies_to": "site plans submitted with the CMP application", "clause_ref": "cl 1 Site Plan"},
+    {"topic": "road closure notification period", "value": "14", "unit": "days minimum prior notice to the City", "applies_to": "road closures and associated traffic diversions during construction", "clause_ref": "cl 3(e) Management of deliveries"},
+    {"topic": "standard construction work hours", "value": "7am-7pm", "unit": "Monday to Saturday", "applies_to": "construction work; work outside these hours may require separate approval requested at least 14 days ahead with a noise management plan", "clause_ref": "cl 4(a) Work hours"},
+    {"topic": "construction and demolition material recovery target", "value": "75", "unit": "% minimum (state target)", "applies_to": "waste management and material recovery in the CMP", "clause_ref": "cl 4(h) Waste Management and material recovery"}
+  ],
+  "definitions": ["Adjoining land", "Road Reserve"],
+  "cross_references": [
+    {"cited": "Local Planning Policy 1.1 Planning Process and Decision Making", "manifest_id": "MEL-LPP-001"},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "DBCA Policy Statement No. 50 - Planning for Dewatering Affecting the Swan Canning Development Control Area", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": ["minor list-extraction artifact in cl 3(d): bullet markers ('o') separated from their text lines in the transport plan map list", "otherwise clean extraction"]
+}

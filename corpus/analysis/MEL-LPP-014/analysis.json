@@ -1,0 +1,28 @@
+{
+  "id": "MEL-LPP-014",
+  "normalized_title": "City of Melville Local Planning Policy 1.17 - Additional Development Exemptions",
+  "instrument_no": "LPP 1.17",
+  "version_date": "2023-02-21",
+  "operative_status": "current",
+  "scope_summary": "Lists additional categories of development that are exempt from requiring development approval in the City of Melville, made under clause 61(1) item 20 of Schedule 2 of the Planning and Development (Local Planning Schemes) Regulations 2015. Covers patios that do not meet R-Codes deemed-to-comply lot boundary setbacks, demolition of non-heritage buildings, dividing fences behind the street setback line, minor works to non-residential buildings (roofing, painting, cladding), and external fixtures not on the front elevation. Exemption criteria operate in addition to the standard clause 61 exemptions.",
+  "key_numeric_standards": [
+    {"topic": "patio maximum wall height", "value": "3.0", "unit": "m above natural ground level", "applies_to": "patios not meeting R-Codes deemed-to-comply lot boundary setbacks (exemption criterion)", "clause_ref": "Table 1 - Patios"},
+    {"topic": "patio coverage of outdoor living area", "value": "two-thirds", "unit": "maximum proportion of primary outdoor living area", "applies_to": "exempt patios", "clause_ref": "Table 1 - Patios"},
+    {"topic": "patio boundary setback", "value": "1", "unit": "m (may be less if compliant with LPP 3.1 boundary wall length provisions)", "applies_to": "patios including roofs, gutters and eaves", "clause_ref": "Table 1 - Patios"},
+    {"topic": "patio post dimension not treated as boundary wall", "value": "450", "unit": "mm", "applies_to": "patio posts under the R-Codes", "clause_ref": "Table 1 - Patios"},
+    {"topic": "dividing fence maximum height", "value": "2.3", "unit": "m measured from approved natural ground level on the higher property", "applies_to": "dividing fences behind the street setback line (exemption criterion, requires neighbour agreement)", "clause_ref": "Table 1 - Dividing fences"}
+  ],
+  "definitions": ["Residential Design Codes (R-Codes)", "the Regulations"],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 3.1 - Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "Local Planning Policy LPP 3.1 Residential Development", "manifest_id": "MEL-LPP-021"},
+    {"cited": "Local Planning Scheme No.6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Heritage of Western Australia Act 1990", "manifest_id": null},
+    {"cited": "Dividing Fences Act 1961", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": ["patio criteria list in Table 1 ends with a dangling 'and' before a page break, suggesting a final bullet may have been lost or merged during table extraction", "policy cites the R-Codes by their former designation 'State Planning Policy 3.1' (now SPP 7.3)", "cites Heritage of Western Australia Act 1990, which has been replaced by the Heritage Act 2018 (LEG-007)"]
+}

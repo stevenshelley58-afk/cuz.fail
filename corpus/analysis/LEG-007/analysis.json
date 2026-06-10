@@ -1,0 +1,24 @@
+{
+  "id": "LEG-007",
+  "normalized_title": "Heritage Act 2018 (WA)",
+  "instrument_no": null,
+  "version_date": "2026-05-28",
+  "operative_status": "current",
+  "scope_summary": "State Act establishing the Heritage Council of Western Australia and the State Register of Heritage Places, replacing the Heritage of Western Australia Act 1990. It regulates entry, amendment and removal of register entries, protection orders, repair orders and stop work orders, and requires decision-makers (including planning authorities) to refer development proposals affecting registered places to the Council for advice before deciding them (Part 5). It also provides for heritage agreements, local heritage surveys by local governments (Part 8), conservation assistance and modification of planning instruments, applying statewide wherever heritage places exist.",
+  "key_numeric_standards": [],
+  "definitions": ["cultural heritage significance", "place", "owner", "occupier", "conservation", "development", "development approval", "decision-maker", "heritage agreement", "heritage asset", "local heritage survey", "local planning scheme", "planning instrument", "modification order", "protection order", "continuing protection order", "repair order", "stop work order", "consent order", "Crown land", "interim registered place", "land description", "works"],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Building Act 2011", "manifest_id": "LEG-002"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Environmental Protection Act 1986", "manifest_id": "LEG-005"},
+    {"cited": "Heritage of Western Australia Act 1990", "manifest_id": null},
+    {"cited": "Land Administration Act 1997", "manifest_id": null},
+    {"cited": "Swan Valley Planning Act 1995", "manifest_id": null},
+    {"cited": "Transfer of Land Act 1893", "manifest_id": null},
+    {"cited": "Valuation of Land Act 1978", "manifest_id": null},
+    {"cited": "Financial Management Act 2006", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": []
+}

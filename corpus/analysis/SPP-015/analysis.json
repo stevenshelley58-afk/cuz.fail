@@ -1,0 +1,43 @@
+{
+  "id": "SPP-015",
+  "normalized_title": "State Planning Policy 4.2 Activity Centres",
+  "instrument_no": "SPP 4.2",
+  "version_date": "2023-07-03 (gazettal date 03/07/2023; publication date 19/06/2023; operational date 03/07/2023; cover dated July 2023)",
+  "operative_status": "current",
+  "scope_summary": "Sets the planning framework for the hierarchy, distribution, function, land use, access and urban form of activity centres within the Metropolitan (Perth), Peel and Greater Bunbury Region Scheme areas (Bunbury Metropolitan Area only). It applies to the preparation and assessment of planning instruments (strategies, scheme amendments, precinct structure plans, local development plans) and to certain subdivision and development applications, including out-of-centre Category A activity centre uses, via floorspace thresholds and a Net Benefit Test. It also prescribes average residential density targets within the walkable catchments of each centre type.",
+  "key_numeric_standards": [
+    {"topic": "average residential density - capital city centre", "value": "75+", "unit": "dwellings per gross hectare", "applies_to": "walkable catchment of Perth Capital City centre (Central City Area Zone)", "clause_ref": "Appendix 1 - Capital City"},
+    {"topic": "average residential density - strategic centres", "value": "30+ (800m); 50+ (800-1200m where existing/proposed train station within 400m)", "unit": "dwellings per gross hectare", "applies_to": "walkable catchment of strategic centres", "clause_ref": "Appendix 1 - Strategic Centres"},
+    {"topic": "average residential density - secondary centres", "value": "25+ (400m); 40+ (800-1200m where train station within 400m)", "unit": "dwellings per gross hectare", "applies_to": "walkable catchment of secondary centres (Urban Zone)", "clause_ref": "Appendix 1 - Secondary Centres"},
+    {"topic": "average residential density - district centres", "value": "25+ (400m); 35+ (800-1200m where train station within 400m)", "unit": "dwellings per gross hectare", "applies_to": "walkable catchment of district centres (Urban Zone)", "clause_ref": "Appendix 1 - District Centres"},
+    {"topic": "average residential density - neighbourhood centres", "value": "25+ (200m); 30+ (800m where train station within 400m)", "unit": "dwellings per gross hectare", "applies_to": "walkable catchment of neighbourhood centres (Urban Zone)", "clause_ref": "Appendix 1 - Neighbourhood Centres"},
+    {"topic": "average residential density - local centres", "value": "25+ (200m)", "unit": "dwellings per gross hectare", "applies_to": "walkable catchment of local centres (Urban Zone)", "clause_ref": "Appendix 1 - Local Centres"},
+    {"topic": "major development floorspace threshold - strategic and secondary centres", "value": "10000", "unit": "m2 NLA", "applies_to": "established strategic and secondary activity centres (0 m2 for planned centres)", "clause_ref": "Table 1"},
+    {"topic": "major development floorspace threshold - district centres", "value": "5000", "unit": "m2 NLA", "applies_to": "established district activity centres", "clause_ref": "Table 1"},
+    {"topic": "major development floorspace threshold - specialised and neighbourhood centres", "value": "3000", "unit": "m2 NLA", "applies_to": "established specialised and neighbourhood activity centres", "clause_ref": "Table 1"},
+    {"topic": "major development floorspace threshold - local centres", "value": "1500", "unit": "m2 NLA", "applies_to": "established local activity centres", "clause_ref": "Table 1"},
+    {"topic": "out-of-centre development trigger", "value": "500", "unit": "m2 NLA", "applies_to": "Category A activity centre uses located outside an activity centre boundary", "clause_ref": "s7.9(b)"},
+    {"topic": "out-of-centre exemption near rail", "value": "1500", "unit": "m2 NLA", "applies_to": "Category A uses substantially within 400m walkable catchment of a rail station", "clause_ref": "s7.9(d)"},
+    {"topic": "out-of-centre housing density context", "value": "25", "unit": "dwellings per gross Urban Zone hectare", "applies_to": "minimum average existing housing density (or within 400m walkable catchment) for out-of-centre development to be appropriate", "clause_ref": "s7.9(g)"}
+  ],
+  "definitions": ["Activity centre", "Activity centre core", "Activity centre frame", "Activity centre hierarchy / network", "Activity centre use(s), category A and B", "Bulky goods showroom", "Bunbury Metropolitan Area", "Established activity centre", "Existing or proposed train station", "High frequency public transport", "Needs Assessment", "Planned activity centre", "Walkable catchment"],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "SPP 4.2 Implementation Guidelines", "manifest_id": null},
+    {"cited": "State Planning Policy 7.0 Design of the Built Environment", "manifest_id": "SPP-022"},
+    {"cited": "State Planning Policy 7.1 Neighbourhood Design (forthcoming, to replace Liveable Neighbourhoods)", "manifest_id": null},
+    {"cited": "State Planning Policy 7.2 Precinct Design Guidelines", "manifest_id": "SPP-023"},
+    {"cited": "State Planning Policy 3.6 Infrastructure Contributions", "manifest_id": "SPP-012"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Peel Region Scheme", "manifest_id": "RS-002"},
+    {"cited": "Greater Bunbury Region Scheme", "manifest_id": "RS-003"},
+    {"cited": "Bunbury-Geographe Sub-Regional Strategy", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Manifest instrument_name 'State Planning Policy 4.2 Activity Centres for Perth and Peel' is the superseded 2010 title; the extracted document is the current July 2023 version titled simply 'State Planning Policy 4.2 Activity Centres' (coverage now includes Greater Bunbury). Same instrument number and subject - correct document.",
+    "Two-column PDF extraction interleaves text in places (TOC and disclaimer merged with body headings); content remains readable and usable."
+  ]
+}

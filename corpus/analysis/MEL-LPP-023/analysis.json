@@ -1,0 +1,37 @@
+{
+  "id": "MEL-LPP-023",
+  "normalized_title": "City of Melville Local Planning Policy 3.4 - Tennis Courts",
+  "instrument_no": "LPP 3.4",
+  "version_date": "2019-10-25",
+  "operative_status": "current",
+  "scope_summary": "Provides the assessment criteria for development applications for domestic tennis courts in or adjacent to residential areas in the City of Melville. Controls occupancy (courts to be used in association with domestic enjoyment of the property unless otherwise approved), fencing height and visual permeability, landscaping adjacent to streets, floodlighting (certification against AS 4282 and AS 2560, curfew hours) and application/consultation requirements.",
+  "key_numeric_standards": [
+    {"topic": "tennis court fence height (grass courts)", "value": "3.05", "unit": "m maximum", "applies_to": "tennis court fencing for grass courts", "clause_ref": "cl 2.1"},
+    {"topic": "tennis court fence height (hard courts)", "value": "3.66", "unit": "m maximum", "applies_to": "tennis court fencing for hard courts", "clause_ref": "cl 2.1"},
+    {"topic": "fence visual permeability in front setback", "value": "1.2", "unit": "m (visually permeable above this height)", "applies_to": "tennis court fencing located within the front setback area", "clause_ref": "cl 2.2(a)"},
+    {"topic": "fence visual permeability near neighbours", "value": "1.8", "unit": "m (visually permeable above this height)", "applies_to": "tennis court fencing located within 1 m of an adjoining residential property", "clause_ref": "cl 2.2(b)"},
+    {"topic": "floodlight curfew", "value": "9pm-7am", "unit": "hours (lights extinguished; extendable to 10 pm subject to consultation)", "applies_to": "tennis court floodlighting (timer required)", "clause_ref": "cl 4.2; cl 6.4"}
+  ],
+  "definitions": [
+    "Suitably qualified lighting consultant",
+    "Certifying and Certified",
+    "Relevant Australian Standard",
+    "R-Codes",
+    "Regulations"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Environmental Protection (Noise) Regulations 1997", "manifest_id": null},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Australian Standard AS.4282 - Control of the Obtrusive Effects of Outdoor Lighting", "manifest_id": null},
+    {"cited": "Australian Standard AS.2560 - Sports Lighting", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Stray page-number artifact ('4') appears after page footers in extracted text",
+    "Internal clause numbering inconsistency in source: cl 6.3 refers to 'provisions in (1)-(3) above' and cl 6.4 refers to 'Clause 4.3 above' where the consultation provision is cl 6.3"
+  ]
+}

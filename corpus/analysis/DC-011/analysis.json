@@ -1,0 +1,52 @@
+{
+  "id": "DC-011",
+  "normalized_title": "Development Control Policy 2.6 Residential Road Planning",
+  "instrument_no": "DC 2.6",
+  "version_date": "June 1998",
+  "operative_status": "current",
+  "scope_summary": "Sets out the WAPC's requirements and design guidelines for the planning, design and layout of roads within residential neighbourhoods in Western Australia, covering the two lower tiers of the DC 1.4 road hierarchy (local distributors and access roads, including access ways, access places, access lanes and rear laneways). It addresses traffic volume and speed criteria, reserve and carriageway widths, neighbourhood walkability benchmarks, pedestrian/cyclist systems, public transport provision and transport management studies for residential subdivision design. Adopted in 1988 and updated/reconsidered by the Commission in June 1998.",
+  "key_numeric_standards": [
+    {"topic": "maximum design traffic volume for local distributors", "value": "7000", "unit": "vpd", "applies_to": "local distributor roads (no direct lot access above this)", "clause_ref": "cl 3.2.1"},
+    {"topic": "vehicle operating speed on local distributors with direct access to houses/shops/schools", "value": "50", "unit": "km/h", "applies_to": "local distributors", "clause_ref": "cl 3.2.5"},
+    {"topic": "local distributor reserve width", "value": "14.4-23", "unit": "m", "applies_to": "local distributors", "clause_ref": "cl 3.2.6"},
+    {"topic": "local distributor carriageway width", "value": "6-10", "unit": "m", "applies_to": "local distributors", "clause_ref": "cl 3.2.6"},
+    {"topic": "maximum foreshore access road volume near district distributor network / adjacent to foreshore", "value": "10000 / 5000", "unit": "vpd", "applies_to": "foreshore access roads (FARs)", "clause_ref": "cl 3.2.8"},
+    {"topic": "FAR performance criterion - 85th percentile vehicle speed", "value": "50", "unit": "km/h", "applies_to": "foreshore access roads", "clause_ref": "cl 3.2.10"},
+    {"topic": "design operating speed for access ways", "value": "40", "unit": "km/h", "applies_to": "access ways", "clause_ref": "cl 3.3.1"},
+    {"topic": "maximum traffic volume on access ways", "value": "800", "unit": "vpd at any one point", "applies_to": "access ways", "clause_ref": "cl 3.3"},
+    {"topic": "maximum distance from most distant lot on an access way to the local distributor", "value": "350", "unit": "m", "applies_to": "access ways", "clause_ref": "cl 3.3.5"},
+    {"topic": "maximum traffic volume on access places", "value": "200", "unit": "vpd at any one point", "applies_to": "access places (designed for 20 km/h operating speeds)", "clause_ref": "cl 3.4.1"},
+    {"topic": "maximum traffic volume on access lanes and rear laneways", "value": "100", "unit": "vpd at any one point", "applies_to": "access lanes and rear laneways", "clause_ref": "cl 3.5.1"},
+    {"topic": "vehicle operating speed on access lanes and rear laneways", "value": "20", "unit": "km/h or less", "applies_to": "access lanes and rear laneways", "clause_ref": "cl 3.5.2"},
+    {"topic": "maximum reserve width for access lanes (reducible to 6 m)", "value": "13.5", "unit": "m", "applies_to": "access lanes", "clause_ref": "cl 3.5.3"},
+    {"topic": "maximum dwelling distance to public open space", "value": "400", "unit": "m", "applies_to": "neighbourhood design benchmark", "clause_ref": "s 3.1 (Figure 3 commentary)"},
+    {"topic": "maximum dwelling distance to primary school", "value": "800", "unit": "m", "applies_to": "neighbourhood design benchmark", "clause_ref": "s 3.1 (Figure 3 commentary)"},
+    {"topic": "maximum walking distance to a bus stop", "value": "400", "unit": "m", "applies_to": "neighbourhood design / public transport benchmark", "clause_ref": "s 3.1 / s 3.7"}
+  ],
+  "definitions": [
+    "primary distributor (road hierarchy per DC 1.4)",
+    "district distributor (road hierarchy per DC 1.4)",
+    "local distributor",
+    "access way",
+    "access place",
+    "access lane / rear laneway",
+    "foreshore access road (FAR)"
+  ],
+  "cross_references": [
+    {"cited": "Policy No. DC 1.4 - Functional Road Classification for Planning", "manifest_id": null},
+    {"cited": "Policy No. DC 1.5 - Bicycle Planning", "manifest_id": "DC-003"},
+    {"cited": "Policy No. DC 1.7 - General Road Planning", "manifest_id": "DC-005"},
+    {"cited": "Liveable Neighbourhoods Community Design Code", "manifest_id": null},
+    {"cited": "AMCORD 95", "manifest_id": null},
+    {"cited": "Guidelines for the Preparation of Local Structure Plans for Urban Release Areas", "manifest_id": null},
+    {"cited": "Guidelines for the Design and Geometric Layout of Residential Roads", "manifest_id": null},
+    {"cited": "Guidelines for Local Traffic Management (Main Roads WA)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "vertical sidebar banner text extracted as one-character-per-line strings at page starts ('RESIDENTIAL ROAD PLANNING POLICY NO. DC 2.6')",
+    "two-column PDF text interleaved in places - some numeric standards (reserve width bullets) are hard to attribute to an exact clause",
+    "figures/diagrams (neighbourhood cell types, frontage management techniques) extracted as fragmentary text including (cid:N) glyph artifacts",
+    "policy dates from June 1998; Liveable Neighbourhoods and later operational policies have partially overtaken it in practice - verify currency before relying on standards"
+  ]
+}

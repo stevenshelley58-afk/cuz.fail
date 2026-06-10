@@ -1,0 +1,33 @@
+{
+  "id": "JOO-LPP-011",
+  "normalized_title": "City of Joondalup Home Business Local Planning Policy",
+  "instrument_no": null,
+  "version_date": "Last reviewed May 2022 (CJ079-05/22); created September 1999 (CJ297-09/99); amendments CJ297-09/99, CJ020-02/02, CJ238-11/05, CJ145-08/15, CJ108-06/17, CJ184-10/18, CJ033-03/20, CJ079-05/22",
+  "operative_status": "current",
+  "scope_summary": "Sets criteria and standards for assessing development applications for Home Businesses across the whole City of Joondalup, so that businesses operated from dwellings do not compromise residential character or the amenity of adjoining properties. Restates the Local Planning Scheme No. 3 definitions of home business, home occupation and home office (the latter two not requiring development approval), and imposes assessment criteria covering car parking, operating hours, signage, location and management plans for home businesses with two external employees, and time-limited approvals. Prepared under Schedule 2, Part 2 of the deemed provisions of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+  "key_numeric_standards": [
+    {"topic": "home business maximum employees (non-household)", "value": "2", "unit": "persons", "applies_to": "home business (LPS3 definition)", "clause_ref": "cl 3 Definitions ('home business' (a))"},
+    {"topic": "home business maximum floor area", "value": "50", "unit": "m2", "applies_to": "home business (LPS3 definition)", "clause_ref": "cl 3 Definitions ('home business' (c))"},
+    {"topic": "home occupation maximum floor area", "value": "20", "unit": "m2", "applies_to": "home occupation (LPS3 definition)", "clause_ref": "cl 3 Definitions ('home occupation' (c))"},
+    {"topic": "maximum vehicle tare weight", "value": "4.5", "unit": "tonnes", "applies_to": "home business and home occupation", "clause_ref": "cl 3 Definitions ('home business' (f), 'home occupation' (g))"},
+    {"topic": "on-site car parking", "value": "1 bay per customer and per employee (total equal to maximum permissible customers plus employees at any one time)", "unit": "bays", "applies_to": "home business", "clause_ref": "cl 5.2(a)"},
+    {"topic": "operating hours", "value": "8.00am-6.00pm Monday-Friday; 9.00am-5.00pm Saturday", "unit": "time", "applies_to": "home business", "clause_ref": "cl 5.3(a)"},
+    {"topic": "advertising sign maximum area", "value": "0.2", "unit": "m2", "applies_to": "one sign on front facade of dwelling for a home business", "clause_ref": "cl 5.4(a); also cl 3 Definitions ('home occupation' (d))"}
+  ],
+  "definitions": ["amenity", "home business", "home occupation", "home office", "R-Codes"],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No 3", "manifest_id": "JOO-SCH-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 2", "manifest_id": "PC-002"},
+    {"cited": "City of Joondalup Local Planning Strategy", "manifest_id": null},
+    {"cited": "Advertisements Local Planning Policy", "manifest_id": "JOO-LPP-001"},
+    {"cited": "Planning Consultation Local Planning Policy", "manifest_id": null},
+    {"cited": "Home-Based Business Fact Sheet", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "extractor summary.json version_date is empty although the document states 'Last reviewed: May 2022 (CJ079-05/22)'",
+    "minor typographical errors carried over from the source PDF (e.g. 'does not occupy and area greater than 20 square metres')"
+  ]
+}

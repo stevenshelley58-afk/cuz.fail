@@ -1,0 +1,31 @@
+{
+  "id": "REG-001",
+  "normalized_title": "Planning and Development (Local Planning Schemes) Regulations 2015 (WA)",
+  "instrument_no": null,
+  "version_date": "2024-11-03",
+  "operative_status": "current",
+  "scope_summary": "Regulations made under the Planning and Development Act 2005 governing how local governments prepare, adopt, amend, review and consolidate local planning schemes and local planning strategies, including the complex/standard/basic amendment tracks. Schedule 1 sets model provisions for scheme texts (zones, zoning tables, land use definitions, adoption and modification of the R-Codes) and Schedule 2 sets deemed provisions that automatically form part of every local planning scheme in WA, covering heritage lists, structure plans, local development plans, when development approval is required (including the cl 61 exemptions for single houses and ancillary works that meet R-Codes deemed-to-comply provisions), application procedure, deemed-refusal timeframes, short-term rental accommodation and enforcement. It is the central procedural framework for all residential development assessment under local planning schemes statewide.",
+  "key_numeric_standards": [
+    {"topic": "time for deciding development application (not advertised)", "value": "60", "unit": "days", "applies_to": "local government determination of a development approval application; deemed refusal after expiry", "clause_ref": "Sch 2 cl 75(1)(b), 75(2)"},
+    {"topic": "time for deciding development application (advertised or referred)", "value": "90", "unit": "days", "applies_to": "applications advertised under Sch 2 cl 64(1)(a)/(b) or referred under cl 66; deemed refusal after expiry", "clause_ref": "Sch 2 cl 75(1)(a), 75(2)"}
+  ],
+  "definitions": ["deemed provisions", "complex amendment", "standard amendment", "basic amendment", "heritage-protected place", "R-Codes", "structure plan", "local development plan", "substantially commenced", "unhosted short-term rental accommodation", "wall height", "works", "zone", "land use terms (Sch 1 cl 38: e.g. tavern, transport depot, tree farm, wind farm, winery, workforce accommodation)", "transitional development site", "transitional permit"],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "Planning and Development (Development Assessment Panels) Regulations 2011", "manifest_id": "REG-002"},
+    {"cited": "Building Act 2011", "manifest_id": "LEG-002"},
+    {"cited": "Building Code of Australia", "manifest_id": "NCC-001"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Environmental Protection Act 1986", "manifest_id": "LEG-005"},
+    {"cited": "Heritage Act 2018", "manifest_id": "LEG-007"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Peel Region Scheme", "manifest_id": "RS-002"},
+    {"cited": "State Planning Policy 3.2", "manifest_id": "SPP-009"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Two-column exemption tables (e.g. Sch 2 cl 61 'Works/Conditions') extracted with interleaved column text; content complete but row alignment requires care when parsing",
+    "Compilation is 'As at 03 Nov 2024' official version (includes Single House Development and Short-Term Rental Accommodation 2024 amendments); verify no amendments commenced after Nov 2024"
+  ]
+}

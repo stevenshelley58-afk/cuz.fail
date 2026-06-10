@@ -1,0 +1,33 @@
+{
+  "id": "DC-004",
+  "normalized_title": "Development Control Policy 1.6 Planning to Support Transit Use and Transit Oriented Development",
+  "instrument_no": "DC 1.6",
+  "version_date": "January 2006 (amendment of DC 1.6 'Planning To Enhance Public Transport Use' 1999, adopted by the WAPC in 2005)",
+  "operative_status": "current",
+  "scope_summary": "WAPC policy promoting the integration of land use and public transport in the Perth and Peel region. It defines transit oriented precincts by walkable-catchment thresholds around rail stations, interchanges and high-frequency bus stops, and sets measures for transit-supportive development patterns, land uses (including minimum residential densities in transit precincts), the public domain, transit-supportive design, integration of transit infrastructure, and precinct planning, to be delivered largely through local government town planning schemes and structure planning.",
+  "key_numeric_standards": [
+    {"topic": "walkable catchment - rail stations and major interchanges", "value": "800", "unit": "m (about 10-15 minutes walking time)", "applies_to": "definition of transit oriented precincts around rail stations, transit interchanges or major bus transfer stations/terminals", "clause_ref": "s1 Introduction (Defining 'transit oriented precincts')"},
+    {"topic": "walkable catchment - high-frequency bus stops", "value": "400", "unit": "m (about 5-7 minutes walking time)", "applies_to": "bus stops on routes with multiple services at peak frequency of 15 minutes or less", "clause_ref": "s1 Introduction (Defining 'transit oriented precincts')"},
+    {"topic": "transit corridor maximum width", "value": "1600", "unit": "m (total width, may be somewhat exceeded)", "applies_to": "confined corridor of development centred on a rail station", "clause_ref": "s1 Introduction"},
+    {"topic": "minimum residential density in transit precincts", "value": "25", "unit": "dwellings per hectare (minimum; substantially higher expected close to rail stations, major bus interchanges or rail-equivalent bus routes)", "applies_to": "residential development opportunities local governments are expected to identify and promote in transit precincts when reviewing town planning schemes", "clause_ref": "cl 4.2.2"}
+  ],
+  "definitions": [
+    "transit oriented precinct / TOD precinct (defined by walkable catchment thresholds, s1)",
+    "ped-shed / walkable catchment (s1: plotting actual walking distances against the street network)"
+  ],
+  "cross_references": [
+    {"cited": "Statement of Planning Policy 3 Urban Growth and Settlements (SPP3)", "manifest_id": "SPP-008"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "State Planning Strategy", "manifest_id": "SPP-001"},
+    {"cited": "Network city", "manifest_id": null},
+    {"cited": "State Sustainability Strategy", "manifest_id": null},
+    {"cited": "Development Control Policy 1.6 Planning To Enhance Public Transport Use 1999 (predecessor)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "missing spaces after commas throughout the extracted text (e.g. 'variable,and', 'time,or') - PDF text-extraction artifact",
+    "two-column layout interleaving on several pages (heading and body fragments merged on the same lines)",
+    "final page 'Indicative area of application of policy' is a map; little or no extractable text expected for it",
+    "manifest instrument_name shortens the title to '...Transit Use and Development'; document title is '...Transit Use and Transit Oriented Development' - same instrument"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "FRE-LPP-015",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.27 - Unhosted Short-Term Rental Accommodation",
+  "instrument_no": "LPP 2.27",
+  "version_date": "2025-08-13",
+  "operative_status": "current",
+  "scope_summary": "Establishes the framework for assessing development applications for unhosted short-term rental accommodation (STRA) across the City of Fremantle scheme area, except dwellings registered under the Short-Term Rental Accommodation Act 2024 Part 3 and used for no more than 90 nights per 12-month period. Sets signage, car parking, occupancy, servicing, time-limited approval, management plan and code of conduct requirements, with relaxed parking rules in the City Centre Zone. Approvals are personal to the landowner and do not run with the land.",
+  "key_numeric_standards": [
+    {"topic": "exemption night threshold", "value": "90", "unit": "nights per 12-month period", "applies_to": "registered unhosted STRA exempt from this policy", "clause_ref": "Application of this Policy (b)"},
+    {"topic": "maximum on-site signage area", "value": "0.5", "unit": "m2 per dwelling", "applies_to": "sign plaques/plates on main frontage of unhosted STRA", "clause_ref": "cl 1.2(b)"},
+    {"topic": "additional car parking", "value": "1 bay per 2 bedrooms exceeding 4 bedrooms", "unit": "bays", "applies_to": "unhosted STRA in all zones except City Centre Zone (in addition to R-Codes parking)", "clause_ref": "cl 2.1"},
+    {"topic": "maximum occupancy - single dwelling", "value": "2 per bedroom, max 12", "unit": "persons (excluding persons under 16)", "applies_to": "single dwelling used as unhosted STRA", "clause_ref": "cl 3.1"},
+    {"topic": "maximum occupancy - grouped/multiple dwellings", "value": "2 per bedroom, max 6", "unit": "persons (excluding persons under 16)", "applies_to": "grouped and multiple dwellings used as unhosted STRA", "clause_ref": "cl 3.2"},
+    {"topic": "time-limited approval period", "value": "12", "unit": "months", "applies_to": "development approval where Council deems appropriate to assess amenity impact", "clause_ref": "cl 6.1"},
+    {"topic": "complaint response time", "value": "12", "unit": "hours", "applies_to": "Property Manager response to nuisance behaviour complaints", "clause_ref": "cl 8.3(a)"}
+  ],
+  "definitions": ["Designated bushfire prone areas", "Hosted short-term rental accommodation", "Unhosted short-term rental accommodation"],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "City of Fremantle Local Planning Scheme No.4", "manifest_id": "FRE-SCH-001"},
+    {"cited": "Short-Term Rental Accommodation Act 2024", "manifest_id": null},
+    {"cited": "Planning and Development Act", "manifest_id": "LEG-001"},
+    {"cited": "Fire and Emergency Services Act 1998", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": []
+}

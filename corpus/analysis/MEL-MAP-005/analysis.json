@@ -1,0 +1,22 @@
+{
+  "id": "MEL-MAP-005",
+  "normalized_title": "City of Melville Local Planning Scheme No. 6 - Scheme Map No. 5 of 8 (Kardinya Locality)",
+  "instrument_no": "LPS6 Map 5 of 8",
+  "version_date": "Plot date 07 November 2024 (Version No 1; LPS6 gazetted Friday 27 May 2016)",
+  "operative_status": "current",
+  "scope_summary": "Statutory scheme map sheet 5 of 8 under the City of Melville Local Planning Scheme No. 6 covering the Kardinya locality. Depicts local scheme zones and reserves (including district distributor roads and public open space), Metropolitan Region Scheme region reserves, R-Codes density codings, and the AR1 additional-requirements area for the Kardinya Activity Centre Plan. Used to determine the zoning and density coding applicable to individual lots in Kardinya.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "R Codes", "manifest_id": "PC-001"},
+    {"cited": "Metropolitan Region Scheme (MRS)", "manifest_id": "RS-001"},
+    {"cited": "Kardinya Activity Centre Plan (AR1)", "manifest_id": null},
+    {"cited": "Planning and Development Act 2005 (ss 267B-267C)", "manifest_id": "LEG-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "scheme map drawing: low text volume is expected; extracted text is map labels and legend only",
+    "OCR of map labels yields fragmented and reversed street-name strings (e.g. 'G NINNUB', 'ATTY E ECALP'); spatial zoning/coding assignments are not recoverable from text alone - use the original PDF or GIS data for lot-level determinations"
+  ]
+}

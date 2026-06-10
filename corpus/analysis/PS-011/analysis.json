@@ -1,0 +1,48 @@
+{
+  "id": "PS-011",
+  "normalized_title": "Position Statement: Dark Sky and Astrotourism",
+  "instrument_no": null,
+  "version_date": "January 2022",
+  "operative_status": "draft",
+  "scope_summary": "WAPC position on preserving dark sky locations and facilitating astrotourism throughout Western Australia. It applies to region/sub-regional and local planning strategies, schemes, structure plans, subdivision and development proposals (it does not apply retrospectively or to exempt development), and sets five dark sky lighting principles plus dust management expectations. Appendices provide model special control area provisions (notably for areas within 20 km of an observatory) and a model local planning policy with lighting and dust management development standards.",
+  "key_numeric_standards": [
+    {"topic": "special control area extent for dark sky protection", "value": "20", "unit": "km", "applies_to": "land surrounding an observatory", "clause_ref": "s 5.2"},
+    {"topic": "correlated colour temperature of outdoor lighting", "value": "<2500", "unit": "K", "applies_to": "all outdoor lighting (warm white / filtered LEDs)", "clause_ref": "Appendix 1 Principle 5; model LPP cl 2.1.2"},
+    {"topic": "upward light waste ratio", "value": "0", "unit": "%", "applies_to": "lighting in the 'as installed' position", "clause_ref": "Appendix 1 Principle 1"},
+    {"topic": "lighting curfew", "value": "10pm-4am (off/minimal)", "unit": "hours", "applies_to": "all lighting under the model local planning policy (position statement body suggests 11pm to sunrise)", "clause_ref": "model LPP cl 2.1.2; Appendix 1 Principle 2"},
+    {"topic": "maximum signage luminance", "value": "300 (>10 m2) / 600 (2-10 m2) / 800 (0.5-2 m2) / 1000 (<0.5 m2)", "unit": "cd/m2", "applies_to": "internally or externally lit signage", "clause_ref": "model LPP cl 2.3.1, Table 2"}
+  ],
+  "definitions": [
+    "Astrotourism",
+    "Colour temperature",
+    "Dark sky place",
+    "DWER Guidelines",
+    "Dust generating activities",
+    "National Light Pollution Guidelines for Wildlife",
+    "Observatory",
+    "Asymmetric",
+    "Symmetric",
+    "Dark Sky Principles",
+    "Development",
+    "Regulations",
+    "Scheme"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "Australian Standard 4282:2019 - Control of the obtrusive effects of outdoor lighting", "manifest_id": null},
+    {"cited": "AS 1158.1.2:2010 - Lighting for roads and public spaces", "manifest_id": null},
+    {"cited": "National Light Pollution Guidelines for Wildlife (Commonwealth)", "manifest_id": null},
+    {"cited": "Biodiversity Conservation Act 2016", "manifest_id": null},
+    {"cited": "Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act)", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "Manifest note confirms this instrument exists only as a draft (canonical URL serves the current draft, advisory weight only), but the extracted text carries no draft watermark and states 'Published January 2022' - status discrepancy flagged; treated as draft per manifest verification",
+    "Model LPP exempts single houses and Clause 61-exempt development outside special control areas (cl 1.1-1.2), limiting residential assessment relevance",
+    "Lighting diagram figures (Appendix 1, Figures 1-8) are images not captured in text extraction",
+    "Multi-column layout interleaving scrambles sentence order in body text",
+    "summary.json title field is mis-extracted as 'Department of Planning,'"
+  ]
+}

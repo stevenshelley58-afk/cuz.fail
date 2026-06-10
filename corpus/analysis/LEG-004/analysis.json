@@ -1,0 +1,24 @@
+{
+  "id": "LEG-004",
+  "normalized_title": "Strata Titles Act 1985 (WA)",
+  "instrument_no": null,
+  "version_date": "2025-06-26",
+  "operative_status": "current",
+  "scope_summary": "WA's principal statute for the subdivision of land by strata titles schemes (built-strata and survey-strata) and for the governance of those schemes. Part 3 interfaces directly with the planning system: subdivision approval of strata and survey-strata schemes by the WA Planning Commission, application of the Planning and Development Act 2005, local government approvals and preliminary determinations, and review rights. The Act also regulates scheme documents (scheme plans, schedules of unit entitlements, by-laws), registration and land titles, statutory easements, strata companies and managers, buyer protection, and dispute resolution via the State Administrative Tribunal. Applies state-wide in Western Australia.",
+  "key_numeric_standards": [],
+  "definitions": ["strata titles scheme", "strata scheme", "survey-strata scheme", "freehold scheme", "leasehold scheme", "lot", "common property", "temporary common property", "unit entitlement", "scheme plan", "scheme notice", "scheme by-laws", "exclusive use by-laws", "staged subdivision by-laws", "strata company", "strata manager", "strata lease", "type 1 subdivision", "type 2 subdivision", "type 3 subdivision", "type 4 subdivision", "type 1 notifiable variation", "type 2 notifiable variation", "unanimous resolution", "utility service easement", "vacant lot", "working day"],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Building Act 2011", "manifest_id": "LEG-002"},
+    {"cited": "Heritage Act 2018", "manifest_id": "LEG-007"},
+    {"cited": "Transfer of Land Act 1966", "manifest_id": null},
+    {"cited": "Land Administration Act 1997", "manifest_id": null},
+    {"cited": "State Administrative Tribunal Act 2004", "manifest_id": null},
+    {"cited": "Valuation of Land Act 1978", "manifest_id": null},
+    {"cited": "Property Law Act 1969", "manifest_id": null},
+    {"cited": "Strata Titles Amendment Act 2018", "manifest_id": null},
+    {"cited": "Legislation Act 2021", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": ["tables skipped during extraction (extractor metadata tables_skipped=true)", "minor encoding artifacts (Â© mojibake) in copyright footer lines", "repeated page header/footer lines interleaved in body text (standard WA legislation PDF extraction)"]
+}

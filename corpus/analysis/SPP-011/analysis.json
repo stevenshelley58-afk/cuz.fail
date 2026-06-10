@@ -1,0 +1,24 @@
+{
+  "id": "SPP-011",
+  "normalized_title": "State Planning Policy 3.5 Historic Heritage Conservation",
+  "instrument_no": "SPP 3.5",
+  "version_date": "Gazetted 29 May 2007 (Government Gazette No. 112)",
+  "operative_status": "current",
+  "scope_summary": "State Planning Policy made under Part 3 of the Planning and Development Act 2005 setting out principles for the conservation and protection of Western Australia's historic cultural heritage (heritage areas, buildings and structures, historic cemeteries and gardens, man-made landscapes, historic/archaeological sites) at State and local level. It applies throughout Western Australia and guides identification and assessment of heritage places, designation of heritage areas, establishment of heritage lists, relevant considerations and development control principles for development assessment affecting heritage places (alterations, extensions, change of use, demolition, infill within heritage areas), and integration of heritage into planning schemes and strategies. Aboriginal heritage and natural heritage are excluded except where they intersect with registered or listed historic heritage.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Heritage of Western Australia Act 1990", "manifest_id": null},
+    {"cited": "Aboriginal Heritage Act 1972", "manifest_id": null},
+    {"cited": "Model Scheme Text (Town Planning Amendment Regulations 1999)", "manifest_id": null},
+    {"cited": "State Sustainability Strategy", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "summary.json title field captured gazette barcode string '!200700112GG!' instead of the instrument title",
+    "bullet characters extracted as '(cid:127)' glyph artifacts throughout",
+    "gazette page headers interleaved in text; policy text otherwise complete",
+    "cites the Heritage of Western Australia Act 1990, since replaced by the Heritage Act 2018 (manifest LEG-007); the 1990 Act citation is left unmapped as a distinct instrument"
+  ]
+}

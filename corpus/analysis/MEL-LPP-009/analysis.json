@@ -1,0 +1,46 @@
+{
+  "id": "MEL-LPP-009",
+  "normalized_title": "City of Melville Local Planning Policy 1.9 - Height of Buildings",
+  "instrument_no": "LPP 1.9",
+  "version_date": "2020-06-25",
+  "operative_status": "current",
+  "scope_summary": "Sets maximum building height controls for the Residential and Mixed Use zones in the City of Melville (LPS6 itself provides heights for other non-residential zones) and prescribes how building height is measured where no structure plan, activity centre plan or local development plan applies. Provides definitions for natural ground level, eave height, wall height, maximum building height, skillion and pitched roofs, and allows minor projections (chimneys, aerials, lift shafts, plant) above the height limits where amenity is not unduly affected. Includes elevated height limits within the Canning Highway Public Transport Corridor (mapped in Appendix 1).",
+  "key_numeric_standards": [
+    {"topic": "building height - eaves", "value": "8.0", "unit": "m", "applies_to": "R12.5-R40 General Residential and Mixed Use zone", "clause_ref": "cl 2.1.1"},
+    {"topic": "building height - external wall (concealed roof)", "value": "9.0", "unit": "m", "applies_to": "R12.5-R40 General Residential and Mixed Use zone", "clause_ref": "cl 2.1.1"},
+    {"topic": "building height - overall", "value": "10.5", "unit": "m", "applies_to": "R12.5-R40 General Residential and Mixed Use zone", "clause_ref": "cl 2.1.1"},
+    {"topic": "building height R50+ (single/grouped dwellings)", "value": "as per R-Codes Volume 1 Table 3 Column C", "unit": "reference", "applies_to": "R50 and above, single houses and grouped dwellings", "clause_ref": "cl 2.1.1"},
+    {"topic": "building height R50+ (multiple dwellings)", "value": "as per R-Codes Volume 2 Tables 2.1 and 2.2", "unit": "reference", "applies_to": "R50 and above, multiple dwellings", "clause_ref": "cl 2.1.1"},
+    {"topic": "building height - eaves / wall / overall (Canning Hwy corridor R12.5-R25)", "value": "8.0 / 9.0 / 10.5", "unit": "m", "applies_to": "R12.5-R25 within Canning Highway Public Transport Corridor", "clause_ref": "cl 2.1.2"},
+    {"topic": "building height - eaves / wall / overall (Canning Hwy corridor R30-R50)", "value": "11.0 / 12.0 / 13.5", "unit": "m", "applies_to": "R30-R50 within Canning Highway Public Transport Corridor", "clause_ref": "cl 2.1.2"},
+    {"topic": "building height - eaves / wall / overall (Canning Hwy corridor R60+)", "value": "15.0 / 16.0 / 17.5", "unit": "m", "applies_to": "R60 and above within Canning Highway Public Transport Corridor", "clause_ref": "cl 2.1.2"}
+  ],
+  "definitions": [
+    "Natural Ground Level",
+    "Building Height",
+    "Minor Projections",
+    "Eave Height",
+    "Wall Height",
+    "Maximum building height",
+    "Skillion roof",
+    "Traditional pitched roof",
+    "LPS6",
+    "R-Codes"
+  ],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6 (LPS6)", "manifest_id": "MEL-SCH-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "LPP1.7 Telecommunications Facilities and Communications Equipment", "manifest_id": "MEL-LPP-007"},
+    {"cited": "LPP2.1 Non-Residential Development", "manifest_id": "MEL-LPP-019"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Water Corporation BG 2000 Maps Sheet Series", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "clean extraction, 5 pages; height tables flattened but values legible",
+    "Appendix 1 (Canning Highway Transport Corridor maps) is a drawing - not captured in text extraction; corridor extent cannot be determined from text alone",
+    "administrative review 25/06/2020; print footer 'This Version: 25/06/2020'"
+  ]
+}

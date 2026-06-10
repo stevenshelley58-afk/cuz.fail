@@ -1,0 +1,30 @@
+{
+  "id": "JOO-LPP-002",
+  "normalized_title": "City of Joondalup Alfresco Spaces Local Planning Policy",
+  "instrument_no": "LPP",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "Alfresco Spaces Local Planning Policy Responsible directorate: Planning and Community Development Objectives: \u2022 To support businesses seeking to contribute to the activation of the public realm through the provision of alfresco spaces by reducing the regulatory burden of the planning framework. \u2022 To exempt certain forms of alfresco spaces from the requirement for development approval. \u2022 To provide",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "the Act",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Metropolitan Region Scheme",
+      "manifest_id": "RS-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

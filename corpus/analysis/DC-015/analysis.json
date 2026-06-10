@@ -1,0 +1,31 @@
+{
+  "id": "DC-015",
+  "normalized_title": "Development Control Policy 5.1 - Regional Roads (Vehicular Access)",
+  "instrument_no": "DC 5.1",
+  "version_date": "June 1998 (originally MRPA Policy No. 2 'Access to Regional Roads', adopted November 1982; reconsidered and updated June 1998)",
+  "operative_status": "current",
+  "scope_summary": "WAPC policy setting the principles applied when considering proposals for vehicle access to or from developments abutting regional roads (roads reserved under the Metropolitan Region Scheme or other regional planning schemes, and roads classified as primary or district distributors under DC 1.4). It establishes a general presumption against new driveways or increased use of existing access to regional roads, requires alternative access from side/rear streets or rights-of-way where available, and lists the traffic-flow and safety matters to be considered when access is permitted.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Access",
+    "Driveway",
+    "Junction",
+    "Regional Road"
+  ],
+  "cross_references": [
+    {"cited": "Policy No. DC 1.4 - Functional Road Classification for Planning", "manifest_id": null},
+    {"cited": "Policy No. DC 1.7 - General Road Planning", "manifest_id": "DC-005"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Policy SPC 31 (March 1987 resolution on development abutting MRS reserved land)", "manifest_id": null},
+    {"cited": "MRPA Policy No. 2 'Access to Regional Roads' (former)", "manifest_id": null},
+    {"cited": "Main Roads Department - Interim Policy Manual for Driveways in Urban Areas (March 1987)", "manifest_id": null},
+    {"cited": "NAASRA Guide to Traffic Engineering Practice, Part 5, Intersections at Grade (1988)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "rotated sidebar text OCR'd as one-character-per-line vertical gibberish at the start of each page (approx. lines 3-46 and 57-100 of extract)",
+    "page footer/sidebar on one page reads 'Policy DC 2.6 - June 1998' instead of DC 5.1 - appears to be an artifact carried over from the source document layout",
+    "two-column layout extracted with some column interleaving (e.g. section 3.2/3.3 text merged)",
+    "no measurable numeric standards in the policy itself; design standards deferred to NAASRA and Main Roads WA"
+  ]
+}

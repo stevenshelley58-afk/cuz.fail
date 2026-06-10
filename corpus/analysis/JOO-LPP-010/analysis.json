@@ -1,0 +1,21 @@
+{
+  "id": "JOO-LPP-010",
+  "normalized_title": "City of Joondalup Environmentally Sustainable Design Local Planning Policy",
+  "instrument_no": null,
+  "version_date": "Last reviewed December 2022 (CJ223-12/22); created March 2011 (CJ041-03/11); amendments CJ114-06/13, CJ223-12/22",
+  "operative_status": "current",
+  "scope_summary": "Encourages the integration of environmentally sustainable design (ESD) principles into the siting, design and construction of new and redeveloped residential, commercial and mixed-use buildings in the City of Joondalup, explicitly excluding single and grouped dwellings, internal fit-outs and minor extensions. Lists qualitative design principles (passive solar design, energy and water efficiency, sustainable materials, construction waste reduction, indoor air quality, waterwise landscaping) and requires development applications for in-scope buildings to be accompanied by a completed Environmentally Sustainable Design Checklist. Prepared under Schedule 2, Part 2 of the deemed provisions of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Local Planning Scheme No 3", "manifest_id": "JOO-SCH-001"},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Environmentally Sustainable Design Checklist", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "extractor summary.json title truncated by header line wrap ('Environmentally Sustainable Design Local'); full title is 'Environmentally Sustainable Design Local Planning Policy'",
+    "policy is encouragement-based with no measurable development standards; only procedural requirement is the ESD Checklist submission"
+  ]
+}

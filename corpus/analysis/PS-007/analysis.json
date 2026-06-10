@@ -1,0 +1,112 @@
+{
+  "id": "PS-007",
+  "normalized_title": "Position Statement: Container Deposit Scheme Infrastructure",
+  "instrument_no": null,
+  "version_date": "September 2020 (published September 2020)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement on how Container Deposit Scheme (CDS) infrastructure (container collection cages, in-shop/bag-drop return points, reverse vending machines, container deposit recycling centres and large-scale facilities) should be considered and assessed in the WA planning system. It applies across Western Australia to all CDS infrastructure, sets assessment considerations (amenity, parking, access, signage, safety) and includes a model local planning policy (Appendix 1) with development standards under which specified CDS development is exempt from development approval pursuant to Schedule 2, Part 7, clause 61 of the LPS Regulations.",
+  "key_numeric_standards": [
+    {
+      "topic": "separation of recycling centre from residential",
+      "value": "200",
+      "unit": "m",
+      "applies_to": "distance from the building in which a container deposit recycling centre operates to the boundary of any lot used for residential purposes (incl. mixed use)",
+      "clause_ref": "s 5.2.3.6"
+    },
+    {
+      "topic": "setback from residential lot boundary",
+      "value": "10",
+      "unit": "m",
+      "applies_to": "large reverse vending machine and/or container collection cage from an adjoining lot boundary accommodating a residential use",
+      "clause_ref": "Appendix 1 cl 2.2"
+    },
+    {
+      "topic": "setback from road reserve / right-of-way intersection or crossover",
+      "value": "2",
+      "unit": "m",
+      "applies_to": "large reverse vending machine and/or container collection cage (sightline preservation)",
+      "clause_ref": "Appendix 1 cl 2.5"
+    },
+    {
+      "topic": "container collection cage maximum footprint and height",
+      "value": "8 m2 footprint; 2 m height",
+      "unit": "m2 / m",
+      "applies_to": "container collection cage proposed outdoors",
+      "clause_ref": "Appendix 1 cl 2.16"
+    },
+    {
+      "topic": "large reverse vending machine maximum footprint and height (not on car parking land)",
+      "value": "45 m2 footprint; 3 m height; max dimensions 8 m x 6 m",
+      "unit": "m2 / m",
+      "applies_to": "large reverse vending machine proposed outdoors on land not used for car parking",
+      "clause_ref": "Appendix 1 cl 2.17"
+    },
+    {
+      "topic": "large reverse vending machine maximum area within car park",
+      "value": "greater of 4 car parking spaces, or 45 m2 (car park <=200 spaces) / 75 m2 (car park >=200 spaces)",
+      "unit": "car spaces / m2",
+      "applies_to": "large reverse vending machine within an existing car park of more than 40 spaces",
+      "clause_ref": "Appendix 1 cl 2.18"
+    },
+    {
+      "topic": "maximum installation rate",
+      "value": "1 cage per lot; 1 large RVM per 15,000 m2 total lot area (non-car-park land); 1 large RVM per 1,000 car parking spaces (car parks >40 spaces)",
+      "unit": "per lot / m2 / spaces",
+      "applies_to": "outdoor container collection cages and large reverse vending machines",
+      "clause_ref": "Appendix 1 cl 2.19"
+    },
+    {
+      "topic": "operating hours adjacent to residential",
+      "value": "7.00am-7.00pm Mon-Sat; 9.00am-7.00pm Sun and public holidays",
+      "unit": "hours",
+      "applies_to": "large reverse vending machine adjacent to land accommodating a residential use, absent approved opening hours of the predominant use",
+      "clause_ref": "Appendix 1 cl 2.12"
+    },
+    {
+      "topic": "waste bin provision for large RVM over 10 m2 footprint",
+      "value": "1 waste bin and 0.5 recycling bins (240L) per 10 m2 of development footprint",
+      "unit": "bins per 10 m2",
+      "applies_to": "outdoor large reverse vending machine exceeding 10 m2 development footprint",
+      "clause_ref": "Appendix 1 cl 2.10"
+    },
+    {
+      "topic": "temporary infrastructure exemption",
+      "value": "48",
+      "unit": "hours within a 12-month period",
+      "applies_to": "CDS infrastructure erected on a temporary basis (exempt under deemed provisions cl 61(1)(f) and (2)(d))",
+      "clause_ref": "Appendix 1 Statutory provisions"
+    }
+  ],
+  "definitions": [
+    "container deposit scheme infrastructure",
+    "reverse vending machine",
+    "container collection cage",
+    "container deposit recycling centre",
+    "total lot area",
+    "heritage protected place",
+    "the Heritage Act",
+    "the Regulations",
+    "the Noise Regulations",
+    "the Scheme"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Peel Region Scheme", "manifest_id": "RS-002"},
+    {"cited": "Greater Bunbury Region Scheme", "manifest_id": "RS-003"},
+    {"cited": "Building Regulations 2012", "manifest_id": "LEG-003"},
+    {"cited": "Heritage Act 2018", "manifest_id": "LEG-007"},
+    {"cited": "Environmental Protection (Noise) Regulations 1997", "manifest_id": null},
+    {"cited": "Environmental Protection Act 1986", "manifest_id": "LEG-005"},
+    {"cited": "Food Act 2008", "manifest_id": null},
+    {"cited": "AS/NZS 1158.3.1:2005 Lighting for roads and public spaces, Part 3.1", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "multi-column PDF extraction interleaves columns, scrambling sentence order in body sections (Appendix 1 standards extracted cleanly)",
+    "summary.json title is garbled ('Department of Planning,') and key_provision headings are scrambled",
+    "minor OCR/typo artifacts in source text ('environmentt', 'approvall', 'required for t of some forms')",
+    "pages 9-11 are diagrams (large reverse vending machine, recycling centre, car queuing) with minimal extractable text - expected"
+  ]
+}

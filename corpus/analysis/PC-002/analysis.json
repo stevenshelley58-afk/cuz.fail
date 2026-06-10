@@ -1,0 +1,48 @@
+{
+  "id": "PC-002",
+  "normalized_title": "State Planning Policy 7.3 Residential Design Codes Volume 2 - Apartments",
+  "instrument_no": "SPP 7.3",
+  "version_date": "10 April 2024 (Version 4)",
+  "operative_status": "current",
+  "scope_summary": "R-Codes Volume 2 provides performance-based planning and design standards for residential apartments (multiple dwellings) in high density coded areas (R80 and above and R-AC) across Western Australia, including dwellings within mixed use development in those areas. Part 2 sets default Primary Controls (building height, setbacks, plot ratio, building depth and separation) that local planning frameworks may vary; Parts 3 and 4 set element objectives with Acceptable Outcomes and design guidance for siting and designing apartment buildings. Unlike Volume 1, Acceptable Outcomes are not a deemed-to-comply pathway - proposals are assessed against the element objectives.",
+  "key_numeric_standards": [
+    {"topic": "maximum building height", "value": "4", "unit": "storeys", "applies_to": "R80 and R100 coded sites (default, variable by local planning framework)", "clause_ref": "Table 2.1 / element 2.2"},
+    {"topic": "maximum building height", "value": "5", "unit": "storeys", "applies_to": "R160 coded sites (default)", "clause_ref": "Table 2.1 / element 2.2"},
+    {"topic": "plot ratio", "value": "1.0", "unit": "ratio", "applies_to": "R80 coded sites (default; R100 1.3, R160 2.0, R-AC4 1.2, R-AC3 2.0, R-AC2 2.5, R-AC1 3.0)", "clause_ref": "Table 2.1 / element 2.5"},
+    {"topic": "minimum primary and secondary street setback", "value": "2", "unit": "m", "applies_to": "R80-R160 (2m or nil in centre/urban contexts; nil where commercial ground floor)", "clause_ref": "Table 2.1 / element 2.3"},
+    {"topic": "minimum side setback", "value": "3", "unit": "m", "applies_to": "R80 and R100 coded sites (nil in some centre contexts)", "clause_ref": "Table 2.1 / element 2.4"},
+    {"topic": "minimum rear setback", "value": "3", "unit": "m", "applies_to": "R80 coded sites (6m for R100/R160)", "clause_ref": "Table 2.1 / element 2.4"},
+    {"topic": "average side setback where building length exceeds 16m", "value": "3.5", "unit": "m", "applies_to": "R80/R100 (4.0m R160)", "clause_ref": "Table 2.1 / element 2.4"},
+    {"topic": "boundary wall height", "value": "2", "unit": "storeys", "applies_to": "R80 coded sites (default; up to 4 storeys in R-AC1)", "clause_ref": "Table 2.1 / element 2.4"},
+    {"topic": "building separation - habitable rooms/balconies within site", "value": "12", "unit": "m", "applies_to": "buildings up to 4 storeys (18m for 5-8 storeys, 24m for 9+ storeys)", "clause_ref": "A 2.7.1 / Table 2.7"},
+    {"topic": "building separation - non-habitable rooms within site", "value": "4.5", "unit": "m", "applies_to": "buildings up to 4 storeys (6m for 5-8 storeys, 9m for 9+ storeys)", "clause_ref": "A 2.7.1 / Table 2.7"},
+    {"topic": "minimum internal floor area - studio", "value": "36", "unit": "m2", "applies_to": "studio apartment (1 bed 47m2, 2 bed x 1 bath 67m2, 3 bed x 1 bath 90m2; +3m2 for second toilet, +5m2 for second bathroom)", "clause_ref": "A 4.3.1 / Table 4.3a"},
+    {"topic": "minimum master bedroom area", "value": "10", "unit": "m2", "applies_to": "apartments (other bedrooms 9m2; minimum internal dimension 3m excluding robes)", "clause_ref": "A 4.3.2 / Table 4.3b"},
+    {"topic": "minimum living room width", "value": "3.6", "unit": "m", "applies_to": "studio and 1 bed apartments (4m for other dwelling types)", "clause_ref": "A 4.3.2 / Table 4.3b"},
+    {"topic": "minimum ceiling height - habitable rooms", "value": "2.7", "unit": "m", "applies_to": "all apartments, finished floor to finished ceiling (non-habitable rooms 2.4m)", "clause_ref": "A 4.3.3"},
+    {"topic": "single aspect open plan living area depth", "value": "3 x ceiling height (max 9 incl. 1.8 kitchen allowance)", "unit": "m", "applies_to": "single aspect open plan living areas", "clause_ref": "A 4.3.4"},
+    {"topic": "private open space (balcony) - studio/1 bed", "value": "8", "unit": "m2", "applies_to": "studio and 1 bedroom apartments, minimum dimension 2.0m (2 bed 10m2/2.4m; 3 bed 12m2/2.4m)", "clause_ref": "A 4.4.x / Table 4.4"},
+    {"topic": "private open space - ground floor terrace", "value": "15", "unit": "m2", "applies_to": "ground floor apartments or apartments with a terrace, minimum dimension 3m", "clause_ref": "A 4.4.x / Table 4.4"},
+    {"topic": "external storage - studio dwelling", "value": "3", "unit": "m2", "applies_to": "studio dwellings, within or adjacent to private open space", "clause_ref": "element 4.x storage Acceptable Outcome"}
+  ],
+  "definitions": ["open space", "potable water", "precinct structure plan", "primary street", "private open space", "public domain", "public open space", "rainwater", "root protection area", "rootable soil zone / space", "scheme plan", "screening", "secondary street", "sense of place", "service area", "service utilities", "setback", "sightlines", "single aspect", "site", "site area", "site design response", "site-responsive", "sloping site", "small rainfall event", "soffit", "soft landscape", "solar access", "solar collectors", "stack effect ventilation / solar chimney", "storage (inside apartments)", "storage (external to apartments)", "storey", "stormwater", "strata lot", "strata plan", "strata scheme", "strata titles scheme", "street", "street boundary", "streetscape", "structure plan", "studio", "sunlight", "survey-strata lot", "survey-strata plan", "survey-strata scheme", "utilities", "visually permeable", "walkable catchment", "walkway", "wintergarden", "winter solar gain", "WAPC"],
+  "cross_references": [
+    {"cited": "Residential Design Codes Volume 1 (R-Codes Volume 1)", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 7.0 Design of the Built Environment", "manifest_id": "SPP-022"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Heritage Act 2018", "manifest_id": "LEG-007"},
+    {"cited": "National Construction Code / Building Code of Australia", "manifest_id": "NCC-001"},
+    {"cited": "AS 2890.1 (parking facilities)", "manifest_id": null},
+    {"cited": "NSW Apartment Design Guide", "manifest_id": null},
+    {"cited": "Design Review Guide", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "stylised/condensed display text garbled in places (e.g. Part 4 intro paragraph extracted as interleaved letter salad 'idpwc Gane Tn pe...'); body provisions are clean",
+    "multi-column Table 2.1 (primary controls) extracted with column headers separated from values, so attribution of some values to specific R-AC codings is inferred from layout order",
+    "mirrored-text artifacts from rotated figure labels (e.g. 'yradnuob tnorF')",
+    "Table 4.3b 'minimum internal dimension 13m' for bedrooms appears in extraction where the source likely reads '3m' (footnoted as 3m excluding robes elsewhere); verify against source PDF"
+  ]
+}

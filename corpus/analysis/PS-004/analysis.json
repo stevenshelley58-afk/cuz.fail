@@ -1,0 +1,93 @@
+{
+  "id": "PS-004",
+  "normalized_title": "Position Statement: Electric Vehicle Charging Infrastructure",
+  "instrument_no": null,
+  "version_date": "March 2024 (publication date 06/03/2024; operational date 06/03/2024)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement outlining how electric vehicle (EV) charging infrastructure should be considered and assessed in the WA planning system. It applies across Western Australia to new proposals and significant redevelopment, guiding location (destinations, transport routes, public buildings, on-street/kerbside), land use, movement-network safety, wayfinding and amenity considerations, and recommends exemptions from development approval for unobtrusive EV charging infrastructure. Table 1 sets recommended minimum provisioning ratios for EV charging by land use, including residential dwellings.",
+  "key_numeric_standards": [
+    {
+      "topic": "EV charging provision - residential dwellings",
+      "value": "Level 1 to each parking bay assigned to a dwelling",
+      "unit": "charging outlet per assigned bay",
+      "applies_to": "single house, grouped dwelling, multiple dwelling, single bedroom dwelling, aged and dependents dwelling",
+      "clause_ref": "Table 1"
+    },
+    {
+      "topic": "EV charging provision - car park",
+      "value": "2",
+      "unit": "% of bays (Level 2)",
+      "applies_to": "car park land use where >50 bays",
+      "clause_ref": "Table 1"
+    },
+    {
+      "topic": "EV charging provision - shop",
+      "value": "1 bay per 10,000m2, minimum 2 bays",
+      "unit": "Level 2 bays",
+      "applies_to": "shop land use where >1,500m2 floorspace",
+      "clause_ref": "Table 1"
+    },
+    {
+      "topic": "EV charging provision - freeway service centre",
+      "value": "4",
+      "unit": "bays (Level 2/3)",
+      "applies_to": "freeway service centre",
+      "clause_ref": "Table 1"
+    },
+    {
+      "topic": "EV charging provision - road house",
+      "value": "2",
+      "unit": "bays (Level 2/3)",
+      "applies_to": "road house",
+      "clause_ref": "Table 1"
+    },
+    {
+      "topic": "EV charging provision - hotel/motel guest parking",
+      "value": "Level 1 to each guest bay; Level 2 to 2% of communal bays (min 1)",
+      "unit": "bays",
+      "applies_to": "hotel and motel land uses",
+      "clause_ref": "Table 1"
+    },
+    {
+      "topic": "EV charging provision - caravan park",
+      "value": "Level 1 - one bay per powered site; Level 1 - 50% of communal bays",
+      "unit": "bays",
+      "applies_to": "caravan park",
+      "clause_ref": "Table 1"
+    },
+    {
+      "topic": "EV charging provision - cinema/theatre, civic use, exhibition centre, private recreation",
+      "value": "2% of bays, minimum 1 bay (Level 2)",
+      "unit": "% of bays",
+      "applies_to": "cinema/theatre >200 people; civic use >1,000m2; exhibition centre and recreation-private >1,500m2 floorspace",
+      "clause_ref": "Table 1"
+    }
+  ],
+  "definitions": [
+    "Electric vehicle (EV)",
+    "EV charging infrastructure",
+    "EV charging bay",
+    "Facilities for electric vehicle charging equipment",
+    "Level 1 (general power outlet / trickle charging)",
+    "Level 2 (AC fast charging)",
+    "Level 3 (DC fast or rapid charging)",
+    "The Regulations"
+  ],
+  "cross_references": [
+    {"cited": "National Construction Code (NCC), including Part J9", "manifest_id": "NCC-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Public Works Act 1902", "manifest_id": null},
+    {"cited": "National Electric Vehicle Strategy 2023", "manifest_id": null},
+    {"cited": "State Electric Vehicle Strategy (WA, November 2020)", "manifest_id": null},
+    {"cited": "Western Australian Climate Policy", "manifest_id": null},
+    {"cited": "Safer Places by Design Guidelines (WAPC)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "manifest notes claim the instrument exists only as a draft, but the extracted text carries publication and operational dates of 06/03/2024 with no draft marking - status discrepancy should be re-verified against the source URL",
+    "multi-column PDF extraction interleaves columns, scrambling sentence order in body sections",
+    "tables.json rows for Table 1 have null land-use cells (left column not captured); land uses recoverable from full_text.txt",
+    "summary.json key_provision headings are garbled by column interleaving"
+  ]
+}

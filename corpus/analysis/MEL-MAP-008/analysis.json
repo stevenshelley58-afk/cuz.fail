@@ -1,0 +1,21 @@
+{
+  "id": "MEL-MAP-008",
+  "normalized_title": "City of Melville Local Planning Scheme No. 6 - Scheme Map No. 8 of 8 (Leeming Locality)",
+  "instrument_no": "LPS6 Map 8 of 8",
+  "version_date": "2017-12-07",
+  "operative_status": "current",
+  "scope_summary": "Statutory zoning map sheet 8 of 8 for City of Melville Local Planning Scheme No. 6, covering the Leeming locality (title block reads 'MAP: Leeming Locality'). It depicts Metropolitan Region Scheme reserves (civic and cultural, public purposes), local scheme reserves and zones, and R-Codes density codings (predominantly R20 with pockets of R40) parcel by parcel across the Leeming street network (South Street, Farrington Road, Westminster Road area). The scheme was gazetted on Friday 27 May 2016; this sheet is Version No 1 with a plot date of 7 December 2017.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "R Codes", "manifest_id": "PC-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "scheme map drawing: low text volume is expected, not a defect",
+    "OCR of map labels is heavily scrambled (street names fragmented and reordered); only the legend, title block and density codes are reliable"
+  ]
+}

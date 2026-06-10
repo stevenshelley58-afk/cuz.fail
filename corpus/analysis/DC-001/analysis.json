@@ -1,0 +1,44 @@
+{
+  "id": "DC-001",
+  "normalized_title": "Operational Policy 1.1 Subdivision of Land - General Principles",
+  "instrument_no": "OP 1.1 (formerly DC 1.1)",
+  "version_date": "February 2020 (published February 2020)",
+  "operative_status": "current",
+  "scope_summary": "WAPC operational policy setting out the general principles used in determining applications for the subdivision of land across Western Australia, including freehold, survey-strata, strata and leasehold lots under Part 10 of the Planning and Development Act 2005 and the Strata Titles Act 1985. It covers consistency with long-term planning goals, context and site analysis, site-responsive design, structure plans, super lot subdivisions, development contributions, lawful development, leasehold strata, utility servicing, vehicular access, development capability and implementation/review procedures.",
+  "key_numeric_standards": [
+    {"topic": "super lot subdivision presumption threshold", "value": "150", "unit": "ha", "applies_to": "land holdings identified or zoned for future urban purposes (presumption against super lot subdivision where holding is generally less than 150 ha)", "clause_ref": "cl 3.5.1"},
+    {"topic": "minimum super lot size for whole-of-holding subdivision", "value": "20", "unit": "ha", "applies_to": "subdivision of whole land holding into super lots where SPP 3.6 infrastructure arrangements are established", "clause_ref": "cl 3.5.3"},
+    {"topic": "small residential lot demonstration threshold", "value": "260", "unit": "m2", "applies_to": "residential lots below this size and/or of irregular configuration may need to demonstrate a dwelling can be accommodated via development application and/or building plans", "clause_ref": "cl 3.7.3"},
+    {"topic": "leasehold scheme fixed term", "value": "20 to 99", "unit": "years", "applies_to": "leasehold (survey-strata) and leasehold (strata) schemes under the Strata Titles Act 1985 (inclusive of any postponement)", "clause_ref": "cl 3.8.1"}
+  ],
+  "definitions": [
+    "subdivision (s1.1: includes creation of new lot(s), amalgamation of existing lots, and other dealings in land requiring WAPC approval, covering freehold, survey-strata, strata and leasehold lots)",
+    "super lot subdivision (s3.5)",
+    "leasehold (survey-strata) and leasehold (strata) schemes (s3.8)",
+    "structure plan (s3.4: framework for integrated subdivision and development of a major area)"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development Regulations 2009", "manifest_id": "REG-003"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Strata Titles Act 1985 (as amended)", "manifest_id": "LEG-004"},
+    {"cited": "Strata Titles (General) Regulations 2019", "manifest_id": null},
+    {"cited": "State Planning Policy 1 State Planning Framework (SPP 1)", "manifest_id": "SPP-001"},
+    {"cited": "State Planning Policy 3.6 Development Contributions for Infrastructure", "manifest_id": "SPP-012"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes - V1", "manifest_id": "PC-001"},
+    {"cited": "State Planning Strategy", "manifest_id": "SPP-001"},
+    {"cited": "Perth and Peel@3.5 million", "manifest_id": null},
+    {"cited": "Directions 2031 and Beyond", "manifest_id": null},
+    {"cited": "Government Sewerage Policy 2019", "manifest_id": null},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Transfer of Land Act (s70A; text prints '1993', the Act is 1893)", "manifest_id": null},
+    {"cited": "IPWEA Local Government Guidelines for Subdivisional Development October 2017 (edition 2.3)", "manifest_id": null},
+    {"cited": "Strata Titles Amendment Act 2018", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "imprint/disclaimer page severely scrambled by column interleaving (line 6 of extracted text is character-soup)",
+    "three-column body layout interleaved in extraction: sentences from adjacent clauses run into each other (e.g. cl 3.2/3.3 and cl 3.11/4.1/4.2 blocks), text recoverable with care",
+    "extracted text prints 'Transfer of Land Act 1993' where the statute is the Transfer of Land Act 1893 (likely source typo or OCR error)"
+  ]
+}

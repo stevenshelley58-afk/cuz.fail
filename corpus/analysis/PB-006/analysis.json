@@ -1,0 +1,22 @@
+{
+  "id": "PB-006",
+  "normalized_title": "Planning Bulletin 100 - State Planning Policy 3.6 Development Contributions for Infrastructure",
+  "instrument_no": "PB 100",
+  "version_date": "November 2009 (explains SPP 3.6 as gazetted 20 November 2009)",
+  "operative_status": "current",
+  "scope_summary": "WAPC advisory bulletin providing an overview of State Planning Policy 3.6 Development Contributions for Infrastructure, gazetted on 20 November 2009, which superseded Planning Bulletins 18 and 41. It explains when development contributions may be sought for standard and community infrastructure, the objectives of the policy, and the requirements for development contribution plans incorporated into local planning schemes. Applies state-wide to subdivision, strata subdivision and development of land in Western Australia.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "community infrastructure"
+  ],
+  "cross_references": [
+    {"cited": "State Planning Policy 3.6 Development Contributions for Infrastructure", "manifest_id": "SPP-012"},
+    {"cited": "Planning Bulletin 18 Developer Contributions for Infrastructure", "manifest_id": null},
+    {"cited": "Planning Bulletin 41 Draft Model Text Provisions for Development Contributions", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "two-column PDF layout caused interleaved sentence fragments in extracted text (readable but lines from adjacent columns are merged)",
+    "content is dated: it describes the 2009 gazettal of SPP 3.6, which has since been republished as SPP 3.6 Infrastructure Contributions (manifest SPP-012); bulletin guidance may not reflect the current policy"
+  ]
+}

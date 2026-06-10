@@ -1,0 +1,20 @@
+{
+  "id": "MEL-SP-007",
+  "normalized_title": "Willagee Structure Plan (City of Melville)",
+  "instrument_no": null,
+  "version_date": "December 2013 (adoption date per City of Melville webpage)",
+  "operative_status": "current",
+  "scope_summary": "Structure plan for the Willagee locality in the City of Melville, adopted December 2013 and operating under Local Planning Scheme No. 6; per the council webpage it facilitates easier subdivision and development in Willagee. The extracted content is only the City of Melville webpage describing the plan, not the structure plan document itself, so the plan's actual provisions, maps and development standards are not available in this corpus entry.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme 6", "manifest_id": "MEL-SCH-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Extracted content is the council web landing page about the structure plan, not the instrument itself (manifest note: 'no PDF resolved; saved page HTML')",
+    "Only ~27 lines (<1 KB) of text; summary.json reports pages: 0 and no key provisions",
+    "No statutory provisions, precinct maps, density codes or development standards are recoverable; document requires re-acquisition of the actual Willagee Structure Plan PDF",
+    "Web page boilerplate present in text (share buttons, 'Was this page helpful?')"
+  ]
+}

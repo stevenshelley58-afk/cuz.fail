@@ -1,0 +1,39 @@
+{
+  "id": "FRE-LPP-014",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.26 - Tree Retention",
+  "instrument_no": "LPP 2.26",
+  "version_date": "2025-03-12",
+  "operative_status": "current",
+  "scope_summary": "Regulates tree-damaging activity to 'regulated trees' within the City of Fremantle, requiring development approval for removal or substantial damage except in listed exempt circumstances. Applies to all lots within a Development Area, land zoned Industrial, or land coded R30 and below under Local Planning Scheme No. 4, covering development applications, subdivision applications and strategic planning proposals. Sets assessment criteria, arborist report triggers, and replacement-planting requirements where removal is approved.",
+  "key_numeric_standards": [
+    {"topic": "regulated tree height threshold", "value": "8", "unit": "m", "applies_to": "living tree qualifying as regulated tree", "clause_ref": "Definitions - Regulated tree (a)"},
+    {"topic": "regulated tree canopy diameter threshold", "value": "6", "unit": "m", "applies_to": "living tree qualifying as regulated tree (average canopy diameter)", "clause_ref": "Definitions - Regulated tree (b)"},
+    {"topic": "regulated tree trunk circumference threshold", "value": "1.5", "unit": "m", "applies_to": "trunk circumference measured 1.4m above ground", "clause_ref": "Definitions - Regulated tree (c)"},
+    {"topic": "density code application threshold", "value": "R30 and below", "unit": "R-Code", "applies_to": "lots within LPS4 area to which the policy applies (plus Development Areas and Industrial zones)", "clause_ref": "cl 1.1"},
+    {"topic": "neighbouring tree identification distance", "value": "5", "unit": "m", "applies_to": "regulated trees on neighbouring properties within 5m of the development footprint", "clause_ref": "cl 3.1(b)-(c)"},
+    {"topic": "replacement trees on approved removal", "value": "2", "unit": "trees", "applies_to": "replacement planting per regulated tree removed", "clause_ref": "cl 6.1"},
+    {"topic": "replacement tree minimum pot size", "value": "30", "unit": "litre", "applies_to": "each replacement tree planted in-ground within the lot", "clause_ref": "cl 6.1"}
+  ],
+  "definitions": ["Arborist's report", "Maintenance pruning", "Regulated tree", "Tree-damaging activity"],
+  "cross_references": [
+    {"cited": "City of Fremantle Local Planning Scheme No. 4", "manifest_id": "FRE-SCH-001"},
+    {"cited": "State Planning Policy 7.3 - Residential Design Codes of Western Australia, Volume 1", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 7.3 - Residential Design Codes of Western Australia, Volume 2", "manifest_id": "PC-002"},
+    {"cited": "State Planning Policy 3.7 - Planning in Bushfire Prone Areas", "manifest_id": "SPP-013"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Local Planning Policy 1.6 - Development Exempt from Approval Under Local Planning Scheme No. 4", "manifest_id": "FRE-LPP-004"},
+    {"cited": "Register of Significant Trees and Vegetation Areas", "manifest_id": "FRE-LPP-011"},
+    {"cited": "Residential Design Codes (R-Codes), clause 5.3.2", "manifest_id": "PC-001"},
+    {"cited": "City of Fremantle Trees on City Owned or Managed Land Policy", "manifest_id": null},
+    {"cited": "City of Fremantle Crossover Policy", "manifest_id": null},
+    {"cited": "City of Fremantle Urban Forest Plan", "manifest_id": null},
+    {"cited": "Australian Standard 4970-2009 Protection of Trees on Development Sites", "manifest_id": null},
+    {"cited": "Australian Standard 4373-2007 Pruning of Amenity Trees", "manifest_id": null},
+    {"cited": "Biosecurity and Agriculture Management Act 2007", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Source document cites the development-exemptions policy as 'LPP 1.6' but Fremantle's current exemptions policy is numbered LPP 1.7 (FRE-LPP-004); reference mapped on subject match - likely an outdated internal citation in the source PDF"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "MEL-LPP-020",
+  "normalized_title": "City of Melville Local Planning Policy 2.2 - Outdoor Advertisements and Signage",
+  "instrument_no": "LPP 2.2",
+  "version_date": "2023-08-15",
+  "operative_status": "current",
+  "scope_summary": "Sets deemed-to-comply standards and exemptions from development approval for outdoor advertising signage across the whole City of Melville scheme area under Local Planning Scheme No. 6, including reserves, thoroughfares and private property. Covers signage in the Residential zone (home occupation, display home, commercial-in-residential, real estate, construction signs), signage in non-residential zones (ground based, pylon, monolith, window, projecting, awning, wall signs), temporary signage and directional signs, with performance-based assessment criteria where standards are not met. Signs within 1.5m of a crossover/street truncation or on heritage listed places are never exempt.",
+  "key_numeric_standards": [
+    {"topic": "home occupation/home business sign area", "value": "0.5", "unit": "m2", "applies_to": "signage for approved home occupation or home business in Residential zone", "clause_ref": "cl 1.1(d)"},
+    {"topic": "home occupation/home business sign height", "value": "1.8", "unit": "m above ground level", "applies_to": "signage for approved home occupation or home business in Residential zone", "clause_ref": "cl 1.1(b)"},
+    {"topic": "display home sign area", "value": "2", "unit": "m2 per display home", "applies_to": "display home signage in Residential zone, one sign per display home", "clause_ref": "cl 1.2(b)"},
+    {"topic": "display home sign height", "value": "1.8", "unit": "m above ground level", "applies_to": "display home signage in Residential zone", "clause_ref": "cl 1.2(c)"},
+    {"topic": "commercial property sign area", "value": "1", "unit": "m2", "applies_to": "signage on commercial properties within the Residential zone", "clause_ref": "cl 1.3(d)"},
+    {"topic": "real estate sign area (residential)", "value": "1.8", "unit": "m2", "applies_to": "real estate signage in Residential zone", "clause_ref": "cl 1.4(a)"},
+    {"topic": "construction sign height", "value": "3", "unit": "m", "applies_to": "construction signage in Residential zone", "clause_ref": "cl 1.5(a)"},
+    {"topic": "construction sign aggregate area", "value": "1.8", "unit": "m2", "applies_to": "construction signage in Residential zone", "clause_ref": "cl 1.5(b)"},
+    {"topic": "clearance from crossover/street truncation", "value": "1.5", "unit": "m", "applies_to": "all signs (signs within this distance are not exempt from approval)", "clause_ref": "Policy Scope; cl 1.1(c), 1.2(d), 1.3(c), 1.4(b), 2(e)"},
+    {"topic": "signs per tenancy (non-residential zones)", "value": "3", "unit": "signs maximum", "applies_to": "signage on land not within the Residential zone", "clause_ref": "cl 2(a)"},
+    {"topic": "illuminated sign luminance", "value": "300", "unit": "cd/m2 maximum", "applies_to": "internally illuminated signage in non-residential zones", "clause_ref": "cl 2(d)(iv)"},
+    {"topic": "ground based sign area", "value": "1.2", "unit": "m2", "applies_to": "ground based signage, Centre/Mixed Use/Service Commercial/Light Industry zones", "clause_ref": "cl 2.1(c)"},
+    {"topic": "pylon sign height", "value": "6", "unit": "m from ground level", "applies_to": "pylon signage, Centre/Mixed Use/Service Commercial/Light Industry zones", "clause_ref": "cl 2.2(a)"},
+    {"topic": "pylon sign width", "value": "1.5", "unit": "m maximum", "applies_to": "pylon signage", "clause_ref": "cl 2.2(b)"},
+    {"topic": "pylon supporting column clearance", "value": "2.75", "unit": "m above natural ground level minimum", "applies_to": "pylon signage", "clause_ref": "cl 2.2(c)"},
+    {"topic": "monolith/tombstone sign height", "value": "3", "unit": "m from ground level", "applies_to": "monolith/tombstone signage", "clause_ref": "cl 2.3(a)"},
+    {"topic": "window signage coverage", "value": "20", "unit": "% of tenancy window area", "applies_to": "window signage in non-residential zones", "clause_ref": "cl 2.4(a)"},
+    {"topic": "projecting sign projection", "value": "1", "unit": "m from wall", "applies_to": "projecting signage", "clause_ref": "cl 2.5(c)"},
+    {"topic": "projecting sign area", "value": "1", "unit": "m2 per side", "applies_to": "projecting signage", "clause_ref": "cl 2.5(d)"},
+    {"topic": "below-awning sign length", "value": "2.4", "unit": "m maximum", "applies_to": "below-awning signage", "clause_ref": "cl 2.6(b)"},
+    {"topic": "below-awning sign ground clearance", "value": "2.75", "unit": "m minimum", "applies_to": "below-awning signage", "clause_ref": "cl 2.6(e)"},
+    {"topic": "wall signage collective area", "value": "2", "unit": "m2 per wall", "applies_to": "wall signage, max two signs per wall, ground floor only", "clause_ref": "cl 2.8(c)"},
+    {"topic": "real estate sign height (non-residential)", "value": "3", "unit": "m above ground level", "applies_to": "real estate signage in non-residential zones", "clause_ref": "cl 2.9(b)"},
+    {"topic": "real estate sign area (non-residential)", "value": "3", "unit": "m2 per side", "applies_to": "real estate signage in non-residential zones", "clause_ref": "cl 2.9(c)"},
+    {"topic": "school sign height", "value": "3", "unit": "m from ground level", "applies_to": "school signs", "clause_ref": "cl 3.6(a)"}
+  ],
+  "definitions": [
+    "Sign",
+    "Area of a sign",
+    "Signage Strategy",
+    "Thoroughfare"
+  ],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "City of Melville Activities in Thoroughfares, Public Places and Trading Local Law 2014", "manifest_id": null},
+    {"cited": "Local Government Act 1995", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Page footer lines ('UNCONTROLLED DOCUMENT WHEN PRINTED...') interleaved throughout extracted text",
+    "Manifest instrument_name says 'Outdoor Advertising and Signage'; document title is 'Outdoor Advertisements and Signage' (same policy, minor wording difference)"
+  ]
+}

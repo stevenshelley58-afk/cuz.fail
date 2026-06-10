@@ -1,0 +1,39 @@
+{
+  "id": "MEL-LPP-002",
+  "normalized_title": "City of Melville Local Planning Policy 1.2 - Design Review",
+  "instrument_no": "LPP 1.2",
+  "version_date": "2026-03-17",
+  "operative_status": "current",
+  "scope_summary": "Procedural local planning policy establishing the operation of the City of Melville Design Review Group (DRG), which provides independent expert design advice against the 10 Design Principles of SPP 7.0 Design of the Built Environment. Complex development applications (as defined by LPP 1.1) must be referred to the DRG; discretionary referral applies to multiple/grouped dwelling developments of 10 or more units, development of three or more storeys, heritage-listed places and substantial centre-zone development, while single houses and 2-9 unit grouped dwellings are excluded. DRG advice is advisory only and not binding on the planning decision.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Chair",
+    "Deputy Chair",
+    "Design Advice",
+    "Design Review",
+    "DRG (Design Review Group)",
+    "Design Review Group Pool",
+    "Minutes",
+    "Session Chair",
+    "SPP 7.0",
+    "Terms of Reference"
+  ],
+  "cross_references": [
+    {"cited": "State Planning Policy 7.0 - Design of the Built Environment", "manifest_id": "SPP-022"},
+    {"cited": "Local Planning Policy 1.1 Planning Process and Decision Making", "manifest_id": "MEL-LPP-001"},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Local Government Design Review Manual", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "extraction quality good",
+    "manifest instrument_name says 'Design Review Panel'; the current policy is titled 'Design Review' and governs the Design Review Group - same instrument (LPP 1.2), title has been updated",
+    "source text inconsistently uses 'DRP' and 'DRG' for the same body (clause 1.1 and 3.3)",
+    "version evidenced by 'Last Review Date: 17 March 2026' header and Ordinary Meeting of Council 17/03/2026 (UP26/102); printed version stamp 2/04/2026"
+  ]
+}

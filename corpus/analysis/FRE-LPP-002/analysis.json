@@ -1,0 +1,19 @@
+{
+  "id": "FRE-LPP-002",
+  "normalized_title": "City of Fremantle Local Planning Policy 1.4 - Applications for Review of Planning Decisions and Written Directions",
+  "instrument_no": "LPP 1.4",
+  "version_date": "Adopted 25 June 2008; last amended 12 February 2025 (C2502-5)",
+  "operative_status": "current",
+  "scope_summary": "Procedural policy guiding City of Fremantle officers in responding to State Administrative Tribunal review applications of planning decisions and direction notices issued under Part 13 of the Planning and Development Act 2005. It covers representation arrangements (officer vs independent consultant vs legal representation depending on whether the Council decision was consistent with the officer recommendation), expert witnesses, third-party involvement, mediation, s31 reconsiderations, adjournments, appeals and costs. It sets no development standards.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "State Administrative Tribunal Act 2004", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "extractor summary.json title and version_date fields are empty/generic ('Local Planning') though the actual document text is complete and clean"
+  ]
+}

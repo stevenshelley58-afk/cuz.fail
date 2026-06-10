@@ -1,0 +1,36 @@
+{
+  "id": "MEL-LPP-017",
+  "normalized_title": "City of Melville Local Planning Policy 1.21 - Short-Term Rental Accommodation",
+  "instrument_no": "LPP 1.21",
+  "version_date": "2025-08-19",
+  "operative_status": "current",
+  "scope_summary": "Sets out the City of Melville's locational and operational assessment criteria for short-term rental accommodation (STRA) land uses that still require development approval after the State's 2024 STRA planning reforms (hosted STRA and registered unhosted STRA used no more than 90 nights per 12 months in the metropolitan region are exempt). In Residential zones STRA is generally not supported unless preferred property and operational characteristics are met and no undesirable characteristics apply; mixed-use zones and non-residential parts of activity centres are preferred. Also covers car parking, signage, operational management plans, consultation (including strata consent) and temporary approvals under clause 72 of Schedule 2 of the Regulations.",
+  "key_numeric_standards": [
+    {"topic": "exempt unhosted STRA night cap", "value": "90", "unit": "nights per relevant 12-month period", "applies_to": "registered unhosted short-term rental accommodation in the metropolitan region (state exemption restated in policy scope)", "clause_ref": "Policy Scope (iii)"},
+    {"topic": "preferred proximity to mixed use zones / activity centres", "value": "200", "unit": "m", "applies_to": "STRA in the Residential zone (preferred property characteristic)", "clause_ref": "cl 2.1(a)"},
+    {"topic": "preferred proximity to hospital or tertiary education institution", "value": "400", "unit": "m", "applies_to": "STRA in the Residential zone (preferred property characteristic)", "clause_ref": "cl 2.1(a)"},
+    {"topic": "minimum stay", "value": "2", "unit": "nights", "applies_to": "STRA in the Residential zone (preferred operational characteristic)", "clause_ref": "cl 2.1 Preferred Operational Characteristics (a)"},
+    {"topic": "maximum guests", "value": "6", "unit": "guests", "applies_to": "STRA in the Residential zone (preferred operational characteristic)", "clause_ref": "cl 2.1 Preferred Operational Characteristics (b)"},
+    {"topic": "maximum entry sign size", "value": "A4", "unit": "sheet size (sign must be smaller)", "applies_to": "discrete sign near dwelling entry in Residential zones (no other on-site signage permitted)", "clause_ref": "cl 4.1"}
+  ],
+  "definitions": ["LPS6", "Regulations", "R-Codes", "Amenity", "Short-Term Rental Accommodation", "Short-Term Rental Arrangement", "Hotel", "Hosted Accommodation", "Un-hosted Accommodation", "Tourist and Visitor Accommodation", "Ancillary Dwelling", "Dwelling", "Grouped Dwelling", "Multiple Dwelling", "Residential Building", "Single House", "Small Dwelling"],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Amendment (Short-Term Rental Accommodation) Regulations 2024", "manifest_id": null},
+    {"cited": "Short-Term Rental Accommodation Act 2024", "manifest_id": null},
+    {"cited": "City of Melville Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 (Apartments)", "manifest_id": "PC-002"},
+    {"cited": "Local Planning Policy 1.1 - Planning Processes and Decision Making", "manifest_id": "MEL-LPP-001"},
+    {"cited": "Local Planning Policy 1.6 - Parking and Access", "manifest_id": "MEL-LPP-006"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Health Act 1911", "manifest_id": null},
+    {"cited": "Building Act 2011", "manifest_id": "LEG-002"},
+    {"cited": "Building Regulations 2012", "manifest_id": "LEG-003"},
+    {"cited": "Australian National Construction Code", "manifest_id": "NCC-001"},
+    {"cited": "AS/NZS 2890.6 Parking for people with disabilities", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": ["clean extraction; manifest instrument_name says 'Short Term Accommodation' while the policy's formal citation is 'Local Planning Policy No. 1.21 - Short Term Rental Accommodation'", "definitions section lists terms defined elsewhere (Regulations, LPS6, R-Codes) by reference rather than reproducing the definitions"]
+}

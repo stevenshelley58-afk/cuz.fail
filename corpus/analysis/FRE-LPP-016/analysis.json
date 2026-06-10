@@ -1,0 +1,29 @@
+{
+  "id": "FRE-LPP-016",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.3 - Fremantle Port Buffer Area Development Guidelines",
+  "instrument_no": "LPP 2.3",
+  "version_date": "2025-05-14",
+  "operative_status": "current",
+  "scope_summary": "Sets built form criteria and referral procedures for development applications and scheme amendments on lots within the three Fremantle Port Buffer Areas mapped in Appendix A. Area 1 carries the strictest controls (risk assessment for large residential proposals, glazing/window, balcony, air-conditioning and construction standards, prohibition of sensitive non-residential uses, and title notifications); Area 2 applies lesser construction standards including SPP 5.4 Quiet House requirements; Area 3 manages sensitive uses case-by-case. Also prescribes referral of proposals to Fremantle Ports and certification of compliance conditions.",
+  "key_numeric_standards": [
+    {"topic": "risk assessment trigger", "value": ">50", "unit": "dwellings", "applies_to": "development applications in Area 1", "clause_ref": "cl 1.1"},
+    {"topic": "noise attenuation - Area 1", "value": "35", "unit": "dB(A)", "applies_to": "development in Area 1 (attenuation of port noise)", "clause_ref": "cl 1.2(c)"},
+    {"topic": "maximum window/door area on port-facing facade", "value": "40", "unit": "% of facade area", "applies_to": "residential development in Area 1, facade facing Port Inner Harbour", "clause_ref": "cl 1.4(a)"},
+    {"topic": "glazing - Area 1", "value": "12 (laminated) or 6 (double glazed)", "unit": "mm minimum thickness", "applies_to": "windows and openings of residential development in Area 1", "clause_ref": "cl 1.4(b)"},
+    {"topic": "maximum window opening arc", "value": "12.5", "unit": "degrees", "applies_to": "hopper/awning windows in Area 1 where fixed windows not possible", "clause_ref": "cl 1.4(c)"},
+    {"topic": "balconies on port-facing facades", "value": "0 (not permitted)", "unit": "n/a", "applies_to": "facades facing Port Inner Harbour, Area 1 residential development", "clause_ref": "cl 1.4(f)"},
+    {"topic": "noise attenuation - Area 2", "value": "30", "unit": "dB(A)", "applies_to": "development in Area 2 (attenuation of port noise)", "clause_ref": "cl 2.1(c)"},
+    {"topic": "glazing - Area 2", "value": "6 (laminated) or 3 (double glazed)", "unit": "mm minimum thickness", "applies_to": "windows and openings of development in Area 2", "clause_ref": "cl 2.3(a)"},
+    {"topic": "Fremantle Ports referral response time", "value": "14", "unit": "days", "applies_to": "Fremantle Ports advice on referred development proposals", "clause_ref": "cl 4.6"}
+  ],
+  "definitions": ["Buffer Area", "Sensitive Use", "Residential uses"],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "State Planning Policy 5.4: Road and Rail Noise", "manifest_id": "SPP-019"},
+    {"cited": "Fremantle Inner Harbour Buffer Definition Study", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Appendix A buffer area map is a figure with no extractable text; the boundaries of Areas 1, 2 and 3 cannot be determined from the extracted text alone"
+  ]
+}

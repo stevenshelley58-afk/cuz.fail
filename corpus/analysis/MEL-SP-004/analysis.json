@@ -1,0 +1,52 @@
+{
+  "id": "MEL-SP-004",
+  "normalized_title": "Melville District Activity Centre Plan",
+  "instrument_no": null,
+  "version_date": "8 August 2017 (approved by WAPC; date of expiry 8 August 2027)",
+  "operative_status": "current",
+  "scope_summary": "Activity centre plan for the 20.41 ha Melville District Centre on Canning Highway (parts of Attadale, Melville, Palmyra and Bicton), prepared under City of Melville Local Planning Scheme No. 6 in accordance with SPP 4.2 and the Structure Plan Framework 2015. It is the principal planning document for the centre, applying place-based development controls in the Centre C2 (R-AC0), Mixed Use (R-AC0), Residential (R60) and Public Open Space zones: building heights measured in storeys (3 to 5 by location, minimum 2 in Centre C2), nil street and lot-boundary setbacks with upper-level exceptions, landscaping/open space percentages, and a community-benefit mechanism for additional height. It targets 550 dwellings (31 dwellings per gross hectare) by 2031.",
+  "key_numeric_standards": [
+    {"topic": "maximum building height", "value": "3-5", "unit": "storeys", "applies_to": "per location on Map 2 - Building Heights", "clause_ref": "cl 4.5.1 / Map 2"},
+    {"topic": "minimum building height", "value": "2", "unit": "storeys", "applies_to": "Centre C2 zone development", "clause_ref": "cl 4.5.19(b), 4.5.20(b)"},
+    {"topic": "plot ratio", "value": "no requirement", "unit": "-", "applies_to": "Centre C2 and Mixed Use zones (Residential zone per R-Codes)", "clause_ref": "cl 4.5.3-4.5.4"},
+    {"topic": "private open space (terrace, balcony or courtyard)", "value": "15", "unit": "m2 per dwelling", "applies_to": "all residential development", "clause_ref": "cl 4.5.17"},
+    {"topic": "street setback", "value": "nil permitted; any level above 3 storeys facing Waddell Road set back minimum 3 m from the building line of the third storey", "unit": "m", "applies_to": "Centre C2 zone", "clause_ref": "cl 4.5.19(d), 4.5.20(f)"},
+    {"topic": "lot boundary setback within Centre C2", "value": "nil up to 4 storeys; levels above 4 storeys set back minimum 2", "unit": "m", "applies_to": "Centre C2 development adjoining Centre C2 lots", "clause_ref": "cl 4.5.20(g)"},
+    {"topic": "lot boundary setback to other zones", "value": "nil for first storey; above 1 storey minimum 2 m to any boundary or 4 m from a northern boundary of an adjoining lot", "unit": "m", "applies_to": "Centre C2 development adjoining other zones", "clause_ref": "cl 4.5.20(h)"},
+    {"topic": "landscaping", "value": "10", "unit": "% of site area", "applies_to": "Centre C2 zone", "clause_ref": "cl 4.5.21"},
+    {"topic": "open space / landscaping", "value": "15", "unit": "% of site area", "applies_to": "Mixed Use zone residential and non-residential development", "clause_ref": "cl 4.5.28(f)-(g), 4.5.29(g)"},
+    {"topic": "lot boundary setback (non-residential, Mixed Use/Residential zones)", "value": "nil up to 3 storeys adjoining Centre C2 (above: min 2 m); nil first storey adjoining Mixed Use/Residential (above: 2 m, or 4 m from northern boundary)", "unit": "m", "applies_to": "non-residential development in Mixed Use and Residential zones", "clause_ref": "cl 4.5.29(d)-(f)"},
+    {"topic": "maximum additional building height via community benefit", "value": "2", "unit": "storeys", "applies_to": "Centre C2 zone above Map 2 heights", "clause_ref": "cl 4.5.25-4.5.26"},
+    {"topic": "corner architectural element height bonus", "value": "1 additional storey; corner element up to 10 m along the street facade", "unit": "storey / m", "applies_to": "buildings on the corner of two gazetted roads in Centre C2", "clause_ref": "cl 4.5.27"},
+    {"topic": "residential density code", "value": "R-AC0 (Centre C2 and Mixed Use); R60 (Residential zone)", "unit": "R-Code", "applies_to": "zones within the activity centre plan area", "clause_ref": "Part One / Executive Summary zoning table"},
+    {"topic": "ground floor residential restriction", "value": "not permitted on ground floors facing gazetted public roads", "unit": "-", "applies_to": "Centre C2 zone residential development", "clause_ref": "cl 4.5.18"},
+    {"topic": "car parking", "value": "per Residential Design Codes and/or relevant local planning policy", "unit": "bays", "applies_to": "all development", "clause_ref": "cl 4.5.16"}
+  ],
+  "definitions": [
+    "storey (cl 4.5.2; excludes floors 50%+ below natural ground level and roof structures up to 3.0 m; mezzanines and lofts count as storeys)",
+    "vertical emphasis",
+    "land use terms adopted from Local Planning Scheme No. 6 (cl 4.4.4)"
+  ],
+  "cross_references": [
+    {"cited": "City of Melville Local Planning Scheme No. 6 (LPS6)", "manifest_id": "MEL-SCH-001"},
+    {"cited": "State Planning Policy 4.2: Activity Centres for Perth and Peel", "manifest_id": "SPP-015"},
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Structure Plan Framework 2015 (WAPC)", "manifest_id": null},
+    {"cited": "City of Melville Local Planning Strategy", "manifest_id": "MEL-SCH-002"},
+    {"cited": "LPP 1.2 - Design Review Panel", "manifest_id": "MEL-LPP-002"},
+    {"cited": "LPP 1.4 - Provision of Public Art", "manifest_id": "MEL-LPP-004"},
+    {"cited": "LPP 1.6 - Car Parking (Non-Residential)", "manifest_id": "MEL-LPP-006"},
+    {"cited": "LPP 2.1 - Non-Residential Development", "manifest_id": "MEL-LPP-019"},
+    {"cited": "LPP 2.2 - Outdoor Advertising and Signage", "manifest_id": "MEL-LPP-020"},
+    {"cited": "Directions 2031 and Beyond", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Two-column PDF extraction interleaves columns on many pages, mixing adjacent clauses on single lines; clause-level reading requires care",
+    "Maximum building heights per site are set on Map 2 (drawing); specific per-lot values are not recoverable from the extracted text",
+    "Manifest instrument_name says 'Structure Plan' but the instrument titles itself 'Melville District Activity Centre Plan' (same instrument, naming variance only)"
+  ]
+}

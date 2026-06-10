@@ -1,0 +1,45 @@
+{
+  "id": "JOO-LPP-003",
+  "normalized_title": "City of Joondalup Child Care Premises Local Planning Policy",
+  "instrument_no": null,
+  "version_date": "Last reviewed February 2022 (CJ007-02/22); created June 1999 (CJ213-06/99)",
+  "operative_status": "current",
+  "scope_summary": "Local planning policy providing development standards for the location, siting and design of child care premises across the whole City of Joondalup, prepared under Schedule 2, Part 2 of the Planning and Development (Local Planning Schemes) Regulations 2015. It restricts child care premises in the Residential zone (must adjoin non-residential uses, max 50 children, max 50% site coverage), requires location on local distributor roads, and sets car/bicycle parking, building height, setback, noise attenuation, landscaping and hours-of-operation standards.",
+  "key_numeric_standards": [
+    {"topic": "maximum children in Residential zone", "value": "50", "unit": "children", "applies_to": "child care premises in the Residential zone", "clause_ref": "cl 5.1(b)(ii)"},
+    {"topic": "maximum building site coverage", "value": "50", "unit": "%", "applies_to": "child care premises in the Residential zone", "clause_ref": "cl 5.1(b)(iii)"},
+    {"topic": "car parking (base scale)", "value": "1 per employee plus 5 bays per up to 25 children, sliding to 14 bays for 105+ children", "unit": "bays", "applies_to": "child care premises", "clause_ref": "cl 5.3.1"},
+    {"topic": "bicycle parking", "value": "1 per 8", "unit": "spaces per employees", "applies_to": "child care premises", "clause_ref": "cl 5.3.3"},
+    {"topic": "maximum building height - top of external wall", "value": "6", "unit": "m", "applies_to": "child care premises (measured from natural ground level)", "clause_ref": "cl 5.4"},
+    {"topic": "maximum building height - top of external wall (concealed roof)", "value": "7", "unit": "m", "applies_to": "child care premises", "clause_ref": "cl 5.4"},
+    {"topic": "maximum building height - top of pitched roof", "value": "9", "unit": "m", "applies_to": "child care premises", "clause_ref": "cl 5.4"},
+    {"topic": "primary street setback", "value": "12", "unit": "m", "applies_to": "child care premises on R5 coded land (Residential zone)", "clause_ref": "cl 5.5.1(a)"},
+    {"topic": "secondary street setback", "value": "6", "unit": "m", "applies_to": "child care premises on R5 coded land (Residential zone)", "clause_ref": "cl 5.5.1(a)"},
+    {"topic": "primary street setback", "value": "6", "unit": "m", "applies_to": "child care premises on R20 and R25 coded land", "clause_ref": "cl 5.5.1(a)"},
+    {"topic": "secondary street setback", "value": "1.5", "unit": "m", "applies_to": "child care premises on R20 and R25 coded land", "clause_ref": "cl 5.5.1(a)"},
+    {"topic": "primary street setback", "value": "4", "unit": "m", "applies_to": "child care premises on R30 and above coded land", "clause_ref": "cl 5.5.1(a)"},
+    {"topic": "bin storage screening wall height", "value": "1.8", "unit": "m (minimum)", "applies_to": "bin storage areas", "clause_ref": "cl 5.5.4"},
+    {"topic": "minimum landscaping", "value": "8", "unit": "% of lot area", "applies_to": "child care premises", "clause_ref": "cl 5.6"},
+    {"topic": "landscaping strip adjacent street boundaries", "value": "1.5", "unit": "m (minimum width)", "applies_to": "child care premises", "clause_ref": "cl 5.6"},
+    {"topic": "shade trees in uncovered car parks", "value": "1 per 4", "unit": "trees per car bays", "applies_to": "child care premises car parks", "clause_ref": "cl 5.6"},
+    {"topic": "hours of operation", "value": "Mon-Fri 7.00am-6.00pm; Sat 8.00am-1.00pm; Sun not permitted", "unit": "hours", "applies_to": "child care premises in or abutting/opposite the Residential zone", "clause_ref": "cl 5.7"}
+  ],
+  "definitions": ["child care premises", "district distributor A and B road", "local distributor road"],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No 3", "manifest_id": "JOO-SCH-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "R-Codes", "manifest_id": "PC-001"},
+    {"cited": "Education and Care Services National Law (Western Australia)", "manifest_id": null},
+    {"cited": "Child Care Services Act 2007", "manifest_id": null},
+    {"cited": "Main Roads Western Australia Road Hierarchy", "manifest_id": null},
+    {"cited": "Australian Standards AS 2890.1 and AS 2890.2", "manifest_id": null},
+    {"cited": "Planning Consultation Local Planning Policy (City of Joondalup)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "multi-column tables flattened by extraction: setback table and height table columns are interleaved and need careful reading",
+    "table headings repeated incorrectly in source/extraction (car park location/design and servicing tables carry the header 'Use class / Number of on-site parking bays')",
+    "Figure 1 (parking layout diagrams Type 1 / Type 2) not captured in text extraction",
+    "manifest instrument_name says 'Childcare Premises'; document title is 'Child Care Premises' (same instrument)"
+  ]
+}

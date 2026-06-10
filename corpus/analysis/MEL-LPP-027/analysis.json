@@ -1,0 +1,40 @@
+{
+  "id": "MEL-LPP-027",
+  "normalized_title": "City of Melville Local Planning Policy 4.5 - Carawatha Design Guidelines (Carawatha Primary School Redevelopment, North Lake Road, Willagee)",
+  "instrument_no": "LPP 4.5",
+  "version_date": "V6.5, 8 February 2019",
+  "operative_status": "current",
+  "scope_summary": "Design guidelines adopted as a local planning policy governing the residential redevelopment of the former Carawatha Primary School site at North Lake Road, Willagee (City of Melville). It sets a developer-endorsement process plus general and precinct-specific design provisions (Precinct A street lots, Precinct B mews/terrace lots, Precinct C apartment lots) covering setbacks, height, materials, roofs, fencing, parking, landscape and the public realm. Where inconsistent with the Structure Plan, other LPPs or the R-Codes, these Design Guidelines prevail for the estate.",
+  "key_numeric_standards": [
+    {"topic": "minimum building height to primary frontage", "value": "2", "unit": "storeys", "applies_to": "Precinct A street lots and Precinct B mews lots", "clause_ref": "cl 4.1 / cl 4.2 Mandatory requirements"},
+    {"topic": "primary street setback", "value": "3", "unit": "m", "applies_to": "Precinct A dwellings", "clause_ref": "cl 4.1 Height and setbacks"},
+    {"topic": "garage setback", "value": "4.5", "unit": "m", "applies_to": "Precinct A dwellings (garage also min 1m behind two-storey element)", "clause_ref": "cl 4.1 Height and setbacks"},
+    {"topic": "rear boundary setback", "value": "4", "unit": "m", "applies_to": "Precinct A dwellings", "clause_ref": "cl 4.1 Height and setbacks"},
+    {"topic": "upper storey side boundary setback", "value": "1.5", "unit": "m", "applies_to": "Precinct A - portions of upper storey not within permitted parapet wall extent", "clause_ref": "cl 4.1 Height and setbacks"},
+    {"topic": "single storey boundary wall maximum height", "value": "3.5", "unit": "m", "applies_to": "Precinct A side boundaries between front and rear setback lines", "clause_ref": "cl 4.1 Height and setbacks"},
+    {"topic": "garage maximum external width", "value": "6", "unit": "m", "applies_to": "Precinct A dwellings", "clause_ref": "cl 4.1 Garage and driveway"},
+    {"topic": "driveway maximum width across street reserve", "value": "4", "unit": "m", "applies_to": "Precinct A dwellings", "clause_ref": "cl 4.1 Garage and driveway"},
+    {"topic": "setback from Greenway", "value": "2", "unit": "m", "applies_to": "Precinct B mews lot dwellings", "clause_ref": "cl 4.2 Height and setbacks"},
+    {"topic": "secondary street setback (corner lots)", "value": "1", "unit": "m", "applies_to": "Precinct B corner lots", "clause_ref": "cl 4.2 Height and setbacks"},
+    {"topic": "roof pitch range", "value": "21-30", "unit": "degrees", "applies_to": "Precinct B pitched roofs visible from primary frontage (min eaves width 450mm)", "clause_ref": "cl 4.2 Roof"},
+    {"topic": "apartment building height", "value": "3-4", "unit": "storeys", "applies_to": "Precinct C apartment lots (any fourth floor set back from floor below)", "clause_ref": "cl 4.3 Statement of Intent"},
+    {"topic": "rear boundary fence maximum height", "value": "1.8", "unit": "m", "applies_to": "Precinct A lots - solid base max 0.9m with min 50% visually permeable panels above", "clause_ref": "cl 4.1 Fence"},
+    {"topic": "front setback area vegetation", "value": "50", "unit": "%", "applies_to": "primary frontage setback area landscaping, all lots", "clause_ref": "cl 3.10 On-site landscape"}
+  ],
+  "definitions": [
+    "porch or bay window (minimum overall width 1.8m and projection of at least 0.6m)"
+  ],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Architectural and Urban Design Advisory Panel (Policy No. LPP1.2)", "manifest_id": "MEL-LPP-002"},
+    {"cited": "Provision of Public Art in Development Proposals (Policy No. LPP1.4)", "manifest_id": "MEL-LPP-004"},
+    {"cited": "R-Codes", "manifest_id": "PC-001"},
+    {"cited": "Carawatha Structure Plan", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "OCR garbling on graphics-heavy pages: design-board captions and watermark text interleaved with body text (e.g. 'CARAWATHA SCPRHOJECTOOL' style artifacts), though substantive provisions remain legible",
+    "figures (development concept plan, precinct plans, materials palette) not represented in extracted text",
+    "version marker 'V6.5 08 February 2019' is the consultant document version; no council adoption resolution date appears in the extracted text"
+  ]
+}

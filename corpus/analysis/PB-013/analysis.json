@@ -1,0 +1,47 @@
+{
+  "id": "PB-013",
+  "normalized_title": "Planning Bulletin: Parliament House Precinct Policy",
+  "instrument_no": "PB",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "PLANNING BULLETIN JULY 1983; In 1897 Parliament investigated in detail two sites for the construction of; 1. To recognise the signifi cance of the Institution of Parliament.; To achieve these objectives the following policies have been adopted; The Parliament House Precinct comprises an Inner and Outer Precinct.",
+  "key_numeric_standards": [
+    {
+      "topic": "8. It is desired that all buildings be set back exactly 6.0 ",
+      "value": "6.0",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "9. It is desired that all buildings be set back exactly 4.5 ",
+      "value": "4.5",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "30 of H71 which should be set back. exactly 8.75 metres. The",
+      "value": "8.75",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "back at least 50.3 metres from the Harvest Terrace boundary ",
+      "value": "50.3",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Metropolitan Region Scheme",
+      "manifest_id": "RS-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

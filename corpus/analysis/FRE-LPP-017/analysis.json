@@ -1,0 +1,35 @@
+{
+  "id": "FRE-LPP-017",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.8 - Fences",
+  "instrument_no": "LPP 2.8",
+  "version_date": "2026-03-11",
+  "operative_status": "current",
+  "scope_summary": "Augments the Residential Design Codes for residential fencing and sets development standards for non-residential fencing across the City of Fremantle. Replaces specified R-Codes Volume 1 deemed-to-comply clauses for primary street, secondary street and boundary fences (with a special lower height limit on Douglas Street), and prohibits electric, barbed or razor wire fencing for all development. Heritage-protected places are instead governed by LPP 3.6 where conflicts arise, and area-specific instruments prevail over this general policy.",
+  "key_numeric_standards": [
+    {"topic": "primary street fence maximum height", "value": "1.8", "unit": "m", "applies_to": "fences/walls within primary street setback area (residential, R-Codes Vol 1)", "clause_ref": "C4.1(i)"},
+    {"topic": "primary street fence visual permeability threshold", "value": "1.2", "unit": "m (permeable above)", "applies_to": "fences/walls within primary street setback area", "clause_ref": "C4.1(ii)"},
+    {"topic": "front fence pillar maximum height", "value": "2.0", "unit": "m", "applies_to": "solid pillars in front fences", "clause_ref": "C4.2 / C3.6.8"},
+    {"topic": "front fence pillar maximum dimension", "value": "450 x 450", "unit": "mm", "applies_to": "solid pillars in front fences", "clause_ref": "C4.2 / C3.6.8"},
+    {"topic": "Douglas Street front fence maximum height", "value": "1.1", "unit": "m", "applies_to": "primary street fences along Douglas Street, Fremantle", "clause_ref": "C4.3"},
+    {"topic": "secondary street fence maximum height (solid)", "value": "1.8", "unit": "m", "applies_to": "street fences/walls in secondary street setback area outside primary street setback area", "clause_ref": "C3.1 (Part B, new)"},
+    {"topic": "corner site secondary street fencing", "value": "50% permeable design; remainder max 2.0m", "unit": "% / m", "applies_to": "street corner sites, secondary street setback area behind primary street setback", "clause_ref": "C3.6.9"},
+    {"topic": "boundary fence maximum height", "value": "1.8", "unit": "m above natural ground level (highest side)", "applies_to": "boundary fences outside primary/secondary street setback areas (residential)", "clause_ref": "cl 4.1.1"},
+    {"topic": "attached screening material maximum additional height", "value": "500", "unit": "mm (printed as '500m' in source - evident typo)", "applies_to": "screening attached to boundary fences", "clause_ref": "cl 4.1.1"},
+    {"topic": "non-residential boundary fence maximum height", "value": "2.0 (abutting non-residential) / 1.8 (abutting residential)", "unit": "m", "applies_to": "boundary fences of non-residential properties outside street setback areas", "clause_ref": "cl 5.3.1"},
+    {"topic": "sightline truncation at vehicle accessways", "value": "1.5", "unit": "m clear of obstructions higher than 0.75m", "applies_to": "all fences abutting vehicle accessways (per R-Codes cl 5.2.5, noted in policy)", "clause_ref": "Part 2 introductory note / R-Codes cl 5.2.5"}
+  ],
+  "definitions": ["Heritage-protected place", "Prevailing Streetscape", "Primary street", "Secondary street", "Subject site"],
+  "cross_references": [
+    {"cited": "Residential Design Codes (R-Codes) Volume 1, Parts B & C", "manifest_id": "PC-001"},
+    {"cited": "Local Planning Policy 3.6 Heritage-protected Places Built Form and Land Use (LPP 3.6)", "manifest_id": "FRE-LPP-029"},
+    {"cited": "LPP 1.7: Development Exempt from Planning Approval", "manifest_id": "FRE-LPP-004"},
+    {"cited": "Local Planning Policy 2.9: Residential Streetscapes", "manifest_id": "FRE-LPP-018"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Australian Standard AS2890.2", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Clause 4.1.1 reads 'no more than an additional 500m high' - evidently a typo for 500mm carried from the source PDF",
+    "Two-column policy-provision tables in Part 3 are flattened in extraction (e.g. '5.2 Sightlines at vehicle / access points' split across lines) but content remains readable"
+  ]
+}

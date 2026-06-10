@@ -1,0 +1,35 @@
+{
+  "id": "FRE-LPP-019",
+  "normalized_title": "City of Fremantle Local Planning Policy 3.1 - Fremantle City Centre & Northern Gateway",
+  "instrument_no": "LPP 3.1",
+  "version_date": "2026-05-13",
+  "operative_status": "current",
+  "scope_summary": "Provides built form and design guidance for land within the Fremantle City Centre (Precinct 2) and Northern Gateway (Precincts 1 and 3) as mapped in Figure 1, read in conjunction with LPS4 Schedule 7 Local Planning Areas 1 and 2. Sets precinct vision and desired character statements, public realm provisions for primary/secondary streets and off-street pedestrian routes, view and legibility requirements, criteria for discretionary additional building height (including 5 Star Green Star ESD and public pedestrian links), and Precinct 3-specific setback, fencing and landscaping controls. Includes an appendix documenting precinct history and character.",
+  "key_numeric_standards": [
+    {"topic": "blank wall maximum width on street frontage", "value": "3", "unit": "m", "applies_to": "ground level residential frontages to primary streets (Precinct 1) and secondary street frontages", "clause_ref": "cl 1.2 Primary Streets (d); Secondary Streets (c)"},
+    {"topic": "front fence maximum height (public/private distinction)", "value": "750", "unit": "mm (visually permeable)", "applies_to": "ground level residential frontage to primary streets, Precinct 1", "clause_ref": "cl 1.2 Primary Streets (d)"},
+    {"topic": "floor level difference to street", "value": "up to 600", "unit": "mm", "applies_to": "alternative means of distinguishing private space at ground level residential frontage", "clause_ref": "cl 1.2 Primary Streets (d)"},
+    {"topic": "awning minimum projection - primary streets", "value": "2.4", "unit": "m horizontal over footpath", "applies_to": "weather protection along primary street non-residential frontages", "clause_ref": "cl 1.2 Primary Streets (f)"},
+    {"topic": "awning clear height - primary streets", "value": "3 to 3.5", "unit": "m above footpath", "applies_to": "awnings on primary street frontages", "clause_ref": "cl 1.2 Primary Streets (f)"},
+    {"topic": "awning minimum projection - secondary streets", "value": "2", "unit": "m horizontal over footpath", "applies_to": "weather protection adjoining retail/commercial/entertainment uses on secondary streets", "clause_ref": "cl 1.2 Secondary Streets (f)"},
+    {"topic": "awning clear height - secondary streets and off-street routes", "value": "2.75", "unit": "m above footpath", "applies_to": "awnings on secondary streets and major off-street pedestrian routes", "clause_ref": "cl 1.2 Secondary Streets (f); Major off-street routes (i)"},
+    {"topic": "off-street pedestrian link minimum width", "value": "5", "unit": "m", "applies_to": "required off-street pedestrian links where discretionary additional building height is sought", "clause_ref": "cl 1.4(b)"},
+    {"topic": "minimum Green Star rating for discretionary height", "value": "5", "unit": "stars (Green Star)", "applies_to": "developments seeking discretionary additional building height in LPS4 Planning Areas 1 and 2", "clause_ref": "cl 1.4(b)"},
+    {"topic": "fencing abutting Fremantle Park", "value": "min two-thirds visually permeable above 1.2m; max height 1.8m; piers max 2m", "unit": "m / proportion", "applies_to": "Precinct 3 development abutting Fremantle Park", "clause_ref": "cl 2.3(b)"},
+    {"topic": "ground floor level relative to park", "value": "max 600", "unit": "mm above adjacent public open space level", "applies_to": "Precinct 3 development fronting Fremantle Park", "clause_ref": "cl 2.3(d)"}
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No.4 (Schedule 7, Local Planning Areas 1 and 2)", "manifest_id": "FRE-SCH-001"},
+    {"cited": "Residential Design Codes (R-Codes) Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes (R-Codes) Volume 2", "manifest_id": "PC-002"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Green Building Council Australia Green Star rating tools", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Figures 1-5 (policy area, public realm, views/landmarks, discretionary-height sites, Precinct 3 controls) are maps/diagrams with no extractable text; several provisions depend on these figures and cannot be applied spatially from text alone",
+    "Appendix labels two different character areas both as 'Area E' (contemporary influence and Gold Boom mixed use influence) - apparent labelling error in the source document",
+    "Duplicate figure caption 'Figure 12 / Figure 18: Precinct 2 Character Areas' in the appendix"
+  ]
+}

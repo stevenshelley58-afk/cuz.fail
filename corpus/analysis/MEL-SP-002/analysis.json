@@ -1,0 +1,162 @@
+{
+  "id": "MEL-SP-002",
+  "normalized_title": "City of Melville Kardinya District Precinct Plan",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "Signed for and on behalf of the Western Australian Planning Commission:; ____________________________; ____________________________",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "1780",
+      "unit": "m\u00b2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "1930",
+      "unit": "m\u00b2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "1.5",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "18",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "This PSP applies to the Kardinya District Activity Centre an",
+      "value": "400",
+      "unit": "metre",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "Total Estimated Commercial Floorspace (Non-Residential) 42,3",
+      "value": "393",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "000",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\u2022 Sixth storey and above requires a minimum 5 metre setback ",
+      "value": "5",
+      "unit": "metre",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\u2013 Awnings being provided over adjacent roads or ROW along en",
+      "value": "2.5",
+      "unit": "metre",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\u2022 A minimum 2 metre building setback is required to Gilberts",
+      "value": "2",
+      "unit": "metre",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "R-Codes Volume 1",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes Volume 1",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes Volume 2",
+      "manifest_id": "PC-002"
+    },
+    {
+      "cited": "State Planning Policy 7.3",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "SPP 7.3",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "State Planning Framework",
+      "manifest_id": "SPP-001"
+    },
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "the Act",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Building Code of Australia",
+      "manifest_id": "NCC-001"
+    },
+    {
+      "cited": "Metropolitan Region Scheme",
+      "manifest_id": "RS-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 6",
+      "manifest_id": "MEL-SCH-001"
+    },
+    {
+      "cited": "LPS6",
+      "manifest_id": "MEL-SCH-001"
+    },
+    {
+      "cited": "Liveable Neighbourhoods",
+      "manifest_id": "DC-009"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": [
+    "extreme token lengths suggest column interleaving"
+  ]
+}

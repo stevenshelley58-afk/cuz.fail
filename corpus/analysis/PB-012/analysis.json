@@ -1,0 +1,28 @@
+{
+  "id": "PB-012",
+  "normalized_title": "Planning Bulletin 97 Street Tree and Utility Planning Amendments to Liveable Neighbourhoods",
+  "instrument_no": "PB 97",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "Neighbourhoodshavebecomemore toroad andvergereservesin; clausesinLiveableNeighbourhoods; Moreinformationregardingthe",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "1",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Liveable Neighbourhoods",
+      "manifest_id": "DC-009"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": [
+    "extreme token lengths suggest column interleaving"
+  ]
+}

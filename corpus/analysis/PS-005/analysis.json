@@ -1,0 +1,54 @@
+{
+  "id": "PS-005",
+  "normalized_title": "Position Statement: Special Residential Zone",
+  "instrument_no": null,
+  "version_date": "May 2021 (published May 2021)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement announcing the intent to discontinue the Special Residential zone in local planning schemes and providing interim guidance for subdivision, use and development on land already zoned Special Residential. It applies to land zoned special residential under a local planning scheme anywhere in WA. The WAPC will not support rezoning land to special residential; on scheme review such land is to be recoded to an alternative zone (e.g. Residential at R2, R2.5 or R5), and structure plan/subdivision assessment criteria cover lot size, servicing, roads, open space, bushfire and drainage.",
+  "key_numeric_standards": [
+    {
+      "topic": "lot size range",
+      "value": "2,000-10,000",
+      "unit": "m2",
+      "applies_to": "lots within existing special residential zones (structure plan / subdivision layout)",
+      "clause_ref": "cl 5.2.1(a)"
+    },
+    {
+      "topic": "replacement density coding",
+      "value": "R2, R2.5 or R5",
+      "unit": "R-Codes density code",
+      "applies_to": "land currently zoned special residential when rezoned on scheme review",
+      "clause_ref": "cl 5.1"
+    },
+    {
+      "topic": "public open space contribution",
+      "value": "generally not requested",
+      "unit": "n/a",
+      "applies_to": "subdivision in special residential zones (due to larger lot sizes)",
+      "clause_ref": "cl 5.2.4(a)"
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "State Planning Policy 2.4: Basic Raw Materials", "manifest_id": "SPP-003"},
+    {"cited": "State Planning Policy 2.5: Rural Planning", "manifest_id": "SPP-004"},
+    {"cited": "State Planning Policy 3: Urban Growth and Settlement", "manifest_id": "SPP-008"},
+    {"cited": "State Planning Policy 7.3: Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 3.7 Planning in Bushfire Prone Areas", "manifest_id": "SPP-013"},
+    {"cited": "Operational Policy 1.1 Subdivision of land - general principles", "manifest_id": "DC-001"},
+    {"cited": "Operational Policy 1.7 General road planning", "manifest_id": "DC-005"},
+    {"cited": "Operational Policy 2.2 Residential subdivision", "manifest_id": "DC-009"},
+    {"cited": "Operational Policy 2.3 Public open space in residential areas", "manifest_id": null},
+    {"cited": "Operational Policy 5.1 Regional roads (vehicular access)", "manifest_id": "DC-015"},
+    {"cited": "Guidelines for Planning in Bushfire Prone Areas", "manifest_id": null},
+    {"cited": "Government Sewerage Policy (2019)", "manifest_id": null},
+    {"cited": "Better Urban Water Management (WAPC 2008)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "multi-column PDF extraction interleaves columns, scrambling sentence order (e.g. cl 5.2.6 continuation appears before its start)",
+    "summary.json title is garbled ('Department of Planning,') - publisher header captured instead of instrument title",
+    "manifest instrument_name uses plural 'Zones'; document title is singular 'Special Residential Zone'"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "SPP-009",
+  "normalized_title": "State Planning Policy 3.2 Aboriginal Settlements",
+  "instrument_no": "SPP 3.2",
+  "version_date": "Gazetted 11 May 2011 (Government Gazette No. 77); revokes SPP 3.2 Planning for Aboriginal Communities gazetted 11 August 2000",
+  "operative_status": "current",
+  "scope_summary": "State Planning Policy made under Part 3 of the Planning and Development Act 2005 providing for the recognition and orderly, coordinated development of Aboriginal settlements throughout Western Australia, primarily in remote regions. Its core mechanism is the WAPC-endorsed Layout Plan (map-set, background report and provisions) prepared in consultation with resident communities, traditional owners and local government, with local planning schemes to classify endorsed settlement areas as a 'settlement' zone. It does not apply to mining camps, tourism sites or working pastoral settlements.",
+  "key_numeric_standards": [
+    {"topic": "Aboriginal settlement definition threshold", "value": "5", "unit": "domestic dwellings (minimum)", "applies_to": "place qualifying as an Aboriginal settlement under the policy", "clause_ref": "Attachment 1 - Definitions"}
+  ],
+  "definitions": [
+    "Aboriginal community",
+    "Aboriginal settlement",
+    "Infrastructure",
+    "Layout plan",
+    "Essential services",
+    "Drinking water source protection plan",
+    "Remote regions",
+    "Remote road house",
+    "Resident community",
+    "Traditional owners"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "State Planning Policy 3 Urban Growth and Settlement", "manifest_id": "SPP-008"},
+    {"cited": "State Planning Policy 1 State Planning Framework Policy", "manifest_id": "SPP-001"},
+    {"cited": "State Planning Policy No. 2.7 Public Drinking Water Source Policy", "manifest_id": null},
+    {"cited": "State Planning Policy 3.2 Planning for Aboriginal Communities (2000, revoked)", "manifest_id": null},
+    {"cited": "State Planning Strategy", "manifest_id": null},
+    {"cited": "Aboriginal Communities Act 1979", "manifest_id": null},
+    {"cited": "Aboriginal Affairs Planning Authority Act 1972", "manifest_id": null},
+    {"cited": "Corporations (Aboriginal and Torres Strait Islander) Act 2006", "manifest_id": null},
+    {"cited": "Native Title Act 1993", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "summary.json title field captured gazette barcode string '!201100077GG!' instead of the instrument title",
+    "summary.json version_date '11 August 2000' is incorrect - that is the gazettal date of the revoked predecessor policy; this document was gazetted 11 May 2011",
+    "gazette page headers interleaved in text; policy text otherwise complete including Attachment 1 definitions"
+  ]
+}

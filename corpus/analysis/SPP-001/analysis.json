@@ -1,0 +1,37 @@
+{
+  "id": "SPP-001",
+  "normalized_title": "State Planning Policy 1 - State Planning Framework",
+  "instrument_no": "SPP 1",
+  "version_date": "November 2017",
+  "operative_status": "current",
+  "scope_summary": "The overarching State Planning Policy made under section 26 of the Planning and Development Act 2005, applying to all land in Western Australia. It establishes the Western Australian Planning Framework, classifying all current WAPC instruments (State Planning Policies, regional and sub-regional strategies, operational policies, position statements and guidelines) and requiring the Commission and local governments to have due regard to them in scheme-making and decision-making. It contains no development standards itself; it sets the hierarchy and general principles for land use planning and development.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "State Planning Strategy 2050", "manifest_id": "SPP-001"},
+    {"cited": "Statement of Planning Policy No. 1 (Variation No. 2) (superseded, Gazette No. 25 of 3 February 2006)", "manifest_id": null},
+    {"cited": "3.1 Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "2.5 Rural Planning", "manifest_id": "SPP-004"},
+    {"cited": "3.0 Urban Growth and Settlement", "manifest_id": "SPP-008"},
+    {"cited": "3.5 Historic Heritage Conservation", "manifest_id": "SPP-011"},
+    {"cited": "3.6 Development Contributions for Infrastructure", "manifest_id": "SPP-012"},
+    {"cited": "4.1 Industrial Interface (Draft)", "manifest_id": "SPP-014"},
+    {"cited": "4.2 Activity Centres for Perth and Peel", "manifest_id": "SPP-015"},
+    {"cited": "6.1 Leeuwin-Naturaliste Ridge", "manifest_id": "SPP-020"},
+    {"cited": "6.3 Ningaloo Coast", "manifest_id": "SPP-021"},
+    {"cited": "7.0 Design of the Built Environment (Draft)", "manifest_id": "SPP-022"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"},
+    {"cited": "Subdivision of Rural Land (DCP 3.4)", "manifest_id": "DC-012"},
+    {"cited": "Advertising on Reserved Land (DCP 5.4)", "manifest_id": "DC-017"},
+    {"cited": "Peel Region Scheme", "manifest_id": "RS-002"},
+    {"cited": "Greater Bunbury Region Scheme", "manifest_id": "RS-003"},
+    {"cited": "Government Sewerage Policy", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "two-column PDF extraction interleaves columns in places; Tables 1-5 (instrument lists) are heavily garbled (e.g. 'D (D e r v a e ft lo R p e m vi e s n ed t')",
+    "summary.json title is wrong ('Department of Planning,' - publisher line captured instead of the policy title)",
+    "manifest expected_version_hint is '2021' but the document states Published November 2017; the 2021 in the canonical URL is the wa.gov.au upload date, not a policy version"
+  ]
+}

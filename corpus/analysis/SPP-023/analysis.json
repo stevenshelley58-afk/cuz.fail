@@ -1,0 +1,29 @@
+{
+  "id": "SPP-023",
+  "normalized_title": "State Planning Policy 7.2 Precinct Design",
+  "instrument_no": "SPP 7.2",
+  "version_date": "Gazetted 19 February 2021 (Version 1 published December 2020)",
+  "operative_status": "current",
+  "scope_summary": "State Planning Policy made under Part 3 of the Planning and Development Act 2005 guiding the design, planning, assessment and implementation of precinct structure plans, local development plans, and subdivision and development applications in areas identified as precincts (activity centres, station precincts, urban corridors, higher-density residential/mixed-use and other WAPC-identified areas) throughout Western Australia. It sets objectives, ten policy outcomes aligned with the SPP 7.0 Design Principles, and measures for strategic planning, planning proposals, exemptions and design review, and is to be read with the SPP 7.2 Precinct Design Guidelines.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "precinct (s4.1: areas requiring a higher level of planning and design focus due to complexity)",
+    "precinct structure plan (s7.2)",
+    "local development plan (s7.2)",
+    "subdivision and development (s7.2: consistency with endorsed precinct structure plan or local development plan)"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "State Planning Policy 7.0 Design of the Built Environment (WAPC, 2019)", "manifest_id": "SPP-022"},
+    {"cited": "draft SPP 4.2 Activity Centres (WAPC, 2020)", "manifest_id": "SPP-015"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "SPP 7.2 Precinct Design Guidelines", "manifest_id": null},
+    {"cited": "Design Review Guide (WAPC, 2019)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "summary.json title truncated to 'STATE PLANNING' (cover page split across lines); actual instrument confirmed as SPP 7.2",
+    "two-column layout interleaving in places (e.g. s7.1/7.3 measures merged on the same lines), text recoverable",
+    "principles/outcomes-based policy: contains no measurable numeric development standards; detailed criteria sit in the separate Precinct Design Guidelines (not in this document)"
+  ]
+}

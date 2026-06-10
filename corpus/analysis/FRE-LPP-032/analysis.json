@@ -1,0 +1,94 @@
+{
+  "id": "FRE-LPP-032",
+  "normalized_title": "City of Fremantle LPP 3.8 | Local Planning Area 8 \u2013 O\u2019Connor 513.0 KB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "May be reduced to 7% where a Regulated Tree is; outside of Primary Regional Roads Reserves; 1.5 Shade trees in car parking areas* 1 per 4 car bays provided and co-located with car; 1.5 Shade trees in car parking areas* 1 per 4 car bays provided and co-located with car; Tree Indicative Nominal DSA Min.",
+  "key_numeric_standards": [
+    {
+      "topic": "1.3 Landscaping distribution Distributed in areas not less t",
+      "value": "4",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "1.4 Shade trees in landscaping areas* 1 per 50m2 of minimum ",
+      "value": "50",
+      "unit": "m2",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "range",
+      "value": "2-6",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "range",
+      "value": "6-9",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "9",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "11",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "7",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "6",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "3",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "LPS4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

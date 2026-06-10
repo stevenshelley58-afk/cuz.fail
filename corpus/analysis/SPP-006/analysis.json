@@ -1,0 +1,50 @@
+{
+  "id": "SPP-006",
+  "normalized_title": "State Planning Policy 2.8 - Bushland Policy for the Perth Metropolitan Region",
+  "instrument_no": "SPP 2.8",
+  "version_date": "Gazetted 22 June 2010",
+  "operative_status": "current",
+  "scope_summary": "Provides the policy and implementation framework for protecting and managing regionally significant bushland (Bush Forever areas, established through MRS Amendment 1082/33) and local bushland within the Perth Metropolitan Region. It sets impact assessment processes and criteria for proposals affecting Bush Forever areas, retention benchmarks for negotiated planning solutions, best-practice criteria for rural-living subdivision on Bush Forever rural lands, and offset criteria. It applies to planning proposals and decision-making by the WAPC and local governments, supplementing SPP 2 Environment and Natural Resources Policy.",
+  "key_numeric_standards": [
+    {"topic": "regional bushland protection target", "value": "10", "unit": "% of original extent", "applies_to": "each vegetation complex within the Perth Metropolitan Region portion of the Swan Coastal Plain (Bush Forever target)", "clause_ref": "s2.4 and footnote 1"},
+    {"topic": "bushland retention benchmark (negotiated planning solution)", "value": "30", "unit": "% (generally not less than)", "applies_to": "urban/industrial zoned land in Bush Forever areas developed via stand-alone negotiated planning solutions", "clause_ref": "s5.1.2.2(ii)"},
+    {"topic": "bushland retention benchmark (rural-living subdivision)", "value": "90", "unit": "% (generally not less than)", "applies_to": "rural-living subdivision for conservation in Bush Forever areas (rural lands)", "clause_ref": "Appendix 3"},
+    {"topic": "public open space contribution interaction", "value": "10", "unit": "% POS", "applies_to": "conservation areas set aside over and above the normal 10% public open space contribution and excluded from the developable area used to calculate it", "clause_ref": "s5.1.2.2(vii)"},
+    {"topic": "bush block lot size", "value": "10", "unit": "ha (generally over)", "applies_to": "large bush blocks created through rural-living subdivision for conservation", "clause_ref": "Appendix 3"}
+  ],
+  "definitions": [
+    "Adverse impact",
+    "Bushland",
+    "Bush Forever areas",
+    "Bush Forever reserves (site implementation category)",
+    "Bush Forever sites",
+    "Decision-making bodies",
+    "Government lands or public infrastructure (site implementation category)",
+    "Improved environmental outcome",
+    "Local bushland strategies",
+    "Management plans (bushland management plans / environmental management plans)",
+    "Mitigate",
+    "Natural Areas",
+    "Offsets"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005 (s26)", "manifest_id": "LEG-001"},
+    {"cited": "Metropolitan Region Scheme (Amendment 1082/33)", "manifest_id": "RS-001"},
+    {"cited": "State Planning Policy 2: Environment and Natural Resources Policy", "manifest_id": "SPP-002"},
+    {"cited": "State Planning Policy 2.4: Basic Raw Materials", "manifest_id": "SPP-003"},
+    {"cited": "Environmental Protection Act 1986 (Part 9 clearing controls)", "manifest_id": "LEG-005"},
+    {"cited": "Environmental Protection (Clearing of Native Vegetation) Regulations 2004", "manifest_id": null},
+    {"cited": "Environmental Protection (Environmentally Sensitive Areas) Notice 2005", "manifest_id": null},
+    {"cited": "Planning Bulletin 69", "manifest_id": null},
+    {"cited": "Bush Forever (Government of Western Australia 2000)", "manifest_id": null},
+    {"cited": "Mining Act 1978", "manifest_id": null},
+    {"cited": "Environment Protection and Biodiversity Conservation Act 1999", "manifest_id": null},
+    {"cited": "Urban Bushland Strategy (1995)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "extracted from the gazette version: gazette page headers ('22 June 2010 GOVERNMENT GAZETTE, WA ...') are interleaved through the text",
+    "summary.json title is 'PLANNING AND DEVELOPMENT ACT 2005' (enabling-act header) rather than the policy title",
+    "Map 1 (Bush Forever areas) is a drawing - little extractable text for the map, as expected"
+  ]
+}

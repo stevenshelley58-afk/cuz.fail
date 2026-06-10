@@ -1,0 +1,41 @@
+{
+  "id": "LEG-003",
+  "normalized_title": "Building Regulations 2012 (WA)",
+  "instrument_no": null,
+  "version_date": "2026-06-10",
+  "operative_status": "current",
+  "scope_summary": "Subsidiary legislation under the Building Act 2011 prescribing the operational detail of WA's building control system: applications for building and demolition permits, certificates of design compliance, applicable building standards (adopting the Building Code / NCC with WA modifications, including bush fire prone area and swimming pool barrier standards), occupancy permits, fees, and infringement notices. Part 8 imposes retrospective requirements on existing buildings, notably private swimming pool barriers (Division 2) and smoke alarms prior to transfer, rent or hire of dwellings (Division 3). Schedule 4 lists building work exempt from a building permit. Applies state-wide in Western Australia.",
+  "key_numeric_standards": [
+    {"topic": "permit-exempt freestanding Class 10a building (shed) - max floor area", "value": "10", "unit": "m2", "applies_to": "freestanding Class 10a building not in wind region C or D", "clause_ref": "Sch. 4 cl. 2 Table item 1(a)"},
+    {"topic": "permit-exempt freestanding Class 10a building (shed) - max height", "value": "2.4", "unit": "m", "applies_to": "freestanding Class 10a building not in wind region C or D", "clause_ref": "Sch. 4 cl. 2 Table item 1(b)"},
+    {"topic": "permit-exempt masonry fence - max height", "value": "0.75", "unit": "m", "applies_to": "masonry fence/screen where no local fencing local law applies, not wind region C or D", "clause_ref": "Sch. 4 cl. 2 Table item 4(b)(i)"},
+    {"topic": "permit-exempt non-masonry fence - max height", "value": "1.8", "unit": "m", "applies_to": "fence/screen of material other than masonry where no local fencing local law applies, not wind region C or D", "clause_ref": "Sch. 4 cl. 2 Table item 4(b)(ii)"},
+    {"topic": "permit-exempt mast/antenna attached to building - max height above attachment", "value": "2", "unit": "m", "applies_to": "mast, antenna or similar structure attached to a building", "clause_ref": "Sch. 4 cl. 2 Table item 5(b)(i)"},
+    {"topic": "permit-exempt freestanding mast/antenna - max height", "value": "3", "unit": "m", "applies_to": "mast, antenna or similar structure not attached to a building", "clause_ref": "Sch. 4 cl. 2 Table item 5(c)"},
+    {"topic": "permit-exempt retaining wall - max retained ground height", "value": "0.5", "unit": "m", "applies_to": "retaining wall not associated with other building work or protection of adjoining land", "clause_ref": "Sch. 4 cl. 2 Table item 6(a)"},
+    {"topic": "permit-exempt pergola - max height", "value": "2.4", "unit": "m", "applies_to": "pergola associated with a Class 1 building, not wind region C or D", "clause_ref": "Sch. 4 cl. 2 Table item 7(a)"},
+    {"topic": "permit-exempt pergola - max covered area", "value": "20", "unit": "m2", "applies_to": "pergola associated with a Class 1 building", "clause_ref": "Sch. 4 cl. 2 Table item 7(c)"},
+    {"topic": "permit-exempt water storage tank - max capacity", "value": "5000", "unit": "L", "applies_to": "water storage tank", "clause_ref": "Sch. 4 cl. 2 Table item 8"},
+    {"topic": "smoke alarm - maximum age", "value": "10", "unit": "years", "applies_to": "smoke alarms in dwellings (Class 1, unit in Class 2, Class 4) required prior to transfer, rent or hire", "clause_ref": "Pt 8 Div 3 (r. 56-62)"},
+    {"topic": "10 year life battery for smoke alarms - minimum life", "value": "10", "unit": "years", "applies_to": "battery-powered smoke alarms permitted in lieu of mains-powered in defined cases", "clause_ref": "r. 55(1)"}
+  ],
+  "definitions": ["Building Code", "building work", "estimated value", "performance requirement", "performance solution", "pergola", "private swimming pool", "pre-May 2016 private swimming pool", "swimming pool", "dwelling", "10 year life battery", "approved alternative building solution", "declaration of intended demolition", "residential tenancy agreement", "short-term rental accommodation", "sole-occupancy unit", "permit authority", "owner", "AS 1926.1-2012", "relevant edition of the Building Code"],
+  "cross_references": [
+    {"cited": "Building Act 2011", "manifest_id": "LEG-002"},
+    {"cited": "Building Code (Building Code of Australia / National Construction Code)", "manifest_id": "NCC-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Strata Titles Act 1985", "manifest_id": "LEG-004"},
+    {"cited": "Heritage Act 2018", "manifest_id": "LEG-007"},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Local Government (Uniform Local Provisions) Regulations 1996", "manifest_id": null},
+    {"cited": "AS 1926.1-2012 (Swimming pool safety - safety barriers)", "manifest_id": null},
+    {"cited": "AS 1170.2 (wind regions)", "manifest_id": null},
+    {"cited": "Caravan Parks and Camping Grounds Act 1995", "manifest_id": null},
+    {"cited": "Short-Term Rental Accommodation Act 2024", "manifest_id": null},
+    {"cited": "Residential Tenancies Act 1987", "manifest_id": null},
+    {"cited": "Electricity (Licensing) Regulations 1991", "manifest_id": null},
+    {"cited": "Work Health and Safety Act 2020", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": ["minor encoding artifacts (Â© mojibake) in copyright footer lines", "repeated page header/footer lines interleaved in body text (standard WA legislation PDF extraction)"]
+}

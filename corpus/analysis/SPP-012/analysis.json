@@ -1,0 +1,42 @@
+{
+  "id": "SPP-012",
+  "normalized_title": "State Planning Policy 3.6 Infrastructure Contributions",
+  "instrument_no": "SPP 3.6",
+  "version_date": "April 2021 (published April 2021; supersedes SPP 3.6 Development Contributions for Infrastructure 2009)",
+  "operative_status": "current",
+  "scope_summary": "State Planning Policy made under Part 3 of the Planning and Development Act 2005 setting the principles and requirements for levying infrastructure contributions from developers and landowners in new and established areas across Western Australia. It distinguishes Development Infrastructure (standard contributions imposed through subdivision/development conditions, Schedule 1) from Community Infrastructure (capped contributions levied through a Development Contribution Plan, Schedule 2), and prescribes DCP preparation, scheme incorporation, cost apportionment, indexation, credits, annual reporting, dispute resolution and closure requirements. It primarily affects subdivision and development of growth areas rather than the design assessment of individual dwellings.",
+  "key_numeric_standards": [
+    {"topic": "public open space contribution", "value": "10", "unit": "% of gross subdivisible area (or cash-in-lieu)", "applies_to": "land for public open space (local and district) at subdivision", "clause_ref": "Schedule 1, Item 1"},
+    {"topic": "community infrastructure contribution cap", "value": "5000", "unit": "$ per dwelling (maximum levy)", "applies_to": "local governments seeking contributions for capital cost of community infrastructure via a DCP", "clause_ref": "cl 6.6(b)"},
+    {"topic": "restricted public open space allowance for wetlands", "value": "2", "unit": "% (allowable restricted public open space)", "applies_to": "wetland land credited as part of public open space where useable for recreation", "clause_ref": "Schedule 1, Item 5"},
+    {"topic": "maximum DCP lifespan", "value": "10", "unit": "years (up to 15 years in limited circumstances for community infrastructure)", "applies_to": "Development Contribution Plans", "clause_ref": "cl 6.10.6 / Schedule 3"},
+    {"topic": "policy review period", "value": "5", "unit": "years from gazettal", "applies_to": "review of SPP 3.6 including community infrastructure caps", "clause_ref": "cl 7"},
+    {"topic": "objection period for cost contribution", "value": "28", "unit": "days notice (supporting evidence within 42 days)", "applies_to": "landowner objecting to a cost contribution amount", "clause_ref": "cl 6.10.13"}
+  ],
+  "definitions": [
+    "Development Contribution Plan (DCP)",
+    "Development Contribution Area (DCA)",
+    "Development Contribution Fund (DCF)",
+    "Cost Apportionment Schedule (CAS)",
+    "Capital Expenditure Plan (CEP)",
+    "Development Infrastructure",
+    "Community Infrastructure"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Infrastructure Contributions Guidelines", "manifest_id": null},
+    {"cited": "Commercial Arbitration Act 1985", "manifest_id": null},
+    {"cited": "WAPC Operational Policy for School Site Planning", "manifest_id": null},
+    {"cited": "SPP 3.6 (2009) (predecessor policy)", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "two-column PDF layout extracted with interleaved reading order in places (table of contents and side-by-side sections merge mid-sentence)",
+    "summary.json title field captured 'Department of Planning,' (publisher block) instead of the instrument title",
+    "exact gazettal day not stated in extracted text - only 'April 2021' publication date is visible",
+    "minor OCR/typo artifacts retained from source (e.g. 'State of Western Australian', 'Clause 6.9.19' which does not exist - likely meaning 6.10.19)"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "MEL-LPP-013",
+  "normalized_title": "City of Melville Local Planning Policy 1.16 - Flood and Security Lighting",
+  "instrument_no": "LPP 1.16",
+  "version_date": "2016-09-20",
+  "operative_status": "current",
+  "scope_summary": "Controls the amenity impacts of outdoor flood and security lighting on adjoining properties throughout the City of Melville. Sets the conditions under which planning approval is not required (compliance with AS 4282, light contained within the lot, night-time timer adjacent to residential properties) on both private property and City-controlled land, and requires planning approval for floodlight towers on reserves assessed against AS 2560. Does not apply to tennis court lighting, which is governed by LPP 3.4.",
+  "key_numeric_standards": [
+    {"topic": "flood lighting curfew timer", "value": "9pm to 6am", "unit": "hours off per day", "applies_to": "flood lighting on a property adjoining a residential property", "clause_ref": "Policy Statement (1)(b) and (2)(b)"}
+  ],
+  "definitions": ["Flood Lighting", "Security Lighting", "Suitably Qualified Lighting Consultant"],
+  "cross_references": [
+    {"cited": "Local Planning Policy LPP3.4 Tennis Courts", "manifest_id": "MEL-LPP-023"},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "AS 4282 - Control of the Obtrusive Effects of Outdoor Lighting", "manifest_id": null},
+    {"cited": "AS 2560 - Sports Lighting", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": ["source typo: 'A broad bean of artificial light' in Security Lighting definition (should be 'beam'); appears to be in the original document, not an extraction artifact", "policy dated 2016 and predates current terminology ('planning approval' rather than 'development approval')"]
+}

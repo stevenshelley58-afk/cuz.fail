@@ -1,0 +1,107 @@
+{
+  "id": "JOO-LPP-001",
+  "normalized_title": "City of Joondalup Advertisements Local Planning Policy",
+  "instrument_no": "LPP",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "xii. a formal request is received, and a letter is issued from the City approving the; A banner sign is a temporary sign normally made of a; In determining the size of a sign, the measurements are taken as the greatest horizontal dimension; Australia Policy and Application Guidelines for Advertising Signs Within and Beyond State",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "1",
+      "unit": "metre",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "display home sign \u2022 Located at least 15 metres from the inte",
+      "value": "15",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "1.5",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2.75",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "0.4",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2.4",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "1",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "4",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "5",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "1.2",
+      "unit": "metre",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "6",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

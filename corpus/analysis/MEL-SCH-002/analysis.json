@@ -1,0 +1,42 @@
+{
+  "id": "MEL-SCH-002",
+  "normalized_title": "City of Melville Local Planning Strategy",
+  "instrument_no": null,
+  "version_date": "February 2016; Version 1 endorsed by WAPC with modifications April 2016",
+  "operative_status": "current",
+  "scope_summary": "Strategic land-use planning framework for the City of Melville, prepared in conjunction with Local Planning Scheme No. 6 and providing the strategic basis for that scheme over the period 2012-2031 and beyond. Part 1 sets the vision, planning objectives, strategies/actions and Strategic Development Areas (including activity centres, transit corridors and Canning Bridge); Part 2 contains background information and analysis of the state, regional and local planning context. It guides where residential intensification, activity centres, open space, transport and infrastructure change should occur but does not itself contain development assessment standards.",
+  "key_numeric_standards": [
+    {"topic": "average minimum residential density - Booragoon Secondary Centre", "value": "R35", "unit": "R-Code density", "applies_to": "Booragoon Secondary Centre activity centre area", "clause_ref": "Part 1 s 3.3 (Retail and commercial centres)"},
+    {"topic": "average minimum residential density - District Centres", "value": "R30", "unit": "R-Code density", "applies_to": "District Centres in the City of Melville", "clause_ref": "Part 1 s 3.3 (Retail and commercial centres)"},
+    {"topic": "residential density target near secondary centres", "value": "35", "unit": "dwellings per gross hectare", "applies_to": "land within 400 m of secondary centres (SPP 4.2 target restated)", "clause_ref": "Part 1 s 3.3 / s 5.1"},
+    {"topic": "residential density target near district centres", "value": "30", "unit": "dwellings per gross hectare", "applies_to": "land within 400 m of district centres (state policy target restated)", "clause_ref": "Part 1 s 5.1"},
+    {"topic": "residential density target near train stations", "value": "25 (minimum)", "unit": "dwellings per hectare", "applies_to": "land within 800 m of train stations (state policy target restated)", "clause_ref": "Part 1 s 5.1"},
+    {"topic": "non-retail floorspace proportion target", "value": "20-50", "unit": "% of total centre floorspace", "applies_to": "secondary centres", "clause_ref": "Part 1 s 3.3"}
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 3.1 Residential Design Codes (2010)", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 4.2 Activity Centres for Perth and Peel", "manifest_id": "SPP-015"},
+    {"cited": "State Planning Policy 3.6 Development Contributions for Infrastructure", "manifest_id": "SPP-012"},
+    {"cited": "State Planning Policy 5.4 Road and Rail Noise and Freight Considerations in Land Use Planning", "manifest_id": "SPP-019"},
+    {"cited": "State Planning Policy 2.10 Swan-Canning River System", "manifest_id": null},
+    {"cited": "State Planning Strategy", "manifest_id": "SPP-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Environmental Protection Act 1986", "manifest_id": "LEG-005"},
+    {"cited": "Building Code of Australia", "manifest_id": "NCC-001"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"},
+    {"cited": "Development Control Policy 1.6 (Planning to Support Transit Use and Development)", "manifest_id": "DC-004"},
+    {"cited": "Canning Bridge Activity Centre Plan", "manifest_id": "MEL-SP-001"},
+    {"cited": "Planning Bulletin 64/2009", "manifest_id": null},
+    {"cited": "Planning Bulletin 83", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Document dated February 2016; only version-control evidence in text is the single line 'Version 1 April 2016 Endorsed by WAPC with modifications' - no later consolidation markers found, so currency should be confirmed against the City of Melville website",
+    "Table of contents dot leaders and repeated page headers/footers are interleaved in the extracted text (cosmetic only)",
+    "Strategy cites the superseded SPP 3.1 R-Codes naming (2010-era policy framework), reflecting its 2016 drafting date"
+  ]
+}

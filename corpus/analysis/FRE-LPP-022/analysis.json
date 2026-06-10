@@ -1,0 +1,123 @@
+{
+  "id": "FRE-LPP-022",
+  "normalized_title": "City of Fremantle LPP 3.16 | Burt Street 2.5 MB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "LOCAL PLANNING POLICY 3.16; Under the provisions of the Planning and Development (Local Planning Schemes); contain provisions that amend or replace specific deemed-to-comply provisions.; This policy applies to the land bound by Skinner Street, Burt Street, East Street and; Deep soil area: Soft landscape area on lot with no impeding building structure or",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "37.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "40.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "42.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "1) Height plane is measured at an angle of 22.5 degrees abov",
+      "value": "28.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "5.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "\u2022 The length of buildings fronting Vale Street must be no gr",
+      "value": "40",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "incorporate complete breaks between buildings of a minimum o",
+      "value": "6",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "3",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "(iv) have a trunk with a diameter of 100mm or more, 1m from ",
+      "value": "100",
+      "unit": "mm",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "(v) have two or more trunks and the sum of their individual ",
+      "value": "1",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "200",
+      "unit": "mm",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2.0",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "R Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "LPS4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

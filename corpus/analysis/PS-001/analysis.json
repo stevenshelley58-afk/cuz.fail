@@ -1,0 +1,26 @@
+{
+  "id": "PS-001",
+  "normalized_title": "WAPC Position Statement: Purpose-built Student Accommodation",
+  "instrument_no": null,
+  "version_date": "March 2026 (publication date 30/3/2026; operational date 30/3/2026)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement providing outcomes-based guidance for the planning, design and assessment of multi-storey purpose-built student accommodation (PBSA) across Western Australia. It directs how PBSA should be addressed in local planning strategies and schemes, proposes a new interim 'Purpose-built student accommodation' land use definition (because multi-storey PBSA does not meet the R-Codes 'multiple dwellings' definition), and sets development assessment outcomes for location, context and character, landscape, built form, functionality, sustainability, amenity, legibility, community, safety and wellbeing, movement and access, and adaptive reuse. It deliberately prescribes outcomes rather than numeric criteria.",
+  "key_numeric_standards": [
+    {"topic": "minimum tenure forming part of the interim PBSA land use definition (principal place of residence)", "value": "3", "unit": "months", "applies_to": "purpose-built student accommodation occupants", "clause_ref": "s 5.2.2"}
+  ],
+  "definitions": [
+    "Purpose-built student accommodation (proposed interim land use definition)"
+  ],
+  "cross_references": [
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 7.0 Design of the Built Environment", "manifest_id": "SPP-022"},
+    {"cited": "Perth and Peel Urban Greening Strategy", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "multi-column layout extracted with significant column interleaving - section text from adjacent columns is merged (e.g. sections 4, 5.1 and 5.2 run together on page 2)",
+    "front-page disclaimer/contact block partly interleaved",
+    "source typo carried through: 'details::' (double colon) in s 5.1.1; 'day-today' for 'day-to-day' in s 5.3.5",
+    "policy is outcomes-based by design; almost no prescriptive numeric standards to extract"
+  ]
+}

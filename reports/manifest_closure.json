@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-06-10T00:26:55Z",
+  "total_rows": 180,
+  "by_status": {
+    "extracted": 169,
+    "blocked": 3,
+    "metadata_only": 3,
+    "out_of_scope": 5
+  },
+  "by_category": {
+    "planning_code": {
+      "extracted": 4
+    },
+    "SPP": {
+      "extracted": 23,
+      "out_of_scope": 5,
+      "blocked": 1
+    },
+    "DC": {
+      "extracted": 17,
+      "blocked": 1
+    },
+    "position_statement": {
+      "extracted": 11
+    },
+    "planning_bulletin": {
+      "extracted": 13
+    },
+    "legislation": {
+      "extracted": 10
+    },
+    "region_scheme": {
+      "extracted": 3
+    },
+    "scheme": {
+      "extracted": 3
+    },
+    "strategy": {
+      "extracted": 1
+    },
+    "scheme_map": {
+      "extracted": 8
+    },
+    "LPP": {
+      "extracted": 69,
+      "blocked": 1
+    },
+    "structure_plan": {
+      "extracted": 7
+    },
+    "building_code": {
+      "metadata_only": 3
+    }
+  },
+  "alias_count": 70,
+  "alias_targets": 36,
+  "orphan_alias_targets": [],
+  "blank_canonical_urls": [],
+  "closure_ok": true
+}

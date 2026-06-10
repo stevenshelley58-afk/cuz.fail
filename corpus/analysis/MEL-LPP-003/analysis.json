@@ -1,0 +1,46 @@
+{
+  "id": "MEL-LPP-003",
+  "normalized_title": "City of Melville Local Planning Policy 1.3 - Waste, Recycling and Food Organics Garden Organics (FOGO) Collections for Multiple Dwellings, Mixed Use Developments and Non-Residential Developments",
+  "instrument_no": "LPP 1.3",
+  "version_date": "2023-02-21",
+  "operative_status": "current",
+  "scope_summary": "Local planning policy regulating waste, recycling and FOGO collection design for multiple dwellings, mixed use developments and non-residential developments in the City of Melville. Every planning application for these development types must be accompanied by a Waste Management Plan, and developments must incorporate bin storage sized using prescribed waste-generation rates, bin compound construction standards, and on-site or on-street collection requirements including truck access geometry. Includes a pro-forma Waste Management Plan template as an appendix.",
+  "key_numeric_standards": [
+    {"topic": "waste generation rate - 3+ bedroom dwelling", "value": "70 waste / 120 recycling / 30 FOGO", "unit": "L/week", "applies_to": "multiple dwellings (per dwelling, 3 bedrooms or greater)", "clause_ref": "cl 4.1 Table 2"},
+    {"topic": "waste generation rate - 2 bedroom dwelling", "value": "60 waste / 80 recycling / 20 FOGO", "unit": "L/week", "applies_to": "multiple dwellings (per 2-bedroom dwelling)", "clause_ref": "cl 4.1 Table 2"},
+    {"topic": "waste generation rate - 1 bedroom dwelling", "value": "40 waste / 60 recycling / 10 FOGO", "unit": "L/week", "applies_to": "multiple dwellings (per 1-bedroom/studio dwelling)", "clause_ref": "cl 4.1 Table 2"},
+    {"topic": "minimum on-site waste storage duration", "value": "1 week organics; 1-2 weeks waste and recycling", "unit": "weeks", "applies_to": "multi-unit developments", "clause_ref": "cl 4.1"},
+    {"topic": "truck access clearance height (basement/under-croft)", "value": "4.0", "unit": "m", "applies_to": "bin compounds in basement or under-croft levels", "clause_ref": "cl 7.2 / cl 8.2.1(ii)"},
+    {"topic": "bin compound wall/fence height", "value": "1.8", "unit": "m", "applies_to": "external bin compounds not within building", "clause_ref": "cl 7.3 / cl 7.4(c)"},
+    {"topic": "bin compound location restriction", "value": "not within front or secondary street setback area", "unit": "n/a", "applies_to": "external bin compounds", "clause_ref": "cl 7.3"},
+    {"topic": "bin compound pedestrian access width", "value": "1", "unit": "m", "applies_to": "bin compound access point with self-closing gate", "clause_ref": "cl 7.4(c)"},
+    {"topic": "bin compound floor thickness", "value": "75", "unit": "mm", "applies_to": "bin compound smooth impervious floor", "clause_ref": "cl 7.4(e)"},
+    {"topic": "on-site collection access way width", "value": "4.0", "unit": "m", "applies_to": "developments with on-site waste collection", "clause_ref": "cl 8.2.1(iii)"},
+    {"topic": "structural capacity for waste truck", "value": "25", "unit": "t", "applies_to": "structures over which collection truck travels", "clause_ref": "cl 8.2.1(iv)"},
+    {"topic": "design vehicle length for on-site manoeuvring (forward entry/egress, max three-point turn)", "value": "10.5", "unit": "m", "applies_to": "on-site waste collection truck manoeuvring and ramp/driveway gradients", "clause_ref": "cl 8.2.1(v)-(vii)"},
+    {"topic": "bin collection point distance from truck laydown", "value": "20", "unit": "m radius", "applies_to": "on-site collection", "clause_ref": "cl 8.2.1(ix)"},
+    {"topic": "bulk waste/green waste storage area", "value": "4 m2 minimum or 0.5 m2 per dwelling, whichever is greater", "unit": "m2", "applies_to": "all residential developments", "clause_ref": "cl 9.1"}
+  ],
+  "definitions": [
+    "R-Codes",
+    "Waste Management Plan (WMP)"
+  ],
+  "cross_references": [
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Local Government Act 1995", "manifest_id": null},
+    {"cited": "Waste Avoidance and Resource Recovery Act 2007", "manifest_id": null},
+    {"cited": "Environmental Protection (Controlled Waste) Regulations 2004", "manifest_id": null},
+    {"cited": "AS 1668.2 The Use of Ventilation and Air Conditioning in Buildings", "manifest_id": null},
+    {"cited": "AS 2890.2 Parking Facilities: Off-Street Commercial Vehicle Facilities", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Table 3 (bin selection matrix) lost its checkmark cells in extraction; which bin sizes apply to which streams must be read from the surrounding prose",
+    "minor OCR artifacts (e.g. 'suitable l storage' cl 4.1; stray '960' appended to cl 4.4)",
+    "references section cites 'Local Government Act 2015' which appears to be a source typo for the Local Government Act 1995 cited in the policy body",
+    "manifest instrument_name 'Waste and Recyclables Collection' is the older short title; current title adds FOGO - same instrument (LPP 1.3)"
+  ]
+}

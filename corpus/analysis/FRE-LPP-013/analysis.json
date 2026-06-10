@@ -1,0 +1,55 @@
+{
+  "id": "FRE-LPP-013",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.25 - Telecommunications",
+  "instrument_no": "LPP 2.25",
+  "version_date": "2023-03-22",
+  "operative_status": "current",
+  "scope_summary": "Guides the siting, location and design of telecommunications facilities (mobile phone towers, antennae and associated infrastructure) in the City of Fremantle that do not qualify as low-impact facilities under the Telecommunications (Low-impact Facilities) Determination 2018 and therefore require development approval. Sets qualitative requirements for co-location, preference for industrial/commercial sites, protection of heritage places and vistas, visual amenity and design integration, and zero net loss of native vegetation; explicitly defers RF health and safety matters to ARPANSA/ACMA standards.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "City of Fremantle Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "Metropolitan Region Scheme",
+      "manifest_id": "RS-001"
+    },
+    {
+      "cited": "Local Planning Policy 1.3 - Community Consultation on Planning Proposals",
+      "manifest_id": null
+    },
+    {
+      "cited": "Telecommunications Act 1997 (Cth)",
+      "manifest_id": null
+    },
+    {
+      "cited": "Telecommunications (Low-impact Facilities) Determination 2018",
+      "manifest_id": null
+    },
+    {
+      "cited": "Telecommunications Code of Practice 2018",
+      "manifest_id": null
+    },
+    {
+      "cited": "Mobile Phone Base Station Deployment Industry Code (C564:2020)",
+      "manifest_id": null
+    },
+    {
+      "cited": "ACMA Radiocommunications Licence Conditions (Apparatus Licence) Determination 2015",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "Originally adopted 23 July 2001 (SP34); amended 22 March 2023 (PC2303-7); next review 22 March 2027",
+    "Typos in source text: 'It Council's preference' (cl 4.1), 'Manger Strategic Planning and City Design' (responsible officer)",
+    "Policy contains qualitative siting/design criteria only; no measurable numeric development standards",
+    "Manifest instrument name says 'Telecommunications Policy'; document title is 'Local Planning Policy 2.25 Telecommunications' - same instrument"
+  ]
+}

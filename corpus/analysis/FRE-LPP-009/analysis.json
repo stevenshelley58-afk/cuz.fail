@@ -1,0 +1,66 @@
+{
+  "id": "FRE-LPP-009",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.18 - New Residential Developments in the City Centre Zone - Noise from an Existing Source",
+  "instrument_no": "LPP 2.18",
+  "version_date": "2013-03-12",
+  "operative_status": "current",
+  "scope_summary": "Applies to all new residential development in the City Centre zone under Local Planning Scheme No. 4 that is in close proximity to existing non-residential noise-producing uses. Requires noise attenuation design measures across three categories (external openings, external walls, floors/ceilings) per Appendix 1, with variation possible via an acoustic engineer's report demonstrating equivalent or better attenuation. Also mandates a Section 70A Transfer of Land Act 1893 notification on the Certificate of Title of every dwelling prior to occupation.",
+  "key_numeric_standards": [
+    {
+      "topic": "glazing - laminated glass minimum thickness",
+      "value": "10",
+      "unit": "mm (sealed thickened laminated glass replacing standard 6mm)",
+      "applies_to": "windows and glazed doors in new City Centre residential development",
+      "clause_ref": "Appendix 1 cl 1.2"
+    },
+    {
+      "topic": "glazing - acoustic double glazing",
+      "value": "12",
+      "unit": "mm laminated pane with 100mm air gap to other pane",
+      "applies_to": "windows and glazed doors (alternative to 10mm laminated glass)",
+      "clause_ref": "Appendix 1 cl 1.2"
+    },
+    {
+      "topic": "external wall sound rating",
+      "value": "45",
+      "unit": "Rw dB (minimum)",
+      "applies_to": "external walls of new City Centre residential development",
+      "clause_ref": "Appendix 1 cl 2.1"
+    },
+    {
+      "topic": "concrete slab floor thickness",
+      "value": "150",
+      "unit": "mm (with carpet, acoustically installed timber flooring or tiles)",
+      "applies_to": "floors/ceilings (one of three acceptable measures)",
+      "clause_ref": "Appendix 1 cl 3.1"
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Local Planning Scheme No. 4 (LPS4)",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "Local Planning Policy 2.3 - Fremantle Port Buffer Area Development Guidelines",
+      "manifest_id": "FRE-LPP-016"
+    },
+    {
+      "cited": "Environmental Protection (Noise) Regulations 1997",
+      "manifest_id": null
+    },
+    {
+      "cited": "Transfer of Land Act 1893",
+      "manifest_id": null
+    },
+    {
+      "cited": "D.F.5 New Residential Developments - Noise from an Existing Source (revoked predecessor)",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Adopted 12/03/2013; replaced policy D.F.5 (revoked 27 February 2013, revocation gazetted in Fremantle Gazette 12 and 19 March 2013); no later amendments recorded in extracted text",
+    "Text appears complete and clean (3 pages)"
+  ]
+}

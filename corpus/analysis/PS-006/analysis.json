@@ -1,0 +1,52 @@
+{
+  "id": "PS-006",
+  "normalized_title": "Position Statement: Residential Accommodation for Ageing Persons",
+  "instrument_no": null,
+  "version_date": "8 March 2024 (published 8 March 2024)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement setting requirements to support provision of residential accommodation for ageing persons through WA's local government planning framework. It applies to preparation and assessment of strategic and statutory planning proposals state-wide (local planning strategies, schemes and amendments, structure plans, subdivision and development applications). It requires local planning strategies to assess aged-housing demand, introduces standard land-use definitions ('residential aged care facility' and 'independent living complex') with permitted ('P') status in residential, mixed-use and centre zones, and directs how development applications for these uses are assessed, including interaction with R-Codes density bonuses.",
+  "key_numeric_standards": [
+    {
+      "topic": "land use permissibility",
+      "value": "P (permitted)",
+      "unit": "zoning table classification",
+      "applies_to": "'residential aged care facility' and 'independent living complex' in residential and mixed use/centre type zones (X prohibited in industrial zones with sensitive land use conflict)",
+      "clause_ref": "s 5.2 Local planning schemes"
+    },
+    {
+      "topic": "density threshold for apartment-code assessment",
+      "value": "R80 and above",
+      "unit": "R-Codes density code",
+      "applies_to": "residential dwelling components of multi-storey independent living complex or residential aged care facility proposals, to be assessed under R-Codes Volume 2 - Apartments",
+      "clause_ref": "s 5.2 Development applications"
+    },
+    {
+      "topic": "aged/dependent persons dwelling density bonus (cited standard)",
+      "value": "density bonus per R-Codes Volume 1 deemed-to-comply Part D C1.1.5-C1.1.7",
+      "unit": "n/a",
+      "applies_to": "aged or dependent persons' dwellings and accessible dwellings; may be applied to eligible independent living complex components",
+      "clause_ref": "s 5.2 (citing R-Codes Vol 1 Part D, C1.1.5-C1.1.7)"
+    }
+  ],
+  "definitions": [
+    "Accessible dwelling",
+    "Aged person",
+    "Dependent person",
+    "Independent living complex",
+    "Residential aged care facility"
+  ],
+  "cross_references": [
+    {"cited": "Residential Design Codes (R-Codes) Volume 1", "manifest_id": "PC-001"},
+    {"cited": "R-Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "State Planning Policy 7.0 Design of the Built Environment", "manifest_id": "SPP-022"},
+    {"cited": "Retirement Village Act 1992 (WA)", "manifest_id": null},
+    {"cited": "clause 67 of the deemed provisions (Planning and Development (Local Planning Schemes) Regulations 2015)", "manifest_id": "REG-001"},
+    {"cited": "WA Tomorrow (Population Report No. 11)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "multi-column PDF extraction interleaves columns, scrambling sentence order in body sections",
+    "summary.json title is garbled ('Department of Planning,') and key_provisions array is empty despite substantive content",
+    "page numbering artifact: page 1 header extracted as '11'"
+  ]
+}

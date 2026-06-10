@@ -1,0 +1,25 @@
+{
+  "id": "RS-003",
+  "normalized_title": "Greater Bunbury Region Scheme - wa.gov.au document collection landing page [NOT the scheme text]",
+  "instrument_no": null,
+  "version_date": "9 October 2025 (webpage 'Last updated' date, not a gazettal date)",
+  "operative_status": "current",
+  "scope_summary": "The Greater Bunbury Region Scheme (GBRS) is the WAPC region scheme providing the legal basis for planning across the City of Bunbury and the Shires of Harvey, Dardanup and Capel, dividing land into zones (Urban, Urban Deferred, Regional Centre, Industrial Deferred, Rural), reservations (regional open space, railways, state forests, waterways, port installations, regional roads, public purposes) and four special control areas. The captured document is only the wa.gov.au landing page describing the scheme and listing amendments - it contains none of the operative scheme text or clauses.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Greater Bunbury Region Scheme", "manifest_id": "RS-003"},
+    {"cited": "Main Roads Act 1930", "manifest_id": null},
+    {"cited": "Leschenault Regional Park establishment plan", "manifest_id": null},
+    {"cited": "Preston River to Ocean Regional Park establishment plan", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "wrong_document_type: extraction is the wa.gov.au collection landing page (103 lines of page HTML text), not the GBRS scheme text; manifest note already records 'no PDF resolved; saved page HTML'",
+    "no scheme clauses, zoning provisions or special control area provisions captured - cannot support cited regulatory answers",
+    "version_date is the webpage last-updated date (9 October 2025), not the scheme gazettal or consolidation date",
+    "page navigation artifacts present ('Show more', social share links, contact footer)",
+    "re-fetch required: resolve the GBRS scheme text PDF from the 'Scheme text and policies' link on the collection page",
+    "residential_relevance rating refers to the GBRS instrument (region scheme zoning, e.g. Urban zone); the landing page itself has no assessment value"
+  ]
+}

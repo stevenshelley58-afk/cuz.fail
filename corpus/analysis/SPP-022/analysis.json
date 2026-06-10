@@ -1,0 +1,33 @@
+{
+  "id": "SPP-022",
+  "normalized_title": "State Planning Policy 7.0 Design of the Built Environment",
+  "instrument_no": "SPP 7.0",
+  "version_date": "February 2019 (Version 1 published; text states 'Version 1 published February 2019')",
+  "operative_status": "current",
+  "scope_summary": "Overarching State Planning Policy made under Part 3 of the Planning and Development Act 2005 addressing design quality and built form outcomes across Western Australia. It applies to all levels of the planning hierarchy - activity centre plans, structure plans, local development plans, subdivision, development applications and public works - and establishes ten Design Principles (Schedule 1), design review processes and design skills/design statement requirements. It is the parent framework for supporting design SPPs such as SPP 7.2 and the design-quality aspects of the Residential Design Codes.",
+  "key_numeric_standards": [],
+  "definitions": [
+    "Design Principles (Schedule 1: context and character; landscape quality; built form and scale; functionality and build quality; sustainability; amenity; legibility; safety; community; aesthetics)",
+    "design statement (content described in s6: explanation of how the proposal addresses the Design Principles)"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "State Planning Policy 3.0 Urban Growth and Settlements", "manifest_id": "SPP-008"},
+    {"cited": "State Planning Policy 4.2 Activity Centres for Perth and Peel", "manifest_id": "SPP-015"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"},
+    {"cited": "Development Control Policy 1.6 Planning to Support Transit Use and Transit Oriented Development", "manifest_id": "DC-004"},
+    {"cited": "National Construction Code", "manifest_id": "NCC-001"},
+    {"cited": "Perth and Peel @3.5 million sub-regional frameworks", "manifest_id": null},
+    {"cited": "WAPC Design Review Guide", "manifest_id": null},
+    {"cited": "Better Places and Spaces: a policy for the built environment in Western Australia (2013)", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "summary.json title truncated to 'STATE PLANNING' (cover page split across lines); actual instrument confirmed as SPP 7.0",
+    "cover/imprint page text interleaved across columns (lines 8-36), body text otherwise clean",
+    "no gazettal date in extracted text; only 'Version 1 published February 2019' is stated",
+    "principles-based policy: contains no measurable numeric development standards"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "id": "REG-002",
+  "normalized_title": "Planning and Development (Development Assessment Panels) Regulations 2011 (WA)",
+  "instrument_no": null,
+  "version_date": "2025-07-01",
+  "operative_status": "current",
+  "scope_summary": "Subsidiary legislation under the Planning and Development Act 2005 governing Development Assessment Panels (DAPs) across Western Australia. Prescribes which development applications may be elected by the applicant for DAP determination (estimated cost of $2 million or more, or registered community housing, with exclusions including single houses and associated incidental development), application notice and fee procedures, DAP constitution and membership (local government and specialist members), meeting procedure, member conduct, delegation to DAPs, and SAT review of DAP determinations. Official consolidated version as at 1 July 2025, incorporating amendments up to the Planning and Development (Development Assessment Panels) Amendment Regulations 2025 (SL 2025/109, commenced 1 Jul 2025); the opt-in election model was introduced by SL 2024/27 (commenced 1 Mar 2024).",
+  "key_numeric_standards": [
+    {
+      "topic": "DAP application estimated cost threshold (opt-in election for DAP determination)",
+      "value": "2000000",
+      "unit": "AUD",
+      "applies_to": "development applications within a district for which a DAP is established, excluding 'excluded development applications' (single house and associated carport/patio/outbuilding/incidental development, improvement scheme areas, public works, regional reserves)",
+      "clause_ref": "r. 6(1)(a)"
+    }
+  ],
+  "definitions": [
+    "accepted for assessment",
+    "accreditation body",
+    "accredited",
+    "applicant",
+    "approved form",
+    "area of jurisdiction",
+    "community housing",
+    "community housing provider",
+    "DAP application",
+    "DAP executive director",
+    "DAP member",
+    "DAP website",
+    "deemed refused DAP application",
+    "department",
+    "deputy presiding member",
+    "Director General",
+    "excluded development application",
+    "gift",
+    "local government DAP member",
+    "member",
+    "notifiable gift",
+    "planning instrument",
+    "presiding member",
+    "prohibited gift",
+    "R-codes",
+    "registered community housing provider",
+    "regular specialist DAP member",
+    "relevant planning instrument",
+    "sessional specialist DAP member",
+    "specialist DAP member",
+    "substantially commenced",
+    "carport (per R-Codes)",
+    "dwelling (per R-Codes)",
+    "grouped dwelling (per R-Codes)",
+    "incidental development (per R-Codes)",
+    "multiple dwelling (per R-Codes)",
+    "outbuilding (per R-Codes)",
+    "patio (per R-Codes)",
+    "single house (per R-Codes)"
+  ],
+  "cross_references": [
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Residential Design Codes (R-Codes)",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Local Government Act 1995",
+      "manifest_id": null
+    },
+    {
+      "cited": "Approval and Related Reforms (No. 4) (Planning) Act 2010",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "extracted summary.json title is generic ('Western Australia') taken from the cover line; actual instrument title appears on page 1",
+    "fee schedule tables (Schedules 1 and 2) flattened to plain text lines but values remain legible",
+    "text extraction otherwise clean: full contents, compilation table and defined-terms index present"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "SPP-029",
+  "normalized_title": "State Planning Policy 4.3 Poultry Farms",
+  "instrument_no": "SPP 4.3",
+  "version_date": null,
+  "operative_status": "blocked",
+  "scope_summary": "(no extracted text)",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [],
+  "residential_relevance": "none",
+  "quality_flags": [
+    "empty full_text.txt (< 400 chars); treated as metadata-only"
+  ]
+}

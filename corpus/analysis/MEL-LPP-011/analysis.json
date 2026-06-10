@@ -1,0 +1,41 @@
+{
+  "id": "MEL-LPP-011",
+  "normalized_title": "City of Melville Local Planning Policy 1.12 - Child Care Premise and Family Day Care",
+  "instrument_no": "LPP 1.12",
+  "version_date": "2021-08-17",
+  "operative_status": "current",
+  "scope_summary": "Governs the assessment of development applications for Child Care Premises in the City of Melville (including extensions to approved centres) and summarises the planning framework for Family Day Care, which is a 'P' use exempt from development approval in the Residential and Centre C3/C4 zones. For Child Care Premises in the Residential zone (an 'A' use requiring advertising under cl 64 of the Regulations), it sets preferred and undesirable site characteristics, siting and design assessment against LPS6 and the R-Codes (open space, setbacks, visual privacy, overshadowing), acoustic assessment, landscaping, car parking per LPP1.6, transport statements, hours of operation limits and signage per LPP2.2.",
+  "key_numeric_standards": [
+    {"topic": "family day care maximum children", "value": "7", "unit": "children at any one time", "applies_to": "family day care residence or approved venue (per Education and Care Services National Regulations 2012, noted for clarity)", "clause_ref": "Definitions - Family day care"},
+    {"topic": "transport statement trigger", "value": "10", "unit": "additional children", "applies_to": "applications increasing numbers at existing child care premises (also required for all new premises)", "clause_ref": "cl 5.3"},
+    {"topic": "hours of operation (weekdays)", "value": "7am - 7pm", "unit": "hours", "applies_to": "Child Care Premises adjacent to residential property, Monday to Friday", "clause_ref": "cl 6.1"},
+    {"topic": "hours of operation (weekends)", "value": "8am - 7pm", "unit": "hours", "applies_to": "Child Care Premises adjacent to residential property, weekends", "clause_ref": "cl 6.1"}
+  ],
+  "definitions": [
+    "Child Care Premises",
+    "Family day care",
+    "LPS6",
+    "R-Codes",
+    "Regulations"
+  ],
+  "cross_references": [
+    {"cited": "Local Planning Scheme No. 6 (LPS6), Table 3 Zoning Table Clause 17", "manifest_id": "MEL-SCH-001"},
+    {"cited": "State Planning Policy 7.3 Residential Design Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Residential Design Codes Volume 2 - Apartments", "manifest_id": "PC-002"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Local Planning Policy LPP1.6 Car Parking and Access", "manifest_id": "MEL-LPP-006"},
+    {"cited": "Local Planning Policy LPP2.2 Outdoor Advertising and Signage", "manifest_id": "MEL-LPP-020"},
+    {"cited": "Planning Bulletin 72/2009 Child Care Centres", "manifest_id": "PB-010"},
+    {"cited": "Education and Care Services National Law (Western Australia)", "manifest_id": null},
+    {"cited": "Education and Care Services National Regulations 2012", "manifest_id": null},
+    {"cited": "Child Care Services Act 2007", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "clean extraction, 5 pages, full text legible",
+    "manifest instrument_name 'LPP 1.12 Child Minding Centres and Family Day Care' uses an outdated name; the document (formerly Planning Policy 27) is titled 'Child Care Premise and Family Day Care' - same policy number LPP1.12 and subject, so correct document",
+    "source typos carried into extraction: duplicated punctuation in cl 1.2 and stray quotation marks in cl 5.4",
+    "reviewed OMC 17/08/2021 (P21/3937); print footer 'This Version: 21/10/2021'"
+  ]
+}

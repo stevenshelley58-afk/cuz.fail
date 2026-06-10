@@ -1,0 +1,27 @@
+{
+  "id": "SPP-021",
+  "normalized_title": "State Planning Policy 6.3 Ningaloo Coast (Statement of Planning Policy No. 6.3 Ningaloo Coast)",
+  "instrument_no": "SPP 6.3",
+  "version_date": "2004-08-18 (gazetted Wednesday 18 August 2004, Government Gazette WA No. 144, Special Gazette; cover dated August 2004)",
+  "operative_status": "current",
+  "scope_summary": "Regional strategic planning policy for the Ningaloo coast policy area (Carnarvon to Exmouth, Gascoyne region). It sets guiding principles - sustainable development, limits of acceptable change, the precautionary principle, cumulative impact assessment, and protection of high-conservation, remote and biodiversity values - for all planning instruments and applications in the policy area. It directs that higher-impact tourism, residential, commercial and industrial development be consolidated within the Carnarvon and Exmouth townsites, and requires consistency with the Ningaloo Coast Regional Strategy Carnarvon to Exmouth components (regional land use plan, coastal tourism framework, structure plans, Coral Bay settlement plan).",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Town Planning and Development Act 1928 (s5AA)", "manifest_id": null},
+    {"cited": "State planning framework statement of planning policy 1 (SPP 1)", "manifest_id": "SPP-001"},
+    {"cited": "Environment and natural resources statement of planning policy 2 (SPP 2)", "manifest_id": "SPP-002"},
+    {"cited": "State coastal planning statement of planning policy 2.6 (SPP 2.6)", "manifest_id": "SPP-005"},
+    {"cited": "Ningaloo Coast Regional Strategy Carnarvon to Exmouth (incl. regional land use plan, coastal tourism framework, Carnarvon structure plan, Exmouth structure plan, Coral Bay settlement plan)", "manifest_id": null},
+    {"cited": "Planning and environmental guidelines for sustainable tourism development on the Ningaloo coast", "manifest_id": null},
+    {"cited": "Land Administration Act 1997", "manifest_id": null},
+    {"cited": "Conservation and Land Management Act 1984", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "Extracted from the Government Gazette special issue copy (gazette page headers and 'PRINT POST APPROVED' banner interleaved with policy text); summary.json title picked up the print-post banner instead of the policy title - full text confirms correct instrument.",
+    "Made under the repealed Town Planning and Development Act 1928 (s5AA); continues in effect under the Planning and Development Act 2005 as SPP 6.3. Pre-dates current SPP drafting conventions.",
+    "Figure 1 (policy area map) extracts as fragmented single characters and scattered place names over roughly the last 200 lines - expected for a map page; no definitions section in this policy.",
+    "Strategic policy with no measurable development standards - empty key_numeric_standards is expected."
+  ]
+}

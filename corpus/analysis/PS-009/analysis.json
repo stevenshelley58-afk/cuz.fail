@@ -1,0 +1,94 @@
+{
+  "id": "PS-009",
+  "normalized_title": "Position Statement: Housing on Lots Less than 100m2",
+  "instrument_no": null,
+  "version_date": "8 March 2024 (published 8 March 2024; supersedes first version of June 2019)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement providing interim locational guidance, in conjunction with R-Codes Volume 1, for subdivision and house design on residential lots less than 100m2 across Western Australia. It applies to standard structure plans, precinct structure plans and scheme amendments that include such lots, requiring the R100-SL density code, locational criteria (proximity to centres and public open space, transition between density bands) and siting/configuration criteria (street frontage, corner sites, building height). Housing on lots under 100m2 must not be the predominant housing type in a street and must be delivered through comprehensive planning.",
+  "key_numeric_standards": [
+    {
+      "topic": "lot size threshold for policy application",
+      "value": "<100",
+      "unit": "m2",
+      "applies_to": "single house and grouped dwelling lots covered by this position statement",
+      "clause_ref": "s 1 / s 3"
+    },
+    {
+      "topic": "minimum lot size",
+      "value": "80",
+      "unit": "m2",
+      "applies_to": "subdivision in areas coded R100-SL (no average lot size requirement)",
+      "clause_ref": "s 4"
+    },
+    {
+      "topic": "density coding",
+      "value": "R100-SL",
+      "unit": "R-Codes density code",
+      "applies_to": "areas identified for housing on lots less than 100m2 in structure plans / scheme amendments",
+      "clause_ref": "s 4"
+    },
+    {
+      "topic": "distance to secondary or district centre",
+      "value": "200-800 (not within 200)",
+      "unit": "m walkable catchment",
+      "applies_to": "lots less than 100m2 relative to the core/largest commercial landholding of an existing or proposed secondary or district centre",
+      "clause_ref": "Appendix 1 - Locational criteria"
+    },
+    {
+      "topic": "distance to local or neighbourhood centre",
+      "value": "200 (local) / 400 (neighbourhood)",
+      "unit": "m walkable catchment",
+      "applies_to": "lots less than 100m2 relative to the core/largest commercial landholding of any existing or proposed local or neighbourhood centre",
+      "clause_ref": "Appendix 1 - Locational criteria"
+    },
+    {
+      "topic": "distance to public open space",
+      "value": "150",
+      "unit": "m walkable catchment",
+      "applies_to": "lots less than 100m2 relative to local or neighbourhood public open space, preferably fronting or overlooking it",
+      "clause_ref": "Appendix 1 - Locational criteria"
+    },
+    {
+      "topic": "exclusion near strategic metropolitan centre",
+      "value": "not within 800",
+      "unit": "m",
+      "applies_to": "lots less than 100m2 relative to the core/largest commercial landholding of any strategic metropolitan centre",
+      "clause_ref": "Appendix 1 - Locational criteria"
+    },
+    {
+      "topic": "minimum footpath width",
+      "value": "1.5",
+      "unit": "m",
+      "applies_to": "pedestrian footpath on the street or public right-of-way fronted by lots less than 100m2",
+      "clause_ref": "Appendix 1 - Siting and configuration"
+    },
+    {
+      "topic": "building height",
+      "value": "minimum 2, maximum 4",
+      "unit": "storeys",
+      "applies_to": "dwellings on lots less than 100m2 (refer R-Codes Volume 1 Part C, C2.10)",
+      "clause_ref": "Appendix 1 - Siting and configuration"
+    },
+    {
+      "topic": "transitional density coding (first version)",
+      "value": "R80",
+      "unit": "R-Codes density code",
+      "applies_to": "structure plans approved under the June 2019 first version before the R100-SL code existed; conforming lots <100m2 may continue to be created",
+      "clause_ref": "s 4.1"
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "R-Codes Volume 1", "manifest_id": "PC-001"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"},
+    {"cited": "future Neighbourhood Design State Planning Policy", "manifest_id": null},
+    {"cited": "R-Codes Volume 1 modifications gazetted 10 April 2024", "manifest_id": "PC-001"}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "superscript '2' in '100m2' breaks across lines in title extraction (summary.json title reads 'Housing on lots less than 100m')",
+    "multi-column PDF extraction interleaves columns in places; Appendix 1 criteria readable but figure captions (Figures A and B) intermix with criteria text",
+    "page numbering artifact: page 1 header extracted as '11'",
+    "text dated 8 March 2024 references R-Codes modifications 'gazetted 10 April 2024' (future-dated relative to publication) - likely reflects a silently updated PDF"
+  ]
+}

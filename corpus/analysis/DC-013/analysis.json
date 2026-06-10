@@ -1,0 +1,29 @@
+{
+  "id": "DC-013",
+  "normalized_title": "Development Control Policy 4.1 - Industrial Subdivision",
+  "instrument_no": "DC 4.1",
+  "version_date": "Adopted July 1988 (replaces former Town Planning Board Policy P.9, first published February 1983, modified June 1983)",
+  "operative_status": "current",
+  "scope_summary": "WAPC policy guiding the determination of applications for industrial subdivision throughout Western Australia. It covers zoning prerequisites, relationship to adjacent (including residential) development, lot sizes and shapes, flexibility and staging, access and road layout, public open space and servicing requirements for industrial estates. No minimum lot sizes are prescribed; design standards focus on road reserves, truncations and services.",
+  "key_numeric_standards": [
+    {"topic": "minimum road reserve width (industrial areas)", "value": "20", "unit": "m", "applies_to": "roads within industrial subdivisions", "clause_ref": "cl 3.5.6"},
+    {"topic": "minimum road reserve width (heavily trafficked/major through routes)", "value": "25", "unit": "m", "applies_to": "major through routes in industrial areas", "clause_ref": "cl 3.5.6"},
+    {"topic": "favoured carriageway width", "value": "10", "unit": "m", "applies_to": "industrial subdivision roads", "clause_ref": "cl 3.5.6"},
+    {"topic": "minimum corner truncation (primary and district distributors)", "value": "14", "unit": "m", "applies_to": "corners on primary/district distributor roads in industrial areas", "clause_ref": "cl 3.5.4"},
+    {"topic": "minimum corner truncation (all other roads)", "value": "8.5", "unit": "m", "applies_to": "corners on other roads in industrial areas", "clause_ref": "cl 3.5.4"},
+    {"topic": "desired minimum rail siding length", "value": "200", "unit": "m", "applies_to": "industrial sites with rail siding connection", "clause_ref": "cl 3.7.3"}
+  ],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "Town Planning Board Policy Statement No. P.9 Industrial Subdivision (former)", "manifest_id": null},
+    {"cited": "local authority Town Planning Scheme (generic)", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "two-column PDF extracted with column interleaving - many sentences from adjacent columns are merged mid-line",
+    "OCR character errors throughout (e.g. 'budding' for 'building', 'modem' for 'modern', 'm' for 'in', 'no~' for 'now', 'sod' for 'soil', 'rag' for 'rail')",
+    "summary.json version_date 'June 1983' is incorrect - the policy states it was adopted July 1988 (June 1983 was a modification of the predecessor policy)",
+    "1988 policy; very old scan source, no later amendment markers found in text"
+  ]
+}

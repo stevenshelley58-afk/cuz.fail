@@ -1,0 +1,1330 @@
+{
+  "source_id": "PC-001",
+  "atoms": [
+    {
+      "rule_key": "carport_setback_from_secondary_street_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {},
+      "value_json": {
+        "value": 1.5,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "Garages and carports set back 1.5m from a secondary street",
+      "source_quote_span": {
+        "start": 57811,
+        "end": 57869
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.2.1 C1.4"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "garage_setback_from_primary_street_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {},
+      "value_json": {
+        "value": 4.5,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "Garages set back 4.5m from the primary street",
+      "source_quote_span": {
+        "start": 56232,
+        "end": 56277
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.2.1 C1.1"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_gable_skillion_concealed_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {},
+      "value_json": {
+        "value": 7.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category B",
+      "source_quote_span": {
+        "start": 107679,
+        "end": 107689
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass4_curated"
+      ],
+      "source_citations": [
+        "Table 3 / cl 5.1.6"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_total_building_height_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "A"
+      },
+      "value_json": {
+        "value": 7.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category A",
+      "source_quote_span": {
+        "start": 107660,
+        "end": 107670
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_gable_skillion_concealed_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "A"
+      },
+      "value_json": {
+        "value": 3.5,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category A",
+      "source_quote_span": {
+        "start": 107660,
+        "end": 107670
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_hipped_pitched_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "A"
+      },
+      "value_json": {
+        "value": 5.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category A",
+      "source_quote_span": {
+        "start": 107660,
+        "end": 107670
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_total_building_height_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "B"
+      },
+      "value_json": {
+        "value": 10.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category B",
+      "source_quote_span": {
+        "start": 107679,
+        "end": 107689
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_gable_skillion_concealed_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "B"
+      },
+      "value_json": {
+        "value": 7.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category B",
+      "source_quote_span": {
+        "start": 107679,
+        "end": 107689
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_hipped_pitched_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "B"
+      },
+      "value_json": {
+        "value": 8.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category B",
+      "source_quote_span": {
+        "start": 107679,
+        "end": 107689
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_total_building_height_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "C"
+      },
+      "value_json": {
+        "value": 12.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category C",
+      "source_quote_span": {
+        "start": 107697,
+        "end": 107707
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_gable_skillion_concealed_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "C"
+      },
+      "value_json": {
+        "value": 9.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category C",
+      "source_quote_span": {
+        "start": 107697,
+        "end": 107707
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_hipped_pitched_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "building_category": "C"
+      },
+      "value_json": {
+        "value": 10.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Category C",
+      "source_quote_span": {
+        "start": 107697,
+        "end": 107707
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R10",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 60.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.95,
+      "extraction_method": "consensus_3of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R10",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 7.5,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "7.5",
+      "source_quote_span": {
+        "start": 87375,
+        "end": 87378
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R10",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 3.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "3",
+      "source_quote_span": {
+        "start": 477,
+        "end": 478
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R15",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 50.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.95,
+      "extraction_method": "consensus_3of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R15"
+      },
+      "value_json": {
+        "value": 50.0,
+        "unit": "% of site",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass4_curated"
+      ],
+      "source_citations": [
+        "Table B column 3 (Open Space)"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R15"
+      },
+      "value_json": {
+        "value": 6.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "in accordance with Table B",
+      "source_quote_span": {
+        "start": 44382,
+        "end": 44408
+      },
+      "confidence": 0.95,
+      "extraction_method": "consensus_3of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass4_curated"
+      ],
+      "source_citations": [
+        "Table B",
+        "Table B / cl 5.1.2"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R15",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 1.5,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "1.5",
+      "source_quote_span": {
+        "start": 10030,
+        "end": 10033
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "lot_boundary_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R2",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 10.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "10",
+      "source_quote_span": {
+        "start": 489,
+        "end": 491
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R2",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 80.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R2",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 20.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "20",
+      "source_quote_span": {
+        "start": 34,
+        "end": 36
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R2",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 10.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "10",
+      "source_quote_span": {
+        "start": 489,
+        "end": 491
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R20",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 50.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.95,
+      "extraction_method": "consensus_3of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "outdoor_living_min_m2",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R20"
+      },
+      "value_json": {
+        "value": 30.0,
+        "unit": "m2",
+        "operator": ">="
+      },
+      "verbatim_quote": "outdoor living area",
+      "source_quote_span": {
+        "start": 47453,
+        "end": 47472
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass4_curated"
+      ],
+      "source_citations": [
+        "Table B",
+        "Table B (Min outdoor living)"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R20",
+        "dwelling_type": "Multiple dwelling"
+      },
+      "value_json": {
+        "value": 6.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "Multiple dwelling  6",
+      "source_quote_span": {
+        "start": 104153,
+        "end": 104172
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R20",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 1.5,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "1.5",
+      "source_quote_span": {
+        "start": 10030,
+        "end": 10033
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R25",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 50.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.95,
+      "extraction_method": "consensus_3of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "outdoor_living_min_m2",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R25",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 30.0,
+        "unit": "m2",
+        "operator": ">="
+      },
+      "verbatim_quote": "30",
+      "source_quote_span": {
+        "start": 6476,
+        "end": 6478
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R25",
+        "dwelling_type": "Multiple dwelling"
+      },
+      "value_json": {
+        "value": 6.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "Multiple dwelling  6",
+      "source_quote_span": {
+        "start": 104153,
+        "end": 104172
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R25",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 1.5,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "1.5",
+      "source_quote_span": {
+        "start": 10030,
+        "end": 10033
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R30",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 45.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "outdoor_living_min_m2",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R30",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 24.0,
+        "unit": "m2",
+        "operator": ">="
+      },
+      "verbatim_quote": "24",
+      "source_quote_span": {
+        "start": 11842,
+        "end": 11844
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R30"
+      },
+      "value_json": {
+        "value": 4.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "in accordance with Table B",
+      "source_quote_span": {
+        "start": 44382,
+        "end": 44408
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass4_curated"
+      ],
+      "source_citations": [
+        "Table B",
+        "Table B / cl 5.1.2"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R30",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 1.5,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "1.5",
+      "source_quote_span": {
+        "start": 10030,
+        "end": 10033
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R35",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 45.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "outdoor_living_min_m2",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R35",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 24.0,
+        "unit": "m2",
+        "operator": ">="
+      },
+      "verbatim_quote": "24",
+      "source_quote_span": {
+        "start": 11842,
+        "end": 11844
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R35",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 4.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "R35 Single house  4",
+      "source_quote_span": {
+        "start": 104635,
+        "end": 104653
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R35",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 1.5,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "1.5",
+      "source_quote_span": {
+        "start": 10030,
+        "end": 10033
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R40",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 45.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "outdoor_living_min_m2",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R40",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 20.0,
+        "unit": "m2",
+        "operator": ">="
+      },
+      "verbatim_quote": "20",
+      "source_quote_span": {
+        "start": 34,
+        "end": 36
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R40",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 4.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "R40 Single house  4",
+      "source_quote_span": {
+        "start": 104666,
+        "end": 104684
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R40",
+        "dwelling_type": "Single house"
+      },
+      "value_json": {
+        "value": 1.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "1",
+      "source_quote_span": {
+        "start": 32,
+        "end": 33
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "open_space_min_pct",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R5",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 70.0,
+        "unit": "%",
+        "operator": ">="
+      },
+      "verbatim_quote": "Open space provided in accordance with Table",
+      "source_quote_span": {
+        "start": 52429,
+        "end": 52473
+      },
+      "confidence": 0.85,
+      "extraction_method": "consensus_2of3",
+      "extractor_passes": [
+        "pass1_table_b",
+        "pass2_clause_text"
+      ],
+      "source_citations": [
+        "5.1.4 C4",
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "primary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R5",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 12.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "12",
+      "source_quote_span": {
+        "start": 10636,
+        "end": 10638
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "secondary_street_setback_min_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R5",
+        "dwelling_type": "Single house or grouped dwelling"
+      },
+      "value_json": {
+        "value": 6.0,
+        "unit": "m",
+        "operator": ">="
+      },
+      "verbatim_quote": "6",
+      "source_quote_span": {
+        "start": 37,
+        "end": 38
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass1_table_b"
+      ],
+      "source_citations": [
+        "Table B"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_total_building_height_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R60",
+        "band": "R50_R60"
+      },
+      "value_json": {
+        "value": 13.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Building height complies with Table 3.2a",
+      "source_quote_span": {
+        "start": 181498,
+        "end": 181538
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3.2a"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_gable_skillion_concealed_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R60",
+        "band": "R50_R60"
+      },
+      "value_json": {
+        "value": 11.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Building height complies with Table 3.2a",
+      "source_quote_span": {
+        "start": 181498,
+        "end": 181538
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3.2a"
+      ],
+      "status": "auto_accepted"
+    },
+    {
+      "rule_key": "max_wall_height_hipped_pitched_m",
+      "pathway": "deemed_to_comply",
+      "applicability": {
+        "density_code": "R60",
+        "band": "R50_R60"
+      },
+      "value_json": {
+        "value": 10.0,
+        "unit": "m",
+        "operator": "<="
+      },
+      "verbatim_quote": "Building height complies with Table 3.2a",
+      "source_quote_span": {
+        "start": 181498,
+        "end": 181538
+      },
+      "confidence": 0.7,
+      "extraction_method": "single_pass",
+      "extractor_passes": [
+        "pass3_part_c_table"
+      ],
+      "source_citations": [
+        "Table 3.2a"
+      ],
+      "status": "auto_accepted"
+    }
+  ]
+}

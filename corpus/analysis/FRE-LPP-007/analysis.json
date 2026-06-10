@@ -1,0 +1,57 @@
+{
+  "id": "FRE-LPP-007",
+  "normalized_title": "City of Fremantle Local Planning Policy 2.13 - Sustainable Buildings Design Requirements",
+  "instrument_no": "LPP 2.13",
+  "version_date": "2019-07-24",
+  "operative_status": "current",
+  "scope_summary": "Requires new development in the City of Fremantle requiring planning approval to demonstrate a minimum 4 Star Green Star rating (or certified equivalent such as a One Planet Living Action Plan). Applies City-wide under Local Planning Scheme No. 4 but expressly excludes development subject to SPP 7.3 Residential Design Codes (Volumes 1 and 2), industrial use classes, development under 1000 m2 GLA, most refurbishments, minor development, and areas with their own higher sustainability standards. Compliance is secured via conditions requiring Green Star documentation before building permit and before occupation.",
+  "key_numeric_standards": [
+    {
+      "topic": "minimum sustainability rating",
+      "value": "4",
+      "unit": "Star Green Star",
+      "applies_to": "all development subject to the policy",
+      "clause_ref": "cl 1(a)"
+    },
+    {
+      "topic": "gross lettable area applicability threshold",
+      "value": "1000",
+      "unit": "m2 GLA",
+      "applies_to": "development below this GLA is exempt from the policy",
+      "clause_ref": "Application cl (c)-(d)"
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "State Planning Policy 7.3 - Residential Design Codes Volume 2",
+      "manifest_id": "PC-002"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4 (LPS4)",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Knutsford Street East Structure Plan",
+      "manifest_id": null
+    },
+    {
+      "cited": "LPP 3.1.5",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "Short 2-page policy, full text appears complete",
+    "Garbled note text in Application clause (g): 'LPP 3.1.5. LPP 3.1.5' appears duplicated in extraction",
+    "Header shows adoption 27/06/2011 with revision dates 22/05/2019 and 24/07/2019; document control records amendment 24 July 2019 (Item Ref SPT1907-3)"
+  ]
+}

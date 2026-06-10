@@ -1,0 +1,28 @@
+{
+  "id": "SPP-008",
+  "normalized_title": "Statement of Planning Policy No. 3: Urban Growth and Settlement",
+  "instrument_no": "SPP 3.0",
+  "version_date": "Gazetted 17 March 2006 (Government Gazette No. 46; policy dated February 2006)",
+  "operative_status": "current",
+  "scope_summary": "Broad sector policy made under section 5AA of the Town Planning and Development Act 1928 setting out the principles for planning urban growth and settlement across Western Australia. It promotes sustainable communities, urban consolidation, liveable neighbourhoods, coordination of services and infrastructure, managed rural-residential growth and planning for Aboriginal communities. It applies state-wide and is to be taken into account in preparing regional and local planning strategies, planning schemes and amendments, and given weight in statutory decision-making; it operates at the strategic level rather than prescribing development standards for individual applications.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {"cited": "Statement of Planning Policy No. 1: State Planning Framework", "manifest_id": "SPP-001"},
+    {"cited": "Statement of Planning Policy No. 2.6 State Coastal Planning Policy", "manifest_id": "SPP-005"},
+    {"cited": "Statement of Planning Policy No. 2.5: Agricultural and Rural Land Use Planning", "manifest_id": "SPP-004"},
+    {"cited": "Statement of Planning Policy No. 3.2: Planning for Aboriginal Communities", "manifest_id": "SPP-009"},
+    {"cited": "Liveable Neighbourhoods", "manifest_id": "DC-009"},
+    {"cited": "Town Planning and Development Act 1928", "manifest_id": null},
+    {"cited": "State Planning Strategy", "manifest_id": null},
+    {"cited": "Network city (metropolitan strategy for Perth and Peel)", "manifest_id": null},
+    {"cited": "Metropolitan Development Program", "manifest_id": null},
+    {"cited": "Country Land Development Program", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "extracted from Government Gazette copy: gazette page headers/footers (e.g. '17 March 2006 GOVERNMENT GAZETTE, WA 1063') interleaved throughout text",
+    "summary.json title field captured gazette masthead 'PRINT POST APPROVED PP665002/00041' instead of the instrument title",
+    "policy text itself appears complete; made under the repealed Town Planning and Development Act 1928 but continues as SPP 3.0 under the Planning and Development Act 2005"
+  ]
+}

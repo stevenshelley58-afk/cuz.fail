@@ -1,0 +1,100 @@
+{
+  "id": "PB-011",
+  "normalized_title": "Planning Bulletin 87 High Pressure Gas Transmission Pipelines in the Perth Metropolitan Region",
+  "instrument_no": "PB 87",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "should not extend to upgrading or; Natural Gas Pipeline the corridor; and construction activities to 6055 West Swan; \u2022 Earthworks and construction; \u2022 Earthworks and construction",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "200",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "90",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "130",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "115",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "95",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "80",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "70",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "110",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "which completes or rounds-off DBNGP north of Muchea (MLV116)",
+      "value": "660",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "275",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "356",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": "part 5"
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "the Act",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Metropolitan Region Scheme",
+      "manifest_id": "RS-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

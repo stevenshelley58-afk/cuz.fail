@@ -1,0 +1,36 @@
+{
+  "id": "SPP-019",
+  "normalized_title": "State Planning Policy 5.4 Road and Rail Noise",
+  "instrument_no": "SPP 5.4",
+  "version_date": "September 2019 (published September 2019)",
+  "operative_status": "current",
+  "scope_summary": "Minimises the adverse impact of road and rail transport noise on noise-sensitive land use and development in Western Australia, while protecting the future operation of transport corridors. Applies to planning instruments, structure plans, subdivision and development proposals where noise-sensitive land use is proposed within specified trigger distances of strategic/other significant freight and traffic routes and passenger/freight railways, and to new or major upgrades of those corridors. Sets outdoor and indoor noise targets and requires noise exposure forecasts, noise level contour maps and noise management plans.",
+  "key_numeric_standards": [
+    {"topic": "trigger distance - strategic freight and major traffic routes", "value": "300", "unit": "m from road carriageway edge", "applies_to": "roads per Perth and Peel Planning Frameworks and/or >=500 Class 7-12 Austroads vehicles/day and/or 50,000 vehicles/day", "clause_ref": "Table 1"},
+    {"topic": "trigger distance - other significant freight/traffic routes", "value": "200", "unit": "m from road carriageway edge", "applies_to": "State administered/future State roads and roads with >=100 Class 7-12 Austroads vehicles/day or >=23,000 daily traffic count", "clause_ref": "Table 1"},
+    {"topic": "trigger distance - passenger railways", "value": "100", "unit": "m from centreline of closest track", "applies_to": "noise-sensitive land use near passenger railways", "clause_ref": "Table 1"},
+    {"topic": "trigger distance - freight railways", "value": "200", "unit": "m from centreline of closest track", "applies_to": "noise-sensitive land use near freight railways", "clause_ref": "Table 1"},
+    {"topic": "outdoor noise target - new noise-sensitive land use/development (day)", "value": "55", "unit": "LAeq(Day) dB (6am-10pm)", "applies_to": "new noise-sensitive land use/development within trigger distance of existing/proposed transport corridor", "clause_ref": "Table 2"},
+    {"topic": "outdoor noise target - new noise-sensitive land use/development (night)", "value": "50", "unit": "LAeq(Night) dB (10pm-6am)", "applies_to": "new noise-sensitive land use/development within trigger distance", "clause_ref": "Table 2"},
+    {"topic": "indoor noise target - living and work areas", "value": "40", "unit": "LAeq(Day) dB", "applies_to": "new noise-sensitive land use/development", "clause_ref": "Table 2"},
+    {"topic": "indoor noise target - bedrooms", "value": "35", "unit": "LAeq(Night) dB", "applies_to": "new noise-sensitive land use/development", "clause_ref": "Table 2"},
+    {"topic": "outdoor noise target - new roads/railways", "value": "55 (day) / 50 (night)", "unit": "LAeq dB", "applies_to": "new road or railway infrastructure proposals", "clause_ref": "Table 2"},
+    {"topic": "outdoor noise target - road/railway upgrades", "value": "60 (day) / 55 (night)", "unit": "LAeq dB", "applies_to": "major upgrades of roads or railways (5 dB allowance above new-infrastructure targets)", "clause_ref": "Table 2"},
+    {"topic": "noise target measurement point", "value": "1", "unit": "m from most exposed habitable facade", "applies_to": "measurement of noise targets for proposed buildings", "clause_ref": "Table 2 notes"}
+  ],
+  "definitions": ["A-weighted level", "dB", "development", "Class 7 to 12 Austroads vehicles per day", "a habitable room", "LAeq", "LAeq (Day)", "LAeq (Night)", "noise", "noise exposure forecast", "noise level contour map", "noise management plan", "noise-sensitive land-use and/or development", "outdoor living area", "intensification of land-use", "reasonable and practicable", "transport infrastructure provider"],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "State Planning Policy 3.1 Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "Road and Rail Noise Guidelines (DPLH)", "manifest_id": null},
+    {"cited": "AS/NZS 2107:2016 Acoustics - Recommended design sound levels and reverberation times for building interiors", "manifest_id": null},
+    {"cited": "AS IEC 61672.2-2004", "manifest_id": null},
+    {"cited": "Perth and Peel Planning Frameworks", "manifest_id": null}
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "Exact gazettal date not stated in extracted text; only the publication month (September 2019) appears.",
+    "Cites the Residential Design Codes under their pre-2019 designation 'SPP 3.1' (now SPP 7.3) - mapped to PC-001.",
+    "Multi-column PDF extraction interleaves columns in places (Table 2 layout is jumbled but values recoverable)."
+  ]
+}

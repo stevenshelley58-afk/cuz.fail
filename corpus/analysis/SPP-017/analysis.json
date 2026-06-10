@@ -1,0 +1,29 @@
+{
+  "id": "SPP-017",
+  "normalized_title": "State Planning Policy 5.2 Telecommunications Infrastructure",
+  "instrument_no": "SPP 5.2",
+  "version_date": "September 2015 (published September 2015; on gazettal it repealed Statement of Planning Policy 5.2 Telecommunications Infrastructure (2004))",
+  "operative_status": "current",
+  "scope_summary": "Provides land use planning guidance for the location, siting and design of above- and below-ground telecommunications infrastructure (mobile base stations, NBN fixed wireless towers, pit and pipe) throughout Western Australia, other than facilities exempted under the Commonwealth Telecommunications Act 1997. It balances effective network roll-out against visual impacts, directs that health/safety EME setbacks and buffer zones must NOT be set in local schemes or policies, and guides how schemes, structure plans and development applications should treat telecommunications infrastructure.",
+  "key_numeric_standards": [
+    {"topic": "maximum infrastructure height for recommended development approval exemption", "value": "30", "unit": "m (from finished ground level)", "applies_to": "telecommunications infrastructure local governments should consider exempting from development approval", "clause_ref": "s5.1.1(iii)(a)"},
+    {"topic": "maximum advertising period for development proposals", "value": "21", "unit": "days", "applies_to": "advertising of telecommunications infrastructure development proposals", "clause_ref": "s6.3"}
+  ],
+  "definitions": ["Telecommunications Carrier", "Fibre-ready Facility", "Relevant health and safety standard", "Telecommunications infrastructure", "Service provider", "National Broadband Network", "National Broadband Network Corporation", "Radiocommunications", "Pit and pipe infrastructure", "Carriage services"],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Statement of Planning Policy 5.2 Telecommunications Infrastructure (2004) (repealed by this policy)", "manifest_id": null},
+    {"cited": "State Planning Strategy 2050 (2014)", "manifest_id": "SPP-001"},
+    {"cited": "Telecommunications Act 1997 (Cth)", "manifest_id": null},
+    {"cited": "Telecommunications Legislation Amendment (Fibre Deployment) Act 2011 (Cth)", "manifest_id": null},
+    {"cited": "Radiocommunications Act 1992 (Cth)", "manifest_id": null},
+    {"cited": "Telecommunications Code of Practice 1997 (Cth)", "manifest_id": null},
+    {"cited": "National Broadband Companies Act 2011 (Cth)", "manifest_id": null},
+    {"cited": "Mobile Phone Base Station Deployment Industry Code (C564:2011)", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "Two-column PDF extraction interleaves columns in places (e.g. TOC merged with disclaimer); substantive provisions readable.",
+    "Exact gazettal date not stated in extracted text; only the publication month (September 2015) is given."
+  ]
+}

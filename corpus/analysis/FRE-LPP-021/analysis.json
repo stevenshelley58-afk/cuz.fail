@@ -1,0 +1,104 @@
+{
+  "id": "FRE-LPP-021",
+  "normalized_title": "City of Fremantle LPP 3.14 | Wray Avenue Precinct 907.4 KB",
+  "instrument_no": "",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "Design Element Policy Provision; character and context of Wray Avenue as discussed in; 1.3 Minimum external wall at 3.6 \u2013 4.0 metres in order to achieve proportions similar to",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "7",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "1.3 Minimum external wall at 3.6 \u2013 4.0 metres in order to ac",
+      "value": "4.0",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "2.75",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "2.3 Side Setbacks Nil for the first 5 metres from fa\u00e7ade, th",
+      "value": "5",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "4",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "ii. Minimum of 2 metres for porches, balconies, verandahs, o",
+      "value": "2",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "1.5",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "occupy more than 3.2 metres of the frontage at the setback l",
+      "value": "3.2",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "C4.1 Front fences within the primary street setback area tha",
+      "value": "1.2",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "high and visually permeable above 300mm as measured from the",
+      "value": "300",
+      "unit": "mm",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "value",
+      "value": "450",
+      "unit": "mm",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "LPS4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "none",
+  "quality_flags": []
+}

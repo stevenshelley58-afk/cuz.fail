@@ -1,0 +1,62 @@
+{
+  "id": "PS-008",
+  "normalized_title": "Position Statement: Renewable Energy Facilities",
+  "instrument_no": null,
+  "version_date": "March 2020 (published March 2020)",
+  "operative_status": "current",
+  "scope_summary": "WAPC position statement setting requirements for the consistent consideration and assessment of renewable energy facilities (principally wind turbines and solar arrays) in Western Australia. It applies to the preparation and assessment of region and local planning schemes, planning strategies, structure plans, and subdivision and development applications state-wide. It supersedes Planning Bulletin 67 Guidelines for Wind Farm Development (2004) and addresses zoning permissibility ('A' use recommendation), environmental, visual/landscape, noise, aviation safety, bushfire, heritage and construction/decommissioning considerations.",
+  "key_numeric_standards": [
+    {
+      "topic": "wind turbine separation from noise-sensitive land uses",
+      "value": "1,500",
+      "unit": "m",
+      "applies_to": "minimum recommended distance between noise-sensitive land uses and a wind turbine (reducible with local government approval on DWER advice)",
+      "clause_ref": "s 5.3.4"
+    },
+    {
+      "topic": "acoustic study trigger",
+      "value": "within 1,500",
+      "unit": "m",
+      "applies_to": "new wind turbines within 1,500 m of an existing or new noise-sensitive premises (excluding caretaker dwellings) - acoustic study required",
+      "clause_ref": "s 5.3.4"
+    },
+    {
+      "topic": "asset protection zone clearance",
+      "value": "10",
+      "unit": "m",
+      "applies_to": "minimum recommended clearance to combustible vegetation around wind turbines and solar arrays in bushfire prone areas",
+      "clause_ref": "s 5.3.5"
+    },
+    {
+      "topic": "bushfire hazard exclusion",
+      "value": "BAL-40 or BAL-Flame Zone",
+      "unit": "bushfire attack level",
+      "applies_to": "wind turbines and solar arrays should where possible not be located in bushfire prone areas at extreme hazard / BAL-40 or BAL-FZ",
+      "clause_ref": "s 5.3.5"
+    }
+  ],
+  "definitions": [
+    "Renewable energy facility",
+    "Sensitive land uses",
+    "Caretaker dwelling"
+  ],
+  "cross_references": [
+    {"cited": "Planning Bulletin 67 Guidelines for Wind Farm Development (2004) (superseded)", "manifest_id": null},
+    {"cited": "State Planning Strategy 2050", "manifest_id": "SPP-001"},
+    {"cited": "State Planning Policy 1 State Planning Framework", "manifest_id": "SPP-001"},
+    {"cited": "State Planning Policy 2.5 Rural Planning", "manifest_id": "SPP-004"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Environmental Protection (Noise) Regulations 1997", "manifest_id": null},
+    {"cited": "Environment Protection and Biodiversity Conservation Act 1999 (Cth)", "manifest_id": null},
+    {"cited": "Guidelines for Planning in Bushfire Prone Areas (DPLH/DFES 2017)", "manifest_id": null},
+    {"cited": "State Energy Transformation Strategy (March 2019)", "manifest_id": null},
+    {"cited": "Visual Landscape Planning in WA manual (November 2007)", "manifest_id": null},
+    {"cited": "National Airports Safeguarding Framework Guideline D", "manifest_id": null},
+    {"cited": "EPA Guidance Statement No. 33 Environmental Guidance for Planning and Development (May 2008)", "manifest_id": null}
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "multi-column PDF extraction interleaves columns, scrambling sentence order in body sections",
+    "summary.json title is garbled ('Department of Planning,') - publisher header captured instead of instrument title"
+  ]
+}

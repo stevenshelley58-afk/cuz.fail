@@ -1,0 +1,42 @@
+{
+  "id": "MEL-LPP-004",
+  "normalized_title": "City of Melville Local Planning Policy 1.4 - Provision of Public Art in Development Proposals",
+  "instrument_no": "LPP 1.4",
+  "version_date": "2025-05-20",
+  "operative_status": "current",
+  "scope_summary": "Local planning policy requiring the provision of public art (or cash-in-lieu into the City of Melville Capital Arts Trust) for development applications for multiple dwellings, mixed use or non-residential developments where the nominated development cost exceeds $2 million, anywhere LPS6 applies. It prescribes a sliding-scale contribution based on construction cost, performance standards for the artwork, Public Art Plan information requirements, and installation timing (on-site art before initial occupation; cash-in-lieu before construction commences).",
+  "key_numeric_standards": [
+    {"topic": "policy application threshold", "value": "2,000,000", "unit": "AUD development cost", "applies_to": "multiple dwelling, mixed use and non-residential development applications", "clause_ref": "Policy Scope / cl 1 Table 1"},
+    {"topic": "public art contribution", "value": "1", "unit": "% of construction cost (minimum)", "applies_to": "developments with construction cost $2M-$15M", "clause_ref": "cl 1 Table 1"},
+    {"topic": "public art contribution", "value": "$150,000 plus 1% of every dollar over $15M", "unit": "AUD", "applies_to": "developments with construction cost $15M-$50M", "clause_ref": "cl 1 Table 1"},
+    {"topic": "public art contribution", "value": "$500,000 plus 0.5% of every dollar over $50M (additional component paid into public art fund)", "unit": "AUD", "applies_to": "developments with construction cost over $50M", "clause_ref": "cl 1 Table 1"},
+    {"topic": "cash-in-lieu discount", "value": "15", "unit": "%", "applies_to": "developments under $15M electing cash-in-lieu instead of on-site art", "clause_ref": "cl 5"},
+    {"topic": "expenditure deadline for cash-in-lieu funds", "value": "5", "unit": "years from receipt", "applies_to": "City of Melville Capital Arts Trust funds", "clause_ref": "cl 12"},
+    {"topic": "cap on consultant/project management fees", "value": "15", "unit": "% of total public art budget", "applies_to": "public art consultant and project management fees", "clause_ref": "cl 14(c)"}
+  ],
+  "definitions": [
+    "Public Art",
+    "Artist",
+    "Public Art Co-ordinator/Art Consultant",
+    "Construction Cost",
+    "Ephemeral art",
+    "City of Melville Capital Arts Trust",
+    "Public Art Plan",
+    "Temporary Art"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Copyright Amendment (Moral Rights) Act 2000", "manifest_id": null},
+    {"cited": "City of Melville Public Art Strategy and Masterplan", "manifest_id": null},
+    {"cited": "City of Melville Cultural Plan", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "extraction quality good; contribution table (Table 1) flattened but values fully recoverable",
+    "header states 'Policy Type: Council Policy' while the citation clause states it is a Local Planning Policy prepared under Schedule 2 of the Regulations - source inconsistency",
+    "version evidenced by 'Last Review Date: 20 May 2025' header and Ordinary Meeting of Council 20/05/2025 (UP25/67); printed version stamp 6/06/2025",
+    "does not apply to single houses or grouped dwellings; applies to multiple dwellings/mixed use over $2M"
+  ]
+}

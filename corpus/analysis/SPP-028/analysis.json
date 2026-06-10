@@ -1,0 +1,15 @@
+{
+  "id": "SPP-028",
+  "normalized_title": "State Planning Policy 2.10 Swan-Canning River System",
+  "instrument_no": "SPP 2.10",
+  "version_date": "Dec 2006",
+  "operative_status": "out_of_scope",
+  "scope_summary": "(no extracted text)",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [],
+  "residential_relevance": "none",
+  "quality_flags": [
+    "empty full_text.txt (< 400 chars); treated as metadata-only"
+  ]
+}

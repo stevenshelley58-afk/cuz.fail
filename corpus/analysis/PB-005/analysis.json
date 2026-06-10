@@ -1,0 +1,37 @@
+{
+  "id": "PB-005",
+  "normalized_title": "Planning Bulletin 115/2024: Short-Term Rental Accommodation (STRA) - Guidance for Local Government",
+  "instrument_no": "PB 115/2024",
+  "version_date": "18 September 2024",
+  "operative_status": "current",
+  "scope_summary": "Guides WA local governments on implementing the September 2024 amendments to the Planning and Development (Local Planning Schemes) Regulations 2015 for short-term rental accommodation. It covers incorporating the new 'deemed' land use classes ('hosted' and 'unhosted short-term rental accommodation') and the 'model' 'tourist and visitor accommodation' class into scheme zoning tables (mandatory amendments by 1 January 2026), the state-wide development approval exemption for hosted STRA, the 90-night exemption for unhosted STRA in the Perth metropolitan area, local planning policy preparation, bushfire considerations, and the mandatory state-wide STRA Register operating from 1 January 2025. Updates a previous version of the bulletin released in November 2023.",
+  "key_numeric_standards": [
+    {"topic": "unhosted STRA development approval exemption", "value": "90", "unit": "nights (cumulative) per 12-month period", "applies_to": "unhosted short-term rental accommodation within the Perth metropolitan area (where the MRS applies), from date of registration", "clause_ref": "s 5 (LPS Regulations deemed exemption)"},
+    {"topic": "default maximum occupancy", "value": "12", "unit": "persons", "applies_to": "unhosted short-term rental accommodation (local governments may condition lower occupancy via development approval)", "clause_ref": "s 5 (Local Planning Policies)"}
+  ],
+  "definitions": [
+    "hosted short-term rental accommodation",
+    "unhosted short-term rental accommodation",
+    "short-term rental arrangement",
+    "tourist and visitor accommodation",
+    "cabin",
+    "chalet",
+    "road house",
+    "short-term accommodation (general definition deleted)"
+  ],
+  "cross_references": [
+    {"cited": "Planning and Development (Local Planning Schemes) Regulations 2015", "manifest_id": "REG-001"},
+    {"cited": "Position Statement: Planning for Tourism and Short-Term Rental Accommodation (November 2023)", "manifest_id": "PS-003"},
+    {"cited": "Short-Term Rental Accommodation Act 2024", "manifest_id": null},
+    {"cited": "Residential Design Codes (R-Codes)", "manifest_id": "PC-001"},
+    {"cited": "Planning and Development Act 2005", "manifest_id": "LEG-001"},
+    {"cited": "Metropolitan Region Scheme", "manifest_id": "RS-001"},
+    {"cited": "WALGA STRA Local Planning Policy Guidance", "manifest_id": null}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Appendix 1 and 2 tables contain mirrored/rotated text artifacts from vertical row labels (e.g. 'TNEMNREVOG', 'ETATS', 'NATILOPORTEM', 'LANOIGER', ')SRM nihtiw .e.i(') - these are 'GOVERNMENT', 'STATE', 'METROPOLITAN', 'REGIONAL', '(i.e. within MRS)' reversed, not content loss",
+    "Multi-column PDF interleaving scrambles sentence order in the body text",
+    "summary.json key_provisions includes garbled table-header rows reflecting the same artifacts"
+  ]
+}

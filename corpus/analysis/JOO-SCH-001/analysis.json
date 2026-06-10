@@ -1,0 +1,70 @@
+{
+  "id": "JOO-SCH-001",
+  "normalized_title": "City of Joondalup Local Planning Scheme No. 3 - Scheme Text",
+  "instrument_no": "LPS3",
+  "version_date": "Apr 2026 consolidation",
+  "operative_status": "current",
+  "scope_summary": "LOCAL PLANNING SCHEME NO. 3; LOCAL PLANNING SCHEME NO. 3; National Relay Service: 13 36 77; 23/10/18 7/11/18 MLD New Scheme",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "400",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": "Clause 26"
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "R-Codes Volume 1",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "R-Codes Volume 2",
+      "manifest_id": "PC-002"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "SPP 7.3",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "the Act",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Environmental Protection Act 1986",
+      "manifest_id": "LEG-005"
+    },
+    {
+      "cited": "Metropolitan Region Scheme",
+      "manifest_id": "RS-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 3",
+      "manifest_id": "JOO-SCH-001"
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": []
+}

@@ -1,0 +1,41 @@
+{
+  "id": "MEL-LPP-026",
+  "normalized_title": "City of Melville Local Planning Policy 4.4 - Murdoch Health and Knowledge Precinct",
+  "instrument_no": "LPP 4.4",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "Precinct-specific local planning policy and design guidelines for the Murdoch Health and Knowledge Precinct (MHKP) around Fiona Stanley Hospital and Murdoch Station in the City of Melville. Sets design objectives, a Design Review Panel process for development and building approval, and site-specific development controls (preferred land uses, podium/tower building heights, mandatory and minimum setbacks, vehicle access, minimum dwelling/hotel-room yields and minimum Green Star sustainability ratings) for individual sites such as Sites 1A-1D and 7A-7C. Operates under LPS6 alongside the Murdoch Specialised Activity Centre Structure Plan.",
+  "key_numeric_standards": [
+    {"topic": "podium building height", "value": "2 min / 4 max", "unit": "storeys", "applies_to": "podium levels on precinct development sites (e.g. Sites 1A, 1C, 1D, 7A-7C)", "clause_ref": "Site Specific Requirements tables"},
+    {"topic": "tower building height", "value": "6", "unit": "storeys minimum (including podium)", "applies_to": "tower levels on precinct development sites", "clause_ref": "Site Specific Requirements tables"},
+    {"topic": "ground level setback", "value": "0-4", "unit": "m mandatory", "applies_to": "ground level to all boundaries, Site 1A (similar controls on other sites with 5-10 m mandatory setbacks to shared/west boundaries)", "clause_ref": "Site Specific Requirements - Site 1A"},
+    {"topic": "podium level setback", "value": "0", "unit": "m mandatory", "applies_to": "podium levels to boundaries (5 m each side of shared boundaries unless amalgamated; 10 m to west boundary of Site 1B unless amalgamated with 1A)", "clause_ref": "Site Specific Requirements tables"},
+    {"topic": "tower level setback", "value": "5", "unit": "m minimum to all boundaries (10 m to shared/west/Barry Marshall Parade boundaries on specified sites)", "applies_to": "tower levels on precinct development sites", "clause_ref": "Site Specific Requirements tables"},
+    {"topic": "building height trigger for additional assessment", "value": "39", "unit": "m total building height", "applies_to": "Sites 1C/1D - design must demonstrate height does not negatively impact (extracted text partially garbled at this clause)", "clause_ref": "Site Specific Requirements - Sites 1C/1D"},
+    {"topic": "minimum residential dwellings / hotel rooms / serviced apartments", "value": "79", "unit": "dwellings/rooms minimum", "applies_to": "Site 7C (Site 1A minimum is 0)", "clause_ref": "Site Specific Requirements - Site 7C"},
+    {"topic": "minimum sustainability rating", "value": "Australian Excellence", "unit": "Green Star rating", "applies_to": "all precinct development sites listed", "clause_ref": "Site Specific Requirements tables"},
+    {"topic": "site areas", "value": "Site 1A: 3,623; Site 1B: 3,545; Site 1C: 2,383; Site 1D: 2,324; Site 7A: 3,059; Site 7B: 2,965; Site 7C: 5,956", "unit": "m2 (subject to survey)", "applies_to": "precinct development sites", "clause_ref": "Site Specific Requirements tables"}
+  ],
+  "definitions": [
+    "DRP (Design Review Panel)",
+    "MHKP (Murdoch Health and Knowledge Precinct)",
+    "RAR (Responsible Authority Report)",
+    "FSH (Fiona Stanley Hospital)",
+    "NCC (National Construction Code)"
+  ],
+  "cross_references": [
+    {"cited": "City of Melville Local Planning Scheme No. 6", "manifest_id": "MEL-SCH-001"},
+    {"cited": "Murdoch Specialised Activity Centre Structure Plan", "manifest_id": "MEL-SP-005"},
+    {"cited": "Murdoch Mixed Use Precinct Activity Centre Structure Plan", "manifest_id": null},
+    {"cited": "Residential Design Codes", "manifest_id": "PC-001"},
+    {"cited": "National Construction Code (NCC)", "manifest_id": "NCC-001"}
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "Severely degraded text extraction from a graphics-heavy InDesign-style PDF: bullet glyphs rendered as (cid:120)/(cid:116) with most Design Objective and Development Control bullet text missing",
+    "Rotated/vertical drawing labels extracted reversed (e.g. 'YRADNUOB ETIS' = 'SITE BOUNDARY')",
+    "Doubled leading characters in headings (e.g. 'DDesign Objective', 'CCOMMUNITY', 'MMurdoch')",
+    "No policy number, adoption date, review history or version marker anywhere in the extracted text - 'LPP 4.4' is taken from the manifest, version_date unknown",
+    "Site-specific control tables (heights, setbacks, site areas, land uses) are legible, but precinct-wide design objectives and controls are largely unanalysable from this extraction - recommend re-extraction with OCR/layout-aware parser"
+  ]
+}
