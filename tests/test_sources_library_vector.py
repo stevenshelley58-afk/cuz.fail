@@ -10,7 +10,6 @@ from __future__ import annotations
 import pytest
 
 from draftcheck.domain.sources.library import (  # type: ignore[attr-defined]
-    SqlAlchemySourceSearchService as SourceLibrary,
     _coerce_embedding,
 )
 
@@ -66,7 +65,6 @@ def test_search_chunks_handles_string_embedding(monkeypatch) -> None:
     """The whole point: select via text() yields a string. search_chunks
     must not crash with TypeError, and must still rank rows by FTS alone
     if the vector cannot be coerced."""
-    lib = SourceLibrary(session_factory=lambda: (_ for _ in ()).throw(AssertionError("db should not be hit")))
     # Direct exercise of the coercion contract: the function used to do
     # `list(emb) * qv[i]` which raises for str input.
     from draftcheck.domain.sources.library import _hash_embedding, default_embedding_config
