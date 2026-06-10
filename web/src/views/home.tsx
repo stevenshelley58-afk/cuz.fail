@@ -403,8 +403,6 @@ export function Home({
         {msgs.length === 0 && (
           <div className="greet">
             <h1>Where do we start?</h1>
-            <p>Start typing a property address — matching addresses appear as you type — or just ask a question.</p>
-            {isGuest && <p>Real answers, cited from the approved WA source library — no account needed.</p>}
           </div>
         )}
         {msgs.length > 0 && (

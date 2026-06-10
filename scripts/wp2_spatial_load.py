@@ -235,7 +235,7 @@ WHERE sd.authority = {lit(d['provider'])} AND sd.canonical_url = {lit(d['layer']
 
 def load_features(key: str, feats: list[dict], target_sql: str) -> None:
     """target_sql is the INSERT..SELECT from temp table _stage(props jsonb, gj text)."""
-    head = f"""
+    head = """
 BEGIN;
 CREATE TEMP TABLE _stage (props jsonb, gj text);
 COPY _stage (props, gj) FROM STDIN;
@@ -277,7 +277,7 @@ FROM _stage WHERE props->>'name' IS NOT NULL;
 SELECT ST_XMin(e)||','||ST_YMin(e)||','||ST_XMax(e)||','||ST_YMax(e)
 FROM (SELECT ST_Envelope(geom) e FROM lg_areas WHERE name ILIKE '%cockburn%' LIMIT 1) s;
 """)
-    bbox_line = [l.strip() for l in out.splitlines() if "," in l][0]
+    bbox_line = [ln.strip() for ln in out.splitlines() if "," in ln][0]
     bbox = tuple(float(x) for x in bbox_line.split(","))
     print(f"Cockburn bbox: {bbox}", flush=True)
 
