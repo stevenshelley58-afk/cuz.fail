@@ -1,0 +1,36 @@
+{
+  "id": "JOO-LPP-007",
+  "normalized_title": "City of Joondalup Local Planning Policy - Signs and Advertising",
+  "instrument_no": "LPP - Signs and Advertising",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "City of Joondalup local planning policy for signs and advertising. It sets out the City's approach to assessing applications for signs across the district, covering sign types, sizes, illumination, location, heritage, safety and amenity considerations. Made under Schedule 2, Part 2 of the deemed provisions of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 3",
+      "manifest_id": "JOO-SCH-001"
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "mechanical (build_missing_analyses) pass; subject to a deeper re-analysis pass"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "JOO-LPP-006",
+  "normalized_title": "City of Joondalup Local Planning Policy - Communication Antennae and Satellite Dishes",
+  "instrument_no": "LPP - Communication Antennae and Satellite Dishes",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "City of Joondalup local planning policy for communication antennae and satellite dishes. It sets out the City's approach to assessing applications for new or amended telecommunications infrastructure, addressing visual amenity, health, co-location, and design considerations. Made under Schedule 2, Part 2 of the deemed provisions of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+  "key_numeric_standards": [
+    {
+      "topic": "“coastal area” means land within 300 metres of the horizonta",
+      "value": "300",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "(a) Street setback (includes (i) 3.5 metres, with the except",
+      "value": "3.5",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "* Where a lot abuts the Residential zone, the maximum buildi",
+      "value": "6",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 3",
+      "manifest_id": "JOO-SCH-001"
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "mechanical (build_missing_analyses) pass; subject to a deeper re-analysis pass"
+  ]
+}

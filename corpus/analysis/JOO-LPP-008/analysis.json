@@ -1,0 +1,44 @@
+{
+  "id": "JOO-LPP-008",
+  "normalized_title": "City of Joondalup Local Planning Policy - Non-Residential Development in Residential Areas",
+  "instrument_no": "LPP - Non-Residential Development in Residential Areas",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "City of Joondalup local planning policy for non-residential development in residential areas. It sets out the City's approach to considering home-based and other small-scale non-residential uses in residential zones, addressing scale, amenity, traffic, parking, signage and adjoining-residents impacts. Made under Schedule 2, Part 2 of the deemed provisions of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+  "key_numeric_standards": [
+    {
+      "topic": "a. Container deposit scheme infrastructure must not be erect",
+      "value": "10",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "Environmental Protection Act 1986",
+      "manifest_id": "LEG-005"
+    },
+    {
+      "cited": "Local Planning Scheme No. 3",
+      "manifest_id": "JOO-SCH-001"
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "mechanical (build_missing_analyses) pass; subject to a deeper re-analysis pass"
+  ]
+}

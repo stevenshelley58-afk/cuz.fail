@@ -1,0 +1,28 @@
+{
+  "id": "JOO-LPP-009",
+  "normalized_title": "City of Joondalup Local Planning Policy - Development Proposals before the State Administrative Tribunal",
+  "instrument_no": "LPP - SAT Development Proposals",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "City of Joondalup local planning policy that ensures planning decisions brought before the State Administrative Tribunal and involving the City are dealt with in an open and accountable manner. It sets out the process for Council consideration of mediated or agreed outcomes and the conditions on which the City will support positions in SAT proceedings. Made under Schedule 2, Part 2 of the deemed provisions of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+  "key_numeric_standards": [],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "mechanical (build_missing_analyses) pass; subject to a deeper re-analysis pass"
+  ]
+}

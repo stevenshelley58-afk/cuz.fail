@@ -1,0 +1,89 @@
+{
+  "id": "FRE-LPP-020",
+  "normalized_title": "City of Fremantle Local Planning Policy 3.11 - McCabe Street Area: Height of New Buildings",
+  "instrument_no": "LPP 3.11",
+  "version_date": "Adopted 22 April 2009",
+  "operative_status": "current",
+  "scope_summary": "City of Fremantle local planning policy applying to the McCabe Street area that controls the maximum height of new buildings. Plan No. 2 (figure 2) defines a series of building height zones (A through H1/H2/H3) and the policy sets the applicable maximum height in metres for each zone, with provisions for projections, variations of up to 0.5 m for ground level changes, and additional development requirements such as minimum glazing/landscaping percentages and SAT appeals considerations. The policy is made under the City of Fremantle Local Planning Scheme No. 4.",
+  "key_numeric_standards": [
+    {
+      "topic": "by up to 0.5 metres where there is a variation in ground lev",
+      "value": "0.5",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "more than 3m away from the main building structure and the t",
+      "value": "3",
+      "unit": "m",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": " In the part of Zone D that is within 60 metres of the east",
+      "value": "60",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "Street, a building of a maximum height of 25 metres may be a",
+      "value": "25",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "maximum height of 33 metres in zone H2 and 25m in zone H3 ma",
+      "value": "33",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "the development over 17 metres in height must not have a foo",
+      "value": "17",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "development is to include no less than 15 percent of the zon",
+      "value": "15",
+      "unit": "percent",
+      "applies_to": "",
+      "clause_ref": ""
+    },
+    {
+      "topic": "maximum building height of 11 metres permitted under this po",
+      "value": "11",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "R-Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Residential Design Codes",
+      "manifest_id": "PC-001"
+    },
+    {
+      "cited": "Local Planning Scheme No. 4",
+      "manifest_id": "FRE-SCH-001"
+    },
+    {
+      "cited": "LPS4",
+      "manifest_id": "FRE-SCH-001"
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "mechanical (build_missing_analyses) pass; subject to a deeper re-analysis pass"
+  ]
+}

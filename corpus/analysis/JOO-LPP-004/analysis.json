@@ -1,0 +1,32 @@
+{
+  "id": "JOO-LPP-004",
+  "normalized_title": "City of Joondalup Local Planning Policy - Closure of Pedestrian Accessways",
+  "instrument_no": "LPP - Closure of Pedestrian Accessways",
+  "version_date": null,
+  "operative_status": "current",
+  "scope_summary": "City of Joondalup local planning policy that provides guidance on the assessment criteria to be used for requests to close pedestrian accessways. It applies to all requests for closure within the City, sets out urban design, nuisance impact and community impact assessments, and uses ped-shed walkable catchment distances of 400 m near community facilities and 800 m near an Activity Centre identified in State Planning Policy 4.2 or a major transit terminal. Made under Schedule 2, Part 2 of the deemed provisions of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+  "key_numeric_standards": [
+    {
+      "topic": "community facilities; and 800 metres, where the pedestrian a",
+      "value": "800",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "manifest_id": "REG-001"
+    },
+    {
+      "cited": "deemed provisions",
+      "manifest_id": "REG-001"
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "mechanical (build_missing_analyses) pass; subject to a deeper re-analysis pass"
+  ]
+}
