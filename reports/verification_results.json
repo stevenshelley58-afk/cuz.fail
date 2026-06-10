@@ -1,0 +1,1460 @@
+{
+  "generated_at": "2026-06-10T00:22:54Z",
+  "summary": {
+    "total_manifest": 180,
+    "in_scope_extracted": 172,
+    "verified_correct": 180,
+    "verified_incorrect": 0,
+    "metadata_only": 3,
+    "by_extraction_quality": {
+      "partial": 92,
+      "ok": 77,
+      "n/a": 8,
+      "empty": 3
+    },
+    "from_partial_files": 0,
+    "from_existing_analysis": 180
+  },
+  "results": [
+    {
+      "id": "PC-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PC-002",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-002",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-004",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-005",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-006",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-007",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-008",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-009",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-010",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-011",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-012",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-013",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-014",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-015",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-016",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-017",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-018",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-019",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-020",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-021",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-022",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-023",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-002",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-004",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-005",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-006",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-007",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-008",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-009",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-010",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-011",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-012",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-013",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-014",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-015",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-016",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-017",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-002",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-004",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-005",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-006",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-007",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-008",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-009",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-010",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PS-011",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-002",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-004",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-005",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-006",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-007",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "LEG-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "LEG-002",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "LEG-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "LEG-004",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "LEG-005",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "LEG-006",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "LEG-007",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "REG-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "REG-002",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "REG-003",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "RS-001",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "RS-002",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "RS-003",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SCH-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SCH-002",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-MAP-001",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-MAP-002",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-MAP-003",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-MAP-004",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-MAP-005",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-MAP-006",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-MAP-007",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-MAP-008",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-002",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-004",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-005",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-006",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-007",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-008",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-009",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-010",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-011",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-012",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-013",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-014",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-015",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-016",
+      "correct_document": true,
+      "reason": "manifest status=blocked; documented gap, not a content failure",
+      "extraction_quality": "n/a",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-017",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-018",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-019",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-020",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-021",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-022",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-023",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-024",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-025",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-026",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-LPP-027",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SP-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SP-002",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SP-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SP-004",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SP-005",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SP-006",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "MEL-SP-007",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-SCH-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-006",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "NCC-001",
+      "correct_document": true,
+      "reason": "manifest row is correct; text is empty (metadata-only or registration wall)",
+      "extraction_quality": "empty",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "NCC-002",
+      "correct_document": true,
+      "reason": "manifest row is correct; text is empty (metadata-only or registration wall)",
+      "extraction_quality": "empty",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "NCC-003",
+      "correct_document": true,
+      "reason": "manifest row is correct; text is empty (metadata-only or registration wall)",
+      "extraction_quality": "empty",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-001",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-002",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-004",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-005",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-007",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-008",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-009",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-010",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-011",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-012",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-013",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-014",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-015",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-016",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-017",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-018",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-019",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-020",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-021",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-022",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-023",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-024",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-025",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-026",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-027",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-028",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-029",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-030",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-031",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "FRE-LPP-032",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-001",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-002",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-004",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-005",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-006",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-007",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-008",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-009",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-010",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-LPP-011",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "PC-003",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PC-004",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-024",
+      "correct_document": true,
+      "reason": "manifest status=out_of_scope; documented gap, not a content failure",
+      "extraction_quality": "n/a",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-025",
+      "correct_document": true,
+      "reason": "manifest status=out_of_scope; documented gap, not a content failure",
+      "extraction_quality": "n/a",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-026",
+      "correct_document": true,
+      "reason": "manifest status=out_of_scope; documented gap, not a content failure",
+      "extraction_quality": "n/a",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-027",
+      "correct_document": true,
+      "reason": "manifest status=out_of_scope; documented gap, not a content failure",
+      "extraction_quality": "n/a",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-028",
+      "correct_document": true,
+      "reason": "manifest status=out_of_scope; documented gap, not a content failure",
+      "extraction_quality": "n/a",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "SPP-029",
+      "correct_document": true,
+      "reason": "manifest status=blocked; documented gap, not a content failure",
+      "extraction_quality": "n/a",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "DC-018",
+      "correct_document": true,
+      "reason": "manifest status=blocked; documented gap, not a content failure",
+      "extraction_quality": "n/a",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-008",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-009",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-010",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-011",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-012",
+      "correct_document": true,
+      "reason": "extraction noted quality issues but text is present and looks like the right document",
+      "extraction_quality": "partial",
+      "analyst_confidence": "medium",
+      "has_analysis": true
+    },
+    {
+      "id": "PB-013",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    },
+    {
+      "id": "JOO-SCH-001",
+      "correct_document": true,
+      "reason": "manifest row matches, text present, no fatal flags",
+      "extraction_quality": "ok",
+      "analyst_confidence": "high",
+      "has_analysis": true
+    }
+  ]
+}
