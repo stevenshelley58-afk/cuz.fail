@@ -257,26 +257,35 @@ export function Home({
     }
   }, [isGuest, webOn, onGuestChatDone, onNeedSignIn, onShowPaywall]);
 
+  // Option buttons are single-use: consume them all once one is picked so a
+  // re-click (e.g. after "← Back to home") can't create duplicate projects or
+  // burn guest quota twice.
+  const consumeOptions = useCallback(() => {
+    setMsgs((prev) => prev.map((m) => (m.options ? { ...m, options: undefined } : m)));
+  }, []);
+
   // Option-button handlers — run after the original turn finished, so they
   // manage their own busy cycle (via busyRef to dodge stale closures).
   const chooseAddress = useCallback(async (address: string) => {
     if (busyRef.current) return;
     busyRef.current = true;
     setBusy(true);
+    consumeOptions();
     push({ role: "q", text: address });
     await startCheck(address);
     busyRef.current = false;
     setBusy(false);
-  }, [startCheck]);
+  }, [startCheck, consumeOptions]);
 
   const chooseChat = useCallback(async (t: string, history: AssistantTurn[]) => {
     if (busyRef.current) return;
     busyRef.current = true;
     setBusy(true);
+    consumeOptions();
     await runChat(t, history);
     busyRef.current = false;
     setBusy(false);
-  }, [runChat]);
+  }, [runChat, consumeOptions]);
 
   /** Try to handle `t` as an address via the server-side G-NAF search.
    *  Returns false when it's not credibly an address (caller falls through
@@ -457,7 +466,7 @@ export function Home({
         <div className="onebox">
           <textarea
             ref={inputRef}
-            placeholder="Type a street address (e.g. 42 Banksia St, Fremantle)… or ask anything about WA planning"
+            placeholder="Type a street address (e.g. 3 Black Swan Rise, Beeliar)… or ask anything about WA planning"
             onKeyDown={(e) => {
               if (sugs.length) {
                 if (e.key === "ArrowDown") {
@@ -524,7 +533,7 @@ export function Home({
         </div>
         {msgs.length === 0 && (
           <div className="hints">
-            <button className="addr" onClick={() => fill("42 Banksia St, Fremantle")}><Icon name="location_on" />Try an address</button>
+            <button className="addr" onClick={() => fill("3 Black Swan Rise, Beeliar")}><Icon name="location_on" />Try an address</button>
             <button onClick={() => fill("What does R20 zoning allow?")}><Icon name="forum" />What does R20 zoning allow?</button>
             <button onClick={() => fill("What drawings do I need for a DA?")}><Icon name="forum" />What drawings do I need for a DA?</button>
           </div>
