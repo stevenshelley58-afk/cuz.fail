@@ -484,20 +484,63 @@ class PostGISSpatialDatasetStore:
             .limit(max(1, min(int(limit), 20)))
         )
 
+        # Prefix-first fast path: a leading-anchored ILIKE on the raw and
+        # street-type-expanded query is served from the trigram GIN index in
+        # single-digit milliseconds, while the `<%` word-similarity arm at a
+        # 0.45 floor expands to tens of thousands of weak candidates
+        # (~0.5–1s at 1.7M rows). Most keystrokes are clean prefixes of a
+        # real address, so the expensive arm only runs when the prefix match
+        # can't fill the limit (typos, mid-string matches).
+        prefix_patterns = {f"{normalized}%", f"{expanded}%"}
+        prefix_stmt = (
+            select(
+                DbAddressPoint.id,
+                DbAddressPoint.gnaf_pid,
+                DbAddressPoint.address_text,
+                func.ST_Y(DbAddressPoint.geom).label("lat"),
+                func.ST_X(DbAddressPoint.geom).label("lon"),
+                DbSpatialDataset.dataset_id,
+                score,
+            )
+            .join(
+                DbSpatialDataset,
+                DbAddressPoint.spatial_dataset_id == DbSpatialDataset.id,
+            )
+            .where(or_(*[DbAddressPoint.address_text.ilike(p) for p in prefix_patterns]))
+            .order_by(text("score DESC"), DbAddressPoint.address_text.asc())
+            .limit(max(1, min(int(limit), 20)))
+        )
+
         with Session(self._engine) as session:
+            rows = []
             try:
-                # Lower the word-similarity floor for this transaction so
-                # moderate typos still surface candidates; ranking puts the
-                # best match first regardless.
-                session.execute(text("SET LOCAL pg_trgm.word_similarity_threshold = 0.45"))
-                rows = session.execute(stmt).all()
+                rows = list(session.execute(prefix_stmt).all())
             except Exception:
                 logger.warning(
-                    "search_address_points: trigram search failed, falling back to ILIKE",
-                    exc_info=True,
+                    "search_address_points: prefix search failed", exc_info=True
                 )
                 session.rollback()
-                rows = self._ilike_search_rows(session, normalized, expanded, limit)
+            if len(rows) < max(1, min(int(limit), 20)):
+                try:
+                    # Lower the word-similarity floor for this transaction so
+                    # moderate typos still surface candidates; ranking puts the
+                    # best match first regardless.
+                    session.execute(text("SET LOCAL pg_trgm.word_similarity_threshold = 0.45"))
+                    seen_ids = {row[0] for row in rows}
+                    rows += [
+                        row
+                        for row in session.execute(stmt).all()
+                        if row[0] not in seen_ids
+                    ]
+                    rows = rows[: max(1, min(int(limit), 20))]
+                except Exception:
+                    logger.warning(
+                        "search_address_points: trigram search failed, falling back to ILIKE",
+                        exc_info=True,
+                    )
+                    session.rollback()
+                    if not rows:
+                        rows = self._ilike_search_rows(session, normalized, expanded, limit)
 
         results: list[AddressSearchHit] = []
         for row in rows:
