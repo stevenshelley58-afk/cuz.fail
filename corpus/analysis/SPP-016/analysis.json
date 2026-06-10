@@ -1,0 +1,98 @@
+{
+  "id": "SPP-016",
+  "normalized_title": "State Planning Policy 5.1 Land Use Planning in the Vicinity of Perth Airport",
+  "instrument_no": "SPP 5.1",
+  "version_date": "2015-07-09 (gazettal date Thursday 9 July 2015; published July 2015)",
+  "operative_status": "current",
+  "scope_summary": "Protects Perth Airport from unreasonable encroachment by noise-sensitive development and minimises the impact of aircraft noise on existing and future communities. Applies to land in the vicinity of Perth Airport within the 20 ANEF noise contour, controlling zoning, residential density, subdivision/strata subdivision, development, noise insulation, and notification on title across three noise exposure zones (below 20 ANEF, 20-25 ANEF, above 25 ANEF) based on AS2021 building site acceptability.",
+  "key_numeric_standards": [
+    {
+      "topic": "maximum residential density - 20 to 25 ANEF zone",
+      "value": "R20",
+      "unit": "R-Code density code",
+      "applies_to": "land zoned for residential purposes between 20 and 25 ANEF (with listed exceptions)",
+      "clause_ref": "cl 5.3.2"
+    },
+    {
+      "topic": "maximum residential density where no density coding prescribed - 20 to 25 ANEF",
+      "value": "R20",
+      "unit": "R-Code density code",
+      "applies_to": "'Residential' zoned land without a density coding, 20-25 ANEF zone",
+      "clause_ref": "cl 5.3.3(2), cl 5.3.4(3)"
+    },
+    {
+      "topic": "maximum residential density - above 25 ANEF zone",
+      "value": "R12.5",
+      "unit": "R-Code density code",
+      "applies_to": "existing 'Residential' zoned land above 25 ANEF where non-residential rezoning is not practicable (with listed exceptions)",
+      "clause_ref": "cl 5.4.2(1)"
+    },
+    {
+      "topic": "maximum residential density where no density coding prescribed - above 25 ANEF",
+      "value": "R12.5",
+      "unit": "R-Code density code",
+      "applies_to": "'Residential' zoned land without a density coding or minimum lot size, above 25 ANEF",
+      "clause_ref": "cl 5.4.3(2)"
+    },
+    {
+      "topic": "no density increase threshold",
+      "value": "30",
+      "unit": "ANEF",
+      "applies_to": "permissible residential density should generally not be increased above 30 ANEF",
+      "clause_ref": "cl 5.4.2(2)"
+    },
+    {
+      "topic": "site dissection interpretation threshold",
+      "value": "1000",
+      "unit": "m2",
+      "applies_to": "sites dissected by a noise exposure contour - below 1,000m2 the majority-level zone applies to the whole site",
+      "clause_ref": "cl 5.1 Interpretation"
+    },
+    {
+      "topic": "indoor design sound level - sleeping areas, dedicated lounges (houses)",
+      "value": "50",
+      "unit": "dB(A)",
+      "applies_to": "aircraft noise indoor design sound level per AS2021",
+      "clause_ref": "Appendix 2"
+    },
+    {
+      "topic": "indoor design sound level - other habitable spaces (houses)",
+      "value": "55",
+      "unit": "dB(A)",
+      "applies_to": "aircraft noise indoor design sound level per AS2021",
+      "clause_ref": "Appendix 2"
+    }
+  ],
+  "definitions": [
+    "ANEF level",
+    "Noise exposure zone",
+    "Building site acceptability",
+    "ANEF",
+    "ANEI",
+    "Australian Noise Exposure Forecast"
+  ],
+  "cross_references": [
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "AS2021 (Australian Standard - Acoustics, Aircraft Noise Intrusion, Building Siting and Construction)",
+      "manifest_id": null
+    },
+    {
+      "cited": "Airports Act 1996 (Cth)",
+      "manifest_id": null
+    },
+    {
+      "cited": "Aircraft Noise Insulation for Residential Development in the Vicinity of Perth Airport (WAPC, 2004)",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "high",
+  "quality_flags": [
+    "source is the State Law Publisher reference copy of SPP 5.1 (gazettal date Thursday 9 July 2015) - carries the standard State Law Publisher reference disclaimer banner; content matches the gazetted SPP 5.1 and is operative",
+    "summary.json title field captured the gazettal disclaimer banner rather than the policy title; the analysis.json normalized_title is correct",
+    "two-column layout causes some interleaving of TOC and body text in extraction; substantive provisions are intact"
+  ]
+}

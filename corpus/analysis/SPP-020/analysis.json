@@ -1,0 +1,115 @@
+{
+  "id": "SPP-020",
+  "normalized_title": "State Planning Policy 6.1 Leeuwin-Naturaliste Ridge (Statement of Planning Policy No. 6.1 Leeuwin-Naturaliste Ridge Policy)",
+  "instrument_no": "SPP 6.1",
+  "version_date": "1998-09-18 (gazettal 18 September 1998, Special Gazette No. 189); consolidated copy incorporating Amendment No. 1 - Smiths Beach, gazetted 31 January 2003",
+  "operative_status": "current",
+  "scope_summary": "Regional strategic planning policy for the Leeuwin-Naturaliste Ridge policy area - the coastal strip from Cape Naturaliste to Cape Leeuwin, inland to Bussell Highway, within the Shires of Augusta-Margaret River and Busselton. Provides a 30-year land use framework covering settlement hierarchy and design, nature conservation, landscape protection, agriculture, tourism, cultural heritage and basic raw material resources, guiding local planning schemes, subdivision and development in the policy area.",
+  "key_numeric_standards": [
+    {
+      "topic": "minimum subdivision size - irrigated horticulture land",
+      "value": "20",
+      "unit": "ha",
+      "applies_to": "land used for irrigated horticulture in the agricultural area",
+      "clause_ref": "Land Use Strategy / Table (Agriculture)"
+    },
+    {
+      "topic": "minimum subdivision size - viticulture and intensive agriculture",
+      "value": "30",
+      "unit": "ha",
+      "applies_to": "land used for viticulture and other intensive agricultural uses",
+      "clause_ref": "Land Use Strategy / Table (Agriculture)"
+    },
+    {
+      "topic": "minimum subdivision size - general agriculture",
+      "value": "40",
+      "unit": "ha",
+      "applies_to": "general agricultural uses including grazing",
+      "clause_ref": "Land Use Strategy / Table (Agriculture)"
+    },
+    {
+      "topic": "minimum land capability for agricultural consolidation lots",
+      "value": "750",
+      "unit": "Dry Sheep Equivalent (DSE)",
+      "applies_to": "lots proposed for agricultural consolidation (remnant vegetation excluded from calculation)",
+      "clause_ref": "Land Use Strategy / Table (Agriculture)"
+    },
+    {
+      "topic": "tourist/residential development ratio - Smiths Beach (Sussex Location 413)",
+      "value": "not less than 70% tourist / not more than 30% residential",
+      "unit": "% of developable land area",
+      "applies_to": "subdivision and development of identified developable areas of Sussex Location 413, Smiths Beach Tourist Node",
+      "clause_ref": "PS 1.3 (as amended by Amendment No. 1, 2003)"
+    },
+    {
+      "topic": "maximum residential density - Smiths Beach (Sussex Location 413)",
+      "value": "R25",
+      "unit": "R-Code density code",
+      "applies_to": "residential development on Sussex Location 413 under SPP 3.1 Residential Design Codes",
+      "clause_ref": "PS 1.3 (as amended by Amendment No. 1, 2003)"
+    },
+    {
+      "topic": "rural residential lot size range",
+      "value": "1-10 (2-3 most common)",
+      "unit": "ha",
+      "applies_to": "Rural Residential subdivisions in the policy area (descriptive)",
+      "clause_ref": "Glossary / Land Use Strategy"
+    },
+    {
+      "topic": "cottage industry maximum floor area",
+      "value": "50",
+      "unit": "m2",
+      "applies_to": "cottage industry use (definition)",
+      "clause_ref": "Appendix 1 Glossary"
+    },
+    {
+      "topic": "cottage industry maximum sign area",
+      "value": "0.2",
+      "unit": "m2",
+      "applies_to": "cottage industry use (definition)",
+      "clause_ref": "Appendix 1 Glossary"
+    }
+  ],
+  "definitions": [
+    "Basic Raw Materials",
+    "Cape to Cape Walk Trail",
+    "Clustered Rural Residential Development",
+    "Compatible Uses",
+    "Conservation",
+    "Conservation Covenant",
+    "Cottage Industry",
+    "Cultural Heritage",
+    "Development",
+    "Development Hierarchy",
+    "Dry Sheep Equivalent (DSE)",
+    "Ecologically Significant Areas",
+    "Ecologically Sustainable Development",
+    "Ecotourism",
+    "Environment",
+    "Extractive Industry",
+    "Integrated Catchment Management",
+    "Intensive Agriculture/Horticulture",
+    "Land"
+  ],
+  "cross_references": [
+    {
+      "cited": "Town Planning and Development Act 1928 (s5AA)",
+      "manifest_id": null
+    },
+    {
+      "cited": "State Planning Strategy (WAPC, 1997)",
+      "manifest_id": null
+    },
+    {
+      "cited": "Statement of Planning Policy No 3.1 (Residential Design Codes)",
+      "manifest_id": "PC-001"
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "source is the State Law Publisher reference copy of SPP 6.1 - consolidated text incorporating Amendment No. 1 (Smiths Beach, gazetted 31 January 2003); carries the standard State Law Publisher reference disclaimer banner; content is the operative SPP 6.1",
+    "policy was made under the repealed Town Planning and Development Act 1928 (s5AA) and continues in effect under the Planning and Development Act 2005 as SPP 6.1; pre-dates current SPP drafting conventions",
+    "map figures (Figure 1 etc.) extract as fragmented characters and place-name strings - expected for map pages",
+    "multi-column table extraction (settlement hierarchy / land use strategy tables) is interleaved and hard to parse in places"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "SPP-002",
+  "normalized_title": "Statement of Planning Policy No. 2 - Environment and Natural Resources Policy (SPP 2.0)",
+  "instrument_no": "SPP 2.0",
+  "version_date": "Gazetted 10 June 2003 (Special Gazette No. 90)",
+  "operative_status": "current",
+  "scope_summary": "Broad sector policy applying throughout Western Australia that integrates environment and natural resource management into land use planning and decision-making. It sets policy measures for water resources, air quality, soil and land quality, biodiversity, agricultural land and rangelands, minerals/petroleum/basic raw materials, marine resources and aquaculture, landscape, and greenhouse gas emissions/energy efficiency. It is implemented through planning strategies, schemes and decision-making rather than prescribing development standards.",
+  "key_numeric_standards": [
+    {
+      "topic": "flood risk identification",
+      "value": "1 in 100",
+      "unit": "year flood event",
+      "applies_to": "identification of floodways and flood-affected land in planning strategies, schemes and decision-making",
+      "clause_ref": "s5.2(v)"
+    }
+  ],
+  "definitions": [
+    "biodiversity (described in s5.5)"
+  ],
+  "cross_references": [
+    {
+      "cited": "Town Planning and Development Act 1928 (s5AA)",
+      "manifest_id": null
+    },
+    {
+      "cited": "Statement of Planning Policy No. 8: State Planning Framework Policy",
+      "manifest_id": "SPP-001"
+    },
+    {
+      "cited": "State Planning Strategy (1997)",
+      "manifest_id": null
+    },
+    {
+      "cited": "Western Australian State Sustainability Strategy (draft, 2002)",
+      "manifest_id": null
+    },
+    {
+      "cited": "State Gravel Supply Strategy (Main Roads WA, 1998)",
+      "manifest_id": null
+    },
+    {
+      "cited": "State water quality management strategy (2001)",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "low",
+  "quality_flags": [
+    "source is the WAPC web reference copy of SPP 2.0 - the standard reference disclaimer banner is interleaved through the text but the policy content is intact and matches the 10 June 2003 gazettal (Special Gazette No. 90)",
+    "bullet characters mis-decoded as 'ss' (eszett) throughout lists",
+    "summary.json title field captured the disclaimer banner rather than the policy title; the analysis.json normalized_title is correct",
+    "policy was made under the repealed Town Planning and Development Act 1928 (s5AA) but continues in effect under the Planning and Development Act 2005 as SPP 2.0; predates the current SPP numbering style"
+  ]
+}

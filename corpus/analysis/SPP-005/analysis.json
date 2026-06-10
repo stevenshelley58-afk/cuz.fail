@@ -1,0 +1,143 @@
+{
+  "id": "SPP-005",
+  "normalized_title": "State Planning Policy 2.6 - State Coastal Planning Policy",
+  "instrument_no": "SPP 2.6",
+  "version_date": "Gazetted 30 July 2013 (replaces the SPP 2.6 gazetted 10 June 2003 as amended 19 December 2006)",
+  "operative_status": "current",
+  "scope_summary": "State-wide policy for land use and development in the Western Australian coastal zone. It sets policy measures for coastal development and settlement, building height limits within 300 m of the shoreline, coastal hazard risk management and adaptation planning (CHRMAP), infill development, coastal protection works and coastal foreshore reserves, with Schedule One prescribing the methodology for calculating coastal process (erosion and inundation) allowances over a 100-year planning timeframe. It applies to scheme-making, strategies, structure plans, subdivision and development on or affecting the coast.",
+  "key_numeric_standards": [
+    {
+      "topic": "building height control trigger area",
+      "value": "300",
+      "unit": "m from horizontal shoreline datum",
+      "applies_to": "all development except industrial/resource development, transport, telecommunications, engineering infrastructure and port works",
+      "clause_ref": "cl 5.4(i)"
+    },
+    {
+      "topic": "planning timeframe for coastal hazards",
+      "value": "100",
+      "unit": "years (to 2110)",
+      "applies_to": "coastal hazard risk assessment and coastal process allowances",
+      "clause_ref": "Schedule One s2 and s4.1"
+    },
+    {
+      "topic": "sea level rise allowance",
+      "value": "0.9",
+      "unit": "m over 100-year timeframe",
+      "applies_to": "S3 erosion and inundation calculations for all coastal development",
+      "clause_ref": "Schedule One s4.1"
+    },
+    {
+      "topic": "storm erosion allowance (S1) default",
+      "value": "40",
+      "unit": "m (minimum, absent modelling)",
+      "applies_to": "cross-shore storm erosion on a typical sandy coast",
+      "clause_ref": "Schedule One s4.4.1"
+    },
+    {
+      "topic": "uncertainty allowance for erosion",
+      "value": "0.2",
+      "unit": "m per year",
+      "applies_to": "added to S1+S2+S3 erosion allowances on sandy coasts",
+      "clause_ref": "Schedule One s4.4"
+    },
+    {
+      "topic": "historic shoreline movement allowance (S2)",
+      "value": "100 x historic annual erosion rate",
+      "unit": "m",
+      "applies_to": "sandy coast erosion allowance; zero where accretion is less than 0.2 m/yr",
+      "clause_ref": "Schedule One s4.4.2"
+    },
+    {
+      "topic": "stable post-storm slope assumption",
+      "value": "30",
+      "unit": "degrees from horizontal",
+      "applies_to": "steeply sloping sandy shorelines absent geological assessment",
+      "clause_ref": "Schedule One s4.4.1"
+    },
+    {
+      "topic": "coastal hazard notification on title",
+      "value": "100",
+      "unit": "years",
+      "applies_to": "lots in vulnerable coastal areas - 'VULNERABLE COASTAL AREA' notification re erosion/inundation over the next 100 years",
+      "clause_ref": "cl 5.5(ii)"
+    }
+  ],
+  "definitions": [
+    "acceptable",
+    "adaptation",
+    "coastal compartment",
+    "coastal foreshore reserve",
+    "coastal or foreshore management plan",
+    "coastal hazard",
+    "coastal node",
+    "coastal planning strategy",
+    "coastal processes",
+    "coastal protection works",
+    "consequence",
+    "cross-shore",
+    "environment",
+    "event",
+    "intolerable",
+    "inundation",
+    "likelihood",
+    "longshore",
+    "peak steady water level (PSWL)",
+    "risk",
+    "risk assessment",
+    "risk management",
+    "sediment cell"
+  ],
+  "cross_references": [
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "State Planning Policy No. 1 State Planning Framework Policy",
+      "manifest_id": "SPP-001"
+    },
+    {
+      "cited": "State Planning Policy No. 2: Environment and Natural Resources Policy",
+      "manifest_id": "SPP-002"
+    },
+    {
+      "cited": "State Planning Policy 2.9 Water Resources",
+      "manifest_id": "SPP-007"
+    },
+    {
+      "cited": "State Planning Policy 2.10 Swan-Canning River System",
+      "manifest_id": null
+    },
+    {
+      "cited": "State Planning Policy 3 Urban Growth and Settlement",
+      "manifest_id": "SPP-008"
+    },
+    {
+      "cited": "State Planning Policy 3.4 Natural Hazards and Disasters",
+      "manifest_id": "SPP-010"
+    },
+    {
+      "cited": "State Planning Policy 3.5 Historic Heritage Conservation",
+      "manifest_id": "SPP-011"
+    },
+    {
+      "cited": "State Planning Policy 3.6 Development Contributions (and Infrastructure)",
+      "manifest_id": "SPP-012"
+    },
+    {
+      "cited": "Port Authorities Act 1999",
+      "manifest_id": null
+    },
+    {
+      "cited": "State Planning Strategy",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "source is the WAPC web reference copy of SPP 2.6 - carries the standard reference disclaimer banner; content matches the gazetted SPP 2.6 of 30 July 2013",
+    "summary.json version_date field was scraped from the cover line describing the superseded 2003/2006 version; the analysis.json version_date is the operative gazettal date of 30 July 2013",
+    "text extraction is otherwise clean (single-column gazette layout)"
+  ]
+}

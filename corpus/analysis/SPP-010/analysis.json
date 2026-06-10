@@ -1,0 +1,88 @@
+{
+  "id": "SPP-010",
+  "normalized_title": "State Planning Policy No. 3.4 Natural Hazards and Disasters",
+  "instrument_no": "SPP 3.4",
+  "version_date": "Gazetted 11 April 2006 (Special Gazette No. 67; policy dated April 2006)",
+  "operative_status": "current",
+  "scope_summary": "State Planning Policy made under section 26 of the Planning and Development Act 2005 requiring natural hazards (flood, cyclone, severe storm, storm surge, tsunami, coastal erosion, bushfire, landslide, earthquake) to be considered as a fundamental element in planning. It applies throughout Western Australia to regional and local strategies, schemes and amendments, structure plans, subdivision, strata subdivision and development applications. Local governments must have regard to it when preparing or amending schemes, strategies and policies and when advising on applications on hazard-affected land.",
+  "key_numeric_standards": [
+    {
+      "topic": "defined flood event for floodplain development control",
+      "value": "100",
+      "unit": "year average recurrence interval",
+      "applies_to": "development on floodplains; habitable, commercial and industrial buildings to have floor levels above the defined flood event level",
+      "clause_ref": "s 5.2 (Flood)"
+    },
+    {
+      "topic": "slope threshold indicating landslide risk",
+      "value": "15",
+      "unit": "% (approximate slope gradient)",
+      "applies_to": "development on steep slopes; may trigger additional geotechnical investigation",
+      "clause_ref": "s 5.2 (Landslides and other land movements)"
+    }
+  ],
+  "definitions": [
+    "Mitigation"
+  ],
+  "cross_references": [
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": "LEG-001"
+    },
+    {
+      "cited": "Building Code of Australia",
+      "manifest_id": "NCC-001"
+    },
+    {
+      "cited": "Statement of Planning Policy No. 2 Environment and Natural Resources (SPP 2)",
+      "manifest_id": "SPP-002"
+    },
+    {
+      "cited": "Statement of Planning Policy No. 2.5 Agricultural and Rural Land Use Planning (SPP 2.5)",
+      "manifest_id": "SPP-004"
+    },
+    {
+      "cited": "Statement of Planning Policy No. 2.6 State Coastal Planning Policy (SPP 2.6)",
+      "manifest_id": "SPP-005"
+    },
+    {
+      "cited": "Statement of Planning Policy No. 2.7 Public Drinking Water Sources Policy (SPP 2.7)",
+      "manifest_id": null
+    },
+    {
+      "cited": "Statement of Planning Policy No. 3 Urban Growth and Settlement (SPP 3)",
+      "manifest_id": "SPP-008"
+    },
+    {
+      "cited": "Statement of Planning Policy No. 3.2 Planning for Aboriginal Communities (SPP 3.2)",
+      "manifest_id": "SPP-009"
+    },
+    {
+      "cited": "Development Control Policy 3.7 Fire Planning",
+      "manifest_id": null
+    },
+    {
+      "cited": "Development Control Policy 4.2 Planning for Hazards and Safety",
+      "manifest_id": "DC-014"
+    },
+    {
+      "cited": "Planning for Bushfire Protection guidelines (2001)",
+      "manifest_id": null
+    },
+    {
+      "cited": "Town Planning and Development Act 1928",
+      "manifest_id": null
+    },
+    {
+      "cited": "State Planning Strategy (1997)",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "source is the WAPC web copy of SPP 3.4 (gazettal date Tuesday 11 April 2006, Special Gazette No. 67); the policy is operative and the content is intact",
+    "summary.json title field captured the standard WAPC reference disclaimer banner rather than the instrument title; the analysis.json normalized_title is correct",
+    "Map 1 (Cyclonic Activity in Australia 1970-2002) is a graphic; only its caption and legend text were extracted",
+    "gazette page headers interleaved through text; bushfire provisions of this policy have since been superseded in practice by SPP 3.7"
+  ]
+}
