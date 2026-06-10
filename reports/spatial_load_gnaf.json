@@ -1,0 +1,39 @@
+{
+  "dataset": {
+    "dataset_id": "gnaf_wa",
+    "spatial_dataset_uuid": "c21644d0-a44b-41aa-b336-ab86c358f8f4",
+    "name": "Geoscape G-NAF address points (WA subset)",
+    "provider": "Geoscape Australia via data.gov.au",
+    "product": "G-NAF full release (GDA2020 PSV) — G-NAF Core is not published on data.gov.au, so the full product was used",
+    "version": "MAY 2026",
+    "licence": "CC-BY-4.0 (Geoscape EULA)",
+    "licence_status": "approved",
+    "source_crs": "EPSG:7844 (GDA2020)",
+    "fetched_at": "2026-06-10T07:01:28.216045+00:00",
+    "refresh_due": "2026-09-10T07:01:28.216045+00:00",
+    "source_url": "https://data.gov.au/data/dataset/19432f89-dc3a-4ef3-b943-5326ef1dbecc/resource/f8666213-4079-44da-bede-ebda3a4363e0/download/g-naf_may26_allstates_gda2020_psv_1023.zip",
+    "download_bytes": 1706838674,
+    "staging_path_vps": "/srv/draftcheck/storage/spatial-staging/gnaf/"
+  },
+  "source_fetch_log_id": "1e869c53-baa2-4bed-9d6f-5097229821cf",
+  "load": {
+    "method": "psql \\copy of WA_ADDRESS_DETAIL / WA_ADDRESS_DEFAULT_GEOCODE / WA_STREET_LOCALITY / WA_LOCALITY PSV into gnaf_stage.*, then set-based INSERT ... ON CONFLICT (gnaf_pid) DO UPDATE into address_points; staging schema dropped after load",
+    "filters": "WA state files only; date_retired empty; default geocode with non-null lon/lat",
+    "rows_total_wa": 1673144,
+    "rows_cockburn_st_within": 71158,
+    "rows_cockburn_bbox_approx": 117645,
+    "truncation": "none — all 1,673,144 active WA address rows loaded"
+  },
+  "validation": {
+    "srid_distinct": [7844],
+    "gist_index": "ix_address_points_geom_gist",
+    "cockburn_check": "ST_Within against lg_areas row 'COCKBURN, CITY OF' (139 lg_areas loaded by parallel agent)",
+    "sample_addresses": [
+      {"address_text": "527C ROCKINGHAM ROAD MUNSTER WA 6166", "lon": 115.78417, "lat": -32.12397},
+      {"address_text": "LOT 2668 ROCKINGHAM ROAD MUNSTER WA 6166", "lon": 115.78873, "lat": -32.13633},
+      {"address_text": "594 COCKBURN ROAD MUNSTER WA 6166"},
+      {"address_text": "587 COCKBURN ROAD MUNSTER WA 6166"}
+    ]
+  },
+  "escalations": []
+}
