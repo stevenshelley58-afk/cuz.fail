@@ -1,0 +1,38 @@
+{
+  "wp": "WP2",
+  "date": "2026-06-10",
+  "crs_check": "all geom tables SRID=7844 (single DISTINCT value)",
+  "datasets": {
+    "lgate-233 lg_areas": 139,
+    "lgate-001 parcels (Cockburn bbox)": 369442,
+    "dplh-071 zones": 12175,
+    "dplh-070 r-codes": 7700,
+    "obrm-001 bushfire": 61,
+    "dplh-006 heritage(state)": 752,
+    "dplh-008 heritage(local)": 7376,
+    "dplh-090 structure-plan/zone aux": 5056,
+    "gnaf_wa address_points": 1673144
+  },
+  "licence_status": {
+    "approved": [
+      "gnaf_wa",
+      "obrm-001"
+    ],
+    "review": [
+      "lgate-001 (Landgate commercial terms unconfirmed)",
+      "lgate-233",
+      "dplh-*"
+    ]
+  },
+  "smoke_test": {
+    "address": "527C ROCKINGHAM ROAD MUNSTER WA 6166",
+    "chain": "address_point -> ST_Within parcel 1579043 -> lg_area 'COCKBURN, CITY OF' -> zone 'Residential' + density code R30 (dplh-070 RR30)",
+    "property_facts_written": [
+      "zone=Residential",
+      "density_code=RR30"
+    ],
+    "method": "parcel_intersection",
+    "result": "PASS"
+  },
+  "escalations": []
+}

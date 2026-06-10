@@ -94,6 +94,16 @@ export type CandidateSummary = {
   auto_promoted_at: string | null;
 };
 
+export type AddressSuggestion = {
+  address: string;
+  gnaf_pid?: string | null;
+};
+
+export type AddressSuggestResponse = {
+  query: string;
+  suggestions: AddressSuggestion[];
+};
+
 /* ── Stage 2 types ── */
 
 export type ProvenanceResponse = {
@@ -269,6 +279,8 @@ export const api = {
   }),
   searchAddress: (q: string, limit = 8) =>
     call<AddressSearchResponse>("GET", `/address/search?q=${encodeURIComponent(q)}&limit=${limit}`),
+  suggestAddresses: (q: string) =>
+    call<AddressSuggestResponse>("GET", `/addresses/suggest?q=${encodeURIComponent(q)}`),
   resolveAddress: (projectId: string, address: string) =>
     call<PropertyProfileResponse>("POST", `/projects/${projectId}/resolve-address`, { address }),
   getProperty: (projectId: string) =>

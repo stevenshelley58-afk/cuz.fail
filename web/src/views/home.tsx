@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { marked } from "marked";
-import { api, type AddressSearchHit, type AssistantTurn, type ChatReply, type CitationMapEntry, type ProjectSummary } from "../api";
+import { api, type AddressSuggestion, type AssistantTurn, type ChatReply, type CitationMapEntry, type ProjectSummary } from "../api";
 import { Icon, StatusBar, ThinkBlock } from "../components/common";
 import { GUEST_ADDRESS_LIMIT, GUEST_CHAT_LIMIT } from "../config";
 import { guestProjectList } from "../hooks/useGuestUsage";
@@ -46,6 +46,24 @@ function addressish(t: string): boolean {
   return /^(lot\s+)?\d+[a-z]?([/-]\d+[a-z]?)?\s+[a-z]/i.test(t.trim());
 }
 
+// Looser than looksLikeAddress — fires while the user is still typing
+// (e.g. "42 Bank") so we can offer predictive suggestions early.
+function addressIntent(t: string): boolean {
+  return /^\d+[a-z]?([\s/,]|$)/i.test(t.trim()) && t.trim().length >= 3;
+}
+
+// Session-lived suggestion cache so backspacing/retyping renders instantly
+// without a round-trip. Bounded to keep memory flat.
+const sugCache = new Map<string, AddressSuggestion[]>();
+const SUG_CACHE_MAX = 200;
+function cacheSugs(key: string, value: AddressSuggestion[]) {
+  if (sugCache.size >= SUG_CACHE_MAX) {
+    const oldest = sugCache.keys().next().value;
+    if (oldest !== undefined) sugCache.delete(oldest);
+  }
+  sugCache.set(key, value);
+}
+
 function citationChip(citation: NonNullable<ChatReply["citations"]>[number]): string {
   return [
     citation.source_title,
@@ -88,12 +106,48 @@ export function Home({
   const [webOn, setWebOn] = useState(false);
   const [recents, setRecents] = useState<ProjectSummary[]>([]);
   const [wizard, setWizard] = useState<WizardState | null>(null);
-  const [sugs, setSugs] = useState<AddressSearchHit[]>([]);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const threadRef = useRef<HTMLDivElement>(null);
   const busyRef = useRef(false);
+  const [sugs, setSugs] = useState<AddressSuggestion[]>([]);
+  const [sugIdx, setSugIdx] = useState(-1);
+  const sugTimer = useRef<number | undefined>(undefined);
   const sugSeq = useRef(0);
-  const sugTimer = useRef<number | null>(null);
+
+  const closeSugs = useCallback(() => {
+    window.clearTimeout(sugTimer.current);
+    sugSeq.current += 1; // invalidate in-flight lookups
+    setSugs([]);
+    setSugIdx(-1);
+  }, []);
+
+  const queueSuggest = useCallback((text: string) => {
+    window.clearTimeout(sugTimer.current);
+    const t = text.trim();
+    if (!addressIntent(t)) {
+      closeSugs();
+      return;
+    }
+    const key = t.toLowerCase();
+    const cached = sugCache.get(key);
+    if (cached) {
+      sugSeq.current += 1; // cancel any in-flight lookup
+      setSugs(cached.slice(0, 6));
+      setSugIdx(-1);
+      return;
+    }
+    sugTimer.current = window.setTimeout(async () => {
+      const seq = ++sugSeq.current;
+      const r = await api.suggestAddresses(t);
+      if (seq !== sugSeq.current) return; // stale response
+      const list = r.kind === "ok" ? r.data.suggestions : [];
+      if (r.kind === "ok") cacheSugs(key, list);
+      setSugs(list.slice(0, 6));
+      setSugIdx(-1);
+    }, 120);
+  }, [closeSugs]);
+
+  useEffect(() => () => window.clearTimeout(sugTimer.current), []);
 
   useEffect(() => {
     if (isGuest) {
@@ -285,8 +339,7 @@ export function Home({
     const t = el?.value.trim() ?? "";
     if (!t || busy) return;
     if (el) { el.value = ""; el.style.height = "auto"; }
-    setSugs([]);
-    sugSeq.current++;
+    closeSugs();
     busyRef.current = true;
     setBusy(true);
     // Capture history before pushing the current question
@@ -302,35 +355,20 @@ export function Home({
     }
     busyRef.current = false;
     setBusy(false);
-  }, [busy, msgs, routeAddress, runChat]);
+  }, [busy, msgs, routeAddress, runChat, closeSugs]);
 
-  // Debounced G-NAF typeahead: suggest real addresses while the user types
-  // anything that could plausibly be one.
-  const queueSuggest = useCallback((value: string) => {
-    if (sugTimer.current !== null) window.clearTimeout(sugTimer.current);
-    const v = value.trim();
-    if (!addressish(v) || v.length < 5) {
-      setSugs([]);
-      return;
-    }
-    sugTimer.current = window.setTimeout(() => {
-      const seq = ++sugSeq.current;
-      void api.searchAddress(v, 5).then((r) => {
-        if (seq !== sugSeq.current) return; // stale response
-        setSugs(r.kind === "ok" ? r.data.items.filter((h) => h.score >= 0.3) : []);
-      });
-    }, 250);
-  }, []);
-
-  const pickSuggestion = useCallback((hit: AddressSearchHit) => {
-    setSugs([]);
-    sugSeq.current++;
-    if (inputRef.current) {
-      inputRef.current.value = "";
-      inputRef.current.style.height = "auto";
-    }
-    void chooseAddress(hit.address);
-  }, [chooseAddress]);
+  const pickSuggestion = useCallback(async (s: AddressSuggestion) => {
+    if (busyRef.current) return;
+    const el = inputRef.current;
+    if (el) { el.value = ""; el.style.height = "auto"; }
+    closeSugs();
+    busyRef.current = true;
+    setBusy(true);
+    push({ role: "q", text: s.address });
+    await startCheck(s.address);
+    busyRef.current = false;
+    setBusy(false);
+  }, [closeSugs, startCheck]);
 
   const fill = (t: string) => {
     if (inputRef.current) {
@@ -365,7 +403,7 @@ export function Home({
         {msgs.length === 0 && (
           <div className="greet">
             <h1>Where do we start?</h1>
-            <p>Paste a property address to start a check — or just ask a question.</p>
+            <p>Start typing a property address — matching addresses appear as you type — or just ask a question.</p>
             {isGuest && <p>Real answers, cited from the approved WA source library — no account needed.</p>}
           </div>
         )}
@@ -421,8 +459,29 @@ export function Home({
         <div className="onebox">
           <textarea
             ref={inputRef}
-            placeholder="Type an address… or ask anything about WA planning"
+            placeholder="Type a street address (e.g. 42 Banksia St, Fremantle)… or ask anything about WA planning"
             onKeyDown={(e) => {
+              if (sugs.length) {
+                if (e.key === "ArrowDown") {
+                  e.preventDefault();
+                  setSugIdx((i) => (i + 1) % sugs.length);
+                  return;
+                }
+                if (e.key === "ArrowUp") {
+                  e.preventDefault();
+                  setSugIdx((i) => (i <= 0 ? sugs.length - 1 : i - 1));
+                  return;
+                }
+                if (e.key === "Escape") {
+                  closeSugs();
+                  return;
+                }
+                if ((e.key === "Enter" && !e.shiftKey && sugIdx >= 0) || (e.key === "Tab" && !e.shiftKey)) {
+                  e.preventDefault();
+                  void pickSuggestion(sugs[sugIdx >= 0 ? sugIdx : 0]);
+                  return;
+                }
+              }
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();
                 void send();
@@ -434,13 +493,21 @@ export function Home({
               t.style.height = t.scrollHeight + "px";
               queueSuggest(t.value);
             }}
+            onBlur={() => window.setTimeout(closeSugs, 150)}
           />
           {sugs.length > 0 && (
-            <div className="sugs">
-              {sugs.map((h) => (
-                <button key={h.address_point_id} onClick={() => pickSuggestion(h)}>
-                  <Icon name="location_on" />
-                  <span>{h.address}</span>
+            <div className="suggest" role="listbox" aria-label="Address suggestions">
+              <span className="suggest-head"><Icon name="location_on" />Addresses — pick one to start a check</span>
+              {sugs.map((s, i) => (
+                <button
+                  key={s.gnaf_pid ?? s.address}
+                  role="option"
+                  aria-selected={i === sugIdx}
+                  className={`suggest-item${i === sugIdx ? " on" : ""}`}
+                  onMouseDown={(e) => { e.preventDefault(); void pickSuggestion(s); }}
+                  onMouseEnter={() => setSugIdx(i)}
+                >
+                  <Icon name="location_on" />{s.address}
                 </button>
               ))}
             </div>

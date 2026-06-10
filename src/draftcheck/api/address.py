@@ -30,6 +30,8 @@ from draftcheck.domain.identity import ActiveSession
 router = APIRouter(tags=["projects"])
 
 _address_service: AddressResolutionService | None = None
+_suggest_engine: Any | None = None
+_suggest_engine_checked = False
 
 ManualAddressFactType = Literal[
     "address",
@@ -244,6 +246,118 @@ def search_addresses(
 ) -> AddressSearchResponse:
     hits = service.search_addresses(q, limit=limit)
     return AddressSearchResponse(items=[_search_item(hit) for hit in hits], count=len(hits))
+
+
+class AddressSuggestion(BaseModel):
+    address: str
+    gnaf_pid: str | None = None
+
+
+class AddressSuggestResponse(BaseModel):
+    query: str
+    suggestions: list[AddressSuggestion]
+
+
+def _get_suggest_engine() -> Any | None:
+    global _suggest_engine, _suggest_engine_checked
+    if not _suggest_engine_checked:
+        _suggest_engine_checked = True
+        import os
+
+        database_url = os.environ.get("DATABASE_URL")
+        if database_url:
+            try:
+                from sqlalchemy import create_engine
+
+                _suggest_engine = create_engine(database_url, pool_pre_ping=True)
+            except Exception:  # pragma: no cover – DB not available in all envs
+                import logging
+
+                logging.getLogger(__name__).warning(
+                    "suggest_addresses: failed to create engine from DATABASE_URL",
+                    exc_info=True,
+                )
+    return _suggest_engine
+
+
+@router.get("/addresses/suggest", response_model=AddressSuggestResponse)
+def suggest_addresses(
+    q: str,
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    limit: int = 8,
+) -> AddressSuggestResponse:
+    """Predictive G-NAF address suggestions for the chat one-box.
+
+    Indicative geocode candidates only — never legal proof of title or
+    property identity. Returns an empty list when no spatial DB is configured.
+    """
+    query = q.strip()
+    limit = max(1, min(limit, 15))
+    if len(query) < 3:
+        return AddressSuggestResponse(query=query, suggestions=[])
+
+    engine = _get_suggest_engine()
+    if engine is None:
+        return AddressSuggestResponse(query=query, suggestions=[])
+
+    from sqlalchemy import text as sql_text
+
+    # Two-step lookup, both arms served by the gin_trgm_ops index (migration
+    # 0014). Prefix ILIKE alone touches ~10 index entries (~6ms at 1.7M rows);
+    # the fuzzy `%` arm at the default 0.3 threshold expands to tens of
+    # thousands of weak candidates (~150ms), so it only runs when the prefix
+    # match comes up short, and with a tighter threshold.
+    prefix_sql = sql_text(
+        """
+        SELECT address_text, gnaf_pid
+        FROM address_points
+        WHERE address_text ILIKE :prefix
+        ORDER BY address_text
+        LIMIT :limit
+        """
+    )
+    # word_similarity compares the query against the best-matching slice of
+    # the address, so a partial typo ("42 Banskia") still finds "42 BANKSIA
+    # ROAD ..." where whole-string similarity() returns nothing.
+    fuzzy_sql = sql_text(
+        """
+        SELECT address_text, gnaf_pid
+        FROM address_points
+        WHERE :q <% address_text
+        ORDER BY word_similarity(:q, address_text) DESC, address_text
+        LIMIT :limit
+        """
+    )
+    params = {"q": query, "prefix": f"{query}%", "limit": limit}
+    rows: list[Any] = []
+    try:
+        with engine.connect() as conn:
+            rows = list(conn.execute(prefix_sql, params))
+            if len(rows) < limit:
+                try:
+                    conn.execute(sql_text("SET LOCAL pg_trgm.word_similarity_threshold = 0.5"))
+                    rows += list(conn.execute(fuzzy_sql, params))
+                except Exception:
+                    # pg_trgm unavailable — prefix results alone are fine
+                    pass
+    except Exception:  # pragma: no cover – table absent / DB down
+        import logging
+
+        logging.getLogger(__name__).warning(
+            "suggest_addresses: lookup failed", exc_info=True
+        )
+        rows = []
+
+    seen: set[str] = set()
+    suggestions: list[AddressSuggestion] = []
+    for row in rows:
+        addr = (row[0] or "").strip()
+        if not addr or addr.lower() in seen:
+            continue
+        seen.add(addr.lower())
+        suggestions.append(AddressSuggestion(address=addr, gnaf_pid=row[1]))
+    return AddressSuggestResponse(query=query, suggestions=suggestions)
 
 
 @router.post(
