@@ -32,6 +32,7 @@ import json
 import os
 import re
 import sys
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -123,6 +124,101 @@ SYSTEM_PROMPT = (
 # LLM plumbing (temperature 0, OpenAI-compatible chat completions)
 # ---------------------------------------------------------------------------
 
+# USD per 1M tokens (input, output). Estimates only — flagged in metadata_json.
+MODEL_PRICES_PER_M: dict[str, tuple[float, float]] = {
+    "MiniMax-M2": (0.30, 1.20),
+    "gpt-4o": (2.50, 10.00),
+    "openai/gpt-4o": (2.50, 10.00),
+}
+
+_SPEND_LOCK = threading.Lock()
+_SPEND_BUFFER: list[dict] = []
+_SPEND_TOTALS = {"calls": 0, "input_tokens": 0, "output_tokens": 0, "cost_usd_estimate": 0.0}
+
+
+def spend_totals() -> dict:
+    with _SPEND_LOCK:
+        out = dict(_SPEND_TOTALS)
+    out["cost_usd_estimate"] = round(out["cost_usd_estimate"], 6)
+    return out
+
+
+def estimate_cost_usd(model: str, input_tokens: int, output_tokens: int) -> tuple[float, bool]:
+    prices = MODEL_PRICES_PER_M.get(model)
+    if prices is None:
+        return 0.0, False
+    return (input_tokens * prices[0] + output_tokens * prices[1]) / 1_000_000, True
+
+
+def record_spend(provider: str, model: str, usage: dict | None) -> None:
+    usage = usage or {}
+    input_tokens = int(usage.get("prompt_tokens") or usage.get("input_tokens") or 0)
+    output_tokens = int(usage.get("completion_tokens") or usage.get("output_tokens") or 0)
+    total_tokens = int(usage.get("total_tokens") or (input_tokens + output_tokens))
+    cost, known = estimate_cost_usd(model, input_tokens, output_tokens)
+    with _SPEND_LOCK:
+        _SPEND_BUFFER.append({
+            "provider": provider,
+            "model": model,
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "total_tokens": total_tokens,
+            "cost_usd": round(cost, 6),
+            "pricing_known": known,
+        })
+        _SPEND_TOTALS["calls"] += 1
+        _SPEND_TOTALS["input_tokens"] += input_tokens
+        _SPEND_TOTALS["output_tokens"] += output_tokens
+        _SPEND_TOTALS["cost_usd_estimate"] += cost
+
+
+def flush_spend_events(conn: psycopg.Connection, event_type: str,
+                       skill_version_id: str = SKILL_VERSION_ID,
+                       run_meta: dict | None = None) -> dict:
+    """Best-effort: write buffered LLM usage to spend_events. Never raises.
+
+    Call only on a clean transaction (right after a commit) — a failed insert is
+    rolled back and the buffered events are dropped with a warning.
+    """
+    with _SPEND_LOCK:
+        events, _SPEND_BUFFER[:] = list(_SPEND_BUFFER), []
+    totals = {
+        "calls": len(events),
+        "input_tokens": sum(e["input_tokens"] for e in events),
+        "output_tokens": sum(e["output_tokens"] for e in events),
+        "cost_usd_estimate": round(sum(e["cost_usd"] for e in events), 6),
+    }
+    if not events:
+        return totals
+    try:
+        for e in events:
+            meta = {
+                "skill_version_id": skill_version_id,
+                "cost_is_estimate": True,
+                "pricing_known": e["pricing_known"],
+                **(run_meta or {}),
+            }
+            conn.execute(
+                """
+                INSERT INTO spend_events (id, org_id, provider, model, event_type,
+                    input_tokens, output_tokens, total_tokens, cost_usd, currency,
+                    metadata_json, created_at)
+                VALUES (gen_random_uuid(), %s, %s, %s, %s, %s, %s, %s, %s, 'USD', %s, now())
+                """,
+                (ORG_ID, e["provider"], e["model"], event_type,
+                 e["input_tokens"], e["output_tokens"], e["total_tokens"],
+                 e["cost_usd"], Json(meta)),
+            )
+        conn.commit()
+    except Exception as exc:  # noqa: BLE001 — spend logging must never fail the run
+        try:
+            conn.rollback()
+        except Exception:  # noqa: BLE001
+            pass
+        print(f"WARN spend_events insert failed ({len(events)} events dropped): {exc}",
+              file=sys.stderr, flush=True)
+    return totals
+
 
 @dataclass
 class LlmEndpoint:
@@ -157,6 +253,11 @@ class LlmEndpoint:
                 content = payload["choices"][0]["message"]["content"]
                 if isinstance(content, list):
                     content = "".join(p.get("text", "") for p in content if isinstance(p, dict))
+                try:
+                    usage = payload.get("usage")
+                    record_spend(self.name, self.model, usage if isinstance(usage, dict) else None)
+                except Exception as exc:  # noqa: BLE001 — spend logging must never fail extraction
+                    print(f"WARN spend capture failed: {exc}", file=sys.stderr, flush=True)
                 return content or ""
             except (urllib.error.URLError, OSError, KeyError, json.JSONDecodeError) as exc:
                 last_err = exc
@@ -584,6 +685,7 @@ def extract_for_clause(
             f"{len(pending_signatures)} atom(s) without majority/challenge agreement",
         )
     conn.commit()
+    flush_spend_events(conn, "wp6_extraction", run_meta={"source_version_id": sv_id})
 
 
 # ---------------------------------------------------------------------------
@@ -810,6 +912,8 @@ def main() -> int:
                                 else:
                                     stats[k] = stats.get(k, 0) + v
                             print(f"[{stats['clauses_processed']}/{len(clauses)}] {item[2]}", flush=True)
+            flush_spend_events(conn, "wp6_extraction", run_meta={"source_version_id": sv_id})
+            stats["llm_spend"] = spend_totals()
             report["extraction_stats"] = stats
 
         report["audit"] = audit(conn, sv_id)

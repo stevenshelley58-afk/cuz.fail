@@ -40,10 +40,12 @@ from wp6_extract import (  # noqa: E402
     SYSTEM_PROMPT,
     Atom,
     build_endpoints,
+    flush_spend_events,
     parse_atoms,
     parse_llm_json,
     promote_rule,
     prompt_for_clause,
+    spend_totals,
     validate_atom,
 )
 
@@ -139,6 +141,7 @@ def adjudicate_clause(
             )
             stats["rejected"] += 1
     conn.commit()
+    flush_spend_events(conn, "wp9_adjudication")
 
 
 def main() -> int:
@@ -190,6 +193,8 @@ def main() -> int:
             stats["candidates"] += len(cands)
             print(f"[{n}/{total}] {clause['clause_path']} ({len(cands)} candidates)", flush=True)
             adjudicate_clause(conn, endpoints, clause, cands, stats)
+        flush_spend_events(conn, "wp9_adjudication")
+        stats["llm_spend"] = spend_totals()
 
     out = json.dumps(stats, indent=2, default=str)
     if args.report:
