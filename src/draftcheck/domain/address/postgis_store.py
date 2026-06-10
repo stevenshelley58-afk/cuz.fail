@@ -488,9 +488,10 @@ class PostGISSpatialDatasetStore:
         # street-type-expanded query is served from the trigram GIN index in
         # single-digit milliseconds, while the `<%` word-similarity arm at a
         # 0.45 floor expands to tens of thousands of weak candidates
-        # (~0.5–1s at 1.7M rows). Most keystrokes are clean prefixes of a
-        # real address, so the expensive arm only runs when the prefix match
-        # can't fill the limit (typos, mid-string matches).
+        # (~0.5–1s at 1.7M rows). When the prefix arm finds anything, those
+        # ARE the right answers — the user typed the literal start of an
+        # address — so the expensive arm runs only when prefix finds nothing
+        # (typos, unit/lot-prefixed addresses, mid-string matches).
         prefix_patterns = {f"{normalized}%", f"{expanded}%"}
         prefix_stmt = (
             select(
@@ -520,19 +521,13 @@ class PostGISSpatialDatasetStore:
                     "search_address_points: prefix search failed", exc_info=True
                 )
                 session.rollback()
-            if len(rows) < max(1, min(int(limit), 20)):
+            if not rows:
                 try:
                     # Lower the word-similarity floor for this transaction so
                     # moderate typos still surface candidates; ranking puts the
                     # best match first regardless.
                     session.execute(text("SET LOCAL pg_trgm.word_similarity_threshold = 0.45"))
-                    seen_ids = {row[0] for row in rows}
-                    rows += [
-                        row
-                        for row in session.execute(stmt).all()
-                        if row[0] not in seen_ids
-                    ]
-                    rows = rows[: max(1, min(int(limit), 20))]
+                    rows = list(session.execute(stmt).all())
                 except Exception:
                     logger.warning(
                         "search_address_points: trigram search failed, falling back to ILIKE",
