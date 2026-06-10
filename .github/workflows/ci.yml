@@ -29,8 +29,8 @@ jobs:
       - name: Forbidden V3 patterns
         shell: bash
         run: |
-          ! grep -R "create_all" src web --exclude-dir=__pycache__
-          ! grep -rE "human.?review|NEEDS_HUMAN_REVIEW|human_review_required" src tests --exclude-dir=alembic --exclude-dir='*.egg-info' --exclude-dir=__pycache__
+          ! grep -RI "create_all" src web --exclude-dir=__pycache__
+          ! grep -rIE "human.?review|NEEDS_HUMAN_REVIEW|human_review_required" src tests --exclude-dir=alembic --exclude-dir='*.egg-info' --exclude-dir=__pycache__
           # dev-login: a dev-only password login is intentionally present (operator
           # decision 2026-06-08) and is hard-disabled in production by app_env.
           # See src/draftcheck/api/auth.py:_dev_login_enabled and docs/MASTER_REBUILD_PLAN.md.
