@@ -1,11 +1,10 @@
 {
-  "probe_date": "2026-06-10",
-  "database": "draftcheck @ draftcheck-wa-v3-db-1 (VPS 76.13.209.160)",
-  "alembic": {
-    "current": "0010_governance_schema",
-    "heads": "0010_governance_schema",
-    "divergent": false
-  },
+  "generated_at": "2026-06-10",
+  "wp": "WP0",
+  "alembic_current": "0010_governance_schema",
+  "alembic_heads": [
+    "0010_governance_schema"
+  ],
   "extensions": [
     "fuzzystrmatch",
     "pg_trgm",
@@ -15,22 +14,16 @@
     "postgis_topology",
     "vector"
   ],
-  "postgis": true,
-  "vector": true,
-  "procrastinate": {
-    "schema_applied": true,
-    "tables": 4
-  },
-  "missing_schema": [
+  "procrastinate_schema_applied": true,
+  "missing_plan_tables": [
     "target_manifest",
     "instrument_aliases",
     "adversarial_findings"
   ],
   "notes": [
-    "source_documents=107 on VPS (plan said 81 - that figure is the legacy SQLite count; reconcile in WP3)",
-    "source_chunks=5198; clauses/rules/legal_edges all 0",
-    "spatial spine empty: address_points/parcels/lg_areas/planning_features/spatial_datasets all 0",
-    "eval_cases/eval_runs=0 - WP9 pending"
+    "source_documents=107 (plan stated 81; corpus has grown since the plan was written)",
+    "source_chunks=5198, source_versions=159, artifacts=178",
+    "tiger geocoder lookup tables (addr, bg, county, ...) are postgis_tiger_geocoder bootstrap tables, not app tables"
   ],
   "row_counts": {
     "addr": 0,
