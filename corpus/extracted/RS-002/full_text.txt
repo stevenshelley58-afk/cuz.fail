@@ -1,56 +1,1386 @@
-PREPARATION AND ENVIRONMENTAL ASSESSMENT
-OF THE PEEL REGION SCHEME
-WAPC resolved to
-prepare the scheme
-WAPC referred the scheme EPA decided
-to EPA assessment was needed
-No appeals lodged to
-EPA issued environmental Minister for Environment regarding
-review instructions content of instructions for
-environmental review
-WAPC undertook environmental
-review and forwarded to EPA
-WAPC submitted scheme
-EPA checked review
-to Min. Plan. for consent to
-met instructions
-public submissions being sought
-WAPC consults interested
-parties and advertises WE ARE HERE
-scheme for submissions
-WAPC forwards environmental
-WAPC considers all
-submissions to EPA
-submissions lodged
-WAPC hears objections WAPC forwards response
-on environmental submissions
-EPA reports to Min. Env.
-on scheme
-Appeal to Min. Env.
-Min. Env. publishes report
-regarding report contents
-Min. Env. consults with Min. Plan.
-WAPC submits scheme
-to Min. Plan. with or without Min. Env. sets conditions Review by Min. Env.
-modification or recommends (WAPC may request review) regarding conditions
-withdrawal
-Min. Plan. may withdraw
-scheme
-Min. Plan. presents scheme Min. Plan. may direct
-to Governor re-advertisement of
-substantially modified scheme
-Governor may approve
-scheme with or without
-Min. Plan. receives
-modification or revoke
-submissions on modification
-Scheme gazetted
-Min. Plan. directs WAPC to Min. Plan. may withdraw
-consider and report on submissions scheme
-Scheme and Report
-of WAPC laid before each
-House of Parliament for
-12 sitting days
-If not disallowed by either
-House scheme takes effect
-SOURCE: BOWMAN BISHAW GORHAM FIGURE 3
+Western Australia
+Planning and Development Act 2005 2
+Peel Region Scheme
+As at 21 May 2013 Version 00-e0-05
+Published on www.legislation.wa.gov.au
+
+
+
+Western Australia
+Peel Region Scheme
+Contents
+Part 1 — Preliminary
+1. Citation 1
+2. Definitions 1
+3. Application of Scheme 2
+4. Contents of Scheme 2
+5. Purposes of Scheme 2
+6. The aims of the Scheme 3
+7. Scheme prevails over inconsistent local planning
+scheme 4
+Part 2 — State Planning Framework
+8. Scheme determinations to conform with particular
+provisions of the State Planning Framework 5
+Part 3 — Reserved lands
+9. Reserves 6
+10. Purposes of reserves 6
+Part 4 — Zones
+11. Zones 7
+12. Purposes of zones 7
+13. Change of zone by resolution 8
+Part 5 — Special control areas
+Division 1 — Operation of special control areas
+14. Operation of special control areas 9
+Division 2 — Water Catchments
+15. Purposes — SCA No. 1 9
+As at 21 May 2013 Version 00-e0-05 page i
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Contents
+16. Planning requirements — SCA No. 1 10
+17. Consultation 10
+Division 3 — Wastewater Treatment Plant
+Odour Buffers
+18A. Purposes — SCA No. 2 10
+18B. Planning for use and development of land in
+SCA No. 2 11
+18C. Planning requirements — SCA No. 2 11
+18D. Consultation 11
+Part 6 — Development of land
+18. Requirement for approval to commence
+development 13
+19. Permitted development on reserved land 13
+20. Use of reserved land by a public authority 16
+21. Resolution as to development in respect of zoned
+land requiring approval 16
+22. Deemed determination of application to commence
+development where power is delegated to local
+government 16
+23. Extensions and changes to a non conforming use 17
+24. Amending or revoking a planning approval 18
+25. Unauthorised existing developments 18
+26. Existing uses 18
+27. Existing approvals 18
+Part 7 — Applications for planning
+approval
+28. Form of application 20
+29. Accompanying material 20
+30. Application procedure 21
+31. Advertising of applications 22
+32. Determination by Commission 23
+Part 8 — Procedure for dealing with
+applications
+33. Consultation with other authorities 24
+34. Matters to be considered by Commission 24
+35. Determination of applications 26
+page ii Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Contents
+36. Form and date of determination 27
+37. Term of planning approval 27
+38. Temporary planning approval 27
+39. Scope of planning approval 27
+40. Approval subject to later approval of details 28
+41. Deemed refusal 28
+42. Application for review 29
+Part 9 — Enforcement and
+administration
+43. Compensation 30
+44. Powers of the Commission 30
+45. Person must comply with provisions of Scheme 30
+46. Environmental conditions 31
+47. Certificates 31
+Schedule 1 — Forms
+Schedule 2 — Environmental
+conditions
+1. Management Plans 38
+2. Biological Survey 38
+3. Connection to Reticulated Sewerage 38
+4. Old Coast Road Wetland 39
+Schedule 3 — Certificate
+Notes
+Compilation table 41
+As at 21 May 2013 Version 00-e0-05 page iii
+Published on www.legislation.wa.gov.au
+
+
+
+Western Australia
+2
+Planning and Development Act 2005
+Peel Region Scheme
+Part 1 — Preliminary
+1. Citation
+This region planning scheme may be cited as the Peel Region
+Scheme.
+[Clause 1 amended: Gazette 21 May 2013 p. 2004.]
+2. Definitions
+(1) Subject to subclause (2), words and expressions used in the
+Scheme have the same respective meanings as they have in the
+Act.
+[(a), (b) deleted]
+(2) In this Scheme —
+artificial waterway means an artificial channel, lake, harbour or
+embayment, for navigational, ornamental and recreational
+purposes, or for any other purposes, and includes any addition
+to, or alteration of an artificial waterway as so defined;
+Department of Water means the department of the Public
+Service principally assisting in the administration of the Water
+Agencies (Powers) Act 1984;
+local government means a local government of a district in the
+Region;
+region means the Peel Region described in clause 3;
+As at 21 May 2013 Version 00-e0-05 page 1
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 1 Preliminary
+cl. 3
+reserved land means land reserved under the Scheme for a
+public purpose;
+reserved land owned by or vested in a public authority includes
+reserved land in relation to which a public authority has an
+easement, right of way, right of occupation, or any other interest
+or right, privilege or concession;
+SCA No. 1 means the Water Catchments — Special Control
+Area shown on the Scheme Map;
+SCA No. 2 means the Wastewater Treatment Plant Odour
+Buffers — Special Control Area shown on the Scheme Map;
+Scheme means the Peel Region Scheme;
+State forest has the same meaning as in the Conservation and
+Land Management Act 1984;
+State Planning Framework means the State planning policy of
+that title approved under section 29 of the Act;
+Water Corporation means the Water Corporation established by
+the Water Corporation Act 1995 section 4.
+[Clause 2 amended: Gazette 3 Jun 2005 p. 2503; 21 May 2013
+p. 2004-5.]
+3. Application of Scheme
+The Scheme applies to the Peel Region which comprises all of
+the districts of the City of Mandurah, the Shire of Murray and
+the Shire of Waroona, as shown on the Scheme Map.
+4. Contents of Scheme
+The Scheme comprises —
+(a) the Scheme Text; and
+(b) the Scheme Map (sheets 1 20).
+5. Purposes of Scheme
+The purposes of the Scheme are to —
+page 2 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Preliminary Part 1
+cl. 6
+(a) provide for the reservation and protection of land for
+regional transport, conservation, recreation, cultural and
+other public uses;
+(b) provide for the zoning of land for living, working and
+rural land uses;
+(c) provide a mechanism for landowners to be compensated
+in a fair and equitable manner where land is reserved for
+a public purpose;
+(d) provide an opportunity for the formal environmental
+assessment of regional planning proposals and provide
+increased certainty to such proposals;
+(e) provide a mechanism for certain development of
+regional significance, and development in areas of
+regional significance, to be considered and approved by
+the Commission; and
+(f) identify and protect land having strategic importance for
+industrial and future urban use.
+[Clause 5 amended: Gazette 21 May 2013 p. 2005.]
+6. The aims of the Scheme
+The aims of the Scheme are to —
+(a) promote the sustainable development of land taking into
+account relevant environmental, social and economic
+factors;
+(b) provide for regional transportation, community services
+and infrastructure in a way that is efficient, equitable and
+timely;
+(c) protect as regional open space the region’s coastal
+foreshores, the foreshores of the Serpentine, Murray and
+Harvey Rivers and the Peel Inlet and Harvey Estuary, as
+well as other areas of regional conservation significance
+and areas for regional recreational facilities;
+(d) protect surface water catchments and ground water areas
+for future water supplies;
+As at 21 May 2013 Version 00-e0-05 page 3
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 1 Preliminary
+cl. 7
+(e) provide for industrial development in planned estates
+where land use conflicts and environmental impacts will
+be minimised and efficient production facilitated;
+(f) provide for future urban purposes and prevent
+development which could prejudice the future
+development of urban land;
+(g) protect strategic agricultural land considered to be of
+regional importance; and
+(h) provide for the efficient and timely extraction of
+minerals and raw materials and subsequent rehabilitation
+of affected land.
+7. Scheme prevails over inconsistent local planning scheme
+If the Scheme is inconsistent with a local planning scheme, the
+Scheme prevails over the local planning scheme to the extent of
+the inconsistency.
+[Clause 7 amended: Gazette 21 May 2013 p. 2005.]
+page 4 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+State Planning Framework Part 2
+cl. 8
+Part 2 — State Planning Framework
+8. Scheme determinations to conform with particular
+provisions of the State Planning Framework
+Except to the extent that those provisions are inconsistent with
+the Scheme, determinations of the Commission under the
+Scheme are to be consistent with the provisions of the State
+Planning Framework that the Commission considers are
+relevant to the region.
+As at 21 May 2013 Version 00-e0-05 page 5
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 3 Reserved lands
+cl. 9
+Part 3 — Reserved lands
+9. Reserves
+The lands shown as Reserved Lands on the Scheme Map are
+reserved under the Scheme for the public purposes shown on the
+Scheme Map.
+10. Purposes of reserves
+Land is reserved under the Scheme for the following public
+purposes —
+(a) Regional Open Space — to protect the natural
+environment, provide recreational and cultural
+opportunities, safeguard important landscapes and sites
+of cultural or historical significance and provide for
+public access;
+(b) Primary Regional Roads — to provide a regional road
+network to accommodate current and future transport
+needs on roads declared under the Main Roads Act 1930;
+(c) Other Regional Roads — to provide a regional road
+network to accommodate current and future transport
+needs on roads for which the planning responsibilities
+are shared between the Commission and local
+government;
+(d) Railways — to provide for the passage of trains, the
+marshalling, maintenance and storage of rolling stock,
+and the conveying of the public and freight by rail;
+(e) Waterways — to recognise coastal and inland
+waterways and lakes, provide for navigation in, and
+public access to, those waterways and lakes where
+appropriate and to protect environmental, landscape and
+cultural values;
+(f) State Forests — to recognise State forests;
+(g) Other Public Purposes — to provide for other public
+purposes as denoted on the Scheme Map.
+[Clause 10 amended: Gazette 21 May 2013 p. 2005.]
+page 6 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Zones Part 4
+cl. 11
+Part 4 — Zones
+11. Zones
+(1) The region is classified into the zones shown on the Scheme
+Map.
+(2) The zones are delineated and depicted on the Scheme Map
+according to the legend on the Scheme Map.
+12. Purposes of zones
+Land is classified into zones under the Scheme for the following
+purposes —
+(a) Urban — to provide for residential development and
+associated local employment, recreation and open space,
+shopping, schools and other community facilities;
+(b) Urban Deferred — land suitable for future urban
+development but where there are various planning,
+servicing and environmental requirements which need to
+be addressed before urban development can take place;
+(c) Regional Centre — the Mandurah central business
+district within which commercial, civic, cultural,
+residential, service and administration activities serving
+the region should be located;
+(d) Industrial — to provide for manufacturing industry, the
+storage and distribution of goods and associated uses;
+(e) Rural — to provide for the sustainable use of land for
+agriculture, assist in the conservation and wise use of
+natural resources including water, flora, fauna and
+minerals, provide a distinctive rural landscape setting for
+the urban areas and accommodate carefully planned
+rural living developments;
+(f) Private Recreation — to accommodate regionally
+significant open space and recreational activities in
+private use.
+[Clause 12 amended: Gazette 21 May 2013 p. 2006.]
+As at 21 May 2013 Version 00-e0-05 page 7
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 4 Zones
+cl. 13
+13. Change of zone by resolution
+By resolution of the Commission notified in the Gazette, land
+may be transferred from the Urban Deferred zone to the Urban
+zone.
+page 8 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Special control areas Part 5
+Operation of special control areas Division 1
+cl. 14
+Part 5 — Special control areas
+[Heading inserted: Gazette 21 May 2013 p. 2006.]
+Division 1 — Operation of special control areas
+[Heading inserted: Gazette 21 May 2013 p. 2006.]
+14. Operation of special control areas
+(1) The following special control areas are shown on the Scheme
+Map —
+(a) Water Catchments — Special Control Area
+(SCA No. 1);
+(b) Wastewater Treatment Plant Odour Buffers — Special
+Control Area (SCA No. 2).
+(2) The provisions of this Part applying to the special control areas
+apply in addition to the provisions of the Scheme applying to
+any underlying zone or reserve and any general provision of the
+Scheme.
+[Clause 14 inserted: Gazette 21 May 2013 p. 2006.]
+Division 2 — Water Catchments
+[Heading inserted: Gazette 21 May 2013 p. 2006.]
+15. Purposes — SCA No. 1
+The purposes of SCA No. 1 are —
+(a) to identify proclaimed surface water catchments within
+the Peel Region; and
+(b) to prevent land uses or development which would
+prejudice the quality or quantity of water supplies for
+public use.
+[Clause 15 inserted: Gazette 21 May 2013 p. 2006.]
+As at 21 May 2013 Version 00-e0-05 page 9
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 5 Special control areas
+Division 3 Wastewater Treatment Plant Odour Buffers
+cl. 16
+16. Planning requirements — SCA No. 1
+In considering an application for planning approval in respect of
+land in SCA No. 1 the Commission is to have regard to the
+following —
+(a) the impact of the proposal on the quality of any existing
+or future public drinking water supply source;
+(b) the extent to which the proposal achieves and adheres to
+best management practices for the storage of substances
+that could contaminate the public drinking water
+sources;
+(c) the adequacy of proposed measures to manage run off
+and drainage;
+(d) whether there is any loss of native vegetation that could
+be detrimental to maintaining water supply and quality;
+(e) the recommendations of the Department of Water;
+(f) any other matters that the Commission considers
+relevant.
+[Clause 16 inserted: Gazette 21 May 2013 p. 2006-7.]
+17. Consultation
+In considering an application for planning approval with respect
+to land wholly or partly within SCA No. 1 the Commission is to
+consult with the chief executive officer of the Department of
+Water.
+[Clause 17 inserted: Gazette 21 May 2013 p. 2007.]
+Division 3 — Wastewater Treatment Plant Odour Buffers
+[Heading inserted: Gazette 21 May 2013 p. 2007.]
+18A. Purposes — SCA No. 2
+The purposes of SCA No. 2 are —
+(a) to identify land likely to be subject to offsite odour
+impacts from wastewater treatment infrastructure; and
+page 10 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Special control areas Part 5
+Wastewater Treatment Plant Odour Buffers Division 3
+cl. 18B
+(b) to ensure that the use and development of land is
+compatible with the ongoing operation and expansion of
+wastewater treatment infrastructure to the extent
+possible within identified odour buffers.
+[Clause 18A inserted: Gazette 21 May 2013 p. 2007.]
+18B. Planning for use and development of land in SCA No. 2
+(1) The Commission is to ensure that plans in respect of the future
+use and development of land within SCA No. 2 are prepared.
+(2) The Commission may approve plans prepared in respect of the
+future use and development of land within SCA No. 2 if the
+Commission is satisfied that the plans are consistent with the
+purposes of SCA No. 2.
+[Clause 18B inserted: Gazette 21 May 2013 p. 2007.]
+18C. Planning requirements — SCA No. 2
+In considering an application for planning approval in respect of
+land in SCA No. 2 the Commission is to have regard to the
+following —
+(a) the compatibility of the proposal with any existing or
+proposed future use or development of wastewater
+treatment infrastructure;
+(b) the extent to which the proposal is consistent with any
+plan approved by the Commission under clause 18B(2);
+(c) recommendations of the chief executive officer of the
+Water Corporation;
+(d) any other matters that the Commission considers
+relevant.
+[Clause 18C inserted: Gazette 21 May 2013 p. 2007-8.]
+18D. Consultation
+In considering an application for planning approval with respect
+to land wholly or partly within SCA No. 2 the Commission is to
+As at 21 May 2013 Version 00-e0-05 page 11
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 5 Special control areas
+Division 3 Wastewater Treatment Plant Odour Buffers
+cl. 18D
+consult with the chief executive officer of the Water
+Corporation.
+[Clause 18D inserted: Gazette 21 May 2013 p. 2008.]
+page 12 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Development of land Part 6
+cl. 18
+Part 6 — Development of land
+18. Requirement for approval to commence development
+Subject to clauses 19 and 20 a person must not commence or
+carry out —
+(a) development on reserved land; or
+(b) development of a kind or class specified in a resolution
+made by the Commission under clause 21,
+unless that person has first applied for and obtained the planning
+approval of the Commission under Part 7.
+Note:
+Planning approval for development in an area declared to be a
+planning control area under section 112 of the Act must be obtained
+under section 116 of the Act.
+[Clause 18 amended: Gazette 21 May 2013 p. 2008.]
+19. Permitted development on reserved land
+The following development on reserved land does not require
+the planning approval of the Commission —
+(a) the erection, construction, maintenance, improvement or
+alteration of a boundary fence or wall or other means of
+boundary enclosure;
+(b) the carrying out of any building or work which affects
+only the interior of a building and which does not
+materially affect the external appearance of the building
+except where the building is —
+(i) located in a place that has been entered in the
+Register of Heritage Places under the Heritage of
+Western Australia Act 1990; or
+(ii) the subject of an order under Part 6 of the
+Heritage of Western Australia Act 1990;
+(c) the demolition of any building or structure except where
+the building or structure is —
+As at 21 May 2013 Version 00-e0-05 page 13
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 6 Development of land
+cl. 19
+(i) located in a place that has been entered in the
+Register of Heritage Places under the Heritage of
+Western Australia Act 1990; or
+(ii) the subject of an order under Part 6 of the
+Heritage of Western Australia Act 1990;
+(d) the erection of signs that —
+(i) relate to the functions of a public authority or
+local government (other than signs of a
+promotional nature) and are constructed or
+exhibited by, or on behalf of, the public authority
+or local government;
+(ii) are required for the management or control of
+traffic on a public road, car park, cycleway,
+railway or waterway and are constructed or
+exhibited by or on behalf of a public authority or
+local government; or
+(iii) are required to be exhibited under a written law;
+(e) development on reserved land owned by or vested in a
+public authority that is —
+(i) works on land reserved for Primary Regional
+Roads or Other Regional Roads for the purpose
+of or in connection with a road within the
+meaning of the Main Roads Act 1930;
+(ii) works for the purpose of, or in connection with,
+the supply of water or wastewater services,
+electricity or gas, or the drainage of surplus water
+or treatment of water, wastewater or surplus
+water;
+(iii) works on land reserved for Railways, or for
+Primary Regional Roads or Other Regional
+Roads, for the purpose of or in connection with a
+railway, but this does not include the
+construction or alteration of a railway station or
+any related car parks, public transport
+page 14 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Development of land Part 6
+cl. 19
+interchange facilities, or associated means of
+pedestrian or vehicular access;
+(iv) works on land reserved for Regional Open Space
+where the works are in accordance with a
+management plan endorsed by the Commission;
+(v) works on land reserved for Public Purposes —
+High School for the purpose of or incidental to a
+high school;
+(vi) operational works on land reserved for State
+Forests for the purpose of or incidental to a State
+forest;
+(vii) development that a public authority is expressly
+authorised under an Act to commence or carry
+out without the approval of the Commission;
+(f) any development or class of development that the
+Commission by resolution, notice of which is published
+in the Gazette, declares to be development not requiring
+the approval of the Commission;
+(g) the erection, construction, maintenance, improvement or
+alteration of a jetty or associated structure (including a
+boat lifting device or mooring pile) within an artificial
+waterway except where the jetty or associated
+structure —
+(i) does not comply with a policy in regard to such
+structures that is adopted by the relevant local
+government; or
+(ii) is situated within the Dawesville Channel or on a
+regionally significant waterway identified by
+resolution of the Commission for the purposes of
+this provision.
+[Clause 19 amended: Gazette 3 Jun 2005 p. 2503; 21 May 2013
+p. 2008.]
+As at 21 May 2013 Version 00-e0-05 page 15
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 6 Development of land
+cl. 20
+20. Use of reserved land by a public authority
+Without limiting clause 19, reserved land owned by or vested in
+a public authority may be used by the public authority without
+the approval of the Commission if the land is used —
+(a) for the purpose for which it is reserved under the
+Scheme; or
+(b) for any purpose for which the land may be lawfully used
+by the public authority.
+21. Resolution as to development in respect of zoned land
+requiring approval
+(1) The Commission may by resolution require development on
+land zoned under this Scheme to have the planning approval of
+the Commission before it is commenced or carried on.
+(2) The resolution may be made so as to apply to —
+(a) all land, or a specified area of land, zoned under this
+Scheme; and
+(b) all development or classes of development or a specified
+development or class of development on land zoned
+under this Scheme.
+(3) Notice of the resolution is to be —
+(a) published in the Gazette; and
+(b) served on each local government,
+as soon as practicable after the resolution is made.
+22. Deemed determination of application to commence
+development where power is delegated to local government
+(1) If —
+(a) a determination is made by a local government under a
+local planning scheme in respect of planning approval
+for development on land to which a resolution under
+clause 21 applies;
+page 16 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Development of land Part 6
+cl. 23
+(b) at the same time as the application for that planning
+approval was made under the local planning scheme, an
+application was made to that local government under
+this Scheme for planning approval in respect of the same
+development; and
+(c) the local government has power, pursuant to a
+delegation by the Commission, to determine the
+application made under this Scheme,
+then, subject to subclause (2) and despite any other provision of
+this Scheme, the local government is deemed to have made, at
+the same time as the determination under the local planning
+scheme was made, the same determination under this Scheme in
+respect of the development.
+(2) Nothing in this clause prevents the Commission from exercising
+its power to determine an application for planning approval in
+accordance with the terms of the delegation referred to in
+subclause (1)(c).
+[Clause 22 amended: Gazette 21 May 2013 p. 2009.]
+23. Extensions and changes to a non conforming use
+(1) A person must not —
+(a) alter or extend a non conforming use;
+(b) erect, alter or extend a building used in conjunction with
+or in furtherance of a non conforming use; or
+(c) change the use of land from a non conforming use to
+another non conforming use,
+unless that person has first applied for and obtained planning
+approval under Part 7.
+(2) In this clause —
+non-conforming use has the meaning given in section 172 of
+the Act.
+[Clause 23 amended: Gazette 21 May 2013 p. 2009.]
+As at 21 May 2013 Version 00-e0-05 page 17
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 6 Development of land
+cl. 24
+24. Amending or revoking a planning approval
+The Commission may, on written application from the owner of
+land in respect of which planning approval has been granted,
+revoke or amend the planning approval prior to the
+commencement of the development that is the subject of the
+planning approval.
+25. Unauthorised existing developments
+(1) Despite clauses 18, 23 and 45, the Commission may grant
+planning approval for a development already commenced or
+carried out.
+(2) Subclause (1) does not affect the operation of clauses 18, 23 and
+45 and Part 13 of the Act in respect of development commenced
+or carried out before planning approval has been granted.
+(3) Development which was unlawfully commenced is not rendered
+lawful by the occurrence of any subsequent event except the
+granting of planning approval for the development, and the
+continuation of a development unlawfully commenced is taken
+to be lawful upon the grant of planning approval.
+[Clause 25 amended: Gazette 21 May 2013 p. 2009.]
+26. Existing uses
+Nothing in this Scheme prevents the continued use of land for
+the purpose for which it was being lawfully used immediately
+before the Scheme came into effect.
+27. Existing approvals
+Development —
+(a) that was lawfully being carried out in a local
+government district in the region immediately before the
+Scheme came into effect; or
+page 18 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Development of land Part 6
+cl. 27
+(b) in respect of which all necessary approvals under the
+local planning schemes applying to that district were in
+force immediately before the Scheme came into effect,
+may be lawfully carried out as if this Scheme had not come into
+effect.
+[Clause 27 amended: Gazette 21 May 2013 p. 2009.]
+As at 21 May 2013 Version 00-e0-05 page 19
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 7 Applications for planning approval
+cl. 28
+Part 7 — Applications for planning approval
+28. Form of application
+An application for planning approval is to be —
+(a) made in the form of Schedule 1 Form 1;
+(b) signed by the owner of the land on which the
+development is proposed; and
+(c) accompanied by such plans and other information as are
+required under clause 29.
+29. Accompanying material
+Unless the Commission waives any particular requirement,
+every application for planning approval is to be accompanied
+by —
+(a) a plan or plans to a scale of not less than 1:500
+showing —
+(i) the location of the site including street names, lot
+numbers, north point and the dimensions of the
+site;
+(ii) the existing and proposed ground levels over the
+whole of the land that is the subject of the
+application;
+(iii) the location, height and type of all existing
+structures on the land that is the subject of the
+application, and all existing structures and
+vegetation proposed to be removed;
+(iv) the existing and proposed use of the site,
+including proposed hours of operation, and
+buildings and structures to be erected on the site;
+(v) the existing and proposed means of access for
+pedestrians and vehicles to and from the site;
+(vi) the location, number, dimensions and layout of
+all car parking spaces intended to be provided;
+page 20 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Applications for planning approval Part 7
+cl. 30
+(vii) the location and dimensions of any area proposed
+to be provided for the loading and unloading of
+vehicles carrying goods and commodities to and
+from the site and the means of access to and from
+those areas;
+(viii) the location, dimensions and design of any open
+storage or trade display area, and particulars of
+the manner in which it is proposed to develop
+those areas; and
+(ix) the nature and extent of any open space and
+landscaping proposed for the site;
+and
+(b) plans, elevations and sections of any building proposed
+to be erected or altered and of any building it is intended
+to retain,
+and an applicant is also to provide —
+(c) any specialist studies that the Commission may require
+the applicant to undertake in support of the application
+such as traffic, heritage, environmental, engineering or
+urban design studies;
+(d) any management plans that the Commission may require
+to support the application; and
+(e) any other plan or information relating to the proposed
+development that the Commission may reasonably
+require.
+30. Application procedure
+(1) An application for planning approval is to be lodged with the
+local government in whose district the land that is the subject of
+the application is situated.
+(2) A local government which receives an application under
+subclause (1) is to forward it to the Commission within 7 days
+of receiving it.
+As at 21 May 2013 Version 00-e0-05 page 21
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 7 Applications for planning approval
+cl. 31
+(3) A local government may make recommendations to the
+Commission regarding an application it has forwarded to the
+Commission within 42 days, or such longer period as the
+Commission allows, of the receipt of the application by the local
+government.
+31. Advertising of applications
+(1) If the Commission is of the opinion that planning approval
+should not be granted before notice of the application is given,
+the Commission may give notice, or require the applicant to
+give notice, of the application for planning approval in one or
+more of the following ways —
+(a) notice of the proposed development served on nearby
+owners and occupiers who, in the opinion of the
+Commission, are likely to be affected by the proposed
+development, stating that submissions may be made to
+the Commission by a day specified in the notice, being
+not less than 14 days from the day the notice is served;
+(b) notice of the proposed development published in a
+newspaper circulating in the region stating that
+submissions may be made to the Commission by a day
+specified in the notice being not less than 14 days from
+the day the notice is published;
+(c) a sign or signs displaying notice of the proposed
+development erected in a conspicuous position on the
+land on which development is proposed for a period of
+not less than 14 days from the day the notice is erected.
+(2) The notice referred to in subclause (1) is to be in the form of
+Schedule 1 Form 2 with such modifications as are considered
+appropriate by the Commission.
+(3) Any person may inspect the application for planning approval
+referred to in the notice and the material accompanying that
+application during business hours at the offices of the
+Commission.
+page 22 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Applications for planning approval Part 7
+cl. 32
+32. Determination by Commission
+After —
+(a) the expiry of the period referred to in clause 30(3) within
+which the local government may make
+recommendations, or the making of recommendations
+by the local government under clause 30(3), whichever
+is sooner; and
+(b) the expiry of any period specified for the purposes of
+clause 31(1)(a), 31(1)(b) or 31(1)(c) in respect of the
+notice of proposed development,
+the Commission may determine the application for planning
+approval.
+As at 21 May 2013 Version 00-e0-05 page 23
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 8 Procedure for dealing with applications
+cl. 33
+Part 8 — Procedure for dealing with applications
+33. Consultation with other authorities
+(1) The Commission may consult on a proposed development with
+any public authority it considers appropriate.
+(2) The Commission is not to determine a planning application in
+respect of land reserved under the Scheme for the purposes of a
+public authority without first consulting that public authority.
+34. Matters to be considered by Commission
+The Commission in considering an application for planning
+approval is to have regard to such of the following matters as
+are in the opinion of the Commission relevant to the
+development that is the subject of the application —
+(a) the aims and provisions of the Scheme and any other
+local planning schemes in effect within the region;
+(b) the requirements of orderly and proper planning
+including any relevant proposed Scheme amendment, or
+new local planning scheme or amendment, for which
+consent for public submissions to be sought has been
+granted;
+(c) any State planning policy;
+(d) any environmental protection policy approved under the
+Environmental Protection Act 1986;
+(e) any policy or strategy of the Commission and any policy
+adopted by the Government of the State;
+(f) any catchment management plans approved by the
+Commission;
+(g) the provisions of any Local Planning Strategy of the
+local government in respect of a local planning scheme,
+as approved by the Commission under regulation 12B of
+the Town Planning Regulations 1967 and amended from
+time to time;
+page 24 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Procedure for dealing with applications Part 8
+cl. 34
+(h) in the case of land reserved under the Scheme, the
+purpose for which the land is reserved;
+(i) the conservation of any place that is —
+(i) entered in the Register of Heritage Places under
+the Heritage of Western Australia Act 1990; or
+(ii) included in a Heritage List or a Heritage Area
+under a local planning scheme;
+(j) the compatibility of a development with its setting;
+(k) any social issues that have an effect on the amenity of
+the locality;
+(l) the cultural significance of any place or area affected by
+the development;
+(m) the likely effect of the proposal on the natural
+environment and any means that are proposed to protect
+or to mitigate impacts on the natural environment;
+(n) whether the land to which the application relates is
+unsuitable for the proposal by reason of it being, or
+being likely to be, subject to flooding, tidal inundation,
+subsidence, landslip, bush fire or other risk;
+(o) the preservation of the amenity of the location;
+(p) the relationship of the proposal to development on
+adjoining land or on other land in the locality, including
+but not limited to, the likely effect of the height, bulk,
+scale, orientation and appearance of the proposal;
+(q) whether the proposed means of access to and egress
+from the site are adequate and whether adequate
+provision has been made for the loading, unloading,
+manoeuvring and parking of vehicles;
+(r) the amount of traffic likely to be generated by the
+proposal, particularly in relation to the capacity of the
+road system in the locality and the probable effect on
+traffic flow and safety;
+As at 21 May 2013 Version 00-e0-05 page 25
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 8 Procedure for dealing with applications
+cl. 35
+(s) whether public transport services are necessary and, if
+so, whether they are available and adequate for the
+proposal;
+(t) whether public utility services are available and
+adequate for the proposal;
+(u) whether adequate provision has been made for access for
+pedestrians and cyclists (including end of trip storage,
+toilet and shower facilities);
+(v) whether adequate provision has been made for access by
+disabled persons;
+(w) whether adequate provision has been made for the
+landscaping of the land to which the application relates
+and whether any trees or other vegetation on the land
+should be preserved;
+(x) whether the proposal is likely to cause soil erosion or
+land degradation;
+(y) the potential loss of any community service or benefit
+resulting from the planning approval;
+(z) any relevant submissions received on the application;
+(za) any recommendations received from a local government
+under clause 30(3);
+(zb) consultations under clause 33(1); and
+(zc) any other planning consideration the Commission
+considers relevant.
+[Clause 34 amended: Gazette 21 May 2013 p. 2009-10.]
+35. Determination of applications
+In determining an application for planning approval the
+Commission may —
+(a) grant its approval with or without conditions; or
+(b) refuse to grant its approval.
+page 26 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Procedure for dealing with applications Part 8
+cl. 36
+36. Form and date of determination
+(1) As soon as practicable after determining an application, the
+Commission is to give notice of the determination to the
+applicant in the form of Schedule 1 Form 3.
+(2) The date of the determination is the date specified in the notice.
+(3) If the Commission refuses an application for planning approval
+the Commission is to give reasons for its refusal.
+37. Term of planning approval
+(1) If the Commission grants planning approval for the
+development of land —
+(a) the development approved is to be substantially
+commenced within 2 years, or such other period as is
+specified in the approval, after the date of the
+determination; and
+(b) the approval lapses if the development has not
+substantially commenced before the expiration of that
+period.
+(2) A written request may be made to the Commission for an
+extension of the term of planning approval at any time prior to
+the expiry of the approval period under subclause (1).
+38. Temporary planning approval
+If the Commission grants planning approval, the Commission
+may impose conditions limiting the period of time for which the
+approval is given.
+39. Scope of planning approval
+Planning approval may be granted —
+(a) for the development for which the approval is sought;
+(b) for that development, except for a specified part or
+aspect of that development; or
+As at 21 May 2013 Version 00-e0-05 page 27
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 8 Procedure for dealing with applications
+cl. 40
+(c) for a specified part or aspect of that development.
+40. Approval subject to later approval of details
+(1) Where an application for planning approval is for a development
+that includes the carrying out of any building or works, the
+Commission may grant approval subject to matters requiring the
+subsequent planning approval of the Commission. These matters
+may include the siting, design and external appearance of the
+buildings, means of access, landscaping and such other matters
+as the Commission thinks appropriate.
+(2) In respect of an approval requiring subsequent planning
+approval, the Commission may require such further details as it
+thinks appropriate prior to considering the application for
+subsequent planning approval.
+(3) Where the Commission has granted approval subject to matters
+requiring the later planning approval of the Commission, an
+application for approval of those matters must be made not later
+than 2 years after the date of the determination of the first
+approval, or such other period as is specified in the first
+approval.
+41. Deemed refusal
+(1) Subject to subclause (2), an application for planning approval is
+deemed to have been refused if a determination in respect of that
+application is not given to the applicant by the Commission
+within 60 days of the receipt of the application by the
+Commission, or within such further time as is agreed in writing
+between the applicant and the Commission.
+(2) An application for planning approval which is the subject of a
+notice under clause 31 is deemed to be refused where a
+determination in respect of that application is not given to the
+applicant by the Commission within 90 days of the receipt of
+the application by the Commission, or within such further time
+as is agreed in writing between the applicant and the
+Commission.
+page 28 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Procedure for dealing with applications Part 8
+cl. 42
+(3) Despite an application for planning approval being deemed to
+have been refused, the Commission may issue a determination
+in respect of the application at any time after the expiry of the
+period referred to in subclause (1) or (2), as the case requires,
+and that determination is as valid and effective from the date of
+determination as if it had been made before the period expired.
+42. Application for review
+An applicant aggrieved by —
+(a) the exercise of a discretionary power by the Commission
+under the Scheme in respect of the application; or
+(b) a decision of the Commission not to transfer land from
+the Urban Deferred zone to the Urban zone,
+may apply to the State Administrative Tribunal for a review
+under Part 14 of the Act.
+[Clause 42 amended: Gazette 21 May 2013 p. 2010.]
+As at 21 May 2013 Version 00-e0-05 page 29
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Part 9 Enforcement and administration
+cl. 43
+Part 9 — Enforcement and administration
+43. Compensation
+(1) A claim for compensation for injurious affection may be made
+under Part 11 of the Act.
+(2) A claim for compensation for injurious affection to land or
+property other than reserved land is to be lodged at the office of
+the Commission within 6 months of the date of publication in
+the Gazette of notice of the approval of the Scheme or the
+amendment by which the land or property is injuriously
+affected.
+(3) A claim for compensation is to be in the form of Schedule 1
+Form 4.
+(4) If compensation for injurious affection is claimed as a result of
+the operation of the provisions of section 174(1) of the Act the
+Commission may at its option elect to acquire the land so
+affected instead of paying compensation.
+[Clause 43 amended: Gazette 21 May 2013 p. 2010.]
+44. Powers of the Commission
+(1) The Commission in implementing the Scheme has the power to
+enter into an agreement with any owner, occupier or other
+person having an interest in land affected by the provisions of
+the Scheme in respect of any matters pertaining to the Scheme.
+(2) An officer of the Commission authorised by the Commission
+may, at all reasonable times and with such assistance as may be
+required, enter any building or land in the region for the purpose
+of ascertaining whether the provisions of the Scheme are being
+observed.
+45. Person must comply with provisions of Scheme
+A person must not —
+(a) contravene the provisions of the Scheme;
+page 30 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Enforcement and administration Part 9
+cl. 46
+(b) use a building or commence or continue to carry out any
+development within the region otherwise than in
+accordance with —
+(i) the Scheme; and
+(ii) any conditions imposed upon the grant of any
+approval under the Scheme in respect of the use
+or development.
+46. Environmental conditions
+(1) Environmental conditions incorporated into the Scheme are set
+out in Schedule 2.
+(2) Where appropriate, the environmental conditions are indicated
+on the Scheme Map by the symbol EC to indicate that
+environmental conditions apply to the land.
+(3) The Commission is to —
+(a) maintain a register of all relevant statements published
+under sections 48F and 48G of the Environmental
+Protection Act 1986; and
+(b) make the statements available for public inspection at
+the offices of the Commission.
+47. Certificates
+The Commission may, on payment of the relevant fee set under
+section 20 of the Act, issue a certificate in the form set out in
+Schedule 3 in respect of any land, stating the manner in which it
+is affected by the Scheme and the purpose, if any, for which the
+land is reserved under the Scheme.
+[(2) deleted]
+[Clause 47 amended: Gazette 1 Jun 2012 p. 2285.]
+As at 21 May 2013 Version 00-e0-05 page 31
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Schedule 1 Forms
+Schedule 1 — Forms
+Form 1
+Form of Application for Planning Approval
+[cl. 28]
+Peel Region Scheme
+Owner details
+Name:
+Address:
+Postcode:
+Phone: (home):
+(work): Fax:
+(mobile): E-mail:
+Contact person:
+Signature: Date:
+Signature: Date:
+The signature of the owner(s) is required on all applications. This
+application will not proceed without that signature.
+Applicant details
+Name:
+Address:
+Postcode:
+Phone: (home):
+(work): Fax:
+(mobile): E-mail:
+Contact person for correspondence:
+Signature: Date:
+Property details
+Lot No.: House/Street No.: Location No.:
+Diagram or Certificate of Title Vol. No.: Folio:
+Plan No.:
+Diagram or Certificate of Title Vol. No.: Folio:
+Plan No.:
+Title encumbrances (e.g. easements, restrictive covenants):
+page 32 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Forms Schedule 1
+Owner details
+Street name: Suburb:
+Nearest street intersection:
+Existing building/land use:
+Description of proposed development and/or use:
+Nature of any existing buildings and/or use:
+Approximate cost of proposed development:
+Estimated time of completion:
+OFFICE USE ONLY
+Acceptance Officer’s initials: Date received:
+Local government reference No.:
+Commission reference No.:
+Form 2
+Notice of Public Advertisement of Planning Proposal
+[cl. 31]
+Peel Region Scheme
+Western Australian Planning Commission
+The Commission has received an application to use and/or develop
+land for the following purpose and public comments are invited.
+Lot No.: Street: Suburb:
+Proposal:
+………………………………………………………………….
+……………………………………………………….................
+…………………………………………………………….........
+……………………………..........................................................
+Details of the proposal are available for inspection at the
+Commission’s office. Comments on the proposal may be submitted to
+the Commission in writing on or before the ................... day of
+…………………………………..
+Signed:
+As at 21 May 2013 Version 00-e0-05 page 33
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Schedule 1 Forms
+Dated:
+for and on behalf of the Western Australian Planning Commission
+Form 3
+Notice of Determination of Application for Planning Approval
+[cl. 36]
+Peel Region Scheme
+Western Australian Planning Commission
+Location:
+Lot No.: Plan/Diagram:
+Vol. No.: Folio No.:
+Application date: Received on:
+Description of proposed development:
+………………………………………………………….............
+………………………………………………………………….
+……………………………………………………………….....
+The application for planning approval is:
+granted subject to the following conditions
+refused for the following reason(s):
+Condition(s)/reason(s) for refusal:
+………………………………………………………………......
+………………………………………………………………......
+…………………………………………………………………..
+…………………………………………………………………..
+Note If the development that is the subject of this approval is not
+substantially commenced within a period of 2 years, or such
+other period as specified in the approval after the date of the
+determination, the approval shall lapse and be of no further
+effect.
+page 34 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Forms Schedule 1
+Note Where an approval has so lapsed, no development shall be
+carried out without the further approval of the Commission
+having first been sought and obtained.
+Note If an applicant is aggrieved by this determination there is a
+right of appeal under clause 42 of the Scheme. An appeal must
+be lodged within 60 days of this determination.
+Signed:
+Dated:
+for and on behalf of the Western Australian Planning Commission
+Form 4
+Claim for Compensation for Injurious Affection
+[cl. 43]
+Peel Region Scheme
+To the Western Australian Planning Commission:
+Owner details*
+Name:
+Address:
+Postcode:
+Phone (home):
+(work): Fax:
+(mobile): E-mail:
+[*If the claim is made under section 177(1)(a) of the Act, the details are
+to be those of the owner of the land at the date of reservation or alteration
+of the reservation, as the case requires.
+If the claim is made under section 177(1)(b) of the Act, the details are to
+be those of the owner of the land at the date of the application for
+approval to carry out development.]
+As at 21 May 2013 Version 00-e0-05 page 35
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Schedule 1 Forms
+Contact person:
+Signature: Date:
+Signature: Date:
+The signature of the owner(s) is required on all applications. This
+application will not proceed without that signature.
+Details of property in respect of which claim for compensation for
+injurious affection is made
+Lot No.: House/Street No.: Location No.:
+Diagram or Certificate of Title Vol. No.: Folio:
+Plan No.:
+Diagram or Certificate of Title Vol. No.: Folio:
+Plan No.:
+Title encumbrances (e.g. easements, restrictive covenants):
+Street name: Suburb:
+Nearest street intersection:
+Existing building/land use:
+Description of proposed development and/or use:
+Nature of any existing buildings and/or use:
+State reasons for the claim that the property has been injuriously
+affected
+page 36 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Forms Schedule 1
+State amount of compensation claimed
+The amount of compensation claimed is:
+which is made up as follows:
+$
+[Form 4 amended: Gazette 21 May 2013 p. 2010-11.]
+As at 21 May 2013 Version 00-e0-05 page 37
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Schedule 2 Environmental conditions
+cl. 1
+Schedule 2 — Environmental conditions
+[cl. 46]
+1. Management Plans
+1.1 The following Management Plans may be required in accordance with
+the specifications set out in Attachment 1 in the Minister for the
+Environment and Heritage’s “Statement that a Scheme may be
+Implemented” No. 000601 published on 2 August 2002, and shall be
+subsequently implemented in accordance with the provisions of the
+Plans, to the satisfaction of the Western Australian Planning
+Commission:
+— Environmental Management Plans;
+— Drainage, Nutrient and Water Management Plans; and
+— Lake Clifton Environmental Management Plans.
+2. Biological Survey
+2.1 Prior to rezoning of land in the Scheme which has the potential to
+impact on regionally significant native remnant vegetation or native
+fauna, the Responsible Authority may require a biological survey,
+including a search for Declared Rare Flora and Fauna, Priority Flora,
+Threatened Flora Communities and Threatened Fauna, to be
+undertaken.
+The biological survey shall be prepared to the satisfaction of the
+Responsible Authority having due regard for advice from relevant
+government authorities, and shall be taken into account when
+considering the rezoning and subsequent subdivision and development
+applications.
+3. Connection to Reticulated Sewerage
+As part of an amendment to a local town planning scheme or
+application to subdivide or develop land for residential, special
+residential, commercial, industrial or tourist purposes, the Western
+Australian Planning Commission or local government may require
+connection of the land to reticulated sewerage where the land is —
+page 38 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Environmental conditions Schedule 2
+cl. 4
+(1) within the Peel Harvey Coastal Plain Catchment Area and
+therefore subject to provisions of the Statement of Planning
+Policy No. 2 for the Peel Harvey Coastal Plain Catchment;
+(2) outside the Peel Harvey Coastal Plain Catchment Area and
+has an Average Annual Maximum Groundwater Level of less
+than 1.2 metres below the natural ground surface or where
+subsoil drainage is proposed or will be required as a part of
+subdivision or development; or
+(3) within the groundwater catchment of Lake Clifton.
+4. Old Coast Road Wetland
+4.1 The wetland contained on Pt Loc 1011 Willoughbridge Crescent,
+Erskine shall be set aside for conservation, in accordance with the
+requirements set out in Attachment 1 of the Minister for the
+Environment and Heritage’s “Statement that a Scheme may be
+Implemented” No. 000601 published on 2 August 2002.
+As at 21 May 2013 Version 00-e0-05 page 39
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Schedule 3 Certificate
+Schedule 3 — Certificate
+[cl. 47]
+Peel Region Scheme
+Scheme Certificate
+In accordance with clause 47 of the Peel Region Scheme the following
+information is furnished in respect of:
+Location. : ............................................................................................
+Lot No. : ........................................... Plan/Diagram No. : .....................
+Vol No. : .............................................Folio No. : .................................
+.................................................................................................................
+.................................................................................................................
+.................................................................................................................
+.................................................................................................................
+.................................................................................................................
+page 40 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Notes
+1
+This is a compilation of the Peel Region Scheme and includes the amendments
+made by the other written laws referred to in the following table.
+Compilation table
+Citation Gazettal Commencement
+Peel Region Scheme 23 Oct 2002 20 Mar 2003 (see Gazette
+p. 5263-306 4 Apr 2003 p. 1035)
+Peel Region Scheme Amendment 3 Jun 2005 3 Jun 2005
+No. 008/33A p. 2503
+Peel Region Scheme Amendment 11 Nov 2011 11 Nov 2011
+No. 016/57 p. 4779-80
+Region Planning Schemes Amendments 1 Jun 2012 1 Jun 2012
+Instrument 2012 Pt. 4 p. 2284-5
+Peel Region Scheme Amendment 2013 21 May 2013 21 May 2013 (see cl. 2)
+p. 2004-11
+2
+Formerly made under s. 37G of the Western Australian Planning Commission
+Act 1985, continued under s. 33 of the Planning and Development Act 2005.
+As at 21 May 2013 Version 00-e0-05 page 41
+Published on www.legislation.wa.gov.au
+
+Peel Region Scheme
+Defined terms
+Defined terms
+[This is a list of terms defined and the provisions where they are defined.
+The list is not part of the law.]
+Defined term Provision(s)
+Department of Water ....................................................................................... 2(2)
+local government.............................................................................................. 2(2)
+non-conforming use ....................................................................................... 23(2)
+region ............................................................................................................... 2(2)
+reserved land .................................................................................................... 2(2)
+reserved land owned by or vested in a public authority ................................... 2(2)
+SCA No. 1 ........................................................................................................ 2(2)
+SCA No. 2 ........................................................................................................ 2(2)
+Scheme ............................................................................................................. 2(2)
+State forest ....................................................................................................... 2(2)
+State Planning Framework ............................................................................... 2(2)
+Water Corporation ........................................................................................... 2(2)
+page 42 Version 00-e0-05 As at 21 May 2013
+Published on www.legislation.wa.gov.au

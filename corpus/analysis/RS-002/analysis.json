@@ -1,0 +1,33 @@
+{
+  "id": "RS-002",
+  "normalized_title": "Peel Region Scheme",
+  "instrument_no": "PRS",
+  "version_date": "As at 21 May 2013 (version 00-e0-05)",
+  "operative_status": "current",
+  "scope_summary": "Statutory region scheme made under the Planning and Development Act 2005 that divides the Peel region into zones and reservations, reserves land for public purposes (regional roads, regional parks, waterways, etc.), and sets the legal framework for subdivision, development, and scheme amendments in the City of Mandurah and the shires of Murray and Waroona. The scheme comprises the scheme text and the scheme map (sheets 1-20) and is administered by the WAPC.",
+  "key_numeric_standards": [
+    {
+      "topic": "value",
+      "value": "1.2",
+      "unit": "metres",
+      "applies_to": "",
+      "clause_ref": ""
+    }
+  ],
+  "definitions": [],
+  "cross_references": [
+    {
+      "cited": "Peel Region Scheme",
+      "manifest_id": null
+    },
+    {
+      "cited": "Planning and Development Act 2005",
+      "manifest_id": null
+    }
+  ],
+  "residential_relevance": "medium",
+  "quality_flags": [
+    "re-acquired in round 1 from legislation.wa.gov.au (the official State Law Publisher) after the wa.gov.au collection page was found to host only the environmental review figures and not the scheme text itself"
+  ],
+  "pages": 48
+}

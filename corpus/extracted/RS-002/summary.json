@@ -1,21 +1,12 @@
 {
   "id": "RS-002",
-  "title": "PREPARATION AND ENVIRONMENTAL ASSESSMENT",
+  "title": "Peel Region Scheme",
   "instrument_type": "region_scheme",
   "issuing_authority": "Western Australian Planning Commission",
-  "version_date": "",
-  "pages": 1,
-  "key_provisions": [
-    {
-      "heading": "PREPARATION AND ENVIRONMENTAL ASSESSMENT",
-      "summary": ""
-    },
-    {
-      "heading": "OF THE PEEL REGION SCHEME",
-      "summary": "WAPC referred the scheme EPA decided"
-    }
-  ],
+  "version_date": "As at 21 May 2013 (version 00-e0-05)",
+  "pages": 48,
+  "key_provisions": [],
   "cross_references": [],
   "tables_skipped": false,
-  "extracted_at": "2026-06-09T22:37:13Z"
+  "extracted_at": "2026-06-10T00:18:01Z"
 }
