@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-06-10",
+  "wp": "WP9",
+  "loader": "scripts/seed_eval_data.py (idempotent, deterministic-UUID upsert)",
+  "db_counts": {
+    "eval_cases": 19,
+    "eval_runs": 16,
+    "rules": 6,
+    "clauses": 63,
+    "clause_disposition_labels_applied": 65
+  },
+  "expected_vs_inventory": {
+    "golden_eval_cases": {"expected": 19, "loaded": 19},
+    "clause_dispositions": {"expected": 65, "loaded": 65},
+    "rule_rows": {"expected": 6, "loaded": 6},
+    "golden_eval_runs": {"in_seeds": 16, "loaded": 16}
+  },
+  "idempotency_check": "second full run inserted 0 new rows",
+  "legacy_db_archive": {
+    "draftcheck.db": "moved to C:/Dev/archive/cuz-legacy-db/ (was untracked; *.db gitignored)",
+    "draftcheck-corpus.db": "moved to C:/Dev/archive/cuz-legacy-db/",
+    "git_ls_files_db_count": 0
+  }
+}
