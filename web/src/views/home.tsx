@@ -242,7 +242,13 @@ export function Home({
       } else if ((r.kind === "missing" || r.kind === "notBuilt") && !authed) {
         pushGuestChatPreview(t);
       } else {
-        push({ role: "a", tone: "warn", text: r.kind === "down" ? "Can't reach the API right now." : `Ask failed (${r.kind === "missing" || r.kind === "notBuilt" ? "endpoint not available" : r.message}).` });
+        const reason =
+          r.kind === "down"
+            ? "Can't reach the API right now."
+            : r.kind === "missing" || r.kind === "notBuilt"
+              ? "endpoint not available"
+              : r.message || "the assistant hit an unexpected error";
+        push({ role: "a", tone: "warn", text: `Ask failed (${reason}).` });
       }
     }
     setBusy(false);
