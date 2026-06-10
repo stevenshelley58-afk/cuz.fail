@@ -81,6 +81,7 @@ def atom_from_candidate(row: dict) -> Atom:
 
 def adjudicate_clause(
     conn: psycopg.Connection,
+    plain_conn: psycopg.Connection,
     endpoints: list,
     clause: dict,
     candidates: list[dict],
@@ -115,8 +116,10 @@ def adjudicate_clause(
         }
         if votes >= 2:
             atom = atom_from_candidate(cand)
-            promote_rule(conn, str(cand["source_version_id"]), str(cand["clause_id"]),
+            # promote_rule indexes rows positionally — use the tuple-row connection.
+            promote_rule(plain_conn, str(cand["source_version_id"]), str(cand["clause_id"]),
                          str(cand["id"]), atom, 0.85)
+            plain_conn.commit()
             conn.execute(
                 "UPDATE rule_candidates SET review_status='auto_promoted', confidence=0.85, "
                 "auto_promoted_at=now(), metadata_json = metadata_json || %s::jsonb, updated_at=now() "
@@ -161,7 +164,8 @@ def main() -> int:
         "fresh_models": [f"{e.name}:{e.model}" for e in endpoints],
     }
 
-    with psycopg.connect(dsn, row_factory=psycopg.rows.dict_row) as conn:
+    with psycopg.connect(dsn, row_factory=psycopg.rows.dict_row) as conn, \
+            psycopg.connect(dsn) as plain_conn:
         rows = conn.execute(
             """
             SELECT rc.id, rc.source_version_id, rc.clause_id, rc.rule_key, rc.rule_type,
@@ -189,7 +193,7 @@ def main() -> int:
             stats["clauses"] += 1
             stats["candidates"] += len(cands)
             print(f"[{n}/{total}] {clause['clause_path']} ({len(cands)} candidates)", flush=True)
-            adjudicate_clause(conn, endpoints, clause, cands, stats)
+            adjudicate_clause(conn, plain_conn, endpoints, clause, cands, stats)
 
     out = json.dumps(stats, indent=2, default=str)
     if args.report:
