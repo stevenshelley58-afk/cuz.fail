@@ -48,6 +48,7 @@ def test_v3_sources_spatial_foundation_tables_present() -> None:
         "governance_pipeline_steps",
         "governance_reviews",
         "governance_risks",
+        "guest_usage",
         "instrument_aliases",
         "job_traces",
         "legal_edges",

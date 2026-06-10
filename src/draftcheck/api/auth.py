@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import UTC, datetime, timedelta
 import os
+from threading import Lock
 from typing import Annotated
+from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from pydantic import BaseModel, Field
@@ -236,6 +238,75 @@ def dev_login(
         org=org,
         email=f"{expected_username}@dev.local",
         role=IdentityRole.OWNER,
+    )
+    session_issue = store.create_session(
+        user=user,
+        org=org,
+        ip_address=_client_host(request),
+        user_agent=request.headers.get("user-agent"),
+    )
+    _set_session_cookie(response, settings, session_issue.token)
+    return VerifyMagicLinkResponse(
+        session=_session_response(
+            ActiveSession(session=session_issue.session, user=session_issue.user, org=session_issue.org)
+        )
+    )
+
+
+# In-process per-IP limiter for guest-session creation (abuse valve; resets on
+# process restart, which is acceptable for now — noted in the PR).
+_GUEST_CREATE_LIMIT_PER_HOUR = 20
+_guest_create_window: dict[str, list[datetime]] = {}
+_guest_create_lock = Lock()
+
+
+def _guest_create_allowed(ip: str | None) -> bool:
+    key = ip or "unknown"
+    now = datetime.now(UTC)
+    cutoff = now - timedelta(hours=1)
+    with _guest_create_lock:
+        window = [t for t in _guest_create_window.get(key, []) if t > cutoff]
+        if len(window) >= _GUEST_CREATE_LIMIT_PER_HOUR:
+            _guest_create_window[key] = window
+            return False
+        window.append(now)
+        _guest_create_window[key] = window
+        return True
+
+
+@router.post("/auth/guest", response_model=VerifyMagicLinkResponse, include_in_schema=False)
+def guest_login(
+    request: Request,
+    response: Response,
+    settings: Annotated[Settings, Depends(get_settings)],
+    store: Annotated[InMemoryIdentityStore, Depends(get_identity_store)],
+) -> VerifyMagicLinkResponse:
+    _assert_allowed_origin(request, settings)
+
+    # Idempotent: an existing valid session (guest or real) is returned as-is,
+    # so cookie-holders cannot farm fresh budgets and signed-in users are safe.
+    existing_token = request.cookies.get(settings.session_cookie_name)
+    if existing_token:
+        existing = store.get_session(existing_token)
+        if existing is not None:
+            return VerifyMagicLinkResponse(session=_session_response(existing))
+
+    if not settings.guest_mode_enabled:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+
+    if not _guest_create_allowed(_client_host(request)):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="guest_session_rate_limited",
+        )
+
+    # Fresh org per guest: projects are org-scoped, so each guest is isolated.
+    guest_id = uuid4().hex[:12]
+    org = store.get_or_create_org(slug=f"guest-{guest_id}", name="Guest")
+    user = store.get_or_create_user(
+        org=org,
+        email=f"guest-{guest_id}@guest.lotfile.app",
+        role=IdentityRole.GUEST,
     )
     session_issue = store.create_session(
         user=user,

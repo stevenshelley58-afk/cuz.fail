@@ -209,3 +209,15 @@ added 2026-06-08 is exempt: it returns 404 whenever `app_env=production`.)
 - Do not discard unpushed VPS work silently. Stash it or branch and push it, then report it.
 - Do not add password/dev-login routes that are reachable in production. (The dev-only
   login added 2026-06-08 is hard-disabled — 404 — when `app_env=production`.)
+
+## Guest Org Hygiene (cron)
+
+Guest sessions each create a throwaway org (slug `guest-*`). Purge stale ones nightly on
+the VPS so guest data does not accumulate:
+
+```
+0 3 * * * cd /srv/draftcheck/app && DATABASE_URL=postgresql+psycopg://... .venv/bin/python scripts/purge_guest_orgs.py >> /var/log/draftcheck/purge_guest_orgs.log 2>&1
+```
+
+Retention defaults to 14 days (`GUEST_ORG_RETENTION_DAYS`). Deleting the org cascades to
+its users, sessions, projects, and `guest_usage` rows.

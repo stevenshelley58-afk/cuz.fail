@@ -39,6 +39,7 @@ from sqlalchemy.orm import Session
 
 from draftcheck.api.auth import get_current_session
 from draftcheck.api.deps import get_db_session
+from draftcheck.api.guest_quota import guest_quota
 from draftcheck.db.models import Project, PropertyFact, Proposal
 from draftcheck.domain.identity import ActiveSession
 from draftcheck.domain.projects.service import (
@@ -211,6 +212,12 @@ def _resolve_org_id(active_session: ActiveSession, project: Project | None) -> s
       3. 401 if neither is available
     """
     if active_session.org is not None:
+        if project is not None and str(project.org_id) != str(active_session.org.id):
+            # 404 (not 403) so callers cannot probe for other orgs' project ids.
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Project {str(project.id)!r} not found.",
+            )
         return str(active_session.org.id)
     if project is not None:
         return str(project.org_id)
@@ -246,6 +253,7 @@ def create_project(
     payload: CreateProjectRequest,
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
     db: DbSession,
+    _quota: Annotated[None, Depends(guest_quota("address"))],
 ) -> ProjectResponse:
     org_id = _resolve_org_id(active_session, None)
     try:

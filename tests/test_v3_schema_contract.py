@@ -17,6 +17,7 @@ def test_v3_identity_schema_contract() -> None:
         IdentityRole.OWNER.value,
         IdentityRole.OPERATOR.value,
         IdentityRole.COMPLIANCE_OWNER.value,
+        IdentityRole.GUEST.value,
     }
 
     for table_name in ("users", "sessions", "magic_link_tokens"):
