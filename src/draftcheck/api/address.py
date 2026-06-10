@@ -29,6 +29,8 @@ from draftcheck.domain.identity import ActiveSession
 router = APIRouter(tags=["projects"])
 
 _address_service: AddressResolutionService | None = None
+_suggest_engine: Any | None = None
+_suggest_engine_checked = False
 
 ManualAddressFactType = Literal[
     "address",
@@ -203,6 +205,116 @@ def _profile_response(profile: PropertyProfile) -> PropertyProfileResponse:
         facts=facts,
         property_facts=facts,
     )
+
+
+class AddressSuggestion(BaseModel):
+    address: str
+    gnaf_pid: str | None = None
+
+
+class AddressSuggestResponse(BaseModel):
+    query: str
+    suggestions: list[AddressSuggestion]
+
+
+def _get_suggest_engine() -> Any | None:
+    global _suggest_engine, _suggest_engine_checked
+    if not _suggest_engine_checked:
+        _suggest_engine_checked = True
+        import os
+
+        database_url = os.environ.get("DATABASE_URL")
+        if database_url:
+            try:
+                from sqlalchemy import create_engine
+
+                _suggest_engine = create_engine(database_url, pool_pre_ping=True)
+            except Exception:  # pragma: no cover – DB not available in all envs
+                import logging
+
+                logging.getLogger(__name__).warning(
+                    "suggest_addresses: failed to create engine from DATABASE_URL",
+                    exc_info=True,
+                )
+    return _suggest_engine
+
+
+@router.get("/addresses/suggest", response_model=AddressSuggestResponse)
+def suggest_addresses(
+    q: str,
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    limit: int = 8,
+) -> AddressSuggestResponse:
+    """Predictive G-NAF address suggestions for the chat one-box.
+
+    Indicative geocode candidates only — never legal proof of title or
+    property identity. Returns an empty list when no spatial DB is configured.
+    """
+    query = q.strip()
+    limit = max(1, min(limit, 15))
+    if len(query) < 3:
+        return AddressSuggestResponse(query=query, suggestions=[])
+
+    engine = _get_suggest_engine()
+    if engine is None:
+        return AddressSuggestResponse(query=query, suggestions=[])
+
+    from sqlalchemy import text as sql_text
+
+    trigram_sql = sql_text(
+        """
+        SELECT address_text, gnaf_pid
+        FROM address_points
+        WHERE address_text ILIKE :prefix
+           OR similarity(lower(address_text), lower(:q)) > 0.3
+        ORDER BY (address_text ILIKE :prefix) DESC,
+                 similarity(lower(address_text), lower(:q)) DESC,
+                 address_text
+        LIMIT :limit
+        """
+    )
+    ilike_sql = sql_text(
+        """
+        SELECT address_text, gnaf_pid
+        FROM address_points
+        WHERE address_text ILIKE :contains
+        ORDER BY (address_text ILIKE :prefix) DESC, address_text
+        LIMIT :limit
+        """
+    )
+    params = {
+        "q": query,
+        "prefix": f"{query}%",
+        "contains": f"%{query}%",
+        "limit": limit,
+    }
+    rows: list[Any] = []
+    try:
+        with engine.connect() as conn:
+            rows = list(conn.execute(trigram_sql, params))
+    except Exception:
+        # pg_trgm unavailable or query failed — fall back to plain ILIKE
+        try:
+            with engine.connect() as conn:
+                rows = list(conn.execute(ilike_sql, params))
+        except Exception:  # pragma: no cover – table absent / DB down
+            import logging
+
+            logging.getLogger(__name__).warning(
+                "suggest_addresses: lookup failed", exc_info=True
+            )
+            rows = []
+
+    seen: set[str] = set()
+    suggestions: list[AddressSuggestion] = []
+    for row in rows:
+        addr = (row[0] or "").strip()
+        if not addr or addr.lower() in seen:
+            continue
+        seen.add(addr.lower())
+        suggestions.append(AddressSuggestion(address=addr, gnaf_pid=row[1]))
+    return AddressSuggestResponse(query=query, suggestions=suggestions)
 
 
 @router.post(
