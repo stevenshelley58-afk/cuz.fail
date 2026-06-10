@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { api, type ApiResult, type ProjectSummary } from "../api";
 import { Icon } from "../components/common";
-import { guestProjectList } from "../hooks/useGuestUsage";
-import type { GuestUsage } from "../types";
 import { CompliancePanel } from "./compliance";
 
 export function projectList(r: ApiResult<ProjectSummary[] | { projects?: ProjectSummary[] }>): ProjectSummary[] {
@@ -60,57 +58,39 @@ export function ProjectDetail({ projectId, onClose }: { projectId: string; onClo
 /* ── projects view ── */
 
 export function Projects({
-  authed,
-  guestUsage,
+  isGuest,
   onNeedSignIn,
   onProjectOpen,
 }: {
-  authed: boolean;
-  guestUsage: GuestUsage;
+  isGuest: boolean;
   onNeedSignIn: () => void;
   onProjectOpen: (projectId: string) => void;
 }) {
   const [result, setResult] = useState<ApiResult<ProjectSummary[] | { projects?: ProjectSummary[] }> | null>(null);
   useEffect(() => {
-    if (!authed) {
-      setResult(null);
-      return;
-    }
     void api.projects().then(setResult);
-  }, [authed]);
+  }, []);
   const items = result ? projectList(result) : [];
-  const guestItems = guestProjectList(guestUsage);
   return (
     <div className="view">
       <div className="panel">
         <h3><Icon name="home_work" />Projects</h3>
-        {!authed && (
+        {isGuest && (
           <>
-            <p>Guest checks are saved only on this device. Sign in when you want saved projects, uploads, exports, and reviewer signoff.</p>
-            {guestItems.length === 0 && <div className="state"><Icon name="sparkles" /><span>No guest checks yet — start one from Home by pasting an address.</span></div>}
-            {guestItems.length > 0 && (
-              <div className="strip" style={{ marginTop: 10 }}>
-                {guestItems.map((p) => (
-                  <button key={p.id} className="proj" onClick={() => onProjectOpen(p.id)}>
-                    <Icon name="home_work" />
-                    <span className="t">{p.address ?? p.id}<small>Guest preview · {p.created_at ?? ""}</small></span>
-                  </button>
-                ))}
-              </div>
-            )}
+            <p>Free preview checks live in a temporary workspace. Sign in when you want them kept for good, plus uploads and exports.</p>
             <div className="field">
               <button className="btn" onClick={onNeedSignIn}>Sign in to save projects</button>
             </div>
           </>
         )}
-        {authed && result === null && <p>Loading…</p>}
+        {result === null && <p>Loading…</p>}
         {result?.kind === "ok" && items.length === 0 && <p>No projects yet — start one from Home by pasting an address.</p>}
         {result?.kind === "ok" && items.length > 0 && (
           <div className="strip" style={{ marginTop: 10 }}>
             {items.map((p) => (
               <button key={p.id} className="proj" onClick={() => onProjectOpen(p.id)}>
                 <Icon name="home_work" />
-                <span className="t">{p.name ?? p.address ?? p.id}<small>{p.created_at ?? ""}</small></span>
+                <span className="t">{p.name ?? p.address ?? p.id}<small>{isGuest ? "Free preview · " : ""}{p.created_at ?? ""}</small></span>
               </button>
             ))}
           </div>

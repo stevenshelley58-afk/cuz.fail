@@ -20,7 +20,6 @@ export function App() {
   const [session, setSession] = useState<ApiResult<SessionInfo> | null>(null);
   const [signInOpen, setSignInOpen] = useState(false);
   const [paywall, setPaywall] = useState<PaywallState | null>(null);
-  const [autoPrompted, setAutoPrompted] = useState(false);
   const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
 
   const refreshSession = useCallback(() => { void api.session().then(setSession); }, []);
@@ -38,21 +37,26 @@ export function App() {
         return;
       }
     }
-    refreshSession();
+    // Guest bootstrap: no session → mint a guest session so the real product
+    // works immediately. If guest creation fails (API down, guest mode off),
+    // fall back to showing whatever the session call returned.
+    void api.session().then((r) => {
+      if (r.kind === "auth") {
+        void api.guestSession().then((g) => {
+          if (g.kind === "ok") refreshSession();
+          else setSession(r);
+        });
+      } else {
+        setSession(r);
+      }
+    });
   }, [refreshSession]);
 
-  const authed = session?.kind === "ok";
+  const role = session?.kind === "ok" ? String(session.data.role ?? session.data.user?.role ?? "") : "";
+  const isGuest = role === "guest";
+  const authed = session?.kind === "ok" && !isGuest;
 
-  const { guestUsage, startGuestAddress, startGuestChat } = useGuestUsage(authed, setPaywall);
-
-  useEffect(() => {
-    // Greet unauthenticated visitors with the sign-in / create-account popup once
-    // the session has resolved. Dismissable via the modal's "Continue as guest".
-    if (session === null) return; // still loading
-    if (authed || autoPrompted || signInOpen) return;
-    setSignInOpen(true);
-    setAutoPrompted(true);
-  }, [session, authed, autoPrompted, signInOpen]);
+  const { guestUsage, recordGuestAddress, recordGuestChat } = useGuestUsage(isGuest);
 
   const goSignIn = useCallback(() => setSignInOpen(true), []);
   const showPaywall = useCallback((feature: GuestFeature) => {
@@ -103,10 +107,12 @@ export function App() {
         </nav>
         <div className="grow" />
         <div className="user">
-          <div className="avatar">{authed ? "OK" : "?"}</div>
+          <div className="avatar">{authed ? "OK" : "✦"}</div>
           <div className="who">
-            {authed ? String(session.data.email ?? session.data.user?.email ?? "Signed in") : "Guest mode"}
-            <small>{authed ? String(session.data.role ?? session.data.user?.role ?? "") : `${GUEST_ADDRESS_LIMIT} searches · ${GUEST_CHAT_LIMIT} chats`}</small>
+            {authed ? String(session.data.email ?? session.data.user?.email ?? "Signed in") : "Free preview"}
+            {authed
+              ? <small>{String(session.data.role ?? session.data.user?.role ?? "")}</small>
+              : <small><button onClick={goSignIn} style={{ background: "none", border: "none", padding: 0, color: "inherit", textDecoration: "underline", cursor: "pointer", font: "inherit" }}>Sign in</button></small>}
           </div>
         </div>
       </aside>
@@ -116,20 +122,20 @@ export function App() {
           <ProjectDetail projectId={activeProjectId} onClose={() => setActiveProjectId(null)} />
         ) : view === "home" ? (
           <Home
-            authed={authed}
+            isGuest={isGuest}
             guestUsage={guestUsage}
-            onGuestAddressStart={startGuestAddress}
-            onGuestChatStart={startGuestChat}
+            onGuestAddressDone={recordGuestAddress}
+            onGuestChatDone={recordGuestChat}
             onNeedSignIn={openSignIn}
             onShowPaywall={showPaywall}
             onProjectOpen={(id) => setActiveProjectId(id)}
           />
         ) : view === "projects" ? (
-          <Projects authed={authed} guestUsage={guestUsage} onNeedSignIn={openSignIn} onProjectOpen={(id) => setActiveProjectId(id)} />
+          <Projects isGuest={isGuest} onNeedSignIn={openSignIn} onProjectOpen={(id) => setActiveProjectId(id)} />
         ) : view === "library" ? (
           <Library onNeedSignIn={goSignIn} />
         ) : view === "rules" ? (
-          authed ? <RulesView /> : <div className="view"><div className="panel"><div className="state"><Icon name="lock" /><span>Sign in to view rules. <button className="btn alt" style={{ marginLeft: 8 }} onClick={openSignIn}>Sign in</button></span></div></div></div>
+          <RulesView />
         ) : view === "settings" ? (
           <Settings session={session} refresh={refreshSession} />
         ) : null}

@@ -1,21 +1,13 @@
 import { useCallback, useState } from "react";
 import { api } from "../api";
-import { CHECKOUT_URL, DEV_LOGIN, GUEST_ADDRESS_LIMIT, GUEST_CHAT_LIMIT } from "../config";
-import type { GuestFeature, PaywallState } from "../types";
+import { CHECKOUT_URL, DEV_LOGIN } from "../config";
+import type { PaywallState } from "../types";
 import { Icon } from "./common";
 
-function paywallCopy(feature: GuestFeature): { title: string; body: string } {
-  if (feature === "address") {
-    return {
-      title: "Guest address checks used",
-      body: "You have seen the address-first workflow. Upgrade or sign in to keep running property searches, save dossiers, and unlock deeper checks.",
-    };
-  }
-  return {
-    title: "Guest chat limit reached",
-    body: "You have used the free guest chat allowance. Upgrade or sign in to keep asking source-backed planning questions.",
-  };
-}
+const PAYWALL_COPY = {
+  title: "You've used the free preview",
+  body: "You've seen real, cited answers from the approved WA source library. Create a free account to keep going — your checks and chats carry on from here.",
+};
 
 /* ── dev username/password form (used in place of magic link while DEV_LOGIN) ── */
 
@@ -157,7 +149,7 @@ export function PaywallModal({
   onClose: () => void;
   onSignIn: () => void;
 }) {
-  const copy = paywallCopy(state.feature);
+  const copy = PAYWALL_COPY;
   const cta = CHECKOUT_URL ? "Unlock more checks" : "Sign in to continue";
   const upgrade = () => {
     if (CHECKOUT_URL) {
@@ -173,17 +165,18 @@ export function PaywallModal({
         <div className="paywall-icon"><Icon name={state.feature === "address" ? "location_on" : "forum"} /></div>
         <h2>{copy.title}</h2>
         <p>{copy.body}</p>
-        <div className="usage-meter" aria-label={`Guest usage ${state.used} of ${state.limit}`}>
-          <span style={{ width: `${Math.min(100, (state.used / state.limit) * 100)}%` }} />
-        </div>
         <div className="plans">
           <div>
-            <b>Guest</b>
-            <span>{GUEST_ADDRESS_LIMIT} address checks · {GUEST_CHAT_LIMIT} chat questions</span>
+            <b>Saved dossiers</b>
+            <span>Your checks and chat history, kept across visits</span>
           </div>
           <div>
-            <b>Unlocked</b>
-            <span>Saved dossiers, more searches, uploads, exports, reviewer workflow</span>
+            <b>Drawing uploads &amp; Tier-1 checks</b>
+            <span>Upload plans and run cited compliance checks</span>
+          </div>
+          <div>
+            <b>Full source library search</b>
+            <span>Search the approved WA source library directly</span>
           </div>
         </div>
         <button className="btn block" onClick={upgrade}>

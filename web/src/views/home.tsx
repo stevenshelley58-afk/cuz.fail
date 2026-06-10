@@ -23,12 +23,6 @@ function looksLikeAddress(t: string): boolean {
   return /^\d+\s+\w+.*(st|street|rd|road|ave|avenue|lane|ln|way|cres|crescent|court|ct|pl|place)\b/i.test(t.trim());
 }
 
-function guestLimitMessage(feature: GuestFeature): string {
-  return feature === "address"
-    ? "You have used the free guest address checks. Unlock more searches to keep going."
-    : "You have used the free guest chat allowance. Unlock more questions to keep going.";
-}
-
 function citationChip(citation: NonNullable<ChatReply["citations"]>[number]): string {
   return [
     citation.source_title,
@@ -40,18 +34,18 @@ function citationChip(citation: NonNullable<ChatReply["citations"]>[number]): st
 /* ── one-box home ── */
 
 export function Home({
-  authed,
+  isGuest,
   guestUsage,
-  onGuestAddressStart,
-  onGuestChatStart,
+  onGuestAddressDone,
+  onGuestChatDone,
   onNeedSignIn,
   onShowPaywall,
   onProjectOpen,
 }: {
-  authed: boolean;
+  isGuest: boolean;
   guestUsage: GuestUsage;
-  onGuestAddressStart: (address: string) => boolean;
-  onGuestChatStart: () => boolean;
+  onGuestAddressDone: (address: string, projectId: string) => void;
+  onGuestChatDone: () => void;
   onNeedSignIn: () => void;
   onShowPaywall: (feature: GuestFeature) => void;
   onProjectOpen: (projectId: string) => void;
@@ -75,75 +69,23 @@ export function Home({
   const threadRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!authed) {
+    if (isGuest) {
       setRecents(guestProjectList(guestUsage).slice(0, 2));
       return;
     }
     void api.projects().then((r) => setRecents(projectList(r).slice(0, 2)));
-  }, [authed, guestUsage]);
+  }, [isGuest, guestUsage]);
   useEffect(() => {
     threadRef.current?.lastElementChild?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [msgs]);
 
   const push = (m: Msg) => setMsgs((prev) => [...prev, m]);
 
-  const pushGuestAddressPreview = useCallback((address: string, mode: "guest" | "fallback") => {
-    const label = mode === "guest" ? "Guest address scan" : "Preview address scan";
-    const chips = authed
-      ? ["preview fallback", "address-first dossier", "approved sources only"]
-      : [
-          `address ${Math.min(guestUsage.addressChecks + 1, GUEST_ADDRESS_LIMIT)}/${GUEST_ADDRESS_LIMIT}`,
-          "address-first dossier",
-          "approved sources only",
-        ];
-    push({
-      role: "a",
-      tone: "warn",
-      text: `Preview only — not a source-backed answer. ${label} for ${address}: in the full app I can build the dossier shell, run the address-first workflow, and line the property up with parcel, council, zoning, overlays, source-library search, drawing upload, and Tier-1 check readiness once the live API has authoritative data. Sign in to run the real check.`,
-      chips: ["guest preview", ...chips],
-    });
-    push({
-      role: "a",
-      text: "No final compliance claim is made in guest mode. The app will cite approved source versions, refuse unsupported regulatory answers, and require confirmed measurements plus human signoff before anything is treated as submission-ready.",
-      chips: ["cite-or-refuse", "measurements must be confirmed", "human signoff"],
-    });
-  }, [authed, guestUsage.addressChecks]);
-
-  const pushGuestChatPreview = useCallback((question: string) => {
-    const lower = question.toLowerCase();
-    let text = "In the full app I search the approved WA source library first, answer only when the source library supports it, attach citations, and keep unsupported regulatory claims out of the response.";
-    if (lower.includes("drawing") || lower.includes("da") || lower.includes("application")) {
-      text = "For a DA workflow I can help organise the drawing pack, pull out missing-evidence questions, and draft council-ready responses. The exact required documents still need to come from the approved council/state source library before I present them as requirements.";
-    } else if (lower.includes("zoning") || lower.includes("r20") || lower.includes("r-code") || lower.includes("rcode")) {
-      text = "For zoning and R-Code questions I first resolve the address, then retrieve approved source clauses for the council and WA planning context. I will not invent numeric thresholds or compliance outcomes when the approved source library cannot support them.";
-    } else if (lower.includes("setback") || lower.includes("site cover") || lower.includes("open space")) {
-      text = "For Tier-1 checks I compare confirmed proposal measurements against approved, cited rules. If a measurement or rule is missing, the result stays missing-info or needs-human-review instead of becoming a guess.";
-    }
-    if (webOn) {
-      text += " Web search can help discover public context, but approved sources still control regulatory answers.";
-    }
-    push({
-      role: "a",
-      tone: "warn",
-      text: `Preview only — not a source-backed answer. ${text} Sign in to ask against the live source library.`,
-      chips: authed
-        ? ["guest preview", "library-first", "citations required"]
-        : [
-            `chat ${Math.min(guestUsage.chatMessages + 1, GUEST_CHAT_LIMIT)}/${GUEST_CHAT_LIMIT}`,
-            "guest preview",
-            "not a real answer",
-          ],
-    });
-  }, [authed, guestUsage.chatMessages, webOn]);
-
   const startCheck = useCallback(async (address: string) => {
-    if (!authed && !onGuestAddressStart(address)) {
-      push({ role: "a", tone: "note", text: guestLimitMessage("address"), action: { label: "Unlock more", run: () => onShowPaywall("address") } });
-      return;
-    }
     const created = await api.createProject(address);
     if (created.kind === "ok") {
       const id = created.data.id;
+      if (isGuest) onGuestAddressDone(address, id);
       push({ role: "a", tone: "note", text: `Project created for ${address}. Resolving the property…`, chips: ["POST /projects · live"] });
       const resolved = await api.resolveAddress(id, address);
       if (resolved.kind === "ok") {
@@ -156,9 +98,7 @@ export function Home({
           proposal: {},
           savedProposal: null,
         });
-      } else if (!authed && (resolved.kind === "auth" || resolved.kind === "notBuilt" || resolved.kind === "missing")) {
-        pushGuestAddressPreview(address, "guest");
-      } else if (resolved.kind === "notBuilt") {
+      } else if (resolved.kind === "notBuilt" || resolved.kind === "missing") {
         // resolveAddress not built yet — show wizard with null property so user can still enter proposal
         push({ role: "a", tone: "note", text: "Property resolution not yet available. You can still enter proposal details.", chips: ["resolve-address · not built"] });
         setWizard({
@@ -174,25 +114,25 @@ export function Home({
       } else {
         push({ role: "a", tone: "warn", text: `Project saved, but resolving failed: ${resolved.kind === "error" ? resolved.message : resolved.kind}.` });
       }
-    } else if (created.kind === "notBuilt") {
-      pushGuestAddressPreview(address, authed ? "fallback" : "guest");
+    } else if (created.kind === "quota") {
+      onShowPaywall(created.feature);
     } else if (created.kind === "auth") {
-      if (!authed) {
-        pushGuestAddressPreview(address, "guest");
-      } else {
-        push({
-          role: "a",
-          tone: "note",
-          text: "Sign in first.",
-          action: { label: "Go to sign in", run: onNeedSignIn },
-        });
-      }
-    } else if (created.kind === "down") {
-      pushGuestAddressPreview(address, authed ? "fallback" : "guest");
+      push({
+        role: "a",
+        tone: "note",
+        text: "Sign in first.",
+        action: { label: "Go to sign in", run: onNeedSignIn },
+      });
     } else {
-      pushGuestAddressPreview(address, authed ? "fallback" : "guest");
+      const reason =
+        created.kind === "down"
+          ? "can't reach the API right now"
+          : created.kind === "notBuilt" || created.kind === "missing"
+            ? "endpoint not available"
+            : created.message || "unexpected error";
+      push({ role: "a", tone: "warn", text: `Couldn't start the check (${reason}).` });
     }
-  }, [authed, onGuestAddressStart, onNeedSignIn, onShowPaywall, pushGuestAddressPreview]);
+  }, [isGuest, onGuestAddressDone, onNeedSignIn, onShowPaywall]);
 
   const send = useCallback(async () => {
     const el = inputRef.current;
@@ -208,13 +148,9 @@ export function Home({
     if (looksLikeAddress(t)) {
       await startCheck(t);
     } else {
-      if (!authed && !onGuestChatStart()) {
-        push({ role: "a", tone: "note", text: guestLimitMessage("chat"), action: { label: "Unlock more", run: () => onShowPaywall("chat") } });
-        setBusy(false);
-        return;
-      }
       const r = await api.ask(t, { web: webOn }, history);
       if (r.kind === "ok") {
+        if (isGuest) onGuestChatDone();
         const d: ChatReply = r.data;
         const chips = (d.citations ?? [])
           .map(citationChip)
@@ -233,14 +169,15 @@ export function Home({
           citation_map: d.citation_map,
           disclaimer: d.disclaimer ?? undefined,
         });
+      } else if (r.kind === "quota") {
+        push({
+          role: "a",
+          tone: "note",
+          text: "You've used the free allowance — sign in to keep going, it's free.",
+          action: { label: "Keep going", run: () => onShowPaywall("chat") },
+        });
       } else if (r.kind === "auth") {
-        if (!authed) {
-          pushGuestChatPreview(t);
-        } else {
-          push({ role: "a", tone: "note", text: "Session expired — please sign in again.", action: { label: "Sign in", run: onNeedSignIn } });
-        }
-      } else if ((r.kind === "missing" || r.kind === "notBuilt") && !authed) {
-        pushGuestChatPreview(t);
+        push({ role: "a", tone: "note", text: "Session expired — please sign in again.", action: { label: "Sign in", run: onNeedSignIn } });
       } else {
         const reason =
           r.kind === "down"
@@ -252,7 +189,7 @@ export function Home({
       }
     }
     setBusy(false);
-  }, [authed, busy, webOn, msgs, startCheck, onGuestChatStart, onNeedSignIn, onShowPaywall, pushGuestChatPreview]);
+  }, [isGuest, busy, webOn, msgs, startCheck, onGuestChatDone, onNeedSignIn, onShowPaywall]);
 
   const fill = (t: string) => {
     if (inputRef.current) {
@@ -288,6 +225,7 @@ export function Home({
           <div className="greet">
             <h1>Where do we start?</h1>
             <p>Paste a property address to start a check — or just ask a question.</p>
+            {isGuest && <p>Real answers, cited from the approved WA source library — no account needed.</p>}
           </div>
         )}
         {msgs.length > 0 && (
@@ -353,8 +291,8 @@ export function Home({
             <button className={`chip${webOn ? " on" : ""}`} onClick={() => setWebOn(!webOn)}>
               <Icon name="public" />Web
             </button>
-            {!authed && (
-              <span className="chip guest"><Icon name="sparkles" />Guest {guestUsage.addressChecks}/{GUEST_ADDRESS_LIMIT} searches · {guestUsage.chatMessages}/{GUEST_CHAT_LIMIT} chats</span>
+            {isGuest && (
+              <span className="chip guest"><Icon name="sparkles" />Free preview · {Math.min(guestUsage.addressChecks, GUEST_ADDRESS_LIMIT)}/{GUEST_ADDRESS_LIMIT} checks · {Math.min(guestUsage.chatMessages, GUEST_CHAT_LIMIT)}/{GUEST_CHAT_LIMIT} questions</span>
             )}
             <span className="grow" />
             <button className="go" onClick={() => void send()} disabled={busy}><Icon name="arrow_upward" /></button>
