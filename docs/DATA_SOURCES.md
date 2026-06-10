@@ -1,4 +1,4 @@
-# DraftCheck WA — Data Sources, Access & Sign-up Links
+# LotFile — Data Sources, Access & Sign-up Links
 
 **Status:** Verified against each provider's live dataset/pricing pages, 2026-06-06. Access levels and
 prices change — re-check the badge on each `data.wa.gov.au` dataset before you rely on it.

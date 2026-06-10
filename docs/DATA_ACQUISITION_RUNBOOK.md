@@ -1,4 +1,4 @@
-# DraftCheck WA — Free One-Council Data Acquisition Runbook (City of Vincent)
+# LotFile — Free One-Council Data Acquisition Runbook (City of Vincent)
 
 Version: 2026-06-09
 Scope: City of Vincent demo (LGA code 58570, ABS 2021). Three spatial layers required by the V3 target schema.
@@ -269,24 +269,24 @@ Complete these manually before proceeding with blocked layers.
 - [ ] **1. Email Landgate to request a commercial licence for LGATE-001.**
   To: licensing@landgate.wa.gov.au
   Phone backup: (08) 9273 7210 (Business and Government Solutions, Landgate, PO Box 2222 Midland WA 6936)
-  Subject: `Licence request — DraftCheck WA commercial planning application — SLIP Cadastre LGATE-001`
-  Body: "We are building DraftCheck WA, a private planning compliance application for the City of Vincent (demo phase, aiming for commercial launch). We require a licence to: (1) download the LGATE-001 Cadastre (No Attributes) layer via the public WFS endpoint; (2) store the Vincent-area parcel polygons in a private PostGIS database; and (3) run spatial queries (ST_Intersects, point-in-polygon) to identify which parcel an address falls on, with derived compliance results displayed to end users (we do not re-serve or redistribute the raw geometry). Please advise the appropriate licence type (VAR Agreement or SLIP Subscription) and any fees. Dataset: Cadastre No Attributes LGATE-001, accessed via https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Property_and_Planning_WFS/MapServer/WFSServer."
+  Subject: `Licence request — LotFile commercial planning application — SLIP Cadastre LGATE-001`
+  Body: "We are building LotFile, a private planning compliance application for the City of Vincent (demo phase, aiming for commercial launch). We require a licence to: (1) download the LGATE-001 Cadastre (No Attributes) layer via the public WFS endpoint; (2) store the Vincent-area parcel polygons in a private PostGIS database; and (3) run spatial queries (ST_Intersects, point-in-polygon) to identify which parcel an address falls on, with derived compliance results displayed to end users (we do not re-serve or redistribute the raw geometry). Please advise the appropriate licence type (VAR Agreement or SLIP Subscription) and any fees. Dataset: Cadastre No Attributes LGATE-001, accessed via https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Property_and_Planning_WFS/MapServer/WFSServer."
   **Do not ingest into PostGIS until written approval is received.**
 
 **Layer 3 — Zoning/R-Codes, Path A (DPLH licence):**
 
 - [ ] **2. Email DPLH to request a licence for DPLH-071 and DPLH-070.**
   To: spatialdata@dplh.wa.gov.au
-  Subject: `Data licence request — DraftCheck WA — DPLH-071 Local Planning Scheme Zones and DPLH-070 R-Codes, City of Vincent`
-  Body: "We are developing DraftCheck WA, a private planning compliance application. We require a data licence to: (1) download or extract City of Vincent zones (scheme_nam LIKE '%Vincent%', DPLH-071, dataset ID bd528c56-5fd0-4341-b46a-1c14c352529d) and R-codes (DPLH-070, dataset ID 3a69bc8a-ef36-4dc4-b7e5-d9922efee004); (2) store the Vincent zone and R-code polygons in a private PostGIS database; and (3) perform point-in-polygon queries to return the zone and R-code for a given address, with results displayed to end users (no redistribution of raw geometry). We understand these datasets are Government-Use-Only for bulk access. We would also accept written confirmation that use of the public ArcGIS REST query endpoint (layers 111/112 at public-services.slip.wa.gov.au) for live on-demand point queries without DB storage is permitted for a commercial application. Please advise the applicable licence terms and any fees."
+  Subject: `Data licence request — LotFile — DPLH-071 Local Planning Scheme Zones and DPLH-070 R-Codes, City of Vincent`
+  Body: "We are developing LotFile, a private planning compliance application. We require a data licence to: (1) download or extract City of Vincent zones (scheme_nam LIKE '%Vincent%', DPLH-071, dataset ID bd528c56-5fd0-4341-b46a-1c14c352529d) and R-codes (DPLH-070, dataset ID 3a69bc8a-ef36-4dc4-b7e5-d9922efee004); (2) store the Vincent zone and R-code polygons in a private PostGIS database; and (3) perform point-in-polygon queries to return the zone and R-code for a given address, with results displayed to end users (no redistribution of raw geometry). We understand these datasets are Government-Use-Only for bulk access. We would also accept written confirmation that use of the public ArcGIS REST query endpoint (layers 111/112 at public-services.slip.wa.gov.au) for live on-demand point queries without DB storage is permitted for a commercial application. Please advise the applicable licence terms and any fees."
   **Do not bulk-ingest until written approval is received.**
 
 **Layer 3 — Zoning/R-Codes, Path B (City of Vincent direct — PREFERRED, pursue in parallel with Path A):**
 
 - [ ] **3. Email City of Vincent Planning team to request LPS2 zoning data directly.**
   To: mail@vincent.wa.gov.au (or phone (08) 9273 6000 — Planning team available 9am–12pm and 1pm–4pm)
-  Subject: `GIS data request — LPS2 zoning layer for DraftCheck WA planning compliance tool`
-  Body: "We are building DraftCheck WA, a planning compliance application covering the City of Vincent. We would like to request the Local Planning Scheme No. 2 (LPS2) zoning layer (zones and R-codes) as a GeoJSON or Shapefile for use in a private PostGIS database. The data would be used to perform point-in-polygon lookups to identify the planning zone and R-code for a given address, with derived compliance information displayed to users. We would not redistribute the raw spatial data. City of Vincent is the legal custodian of this data and we are happy to enter into any data sharing agreement you require. Also, if you are able to provide a scheduled GeoJSON/Shapefile refresh cadence or a Pozi WFS endpoint, this would allow DraftCheck WA to stay current with scheme amendments automatically. Please advise the applicable terms and any conditions of use."
+  Subject: `GIS data request — LPS2 zoning layer for LotFile planning compliance tool`
+  Body: "We are building LotFile, a planning compliance application covering the City of Vincent. We would like to request the Local Planning Scheme No. 2 (LPS2) zoning layer (zones and R-codes) as a GeoJSON or Shapefile for use in a private PostGIS database. The data would be used to perform point-in-polygon lookups to identify the planning zone and R-code for a given address, with derived compliance information displayed to users. We would not redistribute the raw spatial data. City of Vincent is the legal custodian of this data and we are happy to enter into any data sharing agreement you require. Also, if you are able to provide a scheduled GeoJSON/Shapefile refresh cadence or a Pozi WFS endpoint, this would allow LotFile to stay current with scheme amendments automatically. Please advise the applicable terms and any conditions of use."
   City of Vincent is the legal custodian of their own LPS2 data. This path avoids DPLH licence negotiation and is typically faster.
   **Use whichever of Path A or Path B grants permission first.**
 
@@ -304,7 +304,7 @@ These items are out of scope for the City of Vincent free demo but must be asses
 
 **4.1 Landgate Full Cadastre With Attributes (LGATE-217)**
 
-The free LGATE-001 layer is geometry-only (no lot/plan number, tenure, or owner fields). If DraftCheck WA needs lot/plan attributes for compliance checks (e.g. lot area, street address from title), the full cadastre is LGATE-217.
+The free LGATE-001 layer is geometry-only (no lot/plan number, tenure, or owner fields). If LotFile needs lot/plan attributes for compliance checks (e.g. lot area, street address from title), the full cadastre is LGATE-217.
 
 - Licence type: SLIP Subscription Licence or Value Added Reseller (VAR) Agreement.
 - Contact: licensing@landgate.wa.gov.au, (08) 9273 7210.

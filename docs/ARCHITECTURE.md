@@ -1,6 +1,6 @@
 # Architecture
 
-DraftCheck WA Core uses a Python/FastAPI monorepo layout:
+LotFile uses a Python/FastAPI monorepo layout:
 
 - `apps/api`: FastAPI app and route wiring.
 - `apps/worker`: worker entrypoint placeholder for RQ/Celery integration.

@@ -1,5 +1,5 @@
 [Unit]
-Description=Run DraftCheck V3 backup nightly at 02:00 UTC
+Description=Run LotFile V3 backup nightly at 02:00 UTC
 
 [Timer]
 # Fire at 02:00 UTC every day.

@@ -1,4 +1,4 @@
-# DraftCheck WA — As-Built Architecture
+# LotFile — As-Built Architecture
 
 Date: 2026-06-07 (updated 2026-06-10). **Deployment architecture is LOCKED: single VPS at
 76.13.209.160 (Caddy). Vercel is retired.** This maps what is actually in the repo today,

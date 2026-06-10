@@ -7,7 +7,7 @@
 **Why this address was chosen:**
 
 - Public-domain civic offices of the City of Vincent — widely published, no privacy concerns.
-- Located within an inner-Perth residential zone (R60 under Local Planning Scheme No. 2), making it representative of the most common residential planning context DraftCheck WA will handle.
+- Located within an inner-Perth residential zone (R60 under Local Planning Scheme No. 2), making it representative of the most common residential planning context LotFile will handle.
 - The City of Vincent is a well-documented LGA with a publicly available local planning scheme, so the fixture values are independently verifiable.
 - G-NAF coordinates are well-established for this address (PROPERTY_CENTROID reliability 2).
 - The address sits clearly within the City of Vincent boundary, providing an unambiguous LGA assignment.
@@ -24,7 +24,7 @@
 | Address | 244 Vincent Street, North Perth WA 6006 | high | G-NAF exact match (CC BY 4.0, licensed) |
 
 **Overall resolution status:** `resolved`  
-**Overall confidence:** `medium` — because the planning zone source (DPLH WMS) is display-only and has not yet passed the DraftCheck WA licence approval gate. Confidence will rise to `high` once an authoritative DPLH licence agreement is in place and the dataset passes the W2 import pipeline.
+**Overall confidence:** `medium` — because the planning zone source (DPLH WMS) is display-only and has not yet passed the LotFile licence approval gate. Confidence will rise to `high` once an authoritative DPLH licence agreement is in place and the dataset passes the W2 import pipeline.
 
 ## Data Sources
 
@@ -34,7 +34,7 @@
 | SLIP WA Cadastre | `slip_lga_boundaries` | CC BY 4.0 (Landgate SLIP) | Licensed — used for LGA boundary fact |
 | DPLH Display WMS | `dplh_wms_display` | Display-only | **Unlicensed** — zone/r_code facts are `pending_review` |
 
-The DPLH WMS endpoint serves advisory/display-only planning data. Under DraftCheck WA's source governance rules, display-only data from DPLH cannot be marked authoritative without a separate licence agreement. The fixture correctly records `licence_status: "unlicensed"` and `review_status: "pending_review"` for all facts derived from this source.
+The DPLH WMS endpoint serves advisory/display-only planning data. Under LotFile's source governance rules, display-only data from DPLH cannot be marked authoritative without a separate licence agreement. The fixture correctly records `licence_status: "unlicensed"` and `review_status: "pending_review"` for all facts derived from this source.
 
 ## Invariants Checked
 
@@ -46,11 +46,11 @@ The following invariants must hold for any compliant M1 golden fixture:
 
 3. **Geocode marked advisory** — the address point is sourced from G-NAF (CC BY 4.0), which is licensed and authoritative for address lookup. The fixture records `geocode_type: "PROPERTY_CENTROID"` and `reliability: 2`, consistent with G-NAF's own metadata fields. Any downstream use in compliance calculations must note that GPS-precision claims require survey-grade data.
 
-4. **No banned compliance claims** — no string value in any fixture file contains phrases such as "is compliant", "complies", "non-compliant", "certified", "building approval", "planning approval", "meets all requirements", or "final legal". These phrases are forbidden in all DraftCheck WA fixture and output strings.
+4. **No banned compliance claims** — no string value in any fixture file contains phrases such as "is compliant", "complies", "non-compliant", "certified", "building approval", "planning approval", "meets all requirements", or "final legal". These phrases are forbidden in all LotFile fixture and output strings.
 
 5. **Display-only WMS data labelled correctly** — zone and r_code facts derived from the DPLH WMS carry `licence_status: "unlicensed"` and `review_status: "pending_review"`, ensuring no automated compliance check treats them as authoritative without human confirmation.
 
-6. **CRS recorded on every provenance** — all `provenance` objects carry `"target_crs": "EPSG:7844"` (GDA2020), the mandatory coordinate reference system for DraftCheck WA spatial operations.
+6. **CRS recorded on every provenance** — all `provenance` objects carry `"target_crs": "EPSG:7844"` (GDA2020), the mandatory coordinate reference system for LotFile spatial operations.
 
 ## How to Seed
 

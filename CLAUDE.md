@@ -1,4 +1,4 @@
-# DraftCheck WA Core Claude Rules
+# LotFile Claude Rules
 
 ## Deployment architecture — LOCKED (2026-06-10). Do not relitigate.
 

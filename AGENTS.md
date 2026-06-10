@@ -1,4 +1,4 @@
-# DraftCheck WA Core Agent Rules
+# LotFile Agent Rules
 
 - Active implementation source: `docs/MASTER_REBUILD_PLAN.md` plus refreshed
   `REPO_AUDIT.md` and `DATA_INVENTORY.md`.

@@ -1,5 +1,5 @@
 [Unit]
-Description=DraftCheck V3 nightly backup (pg_dump + restic)
+Description=LotFile V3 nightly backup (pg_dump + restic)
 After=network-online.target docker.service
 Requires=docker.service
 

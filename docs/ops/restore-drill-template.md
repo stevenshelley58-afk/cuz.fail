@@ -1,4 +1,4 @@
-# DraftCheck V3 Restore Drill
+# LotFile V3 Restore Drill
 
 <!-- Copy this file to restore-drill-YYYYMMDD.md, fill in all fields, commit. -->
 

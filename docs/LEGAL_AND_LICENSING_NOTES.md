@@ -1,6 +1,6 @@
 # Legal And Licensing Notes
 
-DraftCheck WA Core is not a lawyer, planner, building surveyor, certifier, or council decision-maker.
+LotFile is not a lawyer, planner, building surveyor, certifier, or council decision-maker.
 
 The system must not produce final compliance conclusions. Use wording such as:
 

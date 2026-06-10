@@ -1,6 +1,6 @@
 # Source Governance
 
-DraftCheck WA Core stores source provenance before source text can support an answer.
+LotFile stores source provenance before source text can support an answer.
 
 Required source metadata:
 
