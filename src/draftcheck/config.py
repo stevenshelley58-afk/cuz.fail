@@ -28,6 +28,13 @@ def _int_from_env(name: str, default: int) -> int:
     return int(value)
 
 
+def _float_from_env(name: str, default: float) -> float:
+    value = os.getenv(name)
+    if value is None or value.strip() == "":
+        return default
+    return float(value)
+
+
 def _split_csv(value: str | None) -> tuple[str, ...]:
     if not value:
         return ()
@@ -73,6 +80,11 @@ class Settings:
     minimax_base_url: str = "https://api.minimax.chat/v1"
     anthropic_api_key: str = ""
     sentry_dsn: str = ""
+    guest_mode_enabled: bool = True
+    guest_address_limit: int = 2
+    guest_chat_limit: int = 8
+    # Hidden headroom multiplier over the displayed limits — never expose to clients.
+    guest_quota_factor: float = 1.5
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -83,6 +95,7 @@ class Settings:
         origins = _split_csv(os.getenv("CORS_ALLOWED_ORIGINS")) or (frontend_url,)
         smtp_starttls = _bool_from_env(os.getenv("SMTP_STARTTLS"))
         smtp_ssl = _bool_from_env(os.getenv("SMTP_SSL"))
+        guest_mode_enabled = _bool_from_env(os.getenv("DRAFTCHECK_GUEST_MODE_ENABLED"))
         return cls(
             app_env=app_env,
             frontend_url=frontend_url,
@@ -114,6 +127,10 @@ class Settings:
             minimax_base_url=os.getenv("MINIMAX_BASE_URL", "https://api.minimax.chat/v1"),
             anthropic_api_key=os.getenv("ANTHROPIC_API_KEY", ""),
             sentry_dsn=os.getenv("SENTRY_DSN", ""),
+            guest_mode_enabled=True if guest_mode_enabled is None else guest_mode_enabled,
+            guest_address_limit=_int_from_env("DRAFTCHECK_GUEST_ADDRESS_LIMIT", 2),
+            guest_chat_limit=_int_from_env("DRAFTCHECK_GUEST_CHAT_LIMIT", 8),
+            guest_quota_factor=_float_from_env("DRAFTCHECK_GUEST_QUOTA_FACTOR", 1.5),
         )
 
 

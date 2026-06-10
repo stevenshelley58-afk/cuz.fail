@@ -20,6 +20,7 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 from draftcheck.ai import DbJobTraceStore, InMemoryJobTraceStore, LocalDeterministicModelAdapter, ModelAdapter, ModelRequest
 from draftcheck.api.auth import get_current_session, require_allowed_origin
+from draftcheck.api.guest_quota import guest_quota
 from draftcheck.providers import ChatMessage, get_chat_provider
 from draftcheck.db.engine import create_session_factory, database_url_from_env
 from draftcheck.domain.identity import ActiveSession
@@ -1096,6 +1097,7 @@ def create_sources_router(
         payload: SearchAskPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
         _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+        _quota: Annotated[None, Depends(guest_quota("chat"))],
     ) -> dict[str, Any]:
         question = _required_query(payload.question, payload.query, payload.q)
         answer = search_service.ask(question, limit=payload.limit)
@@ -1112,6 +1114,7 @@ def create_sources_router(
         payload: AssistantPayload,
         _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
         _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+        _quota: Annotated[None, Depends(guest_quota("chat"))],
     ) -> dict[str, Any]:
         question = _required_query(payload.message, payload.question, payload.query, payload.q)
         # history field accepted but silently discarded (stateless single-turn endpoint)

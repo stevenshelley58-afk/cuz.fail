@@ -174,6 +174,27 @@ class User(Base):
     magic_link_tokens: Mapped[list[MagicLinkToken]] = relationship(back_populates="user")
 
 
+class GuestUsage(Base):
+    __tablename__ = "guest_usage"
+    __table_args__ = (
+        CheckConstraint("feature IN ('address', 'chat')", name="ck_guest_usage_feature"),
+    )
+
+    user_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        primary_key=True,
+    )
+    feature: Mapped[str] = mapped_column(String(20), primary_key=True)
+    used: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        nullable=False,
+        default=utc_now,
+        onupdate=utc_now,
+    )
+
+
 class Session(Base):
     __tablename__ = "sessions"
     __table_args__ = (

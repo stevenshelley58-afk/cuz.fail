@@ -9,6 +9,7 @@ class IdentityRole(StrEnum):
     OWNER = "owner"
     OPERATOR = "operator"
     COMPLIANCE_OWNER = "compliance_owner"
+    GUEST = "guest"
 
 
 def normalize_role(role: IdentityRole | str) -> IdentityRole:
