@@ -45,6 +45,8 @@ REQUIRED_OPS_EVIDENCE_KEYS = (
     "restore_drill_log",
     "guardrail_cron",
     "ops_guardrail_script",
+    "disk_usage",
+    "worker_heartbeat",
     "sentry_dsn",
     "uptime_targets",
     "uptime_monitor_doc",
@@ -202,6 +204,8 @@ def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
         evidence["restore_drill_log"].startswith("ok:"),
         _field_present(evidence["guardrail_cron"], "CRON_GUARDRAILS_PRESENT"),
         _field_present(evidence["ops_guardrail_script"], "OPS_GUARDRAILS_PRESENT"),
+        _field_present(evidence["disk_usage"], "DISK_USAGE_OK"),
+        _field_present(evidence["worker_heartbeat"], "WORKER_HEARTBEAT_OK"),
         _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"),
         "status ok" in evidence["uptime_targets"],
         evidence["uptime_monitor_doc"].startswith("ok:"),
@@ -243,6 +247,14 @@ def ops_guardrail_unblock_steps(evidence: dict[str, str]) -> list[str]:
         )
     if not _field_present(evidence["guardrail_cron"], "CRON_GUARDRAILS_PRESENT"):
         steps.append("Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh")
+    if not _field_present(evidence["disk_usage"], "DISK_USAGE_OK"):
+        steps.append(
+            "Run: python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json"
+        )
+    if not _field_present(evidence["worker_heartbeat"], "WORKER_HEARTBEAT_OK"):
+        steps.append(
+            "Run: python3 /srv/draftcheck/app/scripts/ops_guardrails.py worker-heartbeat --compose-dir /srv/draftcheck/app/infra/v3 --json"
+        )
     if not evidence["uptime_monitor_doc"].startswith("ok:"):
         steps.append("Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.")
     if not _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"):
@@ -356,6 +368,8 @@ def parse_vps_state(output: str) -> dict[str, str]:
     sentry_lines = [line for line in lines if line.startswith("SENTRY_DSN_")]
     journald_lines = [line for line in lines if line.startswith("LOG_RETENTION_JOURNALD_")]
     docker_log_lines = [line for line in lines if line.startswith("LOG_RETENTION_DOCKER_")]
+    disk_lines = [line for line in lines if line.startswith("DISK_USAGE_")]
+    heartbeat_lines = [line for line in lines if line.startswith("WORKER_HEARTBEAT_")]
     return {
         "vps_checkout_env": checkout_value or "VITE_CHECKOUT_URL_MISSING",
         "backup_env": "BACKUP_ENV_PRESENT" if "BACKUP_ENV_PRESENT" in lines else "BACKUP_ENV_MISSING",
@@ -365,6 +379,8 @@ def parse_vps_state(output: str) -> dict[str, str]:
         "backup_timer": timer_lines[0] if timer_lines else "draftcheck-backup.timer status unknown",
         "guardrail_cron": "CRON_GUARDRAILS_PRESENT" if "CRON_GUARDRAILS_PRESENT" in lines else "CRON_GUARDRAILS_MISSING",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT" if "OPS_GUARDRAILS_PRESENT" in lines else "OPS_GUARDRAILS_MISSING",
+        "disk_usage": disk_lines[-1] if disk_lines else "DISK_USAGE_UNKNOWN",
+        "worker_heartbeat": heartbeat_lines[-1] if heartbeat_lines else "WORKER_HEARTBEAT_UNKNOWN",
         "sentry_dsn": sentry_lines[-1] if sentry_lines else "SENTRY_DSN_MISSING",
         "log_retention_journald": journald_lines[-1] if journald_lines else "LOG_RETENTION_JOURNALD_MISSING",
         "log_retention_docker": docker_log_lines[-1] if docker_log_lines else "LOG_RETENTION_DOCKER_MISSING",
@@ -385,6 +401,13 @@ fi
 test -f /etc/cron.d/draftcheck-guardrails && echo CRON_GUARDRAILS_PRESENT || echo CRON_GUARDRAILS_MISSING
 systemctl list-timers --all draftcheck-backup.timer --no-pager 2>/dev/null || true
 test -f /srv/draftcheck/app/scripts/ops_guardrails.py && echo OPS_GUARDRAILS_PRESENT || echo OPS_GUARDRAILS_MISSING
+if test -f /srv/draftcheck/app/scripts/ops_guardrails.py; then
+  python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json >/tmp/draftcheck-disk-usage.json 2>/dev/null && echo DISK_USAGE_OK || echo DISK_USAGE_CRITICAL
+  python3 /srv/draftcheck/app/scripts/ops_guardrails.py worker-heartbeat --compose-dir /srv/draftcheck/app/infra/v3 --json >/tmp/draftcheck-worker-heartbeat.json 2>/dev/null && echo WORKER_HEARTBEAT_OK || echo WORKER_HEARTBEAT_CRITICAL
+else
+  echo DISK_USAGE_UNKNOWN
+  echo WORKER_HEARTBEAT_UNKNOWN
+fi
 if test -f /srv/draftcheck/app/infra/v3/.env && grep -q '^SENTRY_DSN=' /srv/draftcheck/app/infra/v3/.env; then
   sentry_dsn="$(grep -E '^SENTRY_DSN=' /srv/draftcheck/app/infra/v3/.env | tail -n 1 | cut -d= -f2-)"
   test -n "$sentry_dsn" && echo SENTRY_DSN_PRESENT || echo SENTRY_DSN_EMPTY
@@ -409,6 +432,8 @@ test -f /etc/docker/daemon.json && echo LOG_RETENTION_DOCKER_PRESENT || echo LOG
             "backup_timer": result.stderr.strip() or "SSH_CHECK_FAILED",
             "guardrail_cron": "SSH_CHECK_FAILED",
             "ops_guardrail_script": "SSH_CHECK_FAILED",
+            "disk_usage": "SSH_CHECK_FAILED",
+            "worker_heartbeat": "SSH_CHECK_FAILED",
             "sentry_dsn": "SSH_CHECK_FAILED",
             "log_retention_journald": "SSH_CHECK_FAILED",
             "log_retention_docker": "SSH_CHECK_FAILED",
@@ -437,6 +462,8 @@ def build_report(
         "restore_drill_log": restore_drill_log,
         "guardrail_cron": vps_state["guardrail_cron"],
         "ops_guardrail_script": vps_state["ops_guardrail_script"],
+        "disk_usage": vps_state["disk_usage"],
+        "worker_heartbeat": vps_state["worker_heartbeat"],
         "sentry_dsn": vps_state["sentry_dsn"],
         "uptime_targets": assess_api_targets(origin, api),
         "uptime_monitor_doc": uptime_monitor_doc,

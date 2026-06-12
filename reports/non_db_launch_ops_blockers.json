@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-12T18:54:12.905275+00:00",
+  "captured_at": "2026-06-12T19:18:12.913369+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
@@ -25,6 +25,8 @@
       "restore_drill_log": "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
       "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
       "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+      "disk_usage": "DISK_USAGE_OK",
+      "worker_heartbeat": "WORKER_HEARTBEAT_OK",
       "sentry_dsn": "SENTRY_DSN_MISSING",
       "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
       "uptime_monitor_doc": "critical: pending monitor evidence: LotFile health.provider_id, LotFile health.alert_contact, LotFile ready.provider_id, LotFile ready.alert_contact",
