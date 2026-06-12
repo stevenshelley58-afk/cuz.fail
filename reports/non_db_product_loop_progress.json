@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:28:01+08:00",
+  "captured_at": "2026-06-13T01:43:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -109,7 +109,9 @@
         "uv run python scripts/ops_guardrails.py guardrail-cron --path <temp fixture> --json passed",
         "scripts/audit_non_db_launch_ops.py refreshes VPS ops blocker evidence over read-only SSH",
         "scripts/ops_guardrails.py uptime-monitor-doc verifies docs/ops/uptime-monitor.md has provisioned monitor IDs before the uptime monitor blocker is closed",
-        ".github/workflows/ci.yml runs bash -n over ops/deploy shell scripts on Ubuntu, with tests/test_v3_infra_contract.py locking the gate"
+        ".github/workflows/ci.yml runs bash -n over ops/deploy shell scripts on Ubuntu, with tests/test_v3_infra_contract.py locking the gate",
+        "scripts/ops_guardrails.py sentry-config verifies SENTRY_DSN shape and compose wiring without printing the DSN",
+        "tests/test_v3_infra_contract.py asserts api, worker, and hermes retain SENTRY_DSN compose wiring"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
@@ -140,6 +142,7 @@
     "uv run python scripts/ops_guardrails.py backup-config --env-path <fixture backup.env> --json",
     "uv run python scripts/ops_guardrails.py guardrail-cron --path <fixture draftcheck-guardrails> --json",
     "uv run python scripts/ops_guardrails.py uptime-monitor-doc --path docs/ops/uptime-monitor.md --json",
+    "uv run python scripts/ops_guardrails.py sentry-config --env-path <fixture .env> --compose-path infra/v3/compose.yml --json",
     "CI Ubuntu: bash -n infra/v3/ops/guardrail-alerts.sh infra/v3/backup/install-systemd.sh infra/v3/backup/restore-drill.sh infra/v3/deploy-web-only.sh",
     "uv run pytest tests/test_audit_non_db_launch_ops.py -q",
     "uv run python scripts/audit_non_db_launch_ops.py --output reports/non_db_launch_ops_blockers.json",

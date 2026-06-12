@@ -145,6 +145,12 @@ outside the repo and write it only to the VPS compose env:
 $env:SENTRY_DSN='https://examplePublicKey@o0.ingest.sentry.io/0'; ssh draftcheck "cd /srv/draftcheck/app/infra/v3 && grep -q '^SENTRY_DSN=' .env && sudo sed -i 's|^SENTRY_DSN=.*|SENTRY_DSN=$env:SENTRY_DSN|' .env || printf '\nSENTRY_DSN=%s\n' '$env:SENTRY_DSN' | sudo tee -a .env >/dev/null && sudo docker compose up -d api worker hermes"
 ```
 
+Verify the env and compose wiring without printing the DSN:
+
+```powershell
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py sentry-config --env-path /srv/draftcheck/app/infra/v3/.env --compose-path /srv/draftcheck/app/infra/v3/compose.yml --json'
+```
+
 If no DSN is available:
 
 ```text

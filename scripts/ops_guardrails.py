@@ -18,6 +18,7 @@ import shutil
 import subprocess
 import sys
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse
 from urllib.request import urlopen
 from typing import Any
 
@@ -472,8 +473,69 @@ def read_env_file(path: Path) -> dict[str, str]:
         if not line or line.startswith("#") or "=" not in line:
             continue
         key, value = line.split("=", 1)
-        values[key.strip()] = value.strip().strip("\"'")
+        values[key.strip().lstrip("\ufeff")] = value.strip().strip("\"'")
     return values
+
+
+def check_sentry_config(env_path: Path, *, compose_path: Path | None = None) -> GuardrailResult:
+    """Verify error reporting is configured without printing the DSN secret."""
+
+    if not env_path.exists():
+        return GuardrailResult(
+            name="sentry_config",
+            status="critical",
+            message=f"Sentry env file missing: {env_path}",
+            metadata={"env_path": str(env_path), "compose_path": str(compose_path) if compose_path else None},
+        )
+
+    values = read_env_file(env_path)
+    dsn = values.get("SENTRY_DSN", "").strip()
+    parsed = urlparse(dsn)
+    failures: list[str] = []
+    if not dsn:
+        failures.append("SENTRY_DSN is missing or empty")
+    elif parsed.scheme != "https" or not parsed.netloc or "@" not in parsed.netloc or parsed.path in ("", "/"):
+        failures.append("SENTRY_DSN must be an HTTPS DSN with public key, host, and project ID")
+
+    compose_mentions_sentry: bool | None = None
+    if compose_path is not None:
+        if not compose_path.exists():
+            failures.append(f"compose file missing: {compose_path}")
+            compose_mentions_sentry = False
+        else:
+            compose_text = compose_path.read_text(encoding="utf-8")
+            compose_mentions_sentry = "SENTRY_DSN" in compose_text
+            if not compose_mentions_sentry:
+                failures.append("compose file does not wire SENTRY_DSN")
+
+    sentry_host = None
+    if parsed.netloc and "@" in parsed.netloc:
+        sentry_host = parsed.netloc.split("@", 1)[1]
+
+    metadata = {
+        "env_path": str(env_path),
+        "compose_path": str(compose_path) if compose_path else None,
+        "present_keys": sorted(values),
+        "dsn_present": bool(dsn),
+        "dsn_scheme": parsed.scheme if dsn else None,
+        "sentry_host": sentry_host,
+        "project_id_present": bool(parsed.path and parsed.path != "/"),
+        "compose_mentions_sentry": compose_mentions_sentry,
+        "failures": failures,
+    }
+    if failures:
+        return GuardrailResult(
+            name="sentry_config",
+            status="critical",
+            message="Sentry config is incomplete: " + "; ".join(failures),
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="sentry_config",
+        status="ok",
+        message="Sentry DSN is configured and compose wiring is present",
+        metadata=metadata,
+    )
 
 
 def check_backup_config(env_path: Path) -> GuardrailResult:
@@ -715,6 +777,11 @@ def main(argv: list[str] | None = None) -> int:
     guardrail_cron_parser.add_argument("--path", default="/etc/cron.d/draftcheck-guardrails")
     guardrail_cron_parser.add_argument("--json", action="store_true")
 
+    sentry_parser = subparsers.add_parser("sentry-config")
+    sentry_parser.add_argument("--env-path", default="/srv/draftcheck/app/infra/v3/.env")
+    sentry_parser.add_argument("--compose-path", default="/srv/draftcheck/app/infra/v3/compose.yml")
+    sentry_parser.add_argument("--json", action="store_true")
+
     restore_parser = subparsers.add_parser("restore-drill-log")
     restore_parser.add_argument("--path", required=True)
     restore_parser.add_argument("--json", action="store_true")
@@ -808,6 +875,11 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "guardrail-cron":
         result = check_guardrail_cron(Path(args.path))
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "sentry-config":
+        result = check_sentry_config(Path(args.env_path), compose_path=Path(args.compose_path))
         _print_result(result, as_json=args.json)
         return status_exit_code(result.status)
 

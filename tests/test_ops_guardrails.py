@@ -13,6 +13,7 @@ from scripts.ops_guardrails import (
     check_disk_usage,
     check_guardrail_cron,
     check_restore_drill_log,
+    check_sentry_config,
     check_uptime_targets,
     check_uptime_monitor_doc,
     check_worker_heartbeat,
@@ -221,6 +222,61 @@ def test_guardrail_cron_flags_incomplete_entry(tmp_path: Path) -> None:
     assert result.status == "critical"
     assert "guardrail-alerts.sh command missing" in result.message
     assert "local guardrail log redirection missing" in result.message
+
+
+def test_sentry_config_accepts_https_dsn_and_compose_wiring(tmp_path: Path) -> None:
+    env_path = tmp_path / ".env"
+    env_path.write_text(
+        "\ufeffSENTRY_DSN=https://examplePublicKey@o0.ingest.sentry.io/0\n",
+        encoding="utf-8",
+    )
+    compose_path = tmp_path / "compose.yml"
+    compose_path.write_text(
+        """services:
+  api:
+    environment:
+      SENTRY_DSN: ${SENTRY_DSN:-}
+""",
+        encoding="utf-8",
+    )
+
+    result = check_sentry_config(env_path, compose_path=compose_path)
+
+    assert result.status == "ok"
+    assert result.metadata["dsn_present"] is True
+    assert result.metadata["sentry_host"] == "o0.ingest.sentry.io"
+    assert result.metadata["compose_mentions_sentry"] is True
+    assert "examplePublicKey" not in str(result.metadata)
+
+
+def test_sentry_config_flags_missing_or_malformed_dsn(tmp_path: Path) -> None:
+    missing = check_sentry_config(tmp_path / "missing.env")
+    assert missing.status == "critical"
+    assert "missing" in missing.message
+
+    env_path = tmp_path / ".env"
+    env_path.write_text("SENTRY_DSN=http://localhost/0\n", encoding="utf-8")
+    malformed = check_sentry_config(env_path)
+
+    assert malformed.status == "critical"
+    assert "HTTPS DSN" in malformed.message
+    assert malformed.metadata["dsn_present"] is True
+
+
+def test_sentry_config_flags_missing_compose_wiring(tmp_path: Path) -> None:
+    env_path = tmp_path / ".env"
+    env_path.write_text(
+        "SENTRY_DSN=https://examplePublicKey@o0.ingest.sentry.io/0\n",
+        encoding="utf-8",
+    )
+    compose_path = tmp_path / "compose.yml"
+    compose_path.write_text("services: {}\n", encoding="utf-8")
+
+    result = check_sentry_config(env_path, compose_path=compose_path)
+
+    assert result.status == "critical"
+    assert "compose file does not wire SENTRY_DSN" in result.message
+    assert result.metadata["compose_mentions_sentry"] is False
 
 
 def test_uptime_targets_require_json_status_ok() -> None:

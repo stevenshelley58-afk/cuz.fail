@@ -61,6 +61,14 @@ def test_v3_compose_aligns_document_storage_env_for_api_and_workers():
         assert environment["OBJECT_STORAGE_ROOT"] == "${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}"
 
 
+def test_v3_compose_wires_sentry_dsn_for_runtime_services():
+    prod_compose = yaml.safe_load(COMPOSE_PATH.read_text(encoding="utf-8"))
+
+    for service_name in ("api", "worker", "hermes"):
+        environment = prod_compose["services"][service_name]["environment"]
+        assert environment["SENTRY_DSN"] == "${SENTRY_DSN:-}"
+
+
 def test_v3_caddy_routes_api_v1_and_static_web_dist():
     active_caddy = _active_caddy_text()
 
@@ -116,6 +124,7 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "backup-config" in runbook
     assert "guardrail-cron" in runbook
     assert "uptime-monitor-doc" in runbook
+    assert "sentry-config" in runbook
     assert "sentry_dsn" in runbook
     assert "spend-snapshot" in runbook
 
