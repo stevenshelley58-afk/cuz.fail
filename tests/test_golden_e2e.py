@@ -138,6 +138,7 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
     assert upload.status_code == 200, upload.text
     upload_body = upload.json()
     assert upload_body["media_type"] == "application/dxf"
+    assert upload_body["chunk_count"] >= 1
     assert upload_body["review_required"] is True
 
     document_id = upload_body["document_id"]
@@ -229,6 +230,7 @@ def _make_app() -> tuple[object, Session, ActiveSession]:
         "rules",
         "documents",
         "document_pages",
+        "document_chunks",
         "document_facts",
         "check_runs",
         "resolved_rules",

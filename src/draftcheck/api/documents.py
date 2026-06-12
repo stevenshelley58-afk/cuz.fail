@@ -37,6 +37,7 @@ from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.api.deps import get_db_session
 from draftcheck.db.models import (
     Document,
+    DocumentChunk as OrmDocumentChunk,
     DocumentFact as OrmDocumentFact,
     DocumentPage as OrmDocumentPage,
     PropertyFact,
@@ -44,22 +45,16 @@ from draftcheck.db.models import (
 from draftcheck.domain.documents import (
     DocumentFact,
     DocumentNotFoundError,
-    DocumentParseError,
     DocumentParser,
     DocumentReviewStatus,
     InMemoryDocumentLibrary,
-    decode_text_bytes,
-    extract_docx_text,
-    extract_pdf_pages,
     sample_parser_accuracy_report,
 )
-from draftcheck.domain.documents.facts import DocumentFactService
 from draftcheck.domain.identity import ActiveSession
 
 router = APIRouter(tags=["documents"])
 
 _document_library: InMemoryDocumentLibrary | None = None
-_fact_service = DocumentFactService()
 
 STORAGE_ROOT = Path(os.getenv("DRAFTCHECK_STORAGE_ROOT", "/srv/draftcheck/storage"))
 MAX_UPLOAD_BYTES = 15 * 1024 * 1024  # 15 MB
@@ -142,36 +137,6 @@ def _store_content(content: bytes, sha256: str) -> Path:
     if not dest.exists():
         dest.write_bytes(content)
     return dest
-
-
-def _extract_text_from_content(media_type: str, filename: str, content: bytes) -> tuple[list[str], str]:
-    """Return (per-page texts, parser_name).
-
-    Uses pypdf for PDF, python-docx for DOCX, plain text for everything else.
-    DXF is treated as text-only metadata.
-    """
-    suffix = PurePath(filename).suffix.lower()
-    parser_name = "draftcheck.plain_text_parser"
-
-    if media_type == "application/pdf" or suffix == ".pdf":
-        parser_name = "draftcheck.pdf_text_parser"
-        pages = extract_pdf_pages(content)
-        return pages, parser_name
-
-    if media_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" or suffix == ".docx":
-        parser_name = "draftcheck.docx_text_parser"
-        text = extract_docx_text(content)
-        return [text] if text.strip() else [], parser_name
-
-    if suffix == ".dxf" or "dxf" in media_type:
-        parser_name = "draftcheck.dxf_text_parser"
-        # DXF: decode as text for metadata / entity labels only
-        text = decode_text_bytes(content)
-        return [text] if text.strip() else [], parser_name
-
-    # TXT / CSV / anything else
-    text = decode_text_bytes(content)
-    return [text] if text.strip() else [], parser_name
 
 
 def _safe_filename(filename: str) -> str:
@@ -274,54 +239,46 @@ async def upload_document(
         uploaded_by_user_id=active_session.user.id if active_session.user else None,
         title=filename,
         document_type=_doc_type_from_media(media_type, filename),
-        status="uploaded",
+        status="parse_pending",
         storage_path=storage_path,
         sha256=sha256,
         media_type=media_type,
         size_bytes=len(content),
-        metadata_json={"original_filename": filename},
+        metadata_json={"original_filename": filename, "parse_status": "parse_pending"},
     )
     db.add(document)
-    db.flush()  # get the id before adding pages/facts
-
-    # --- Extract text + create DocumentPage rows ---
-    try:
-        page_texts, parser_name = _extract_text_from_content(media_type, filename, content)
-    except DocumentParseError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail=str(exc),
-        ) from exc
-    orm_pages: list[OrmDocumentPage] = []
-    for page_number, page_text in enumerate(page_texts, start=1):
-        page = OrmDocumentPage(
-            id=uuid.uuid4(),
-            document_id=doc_id,
-            page_number=page_number,
-            text=page_text,
-            metadata_json={"parser_name": parser_name, "parser_version": DocumentFactService.PARSER_VERSION},
-        )
-        db.add(page)
-        orm_pages.append(page)
-
     db.flush()
 
-    # --- Extract facts ---
-    all_orm_facts: list[OrmDocumentFact] = []
-    for page_row in orm_pages:
-        page_facts = _fact_service.extract_facts_from_text(
-            text=page_row.text or "",
-            document_id=doc_id,
-            page_number=page_row.page_number,
-            org_id=org_id,
-            project_id=proj_uuid,
-            page_id=page_row.id,
-        )
-        for fact in page_facts:
-            db.add(fact)
-            all_orm_facts.append(fact)
+    from draftcheck.jobs.documents import enqueue_document_parse, parse_document_for_session
 
-    db.flush()
+    parse_job = enqueue_document_parse(doc_id)
+    if not parse_job["enqueued"]:
+        try:
+            parse_document_for_session(db, document_id=doc_id, raise_parse_errors=True)
+        except Exception as exc:
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail=str(exc),
+            ) from exc
+
+    orm_pages = (
+        db.query(OrmDocumentPage)
+        .filter(OrmDocumentPage.document_id == doc_id)
+        .order_by(OrmDocumentPage.page_number)
+        .all()
+    )
+    orm_chunks = (
+        db.query(OrmDocumentChunk)
+        .filter(OrmDocumentChunk.document_id == doc_id)
+        .order_by(OrmDocumentChunk.chunk_index)
+        .all()
+    )
+    all_orm_facts = (
+        db.query(OrmDocumentFact)
+        .filter(OrmDocumentFact.document_id == doc_id)
+        .order_by(OrmDocumentFact.created_at, OrmDocumentFact.id)
+        .all()
+    )
 
     return {
         "document_id": str(doc_id),
@@ -329,7 +286,10 @@ async def upload_document(
         "media_type": media_type,
         "size_bytes": len(content),
         "sha256": sha256,
+        "parse_status": document.status,
+        "parse_job": parse_job,
         "page_count": len(orm_pages),
+        "chunk_count": len(orm_chunks),
         "extracted_facts": [_orm_fact_payload(f) for f in all_orm_facts],
         "fact_count": len(all_orm_facts),
         "review_required": True,
@@ -487,6 +447,7 @@ async def upload_project_document(
     return {
         "document": jsonable_encoder(result.document),
         "pages": len(result.pages),
+        "chunks": len(result.chunks),
         "facts": [_inmem_fact_payload(fact) for fact in result.facts],
         "fact_count": len(result.facts),
         "review_required": True,
@@ -588,6 +549,7 @@ def list_project_documents(
             "title": doc.title,
             "document_type": doc.document_type,
             "status": doc.status,
+            "parse_status": (doc.metadata_json or {}).get("parse_status", doc.status),
             "created_at": doc.created_at.isoformat() if doc.created_at else None,
             "fact_count": fact_count,
         })

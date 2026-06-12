@@ -64,6 +64,7 @@ def test_v3_document_upload_extracts_review_gated_text_measurements() -> None:
     assert response.status_code == 200, response.text
     body = response.json()
     assert body["document"]["parse_status"] == "parsed"
+    assert body["chunks"] == 1
     assert body["fact_count"] == 3
     assert body["review_required"] is True
     assert {fact["label"] for fact in body["facts"]} == {
@@ -82,6 +83,14 @@ def test_v3_document_upload_extracts_review_gated_text_measurements() -> None:
     assert pages.json()["count"] == 1
     assert facts.status_code == 200
     assert facts.json()["count"] == 3
+
+    from draftcheck.api.documents import get_document_library
+
+    chunks = get_document_library().get_chunks(document_id)
+    assert len(chunks) == 1
+    assert chunks[0].embedding_model == "text-embedding-3-small"
+    assert chunks[0].embedding_dimension == 1536
+    assert chunks[0].metadata["legal_authority"] is False
 
 
 def test_v3_dxf_upload_extracts_dimension_preview_without_promoting_measurement() -> None:

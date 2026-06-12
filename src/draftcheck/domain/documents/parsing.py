@@ -13,6 +13,14 @@ from pathlib import PurePath
 from typing import Any
 from uuid import uuid4
 
+from draftcheck.domain.documents.chunks import (
+    DocumentChunk,
+    DocumentChunkSearchHit,
+    build_document_chunks,
+    search_document_chunks,
+)
+from draftcheck.domain.sources.models import EmbeddingConfig
+
 
 MAX_DOCUMENT_BYTES = 15 * 1024 * 1024
 TEXT_MEDIA_TYPES = {
@@ -106,6 +114,7 @@ class DocumentRecord:
 class DocumentParseResult:
     document: DocumentRecord
     pages: tuple[DocumentPage, ...]
+    chunks: tuple[DocumentChunk, ...]
     facts: tuple[DocumentFact, ...]
 
 
@@ -158,10 +167,17 @@ class DocumentParser:
 class InMemoryDocumentLibrary:
     """Small in-memory document library for PR8 contract development and live demos."""
 
-    def __init__(self, parser: DocumentParser | None = None) -> None:
+    def __init__(
+        self,
+        parser: DocumentParser | None = None,
+        *,
+        embedding_config: EmbeddingConfig | None = None,
+    ) -> None:
         self.parser = parser or DocumentParser()
+        self.embedding_config = embedding_config
         self.documents: dict[str, DocumentRecord] = {}
         self.pages: dict[str, tuple[DocumentPage, ...]] = {}
+        self.chunks: dict[str, tuple[DocumentChunk, ...]] = {}
         self.facts: dict[str, tuple[DocumentFact, ...]] = {}
 
     def upload(
@@ -202,10 +218,16 @@ class InMemoryDocumentLibrary:
             uploaded_at=datetime.now(UTC),
             metadata=metadata,
         )
+        chunks = build_document_chunks(
+            document_id=document_id,
+            pages=pages,
+            embedding_config=self.embedding_config,
+        )
         self.documents[document_id] = record
         self.pages[document_id] = pages
+        self.chunks[document_id] = chunks
         self.facts[document_id] = facts
-        return DocumentParseResult(record, pages, facts)
+        return DocumentParseResult(record, pages, chunks, facts)
 
     def get_document(self, document_id: str) -> DocumentRecord:
         try:
@@ -220,6 +242,34 @@ class InMemoryDocumentLibrary:
     def get_facts(self, document_id: str) -> tuple[DocumentFact, ...]:
         self.get_document(document_id)
         return self.facts.get(document_id, ())
+
+    def get_chunks(self, document_id: str) -> tuple[DocumentChunk, ...]:
+        self.get_document(document_id)
+        return self.chunks.get(document_id, ())
+
+    def search_chunks(
+        self,
+        query: str,
+        *,
+        project_id: str | None = None,
+        document_id: str | None = None,
+        limit: int = 8,
+    ) -> tuple[DocumentChunkSearchHit, ...]:
+        if document_id is not None:
+            candidate_chunks = self.get_chunks(document_id)
+        else:
+            candidate_chunks = tuple(
+                chunk
+                for record in self.documents.values()
+                if project_id is None or record.project_id == project_id
+                for chunk in self.chunks.get(record.id, ())
+            )
+        return search_document_chunks(
+            candidate_chunks,
+            query,
+            limit=limit,
+            embedding_config=self.embedding_config,
+        )
 
     def review_fact(
         self,

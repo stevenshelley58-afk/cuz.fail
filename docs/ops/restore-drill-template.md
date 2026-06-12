@@ -37,3 +37,12 @@ drill_end: YYYY-MM-DDTHH:MM:SSZ
 
 status: PASS / FAIL
 notes: (any anomalies or follow-up items)
+
+## Follow-up guardrail checks
+
+backup_freshness_output: |
+  (paste `scripts/ops_guardrails.py backup-freshness --json` output here)
+
+spend_persistence_output: |
+  (paste `scripts/ops_guardrails.py compare-spend-snapshots --json` output here,
+  or note "not run - no governed LLM spend today")

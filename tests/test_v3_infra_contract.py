@@ -10,6 +10,9 @@ COMPOSE_PATH = ROOT / "infra" / "v3" / "compose.yml"
 CADDYFILE_PATH = ROOT / "infra" / "v3" / "Caddyfile"
 DB_INIT_PATH = ROOT / "infra" / "v3" / "db" / "init-extensions.sql"
 BACKUP_README_PATH = ROOT / "infra" / "v3" / "backup" / "README.md"
+BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
+OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
+OPS_RUNBOOK_PATH = ROOT / "docs" / "ops" / "ops-guardrails.md"
 
 
 def _active_caddy_text() -> str:
@@ -57,3 +60,16 @@ def test_v3_backup_docs_cover_pg_dump_restic_and_restore_drill():
     assert "restic" in backup_docs
     assert "pg_restore" in backup_docs
     assert "restore drill" in backup_docs
+
+
+def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
+    install_script = BACKUP_INSTALL_PATH.read_text(encoding="utf-8")
+    alert_script = OPS_ALERT_PATH.read_text(encoding="utf-8")
+    runbook = OPS_RUNBOOK_PATH.read_text(encoding="utf-8").lower()
+
+    assert "systemctl enable --now draftcheck-backup.timer" in install_script
+    assert "DRAFTCHECK_ALERT_WEBHOOK_URL" in alert_script
+    assert "backup-freshness" in alert_script
+    assert "<generated-restic-password>" in runbook
+    assert "sentry_dsn" in runbook
+    assert "spend-snapshot" in runbook

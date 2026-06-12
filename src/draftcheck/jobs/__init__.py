@@ -45,11 +45,15 @@ class _TaskRegistrar(Protocol):
 def _create_procrastinate_app() -> _TaskRegistrar:
     if procrastinate is None:
         return _FallbackProcrastinateApp()
+    try:
+        conninfo = _conninfo()
+    except RuntimeError:
+        return _FallbackProcrastinateApp()
     return cast(
         _TaskRegistrar,
         procrastinate.App(
             connector=procrastinate.PsycopgConnector(
-                conninfo=_conninfo(),
+                conninfo=conninfo,
             ),
             worker_defaults={"listen_notify": False},
         ),
@@ -90,3 +94,6 @@ def cockburn_source_monitor() -> dict[str, object]:
             "rule extraction review",
         ],
     }
+
+
+from draftcheck.jobs import documents as documents  # noqa: E402,F401
