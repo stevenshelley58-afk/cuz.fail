@@ -79,6 +79,24 @@ class DocumentPage:
 
 
 @dataclass(frozen=True)
+class PdfTextBlock:
+    text: str
+    bbox: tuple[float, float, float, float]
+    block_number: int | None
+
+
+@dataclass(frozen=True)
+class PdfPageExtraction:
+    page_number: int
+    text: str
+    width: float | None
+    height: float | None
+    rotation_degrees: float | None
+    text_blocks: tuple[PdfTextBlock, ...]
+    extraction_method: str
+
+
+@dataclass(frozen=True)
 class DocumentFact:
     id: str
     document_id: str
@@ -450,8 +468,86 @@ def _extract_text(media_type: str, filename: str, content: bytes) -> tuple[str, 
     return decoded, notes
 
 
+def extract_pdf_page_layouts(content: bytes) -> list[PdfPageExtraction]:
+    """Per-page PDF text plus vector text block bboxes.
+
+    Bounding boxes are evidence for human review only. They are not calibrated
+    measurements and must not be promoted into compliance facts by this parser.
+    """
+    try:
+        return _extract_pdf_page_layouts_with_pymupdf(content)
+    except Exception as pymupdf_exc:
+        try:
+            texts = _extract_pdf_pages_with_pypdf(content)
+        except DocumentParseError:
+            raise DocumentParseError(f"Failed to parse PDF: {pymupdf_exc}") from pymupdf_exc
+        return [
+            PdfPageExtraction(
+                page_number=index,
+                text=text,
+                width=None,
+                height=None,
+                rotation_degrees=None,
+                text_blocks=(),
+                extraction_method="pypdf_text_layer",
+            )
+            for index, text in enumerate(texts, start=1)
+        ]
+
+
 def extract_pdf_pages(content: bytes) -> list[str]:
     """Per-page text from a PDF. Raises DocumentParseError on unreadable input."""
+    return [page.text for page in extract_pdf_page_layouts(content)]
+
+
+def _extract_pdf_page_layouts_with_pymupdf(content: bytes) -> list[PdfPageExtraction]:
+    import fitz
+
+    doc = fitz.open(stream=content, filetype="pdf")
+    try:
+        pages: list[PdfPageExtraction] = []
+        for page_index, page in enumerate(doc, start=1):
+            text = page.get_text("text") or ""
+            blocks: list[PdfTextBlock] = []
+            for block in page.get_text("blocks") or []:
+                if len(block) < 5:
+                    continue
+                block_text = str(block[4]).strip()
+                if not block_text:
+                    continue
+                block_type = int(block[6]) if len(block) > 6 and isinstance(block[6], int) else 0
+                if block_type != 0:
+                    continue
+                blocks.append(
+                    PdfTextBlock(
+                        text=block_text,
+                        bbox=(
+                            round(float(block[0]), 3),
+                            round(float(block[1]), 3),
+                            round(float(block[2]), 3),
+                            round(float(block[3]), 3),
+                        ),
+                        block_number=int(block[5]) if len(block) > 5 else None,
+                    )
+                )
+            rect = page.rect
+            pages.append(
+                PdfPageExtraction(
+                    page_number=page_index,
+                    text=text,
+                    width=round(float(rect.width), 3),
+                    height=round(float(rect.height), 3),
+                    rotation_degrees=float(page.rotation or 0),
+                    text_blocks=tuple(blocks),
+                    extraction_method="pymupdf_text_blocks",
+                )
+            )
+        return pages
+    finally:
+        doc.close()
+
+
+def _extract_pdf_pages_with_pypdf(content: bytes) -> list[str]:
     from pypdf import PdfReader
 
     try:

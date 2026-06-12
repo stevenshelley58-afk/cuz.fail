@@ -78,6 +78,58 @@ def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, mon
     assert all(fact.review_status == "pending_review" for fact in facts)
 
 
+def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypatch) -> None:
+    import fitz
+
+    monkeypatch.setenv("DRAFTCHECK_EMBEDDING_PROVIDER", "stub")
+    db = _session()
+    org = Org(id=uuid4(), slug="pdf-layout", name="PDF Layout")
+    user = User(
+        id=uuid4(),
+        org_id=org.id,
+        email="owner@pdf-layout.test",
+        role=IdentityRole.OWNER,
+        status=UserStatus.ACTIVE,
+    )
+    project = Project(id=uuid4(), org_id=org.id, created_by_user_id=user.id, name="PDF project")
+    pdf = fitz.open()
+    page = pdf.new_page(width=320, height=240)
+    page.insert_text((40, 80), "Front setback: 4.5 m")
+    content = pdf.tobytes()
+    pdf.close()
+    stored = tmp_path / "stored.pdf"
+    stored.write_bytes(content)
+    document = Document(
+        id=uuid4(),
+        org_id=org.id,
+        project_id=project.id,
+        uploaded_by_user_id=user.id,
+        title="site-plan.pdf",
+        document_type="pdf",
+        status="parse_pending",
+        storage_path=str(stored),
+        sha256="1" * 64,
+        media_type="application/pdf",
+        size_bytes=len(content),
+        metadata_json={"parse_status": "parse_pending"},
+    )
+    db.add_all([org, user, project, document])
+    db.flush()
+
+    result = parse_document_for_session(db, document_id=document.id)
+
+    assert result["parse_status"] == "parsed"
+    persisted_page = db.query(DocumentPage).filter_by(document_id=document.id).one()
+    assert persisted_page.width == 320
+    assert persisted_page.height == 240
+    assert persisted_page.metadata_json["extraction_method"] == "pymupdf_text_blocks"
+    text_blocks = persisted_page.metadata_json["text_blocks"]
+    assert text_blocks
+    assert "Front setback" in text_blocks[0]["text"]
+    assert text_blocks[0]["measurement_compliance_ready"] is False
+    assert text_blocks[0]["measurement_readiness_reason"] == "pdf text block bbox is not a calibrated measurement"
+
+
 def test_document_parse_enqueue_reports_sync_fallback_when_queue_is_unavailable(monkeypatch) -> None:
     monkeypatch.delenv("PROCRASTINATE_DB_URI", raising=False)
     monkeypatch.delenv("DATABASE_URL", raising=False)

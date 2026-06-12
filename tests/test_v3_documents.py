@@ -4,7 +4,7 @@ from fastapi.testclient import TestClient
 
 from draftcheck.api.auth import get_current_session
 from draftcheck.api.main import create_app
-from draftcheck.domain.documents import DocumentReviewStatus, InMemoryDocumentLibrary
+from draftcheck.domain.documents import DocumentReviewStatus, InMemoryDocumentLibrary, extract_pdf_page_layouts
 from draftcheck.domain.identity import ActiveSession, IdentityRole, InMemoryIdentityStore
 
 
@@ -244,6 +244,27 @@ def test_v3_dxf_block_insert_uniform_scale_is_recorded_on_dimension_fact() -> No
     assert fact.metadata["insert_scale_uncertain"] is False
     assert fact.metadata["scale_status"] == "insert_scale_known"
     assert fact.metadata["measurement_compliance_ready"] is False
+
+
+def test_v3_pdf_layout_extractor_records_text_block_bboxes() -> None:
+    import fitz
+
+    pdf = fitz.open()
+    page = pdf.new_page(width=300, height=200)
+    page.insert_text((36, 72), "Lot area: 450 m2")
+    content = pdf.tobytes()
+    pdf.close()
+
+    pages = extract_pdf_page_layouts(content)
+
+    assert len(pages) == 1
+    assert pages[0].extraction_method == "pymupdf_text_blocks"
+    assert pages[0].width == 300
+    assert pages[0].height == 200
+    assert "Lot area" in pages[0].text
+    assert pages[0].text_blocks
+    assert pages[0].text_blocks[0].bbox[2] > pages[0].text_blocks[0].bbox[0]
+    assert pages[0].text_blocks[0].bbox[3] > pages[0].text_blocks[0].bbox[1]
 
 
 def test_v3_image_upload_is_review_only_until_calibrated() -> None:

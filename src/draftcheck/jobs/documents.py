@@ -27,7 +27,7 @@ from draftcheck.domain.documents import (
     DocumentParseError,
     decode_text_bytes,
     extract_docx_text,
-    extract_pdf_pages,
+    extract_pdf_page_layouts,
     write_document_chunks,
 )
 from draftcheck.domain.documents.facts import DocumentFactService
@@ -101,7 +101,7 @@ def parse_document_for_session(
 
     try:
         content = Path(document.storage_path).read_bytes()
-        page_texts, parser_name = _extract_text_from_content(
+        parsed_pages, parser_name = _extract_pages_from_content(
             document.media_type or "",
             document.title,
             content,
@@ -136,15 +136,19 @@ def parse_document_for_session(
     session.flush()
 
     pages: list[OrmDocumentPage] = []
-    for page_number, page_text in enumerate(page_texts, start=1):
+    for page_number, page_payload in enumerate(parsed_pages, start=1):
         page = OrmDocumentPage(
             id=uuid4(),
             document_id=doc_uuid,
             page_number=page_number,
-            text=page_text,
+            width=page_payload.get("width"),
+            height=page_payload.get("height"),
+            rotation_degrees=page_payload.get("rotation_degrees"),
+            text=page_payload["text"],
             metadata_json={
                 "parser_name": parser_name,
                 "parser_version": DocumentFactService.PARSER_VERSION,
+                **page_payload.get("metadata", {}),
             },
         )
         session.add(page)
@@ -195,28 +199,55 @@ def parse_document_for_session(
     )
 
 
-def _extract_text_from_content(media_type: str, filename: str, content: bytes) -> tuple[list[str], str]:
-    """Return per-page text and parser name without promoting measurements."""
+def _extract_pages_from_content(media_type: str, filename: str, content: bytes) -> tuple[list[dict[str, Any]], str]:
+    """Return per-page text/metadata and parser name without promoting measurements."""
 
     suffix = PurePath(filename).suffix.lower()
     parser_name = "draftcheck.plain_text_parser"
 
     if media_type == "application/pdf" or suffix == ".pdf":
         parser_name = "draftcheck.pdf_text_parser"
-        return extract_pdf_pages(content), parser_name
+        return [_pdf_page_payload(page) for page in extract_pdf_page_layouts(content)], parser_name
 
     if media_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" or suffix == ".docx":
         parser_name = "draftcheck.docx_text_parser"
         text = extract_docx_text(content)
-        return [text] if text.strip() else [], parser_name
+        return [_text_page_payload(text)] if text.strip() else [], parser_name
 
     if suffix == ".dxf" or "dxf" in media_type:
         parser_name = "draftcheck.dxf_text_parser"
         text = decode_text_bytes(content)
-        return [text] if text.strip() else [], parser_name
+        return [_text_page_payload(text)] if text.strip() else [], parser_name
 
     text = decode_text_bytes(content)
-    return [text] if text.strip() else [], parser_name
+    return [_text_page_payload(text)] if text.strip() else [], parser_name
+
+
+def _text_page_payload(text: str) -> dict[str, Any]:
+    return {"text": text, "metadata": {}}
+
+
+def _pdf_page_payload(page: Any) -> dict[str, Any]:
+    return {
+        "text": page.text,
+        "width": page.width,
+        "height": page.height,
+        "rotation_degrees": page.rotation_degrees,
+        "metadata": {
+            "extraction_method": page.extraction_method,
+            "text_blocks": [
+                {
+                    "text": block.text,
+                    "bbox": list(block.bbox),
+                    "block_number": block.block_number,
+                    "measurement_compliance_ready": False,
+                    "measurement_readiness_reason": "pdf text block bbox is not a calibrated measurement",
+                }
+                for block in page.text_blocks
+            ],
+            "raster_measurement_policy": "PDF measurements require explicit calibration before promotion.",
+        },
+    }
 
 
 def _mark_parse_failed(session: Session, document: Document, error: str) -> None:
