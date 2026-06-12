@@ -4,6 +4,10 @@ import { checkoutUrlFailures } from "./checkout-url.mjs";
 assert.deepEqual(checkoutUrlFailures(""), []);
 assert.deepEqual(checkoutUrlFailures("https://buy.stripe.com/test_fixture"), []);
 assert.match(
+  checkoutUrlFailures("https://buy.stripe.com/").join("\n"),
+  /Payment Link path/,
+);
+assert.match(
   checkoutUrlFailures("http://buy.stripe.com/test_fixture").join("\n"),
   /must use https/,
 );

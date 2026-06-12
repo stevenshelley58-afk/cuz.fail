@@ -16,5 +16,8 @@ export function checkoutUrlFailures(rawUrl, label = "VITE_CHECKOUT_URL") {
   if (url.hostname !== "buy.stripe.com") {
     failures.push(`${label} must be a Stripe Payment Link on buy.stripe.com.`);
   }
+  if (!url.pathname || url.pathname === "/") {
+    failures.push(`${label} must include a Stripe Payment Link path.`);
+  }
   return failures;
 }
