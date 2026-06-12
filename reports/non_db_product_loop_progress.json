@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:59:00+08:00",
+  "captured_at": "2026-06-13T02:00:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -133,6 +133,7 @@
         "tests/test_ops_guardrails.py runtime-tests the log-retention installer safe default and explicit Docker restart path when Bash is available",
         "scripts/audit_non_db_launch_ops.py --verify-report validates non-DB audit artifacts, required ops evidence keys, no raw DSN leakage, blocked/verified status consistency, restore-drill template fields, and runbook verifier commands",
         "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json then --verify-report reports/non_db_launch_ops_blockers.local.json returned status ok",
+        "reports/non_db_launch_ops_blockers.json refreshed from read-only live/VPS evidence and verified with scripts/audit_non_db_launch_ops.py --verify-report",
         "infra/v3/ops/install-sentry-dsn.sh installs SENTRY_DSN into the VPS compose env without printing the DSN, validates sentry-config, and only restarts api/worker/hermes when DRAFTCHECK_RESTART_SERVICES=1",
         "tests/test_ops_guardrails.py runtime-tests Sentry DSN install, missing DSN failure, and explicit service restart with a fake docker command when Bash is available"
       ],
