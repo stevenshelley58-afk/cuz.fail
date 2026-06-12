@@ -192,3 +192,10 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
         "infra/v3/deploy-web-only.sh",
     ):
         assert f"bash -n {script}" in syntax_step["run"]
+
+
+def test_v3_ci_runs_launch_action_behavior_test():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    web_steps = workflow["jobs"]["web"]["steps"]
+
+    assert any(step.get("run") == "npm run test:launch-actions" for step in web_steps)

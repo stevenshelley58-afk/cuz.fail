@@ -79,6 +79,9 @@ jobs:
       - name: Build web
         working-directory: web
         run: npm run build
+      - name: Test launch actions
+        working-directory: web
+        run: npm run test:launch-actions
       - name: Verify launch surface
         working-directory: web
         env:
