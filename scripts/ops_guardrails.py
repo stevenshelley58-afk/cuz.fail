@@ -270,6 +270,92 @@ def check_uptime_targets(
     )
 
 
+REQUIRED_UPTIME_MONITORS = {
+    "LotFile health": "https://lotfile.app/api/v1/health",
+    "LotFile ready": "https://lotfile.app/api/v1/ready",
+}
+
+
+def _read_markdown_table_rows(text: str) -> list[list[str]]:
+    rows: list[list[str]] = []
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line.startswith("|") or not line.endswith("|"):
+            continue
+        cells = [cell.strip() for cell in line.strip("|").split("|")]
+        if not cells or all(set(cell) <= {"-"} for cell in cells):
+            continue
+        rows.append(cells)
+    return rows
+
+
+def check_uptime_monitor_doc(path: Path) -> GuardrailResult:
+    """Verify the uptime monitor runbook records provisioned external monitors."""
+
+    if not path.exists():
+        return GuardrailResult(
+            name="uptime_monitor_doc",
+            status="critical",
+            message=f"uptime monitor doc missing: {path}",
+            metadata={"path": str(path)},
+        )
+
+    text = path.read_text(encoding="utf-8")
+    failures: list[str] = []
+    for monitor_name, target_url in REQUIRED_UPTIME_MONITORS.items():
+        if target_url not in text:
+            failures.append(f"{monitor_name} target URL missing")
+
+    rows = _read_markdown_table_rows(text)
+    monitor_rows = {
+        cells[0]: cells
+        for cells in rows
+        if len(cells) >= 3 and cells[0] in REQUIRED_UPTIME_MONITORS
+    }
+    pending_values: list[str] = []
+    recorded_monitors: dict[str, dict[str, str]] = {}
+    for monitor_name in REQUIRED_UPTIME_MONITORS:
+        cells = monitor_rows.get(monitor_name)
+        if cells is None:
+            failures.append(f"{monitor_name} monitor ID row missing")
+            continue
+        provider_id = cells[1]
+        alert_contact = cells[2]
+        if not provider_id or provider_id.lower() == "pending":
+            pending_values.append(f"{monitor_name}.provider_id")
+        if not alert_contact or alert_contact.lower() == "pending":
+            pending_values.append(f"{monitor_name}.alert_contact")
+        recorded_monitors[monitor_name] = {
+            "provider_id": provider_id,
+            "alert_contact": alert_contact,
+        }
+
+    metadata = {
+        "path": str(path),
+        "required_monitors": REQUIRED_UPTIME_MONITORS,
+        "recorded_monitors": recorded_monitors,
+        "pending_values": pending_values,
+        "failures": failures,
+    }
+    if failures or pending_values:
+        message_parts = [*failures]
+        if pending_values:
+            message_parts.append("pending monitor evidence: " + ", ".join(pending_values))
+        return GuardrailResult(
+            name="uptime_monitor_doc",
+            status="critical",
+            message="; ".join(message_parts),
+            metadata=metadata,
+        )
+
+    return GuardrailResult(
+        name="uptime_monitor_doc",
+        status="ok",
+        message="uptime monitor doc records provisioned monitor IDs and alert contacts",
+        metadata=metadata,
+    )
+
+
 def check_disk_usage(
     paths: list[Path],
     *,
@@ -582,6 +668,10 @@ def main(argv: list[str] | None = None) -> int:
     uptime_parser.add_argument("--timeout-seconds", type=float, default=10.0)
     uptime_parser.add_argument("--json", action="store_true")
 
+    uptime_doc_parser = subparsers.add_parser("uptime-monitor-doc")
+    uptime_doc_parser.add_argument("--path", default="docs/ops/uptime-monitor.md")
+    uptime_doc_parser.add_argument("--json", action="store_true")
+
     disk_parser = subparsers.add_parser("disk-usage")
     disk_parser.add_argument("--path", action="append", default=[])
     disk_parser.add_argument("--max-used-percent", type=float, default=80.0)
@@ -643,6 +733,11 @@ def main(argv: list[str] | None = None) -> int:
             },
             timeout_seconds=args.timeout_seconds,
         )
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "uptime-monitor-doc":
+        result = check_uptime_monitor_doc(Path(args.path))
         _print_result(result, as_json=args.json)
         return status_exit_code(result.status)
 

@@ -108,6 +108,7 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "<generated-restic-password>" in runbook
     assert "backup-config" in runbook
     assert "guardrail-cron" in runbook
+    assert "uptime-monitor-doc" in runbook
     assert "sentry_dsn" in runbook
     assert "spend-snapshot" in runbook
 

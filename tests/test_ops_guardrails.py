@@ -14,6 +14,7 @@ from scripts.ops_guardrails import (
     check_guardrail_cron,
     check_restore_drill_log,
     check_uptime_targets,
+    check_uptime_monitor_doc,
     check_worker_heartbeat,
     compare_spend_snapshots,
     normalise_database_url,
@@ -265,6 +266,54 @@ def test_uptime_targets_require_json_status_ok() -> None:
     assert ok.status == "ok"
     assert failed.status == "critical"
     assert failed.metadata["targets"]["ready"]["service_status"] == "degraded"
+
+
+def test_uptime_monitor_doc_requires_recorded_monitor_ids(tmp_path: Path) -> None:
+    doc = tmp_path / "uptime-monitor.md"
+    doc.write_text(
+        """# Uptime Monitoring
+
+| URL | Purpose | Expected response |
+|-----|---------|-------------------|
+| `https://lotfile.app/api/v1/health` | Primary health probe | HTTP 200 |
+| `https://lotfile.app/api/v1/ready` | Deep-ready probe | HTTP 200 |
+
+| Monitor | Provider ID | Alert contact |
+|---------|-------------|---------------|
+| LotFile health | 123456789 | stevenshelley58@gmail.com |
+| LotFile ready | 987654321 | stevenshelley58@gmail.com |
+""",
+        encoding="utf-8",
+    )
+
+    result = check_uptime_monitor_doc(doc)
+
+    assert result.status == "ok"
+    assert result.metadata["recorded_monitors"]["LotFile health"]["provider_id"] == "123456789"
+
+
+def test_uptime_monitor_doc_flags_pending_or_missing_evidence(tmp_path: Path) -> None:
+    pending_doc = tmp_path / "uptime-monitor.md"
+    pending_doc.write_text(
+        """# Uptime Monitoring
+
+| URL | Purpose | Expected response |
+|-----|---------|-------------------|
+| `https://lotfile.app/api/v1/health` | Primary health probe | HTTP 200 |
+
+| Monitor | Provider ID | Alert contact |
+|---------|-------------|---------------|
+| LotFile health | pending | pending |
+""",
+        encoding="utf-8",
+    )
+
+    result = check_uptime_monitor_doc(pending_doc)
+
+    assert result.status == "critical"
+    assert "LotFile ready target URL missing" in result.message
+    assert "LotFile ready monitor ID row missing" in result.message
+    assert "LotFile health.provider_id" in result.message
 
 
 def test_restore_drill_log_requires_pass_evidence(tmp_path: Path) -> None:

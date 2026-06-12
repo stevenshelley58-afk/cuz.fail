@@ -130,6 +130,12 @@ BLOCKED: uptime monitor pending UptimeRobot (or equivalent) credentials.
 Unblock: create the two HTTPS keyword monitors listed in docs/ops/uptime-monitor.md.
 ```
 
+After the monitor IDs are recorded, verify the committed evidence:
+
+```powershell
+python scripts/ops_guardrails.py uptime-monitor-doc --path docs/ops/uptime-monitor.md --json
+```
+
 ## 5. Sentry or equivalent
 
 Code already reads `SENTRY_DSN` for api, worker, and hermes. Provision the DSN

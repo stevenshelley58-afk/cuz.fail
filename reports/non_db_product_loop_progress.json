@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:02:14+08:00",
+  "captured_at": "2026-06-13T01:07:57+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -73,7 +73,8 @@
         "npm.cmd run verify:launch:strict passed with a Stripe-shaped VITE_CHECKOUT_URL",
         "checkout URL validation rejects non-HTTPS and non-buy.stripe.com URLs",
         ".github/workflows/ci.yml now uses a buy.stripe.com checkout fixture that matches strict launch validation",
-        "scripts/audit_non_db_launch_ops.py refreshes live launch blocker evidence without mutating production"
+        "scripts/audit_non_db_launch_ops.py refreshes live launch blocker evidence without mutating production",
+        "web/scripts/verify-live-launch.mjs now uses a tested HTTP/HTTPS fetch helper so local HTTP preview targets can run the live-launch verification path"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",
@@ -100,7 +101,8 @@
         "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json passed",
         "uv run python scripts/ops_guardrails.py backup-config --env-path <temp fixture> --json passed",
         "uv run python scripts/ops_guardrails.py guardrail-cron --path <temp fixture> --json passed",
-        "scripts/audit_non_db_launch_ops.py refreshes VPS ops blocker evidence over read-only SSH"
+        "scripts/audit_non_db_launch_ops.py refreshes VPS ops blocker evidence over read-only SSH",
+        "scripts/ops_guardrails.py uptime-monitor-doc verifies docs/ops/uptime-monitor.md has provisioned monitor IDs before the uptime monitor blocker is closed"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
@@ -120,12 +122,14 @@
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py tests/test_v3_api_shell.py",
     "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py",
     "npm.cmd run test:launch-checkout",
+    "npm.cmd run test:live-fetch",
     "VITE_CHECKOUT_URL=https://buy.stripe.com/test_fixture npm.cmd run verify:launch:strict",
     "uv run pytest tests/test_ops_guardrails.py -q",
     "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json",
     "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json",
     "uv run python scripts/ops_guardrails.py backup-config --env-path <fixture backup.env> --json",
     "uv run python scripts/ops_guardrails.py guardrail-cron --path <fixture draftcheck-guardrails> --json",
+    "uv run python scripts/ops_guardrails.py uptime-monitor-doc --path docs/ops/uptime-monitor.md --json",
     "uv run pytest tests/test_audit_non_db_launch_ops.py -q",
     "uv run python scripts/audit_non_db_launch_ops.py --output reports/non_db_launch_ops_blockers.json",
     "npm.cmd run build",

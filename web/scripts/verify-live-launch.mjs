@@ -1,5 +1,5 @@
-import { request } from "node:https";
 import { checkoutUrlFailures } from "./checkout-url.mjs";
+import { fetchText } from "./live-fetch.mjs";
 
 const origin = String(process.env.LAUNCH_ORIGIN ?? "https://lotfile.app").replace(/\/+$/, "");
 const strict = process.argv.includes("--strict") || process.env.LAUNCH_STRICT === "1";
@@ -14,28 +14,6 @@ function fail(message) {
 
 function warn(message) {
   warnings.push(message);
-}
-
-function fetchText(url) {
-  return new Promise((resolve, reject) => {
-    const req = request(url, { timeout: 20_000 }, (res) => {
-      const chunks = [];
-      res.on("data", (chunk) => chunks.push(chunk));
-      res.on("end", () => {
-        resolve({
-          url,
-          status: res.statusCode ?? 0,
-          headers: res.headers,
-          text: Buffer.concat(chunks).toString("utf8"),
-        });
-      });
-    });
-    req.on("timeout", () => {
-      req.destroy(new Error(`timeout fetching ${url}`));
-    });
-    req.on("error", reject);
-    req.end();
-  });
 }
 
 function assertIncludes(text, needle, label) {
