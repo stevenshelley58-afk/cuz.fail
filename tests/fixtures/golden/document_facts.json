@@ -7,15 +7,15 @@
       "revision": "A",
       "supersedes_document_id": null,
       "media_type": "application/dxf",
-      "sha256": "65ffb2d7fccde20f02a73706843093f21402e264d05d9de0ed3d2c688397d972",
+      "sha256": "42ff2c274cf5f5fff243c81e2a61aec8025da35225b192266dc22766e6ec8493",
       "source": "synthetic_fixture",
       "uploaded_by_user_id": "user_m1_owner",
       "uploaded_at": "2026-06-07T10:00:00+08:00",
       "artifact": {
         "id": "artifact_m1_canary_site_plan_rev_a",
         "kind": "raw_dxf",
-        "storage_path": "fixtures/golden/65/ffb2d7fccde20f02a73706843093f21402e264d05d9de0ed3d2c688397d972",
-        "sha256": "65ffb2d7fccde20f02a73706843093f21402e264d05d9de0ed3d2c688397d972",
+        "storage_path": "fixtures/golden/42/ff2c274cf5f5fff243c81e2a61aec8025da35225b192266dc22766e6ec8493",
+        "sha256": "42ff2c274cf5f5fff243c81e2a61aec8025da35225b192266dc22766e6ec8493",
         "parser_name": "fixture_dxf_parser",
         "parser_version": "1.0"
       }
