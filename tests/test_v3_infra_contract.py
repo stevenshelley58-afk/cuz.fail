@@ -27,6 +27,7 @@ WEB_PACKAGE_PATH = ROOT / "web" / "package.json"
 WEB_LIGHTHOUSE_CONFIG_PATH = ROOT / "web" / "lighthouserc.cjs"
 WEB_MOBILE_VERIFY_PATH = ROOT / "web" / "scripts" / "verify-mobile-launch.mjs"
 WEB_LIVE_PREVIEW_VERIFY_PATH = ROOT / "web" / "scripts" / "test-live-launch-preview.mjs"
+VPS_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy.sh"
 
 
 def _active_caddy_text() -> str:
@@ -227,9 +228,34 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
         "infra/v3/ops/install-sentry-dsn.sh",
         "infra/v3/backup/install-systemd.sh",
         "infra/v3/backup/restore-drill.sh",
+        "infra/v3/deploy.sh",
         "infra/v3/deploy-web-only.sh",
     ):
         assert f"bash -n {script}" in syntax_step["run"]
+
+
+def test_v3_ci_forbids_dynamic_schema_creation_in_v3_app_code():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    backend_steps = workflow["jobs"]["backend"]["steps"]
+    forbidden_step = next(step for step in backend_steps if step.get("name") == "Forbidden V3 patterns")
+    run = forbidden_step["run"]
+
+    assert '! grep -RI "create_all" src web --exclude-dir=__pycache__' in run
+    assert '! grep -RI "init_database\\|init_db" src web --exclude-dir=__pycache__' in run
+
+
+def test_v3_ci_migration_job_proves_full_local_db_roundtrip_and_extensions():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    migration_steps = workflow["jobs"]["migrations"]["steps"]
+    roundtrip_step = next(step for step in migration_steps if step.get("name") == "Migration roundtrip")
+    run = roundtrip_step["run"]
+
+    assert "alembic upgrade head" in run
+    assert "alembic current" in run
+    assert "pg_extension" in run
+    assert "pg_trgm,postgis,vector" in run
+    assert "alembic downgrade base" in run
+    assert "alembic downgrade -1" in run
 
 
 def test_v3_ci_verifies_non_db_launch_ops_report_artifact():
@@ -241,6 +267,7 @@ def test_v3_ci_verifies_non_db_launch_ops_report_artifact():
         and step.get("run") == "python scripts/audit_non_db_launch_ops.py --verify-report reports/non_db_launch_ops_blockers.json"
         for step in backend_steps
     )
+
 
 def test_v3_ci_runs_launch_action_behavior_test():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
@@ -295,3 +322,10 @@ def test_v3_ci_runs_lighthouse_seo_gate():
     assert 'isSinglePageApplication: true' in lighthouse_config
     assert '"categories:seo": ["error", { minScore: 0.9' in lighthouse_config
     assert 'target: "filesystem"' in lighthouse_config
+
+
+def test_v3_deploy_reloads_caddy_and_runs_live_launch_verification():
+    deploy_script = VPS_DEPLOY_PATH.read_text(encoding="utf-8")
+
+    assert "up -d --force-recreate --no-deps internal_caddy" in deploy_script
+    assert 'npm run verify:launch:live' in deploy_script
