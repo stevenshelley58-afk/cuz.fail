@@ -24,6 +24,13 @@ jobs:
         run: python -m mypy src tests/test_v3_api_shell.py
       - name: Import contracts
         run: lint-imports --config pyproject.toml
+      - name: Ops shell syntax
+        shell: bash
+        run: |
+          bash -n infra/v3/ops/guardrail-alerts.sh
+          bash -n infra/v3/backup/install-systemd.sh
+          bash -n infra/v3/backup/restore-drill.sh
+          bash -n infra/v3/deploy-web-only.sh
       - name: Tests
         run: python -m pytest -q
       - name: Forbidden V3 patterns

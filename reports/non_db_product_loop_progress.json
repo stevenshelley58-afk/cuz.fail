@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:07:57+08:00",
+  "captured_at": "2026-06-13T01:09:31+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -102,14 +102,15 @@
         "uv run python scripts/ops_guardrails.py backup-config --env-path <temp fixture> --json passed",
         "uv run python scripts/ops_guardrails.py guardrail-cron --path <temp fixture> --json passed",
         "scripts/audit_non_db_launch_ops.py refreshes VPS ops blocker evidence over read-only SSH",
-        "scripts/ops_guardrails.py uptime-monitor-doc verifies docs/ops/uptime-monitor.md has provisioned monitor IDs before the uptime monitor blocker is closed"
+        "scripts/ops_guardrails.py uptime-monitor-doc verifies docs/ops/uptime-monitor.md has provisioned monitor IDs before the uptime monitor blocker is closed",
+        ".github/workflows/ci.yml runs bash -n over ops/deploy shell scripts on Ubuntu, with tests/test_v3_infra_contract.py locking the gate"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
         "Provision uptime monitor account targets and record monitor IDs",
         "Set SENTRY_DSN in VPS env",
         "Run spend persistence restart check after a governed LLM spend event exists",
-        "Run bash -n infra/v3/ops/guardrail-alerts.sh on a Linux/Bash-capable host; local Windows Bash failed with REGDB_E_CLASSNOTREG"
+        "Rely on the Ubuntu CI bash syntax gate for shell validation; local Windows Bash failed with REGDB_E_CLASSNOTREG"
       ]
     }
   },
@@ -130,6 +131,7 @@
     "uv run python scripts/ops_guardrails.py backup-config --env-path <fixture backup.env> --json",
     "uv run python scripts/ops_guardrails.py guardrail-cron --path <fixture draftcheck-guardrails> --json",
     "uv run python scripts/ops_guardrails.py uptime-monitor-doc --path docs/ops/uptime-monitor.md --json",
+    "CI Ubuntu: bash -n infra/v3/ops/guardrail-alerts.sh infra/v3/backup/install-systemd.sh infra/v3/backup/restore-drill.sh infra/v3/deploy-web-only.sh",
     "uv run pytest tests/test_audit_non_db_launch_ops.py -q",
     "uv run python scripts/audit_non_db_launch_ops.py --output reports/non_db_launch_ops_blockers.json",
     "npm.cmd run build",

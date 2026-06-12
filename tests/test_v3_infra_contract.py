@@ -19,6 +19,7 @@ OPS_RUNBOOK_PATH = ROOT / "docs" / "ops" / "ops-guardrails.md"
 WEB_ONLY_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy-web-only.sh"
 JOURNALD_RETENTION_PATH = ROOT / "infra" / "v3" / "ops" / "journald-draftcheck.conf"
 DOCKER_LOG_ROTATION_PATH = ROOT / "infra" / "v3" / "ops" / "docker-daemon-log-rotation.json"
+CI_WORKFLOW_PATH = ROOT / ".github" / "workflows" / "ci.yml"
 
 
 def _active_caddy_text() -> str:
@@ -172,3 +173,18 @@ def test_v3_log_retention_configs_cap_journald_and_docker_json_logs():
 
     assert "journald-draftcheck.conf" in runbook
     assert "docker-daemon-log-rotation.json" in runbook
+
+
+def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    backend_steps = workflow["jobs"]["backend"]["steps"]
+    syntax_step = next(step for step in backend_steps if step.get("name") == "Ops shell syntax")
+
+    assert syntax_step["shell"] == "bash"
+    for script in (
+        "infra/v3/ops/guardrail-alerts.sh",
+        "infra/v3/backup/install-systemd.sh",
+        "infra/v3/backup/restore-drill.sh",
+        "infra/v3/deploy-web-only.sh",
+    ):
+        assert f"bash -n {script}" in syntax_step["run"]
