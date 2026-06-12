@@ -43,6 +43,12 @@ function ComplianceResultRow({
   onUploadDrawing?: () => void;
 }) {
   const [expanded, setExpanded] = useState(false);
+  const drawingEvidence = item.drawing_evidence ?? {};
+  const hasDrawingEvidence = Object.keys(drawingEvidence).length > 0;
+  const evidenceFactType = typeof drawingEvidence.fact_type === "string" ? drawingEvidence.fact_type : null;
+  const evidenceMethod = typeof drawingEvidence.method === "string" ? drawingEvidence.method : null;
+  const evidenceDocumentFactId =
+    typeof drawingEvidence.document_fact_id === "string" ? drawingEvidence.document_fact_id : null;
 
   return (
     <div
@@ -122,6 +128,27 @@ function ComplianceResultRow({
             </div>
           )}
 
+          {hasDrawingEvidence && (
+            <div
+              style={{
+                background: "#f0fdf4",
+                border: "1px solid #bbf7d0",
+                borderRadius: 6,
+                padding: "8px 12px",
+                marginBottom: 8,
+                fontSize: 12,
+                color: "#166534",
+              }}
+            >
+              <div style={{ fontWeight: 600, marginBottom: 3 }}>Drawing evidence</div>
+              <div>
+                {[evidenceFactType, evidenceMethod, evidenceDocumentFactId ? `fact ${evidenceDocumentFactId}` : null]
+                  .filter(Boolean)
+                  .join(" · ") || "Promoted drawing evidence recorded for this check."}
+              </div>
+            </div>
+          )}
+
           {item.status === "needs_more_info" && (
             <div
               style={{
@@ -133,6 +160,11 @@ function ComplianceResultRow({
               }}
             >
               <div style={{ fontWeight: 500, marginBottom: 4, color: "#92400e" }}>Missing information</div>
+              {item.missing_info_reason && (
+                <div style={{ fontSize: 12, marginBottom: 6 }}>
+                  Reason: {item.missing_info_reason.replace(/_/g, " ")}
+                </div>
+              )}
               {item.missing_data && item.missing_data.length > 0 ? (
                 <ul style={{ margin: "0 0 8px", paddingLeft: 16 }}>
                   {item.missing_data.map((d) => (

@@ -224,6 +224,8 @@ export type ComplianceResultItem = {
   rule_quote: string | null;
   citation: string | null;
   note: string | null;
+  missing_info_reason?: string | null;
+  drawing_evidence?: Record<string, unknown>;
   missing_data?: string[] | null;
 };
 

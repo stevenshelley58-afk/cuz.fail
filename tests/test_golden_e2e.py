@@ -190,6 +190,14 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
         assert result["citation"]
         assert "source_version:" in result["citation"]
         assert result["status"] in {"likely_pass", "likely_fail", "needs_more_info"}
+        assert "missing_info_reason" in result
+        assert "drawing_evidence" in result
+
+    site_cover_result = results_by_key["site_cover"]
+    assert site_cover_result["missing_info_reason"] is None
+    assert site_cover_result["drawing_evidence"]["fact_type"] == "proposed_site_cover_pct"
+    assert site_cover_result["drawing_evidence"]["method"] == "document_extraction_promoted"
+    assert site_cover_result["drawing_evidence"]["document_fact_id"]
 
     persisted_site_cover = db.query(CheckResult).filter(CheckResult.check_key == "site_cover").one()
     assert persisted_site_cover.drawing_evidence_json["fact_type"] == "proposed_site_cover_pct"

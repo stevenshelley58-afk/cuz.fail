@@ -20,7 +20,7 @@ interpreted as final legal, planning, or certification compliance.
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Annotated
+from typing import Annotated, Any
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -59,6 +59,8 @@ class CheckResultItemResponse(BaseModel):
     rule_quote: str | None
     citation: str | None
     note: str | None
+    missing_info_reason: str | None
+    drawing_evidence: dict[str, Any]
 
 
 class ComplianceRunResponse(BaseModel):
@@ -119,6 +121,7 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
     _mv = prop.get("measured_value")
     _ri = req.get("rule_id")
     _note = trace.get("note")
+    _missing_info_reason = trace.get("missing_info_reason")
     return CheckResultItemResponse(
         check_key=row.check_key,
         display_name=_display_map.get(row.check_key, row.check_key),
@@ -130,6 +133,8 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
         rule_quote=row.why_this_applies,
         citation=str(citation) if citation is not None else None,
         note=str(_note) if _note is not None else None,
+        missing_info_reason=str(_missing_info_reason) if _missing_info_reason is not None else None,
+        drawing_evidence=dict(row.drawing_evidence_json or {}),
     )
 
 
