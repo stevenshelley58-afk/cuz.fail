@@ -5,7 +5,8 @@ content-addressed storage tree with `restic`. These commands are operator drill
 notes for the single-VPS target; they are not a submission-ready export or a
 legal compliance claim.
 
-Set the repository and credentials in the operator shell or service manager:
+Set the repository and credentials in the operator shell or service manager.
+Do not commit the real values:
 
 ```sh
 export RESTIC_REPOSITORY='s3:s3.example.invalid/draftcheck-v3-backups'
@@ -57,7 +58,7 @@ docker compose -f infra/v3/compose.yml exec -T db \
 
 docker compose -f infra/v3/compose.yml exec -T db \
   psql -U "$POSTGRES_USER" -d draftcheck_restore_drill \
-  -c "SELECT count(*) AS source_versions FROM source_versions;"
+  -At -c "SELECT count(*) FROM source_versions;"
 ```
 
 Storage drill:
@@ -68,6 +69,33 @@ test -d "$DRILL_DIR/srv/draftcheck/storage"
 ```
 
 Record the backup timestamp, restic snapshot ID, `pg_dump` artifact path,
-`restic check` result, scratch restore duration, checksum or manifest hash, and
-row-count sanity output in the operations audit trail before treating the drill
-as accepted evidence.
+`result: PASS` for both `restic check` and DB restore, scratch restore duration,
+checksum or manifest hash, and normalized `source_versions: N` and
+`job_traces: N` sanity output in the operations audit trail before treating the
+drill as accepted evidence.
+
+## Systemd install
+
+After `/etc/draftcheck/backup.env` and `RESTIC_PASSWORD_FILE` exist on the VPS,
+arm the timer idempotently:
+
+```sh
+sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh
+```
+
+The script installs the checked-in unit files, reloads systemd, enables the
+timer, and prints `systemctl list-timers` evidence.
+
+## Freshness probe
+
+The go-live freshness guard is a timestamp check over restored dump artifacts:
+
+```sh
+python3 /srv/draftcheck/app/scripts/ops_guardrails.py backup-freshness \
+  --backup-dir /srv/draftcheck/backups \
+  --max-age-hours 26 \
+  --json
+```
+
+The command exits `0` when the newest dump is fresh and non-zero when no dump is
+found or the newest dump is older than 26 hours.

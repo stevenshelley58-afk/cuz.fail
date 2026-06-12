@@ -172,6 +172,81 @@ def _extract_numeric(value_json: dict[str, object] | None) -> float | None:
         return None
 
 
+def _extract_text_value(value_json: dict[str, object] | None) -> str | None:
+    """Pull a stable display string from a PropertyFact value_json dict."""
+    if not isinstance(value_json, dict):
+        return None
+    for key in ("value", "name", "label", "code", "council", "council_scope"):
+        raw = value_json.get(key)
+        if raw is not None and str(raw).strip():
+            return str(raw).strip()
+    return None
+
+
+def _project_council_scope(project: Project) -> str | None:
+    council_scope: str | None = project.council_scope
+    if council_scope is None and isinstance(project.metadata_json, dict):
+        raw = project.metadata_json.get("council_scope")
+        council_scope = str(raw) if raw is not None else None
+    return council_scope
+
+
+def _resolve_council_scope(project: Project, fact_by_type: dict[str, PropertyFact]) -> tuple[str | None, str]:
+    """Resolve council from confirmed facts first, then legacy project fields."""
+    council_fact = fact_by_type.get("council")
+    council_from_fact = _extract_text_value(
+        council_fact.value_json if council_fact is not None and isinstance(council_fact.value_json, dict) else None
+    )
+    if council_from_fact:
+        return council_from_fact, "property_fact:council"
+    project_scope = _project_council_scope(project)
+    if project_scope:
+        return project_scope, "project.council_scope"
+    return None, "missing"
+
+
+def _missing_reason(
+    *,
+    rule: Rule | None,
+    measured_value: float | None,
+    threshold_value: float | None,
+    operator: str | None = None,
+    matched_fact: PropertyFact | None = None,
+) -> str | None:
+    if rule is None:
+        return "missing_rule"
+    if matched_fact and matched_fact.method == "assumption":
+        return "assumption_fact_unconfirmed"
+    if measured_value is None:
+        return "missing_measurement_fact"
+    if threshold_value is None:
+        return "missing_rule_threshold"
+    if operator is not None and operator not in _OPERATORS:
+        return "unknown_rule_operator"
+    return None
+
+
+def _drawing_evidence(fact: PropertyFact | None) -> dict[str, object]:
+    """Return provenance for the drawing/property fact used by a check."""
+    if fact is None:
+        return {}
+    value = fact.value_json if isinstance(fact.value_json, dict) else {}
+    provenance = fact.provenance_json if isinstance(fact.provenance_json, dict) else {}
+    evidence: dict[str, object] = {
+        "property_fact_id": str(fact.id),
+        "fact_type": fact.fact_type,
+        "method": fact.method,
+        "confidence": fact.confidence,
+        "value_json": value,
+        "provenance_json": provenance,
+    }
+    for key in ("document_fact_id", "source_document_id", "source_fact_id"):
+        raw = value.get(key) or provenance.get(key)
+        if raw is not None:
+            evidence[key] = str(raw)
+    return evidence
+
+
 def _get_applicable_rules(
     session: Session,
     *,
@@ -245,15 +320,7 @@ class ComplianceEngine:
             raise ValueError(f"Project {project_id} not found")
 
         # ------------------------------------------------------------------
-        # 2. Resolve council_scope — prefer promoted column, fall back to JSON
-        # ------------------------------------------------------------------
-        council_scope: str | None = project.council_scope
-        if council_scope is None and isinstance(project.metadata_json, dict):
-            raw = project.metadata_json.get("council_scope")
-            council_scope = str(raw) if raw is not None else None
-
-        # ------------------------------------------------------------------
-        # 3. Load PropertyFacts for this project (needed before rule filtering)
+        # 2. Load PropertyFacts for this project (needed before rule filtering)
         # ------------------------------------------------------------------
         facts: list[PropertyFact] = (
             session.query(PropertyFact)
@@ -267,6 +334,11 @@ class ComplianceEngine:
         fact_by_type: dict[str, PropertyFact] = {}
         for fact in sorted(facts, key=lambda f: f.created_at):
             fact_by_type[fact.fact_type] = fact
+
+        # ------------------------------------------------------------------
+        # 3. Resolve council_scope from confirmed PropertyFacts first.
+        # ------------------------------------------------------------------
+        council_scope, council_scope_source = _resolve_council_scope(project, fact_by_type)
 
         # Extract zone and r_code codes for rule applicability filtering
         zone_codes: list[str] = []
@@ -336,7 +408,7 @@ class ComplianceEngine:
                     rule_id=None,
                     rule_quote=None,
                     citation=None,
-                    note="No approved rule found for this check key",
+                    note="missing_rule: no approved rule found for this check key",
                 )
                 results.append(item)
                 continue
@@ -378,26 +450,43 @@ class ComplianceEngine:
                     rule_id=str(rule.id),
                     rule_quote=rule.quote,
                     citation=citation,
-                    note="Fact sourced from assumption; confirmation required before compliance use",
+                    note="assumption_fact_unconfirmed: fact sourced from assumption; confirmation required before compliance use",
                 )
                 results.append(item)
                 any_missing = True
                 continue
 
+            missing_reason: str | None = None
             if measured_value is None:
                 status = "needs_more_info"
-                note = f"No measurement provided (expected fact_type in: {fact_keys})"
+                missing_reason = _missing_reason(
+                    rule=rule,
+                    measured_value=measured_value,
+                    threshold_value=threshold_value,
+                )
+                note = f"{missing_reason}: no measurement provided (expected fact_type in: {fact_keys})"
                 any_missing = True
             elif threshold_value is None:
                 status = "needs_more_info"
-                note = "Rule threshold value is missing or non-numeric"
+                missing_reason = _missing_reason(
+                    rule=rule,
+                    measured_value=measured_value,
+                    threshold_value=threshold_value,
+                )
+                note = f"{missing_reason}: rule threshold value is missing or non-numeric"
                 any_missing = True
             else:
                 operator = _normalize_operator(rule.operator)
                 op_fn = _OPERATORS.get(operator)
                 if op_fn is None:
                     status = "needs_more_info"
-                    note = f"Unknown operator '{operator}' in rule"
+                    missing_reason = _missing_reason(
+                        rule=rule,
+                        measured_value=measured_value,
+                        threshold_value=threshold_value,
+                        operator=operator,
+                    )
+                    note = f"{missing_reason}: unknown operator '{operator}' in rule"
                     any_missing = True
                 else:
                     try:
@@ -405,7 +494,8 @@ class ComplianceEngine:
                     except Exception as exc:
                         logger.warning("Operator evaluation error for %s: %s", check_key, exc)
                         status = "needs_more_info"
-                        note = f"Evaluation error: {exc}"
+                        missing_reason = "evaluation_error"
+                        note = f"{missing_reason}: {exc}"
                         any_missing = True
                     else:
                         status = "likely_pass" if passes else "likely_fail"
@@ -450,6 +540,7 @@ class ComplianceEngine:
                     "engine_version": ENGINE_VERSION,
                     "matched_on": "rule_key",
                     "council_scope": council_scope,
+                    "council_scope_source": council_scope_source,
                 },
                 citations_json=[citation] if citation else [],
             )
@@ -482,7 +573,9 @@ class ComplianceEngine:
                     "measured": measured_value,
                     "result": status,
                     "note": note,
+                    "missing_info_reason": missing_reason,
                 },
+                drawing_evidence_json=_drawing_evidence(matched_fact),
                 pathway_note=rule.pathway if rule.pathway != "none" else None,
             )
             session.add(check_result)

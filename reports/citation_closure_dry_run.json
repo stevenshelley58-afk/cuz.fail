@@ -1,0 +1,1204 @@
+{
+  "wp": "WP5",
+  "worker": "wp5-fd71eda273e8",
+  "dry_run": true,
+  "summary": {
+    "versions": 5,
+    "resolved": 44,
+    "unresolved_manifest_rows": 81,
+    "edges": 127,
+    "errors": 0
+  },
+  "remaining_queue_count": 5,
+  "escalations": [],
+  "versions": [
+    {
+      "source_version_id": "0baf9a9a-198f-4a8e-97cb-cd988cf46872",
+      "source_id": "d1c766c3-52dd-53ec-bb1d-f0d6551b2023",
+      "title": "Australian Marine Complex Technology Precinct Structure Plan - WAPC Reference: SPN/0820 (PDF, 16.89MB)",
+      "source_type": "structure_plan",
+      "resolved": 0,
+      "unresolved_manifest_rows": 1,
+      "edges": 1,
+      "items": [
+        {
+          "chunk_id": "15ba5329-1f0e-4676-bade-427a0f04a150",
+          "chunk_index": 19,
+          "reference": "Environmental Protection Act 1986",
+          "quote": "The Environmental protection (Kwinana) (Atmospheric Wastes) Policy was prepared under the Environmental Protection Act 1986 to maintain an acceptable air quality around the Kwinana Industrial Area, The Policy divides the area into three land use areas being, heavy industry, a buffer area for the heavy industry and land predominantly for rural and residential uses.",
+          "target_manifest_id": "20e5df7a-f123-518e-a6bb-77c200b82b37",
+          "resolved": false,
+          "edge_id": "40ae700d-86e3-58f5-bfcd-e3b5d646de55"
+        }
+      ]
+    },
+    {
+      "source_version_id": "561412f8-ce01-4dfd-8f8d-6a6ca445c1fc",
+      "source_id": "d1c766c3-52dd-53ec-bb1d-f0d6551b2023",
+      "title": "Australian Marine Complex Technology Precinct Structure Plan - WAPC Reference: SPN/0820 (PDF, 16.89MB)",
+      "source_type": "structure_plan",
+      "resolved": 0,
+      "unresolved_manifest_rows": 0,
+      "edges": 1,
+      "items": [
+        {
+          "no_references": true,
+          "edge_id": "6523fdd4-4de1-5531-a326-838f59b0d345"
+        }
+      ]
+    },
+    {
+      "source_version_id": "63af95fc-5233-4f68-90ed-6eef35867462",
+      "source_id": "d1c766c3-52dd-53ec-bb1d-f0d6551b2023",
+      "title": "Australian Marine Complex Technology Precinct Structure Plan - WAPC Reference: SPN/0820 (PDF, 16.89MB)",
+      "source_type": "structure_plan",
+      "resolved": 0,
+      "unresolved_manifest_rows": 0,
+      "edges": 1,
+      "items": [
+        {
+          "no_references": true,
+          "edge_id": "f933060f-0584-5bd2-9733-05ab709b8e76"
+        }
+      ]
+    },
+    {
+      "source_version_id": "f8b62acc-342a-4472-9442-115374837048",
+      "source_id": "4a1143ab-3e58-5ac6-a643-fe324ab821a1",
+      "title": "Barfield Road Structure Plan - WAPC Reference SPN 0467M-5 (PDF, 97.22MB)",
+      "source_type": "structure_plan",
+      "resolved": 44,
+      "unresolved_manifest_rows": 78,
+      "edges": 122,
+      "items": [
+        {
+          "chunk_id": "e71d4aa6-669d-482f-a2e4-ed010bf285ca",
+          "chunk_index": 10,
+          "reference": "State Planning Policy 5.4",
+          "quote": "Construction standards to achieve quiet housing design in accordance with State Planning Policy 5.4 Road and Rail Noise.",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "cc9944e9-b29a-5d38-8d60-f323e7c39e89"
+        },
+        {
+          "chunk_id": "77a08af6-b165-4819-ba58-8ead52021cac",
+          "chunk_index": 11,
+          "reference": "Building Code of Australia",
+          "quote": "Any land falling within 100 metres of a bushfire hazard identified in the BFHA/ FMP is designated as a Bushfire Prone Area for the purpose of the Building Code of Australia.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "1d1b6501-39ed-520d-98cd-2037b3cec6f5"
+        },
+        {
+          "chunk_id": "dd6f2396-f700-47b2-9f8f-1a2722e3d932",
+          "chunk_index": 12,
+          "reference": "R-CODES",
+          "quote": "RIC HAM TG SB NT EH 221214 220304 DRAWNREV APPR'DYYMMDDDESCRIPTION UPDATE R-CODES UPDATE PCA + LEGEND P O LAND WITH AN INDICATIVE BAL RATING OF BAL-19 AND/OR BAL-29 AND/OR BAL-40 NOT CAPABLE OF BEING DEVELOPED UNTIL THE ADJOINING BUSHFIRE HAZARD IS REMOVED DEVELOPMENT SUBJECT TO DWELLING CONSTRUCTION UNDER AS3959-2009 PLANNING CONTROL AREA No.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "27539de6-0867-5bb3-a081-fd98b244f7e2"
+        },
+        {
+          "chunk_id": "6acd9bf6-8038-4dde-b9a5-c6986cba3665",
+          "chunk_index": 30,
+          "reference": "R-CODES",
+          "quote": "RIC HAM TG SB NT EH 221214 220304 DRAWNREV APPR'DYYMMDDDESCRIPTION UPDATE R-CODES UPDATE PCA + LEGEND P O LAND WITH AN INDICATIVE BAL RATING OF BAL-19 AND/OR BAL-29 AND/OR BAL-40 NOT CAPABLE OF BEING DEVELOPED UNTIL THE ADJOINING BUSHFIRE HAZARD IS REMOVED DEVELOPMENT SUBJECT TO DWELLING CONSTRUCTION UNDER AS3959-2009 PLANNING CONTROL AREA No.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "1223461e-3f54-5eb7-9e27-3199dbce619e"
+        },
+        {
+          "chunk_id": "959b25d9-6d05-4f54-aabc-513603b23535",
+          "chunk_index": 31,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "SB EH220304 DRAWNREV APPR'DYYMMDDDESCRIPTION ADD TO LEGENDB RD1 201 500 metres 100 150 200SIZE A4_1:5000 LEGEND STRUCTURE PLAN AREA PLANNING CONTROL AREA 156 WESTERN POWER EASEMENT RESIDENTIAL DESIGN CODES REF NO.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "764a37ca-7b73-543c-87ca-62ab5155bc4e"
+        },
+        {
+          "chunk_id": "b4822935-1871-4934-a5d2-478515b64787",
+          "chunk_index": 38,
+          "reference": "State Planning Policy 2.9",
+          "quote": "6 Water Management A revised Water Management Strategy (LWMS) for the Structure Plan area has been developed in accordance with Better Urban Water Management (DOW 2008), State Planning Policy 2.9 Water Resources (WAPC 2006) and Planning Bulletin 92 Urban Water Management (WAPC 2008).",
+          "target_manifest_id": "4c391a01-4702-579f-b0b4-0e7262296d57",
+          "resolved": true,
+          "edge_id": "33353f92-3170-5dbc-b402-dcdb16972f70"
+        },
+        {
+          "chunk_id": "879e5b15-8524-41c8-8827-0355346fe284",
+          "chunk_index": 51,
+          "reference": "Environmental Protection and Biodiversity Conservation Act 1999",
+          "quote": "\u2022 Pursuant to the Environmental Protection and Biodiversity Conservation Act 1999 (EPBC act), one threatened ecological community (TEC), Banksia Woodlands of the Swan Coastal Plain, was identified within the site.",
+          "target_manifest_id": "e639e920-fc12-545f-aff1-140cf86ba907",
+          "resolved": false,
+          "edge_id": "18926fcc-a0b3-5669-abfd-c6898696d220"
+        },
+        {
+          "chunk_id": "879e5b15-8524-41c8-8827-0355346fe284",
+          "chunk_index": 51,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "Banksia Woodlands of the Swan Coastal Plain is also listed as a Priority 3 Priority Ecological Community (PEC) under the state Biodiversity Conservation Act 2016 (BC act).",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "0b206eaa-e62a-5fd0-9f4e-40296c0c3fec"
+        },
+        {
+          "chunk_id": "765aa534-b3ef-489a-b67b-e3686346b193",
+          "chunk_index": 53,
+          "reference": "State Planning Policy 5.4",
+          "quote": "\u2022 The site is mapped as occurring within the State Planning Policy 5.4 Rail and Noise corridor associated with Kwinana Freeway.",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "780c63f8-7183-5842-be2b-1048ff7a114b"
+        },
+        {
+          "chunk_id": "6ca9005f-61c6-41ad-bb61-ceb96fe9363f",
+          "chunk_index": 55,
+          "reference": "State Planning Policy 3.7",
+          "quote": "The identification of a site within an area declared as bushfire prone necessitates a further assessment of the determined bushfire risk affecting the site in accordance with Australian Standard 3959:2018 Construction of buildings in bushfire prone areas (AS 3959), and the satisfactory compliance of the proposal with the policy measures described in State Planning Policy 3.7 Planning in Bushfire Prone Areas (SPP 3.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "4397227f-566a-5d36-80e5-b634566032ae"
+        },
+        {
+          "chunk_id": "d4c789d7-6161-4d9b-bb32-93acb5355610",
+          "chunk_index": 61,
+          "reference": "BC Act Biodiversity Conservation Act 2016",
+          "quote": ": EP22-099(04)--006B LSW| Version: B Project number: EP22-099(04)|November 2023 Page viii List of Abbreviations Table A1: Abbreviations \u2013 General terms General terms AHD Australian Height Datum AHIS Aboriginal Heritage Inquiry System ASS Acid Sulfate Soil ASSDMP Acid Sulfate Soil and Dewatering Management Plan DBH Diameter at Breast Height EAMS Environmental Assessment and Management Strategy ESA Environmentally sensitive area CC Carnaby\u2019s Black Cockatoo BC Baudin\u2019s Black Cockatoo FRTBC Forest red-tailed black cockatoo IBRA Interim Biogeographic Regionalisation of Australia LWMS Local Water Management Strategy PEC Priority ecological community PDWSA Public drinking water source area TEC Threatened ecological community UWMP Urban Water Management Plan Table A2: Abbreviations \u2013 Legislation and policies Legislation and policies BC Act Biodiversity Conservation Act 2016 EP Act Environmental Protection Act 1986 EPBC Act Environment Protection and Biodiversity Conservation Act 1999",
+          "target_manifest_id": "bab7d7dd-88f6-5185-8c40-5a1ba14df171",
+          "resolved": false,
+          "edge_id": "102e174f-35eb-5d98-a23b-07636fa2606b"
+        },
+        {
+          "chunk_id": "d4c789d7-6161-4d9b-bb32-93acb5355610",
+          "chunk_index": 61,
+          "reference": "EP Act Environmental Protection Act 1986",
+          "quote": ": EP22-099(04)--006B LSW| Version: B Project number: EP22-099(04)|November 2023 Page viii List of Abbreviations Table A1: Abbreviations \u2013 General terms General terms AHD Australian Height Datum AHIS Aboriginal Heritage Inquiry System ASS Acid Sulfate Soil ASSDMP Acid Sulfate Soil and Dewatering Management Plan DBH Diameter at Breast Height EAMS Environmental Assessment and Management Strategy ESA Environmentally sensitive area CC Carnaby\u2019s Black Cockatoo BC Baudin\u2019s Black Cockatoo FRTBC Forest red-tailed black cockatoo IBRA Interim Biogeographic Regionalisation of Australia LWMS Local Water Management Strategy PEC Priority ecological community PDWSA Public drinking water source area TEC Threatened ecological community UWMP Urban Water Management Plan Table A2: Abbreviations \u2013 Legislation and policies Legislation and policies BC Act Biodiversity Conservation Act 2016 EP Act Environmental Protection Act 1986 EPBC Act Environment Protection and Biodiversity Conservation Act 1999",
+          "target_manifest_id": "8b562c94-6066-5f03-b876-87984d2a6396",
+          "resolved": false,
+          "edge_id": "3025271d-0d49-5ca7-9914-dbe137601967"
+        },
+        {
+          "chunk_id": "d4c789d7-6161-4d9b-bb32-93acb5355610",
+          "chunk_index": 61,
+          "reference": "EPBC Act Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": ": EP22-099(04)--006B LSW| Version: B Project number: EP22-099(04)|November 2023 Page viii List of Abbreviations Table A1: Abbreviations \u2013 General terms General terms AHD Australian Height Datum AHIS Aboriginal Heritage Inquiry System ASS Acid Sulfate Soil ASSDMP Acid Sulfate Soil and Dewatering Management Plan DBH Diameter at Breast Height EAMS Environmental Assessment and Management Strategy ESA Environmentally sensitive area CC Carnaby\u2019s Black Cockatoo BC Baudin\u2019s Black Cockatoo FRTBC Forest red-tailed black cockatoo IBRA Interim Biogeographic Regionalisation of Australia LWMS Local Water Management Strategy PEC Priority ecological community PDWSA Public drinking water source area TEC Threatened ecological community UWMP Urban Water Management Plan Table A2: Abbreviations \u2013 Legislation and policies Legislation and policies BC Act Biodiversity Conservation Act 2016 EP Act Environmental Protection Act 1986 EPBC Act Environment Protection and Biodiversity Conservation Act 1999",
+          "target_manifest_id": "f5255c95-5414-588c-a629-44459a2011ce",
+          "resolved": false,
+          "edge_id": "82b70be8-3793-5c52-84a0-0a4483c0a025"
+        },
+        {
+          "chunk_id": "7dde21b4-07ec-47a0-a246-980652737f99",
+          "chunk_index": 66,
+          "reference": "State Planning Policy 5.4",
+          "quote": "sources including local and regional reports (including reports that have been previously prepared for the first Barfield Road Local Structure Plan (LSP) and the broader landholding), databases, mapping and site-specific investigations, including: \u2022 Various publicly available databases and information sources \u2022 Environmental Assessment Report - Lots 13, 14 and 18 Barfield Road and Lots 48-51 Rowley Road, Hammond Park (Endplan Environmental 2012) \u2022 Bushfire Management Plan Addendum: Vivente Structure Plan Amendment (Lot 16 Barfield Road) \u2013 (JBS & G 2023) \u2022 State Planning Policy 5.4 Road and Rail Transport Noise and Freight Considerations in Land Use Planning WAPC (2009).",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "c35b4537-8918-5082-b142-3662b1b21d04"
+        },
+        {
+          "chunk_id": "b660d466-230e-42bb-aa61-f4e0cd7471c3",
+          "chunk_index": 70,
+          "reference": "Aboriginal Cultural Heritage Act 2021",
+          "quote": "As of the 1st July 2023 the new Aboriginal Cultural Heritage Act 2021 has come into effect and has replaced the Aboriginal Heritage Act 1972.",
+          "target_manifest_id": "b5117eab-2412-5609-af5d-d422379ca213",
+          "resolved": false,
+          "edge_id": "4e2f40f1-1d67-5b15-9671-faffff173816"
+        },
+        {
+          "chunk_id": "b660d466-230e-42bb-aa61-f4e0cd7471c3",
+          "chunk_index": 70,
+          "reference": "Aboriginal Heritage Act 1972",
+          "quote": "As of the 1st July 2023 the new Aboriginal Cultural Heritage Act 2021 has come into effect and has replaced the Aboriginal Heritage Act 1972.",
+          "target_manifest_id": "b12ef51a-aaca-5d6a-ae0f-c46e74d5b531",
+          "resolved": false,
+          "edge_id": "9d67de5d-c3dd-5b3c-830e-54c2362eb7c0"
+        },
+        {
+          "chunk_id": "b660d466-230e-42bb-aa61-f4e0cd7471c3",
+          "chunk_index": 70,
+          "reference": "State Planning Policy 5.4",
+          "quote": "Surrounding land uses The site lies within 300 m of a Strategic freight and major traffic route, Kwinana Freeway, as mapped on the State Planning Policy 5.4 Road and Rail Noise noise level contour mapping.",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "9c130a3a-de47-5782-a1b2-a47fb12c5c28"
+        },
+        {
+          "chunk_id": "7ffde50b-f572-456d-b967-8dd20c1a836d",
+          "chunk_index": 76,
+          "reference": "Environmental Protection and Biodiversity Conservation Act 1999",
+          "quote": "Selected TECs are afforded statutory protection at a Commonwealth level under the Environmental Protection and Biodiversity Conservation Act 1999 (EPBC Act).",
+          "target_manifest_id": "e639e920-fc12-545f-aff1-140cf86ba907",
+          "resolved": false,
+          "edge_id": "d88b8379-2eb2-5526-bb30-fb6f5aca6fec"
+        },
+        {
+          "chunk_id": "7ffde50b-f572-456d-b967-8dd20c1a836d",
+          "chunk_index": 76,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "Within Western Australia, state-listed threatened flora and TECs (once declared) are statutorily protected through the Biodiversity Conservation Act 2016 (BC Act), and licences (or similar) may be required where these values are proposed to be disturbed or modified.",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "95cd09da-5208-5a09-9d60-8ad95aa12d00"
+        },
+        {
+          "chunk_id": "a233245c-8889-45a4-8761-1fd8ef0a9b82",
+          "chunk_index": 82,
+          "reference": "Planning and Development Act 2005",
+          "quote": "apply, including any clearing in accordance with a subdivision approval under the Planning and Development Act 2005 (a recognised exemption under the Schedule 6 of the EP Act).",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "857edacf-24d9-5519-9469-7e0c1418ce22"
+        },
+        {
+          "chunk_id": "a233245c-8889-45a4-8761-1fd8ef0a9b82",
+          "chunk_index": 82,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "At a Commonwealth level, fauna taxa may be listed as \u2018threatened\u2019 under the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act).",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "30c0c9a2-a843-578b-87b5-b24e7e1c5654"
+        },
+        {
+          "chunk_id": "98a9a955-7284-4ebd-815f-65dfafe6d2f5",
+          "chunk_index": 84,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "In Western Australia fauna species may also be classed as \u2018threatened\u2019 under the Biodiversity Conservation Act 2016 (BC Act).",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "983b3f8c-24c6-5361-8e5b-0540a00c0723"
+        },
+        {
+          "chunk_id": "3a39688a-8d37-4586-a706-d0b30f2283c5",
+          "chunk_index": 90,
+          "reference": "Sewerage and Drainage Act 1909",
+          "quote": "They are proclaimed under the Metropolitan Water Supply, Sewerage and Drainage Act 1909 or the Country Areas Water Supply Act 1947 as Water Reserves, Catchment Areas or Underground Water Pollution Control Areas.",
+          "target_manifest_id": "bff32a73-8598-53de-86fb-3f724f1c0105",
+          "resolved": false,
+          "edge_id": "a17df11b-f0c2-5d8e-b12f-f3ca470a5889"
+        },
+        {
+          "chunk_id": "3a39688a-8d37-4586-a706-d0b30f2283c5",
+          "chunk_index": 90,
+          "reference": "Country Areas Water Supply Act 1947",
+          "quote": "They are proclaimed under the Metropolitan Water Supply, Sewerage and Drainage Act 1909 or the Country Areas Water Supply Act 1947 as Water Reserves, Catchment Areas or Underground Water Pollution Control Areas.",
+          "target_manifest_id": "2825dcca-b3cd-50ad-b35b-832f4e8af88d",
+          "resolved": false,
+          "edge_id": "250b09e9-6768-5267-aaf4-4f3d118f4ca2"
+        },
+        {
+          "chunk_id": "3a39688a-8d37-4586-a706-d0b30f2283c5",
+          "chunk_index": 90,
+          "reference": "Aboriginal Heritage Act 1972",
+          "quote": "1 Indigenous heritage The Aboriginal Heritage Inquiry System (AHIS) was maintained pursuant to Section 38 of the Aboriginal Heritage Act 1972 (AHA) by the Department of Planning, Lands and Heritage, containing information on Registered Aboriginal Heritages Sites and Other Heritage Places throughout Western Australia.",
+          "target_manifest_id": "b12ef51a-aaca-5d6a-ae0f-c46e74d5b531",
+          "resolved": false,
+          "edge_id": "08eb4946-9696-56bf-8b2f-0f772c8fb2da"
+        },
+        {
+          "chunk_id": "a3ec8621-042a-410c-a09c-1c675fa7841a",
+          "chunk_index": 92,
+          "reference": "Contaminated Sites Act 2003",
+          "quote": "2 Potential site contamination A review of the DWER Contaminated Sites Database indicates that the site is not registered as a contaminated site pursuant to the Contaminated Sites Act 2003, nor are other registered sites located nearby.",
+          "target_manifest_id": "4892e92d-69be-5098-9414-e5ed9aa7106c",
+          "resolved": false,
+          "edge_id": "efef41cb-95b4-56d4-b1b1-67d72f107694"
+        },
+        {
+          "chunk_id": "6f8cde7d-25e2-420f-8f42-b1641401fc22",
+          "chunk_index": 94,
+          "reference": "State Planning Policy 5.4",
+          "quote": "The site is mapped by the State Planning Policy 5.4 Rail and Noise noise level contour map as occurring within 300 metres of a strategic freight and major traffic route, associated with Kwinana Freeway.",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "d25a0e4e-356b-5a11-bada-3f72959684c4"
+        },
+        {
+          "chunk_id": "dbc98f05-ad09-471f-b755-c612e804fbc8",
+          "chunk_index": 95,
+          "reference": "State Planning Policy 3.7",
+          "quote": "The identification of a site within an area declared as bushfire prone necessitates a further assessment of the determined bushfire risk affecting the site in accordance with Australian Standard 3959:2018 Construction of buildings in bushfire prone areas (AS 3959), and the satisfactory compliance of the proposal with the policy measures described in State Planning Policy 3.7 Planning in Bushfire Prone Areas (SPP 3.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "e57056b5-d344-597c-b1c5-93a2afef130f"
+        },
+        {
+          "chunk_id": "8fe96738-3874-4e4d-a4dc-8500aa3ed640",
+          "chunk_index": 109,
+          "reference": "State Planning Policy 5.4",
+          "quote": "The site is mapped on the State Planning Policy 5.4 Rail and Noise noise level contour map as occurring within 300 m of a strategic freight and major traffic route associated with Kwinana freeway, meaning an assessment must be undertaken to determine the likely level of transport noise and mitigation required.",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "d9a2ed2f-404f-5b02-b356-4f432cd3a433"
+        },
+        {
+          "chunk_id": "8fe96738-3874-4e4d-a4dc-8500aa3ed640",
+          "chunk_index": 109,
+          "reference": "State Planning Policy 3.7",
+          "quote": "1 Policy framework, site context and management objectives State Planning Policy 3.7 Planning in Bushfire Prone Areas (SPP3.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "c87163ed-af3e-537c-8382-4bfcae80f3f3"
+        },
+        {
+          "chunk_id": "184d9249-23ff-446f-9ec8-4ab82288803f",
+          "chunk_index": 115,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "\u2022 If required, obtain and implement licences pursuant to the Biodiversity Conservation Act 2016 to disturb/relocate fauna prior to works commencing.",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "334f2336-5f01-58a9-9de8-2349f2b9fe0e"
+        },
+        {
+          "chunk_id": "976384ed-7384-4aa4-9b45-cd8c7b301d81",
+          "chunk_index": 119,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "At development phase, if required, licences pursuant to the Biodiversity Conservation Act 2016 to disturb/relocate fauna should be obtained and implemented prior to works commencing.",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "915f0668-7231-52d5-9d8d-25717e74c546"
+        },
+        {
+          "chunk_id": "bc030012-d60d-4d75-a82d-cccba77db54a",
+          "chunk_index": 121,
+          "reference": "State Planning Policy 5.4",
+          "quote": "\u2022 Surrounding land uses: The site is mapped by the State Planning Policy 5.4 Rail and Noise noise level contour map as occurring within 300 metres of a strategic freight and major traffic route which triggers a requirement that a noise assessment be undertaken for the site.",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "ced2cb12-2ffd-5c49-b58c-a1c3d049d686"
+        },
+        {
+          "chunk_id": "2158bd0e-6609-418f-b49b-81410bd79b8a",
+          "chunk_index": 125,
+          "reference": "State Planning Policy 3.7",
+          "quote": "Western Australian Planning Commission (WAPC) 2015a, State Planning Policy 3.7 Planning in Bushfire Prone Areas, Perth.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "d978ece5-dc81-51d5-a68c-eb0dd432a554"
+        },
+        {
+          "chunk_id": "7b161997-c359-4ae2-8a4c-b52d24a8cbbd",
+          "chunk_index": 152,
+          "reference": "Legislation BAM Act Biosecurity and Agriculture Management Act 2007",
+          "quote": "Abbreviation Tables Table A1: Abbreviations \u2013 Organisations Organisations EPA Environmental Protection Authority DBCA Department of Biodiversity, Conservation and Attractions DWER Department of Water and Environmental Regulation WALGA Western Australia Local Government Association Table A2: Abbreviations \u2013 General terms General terms FCT Floristic community type IBRA Interim Biogeographic Regionalisation of Australia NVIS National Vegetation Inventory System (ESCAVI 2003) P3 Priority 3 P4 Priority 4 PEC Priority ecological community TEC Threatened ecological communities Table A3: Abbreviations \u2013 Legislation Legislation BAM Act Biosecurity and Agriculture Management Act 2007 EP Act Environmental Protection Act 1986 EPBC Act Environment Protection and Biodiversity Conservation Act 1999 BC Act Biodiversity Conservation Act 2016 BC Regs Biodiversity Conservation Regulations 2018 Table A5: Abbreviations \u2013 Units of measurement Units of measurement ha Hectare m AHD m in relation to the Australian height datum mm Millimetre",
+          "target_manifest_id": "5e14db03-26e3-5e1b-b2b0-35dc028eb007",
+          "resolved": false,
+          "edge_id": "0b0e4f94-fb66-55bc-9429-1a5967562e1b"
+        },
+        {
+          "chunk_id": "7b161997-c359-4ae2-8a4c-b52d24a8cbbd",
+          "chunk_index": 152,
+          "reference": "EP Act Environmental Protection Act 1986",
+          "quote": "Abbreviation Tables Table A1: Abbreviations \u2013 Organisations Organisations EPA Environmental Protection Authority DBCA Department of Biodiversity, Conservation and Attractions DWER Department of Water and Environmental Regulation WALGA Western Australia Local Government Association Table A2: Abbreviations \u2013 General terms General terms FCT Floristic community type IBRA Interim Biogeographic Regionalisation of Australia NVIS National Vegetation Inventory System (ESCAVI 2003) P3 Priority 3 P4 Priority 4 PEC Priority ecological community TEC Threatened ecological communities Table A3: Abbreviations \u2013 Legislation Legislation BAM Act Biosecurity and Agriculture Management Act 2007 EP Act Environmental Protection Act 1986 EPBC Act Environment Protection and Biodiversity Conservation Act 1999 BC Act Biodiversity Conservation Act 2016 BC Regs Biodiversity Conservation Regulations 2018 Table A5: Abbreviations \u2013 Units of measurement Units of measurement ha Hectare m AHD m in relation to the Australian height datum mm Millimetre",
+          "target_manifest_id": "8b562c94-6066-5f03-b876-87984d2a6396",
+          "resolved": false,
+          "edge_id": "02f93411-22f9-524d-b150-0b9942155991"
+        },
+        {
+          "chunk_id": "7b161997-c359-4ae2-8a4c-b52d24a8cbbd",
+          "chunk_index": 152,
+          "reference": "EPBC Act Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "Abbreviation Tables Table A1: Abbreviations \u2013 Organisations Organisations EPA Environmental Protection Authority DBCA Department of Biodiversity, Conservation and Attractions DWER Department of Water and Environmental Regulation WALGA Western Australia Local Government Association Table A2: Abbreviations \u2013 General terms General terms FCT Floristic community type IBRA Interim Biogeographic Regionalisation of Australia NVIS National Vegetation Inventory System (ESCAVI 2003) P3 Priority 3 P4 Priority 4 PEC Priority ecological community TEC Threatened ecological communities Table A3: Abbreviations \u2013 Legislation Legislation BAM Act Biosecurity and Agriculture Management Act 2007 EP Act Environmental Protection Act 1986 EPBC Act Environment Protection and Biodiversity Conservation Act 1999 BC Act Biodiversity Conservation Act 2016 BC Regs Biodiversity Conservation Regulations 2018 Table A5: Abbreviations \u2013 Units of measurement Units of measurement ha Hectare m AHD m in relation to the Australian height datum mm Millimetre",
+          "target_manifest_id": "f5255c95-5414-588c-a629-44459a2011ce",
+          "resolved": false,
+          "edge_id": "33af50ed-3201-5b1b-b7c6-e6ff3443310a"
+        },
+        {
+          "chunk_id": "7b161997-c359-4ae2-8a4c-b52d24a8cbbd",
+          "chunk_index": 152,
+          "reference": "BC Act Biodiversity Conservation Act 2016",
+          "quote": "Abbreviation Tables Table A1: Abbreviations \u2013 Organisations Organisations EPA Environmental Protection Authority DBCA Department of Biodiversity, Conservation and Attractions DWER Department of Water and Environmental Regulation WALGA Western Australia Local Government Association Table A2: Abbreviations \u2013 General terms General terms FCT Floristic community type IBRA Interim Biogeographic Regionalisation of Australia NVIS National Vegetation Inventory System (ESCAVI 2003) P3 Priority 3 P4 Priority 4 PEC Priority ecological community TEC Threatened ecological communities Table A3: Abbreviations \u2013 Legislation Legislation BAM Act Biosecurity and Agriculture Management Act 2007 EP Act Environmental Protection Act 1986 EPBC Act Environment Protection and Biodiversity Conservation Act 1999 BC Act Biodiversity Conservation Act 2016 BC Regs Biodiversity Conservation Regulations 2018 Table A5: Abbreviations \u2013 Units of measurement Units of measurement ha Hectare m AHD m in relation to the Australian height datum mm Millimetre",
+          "target_manifest_id": "bab7d7dd-88f6-5185-8c40-5a1ba14df171",
+          "resolved": false,
+          "edge_id": "71038644-83a6-5693-91be-410f92967230"
+        },
+        {
+          "chunk_id": "7b161997-c359-4ae2-8a4c-b52d24a8cbbd",
+          "chunk_index": 152,
+          "reference": "BC Regs Biodiversity Conservation Regulations 2018",
+          "quote": "Abbreviation Tables Table A1: Abbreviations \u2013 Organisations Organisations EPA Environmental Protection Authority DBCA Department of Biodiversity, Conservation and Attractions DWER Department of Water and Environmental Regulation WALGA Western Australia Local Government Association Table A2: Abbreviations \u2013 General terms General terms FCT Floristic community type IBRA Interim Biogeographic Regionalisation of Australia NVIS National Vegetation Inventory System (ESCAVI 2003) P3 Priority 3 P4 Priority 4 PEC Priority ecological community TEC Threatened ecological communities Table A3: Abbreviations \u2013 Legislation Legislation BAM Act Biosecurity and Agriculture Management Act 2007 EP Act Environmental Protection Act 1986 EPBC Act Environment Protection and Biodiversity Conservation Act 1999 BC Act Biodiversity Conservation Act 2016 BC Regs Biodiversity Conservation Regulations 2018 Table A5: Abbreviations \u2013 Units of measurement Units of measurement ha Hectare m AHD m in relation to the Australian height datum mm Millimetre",
+          "target_manifest_id": "d0f2e9ee-30f3-529c-85bc-b6c07e633446",
+          "resolved": false,
+          "edge_id": "a2b813b1-810e-5289-82db-ebc02ac9fee9"
+        },
+        {
+          "chunk_id": "de00b671-4685-4115-9409-1a52a4342b95",
+          "chunk_index": 162,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "At a Commonwealth level, flora taxa may be listed as \u2018threatened\u2019 under the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act).",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "d1ac7663-79d1-5159-83b1-274bf9a46fb1"
+        },
+        {
+          "chunk_id": "de00b671-4685-4115-9409-1a52a4342b95",
+          "chunk_index": 162,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "In Western Australia flora species may also be classed as \u2018threatened\u2019 under the Biodiversity Conservation Act 2016 (BC Act).",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "67e8dac2-028e-59c2-993e-0f7f85bfc04d"
+        },
+        {
+          "chunk_id": "de00b671-4685-4115-9409-1a52a4342b95",
+          "chunk_index": 162,
+          "reference": "Part IV of the Environmental Protection Act 1986",
+          "quote": "Their significance is also acknowledged through other state environmental approval processes such as \u2018environmental impact assessment\u2019 pursuant to Part IV of the Environmental Protection Act 1986 (EP Act) and the Environmental Protection (Clearing of Native Vegetation) Regulations 2004.",
+          "target_manifest_id": "603d9e14-9a88-5b98-82b6-d6eb3a9f6107",
+          "resolved": false,
+          "edge_id": "d19d33d3-4b57-528f-b35b-5ba46603f279"
+        },
+        {
+          "chunk_id": "0fc9e96b-aa50-495f-ac79-1c04e334702b",
+          "chunk_index": 164,
+          "reference": "Biosecurity and Agriculture Management Act 2007",
+          "quote": "A particularly invasive or detrimental weed species may be listed as a \u2018declared pest\u2019 pursuant to Western Australia\u2019s Biosecurity and Agriculture Management Act 2007 (BAM Act), indicating that it warrants special management to limit its spread.",
+          "target_manifest_id": "61d016ce-c6f8-5a40-9cf3-4896f27ab61d",
+          "resolved": false,
+          "edge_id": "fadf2c9b-a23f-50a6-94c7-0dc8406f9c5b"
+        },
+        {
+          "chunk_id": "0fc9e96b-aa50-495f-ac79-1c04e334702b",
+          "chunk_index": 164,
+          "reference": "Conservation and Land Management Act 1984",
+          "quote": "The Legislated Lands and Waters (DBCA 2017a) dataset includes lands subject to the following legislation; the Conservation and Land Management Act 1984 (CALM Act 1984), Swan and Canning Rivers Management Act 2006 (SCRM Act) and lands identified under the Land Administration Act 1997 (LA Act).",
+          "target_manifest_id": "4232aa86-085c-5602-b6c0-8fad93af8612",
+          "resolved": false,
+          "edge_id": "498765b5-329f-5d5d-8a01-e5e7c3b6edd5"
+        },
+        {
+          "chunk_id": "0fc9e96b-aa50-495f-ac79-1c04e334702b",
+          "chunk_index": 164,
+          "reference": "CALM Act 1984",
+          "quote": "The Legislated Lands and Waters (DBCA 2017a) dataset includes lands subject to the following legislation; the Conservation and Land Management Act 1984 (CALM Act 1984), Swan and Canning Rivers Management Act 2006 (SCRM Act) and lands identified under the Land Administration Act 1997 (LA Act).",
+          "target_manifest_id": "179b7359-b0a2-5c6b-8845-6b19fe102f0f",
+          "resolved": false,
+          "edge_id": "6f160b50-dfad-51bc-a485-6598ba090f14"
+        },
+        {
+          "chunk_id": "0fc9e96b-aa50-495f-ac79-1c04e334702b",
+          "chunk_index": 164,
+          "reference": "Swan and Canning Rivers Management Act 2006",
+          "quote": "The Legislated Lands and Waters (DBCA 2017a) dataset includes lands subject to the following legislation; the Conservation and Land Management Act 1984 (CALM Act 1984), Swan and Canning Rivers Management Act 2006 (SCRM Act) and lands identified under the Land Administration Act 1997 (LA Act).",
+          "target_manifest_id": "d8dd0f91-c1d8-5f9f-b804-868e009bf594",
+          "resolved": false,
+          "edge_id": "86c86f72-9378-508d-a7c5-ca8de18fb241"
+        },
+        {
+          "chunk_id": "0fc9e96b-aa50-495f-ac79-1c04e334702b",
+          "chunk_index": 164,
+          "reference": "Land Administration Act 1997",
+          "quote": "The Legislated Lands and Waters (DBCA 2017a) dataset includes lands subject to the following legislation; the Conservation and Land Management Act 1984 (CALM Act 1984), Swan and Canning Rivers Management Act 2006 (SCRM Act) and lands identified under the Land Administration Act 1997 (LA Act).",
+          "target_manifest_id": "ae71a5ce-1f3a-5625-b4d4-cbb14f209bea",
+          "resolved": false,
+          "edge_id": "c5c02f68-be4e-5060-91eb-7959adbc6b9a"
+        },
+        {
+          "chunk_id": "5a7de78c-0fc7-424a-b97d-025625979127",
+          "chunk_index": 166,
+          "reference": "CALM Act 1984",
+          "quote": "R15556 and R29241 are nature reserves and R48291 is a conservation park under the CALM Act 1984 (DBCA 2017a).",
+          "target_manifest_id": "179b7359-b0a2-5c6b-8845-6b19fe102f0f",
+          "resolved": false,
+          "edge_id": "3e9606a2-1e32-5805-8fec-fd107dbd9eba"
+        },
+        {
+          "chunk_id": "7fcd4f2d-9076-4e68-9ddc-033e22b1f828",
+          "chunk_index": 210,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "At the Commonwealth level, flora species can be listed under the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act).",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "07ced4ef-5a60-53c5-aa6b-878cb9aad16f"
+        },
+        {
+          "chunk_id": "7fcd4f2d-9076-4e68-9ddc-033e22b1f828",
+          "chunk_index": 210,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "In Western Australia, plant taxa may be classed as \u2018threatened\u2019 under the Biodiversity Conservation Act 2016 (BC Act) which is enforced by Department of Biodiversity Conservation and Attractions (DBCA).",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "63c8f60a-9220-5f5f-8000-c2426b764f06"
+        },
+        {
+          "chunk_id": "7fcd4f2d-9076-4e68-9ddc-033e22b1f828",
+          "chunk_index": 210,
+          "reference": "Part IV of the Environmental Protection Act 1986",
+          "quote": "Section 43 of the BC Act requires that an occurrence of a threatened species or threatened ecological community is reported to DBCA where the occurrence has been identified as part of field work completed: \u2022 as part of an assessment under Part IV of the Environmental Protection Act 1986; or \u2022 in relation to an application for a clearing permit under the Environmental Protection Act 1986 section 51E(1)(d).",
+          "target_manifest_id": "603d9e14-9a88-5b98-82b6-d6eb3a9f6107",
+          "resolved": false,
+          "edge_id": "aedc4e9d-b623-5ca7-926d-f53421296746"
+        },
+        {
+          "chunk_id": "7fcd4f2d-9076-4e68-9ddc-033e22b1f828",
+          "chunk_index": 210,
+          "reference": "Environmental Protection Act 1986",
+          "quote": "Section 43 of the BC Act requires that an occurrence of a threatened species or threatened ecological community is reported to DBCA where the occurrence has been identified as part of field work completed: \u2022 as part of an assessment under Part IV of the Environmental Protection Act 1986; or \u2022 in relation to an application for a clearing permit under the Environmental Protection Act 1986 section 51E(1)(d).",
+          "target_manifest_id": "20e5df7a-f123-518e-a6bb-77c200b82b37",
+          "resolved": false,
+          "edge_id": "79311b06-4d7c-5424-9926-55f61f3838d1"
+        },
+        {
+          "chunk_id": "b38b3838-2b6c-455d-82fd-82d34cff519a",
+          "chunk_index": 211,
+          "reference": "The Biodiversity Conservation Regulations 2018",
+          "quote": "The Biodiversity Conservation Regulations 2018 (BC Regulations 2018) came into effect on January 1 2019.",
+          "target_manifest_id": "9c211198-dbfe-5862-a922-b08c04a0df86",
+          "resolved": false,
+          "edge_id": "4ead1702-1362-51c1-a6cb-291b5d4c0c97"
+        },
+        {
+          "chunk_id": "b38b3838-2b6c-455d-82fd-82d34cff519a",
+          "chunk_index": 211,
+          "reference": "BC Regulations 2018",
+          "quote": "The Biodiversity Conservation Regulations 2018 (BC Regulations 2018) came into effect on January 1 2019.",
+          "target_manifest_id": "e7927051-58a6-5bc2-ad30-44045f1122ba",
+          "resolved": false,
+          "edge_id": "c4f0930d-3d58-5feb-b258-6a1bac19ace8"
+        },
+        {
+          "chunk_id": "121a1be0-a4c9-45f7-b137-0ca5e2ca3aec",
+          "chunk_index": 215,
+          "reference": "Part IV of the Environmental Protection Act 1986",
+          "quote": "Their significance is also acknowledged through other state environmental approval processes such as \u2018environmental impact assessment\u2019 pursuant to Part IV of the Environmental Protection Act 1986 (EP Act) and the Environmental Protection (Clearing of Native Vegetation) Regulations 2004.",
+          "target_manifest_id": "603d9e14-9a88-5b98-82b6-d6eb3a9f6107",
+          "resolved": false,
+          "edge_id": "f0057d67-c876-5619-ba4a-e447645b46ec"
+        },
+        {
+          "chunk_id": "335d168b-eb6c-49c1-94f8-31f465421be6",
+          "chunk_index": 220,
+          "reference": "The Biosecurity and Agriculture Management Act 2007",
+          "quote": "The Biosecurity and Agriculture Management Act 2007 (BAM Act) is the principle legislation guiding weed management in Western Australia and lists declared pest species.",
+          "target_manifest_id": "8583a3f7-2729-5ef5-8129-291d69a6314c",
+          "resolved": false,
+          "edge_id": "6e659006-6136-508e-aa48-d135afc46f4f"
+        },
+        {
+          "chunk_id": "335d168b-eb6c-49c1-94f8-31f465421be6",
+          "chunk_index": 220,
+          "reference": "The Biosecurity and Agriculture Management Regulations 2013",
+          "quote": "The Biosecurity and Agriculture Management Regulations 2013 specify keeping categories for species assigned to the \u2018declared pest - s22(2)\u2019 category, which relate to the purposes of which species can be kept, as well as the entities that can keep them.",
+          "target_manifest_id": "e299af15-84d2-54d0-9206-fe0956337e41",
+          "resolved": false,
+          "edge_id": "16245bcb-7775-5f5c-9bed-2523ec50dbb7"
+        },
+        {
+          "chunk_id": "8b263bd7-146d-43d4-8b8d-b3155eab12f2",
+          "chunk_index": 248,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "Carnaby\u2019s black cockatoo is listed as endangered under the Environment Protection and Biodiversity Conservation Act 1999 and the Biodiversity Conservation Act 2016.",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "ec45da6d-ea4a-55a8-80d8-44342efc5a01"
+        },
+        {
+          "chunk_id": "8b263bd7-146d-43d4-8b8d-b3155eab12f2",
+          "chunk_index": 248,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "Carnaby\u2019s black cockatoo is listed as endangered under the Environment Protection and Biodiversity Conservation Act 1999 and the Biodiversity Conservation Act 2016.",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "ba105e86-c926-5423-b409-c2aa254ada19"
+        },
+        {
+          "chunk_id": "ddd93994-7777-4b8f-aa77-91f0816839d8",
+          "chunk_index": 254,
+          "reference": "Legislation BAM Act Biosecurity and Agriculture Management Act 2007",
+          "quote": "Abbreviation Tables Table A1: Abbreviations \u2013 Organisations Organisations EPA Environmental Protection Authority DBCA Department of Biodiversity, Conservation and Attractions DCCEEW Department of Climate Change, Energy, the Environment and Water DPaW Department of Parks and Wildlife (now DBCA) DAWE Department of Agriculture, Water and the Environment (now DCCEEW) WA Museum Western Australian Museum Table A2: Abbreviations \u2013 General terms General terms EN Endangered IBRA Interim Biogeographic Regionalisation of Australia MI Migratory P1 Priority 1 P2 Priority 2 P3 Priority 3 P4 Priority 4 UFI Unique feature identifier VU Vulnerable Table A3: Abbreviations \u2013Legislation Legislation BAM Act Biosecurity and Agriculture Management Act 2007 EBPC Act Environment Protection and Biodiversity Conservation Act 1999 BC Act Biodiversity Conservation Act 2016 Basic Fauna and Targeted Black Cockatoo Assessment Lot 16 Barfield Road, Hammond Park Prepared for Gold Estates Holdings Pty Ltd Doc No.",
+          "target_manifest_id": "5e14db03-26e3-5e1b-b2b0-35dc028eb007",
+          "resolved": false,
+          "edge_id": "f707aa96-9846-598e-a045-e95fb9452b69"
+        },
+        {
+          "chunk_id": "ddd93994-7777-4b8f-aa77-91f0816839d8",
+          "chunk_index": 254,
+          "reference": "EBPC Act Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "Abbreviation Tables Table A1: Abbreviations \u2013 Organisations Organisations EPA Environmental Protection Authority DBCA Department of Biodiversity, Conservation and Attractions DCCEEW Department of Climate Change, Energy, the Environment and Water DPaW Department of Parks and Wildlife (now DBCA) DAWE Department of Agriculture, Water and the Environment (now DCCEEW) WA Museum Western Australian Museum Table A2: Abbreviations \u2013 General terms General terms EN Endangered IBRA Interim Biogeographic Regionalisation of Australia MI Migratory P1 Priority 1 P2 Priority 2 P3 Priority 3 P4 Priority 4 UFI Unique feature identifier VU Vulnerable Table A3: Abbreviations \u2013Legislation Legislation BAM Act Biosecurity and Agriculture Management Act 2007 EBPC Act Environment Protection and Biodiversity Conservation Act 1999 BC Act Biodiversity Conservation Act 2016 Basic Fauna and Targeted Black Cockatoo Assessment Lot 16 Barfield Road, Hammond Park Prepared for Gold Estates Holdings Pty Ltd Doc No.",
+          "target_manifest_id": "5923c9be-7b31-551e-a81b-c1078baefb7a",
+          "resolved": false,
+          "edge_id": "10911ef8-9a46-5b10-8cdb-f0f9556d37a3"
+        },
+        {
+          "chunk_id": "ddd93994-7777-4b8f-aa77-91f0816839d8",
+          "chunk_index": 254,
+          "reference": "BC Act Biodiversity Conservation Act 2016",
+          "quote": "Abbreviation Tables Table A1: Abbreviations \u2013 Organisations Organisations EPA Environmental Protection Authority DBCA Department of Biodiversity, Conservation and Attractions DCCEEW Department of Climate Change, Energy, the Environment and Water DPaW Department of Parks and Wildlife (now DBCA) DAWE Department of Agriculture, Water and the Environment (now DCCEEW) WA Museum Western Australian Museum Table A2: Abbreviations \u2013 General terms General terms EN Endangered IBRA Interim Biogeographic Regionalisation of Australia MI Migratory P1 Priority 1 P2 Priority 2 P3 Priority 3 P4 Priority 4 UFI Unique feature identifier VU Vulnerable Table A3: Abbreviations \u2013Legislation Legislation BAM Act Biosecurity and Agriculture Management Act 2007 EBPC Act Environment Protection and Biodiversity Conservation Act 1999 BC Act Biodiversity Conservation Act 2016 Basic Fauna and Targeted Black Cockatoo Assessment Lot 16 Barfield Road, Hammond Park Prepared for Gold Estates Holdings Pty Ltd Doc No.",
+          "target_manifest_id": "bab7d7dd-88f6-5185-8c40-5a1ba14df171",
+          "resolved": false,
+          "edge_id": "f34c24f9-5c9d-5e96-bf87-cc9a4736e734"
+        },
+        {
+          "chunk_id": "2bf7a449-cc5c-4ab3-aa97-1e4f686c3efd",
+          "chunk_index": 263,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "At a Commonwealth level, fauna taxa may be listed as \u2018threatened\u2019 under the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act).",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "2b25627c-7179-5d75-9bc5-e171cbf5fca7"
+        },
+        {
+          "chunk_id": "2bf7a449-cc5c-4ab3-aa97-1e4f686c3efd",
+          "chunk_index": 263,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "In Western Australia fauna species may also be classed as \u2018threatened\u2019 under the Biodiversity Conservation Act 2016 (BC Act).",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "f0c2e580-b968-57ca-9c3a-41fdb2765171"
+        },
+        {
+          "chunk_id": "2e39f2c8-d795-4312-864a-4f36127ec9d5",
+          "chunk_index": 265,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "At a Commonwealth level, migratory fauna taxa may be listed as \u2018migratory\u2019 under Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act).",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "5d5274ac-0248-5aea-bba3-fbb352bca966"
+        },
+        {
+          "chunk_id": "2e39f2c8-d795-4312-864a-4f36127ec9d5",
+          "chunk_index": 265,
+          "reference": "Biosecurity and Agriculture Management Act 2007",
+          "quote": "A particularly invasive or detrimental pest species may be listed as a \u2018declared pest\u2019 pursuant to Western Australia\u2019s Biosecurity and Agriculture Management Act 2007 (BAM Act), indicating that it warrants special management to limit its spread.",
+          "target_manifest_id": "61d016ce-c6f8-5a40-9cf3-4896f27ab61d",
+          "resolved": false,
+          "edge_id": "b2bfc0e5-d959-5c03-86da-57e5fbf9fc43"
+        },
+        {
+          "chunk_id": "b9ed31d8-2415-4507-ba89-560f4d37b03d",
+          "chunk_index": 267,
+          "reference": "Conservation and Land Management Act 1984",
+          "quote": "The Legislated Lands and Waters (DBCA 2021c) dataset includes lands subject to the following legislation; the Conservation and Land Management Act 1984 (CALM Act 1984), Swan and Canning Rivers Management Act 2006 (SCRM Act) and lands identified under the Land Administration Act 1997 (LA Act).",
+          "target_manifest_id": "4232aa86-085c-5602-b6c0-8fad93af8612",
+          "resolved": false,
+          "edge_id": "f18a6c37-6f46-5117-b495-331580772a9b"
+        },
+        {
+          "chunk_id": "b9ed31d8-2415-4507-ba89-560f4d37b03d",
+          "chunk_index": 267,
+          "reference": "CALM Act 1984",
+          "quote": "The Legislated Lands and Waters (DBCA 2021c) dataset includes lands subject to the following legislation; the Conservation and Land Management Act 1984 (CALM Act 1984), Swan and Canning Rivers Management Act 2006 (SCRM Act) and lands identified under the Land Administration Act 1997 (LA Act).",
+          "target_manifest_id": "179b7359-b0a2-5c6b-8845-6b19fe102f0f",
+          "resolved": false,
+          "edge_id": "34ab80af-c012-5d82-aad5-ca4d2287f98f"
+        },
+        {
+          "chunk_id": "b9ed31d8-2415-4507-ba89-560f4d37b03d",
+          "chunk_index": 267,
+          "reference": "Swan and Canning Rivers Management Act 2006",
+          "quote": "The Legislated Lands and Waters (DBCA 2021c) dataset includes lands subject to the following legislation; the Conservation and Land Management Act 1984 (CALM Act 1984), Swan and Canning Rivers Management Act 2006 (SCRM Act) and lands identified under the Land Administration Act 1997 (LA Act).",
+          "target_manifest_id": "d8dd0f91-c1d8-5f9f-b804-868e009bf594",
+          "resolved": false,
+          "edge_id": "93f1f70c-e858-5273-aaf3-304b8bbe232d"
+        },
+        {
+          "chunk_id": "b9ed31d8-2415-4507-ba89-560f4d37b03d",
+          "chunk_index": 267,
+          "reference": "Land Administration Act 1997",
+          "quote": "The Legislated Lands and Waters (DBCA 2021c) dataset includes lands subject to the following legislation; the Conservation and Land Management Act 1984 (CALM Act 1984), Swan and Canning Rivers Management Act 2006 (SCRM Act) and lands identified under the Land Administration Act 1997 (LA Act).",
+          "target_manifest_id": "ae71a5ce-1f3a-5625-b4d4-cbb14f209bea",
+          "resolved": false,
+          "edge_id": "96763b76-52d9-57ef-95f7-21576a314b84"
+        },
+        {
+          "chunk_id": "b9ed31d8-2415-4507-ba89-560f4d37b03d",
+          "chunk_index": 267,
+          "reference": "CALM Act 1984",
+          "quote": "R15556 and R29241 are nature reserves and R48291 is a conservation park under the CALM Act 1984 (DBCA 2017a).",
+          "target_manifest_id": "179b7359-b0a2-5c6b-8845-6b19fe102f0f",
+          "resolved": false,
+          "edge_id": "34ab80af-c012-5d82-aad5-ca4d2287f98f"
+        },
+        {
+          "chunk_id": "ab326e6f-fba7-48d8-82e5-87dfdafdd9f3",
+          "chunk_index": 315,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "At the Commonwealth level, fauna species can be listed under the Environment Protection and Biodiversity Conservation Act 1999 (EPBC Act) as \u2018threatened\u2019, \u2018migratory\u2019 or \u2018marine\u2019 as described in Table 1.",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "39239586-146c-53d3-89cf-0d0a5a5ba38d"
+        },
+        {
+          "chunk_id": "e0accec8-6b2e-41ac-8305-b8aae0bc8cdf",
+          "chunk_index": 317,
+          "reference": "Biodiversity Conservation Act 2016",
+          "quote": "In Western Australia, fauna taxa may be classed as \u2018threatened\u2019, \u2018extinct\u2019, or \u2018specially protected\u2019 under the Biodiversity Conservation Act 2016 (BC Act), which is enforced by Department of Biodiversity Conservation and Attractions (DBCA) (DBCA 2019a).",
+          "target_manifest_id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+          "resolved": false,
+          "edge_id": "6e7d6c53-6056-5d67-b794-3b9e1a9047f5"
+        },
+        {
+          "chunk_id": "f58e3d45-ff12-4a39-8262-e19554cde5bb",
+          "chunk_index": 325,
+          "reference": "The Biosecurity and Agriculture Management Act 2007",
+          "quote": "The Biosecurity and Agriculture Management Act 2007 (BAM Act) is the principle legislation guiding pest fauna management in Western Australia and lists declared pest species.",
+          "target_manifest_id": "8583a3f7-2729-5ef5-8129-291d69a6314c",
+          "resolved": false,
+          "edge_id": "ccd49bf2-f51e-57e9-a143-616423f68c60"
+        },
+        {
+          "chunk_id": "f58e3d45-ff12-4a39-8262-e19554cde5bb",
+          "chunk_index": 325,
+          "reference": "The Biosecurity and Agriculture Management Regulations 2013",
+          "quote": "The Biosecurity and Agriculture Management Regulations 2013 specify keeping categories for species assigned to the \u2018declared pest - s22(2)\u2019 category, which relate to the purposes of which species can be kept, as well as the entities that can keep them.",
+          "target_manifest_id": "e299af15-84d2-54d0-9206-fe0956337e41",
+          "resolved": false,
+          "edge_id": "44ef317a-97d7-500d-b636-8a777e26a371"
+        },
+        {
+          "chunk_id": "49201e64-94ac-4683-92c8-496d4e48c399",
+          "chunk_index": 380,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "Caveat1 PURPOSE This report is designed to assist in identifying the location of matters of national environmental significance (MNES) and other matters protected by the Environment Protection and Biodiversity Conservation Act 1999 (Cth) (EPBC Act) which may be relevant in determining obligations and requirements under the EPBC Act.",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "3cd0de66-028f-5ace-9603-5b65f94873bd"
+        },
+        {
+          "chunk_id": "07bf0190-396b-4d5d-b1cb-aa666f8e906b",
+          "chunk_index": 382,
+          "reference": "Canberra ACT 2601",
+          "quote": "\u00a9 Commonwealth of Australia +61 2 6274 1111 Canberra ACT 2601 Australia GPO Box 3090 Department of Climate Change, Energy, the Environment and Water Please feel free to provide feedback via the Contact us page.",
+          "target_manifest_id": "6f8ef519-174a-500a-9b33-f74d395fe9c2",
+          "resolved": false,
+          "edge_id": "93b9ac73-1684-54cb-b8b9-ebcce15e77ce"
+        },
+        {
+          "chunk_id": "c97df2fc-9100-4333-8e6b-2226fd69f857",
+          "chunk_index": 463,
+          "reference": "State Planning Policy 3.7",
+          "quote": "2 of State Planning Policy 3.7 Planning in Bushfire Prone Areas (SPP3.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "9c8461af-7492-5bd6-99bd-0850a73303db"
+        },
+        {
+          "chunk_id": "18ad4c3f-7c19-4cba-a025-58489ed339b5",
+          "chunk_index": 479,
+          "reference": "State Planning Policy 3.7",
+          "quote": "Western Australian Planning Commission (WAPC) 2015, State Planning Policy 3.7 Planning in Bushfire Prone Areas, Western Australian Planning Commission, Perth.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "2348881f-40c5-5973-8828-3f7c85ecf580"
+        },
+        {
+          "chunk_id": "970480ba-83dc-4c33-b6e6-d77cddbedf41",
+          "chunk_index": 489,
+          "reference": "Residential Design Codes",
+          "quote": "6, they are to comply with the Residential Design Codes and Development Control Policy 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2c29529f-f628-513e-a9ee-9f1b1b491f39"
+        },
+        {
+          "chunk_id": "970480ba-83dc-4c33-b6e6-d77cddbedf41",
+          "chunk_index": 489,
+          "reference": "Development Control Policy 2.2",
+          "quote": "6, they are to comply with the Residential Design Codes and Development Control Policy 2.2 Residential Subdivision 3 Dips must have no more than a 1 in 8 (12.",
+          "target_manifest_id": "4e5054e0-590e-5486-828c-ec54e683e447",
+          "resolved": true,
+          "edge_id": "52218a3d-9585-5c0b-bdf4-0e85c034b8a9"
+        },
+        {
+          "chunk_id": "3b779c2a-9606-4653-8207-1219c627f5a0",
+          "chunk_index": 508,
+          "reference": "State Planning Policy 2.9",
+          "quote": "These policies include: \uf0b7 State Water Strategy (Government of WA 2003b) \uf0b7 State Planning Policy 2.9 Water Resources (WAPC 2006) \uf0b7 Environmental Protection (Swan Coastal Plain Lakes) Policy (Government of WA 1992) \uf0b7 Guidance Statement No.",
+          "target_manifest_id": "4c391a01-4702-579f-b0b4-0e7262296d57",
+          "resolved": true,
+          "edge_id": "6e748af3-482b-5f66-87f3-76871b0c0ddd"
+        },
+        {
+          "chunk_id": "51c99dfe-c1ca-4e7d-b776-7b4204071826",
+          "chunk_index": 547,
+          "reference": "State Planning Policy 2.9",
+          "quote": "Western Australian Planning Commission (WAPC) 2006, State Planning Policy 2.9: Water Resources, Gazetted in December 2006.",
+          "target_manifest_id": "4c391a01-4702-579f-b0b4-0e7262296d57",
+          "resolved": true,
+          "edge_id": "52f7aa46-37e2-5268-a100-d36d32f5cb23"
+        },
+        {
+          "chunk_id": "00ee45f6-93b5-4a3c-9767-54dc40681cdc",
+          "chunk_index": 657,
+          "reference": "Bush Fires Act 1954",
+          "quote": "4 Legislative requirements, specifications and standards The legislative requirements, specifications and standards applicable to implementation of this FMP are referenced in Section 7 and Appendix 5 and pertain to the following: \u2022 Bush Fires Act 1954 \u2022 Planning and Development Act 2005 \u2022 Environment Protection and Biodiversity Conservation Act 1999 \u2022 Environmental Protection Act 1986 \u2022 Wildlife Conservation Act 1950 \u2022 Building Code of Australia \u2022 Planning for Bush Fire Protection Guidelines (Edition 2) \u2022 Australian Standard AS 3959\u20132009 Construction of Buildings in Bushfire Prone Areas \u2022 City of Cockburn annual fire control order.",
+          "target_manifest_id": "56ea58ac-2e4c-544f-a1cd-b0ea357723f5",
+          "resolved": false,
+          "edge_id": "f2842cdc-c51e-5919-9c36-60b756967b4a"
+        },
+        {
+          "chunk_id": "00ee45f6-93b5-4a3c-9767-54dc40681cdc",
+          "chunk_index": 657,
+          "reference": "Planning and Development Act 2005",
+          "quote": "4 Legislative requirements, specifications and standards The legislative requirements, specifications and standards applicable to implementation of this FMP are referenced in Section 7 and Appendix 5 and pertain to the following: \u2022 Bush Fires Act 1954 \u2022 Planning and Development Act 2005 \u2022 Environment Protection and Biodiversity Conservation Act 1999 \u2022 Environmental Protection Act 1986 \u2022 Wildlife Conservation Act 1950 \u2022 Building Code of Australia \u2022 Planning for Bush Fire Protection Guidelines (Edition 2) \u2022 Australian Standard AS 3959\u20132009 Construction of Buildings in Bushfire Prone Areas \u2022 City of Cockburn annual fire control order.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "6704b1bb-3ad7-5e8f-8125-ec2c91f8a292"
+        },
+        {
+          "chunk_id": "00ee45f6-93b5-4a3c-9767-54dc40681cdc",
+          "chunk_index": 657,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "4 Legislative requirements, specifications and standards The legislative requirements, specifications and standards applicable to implementation of this FMP are referenced in Section 7 and Appendix 5 and pertain to the following: \u2022 Bush Fires Act 1954 \u2022 Planning and Development Act 2005 \u2022 Environment Protection and Biodiversity Conservation Act 1999 \u2022 Environmental Protection Act 1986 \u2022 Wildlife Conservation Act 1950 \u2022 Building Code of Australia \u2022 Planning for Bush Fire Protection Guidelines (Edition 2) \u2022 Australian Standard AS 3959\u20132009 Construction of Buildings in Bushfire Prone Areas \u2022 City of Cockburn annual fire control order.",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "2c7a6857-c6b3-59ea-bada-f1dab7bcdb32"
+        },
+        {
+          "chunk_id": "00ee45f6-93b5-4a3c-9767-54dc40681cdc",
+          "chunk_index": 657,
+          "reference": "Environmental Protection Act 1986",
+          "quote": "4 Legislative requirements, specifications and standards The legislative requirements, specifications and standards applicable to implementation of this FMP are referenced in Section 7 and Appendix 5 and pertain to the following: \u2022 Bush Fires Act 1954 \u2022 Planning and Development Act 2005 \u2022 Environment Protection and Biodiversity Conservation Act 1999 \u2022 Environmental Protection Act 1986 \u2022 Wildlife Conservation Act 1950 \u2022 Building Code of Australia \u2022 Planning for Bush Fire Protection Guidelines (Edition 2) \u2022 Australian Standard AS 3959\u20132009 Construction of Buildings in Bushfire Prone Areas \u2022 City of Cockburn annual fire control order.",
+          "target_manifest_id": "20e5df7a-f123-518e-a6bb-77c200b82b37",
+          "resolved": false,
+          "edge_id": "98e1de0f-b610-5d05-b42c-3c460167895d"
+        },
+        {
+          "chunk_id": "00ee45f6-93b5-4a3c-9767-54dc40681cdc",
+          "chunk_index": 657,
+          "reference": "Wildlife Conservation Act 1950",
+          "quote": "4 Legislative requirements, specifications and standards The legislative requirements, specifications and standards applicable to implementation of this FMP are referenced in Section 7 and Appendix 5 and pertain to the following: \u2022 Bush Fires Act 1954 \u2022 Planning and Development Act 2005 \u2022 Environment Protection and Biodiversity Conservation Act 1999 \u2022 Environmental Protection Act 1986 \u2022 Wildlife Conservation Act 1950 \u2022 Building Code of Australia \u2022 Planning for Bush Fire Protection Guidelines (Edition 2) \u2022 Australian Standard AS 3959\u20132009 Construction of Buildings in Bushfire Prone Areas \u2022 City of Cockburn annual fire control order.",
+          "target_manifest_id": "d42589fd-b57f-52b7-9cf3-e8d021d03856",
+          "resolved": false,
+          "edge_id": "860fb037-384c-546c-8497-b2674a61554b"
+        },
+        {
+          "chunk_id": "00ee45f6-93b5-4a3c-9767-54dc40681cdc",
+          "chunk_index": 657,
+          "reference": "Building Code of Australia",
+          "quote": "4 Legislative requirements, specifications and standards The legislative requirements, specifications and standards applicable to implementation of this FMP are referenced in Section 7 and Appendix 5 and pertain to the following: \u2022 Bush Fires Act 1954 \u2022 Planning and Development Act 2005 \u2022 Environment Protection and Biodiversity Conservation Act 1999 \u2022 Environmental Protection Act 1986 \u2022 Wildlife Conservation Act 1950 \u2022 Building Code of Australia \u2022 Planning for Bush Fire Protection Guidelines (Edition 2) \u2022 Australian Standard AS 3959\u20132009 Construction of Buildings in Bushfire Prone Areas \u2022 City of Cockburn annual fire control order.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "51518b86-2008-5c9a-bb41-1d4f3adab3f8"
+        },
+        {
+          "chunk_id": "f9eb2e3e-e321-462d-84d8-354eb32792c8",
+          "chunk_index": 692,
+          "reference": "Bush Fires Act 1954",
+          "quote": "City of Cockburn Fire Control Order 2014 - 2015 To all Owners and Occupiers of Land within the District of the City of Cockburn FIRST AND FINAL NOTICE Pursuant to the powers contained in Section 33 of the Bush Fires Act 1954 (as amended) you are hereby required without exception to comply with the requirements set out in this notice.",
+          "target_manifest_id": "56ea58ac-2e4c-544f-a1cd-b0ea357723f5",
+          "resolved": false,
+          "edge_id": "d28b1988-e1e3-58b0-8fe6-d5ee4168c5d5"
+        },
+        {
+          "chunk_id": "f9eb2e3e-e321-462d-84d8-354eb32792c8",
+          "chunk_index": 692,
+          "reference": "Bush Fires Act 1954",
+          "quote": "au | 9411 3444 DEFINITIONS Act means Bush Fires Act 1954 (as amended).",
+          "target_manifest_id": "56ea58ac-2e4c-544f-a1cd-b0ea357723f5",
+          "resolved": false,
+          "edge_id": "d28b1988-e1e3-58b0-8fe6-d5ee4168c5d5"
+        },
+        {
+          "chunk_id": "f9eb2e3e-e321-462d-84d8-354eb32792c8",
+          "chunk_index": 692,
+          "reference": "Bush Fires Act 1954",
+          "quote": "Permit means a \u201cPermit to Burn the Bush\u201d as issued by an authorised City of Cockburn Fire Control Officer under s18 of the Bush Fires Act 1954.",
+          "target_manifest_id": "56ea58ac-2e4c-544f-a1cd-b0ea357723f5",
+          "resolved": false,
+          "edge_id": "d28b1988-e1e3-58b0-8fe6-d5ee4168c5d5"
+        },
+        {
+          "chunk_id": "f9eb2e3e-e321-462d-84d8-354eb32792c8",
+          "chunk_index": 692,
+          "reference": "Bush Fires Act 1954",
+          "quote": "0m\u00b3 during this period by complying with all the outlined requirements of s24D and s24F (3) in the Bush Fires Act 1954.",
+          "target_manifest_id": "56ea58ac-2e4c-544f-a1cd-b0ea357723f5",
+          "resolved": false,
+          "edge_id": "d28b1988-e1e3-58b0-8fe6-d5ee4168c5d5"
+        },
+        {
+          "chunk_id": "b59661f0-642b-4c45-857c-3da02685a798",
+          "chunk_index": 737,
+          "reference": "State Planning Policy 3.7",
+          "quote": "3 of State Planning Policy 3.7 Planning in Bushfire-Prone Areas (SPP 3.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "f061e489-6edc-5272-b475-785a19ad697a"
+        },
+        {
+          "chunk_id": "866a4223-f8d8-49b5-912a-6af99fc6a255",
+          "chunk_index": 741,
+          "reference": "Environmental Protection Act 1986",
+          "quote": "Environmental impacts resulting from proposed clearing within Stages 9 and 10 will need to be addressed under standard State and Federal environmental assessment and referral requirements under the Environmental Protection Act 1986 and Environment Protection and Biodiversity Conservation Act 1999 where appropriate.",
+          "target_manifest_id": "20e5df7a-f123-518e-a6bb-77c200b82b37",
+          "resolved": false,
+          "edge_id": "d2aaf15a-f777-5b10-a134-0111f1d81074"
+        },
+        {
+          "chunk_id": "866a4223-f8d8-49b5-912a-6af99fc6a255",
+          "chunk_index": 741,
+          "reference": "Environment Protection and Biodiversity Conservation Act 1999",
+          "quote": "Environmental impacts resulting from proposed clearing within Stages 9 and 10 will need to be addressed under standard State and Federal environmental assessment and referral requirements under the Environmental Protection Act 1986 and Environment Protection and Biodiversity Conservation Act 1999 where appropriate.",
+          "target_manifest_id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+          "resolved": false,
+          "edge_id": "4cfa8a05-057c-5804-95a5-0dcb9607e717"
+        },
+        {
+          "chunk_id": "2f1b2ef8-a846-496a-a6a8-6431ebe2db43",
+          "chunk_index": 756,
+          "reference": "State Planning Policy 3.7",
+          "quote": "Western Australian Planning Commission (WAPC) 2015, State Planning Policy 3.7 Planning in Bushfire Prone Areas, Western Australian Planning Commission, Perth.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "f0f89235-92d8-59f3-ac2d-5e929a82b8df"
+        },
+        {
+          "chunk_id": "478591bf-2c75-4d99-ac6c-acb5499c8980",
+          "chunk_index": 758,
+          "reference": "Bush Fires Act 1954",
+          "quote": "De\ufb01 nitions Authorised Of\ufb01 cer A person appointed by the City of Cockburn Chief Executive Of\ufb01 cer as an authorised person/of\ufb01 cer to exercise the powers and duties set out in the Local Government Act 1995, Bush Fires Act 1954 and Local Law(s).",
+          "target_manifest_id": "56ea58ac-2e4c-544f-a1cd-b0ea357723f5",
+          "resolved": false,
+          "edge_id": "a4f80f29-7504-5161-90ff-8a936516b4a9"
+        },
+        {
+          "chunk_id": "478591bf-2c75-4d99-ac6c-acb5499c8980",
+          "chunk_index": 758,
+          "reference": "Bush Fires Act 1954",
+          "quote": "By Order of Council City of Cockburn Fire Control Order Effective from 10 May 2018 First and Final Notice Pursuant to Section 33 of the Bush Fires Act 1954 owners or occupiers of land situated within the City of Cockburn are required by law to comply with the prescribed Fire Control Order here within.",
+          "target_manifest_id": "56ea58ac-2e4c-544f-a1cd-b0ea357723f5",
+          "resolved": false,
+          "edge_id": "a4f80f29-7504-5161-90ff-8a936516b4a9"
+        },
+        {
+          "chunk_id": "4d1adf50-6bb2-42fd-a33d-386a1d0519cb",
+          "chunk_index": 769,
+          "reference": "State Planning Policy 3.7",
+          "quote": "2 of State Planning Policy 3.7 Planning in Bushfire Prone Areas (SPP3.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "d6b9d600-ee78-5b65-bc27-ee0be0f5fd5f"
+        },
+        {
+          "chunk_id": "63059032-c6fb-469a-905f-f2c8a3bd6243",
+          "chunk_index": 788,
+          "reference": "State Planning Policy 3.7",
+          "quote": "Western Australian Planning Commission (WAPC) 2015, State Planning Policy 3.7 Planning in Bushfire Prone Areas, Western Australian Planning Commission, Perth.",
+          "target_manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+          "resolved": true,
+          "edge_id": "76eaf835-be04-5d7b-8ac8-9ffebffdfd85"
+        },
+        {
+          "chunk_id": "2994ec59-4455-46a6-ad70-05bdd734dec8",
+          "chunk_index": 790,
+          "reference": "R-CODES",
+          "quote": "RIC HAM TG SB NT EH 221214 220304 DRAWNREV APPR'DYYMMDDDESCRIPTION UPDATE R-CODES UPDATE PCA + LEGEND P O LAND WITH AN INDICATIVE BAL RATING OF BAL-19 AND/OR BAL-29 AND/OR BAL-40 NOT CAPABLE OF BEING DEVELOPED UNTIL THE ADJOINING BUSHFIRE HAZARD IS REMOVED DEVELOPMENT SUBJECT TO DWELLING CONSTRUCTION UNDER AS3959-2009 PLANNING CONTROL AREA No.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5782b0a7-f976-502f-a571-245970a5af8f"
+        },
+        {
+          "chunk_id": "d5419e2e-736a-4a8e-86f2-a3547c44ea26",
+          "chunk_index": 800,
+          "reference": "Land Administration Act 1997",
+          "quote": "If the emergency access way is provided as an easement, it should be provided as a public easement in gross under sections 195 and 196 of the Land Administration Act 1997 in favour of the local government and/or public authority, to ensure accessibility for emergency services and the public at all times.",
+          "target_manifest_id": "ae71a5ce-1f3a-5625-b4d4-cbb14f209bea",
+          "resolved": false,
+          "edge_id": "5f4b005b-3527-574d-a723-663886922526"
+        },
+        {
+          "chunk_id": "d5419e2e-736a-4a8e-86f2-a3547c44ea26",
+          "chunk_index": 800,
+          "reference": "Planning and Development Act 2005",
+          "quote": "To be provided as a right-of-way the emergency access way should be vested in the Crown under section 152 of the Planning and Development Act 2005 as a right-of-way and such land to be ceded free of cost and without any payment or compensation by the Crown.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "bf94ab9a-3ffc-54e0-b8a4-fad2376ebe77"
+        },
+        {
+          "chunk_id": "d5419e2e-736a-4a8e-86f2-a3547c44ea26",
+          "chunk_index": 800,
+          "reference": "Land Administration Act 1997",
+          "quote": "In this scenario, the emergency access way can be provided as an easement under section 195 of the Land Administration Act 1997, as public access in the event of a bushfire emergency or vested in the Crown as a reserve under section 152 of the Planning and Development Act 2005.",
+          "target_manifest_id": "ae71a5ce-1f3a-5625-b4d4-cbb14f209bea",
+          "resolved": false,
+          "edge_id": "5f4b005b-3527-574d-a723-663886922526"
+        },
+        {
+          "chunk_id": "d5419e2e-736a-4a8e-86f2-a3547c44ea26",
+          "chunk_index": 800,
+          "reference": "Planning and Development Act 2005",
+          "quote": "In this scenario, the emergency access way can be provided as an easement under section 195 of the Land Administration Act 1997, as public access in the event of a bushfire emergency or vested in the Crown as a reserve under section 152 of the Planning and Development Act 2005.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "bf94ab9a-3ffc-54e0-b8a4-fad2376ebe77"
+        },
+        {
+          "chunk_id": "fbb0c214-7541-4e45-b2dd-1b0ebc85ed54",
+          "chunk_index": 801,
+          "reference": "Land Administration Act 1997",
+          "quote": "A right-of-carriageway easement should be provided under section 195 of the Land Administration Act 1997.",
+          "target_manifest_id": "ae71a5ce-1f3a-5625-b4d4-cbb14f209bea",
+          "resolved": false,
+          "edge_id": "0a44cbe1-ef8a-5ac7-92ee-fe2e4878f9bf"
+        },
+        {
+          "chunk_id": "9f9348e3-2461-4a53-8372-4ee9a7e9a5d1",
+          "chunk_index": 804,
+          "reference": "Residential Design Codes",
+          "quote": "6, they are to comply with the Residential Design Codes and Development Control Policy 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "00f59108-de9c-50b7-8bfe-2bc48168d89e"
+        },
+        {
+          "chunk_id": "9f9348e3-2461-4a53-8372-4ee9a7e9a5d1",
+          "chunk_index": 804,
+          "reference": "Development Control Policy 2.2",
+          "quote": "6, they are to comply with the Residential Design Codes and Development Control Policy 2.2 Residential Subdivision 3 Dips must have no more than a 1 in 8 (12.",
+          "target_manifest_id": "4e5054e0-590e-5486-828c-ec54e683e447",
+          "resolved": true,
+          "edge_id": "73ab4529-25dc-58c9-8158-403c0abf97a2"
+        },
+        {
+          "chunk_id": "b1c80d3a-1a0a-4bbf-9f51-2bf7e7a10acc",
+          "chunk_index": 811,
+          "reference": "R-Codes",
+          "quote": "Six major routes will be available for accessing the Structure Plan area: o Via Rowley Road towards east (Kwinana Freeway) o Via Barfield Road towards north o Via Frankland Avenue and Hammond Road towards north o Via Wattleup Road towards west o Via Proposed Scolaro Road towards north (proposed High School) o Via Irvine Parade towards north (proposed Primary School) Relationship with Policies \uf0b7 The predominant use is residential and to comply with the R-Codes, all residences are expected to provide a garage for each dwelling.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f05df738-a647-5b4e-bdc1-f331b00fd63c"
+        },
+        {
+          "chunk_id": "3a43543f-1881-4d54-b1f2-09757060e9f5",
+          "chunk_index": 813,
+          "reference": "R-Codes",
+          "quote": "Technical Literature Used Local Government Authority City of Cockburn Type of Development Residential Are the R-Codes referenced?",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "58d0ae24-2f6b-56f4-a078-8e36481a20c7"
+        },
+        {
+          "chunk_id": "3a43543f-1881-4d54-b1f2-09757060e9f5",
+          "chunk_index": 813,
+          "reference": "State Planning Policy 3.1",
+          "quote": "YES If YES, nominate which: State Planning Policy 3.1 Residential Design Codes 201 8 R- Codes (incorporating amendments gazetted on 2/8/2013, 23/10/15 and 2/3/2018) Are other State Planning Policies referenced?",
+          "target_manifest_id": "aef3d790-acb6-516b-a5db-e3a9a7cebed7",
+          "resolved": false,
+          "edge_id": "c875a253-f565-5447-87f5-4d77e5baa7f6"
+        },
+        {
+          "chunk_id": "3a43543f-1881-4d54-b1f2-09757060e9f5",
+          "chunk_index": 813,
+          "reference": "Residential Design Codes",
+          "quote": "1 Residential Design Codes 201 8 R- Codes (incorporating amendments gazetted on 2/8/2013, 23/10/15 and 2/3/2018) Are other State Planning Policies referenced?",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "58d0ae24-2f6b-56f4-a078-8e36481a20c7"
+        },
+        {
+          "chunk_id": "ca55b384-1bd9-4f68-91a6-ec6d70f3e527",
+          "chunk_index": 823,
+          "reference": "State Planning Policy 3.1",
+          "quote": "3 State Planning Policy 3.1 - R-Codes Description of Parking Requirements in accordance with Scheme: City of Cockburn - Town Planning Scheme No.",
+          "target_manifest_id": "aef3d790-acb6-516b-a5db-e3a9a7cebed7",
+          "resolved": false,
+          "edge_id": "676cf1ba-652a-54a7-8298-2024c3be47c6"
+        },
+        {
+          "chunk_id": "ca55b384-1bd9-4f68-91a6-ec6d70f3e527",
+          "chunk_index": 823,
+          "reference": "R-Codes",
+          "quote": "1 - R-Codes Description of Parking Requirements in accordance with Scheme: City of Cockburn - Town Planning Scheme No.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4aa8a253-a0f3-563b-8266-d078953d9096"
+        },
+        {
+          "chunk_id": "ca55b384-1bd9-4f68-91a6-ec6d70f3e527",
+          "chunk_index": 823,
+          "reference": "Residential Design Codes",
+          "quote": "3 \u201cDwelling - As prescribed in the Residential Design Codes Child Care Premises: \uf0b7 1:1 employee Plus \uf0b7 1:10 children\u201d R-Codes: \u201cThe following minimum number of on-site car parking spaces is to be provided for each single house, grouped dwelling and special purpose dwelling comprising the following number of bedrooms: \uf0b7 1-bedroom dwellings \u2013 Location B \u2013 1 bay per dwelling \uf0b7 2+ bedroom dwellings \u2013 Location B \u2013 2 bays per dwelling\u201d Justification Predominant use is residential and to comply with the R-Codes, all residences are expected to provide a garage for each dwelling.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4aa8a253-a0f3-563b-8266-d078953d9096"
+        },
+        {
+          "chunk_id": "ca55b384-1bd9-4f68-91a6-ec6d70f3e527",
+          "chunk_index": 823,
+          "reference": "R-Codes",
+          "quote": "3 \u201cDwelling - As prescribed in the Residential Design Codes Child Care Premises: \uf0b7 1:1 employee Plus \uf0b7 1:10 children\u201d R-Codes: \u201cThe following minimum number of on-site car parking spaces is to be provided for each single house, grouped dwelling and special purpose dwelling comprising the following number of bedrooms: \uf0b7 1-bedroom dwellings \u2013 Location B \u2013 1 bay per dwelling \uf0b7 2+ bedroom dwellings \u2013 Location B \u2013 2 bays per dwelling\u201d Justification Predominant use is residential and to comply with the R-Codes, all residences are expected to provide a garage for each dwelling.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4aa8a253-a0f3-563b-8266-d078953d9096"
+        },
+        {
+          "chunk_id": "37033a80-0775-4cfb-8016-97b67ef2e9e5",
+          "chunk_index": 824,
+          "reference": "State Planning Policy 3.1",
+          "quote": "3 State Planning Policy 3.1 - R-Codes Description of Parking Requirements in accordance with Scheme: City of Cockburn - Town Planning Scheme No.",
+          "target_manifest_id": "aef3d790-acb6-516b-a5db-e3a9a7cebed7",
+          "resolved": false,
+          "edge_id": "086a4a11-ad95-51b7-a0bf-7338e10b7958"
+        },
+        {
+          "chunk_id": "37033a80-0775-4cfb-8016-97b67ef2e9e5",
+          "chunk_index": 824,
+          "reference": "R-Codes",
+          "quote": "1 - R-Codes Description of Parking Requirements in accordance with Scheme: City of Cockburn - Town Planning Scheme No.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "38520b0d-645c-5ffb-bfa7-eb35b9ccbfb5"
+        },
+        {
+          "chunk_id": "37033a80-0775-4cfb-8016-97b67ef2e9e5",
+          "chunk_index": 824,
+          "reference": "R-Codes",
+          "quote": "\uf0b7 1:4 units for residents \uf0b7 1:16 units for visitors\u201d R-Codes: \u201cSingle houses - No minimum requirement\u201d Justification It is expected that any grouped and mult iple dwellings would provide bicycle pa rking as outlined by the City of Cockburn Town Planning Scheme No.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "38520b0d-645c-5ffb-bfa7-eb35b9ccbfb5"
+        },
+        {
+          "chunk_id": "5b614569-4d26-4ea2-aa90-4336c85319bf",
+          "chunk_index": 825,
+          "reference": "Building Code of Australia",
+          "quote": "NO Reference Document Utilised Building Code of Australia Justification The approved and constructed Childcare Centre (Nido Early School Hammond Park) located at 36 Whadjuk Drive provides 1 accessible car parking bay.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "274fb9eb-4b16-5baf-926a-49037a892989"
+        },
+        {
+          "chunk_id": "b9e4307d-d1ef-4306-a24f-d76346df1418",
+          "chunk_index": 841,
+          "reference": "R-codes",
+          "quote": "\uf0b7 A large residential area is in construction south of the subject site as part of the Mandogal up East LSP and Mandogalup West LSP with R-codes ranging from 30 to 80.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "fcb93130-b658-5df0-9bda-64ec910290c0"
+        }
+      ]
+    },
+    {
+      "source_version_id": "e9a4019a-64ab-4a52-9ddf-d7c59446f1c5",
+      "source_id": "028dad33-e6c5-5b60-8034-bfc217868504",
+      "title": "Building Advice",
+      "source_type": "planning_guidance",
+      "resolved": 0,
+      "unresolved_manifest_rows": 2,
+      "edges": 2,
+      "items": [
+        {
+          "chunk_id": "a3275a00-4331-464b-997f-ce5d0ac51edd",
+          "chunk_index": 14,
+          "reference": "Building Act 2011",
+          "quote": "Adventure and Leisure Adventure and Leisure Close full menu Go back Adventure and Leisure What's On Go back What's On Nature and Outdoors Go back Nature and Outdoors Sports and Fitness Go back Sports and Fitness Port Coogee Marina Go back Port Coogee Marina Libraries, History, Art and Culture Go back Libraries, History, Art and Culture Venues for Hire Go back Venues for Hire Visitor Essentials Go back Visitor Essentials Related links Port Coogee Marina Dog Exercise Areas (off-lead) Champion Clubs Events and Workshops Adventure and Leisure What's On Go back What's On What's On Nature and Outdoors Go back Nature and Outdoors Nature and Outdoors Sports and Fitness Go back Sports and Fitness Sports and Fitness Port Coogee Marina Go back Port Coogee Marina Port Coogee Marina Libraries, History, Art and Culture Go back Libraries, History, Art and Culture Libraries, History, Art and Culture Venues for Hire Go back Venues for Hire Venues for Hire Visitor Essentials Go back Visitor Essentials Visitor Essentials Dog Exercise Areas (off-lead) Champion Clubs The legislative requirements of the Building Act 2011 and Building Regulations 2012",
+          "target_manifest_id": "d312ba9e-141f-524d-b9cf-cb3494cef349",
+          "resolved": false,
+          "edge_id": "7211de38-506a-52be-b162-a30935a7460a"
+        },
+        {
+          "chunk_id": "a3275a00-4331-464b-997f-ce5d0ac51edd",
+          "chunk_index": 14,
+          "reference": "Building Regulations 2012",
+          "quote": "Adventure and Leisure Adventure and Leisure Close full menu Go back Adventure and Leisure What's On Go back What's On Nature and Outdoors Go back Nature and Outdoors Sports and Fitness Go back Sports and Fitness Port Coogee Marina Go back Port Coogee Marina Libraries, History, Art and Culture Go back Libraries, History, Art and Culture Venues for Hire Go back Venues for Hire Visitor Essentials Go back Visitor Essentials Related links Port Coogee Marina Dog Exercise Areas (off-lead) Champion Clubs Events and Workshops Adventure and Leisure What's On Go back What's On What's On Nature and Outdoors Go back Nature and Outdoors Nature and Outdoors Sports and Fitness Go back Sports and Fitness Sports and Fitness Port Coogee Marina Go back Port Coogee Marina Port Coogee Marina Libraries, History, Art and Culture Go back Libraries, History, Art and Culture Libraries, History, Art and Culture Venues for Hire Go back Venues for Hire Venues for Hire Visitor Essentials Go back Visitor Essentials Visitor Essentials Dog Exercise Areas (off-lead) Champion Clubs The legislative requirements of the Building Act 2011 and Building Regulations 2012",
+          "target_manifest_id": "c09c8e57-f6be-5f0b-9af9-b76d6871c563",
+          "resolved": false,
+          "edge_id": "9bd79746-15b9-57f6-b288-fab6b06352f3"
+        }
+      ]
+    }
+  ]
+}

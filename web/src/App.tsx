@@ -6,16 +6,86 @@ import { GUEST_ADDRESS_LIMIT, GUEST_CHAT_LIMIT } from "./config";
 import { useGuestUsage } from "./hooks/useGuestUsage";
 import type { GuestFeature, PaywallState } from "./types";
 import { Home } from "./views/home";
+import { LandingPage, LegalPage } from "./views/launch";
 import { Library } from "./views/library";
 import { ProjectDetail, Projects } from "./views/projects";
 import { RulesView } from "./views/rules";
 import { Settings } from "./views/settings";
 
 type View = "home" | "projects" | "library" | "rules" | "settings";
+type AppRoute = "landing" | "privacy" | "terms" | "product";
+
+const ROUTE_META: Record<AppRoute, { title: string; description: string; canonical: string }> = {
+  landing: {
+    title: "LotFile - WA R-Code & Planning Compliance Checker",
+    description: "Advisory WA planning checks for addresses, drawings, R-Codes and source-cited project risk review. Not a certification or council decision.",
+    canonical: "https://lotfile.app/",
+  },
+  privacy: {
+    title: "Privacy - LotFile",
+    description: "How LotFile handles account, project, address and uploaded drawing data for advisory WA planning checks.",
+    canonical: "https://lotfile.app/privacy",
+  },
+  terms: {
+    title: "Terms - LotFile",
+    description: "LotFile terms for advisory-only planning checks, uploaded drawings, liability limits and user responsibilities.",
+    canonical: "https://lotfile.app/terms",
+  },
+  product: {
+    title: "LotFile App - Advisory WA Planning Checks",
+    description: "Address-first LotFile workspace for advisory WA planning checks with cited sources and uploaded drawing review.",
+    canonical: "https://lotfile.app/app",
+  },
+};
+
+function routeFromLocation(): AppRoute {
+  const path = window.location.pathname;
+  if (path === "/privacy") return "privacy";
+  if (path === "/terms") return "terms";
+  if (path.startsWith("/app") || path.startsWith("/auth/magic-link/verify")) return "product";
+  return "landing";
+}
+
+function applyRouteMeta(route: AppRoute) {
+  const meta = ROUTE_META[route];
+  document.title = meta.title;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", meta.description);
+  document.querySelector('meta[property="og:title"]')?.setAttribute("content", meta.title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute("content", meta.description);
+  document.querySelector('meta[property="og:url"]')?.setAttribute("content", meta.canonical);
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", meta.title);
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", meta.description);
+  document.querySelector('link[rel="canonical"]')?.setAttribute("href", meta.canonical);
+}
+
+export function App() {
+  const [route, setRoute] = useState<AppRoute>(() => routeFromLocation());
+
+  const navigate = useCallback((path: string) => {
+    window.history.pushState(null, "", path);
+    setRoute(routeFromLocation());
+    window.scrollTo({ top: 0 });
+  }, []);
+
+  useEffect(() => {
+    const onPopState = () => setRoute(routeFromLocation());
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  useEffect(() => {
+    applyRouteMeta(route);
+  }, [route]);
+
+  if (route === "privacy") return <LegalPage kind="privacy" onNavigate={navigate} />;
+  if (route === "terms") return <LegalPage kind="terms" onNavigate={navigate} />;
+  if (route === "product") return <ProductApp />;
+  return <LandingPage onNavigate={navigate} />;
+}
 
 /* ── app shell ── */
 
-export function App() {
+function ProductApp() {
   const [view, setView] = useState<View>("home");
   const [session, setSession] = useState<ApiResult<SessionInfo> | null>(null);
   const [signInOpen, setSignInOpen] = useState(false);
@@ -31,7 +101,7 @@ export function App() {
       const token = url.searchParams.get("token");
       if (token) {
         void api.magicLinkVerify(token).then(() => {
-          window.history.replaceState(null, "", "/");
+          window.history.replaceState(null, "", "/app");
           refreshSession();
         });
         return;
@@ -74,12 +144,12 @@ export function App() {
   }, [refreshSession]);
 
   const navItem = (v: View, icon: string, label: string) => (
-    <button className={view === v ? "on" : ""} onClick={() => setView(v)}>
+    <button className={view === v ? "on" : ""} onClick={() => setView(v)} aria-current={view === v ? "page" : undefined} aria-label={label}>
       <Icon name={icon} />{label}
     </button>
   );
   const tab = (v: View, icon: string, label: string) => (
-    <button className={`tb${view === v ? " on" : ""}`} onClick={() => setView(v)}>
+    <button className={`tb${view === v ? " on" : ""}`} onClick={() => setView(v)} aria-current={view === v ? "page" : undefined} aria-label={label}>
       <span className="ico"><Icon name={icon} /></span>{label}
     </button>
   );
@@ -97,7 +167,7 @@ export function App() {
     <div className="app">
       <aside className="side">
         <div className="logo">Lot<span>File</span></div>
-        <button className="newbtn" onClick={() => setView("home")}><Icon name="add_home_work" />New check</button>
+        <button className="newbtn" onClick={() => setView("home")} aria-label="Start a new address check"><Icon name="add_home_work" />New check</button>
         <nav className="nav">
           {navItem("home", "home", "Home")}
           {navItem("projects", "home_work", "Projects")}

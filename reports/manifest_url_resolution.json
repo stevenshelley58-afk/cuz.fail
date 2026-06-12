@@ -1,0 +1,1681 @@
+{
+  "wp": "B3",
+  "mode": "apply",
+  "pending_rows_scanned": 227,
+  "resolved": 76,
+  "unresolved": 151,
+  "index_counts": {
+    "acts": 906,
+    "subsidiary": 840
+  },
+  "resolved_rows": [
+    {
+      "id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+      "instrument_name": "Aboriginal Affairs Planning Authority Act 1972",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a1.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49436.pdf",
+      "matched_title": "Aboriginal Affairs Planning Authority Act 1972"
+    },
+    {
+      "id": "abc14fd6-c00f-52ad-8a60-8bda2c14037b",
+      "instrument_name": "Aboriginal Communities Act 1979",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a2.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_24182.pdf",
+      "matched_title": "Aboriginal Communities Act 1979"
+    },
+    {
+      "id": "b12ef51a-aaca-5d6a-ae0f-c46e74d5b531",
+      "instrument_name": "Aboriginal Heritage Act 1972",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a3.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49437.pdf",
+      "matched_title": "Aboriginal Heritage Act 1972"
+    },
+    {
+      "id": "4abf81d8-b9ec-578e-93f8-e4246dd9fe4b",
+      "instrument_name": "Administration Act 1903",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a5.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49096.pdf",
+      "matched_title": "Administration Act 1903"
+    },
+    {
+      "id": "3d2c545e-1409-540c-9d08-e6379128f0f7",
+      "instrument_name": "Associations Incorporation Act 2015",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147082.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48777.pdf",
+      "matched_title": "Associations Incorporation Act 2015"
+    },
+    {
+      "id": "00f272aa-486d-585b-a77b-a83b5e7d856d",
+      "instrument_name": "Auditor General Act 2006",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146605.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48889.pdf",
+      "matched_title": "Auditor General Act 2006"
+    },
+    {
+      "id": "19a3a54f-3df4-57c2-ac7b-16e49261c243",
+      "instrument_name": "Biodiversity Conservation Act 2016",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147120.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48894.pdf",
+      "matched_title": "Biodiversity Conservation Act 2016"
+    },
+    {
+      "id": "61d016ce-c6f8-5a40-9cf3-4896f27ab61d",
+      "instrument_name": "Biosecurity and Agriculture Management Act 2007",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146629.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49440.pdf",
+      "matched_title": "Biosecurity and Agriculture Management Act 2007"
+    },
+    {
+      "id": "d312ba9e-141f-524d-b9cf-cb3494cef349",
+      "instrument_name": "Building Act 2011",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146834.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49441.pdf",
+      "matched_title": "Building Act 2011"
+    },
+    {
+      "id": "56ea58ac-2e4c-544f-a1cd-b0ea357723f5",
+      "instrument_name": "Bush Fires Act 1954",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a95.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_45457.pdf",
+      "matched_title": "Bush Fires Act 1954"
+    },
+    {
+      "id": "c4c05e92-e130-56b0-aa28-c14c1dc2e8e5",
+      "instrument_name": "Caravan Parks and Camping Grounds Act 1995",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a103.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_43416.pdf",
+      "matched_title": "Caravan Parks and Camping Grounds Act 1995"
+    },
+    {
+      "id": "0b58f32a-db44-5564-8aa9-bdf0c2fd7509",
+      "instrument_name": "Carbon Rights Act 2003",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a6494.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_220.pdf",
+      "matched_title": "Carbon Rights Act 2003"
+    },
+    {
+      "id": "a0a1de30-88a8-5384-8b6c-f51ef41d903d",
+      "instrument_name": "Censorship Act 1996",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a114.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_29335.pdf",
+      "matched_title": "Censorship Act 1996"
+    },
+    {
+      "id": "c91c6522-2228-588b-b12a-3bba69595d4a",
+      "instrument_name": "Child Care Services Act 2007",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146626.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49333.pdf",
+      "matched_title": "Child Care Services Act 2007"
+    },
+    {
+      "id": "9b4e3ef4-f93a-5954-8ba1-09c77d25a8f3",
+      "instrument_name": "Commercial Arbitration Act 2012",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146897.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_45283.pdf",
+      "matched_title": "Commercial Arbitration Act 2012"
+    },
+    {
+      "id": "7493cd5a-494c-555e-a3b2-fff6de800a7b",
+      "instrument_name": "Community Titles Act 2018",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147205.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_46400.pdf",
+      "matched_title": "Community Titles Act 2018"
+    },
+    {
+      "id": "4232aa86-085c-5602-b6c0-8fad93af8612",
+      "instrument_name": "Conservation and Land Management Act 1984",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a170.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49443.pdf",
+      "matched_title": "Conservation and Land Management Act 1984"
+    },
+    {
+      "id": "4892e92d-69be-5098-9414-e5ed9aa7106c",
+      "instrument_name": "Contaminated Sites Act 2003",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a6987.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48863.pdf",
+      "matched_title": "Contaminated Sites Act 2003"
+    },
+    {
+      "id": "2825dcca-b3cd-50ad-b35b-832f4e8af88d",
+      "instrument_name": "Country Areas Water Supply Act 1947",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a188.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_29751.pdf",
+      "matched_title": "Country Areas Water Supply Act 1947"
+    },
+    {
+      "id": "11ac1714-3dc6-576b-8fbe-bdfca1f6caba",
+      "instrument_name": "Electoral Act 1907",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a242.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47953.pdf",
+      "matched_title": "Electoral Act 1907"
+    },
+    {
+      "id": "00aadaf9-0e1a-54bc-bcad-2310dd469267",
+      "instrument_name": "Electricity Industry Act 2004",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a7017.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48867.pdf",
+      "matched_title": "Electricity Industry Act 2004"
+    },
+    {
+      "id": "e1d7c837-5401-5235-8c78-e72b4e52b5c6",
+      "instrument_name": "Emergency Management Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9384.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48909.pdf",
+      "matched_title": "Emergency Management Act 2005"
+    },
+    {
+      "id": "9e9f7c29-cc98-5262-9ab5-56312d0db5e5",
+      "instrument_name": "Energy Coordination Act 1994",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a249.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49447.pdf",
+      "matched_title": "Energy Coordination Act 1994"
+    },
+    {
+      "id": "20e5df7a-f123-518e-a6bb-77c200b82b37",
+      "instrument_name": "Environmental Protection Act 1986",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a252.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49200.pdf",
+      "matched_title": "Environmental Protection Act 1986"
+    },
+    {
+      "id": "3b111f9a-3456-5020-83f8-50fd0100f926",
+      "instrument_name": "Financial Legislation Amendment and Repeal Act 2006",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146607.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_16669.pdf",
+      "matched_title": "Financial Legislation Amendment and Repeal Act 2006"
+    },
+    {
+      "id": "bbb02de1-bfa2-5bae-8552-9361269a081f",
+      "instrument_name": "Financial Management Act 2006",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146606.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49250.pdf",
+      "matched_title": "Financial Management Act 2006"
+    },
+    {
+      "id": "7da414d0-8e53-5af7-917b-b929c4fe9fd9",
+      "instrument_name": "Fire and Emergency Services Act 1998",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a1899.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49451.pdf",
+      "matched_title": "Fire and Emergency Services Act 1998"
+    },
+    {
+      "id": "0ed8d1cb-c694-5d11-9e4e-c21a02e7dd26",
+      "instrument_name": "Firearms Act 2024",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147438.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48355.pdf",
+      "matched_title": "Firearms Act 2024"
+    },
+    {
+      "id": "6b031ec9-6512-5300-ad60-48dd155bafb2",
+      "instrument_name": "Government Agreements Act 1979",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a327.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_925.pdf",
+      "matched_title": "Government Agreements Act 1979"
+    },
+    {
+      "id": "f6ced431-9017-5061-8866-db6aea92d7cd",
+      "instrument_name": "Health Act 1911",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a343.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49341.pdf",
+      "matched_title": "Health Act 1911"
+    },
+    {
+      "id": "909b3900-89ff-524c-8d2a-bc99c4516623",
+      "instrument_name": "Health Services Act 2016",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147107.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48912.pdf",
+      "matched_title": "Health Services Act 2016"
+    },
+    {
+      "id": "4e3d135a-8fef-518e-9ce5-e8c27e9c66d4",
+      "instrument_name": "Heritage Act 2018",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147195.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49458.pdf",
+      "matched_title": "Heritage Act 2018"
+    },
+    {
+      "id": "40f8c2d5-5cf2-5d17-b923-46f40a7243f0",
+      "instrument_name": "Infrastructure Western Australia Act 2019",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147228.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49202.pdf",
+      "matched_title": "Infrastructure Western Australia Act 2019"
+    },
+    {
+      "id": "2fb9180d-2c53-5959-9526-7f69192047d9",
+      "instrument_name": "Interpretation Act 1984",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a384.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49111.pdf",
+      "matched_title": "Interpretation Act 1984"
+    },
+    {
+      "id": "ae71a5ce-1f3a-5625-b4d4-cbb14f209bea",
+      "instrument_name": "Land Administration Act 1997",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a1828.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49459.pdf",
+      "matched_title": "Land Administration Act 1997"
+    },
+    {
+      "id": "011d876b-58c9-5177-87e3-1f4fd915182f",
+      "instrument_name": "Land Information Authority Act 2006",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146590.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_43954.pdf",
+      "matched_title": "Land Information Authority Act 2006"
+    },
+    {
+      "id": "f2be0bcd-ad99-55ad-9904-9b20ee2e6fe0",
+      "instrument_name": "Land Tax Act 2002",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a6340.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_28122.pdf",
+      "matched_title": "Land Tax Act 2002"
+    },
+    {
+      "id": "82c5cabb-963b-5a64-91e8-ebdb5c733788",
+      "instrument_name": "Land Tax Assessment Act 2002",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a6341.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49123.pdf",
+      "matched_title": "Land Tax Assessment Act 2002"
+    },
+    {
+      "id": "af3869e0-2be8-5932-ac2f-82cb9b7f626e",
+      "instrument_name": "Land Valuers Licensing Act 1978",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a436.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_45309.pdf",
+      "matched_title": "Land Valuers Licensing Act 1978"
+    },
+    {
+      "id": "db866993-c30b-5e62-a025-0ff18215da20",
+      "instrument_name": "Legal Profession Uniform Law Application Act 2022",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147341.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47480.pdf",
+      "matched_title": "Legal Profession Uniform Law Application Act 2022"
+    },
+    {
+      "id": "abb541b7-3e2e-5d8d-864d-5a81c76e26dd",
+      "instrument_name": "Liquor Control Act 1988",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a461.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49055.pdf",
+      "matched_title": "Liquor Control Act 1988"
+    },
+    {
+      "id": "b460e8db-ba3f-5084-ad3a-7503a01f4db5",
+      "instrument_name": "Liquor Licensing Act 1988",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a461.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49055.pdf",
+      "matched_title": "Liquor Licensing Act 1988"
+    },
+    {
+      "id": "aa8b4cad-fc86-501d-bc96-91f8c12f634a",
+      "instrument_name": "Local Government Act 1960",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a466.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_42228.pdf",
+      "matched_title": "Local Government Act 1960"
+    },
+    {
+      "id": "3c0f4723-7496-5726-a664-ffa9078a3448",
+      "instrument_name": "Local Government Act 1995",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a465.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49461.pdf",
+      "matched_title": "Local Government Act 1995"
+    },
+    {
+      "id": "e41007c3-f020-5cbc-9ae0-a974dee15750",
+      "instrument_name": "Main Roads Act 1930",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a471.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_46699.pdf",
+      "matched_title": "Main Roads Act 1930"
+    },
+    {
+      "id": "90c9cb7e-42e9-5c53-b7f9-3fab46c7ac67",
+      "instrument_name": "Metric Conversion Act 1972",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a494.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_16296.pdf",
+      "matched_title": "Metric Conversion Act 1972"
+    },
+    {
+      "id": "4a1c2efc-1cce-512a-8fe5-0f174795fe28",
+      "instrument_name": "Metropolitan Redevelopment Authority Act 2011",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146856.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47505.pdf",
+      "matched_title": "Metropolitan Redevelopment Authority Act 2011"
+    },
+    {
+      "id": "9fe281bc-c83b-5974-9b99-0f0ed91fd648",
+      "instrument_name": "Metropolitan Region Improvement Tax Act 1959",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a497.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_17548.pdf",
+      "matched_title": "Metropolitan Region Improvement Tax Act 1959"
+    },
+    {
+      "id": "e2ec592c-8541-59bb-bd22-1950f7fe5b06",
+      "instrument_name": "Mining Act 1978",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a517.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49463.pdf",
+      "matched_title": "Mining Act 1978"
+    },
+    {
+      "id": "11aa64c3-c668-5ff1-80f3-46d9ed17ffcd",
+      "instrument_name": "Perth Parking Management Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a1938.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_46919.pdf",
+      "matched_title": "Perth Parking Management Act 1999"
+    },
+    {
+      "id": "52bae04f-1efe-52f3-90d8-30539591fdb5",
+      "instrument_name": "Port Authorities Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a1946.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49484.pdf",
+      "matched_title": "Port Authorities Act 1999"
+    },
+    {
+      "id": "498d542e-0e88-5775-be53-336ff9da9bba",
+      "instrument_name": "Public Health Act 2016",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147114.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49344.pdf",
+      "matched_title": "Public Health Act 2016"
+    },
+    {
+      "id": "b983e24b-0d79-5550-b1ed-d0353cb560f2",
+      "instrument_name": "Public Sector Management Act 1994",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a647.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49252.pdf",
+      "matched_title": "Public Sector Management Act 1994"
+    },
+    {
+      "id": "d1dcc23f-6e36-59bc-bf6f-2d7dd3570b87",
+      "instrument_name": "Public Works Act 1902",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a427.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_46451.pdf",
+      "matched_title": "Public Works Act 1902"
+    },
+    {
+      "id": "b80a39d3-51c0-563c-b333-a9ff2eb034b6",
+      "instrument_name": "Racing and Wagering Western Australia Act 2003",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a6491.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48001.pdf",
+      "matched_title": "Racing and Wagering Western Australia Act 2003"
+    },
+    {
+      "id": "0d4cb782-f095-5e9e-9f51-2a0c11056bc4",
+      "instrument_name": "Referendums Act 1983",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a679.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47515.pdf",
+      "matched_title": "Referendums Act 1983"
+    },
+    {
+      "id": "e89265dc-c660-5a4f-9115-740e527dc9c6",
+      "instrument_name": "Registration of Deeds Act 1856",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a682.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_45357.pdf",
+      "matched_title": "Registration of Deeds Act 1856"
+    },
+    {
+      "id": "a3d6abfc-b51d-50f8-8414-b81fc271d20a",
+      "instrument_name": "Retirement Villages Act 1992",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a697.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47949.pdf",
+      "matched_title": "Retirement Villages Act 1992"
+    },
+    {
+      "id": "d2ce3e50-a16e-5fd0-ba71-650c2060b469",
+      "instrument_name": "Rights In Water and Irrigation Act 1914",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a700.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_43171.pdf",
+      "matched_title": "Rights in Water and Irrigation Act 1914"
+    },
+    {
+      "id": "29fd5845-64ea-5d1e-8053-540164f9ae3a",
+      "instrument_name": "State Administrative Tribunal Act 2004",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9268.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49227.pdf",
+      "matched_title": "State Administrative Tribunal Act 2004"
+    },
+    {
+      "id": "8da1346e-b500-534c-9b35-b775143e61c8",
+      "instrument_name": "State Development Act 2025",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147499.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49491.pdf",
+      "matched_title": "State Development Act 2025"
+    },
+    {
+      "id": "753723be-c47d-56db-9267-04a10aa743cc",
+      "instrument_name": "Strata Titles Act 1985",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a796.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48587.pdf",
+      "matched_title": "Strata Titles Act 1985"
+    },
+    {
+      "id": "d8dd0f91-c1d8-5f9f-b804-868e009bf594",
+      "instrument_name": "Swan and Canning Rivers Management Act 2006",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146581.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49353.pdf",
+      "matched_title": "Swan and Canning Rivers Management Act 2006"
+    },
+    {
+      "id": "98ff0638-b1f8-5fa3-bf4e-d58c7eb4ba24",
+      "instrument_name": "Swan Valley Planning Act 2020",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a147291.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47521.pdf",
+      "matched_title": "Swan Valley Planning Act 2020"
+    },
+    {
+      "id": "0a8aac97-537a-581e-93f9-6143fad85237",
+      "instrument_name": "Taxation Administration Act 2003",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a6343.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48799.pdf",
+      "matched_title": "Taxation Administration Act 2003"
+    },
+    {
+      "id": "47ed201a-4575-5146-a3c7-f6bcb922251d",
+      "instrument_name": "Transfer of Land Act 1893",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a829.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49493.pdf",
+      "matched_title": "Transfer of Land Act 1893"
+    },
+    {
+      "id": "2a619d21-9623-5890-932b-93ec37f868bb",
+      "instrument_name": "Waste Avoidance and Resource Recovery Act 2007",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146643.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48005.pdf",
+      "matched_title": "Waste Avoidance and Resource Recovery Act 2007"
+    },
+    {
+      "id": "494957e6-9ed7-5937-bae0-297052b9fb46",
+      "instrument_name": "Water Corporation Act 1995",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a868.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_46330.pdf",
+      "matched_title": "Water Corporation Act 1995"
+    },
+    {
+      "id": "1d82b415-2370-58d3-be60-fa3ba082c4d5",
+      "instrument_name": "Water Services Act 2012",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a146899.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48881.pdf",
+      "matched_title": "Water Services Act 2012"
+    },
+    {
+      "id": "99cddeb4-9b77-5332-a00e-d46b6d168824",
+      "instrument_name": "Waterways Conservation Act 1976",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "acts",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a872.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49497.pdf",
+      "matched_title": "Waterways Conservation Act 1976"
+    },
+    {
+      "id": "c09c8e57-f6be-5f0b-9af9-b76d6871c563",
+      "instrument_name": "Building Regulations 2012",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "subsidiary",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s43955.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49519.pdf",
+      "matched_title": "Building Regulations 2012"
+    },
+    {
+      "id": "46fc0741-a84e-57cf-94b3-986369044fe8",
+      "instrument_name": "Caravan Parks and Camping Grounds Regulations 1997",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "subsidiary",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s4339.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47625.pdf",
+      "matched_title": "Caravan Parks and Camping Grounds Regulations 1997"
+    },
+    {
+      "id": "7ba62e3c-9980-5e6e-9eb1-59ea38936877",
+      "instrument_name": "Community Titles Regulations 2021",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "subsidiary",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s52329.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49367.pdf",
+      "matched_title": "Community Titles Regulations 2021"
+    },
+    {
+      "id": "e6b57ba8-e79a-59d9-b965-a605c559d874",
+      "instrument_name": "Environmental Protection Regulations 1987",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "subsidiary",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s4421.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49450.pdf",
+      "matched_title": "Environmental Protection Regulations 1987"
+    },
+    {
+      "id": "0e57bc21-4bf3-595f-87e3-f7c1a57566a6",
+      "instrument_name": "Heritage Regulations 2019",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "subsidiary",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s51570.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49201.pdf",
+      "matched_title": "Heritage Regulations 2019"
+    },
+    {
+      "id": "7b11f121-8db6-5a84-a787-8da037e43df8",
+      "instrument_name": "Swan and Canning Rivers Management Regulations 2007",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia",
+      "collection": "subsidiary",
+      "title_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_s39211.html&view=consolidated",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_48439.pdf",
+      "matched_title": "Swan and Canning Rivers Management Regulations 2007"
+    }
+  ],
+  "unresolved_rows": [
+    {
+      "id": "d0c45e6b-ecf6-5fdc-8aeb-59bee96e2ba5",
+      "instrument_name": "Aboriginal Cultural Heritage Act 1972",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "b5117eab-2412-5609-af5d-d422379ca213",
+      "instrument_name": "Aboriginal Cultural Heritage Act 2021",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "e2672b9a-d15f-55a7-b23b-e054ee99466e",
+      "instrument_name": "Aboriginal Heritage Legislation Amendment and Repeal Act 2023",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "15e21678-2702-5414-b223-70af084ab90f",
+      "instrument_name": "Airports Act 1996",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f93de025-4a4c-590b-ad71-44a242246739",
+      "instrument_name": "Application of Interpretation Act 1984",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "dfe4499b-5d90-5414-baa6-14cceea21af4",
+      "instrument_name": "Assent Commencement Aquatic Resources Management Act 2016",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "6291985b-5e82-5244-ae14-5ec7ff616dc0",
+      "instrument_name": "Assent Commencement Associations Incorporation Act 2015",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "4539f7c0-50cf-5e6d-b801-a56eb0485355",
+      "instrument_name": "Assent Commencement Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "cf3cde1b-cf05-542c-82ea-91a4589db859",
+      "instrument_name": "Assent Commencement Planning and Development Amendment Act 2022",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "3cbccb93-14a6-50f4-8e22-ac819b244c82",
+      "instrument_name": "Bas UNDER THE TRANSFER OF LAND ACT 1893",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "1416dcda-1f1a-593a-9937-f873de29d326",
+      "instrument_name": "Bunbury Pipeline Act 1997",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "179b7359-b0a2-5c6b-8845-6b19fe102f0f",
+      "instrument_name": "CALM Act 1984",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "6f8ef519-174a-500a-9b33-f74d395fe9c2",
+      "instrument_name": "Canberra ACT 2601",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "8499c2fb-e398-50f9-b5d3-add7e95f3313",
+      "instrument_name": "Caravan and Camping Grounds Act 1995",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "c78cfafa-b677-53ab-9ca2-1a8f6eeba30d",
+      "instrument_name": "Cement Works Agreement Act 1971",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "ff648208-cdfe-5419-8c86-0a2808415896",
+      "instrument_name": "Census and Statistics Act 1905",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "d695b6e7-c834-5834-8b19-f9dfd132a591",
+      "instrument_name": "City of Joondalup Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "1ab8117f-81c9-52db-96f1-f4b4684681dc",
+      "instrument_name": "Commercial Arbitration Act 1985",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "8135b58c-fa64-5391-baa4-2dbfbd3c17c1",
+      "instrument_name": "Commonwealth Electoral Act 1918",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f30030cf-7729-5b94-aaf1-07984d85e8bf",
+      "instrument_name": "Commonwealth Environment Protection and Biodiversity Conservation Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "6db88a88-912c-53b8-9785-a32ac26623e2",
+      "instrument_name": "Commonwealth Telecommunications Act 1997",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "3c6ef7de-6b83-5da3-bb76-495c0c75a52c",
+      "instrument_name": "Contamination Sites Act 2003",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "5a35a090-bf23-5d31-a62b-2d5eafaf6be5",
+      "instrument_name": "Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "ed0cef4d-de38-54a9-bb62-ed9cbdb06fb4",
+      "instrument_name": "Division The Local Government Act 1995",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f62115ed-68d9-5100-95f5-9d50a3c9de5d",
+      "instrument_name": "Drainage Act 1909",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "d453acdb-9beb-51cb-b16e-b02b816332ad",
+      "instrument_name": "Environmental Protection and Biodiversity Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "e639e920-fc12-545f-aff1-140cf86ba907",
+      "instrument_name": "Environmental Protection and Biodiversity Conservation Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "fae06273-b8c3-5d92-bb84-97fea8f9eea8",
+      "instrument_name": "Environment Protection and Biodiversity Conservation Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "3cc9583f-fca6-5195-b723-34fba261c05f",
+      "instrument_name": "Explosives and Dangerous Goods Act 1961",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "fda5cd89-1bee-54aa-931c-da5e2c561030",
+      "instrument_name": "Framework STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "3a6e9a0a-9c6b-58e4-b202-806d20b06632",
+      "instrument_name": "Guidelines STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "caab07d4-250e-509b-8d99-f5186ed1f809",
+      "instrument_name": "Hazard Heritage Environment Protection and Biodiversity Conservation Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "4dcf522b-b4f2-52e8-bc7e-37ea1ea506f4",
+      "instrument_name": "Heritage of Western Australia Act 1990",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "295a23e6-9237-5839-be05-bec84c016b35",
+      "instrument_name": "Hope Valley Wattleup Redevelopment Act 2000",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "81727efb-de1a-561e-8681-1d6edcbdeaec",
+      "instrument_name": "If the Heritage Act 2018",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "cd01f896-b62c-5cb1-aece-6b718d97a3d8",
+      "instrument_name": "Income Tax Assessment Act 1997",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "e0dcd900-fc04-52a6-a6bb-6738e8127587",
+      "instrument_name": "IV of the Environmental Protection Act 1986",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "b2337f73-db09-545a-970f-b74a6387d0c1",
+      "instrument_name": "Land Act 1933",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "641ba71e-372f-592c-871c-efac258ad91e",
+      "instrument_name": "Land and Public Works Legislation Amendment Act 2023",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "c7d4dc5c-6153-58d1-b108-a065a8cfa182",
+      "instrument_name": "Legal Profession Act 2008",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "5e14db03-26e3-5e1b-b2b0-35dc028eb007",
+      "instrument_name": "Legislation BAM Act Biosecurity and Agriculture Management Act 2007",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "fbbc0723-c4ed-52bf-9b21-a6632475a6af",
+      "instrument_name": "Legislation Biodiversity Conservation Act 2016",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "a87be77f-6df3-5523-a80f-7a90ae1c10ec",
+      "instrument_name": "Legislation Legislation BC Act Biodiversity Conservation Act 2016",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f7f57cf3-3ea1-5d97-9945-f933bbb4dda5",
+      "instrument_name": "Management Act 2006",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "30078160-d11b-54c1-a32a-4b96b30534eb",
+      "instrument_name": "Metropolitan Region Town Planning Scheme Act 1959",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "44e585fb-8c3d-5830-a57d-fdd734d25e6d",
+      "instrument_name": "Mining Act 1904",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "6223b00d-f746-55cf-a9f9-5c2a4dd770d3",
+      "instrument_name": "Mining Act 1987",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "8f898c6b-60f0-580b-a66d-a9f60292fe9c",
+      "instrument_name": "National Broadband Companies Act 2011",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "b1a0a767-dc11-5cef-b75a-7dc9c89be25b",
+      "instrument_name": "National Broadband Network Companies Act 2011",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "de996f24-4329-5f76-a94e-9ab35ab5fa66",
+      "instrument_name": "Native Title Act 1993",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f3c4a7e6-69c2-5de4-be4a-87c68c9c4f25",
+      "instrument_name": "Note the Electronic Transactions Act 2011",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "c3d3d62f-2cb3-5696-a89b-b09bb0c6e3c1",
+      "instrument_name": "OF DATE WAPC ACT 1985",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "97ea046b-2f2c-50d6-953f-f80bd3496671",
+      "instrument_name": "OF THE PLANNING AND DEVELOPMENT ACT 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "bfc10053-727d-58b1-bcaf-1f524da93154",
+      "instrument_name": "OF THE TOWN PLANNING AND DEVELOPMENT ACT 1928",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "36132bab-9716-59aa-9d84-da8f2752ec21",
+      "instrument_name": "OF TITLE UNDER THE TRANSFER OF LAND ACT 1893",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "c0809ed5-5d2e-57fc-80b7-1a1e6a50d81f",
+      "instrument_name": "Page Western Australian Legislation Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "8e5fb586-3a5c-550c-8687-1e266aa70516",
+      "instrument_name": "Part IVA of the Transfer of Land Act 1893",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "603d9e14-9a88-5b98-82b6-d6eb3a9f6107",
+      "instrument_name": "Part IV of the Environmental Protection Act 1986",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "370a8263-7de2-549c-8442-400046ee3e30",
+      "instrument_name": "Part Three of the Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "83d6c432-2640-56ff-bb90-4dc5c6feb45c",
+      "instrument_name": "Part V Environmental Protection Act 1986",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "46da9fb3-b021-5668-8ca4-99698402cdf4",
+      "instrument_name": "Part V of the Environmental Protection Act 1986",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "ef620890-3646-5b7c-adfb-da238a6ececa",
+      "instrument_name": "Part V of the Fisheries Act 1905",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "d035b396-9338-5364-8517-45aa62cd141d",
+      "instrument_name": "PfanntngandDevelopment Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "3b4378c9-efa6-5264-98d4-3e542af390ab",
+      "instrument_name": "Planning and Development Amendment Act 2020",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "6cbbaa71-402a-5c8c-bf23-21a25e107f04",
+      "instrument_name": "Planning and Development Amendment Act 2022",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "a18b7fa4-03f7-5992-a3b2-cc2b0aa599b7",
+      "instrument_name": "Planning and Development Amendment Act 2023",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "dc400903-d484-508e-ba85-8876aced8593",
+      "instrument_name": "Protection and Biodiversity Conservation Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "9db524e1-4566-5073-8759-937a4c1f0598",
+      "instrument_name": "Public Sector Reform Act 2010",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "26feadf4-a0ee-55eb-a94f-31ca019a967f",
+      "instrument_name": "Radiocommunications Act 1992",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "cf479700-8d05-5ab3-bb03-c789f9c8d091",
+      "instrument_name": "Reprints Act 1984",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f482760c-6091-55b6-b2d5-1aa5c28fa2d7",
+      "instrument_name": "Road Traffic Legislation Amendment Act 2012",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "d68cc302-1ca0-5c87-b951-e484392f5232",
+      "instrument_name": "Schedule and the Swan Valley Planning Act 2020",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "19a2b3af-0c7e-58d5-811b-43ad706c2352",
+      "instrument_name": "See the Strata Titles Act 1985",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "bff32a73-8598-53de-86fb-3f724f1c0105",
+      "instrument_name": "Sewerage and Drainage Act 1909",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "cfa8aa02-0932-5bbb-8f46-22bc6e0367ac",
+      "instrument_name": "Significant Development Pathway Planning and Development Amendment Act 2023",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "bf428749-bba5-5e88-8f68-ca7017c82b31",
+      "instrument_name": "Species Common Name Status Under Wildlife Conservation Act 1950",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "21ec9f70-14c0-5600-83de-14c79615b646",
+      "instrument_name": "State Environmental Protection Act 1986",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "ed7c54c3-4c40-5ccc-b252-208f390c225a",
+      "instrument_name": "Statements STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "77ae40c5-2b6e-55aa-a423-ddd7f68a68ba",
+      "instrument_name": "STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "9242ec97-0eb9-5afa-8d51-274e8d2656ab",
+      "instrument_name": "Status Under EPBC Act 1999",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "01f11b5b-8f73-55c6-81bd-ea4e72813628",
+      "instrument_name": "Strata Titles Act 1966",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f9c40e73-d870-5781-9f2a-3120add4dd82",
+      "instrument_name": "Strata Titles Amendment Act 1995",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "25a9b33d-f208-5b2e-88a7-3d63b89370e5",
+      "instrument_name": "Strata Titles Amendment Act 1996",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "e82994b9-0877-5366-a955-34d54b8b1bb8",
+      "instrument_name": "Strata Titles Amendment Act 2018",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "9f97363f-7a3b-52d4-9255-b6dcd7087aa7",
+      "instrument_name": "Strategies STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "26a499f7-2ae1-5023-b4ce-ade4fe68039c",
+      "instrument_name": "Success Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "05519406-490f-5e3c-aca4-1332c817504d",
+      "instrument_name": "Swan River Conservation Act 1958",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "a8c1b142-df96-570e-ac04-1c3575abc15c",
+      "instrument_name": "Swan Valley Planning Legislation Amendment Act 2006",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "b5dbb3cd-fe7d-5f6f-8a83-68600c5fea64",
+      "instrument_name": "Tax and the Metropolitan Region Improvement Tax Act 1959",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "065c1099-8cef-555d-b24e-ffec7eb93c8e",
+      "instrument_name": "Technology Development Act 1983",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "bc6af9bd-0a63-5ffd-bbbf-67d3f69890d7",
+      "instrument_name": "Telecommunications Act 1997",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f2fc9003-65e5-53ba-a7ef-a5685e15a1fc",
+      "instrument_name": "Term Rental Accommodation Act 2024",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "6ae4fb44-4a80-5522-ba92-d4cc5dab525c",
+      "instrument_name": "The Aboriginal Heritage Act 1972",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "8583a3f7-2729-5ef5-8129-291d69a6314c",
+      "instrument_name": "The Biosecurity and Agriculture Management Act 2007",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "2b837369-e1ce-5c49-b681-27f28108b7ff",
+      "instrument_name": "The Building Act 2011",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "05acbee2-9fbc-5bc7-9667-3747fa80291b",
+      "instrument_name": "The Conservation and Land Management Act 1984",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "d1d7a6c7-5ec6-50a4-8f78-ca9e9a5a1bf8",
+      "instrument_name": "The Environmental Protection Act 1986",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "7aee8f63-4b8c-5429-9345-ebe09bc87393",
+      "instrument_name": "The Heritage Act 2018",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "51ec4167-bfd9-5210-bbd1-0faa4aca5295",
+      "instrument_name": "The Interpretation Act 1984",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "3670dcb4-a403-5aac-9114-2b8b064a9ea5",
+      "instrument_name": "The Land Administration Act 1997",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "df2985c5-5eb6-520e-ab04-90ffe0f43884",
+      "instrument_name": "The Liquor Act 1988",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "a99149a8-1027-584e-b7d3-b06041f0ebfc",
+      "instrument_name": "The Mining Act 1978",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "ce9c2278-d128-5d86-8c58-12f0fe584c4c",
+      "instrument_name": "The Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "6d1dadeb-64fc-5290-b898-dc7f607cf41d",
+      "instrument_name": "The Strata Titles Amendment Act 1995",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "90f79286-fb94-5339-83ca-1b84cd648079",
+      "instrument_name": "The Waterways Conservation Act 1976",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "58be034c-1a44-584d-bba0-4fd92ba225ca",
+      "instrument_name": "Totalisator Agency Board Betting Act 1960",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "68661979-25e3-506d-adb2-f8796fb5444c",
+      "instrument_name": "Town Planning and Development Act 1928",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "1e8bd49c-db86-5864-9fad-277053cf7b8e",
+      "instrument_name": "Transfer of Land Act 1983",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "c2c98f56-b8be-510f-91d9-2f7abd693a29",
+      "instrument_name": "Transfer of Land Act 1993",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "0b53d7be-cc70-563b-977a-788697bef349",
+      "instrument_name": "Under the State Development Act 2025",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "45674d37-d653-5477-8846-b1f9678fa29b",
+      "instrument_name": "Under the Strata Titles Act 1985",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "c3a23a33-ea88-54ee-8ee3-b51843da51d1",
+      "instrument_name": "WA Biodiversity Conservation Act 2016",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "277b0004-1738-5d90-8724-7a36d50b59bf",
+      "instrument_name": "Water and Irrigation Act 1914",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "5d1d42ac-1cd6-53f3-bf9f-c56bc89fdb37",
+      "instrument_name": "Water Service Act 2012",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "5ae61ed6-ee98-55cb-8e83-09be304d3fd6",
+      "instrument_name": "Water Services Legislation Amendment and Repeal Act 2012",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "c29ec783-8907-5129-acaa-cb38cd145d00",
+      "instrument_name": "Wattleup Redevelopment Act 2000",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "552549a6-3659-5105-8e07-e9af30b42f6f",
+      "instrument_name": "Western Australian Legislation Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "4eb2ad25-66f4-52d7-85ce-7b0943947db9",
+      "instrument_name": "Western Australian Planning Commission Act 1985",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "2139591c-6cd7-516b-9ab6-a6afa0520eb4",
+      "instrument_name": "Western Australia Planning and Development Act 2005",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "d42589fd-b57f-52b7-9cf3-e8d021d03856",
+      "instrument_name": "Wildlife Conservation Act 1950",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "94125bc2-4033-530f-941e-edf1d4f59a32",
+      "instrument_name": "W K H Environmental Protection Act 1986",
+      "category": "act",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "60a53755-8b0e-52fd-801d-81c245ac774c",
+      "instrument_name": "Amendment Regulations 2015",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "2910ef04-0f59-513a-b4f7-9932ccad796b",
+      "instrument_name": "Amendment Regulations 2016",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "0218eaec-5fe7-572c-9cf4-cdf28eab8073",
+      "instrument_name": "Amendment Regulations 2020",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "69856823-ec74-540a-b64b-a61d15d1a35a",
+      "instrument_name": "Amendment Regulations 2021",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "abbc51f9-c414-5718-9a2f-b6e0065795c0",
+      "instrument_name": "Amendment Regulations 2024",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "c720aad7-c82d-52bd-bf63-12ba0cc3c35b",
+      "instrument_name": "Amendment Regulations 2025",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "d0f2e9ee-30f3-529c-85bc-b6c07e633446",
+      "instrument_name": "BC Regs Biodiversity Conservation Regulations 2018",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "e7927051-58a6-5bc2-ad30-44045f1122ba",
+      "instrument_name": "BC Regulations 2018",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "4f10e2c4-1637-5ef9-9dd5-a065b5bedd59",
+      "instrument_name": "Citation Published Commencement Planning and Development Amendment Regulations 2019",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "0aa0bb6e-4a23-5245-bf75-2185f9216f6e",
+      "instrument_name": "Citation Published Commencement Planning and Development Regulations 2009",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "4e82cdc8-13e1-5622-8519-dec035b38594",
+      "instrument_name": "Date Planning and Development Regulations 2009",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "439a99d9-e852-5f24-85e3-00e3cc3956cd",
+      "instrument_name": "Fisheries Regulations 1938",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "fe135e18-5825-580f-8ab6-ec73f2eadf42",
+      "instrument_name": "Planning and Development Amendment Regulations 2010",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "cdcd0c57-407c-5270-b5f8-ccd8059d8449",
+      "instrument_name": "Planning and Development Amendment Regulations 2011",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "51565788-1d30-5fce-ad3b-d582f1458cb2",
+      "instrument_name": "Planning and Development Amendment Regulations 2013",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "3c8d45d0-02a2-58cb-b935-d5f01600ac9e",
+      "instrument_name": "Planning and Development Amendment Regulations 2015",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "053670e2-b7c1-50f5-b96b-f27a2f54c11c",
+      "instrument_name": "Planning and Development Amendment Regulations 2021",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "1fa4c8f4-dcee-5e29-b245-0589e17860f1",
+      "instrument_name": "Planning and Development Amendment Regulations 2024",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "020b9abd-4a0c-52a8-a0ac-44130e42362d",
+      "instrument_name": "Planning and Development Local Planning Scheme Regulations 2015",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "8fb1dfe5-1e2b-5f29-be1d-c4464f0b5368",
+      "instrument_name": "Planning and Development Regulations 2015",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "882c8e66-cd6a-5236-a8d4-8c3c8a4549ae",
+      "instrument_name": "Planning Regulations Amendment Regulations 2020",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "f1e7a2cd-fbec-588e-bb3e-2ffcaf7dd056",
+      "instrument_name": "Policy and Regulations 2004",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "9c211198-dbfe-5862-a922-b08c04a0df86",
+      "instrument_name": "The Biodiversity Conservation Regulations 2018",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "e299af15-84d2-54d0-9206-fe0956337e41",
+      "instrument_name": "The Biosecurity and Agriculture Management Regulations 2013",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "8a22d1d3-4f0f-51e5-8f6e-c84c154e4bad",
+      "instrument_name": "The Planning and Development Regulations 2009",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "a1625233-6637-5666-bef5-3f52f1460827",
+      "instrument_name": "The Town Planning Regulations 1967",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "3bfc595c-fda9-53ea-9e67-bde910ce37b4",
+      "instrument_name": "Town Planning Amendment Regulations 1999",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "b1efd26c-c904-577a-b9bc-9b60b6fd2e1e",
+      "instrument_name": "Town Planning Regulations 1967",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "e3f35ec0-63fc-5515-8d14-bf8910ee1f9b",
+      "instrument_name": "Water and Irrigation Regulations 2000",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    },
+    {
+      "id": "03949070-1e98-599b-a7ba-2aa33215f74a",
+      "instrument_name": "Western Australia Planning and Development Regulations 2009",
+      "category": "regulations",
+      "issuing_authority": "Government of Western Australia"
+    }
+  ]
+}

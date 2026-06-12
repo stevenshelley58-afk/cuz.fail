@@ -19,19 +19,19 @@ interpreted as final legal, planning, or certification compliance.
 
 from __future__ import annotations
 
-from datetime import datetime
-from typing import Annotated
+from datetime import UTC, datetime
+from typing import Annotated, Any, Literal
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, status
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from sqlalchemy.orm import Session
 
 from draftcheck.api.auth import get_current_session
 from draftcheck.api.deps import get_db_session
 from draftcheck.checks.engine import ComplianceEngine
-from draftcheck.db.models import CheckResult, CheckRun
-from draftcheck.domain.identity import ActiveSession
+from draftcheck.db.models import AuditEvent, CheckResult, CheckRun
+from draftcheck.domain.identity import ActiveSession, IdentityRole, normalize_role
 
 router = APIRouter(prefix="/compliance", tags=["compliance"])
 
@@ -47,6 +47,7 @@ DbSession = Annotated[Session, Depends(get_db_session)]
 
 
 class CheckResultItemResponse(BaseModel):
+    result_id: str
     check_key: str
     display_name: str
     status: str = Field(
@@ -59,6 +60,27 @@ class CheckResultItemResponse(BaseModel):
     rule_quote: str | None
     citation: str | None
     note: str | None
+    missing_info_reason: str | None
+    drawing_evidence: dict[str, Any]
+    review_reason: str | None
+    human_override: dict[str, Any]
+    reviewed_by_user_id: str | None
+    reviewed_at: datetime | None
+
+
+class CheckResultOverrideRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    action: Literal["record_review", "flag_for_revision", "operator_note"]
+    reason: str = Field(min_length=1, max_length=1000)
+
+    @field_validator("reason")
+    @classmethod
+    def _reason_must_have_text(cls, value: str) -> str:
+        stripped = value.strip()
+        if not stripped:
+            raise ValueError("reason is required")
+        return stripped
 
 
 class ComplianceRunResponse(BaseModel):
@@ -103,6 +125,26 @@ def _resolve_org_id(active_session: ActiveSession) -> str:
     )
 
 
+def _require_review_actor(active_session: ActiveSession) -> None:
+    allowed_roles = {
+        IdentityRole.OWNER,
+        IdentityRole.OPERATOR,
+        IdentityRole.COMPLIANCE_OWNER,
+    }
+    try:
+        role = normalize_role(active_session.user.role)
+    except PermissionError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Compliance result review requires an owner or operator role.",
+        ) from exc
+    if role not in allowed_roles:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Compliance result review requires an owner or operator role.",
+        )
+
+
 def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
     from draftcheck.checks.registry import TIER1_CHECKS, TIER2_CHECKS
 
@@ -119,7 +161,9 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
     _mv = prop.get("measured_value")
     _ri = req.get("rule_id")
     _note = trace.get("note")
+    _missing_info_reason = trace.get("missing_info_reason")
     return CheckResultItemResponse(
+        result_id=str(row.id),
         check_key=row.check_key,
         display_name=_display_map.get(row.check_key, row.check_key),
         status=row.status,
@@ -130,6 +174,12 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
         rule_quote=row.why_this_applies,
         citation=str(citation) if citation is not None else None,
         note=str(_note) if _note is not None else None,
+        missing_info_reason=str(_missing_info_reason) if _missing_info_reason is not None else None,
+        drawing_evidence=dict(row.drawing_evidence_json or {}),
+        review_reason=row.review_reason,
+        human_override=dict(row.human_override_json or {}),
+        reviewed_by_user_id=str(row.reviewed_by_user_id) if row.reviewed_by_user_id else None,
+        reviewed_at=row.reviewed_at,
     )
 
 
@@ -237,6 +287,85 @@ def get_compliance_matrix(
 
     matrix_data = _run_response(run, results)
     return ComplianceMatrixResponse(**matrix_data.model_dump())
+
+
+@router.post(
+    "/results/{result_id}/override",
+    response_model=CheckResultItemResponse,
+    summary="Record an operator review annotation for a compliance result",
+)
+def record_check_result_override(
+    result_id: str,
+    payload: CheckResultOverrideRequest,
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    db: DbSession,
+) -> CheckResultItemResponse:
+    """Attach an operator review note without changing the deterministic verdict."""
+    org_id = _resolve_org_id(active_session)
+    _require_review_actor(active_session)
+
+    try:
+        result_uuid = UUID(result_id)
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Compliance result {result_id} not found.",
+        ) from exc
+
+    result: CheckResult | None = db.get(CheckResult, result_uuid)
+    if result is None or str(result.org_id) != org_id:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Compliance result {result_id} not found.",
+        )
+
+    before: dict[str, object] = {
+        "status": result.status,
+        "review_reason": result.review_reason,
+        "human_override": dict(result.human_override_json or {}),
+        "reviewed_by_user_id": str(result.reviewed_by_user_id) if result.reviewed_by_user_id else None,
+        "reviewed_at": result.reviewed_at.isoformat() if result.reviewed_at else None,
+    }
+    now = datetime.now(UTC)
+    override: dict[str, object] = {
+        "action": payload.action,
+        "reason": payload.reason,
+        "recorded_at": now.isoformat(),
+        "recorded_by_user_id": str(active_session.user.id),
+        "status_unchanged": result.status,
+    }
+
+    result.review_reason = payload.reason
+    result.human_override_json = override
+    result.reviewed_by_user_id = active_session.user.id
+    result.reviewed_at = now
+
+    db.add(
+        AuditEvent(
+            org_id=result.org_id,
+            actor_user_id=active_session.user.id,
+            event_type="check_result.human_override_recorded",
+            action=payload.action,
+            subject_type="check_result",
+            subject_id=result.id,
+            before_json=before,
+            after_json={
+                "status": result.status,
+                "review_reason": result.review_reason,
+                "human_override": override,
+                "reviewed_by_user_id": str(result.reviewed_by_user_id),
+                "reviewed_at": result.reviewed_at.isoformat(),
+            },
+            metadata_json={
+                "project_id": str(result.project_id),
+                "check_run_id": str(result.check_run_id),
+                "check_key": result.check_key,
+                "deterministic_status_preserved": True,
+            },
+        )
+    )
+    db.flush()
+    return _check_result_response(result)
 
 
 @router.get(

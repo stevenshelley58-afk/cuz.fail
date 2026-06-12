@@ -11,3 +11,5 @@ function envNumber(name: "VITE_GUEST_ADDRESS_LIMIT" | "VITE_GUEST_CHAT_LIMIT", f
 export const GUEST_ADDRESS_LIMIT = envNumber("VITE_GUEST_ADDRESS_LIMIT", 2);
 export const GUEST_CHAT_LIMIT = envNumber("VITE_GUEST_CHAT_LIMIT", 8);
 export const CHECKOUT_URL = String(import.meta.env.VITE_CHECKOUT_URL ?? "").trim();
+export const PRICE_LABEL = String(import.meta.env.VITE_PRICE_LABEL ?? "AUD $29/month").trim();
+export const PRICE_SUBLABEL = String(import.meta.env.VITE_PRICE_SUBLABEL ?? "Starter launch plan, cancel anytime.").trim();

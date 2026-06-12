@@ -24,6 +24,16 @@ jobs:
         run: python -m mypy src tests/test_v3_api_shell.py
       - name: Import contracts
         run: lint-imports --config pyproject.toml
+      - name: Ops shell syntax
+        shell: bash
+        run: |
+          bash -n infra/v3/ops/guardrail-alerts.sh
+          bash -n infra/v3/ops/install-guardrail-cron.sh
+          bash -n infra/v3/ops/install-log-retention.sh
+          bash -n infra/v3/ops/install-sentry-dsn.sh
+          bash -n infra/v3/backup/install-systemd.sh
+          bash -n infra/v3/backup/restore-drill.sh
+          bash -n infra/v3/deploy-web-only.sh
       - name: Tests
         run: python -m pytest -q
       - name: Forbidden V3 patterns
@@ -72,3 +82,28 @@ jobs:
       - name: Build web
         working-directory: web
         run: npm run build
+      - name: Test launch actions
+        working-directory: web
+        run: npm run test:launch-actions
+      - name: Verify mobile launch sweep
+        working-directory: web
+        run: npm run verify:launch:mobile
+      - name: Verify launch surface
+        working-directory: web
+        env:
+          VITE_CHECKOUT_URL: https://buy.stripe.com/lotfile_ci_fixture
+          VITE_PRICE_LABEL: AUD $29/month
+          VITE_PRICE_SUBLABEL: Starter launch plan, cancel anytime.
+        run: npm run verify:launch:strict
+      - name: Test live launch preview
+        working-directory: web
+        run: npm run test:live-launch-preview
+      - name: Resolve Chrome for Lighthouse
+        shell: bash
+        run: |
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          echo "CHROME_PATH=$CHROME_BIN" >> "$GITHUB_ENV"
+      - name: Verify Lighthouse SEO
+        working-directory: web
+        run: npm run verify:launch:lighthouse

@@ -30,8 +30,8 @@ GitHub     gh auth status (already authenticated on this machine)
 - VPS deploy commands run on the server via `ssh draftcheck '...'`. Anything inside the
   quoted command executes on `srv1625369` (`root@76.13.209.160`), not on Windows.
 - The production app checkout is `/srv/draftcheck/app`. Caddy serves the web UI directly
-  from `/srv/draftcheck/app/web/dist`, so a UI-only deploy is a repo reset plus
-  `cd web && npm ci && npm run build`; no Vercel action and no container restart are needed.
+  from `/srv/draftcheck/app/web/dist`, so a UI-only deploy is
+  `infra/v3/deploy-web-only.sh`; no Vercel action and no container restart are needed.
 - Do not paste deploy code into Vercel. If a command mutates `/srv/draftcheck/app`, run it
   through `ssh draftcheck` or from an interactive shell after `ssh draftcheck`.
 - For the current production runbook and troubleshooting checklist, also read
@@ -48,8 +48,9 @@ VPS             srv1625369 is reachable as `ssh draftcheck`; app.cuz.fail serves
                 `/srv/draftcheck/app/web/dist` from the VPS.
 Web UI          web/index.html title is `LotFile`; live deploy requires rebuilding web/dist
                 on the VPS because Caddy serves compiled files.
-Vercel          RETIRED. Only deploy target is the VPS. UI deploy = `cd web && npm ci && npm run build`
-                into `/srv/draftcheck/app/web/dist`. Reload Caddy after if Caddyfile changed.
+Vercel          RETIRED. Only deploy target is the VPS. UI deploy =
+                `infra/v3/deploy-web-only.sh`, which requires a real Stripe
+                `VITE_CHECKOUT_URL`. Reload Caddy after if Caddyfile changed.
 V3 app          Phases 0–2: auth, sources, address/spatial. Product routes are 501 stubs.
 ```
 
@@ -74,7 +75,7 @@ Anything not on those two lists is yours to do without asking.
 ### A0. (Vercel guard — RETIRED)
 
 Vercel is retired. No guard steps needed. The only deploy target is the VPS.
-UI deploy: `cd web && npm ci && npm run build` into `/srv/draftcheck/app/web/dist`.
+UI deploy: `infra/v3/deploy-web-only.sh` into `/srv/draftcheck/app/web/dist`.
 
 ### A1. Preflight
 
@@ -140,29 +141,19 @@ Do not block anything else on this.
 ### B0. UI-only redeploy from current main
 
 Use this when the API/container stack is already live and only `app.cuz.fail` is serving an old
-compiled frontend. Preserve unpushed VPS work first.
+compiled frontend. The script preserves unpushed `web/` work, backs up `web/dist`,
+refuses non-web deltas, requires a real Stripe `VITE_CHECKOUT_URL`, runs the strict
+launch verifier, and rolls back static files on failure. It does not run compose,
+Alembic, psql, backups, queues, adjudication jobs, or any other DB/container work.
 
 ```bash
-ssh draftcheck 'set -euo pipefail
-git config --global --add safe.directory /srv/draftcheck/app
-cd /srv/draftcheck/app
-git status --porcelain
-git branch -a
-git stash list
-if [ -n "$(git status --porcelain -- web)" ]; then
-  git stash push -m "pre-deploy web changes $(date -Is)" -- web
-fi
-git fetch origin
-git reset --hard origin/main
-cd web
-npm ci
-npm run build'
+ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'
 ```
 
 Verification:
 
 ```bash
-curl -s https://app.cuz.fail/ | grep -o '<title>[^<]*</title>'     # <title>LotFile</title>
+curl -s https://app.cuz.fail/ | grep -o '<title>[^<]*</title>'     # <title>LotFile - WA R-Code & Planning Compliance Checker</title>
 curl -s https://api.cuz.fail/api/v1/health                         # 200 / status ok
 ```
 
@@ -226,7 +217,11 @@ If `$RESTIC_REPOSITORY`/`$RESTIC_PASSWORD` (+ B2/R2 keys) are present: configure
 one restore drill into a scratch container, and record it. If absent: local dumps only;
 list "offsite backups pending credentials" in the report and continue.
 
-### B6. Create `infra/v3/deploy.sh`, commit to main
+### B6. Full-stack deploy script (`infra/v3/deploy.sh`)
+
+Use the full-stack deploy only when API/container/database-side changes are ready to ship.
+For stale frontend-only fixes, use B0 instead. The web-only deploy must remain free of
+compose, Alembic, psql, backups, queues, and adjudication work.
 
 ```bash
 #!/usr/bin/env bash

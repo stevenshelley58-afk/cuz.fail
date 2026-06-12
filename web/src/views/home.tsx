@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { marked } from "marked";
 import { api, type AddressSuggestion, type AssistantTurn, type ChatReply, type CitationMapEntry, type ProjectSummary } from "../api";
+import { trackEvent } from "../analytics";
 import { Icon, ThinkBlock } from "../components/common";
 import { GUEST_ADDRESS_LIMIT, GUEST_CHAT_LIMIT } from "../config";
 import { guestProjectList } from "../hooks/useGuestUsage";
@@ -170,6 +171,7 @@ export function Home({
     const created = await api.createProject(address);
     if (created.kind === "ok") {
       const id = created.data.id;
+      trackEvent("project_created", { guest: isGuest });
       if (isGuest) onGuestAddressDone(address, id);
       push({ role: "a", tone: "note", text: `Project created for ${address}. Resolving the property…`, chips: ["POST /projects · live"] });
       const resolved = await api.resolveAddress(id, address);
@@ -370,6 +372,15 @@ export function Home({
     setBusy(false);
   }, [busy, msgs, routeAddress, runChat, closeSugs]);
 
+  useEffect(() => {
+    const launchAddress = sessionStorage.getItem("lotfile_launch_address");
+    if (!launchAddress || !inputRef.current) return;
+    sessionStorage.removeItem("lotfile_launch_address");
+    inputRef.current.value = launchAddress;
+    inputRef.current.focus();
+    void send();
+  }, [send]);
+
   const pickSuggestion = useCallback(async (s: AddressSuggestion) => {
     if (busyRef.current) return;
     const el = inputRef.current;
@@ -470,6 +481,7 @@ export function Home({
         <div className="onebox">
           <textarea
             ref={inputRef}
+            aria-label="Address or planning question"
             placeholder="Type a street address (e.g. 3 Black Swan Rise, Beeliar)… or ask anything about WA planning"
             onKeyDown={(e) => {
               if (sugs.length) {
@@ -525,14 +537,14 @@ export function Home({
           )}
           <div className="belt">
             <span className="chip on"><Icon name="verified" />WA library</span>
-            <button className={`chip${webOn ? " on" : ""}`} onClick={() => setWebOn(!webOn)}>
+            <button className={`chip${webOn ? " on" : ""}`} onClick={() => setWebOn(!webOn)} aria-pressed={webOn} aria-label="Toggle web search">
               <Icon name="public" />Web
             </button>
             {isGuest && (
               <span className="chip guest"><Icon name="sparkles" />Free preview · {Math.min(guestUsage.addressChecks, GUEST_ADDRESS_LIMIT)}/{GUEST_ADDRESS_LIMIT} checks · {Math.min(guestUsage.chatMessages, GUEST_CHAT_LIMIT)}/{GUEST_CHAT_LIMIT} questions</span>
             )}
             <span className="grow" />
-            <button className="go" onClick={() => void send()} disabled={busy}><Icon name="arrow_upward" /></button>
+            <button className="go" onClick={() => void send()} disabled={busy} aria-label="Send address or question"><Icon name="arrow_upward" /></button>
           </div>
         </div>
         {msgs.length === 0 && (

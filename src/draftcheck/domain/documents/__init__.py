@@ -1,9 +1,21 @@
 """Document parsing domain helpers for the V3 rebuild."""
 
+from draftcheck.domain.documents.chunks import (
+    DocumentChunk,
+    DocumentChunkSearchHit,
+    build_document_chunks,
+    search_document_chunks,
+    search_persisted_document_chunks,
+    write_document_chunks,
+)
 from draftcheck.domain.documents.parsing import (
+    DocumentArtifact,
     DocumentFact,
     DocumentNotFoundError,
     DocumentPage,
+    PdfPageExtraction,
+    PdfTextBlock,
+    PdfVectorPath,
     DocumentParseError,
     DocumentParseResult,
     DocumentParser,
@@ -11,16 +23,24 @@ from draftcheck.domain.documents.parsing import (
     DocumentReviewStatus,
     InMemoryDocumentLibrary,
     ParserCapability,
+    ParsedDocument,
     decode_text_bytes,
     extract_docx_text,
+    extract_pdf_page_layouts,
     extract_pdf_pages,
     sample_parser_accuracy_report,
 )
 
 __all__ = [
     "DocumentFact",
+    "DocumentArtifact",
+    "DocumentChunk",
+    "DocumentChunkSearchHit",
     "DocumentNotFoundError",
     "DocumentPage",
+    "PdfPageExtraction",
+    "PdfTextBlock",
+    "PdfVectorPath",
     "DocumentParseError",
     "DocumentParseResult",
     "DocumentParser",
@@ -28,8 +48,14 @@ __all__ = [
     "DocumentReviewStatus",
     "InMemoryDocumentLibrary",
     "ParserCapability",
+    "ParsedDocument",
+    "build_document_chunks",
     "decode_text_bytes",
     "extract_docx_text",
+    "extract_pdf_page_layouts",
     "extract_pdf_pages",
     "sample_parser_accuracy_report",
+    "search_document_chunks",
+    "search_persisted_document_chunks",
+    "write_document_chunks",
 ]

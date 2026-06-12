@@ -255,22 +255,22 @@ def dev_login(
 
 # In-process per-IP limiter for guest-session creation (abuse valve; resets on
 # process restart, which is acceptable for now — noted in the PR).
-_GUEST_CREATE_LIMIT_PER_HOUR = 20
-_guest_create_window: dict[str, list[datetime]] = {}
-_guest_create_lock = Lock()
+_GUEST_SESSION_LIMIT_PER_HOUR = 20
+_guest_session_window: dict[str, list[datetime]] = {}
+_guest_session_lock = Lock()
 
 
-def _guest_create_allowed(ip: str | None) -> bool:
+def _guest_session_allowed(ip: str | None) -> bool:
     key = ip or "unknown"
     now = datetime.now(UTC)
     cutoff = now - timedelta(hours=1)
-    with _guest_create_lock:
-        window = [t for t in _guest_create_window.get(key, []) if t > cutoff]
-        if len(window) >= _GUEST_CREATE_LIMIT_PER_HOUR:
-            _guest_create_window[key] = window
+    with _guest_session_lock:
+        window = [t for t in _guest_session_window.get(key, []) if t > cutoff]
+        if len(window) >= _GUEST_SESSION_LIMIT_PER_HOUR:
+            _guest_session_window[key] = window
             return False
         window.append(now)
-        _guest_create_window[key] = window
+        _guest_session_window[key] = window
         return True
 
 
@@ -294,7 +294,7 @@ def guest_login(
     if not settings.guest_mode_enabled:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
 
-    if not _guest_create_allowed(_client_host(request)):
+    if not _guest_session_allowed(_client_host(request)):
         raise HTTPException(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
             detail="guest_session_rate_limited",

@@ -92,7 +92,7 @@ function AddressResolverPanel({ property, onContinue, onBack }: { property: Prop
 
       <ProvenanceAccordion provenance={property.provenance} />
 
-      <div style={{ display: "flex", gap: 8, marginTop: 16, justifyContent: "flex-end" }}>
+      <div className="wizard-actions" style={{ display: "flex", gap: 8, marginTop: 16, justifyContent: "flex-end" }}>
         {onBack && (
           <button className="btn alt" onClick={onBack}>← Back</button>
         )}
@@ -228,7 +228,7 @@ function ProposalForm({
         </div>
       )}
 
-      <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+      <div className="wizard-actions" style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
         <button className="btn alt" onClick={onBack} disabled={busy}>← Back</button>
         <button className="btn" onClick={() => void save()} disabled={busy}>
           {busy ? "Saving…" : "Save & Continue →"}
@@ -344,7 +344,7 @@ function ConfirmationStep({
 
       <CompliancePanel projectId={projectId} />
 
-      <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+      <div className="wizard-actions" style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
         <button className="btn alt" onClick={onBack}>← Back to edit</button>
         <button className="btn" onClick={onStart}>
           <Icon name="check_circle" />Start checking
@@ -372,15 +372,15 @@ export function WizardShell({
   const steps = ["Address & property", "Proposal details", "Confirm"] as const;
 
   return (
-    <div className="view" style={{ paddingTop: 16 }}>
+    <div className="view wizard-view" style={{ paddingTop: 16 }}>
       {/* stepper */}
-      <div style={{ display: "flex", alignItems: "center", gap: 0, marginBottom: 20, maxWidth: 640, margin: "0 auto 20px" }}>
+      <div className="wizard-stepper" style={{ display: "flex", alignItems: "center", gap: 0, marginBottom: 20, maxWidth: 640, margin: "0 auto 20px" }} aria-label="Check steps">
         {steps.map((label, idx) => {
           const stepNum = (idx + 1) as WizardStep;
           const isCurrent = state.step === stepNum;
           const isDone = state.step > stepNum;
           return (
-            <div key={idx} style={{ display: "flex", alignItems: "center", flex: idx < 2 ? 1 : undefined }}>
+            <div key={idx} className="wizard-step" style={{ display: "flex", alignItems: "center", flex: idx < 2 ? 1 : undefined }}>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
                 <div style={{
                   width: 28, height: 28, borderRadius: 99, display: "flex", alignItems: "center", justifyContent: "center",
@@ -391,12 +391,12 @@ export function WizardShell({
                 }}>
                   {isDone ? <Icon name="check_circle" /> : stepNum}
                 </div>
-                <div style={{ fontSize: ".65rem", fontWeight: 700, color: isCurrent ? "var(--green-800)" : "var(--ink-faint)", whiteSpace: "nowrap" }}>
+                <div className="wizard-step-label" style={{ fontSize: ".65rem", fontWeight: 700, color: isCurrent ? "var(--green-800)" : "var(--ink-faint)", whiteSpace: "nowrap" }}>
                   {label}
                 </div>
               </div>
               {idx < 2 && (
-                <div style={{ flex: 1, height: 2, background: isDone ? "var(--green)" : "var(--line)", margin: "0 6px 16px" }} />
+                <div className="wizard-rail" style={{ flex: 1, height: 2, background: isDone ? "var(--green)" : "var(--line)", margin: "0 6px 16px" }} />
               )}
             </div>
           );

@@ -147,16 +147,28 @@ def _api_embedding(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
     raise RuntimeError(f"Embedding API failed after retries: {last_exc}") from last_exc
 
 
+def _app_env() -> str:
+    return (os.environ.get("DRAFTCHECK_ENV") or os.environ.get("APP_ENV") or "development").lower()
+
+
+def _real_embedding_required(config: EmbeddingConfig) -> bool:
+    provider = os.environ.get("DRAFTCHECK_EMBEDDING_PROVIDER", config.provider)
+    return provider in {"stub", "hash", "mock"} or not os.environ.get("OPENAI_API_KEY")
+
+
+def _raise_if_mock_embedding_in_production(config: EmbeddingConfig) -> None:
+    if _app_env() == "production" and _real_embedding_required(config):
+        raise RuntimeError(
+            "Real embeddings required in production. "
+            "Set OPENAI_API_KEY and DRAFTCHECK_EMBEDDING_PROVIDER=api."
+        )
+
+
 def _embed(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
     import logging
-    provider = os.environ.get("DRAFTCHECK_EMBEDDING_PROVIDER", config.provider)
-    app_env = os.environ.get("APP_ENV", "development")
-    if provider == "stub" or not os.environ.get("OPENAI_API_KEY"):
-        if app_env == "production":
-            raise RuntimeError(
-                "Real embeddings required in production. "
-                "Set OPENAI_API_KEY or DRAFTCHECK_EMBEDDING_PROVIDER=stub to override."
-            )
+
+    if _real_embedding_required(config):
+        _raise_if_mock_embedding_in_production(config)
         logging.getLogger(__name__).warning(
             "Using hash embeddings stub (OPENAI_API_KEY not set or DRAFTCHECK_EMBEDDING_PROVIDER=stub). "
             "Vector search will not be meaningful."
@@ -171,6 +183,11 @@ def _batch_embed(texts: list[str], config: EmbeddingConfig) -> list[tuple[float,
     import time
     from urllib.error import HTTPError, URLError
     from urllib.request import Request, urlopen
+
+    _raise_if_mock_embedding_in_production(config)
+
+    if _real_embedding_required(config):
+        return [_hash_embedding(text, config) for text in texts]
 
     MAX_BATCH = 100
     results: list[tuple[float, ...]] = []

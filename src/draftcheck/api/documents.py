@@ -25,10 +25,11 @@ from __future__ import annotations
 import hashlib
 import os
 import uuid
+from datetime import UTC, datetime
 from pathlib import Path, PurePath
 from typing import Annotated, Any
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy.orm import Session
@@ -37,6 +38,7 @@ from draftcheck.api.auth import get_current_session, require_allowed_origin
 from draftcheck.api.deps import get_db_session
 from draftcheck.db.models import (
     Document,
+    DocumentChunk as OrmDocumentChunk,
     DocumentFact as OrmDocumentFact,
     DocumentPage as OrmDocumentPage,
     PropertyFact,
@@ -44,24 +46,23 @@ from draftcheck.db.models import (
 from draftcheck.domain.documents import (
     DocumentFact,
     DocumentNotFoundError,
-    DocumentParseError,
     DocumentParser,
     DocumentReviewStatus,
     InMemoryDocumentLibrary,
-    decode_text_bytes,
-    extract_docx_text,
-    extract_pdf_pages,
     sample_parser_accuracy_report,
+    search_persisted_document_chunks,
 )
-from draftcheck.domain.documents.facts import DocumentFactService
 from draftcheck.domain.identity import ActiveSession
 
 router = APIRouter(tags=["documents"])
 
 _document_library: InMemoryDocumentLibrary | None = None
-_fact_service = DocumentFactService()
 
-STORAGE_ROOT = Path(os.getenv("DRAFTCHECK_STORAGE_ROOT", "/srv/draftcheck/storage"))
+def _configured_storage_root() -> Path:
+    return Path(os.getenv("DRAFTCHECK_STORAGE_ROOT") or os.getenv("OBJECT_STORAGE_ROOT") or "/srv/draftcheck/storage")
+
+
+STORAGE_ROOT = _configured_storage_root()
 MAX_UPLOAD_BYTES = 15 * 1024 * 1024  # 15 MB
 
 
@@ -90,6 +91,8 @@ class FactUpdateRequest(BaseModel):
 
     numeric_value: float | None = Field(default=None)
     status: str | None = Field(default=None, pattern=r"^(pending_review|confirmed|rejected)$")
+    calibration_ref: str | None = Field(default=None, min_length=3, max_length=500)
+    calibration_note: str | None = Field(default=None, max_length=1000)
 
 
 class ReviewDocumentFactPayload(BaseModel):
@@ -117,6 +120,7 @@ def _orm_fact_payload(fact: OrmDocumentFact) -> dict[str, Any]:
         "confidence": fact.confidence,
         "review_status": fact.review_status,
         "promoted_to_measurement": fact.promoted_to_measurement,
+        "metadata": fact.metadata_json or {},
     }
 
 
@@ -142,36 +146,6 @@ def _store_content(content: bytes, sha256: str) -> Path:
     if not dest.exists():
         dest.write_bytes(content)
     return dest
-
-
-def _extract_text_from_content(media_type: str, filename: str, content: bytes) -> tuple[list[str], str]:
-    """Return (per-page texts, parser_name).
-
-    Uses pypdf for PDF, python-docx for DOCX, plain text for everything else.
-    DXF is treated as text-only metadata.
-    """
-    suffix = PurePath(filename).suffix.lower()
-    parser_name = "draftcheck.plain_text_parser"
-
-    if media_type == "application/pdf" or suffix == ".pdf":
-        parser_name = "draftcheck.pdf_text_parser"
-        pages = extract_pdf_pages(content)
-        return pages, parser_name
-
-    if media_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" or suffix == ".docx":
-        parser_name = "draftcheck.docx_text_parser"
-        text = extract_docx_text(content)
-        return [text] if text.strip() else [], parser_name
-
-    if suffix == ".dxf" or "dxf" in media_type:
-        parser_name = "draftcheck.dxf_text_parser"
-        # DXF: decode as text for metadata / entity labels only
-        text = decode_text_bytes(content)
-        return [text] if text.strip() else [], parser_name
-
-    # TXT / CSV / anything else
-    text = decode_text_bytes(content)
-    return [text] if text.strip() else [], parser_name
 
 
 def _safe_filename(filename: str) -> str:
@@ -208,11 +182,10 @@ def list_document_parsers() -> dict[str, Any]:
         "count": len(capabilities),
         "accuracy_gate": {
             "status": "not_beta_ready",
-            "reason": "parser coverage and golden eval accuracy gates have not passed",
+            "reason": "generated parser fixtures pass, but beta still needs persistence-connected validation and operator-reviewed real samples",
             "required_before_beta": [
-                "real PDF/DOCX/DXF/IFC fixture set",
-                "per-field precision/recall report",
-                "automated review gate",
+                "automated review gate connected to persistence",
+                "operator-reviewed real project samples",
                 "no raster measurement without calibration",
             ],
         },
@@ -274,54 +247,49 @@ async def upload_document(
         uploaded_by_user_id=active_session.user.id if active_session.user else None,
         title=filename,
         document_type=_doc_type_from_media(media_type, filename),
-        status="uploaded",
+        status="parse_pending",
         storage_path=storage_path,
         sha256=sha256,
         media_type=media_type,
         size_bytes=len(content),
-        metadata_json={"original_filename": filename},
+        metadata_json={"original_filename": filename, "parse_status": "parse_pending"},
     )
     db.add(document)
-    db.flush()  # get the id before adding pages/facts
-
-    # --- Extract text + create DocumentPage rows ---
-    try:
-        page_texts, parser_name = _extract_text_from_content(media_type, filename, content)
-    except DocumentParseError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail=str(exc),
-        ) from exc
-    orm_pages: list[OrmDocumentPage] = []
-    for page_number, page_text in enumerate(page_texts, start=1):
-        page = OrmDocumentPage(
-            id=uuid.uuid4(),
-            document_id=doc_id,
-            page_number=page_number,
-            text=page_text,
-            metadata_json={"parser_name": parser_name, "parser_version": DocumentFactService.PARSER_VERSION},
-        )
-        db.add(page)
-        orm_pages.append(page)
-
     db.flush()
+    # The parse worker uses a separate DB session. Commit the upload record
+    # before enqueueing so a fast worker cannot race an uncommitted document.
+    db.commit()
 
-    # --- Extract facts ---
-    all_orm_facts: list[OrmDocumentFact] = []
-    for page_row in orm_pages:
-        page_facts = _fact_service.extract_facts_from_text(
-            text=page_row.text or "",
-            document_id=doc_id,
-            page_number=page_row.page_number,
-            org_id=org_id,
-            project_id=proj_uuid,
-            page_id=page_row.id,
-        )
-        for fact in page_facts:
-            db.add(fact)
-            all_orm_facts.append(fact)
+    from draftcheck.jobs.documents import enqueue_document_parse, parse_document_for_session
 
-    db.flush()
+    parse_job = enqueue_document_parse(doc_id)
+    if not parse_job["enqueued"]:
+        try:
+            parse_document_for_session(db, document_id=doc_id, raise_parse_errors=True)
+        except Exception as exc:
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail=str(exc),
+            ) from exc
+
+    orm_pages = (
+        db.query(OrmDocumentPage)
+        .filter(OrmDocumentPage.document_id == doc_id)
+        .order_by(OrmDocumentPage.page_number)
+        .all()
+    )
+    orm_chunks = (
+        db.query(OrmDocumentChunk)
+        .filter(OrmDocumentChunk.document_id == doc_id)
+        .order_by(OrmDocumentChunk.chunk_index)
+        .all()
+    )
+    all_orm_facts = (
+        db.query(OrmDocumentFact)
+        .filter(OrmDocumentFact.document_id == doc_id)
+        .order_by(OrmDocumentFact.created_at, OrmDocumentFact.id)
+        .all()
+    )
 
     return {
         "document_id": str(doc_id),
@@ -329,7 +297,10 @@ async def upload_document(
         "media_type": media_type,
         "size_bytes": len(content),
         "sha256": sha256,
+        "parse_status": document.status,
+        "parse_job": parse_job,
         "page_count": len(orm_pages),
+        "chunk_count": len(orm_chunks),
         "extracted_facts": [_orm_fact_payload(f) for f in all_orm_facts],
         "fact_count": len(all_orm_facts),
         "review_required": True,
@@ -364,9 +335,9 @@ def update_document_fact(
     payload: FactUpdateRequest,
     db: DbSession,
     _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-    _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
 ) -> dict[str, Any]:
-    """Update a fact's numeric_value and/or status."""
+    """Update a fact's numeric value, review status, or calibration evidence."""
     fact = _get_fact_or_404(db, doc_id, fact_id)
 
     if payload.numeric_value is not None:
@@ -376,6 +347,25 @@ def update_document_fact(
 
     if payload.status is not None:
         fact.review_status = payload.status
+
+    if payload.calibration_ref is not None:
+        if fact.fact_kind != "drawing_dimension":
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail="calibration_ref applies only to drawing_dimension facts.",
+            )
+        metadata = dict(fact.metadata_json or {})
+        metadata.update(
+            {
+                "calibration_ref": payload.calibration_ref.strip(),
+                "calibration_status": "human_confirmed",
+                "calibration_recorded_at": datetime.now(UTC).isoformat(),
+                "calibration_recorded_by": str(active_session.user.id) if active_session.user else "system",
+            }
+        )
+        if payload.calibration_note:
+            metadata["calibration_note"] = payload.calibration_note.strip()
+        fact.metadata_json = metadata
 
     db.flush()
     return _orm_fact_payload(fact)
@@ -429,22 +419,28 @@ def promote_document_fact(
 
     fact.review_status = "confirmed"
     fact.promoted_to_measurement = True
+    calibration_ref = (fact.metadata_json or {}).get("calibration_ref")
+    value_json = {"value": numeric_value, "unit": unit, "document_fact_id": str(fact.id)}
+    provenance_json = {
+        "entered_by": str(active_session.user.id) if active_session.user else "system",
+        "reason": "promoted from document fact",
+        "method": "document_extraction_promoted",
+        "source_document_id": str(fact.document_id),
+        "source_fact_id": str(fact.id),
+    }
+    if calibration_ref is not None:
+        value_json["calibration_ref"] = str(calibration_ref)
+        provenance_json["calibration_ref"] = str(calibration_ref)
 
     property_fact = PropertyFact(
         id=uuid.uuid4(),
         org_id=fact.org_id,
         project_id=fact.project_id,
         fact_type=fact_key,
-        value_json={"value": numeric_value, "unit": unit, "document_fact_id": str(fact.id)},
+        value_json=value_json,
         confidence=fact.confidence,
         method="document_extraction_promoted",
-        provenance_json={
-            "entered_by": str(active_session.user.id) if active_session.user else "system",
-            "reason": "promoted from document fact",
-            "method": "document_extraction_promoted",
-            "source_document_id": str(fact.document_id),
-            "source_fact_id": str(fact.id),
-        },
+        provenance_json=provenance_json,
         review_status="confirmed",
     )
     db.add(property_fact)
@@ -462,6 +458,92 @@ def promote_document_fact(
 # ---------------------------------------------------------------------------
 # Legacy in-memory endpoints (kept for backward compatibility with existing tests)
 # ---------------------------------------------------------------------------
+
+
+@router.get("/documents/{document_id}/persisted-facts", tags=["documents"])
+def get_persisted_document_facts(
+    document_id: str,
+    db: DbSession,
+    _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+) -> dict[str, Any]:
+    try:
+        doc_uuid = uuid.UUID(document_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail="Invalid document UUID.") from exc
+
+    document = db.get(Document, doc_uuid)
+    if document is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Document {document_id} not found.")
+
+    facts = (
+        db.query(OrmDocumentFact)
+        .filter(OrmDocumentFact.document_id == doc_uuid)
+        .order_by(OrmDocumentFact.created_at, OrmDocumentFact.id)
+        .all()
+    )
+    return {
+        "document_id": str(document.id),
+        "parse_status": (document.metadata_json or {}).get("parse_status", document.status),
+        "items": [_orm_fact_payload(fact) for fact in facts],
+        "count": len(facts),
+    }
+
+
+@router.get("/documents/projects/{project_id}/evidence-search", tags=["documents"])
+def search_project_document_evidence(
+    project_id: str,
+    db: DbSession,
+    _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    q: Annotated[str, Query(min_length=2, max_length=300)],
+    limit: Annotated[int, Query(ge=1, le=20)] = 8,
+) -> dict[str, Any]:
+    try:
+        project_uuid = uuid.UUID(project_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail="Invalid project UUID.") from exc
+
+    hits = search_persisted_document_chunks(
+        db,
+        project_id=project_uuid,
+        query=q,
+        limit=limit,
+    )
+    doc_ids = [uuid.UUID(hit.chunk.document_id) for hit in hits]
+    docs = (
+        db.query(Document)
+        .filter(Document.id.in_(doc_ids))
+        .all()
+        if doc_ids
+        else []
+    )
+    titles = {str(doc.id): doc.title for doc in docs}
+    items = [
+        {
+            "document_id": hit.chunk.document_id,
+            "document_title": titles.get(hit.chunk.document_id),
+            "page_number": hit.chunk.page_number,
+            "chunk_index": hit.chunk.chunk_index,
+            "text": hit.chunk.text,
+            "score": round(hit.score, 6),
+            "metadata": {
+                **hit.chunk.metadata,
+                "evidence_role": "project_document",
+                "legal_authority": False,
+            },
+        }
+        for hit in hits
+    ]
+    return {
+        "project_id": str(project_uuid),
+        "query": q,
+        "items": items,
+        "count": len(items),
+        "legal_authority": False,
+        "advisory_notice": (
+            "Uploaded document evidence is project context only. It is not an approved legal source "
+            "and cannot support compliance verdicts without approved rules and promoted measurements."
+        ),
+    }
 
 
 @router.post("/documents/projects/{project_id}/upload", tags=["documents"])
@@ -487,6 +569,7 @@ async def upload_project_document(
     return {
         "document": jsonable_encoder(result.document),
         "pages": len(result.pages),
+        "chunks": len(result.chunks),
         "facts": [_inmem_fact_payload(fact) for fact in result.facts],
         "fact_count": len(result.facts),
         "review_required": True,
@@ -588,6 +671,7 @@ def list_project_documents(
             "title": doc.title,
             "document_type": doc.document_type,
             "status": doc.status,
+            "parse_status": (doc.metadata_json or {}).get("parse_status", doc.status),
             "created_at": doc.created_at.isoformat() if doc.created_at else None,
             "fact_count": fact_count,
         })

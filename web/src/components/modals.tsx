@@ -1,6 +1,7 @@
-import { useCallback, useState } from "react";
+import { type KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
 import { api } from "../api";
-import { CHECKOUT_URL, DEV_LOGIN } from "../config";
+import { trackEvent } from "../analytics";
+import { CHECKOUT_URL, DEV_LOGIN, PRICE_LABEL, PRICE_SUBLABEL } from "../config";
 import type { PaywallState } from "../types";
 import { Icon } from "./common";
 
@@ -8,6 +9,51 @@ const PAYWALL_COPY = {
   title: "You've used the free preview",
   body: "You've seen real, cited answers from the approved WA source library. Create a free account to keep going — your checks and chats carry on from here.",
 };
+
+function useModalFocus(onClose?: () => void) {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const modal = ref.current;
+    if (!modal) return;
+    const focusable = modal.querySelector<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+    (focusable ?? modal).focus();
+  }, []);
+
+  const onKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape" && onClose) {
+      event.preventDefault();
+      onClose();
+      return;
+    }
+    if (event.key !== "Tab") return;
+    const modal = ref.current;
+    if (!modal) return;
+    const focusable = Array.from(
+      modal.querySelectorAll<HTMLElement>(
+        'button:not(:disabled), [href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])',
+      ),
+    );
+    if (!focusable.length) {
+      event.preventDefault();
+      modal.focus();
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }, [onClose]);
+
+  return { ref, onKeyDown };
+}
 
 /* ── dev username/password form (used in place of magic link while DEV_LOGIN) ── */
 
@@ -32,6 +78,7 @@ export function DevLoginForm({ variant, onSignedIn }: { variant: "modal" | "pane
     <>
       <input
         className={inputClass}
+        aria-label="Username"
         placeholder="username"
         autoComplete="username"
         value={username}
@@ -41,6 +88,7 @@ export function DevLoginForm({ variant, onSignedIn }: { variant: "modal" | "pane
       <input
         className={inputClass}
         type="password"
+        aria-label="Password"
         placeholder="password"
         autoComplete="current-password"
         autoFocus={variant === "modal"}
@@ -81,6 +129,7 @@ export function MagicLinkForm({ variant, onSignedIn }: { variant: "modal" | "pan
     if (!trimmed) return;
     setStage("sending");
     setError(null);
+    trackEvent("signup_requested");
     const r = await api.magicLinkRequest(trimmed);
     if (r.kind === "ok") {
       setStage("check_email");
@@ -108,6 +157,7 @@ export function MagicLinkForm({ variant, onSignedIn }: { variant: "modal" | "pan
         <input
           className="inp"
           type="email"
+          aria-label="Email address"
           placeholder="your@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -126,14 +176,28 @@ export function MagicLinkForm({ variant, onSignedIn }: { variant: "modal" | "pan
 }
 
 export function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onSignedIn: () => void }) {
+  const modalFocus = useModalFocus(onClose);
   return (
     <div className="modal-backdrop" onClick={() => onClose?.()}>
-      <div className="modal" role="dialog" aria-modal="true" aria-label="Sign in" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Sign in"
+        tabIndex={-1}
+        ref={modalFocus.ref}
+        onKeyDown={modalFocus.onKeyDown}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="modal-logo">Lot<span>File</span></div>
         <h2>Sign in</h2>
         {DEV_LOGIN
           ? <DevLoginForm variant="modal" onSignedIn={onSignedIn} />
           : <MagicLinkForm variant="modal" onSignedIn={onSignedIn} />}
+        <div className="modal-legal">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
         {onClose && <button className="modal-skip" onClick={onClose}>Continue as guest</button>}
       </div>
     </div>
@@ -150,9 +214,11 @@ export function PaywallModal({
   onSignIn: () => void;
 }) {
   const copy = PAYWALL_COPY;
+  const modalFocus = useModalFocus(onClose);
   const cta = CHECKOUT_URL ? "Unlock more checks" : "Sign in to continue";
   const upgrade = () => {
     if (CHECKOUT_URL) {
+      trackEvent("checkout_clicked", { feature: state.feature, price: PRICE_LABEL });
       window.location.assign(CHECKOUT_URL);
       return;
     }
@@ -160,11 +226,24 @@ export function PaywallModal({
   };
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal paywall" role="dialog" aria-modal="true" aria-label={copy.title} onClick={(e) => e.stopPropagation()}>
+      <div
+        className="modal paywall"
+        role="dialog"
+        aria-modal="true"
+        aria-label={copy.title}
+        tabIndex={-1}
+        ref={modalFocus.ref}
+        onKeyDown={modalFocus.onKeyDown}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="modal-logo">Lot<span>File</span></div>
         <div className="paywall-icon"><Icon name={state.feature === "address" ? "location_on" : "forum"} /></div>
         <h2>{copy.title}</h2>
         <p>{copy.body}</p>
+        <div className="price">
+          <span>{PRICE_LABEL}</span>
+          <small>{PRICE_SUBLABEL}</small>
+        </div>
         <div className="plans">
           <div>
             <b>Saved dossiers</b>
@@ -172,7 +251,7 @@ export function PaywallModal({
           </div>
           <div>
             <b>Drawing uploads &amp; Tier-1 checks</b>
-            <span>Upload plans and run cited compliance checks</span>
+            <span>Upload plans and run cited advisory checks</span>
           </div>
           <div>
             <b>Full source library search</b>
@@ -183,6 +262,10 @@ export function PaywallModal({
           <Icon name={CHECKOUT_URL ? "credit_card" : "badge"} />{cta}
         </button>
         {CHECKOUT_URL && <button className="btn alt block" onClick={onSignIn}>Sign in instead</button>}
+        <div className="modal-legal">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
         <button className="modal-skip" onClick={onClose}>Not now</button>
       </div>
     </div>

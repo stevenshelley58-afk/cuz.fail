@@ -1,6 +1,8 @@
 # LotFile V3 Restore Drill
 
-<!-- Copy this file to restore-drill-YYYYMMDD.md, fill in all fields, commit. -->
+<!-- Copy this file to restore-drill-YYYYMMDD.md, fill in all fields, then run:
+python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json
+Commit only when the verifier returns status ok. -->
 
 date: YYYY-MM-DDTHH:MM:SSZ
 
@@ -18,6 +20,14 @@ snapshot_id: (short ID from `restic snapshots --last`)
 
 dump_path: /tmp/draftcheck-v3-restore-YYYYMMDDTHHMMSSZ/srv/draftcheck/backups/YYYYMMDDTHHMMSSZ/postgres.dump
 dump_size_bytes: 0
+
+## Storage restore
+
+storage_path: /tmp/draftcheck-v3-restore-YYYYMMDDTHHMMSSZ/srv/draftcheck/storage
+storage_file_count: 0
+storage_size_bytes: 0
+storage_manifest_sha256: (64 hex chars from restore-drill.sh)
+result: PASS / FAIL
 
 ## DB restore
 
@@ -37,3 +47,12 @@ drill_end: YYYY-MM-DDTHH:MM:SSZ
 
 status: PASS / FAIL
 notes: (any anomalies or follow-up items)
+
+## Follow-up guardrail checks
+
+backup_freshness_output: |
+  (paste `scripts/ops_guardrails.py backup-freshness --json` output here)
+
+spend_persistence_output: |
+  (paste `scripts/ops_guardrails.py compare-spend-snapshots --json` output here,
+  or note "not run - no governed LLM spend today")

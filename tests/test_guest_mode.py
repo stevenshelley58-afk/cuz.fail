@@ -107,7 +107,7 @@ def guest_app() -> Iterator:
     app.dependency_overrides[get_settings] = lambda: _SETTINGS
     app.dependency_overrides[get_guest_usage_store] = lambda: usage
     app.dependency_overrides[get_db_session] = _db_session
-    auth_module._guest_create_window.clear()
+    auth_module._guest_session_window.clear()
     yield app, store
 
 
@@ -231,7 +231,7 @@ def test_guest_orgs_are_isolated() -> None:
 
 def test_guest_create_rate_limited_per_ip() -> None:
     with guest_app() as (app, _store):
-        for _ in range(auth_module._GUEST_CREATE_LIMIT_PER_HOUR):
+        for _ in range(auth_module._GUEST_SESSION_LIMIT_PER_HOUR):
             # Fresh client each time → no cookie → new guest session.
             assert _client(app).post("/api/v1/auth/guest").status_code == 200
         assert _client(app).post("/api/v1/auth/guest").status_code == 429

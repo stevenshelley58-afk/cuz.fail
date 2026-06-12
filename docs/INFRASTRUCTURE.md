@@ -64,8 +64,9 @@ The active production checkout is `/srv/draftcheck/app`. Caddy terminates HTTP/T
 (`infra/v3/Caddyfile` is the source of truth; the global reverse proxy is tracked at
 `infra/blockwise-caddy/Caddyfile`).
 
-For UI-only releases, rebuild `web/dist` on the VPS after resetting the checkout to `origin/main`.
-No container restart is required for static frontend changes.
+For UI-only releases, run `infra/v3/deploy-web-only.sh` on the VPS after `origin/main`
+contains the desired frontend. The script rebuilds `web/dist`, verifies launch
+requirements, requires a real Stripe `VITE_CHECKOUT_URL`, and does not restart containers.
 
 ## Production bootstrap (VPS-only)
 
@@ -76,7 +77,7 @@ Deploys run `deploy/vps_deploy.sh`, which delegates to `infra/v3/deploy.sh` (see
 To deploy or redeploy the UI manually:
 
 ```bash
-ssh draftcheck 'cd /srv/draftcheck/app && git fetch origin && git reset --hard origin/main && cd web && npm ci && npm run build'
+ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'
 ```
 
 If the Caddyfile changed, reload Caddy:

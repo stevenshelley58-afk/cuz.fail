@@ -214,6 +214,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<Ap
 // ── Compliance types ──
 
 export type ComplianceResultItem = {
+  result_id: string;
   check_key: string;
   display_name: string;
   status: "likely_pass" | "likely_fail" | "needs_more_info" | "unsupported";
@@ -224,6 +225,12 @@ export type ComplianceResultItem = {
   rule_quote: string | null;
   citation: string | null;
   note: string | null;
+  missing_info_reason?: string | null;
+  drawing_evidence?: Record<string, unknown>;
+  review_reason?: string | null;
+  human_override?: Record<string, unknown>;
+  reviewed_by_user_id?: string | null;
+  reviewed_at?: string | null;
   missing_data?: string[] | null;
 };
 
@@ -239,19 +246,70 @@ export type ComplianceRunResponse = {
 // ── Document upload types ──
 
 export type ExtractedFact = {
+  fact_id?: string;
   fact_key: string;
+  fact_kind?: string;
   numeric_value: number | null;
   unit: string | null;
   confidence: number; // 0–1
   source_text: string | null;
+  review_status?: string;
+  promoted_to_measurement?: boolean;
+  metadata?: Record<string, unknown>;
   confirmed?: boolean;
+};
+
+export type DocumentFactUpdateResponse = ExtractedFact & {
+  fact_id: string;
+  review_status: string;
+  promoted_to_measurement: boolean;
+};
+
+export type DocumentFactPromotionResponse = {
+  fact_id: string;
+  review_status: string;
+  promoted_to_measurement: boolean;
+  property_fact_id: string;
+  advisory_notice?: string;
 };
 
 export type DocumentUploadResponse = {
   document_id: string;
   filename: string;
-  project_id: string;
+  project_id?: string;
+  parse_status?: string;
+  parse_job?: { enqueued?: boolean; reason?: string };
+  fact_count?: number;
   extracted_facts: ExtractedFact[];
+};
+
+export type ProjectDocumentSummary = {
+  id: string;
+  title: string;
+  document_type: string;
+  status: string;
+  parse_status?: string;
+  created_at: string | null;
+  fact_count: number;
+};
+
+export type DocumentEvidenceHit = {
+  document_id: string;
+  document_title?: string | null;
+  page_number?: number | null;
+  chunk_index: number;
+  text: string;
+  score: number;
+  metadata?: Record<string, unknown>;
+};
+
+export type DocumentEvidenceSearchResponse = {
+  project_id: string;
+  query: string;
+  items: DocumentEvidenceHit[];
+  count: number;
+  legal_authority: false;
+  advisory_notice: string;
 };
 
 export const api = {
@@ -309,6 +367,8 @@ export const api = {
       call<ComplianceRunResponse>("POST", `/compliance/projects/${projectId}/run`, {}),
     matrix: (projectId: string) =>
       call<ComplianceRunResponse>("GET", `/compliance/projects/${projectId}/matrix`),
+    recordReview: (resultId: string, action: "record_review" | "flag_for_revision" | "operator_note", reason: string) =>
+      call<ComplianceResultItem>("POST", `/compliance/results/${resultId}/override`, { action, reason }),
   },
   documents: {
     upload: async (projectId: string, file: File): Promise<ApiResult<DocumentUploadResponse>> => {
@@ -335,10 +395,19 @@ export const api = {
       const d = data as { detail?: string } | null;
       return { kind: "error", status: res.status, message: d?.detail ?? res.statusText };
     },
-    facts: (docId: string) => call<{ items: ExtractedFact[] }>("GET", `/documents/${docId}/facts`),
-    listForProject: (projectId: string) => call<{ items: Array<{ id: string; title: string; document_type: string; status: string; created_at: string | null; fact_count: number }> }>("GET", `/documents/projects/${projectId}`),
-    confirmFact: (docId: string, factKey: string) =>
-      call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/review`, { review_status: "confirmed" }),
+    facts: (docId: string) => call<{ items: ExtractedFact[]; count: number; parse_status?: string }>("GET", `/documents/${docId}/persisted-facts`),
+    listForProject: (projectId: string) => call<{ items: ProjectDocumentSummary[]; count: number }>("GET", `/documents/projects/${projectId}`),
+    searchEvidence: (projectId: string, q: string, limit = 6) =>
+      call<DocumentEvidenceSearchResponse>("GET", `/documents/projects/${projectId}/evidence-search?q=${encodeURIComponent(q)}&limit=${limit}`),
+    confirmFact: (docId: string, factId: string) =>
+      call<DocumentFactUpdateResponse>("PATCH", `/documents/${docId}/facts/${factId}`, { status: "confirmed" }),
+    calibrateFact: (docId: string, factId: string, calibrationRef: string, calibrationNote?: string) =>
+      call<DocumentFactUpdateResponse>("PATCH", `/documents/${docId}/facts/${factId}`, {
+        calibration_ref: calibrationRef,
+        calibration_note: calibrationNote,
+      }),
+    promoteFact: (docId: string, factId: string) =>
+      call<DocumentFactPromotionResponse>("POST", `/documents/${docId}/facts/${factId}/promote`, {}),
   },
   approveRule: (ruleId: string) =>
     call<{ id: string; lifecycle_status: string }>("POST", `/rules/${ruleId}/approve`, {}),

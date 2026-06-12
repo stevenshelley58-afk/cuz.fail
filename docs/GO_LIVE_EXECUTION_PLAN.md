@@ -218,8 +218,8 @@ Confirmed-open from the infra scan (backup scripts + timers + Sentry code all EX
 1. **Arm backups**: create `/etc/draftcheck/backup.env` on the VPS with RESTIC_REPOSITORY
    (off-site: B2/R2) + RESTIC_PASSWORD_FILE; enable `draftcheck-backup.timer`; run
    `infra/v3/backup/restore-drill.sh` once and commit the drill log to `docs/ops/`.
-2. **Uptime monitor**: follow `docs/ops/uptime-monitor.md` (UptimeRobot on
-   `https://lotfile.app` + `/api/v1/ready`).
+2. **Uptime monitor**: follow `docs/ops/uptime-monitor.md` (UptimeRobot keyword
+   monitors on `https://lotfile.app/api/v1/health` + `https://lotfile.app/api/v1/ready`).
 3. **Alerts**: backup freshness >26 h, disk >80% on /srv + pg volume, worker heartbeat
    (cron + curl to a webhook is fine; keep it simple).
 4. **Sentry**: provision a DSN, set SENTRY_DSN in VPS .env (code already initializes it).

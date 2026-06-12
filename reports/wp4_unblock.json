@@ -1,0 +1,28 @@
+{
+  "wp": "WP4",
+  "worker": "wp4-fd71eda273e8",
+  "processed": 1,
+  "summary": {
+    "acquired": 1,
+    "metadata_only": 0,
+    "blocked": 0,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "acquired": 205,
+    "metadata_only": 14,
+    "out_of_scope": 17
+  },
+  "items": [
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "4890c32f-4027-5a92-b06c-f9405d68f5b3",
+      "notes": "WP4 acquired (743 chunks, duplicate=False)",
+      "chunks": "743",
+      "duplicate": "False"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "captured_at": "2026-06-13T02:00:00+08:00",
+  "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
+  "completed": {
+    "c1_golden_fixture_e2e": {
+      "status": "verified",
+      "evidence": [
+        "tests/test_golden_e2e.py covers address -> project -> DXF upload -> fact promotion -> compliance run",
+        "uv run pytest tests/test_golden_e2e.py tests/test_v3_golden_fixture.py passed"
+      ]
+    },
+    "c2_async_document_parsing": {
+      "status": "partially_verified",
+      "evidence": [
+        "src/draftcheck/jobs/documents.py registers draftcheck.documents.parse",
+        "src/draftcheck/api/documents.py stores uploads as parse_pending and commits before enqueue",
+        "docker-compose.yml and infra/v3/compose.yml align DRAFTCHECK_STORAGE_ROOT and OBJECT_STORAGE_ROOT",
+        "web/src/views/documents.tsx polls both parse_pending and parsing",
+        "tests/test_v3_document_parse_jobs.py calls parse_document() through a monkeypatched fresh session factory",
+        "src/draftcheck/jobs/documents.py parses worker documents through DocumentParser.parse_document instead of a separate hard-coded page extraction path",
+        "Persisted text facts are marked as parser_boundary_source with the parser page name and page number"
+      ],
+      "remaining": [
+        "Run a live worker-backed upload on the VPS after DB work is idle",
+        "Consider raising the 15 MB upload cap only after API/body-limit and worker-memory review"
+      ]
+    },
+    "c3_cad_extraction_increment": {
+      "status": "advanced",
+      "evidence": [
+        "DXF $INSUNITS now controls dimension units; missing/unitless drawings stay drawing_unit with low confidence",
+        "PDF vector paths are captured as calibration-required evidence without promoting measurements",
+        "IFC STEP quantity fallback remains review-gated",
+        "Title-block fields are extracted as review-gated non-measurement metadata facts",
+        "Optional IfcOpenShell quantity extraction is used when available and falls back to STEP text parsing",
+        "DXF dimension facts carry CAD model/paper-space, layout, and entity evidence into persisted evidence_ref_json",
+        "PDF regex-derived facts carry conservative text-block bbox evidence when source text matches a parsed block",
+        "src/draftcheck/domain/documents/parsers exposes a persistence-free parser protocol, registry, ParsedDocument, and DocumentArtifact descriptors",
+        "DocumentParser routes existing extraction through registry-ordered parser adapters while preserving the legacy parse tuple",
+        "PDF parser adapter carries text-block and vector-path metadata through the parser boundary",
+        "Worker persistence stores parser_artifacts descriptors on document metadata until DB artifact rows are available",
+        "ezdxf is a runtime dependency and tests/test_v3_documents.py generates a real DXF dimension fixture through ezdxf",
+        "GET /documents/parsers/accuracy reports generated PDF, DOCX, DXF, and IFC fixture precision/recall with 7/7 matched facts while keeping beta blocked on persistence-connected validation and operator-reviewed samples"
+      ],
+      "remaining": [
+        "Artifact-row persistence remains open and needs DB coordination"
+      ]
+    },
+    "c4_document_chunk_embeddings": {
+      "status": "verified",
+      "evidence": [
+        "src/draftcheck/domain/documents/chunks.py builds and searches non-authoritative document chunks",
+        "parse_document_for_session writes document chunks",
+        "project evidence search is project-scoped and legal_authority=false"
+      ]
+    },
+    "c5_engine_refinement_visibility": {
+      "status": "verified",
+      "evidence": [
+        "Compliance API exposes missing_info_reason and drawing_evidence",
+        "web/src/views/compliance.tsx renders drawing evidence and missing-info reasons",
+        "tests/test_golden_e2e.py asserts these response fields",
+        "POST /api/v1/compliance/results/{result_id}/override records review_reason/human_override without mutating deterministic status",
+        "web/src/views/compliance.tsx records operator notes from expanded compliance rows"
+      ]
+    },
+    "d_launch_surface": {
+      "status": "verified_with_checkout_env_caveat",
+      "evidence": [
+        "web/src/App.tsx routes /, /privacy, /terms, and /app",
+        "web/public/robots.txt and web/public/sitemap.xml are present",
+        "web/src/analytics.ts and call sites cover signup_requested, project_created, compliance_run, checkout_clicked",
+        "npm.cmd run verify:launch passed",
+        "npm.cmd run verify:launch:strict passed with a Stripe-shaped VITE_CHECKOUT_URL",
+        "checkout URL validation rejects non-HTTPS and non-buy.stripe.com URLs",
+        ".github/workflows/ci.yml now uses a buy.stripe.com checkout fixture that matches strict launch validation",
+        "scripts/audit_non_db_launch_ops.py refreshes live launch blocker evidence without mutating production",
+        "web/scripts/verify-live-launch.mjs now uses a tested HTTP/HTTPS fetch helper so local HTTP preview targets can run the live-launch verification path",
+        "web/scripts/test-live-launch-preview.mjs serves built web/dist with fake health/ready endpoints and runs verify-live-launch.mjs --strict against the local HTTP origin",
+        "web/src/components/modals.launch.test.tsx clicks paid checkout, fallback sign-in, and magic-link signup paths and is wired into CI",
+        "web/lighthouserc.cjs runs LHCI against built web/dist and CI enforces categories:seo >= 0.9",
+        "Local Windows LHCI healthcheck finds Chrome and reaches SEO audits, but Lighthouse exits on Chrome temp-profile cleanup EPERM; Ubuntu CI is the authoritative Lighthouse gate",
+        "web/scripts/verify-mobile-launch.mjs locks the 5-tab mobile nav, 390px fallback, wizard mobile layout, and key aria labels into CI",
+        "infra/v3/deploy-web-only.sh runs verify:launch:mobile before strict launch verification so the VPS UI-only deploy uses the same mobile preflight",
+        "web/src/App.launch.test.tsx runtime-tests landing metadata, privacy/terms navigation, landing address handoff into the app, guest project creation, and magic-link verification"
+      ],
+      "remaining": [
+        "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",
+        "Run live verification against lotfile.app after deployment",
+        "Confirm the Lighthouse SEO gate on Ubuntu CI"
+      ]
+    },
+    "e_ops_guardrails": {
+      "status": "advanced",
+      "evidence": [
+        "scripts/ops_guardrails.py exposes backup-freshness, uptime-targets, restore-drill-log, spend snapshot comparison, and disk-usage checks",
+        "infra/v3/ops/guardrail-alerts.sh delegates disk checks to the Python disk-usage guardrail",
+        "tests/test_ops_guardrails.py covers disk usage ok, threshold breach, and missing-path warning behavior",
+        "scripts/ops_guardrails.py exposes a worker-heartbeat check for required Docker Compose services",
+        "infra/v3/ops/guardrail-alerts.sh delegates worker heartbeat checks to the Python guardrail",
+        "tests/test_ops_guardrails.py covers required-running and missing compose service behavior",
+        "scripts/ops_guardrails.py exposes backup-config and guardrail-cron install-state checks",
+        "infra/v3/backup/install-systemd.sh runs backup-config before enabling draftcheck-backup.timer",
+        "tests/test_ops_guardrails.py covers backup env and guardrail cron fixture validation",
+        "tests/test_v3_infra_contract.py asserts ops scripts/runbook retain backup-config, disk, worker, and cron guardrail hooks",
+        "infra/v3/backup/restore-drill.sh emits guardrail-accepted result, source_versions, job_traces, and status fields",
+        "tests/test_v3_infra_contract.py asserts restore-drill.sh retains those accepted evidence fields",
+        "restore-drill acceptance now requires storage_path, storage_file_count, storage_size_bytes, and storage_manifest_sha256 evidence",
+        "uv run pytest tests/test_ops_guardrails.py -q passed",
+        "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json passed",
+        "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json passed",
+        "uv run python scripts/ops_guardrails.py backup-config --env-path <temp fixture> --json passed",
+        "uv run python scripts/ops_guardrails.py guardrail-cron --path <temp fixture> --json passed",
+        "scripts/audit_non_db_launch_ops.py refreshes VPS ops blocker evidence over read-only SSH",
+        "scripts/ops_guardrails.py uptime-monitor-doc verifies docs/ops/uptime-monitor.md has provisioned monitor IDs before the uptime monitor blocker is closed",
+        ".github/workflows/ci.yml runs bash -n over ops/deploy shell scripts on Ubuntu, with tests/test_v3_infra_contract.py locking the gate",
+        "scripts/ops_guardrails.py sentry-config verifies SENTRY_DSN shape and compose wiring without printing the DSN",
+        "tests/test_v3_infra_contract.py asserts api, worker, and hermes retain SENTRY_DSN compose wiring",
+        "scripts/audit_non_db_launch_ops.py records SENTRY_DSN_PRESENT/EMPTY/MISSING without echoing the DSN, and the refreshed report shows SENTRY_DSN_MISSING on the VPS",
+        "scripts/audit_non_db_launch_ops.py records uptime_monitor_doc evidence separately from live endpoint health; the refreshed report shows pending monitor IDs and alert contacts",
+        "scripts/ops_guardrails.py log-retention-config verifies installed journald and Docker JSON log retention files",
+        "scripts/audit_non_db_launch_ops.py records log-retention install-state evidence; refreshed VPS evidence shows Docker daemon rotation present and journald drop-in missing",
+        "tests/test_ops_guardrails.py now runtime-tests infra/v3/ops/guardrail-alerts.sh success aggregation, failure exit 2 output, and webhook JSON payload capture when Bash is available",
+        "tests/test_ops_guardrails.py now runtime-tests infra/v3/backup/install-systemd.sh missing-env failure and successful backup-config/systemd timer install flow when Bash is available",
+        "uv run pytest tests/test_ops_guardrails.py -q passed locally with 24 Python tests passed and 5 Bash-wrapper tests skipped because local Windows Bash is unusable",
+        "scripts/audit_non_db_launch_ops.py computes launch_surface and ops_guardrails status from evidence so skipped SSH, missing restore drill logs, missing credentials, pending monitor docs, and missing installs cannot report verified",
+        "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json reported both launch_surface and ops_guardrails as blocked",
+        "infra/v3/ops/install-guardrail-cron.sh idempotently writes /etc/cron.d/draftcheck-guardrails and runs guardrail-cron validation before reporting success",
+        "tests/test_ops_guardrails.py runtime-tests the guardrail cron installer with a temp cron path and fake Python guardrail when Bash is available",
+        "tests/test_ops_guardrails.py includes a restore-drill dry-run harness that stubs restic/docker, runs infra/v3/backup/restore-drill.sh, and validates stdout with check_restore_drill_log when Bash is available",
+        "uv run pytest tests/test_ops_guardrails.py -q passed locally with 24 Python tests passed and 7 Bash-wrapper tests skipped because local Windows Bash is unusable",
+        "infra/v3/ops/install-log-retention.sh installs checked journald and Docker JSON log-retention configs, validates installed targets, and only restarts Docker when DRAFTCHECK_RESTART_DOCKER=1",
+        "tests/test_ops_guardrails.py runtime-tests the log-retention installer safe default and explicit Docker restart path when Bash is available",
+        "scripts/audit_non_db_launch_ops.py --verify-report validates non-DB audit artifacts, required ops evidence keys, no raw DSN leakage, blocked/verified status consistency, restore-drill template fields, and runbook verifier commands",
+        "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json then --verify-report reports/non_db_launch_ops_blockers.local.json returned status ok",
+        "reports/non_db_launch_ops_blockers.json refreshed from read-only live/VPS evidence and verified with scripts/audit_non_db_launch_ops.py --verify-report",
+        "infra/v3/ops/install-sentry-dsn.sh installs SENTRY_DSN into the VPS compose env without printing the DSN, validates sentry-config, and only restarts api/worker/hermes when DRAFTCHECK_RESTART_SERVICES=1",
+        "tests/test_ops_guardrails.py runtime-tests Sentry DSN install, missing DSN failure, and explicit service restart with a fake docker command when Bash is available"
+      ],
+      "remaining": [
+        "Arm backups and run a restore drill on the VPS after credentials are available",
+        "Provision uptime monitor account targets and record monitor IDs",
+        "Set SENTRY_DSN in VPS env",
+        "Run spend persistence restart check after a governed LLM spend event exists",
+        "Rely on the Ubuntu CI bash syntax gate for shell validation; local Windows Bash failed with REGDB_E_CLASSNOTREG"
+      ]
+    }
+  },
+  "focused_gates": [
+    "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py tests/test_document_chunks.py",
+    "uv run pytest tests/test_document_parser_registry.py tests/test_v3_document_parse_jobs.py -q",
+    "uv run pytest tests/test_v3_documents.py::test_v3_ezdxf_generated_dimension_is_parsed_with_entity_metadata -q",
+    "uv run pytest tests/test_v3_documents.py::test_v3_document_parser_accuracy_reports_canary_sample_pass tests/test_v3_documents.py::test_v3_document_parser_capabilities_are_live -q",
+    "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py",
+    "uv run pytest tests/test_v3_document_parse_jobs.py tests/test_v3_infra_contract.py",
+    "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py tests/test_v3_api_shell.py",
+    "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py",
+    "npm.cmd run test:launch-checkout",
+    "npm.cmd run test:launch-actions",
+    "npm.cmd run test:live-fetch",
+    "npm.cmd run test:live-launch-preview",
+    "VITE_CHECKOUT_URL=https://buy.stripe.com/test_fixture npm.cmd run verify:launch:strict",
+    "CHROME_PATH=C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe npm.cmd run verify:launch:lighthouse",
+    "npm.cmd run verify:launch:mobile",
+    "uv run pytest tests/test_ops_guardrails.py -q",
+    "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json",
+    "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json",
+    "uv run python scripts/ops_guardrails.py backup-config --env-path <fixture backup.env> --json",
+    "uv run python scripts/ops_guardrails.py guardrail-cron --path <fixture draftcheck-guardrails> --json",
+    "uv run python scripts/ops_guardrails.py uptime-monitor-doc --path docs/ops/uptime-monitor.md --json",
+    "uv run python scripts/ops_guardrails.py sentry-config --env-path <fixture .env> --compose-path infra/v3/compose.yml --json",
+    "uv run python scripts/ops_guardrails.py log-retention-config --journald-path infra/v3/ops/journald-draftcheck.conf --docker-daemon-path infra/v3/ops/docker-daemon-log-rotation.json --json",
+    "CI Ubuntu: bash -n infra/v3/ops/guardrail-alerts.sh infra/v3/backup/install-systemd.sh infra/v3/backup/restore-drill.sh infra/v3/deploy-web-only.sh",
+    "uv run pytest tests/test_audit_non_db_launch_ops.py -q",
+    "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json",
+    "uv run python scripts/audit_non_db_launch_ops.py --output reports/non_db_launch_ops_blockers.json",
+    "npm.cmd run build",
+    "npm.cmd run verify:launch"
+  ]
+}
