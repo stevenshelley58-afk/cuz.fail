@@ -35,6 +35,8 @@ jobs:
           bash -n infra/v3/backup/restore-drill.sh
           bash -n infra/v3/deploy.sh
           bash -n infra/v3/deploy-web-only.sh
+      - name: Golden fixture E2E gate
+        run: python -m pytest tests/test_v3_golden_fixture.py tests/test_golden_e2e.py -q
       - name: Tests
         run: python -m pytest -q
       - name: Verify non-DB launch ops report
