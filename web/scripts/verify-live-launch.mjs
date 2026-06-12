@@ -20,7 +20,28 @@ function assertIncludes(text, needle, label) {
   if (!text.includes(needle)) fail(`${label} missing '${needle}'`);
 }
 
-const routes = ["/", "/privacy", "/terms", "/app"];
+const routes = [
+  {
+    path: "/",
+    title: "LotFile - WA R-Code & Planning Compliance Checker",
+    canonical: "https://lotfile.app/",
+  },
+  {
+    path: "/privacy",
+    title: "Privacy - LotFile",
+    canonical: "https://lotfile.app/privacy",
+  },
+  {
+    path: "/terms",
+    title: "Terms - LotFile",
+    canonical: "https://lotfile.app/terms",
+  },
+  {
+    path: "/app",
+    title: "LotFile - WA R-Code & Planning Compliance Checker",
+    canonical: "https://lotfile.app/",
+  },
+];
 const publicAssets = [
   {
     path: "/robots.txt",
@@ -39,13 +60,16 @@ for (const failure of checkoutUrlFailures(expectedCheckoutUrl, checkoutUrlLabel)
 }
 
 const pages = new Map();
-for (const path of routes) {
+for (const route of routes) {
+  const path = route.path;
   const response = await fetchText(`${origin}${path}`);
   pages.set(path, response);
   if (response.status !== 200) fail(`${path} returned HTTP ${response.status}`);
-  assertIncludes(response.text, "LotFile - WA R-Code & Planning Compliance Checker", `${path} SEO title`);
+  assertIncludes(response.text, `<title>${route.title}</title>`, `${path} SEO title`);
   assertIncludes(response.text, 'name="description"', `${path} description meta`);
-  assertIncludes(response.text, 'property="og:title"', `${path} Open Graph title`);
+  assertIncludes(response.text, `property="og:title" content="${route.title}"`, `${path} Open Graph title`);
+  assertIncludes(response.text, `rel="canonical" href="${route.canonical}"`, `${path} canonical`);
+  assertIncludes(response.text, `property="og:url" content="${route.canonical}"`, `${path} Open Graph URL`);
   assertIncludes(response.text, 'data-domain="lotfile.app"', `${path} Plausible script`);
 }
 
