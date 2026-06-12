@@ -10,6 +10,8 @@ MAX_BACKUP_AGE_HOURS="${DRAFTCHECK_MAX_BACKUP_AGE_HOURS:-26}"
 DISK_THRESHOLD="${DRAFTCHECK_DISK_THRESHOLD:-80}"
 HEALTH_URL="${DRAFTCHECK_HEALTH_URL:-https://lotfile.app/api/v1/health}"
 READY_URL="${DRAFTCHECK_READY_URL:-https://lotfile.app/api/v1/ready}"
+JOURNALD_PATH="${DRAFTCHECK_JOURNALD_PATH:-/etc/systemd/journald.conf.d/draftcheck.conf}"
+DOCKER_DAEMON_PATH="${DRAFTCHECK_DOCKER_DAEMON_PATH:-/etc/docker/daemon.json}"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 
 [[ -f /etc/draftcheck/ops-alerts.env ]] && source /etc/draftcheck/ops-alerts.env
@@ -37,6 +39,11 @@ heartbeat_output="$("$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" worker-he
     --service worker \
     --service hermes \
     --json 2>&1)" || failures+=("worker_heartbeat: $heartbeat_output")
+
+log_retention_output="$("$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" log-retention-config \
+    --journald-path "$JOURNALD_PATH" \
+    --docker-daemon-path "$DOCKER_DAEMON_PATH" \
+    --json 2>&1)" || failures+=("log_retention_config: $log_retention_output")
 
 if ((${#failures[@]} == 0)); then
     echo "draftcheck guardrails ok"

@@ -9,7 +9,7 @@ Set the repository and credentials in the operator shell or service manager.
 Do not commit the real values:
 
 ```sh
-export RESTIC_REPOSITORY='s3:s3.example.invalid/draftcheck-v3-backups'
+export RESTIC_REPOSITORY='s3:s3.us-west-004.backblazeb2.com/draftcheck-v3-backups'
 export RESTIC_PASSWORD_FILE='/etc/draftcheck/restic-password'
 export POSTGRES_USER="${POSTGRES_USER:-draftcheck}"
 export POSTGRES_DB="${POSTGRES_DB:-draftcheck}"

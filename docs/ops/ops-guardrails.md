@@ -12,7 +12,7 @@ One-command unblock from local PowerShell, with values supplied from the
 operator shell:
 
 ```powershell
-$env:RESTIC_REPOSITORY='s3:s3.example.invalid/draftcheck-v3-backups'; $env:RESTIC_PASSWORD='<generated-restic-password>'; ssh draftcheck "sudo install -d -m 700 /etc/draftcheck && printf '%s\n' '$env:RESTIC_PASSWORD' | sudo tee /etc/draftcheck/restic-password >/dev/null && sudo chmod 600 /etc/draftcheck/restic-password && sudo tee /etc/draftcheck/backup.env >/dev/null <<'EOF'
+$env:RESTIC_REPOSITORY='s3:s3.us-west-004.backblazeb2.com/draftcheck-v3-backups'; $env:RESTIC_PASSWORD='<generated-restic-password>'; ssh draftcheck "sudo install -d -m 700 /etc/draftcheck && printf '%s\n' '$env:RESTIC_PASSWORD' | sudo tee /etc/draftcheck/restic-password >/dev/null && sudo chmod 600 /etc/draftcheck/restic-password && sudo tee /etc/draftcheck/backup.env >/dev/null <<'EOF'
 RESTIC_REPOSITORY=$env:RESTIC_REPOSITORY
 RESTIC_PASSWORD_FILE=/etc/draftcheck/restic-password
 POSTGRES_USER=draftcheck
@@ -71,6 +71,14 @@ Disk usage alert dry runs use the same Python guardrail as the cron wrapper:
 ```powershell
 python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json
 ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json'
+```
+
+The recurring cron also checks installed journald and Docker log-retention
+configuration so retention drift is caught after the initial install:
+
+```powershell
+python scripts/ops_guardrails.py log-retention-config --journald-path infra/v3/ops/journald-draftcheck.conf --docker-daemon-path infra/v3/ops/docker-daemon-log-rotation.json --json
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py log-retention-config --journald-path /etc/systemd/journald.conf.d/draftcheck.conf --docker-daemon-path /etc/docker/daemon.json --json'
 ```
 
 Worker heartbeat checks can be tested locally without Docker by injecting the

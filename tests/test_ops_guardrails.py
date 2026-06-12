@@ -183,7 +183,7 @@ def _run_backup_installer(tmp_path: Path, *, backup_env_exists: bool) -> subproc
         compose_file.write_text("services: {}\n", encoding="utf-8")
         backup_env.write_text(
             f"""\
-RESTIC_REPOSITORY=s3:s3.example.invalid/draftcheck-v3-backups
+RESTIC_REPOSITORY=s3:s3.us-west-004.backblazeb2.com/draftcheck-v3-backups
 RESTIC_PASSWORD_FILE={password_file}
 POSTGRES_USER=draftcheck
 POSTGRES_DB=draftcheck
@@ -327,7 +327,7 @@ def _run_restore_drill(tmp_path: Path) -> subprocess.CompletedProcess[str]:
     env = os.environ.copy()
     env.update(
         {
-            "RESTIC_REPOSITORY": "s3:s3.example.invalid/draftcheck-v3-backups",
+            "RESTIC_REPOSITORY": "s3:s3.us-west-004.backblazeb2.com/draftcheck-v3-backups",
             "RESTIC_PASSWORD_FILE": str(password_file),
             "POSTGRES_USER": "draftcheck",
             "POSTGRES_DB": "draftcheck",
@@ -428,6 +428,7 @@ def test_guardrail_alert_wrapper_reports_ok_when_all_checks_pass(tmp_path: Path)
         "disk-usage",
         "uptime-targets",
         "worker-heartbeat",
+        "log-retention-config",
     ]
 
 
@@ -438,6 +439,16 @@ def test_guardrail_alert_wrapper_aggregates_failing_check(tmp_path: Path) -> Non
     assert "draftcheck guardrail failures:" in result.stderr
     assert "disk_usage:" in result.stderr
     assert "disk-usage critical fixture" in result.stderr
+    assert "draftcheck guardrails ok" not in result.stdout
+
+
+def test_guardrail_alert_wrapper_aggregates_log_retention_failure(tmp_path: Path) -> None:
+    result = _run_guardrail_alerts(tmp_path, failing={"log-retention-config"})
+
+    assert result.returncode == 2
+    assert "draftcheck guardrail failures:" in result.stderr
+    assert "log_retention_config:" in result.stderr
+    assert "log-retention-config critical fixture" in result.stderr
     assert "draftcheck guardrails ok" not in result.stdout
 
 
@@ -721,7 +732,7 @@ def test_backup_config_requires_restic_password_and_compose_paths(tmp_path: Path
     compose_file.write_text("services: {}\n", encoding="utf-8")
     env_path = tmp_path / "backup.env"
     env_path.write_text(
-        f"""RESTIC_REPOSITORY=s3:s3.example.invalid/draftcheck-v3-backups
+        f"""RESTIC_REPOSITORY=s3:s3.us-west-004.backblazeb2.com/draftcheck-v3-backups
 RESTIC_PASSWORD_FILE={password_file}
 POSTGRES_USER=draftcheck
 POSTGRES_DB=draftcheck
@@ -735,12 +746,13 @@ COMPOSE_FILE={compose_file}
     assert result.status == "ok"
     assert result.metadata["missing_keys"] == []
     assert result.metadata["missing_paths"] == []
+    assert result.metadata["invalid_values"] == []
 
 
 def test_backup_config_flags_missing_fields_and_paths(tmp_path: Path) -> None:
     env_path = tmp_path / "backup.env"
     env_path.write_text(
-        f"""RESTIC_REPOSITORY=s3:s3.example.invalid/draftcheck-v3-backups
+        f"""RESTIC_REPOSITORY=s3:s3.us-west-004.backblazeb2.com/draftcheck-v3-backups
 RESTIC_PASSWORD_FILE={tmp_path / "missing-password"}
 POSTGRES_USER=draftcheck
 COMPOSE_FILE={tmp_path / "missing-compose.yml"}
@@ -754,6 +766,31 @@ COMPOSE_FILE={tmp_path / "missing-compose.yml"}
     assert "POSTGRES_DB" in result.metadata["missing_keys"]
     assert any("RESTIC_PASSWORD_FILE" in path for path in result.metadata["missing_paths"])
     assert any("COMPOSE_FILE" in path for path in result.metadata["missing_paths"])
+    assert result.metadata["invalid_values"] == []
+
+
+def test_backup_config_rejects_placeholder_repository(tmp_path: Path) -> None:
+    password_file = tmp_path / "restic-password"
+    compose_file = tmp_path / "compose.yml"
+    password_file.write_text("secret\n", encoding="utf-8")
+    compose_file.write_text("services: {}\n", encoding="utf-8")
+    env_path = tmp_path / "backup.env"
+    env_path.write_text(
+        f"""RESTIC_REPOSITORY=s3:s3.example.invalid/draftcheck-v3-backups
+RESTIC_PASSWORD_FILE={password_file}
+POSTGRES_USER=draftcheck
+POSTGRES_DB=draftcheck
+COMPOSE_FILE={compose_file}
+""",
+        encoding="utf-8",
+    )
+
+    result = check_backup_config(env_path)
+
+    assert result.status == "critical"
+    assert "RESTIC_REPOSITORY appears to be a placeholder" in result.message
+    assert result.metadata["missing_keys"] == []
+    assert result.metadata["missing_paths"] == []
 
 
 def test_guardrail_cron_requires_checked_wrapper_and_log(tmp_path: Path) -> None:

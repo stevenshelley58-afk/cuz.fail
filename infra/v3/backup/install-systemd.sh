@@ -17,7 +17,7 @@ Example unblock:
   sudo install -d -m 700 /etc/draftcheck
   sudo install -m 600 /dev/null /etc/draftcheck/restic-password
   sudo tee /etc/draftcheck/backup.env >/dev/null <<'EOF'
-RESTIC_REPOSITORY=s3:s3.example.invalid/draftcheck-v3-backups
+RESTIC_REPOSITORY=s3:s3.us-west-004.backblazeb2.com/draftcheck-v3-backups
 RESTIC_PASSWORD_FILE=/etc/draftcheck/restic-password
 POSTGRES_USER=draftcheck
 POSTGRES_DB=draftcheck

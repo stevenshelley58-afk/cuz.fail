@@ -565,6 +565,15 @@ REQUIRED_DOCKER_LOG_ROTATION = {
         "max-file": "5",
     },
 }
+BACKUP_PLACEHOLDER_NEEDLES = (
+    "example.invalid",
+    "<",
+    ">",
+    "<generated",
+    "<restic",
+    "changeme",
+    "placeholder",
+)
 
 
 def _read_simple_ini_values(path: Path) -> dict[str, str]:
@@ -655,22 +664,27 @@ def check_backup_config(env_path: Path) -> GuardrailResult:
     password_file = Path(values.get("RESTIC_PASSWORD_FILE", ""))
     compose_file = Path(values.get("COMPOSE_FILE", ""))
     missing_paths: list[str] = []
+    invalid_values: list[str] = []
     if password_file and not password_file.exists():
         missing_paths.append(f"RESTIC_PASSWORD_FILE={password_file}")
     if compose_file and not compose_file.exists():
         missing_paths.append(f"COMPOSE_FILE={compose_file}")
+    restic_repository = values.get("RESTIC_REPOSITORY", "").lower()
+    if any(needle in restic_repository for needle in BACKUP_PLACEHOLDER_NEEDLES):
+        invalid_values.append("RESTIC_REPOSITORY appears to be a placeholder")
 
     metadata = {
         "env_path": str(env_path),
         "present_keys": sorted(values),
         "missing_keys": missing,
         "missing_paths": missing_paths,
+        "invalid_values": invalid_values,
     }
-    if missing or missing_paths:
+    if missing or missing_paths or invalid_values:
         return GuardrailResult(
             name="backup_config",
             status="critical",
-            message="backup config is incomplete: " + ", ".join([*missing, *missing_paths]),
+            message="backup config is incomplete: " + ", ".join([*missing, *missing_paths, *invalid_values]),
             metadata=metadata,
         )
     return GuardrailResult(
