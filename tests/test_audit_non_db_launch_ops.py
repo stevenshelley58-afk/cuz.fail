@@ -35,6 +35,7 @@ WORKER_HEARTBEAT_UNKNOWN
 SENTRY_DSN_MISSING
 LOG_RETENTION_JOURNALD_MISSING
 LOG_RETENTION_DOCKER_MISSING
+LOG_RETENTION_CONFIG_CRITICAL
 """
 
     state = parse_vps_state(output)
@@ -50,6 +51,7 @@ LOG_RETENTION_DOCKER_MISSING
     assert state["sentry_dsn"] == "SENTRY_DSN_MISSING"
     assert state["log_retention_journald"] == "LOG_RETENTION_JOURNALD_MISSING"
     assert state["log_retention_docker"] == "LOG_RETENTION_DOCKER_MISSING"
+    assert state["log_retention_config"] == "LOG_RETENTION_CONFIG_CRITICAL"
 
 
 def test_parse_vps_state_records_sentry_presence_without_value() -> None:
@@ -65,6 +67,7 @@ WORKER_HEARTBEAT_OK
 SENTRY_DSN_PRESENT
 LOG_RETENTION_JOURNALD_PRESENT
 LOG_RETENTION_DOCKER_PRESENT
+LOG_RETENTION_CONFIG_OK
 """
 
     state = parse_vps_state(output)
@@ -74,6 +77,7 @@ LOG_RETENTION_DOCKER_PRESENT
     assert state["worker_heartbeat"] == "WORKER_HEARTBEAT_OK"
     assert state["log_retention_journald"] == "LOG_RETENTION_JOURNALD_PRESENT"
     assert state["log_retention_docker"] == "LOG_RETENTION_DOCKER_PRESENT"
+    assert state["log_retention_config"] == "LOG_RETENTION_CONFIG_OK"
     assert "ingest.sentry.io" not in str(state)
     assert "examplePublicKey" not in str(state)
 
@@ -130,6 +134,7 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
         "sentry_dsn": "SENTRY_DSN_PRESENT",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
+        "log_retention_config": "LOG_RETENTION_CONFIG_OK",
     }
 
     report = build_report(
@@ -146,6 +151,7 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
     assert report["ops_guardrails"]["evidence"]["sentry_dsn"] == "SENTRY_DSN_PRESENT"
     assert report["ops_guardrails"]["evidence"]["log_retention_journald"] == "LOG_RETENTION_JOURNALD_PRESENT"
     assert report["ops_guardrails"]["evidence"]["log_retention_docker"] == "LOG_RETENTION_DOCKER_PRESENT"
+    assert report["ops_guardrails"]["evidence"]["log_retention_config"] == "LOG_RETENTION_CONFIG_OK"
     assert report["ops_guardrails"]["evidence"]["uptime_targets"] == UPTIME_TARGETS_OK
     assert report["ops_guardrails"]["evidence"]["uptime_monitor_doc"].startswith("ok:")
     assert report["ops_guardrails"]["status"] == "blocked"
@@ -193,6 +199,7 @@ def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None
         "sentry_dsn": "SENTRY_DSN_PRESENT",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
+        "log_retention_config": "LOG_RETENTION_CONFIG_OK",
     }
 
     report = build_report(
@@ -247,6 +254,7 @@ def test_build_report_blocks_when_ssh_state_is_skipped() -> None:
         "sentry_dsn": "SSH_SKIPPED",
         "log_retention_journald": "SSH_SKIPPED",
         "log_retention_docker": "SSH_SKIPPED",
+        "log_retention_config": "SSH_SKIPPED",
     }
 
     report = build_report(
@@ -312,6 +320,7 @@ def test_main_skip_ssh_writes_blocked_report_without_required_key_crash(monkeypa
     assert report["ops_guardrails"]["status"] == "blocked"
     assert report["ops_guardrails"]["evidence"]["disk_usage"] == "SSH_SKIPPED"
     assert report["ops_guardrails"]["evidence"]["worker_heartbeat"] == "SSH_SKIPPED"
+    assert report["ops_guardrails"]["evidence"]["log_retention_config"] == "SSH_SKIPPED"
     assert validate_audit_report(report) == []
 
 
@@ -330,6 +339,7 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
         "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
+        "log_retention_config": "LOG_RETENTION_CONFIG_OK",
     }
 
     assert assess_ops_guardrails_status(evidence) == "blocked"
@@ -361,7 +371,7 @@ def test_validate_audit_report_rejects_raw_dsn_and_false_green_status() -> None:
                 "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
                 "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
                 "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
-                "log_retention_config": "journald and Docker json-file retention configs are installed",
+                "log_retention_config": "LOG_RETENTION_CONFIG_OK",
             },
         },
     }
@@ -408,7 +418,7 @@ def test_validate_audit_report_rejects_spoofed_ops_evidence() -> None:
     assert any("sentry_dsn has unrecognized state" in failure for failure in failures)
     assert any("uptime_targets is not recognized verifier output" in failure for failure in failures)
     assert any("log_retention_journald has unrecognized state" in failure for failure in failures)
-    assert any("log_retention_config must mention journald and Docker json-file" in failure for failure in failures)
+    assert any("log_retention_config has unrecognized state" in failure for failure in failures)
     assert any("expected 'blocked'" in failure for failure in failures)
 
 
@@ -443,7 +453,7 @@ def test_verify_report_artifact_combines_report_template_and_runbook_checks(tmp_
                 "uptime_monitor_doc": "critical: pending monitor evidence",
                 "log_retention_journald": "SSH_SKIPPED",
                 "log_retention_docker": "SSH_SKIPPED",
-                "log_retention_config": "journald and Docker json-file retention configs are committed",
+                "log_retention_config": "SSH_SKIPPED",
             },
         },
     }
