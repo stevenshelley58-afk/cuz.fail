@@ -70,6 +70,12 @@ def load_fixture_files() -> dict[str, Any]:
     }
 
 
+def canonical_artifact_bytes(path: Path) -> bytes:
+    if path.suffix.lower() == ".dxf":
+        return path.read_bytes().replace(b"\r\n", b"\n")
+    return path.read_bytes()
+
+
 def iter_string_values(value: Any) -> Any:
     if isinstance(value, str):
         yield value
@@ -136,7 +142,7 @@ def test_manifest_references_complete_fixture_files() -> None:
 
     fixtures = load_fixture_files()
     dxf_artifact = (FIXTURE_DIR / manifest["artifacts"]["site_plan_dxf"]).resolve()
-    artifact_hash = hashlib.sha256(dxf_artifact.read_bytes()).hexdigest()
+    artifact_hash = hashlib.sha256(canonical_artifact_bytes(dxf_artifact)).hexdigest()
     [document] = fixtures["document_facts"]["documents"]
     assert document["sha256"] == artifact_hash
     assert document["artifact"]["sha256"] == artifact_hash
