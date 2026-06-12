@@ -21,6 +21,19 @@ function assertIncludes(text, needle, label) {
 }
 
 const routes = ["/", "/privacy", "/terms", "/app"];
+const publicAssets = [
+  {
+    path: "/robots.txt",
+    includes: ["Allow: /privacy", "Allow: /terms", "Disallow: /app", "Sitemap: https://lotfile.app/sitemap.xml"],
+  },
+  {
+    path: "/sitemap.xml",
+    includes: ["https://lotfile.app/", "https://lotfile.app/privacy", "https://lotfile.app/terms"],
+  },
+  { path: "/favicon.svg", includes: ["<svg"] },
+  { path: "/og-image.svg", includes: ["<svg"] },
+];
+
 for (const failure of checkoutUrlFailures(expectedCheckoutUrl, checkoutUrlLabel)) {
   fail(failure);
 }
@@ -34,6 +47,14 @@ for (const path of routes) {
   assertIncludes(response.text, 'name="description"', `${path} description meta`);
   assertIncludes(response.text, 'property="og:title"', `${path} Open Graph title`);
   assertIncludes(response.text, 'data-domain="lotfile.app"', `${path} Plausible script`);
+}
+
+for (const asset of publicAssets) {
+  const response = await fetchText(`${origin}${asset.path}`);
+  if (response.status !== 200) fail(`${asset.path} returned HTTP ${response.status}`);
+  for (const needle of asset.includes) {
+    assertIncludes(response.text, needle, `${asset.path} content`);
+  }
 }
 
 for (const path of ["/api/v1/health", "/api/v1/ready"]) {
