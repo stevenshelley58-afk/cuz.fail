@@ -1,0 +1,64 @@
+{
+  "captured_at": "2026-06-13T00:02:43+08:00",
+  "scope": "GO_LIVE_EXECUTION_PLAN Part C non-db, non-security product loop",
+  "completed": {
+    "c1_golden_fixture_e2e": {
+      "status": "verified",
+      "evidence": [
+        "tests/test_golden_e2e.py covers address -> project -> DXF upload -> fact promotion -> compliance run",
+        "uv run pytest tests/test_golden_e2e.py tests/test_v3_golden_fixture.py passed"
+      ]
+    },
+    "c2_async_document_parsing": {
+      "status": "partially_verified",
+      "evidence": [
+        "src/draftcheck/jobs/documents.py registers draftcheck.documents.parse",
+        "src/draftcheck/api/documents.py stores uploads as parse_pending and commits before enqueue",
+        "docker-compose.yml and infra/v3/compose.yml align DRAFTCHECK_STORAGE_ROOT and OBJECT_STORAGE_ROOT",
+        "web/src/views/documents.tsx polls both parse_pending and parsing"
+      ],
+      "remaining": [
+        "Run a live worker-backed upload on the VPS after DB work is idle",
+        "Consider raising the 15 MB upload cap only after API/body-limit and worker-memory review"
+      ]
+    },
+    "c3_cad_extraction_increment": {
+      "status": "advanced",
+      "evidence": [
+        "DXF $INSUNITS now controls dimension units; missing/unitless drawings stay drawing_unit with low confidence",
+        "PDF vector paths are captured as calibration-required evidence without promoting measurements",
+        "IFC STEP quantity fallback remains review-gated"
+      ],
+      "remaining": [
+        "Parser registry/protocol and artifact-row linkage are still open and may need DB coordination",
+        "IfcOpenShell parser remains open",
+        "Scale calibration endpoint/UI remains open"
+      ]
+    },
+    "c4_document_chunk_embeddings": {
+      "status": "verified",
+      "evidence": [
+        "src/draftcheck/domain/documents/chunks.py builds and searches non-authoritative document chunks",
+        "parse_document_for_session writes document chunks",
+        "project evidence search is project-scoped and legal_authority=false"
+      ]
+    },
+    "c5_engine_refinement_visibility": {
+      "status": "advanced",
+      "evidence": [
+        "Compliance API exposes missing_info_reason and drawing_evidence",
+        "web/src/views/compliance.tsx renders drawing evidence and missing-info reasons",
+        "tests/test_golden_e2e.py asserts these response fields"
+      ],
+      "remaining": [
+        "Human override workflow remains unused"
+      ]
+    }
+  },
+  "focused_gates": [
+    "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py tests/test_document_chunks.py",
+    "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py",
+    "uv run pytest tests/test_v3_document_parse_jobs.py tests/test_v3_infra_contract.py",
+    "npm.cmd run build"
+  ]
+}
