@@ -1,8 +1,21 @@
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, CheckCircle2, Clock3, RefreshCw, Search, Sparkles } from "lucide-react";
+import { AlertCircle, BookOpen, CheckCircle2, Clock3, RefreshCw, Search, Sparkles } from "lucide-react";
 import { api, type DocumentEvidenceHit, type DocumentUploadResponse, type ExtractedFact, type ProjectDocumentSummary } from "../api";
 
 /* ── DocumentUpload ── */
+
+const ACTIVE_PARSE_STATUSES = new Set(["parse_pending", "parsing"]);
+
+function isActiveParseStatus(status: string | null | undefined): boolean {
+  return Boolean(status && ACTIVE_PARSE_STATUSES.has(status));
+}
+
+function parseStatusLabel(status: string | null | undefined, factCount: number): string {
+  if (status === "parse_pending") return "Queued";
+  if (status === "parsing") return "Parsing";
+  if (status === "parse_failed") return "Parse failed";
+  return `${factCount} facts`;
+}
 
 function ConfidenceBar({ value }: { value: number }) {
   const pct = Math.round(value * 100);
@@ -221,10 +234,10 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
   }, [projectId]);
 
   useEffect(() => {
-    const hasPending =
-      uploadResult?.parse_status === "parse_pending" ||
-      documents.some((doc) => (doc.parse_status ?? doc.status) === "parse_pending");
-    if (!hasPending) return;
+    const hasActiveParse =
+      isActiveParseStatus(uploadResult?.parse_status) ||
+      documents.some((doc) => isActiveParseStatus(doc.parse_status ?? doc.status));
+    if (!hasActiveParse) return;
     const timer = window.setInterval(() => {
       void refreshDocuments();
     }, 3000);
@@ -295,7 +308,8 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
 
   const facts = uploadResult?.extracted_facts ?? [];
   const parseStatus = uploadResult?.parse_status ?? null;
-  const parsePending = parseStatus === "parse_pending";
+  const parseActive = isActiveParseStatus(parseStatus);
+  const parseFailed = parseStatus === "parse_failed";
 
   return (
     <div style={{ padding: "0 0 24px" }}>
@@ -392,7 +406,8 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {documents.slice(0, 4).map((doc) => {
               const status = doc.parse_status ?? doc.status;
-              const pending = status === "parse_pending";
+              const active = isActiveParseStatus(status);
+              const failed = status === "parse_failed";
               return (
                 <div
                   key={doc.id}
@@ -411,9 +426,9 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
                   <span style={{ minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                     {doc.title}
                   </span>
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: pending ? "#92400e" : "#16a34a", flexShrink: 0 }}>
-                    {pending ? <Clock3 size={14} /> : <CheckCircle2 size={14} />}
-                    {pending ? "Parsing" : `${doc.fact_count} facts`}
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: active ? "#92400e" : failed ? "#b91c1c" : "#16a34a", flexShrink: 0 }}>
+                    {active ? <Clock3 size={14} /> : failed ? <AlertCircle size={14} /> : <CheckCircle2 size={14} />}
+                    {parseStatusLabel(status, doc.fact_count)}
                   </span>
                 </div>
               );
@@ -524,7 +539,7 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
             <span style={{ fontWeight: 500 }}>{uploadResult.filename}</span>
             <span style={{ color: "#6b7280" }}>·</span>
             <span style={{ color: "#6b7280" }}>
-              {parsePending ? "Parsing queued" : `${facts.length} fact${facts.length !== 1 ? "s" : ""} extracted`}
+              {parseActive ? parseStatusLabel(parseStatus, facts.length) : `${facts.length} fact${facts.length !== 1 ? "s" : ""} extracted`}
             </span>
             {confirmedKeys.size > 0 && (
               <>
@@ -534,14 +549,20 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
             )}
           </div>
 
-          {parsePending && (
+          {parseActive && (
             <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#92400e", fontSize: 13 }}>
               <RefreshCw size={14} style={{ animation: "spin 1s linear infinite" }} />
-              The parser job is queued. This list refreshes while processing continues.
+              The parser job is queued or running. This list refreshes while processing continues.
             </div>
           )}
 
-          {!parsePending && facts.length === 0 && (
+          {parseFailed && (
+            <div style={{ color: "#b91c1c", fontSize: 13 }}>
+              The parser could not extract this document. Try another file format or review the document manually.
+            </div>
+          )}
+
+          {!parseActive && !parseFailed && facts.length === 0 && (
             <div style={{ color: "#6b7280", fontSize: 13 }}>
               No measurable facts were extracted from this document.
             </div>

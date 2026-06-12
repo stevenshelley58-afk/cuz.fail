@@ -162,14 +162,124 @@ def test_v3_dxf_dimension_uses_group_42_and_records_text_override_difference() -
 
     fact = result.facts[0]
     assert fact.numeric_value == 4.5
+    assert fact.unit == "drawing_unit"
+    assert fact.confidence <= 0.4
     assert fact.review_status == DocumentReviewStatus.PENDING_REVIEW
     assert fact.metadata["entity_handle"] == "2A"
     assert fact.metadata["entity_layer"] == "A-DIMENSIONS"
     assert fact.metadata["entity_type"] == "DIMENSION"
+    assert fact.metadata["dxf_declared_units"] == "missing"
+    assert fact.metadata["unit_declared"] is False
+    assert fact.metadata["unit_conversion_applied"] is False
     assert fact.metadata["text_override"] == "5.0"
     assert fact.metadata["text_override_numeric_value"] == 5.0
     assert fact.metadata["text_override_differs"] is True
     assert fact.metadata["measurement_compliance_ready"] is False
+
+
+def test_v3_dxf_declared_metres_keep_dimension_units() -> None:
+    library = InMemoryDocumentLibrary()
+    dxf_text = "\n".join(
+        [
+            "0",
+            "SECTION",
+            "2",
+            "HEADER",
+            "9",
+            "$INSUNITS",
+            "70",
+            "6",
+            "0",
+            "ENDSEC",
+            "0",
+            "SECTION",
+            "2",
+            "ENTITIES",
+            "0",
+            "DIMENSION",
+            "5",
+            "2B",
+            "8",
+            "A-DIMENSIONS",
+            "42",
+            "4.5",
+            "0",
+            "ENDSEC",
+            "0",
+            "EOF",
+        ]
+    )
+
+    result = library.upload(
+        org_id="org-docs",
+        project_id="project-docs",
+        user_id="user-docs",
+        filename="metres.dxf",
+        media_type="application/dxf",
+        content=dxf_text.encode(),
+    )
+
+    fact = result.facts[0]
+    assert fact.numeric_value == 4.5
+    assert fact.unit == "m"
+    assert fact.confidence == 0.76
+    assert fact.metadata["dxf_insunits_code"] == 6
+    assert fact.metadata["dxf_declared_units"] == "metres"
+    assert fact.metadata["unit_declared"] is True
+    assert fact.metadata["unit_conversion_applied"] is False
+
+
+def test_v3_dxf_declared_millimetres_convert_dimension_to_metres() -> None:
+    library = InMemoryDocumentLibrary()
+    dxf_text = "\n".join(
+        [
+            "0",
+            "SECTION",
+            "2",
+            "HEADER",
+            "9",
+            "$INSUNITS",
+            "70",
+            "4",
+            "0",
+            "ENDSEC",
+            "0",
+            "SECTION",
+            "2",
+            "ENTITIES",
+            "0",
+            "DIMENSION",
+            "5",
+            "2C",
+            "8",
+            "A-DIMENSIONS",
+            "42",
+            "4500",
+            "0",
+            "ENDSEC",
+            "0",
+            "EOF",
+        ]
+    )
+
+    result = library.upload(
+        org_id="org-docs",
+        project_id="project-docs",
+        user_id="user-docs",
+        filename="millimetres.dxf",
+        media_type="application/dxf",
+        content=dxf_text.encode(),
+    )
+
+    fact = result.facts[0]
+    assert fact.numeric_value == 4.5
+    assert fact.unit == "m"
+    assert fact.metadata["dxf_insunits_code"] == 4
+    assert fact.metadata["dxf_declared_units"] == "millimetres"
+    assert fact.metadata["unit_declared"] is True
+    assert fact.metadata["unit_conversion_applied"] is True
+    assert fact.metadata["source_numeric_value"] == 4500
+    assert fact.metadata["source_unit"] == "millimetres"
 
 
 def test_v3_dxf_block_insert_uniform_scale_is_recorded_on_dimension_fact() -> None:

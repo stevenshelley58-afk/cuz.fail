@@ -157,6 +157,19 @@ class _DxfDimensionCandidate:
     extraction_method: str = "dxf_group_code_dimension_entity"
 
 
+@dataclass(frozen=True)
+class _DxfUnitContext:
+    code: int | None
+    declared_units: str
+    output_unit: str
+    scale_to_metres: float | None
+    confidence_cap: float | None
+
+    @property
+    def unit_declared(self) -> bool:
+        return self.code is not None and self.code != 0 and self.scale_to_metres is not None
+
+
 class DocumentNotFoundError(KeyError):
     """Raised when a document is unknown to the in-memory library."""
 
@@ -659,22 +672,30 @@ def _first_match(patterns: tuple[str, ...], text: str) -> re.Match[str] | None:
 
 
 def _dxf_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFact]:
+    unit_context = _dxf_unit_context(text)
     candidates = _extract_dxf_dimension_candidates(text)
     if candidates:
-        return [
-            _fact(
-                document_id=document_id,
-                label=f"dxf dimension {index}",
-                fact_type="drawing_dimension",
-                value=candidate.measurement,
-                unit="m",
-                parser_name=parser_name,
-                method=candidate.extraction_method,
-                confidence=0.62 if candidate.insert_scale_uncertain else 0.76,
-                metadata=_dxf_dimension_metadata(candidate),
+        facts: list[DocumentFact] = []
+        for index, candidate in enumerate(candidates, start=1):
+            value, unit, unit_metadata = _normalise_dxf_measurement(
+                candidate.measurement,
+                unit_context,
             )
-            for index, candidate in enumerate(candidates, start=1)
-        ]
+            base_confidence = 0.62 if candidate.insert_scale_uncertain else 0.76
+            facts.append(
+                _fact(
+                    document_id=document_id,
+                    label=f"dxf dimension {index}",
+                    fact_type="drawing_dimension",
+                    value=value,
+                    unit=unit,
+                    parser_name=parser_name,
+                    method=candidate.extraction_method,
+                    confidence=_cap_confidence(base_confidence, unit_context),
+                    metadata={**_dxf_dimension_metadata(candidate), **unit_metadata},
+                )
+            )
+        return facts
 
     facts: list[DocumentFact] = []
     if "a-dimensions" not in text.lower() and "dimension" not in text.lower():
@@ -687,20 +708,22 @@ def _dxf_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFa
         ),
         start=1,
     ):
+        value, unit, unit_metadata = _normalise_dxf_measurement(float(value), unit_context)
         facts.append(
             _fact(
                 document_id=document_id,
                 label=f"dxf dimension {index}",
                 fact_type="drawing_dimension",
-                value=float(value),
-                unit="m",
+                value=value,
+                unit=unit,
                 parser_name=parser_name,
                 method="dxf_text_dimension_entity",
-                confidence=0.68,
+                confidence=_cap_confidence(0.68, unit_context),
                 metadata={
                     "entity_type": "DIMENSION",
                     "cad_extraction_review_status": "pending_review",
                     "scale_status": "not_available_from_text_fallback",
+                    **unit_metadata,
                 },
             )
         )
@@ -881,6 +904,85 @@ def _dxf_group_pairs(text: str) -> list[tuple[str, str]]:
     return pairs
 
 
+DXF_INSUNITS: dict[int, tuple[str, float | None]] = {
+    0: ("unitless", None),
+    1: ("inches", 0.0254),
+    2: ("feet", 0.3048),
+    4: ("millimetres", 0.001),
+    5: ("centimetres", 0.01),
+    6: ("metres", 1.0),
+    7: ("kilometres", 1000.0),
+}
+
+
+def _dxf_unit_context(text: str) -> _DxfUnitContext:
+    pairs = _dxf_group_pairs(text)
+    for index, (code, value) in enumerate(pairs):
+        if code != "9" or value.strip().upper() != "$INSUNITS":
+            continue
+        for next_code, next_value in pairs[index + 1 : index + 4]:
+            if next_code != "70":
+                continue
+            unit_code = _int_or_none(next_value)
+            if unit_code is None:
+                break
+            declared_units, scale = DXF_INSUNITS.get(unit_code, (f"insunits_{unit_code}", None))
+            return _unit_context_from_code(unit_code, declared_units, scale)
+    return _unit_context_from_code(None, "missing", None)
+
+
+def _unit_context_from_code(
+    unit_code: int | None,
+    declared_units: str,
+    scale_to_metres: float | None,
+) -> _DxfUnitContext:
+    if scale_to_metres is None:
+        return _DxfUnitContext(
+            code=unit_code,
+            declared_units=declared_units,
+            output_unit="drawing_unit",
+            scale_to_metres=None,
+            confidence_cap=0.4,
+        )
+    return _DxfUnitContext(
+        code=unit_code,
+        declared_units=declared_units,
+        output_unit="m",
+        scale_to_metres=scale_to_metres,
+        confidence_cap=None,
+    )
+
+
+def _normalise_dxf_measurement(
+    value: float,
+    unit_context: _DxfUnitContext,
+) -> tuple[float, str, dict[str, Any]]:
+    metadata: dict[str, Any] = {
+        "dxf_insunits_code": unit_context.code,
+        "dxf_declared_units": unit_context.declared_units,
+        "unit_declared": unit_context.unit_declared,
+        "unit_conversion_applied": False,
+    }
+    if unit_context.scale_to_metres is None:
+        metadata["measurement_readiness_reason"] = (
+            "DXF $INSUNITS is missing, unitless, or unsupported; operator must confirm drawing units"
+        )
+        return value, unit_context.output_unit, metadata
+
+    normalised = value * unit_context.scale_to_metres
+    metadata["unit_conversion_applied"] = not _nearly_equal(unit_context.scale_to_metres, 1.0)
+    if metadata["unit_conversion_applied"]:
+        metadata["source_numeric_value"] = value
+        metadata["source_unit"] = unit_context.declared_units
+    return normalised, unit_context.output_unit, metadata
+
+
+def _cap_confidence(base_confidence: float, unit_context: _DxfUnitContext) -> float:
+    if unit_context.confidence_cap is None:
+        return base_confidence
+    return min(base_confidence, unit_context.confidence_cap)
+
+
 def _dxf_entity_pairs(
     pairs: list[tuple[str, str]],
     start_index: int,
@@ -1035,6 +1137,15 @@ def _float_or_none(value: object) -> float | None:
         return None
     try:
         return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _int_or_none(value: object) -> int | None:
+    if value is None:
+        return None
+    try:
+        return int(str(value).strip())
     except (TypeError, ValueError):
         return None
 
