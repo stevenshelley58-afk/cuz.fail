@@ -87,9 +87,15 @@ jobs:
       - name: Build web
         working-directory: web
         run: npm run build
+      - name: Test launch checkout URL
+        working-directory: web
+        run: npm run test:launch-checkout
       - name: Test launch actions
         working-directory: web
         run: npm run test:launch-actions
+      - name: Test live fetch helper
+        working-directory: web
+        run: npm run test:live-fetch
       - name: Verify mobile launch sweep
         working-directory: web
         run: npm run verify:launch:mobile

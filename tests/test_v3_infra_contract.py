@@ -283,6 +283,17 @@ def test_v3_ci_runs_launch_action_behavior_test():
     assert "src/App.launch.test.tsx" in launch_actions
 
 
+def test_v3_ci_runs_launch_checkout_and_live_fetch_smoke_tests():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    web_steps = workflow["jobs"]["web"]["steps"]
+    package_json = json.loads(WEB_PACKAGE_PATH.read_text(encoding="utf-8"))
+
+    assert package_json["scripts"]["test:launch-checkout"] == "node scripts/test-checkout-url.mjs"
+    assert package_json["scripts"]["test:live-fetch"] == "node scripts/test-live-fetch.mjs"
+    assert any(step.get("run") == "npm run test:launch-checkout" for step in web_steps)
+    assert any(step.get("run") == "npm run test:live-fetch" for step in web_steps)
+
+
 def test_v3_ci_runs_mobile_launch_sweep():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
     web_steps = workflow["jobs"]["web"]["steps"]
