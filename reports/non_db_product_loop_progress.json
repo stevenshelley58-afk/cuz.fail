@@ -1,6 +1,6 @@
 {
-  "captured_at": "2026-06-13T00:02:43+08:00",
-  "scope": "GO_LIVE_EXECUTION_PLAN Part C non-db, non-security product loop",
+  "captured_at": "2026-06-13T00:13:41+08:00",
+  "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
       "status": "verified",
@@ -44,14 +44,26 @@
       ]
     },
     "c5_engine_refinement_visibility": {
-      "status": "advanced",
+      "status": "verified",
       "evidence": [
         "Compliance API exposes missing_info_reason and drawing_evidence",
         "web/src/views/compliance.tsx renders drawing evidence and missing-info reasons",
-        "tests/test_golden_e2e.py asserts these response fields"
+        "tests/test_golden_e2e.py asserts these response fields",
+        "POST /api/v1/compliance/results/{result_id}/override records review_reason/human_override without mutating deterministic status",
+        "web/src/views/compliance.tsx records operator notes from expanded compliance rows"
+      ]
+    },
+    "d_launch_surface": {
+      "status": "verified_with_checkout_env_caveat",
+      "evidence": [
+        "web/src/App.tsx routes /, /privacy, /terms, and /app",
+        "web/public/robots.txt and web/public/sitemap.xml are present",
+        "web/src/analytics.ts and call sites cover signup_requested, project_created, compliance_run, checkout_clicked",
+        "npm.cmd run verify:launch passed"
       ],
       "remaining": [
-        "Human override workflow remains unused"
+        "Run npm.cmd run verify:launch:strict with VITE_CHECKOUT_URL before paid launch",
+        "Run live verification against lotfile.app after deployment"
       ]
     }
   },
@@ -59,6 +71,8 @@
     "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py tests/test_document_chunks.py",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py",
     "uv run pytest tests/test_v3_document_parse_jobs.py tests/test_v3_infra_contract.py",
-    "npm.cmd run build"
+    "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py tests/test_v3_api_shell.py",
+    "npm.cmd run build",
+    "npm.cmd run verify:launch"
   ]
 }
