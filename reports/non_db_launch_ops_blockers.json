@@ -1,13 +1,77 @@
 {
-  "captured_at": "2026-06-12T19:18:12.913369+00:00",
+  "captured_at": "2026-06-12T23:06:42.779774+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
     "evidence": {
       "live_origin": "https://lotfile.app",
-      "live_index_title": "<title>LotFile - WA R-Code & Planning Compliance Checker</title>",
-      "live_verifier": "passed",
-      "missing_count": 0,
+      "live_index_title": "verified by web/scripts/verify-live-launch.mjs --strict --json",
+      "live_verifier": "failed: verifier status was 'failed'; verifier checkout_checked evidence was not true; LIVE_CHECKOUT_URL or VITE_CHECKOUT_URL is required for strict live launch verification",
+      "missing_count": 3,
+      "live_verifier_json_status": "failed",
+      "live_verifier_evidence": {
+        "origin": "https://lotfile.app",
+        "strict": true,
+        "checkout_checked": false,
+        "routes": {
+          "/": {
+            "status": 200,
+            "title": "LotFile - WA R-Code & Planning Compliance Checker",
+            "canonical": "https://lotfile.app/"
+          },
+          "/privacy": {
+            "status": 200,
+            "title": "Privacy - LotFile",
+            "canonical": "https://lotfile.app/privacy"
+          },
+          "/terms": {
+            "status": 200,
+            "title": "Terms - LotFile",
+            "canonical": "https://lotfile.app/terms"
+          },
+          "/app": {
+            "status": 200,
+            "title": "LotFile - WA R-Code & Planning Compliance Checker",
+            "canonical": "https://lotfile.app/"
+          }
+        },
+        "public_assets": {
+          "/robots.txt": {
+            "status": 200
+          },
+          "/sitemap.xml": {
+            "status": 200
+          },
+          "/favicon.svg": {
+            "status": 200
+          },
+          "/og-image.svg": {
+            "status": 200
+          }
+        },
+        "api": {
+          "/api/v1/health": {
+            "status": 200,
+            "service_status": "ok"
+          },
+          "/api/v1/ready": {
+            "status": 200,
+            "service_status": "ok"
+          }
+        },
+        "bundles": [
+          {
+            "path": "/assets/index-tPCN6iw6.js",
+            "status": 200
+          }
+        ]
+      },
+      "live_verifier_warnings": [],
+      "live_verifier_failures": [
+        "verifier status was 'failed'",
+        "verifier checkout_checked evidence was not true",
+        "LIVE_CHECKOUT_URL or VITE_CHECKOUT_URL is required for strict live launch verification"
+      ],
       "vps_checkout_env": "VITE_CHECKOUT_URL_MISSING"
     },
     "unblock": [
