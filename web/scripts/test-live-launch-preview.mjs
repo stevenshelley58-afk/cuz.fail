@@ -42,6 +42,12 @@ const server = createServer((req, res) => {
     return;
   }
 
+  const directoryIndex = requested ? join(requested, "index.html") : null;
+  if (directoryIndex && existsSync(directoryIndex) && statSync(directoryIndex).isFile()) {
+    serveFile(directoryIndex, res);
+    return;
+  }
+
   const indexPath = join(distDir, "index.html");
   if (existsSync(indexPath)) {
     serveFile(indexPath, res);
