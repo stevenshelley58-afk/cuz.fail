@@ -28,7 +28,7 @@ sys.path.insert(0, "/app/src")
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
 
 import psycopg  # noqa: E402
-from psycopg.types.json import Json  # noqa: E402
+from psycopg.types.json import Json, Jsonb  # noqa: E402
 
 from draftcheck.extraction.adjudication import (  # noqa: E402
     PROMOTE,
@@ -153,7 +153,7 @@ def promote(conn: psycopg.Connection, group_rows: list[dict], decision) -> str |
             WHERE id = ANY(%s)
             """,
             (decision.confidence,
-             Json({"adjudication": "v2-core-family", "promoted_rule_id": rule_id}),
+             Jsonb({"adjudication": "v2-core-family", "promoted_rule_id": rule_id}),
              [r["id"] for r in group_rows]),
         )
     return rule_id
@@ -236,7 +236,7 @@ def main() -> int:
                         SET metadata_json = metadata_json || %s, updated_at = now()
                         WHERE id = ANY(%s)
                         """,
-                        (Json({"adjudication": "v2-core-family",
+                        (Jsonb({"adjudication": "v2-core-family",
                                "pending_reason": decision.reason}),
                          [r["id"] for r in group_rows]),
                     )
