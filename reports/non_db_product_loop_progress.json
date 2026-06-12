@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:43:30+08:00",
+  "captured_at": "2026-06-13T02:10:20+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -63,7 +63,8 @@
         "web/src/analytics.ts and call sites cover signup_requested, project_created, compliance_run, checkout_clicked",
         "npm.cmd run verify:launch passed",
         "npm.cmd run verify:launch:strict passed with a Stripe-shaped VITE_CHECKOUT_URL",
-        "checkout URL validation rejects non-HTTPS and non-buy.stripe.com URLs"
+        "checkout URL validation rejects non-HTTPS and non-buy.stripe.com URLs",
+        ".github/workflows/ci.yml now uses a buy.stripe.com checkout fixture that matches strict launch validation"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",
@@ -79,9 +80,15 @@
         "scripts/ops_guardrails.py exposes a worker-heartbeat check for required Docker Compose services",
         "infra/v3/ops/guardrail-alerts.sh delegates worker heartbeat checks to the Python guardrail",
         "tests/test_ops_guardrails.py covers required-running and missing compose service behavior",
+        "scripts/ops_guardrails.py exposes backup-config and guardrail-cron install-state checks",
+        "infra/v3/backup/install-systemd.sh runs backup-config before enabling draftcheck-backup.timer",
+        "tests/test_ops_guardrails.py covers backup env and guardrail cron fixture validation",
+        "tests/test_v3_infra_contract.py asserts ops scripts/runbook retain backup-config, disk, worker, and cron guardrail hooks",
         "uv run pytest tests/test_ops_guardrails.py -q passed",
         "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json passed",
-        "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json passed"
+        "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json passed",
+        "uv run python scripts/ops_guardrails.py backup-config --env-path <temp fixture> --json passed",
+        "uv run python scripts/ops_guardrails.py guardrail-cron --path <temp fixture> --json passed"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
@@ -103,6 +110,8 @@
     "uv run pytest tests/test_ops_guardrails.py -q",
     "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json",
     "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json",
+    "uv run python scripts/ops_guardrails.py backup-config --env-path <fixture backup.env> --json",
+    "uv run python scripts/ops_guardrails.py guardrail-cron --path <fixture draftcheck-guardrails> --json",
     "npm.cmd run build",
     "npm.cmd run verify:launch"
   ]

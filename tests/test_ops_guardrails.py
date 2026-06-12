@@ -8,8 +8,10 @@ from types import SimpleNamespace
 import threading
 
 from scripts.ops_guardrails import (
+    check_backup_config,
     check_backup_freshness,
     check_disk_usage,
+    check_guardrail_cron,
     check_restore_drill_log,
     check_uptime_targets,
     check_worker_heartbeat,
@@ -152,6 +154,72 @@ def test_worker_heartbeat_flags_missing_required_services(tmp_path: Path) -> Non
     assert result.status == "critical"
     assert result.metadata["missing_services"] == ["hermes"]
     assert "hermes" in result.message
+
+
+def test_backup_config_requires_restic_password_and_compose_paths(tmp_path: Path) -> None:
+    password_file = tmp_path / "restic-password"
+    compose_file = tmp_path / "compose.yml"
+    password_file.write_text("secret\n", encoding="utf-8")
+    compose_file.write_text("services: {}\n", encoding="utf-8")
+    env_path = tmp_path / "backup.env"
+    env_path.write_text(
+        f"""RESTIC_REPOSITORY=s3:s3.example.invalid/draftcheck-v3-backups
+RESTIC_PASSWORD_FILE={password_file}
+POSTGRES_USER=draftcheck
+POSTGRES_DB=draftcheck
+COMPOSE_FILE={compose_file}
+""",
+        encoding="utf-8",
+    )
+
+    result = check_backup_config(env_path)
+
+    assert result.status == "ok"
+    assert result.metadata["missing_keys"] == []
+    assert result.metadata["missing_paths"] == []
+
+
+def test_backup_config_flags_missing_fields_and_paths(tmp_path: Path) -> None:
+    env_path = tmp_path / "backup.env"
+    env_path.write_text(
+        f"""RESTIC_REPOSITORY=s3:s3.example.invalid/draftcheck-v3-backups
+RESTIC_PASSWORD_FILE={tmp_path / "missing-password"}
+POSTGRES_USER=draftcheck
+COMPOSE_FILE={tmp_path / "missing-compose.yml"}
+""",
+        encoding="utf-8",
+    )
+
+    result = check_backup_config(env_path)
+
+    assert result.status == "critical"
+    assert "POSTGRES_DB" in result.metadata["missing_keys"]
+    assert any("RESTIC_PASSWORD_FILE" in path for path in result.metadata["missing_paths"])
+    assert any("COMPOSE_FILE" in path for path in result.metadata["missing_paths"])
+
+
+def test_guardrail_cron_requires_checked_wrapper_and_log(tmp_path: Path) -> None:
+    cron = tmp_path / "draftcheck-guardrails"
+    cron.write_text(
+        "*/10 * * * * root bash /srv/draftcheck/app/infra/v3/ops/guardrail-alerts.sh >> "
+        "/var/log/draftcheck-guardrails.log 2>&1\n",
+        encoding="utf-8",
+    )
+
+    result = check_guardrail_cron(cron)
+
+    assert result.status == "ok"
+
+
+def test_guardrail_cron_flags_incomplete_entry(tmp_path: Path) -> None:
+    cron = tmp_path / "draftcheck-guardrails"
+    cron.write_text("*/10 * * * * root echo ok\n", encoding="utf-8")
+
+    result = check_guardrail_cron(cron)
+
+    assert result.status == "critical"
+    assert "guardrail-alerts.sh command missing" in result.message
+    assert "local guardrail log redirection missing" in result.message
 
 
 def test_uptime_targets_require_json_status_ok() -> None:

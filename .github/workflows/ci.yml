@@ -75,7 +75,7 @@ jobs:
       - name: Verify launch surface
         working-directory: web
         env:
-          VITE_CHECKOUT_URL: https://checkout.example.test/lotfile-ci
+          VITE_CHECKOUT_URL: https://buy.stripe.com/lotfile_ci_fixture
           VITE_PRICE_LABEL: AUD $29/month
           VITE_PRICE_SUBLABEL: Starter launch plan, cancel anytime.
         run: npm run verify:launch:strict

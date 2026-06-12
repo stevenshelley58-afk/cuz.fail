@@ -90,7 +90,12 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "systemctl enable --now draftcheck-backup.timer" in install_script
     assert "DRAFTCHECK_ALERT_WEBHOOK_URL" in alert_script
     assert "backup-freshness" in alert_script
+    assert "disk-usage" in alert_script
+    assert "worker-heartbeat" in alert_script
+    assert "backup-config" in install_script
     assert "<generated-restic-password>" in runbook
+    assert "backup-config" in runbook
+    assert "guardrail-cron" in runbook
     assert "sentry_dsn" in runbook
     assert "spend-snapshot" in runbook
 

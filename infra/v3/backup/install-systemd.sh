@@ -5,6 +5,7 @@ set -euo pipefail
 
 APP_DIR="${DRAFTCHECK_APP_DIR:-/srv/draftcheck/app}"
 BACKUP_ENV="${DRAFTCHECK_BACKUP_ENV:-/etc/draftcheck/backup.env}"
+PYTHON_BIN="${PYTHON_BIN:-python3}"
 UNIT_DIR="${DRAFTCHECK_SYSTEMD_DIR:-/etc/systemd/system}"
 
 if [[ ! -f "$BACKUP_ENV" ]]; then
@@ -25,6 +26,8 @@ EOF
 MSG
     exit 2
 fi
+
+"$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" backup-config --env-path "$BACKUP_ENV"
 
 install -m 0644 "$APP_DIR/infra/v3/backup/draftcheck-backup.service" \
     "$UNIT_DIR/draftcheck-backup.service"

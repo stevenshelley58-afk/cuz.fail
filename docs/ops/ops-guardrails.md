@@ -25,6 +25,7 @@ sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh"
 Verify:
 
 ```powershell
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py backup-config --env-path /etc/draftcheck/backup.env --json'
 ssh draftcheck 'sudo systemctl status draftcheck-backup.timer --no-pager && sudo systemctl list-timers --all draftcheck-backup.timer'
 ```
 
@@ -86,6 +87,12 @@ Install a cron entry on the VPS:
 ssh draftcheck "cat | sudo tee /etc/cron.d/draftcheck-guardrails >/dev/null <<'EOF'
 */10 * * * * root bash /srv/draftcheck/app/infra/v3/ops/guardrail-alerts.sh >> /var/log/draftcheck-guardrails.log 2>&1
 EOF"
+```
+
+Verify the installed cron entry before relying on it:
+
+```powershell
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py guardrail-cron --path /etc/cron.d/draftcheck-guardrails --json'
 ```
 
 Optional webhook setup, without committing the URL:

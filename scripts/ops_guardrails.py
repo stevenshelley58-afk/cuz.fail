@@ -379,6 +379,98 @@ def docker_compose_running_services(compose_dir: Path) -> set[str]:
     return {line.strip() for line in result.stdout.splitlines() if line.strip()}
 
 
+def read_env_file(path: Path) -> dict[str, str]:
+    values: dict[str, str] = {}
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        values[key.strip()] = value.strip().strip("\"'")
+    return values
+
+
+def check_backup_config(env_path: Path) -> GuardrailResult:
+    """Verify the backup env file is ready before arming the systemd timer."""
+
+    if not env_path.exists():
+        return GuardrailResult(
+            name="backup_config",
+            status="critical",
+            message=f"backup env file missing: {env_path}",
+            metadata={"env_path": str(env_path)},
+        )
+
+    values = read_env_file(env_path)
+    required_keys = ["RESTIC_REPOSITORY", "RESTIC_PASSWORD_FILE", "POSTGRES_USER", "POSTGRES_DB", "COMPOSE_FILE"]
+    missing = [key for key in required_keys if not values.get(key)]
+    password_file = Path(values.get("RESTIC_PASSWORD_FILE", ""))
+    compose_file = Path(values.get("COMPOSE_FILE", ""))
+    missing_paths: list[str] = []
+    if password_file and not password_file.exists():
+        missing_paths.append(f"RESTIC_PASSWORD_FILE={password_file}")
+    if compose_file and not compose_file.exists():
+        missing_paths.append(f"COMPOSE_FILE={compose_file}")
+
+    metadata = {
+        "env_path": str(env_path),
+        "present_keys": sorted(values),
+        "missing_keys": missing,
+        "missing_paths": missing_paths,
+    }
+    if missing or missing_paths:
+        return GuardrailResult(
+            name="backup_config",
+            status="critical",
+            message="backup config is incomplete: " + ", ".join([*missing, *missing_paths]),
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="backup_config",
+        status="ok",
+        message="backup config contains required restic and compose settings",
+        metadata=metadata,
+    )
+
+
+def check_guardrail_cron(path: Path) -> GuardrailResult:
+    """Verify the guardrail cron entry will run the checked alert wrapper."""
+
+    if not path.exists():
+        return GuardrailResult(
+            name="guardrail_cron",
+            status="critical",
+            message=f"guardrail cron file missing: {path}",
+            metadata={"path": str(path)},
+        )
+
+    text = path.read_text(encoding="utf-8")
+    failures: list[str] = []
+    if "guardrail-alerts.sh" not in text:
+        failures.append("guardrail-alerts.sh command missing")
+    if "/srv/draftcheck/app/infra/v3/ops/guardrail-alerts.sh" not in text:
+        failures.append("expected production guardrail-alerts.sh path missing")
+    if not re.search(r"^\S+\s+\S+\s+\S+\s+\S+\s+\S+\s+root\s+", text, flags=re.MULTILINE):
+        failures.append("root cron schedule entry missing")
+    if "draftcheck-guardrails.log" not in text:
+        failures.append("local guardrail log redirection missing")
+
+    metadata = {"path": str(path), "failures": failures}
+    if failures:
+        return GuardrailResult(
+            name="guardrail_cron",
+            status="critical",
+            message="guardrail cron is incomplete: " + "; ".join(failures),
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="guardrail_cron",
+        status="ok",
+        message="guardrail cron entry is installed with the checked wrapper",
+        metadata=metadata,
+    )
+
+
 PLACEHOLDER_PATTERNS = (
     r"YYYY-MM-DD",
     r"PASS / FAIL",
@@ -501,6 +593,14 @@ def main(argv: list[str] | None = None) -> int:
     heartbeat_parser.add_argument("--running-service", action="append", default=[])
     heartbeat_parser.add_argument("--json", action="store_true")
 
+    backup_config_parser = subparsers.add_parser("backup-config")
+    backup_config_parser.add_argument("--env-path", default="/etc/draftcheck/backup.env")
+    backup_config_parser.add_argument("--json", action="store_true")
+
+    guardrail_cron_parser = subparsers.add_parser("guardrail-cron")
+    guardrail_cron_parser.add_argument("--path", default="/etc/cron.d/draftcheck-guardrails")
+    guardrail_cron_parser.add_argument("--json", action="store_true")
+
     restore_parser = subparsers.add_parser("restore-drill-log")
     restore_parser.add_argument("--path", required=True)
     restore_parser.add_argument("--json", action="store_true")
@@ -579,6 +679,16 @@ def main(argv: list[str] | None = None) -> int:
                 running_services,
                 compose_dir=compose_dir,
             )
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "backup-config":
+        result = check_backup_config(Path(args.env_path))
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "guardrail-cron":
+        result = check_guardrail_cron(Path(args.path))
         _print_result(result, as_json=args.json)
         return status_exit_code(result.status)
 
