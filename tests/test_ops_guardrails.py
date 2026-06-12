@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+import json
 from datetime import UTC, datetime, timedelta
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
 from pathlib import Path
+import shutil
+import subprocess
+import sys
 from types import SimpleNamespace
 import threading
+
+import pytest
 
 from scripts.ops_guardrails import (
     check_backup_config,
@@ -21,6 +27,144 @@ from scripts.ops_guardrails import (
     compare_spend_snapshots,
     normalise_database_url,
 )
+
+
+ROOT = Path(__file__).resolve().parents[1]
+OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
+
+
+def _require_bash() -> str:
+    bash = shutil.which("bash")
+    if bash is None:
+        pytest.skip("bash is unavailable")
+    try:
+        subprocess.run(
+            [bash, "--version"],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+    except (OSError, subprocess.SubprocessError) as exc:
+        pytest.skip(f"bash is unavailable or unusable: {exc}")
+    return bash
+
+
+def _write_fake_ops_guardrails(app_dir: Path, *, failing: set[str] | None = None) -> Path:
+    script = app_dir / "scripts" / "ops_guardrails.py"
+    script.parent.mkdir(parents=True)
+    script.write_text(
+        f"""\
+from __future__ import annotations
+
+import json
+import os
+import sys
+
+failing = {sorted(failing or set())!r}
+command = sys.argv[1]
+with open(os.environ["DRAFTCHECK_GUARDRAIL_CALLS"], "a", encoding="utf-8") as handle:
+    handle.write(command + "\\n")
+if command in failing:
+    print(f"{{command}} critical fixture", file=sys.stderr)
+    raise SystemExit(2)
+print(json.dumps({{"name": command.replace("-", "_"), "status": "ok"}}))
+""",
+        encoding="utf-8",
+    )
+    return script
+
+
+def _run_guardrail_alerts(tmp_path: Path, *, failing: set[str] | None = None, webhook: bool = False) -> subprocess.CompletedProcess[str]:
+    bash = _require_bash()
+    app_dir = tmp_path / "app"
+    calls_path = tmp_path / "guardrail-calls.txt"
+    _write_fake_ops_guardrails(app_dir, failing=failing)
+    (tmp_path / "compose").mkdir()
+    (tmp_path / "backups").mkdir()
+
+    env = os.environ.copy()
+    env.update(
+        {
+            "DRAFTCHECK_APP_DIR": str(app_dir),
+            "DRAFTCHECK_COMPOSE_DIR": str(tmp_path / "compose"),
+            "DRAFTCHECK_BACKUP_DIR": str(tmp_path / "backups"),
+            "DRAFTCHECK_GUARDRAIL_CALLS": str(calls_path),
+            "DRAFTCHECK_HEALTH_URL": "http://127.0.0.1:65535/health",
+            "DRAFTCHECK_READY_URL": "http://127.0.0.1:65535/ready",
+            "PYTHON_BIN": sys.executable,
+        }
+    )
+    if webhook:
+        bin_dir = tmp_path / "bin"
+        bin_dir.mkdir()
+        curl = bin_dir / "curl"
+        curl.write_text(
+            """\
+#!/usr/bin/env bash
+set -euo pipefail
+payload=""
+while (($#)); do
+    if [[ "$1" == "--data" ]]; then
+        shift
+        payload="$1"
+    fi
+    shift || true
+done
+printf '%s' "$payload" > "$DRAFTCHECK_FAKE_CURL_PAYLOAD"
+""",
+            encoding="utf-8",
+        )
+        curl.chmod(0o755)
+        env["DRAFTCHECK_ALERT_WEBHOOK_URL"] = "https://alerts.example.invalid/draftcheck"
+        env["DRAFTCHECK_FAKE_CURL_PAYLOAD"] = str(tmp_path / "curl-payload.json")
+        env["PATH"] = str(bin_dir) + os.pathsep + env["PATH"]
+
+    return subprocess.run(
+        [bash, str(OPS_ALERT_PATH)],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+
+
+def test_guardrail_alert_wrapper_reports_ok_when_all_checks_pass(tmp_path: Path) -> None:
+    result = _run_guardrail_alerts(tmp_path)
+
+    assert result.returncode == 0
+    assert "draftcheck guardrails ok" in result.stdout
+    assert (tmp_path / "guardrail-calls.txt").read_text(encoding="utf-8").splitlines() == [
+        "backup-freshness",
+        "disk-usage",
+        "uptime-targets",
+        "worker-heartbeat",
+    ]
+
+
+def test_guardrail_alert_wrapper_aggregates_failing_check(tmp_path: Path) -> None:
+    result = _run_guardrail_alerts(tmp_path, failing={"disk-usage"})
+
+    assert result.returncode == 2
+    assert "draftcheck guardrail failures:" in result.stderr
+    assert "disk_usage:" in result.stderr
+    assert "disk-usage critical fixture" in result.stderr
+    assert "draftcheck guardrails ok" not in result.stdout
+
+
+def test_guardrail_alert_wrapper_posts_webhook_payload(tmp_path: Path) -> None:
+    result = _run_guardrail_alerts(
+        tmp_path,
+        failing={"worker-heartbeat"},
+        webhook=True,
+    )
+
+    assert result.returncode == 2
+    payload = json.loads((tmp_path / "curl-payload.json").read_text(encoding="utf-8"))
+    assert "DraftCheck guardrail failures:" in payload["text"]
+    assert "worker_heartbeat:" in payload["text"]
+    assert "worker-heartbeat critical fixture" in payload["text"]
 
 
 def test_backup_freshness_accepts_recent_postgres_dump(tmp_path: Path) -> None:
