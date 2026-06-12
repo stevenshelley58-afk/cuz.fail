@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:53:00+08:00",
+  "captured_at": "2026-06-13T01:54:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -123,7 +123,9 @@
         "tests/test_ops_guardrails.py now runtime-tests infra/v3/backup/install-systemd.sh missing-env failure and successful backup-config/systemd timer install flow when Bash is available",
         "uv run pytest tests/test_ops_guardrails.py -q passed locally with 24 Python tests passed and 5 Bash-wrapper tests skipped because local Windows Bash is unusable",
         "scripts/audit_non_db_launch_ops.py computes launch_surface and ops_guardrails status from evidence so skipped SSH, missing restore drill logs, missing credentials, pending monitor docs, and missing installs cannot report verified",
-        "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json reported both launch_surface and ops_guardrails as blocked"
+        "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json reported both launch_surface and ops_guardrails as blocked",
+        "infra/v3/ops/install-guardrail-cron.sh idempotently writes /etc/cron.d/draftcheck-guardrails and runs guardrail-cron validation before reporting success",
+        "tests/test_ops_guardrails.py runtime-tests the guardrail cron installer with a temp cron path and fake Python guardrail when Bash is available"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",

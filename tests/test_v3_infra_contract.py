@@ -15,6 +15,7 @@ BACKUP_README_PATH = ROOT / "infra" / "v3" / "backup" / "README.md"
 BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
 RESTORE_DRILL_PATH = ROOT / "infra" / "v3" / "backup" / "restore-drill.sh"
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
+OPS_CRON_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-guardrail-cron.sh"
 OPS_RUNBOOK_PATH = ROOT / "docs" / "ops" / "ops-guardrails.md"
 WEB_ONLY_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy-web-only.sh"
 JOURNALD_RETENTION_PATH = ROOT / "infra" / "v3" / "ops" / "journald-draftcheck.conf"
@@ -113,6 +114,7 @@ def test_v3_restore_drill_emits_guardrail_accepted_fields():
 def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     install_script = BACKUP_INSTALL_PATH.read_text(encoding="utf-8")
     alert_script = OPS_ALERT_PATH.read_text(encoding="utf-8")
+    cron_install_script = OPS_CRON_INSTALL_PATH.read_text(encoding="utf-8")
     runbook = OPS_RUNBOOK_PATH.read_text(encoding="utf-8").lower()
 
     assert "systemctl enable --now draftcheck-backup.timer" in install_script
@@ -121,8 +123,13 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "disk-usage" in alert_script
     assert "worker-heartbeat" in alert_script
     assert "backup-config" in install_script
+    assert "guardrail-cron" in cron_install_script
+    assert "/etc/cron.d/draftcheck-guardrails" in cron_install_script
+    assert "DRAFTCHECK_CRON_APP_DIR:-/srv/draftcheck/app" in cron_install_script
+    assert "infra/v3/ops/guardrail-alerts.sh" in cron_install_script
     assert "<generated-restic-password>" in runbook
     assert "backup-config" in runbook
+    assert "install-guardrail-cron.sh" in runbook
     assert "guardrail-cron" in runbook
     assert "uptime-monitor-doc" in runbook
     assert "sentry-config" in runbook
@@ -201,6 +208,7 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
     assert syntax_step["shell"] == "bash"
     for script in (
         "infra/v3/ops/guardrail-alerts.sh",
+        "infra/v3/ops/install-guardrail-cron.sh",
         "infra/v3/backup/install-systemd.sh",
         "infra/v3/backup/restore-drill.sh",
         "infra/v3/deploy-web-only.sh",

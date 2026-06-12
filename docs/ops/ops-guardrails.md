@@ -81,12 +81,10 @@ python scripts/ops_guardrails.py worker-heartbeat --running-service worker --run
 ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py worker-heartbeat --compose-dir /srv/draftcheck/app/infra/v3 --json'
 ```
 
-Install a cron entry on the VPS:
+Install the checked cron entry on the VPS:
 
 ```powershell
-ssh draftcheck "cat | sudo tee /etc/cron.d/draftcheck-guardrails >/dev/null <<'EOF'
-*/10 * * * * root bash /srv/draftcheck/app/infra/v3/ops/guardrail-alerts.sh >> /var/log/draftcheck-guardrails.log 2>&1
-EOF"
+ssh draftcheck 'sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh'
 ```
 
 Verify the installed cron entry before relying on it:

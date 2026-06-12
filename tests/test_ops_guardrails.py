@@ -31,6 +31,7 @@ from scripts.ops_guardrails import (
 
 ROOT = Path(__file__).resolve().parents[1]
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
+OPS_CRON_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-guardrail-cron.sh"
 BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
 
 
@@ -211,6 +212,33 @@ COMPOSE_FILE={compose_file}
     )
 
 
+def _run_guardrail_cron_installer(tmp_path: Path) -> subprocess.CompletedProcess[str]:
+    bash = _require_bash()
+    app_dir = tmp_path / "app"
+    cron_path = tmp_path / "draftcheck-guardrails"
+    calls_path = tmp_path / "guardrail-calls.txt"
+    _write_fake_ops_guardrails(app_dir)
+
+    env = os.environ.copy()
+    env.update(
+        {
+            "DRAFTCHECK_APP_DIR": str(app_dir),
+            "DRAFTCHECK_CRON_PATH": str(cron_path),
+            "DRAFTCHECK_GUARDRAIL_CALLS": str(calls_path),
+            "PYTHON_BIN": sys.executable,
+        }
+    )
+
+    return subprocess.run(
+        [bash, str(OPS_CRON_INSTALL_PATH)],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+
+
 def test_guardrail_alert_wrapper_reports_ok_when_all_checks_pass(tmp_path: Path) -> None:
     result = _run_guardrail_alerts(tmp_path)
 
@@ -276,6 +304,21 @@ def test_backup_installer_validates_config_and_enables_timer(tmp_path: Path) -> 
         "enable --now draftcheck-backup.timer",
         "list-timers --all draftcheck-backup.timer",
     ]
+
+
+def test_guardrail_cron_installer_writes_checked_cron_entry(tmp_path: Path) -> None:
+    result = _run_guardrail_cron_installer(tmp_path)
+
+    assert result.returncode == 0
+    assert "installed draftcheck guardrail cron" in result.stdout
+    assert (tmp_path / "guardrail-calls.txt").read_text(encoding="utf-8").splitlines() == [
+        "guardrail-cron",
+    ]
+    cron = (tmp_path / "draftcheck-guardrails").read_text(encoding="utf-8")
+    assert cron == (
+        "*/10 * * * * root bash /srv/draftcheck/app/infra/v3/ops/guardrail-alerts.sh "
+        ">> /var/log/draftcheck-guardrails.log 2>&1\n"
+    )
 
 
 def test_backup_freshness_accepts_recent_postgres_dump(tmp_path: Path) -> None:
