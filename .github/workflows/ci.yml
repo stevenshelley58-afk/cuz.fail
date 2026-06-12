@@ -33,6 +33,7 @@ jobs:
           bash -n infra/v3/ops/install-sentry-dsn.sh
           bash -n infra/v3/backup/install-systemd.sh
           bash -n infra/v3/backup/restore-drill.sh
+          bash -n infra/v3/deploy.sh
           bash -n infra/v3/deploy-web-only.sh
       - name: Tests
         run: python -m pytest -q
@@ -42,13 +43,15 @@ jobs:
         shell: bash
         run: |
           ! grep -RI "create_all" src web --exclude-dir=__pycache__
+          ! grep -RI "init_database\|init_db" src web --exclude-dir=__pycache__
           ! grep -rIE "human.?review|NEEDS_HUMAN_REVIEW|human_review_required" src tests --exclude-dir=alembic --exclude-dir='*.egg-info' --exclude-dir=__pycache__
           # dev-login: a dev-only password login is intentionally present (operator
           # decision 2026-06-08) and is hard-disabled in production by app_env.
           # See src/draftcheck/api/auth.py:_dev_login_enabled and docs/MASTER_REBUILD_PLAN.md.
 
   migrations:
-    # WP1 gate: upgrade head -> downgrade -1 -> upgrade head against the same
+    # DB completion gate: upgrade head -> extension probe -> full downgrade
+    # base -> upgrade head, plus a one-step rollback check against the same
     # PostGIS+pgvector image production runs (infra/v3/db).
     runs-on: ubuntu-latest
     steps:
@@ -65,6 +68,10 @@ jobs:
         env:
           DATABASE_URL: postgresql+psycopg://draftcheck:local@localhost:5432/draftcheck
         run: |
+          alembic upgrade head
+          alembic current
+          docker compose exec -T db psql -U draftcheck -d draftcheck -Atc "SELECT string_agg(extname, ',' ORDER BY extname) FROM pg_extension WHERE extname IN ('pg_trgm','postgis','vector');" | grep -q "pg_trgm,postgis,vector"
+          alembic downgrade base
           alembic upgrade head
           alembic downgrade -1
           alembic upgrade head
