@@ -38,6 +38,40 @@ BUNDLE_NEEDLES = (
     "checkout_clicked",
     "AUD $29/month",
 )
+REQUIRED_OPS_EVIDENCE_KEYS = (
+    "backup_env",
+    "restic_password_file",
+    "backup_timer",
+    "restore_drill_log",
+    "guardrail_cron",
+    "ops_guardrail_script",
+    "sentry_dsn",
+    "uptime_targets",
+    "uptime_monitor_doc",
+    "log_retention_journald",
+    "log_retention_docker",
+    "log_retention_config",
+)
+RESTORE_TEMPLATE_NEEDLES = (
+    "python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
+    "dump_size_bytes:",
+    "storage_path:",
+    "storage_file_count:",
+    "storage_size_bytes:",
+    "storage_manifest_sha256:",
+    "source_versions:",
+    "job_traces:",
+    "status: PASS / FAIL",
+)
+RUNBOOK_COMMAND_NEEDLES = (
+    "sentry-config",
+    "log-retention-config",
+    "uptime-monitor-doc",
+    "restore-drill-log",
+    "--verify-report",
+)
+RAW_DSN_RE = re.compile(r"https://[^\s\"']+@[^\s\"']+", flags=re.IGNORECASE)
+BLOCKED_EVIDENCE_VALUES = {"SSH_SKIPPED", "SSH_CHECK_FAILED"}
 
 
 @dataclass(frozen=True)
@@ -175,6 +209,95 @@ def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
         _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT"),
     )
     return "verified" if all(required) else "blocked"
+
+
+def _safe_int(value: Any, default: int) -> int:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _report_text(report: dict[str, Any]) -> str:
+    return json.dumps(report, sort_keys=True)
+
+
+def validate_audit_report(report: dict[str, Any]) -> list[str]:
+    failures: list[str] = []
+    launch = report.get("launch_surface", {})
+    launch_evidence = launch.get("evidence", {})
+    ops = report.get("ops_guardrails", {})
+    ops_evidence = ops.get("evidence", {})
+
+    if not isinstance(launch, dict) or not isinstance(launch_evidence, dict):
+        failures.append("launch_surface.evidence missing or malformed")
+    if not isinstance(ops, dict) or not isinstance(ops_evidence, dict):
+        failures.append("ops_guardrails.evidence missing or malformed")
+        return failures
+
+    missing_ops_keys = [key for key in REQUIRED_OPS_EVIDENCE_KEYS if key not in ops_evidence]
+    if missing_ops_keys:
+        failures.append("ops_guardrails.evidence missing keys: " + ", ".join(missing_ops_keys))
+
+    if RAW_DSN_RE.search(_report_text(report)):
+        failures.append("report appears to contain a raw DSN or webhook URL with embedded credentials")
+
+    if launch.get("status") == "verified":
+        if launch_evidence.get("live_verifier") != "passed":
+            failures.append("launch_surface.status verified but live_verifier is not passed")
+        if _safe_int(launch_evidence.get("missing_count"), default=1) != 0:
+            failures.append("launch_surface.status verified but missing_count is non-zero")
+        if not _checkout_env_verified(str(launch_evidence.get("vps_checkout_env", ""))):
+            failures.append("launch_surface.status verified without a buy.stripe.com checkout URL")
+
+    if not missing_ops_keys:
+        status_evidence = {
+            key: str(ops_evidence.get(key, ""))
+            for key in REQUIRED_OPS_EVIDENCE_KEYS
+            if key != "log_retention_config"
+        }
+        expected_ops_status = assess_ops_guardrails_status(status_evidence)
+        if ops.get("status") != expected_ops_status:
+            failures.append(
+                f"ops_guardrails.status is {ops.get('status')!r}, expected {expected_ops_status!r} from evidence"
+            )
+
+    if ops.get("status") == "verified" and any(
+        str(value) in BLOCKED_EVIDENCE_VALUES for value in ops_evidence.values()
+    ):
+        failures.append("ops_guardrails.status verified with skipped or failed SSH evidence")
+
+    return failures
+
+
+def validate_restore_drill_template(path: Path) -> list[str]:
+    if not path.exists():
+        return [f"restore drill template missing: {path}"]
+    text = path.read_text(encoding="utf-8")
+    return [f"restore drill template missing {needle}" for needle in RESTORE_TEMPLATE_NEEDLES if needle not in text]
+
+
+def validate_ops_runbook(path: Path) -> list[str]:
+    if not path.exists():
+        return [f"ops runbook missing: {path}"]
+    text = path.read_text(encoding="utf-8")
+    return [f"ops runbook missing {needle}" for needle in RUNBOOK_COMMAND_NEEDLES if needle not in text]
+
+
+def verify_report_artifact(report_path: Path, *, restore_template: Path, ops_runbook: Path) -> dict[str, Any]:
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    failures = [
+        *validate_audit_report(report),
+        *validate_restore_drill_template(restore_template),
+        *validate_ops_runbook(ops_runbook),
+    ]
+    return {
+        "status": "ok" if not failures else "critical",
+        "report_path": str(report_path),
+        "restore_template": str(restore_template),
+        "ops_runbook": str(ops_runbook),
+        "failures": failures,
+    }
 
 
 def parse_vps_state(output: str) -> dict[str, str]:
@@ -324,7 +447,19 @@ def main() -> int:
     parser.add_argument("--uptime-monitor-doc", default="docs/ops/uptime-monitor.md")
     parser.add_argument("--ops-doc-dir", default="docs/ops")
     parser.add_argument("--skip-ssh", action="store_true")
+    parser.add_argument("--verify-report", default="")
+    parser.add_argument("--restore-template", default="docs/ops/restore-drill-template.md")
+    parser.add_argument("--ops-runbook", default="docs/ops/ops-guardrails.md")
     args = parser.parse_args()
+
+    if args.verify_report:
+        verification = verify_report_artifact(
+            Path(args.verify_report),
+            restore_template=Path(args.restore_template),
+            ops_runbook=Path(args.ops_runbook),
+        )
+        print(json.dumps(verification, sort_keys=True))
+        return 0 if verification["status"] == "ok" else 2
 
     origin = args.origin.rstrip("/")
     pages, bundle_text = collect_live_pages(origin)

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from scripts.audit_non_db_launch_ops import (
@@ -10,7 +11,14 @@ from scripts.audit_non_db_launch_ops import (
     assess_uptime_monitor_doc,
     build_report,
     parse_vps_state,
+    validate_audit_report,
+    validate_ops_runbook,
+    validate_restore_drill_template,
+    verify_report_artifact,
 )
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_parse_vps_state_extracts_missing_ops_state() -> None:
@@ -180,6 +188,7 @@ def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None
 
     assert report["launch_surface"]["status"] == "verified"
     assert report["ops_guardrails"]["status"] == "verified"
+    assert validate_audit_report(report) == []
 
 
 def test_build_report_blocks_when_ssh_state_is_skipped() -> None:
@@ -249,6 +258,88 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
     }
 
     assert assess_ops_guardrails_status(evidence) == "blocked"
+
+
+def test_validate_audit_report_rejects_raw_dsn_and_false_green_status() -> None:
+    report = {
+        "launch_surface": {
+            "status": "verified",
+            "evidence": {
+                "live_verifier": "passed",
+                "missing_count": 0,
+                "vps_checkout_env": "SSH_SKIPPED",
+            },
+        },
+        "ops_guardrails": {
+            "status": "verified",
+            "evidence": {
+                "backup_env": "BACKUP_ENV_PRESENT",
+                "restic_password_file": "RESTIC_PASSWORD_FILE_PRESENT",
+                "backup_timer": "1 timers listed.",
+                "restore_drill_log": "ok: restore drill log accepted",
+                "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+                "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+                "sentry_dsn": "https://public@example.ingest.sentry.io/123",
+                "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
+                "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+                "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
+                "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
+                "log_retention_config": "journald and Docker json-file retention configs are installed",
+            },
+        },
+    }
+
+    failures = validate_audit_report(report)
+
+    assert any("raw DSN" in failure for failure in failures)
+    assert any("checkout URL" in failure for failure in failures)
+    assert any("expected 'blocked'" in failure for failure in failures)
+
+
+def test_restore_template_and_runbook_keep_audit_verifier_contract() -> None:
+    assert validate_restore_drill_template(ROOT / "docs" / "ops" / "restore-drill-template.md") == []
+    assert validate_ops_runbook(ROOT / "docs" / "ops" / "ops-guardrails.md") == []
+
+
+def test_verify_report_artifact_combines_report_template_and_runbook_checks(tmp_path: Path) -> None:
+    report = {
+        "launch_surface": {
+            "status": "blocked",
+            "evidence": {
+                "live_verifier": "failed: fixture",
+                "missing_count": 1,
+                "vps_checkout_env": "SSH_SKIPPED",
+            },
+        },
+        "ops_guardrails": {
+            "status": "blocked",
+            "evidence": {
+                "backup_env": "SSH_SKIPPED",
+                "restic_password_file": "SSH_SKIPPED",
+                "backup_timer": "SSH_SKIPPED",
+                "restore_drill_log": "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
+                "guardrail_cron": "SSH_SKIPPED",
+                "ops_guardrail_script": "SSH_SKIPPED",
+                "sentry_dsn": "SSH_SKIPPED",
+                "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
+                "uptime_monitor_doc": "critical: pending monitor evidence",
+                "log_retention_journald": "SSH_SKIPPED",
+                "log_retention_docker": "SSH_SKIPPED",
+                "log_retention_config": "journald and Docker json-file retention configs are committed",
+            },
+        },
+    }
+    report_path = tmp_path / "report.json"
+    report_path.write_text(json.dumps(report), encoding="utf-8")
+
+    result = verify_report_artifact(
+        report_path,
+        restore_template=ROOT / "docs" / "ops" / "restore-drill-template.md",
+        ops_runbook=ROOT / "docs" / "ops" / "ops-guardrails.md",
+    )
+
+    assert result["status"] == "ok"
+    assert result["failures"] == []
 
 
 def test_assess_uptime_monitor_doc_reports_pending_evidence(tmp_path: Path) -> None:
