@@ -534,6 +534,8 @@ def main() -> int:
             "backup_timer": "SSH_SKIPPED",
             "guardrail_cron": "SSH_SKIPPED",
             "ops_guardrail_script": "SSH_SKIPPED",
+            "disk_usage": "SSH_SKIPPED",
+            "worker_heartbeat": "SSH_SKIPPED",
             "sentry_dsn": "SSH_SKIPPED",
             "log_retention_journald": "SSH_SKIPPED",
             "log_retention_docker": "SSH_SKIPPED",
