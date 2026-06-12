@@ -707,6 +707,7 @@ def _facts(document_id: str, text: str, parser_name: str, media_type: str) -> tu
                     confidence=0.72,
                 )
             )
+    facts.extend(_title_block_facts(document_id, text, parser_name))
     facts.extend(_dxf_facts(document_id, text, parser_name))
     facts.extend(_ifc_facts(document_id, text, parser_name, media_type))
     return tuple(_dedupe_facts(facts))
@@ -718,6 +719,89 @@ def _first_match(patterns: tuple[str, ...], text: str) -> re.Match[str] | None:
         if match:
             return match
     return None
+
+
+TITLE_BLOCK_PATTERNS: tuple[tuple[str, str, tuple[str, ...]], ...] = (
+    (
+        "drawing title",
+        "drawing_title",
+        (
+            r"^\s*(?:drawing\s+)?title\s*[:|]\s*(?P<value>.+?)\s*$",
+            r"^\s*sheet\s+title\s*[:|]\s*(?P<value>.+?)\s*$",
+        ),
+    ),
+    (
+        "drawing number",
+        "drawing_number",
+        (
+            r"^\s*(?:drawing|dwg|sheet)\s*(?:no\.?|number)\s*[:|]\s*(?P<value>[A-Za-z0-9._/-]+)\s*$",
+            r"^\s*(?:drawing|dwg)\s*#\s*[:|]?\s*(?P<value>[A-Za-z0-9._/-]+)\s*$",
+        ),
+    ),
+    (
+        "revision",
+        "revision",
+        (
+            r"^\s*(?:rev(?:ision)?)\s*[:|]\s*(?P<value>[A-Za-z0-9._/-]+)\s*$",
+        ),
+    ),
+    (
+        "scale",
+        "scale",
+        (
+            r"^\s*scale\s*[:|]\s*(?P<value>(?:1\s*:\s*\d+|[A-Za-z0-9 .:/-]+))\s*$",
+        ),
+    ),
+    (
+        "project number",
+        "project_number",
+        (
+            r"^\s*(?:project|job)\s*(?:no\.?|number)\s*[:|]\s*(?P<value>[A-Za-z0-9._/-]+)\s*$",
+        ),
+    ),
+)
+
+
+def _title_block_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFact]:
+    facts: list[DocumentFact] = []
+    seen_fields: set[str] = set()
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line or len(line) > 240:
+            continue
+        for label, field, patterns in TITLE_BLOCK_PATTERNS:
+            if field in seen_fields:
+                continue
+            match = _first_match(patterns, line)
+            if match is None:
+                continue
+            value = _clean_title_block_value(match.group("value"))
+            if not value:
+                continue
+            facts.append(
+                _metadata_fact(
+                    document_id=document_id,
+                    label=label,
+                    fact_type="title_block_metadata",
+                    value=value,
+                    parser_name=parser_name,
+                    method="title_block_text_pattern",
+                    confidence=0.66,
+                    metadata={
+                        "title_block_field": field,
+                        "source_text": raw_line.strip(),
+                        "metadata_compliance_ready": False,
+                        "metadata_readiness_reason": "human confirmation required before use",
+                    },
+                )
+            )
+            seen_fields.add(field)
+    return facts
+
+
+def _clean_title_block_value(value: str) -> str:
+    cleaned = re.sub(r"\s+", " ", value.replace("\x00", " ")).strip(" -:|")
+    return cleaned[:160]
 
 
 def _dxf_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFact]:
@@ -1328,6 +1412,39 @@ def _fact(
         value={"value": value, "unit": unit},
         numeric_value=value,
         unit=unit,
+        confidence=confidence,
+        review_status=DocumentReviewStatus.PENDING_REVIEW,
+        source=parser_name,
+        metadata=fact_metadata,
+    )
+
+
+def _metadata_fact(
+    *,
+    document_id: str,
+    label: str,
+    fact_type: str,
+    value: str,
+    parser_name: str,
+    method: str,
+    confidence: float,
+    metadata: dict[str, Any] | None = None,
+) -> DocumentFact:
+    fact_metadata = {
+        "method": method,
+        "measurement_compliance_ready": False,
+        "measurement_readiness_reason": "not a measurement",
+    }
+    if metadata:
+        fact_metadata.update(metadata)
+    return DocumentFact(
+        id=f"fact_{uuid4().hex}",
+        document_id=document_id,
+        fact_type=fact_type,
+        label=label,
+        value={"value": value},
+        numeric_value=None,
+        unit=None,
         confidence=confidence,
         review_status=DocumentReviewStatus.PENDING_REVIEW,
         source=parser_name,

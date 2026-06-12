@@ -24,16 +24,16 @@
     },
     "c3_cad_extraction_increment": {
       "status": "advanced",
-      "evidence": [
-        "DXF $INSUNITS now controls dimension units; missing/unitless drawings stay drawing_unit with low confidence",
-        "PDF vector paths are captured as calibration-required evidence without promoting measurements",
-        "IFC STEP quantity fallback remains review-gated"
-      ],
-      "remaining": [
-        "Parser registry/protocol and artifact-row linkage are still open and may need DB coordination",
-        "IfcOpenShell parser remains open",
-        "Scale calibration endpoint/UI remains open"
-      ]
+        "evidence": [
+          "DXF $INSUNITS now controls dimension units; missing/unitless drawings stay drawing_unit with low confidence",
+          "PDF vector paths are captured as calibration-required evidence without promoting measurements",
+          "IFC STEP quantity fallback remains review-gated",
+          "Title-block fields are extracted as review-gated non-measurement metadata facts"
+        ],
+        "remaining": [
+          "Parser registry/protocol and artifact-row linkage are still open and may need DB coordination",
+          "IfcOpenShell parser remains open"
+        ]
     },
     "c4_document_chunk_embeddings": {
       "status": "verified",
@@ -72,6 +72,7 @@
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py",
     "uv run pytest tests/test_v3_document_parse_jobs.py tests/test_v3_infra_contract.py",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py tests/test_v3_api_shell.py",
+    "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py",
     "npm.cmd run build",
     "npm.cmd run verify:launch"
   ]

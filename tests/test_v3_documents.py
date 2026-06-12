@@ -356,6 +356,50 @@ def test_v3_dxf_block_insert_uniform_scale_is_recorded_on_dimension_fact() -> No
     assert fact.metadata["measurement_compliance_ready"] is False
 
 
+def test_v3_title_block_metadata_is_extracted_as_review_gated_non_measurements() -> None:
+    library = InMemoryDocumentLibrary()
+    title_block_text = "\n".join(
+        [
+            "Project No: LF-2401",
+            "Drawing Title: Site Plan",
+            "Drawing No: A101",
+            "Revision: B",
+            "Scale: 1:100",
+            "Front setback: 4.5 m",
+        ]
+    )
+
+    result = library.upload(
+        org_id="org-docs",
+        project_id="project-docs",
+        user_id="user-docs",
+        filename="title-block.txt",
+        media_type="text/plain",
+        content=title_block_text.encode(),
+    )
+
+    metadata_facts = {
+        fact.metadata["title_block_field"]: fact
+        for fact in result.facts
+        if fact.fact_type == "title_block_metadata"
+    }
+    assert set(metadata_facts) == {
+        "project_number",
+        "drawing_title",
+        "drawing_number",
+        "revision",
+        "scale",
+    }
+    assert metadata_facts["drawing_title"].value == {"value": "Site Plan"}
+    assert metadata_facts["drawing_number"].value == {"value": "A101"}
+    assert metadata_facts["scale"].value == {"value": "1:100"}
+    assert all(fact.numeric_value is None for fact in metadata_facts.values())
+    assert all(fact.unit is None for fact in metadata_facts.values())
+    assert all(fact.review_status == DocumentReviewStatus.PENDING_REVIEW for fact in metadata_facts.values())
+    assert all(fact.metadata["metadata_compliance_ready"] is False for fact in metadata_facts.values())
+    assert any(fact.label == "front setback" and fact.numeric_value == 4.5 for fact in result.facts)
+
+
 def test_v3_pdf_layout_extractor_records_text_block_bboxes() -> None:
     import fitz
 
