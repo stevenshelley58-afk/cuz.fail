@@ -28,6 +28,8 @@ RESTIC_PASSWORD_FILE_MISSING
 CRON_GUARDRAILS_MISSING
 0 timers listed.
 OPS_GUARDRAILS_MISSING
+DISK_USAGE_UNKNOWN
+WORKER_HEARTBEAT_UNKNOWN
 SENTRY_DSN_MISSING
 LOG_RETENTION_JOURNALD_MISSING
 LOG_RETENTION_DOCKER_MISSING
@@ -41,6 +43,8 @@ LOG_RETENTION_DOCKER_MISSING
     assert state["backup_timer"] == "0 timers listed."
     assert state["guardrail_cron"] == "CRON_GUARDRAILS_MISSING"
     assert state["ops_guardrail_script"] == "OPS_GUARDRAILS_MISSING"
+    assert state["disk_usage"] == "DISK_USAGE_UNKNOWN"
+    assert state["worker_heartbeat"] == "WORKER_HEARTBEAT_UNKNOWN"
     assert state["sentry_dsn"] == "SENTRY_DSN_MISSING"
     assert state["log_retention_journald"] == "LOG_RETENTION_JOURNALD_MISSING"
     assert state["log_retention_docker"] == "LOG_RETENTION_DOCKER_MISSING"
@@ -54,6 +58,8 @@ RESTIC_PASSWORD_FILE_PRESENT
 CRON_GUARDRAILS_PRESENT
 1 timers listed.
 OPS_GUARDRAILS_PRESENT
+DISK_USAGE_OK
+WORKER_HEARTBEAT_OK
 SENTRY_DSN_PRESENT
 LOG_RETENTION_JOURNALD_PRESENT
 LOG_RETENTION_DOCKER_PRESENT
@@ -62,6 +68,8 @@ LOG_RETENTION_DOCKER_PRESENT
     state = parse_vps_state(output)
 
     assert state["sentry_dsn"] == "SENTRY_DSN_PRESENT"
+    assert state["disk_usage"] == "DISK_USAGE_OK"
+    assert state["worker_heartbeat"] == "WORKER_HEARTBEAT_OK"
     assert state["log_retention_journald"] == "LOG_RETENTION_JOURNALD_PRESENT"
     assert state["log_retention_docker"] == "LOG_RETENTION_DOCKER_PRESENT"
     assert "ingest.sentry.io" not in str(state)
@@ -115,6 +123,8 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
         "backup_timer": "draftcheck-backup.timer active",
         "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+        "disk_usage": "DISK_USAGE_OK",
+        "worker_heartbeat": "WORKER_HEARTBEAT_OK",
         "sentry_dsn": "SENTRY_DSN_PRESENT",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
@@ -176,6 +186,8 @@ def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None
         "backup_timer": "1 timers listed.",
         "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+        "disk_usage": "DISK_USAGE_OK",
+        "worker_heartbeat": "WORKER_HEARTBEAT_OK",
         "sentry_dsn": "SENTRY_DSN_PRESENT",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
@@ -228,6 +240,8 @@ def test_build_report_blocks_when_ssh_state_is_skipped() -> None:
         "backup_timer": "SSH_SKIPPED",
         "guardrail_cron": "SSH_SKIPPED",
         "ops_guardrail_script": "SSH_SKIPPED",
+        "disk_usage": "SSH_SKIPPED",
+        "worker_heartbeat": "SSH_SKIPPED",
         "sentry_dsn": "SSH_SKIPPED",
         "log_retention_journald": "SSH_SKIPPED",
         "log_retention_docker": "SSH_SKIPPED",
@@ -255,6 +269,8 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
         "restore_drill_log": "ok: restore drill log accepted",
         "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+        "disk_usage": "DISK_USAGE_OK",
+        "worker_heartbeat": "WORKER_HEARTBEAT_OK",
         "sentry_dsn": "SENTRY_DSN_PRESENT",
         "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
         "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
@@ -284,6 +300,8 @@ def test_validate_audit_report_rejects_raw_dsn_and_false_green_status() -> None:
                 "restore_drill_log": "ok: restore drill log accepted",
                 "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
                 "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+                "disk_usage": "DISK_USAGE_OK",
+                "worker_heartbeat": "WORKER_HEARTBEAT_OK",
                 "sentry_dsn": "https://public@example.ingest.sentry.io/123",
                 "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
                 "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
@@ -325,6 +343,8 @@ def test_verify_report_artifact_combines_report_template_and_runbook_checks(tmp_
                 "restore_drill_log": "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
                 "guardrail_cron": "SSH_SKIPPED",
                 "ops_guardrail_script": "SSH_SKIPPED",
+                "disk_usage": "SSH_SKIPPED",
+                "worker_heartbeat": "SSH_SKIPPED",
                 "sentry_dsn": "SSH_SKIPPED",
                 "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
                 "uptime_monitor_doc": "critical: pending monitor evidence",
