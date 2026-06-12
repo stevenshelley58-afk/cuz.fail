@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T00:13:41+08:00",
+  "captured_at": "2026-06-13T00:31:10+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -24,16 +24,16 @@
     },
     "c3_cad_extraction_increment": {
       "status": "advanced",
-        "evidence": [
-          "DXF $INSUNITS now controls dimension units; missing/unitless drawings stay drawing_unit with low confidence",
-          "PDF vector paths are captured as calibration-required evidence without promoting measurements",
-          "IFC STEP quantity fallback remains review-gated",
-          "Title-block fields are extracted as review-gated non-measurement metadata facts"
-        ],
-        "remaining": [
-          "Parser registry/protocol and artifact-row linkage are still open and may need DB coordination",
-          "IfcOpenShell parser remains open"
-        ]
+      "evidence": [
+        "DXF $INSUNITS now controls dimension units; missing/unitless drawings stay drawing_unit with low confidence",
+        "PDF vector paths are captured as calibration-required evidence without promoting measurements",
+        "IFC STEP quantity fallback remains review-gated",
+        "Title-block fields are extracted as review-gated non-measurement metadata facts",
+        "Optional IfcOpenShell quantity extraction is used when available and falls back to STEP text parsing"
+      ],
+      "remaining": [
+        "Parser registry/protocol and artifact-row linkage are still open and may need DB coordination"
+      ]
     },
     "c4_document_chunk_embeddings": {
       "status": "verified",

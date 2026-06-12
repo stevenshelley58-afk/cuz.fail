@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import sys
+from types import SimpleNamespace
+
 from fastapi.testclient import TestClient
 
 from draftcheck.api.auth import get_current_session
@@ -431,9 +434,12 @@ def test_v3_ifc_step_quantities_are_review_gated_with_entity_metadata() -> None:
         [
             "ISO-10303-21;",
             "DATA;",
+            "#1=IFCSPACE('space-guid',$,'Garage',$,$,$,$,'Garage bay',$,$,$);",
             "#10=IFCQUANTITYAREA('GrossFloorArea',$,$,182.5,$);",
             "#11=IFCQUANTITYLENGTH('GarageWidth',$,$,5.8,$);",
             "#12=IFCQUANTITYVOLUME('BuildingVolume',$,$,620.0,$);",
+            "#20=IFCELEMENTQUANTITY('qset-guid',$,'BaseQuantities',$,$,(#10,#11,#12));",
+            "#30=IFCRELDEFINESBYPROPERTIES('rel-guid',$,$,$,(#1),#20);",
             "ENDSEC;",
             "END-ISO-10303-21;",
         ]
@@ -455,7 +461,87 @@ def test_v3_ifc_step_quantities_are_review_gated_with_entity_metadata() -> None:
     assert facts["GarageWidth"].unit == "m"
     assert facts["BuildingVolume"].unit == "m3"
     assert facts["GrossFloorArea"].metadata["ifc_entity_id"] == "#10"
+    assert facts["GrossFloorArea"].metadata["ifc_quantity_set_id"] == "#20"
+    assert facts["GrossFloorArea"].metadata["ifc_quantity_set_name"] == "BaseQuantities"
+    assert facts["GrossFloorArea"].metadata["ifc_related_object_id"] == "#1"
+    assert facts["GrossFloorArea"].metadata["ifc_related_object_type"] == "IFCSPACE"
+    assert facts["GrossFloorArea"].metadata["ifc_related_object_name"] == "Garage"
+    assert facts["GrossFloorArea"].metadata["ifc_related_object_long_name"] == "Garage bay"
     assert facts["GrossFloorArea"].metadata["ifc_parser_status"] == "step_text_fallback"
+    assert all(fact.review_status == DocumentReviewStatus.PENDING_REVIEW for fact in result.facts)
+    assert all(fact.metadata["measurement_compliance_ready"] is False for fact in result.facts)
+
+
+def test_v3_ifcopenshell_quantities_are_used_when_available(monkeypatch) -> None:
+    class _FakeIfcEntity:
+        def __init__(self, entity_id: int, entity_type: str, **attrs: object) -> None:
+            self._entity_id = entity_id
+            self._entity_type = entity_type
+            for key, value in attrs.items():
+                setattr(self, key, value)
+
+        def id(self) -> int:
+            return self._entity_id
+
+        def is_a(self) -> str:
+            return self._entity_type
+
+    space = _FakeIfcEntity(1, "IfcSpace", Name="Garage", LongName="Garage bay")
+    area = _FakeIfcEntity(10, "IfcQuantityArea", Name="GrossFloorArea", AreaValue=182.5, Unit=None)
+    length = _FakeIfcEntity(11, "IfcQuantityLength", Name="GarageWidth", LengthValue=5.8, Unit=None)
+    quantity_set = _FakeIfcEntity(
+        20,
+        "IfcElementQuantity",
+        Name="BaseQuantities",
+        Quantities=(area, length),
+    )
+    relation = _FakeIfcEntity(
+        30,
+        "IfcRelDefinesByProperties",
+        RelatedObjects=(space,),
+        RelatingPropertyDefinition=quantity_set,
+    )
+
+    class _FakeIfcModel:
+        def by_type(self, entity_name: str) -> tuple[_FakeIfcEntity, ...]:
+            return {
+                "IfcQuantityArea": (area,),
+                "IfcQuantityLength": (length,),
+                "IfcQuantityVolume": (),
+                "IfcQuantityCount": (),
+                "IfcElementQuantity": (quantity_set,),
+                "IfcRelDefinesByProperties": (relation,),
+            }.get(entity_name, ())
+
+    fake_ifcopenshell = SimpleNamespace(
+        file=SimpleNamespace(from_string=lambda _text: _FakeIfcModel())
+    )
+    monkeypatch.setitem(sys.modules, "ifcopenshell", fake_ifcopenshell)
+
+    library = InMemoryDocumentLibrary()
+    result = library.upload(
+        org_id="org-docs",
+        project_id="project-docs",
+        user_id="user-docs",
+        filename="model.ifc",
+        media_type="model/ifc",
+        content=b"ISO-10303-21;\nDATA;\nENDSEC;\nEND-ISO-10303-21;",
+    )
+
+    facts = {fact.metadata["ifc_quantity_name"]: fact for fact in result.facts}
+    assert set(facts) == {"GrossFloorArea", "GarageWidth"}
+    assert facts["GrossFloorArea"].numeric_value == 182.5
+    assert facts["GarageWidth"].unit == "m"
+    assert facts["GrossFloorArea"].confidence == 0.78
+    assert facts["GrossFloorArea"].metadata["method"] == "ifcopenshell_quantity_parser"
+    assert facts["GrossFloorArea"].metadata["ifc_parser_status"] == "ifcopenshell"
+    assert facts["GrossFloorArea"].metadata["ifc_entity_id"] == "#10"
+    assert facts["GrossFloorArea"].metadata["ifc_quantity_set_id"] == "#20"
+    assert facts["GrossFloorArea"].metadata["ifc_quantity_set_name"] == "BaseQuantities"
+    assert facts["GrossFloorArea"].metadata["ifc_related_object_id"] == "#1"
+    assert facts["GrossFloorArea"].metadata["ifc_related_object_type"] == "IFCSPACE"
+    assert facts["GrossFloorArea"].metadata["ifc_related_object_name"] == "Garage"
+    assert facts["GrossFloorArea"].metadata["ifc_related_object_long_name"] == "Garage bay"
     assert all(fact.review_status == DocumentReviewStatus.PENDING_REVIEW for fact in result.facts)
     assert all(fact.metadata["measurement_compliance_ready"] is False for fact in result.facts)
 

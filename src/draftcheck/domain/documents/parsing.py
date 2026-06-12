@@ -1292,6 +1292,8 @@ def _ifc_facts(document_id: str, text: str, parser_name: str, media_type: str) -
         return []
     facts: list[DocumentFact] = []
     for index, quantity in enumerate(_ifc_quantity_candidates(text), start=1):
+        related_object = quantity.get("related_object")
+        parser_status = str(quantity.get("parser_status") or "step_text_fallback")
         facts.append(
             _fact(
                 document_id=document_id,
@@ -1300,14 +1302,20 @@ def _ifc_facts(document_id: str, text: str, parser_name: str, media_type: str) -
                 value=quantity["value"],
                 unit=quantity["unit"],
                 parser_name=parser_name,
-                method="ifc_step_quantity_preview",
-                confidence=0.62,
+                method=str(quantity.get("method") or "ifc_step_quantity_preview"),
+                confidence=0.78 if parser_status == "ifcopenshell" else 0.62,
                 metadata={
                     "ifc_entity_id": quantity["entity_id"],
                     "ifc_quantity_type": quantity["quantity_type"],
                     "ifc_quantity_name": quantity["name"],
                     "ifc_unit_ref": quantity["unit_ref"],
-                    "ifc_parser_status": "step_text_fallback",
+                    "ifc_quantity_set_id": quantity.get("quantity_set_id"),
+                    "ifc_quantity_set_name": quantity.get("quantity_set_name"),
+                    "ifc_related_object_id": related_object.get("entity_id") if related_object else None,
+                    "ifc_related_object_type": related_object.get("entity_type") if related_object else None,
+                    "ifc_related_object_name": related_object.get("name") if related_object else None,
+                    "ifc_related_object_long_name": related_object.get("long_name") if related_object else None,
+                    "ifc_parser_status": parser_status,
                     "measurement_readiness_reason": "IFC quantity requires review before compliance use",
                 },
             )
@@ -1316,7 +1324,12 @@ def _ifc_facts(document_id: str, text: str, parser_name: str, media_type: str) -
 
 
 def _ifc_quantity_candidates(text: str) -> list[dict[str, Any]]:
+    ifcopenshell_candidates = _ifcopenshell_quantity_candidates(text)
+    if ifcopenshell_candidates:
+        return ifcopenshell_candidates
+
     candidates: list[dict[str, Any]] = []
+    context = _ifc_context(text)
     pattern = re.compile(
         r"#(?P<entity_id>\d+)\s*=\s*IFCQUANTITY(?P<quantity_type>AREA|LENGTH|VOLUME|COUNT)\((?P<body>.*?)\);",
         flags=re.IGNORECASE | re.DOTALL,
@@ -1329,17 +1342,223 @@ def _ifc_quantity_candidates(text: str) -> list[dict[str, Any]]:
         if value is None:
             continue
         quantity_type = match.group("quantity_type").lower()
+        entity_id = f"#{match.group('entity_id')}"
+        quantity_set = context["quantity_sets_by_quantity"].get(entity_id)
         candidates.append(
             {
-                "entity_id": f"#{match.group('entity_id')}",
+                "entity_id": entity_id,
                 "quantity_type": quantity_type,
                 "name": _ifc_unquote(args[0]),
                 "unit": _ifc_default_unit(quantity_type),
                 "unit_ref": None if args[2].strip() == "$" else args[2].strip(),
                 "value": value,
+                "quantity_set_id": quantity_set["entity_id"] if quantity_set else None,
+                "quantity_set_name": quantity_set["name"] if quantity_set else None,
+                "related_object": context["objects_by_quantity_set"].get(quantity_set["entity_id"])
+                if quantity_set
+                else None,
+                "parser_status": "step_text_fallback",
+                "method": "ifc_step_quantity_preview",
             }
         )
     return candidates
+
+
+def _ifcopenshell_quantity_candidates(text: str) -> list[dict[str, Any]]:
+    try:
+        import ifcopenshell  # type: ignore[import-not-found]
+    except ImportError:
+        return []
+
+    try:
+        model = ifcopenshell.file.from_string(text)
+    except Exception:
+        return []
+
+    quantities_by_id: dict[str, dict[str, Any]] = {}
+    for entity_name, quantity_type, value_attr, unit in (
+        ("IfcQuantityArea", "area", "AreaValue", "m2"),
+        ("IfcQuantityLength", "length", "LengthValue", "m"),
+        ("IfcQuantityVolume", "volume", "VolumeValue", "m3"),
+        ("IfcQuantityCount", "count", "CountValue", "count"),
+    ):
+        for quantity in _ifc_by_type(model, entity_name):
+            value = _float_or_none(getattr(quantity, value_attr, None))
+            if value is None:
+                continue
+            entity_id = _ifc_runtime_entity_id(quantity)
+            quantities_by_id[entity_id] = {
+                "entity_id": entity_id,
+                "quantity_type": quantity_type,
+                "name": str(getattr(quantity, "Name", "") or ""),
+                "unit": unit,
+                "unit_ref": _ifc_runtime_entity_id(getattr(quantity, "Unit", None))
+                if getattr(quantity, "Unit", None) is not None
+                else None,
+                "value": value,
+                "quantity_set_id": None,
+                "quantity_set_name": None,
+                "related_object": None,
+                "parser_status": "ifcopenshell",
+                "method": "ifcopenshell_quantity_parser",
+            }
+
+    if not quantities_by_id:
+        return []
+
+    quantity_sets = _ifcopenshell_quantity_sets(model)
+    for quantity_set_id, quantity_set in quantity_sets.items():
+        for quantity_id in quantity_set["quantity_ids"]:
+            quantity = quantities_by_id.get(quantity_id)
+            if quantity is None:
+                continue
+            quantity["quantity_set_id"] = quantity_set_id
+            quantity["quantity_set_name"] = quantity_set["name"]
+
+    objects_by_quantity_set = _ifcopenshell_objects_by_quantity_set(model)
+    for quantity in quantities_by_id.values():
+        quantity_set_id = quantity.get("quantity_set_id")
+        if quantity_set_id:
+            quantity["related_object"] = objects_by_quantity_set.get(str(quantity_set_id))
+
+    return list(quantities_by_id.values())
+
+
+def _ifc_by_type(model: Any, entity_name: str) -> tuple[Any, ...]:
+    by_type = getattr(model, "by_type", None)
+    if not callable(by_type):
+        return ()
+    try:
+        return tuple(by_type(entity_name) or ())
+    except Exception:
+        return ()
+
+
+def _ifcopenshell_quantity_sets(model: Any) -> dict[str, dict[str, Any]]:
+    quantity_sets: dict[str, dict[str, Any]] = {}
+    for quantity_set in _ifc_by_type(model, "IfcElementQuantity"):
+        quantity_set_id = _ifc_runtime_entity_id(quantity_set)
+        quantity_sets[quantity_set_id] = {
+            "entity_id": quantity_set_id,
+            "name": str(getattr(quantity_set, "Name", "") or ""),
+            "quantity_ids": [
+                _ifc_runtime_entity_id(quantity)
+                for quantity in tuple(getattr(quantity_set, "Quantities", ()) or ())
+            ],
+        }
+    return quantity_sets
+
+
+def _ifcopenshell_objects_by_quantity_set(model: Any) -> dict[str, dict[str, Any]]:
+    objects_by_quantity_set: dict[str, dict[str, Any]] = {}
+    for relation in _ifc_by_type(model, "IfcRelDefinesByProperties"):
+        quantity_set = getattr(relation, "RelatingPropertyDefinition", None)
+        quantity_set_id = _ifc_runtime_entity_id(quantity_set) if quantity_set is not None else None
+        if not quantity_set_id:
+            continue
+        related_objects = tuple(getattr(relation, "RelatedObjects", ()) or ())
+        related_object = related_objects[0] if related_objects else None
+        if related_object is not None:
+            objects_by_quantity_set[quantity_set_id] = _ifc_runtime_object_payload(related_object)
+    return objects_by_quantity_set
+
+
+def _ifc_runtime_object_payload(entity: Any) -> dict[str, Any]:
+    return {
+        "entity_id": _ifc_runtime_entity_id(entity),
+        "entity_type": _ifc_runtime_entity_type(entity),
+        "name": str(getattr(entity, "Name", "") or "") or None,
+        "long_name": str(getattr(entity, "LongName", "") or "") or None,
+    }
+
+
+def _ifc_runtime_entity_id(entity: Any) -> str:
+    if entity is None:
+        return ""
+    id_attr = getattr(entity, "id", None)
+    try:
+        value = id_attr() if callable(id_attr) else id_attr
+    except Exception:
+        value = None
+    return f"#{value}" if value is not None else f"#{id(entity)}"
+
+
+def _ifc_runtime_entity_type(entity: Any) -> str | None:
+    is_a = getattr(entity, "is_a", None)
+    try:
+        value = is_a() if callable(is_a) else is_a
+    except Exception:
+        value = None
+    return str(value).upper() if value else None
+
+
+def _ifc_context(text: str) -> dict[str, dict[str, Any]]:
+    objects = _ifc_objects(text)
+    quantity_sets = _ifc_quantity_sets(text)
+    quantity_sets_by_quantity: dict[str, dict[str, Any]] = {}
+    for quantity_set in quantity_sets.values():
+        for quantity_id in quantity_set["quantity_ids"]:
+            quantity_sets_by_quantity[quantity_id] = quantity_set
+    return {
+        "quantity_sets_by_quantity": quantity_sets_by_quantity,
+        "objects_by_quantity_set": _ifc_objects_by_quantity_set(text, objects),
+    }
+
+
+def _ifc_objects(text: str) -> dict[str, dict[str, Any]]:
+    objects: dict[str, dict[str, Any]] = {}
+    pattern = re.compile(
+        r"(?P<entity_id>#\d+)\s*=\s*IFC(?P<entity_type>SPACE|SITE|BUILDING|BUILDINGSTOREY|SLAB|WALL|WALLSTANDARDCASE)\((?P<body>.*?)\);",
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    for match in pattern.finditer(text):
+        args = _ifc_split_args(match.group("body"))
+        name = _ifc_optional_arg(args, 2)
+        long_name = _ifc_optional_arg(args, 7)
+        objects[match.group("entity_id")] = {
+            "entity_id": match.group("entity_id"),
+            "entity_type": f"IFC{match.group('entity_type').upper()}",
+            "name": _ifc_unquote(name) if name else None,
+            "long_name": _ifc_unquote(long_name) if long_name else None,
+        }
+    return objects
+
+
+def _ifc_quantity_sets(text: str) -> dict[str, dict[str, Any]]:
+    quantity_sets: dict[str, dict[str, Any]] = {}
+    pattern = re.compile(
+        r"(?P<entity_id>#\d+)\s*=\s*IFCELEMENTQUANTITY\((?P<body>.*?)\);",
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    for match in pattern.finditer(text):
+        args = _ifc_split_args(match.group("body"))
+        quantity_sets[match.group("entity_id")] = {
+            "entity_id": match.group("entity_id"),
+            "name": _ifc_unquote(_ifc_optional_arg(args, 2) or ""),
+            "quantity_ids": _ifc_reference_list(_ifc_optional_arg(args, 5) or ""),
+        }
+    return quantity_sets
+
+
+def _ifc_objects_by_quantity_set(
+    text: str,
+    objects: dict[str, dict[str, Any]],
+) -> dict[str, dict[str, Any]]:
+    objects_by_quantity_set: dict[str, dict[str, Any]] = {}
+    pattern = re.compile(
+        r"#\d+\s*=\s*IFCRELDEFINESBYPROPERTIES\((?P<body>.*?)\);",
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    for match in pattern.finditer(text):
+        args = _ifc_split_args(match.group("body"))
+        related_object_ids = _ifc_reference_list(_ifc_optional_arg(args, 4) or "")
+        quantity_set_id = _ifc_optional_arg(args, 5)
+        if not quantity_set_id or quantity_set_id == "$":
+            continue
+        related_object = next((objects[object_id] for object_id in related_object_ids if object_id in objects), None)
+        if related_object is not None:
+            objects_by_quantity_set[quantity_set_id] = related_object
+    return objects_by_quantity_set
 
 
 def _ifc_split_args(body: str) -> list[str]:
@@ -1367,6 +1586,17 @@ def _ifc_split_args(body: str) -> list[str]:
         index += 1
     args.append("".join(current).strip())
     return args
+
+
+def _ifc_optional_arg(args: list[str], index: int) -> str | None:
+    if index >= len(args):
+        return None
+    value = args[index].strip()
+    return None if value == "$" else value
+
+
+def _ifc_reference_list(value: str) -> list[str]:
+    return [match.group(0) for match in re.finditer(r"#\d+", value)]
 
 
 def _ifc_unquote(value: str) -> str:
