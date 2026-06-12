@@ -50,6 +50,18 @@ def default_embedding_config() -> EmbeddingConfig:
     )
 
 
+# Legacy DB rows predate the current LicenceStatus vocabulary; never let a
+# stored value crash retrieval — map known aliases, default to UNKNOWN.
+_LEGACY_LICENCE_ALIASES = {"approved": LicenceStatus.VERIFIED_OPEN}
+
+
+def _coerce_licence_status(value: object) -> LicenceStatus:
+    try:
+        return LicenceStatus(str(value))
+    except ValueError:
+        return _LEGACY_LICENCE_ALIASES.get(str(value), LicenceStatus.UNKNOWN)
+
+
 def _stable_id(prefix: str, *parts: str, length: int = 16) -> str:
     digest = sha256("|".join(parts).encode("utf-8")).hexdigest()
     return f"{prefix}_{digest[:length]}"
@@ -756,7 +768,7 @@ class SqlAlchemySourceSearchService:
                     version_label=r.version_label or f"sha256:{r.version_sha256[:12]}",
                     sha256=r.version_sha256,
                     storage_path=storage_path,
-                    licence_status=LicenceStatus(r.licence_status),
+                    licence_status=_coerce_licence_status(r.licence_status),
                     review_status=SourceReviewStatus(r.review_status),
                     fetched_at=r.fetched_at,
                     published_at=r.published_at,
