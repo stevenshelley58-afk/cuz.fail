@@ -129,6 +129,8 @@ def parse_vps_state(output: str) -> dict[str, str]:
     checkout_value = checkout_line.split("=", 1)[1] if checkout_line else ""
     timer_lines = [line for line in lines if "timers listed" in line]
     sentry_lines = [line for line in lines if line.startswith("SENTRY_DSN_")]
+    journald_lines = [line for line in lines if line.startswith("LOG_RETENTION_JOURNALD_")]
+    docker_log_lines = [line for line in lines if line.startswith("LOG_RETENTION_DOCKER_")]
     return {
         "vps_checkout_env": checkout_value or "VITE_CHECKOUT_URL_MISSING",
         "backup_env": "BACKUP_ENV_PRESENT" if "BACKUP_ENV_PRESENT" in lines else "BACKUP_ENV_MISSING",
@@ -139,6 +141,8 @@ def parse_vps_state(output: str) -> dict[str, str]:
         "guardrail_cron": "CRON_GUARDRAILS_PRESENT" if "CRON_GUARDRAILS_PRESENT" in lines else "CRON_GUARDRAILS_MISSING",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT" if "OPS_GUARDRAILS_PRESENT" in lines else "OPS_GUARDRAILS_MISSING",
         "sentry_dsn": sentry_lines[-1] if sentry_lines else "SENTRY_DSN_MISSING",
+        "log_retention_journald": journald_lines[-1] if journald_lines else "LOG_RETENTION_JOURNALD_MISSING",
+        "log_retention_docker": docker_log_lines[-1] if docker_log_lines else "LOG_RETENTION_DOCKER_MISSING",
     }
 
 
@@ -162,6 +166,8 @@ if test -f /srv/draftcheck/app/infra/v3/.env && grep -q '^SENTRY_DSN=' /srv/draf
 else
   echo SENTRY_DSN_MISSING
 fi
+test -f /etc/systemd/journald.conf.d/draftcheck.conf && echo LOG_RETENTION_JOURNALD_PRESENT || echo LOG_RETENTION_JOURNALD_MISSING
+test -f /etc/docker/daemon.json && echo LOG_RETENTION_DOCKER_PRESENT || echo LOG_RETENTION_DOCKER_MISSING
 """
     result = subprocess.run(
         ["ssh", host, remote],
@@ -179,6 +185,8 @@ fi
             "guardrail_cron": "SSH_CHECK_FAILED",
             "ops_guardrail_script": "SSH_CHECK_FAILED",
             "sentry_dsn": "SSH_CHECK_FAILED",
+            "log_retention_journald": "SSH_CHECK_FAILED",
+            "log_retention_docker": "SSH_CHECK_FAILED",
         }
     return parse_vps_state(result.stdout)
 
@@ -220,6 +228,8 @@ def build_report(
                 "sentry_dsn": vps_state["sentry_dsn"],
                 "uptime_targets": assess_api_targets(origin, api),
                 "uptime_monitor_doc": uptime_monitor_doc,
+                "log_retention_journald": vps_state["log_retention_journald"],
+                "log_retention_docker": vps_state["log_retention_docker"],
                 "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs",
             },
             "unblock": [
@@ -271,6 +281,8 @@ def main() -> int:
             "guardrail_cron": "SSH_SKIPPED",
             "ops_guardrail_script": "SSH_SKIPPED",
             "sentry_dsn": "SSH_SKIPPED",
+            "log_retention_journald": "SSH_SKIPPED",
+            "log_retention_docker": "SSH_SKIPPED",
         }
         if args.skip_ssh
         else collect_vps_state(args.ssh_host)

@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-12T17:42:09.894091+00:00",
+  "captured_at": "2026-06-12T17:44:58.970711+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
@@ -28,6 +28,8 @@
       "sentry_dsn": "SENTRY_DSN_MISSING",
       "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
       "uptime_monitor_doc": "critical: pending monitor evidence: LotFile health.provider_id, LotFile health.alert_contact, LotFile ready.provider_id, LotFile ready.alert_contact",
+      "log_retention_journald": "LOG_RETENTION_JOURNALD_MISSING",
+      "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
       "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs"
     },
     "unblock": [

@@ -538,6 +538,91 @@ def check_sentry_config(env_path: Path, *, compose_path: Path | None = None) -> 
     )
 
 
+REQUIRED_JOURNALD_RETENTION = {
+    "SystemMaxUse": "1G",
+    "SystemKeepFree": "2G",
+    "MaxRetentionSec": "14day",
+}
+REQUIRED_DOCKER_LOG_ROTATION = {
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "50m",
+        "max-file": "5",
+    },
+}
+
+
+def _read_simple_ini_values(path: Path) -> dict[str, str]:
+    values: dict[str, str] = {}
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or line.startswith("[") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        values[key.strip()] = value.strip()
+    return values
+
+
+def check_log_retention_config(journald_path: Path, docker_daemon_path: Path) -> GuardrailResult:
+    """Verify installed log-retention configs cap journald and Docker JSON logs."""
+
+    failures: list[str] = []
+    journald_values: dict[str, str] = {}
+    docker_config: dict[str, Any] | None = None
+
+    if not journald_path.exists():
+        failures.append(f"journald config missing: {journald_path}")
+    else:
+        journald_text = journald_path.read_text(encoding="utf-8")
+        if "[Journal]" not in journald_text:
+            failures.append("journald config missing [Journal] section")
+        journald_values = _read_simple_ini_values(journald_path)
+        for key, expected in REQUIRED_JOURNALD_RETENTION.items():
+            actual = journald_values.get(key)
+            if actual != expected:
+                failures.append(f"journald {key} must be {expected}, found {actual or 'missing'}")
+
+    if not docker_daemon_path.exists():
+        failures.append(f"Docker daemon config missing: {docker_daemon_path}")
+    else:
+        try:
+            docker_config = json.loads(docker_daemon_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            failures.append(f"Docker daemon config is not valid JSON: {exc}")
+        else:
+            if docker_config.get("log-driver") != REQUIRED_DOCKER_LOG_ROTATION["log-driver"]:
+                failures.append("Docker log-driver must be json-file")
+            log_opts = docker_config.get("log-opts")
+            if not isinstance(log_opts, dict):
+                failures.append("Docker log-opts must be an object")
+                log_opts = {}
+            for key, expected in REQUIRED_DOCKER_LOG_ROTATION["log-opts"].items():
+                actual = log_opts.get(key)
+                if actual != expected:
+                    failures.append(f"Docker log-opts.{key} must be {expected}, found {actual or 'missing'}")
+
+    metadata = {
+        "journald_path": str(journald_path),
+        "docker_daemon_path": str(docker_daemon_path),
+        "journald_values": journald_values,
+        "docker_config": docker_config,
+        "failures": failures,
+    }
+    if failures:
+        return GuardrailResult(
+            name="log_retention_config",
+            status="critical",
+            message="log retention config is incomplete: " + "; ".join(failures),
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="log_retention_config",
+        status="ok",
+        message="journald and Docker JSON log retention configs are installed",
+        metadata=metadata,
+    )
+
+
 def check_backup_config(env_path: Path) -> GuardrailResult:
     """Verify the backup env file is ready before arming the systemd timer."""
 
@@ -782,6 +867,11 @@ def main(argv: list[str] | None = None) -> int:
     sentry_parser.add_argument("--compose-path", default="/srv/draftcheck/app/infra/v3/compose.yml")
     sentry_parser.add_argument("--json", action="store_true")
 
+    log_retention_parser = subparsers.add_parser("log-retention-config")
+    log_retention_parser.add_argument("--journald-path", default="/etc/systemd/journald.conf.d/draftcheck.conf")
+    log_retention_parser.add_argument("--docker-daemon-path", default="/etc/docker/daemon.json")
+    log_retention_parser.add_argument("--json", action="store_true")
+
     restore_parser = subparsers.add_parser("restore-drill-log")
     restore_parser.add_argument("--path", required=True)
     restore_parser.add_argument("--json", action="store_true")
@@ -880,6 +970,14 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "sentry-config":
         result = check_sentry_config(Path(args.env_path), compose_path=Path(args.compose_path))
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "log-retention-config":
+        result = check_log_retention_config(
+            Path(args.journald_path),
+            Path(args.docker_daemon_path),
+        )
         _print_result(result, as_json=args.json)
         return status_exit_code(result.status)
 

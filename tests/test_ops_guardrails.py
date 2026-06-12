@@ -12,6 +12,7 @@ from scripts.ops_guardrails import (
     check_backup_freshness,
     check_disk_usage,
     check_guardrail_cron,
+    check_log_retention_config,
     check_restore_drill_log,
     check_sentry_config,
     check_uptime_targets,
@@ -277,6 +278,77 @@ def test_sentry_config_flags_missing_compose_wiring(tmp_path: Path) -> None:
     assert result.status == "critical"
     assert "compose file does not wire SENTRY_DSN" in result.message
     assert result.metadata["compose_mentions_sentry"] is False
+
+
+def test_log_retention_config_accepts_journald_and_docker_rotation(tmp_path: Path) -> None:
+    journald = tmp_path / "draftcheck.conf"
+    journald.write_text(
+        """[Journal]
+SystemMaxUse=1G
+SystemKeepFree=2G
+MaxRetentionSec=14day
+""",
+        encoding="utf-8",
+    )
+    docker_daemon = tmp_path / "daemon.json"
+    docker_daemon.write_text(
+        """{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "50m",
+    "max-file": "5"
+  }
+}
+""",
+        encoding="utf-8",
+    )
+
+    result = check_log_retention_config(journald, docker_daemon)
+
+    assert result.status == "ok"
+    assert result.metadata["journald_values"]["SystemMaxUse"] == "1G"
+    assert result.metadata["docker_config"]["log-opts"]["max-file"] == "5"
+
+
+def test_log_retention_config_flags_missing_files(tmp_path: Path) -> None:
+    result = check_log_retention_config(
+        tmp_path / "missing-journald.conf",
+        tmp_path / "missing-daemon.json",
+    )
+
+    assert result.status == "critical"
+    assert "journald config missing" in result.message
+    assert "Docker daemon config missing" in result.message
+
+
+def test_log_retention_config_flags_malformed_values(tmp_path: Path) -> None:
+    journald = tmp_path / "draftcheck.conf"
+    journald.write_text(
+        """[Journal]
+SystemMaxUse=10G
+SystemKeepFree=2G
+""",
+        encoding="utf-8",
+    )
+    docker_daemon = tmp_path / "daemon.json"
+    docker_daemon.write_text(
+        """{
+  "log-driver": "journald",
+  "log-opts": {
+    "max-size": "500m"
+  }
+}
+""",
+        encoding="utf-8",
+    )
+
+    result = check_log_retention_config(journald, docker_daemon)
+
+    assert result.status == "critical"
+    assert "SystemMaxUse must be 1G" in result.message
+    assert "MaxRetentionSec must be 14day" in result.message
+    assert "Docker log-driver must be json-file" in result.message
+    assert "log-opts.max-file must be 5" in result.message
 
 
 def test_uptime_targets_require_json_status_ok() -> None:

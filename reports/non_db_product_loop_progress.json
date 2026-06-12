@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:48:00+08:00",
+  "captured_at": "2026-06-13T01:49:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -115,7 +115,9 @@
         "scripts/ops_guardrails.py sentry-config verifies SENTRY_DSN shape and compose wiring without printing the DSN",
         "tests/test_v3_infra_contract.py asserts api, worker, and hermes retain SENTRY_DSN compose wiring",
         "scripts/audit_non_db_launch_ops.py records SENTRY_DSN_PRESENT/EMPTY/MISSING without echoing the DSN, and the refreshed report shows SENTRY_DSN_MISSING on the VPS",
-        "scripts/audit_non_db_launch_ops.py records uptime_monitor_doc evidence separately from live endpoint health; the refreshed report shows pending monitor IDs and alert contacts"
+        "scripts/audit_non_db_launch_ops.py records uptime_monitor_doc evidence separately from live endpoint health; the refreshed report shows pending monitor IDs and alert contacts",
+        "scripts/ops_guardrails.py log-retention-config verifies installed journald and Docker JSON log retention files",
+        "scripts/audit_non_db_launch_ops.py records log-retention install-state evidence; refreshed VPS evidence shows Docker daemon rotation present and journald drop-in missing"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
@@ -148,6 +150,7 @@
     "uv run python scripts/ops_guardrails.py guardrail-cron --path <fixture draftcheck-guardrails> --json",
     "uv run python scripts/ops_guardrails.py uptime-monitor-doc --path docs/ops/uptime-monitor.md --json",
     "uv run python scripts/ops_guardrails.py sentry-config --env-path <fixture .env> --compose-path infra/v3/compose.yml --json",
+    "uv run python scripts/ops_guardrails.py log-retention-config --journald-path infra/v3/ops/journald-draftcheck.conf --docker-daemon-path infra/v3/ops/docker-daemon-log-rotation.json --json",
     "CI Ubuntu: bash -n infra/v3/ops/guardrail-alerts.sh infra/v3/backup/install-systemd.sh infra/v3/backup/restore-drill.sh infra/v3/deploy-web-only.sh",
     "uv run pytest tests/test_audit_non_db_launch_ops.py -q",
     "uv run python scripts/audit_non_db_launch_ops.py --output reports/non_db_launch_ops_blockers.json",

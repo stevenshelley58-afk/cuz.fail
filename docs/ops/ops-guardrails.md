@@ -178,6 +178,12 @@ This restarts Docker, so run it during a maintenance window and verify the stack
 ssh draftcheck 'cd /srv/draftcheck/app/infra/v3 && sudo docker compose ps'
 ```
 
+Verify the installed retention files before closing the blocker:
+
+```powershell
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py log-retention-config --journald-path /etc/systemd/journald.conf.d/draftcheck.conf --docker-daemon-path /etc/docker/daemon.json --json'
+```
+
 ## 7. Spend persistence restart check
 
 Run this after at least one governed LLM call has written `job_traces` or

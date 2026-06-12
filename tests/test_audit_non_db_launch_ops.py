@@ -19,6 +19,8 @@ CRON_GUARDRAILS_MISSING
 0 timers listed.
 OPS_GUARDRAILS_MISSING
 SENTRY_DSN_MISSING
+LOG_RETENTION_JOURNALD_MISSING
+LOG_RETENTION_DOCKER_MISSING
 """
 
     state = parse_vps_state(output)
@@ -30,6 +32,8 @@ SENTRY_DSN_MISSING
     assert state["guardrail_cron"] == "CRON_GUARDRAILS_MISSING"
     assert state["ops_guardrail_script"] == "OPS_GUARDRAILS_MISSING"
     assert state["sentry_dsn"] == "SENTRY_DSN_MISSING"
+    assert state["log_retention_journald"] == "LOG_RETENTION_JOURNALD_MISSING"
+    assert state["log_retention_docker"] == "LOG_RETENTION_DOCKER_MISSING"
 
 
 def test_parse_vps_state_records_sentry_presence_without_value() -> None:
@@ -41,11 +45,15 @@ CRON_GUARDRAILS_PRESENT
 1 timers listed.
 OPS_GUARDRAILS_PRESENT
 SENTRY_DSN_PRESENT
+LOG_RETENTION_JOURNALD_PRESENT
+LOG_RETENTION_DOCKER_PRESENT
 """
 
     state = parse_vps_state(output)
 
     assert state["sentry_dsn"] == "SENTRY_DSN_PRESENT"
+    assert state["log_retention_journald"] == "LOG_RETENTION_JOURNALD_PRESENT"
+    assert state["log_retention_docker"] == "LOG_RETENTION_DOCKER_PRESENT"
     assert "ingest.sentry.io" not in str(state)
     assert "examplePublicKey" not in str(state)
 
@@ -98,6 +106,8 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
         "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
         "sentry_dsn": "SENTRY_DSN_PRESENT",
+        "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
+        "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
     }
 
     report = build_report(
@@ -112,6 +122,8 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
     assert report["launch_surface"]["status"] == "blocked"
     assert report["launch_surface"]["evidence"]["vps_checkout_env"] == "VITE_CHECKOUT_URL_MISSING"
     assert report["ops_guardrails"]["evidence"]["sentry_dsn"] == "SENTRY_DSN_PRESENT"
+    assert report["ops_guardrails"]["evidence"]["log_retention_journald"] == "LOG_RETENTION_JOURNALD_PRESENT"
+    assert report["ops_guardrails"]["evidence"]["log_retention_docker"] == "LOG_RETENTION_DOCKER_PRESENT"
     assert "status ok" in report["ops_guardrails"]["evidence"]["uptime_targets"]
     assert report["ops_guardrails"]["evidence"]["uptime_monitor_doc"].startswith("ok:")
 
