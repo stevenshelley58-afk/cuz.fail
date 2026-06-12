@@ -72,3 +72,10 @@ jobs:
       - name: Build web
         working-directory: web
         run: npm run build
+      - name: Verify launch surface
+        working-directory: web
+        env:
+          VITE_CHECKOUT_URL: https://checkout.example.test/lotfile-ci
+          VITE_PRICE_LABEL: AUD $29/month
+          VITE_PRICE_SUBLABEL: Starter launch plan, cancel anytime.
+        run: npm run verify:launch:strict
