@@ -57,7 +57,11 @@ router = APIRouter(tags=["documents"])
 
 _document_library: InMemoryDocumentLibrary | None = None
 
-STORAGE_ROOT = Path(os.getenv("DRAFTCHECK_STORAGE_ROOT", "/srv/draftcheck/storage"))
+def _configured_storage_root() -> Path:
+    return Path(os.getenv("DRAFTCHECK_STORAGE_ROOT") or os.getenv("OBJECT_STORAGE_ROOT") or "/srv/draftcheck/storage")
+
+
+STORAGE_ROOT = _configured_storage_root()
 MAX_UPLOAD_BYTES = 15 * 1024 * 1024  # 15 MB
 
 

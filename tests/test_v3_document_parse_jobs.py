@@ -23,7 +23,11 @@ for _tbl in _models_mod.Base.metadata.tables.values():
 
 from draftcheck.db.models import Base, Document, DocumentChunk, DocumentFact, DocumentPage, Org, Project, User, UserStatus  # noqa: E402
 from draftcheck.domain.identity import IdentityRole  # noqa: E402
-from draftcheck.api.documents import get_persisted_document_facts, search_project_document_evidence  # noqa: E402
+from draftcheck.api.documents import (  # noqa: E402
+    _configured_storage_root,
+    get_persisted_document_facts,
+    search_project_document_evidence,
+)
 from draftcheck.jobs.documents import enqueue_document_parse, parse_document_for_session  # noqa: E402
 from draftcheck.domain.documents.chunks import write_document_chunks  # noqa: E402
 
@@ -353,6 +357,17 @@ def test_document_parse_enqueue_reports_sync_fallback_when_queue_is_unavailable(
     result = enqueue_document_parse(uuid4())
 
     assert result == {"enqueued": False, "reason": "procrastinate_unavailable"}
+
+
+def test_document_storage_root_accepts_object_storage_root_fallback(monkeypatch) -> None:
+    monkeypatch.delenv("DRAFTCHECK_STORAGE_ROOT", raising=False)
+    monkeypatch.setenv("OBJECT_STORAGE_ROOT", "/app/.storage")
+
+    assert _configured_storage_root().as_posix() == "/app/.storage"
+
+    monkeypatch.setenv("DRAFTCHECK_STORAGE_ROOT", "/srv/draftcheck/storage")
+
+    assert _configured_storage_root().as_posix() == "/srv/draftcheck/storage"
 
 
 def _session():

@@ -44,6 +44,7 @@ services:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW:-local}@db:5432/${POSTGRES_DB:-draftcheck}
       PROCRASTINATE_APP: ${PROCRASTINATE_APP:-draftcheck.jobs.procrastinate_app}
       PROCRASTINATE_DB_URI: postgresql://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW:-local}@db:5432/${POSTGRES_DB:-draftcheck}
+      DRAFTCHECK_STORAGE_ROOT: /app/.storage
       OBJECT_STORAGE_ROOT: /app/.storage
       REQUIRE_DURABLE_DATABASE: "true"
       REQUIRE_LOCAL_CONTENT_STORAGE: "true"
@@ -81,6 +82,7 @@ services:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW:-local}@db:5432/${POSTGRES_DB:-draftcheck}
       PROCRASTINATE_APP: ${PROCRASTINATE_APP:-draftcheck.jobs.procrastinate_app}
       PROCRASTINATE_DB_URI: postgresql://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW:-local}@db:5432/${POSTGRES_DB:-draftcheck}
+      DRAFTCHECK_STORAGE_ROOT: /app/.storage
       OBJECT_STORAGE_ROOT: /app/.storage
       REQUIRE_DURABLE_DATABASE: "true"
       REQUIRE_LOCAL_CONTENT_STORAGE: "true"

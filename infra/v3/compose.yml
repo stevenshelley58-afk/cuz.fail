@@ -40,6 +40,7 @@ services:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW}@db:5432/${POSTGRES_DB:-draftcheck}
       PROCRASTINATE_APP: ${PROCRASTINATE_APP:-draftcheck.jobs.procrastinate_app}
       PROCRASTINATE_DB_URI: postgresql://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW}@db:5432/${POSTGRES_DB:-draftcheck}
+      DRAFTCHECK_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
       OBJECT_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
       REQUIRE_DURABLE_DATABASE: "true"
       REQUIRE_LOCAL_CONTENT_STORAGE: "true"
@@ -102,6 +103,7 @@ services:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW}@db:5432/${POSTGRES_DB:-draftcheck}
       PROCRASTINATE_APP: ${PROCRASTINATE_APP:-draftcheck.jobs.procrastinate_app}
       PROCRASTINATE_DB_URI: postgresql://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW}@db:5432/${POSTGRES_DB:-draftcheck}
+      DRAFTCHECK_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
       OBJECT_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
       REQUIRE_DURABLE_DATABASE: "true"
       REQUIRE_LOCAL_CONTENT_STORAGE: "true"
@@ -125,6 +127,7 @@ services:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW}@db:5432/${POSTGRES_DB:-draftcheck}
       PROCRASTINATE_APP: ${PROCRASTINATE_APP:-draftcheck.jobs.procrastinate_app}
       PROCRASTINATE_DB_URI: postgresql://${POSTGRES_USER:-draftcheck}:${POSTGRES_PW}@db:5432/${POSTGRES_DB:-draftcheck}
+      DRAFTCHECK_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
       OBJECT_STORAGE_ROOT: ${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}
       HERMES_TRACE_REQUIRED: "true"
       HERMES_SKILL_VERSION_REQUIRED: "true"

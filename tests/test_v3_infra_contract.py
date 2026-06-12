@@ -8,6 +8,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 COMPOSE_PATH = ROOT / "infra" / "v3" / "compose.yml"
+LOCAL_COMPOSE_PATH = ROOT / "docker-compose.yml"
 CADDYFILE_PATH = ROOT / "infra" / "v3" / "Caddyfile"
 DB_INIT_PATH = ROOT / "infra" / "v3" / "db" / "init-extensions.sql"
 BACKUP_README_PATH = ROOT / "infra" / "v3" / "backup" / "README.md"
@@ -39,6 +40,21 @@ def test_v3_compose_has_target_services_and_no_legacy_backends():
 
     assert "procrastinate" in lowered
     assert "postgresql" in lowered
+
+
+def test_v3_compose_aligns_document_storage_env_for_api_and_workers():
+    local_compose = yaml.safe_load(LOCAL_COMPOSE_PATH.read_text(encoding="utf-8"))
+    prod_compose = yaml.safe_load(COMPOSE_PATH.read_text(encoding="utf-8"))
+
+    for service_name in ("api", "worker"):
+        environment = local_compose["services"][service_name]["environment"]
+        assert environment["DRAFTCHECK_STORAGE_ROOT"] == "/app/.storage"
+        assert environment["OBJECT_STORAGE_ROOT"] == "/app/.storage"
+
+    for service_name in ("api", "worker", "hermes"):
+        environment = prod_compose["services"][service_name]["environment"]
+        assert environment["DRAFTCHECK_STORAGE_ROOT"] == "${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}"
+        assert environment["OBJECT_STORAGE_ROOT"] == "${DRAFTCHECK_STORAGE_ROOT:-/srv/draftcheck/storage}"
 
 
 def test_v3_caddy_routes_api_v1_and_static_web_dist():
