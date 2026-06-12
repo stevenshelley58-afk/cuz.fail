@@ -139,3 +139,58 @@ test("compliance panel records operator review notes on a result", async () => {
   expect(reviewLabel.parentElement?.textContent).toContain("Reviewed against uploaded DXF evidence.");
   expect(screen.getByText(/operator note/i)).toBeTruthy();
 });
+
+test("compliance panel explains missing drawing information and prompts upload", async () => {
+  apiMock.compliance.run.mockResolvedValue({
+    kind: "ok",
+    status: 201,
+    data: {
+      run_id: "run-missing",
+      project_id: "project-golden",
+      status: "needs_more_info",
+      as_of_date: "2026-06-12T20:35:00Z",
+      advisory_disclaimer: "Results are advisory only and are not final compliance determinations.",
+      results: [
+        {
+          result_id: "result-front-setback",
+          check_key: "front_setback",
+          display_name: "Primary street setback",
+          status: "needs_more_info",
+          threshold_value: null,
+          threshold_unit: "m",
+          measured_value: null,
+          rule_id: null,
+          rule_quote: null,
+          citation: null,
+          note: null,
+          missing_info_reason: "missing_drawing_measurement",
+          drawing_evidence: {},
+          review_reason: null,
+          human_override: {},
+          reviewed_by_user_id: null,
+          reviewed_at: null,
+          missing_data: ["front_setback", "primary_street"],
+        },
+      ],
+    },
+  });
+
+  render(<CompliancePanel projectId="project-golden" />);
+
+  await userEvent.click(await screen.findByRole("button", { name: /run compliance check/i }));
+
+  expect(await screen.findByText(/1 needs info/i)).toBeTruthy();
+  expect(trackEventMock).toHaveBeenCalledWith("compliance_run", {
+    result_count: 1,
+    status: "needs_more_info",
+  });
+
+  await userEvent.click(screen.getByRole("button", { name: /primary street setback/i }));
+  expect(screen.getByText("Missing information")).toBeTruthy();
+  expect(screen.getByText(/reason: missing drawing measurement/i)).toBeTruthy();
+  expect(screen.getByText("front_setback")).toBeTruthy();
+  expect(screen.getByText("primary_street")).toBeTruthy();
+
+  await userEvent.click(screen.getByRole("button", { name: /upload drawing to provide this data/i }));
+  expect(await screen.findByText(/scroll down to the documents section/i)).toBeTruthy();
+});
