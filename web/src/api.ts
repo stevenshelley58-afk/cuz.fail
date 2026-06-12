@@ -214,6 +214,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<Ap
 // ── Compliance types ──
 
 export type ComplianceResultItem = {
+  result_id: string;
   check_key: string;
   display_name: string;
   status: "likely_pass" | "likely_fail" | "needs_more_info" | "unsupported";
@@ -226,6 +227,10 @@ export type ComplianceResultItem = {
   note: string | null;
   missing_info_reason?: string | null;
   drawing_evidence?: Record<string, unknown>;
+  review_reason?: string | null;
+  human_override?: Record<string, unknown>;
+  reviewed_by_user_id?: string | null;
+  reviewed_at?: string | null;
   missing_data?: string[] | null;
 };
 
@@ -362,6 +367,8 @@ export const api = {
       call<ComplianceRunResponse>("POST", `/compliance/projects/${projectId}/run`, {}),
     matrix: (projectId: string) =>
       call<ComplianceRunResponse>("GET", `/compliance/projects/${projectId}/matrix`),
+    recordReview: (resultId: string, action: "record_review" | "flag_for_revision" | "operator_note", reason: string) =>
+      call<ComplianceResultItem>("POST", `/compliance/results/${resultId}/override`, { action, reason }),
   },
   documents: {
     upload: async (projectId: string, file: File): Promise<ApiResult<DocumentUploadResponse>> => {

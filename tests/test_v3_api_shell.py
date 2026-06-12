@@ -156,6 +156,7 @@ def test_v3_openapi_contains_required_surface_without_legacy_aliases() -> None:
         "/api/v1/assistant",
         "/api/v1/compliance/projects/{project_id}/run",
         "/api/v1/compliance/projects/{project_id}/matrix",
+        "/api/v1/compliance/results/{result_id}/override",
         "/api/v1/rfi/projects/{project_id}/parse",
         "/api/v1/agent/jobs",
         "/api/v1/ops/dashboard",

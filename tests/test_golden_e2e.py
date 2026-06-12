@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import json
 from collections.abc import Iterator
+from datetime import UTC, datetime
 from pathlib import Path
-from uuid import NAMESPACE_URL, UUID, uuid5
+from uuid import NAMESPACE_URL, UUID, uuid4, uuid5
 
 from sqlalchemy.dialects.sqlite.base import SQLiteTypeCompiler
 
@@ -30,11 +31,14 @@ from draftcheck.api.auth import get_current_session  # noqa: E402
 from draftcheck.api.deps import get_db_session  # noqa: E402
 from draftcheck.api.main import create_app  # noqa: E402
 from draftcheck.db.models import (  # noqa: E402
+    AuditEvent,
     Base,
     CheckResult,
+    CheckRun,
     Clause,
     Document,
     Org,
+    Project,
     PropertyFact,
     Rule,
     Source,
@@ -186,6 +190,94 @@ def test_drawing_dimension_requires_calibration_before_promotion(tmp_path, monke
     assert property_fact.provenance_json["calibration_ref"] == "scale-bar:A101:1:100"
 
 
+def test_compliance_result_review_annotation_preserves_deterministic_status() -> None:
+    app, db, active_session = _make_app()
+    _seed_identity_rows(db, active_session)
+    project_id = uuid4()
+    run_id = uuid4()
+    result_id = uuid4()
+    db.add(
+        Project(
+            id=project_id,
+            org_id=active_session.org.id,
+            created_by_user_id=active_session.user.id,
+            name="Human review project",
+            status="draft",
+        )
+    )
+    db.add(
+        CheckRun(
+            id=run_id,
+            org_id=active_session.org.id,
+            project_id=project_id,
+            as_of_date=datetime.now(UTC),
+            status="complete",
+            engine_version="test-engine",
+        )
+    )
+    db.add(
+        CheckResult(
+            id=result_id,
+            org_id=active_session.org.id,
+            project_id=project_id,
+            check_run_id=run_id,
+            check_key="site_cover",
+            status="likely_fail",
+            requirement_json={"threshold_value": 50, "threshold_unit": "%", "rule_id": "rule-fixture"},
+            proposed_json={"measured_value": 58},
+            why_this_applies="Fixture review rule quote.",
+            citations_json=["source_version:fixture#clause:1"],
+            drawing_evidence_json={"fact_type": "proposed_site_cover_pct"},
+            decision_trace_json={"note": "Fixture deterministic trace."},
+        )
+    )
+    db.commit()
+    client = TestClient(app, headers=ORIGIN_HEADERS)
+
+    reviewed = client.post(
+        f"/api/v1/compliance/results/{result_id}/override",
+        json={"action": "operator_note", "reason": "Planner asked for a boundary survey check."},
+    )
+
+    assert reviewed.status_code == 200, reviewed.text
+    body = reviewed.json()
+    assert body["result_id"] == str(result_id)
+    assert body["status"] == "likely_fail"
+    assert body["review_reason"] == "Planner asked for a boundary survey check."
+    assert body["human_override"]["action"] == "operator_note"
+    assert body["human_override"]["status_unchanged"] == "likely_fail"
+    assert body["reviewed_by_user_id"] == str(active_session.user.id)
+    assert body["reviewed_at"]
+
+    persisted = db.get(CheckResult, result_id)
+    assert persisted is not None
+    assert persisted.status == "likely_fail"
+    assert persisted.requirement_json["threshold_value"] == 50
+    assert persisted.proposed_json["measured_value"] == 58
+    assert persisted.drawing_evidence_json["fact_type"] == "proposed_site_cover_pct"
+
+    audit = db.query(AuditEvent).filter(AuditEvent.subject_id == result_id).one()
+    assert audit.event_type == "check_result.human_override_recorded"
+    assert audit.action == "operator_note"
+    assert audit.before_json["status"] == "likely_fail"
+    assert audit.after_json["status"] == "likely_fail"
+    assert audit.metadata_json["deterministic_status_preserved"] is True
+
+    empty_reason = client.post(
+        f"/api/v1/compliance/results/{result_id}/override",
+        json={"action": "operator_note", "reason": "   "},
+    )
+    assert empty_reason.status_code == 422
+
+    active_session.user.role = IdentityRole.GUEST
+    blocked = client.post(
+        f"/api/v1/compliance/results/{result_id}/override",
+        json={"action": "operator_note", "reason": "Guest should not be able to annotate."},
+    )
+    assert blocked.status_code == 403
+    active_session.user.role = IdentityRole.OWNER
+
+
 def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, monkeypatch) -> None:
     fixtures = _load_golden_fixtures()
     expected_scope = set(fixtures["manifest"]["canary_scope"]["tier_1_check_keys"])
@@ -326,6 +418,11 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
         assert result["status"] in {"likely_pass", "likely_fail", "needs_more_info"}
         assert "missing_info_reason" in result
         assert "drawing_evidence" in result
+        assert result["result_id"]
+        assert result["review_reason"] is None
+        assert result["human_override"] == {}
+        assert result["reviewed_by_user_id"] is None
+        assert result["reviewed_at"] is None
 
     site_cover_result = results_by_key["site_cover"]
     assert site_cover_result["missing_info_reason"] is None
@@ -384,6 +481,7 @@ def _make_app() -> tuple[object, Session, ActiveSession]:
         "check_runs",
         "resolved_rules",
         "check_results",
+        "audit_events",
     ]
     Base.metadata.create_all(
         engine,

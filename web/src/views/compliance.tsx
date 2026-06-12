@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CheckCircle2, CircleAlert, CircleHelp, RefreshCw } from "lucide-react";
+import { CheckCircle2, CircleAlert, CircleHelp, MessageSquare, RefreshCw } from "lucide-react";
 import { api, type ComplianceResultItem, type ComplianceRunResponse } from "../api";
 import { trackEvent } from "../analytics";
 
@@ -38,17 +38,51 @@ function StatusBadge({ status }: { status: ComplianceResultItem["status"] }) {
 function ComplianceResultRow({
   item,
   onUploadDrawing,
+  onReviewRecorded,
 }: {
   item: ComplianceResultItem;
   onUploadDrawing?: () => void;
+  onReviewRecorded: (item: ComplianceResultItem) => void;
 }) {
   const [expanded, setExpanded] = useState(false);
+  const [reviewDraft, setReviewDraft] = useState(item.review_reason ?? "");
+  const [reviewSaving, setReviewSaving] = useState(false);
+  const [reviewError, setReviewError] = useState<string | null>(null);
   const drawingEvidence = item.drawing_evidence ?? {};
   const hasDrawingEvidence = Object.keys(drawingEvidence).length > 0;
   const evidenceFactType = typeof drawingEvidence.fact_type === "string" ? drawingEvidence.fact_type : null;
   const evidenceMethod = typeof drawingEvidence.method === "string" ? drawingEvidence.method : null;
   const evidenceDocumentFactId =
     typeof drawingEvidence.document_fact_id === "string" ? drawingEvidence.document_fact_id : null;
+  const reviewAction = typeof item.human_override?.action === "string" ? item.human_override.action.replace(/_/g, " ") : null;
+
+  useEffect(() => {
+    setReviewDraft(item.review_reason ?? "");
+    setReviewError(null);
+  }, [item.result_id, item.review_reason]);
+
+  async function recordReview() {
+    const reason = reviewDraft.trim();
+    if (!reason) {
+      setReviewError("Review note is required.");
+      return;
+    }
+    setReviewSaving(true);
+    setReviewError(null);
+    const response = await api.compliance.recordReview(item.result_id, "operator_note", reason);
+    setReviewSaving(false);
+    if (response.kind === "ok") {
+      onReviewRecorded(response.data);
+    } else if (response.kind === "auth") {
+      setReviewError("Owner or operator access required.");
+    } else if (response.kind === "missing") {
+      setReviewError("This result is no longer available.");
+    } else if (response.kind === "error") {
+      setReviewError(response.message);
+    } else {
+      setReviewError("Could not record review.");
+    }
+  }
 
   return (
     <div
@@ -190,6 +224,62 @@ function ComplianceResultRow({
               )}
             </div>
           )}
+
+          <div
+            style={{
+              borderTop: "1px solid #e5e7eb",
+              marginTop: 12,
+              paddingTop: 12,
+            }}
+          >
+            {item.review_reason && (
+              <div style={{ fontSize: 12, color: "#4b5563", marginBottom: 8 }}>
+                <span style={{ fontWeight: 600 }}>Review:</span> {item.review_reason}
+                {reviewAction ? <span style={{ color: "#6b7280" }}> ({reviewAction})</span> : null}
+              </div>
+            )}
+            <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+              <textarea
+                value={reviewDraft}
+                onChange={(event) => setReviewDraft(event.target.value)}
+                rows={2}
+                aria-label={`Review note for ${item.display_name ?? item.check_key}`}
+                style={{
+                  flex: 1,
+                  minWidth: 0,
+                  resize: "vertical",
+                  border: "1px solid #d1d5db",
+                  borderRadius: 6,
+                  padding: "7px 9px",
+                  font: "inherit",
+                  fontSize: 12,
+                  color: "#111827",
+                }}
+              />
+              <button
+                onClick={() => void recordReview()}
+                disabled={reviewSaving}
+                title="Record review"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  padding: "7px 10px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: 6,
+                  background: reviewSaving ? "#f3f4f6" : "#fff",
+                  color: reviewSaving ? "#6b7280" : "#111827",
+                  cursor: reviewSaving ? "not-allowed" : "pointer",
+                  fontSize: 12,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <MessageSquare size={14} />
+                {reviewSaving ? "Saving" : "Record"}
+              </button>
+            </div>
+            {reviewError && <div style={{ fontSize: 12, color: "#b91c1c", marginTop: 6 }}>{reviewError}</div>}
+          </div>
         </div>
       )}
     </div>
@@ -225,6 +315,16 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
     } else {
       setError("Could not reach server.");
     }
+  }
+
+  function updateReviewedResult(updated: ComplianceResultItem) {
+    setRunResult((current) => {
+      if (!current) return current;
+      return {
+        ...current,
+        results: current.results.map((item) => (item.result_id === updated.result_id ? updated : item)),
+      };
+    });
   }
 
   const results = runResult?.results ?? [];
@@ -305,9 +405,10 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
 
       {results.map((item) => (
         <ComplianceResultRow
-          key={item.check_key}
+          key={item.result_id}
           item={item}
           onUploadDrawing={item.status === "needs_more_info" ? () => setUploadPrompted(true) : undefined}
+          onReviewRecorded={updateReviewedResult}
         />
       ))}
 
