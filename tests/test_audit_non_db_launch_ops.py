@@ -10,6 +10,7 @@ from scripts.audit_non_db_launch_ops import (
     assess_restore_drill_log,
     assess_uptime_monitor_doc,
     build_report,
+    main,
     parse_vps_state,
     validate_audit_report,
     validate_ops_runbook,
@@ -259,6 +260,58 @@ def test_build_report_blocks_when_ssh_state_is_skipped() -> None:
 
     assert report["launch_surface"]["status"] == "blocked"
     assert report["ops_guardrails"]["status"] == "blocked"
+
+
+def test_main_skip_ssh_writes_blocked_report_without_required_key_crash(monkeypatch, tmp_path: Path) -> None:
+    page_text = (
+        '<title>LotFile - WA R-Code & Planning Compliance Checker</title>'
+        '<meta name="description">'
+        '<meta property="og:title">'
+        '<script data-domain="lotfile.app"></script>'
+    )
+    bundle_text = "\n".join(
+        [
+            "/privacy",
+            "/terms",
+            "Check an address free",
+            "Advisory research only",
+            "signup_requested",
+            "project_created",
+            "compliance_run",
+            "checkout_clicked",
+            "AUD $29/month",
+        ]
+    )
+    pages = {route: FetchResult(status=200, text=page_text) for route in ["/", "/privacy", "/terms", "/app"]}
+    api = {
+        "/api/v1/health": FetchResult(status=200, text='{"status":"ok"}'),
+        "/api/v1/ready": FetchResult(status=200, text='{"status":"ok"}'),
+    }
+    output = tmp_path / "non-db-launch-ops.json"
+
+    monkeypatch.setattr("scripts.audit_non_db_launch_ops.collect_live_pages", lambda origin: (pages, bundle_text))
+    monkeypatch.setattr("scripts.audit_non_db_launch_ops.collect_api", lambda origin: api)
+    monkeypatch.setattr(
+        "scripts.audit_non_db_launch_ops.assess_uptime_monitor_doc",
+        lambda path: "critical: pending monitor evidence",
+    )
+    monkeypatch.setattr(
+        "scripts.audit_non_db_launch_ops.assess_restore_drill_log",
+        lambda path: "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
+    )
+    monkeypatch.setattr(
+        "sys.argv",
+        ["audit_non_db_launch_ops.py", "--skip-ssh", "--output", str(output)],
+    )
+
+    assert main() == 0
+    report = json.loads(output.read_text(encoding="utf-8"))
+
+    assert report["launch_surface"]["status"] == "blocked"
+    assert report["ops_guardrails"]["status"] == "blocked"
+    assert report["ops_guardrails"]["evidence"]["disk_usage"] == "SSH_SKIPPED"
+    assert report["ops_guardrails"]["evidence"]["worker_heartbeat"] == "SSH_SKIPPED"
+    assert validate_audit_report(report) == []
 
 
 def test_ops_guardrails_status_blocks_pending_fields() -> None:
