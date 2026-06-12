@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:02:20+08:00",
+  "captured_at": "2026-06-13T01:14:10+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -69,6 +69,23 @@
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",
         "Run live verification against lotfile.app after deployment"
       ]
+    },
+    "e_ops_guardrails": {
+      "status": "advanced",
+      "evidence": [
+        "scripts/ops_guardrails.py exposes backup-freshness, uptime-targets, restore-drill-log, spend snapshot comparison, and disk-usage checks",
+        "infra/v3/ops/guardrail-alerts.sh delegates disk checks to the Python disk-usage guardrail",
+        "tests/test_ops_guardrails.py covers disk usage ok, threshold breach, and missing-path warning behavior",
+        "uv run pytest tests/test_ops_guardrails.py -q passed",
+        "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json passed"
+      ],
+      "remaining": [
+        "Arm backups and run a restore drill on the VPS after credentials are available",
+        "Provision uptime monitor account targets and record monitor IDs",
+        "Set SENTRY_DSN in VPS env",
+        "Run spend persistence restart check after a governed LLM spend event exists",
+        "Run bash -n infra/v3/ops/guardrail-alerts.sh on a Linux/Bash-capable host; local Windows Bash failed with REGDB_E_CLASSNOTREG"
+      ]
     }
   },
   "focused_gates": [
@@ -79,6 +96,8 @@
     "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py",
     "npm.cmd run test:launch-checkout",
     "VITE_CHECKOUT_URL=https://buy.stripe.com/test_fixture npm.cmd run verify:launch:strict",
+    "uv run pytest tests/test_ops_guardrails.py -q",
+    "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json",
     "npm.cmd run build",
     "npm.cmd run verify:launch"
   ]

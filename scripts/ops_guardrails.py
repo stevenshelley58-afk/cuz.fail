@@ -14,6 +14,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import sys
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
@@ -268,6 +269,71 @@ def check_uptime_targets(
     )
 
 
+def check_disk_usage(
+    paths: list[Path],
+    *,
+    max_used_percent: float = 80.0,
+    usage_provider: Any = shutil.disk_usage,
+) -> GuardrailResult:
+    """Verify configured disk paths are below the used-space threshold."""
+
+    checked: list[dict[str, Any]] = []
+    skipped: list[str] = []
+    breaches: list[str] = []
+    invalid: list[str] = []
+
+    for path in paths:
+        if not path.exists():
+            skipped.append(str(path))
+            continue
+        usage = usage_provider(path)
+        total = int(usage.total)
+        used = int(usage.used)
+        free = int(usage.free)
+        if total <= 0:
+            invalid.append(str(path))
+            continue
+        used_percent = round((used / total) * 100, 2)
+        item = {
+            "path": str(path),
+            "total_bytes": total,
+            "used_bytes": used,
+            "free_bytes": free,
+            "used_percent": used_percent,
+            "max_used_percent": max_used_percent,
+        }
+        checked.append(item)
+        if used_percent > max_used_percent:
+            breaches.append(f"{path}: {used_percent}% used")
+
+    metadata = {
+        "checked": checked,
+        "skipped_missing_paths": skipped,
+        "invalid_paths": invalid,
+        "max_used_percent": max_used_percent,
+    }
+    if breaches or invalid:
+        return GuardrailResult(
+            name="disk_usage",
+            status="critical",
+            message="disk usage guardrail failed: " + ", ".join([*breaches, *invalid]),
+            metadata=metadata,
+        )
+    if not checked:
+        return GuardrailResult(
+            name="disk_usage",
+            status="warning",
+            message="no configured disk paths existed",
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="disk_usage",
+        status="ok",
+        message="disk usage is below threshold",
+        metadata=metadata,
+    )
+
+
 PLACEHOLDER_PATTERNS = (
     r"YYYY-MM-DD",
     r"PASS / FAIL",
@@ -379,6 +445,11 @@ def main(argv: list[str] | None = None) -> int:
     uptime_parser.add_argument("--timeout-seconds", type=float, default=10.0)
     uptime_parser.add_argument("--json", action="store_true")
 
+    disk_parser = subparsers.add_parser("disk-usage")
+    disk_parser.add_argument("--path", action="append", default=[])
+    disk_parser.add_argument("--max-used-percent", type=float, default=80.0)
+    disk_parser.add_argument("--json", action="store_true")
+
     restore_parser = subparsers.add_parser("restore-drill-log")
     restore_parser.add_argument("--path", required=True)
     restore_parser.add_argument("--json", action="store_true")
@@ -426,6 +497,12 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "restore-drill-log":
         result = check_restore_drill_log(Path(args.path))
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "disk-usage":
+        paths = [Path(value) for value in (args.path or ["/srv", "/var/lib/docker"])]
+        result = check_disk_usage(paths, max_used_percent=args.max_used_percent)
         _print_result(result, as_json=args.json)
         return status_exit_code(result.status)
 

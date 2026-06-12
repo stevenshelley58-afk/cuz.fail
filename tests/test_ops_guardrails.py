@@ -4,10 +4,12 @@ from datetime import UTC, datetime, timedelta
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
 from pathlib import Path
+from types import SimpleNamespace
 import threading
 
 from scripts.ops_guardrails import (
     check_backup_freshness,
+    check_disk_usage,
     check_restore_drill_log,
     check_uptime_targets,
     compare_spend_snapshots,
@@ -87,6 +89,44 @@ def test_database_url_normalisation_accepts_sqlalchemy_driver_urls() -> None:
         normalise_database_url("postgresql+psycopg://user:pw@db:5432/app")
         == "postgresql://user:pw@db:5432/app"
     )
+
+
+def test_disk_usage_accepts_paths_below_threshold(tmp_path: Path) -> None:
+    def usage_provider(_path: Path) -> SimpleNamespace:
+        return SimpleNamespace(total=100, used=70, free=30)
+
+    result = check_disk_usage(
+        [tmp_path],
+        max_used_percent=80,
+        usage_provider=usage_provider,
+    )
+
+    assert result.status == "ok"
+    assert result.metadata["checked"][0]["used_percent"] == 70
+
+
+def test_disk_usage_flags_threshold_breach(tmp_path: Path) -> None:
+    def usage_provider(_path: Path) -> SimpleNamespace:
+        return SimpleNamespace(total=100, used=81, free=19)
+
+    result = check_disk_usage(
+        [tmp_path],
+        max_used_percent=80,
+        usage_provider=usage_provider,
+    )
+
+    assert result.status == "critical"
+    assert str(tmp_path) in result.message
+    assert result.metadata["checked"][0]["used_percent"] == 81
+
+
+def test_disk_usage_warns_when_no_paths_exist(tmp_path: Path) -> None:
+    missing = tmp_path / "missing"
+
+    result = check_disk_usage([missing], max_used_percent=80)
+
+    assert result.status == "warning"
+    assert result.metadata["skipped_missing_paths"] == [str(missing)]
 
 
 def test_uptime_targets_require_json_status_ok() -> None:

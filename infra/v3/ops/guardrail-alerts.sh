@@ -21,14 +21,11 @@ backup_output="$("$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" backup-fresh
     --max-age-hours "$MAX_BACKUP_AGE_HOURS" \
     --json 2>&1)" || failures+=("backup_freshness: $backup_output")
 
-for mount in /srv /var/lib/docker; do
-    if [[ -d "$mount" ]]; then
-        used_percent="$(df -P "$mount" | awk 'NR==2 {gsub(/%/, "", $5); print $5}')"
-        if [[ -n "$used_percent" && "$used_percent" -ge "$DISK_THRESHOLD" ]]; then
-            failures+=("disk_usage: $mount is ${used_percent}% full")
-        fi
-    fi
-done
+disk_output="$("$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" disk-usage \
+    --path /srv \
+    --path /var/lib/docker \
+    --max-used-percent "$DISK_THRESHOLD" \
+    --json 2>&1)" || failures+=("disk_usage: $disk_output")
 
 uptime_output="$("$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" uptime-targets \
     --health-url "$HEALTH_URL" \

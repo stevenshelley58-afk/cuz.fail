@@ -65,6 +65,13 @@ python scripts/ops_guardrails.py backup-freshness --backup-dir C:\path\to\backup
 ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py backup-freshness --backup-dir /srv/draftcheck/backups --json'
 ```
 
+Disk usage alert dry runs use the same Python guardrail as the cron wrapper:
+
+```powershell
+python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json'
+```
+
 Install a cron entry on the VPS:
 
 ```powershell
