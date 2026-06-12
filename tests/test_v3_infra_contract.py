@@ -232,6 +232,16 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
         assert f"bash -n {script}" in syntax_step["run"]
 
 
+def test_v3_ci_verifies_non_db_launch_ops_report_artifact():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    backend_steps = workflow["jobs"]["backend"]["steps"]
+
+    assert any(
+        step.get("name") == "Verify non-DB launch ops report"
+        and step.get("run") == "python scripts/audit_non_db_launch_ops.py --verify-report reports/non_db_launch_ops_blockers.json"
+        for step in backend_steps
+    )
+
 def test_v3_ci_runs_launch_action_behavior_test():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
     web_steps = workflow["jobs"]["web"]["steps"]
