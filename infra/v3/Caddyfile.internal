@@ -46,7 +46,7 @@ http://{$CADDY_APP_HOST:app.cuz.fail} {
 	import api_routes
 	handle {
 		root * /srv/draftcheck/web/dist
-		try_files {path} /index.html
+		try_files {path} {path}/index.html /index.html
 		file_server
 	}
 }
@@ -57,7 +57,7 @@ http://{$CADDY_LOTFILE_HOST:lotfile.app} {
 	import api_routes
 	handle {
 		root * /srv/draftcheck/web/dist
-		try_files {path} /index.html
+		try_files {path} {path}/index.html /index.html
 		file_server
 	}
 }

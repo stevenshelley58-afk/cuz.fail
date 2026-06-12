@@ -119,7 +119,7 @@ const caddyfile = read(join(repoRoot, "infra", "v3", "Caddyfile"));
 for (const caddyNeedle of [
   "http://lotfile.app",
   "root * /srv/draftcheck/app/web/dist",
-  "try_files {path} /index.html",
+  "try_files {path} {path}/index.html /index.html",
   "file_server",
 ]) {
   assertIncludes(caddyfile, caddyNeedle, "Caddy SPA fallback");
