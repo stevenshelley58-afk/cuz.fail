@@ -969,7 +969,7 @@ def _artifacts(
 def extract_pdf_page_layouts(content: bytes) -> list[PdfPageExtraction]:
     """Per-page PDF text plus vector text block bboxes.
 
-    Bounding boxes are evidence for human review only. They are not calibrated
+    Bounding boxes are evidence for operator review only. They are not calibrated
     measurements and must not be promoted into compliance facts by this parser.
     """
     try:

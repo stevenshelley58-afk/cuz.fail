@@ -292,7 +292,7 @@ def get_compliance_matrix(
 @router.post(
     "/results/{result_id}/override",
     response_model=CheckResultItemResponse,
-    summary="Record a human review annotation for a compliance result",
+    summary="Record an operator review annotation for a compliance result",
 )
 def record_check_result_override(
     result_id: str,
@@ -300,7 +300,7 @@ def record_check_result_override(
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
     db: DbSession,
 ) -> CheckResultItemResponse:
-    """Attach a human review note without changing the deterministic verdict."""
+    """Attach an operator review note without changing the deterministic verdict."""
     org_id = _resolve_org_id(active_session)
     _require_review_actor(active_session)
 
