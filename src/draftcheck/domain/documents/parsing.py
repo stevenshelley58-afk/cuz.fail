@@ -1047,20 +1047,98 @@ def _ifc_facts(document_id: str, text: str, parser_name: str, media_type: str) -
     if media_type not in IFC_MEDIA_TYPES and ".ifc" not in text[:200].lower():
         return []
     facts: list[DocumentFact] = []
-    for index, value in enumerate(re.findall(r"IFCQUANTITYAREA\([^)]*?,\s*([0-9]+(?:\.[0-9]+)?)", text, flags=re.I), start=1):
+    for index, quantity in enumerate(_ifc_quantity_candidates(text), start=1):
         facts.append(
             _fact(
                 document_id=document_id,
-                label=f"ifc area quantity {index}",
+                label=f"ifc {quantity['quantity_type']} quantity {index}",
                 fact_type="model_quantity",
-                value=float(value),
-                unit="m2",
+                value=quantity["value"],
+                unit=quantity["unit"],
                 parser_name=parser_name,
-                method="ifc_quantity_area_preview",
-                confidence=0.55,
+                method="ifc_step_quantity_preview",
+                confidence=0.62,
+                metadata={
+                    "ifc_entity_id": quantity["entity_id"],
+                    "ifc_quantity_type": quantity["quantity_type"],
+                    "ifc_quantity_name": quantity["name"],
+                    "ifc_unit_ref": quantity["unit_ref"],
+                    "ifc_parser_status": "step_text_fallback",
+                    "measurement_readiness_reason": "IFC quantity requires review before compliance use",
+                },
             )
         )
     return facts
+
+
+def _ifc_quantity_candidates(text: str) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    pattern = re.compile(
+        r"#(?P<entity_id>\d+)\s*=\s*IFCQUANTITY(?P<quantity_type>AREA|LENGTH|VOLUME|COUNT)\((?P<body>.*?)\);",
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    for match in pattern.finditer(text):
+        args = _ifc_split_args(match.group("body"))
+        if len(args) < 4:
+            continue
+        value = _float_or_none(args[3])
+        if value is None:
+            continue
+        quantity_type = match.group("quantity_type").lower()
+        candidates.append(
+            {
+                "entity_id": f"#{match.group('entity_id')}",
+                "quantity_type": quantity_type,
+                "name": _ifc_unquote(args[0]),
+                "unit": _ifc_default_unit(quantity_type),
+                "unit_ref": None if args[2].strip() == "$" else args[2].strip(),
+                "value": value,
+            }
+        )
+    return candidates
+
+
+def _ifc_split_args(body: str) -> list[str]:
+    args: list[str] = []
+    current: list[str] = []
+    quote_open = False
+    depth = 0
+    index = 0
+    while index < len(body):
+        char = body[index]
+        if char == "'":
+            quote_open = not quote_open
+            current.append(char)
+        elif not quote_open and char == "(":
+            depth += 1
+            current.append(char)
+        elif not quote_open and char == ")":
+            depth = max(0, depth - 1)
+            current.append(char)
+        elif not quote_open and depth == 0 and char == ",":
+            args.append("".join(current).strip())
+            current = []
+        else:
+            current.append(char)
+        index += 1
+    args.append("".join(current).strip())
+    return args
+
+
+def _ifc_unquote(value: str) -> str:
+    stripped = value.strip()
+    if len(stripped) >= 2 and stripped[0] == "'" and stripped[-1] == "'":
+        return stripped[1:-1].replace("''", "'")
+    return stripped
+
+
+def _ifc_default_unit(quantity_type: str) -> str:
+    return {
+        "area": "m2",
+        "length": "m",
+        "volume": "m3",
+        "count": "count",
+    }.get(quantity_type, "unknown")
 
 
 def _fact(

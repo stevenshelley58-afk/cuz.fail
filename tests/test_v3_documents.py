@@ -267,6 +267,41 @@ def test_v3_pdf_layout_extractor_records_text_block_bboxes() -> None:
     assert pages[0].text_blocks[0].bbox[3] > pages[0].text_blocks[0].bbox[1]
 
 
+def test_v3_ifc_step_quantities_are_review_gated_with_entity_metadata() -> None:
+    library = InMemoryDocumentLibrary()
+    ifc_text = "\n".join(
+        [
+            "ISO-10303-21;",
+            "DATA;",
+            "#10=IFCQUANTITYAREA('GrossFloorArea',$,$,182.5,$);",
+            "#11=IFCQUANTITYLENGTH('GarageWidth',$,$,5.8,$);",
+            "#12=IFCQUANTITYVOLUME('BuildingVolume',$,$,620.0,$);",
+            "ENDSEC;",
+            "END-ISO-10303-21;",
+        ]
+    )
+
+    result = library.upload(
+        org_id="org-docs",
+        project_id="project-docs",
+        user_id="user-docs",
+        filename="model.ifc",
+        media_type="model/ifc",
+        content=ifc_text.encode(),
+    )
+
+    facts = {fact.metadata["ifc_quantity_name"]: fact for fact in result.facts}
+    assert set(facts) == {"GrossFloorArea", "GarageWidth", "BuildingVolume"}
+    assert facts["GrossFloorArea"].numeric_value == 182.5
+    assert facts["GrossFloorArea"].unit == "m2"
+    assert facts["GarageWidth"].unit == "m"
+    assert facts["BuildingVolume"].unit == "m3"
+    assert facts["GrossFloorArea"].metadata["ifc_entity_id"] == "#10"
+    assert facts["GrossFloorArea"].metadata["ifc_parser_status"] == "step_text_fallback"
+    assert all(fact.review_status == DocumentReviewStatus.PENDING_REVIEW for fact in result.facts)
+    assert all(fact.metadata["measurement_compliance_ready"] is False for fact in result.facts)
+
+
 def test_v3_image_upload_is_review_only_until_calibrated() -> None:
     client = _client()
 
