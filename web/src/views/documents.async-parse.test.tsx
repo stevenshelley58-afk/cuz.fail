@@ -205,3 +205,64 @@ test("uploaded evidence search renders project hits with the advisory notice", a
   expect(screen.getByText("Page 2")).toBeTruthy();
   expect(screen.getByText("Uploaded documents are project evidence, not legal authority.")).toBeTruthy();
 });
+
+test("document upload shows parser failure once the async parser reports failure", async () => {
+  apiMock.documents.listForProject.mockReset();
+  apiMock.documents.listForProject
+    .mockResolvedValueOnce({ kind: "ok", status: 200, data: { items: [], count: 0 } })
+    .mockResolvedValue({
+      kind: "ok",
+      status: 200,
+      data: {
+        items: [
+          {
+            id: "doc-failed",
+            title: "bad-plan.pdf",
+            document_type: "drawing",
+            status: "parse_failed",
+            parse_status: "parse_failed",
+            created_at: "2026-06-12T20:15:00Z",
+            fact_count: 0,
+          },
+        ],
+        count: 1,
+      },
+    });
+  apiMock.documents.upload.mockResolvedValue({
+    kind: "ok",
+    status: 202,
+    data: {
+      document_id: "doc-failed",
+      filename: "bad-plan.pdf",
+      project_id: "project-golden",
+      parse_status: "parse_pending",
+      parse_job: { enqueued: true },
+      fact_count: 0,
+      extracted_facts: [],
+    },
+  });
+  apiMock.documents.facts.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      parse_status: "parse_failed",
+      count: 0,
+      items: [],
+    },
+  });
+
+  const { container } = render(<DocumentUpload projectId="project-golden" />);
+  await waitFor(() => expect(apiMock.documents.listForProject).toHaveBeenCalledWith("project-golden"));
+
+  const input = container.querySelector('input[type="file"]');
+  fireEvent.change(input as HTMLInputElement, {
+    target: {
+      files: [new File(["not a supported drawing"], "bad-plan.pdf")],
+    },
+  });
+
+  await screen.findByText(/parser job is queued or running/i);
+  await waitFor(() => expect(apiMock.documents.facts).toHaveBeenCalledWith("doc-failed"));
+  expect(await screen.findByText(/parser could not extract this document/i)).toBeTruthy();
+  expect(screen.getByText("Parse failed")).toBeTruthy();
+});
