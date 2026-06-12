@@ -1,0 +1,148 @@
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { afterEach, beforeEach, expect, test, vi } from "vitest";
+import { DocumentUpload } from "./documents";
+
+const { apiMock } = vi.hoisted(() => ({
+  apiMock: {
+    documents: {
+      upload: vi.fn(),
+      facts: vi.fn(),
+      listForProject: vi.fn(),
+      searchEvidence: vi.fn(),
+      confirmFact: vi.fn(),
+      calibrateFact: vi.fn(),
+      promoteFact: vi.fn(),
+    },
+  },
+}));
+
+vi.mock("../api", () => ({ api: apiMock }));
+
+type FactsResponse = {
+  kind: "ok";
+  status: 200;
+  data: {
+    parse_status: "parsed";
+    count: number;
+    items: Array<{
+      fact_id: string;
+      fact_key: string;
+      fact_kind: string;
+      numeric_value: number;
+      unit: string;
+      confidence: number;
+      source_text: string;
+      review_status: string;
+      promoted_to_measurement: boolean;
+      metadata: Record<string, string>;
+    }>;
+  };
+};
+
+let resolveFacts: ((response: FactsResponse) => void) | null = null;
+
+function parsedFactsResponse(): FactsResponse {
+  return {
+    kind: "ok",
+    status: 200,
+    data: {
+      parse_status: "parsed",
+      count: 1,
+      items: [
+        {
+          fact_id: "fact-front-setback",
+          fact_key: "front_setback",
+          fact_kind: "drawing_dimension",
+          numeric_value: 6,
+          unit: "m",
+          confidence: 0.92,
+          source_text: "DIMENSION FRONT_SETBACK=6m",
+          review_status: "needs_review",
+          promoted_to_measurement: false,
+          metadata: { calibration_ref: "DXF INSUNITS metres" },
+        },
+      ],
+    },
+  };
+}
+
+beforeEach(() => {
+  vi.clearAllMocks();
+  resolveFacts = null;
+  vi.spyOn(window, "setInterval");
+  apiMock.documents.listForProject
+    .mockResolvedValueOnce({ kind: "ok", status: 200, data: { items: [], count: 0 } })
+    .mockResolvedValue({
+      kind: "ok",
+      status: 200,
+      data: {
+        items: [
+          {
+            id: "doc-async",
+            title: "m1_canary_site_plan_rev_a.dxf",
+            document_type: "drawing",
+            status: "parsed",
+            parse_status: "parsed",
+            created_at: "2026-06-12T20:15:00Z",
+            fact_count: 1,
+          },
+        ],
+        count: 1,
+      },
+    });
+  apiMock.documents.upload.mockResolvedValue({
+    kind: "ok",
+    status: 202,
+    data: {
+      document_id: "doc-async",
+      filename: "m1_canary_site_plan_rev_a.dxf",
+      project_id: "project-golden",
+      parse_status: "parse_pending",
+      parse_job: { enqueued: true },
+      fact_count: 0,
+      extracted_facts: [],
+    },
+  });
+  apiMock.documents.facts.mockImplementation(() => {
+    return new Promise((resolve) => {
+      resolveFacts = resolve;
+    });
+  });
+});
+
+afterEach(() => {
+  cleanup();
+  vi.restoreAllMocks();
+});
+
+test("document upload polls async parser status and loads facts when parsing completes", async () => {
+  const { container } = render(<DocumentUpload projectId="project-golden" />);
+
+  await waitFor(() => expect(apiMock.documents.listForProject).toHaveBeenCalledWith("project-golden"));
+
+  const input = container.querySelector('input[type="file"]');
+  expect(input).toBeTruthy();
+  fireEvent.change(input as HTMLInputElement, {
+    target: {
+      files: [new File(["0\nSECTION\n2\nENTITIES\n0\nENDSEC\n0\nEOF"], "m1_canary_site_plan_rev_a.dxf")],
+    },
+  });
+
+  await screen.findByText(/parser job is queued or running/i);
+  expect(screen.getAllByText("Queued").length).toBeGreaterThan(0);
+  await waitFor(() => expect(apiMock.documents.listForProject).toHaveBeenCalledTimes(2));
+  expect(window.setInterval).toHaveBeenCalledWith(expect.any(Function), 3000);
+  expect(apiMock.documents.upload).toHaveBeenCalledWith(
+    "project-golden",
+    expect.objectContaining({ name: "m1_canary_site_plan_rev_a.dxf" }),
+  );
+
+  await waitFor(() => expect(apiMock.documents.facts).toHaveBeenCalledWith("doc-async"));
+  await act(async () => {
+    resolveFacts?.(parsedFactsResponse());
+  });
+  expect(await screen.findByText(/front setback/i)).toBeTruthy();
+  expect(screen.getByText("6")).toBeTruthy();
+  expect(screen.getByText("m")).toBeTruthy();
+  expect(screen.getByText(/DIMENSION FRONT_SETBACK=6m/i)).toBeTruthy();
+});
