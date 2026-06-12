@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T00:50:42+08:00",
+  "captured_at": "2026-06-13T00:54:44+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -15,7 +15,8 @@
         "src/draftcheck/jobs/documents.py registers draftcheck.documents.parse",
         "src/draftcheck/api/documents.py stores uploads as parse_pending and commits before enqueue",
         "docker-compose.yml and infra/v3/compose.yml align DRAFTCHECK_STORAGE_ROOT and OBJECT_STORAGE_ROOT",
-        "web/src/views/documents.tsx polls both parse_pending and parsing"
+        "web/src/views/documents.tsx polls both parse_pending and parsing",
+        "tests/test_v3_document_parse_jobs.py calls parse_document() through a monkeypatched fresh session factory"
       ],
       "remaining": [
         "Run a live worker-backed upload on the VPS after DB work is idle",
@@ -31,10 +32,12 @@
         "Title-block fields are extracted as review-gated non-measurement metadata facts",
         "Optional IfcOpenShell quantity extraction is used when available and falls back to STEP text parsing",
         "DXF dimension facts carry CAD model/paper-space, layout, and entity evidence into persisted evidence_ref_json",
-        "PDF regex-derived facts carry conservative text-block bbox evidence when source text matches a parsed block"
+        "PDF regex-derived facts carry conservative text-block bbox evidence when source text matches a parsed block",
+        "src/draftcheck/domain/documents/parsers exposes a persistence-free parser protocol, registry, ParsedDocument, and DocumentArtifact descriptors",
+        "DocumentParser routes existing extraction through registry-ordered parser adapters while preserving the legacy parse tuple"
       ],
       "remaining": [
-        "Parser registry/protocol and artifact-row linkage are still open and may need DB coordination"
+        "Artifact-row persistence remains open and needs DB coordination"
       ]
     },
     "c4_document_chunk_embeddings": {
@@ -105,6 +108,7 @@
   },
   "focused_gates": [
     "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py tests/test_document_chunks.py",
+    "uv run pytest tests/test_document_parser_registry.py tests/test_v3_document_parse_jobs.py -q",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py",
     "uv run pytest tests/test_v3_document_parse_jobs.py tests/test_v3_infra_contract.py",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py tests/test_v3_api_shell.py",

@@ -19,6 +19,12 @@ from draftcheck.domain.documents.chunks import (
     build_document_chunks,
     search_document_chunks,
 )
+from draftcheck.domain.documents.parsers import (
+    DocumentArtifact,
+    DocumentContentParser,
+    DocumentParserRegistry,
+    ParsedDocument,
+)
 from draftcheck.domain.sources.models import EmbeddingConfig
 
 
@@ -188,10 +194,126 @@ class DocumentParseError(ValueError):
     """Raised when content cannot be parsed by its declared format."""
 
 
+class _RegisteredContentParser:
+    def __init__(
+        self,
+        *,
+        name: str,
+        version: str,
+        media_types: set[str] | None = None,
+        suffixes: set[str] | None = None,
+        media_prefixes: tuple[str, ...] = (),
+    ) -> None:
+        self.name = name
+        self.version = version
+        self.media_types = media_types or set()
+        self.suffixes = suffixes or set()
+        self.media_prefixes = media_prefixes
+
+    def can_parse(self, media_type: str, filename: str) -> bool:
+        suffix = PurePath(filename).suffix.lower()
+        return (
+            media_type in self.media_types
+            or suffix in self.suffixes
+            or any(media_type.startswith(prefix) for prefix in self.media_prefixes)
+        )
+
+    def parse(
+        self,
+        *,
+        document_id: str,
+        filename: str,
+        media_type: str,
+        content: bytes,
+    ) -> ParsedDocument:
+        text, extraction_notes = _extract_text(media_type, filename, content)
+        pages = _pages(document_id, text, self.name, self.version, extraction_notes)
+        facts = _facts(document_id, text, self.name, media_type)
+        artifacts = _artifacts(
+            parser_name=self.name,
+            media_type=media_type,
+            extraction_notes=extraction_notes,
+            pages=pages,
+            facts=facts,
+        )
+        parse_status = "parsed" if text.strip() or facts else "needs_more_info"
+        metadata = {
+            "extraction_notes": extraction_notes,
+            "measurement_policy": "Measurements are advisory pending automated validation.",
+            "raster_measurement_policy": "Raster/PDF/image measurements are not compliance-ready without calibration.",
+            "artifacts": [artifact.to_dict() for artifact in artifacts],
+        }
+        return ParsedDocument(
+            media_type=media_type,
+            parser_name=self.name,
+            parser_version=self.version,
+            parse_status=parse_status,
+            pages=pages,
+            facts=facts,
+            artifacts=artifacts,
+            metadata=metadata,
+        )
+
+
+class _FallbackTextParser(_RegisteredContentParser):
+    def can_parse(self, media_type: str, filename: str) -> bool:
+        return True
+
+
+def _default_parser_registry(version: str) -> DocumentParserRegistry:
+    parsers: tuple[DocumentContentParser, ...] = (
+        _RegisteredContentParser(
+            name="draftcheck.dxf_text_parser",
+            version=version,
+            media_types=DXF_MEDIA_TYPES,
+            suffixes={".dxf"},
+        ),
+        _RegisteredContentParser(
+            name="draftcheck.pdf_text_parser",
+            version=version,
+            media_types=PDF_MEDIA_TYPES,
+            suffixes={".pdf"},
+        ),
+        _RegisteredContentParser(
+            name="draftcheck.docx_text_parser",
+            version=version,
+            media_types=DOCX_MEDIA_TYPES,
+            suffixes={".docx"},
+        ),
+        _RegisteredContentParser(
+            name="draftcheck.ifc_text_parser",
+            version=version,
+            media_types=IFC_MEDIA_TYPES,
+            suffixes={".ifc"},
+        ),
+        _RegisteredContentParser(
+            name="draftcheck.image_ocr_queue",
+            version=version,
+            media_prefixes=IMAGE_PREFIXES,
+        ),
+        _RegisteredContentParser(
+            name="draftcheck.csv_text_parser",
+            version=version,
+            media_types={"text/csv"},
+            suffixes={".csv"},
+        ),
+        _FallbackTextParser(
+            name="draftcheck.plain_text_parser",
+            version=version,
+            media_types=TEXT_MEDIA_TYPES,
+            suffixes={".txt", ".md", ".json", ".xml"},
+        ),
+    )
+    return DocumentParserRegistry(parsers)
+
+
 class DocumentParser:
     """Extract reviewable document facts without producing compliance verdicts."""
 
     version = "v0.1"
+
+    def __init__(self, registry: DocumentParserRegistry | None = None) -> None:
+        self.registry = registry or _default_parser_registry(self.version)
 
     def capabilities(self) -> tuple[ParserCapability, ...]:
         return (
@@ -212,18 +334,30 @@ class DocumentParser:
         media_type: str,
         content: bytes,
     ) -> tuple[str, str, str, tuple[DocumentPage, ...], tuple[DocumentFact, ...], dict[str, Any]]:
+        parsed = self.parse_document(
+            document_id=document_id,
+            filename=filename,
+            media_type=media_type,
+            content=content,
+        )
+        return parsed.media_type, parsed.parser_name, parsed.parse_status, parsed.pages, parsed.facts, parsed.metadata
+
+    def parse_document(
+        self,
+        *,
+        document_id: str,
+        filename: str,
+        media_type: str,
+        content: bytes,
+    ) -> ParsedDocument:
         normalized_media_type = _normalize_media_type(media_type, filename)
-        parser_name = _parser_name(normalized_media_type, filename)
-        text, extraction_notes = _extract_text(normalized_media_type, filename, content)
-        pages = _pages(document_id, text, parser_name, self.version, extraction_notes)
-        facts = _facts(document_id, text, parser_name, normalized_media_type)
-        parse_status = "parsed" if text.strip() or facts else "needs_more_info"
-        metadata = {
-            "extraction_notes": extraction_notes,
-            "measurement_policy": "Measurements are advisory pending automated validation.",
-            "raster_measurement_policy": "Raster/PDF/image measurements are not compliance-ready without calibration.",
-        }
-        return normalized_media_type, parser_name, parse_status, pages, facts, metadata
+        parser = self.registry.select(media_type=normalized_media_type, filename=filename)
+        return parser.parse(
+            document_id=document_id,
+            filename=filename,
+            media_type=normalized_media_type,
+            content=content,
+        )
 
 
 class InMemoryDocumentLibrary:
@@ -489,6 +623,30 @@ def _extract_text(media_type: str, filename: str, content: bytes) -> tuple[str, 
     if media_type in DXF_MEDIA_TYPES or suffix == ".dxf":
         notes.append("dxf_text_entities_review_required")
     return decoded, notes
+
+
+def _artifacts(
+    *,
+    parser_name: str,
+    media_type: str,
+    extraction_notes: list[str],
+    pages: tuple[DocumentPage, ...],
+    facts: tuple[DocumentFact, ...],
+) -> tuple[DocumentArtifact, ...]:
+    return (
+        DocumentArtifact(
+            kind="parser_output",
+            label=parser_name,
+            media_type=media_type,
+            metadata={
+                "parser_name": parser_name,
+                "extraction_notes": extraction_notes,
+                "page_count": len(pages),
+                "fact_count": len(facts),
+                "persistence_status": "in_memory_descriptor_pending_artifact_rows",
+            },
+        ),
+    )
 
 
 def extract_pdf_page_layouts(content: bytes) -> list[PdfPageExtraction]:

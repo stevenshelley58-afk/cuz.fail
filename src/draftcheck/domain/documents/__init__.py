@@ -9,6 +9,7 @@ from draftcheck.domain.documents.chunks import (
     write_document_chunks,
 )
 from draftcheck.domain.documents.parsing import (
+    DocumentArtifact,
     DocumentFact,
     DocumentNotFoundError,
     DocumentPage,
@@ -22,6 +23,7 @@ from draftcheck.domain.documents.parsing import (
     DocumentReviewStatus,
     InMemoryDocumentLibrary,
     ParserCapability,
+    ParsedDocument,
     decode_text_bytes,
     extract_docx_text,
     extract_pdf_page_layouts,
@@ -31,6 +33,7 @@ from draftcheck.domain.documents.parsing import (
 
 __all__ = [
     "DocumentFact",
+    "DocumentArtifact",
     "DocumentChunk",
     "DocumentChunkSearchHit",
     "DocumentNotFoundError",
@@ -45,6 +48,7 @@ __all__ = [
     "DocumentReviewStatus",
     "InMemoryDocumentLibrary",
     "ParserCapability",
+    "ParsedDocument",
     "build_document_chunks",
     "decode_text_bytes",
     "extract_docx_text",

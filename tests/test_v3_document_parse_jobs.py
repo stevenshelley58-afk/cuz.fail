@@ -28,7 +28,7 @@ from draftcheck.api.documents import (  # noqa: E402
     get_persisted_document_facts,
     search_project_document_evidence,
 )
-from draftcheck.jobs.documents import enqueue_document_parse, parse_document_for_session  # noqa: E402
+from draftcheck.jobs.documents import enqueue_document_parse, parse_document, parse_document_for_session  # noqa: E402
 from draftcheck.domain.documents.chunks import write_document_chunks  # noqa: E402
 
 
@@ -113,6 +113,49 @@ def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, mon
         "site_area_m2",
         "drawing_number",
     } <= {item["fact_key"] for item in payload["items"]}
+
+
+def test_document_parse_task_uses_fresh_session_factory(tmp_path, monkeypatch) -> None:
+    monkeypatch.setenv("DRAFTCHECK_EMBEDDING_PROVIDER", "stub")
+    db = _session()
+    org = Org(id=uuid4(), slug="parse-task", name="Parse Task")
+    user = User(
+        id=uuid4(),
+        org_id=org.id,
+        email="owner@parse-task.test",
+        role=IdentityRole.OWNER,
+        status=UserStatus.ACTIVE,
+    )
+    project = Project(id=uuid4(), org_id=org.id, created_by_user_id=user.id, name="Parse task project")
+    content = b"Lot area: 450 m2\nFront setback: 4.5 m\n"
+    stored = tmp_path / "stored.txt"
+    stored.write_bytes(content)
+    document = Document(
+        id=uuid4(),
+        org_id=org.id,
+        project_id=project.id,
+        uploaded_by_user_id=user.id,
+        title="site-plan.txt",
+        document_type="txt",
+        status="parse_pending",
+        storage_path=str(stored),
+        sha256="6" * 64,
+        media_type="text/plain",
+        size_bytes=len(content),
+        metadata_json={"parse_status": "parse_pending"},
+    )
+    db.add_all([org, user, project, document])
+    db.flush()
+
+    monkeypatch.setattr("draftcheck.jobs.documents.create_session_factory", lambda: lambda: db)
+
+    result = parse_document(str(document.id))
+
+    assert result["parse_status"] == "parsed"
+    assert result["page_count"] == 1
+    assert result["fact_count"] >= 2
+    assert document.status == "parsed"
+    assert db.query(DocumentPage).filter_by(document_id=document.id).count() == 1
 
 
 def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypatch) -> None:
