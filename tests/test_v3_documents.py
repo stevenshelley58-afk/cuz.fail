@@ -23,6 +23,12 @@ def test_v3_document_parser_capabilities_are_live() -> None:
     body = response.json()
     assert body["count"] >= 6
     assert body["accuracy_gate"]["status"] == "not_beta_ready"
+    assert "generated parser fixtures pass" in body["accuracy_gate"]["reason"]
+    assert body["accuracy_gate"]["required_before_beta"] == [
+        "automated review gate connected to persistence",
+        "operator-reviewed real project samples",
+        "no raster measurement without calibration",
+    ]
     assert {item["media_type"] for item in body["items"]} >= {
         "text/plain",
         "application/pdf",
@@ -48,6 +54,28 @@ def test_v3_document_parser_accuracy_reports_canary_sample_pass() -> None:
     assert body["precision"] == 1.0
     assert body["missing"] == []
     assert body["mismatched"] == []
+    assert body["false_positives"] == []
+    assert body["fixture_pack_status"] == "passed"
+    assert body["format_fixture_status"] == "passed"
+    assert body["format_fixture_count"] == 4
+    assert body["format_expected_fact_count"] == 7
+    assert body["format_extracted_fact_count"] == 7
+    assert body["format_matched_fact_count"] == 7
+    assert body["format_recall"] == 1.0
+    assert body["format_precision"] == 1.0
+    assert {fixture["name"] for fixture in body["format_fixtures"]} == {
+        "pdf_text_blocks",
+        "docx_paragraphs",
+        "dxf_dimension_entity",
+        "ifc_step_quantities",
+    }
+    assert all(fixture["status"] == "passed" for fixture in body["format_fixtures"])
+    assert all(fixture["false_positives"] == [] for fixture in body["format_fixtures"])
+    assert body["format_metrics"]["application/pdf"]["recall"] == 1.0
+    assert body["format_metrics"]["model/ifc"]["precision"] == 1.0
+    assert body["field_metrics"]["dxf dimension 1"]["matched"] == 1
+    assert body["field_metrics"]["ifc area quantity 1"]["recall"] == 1.0
+    assert "operator-reviewed real project samples beyond generated PDF/DOCX/DXF/IFC fixtures" in body["blocked_for_beta"]
 
 
 def test_v3_document_upload_extracts_review_gated_text_measurements() -> None:

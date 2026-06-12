@@ -182,11 +182,10 @@ def list_document_parsers() -> dict[str, Any]:
         "count": len(capabilities),
         "accuracy_gate": {
             "status": "not_beta_ready",
-            "reason": "parser coverage and golden eval accuracy gates have not passed",
+            "reason": "generated parser fixtures pass, but beta still needs persistence-connected validation and operator-reviewed real samples",
             "required_before_beta": [
-                "real PDF/DOCX/DXF/IFC fixture set",
-                "per-field precision/recall report",
-                "automated review gate",
+                "automated review gate connected to persistence",
+                "operator-reviewed real project samples",
                 "no raster measurement without calibration",
             ],
         },

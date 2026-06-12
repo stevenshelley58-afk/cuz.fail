@@ -59,6 +59,15 @@ SAMPLE_EXPECTED_FACTS = {
 }
 
 
+@dataclass(frozen=True)
+class _ParserAccuracyFixture:
+    name: str
+    filename: str
+    media_type: str
+    content: bytes
+    expected_facts: dict[str, tuple[float, str]]
+
+
 class DocumentReviewStatus(StrEnum):
     PENDING_REVIEW = "pending_review"
     HUMAN_CONFIRMED = "human_confirmed"
@@ -594,14 +603,60 @@ def sample_parser_accuracy_report() -> dict[str, Any]:
         media_type="text/plain",
         content=SAMPLE_PACK_CONTENT,
     )
+    canary_score = _score_expected_facts(result.facts, SAMPLE_EXPECTED_FACTS)
+    fixture_reports = _parser_fixture_reports()
+    fixture_expected_count = sum(int(report["expected_fact_count"]) for report in fixture_reports)
+    fixture_extracted_count = sum(int(report["extracted_fact_count"]) for report in fixture_reports)
+    fixture_matched_count = sum(int(report["matched_fact_count"]) for report in fixture_reports)
+    fixture_pack_status = "passed" if fixture_expected_count > 0 and fixture_matched_count == fixture_expected_count else "failed"
+    return {
+        "demo_fixture_status": canary_score["status"],
+        "beta_status": "not_beta_ready",
+        "reason": "Deterministic parser fixture coverage is present, but real-project beta still needs persistence-connected validation and operator-reviewed samples.",
+        "expected_fact_count": canary_score["expected_fact_count"],
+        "extracted_fact_count": canary_score["extracted_fact_count"],
+        "matched_fact_count": canary_score["matched_fact_count"],
+        "recall": canary_score["recall"],
+        "precision": canary_score["precision"],
+        "matched": canary_score["matched"],
+        "missing": canary_score["missing"],
+        "mismatched": canary_score["mismatched"],
+        "fixture_pack_status": fixture_pack_status,
+        "format_fixture_status": fixture_pack_status,
+        "format_fixture_count": len(fixture_reports),
+        "format_expected_fact_count": fixture_expected_count,
+        "format_extracted_fact_count": fixture_extracted_count,
+        "format_matched_fact_count": fixture_matched_count,
+        "format_recall": fixture_matched_count / fixture_expected_count if fixture_expected_count else 0.0,
+        "format_precision": fixture_matched_count / fixture_extracted_count if fixture_extracted_count else 0.0,
+        "format_metrics": _aggregate_fixture_metrics(fixture_reports, "media_type"),
+        "field_metrics": _aggregate_fixture_field_metrics(fixture_reports),
+        "false_positives": [
+            {"fixture": report["name"], "label": label}
+            for report in fixture_reports
+            for label in report["false_positives"]
+        ],
+        "format_fixtures": fixture_reports,
+        "blocked_for_beta": [
+            "automated validation workflow connected to persistence",
+            "operator-reviewed real project samples beyond generated PDF/DOCX/DXF/IFC fixtures",
+            "no image/PDF/raster measurement without explicit calibration",
+        ],
+    }
+
+
+def _score_expected_facts(
+    facts: tuple[DocumentFact, ...],
+    expected_facts: dict[str, tuple[float, str]],
+) -> dict[str, Any]:
     extracted = {
         fact.label: {"numeric_value": fact.numeric_value, "unit": fact.unit}
-        for fact in result.facts
+        for fact in facts
     }
     matched: list[str] = []
     missing: list[str] = []
     mismatched: list[dict[str, Any]] = []
-    for label, (expected_value, expected_unit) in SAMPLE_EXPECTED_FACTS.items():
+    for label, (expected_value, expected_unit) in expected_facts.items():
         actual = extracted.get(label)
         if actual is None:
             missing.append(label)
@@ -622,28 +677,211 @@ def sample_parser_accuracy_report() -> dict[str, Any]:
                     "actual": actual,
                 }
             )
-    expected_count = len(SAMPLE_EXPECTED_FACTS)
+    expected_count = len(expected_facts)
     extracted_count = len(extracted)
     matched_count = len(matched)
+    false_positives = sorted(label for label in extracted if label not in expected_facts)
     return {
-        "demo_fixture_status": "passed" if matched_count == expected_count and not mismatched else "failed",
-        "beta_status": "not_beta_ready",
-        "reason": "The canary parser check passed, but real-project beta needs a broader fixture set and automated validation workflow.",
+        "status": "passed" if matched_count == expected_count and not mismatched and not false_positives else "failed",
         "expected_fact_count": expected_count,
         "extracted_fact_count": extracted_count,
         "matched_fact_count": matched_count,
-        "recall": matched_count / expected_count,
+        "recall": matched_count / expected_count if expected_count else 0.0,
         "precision": matched_count / extracted_count if extracted_count else 0.0,
         "matched": matched,
         "missing": missing,
         "mismatched": mismatched,
-        "blocked_for_beta": [
-            "real PDF/DOCX/DXF/IFC fixture pack",
-            "per-field precision/recall report across real samples",
-            "automated validation workflow connected to persistence",
-            "no image/PDF/raster measurement without explicit calibration",
-        ],
+        "false_positives": false_positives,
     }
+
+
+def _parser_fixture_reports() -> list[dict[str, Any]]:
+    library = InMemoryDocumentLibrary()
+    reports: list[dict[str, Any]] = []
+    for fixture in _parser_accuracy_fixtures():
+        result = library.upload(
+            org_id="org_parser_fixtures",
+            project_id="project_parser_fixtures",
+            user_id="system_parser_fixtures",
+            filename=fixture.filename,
+            media_type=fixture.media_type,
+            content=fixture.content,
+        )
+        score = _score_expected_facts(result.facts, fixture.expected_facts)
+        reports.append(
+            {
+                "name": fixture.name,
+                "filename": fixture.filename,
+                "media_type": result.document.media_type,
+                "parser_name": result.document.parser_name,
+                "parse_status": result.document.parse_status,
+                **score,
+            }
+        )
+    return reports
+
+
+def _aggregate_fixture_metrics(
+    fixture_reports: list[dict[str, Any]],
+    key: str,
+) -> dict[str, dict[str, Any]]:
+    metrics: dict[str, dict[str, Any]] = {}
+    for report in fixture_reports:
+        group = str(report[key])
+        item = metrics.setdefault(
+            group,
+            {
+                "expected_fact_count": 0,
+                "extracted_fact_count": 0,
+                "matched_fact_count": 0,
+                "false_positive_count": 0,
+            },
+        )
+        item["expected_fact_count"] += int(report["expected_fact_count"])
+        item["extracted_fact_count"] += int(report["extracted_fact_count"])
+        item["matched_fact_count"] += int(report["matched_fact_count"])
+        item["false_positive_count"] += len(report["false_positives"])
+    for item in metrics.values():
+        expected = int(item["expected_fact_count"])
+        extracted = int(item["extracted_fact_count"])
+        matched = int(item["matched_fact_count"])
+        item["recall"] = matched / expected if expected else 0.0
+        item["precision"] = matched / extracted if extracted else 0.0
+    return metrics
+
+
+def _aggregate_fixture_field_metrics(fixture_reports: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    metrics: dict[str, dict[str, Any]] = {}
+    for report in fixture_reports:
+        for label in [*report["matched"], *report["missing"], *(item["label"] for item in report["mismatched"])]:
+            item = metrics.setdefault(label, {"expected": 0, "matched": 0, "missing": 0, "mismatched": 0})
+            item["expected"] += 1
+        for label in report["matched"]:
+            metrics[label]["matched"] += 1
+        for label in report["missing"]:
+            metrics[label]["missing"] += 1
+        for mismatch in report["mismatched"]:
+            metrics[mismatch["label"]]["mismatched"] += 1
+    for item in metrics.values():
+        expected = int(item["expected"])
+        matched = int(item["matched"])
+        item["recall"] = matched / expected if expected else 0.0
+    return metrics
+
+
+def _parser_accuracy_fixtures() -> tuple[_ParserAccuracyFixture, ...]:
+    return (
+        _ParserAccuracyFixture(
+            name="pdf_text_blocks",
+            filename="fixture-site-plan.pdf",
+            media_type="application/pdf",
+            content=_build_pdf_fixture(),
+            expected_facts={
+                "lot area": (450.0, "m2"),
+                "front setback": (4.5, "m"),
+            },
+        ),
+        _ParserAccuracyFixture(
+            name="docx_paragraphs",
+            filename="fixture-site-plan.docx",
+            media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            content=_build_docx_fixture(),
+            expected_facts={
+                "open space": (180.0, "m2"),
+                "garage width": (5.4, "m"),
+            },
+        ),
+        _ParserAccuracyFixture(
+            name="dxf_dimension_entity",
+            filename="fixture-site-plan.dxf",
+            media_type="application/dxf",
+            content=_build_dxf_fixture(),
+            expected_facts={
+                "dxf dimension 1": (4.5, "m"),
+            },
+        ),
+        _ParserAccuracyFixture(
+            name="ifc_step_quantities",
+            filename="fixture-model.ifc",
+            media_type="model/ifc",
+            content=_build_ifc_fixture(),
+            expected_facts={
+                "ifc area quantity 1": (182.5, "m2"),
+                "ifc length quantity 2": (5.8, "m"),
+            },
+        ),
+    )
+
+
+def _build_pdf_fixture() -> bytes:
+    import fitz
+
+    pdf = fitz.open()
+    try:
+        page = pdf.new_page(width=360, height=240)
+        page.insert_text((36, 72), "Lot area: 450 m2")
+        page.insert_text((36, 96), "Front setback: 4.5 m")
+        return bytes(pdf.tobytes())
+    finally:
+        pdf.close()
+
+
+def _build_docx_fixture() -> bytes:
+    from docx import Document
+
+    document = Document()
+    document.add_paragraph("Open space: 180 m2")
+    document.add_paragraph("Garage width: 5.4 m")
+    output = io.BytesIO()
+    document.save(output)
+    return output.getvalue()
+
+
+def _build_dxf_fixture() -> bytes:
+    lines = [
+        "0",
+        "SECTION",
+        "2",
+        "HEADER",
+        "9",
+        "$INSUNITS",
+        "70",
+        "6",
+        "0",
+        "ENDSEC",
+        "0",
+        "SECTION",
+        "2",
+        "ENTITIES",
+        "0",
+        "DIMENSION",
+        "5",
+        "ABCD",
+        "8",
+        "A-DIMENSIONS",
+        "42",
+        "4.5",
+        "0",
+        "ENDSEC",
+        "0",
+        "EOF",
+    ]
+    return "\n".join(lines).encode("utf-8")
+
+
+def _build_ifc_fixture() -> bytes:
+    lines = [
+        "ISO-10303-21;",
+        "DATA;",
+        "#1=IFCSPACE('space-guid',$,'Garage',$,$,$,$,'Garage bay',$,$,$);",
+        "#10=IFCQUANTITYAREA('GrossFloorArea',$,$,182.5,$);",
+        "#11=IFCQUANTITYLENGTH('GarageWidth',$,$,5.8,$);",
+        "#20=IFCELEMENTQUANTITY('qset-guid',$,'BaseQuantities',$,$,(#10,#11));",
+        "#30=IFCRELDEFINESBYPROPERTIES('rel-guid',$,$,$,(#1),#20);",
+        "ENDSEC;",
+        "END-ISO-10303-21;",
+    ]
+    return "\n".join(lines).encode("utf-8")
 
 
 def _normalize_media_type(media_type: str, filename: str) -> str:
