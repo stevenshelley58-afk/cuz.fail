@@ -132,19 +132,17 @@ Cap journald storage on the VPS:
 ssh draftcheck 'sudo install -d /etc/systemd/journald.conf.d && sudo install -m 0644 /srv/draftcheck/app/infra/v3/ops/journald-draftcheck.conf /etc/systemd/journald.conf.d/draftcheck.conf && sudo systemctl restart systemd-journald'
 ```
 
-If Docker uses `json-file` logging, add daemon-level rotation outside this repo:
+If Docker uses `json-file` logging, install the checked daemon-level rotation config:
 
-```json
-{
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "50m",
-    "max-file": "5"
-  }
-}
+```powershell
+ssh draftcheck 'sudo install -m 0644 /srv/draftcheck/app/infra/v3/ops/docker-daemon-log-rotation.json /etc/docker/daemon.json && sudo systemctl restart docker'
 ```
 
-Then restart Docker during a maintenance window.
+This restarts Docker, so run it during a maintenance window and verify the stack after:
+
+```powershell
+ssh draftcheck 'cd /srv/draftcheck/app/infra/v3 && sudo docker compose ps'
+```
 
 ## 7. Spend persistence restart check
 

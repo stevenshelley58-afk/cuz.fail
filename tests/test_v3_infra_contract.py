@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import yaml
@@ -14,6 +15,8 @@ BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
 OPS_RUNBOOK_PATH = ROOT / "docs" / "ops" / "ops-guardrails.md"
 WEB_ONLY_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy-web-only.sh"
+JOURNALD_RETENTION_PATH = ROOT / "infra" / "v3" / "ops" / "journald-draftcheck.conf"
+DOCKER_LOG_ROTATION_PATH = ROOT / "infra" / "v3" / "ops" / "docker-daemon-log-rotation.json"
 
 
 def _active_caddy_text() -> str:
@@ -113,3 +116,25 @@ def test_v3_web_only_deploy_is_guarded_and_never_touches_db_or_containers():
         "create_all",
     ):
         assert forbidden not in lowered
+
+
+def test_v3_log_retention_configs_cap_journald_and_docker_json_logs():
+    journald = JOURNALD_RETENTION_PATH.read_text(encoding="utf-8")
+    docker_logs = json.loads(DOCKER_LOG_ROTATION_PATH.read_text(encoding="utf-8"))
+    runbook = OPS_RUNBOOK_PATH.read_text(encoding="utf-8")
+
+    assert "[Journal]" in journald
+    assert "SystemMaxUse=1G" in journald
+    assert "SystemKeepFree=2G" in journald
+    assert "MaxRetentionSec=14day" in journald
+
+    assert docker_logs == {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "50m",
+            "max-file": "5",
+        },
+    }
+
+    assert "journald-draftcheck.conf" in runbook
+    assert "docker-daemon-log-rotation.json" in runbook
