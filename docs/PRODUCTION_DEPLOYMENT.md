@@ -2,8 +2,8 @@
 
 Date: 2026-06-10 (updated — Vercel retired, VPS is sole production target)
 
-This is the operator guide for the live VPS deployment at `lotfile.app` and
-`api.cuz.fail`. It is written for Codex/PowerShell on Steven's Windows machine and the
+This is the operator guide for the live VPS deployment at `lotfile.app`. It is
+written for Codex/PowerShell on Steven's Windows machine and the
 VPS `srv1625369`. Vercel is retired — do not deploy there.
 
 ## Authority
@@ -69,13 +69,13 @@ srv1625369
 ## Current Production Shape
 
 - Web URL: `https://lotfile.app/`
-- API URL: `https://api.cuz.fail/api/v1`
+- API URL: `https://lotfile.app/api/v1`
 - VPS host: `srv1625369`
 - VPS IP: `76.13.209.160`
 - Repo checkout: `/srv/draftcheck/app`
 - Live static root: `/srv/draftcheck/app/web/dist`
 - UI deploy: `infra/v3/deploy-web-only.sh`; no Vercel, no container restart.
-- API health check: `https://api.cuz.fail/api/v1/health`
+- API health check: `https://lotfile.app/api/v1/health`
 - Vercel: RETIRED
 
 ## UI-Only Deploy From Main
@@ -97,14 +97,17 @@ curl.exe -s https://lotfile.app/ |
   Select-String -Pattern '<title>[^<]*</title>' -AllMatches |
   ForEach-Object { $_.Matches.Value }
 
-curl.exe -s -w "`nHTTP_STATUS=%{http_code}`n" https://api.cuz.fail/api/v1/health
+curl.exe -s -w "`nHTTP_STATUS=%{http_code}`n" https://lotfile.app/api/v1/health
+curl.exe -s -w "`nHTTP_STATUS=%{http_code}`n" https://lotfile.app/api/v1/ready
 ```
 
 Expected:
 
 ```text
 <title>LotFile - WA R-Code & Planning Compliance Checker</title>
-{"status":"ok","service":"draftcheck-api","version":"0.1.0"}
+{"status":"ok","db":"ok"}
+HTTP_STATUS=200
+{"status":"ok","service":"draftcheck-api",...}
 HTTP_STATUS=200
 ```
 

@@ -94,7 +94,7 @@ jobs:
         run: |
           ok=""
           for i in $(seq 1 18); do
-            ready="$(curl -fsS https://api.cuz.fail/api/v1/ready || true)"
+            ready="$(curl -fsS https://lotfile.app/api/v1/ready || true)"
             echo "attempt $i: $ready"
             if printf '%s' "$ready" | grep -q '"status":"ok"'; then ok=1; break; fi
             sleep 5
@@ -103,6 +103,6 @@ jobs:
             echo "::error title=Readiness check failed::/api/v1/ready did not report ok after deploy"
             exit 1
           fi
-          curl -fsS https://api.cuz.fail/api/v1/health
+          curl -fsS https://lotfile.app/api/v1/health
           echo
           echo "verified live"

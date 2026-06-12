@@ -272,6 +272,19 @@ def test_v3_deploy_workflow_separates_ssh_connectivity_from_remote_script_failur
     assert "all SSH attempts timed out" not in workflow_text
 
 
+def test_v3_deploy_workflow_verifies_lotfile_same_origin_api():
+    workflow_text = DEPLOY_WORKFLOW_PATH.read_text(encoding="utf-8")
+    workflow = yaml.safe_load(workflow_text)
+    deploy_steps = workflow["jobs"]["deploy"]["steps"]
+    verify_step = next(step for step in deploy_steps if step.get("name") == "Verify live (/ready then /health)")
+    run_script = verify_step["run"]
+
+    assert "https://lotfile.app/api/v1/ready" in run_script
+    assert "https://lotfile.app/api/v1/health" in run_script
+    assert "https://api.cuz.fail/api/v1/ready" not in workflow_text
+    assert "https://api.cuz.fail/api/v1/health" not in workflow_text
+
+
 def test_v3_ci_runs_launch_action_behavior_test():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
     web_steps = workflow["jobs"]["web"]["steps"]
