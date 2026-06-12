@@ -72,7 +72,7 @@ case "$lower_checkout" in
     ;;
 esac
 
-(cd web && npm ci --include=dev && npm run build && node scripts/verify-launch.mjs --strict)
+(cd web && npm ci --include=dev && npm run verify:launch:mobile && npm run build && node scripts/verify-launch.mjs --strict)
 
 grep -R -I -F "$VITE_CHECKOUT_URL" web/dist/assets >/dev/null
 if grep -R -I -E 'example\.invalid|placeholder|change[_-]?me|TODO|buy\.stripe\.com/test_' web/dist >/dev/null; then

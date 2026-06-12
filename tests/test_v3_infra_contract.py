@@ -146,6 +146,7 @@ def test_v3_web_only_deploy_is_guarded_and_never_touches_db_or_containers():
         "change_me",
         "todo",
         "npm ci --include=dev",
+        "npm run verify:launch:mobile",
         "npm run build",
         "verify-launch.mjs --strict",
         "mktemp -d",
