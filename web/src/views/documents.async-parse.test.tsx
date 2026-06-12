@@ -18,36 +18,60 @@ const { apiMock } = vi.hoisted(() => ({
 
 vi.mock("../api", () => ({ api: apiMock }));
 
-let pollDocuments: (() => void) | null = null;
+type FactsResponse = {
+  kind: "ok";
+  status: 200;
+  data: {
+    parse_status: "parsed";
+    count: number;
+    items: Array<{
+      fact_id: string;
+      fact_key: string;
+      fact_kind: string;
+      numeric_value: number;
+      unit: string;
+      confidence: number;
+      source_text: string;
+      review_status: string;
+      promoted_to_measurement: boolean;
+      metadata: Record<string, string>;
+    }>;
+  };
+};
+
+let resolveFacts: ((response: FactsResponse) => void) | null = null;
+
+function parsedFactsResponse(): FactsResponse {
+  return {
+    kind: "ok",
+    status: 200,
+    data: {
+      parse_status: "parsed",
+      count: 1,
+      items: [
+        {
+          fact_id: "fact-front-setback",
+          fact_key: "front_setback",
+          fact_kind: "drawing_dimension",
+          numeric_value: 6,
+          unit: "m",
+          confidence: 0.92,
+          source_text: "DIMENSION FRONT_SETBACK=6m",
+          review_status: "needs_review",
+          promoted_to_measurement: false,
+          metadata: { calibration_ref: "DXF INSUNITS metres" },
+        },
+      ],
+    },
+  };
+}
 
 beforeEach(() => {
   vi.clearAllMocks();
-  pollDocuments = null;
-  vi.spyOn(window, "setInterval").mockImplementation(((handler: TimerHandler) => {
-    if (typeof handler === "function") pollDocuments = handler as () => void;
-    return 1;
-  }) as unknown as typeof window.setInterval);
-  vi.spyOn(window, "clearInterval").mockImplementation(() => undefined);
+  resolveFacts = null;
+  vi.spyOn(window, "setInterval");
   apiMock.documents.listForProject
     .mockResolvedValueOnce({ kind: "ok", status: 200, data: { items: [], count: 0 } })
-    .mockResolvedValueOnce({
-      kind: "ok",
-      status: 200,
-      data: {
-        items: [
-          {
-            id: "doc-async",
-            title: "m1_canary_site_plan_rev_a.dxf",
-            document_type: "drawing",
-            status: "parse_pending",
-            parse_status: "parse_pending",
-            created_at: "2026-06-12T20:15:00Z",
-            fact_count: 0,
-          },
-        ],
-        count: 1,
-      },
-    })
     .mockResolvedValue({
       kind: "ok",
       status: 200,
@@ -79,27 +103,10 @@ beforeEach(() => {
       extracted_facts: [],
     },
   });
-  apiMock.documents.facts.mockResolvedValue({
-    kind: "ok",
-    status: 200,
-    data: {
-      parse_status: "parsed",
-      count: 1,
-      items: [
-        {
-          fact_id: "fact-front-setback",
-          fact_key: "front_setback",
-          fact_kind: "drawing_dimension",
-          numeric_value: 6,
-          unit: "m",
-          confidence: 0.92,
-          source_text: "DIMENSION FRONT_SETBACK=6m",
-          review_status: "needs_review",
-          promoted_to_measurement: false,
-          metadata: { calibration_ref: "DXF INSUNITS metres" },
-        },
-      ],
-    },
+  apiMock.documents.facts.mockImplementation(() => {
+    return new Promise((resolve) => {
+      resolveFacts = resolve;
+    });
   });
 });
 
@@ -123,18 +130,17 @@ test("document upload polls async parser status and loads facts when parsing com
 
   await screen.findByText(/parser job is queued or running/i);
   expect(screen.getAllByText("Queued").length).toBeGreaterThan(0);
+  await waitFor(() => expect(apiMock.documents.listForProject).toHaveBeenCalledTimes(2));
+  expect(window.setInterval).toHaveBeenCalledWith(expect.any(Function), 3000);
   expect(apiMock.documents.upload).toHaveBeenCalledWith(
     "project-golden",
     expect.objectContaining({ name: "m1_canary_site_plan_rev_a.dxf" }),
   );
 
-  expect(pollDocuments).toBeTruthy();
-  await act(async () => {
-    pollDocuments?.();
-    await Promise.resolve();
-  });
-
   await waitFor(() => expect(apiMock.documents.facts).toHaveBeenCalledWith("doc-async"));
+  await act(async () => {
+    resolveFacts?.(parsedFactsResponse());
+  });
   expect(await screen.findByText(/front setback/i)).toBeTruthy();
   expect(screen.getByText("6")).toBeTruthy();
   expect(screen.getByText("m")).toBeTruthy();
