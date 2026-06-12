@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-12T16:50:42.964919+00:00",
+  "captured_at": "2026-06-12T17:34:59.736738+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
@@ -25,6 +25,7 @@
       "restore_drill_log": "no docs/ops/restore-drill-YYYYMMDD.md log found on the VPS checkout",
       "guardrail_cron": "CRON_GUARDRAILS_MISSING",
       "ops_guardrail_script": "OPS_GUARDRAILS_MISSING",
+      "sentry_dsn": "SENTRY_DSN_MISSING",
       "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
       "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs"
     },
@@ -34,6 +35,7 @@
       "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
       "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
       "Install /etc/cron.d/draftcheck-guardrails using docs/ops/ops-guardrails.md after the latest scripts are deployed.",
+      "Set SENTRY_DSN in /srv/draftcheck/app/infra/v3/.env, restart api worker hermes, then run sentry-config from docs/ops/ops-guardrails.md.",
       "Install log retention during a maintenance window with the commands in docs/ops/ops-guardrails.md section 6."
     ]
   }

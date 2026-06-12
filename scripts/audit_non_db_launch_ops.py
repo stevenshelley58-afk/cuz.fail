@@ -118,6 +118,7 @@ def parse_vps_state(output: str) -> dict[str, str]:
     checkout_line = next((line for line in lines if line.startswith("VITE_CHECKOUT_URL=")), "")
     checkout_value = checkout_line.split("=", 1)[1] if checkout_line else ""
     timer_lines = [line for line in lines if "timers listed" in line]
+    sentry_lines = [line for line in lines if line.startswith("SENTRY_DSN_")]
     return {
         "vps_checkout_env": checkout_value or "VITE_CHECKOUT_URL_MISSING",
         "backup_env": "BACKUP_ENV_PRESENT" if "BACKUP_ENV_PRESENT" in lines else "BACKUP_ENV_MISSING",
@@ -127,6 +128,7 @@ def parse_vps_state(output: str) -> dict[str, str]:
         "backup_timer": timer_lines[0] if timer_lines else "draftcheck-backup.timer status unknown",
         "guardrail_cron": "CRON_GUARDRAILS_PRESENT" if "CRON_GUARDRAILS_PRESENT" in lines else "CRON_GUARDRAILS_MISSING",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT" if "OPS_GUARDRAILS_PRESENT" in lines else "OPS_GUARDRAILS_MISSING",
+        "sentry_dsn": sentry_lines[-1] if sentry_lines else "SENTRY_DSN_MISSING",
     }
 
 
@@ -144,6 +146,12 @@ fi
 test -f /etc/cron.d/draftcheck-guardrails && echo CRON_GUARDRAILS_PRESENT || echo CRON_GUARDRAILS_MISSING
 systemctl list-timers --all draftcheck-backup.timer --no-pager 2>/dev/null || true
 test -f /srv/draftcheck/app/scripts/ops_guardrails.py && echo OPS_GUARDRAILS_PRESENT || echo OPS_GUARDRAILS_MISSING
+if test -f /srv/draftcheck/app/infra/v3/.env && grep -q '^SENTRY_DSN=' /srv/draftcheck/app/infra/v3/.env; then
+  sentry_dsn="$(grep -E '^SENTRY_DSN=' /srv/draftcheck/app/infra/v3/.env | tail -n 1 | cut -d= -f2-)"
+  test -n "$sentry_dsn" && echo SENTRY_DSN_PRESENT || echo SENTRY_DSN_EMPTY
+else
+  echo SENTRY_DSN_MISSING
+fi
 """
     result = subprocess.run(
         ["ssh", host, remote],
@@ -160,6 +168,7 @@ test -f /srv/draftcheck/app/scripts/ops_guardrails.py && echo OPS_GUARDRAILS_PRE
             "backup_timer": result.stderr.strip() or "SSH_CHECK_FAILED",
             "guardrail_cron": "SSH_CHECK_FAILED",
             "ops_guardrail_script": "SSH_CHECK_FAILED",
+            "sentry_dsn": "SSH_CHECK_FAILED",
         }
     return parse_vps_state(result.stdout)
 
@@ -190,6 +199,7 @@ def build_report(origin: str, vps_state: dict[str, str], pages: dict[str, FetchR
                 "restore_drill_log": "no docs/ops/restore-drill-YYYYMMDD.md log found on the VPS checkout",
                 "guardrail_cron": vps_state["guardrail_cron"],
                 "ops_guardrail_script": vps_state["ops_guardrail_script"],
+                "sentry_dsn": vps_state["sentry_dsn"],
                 "uptime_targets": assess_api_targets(origin, api),
                 "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs",
             },
@@ -199,6 +209,7 @@ def build_report(origin: str, vps_state: dict[str, str], pages: dict[str, FetchR
                 "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
                 "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
                 "Install /etc/cron.d/draftcheck-guardrails using docs/ops/ops-guardrails.md after the latest scripts are deployed.",
+                "Set SENTRY_DSN in /srv/draftcheck/app/infra/v3/.env, restart api worker hermes, then run sentry-config from docs/ops/ops-guardrails.md.",
                 "Install log retention during a maintenance window with the commands in docs/ops/ops-guardrails.md section 6.",
             ],
         },
@@ -238,6 +249,7 @@ def main() -> int:
             "backup_timer": "SSH_SKIPPED",
             "guardrail_cron": "SSH_SKIPPED",
             "ops_guardrail_script": "SSH_SKIPPED",
+            "sentry_dsn": "SSH_SKIPPED",
         }
         if args.skip_ssh
         else collect_vps_state(args.ssh_host)
