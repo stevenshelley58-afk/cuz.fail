@@ -171,6 +171,8 @@ a{color:var(--green)}
 .pill.dim{background:#EFF1F1;color:var(--ink-soft)}
 .statusbar{flex:none;width:100%;max-width:min(760px,100%);display:flex;gap:8px;align-items:center;padding:8px 0 14px;font-size:.7rem;color:var(--ink-faint)}
 .statusbar .grow{flex:1}
+.statusbar a{color:var(--ink-faint);font-weight:700;text-decoration:none}
+.statusbar a:hover{color:var(--green-800);text-decoration:underline}
 
 /* boot splash (while session resolves) */
 .boot{height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:var(--paper)}

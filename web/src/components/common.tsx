@@ -108,6 +108,8 @@ export function StatusBar() {
       {pill("api", health)}
       {pill("ready", ready)}
       <span className="grow" />
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
       <span>LotFile · /api/v1{version ? ` · v${version}` : ""} · advisory only — cited to approved sources, not a certification</span>
     </div>
   );

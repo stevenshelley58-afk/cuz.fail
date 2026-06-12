@@ -93,6 +93,11 @@ for (const label of ['aria-label="Username"', 'aria-label="Password"', 'aria-lab
   assertIncludes(modalSource, label, "Sign-in accessible label");
 }
 
+const commonSource = read(join(src, "components", "common.tsx"));
+for (const commonNeedle of ['href="/privacy"', 'href="/terms"', "not a certification"]) {
+  assertIncludes(commonSource, commonNeedle, "StatusBar launch/legal links");
+}
+
 const configSource = read(join(src, "config.ts"));
 for (const configNeedle of ["VITE_CHECKOUT_URL", "AUD $29/month", "Starter launch plan"]) {
   assertIncludes(configSource, configNeedle, "Pricing config");
