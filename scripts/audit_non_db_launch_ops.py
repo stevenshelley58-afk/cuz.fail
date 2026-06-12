@@ -6,6 +6,7 @@ import argparse
 from dataclasses import dataclass
 from datetime import UTC, datetime
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -143,6 +144,88 @@ def assess_live_launch(origin: str, pages: dict[str, FetchResult], bundle_text: 
             "live_index_title": _title_of(pages.get("/", FetchResult(status=0, text="")).text),
             "live_verifier": "passed" if not missing else "failed: " + "; ".join(missing[:12]),
             "missing_count": len(missing),
+        },
+    }
+
+
+def _bounded_strings(values: Any, *, limit: int = 20, max_length: int = 500) -> list[str]:
+    if not isinstance(values, list):
+        return []
+    return [str(value)[:max_length] for value in values[:limit]]
+
+
+def _live_launch_json_schema_failures(origin: str, verifier_result: dict[str, Any]) -> list[str]:
+    failures: list[str] = []
+    evidence = verifier_result.get("evidence")
+    if verifier_result.get("status") != "passed":
+        failures.append(f"verifier status was {verifier_result.get('status')!r}")
+    if not isinstance(evidence, dict):
+        return [*failures, "verifier evidence missing or malformed"]
+
+    if evidence.get("origin") != origin:
+        failures.append(f"verifier origin was {evidence.get('origin')!r}")
+    if evidence.get("strict") is not True:
+        failures.append("verifier strict evidence was not true")
+    if evidence.get("checkout_checked") is not True:
+        failures.append("verifier checkout_checked evidence was not true")
+
+    routes = evidence.get("routes")
+    if not isinstance(routes, dict):
+        failures.append("verifier route evidence missing or malformed")
+    else:
+        for route in LAUNCH_ROUTES:
+            route_evidence = routes.get(route)
+            if not isinstance(route_evidence, dict):
+                failures.append(f"verifier route evidence missing for {route}")
+            elif route_evidence.get("status") != 200:
+                failures.append(f"verifier route {route} status was {route_evidence.get('status')!r}")
+
+    api = evidence.get("api")
+    if not isinstance(api, dict):
+        failures.append("verifier API evidence missing or malformed")
+    else:
+        for route in API_ROUTES:
+            route_evidence = api.get(route)
+            if not isinstance(route_evidence, dict):
+                failures.append(f"verifier API evidence missing for {route}")
+                continue
+            if route_evidence.get("status") != 200:
+                failures.append(f"verifier API {route} status was {route_evidence.get('status')!r}")
+            if route_evidence.get("service_status") != "ok":
+                failures.append(
+                    f"verifier API {route} service_status was {route_evidence.get('service_status')!r}"
+                )
+
+    return failures
+
+
+def assess_live_launch_json(origin: str, verifier_result: dict[str, Any]) -> dict[str, Any]:
+    schema_failures = _live_launch_json_schema_failures(origin, verifier_result)
+    verifier_failures = _bounded_strings(verifier_result.get("failures"))
+    all_failures = [*schema_failures, *verifier_failures]
+    evidence = verifier_result.get("evidence") if isinstance(verifier_result.get("evidence"), dict) else {}
+    status = "verified" if not all_failures else "blocked"
+    return {
+        "status": status,
+        "evidence": {
+            "live_origin": origin,
+            "live_index_title": "verified by web/scripts/verify-live-launch.mjs --strict --json",
+            "live_verifier": "passed" if not all_failures else "failed: " + "; ".join(all_failures[:12]),
+            "missing_count": len(all_failures),
+            "live_verifier_json_status": verifier_result.get("status", "unknown"),
+            "live_verifier_evidence": {
+                "origin": evidence.get("origin"),
+                "strict": evidence.get("strict"),
+                "checkout_checked": evidence.get("checkout_checked"),
+                "routes": evidence.get("routes") if isinstance(evidence.get("routes"), dict) else {},
+                "public_assets": evidence.get("public_assets")
+                if isinstance(evidence.get("public_assets"), dict)
+                else {},
+                "api": evidence.get("api") if isinstance(evidence.get("api"), dict) else {},
+                "bundles": evidence.get("bundles") if isinstance(evidence.get("bundles"), list) else [],
+            },
+            "live_verifier_warnings": _bounded_strings(verifier_result.get("warnings")),
+            "live_verifier_failures": all_failures[:20],
         },
     }
 
@@ -340,6 +423,18 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
             failures.append("launch_surface.status verified but missing_count is non-zero")
         if not _checkout_env_verified(str(launch_evidence.get("vps_checkout_env", ""))):
             failures.append("launch_surface.status verified without a buy.stripe.com checkout URL")
+        if _bounded_strings(launch_evidence.get("live_verifier_failures")):
+            failures.append("launch_surface.status verified with live_verifier_failures present")
+        verifier_evidence = launch_evidence.get("live_verifier_evidence")
+        verifier_result = {
+            "status": launch_evidence.get("live_verifier_json_status"),
+            "evidence": verifier_evidence,
+            "warnings": launch_evidence.get("live_verifier_warnings", []),
+            "failures": launch_evidence.get("live_verifier_failures", []),
+        }
+        origin = str(launch_evidence.get("live_origin", ""))
+        for failure in _live_launch_json_schema_failures(origin, verifier_result):
+            failures.append(f"launch_surface.status verified without strict JSON verifier evidence: {failure}")
 
     if not missing_ops_keys:
         status_evidence = {
@@ -490,6 +585,85 @@ fi
     return parse_vps_state(result.stdout)
 
 
+def run_live_launch_verifier(
+    origin: str,
+    checkout_env: str,
+    *,
+    web_dir: Path = Path("web"),
+    timeout_seconds: int = 60,
+) -> dict[str, Any]:
+    env = dict(os.environ)
+    env["LAUNCH_ORIGIN"] = origin
+    if _checkout_env_verified(checkout_env):
+        env["LIVE_CHECKOUT_URL"] = checkout_env
+    else:
+        env.pop("LIVE_CHECKOUT_URL", None)
+        env.pop("VITE_CHECKOUT_URL", None)
+
+    try:
+        result = subprocess.run(
+            ["node", "scripts/verify-live-launch.mjs", "--json", "--strict"],
+            cwd=web_dir,
+            env=env,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=timeout_seconds,
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        return {
+            "status": "failed",
+            "evidence": {
+                "origin": origin,
+                "strict": True,
+                "checkout_checked": _checkout_env_verified(checkout_env),
+                "routes": {},
+                "api": {},
+            },
+            "warnings": [],
+            "failures": [f"live launch JSON verifier could not run: {exc}"],
+        }
+
+    try:
+        parsed = json.loads(result.stdout)
+    except json.JSONDecodeError as exc:
+        return {
+            "status": "failed",
+            "evidence": {
+                "origin": origin,
+                "strict": True,
+                "checkout_checked": _checkout_env_verified(checkout_env),
+                "routes": {},
+                "api": {},
+            },
+            "warnings": [],
+            "failures": [
+                f"live launch JSON verifier returned malformed JSON: {exc}",
+                result.stderr[-500:],
+            ],
+        }
+    if not isinstance(parsed, dict):
+        return {
+            "status": "failed",
+            "evidence": {
+                "origin": origin,
+                "strict": True,
+                "checkout_checked": _checkout_env_verified(checkout_env),
+                "routes": {},
+                "api": {},
+            },
+            "warnings": [],
+            "failures": ["live launch JSON verifier returned a non-object payload"],
+        }
+    if result.returncode != 0 and parsed.get("status") != "failed":
+        parsed["status"] = "failed"
+        parsed["failures"] = [
+            *_bounded_strings(parsed.get("failures")),
+            f"live launch JSON verifier exited {result.returncode}",
+        ]
+    return parsed
+
+
 def build_report(
     origin: str,
     vps_state: dict[str, str],
@@ -499,8 +673,13 @@ def build_report(
     *,
     uptime_monitor_doc: str,
     restore_drill_log: str = "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
+    live_launch_json: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    launch = assess_live_launch(origin, pages, bundle_text)
+    launch = (
+        assess_live_launch_json(origin, live_launch_json)
+        if live_launch_json is not None
+        else assess_live_launch(origin, pages, bundle_text)
+    )
     launch["evidence"]["vps_checkout_env"] = vps_state["vps_checkout_env"]
     launch["status"] = assess_launch_status(launch, vps_state["vps_checkout_env"])
 
@@ -573,8 +752,6 @@ def main() -> int:
         return 0 if verification["status"] == "ok" else 2
 
     origin = args.origin.rstrip("/")
-    pages, bundle_text = collect_live_pages(origin)
-    api = collect_api(origin)
     vps_state = (
         {
             "vps_checkout_env": "SSH_SKIPPED",
@@ -593,6 +770,9 @@ def main() -> int:
         if args.skip_ssh
         else collect_vps_state(args.ssh_host)
     )
+    pages, bundle_text = collect_live_pages(origin)
+    api = collect_api(origin)
+    live_launch_json = run_live_launch_verifier(origin, vps_state["vps_checkout_env"])
     report = build_report(
         origin,
         vps_state,
@@ -601,10 +781,11 @@ def main() -> int:
         bundle_text,
         uptime_monitor_doc=assess_uptime_monitor_doc(Path(args.uptime_monitor_doc)),
         restore_drill_log=assess_restore_drill_log(Path(args.ops_doc_dir)),
+        live_launch_json=live_launch_json,
     )
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    output.write_bytes((json.dumps(report, indent=2) + "\n").encode("utf-8"))
     print(json.dumps(report, sort_keys=True))
     return 0
 

@@ -7,12 +7,14 @@ from scripts.audit_non_db_launch_ops import (
     FetchResult,
     UPTIME_TARGETS_OK,
     assess_live_launch,
+    assess_live_launch_json,
     assess_ops_guardrails_status,
     assess_restore_drill_log,
     assess_uptime_monitor_doc,
     build_report,
     main,
     parse_vps_state,
+    run_live_launch_verifier,
     validate_audit_report,
     validate_ops_runbook,
     validate_restore_drill_template,
@@ -21,6 +23,36 @@ from scripts.audit_non_db_launch_ops import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _passed_live_launch_json(origin: str = "https://lotfile.app") -> dict[str, object]:
+    return {
+        "status": "passed",
+        "evidence": {
+            "origin": origin,
+            "strict": True,
+            "checkout_checked": True,
+            "routes": {
+                "/": {"status": 200},
+                "/privacy": {"status": 200},
+                "/terms": {"status": 200},
+                "/app": {"status": 200},
+            },
+            "public_assets": {
+                "/robots.txt": {"status": 200},
+                "/sitemap.xml": {"status": 200},
+                "/favicon.svg": {"status": 200},
+                "/og-image.svg": {"status": 200},
+            },
+            "api": {
+                "/api/v1/health": {"status": 200, "service_status": "ok"},
+                "/api/v1/ready": {"status": 200, "service_status": "ok"},
+            },
+            "bundles": [{"path": "/assets/index.js", "status": 200}],
+        },
+        "warnings": [],
+        "failures": [],
+    }
 
 
 def test_parse_vps_state_extracts_missing_ops_state() -> None:
@@ -97,6 +129,72 @@ def test_assess_live_launch_reports_bundle_and_page_gaps() -> None:
     assert result["evidence"]["missing_count"] > 0
 
 
+def test_assess_live_launch_json_verifies_strict_passed_evidence() -> None:
+    result = assess_live_launch_json("https://lotfile.app", _passed_live_launch_json())
+
+    assert result["status"] == "verified"
+    assert result["evidence"]["live_verifier"] == "passed"
+    assert result["evidence"]["missing_count"] == 0
+    assert result["evidence"]["live_verifier_json_status"] == "passed"
+    assert result["evidence"]["live_verifier_evidence"]["strict"] is True
+    assert result["evidence"]["live_verifier_evidence"]["checkout_checked"] is True
+
+
+def test_assess_live_launch_json_blocks_failed_verifier_evidence() -> None:
+    verifier_result = _passed_live_launch_json()
+    verifier_result["status"] = "failed"
+    verifier_result["failures"] = ["LIVE_CHECKOUT_URL is required for strict live launch verification"]
+    verifier_result["evidence"]["checkout_checked"] = False  # type: ignore[index]
+
+    result = assess_live_launch_json("https://lotfile.app", verifier_result)
+
+    assert result["status"] == "blocked"
+    assert result["evidence"]["missing_count"] >= 1
+    assert "checkout_checked" in result["evidence"]["live_verifier"]
+
+
+def test_run_live_launch_verifier_uses_only_vps_checkout_env(monkeypatch, tmp_path: Path) -> None:
+    seen_env: dict[str, str] = {}
+
+    def fake_run(*args, **kwargs):
+        nonlocal seen_env
+        seen_env = kwargs["env"]
+
+        class Result:
+            returncode = 1
+            stdout = json.dumps(
+                {
+                    "status": "failed",
+                    "evidence": {
+                        "origin": "https://lotfile.app",
+                        "strict": True,
+                        "checkout_checked": False,
+                        "routes": {},
+                        "api": {},
+                    },
+                    "warnings": [],
+                    "failures": ["LIVE_CHECKOUT_URL or VITE_CHECKOUT_URL is required"],
+                }
+            )
+            stderr = ""
+
+        return Result()
+
+    monkeypatch.setenv("LIVE_CHECKOUT_URL", "https://buy.stripe.com/local_should_not_count")
+    monkeypatch.setenv("VITE_CHECKOUT_URL", "https://buy.stripe.com/local_should_not_count")
+    monkeypatch.setattr("scripts.audit_non_db_launch_ops.subprocess.run", fake_run)
+
+    result = run_live_launch_verifier(
+        "https://lotfile.app",
+        "VITE_CHECKOUT_URL_MISSING",
+        web_dir=tmp_path,
+    )
+
+    assert result["status"] == "failed"
+    assert "LIVE_CHECKOUT_URL" not in seen_env
+    assert "VITE_CHECKOUT_URL" not in seen_env
+
+
 def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> None:
     page_text = (
         '<title>LotFile - WA R-Code & Planning Compliance Checker</title>'
@@ -144,6 +242,7 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
         api,
         bundle_text,
         uptime_monitor_doc="ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+        live_launch_json=_passed_live_launch_json(),
     )
 
     assert report["launch_surface"]["status"] == "blocked"
@@ -160,6 +259,41 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
     assert "install-sentry-dsn.sh" not in unblock
     assert "install-guardrail-cron.sh" not in unblock
     assert "install-log-retention.sh" not in unblock
+
+
+def test_build_report_uses_live_launch_json_when_present() -> None:
+    api = {
+        "/api/v1/health": FetchResult(status=200, text='{"status":"ok"}'),
+        "/api/v1/ready": FetchResult(status=200, text='{"status":"ok"}'),
+    }
+    vps_state = {
+        "vps_checkout_env": "https://buy.stripe.com/test_fixture",
+        "backup_env": "SSH_SKIPPED",
+        "restic_password_file": "SSH_SKIPPED",
+        "backup_timer": "SSH_SKIPPED",
+        "guardrail_cron": "SSH_SKIPPED",
+        "ops_guardrail_script": "SSH_SKIPPED",
+        "disk_usage": "SSH_SKIPPED",
+        "worker_heartbeat": "SSH_SKIPPED",
+        "sentry_dsn": "SSH_SKIPPED",
+        "log_retention_journald": "SSH_SKIPPED",
+        "log_retention_docker": "SSH_SKIPPED",
+        "log_retention_config": "SSH_SKIPPED",
+    }
+
+    report = build_report(
+        "https://lotfile.app",
+        vps_state,
+        pages={"/": FetchResult(status=500, text="legacy fetch failed")},
+        api=api,
+        bundle_text="",
+        uptime_monitor_doc="critical: pending monitor evidence",
+        live_launch_json=_passed_live_launch_json(),
+    )
+
+    assert report["launch_surface"]["status"] == "verified"
+    assert report["launch_surface"]["evidence"]["live_verifier_json_status"] == "passed"
+    assert report["ops_guardrails"]["status"] == "blocked"
 
 
 def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None:
@@ -210,6 +344,7 @@ def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None
         bundle_text,
         uptime_monitor_doc="ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
         restore_drill_log="ok: restore drill log accepted",
+        live_launch_json=_passed_live_launch_json(),
     )
 
     assert report["launch_surface"]["status"] == "verified"
@@ -265,6 +400,7 @@ def test_build_report_blocks_when_ssh_state_is_skipped() -> None:
         bundle_text,
         uptime_monitor_doc="ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
         restore_drill_log="ok: restore drill log accepted",
+        live_launch_json=_passed_live_launch_json(),
     )
 
     assert report["launch_surface"]["status"] == "blocked"
@@ -307,6 +443,21 @@ def test_main_skip_ssh_writes_blocked_report_without_required_key_crash(monkeypa
     monkeypatch.setattr(
         "scripts.audit_non_db_launch_ops.assess_restore_drill_log",
         lambda path: "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
+    )
+    monkeypatch.setattr(
+        "scripts.audit_non_db_launch_ops.run_live_launch_verifier",
+        lambda origin, checkout_env: {
+            "status": "failed",
+            "evidence": {
+                "origin": origin,
+                "strict": True,
+                "checkout_checked": False,
+                "routes": {},
+                "api": {},
+            },
+            "warnings": [],
+            "failures": [f"checkout not verified from VPS: {checkout_env}"],
+        },
     )
     monkeypatch.setattr(
         "sys.argv",
@@ -423,6 +574,48 @@ def test_validate_audit_report_rejects_spoofed_ops_evidence() -> None:
     assert any("log_retention_journald has unrecognized state" in failure for failure in failures)
     assert any("log_retention_config has unrecognized state" in failure for failure in failures)
     assert any("expected 'blocked'" in failure for failure in failures)
+
+
+def test_validate_audit_report_rejects_spoofed_launch_json_evidence() -> None:
+    launch_json = _passed_live_launch_json()
+    launch_json["evidence"]["strict"] = False  # type: ignore[index]
+    launch_json["evidence"]["checkout_checked"] = False  # type: ignore[index]
+    report = {
+        "launch_surface": {
+            "status": "verified",
+            "evidence": {
+                **assess_live_launch_json("https://lotfile.app", launch_json)["evidence"],
+                "live_verifier": "passed",
+                "missing_count": 0,
+                "vps_checkout_env": "https://buy.stripe.com/test_fixture",
+            },
+        },
+        "ops_guardrails": {
+            "status": "blocked",
+            "evidence": {
+                "backup_env": "SSH_SKIPPED",
+                "restic_password_file": "SSH_SKIPPED",
+                "backup_timer": "SSH_SKIPPED",
+                "restore_drill_log": "critical: pending",
+                "guardrail_cron": "SSH_SKIPPED",
+                "ops_guardrail_script": "SSH_SKIPPED",
+                "disk_usage": "SSH_SKIPPED",
+                "worker_heartbeat": "SSH_SKIPPED",
+                "sentry_dsn": "SSH_SKIPPED",
+                "uptime_targets": UPTIME_TARGETS_OK,
+                "uptime_monitor_doc": "critical: pending monitor evidence",
+                "log_retention_journald": "SSH_SKIPPED",
+                "log_retention_docker": "SSH_SKIPPED",
+                "log_retention_config": "SSH_SKIPPED",
+            },
+        },
+    }
+
+    failures = validate_audit_report(report)
+
+    assert any("strict JSON verifier evidence" in failure for failure in failures)
+    assert any("strict evidence was not true" in failure for failure in failures)
+    assert any("checkout_checked evidence was not true" in failure for failure in failures)
 
 
 def test_restore_template_and_runbook_keep_audit_verifier_contract() -> None:
