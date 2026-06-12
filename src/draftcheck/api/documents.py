@@ -28,7 +28,7 @@ import uuid
 from pathlib import Path, PurePath
 from typing import Annotated, Any
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy.orm import Session
@@ -49,6 +49,7 @@ from draftcheck.domain.documents import (
     DocumentReviewStatus,
     InMemoryDocumentLibrary,
     sample_parser_accuracy_report,
+    search_persisted_document_chunks,
 )
 from draftcheck.domain.identity import ActiveSession
 
@@ -450,6 +451,63 @@ def get_persisted_document_facts(
         "parse_status": (document.metadata_json or {}).get("parse_status", document.status),
         "items": [_orm_fact_payload(fact) for fact in facts],
         "count": len(facts),
+    }
+
+
+@router.get("/documents/projects/{project_id}/evidence-search", tags=["documents"])
+def search_project_document_evidence(
+    project_id: str,
+    db: DbSession,
+    _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    q: Annotated[str, Query(min_length=2, max_length=300)],
+    limit: Annotated[int, Query(ge=1, le=20)] = 8,
+) -> dict[str, Any]:
+    try:
+        project_uuid = uuid.UUID(project_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail="Invalid project UUID.") from exc
+
+    hits = search_persisted_document_chunks(
+        db,
+        project_id=project_uuid,
+        query=q,
+        limit=limit,
+    )
+    doc_ids = [uuid.UUID(hit.chunk.document_id) for hit in hits]
+    docs = (
+        db.query(Document)
+        .filter(Document.id.in_(doc_ids))
+        .all()
+        if doc_ids
+        else []
+    )
+    titles = {str(doc.id): doc.title for doc in docs}
+    items = [
+        {
+            "document_id": hit.chunk.document_id,
+            "document_title": titles.get(hit.chunk.document_id),
+            "page_number": hit.chunk.page_number,
+            "chunk_index": hit.chunk.chunk_index,
+            "text": hit.chunk.text,
+            "score": round(hit.score, 6),
+            "metadata": {
+                **hit.chunk.metadata,
+                "evidence_role": "project_document",
+                "legal_authority": False,
+            },
+        }
+        for hit in hits
+    ]
+    return {
+        "project_id": str(project_uuid),
+        "query": q,
+        "items": items,
+        "count": len(items),
+        "legal_authority": False,
+        "advisory_notice": (
+            "Uploaded document evidence is project context only. It is not an approved legal source "
+            "and cannot support compliance verdicts without approved rules and promoted measurements."
+        ),
     }
 
 

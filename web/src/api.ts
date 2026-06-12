@@ -285,6 +285,25 @@ export type ProjectDocumentSummary = {
   fact_count: number;
 };
 
+export type DocumentEvidenceHit = {
+  document_id: string;
+  document_title?: string | null;
+  page_number?: number | null;
+  chunk_index: number;
+  text: string;
+  score: number;
+  metadata?: Record<string, unknown>;
+};
+
+export type DocumentEvidenceSearchResponse = {
+  project_id: string;
+  query: string;
+  items: DocumentEvidenceHit[];
+  count: number;
+  legal_authority: false;
+  advisory_notice: string;
+};
+
 export const api = {
   health: () => call<HealthInfo>("GET", "/health"),
   ready: () => call<Record<string, unknown>>("GET", "/ready"),
@@ -368,6 +387,8 @@ export const api = {
     },
     facts: (docId: string) => call<{ items: ExtractedFact[]; count: number; parse_status?: string }>("GET", `/documents/${docId}/persisted-facts`),
     listForProject: (projectId: string) => call<{ items: ProjectDocumentSummary[]; count: number }>("GET", `/documents/projects/${projectId}`),
+    searchEvidence: (projectId: string, q: string, limit = 6) =>
+      call<DocumentEvidenceSearchResponse>("GET", `/documents/projects/${projectId}/evidence-search?q=${encodeURIComponent(q)}&limit=${limit}`),
     confirmFact: (docId: string, factId: string) =>
       call<DocumentFactUpdateResponse>("PATCH", `/documents/${docId}/facts/${factId}`, { status: "confirmed" }),
     promoteFact: (docId: string, factId: string) =>

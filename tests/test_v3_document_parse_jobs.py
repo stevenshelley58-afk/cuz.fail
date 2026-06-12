@@ -23,8 +23,9 @@ for _tbl in _models_mod.Base.metadata.tables.values():
 
 from draftcheck.db.models import Base, Document, DocumentChunk, DocumentFact, DocumentPage, Org, Project, User, UserStatus  # noqa: E402
 from draftcheck.domain.identity import IdentityRole  # noqa: E402
-from draftcheck.api.documents import get_persisted_document_facts  # noqa: E402
+from draftcheck.api.documents import get_persisted_document_facts, search_project_document_evidence  # noqa: E402
 from draftcheck.jobs.documents import enqueue_document_parse, parse_document_for_session  # noqa: E402
+from draftcheck.domain.documents.chunks import write_document_chunks  # noqa: E402
 
 
 def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, monkeypatch) -> None:
@@ -266,6 +267,83 @@ def test_document_parse_job_persists_ifc_quantity_metadata(tmp_path, monkeypatch
     assert fact.metadata_json["ifc_quantity_name"] == "GrossFloorArea"
     assert fact.metadata_json["parser_native_fact"] is True
     assert fact.promoted_to_measurement is False
+
+
+def test_project_document_evidence_search_is_project_scoped_and_not_legal_authority(monkeypatch) -> None:
+    monkeypatch.setenv("DRAFTCHECK_EMBEDDING_PROVIDER", "stub")
+    db = _session()
+    org = Org(id=uuid4(), slug="evidence-search", name="Evidence Search")
+    user = User(
+        id=uuid4(),
+        org_id=org.id,
+        email="owner@evidence-search.test",
+        role=IdentityRole.OWNER,
+        status=UserStatus.ACTIVE,
+    )
+    project = Project(id=uuid4(), org_id=org.id, created_by_user_id=user.id, name="Target project")
+    other_project = Project(id=uuid4(), org_id=org.id, created_by_user_id=user.id, name="Other project")
+    document = Document(
+        id=uuid4(),
+        org_id=org.id,
+        project_id=project.id,
+        uploaded_by_user_id=user.id,
+        title="front-setback.txt",
+        document_type="txt",
+        status="parsed",
+        storage_path="front-setback.txt",
+        sha256="4" * 64,
+        media_type="text/plain",
+        size_bytes=42,
+        metadata_json={"parse_status": "parsed"},
+    )
+    other_document = Document(
+        id=uuid4(),
+        org_id=org.id,
+        project_id=other_project.id,
+        uploaded_by_user_id=user.id,
+        title="rear-patio.txt",
+        document_type="txt",
+        status="parsed",
+        storage_path="rear-patio.txt",
+        sha256="5" * 64,
+        media_type="text/plain",
+        size_bytes=42,
+        metadata_json={"parse_status": "parsed"},
+    )
+    page = DocumentPage(
+        document_id=document.id,
+        page_number=1,
+        text="Front setback to alfresco wall is 4.5 m.",
+        metadata_json={},
+    )
+    other_page = DocumentPage(
+        document_id=other_document.id,
+        page_number=1,
+        text="Front setback to garage wall is 2.0 m.",
+        metadata_json={},
+    )
+    db.add_all([org, user, project, other_project, document, other_document, page, other_page])
+    db.flush()
+    write_document_chunks(db, document_id=document.id, pages=[page])
+    write_document_chunks(db, document_id=other_document.id, pages=[other_page])
+    db.flush()
+
+    payload = search_project_document_evidence(
+        str(project.id),
+        db,
+        None,  # type: ignore[arg-type]
+        q="front setback garage",
+        limit=5,
+    )
+
+    assert payload["count"] == 1
+    assert payload["legal_authority"] is False
+    assert "approved legal source" in payload["advisory_notice"]
+    [hit] = payload["items"]
+    assert hit["document_id"] == str(document.id)
+    assert hit["document_title"] == "front-setback.txt"
+    assert hit["metadata"]["legal_authority"] is False
+    assert "garage" not in hit["text"]
 
 
 def test_document_parse_enqueue_reports_sync_fallback_when_queue_is_unavailable(monkeypatch) -> None:

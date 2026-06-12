@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { BookOpen, CheckCircle2, Clock3, RefreshCw, Sparkles } from "lucide-react";
-import { api, type DocumentUploadResponse, type ExtractedFact, type ProjectDocumentSummary } from "../api";
+import { BookOpen, CheckCircle2, Clock3, RefreshCw, Search, Sparkles } from "lucide-react";
+import { api, type DocumentEvidenceHit, type DocumentUploadResponse, type ExtractedFact, type ProjectDocumentSummary } from "../api";
 
 /* ── DocumentUpload ── */
 
@@ -182,6 +182,11 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
   const [documents, setDocuments] = useState<ProjectDocumentSummary[]>([]);
   const [listError, setListError] = useState<string | null>(null);
   const [confirmedKeys, setConfirmedKeys] = useState<Set<string>>(new Set());
+  const [evidenceQuery, setEvidenceQuery] = useState("");
+  const [evidenceResults, setEvidenceResults] = useState<DocumentEvidenceHit[]>([]);
+  const [evidenceNotice, setEvidenceNotice] = useState<string | null>(null);
+  const [evidenceSearching, setEvidenceSearching] = useState(false);
+  const [evidenceError, setEvidenceError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   async function refreshDocuments() {
@@ -259,6 +264,33 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
 
   function handleConfirmed(factId: string) {
     setConfirmedKeys((prev) => new Set([...prev, factId]));
+  }
+
+  async function handleEvidenceSearch(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const query = evidenceQuery.trim();
+    if (query.length < 2) {
+      setEvidenceResults([]);
+      setEvidenceNotice(null);
+      setEvidenceError("Enter at least 2 characters.");
+      return;
+    }
+    setEvidenceSearching(true);
+    setEvidenceError(null);
+    const r = await api.documents.searchEvidence(projectId, query);
+    setEvidenceSearching(false);
+    if (r.kind === "ok") {
+      setEvidenceResults(r.data.items);
+      setEvidenceNotice(r.data.advisory_notice);
+    } else if (r.kind === "auth") {
+      setEvidenceError("Sign in required.");
+    } else if (r.kind === "missing") {
+      setEvidenceError("Evidence search is not available on this server.");
+    } else if (r.kind === "error") {
+      setEvidenceError(r.message);
+    } else {
+      setEvidenceError("Could not search uploaded evidence.");
+    }
   }
 
   const facts = uploadResult?.extracted_facts ?? [];
@@ -387,6 +419,92 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
               );
             })}
           </div>
+
+          <form
+            onSubmit={(e) => void handleEvidenceSearch(e)}
+            style={{ marginTop: 12, display: "flex", gap: 8 }}
+          >
+            <div style={{ position: "relative", flex: 1, minWidth: 0 }}>
+              <Search
+                size={15}
+                style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: "#9ca3af" }}
+              />
+              <input
+                value={evidenceQuery}
+                onChange={(e) => setEvidenceQuery(e.target.value)}
+                placeholder="Search uploaded evidence"
+                aria-label="Search uploaded evidence"
+                style={{
+                  width: "100%",
+                  boxSizing: "border-box",
+                  padding: "8px 10px 8px 32px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: 6,
+                  fontSize: 13,
+                  color: "#111827",
+                }}
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={evidenceSearching}
+              aria-label="Run uploaded evidence search"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 36,
+                height: 36,
+                border: "none",
+                borderRadius: 6,
+                background: evidenceSearching ? "#e5e7eb" : "#111827",
+                color: evidenceSearching ? "#6b7280" : "#fff",
+                cursor: evidenceSearching ? "not-allowed" : "pointer",
+                flexShrink: 0,
+              }}
+            >
+              {evidenceSearching ? <RefreshCw size={15} style={{ animation: "spin 1s linear infinite" }} /> : <Search size={15} />}
+            </button>
+          </form>
+
+          {evidenceError && (
+            <div style={{ marginTop: 8, color: "#b91c1c", fontSize: 12 }}>
+              {evidenceError}
+            </div>
+          )}
+
+          {evidenceResults.length > 0 && (
+            <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 8 }}>
+              {evidenceResults.map((hit) => (
+                <div
+                  key={`${hit.document_id}:${hit.chunk_index}`}
+                  style={{
+                    border: "1px solid #e5e7eb",
+                    borderRadius: 8,
+                    padding: "9px 10px",
+                    background: "#fff",
+                  }}
+                >
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8, marginBottom: 5 }}>
+                    <span style={{ minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: 12, fontWeight: 600 }}>
+                      {hit.document_title ?? "Uploaded document"}
+                    </span>
+                    <span style={{ color: "#6b7280", fontSize: 11, flexShrink: 0 }}>
+                      {hit.page_number ? `Page ${hit.page_number}` : `Chunk ${hit.chunk_index}`}
+                    </span>
+                  </div>
+                  <div style={{ maxHeight: 52, overflow: "hidden", color: "#374151", fontSize: 12, lineHeight: 1.45 }}>
+                    {hit.text}
+                  </div>
+                </div>
+              ))}
+              {evidenceNotice && (
+                <div style={{ color: "#6b7280", fontSize: 11, lineHeight: 1.45 }}>
+                  {evidenceNotice}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       )}
 
