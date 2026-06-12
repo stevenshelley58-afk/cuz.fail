@@ -611,7 +611,8 @@ def promote_rule(
             Json(codes) if codes else None,
         ),
     ).fetchone()
-    rule_id = str(row[0]) if row else None
+    # Caller's connection may use tuple or dict row factory (wp9 uses dict_row).
+    rule_id = (str(row["id"] if isinstance(row, dict) else row[0])) if row else None
     if rule_id:
         conn.execute(
             """
