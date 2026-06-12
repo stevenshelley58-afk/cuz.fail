@@ -211,8 +211,12 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
 def test_v3_ci_runs_launch_action_behavior_test():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
     web_steps = workflow["jobs"]["web"]["steps"]
+    package_json = json.loads(WEB_PACKAGE_PATH.read_text(encoding="utf-8"))
+    launch_actions = package_json["scripts"]["test:launch-actions"]
 
     assert any(step.get("run") == "npm run test:launch-actions" for step in web_steps)
+    assert "src/components/modals.launch.test.tsx" in launch_actions
+    assert "src/App.launch.test.tsx" in launch_actions
 
 
 def test_v3_ci_runs_mobile_launch_sweep():

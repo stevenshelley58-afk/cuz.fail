@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:49:00+08:00",
+  "captured_at": "2026-06-13T01:50:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -80,7 +80,8 @@
         "web/lighthouserc.cjs runs LHCI against built web/dist and CI enforces categories:seo >= 0.9",
         "Local Windows LHCI healthcheck finds Chrome and reaches SEO audits, but Lighthouse exits on Chrome temp-profile cleanup EPERM; Ubuntu CI is the authoritative Lighthouse gate",
         "web/scripts/verify-mobile-launch.mjs locks the 5-tab mobile nav, 390px fallback, wizard mobile layout, and key aria labels into CI",
-        "infra/v3/deploy-web-only.sh runs verify:launch:mobile before strict launch verification so the VPS UI-only deploy uses the same mobile preflight"
+        "infra/v3/deploy-web-only.sh runs verify:launch:mobile before strict launch verification so the VPS UI-only deploy uses the same mobile preflight",
+        "web/src/App.launch.test.tsx runtime-tests landing metadata, privacy/terms navigation, landing address handoff into the app, guest project creation, and magic-link verification"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",

@@ -8,7 +8,7 @@
     "dev": "vite --host 127.0.0.1",
     "preview": "vite preview --host 127.0.0.1",
     "test:launch-checkout": "node scripts/test-checkout-url.mjs",
-    "test:launch-actions": "vitest run --environment jsdom src/components/modals.launch.test.tsx",
+    "test:launch-actions": "vitest run --environment jsdom src/components/modals.launch.test.tsx src/App.launch.test.tsx",
     "test:live-fetch": "node scripts/test-live-fetch.mjs",
     "verify:launch:mobile": "node scripts/verify-mobile-launch.mjs",
     "verify:launch": "npm run build && node scripts/verify-launch.mjs",
