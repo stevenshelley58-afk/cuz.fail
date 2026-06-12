@@ -1,0 +1,22 @@
+{
+  "clauses": 144,
+  "candidates": 496,
+  "promoted": 30,
+  "still_pending": 289,
+  "rejected": 177,
+  "skipped_malformed": 0,
+  "llm_errors": [],
+  "escalations": [
+    "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+  ],
+  "fresh_models": [
+    "minimax:MiniMax-M2",
+    "openai:gpt-4o"
+  ],
+  "llm_spend": {
+    "calls": 288,
+    "input_tokens": 241909,
+    "output_tokens": 205218,
+    "cost_usd_estimate": 1.228798
+  }
+}
