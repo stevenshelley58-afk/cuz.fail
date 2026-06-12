@@ -416,10 +416,10 @@ def build_report(
                 "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md.",
                 "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
                 "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
-                "Install /etc/cron.d/draftcheck-guardrails using docs/ops/ops-guardrails.md after the latest scripts are deployed.",
+                "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh",
                 "Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.",
-                "Set SENTRY_DSN in /srv/draftcheck/app/infra/v3/.env, restart api worker hermes, then run sentry-config from docs/ops/ops-guardrails.md.",
-                "Install log retention during a maintenance window with the commands in docs/ops/ops-guardrails.md section 6.",
+                "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart.",
+                "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh, then rerun with DRAFTCHECK_RESTART_DOCKER=1 during a maintenance window.",
             ],
         },
     }

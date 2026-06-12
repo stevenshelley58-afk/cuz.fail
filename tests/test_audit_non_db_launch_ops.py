@@ -137,6 +137,10 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
     assert "status ok" in report["ops_guardrails"]["evidence"]["uptime_targets"]
     assert report["ops_guardrails"]["evidence"]["uptime_monitor_doc"].startswith("ok:")
     assert report["ops_guardrails"]["status"] == "blocked"
+    unblock = "\n".join(report["ops_guardrails"]["unblock"])
+    assert "install-guardrail-cron.sh" in unblock
+    assert "install-sentry-dsn.sh" in unblock
+    assert "install-log-retention.sh" in unblock
 
 
 def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None:
