@@ -75,7 +75,15 @@ RUNBOOK_COMMAND_NEEDLES = (
 RAW_DSN_RE = re.compile(r"https://[^\s\"']+@[^\s\"']+", flags=re.IGNORECASE)
 BLOCKED_EVIDENCE_VALUES = {"SSH_SKIPPED", "SSH_CHECK_FAILED"}
 UPTIME_TARGETS_OK = "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready"
-SENTRY_STATES = {"SENTRY_DSN_PRESENT", "SENTRY_DSN_MISSING", "SENTRY_DSN_EMPTY", "SSH_SKIPPED", "SSH_CHECK_FAILED"}
+SENTRY_STATES = {
+    "SENTRY_CONFIG_OK",
+    "SENTRY_CONFIG_CRITICAL",
+    "SENTRY_DSN_PRESENT",
+    "SENTRY_DSN_MISSING",
+    "SENTRY_DSN_EMPTY",
+    "SSH_SKIPPED",
+    "SSH_CHECK_FAILED",
+}
 LOG_RETENTION_STATES = {
     "LOG_RETENTION_JOURNALD_PRESENT",
     "LOG_RETENTION_JOURNALD_MISSING",
@@ -218,7 +226,7 @@ def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
         _field_present(evidence["ops_guardrail_script"], "OPS_GUARDRAILS_PRESENT"),
         _field_present(evidence["disk_usage"], "DISK_USAGE_OK"),
         _field_present(evidence["worker_heartbeat"], "WORKER_HEARTBEAT_OK"),
-        _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"),
+        _field_present(evidence["sentry_dsn"], "SENTRY_CONFIG_OK"),
         evidence["uptime_targets"] == UPTIME_TARGETS_OK,
         evidence["uptime_monitor_doc"].startswith("ok:"),
         _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT"),
@@ -270,7 +278,7 @@ def ops_guardrail_unblock_steps(evidence: dict[str, str]) -> list[str]:
         )
     if not evidence["uptime_monitor_doc"].startswith("ok:"):
         steps.append("Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.")
-    if not _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"):
+    if not _field_present(evidence["sentry_dsn"], "SENTRY_CONFIG_OK"):
         steps.append(
             "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart."
         )
@@ -395,7 +403,9 @@ def parse_vps_state(output: str) -> dict[str, str]:
     checkout_line = next((line for line in lines if line.startswith("VITE_CHECKOUT_URL=")), "")
     checkout_value = checkout_line.split("=", 1)[1] if checkout_line else ""
     timer_lines = [line for line in lines if "timers listed" in line]
-    sentry_lines = [line for line in lines if line.startswith("SENTRY_DSN_")]
+    sentry_lines = [
+        line for line in lines if line.startswith("SENTRY_CONFIG_") or line.startswith("SENTRY_DSN_")
+    ]
     journald_lines = [line for line in lines if line.startswith("LOG_RETENTION_JOURNALD_")]
     docker_log_lines = [line for line in lines if line.startswith("LOG_RETENTION_DOCKER_")]
     log_retention_config_lines = [line for line in lines if line.startswith("LOG_RETENTION_CONFIG_")]
@@ -412,7 +422,7 @@ def parse_vps_state(output: str) -> dict[str, str]:
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT" if "OPS_GUARDRAILS_PRESENT" in lines else "OPS_GUARDRAILS_MISSING",
         "disk_usage": disk_lines[-1] if disk_lines else "DISK_USAGE_UNKNOWN",
         "worker_heartbeat": heartbeat_lines[-1] if heartbeat_lines else "WORKER_HEARTBEAT_UNKNOWN",
-        "sentry_dsn": sentry_lines[-1] if sentry_lines else "SENTRY_DSN_MISSING",
+        "sentry_dsn": sentry_lines[-1] if sentry_lines else "SENTRY_CONFIG_CRITICAL",
         "log_retention_journald": journald_lines[-1] if journald_lines else "LOG_RETENTION_JOURNALD_MISSING",
         "log_retention_docker": docker_log_lines[-1] if docker_log_lines else "LOG_RETENTION_DOCKER_MISSING",
         "log_retention_config": log_retention_config_lines[-1]
@@ -442,11 +452,10 @@ else
   echo DISK_USAGE_UNKNOWN
   echo WORKER_HEARTBEAT_UNKNOWN
 fi
-if test -f /srv/draftcheck/app/infra/v3/.env && grep -q '^SENTRY_DSN=' /srv/draftcheck/app/infra/v3/.env; then
-  sentry_dsn="$(grep -E '^SENTRY_DSN=' /srv/draftcheck/app/infra/v3/.env | tail -n 1 | cut -d= -f2-)"
-  test -n "$sentry_dsn" && echo SENTRY_DSN_PRESENT || echo SENTRY_DSN_EMPTY
+if test -f /srv/draftcheck/app/scripts/ops_guardrails.py; then
+  python3 /srv/draftcheck/app/scripts/ops_guardrails.py sentry-config --env-path /srv/draftcheck/app/infra/v3/.env --compose-path /srv/draftcheck/app/infra/v3/compose.yml --json >/tmp/draftcheck-sentry-config.json 2>/dev/null && echo SENTRY_CONFIG_OK || echo SENTRY_CONFIG_CRITICAL
 else
-  echo SENTRY_DSN_MISSING
+  echo SENTRY_CONFIG_CRITICAL
 fi
 test -f /etc/systemd/journald.conf.d/draftcheck.conf && echo LOG_RETENTION_JOURNALD_PRESENT || echo LOG_RETENTION_JOURNALD_MISSING
 test -f /etc/docker/daemon.json && echo LOG_RETENTION_DOCKER_PRESENT || echo LOG_RETENTION_DOCKER_MISSING

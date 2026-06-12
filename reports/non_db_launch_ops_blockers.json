@@ -27,7 +27,7 @@
       "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
       "disk_usage": "DISK_USAGE_OK",
       "worker_heartbeat": "WORKER_HEARTBEAT_OK",
-      "sentry_dsn": "SENTRY_DSN_MISSING",
+      "sentry_dsn": "SENTRY_CONFIG_CRITICAL",
       "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
       "uptime_monitor_doc": "critical: pending monitor evidence: LotFile health.provider_id, LotFile health.alert_contact, LotFile ready.provider_id, LotFile ready.alert_contact",
       "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
