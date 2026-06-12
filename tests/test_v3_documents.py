@@ -143,6 +143,10 @@ def test_v3_dxf_dimension_uses_group_42_and_records_text_override_difference() -
             "2A",
             "8",
             "A-DIMENSIONS",
+            "67",
+            "1",
+            "410",
+            "Layout1",
             "1",
             "5.0",
             "42",
@@ -171,6 +175,8 @@ def test_v3_dxf_dimension_uses_group_42_and_records_text_override_difference() -
     assert fact.metadata["entity_handle"] == "2A"
     assert fact.metadata["entity_layer"] == "A-DIMENSIONS"
     assert fact.metadata["entity_type"] == "DIMENSION"
+    assert fact.metadata["cad_space"] == "paper_space"
+    assert fact.metadata["layout_name"] == "Layout1"
     assert fact.metadata["dxf_declared_units"] == "missing"
     assert fact.metadata["unit_declared"] is False
     assert fact.metadata["unit_conversion_applied"] is False
@@ -321,6 +327,10 @@ def test_v3_dxf_block_insert_uniform_scale_is_recorded_on_dimension_fact() -> No
             "I1",
             "8",
             "A-SITE",
+            "67",
+            "0",
+            "410",
+            "Model",
             "2",
             "SETBACK_BLOCK",
             "41",
@@ -352,6 +362,8 @@ def test_v3_dxf_block_insert_uniform_scale_is_recorded_on_dimension_fact() -> No
     assert fact.metadata["entity_handle"] == "D1"
     assert fact.metadata["insert_handle"] == "I1"
     assert fact.metadata["insert_layer"] == "A-SITE"
+    assert fact.metadata["cad_space"] == "model_space"
+    assert fact.metadata["layout_name"] == "Model"
     assert fact.metadata["insert_scale"] == {"x": 2.0, "y": 2.0, "z": 1.0}
     assert fact.metadata["insert_scale_applied"] is True
     assert fact.metadata["insert_scale_uncertain"] is False

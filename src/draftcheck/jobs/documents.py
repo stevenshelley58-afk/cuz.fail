@@ -24,6 +24,7 @@ from draftcheck.db.models import (
     DocumentPage as OrmDocumentPage,
 )
 from draftcheck.domain.documents import (
+    DocumentFact,
     DocumentParseError,
     DocumentParser,
     decode_text_bytes,
@@ -307,6 +308,7 @@ def _extract_parser_native_facts(
             "source_text": fact.label,
             "page_number": 1,
         }
+        evidence_ref = _parser_fact_evidence(fact)
         facts.append(
             OrmDocumentFact(
                 id=uuid4(),
@@ -318,7 +320,7 @@ def _extract_parser_native_facts(
                 check_key=check_key,
                 value_json=value_json,
                 confidence=fact.confidence,
-                evidence_ref_json={"page_number": 1, "source_text": fact.label},
+                evidence_ref_json=evidence_ref,
                 promoted_to_measurement=False,
                 review_status="pending_review",
                 parser_name=parser_name,
@@ -335,6 +337,28 @@ def _extract_parser_native_facts(
             )
         )
     return facts
+
+
+def _parser_fact_evidence(fact: DocumentFact) -> dict[str, object]:
+    evidence: dict[str, object] = {"page_number": 1, "source_text": fact.label}
+    for key in (
+        "entity_handle",
+        "entity_layer",
+        "entity_type",
+        "cad_space",
+        "layout_name",
+        "block_name",
+        "insert_handle",
+        "insert_layer",
+        "insert_scale",
+        "ifc_entity_id",
+        "ifc_quantity_set_id",
+        "ifc_related_object_id",
+    ):
+        value = fact.metadata.get(key)
+        if value is not None:
+            evidence[key] = value
+    return evidence
 
 
 def _parser_fact_key(label: str, index: int) -> str:

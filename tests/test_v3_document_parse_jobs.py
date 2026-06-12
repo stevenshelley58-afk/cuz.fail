@@ -199,6 +199,10 @@ def test_document_parse_job_persists_dxf_dimension_metadata(tmp_path, monkeypatc
             "D42",
             "8",
             "A-DIMENSIONS",
+            "67",
+            "1",
+            "410",
+            "Layout1",
             "1",
             "5.0",
             "42",
@@ -233,8 +237,15 @@ def test_document_parse_job_persists_dxf_dimension_metadata(tmp_path, monkeypatc
     fact = db.query(DocumentFact).filter_by(document_id=document.id, fact_kind="drawing_dimension").one()
     assert fact.value_json["numeric_value"] == 4.5
     assert fact.metadata_json["entity_handle"] == "D42"
+    assert fact.metadata_json["entity_layer"] == "A-DIMENSIONS"
+    assert fact.metadata_json["cad_space"] == "paper_space"
+    assert fact.metadata_json["layout_name"] == "Layout1"
     assert fact.metadata_json["text_override_differs"] is True
     assert fact.metadata_json["parser_native_fact"] is True
+    assert fact.evidence_ref_json["entity_handle"] == "D42"
+    assert fact.evidence_ref_json["entity_layer"] == "A-DIMENSIONS"
+    assert fact.evidence_ref_json["cad_space"] == "paper_space"
+    assert fact.evidence_ref_json["layout_name"] == "Layout1"
     assert fact.promoted_to_measurement is False
 
 

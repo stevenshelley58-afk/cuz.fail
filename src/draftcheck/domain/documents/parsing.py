@@ -154,6 +154,8 @@ class _DxfDimensionCandidate:
     text_override_numeric_value: float | None = None
     text_override_differs: bool = False
     block_name: str | None = None
+    cad_space: str | None = None
+    layout_name: str | None = None
     insert_handle: str | None = None
     insert_layer: str | None = None
     insert_scale_x: float | None = None
@@ -904,6 +906,7 @@ def _ezdxf_dimension_candidate(entity: Any) -> _DxfDimensionCandidate | None:
         handle=str(getattr(entity.dxf, "handle", "") or "") or None,
         layer=str(getattr(entity.dxf, "layer", "") or "") or None,
         entity_type=str(entity.dxftype()).upper(),
+        cad_space=_dxf_cad_space_from_flag(getattr(entity.dxf, "paperspace", None)),
         text_override=text_override,
         text_override_numeric_value=override_value,
         text_override_differs=_dxf_override_differs(measurement, override_value),
@@ -927,6 +930,7 @@ def _ezdxf_insert_dimension_candidates(doc: Any, insert: Any) -> list[_DxfDimens
     scale_factor = abs(sx) if not scale_uncertain else 1.0
     insert_handle = str(getattr(insert.dxf, "handle", "") or "") or None
     insert_layer = str(getattr(insert.dxf, "layer", "") or "") or None
+    insert_cad_space = _dxf_cad_space_from_flag(getattr(insert.dxf, "paperspace", None))
 
     candidates: list[_DxfDimensionCandidate] = []
     for entity in block:
@@ -945,6 +949,8 @@ def _ezdxf_insert_dimension_candidates(doc: Any, insert: Any) -> list[_DxfDimens
                 text_override_numeric_value=base.text_override_numeric_value,
                 text_override_differs=base.text_override_differs,
                 block_name=block_name,
+                cad_space=insert_cad_space or base.cad_space,
+                layout_name=base.layout_name,
                 insert_handle=insert_handle,
                 insert_layer=insert_layer,
                 insert_scale_x=sx,
@@ -1137,6 +1143,8 @@ def _dxf_dimension_from_pairs(entity_pairs: list[tuple[str, str]]) -> _DxfDimens
         handle=_dxf_first(entity_pairs, "5"),
         layer=_dxf_first(entity_pairs, "8"),
         entity_type="DIMENSION",
+        cad_space=_dxf_cad_space_from_flag(_dxf_first(entity_pairs, "67")),
+        layout_name=_dxf_first(entity_pairs, "410"),
         text_override=text_override,
         text_override_numeric_value=override_value,
         text_override_differs=_dxf_override_differs(measurement, override_value),
@@ -1169,6 +1177,8 @@ def _dxf_block_insert_candidates(
             text_override_numeric_value=dimension.text_override_numeric_value,
             text_override_differs=dimension.text_override_differs,
             block_name=block_name,
+            cad_space=_dxf_cad_space_from_flag(_dxf_first(insert_pairs, "67")) or dimension.cad_space,
+            layout_name=_dxf_first(insert_pairs, "410") or dimension.layout_name,
             insert_handle=_dxf_first(insert_pairs, "5"),
             insert_layer=_dxf_first(insert_pairs, "8"),
             insert_scale_x=sx,
@@ -1192,6 +1202,17 @@ def _dxf_first(entity_pairs: list[tuple[str, str]], code: str) -> str | None:
     return None
 
 
+def _dxf_cad_space_from_flag(value: object) -> str | None:
+    if value is None:
+        return None
+    flag = str(value).strip()
+    if flag == "0":
+        return "model_space"
+    if flag == "1":
+        return "paper_space"
+    return None
+
+
 def _replace_dxf_candidate(
     candidate: _DxfDimensionCandidate,
     *,
@@ -1206,6 +1227,8 @@ def _replace_dxf_candidate(
         text_override_numeric_value=candidate.text_override_numeric_value,
         text_override_differs=candidate.text_override_differs,
         block_name=block_name,
+        cad_space=candidate.cad_space,
+        layout_name=candidate.layout_name,
         extraction_method=candidate.extraction_method,
     )
 
@@ -1215,6 +1238,8 @@ def _dxf_dimension_metadata(candidate: _DxfDimensionCandidate) -> dict[str, Any]
         "entity_type": candidate.entity_type,
         "entity_handle": candidate.handle,
         "entity_layer": candidate.layer,
+        "cad_space": candidate.cad_space,
+        "layout_name": candidate.layout_name,
         "cad_extraction_review_status": "pending_review",
         "scale_status": "not_insert_scaled",
     }
