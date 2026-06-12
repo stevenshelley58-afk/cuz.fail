@@ -89,3 +89,12 @@ jobs:
           VITE_PRICE_LABEL: AUD $29/month
           VITE_PRICE_SUBLABEL: Starter launch plan, cancel anytime.
         run: npm run verify:launch:strict
+      - name: Resolve Chrome for Lighthouse
+        shell: bash
+        run: |
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          echo "CHROME_PATH=$CHROME_BIN" >> "$GITHUB_ENV"
+      - name: Verify Lighthouse SEO
+        working-directory: web
+        run: npm run verify:launch:lighthouse

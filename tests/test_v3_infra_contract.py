@@ -20,6 +20,8 @@ WEB_ONLY_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy-web-only.sh"
 JOURNALD_RETENTION_PATH = ROOT / "infra" / "v3" / "ops" / "journald-draftcheck.conf"
 DOCKER_LOG_ROTATION_PATH = ROOT / "infra" / "v3" / "ops" / "docker-daemon-log-rotation.json"
 CI_WORKFLOW_PATH = ROOT / ".github" / "workflows" / "ci.yml"
+WEB_PACKAGE_PATH = ROOT / "web" / "package.json"
+WEB_LIGHTHOUSE_CONFIG_PATH = ROOT / "web" / "lighthouserc.cjs"
 
 
 def _active_caddy_text() -> str:
@@ -199,3 +201,18 @@ def test_v3_ci_runs_launch_action_behavior_test():
     web_steps = workflow["jobs"]["web"]["steps"]
 
     assert any(step.get("run") == "npm run test:launch-actions" for step in web_steps)
+
+
+def test_v3_ci_runs_lighthouse_seo_gate():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    web_steps = workflow["jobs"]["web"]["steps"]
+    package_json = json.loads(WEB_PACKAGE_PATH.read_text(encoding="utf-8"))
+    lighthouse_config = WEB_LIGHTHOUSE_CONFIG_PATH.read_text(encoding="utf-8")
+
+    assert package_json["scripts"]["verify:launch:lighthouse"] == "lhci autorun --config=./lighthouserc.cjs"
+    assert any(step.get("name") == "Resolve Chrome for Lighthouse" for step in web_steps)
+    assert any(step.get("run") == "npm run verify:launch:lighthouse" for step in web_steps)
+    assert 'staticDistDir: "./dist"' in lighthouse_config
+    assert 'isSinglePageApplication: true' in lighthouse_config
+    assert '"categories:seo": ["error", { minScore: 0.9' in lighthouse_config
+    assert 'target: "filesystem"' in lighthouse_config

@@ -4,6 +4,8 @@ node_modules/
 web/*.tsbuildinfo
 web/vite.config.js
 web/vite.config.d.ts
+web/.lighthouseci/
+web/.lhci-tmp/
 .venv/
 __pycache__/
 *.py[cod]
