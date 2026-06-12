@@ -31,6 +31,7 @@ from scripts.ops_guardrails import (
 
 ROOT = Path(__file__).resolve().parents[1]
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
+BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
 
 
 def _require_bash() -> str:
@@ -130,6 +131,86 @@ printf '%s' "$payload" > "$DRAFTCHECK_FAKE_CURL_PAYLOAD"
     )
 
 
+def _write_fake_systemctl(bin_dir: Path) -> Path:
+    systemctl = bin_dir / "systemctl"
+    systemctl.write_text(
+        """\
+#!/usr/bin/env bash
+set -euo pipefail
+printf '%s\n' "$*" >> "$DRAFTCHECK_FAKE_SYSTEMCTL_LOG"
+""",
+        encoding="utf-8",
+    )
+    systemctl.chmod(0o755)
+    return systemctl
+
+
+def _write_backup_install_fixture(app_dir: Path) -> None:
+    backup_dir = app_dir / "infra" / "v3" / "backup"
+    backup_dir.mkdir(parents=True)
+    (backup_dir / "draftcheck-backup.service").write_text(
+        "[Unit]\nDescription=DraftCheck backup fixture\n",
+        encoding="utf-8",
+    )
+    (backup_dir / "draftcheck-backup.timer").write_text(
+        "[Timer]\nOnCalendar=daily\n",
+        encoding="utf-8",
+    )
+
+
+def _run_backup_installer(tmp_path: Path, *, backup_env_exists: bool) -> subprocess.CompletedProcess[str]:
+    bash = _require_bash()
+    app_dir = tmp_path / "app"
+    unit_dir = tmp_path / "systemd"
+    bin_dir = tmp_path / "bin"
+    backup_env = tmp_path / "backup.env"
+    calls_path = tmp_path / "guardrail-calls.txt"
+    systemctl_log = tmp_path / "systemctl.log"
+    unit_dir.mkdir()
+    bin_dir.mkdir()
+    _write_backup_install_fixture(app_dir)
+    _write_fake_ops_guardrails(app_dir)
+    _write_fake_systemctl(bin_dir)
+
+    if backup_env_exists:
+        password_file = tmp_path / "restic-password"
+        compose_file = tmp_path / "compose.yml"
+        password_file.write_text("fixture-password\n", encoding="utf-8")
+        compose_file.write_text("services: {}\n", encoding="utf-8")
+        backup_env.write_text(
+            f"""\
+RESTIC_REPOSITORY=s3:s3.example.invalid/draftcheck-v3-backups
+RESTIC_PASSWORD_FILE={password_file}
+POSTGRES_USER=draftcheck
+POSTGRES_DB=draftcheck
+COMPOSE_FILE={compose_file}
+""",
+            encoding="utf-8",
+        )
+
+    env = os.environ.copy()
+    env.update(
+        {
+            "DRAFTCHECK_APP_DIR": str(app_dir),
+            "DRAFTCHECK_BACKUP_ENV": str(backup_env),
+            "DRAFTCHECK_SYSTEMD_DIR": str(unit_dir),
+            "DRAFTCHECK_GUARDRAIL_CALLS": str(calls_path),
+            "DRAFTCHECK_FAKE_SYSTEMCTL_LOG": str(systemctl_log),
+            "PYTHON_BIN": sys.executable,
+            "PATH": str(bin_dir) + os.pathsep + env["PATH"],
+        }
+    )
+
+    return subprocess.run(
+        [bash, str(BACKUP_INSTALL_PATH)],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+
+
 def test_guardrail_alert_wrapper_reports_ok_when_all_checks_pass(tmp_path: Path) -> None:
     result = _run_guardrail_alerts(tmp_path)
 
@@ -165,6 +246,36 @@ def test_guardrail_alert_wrapper_posts_webhook_payload(tmp_path: Path) -> None:
     assert "DraftCheck guardrail failures:" in payload["text"]
     assert "worker_heartbeat:" in payload["text"]
     assert "worker-heartbeat critical fixture" in payload["text"]
+
+
+def test_backup_installer_explains_missing_backup_env(tmp_path: Path) -> None:
+    result = _run_backup_installer(tmp_path, backup_env_exists=False)
+
+    assert result.returncode == 2
+    assert "Missing" in result.stderr
+    assert "RESTIC_REPOSITORY" in result.stderr
+    assert "RESTIC_PASSWORD_FILE" in result.stderr
+    assert not (tmp_path / "systemd" / "draftcheck-backup.service").exists()
+
+
+def test_backup_installer_validates_config_and_enables_timer(tmp_path: Path) -> None:
+    result = _run_backup_installer(tmp_path, backup_env_exists=True)
+
+    assert result.returncode == 0
+    assert (tmp_path / "guardrail-calls.txt").read_text(encoding="utf-8").splitlines() == [
+        "backup-config",
+    ]
+    assert (tmp_path / "systemd" / "draftcheck-backup.service").read_text(encoding="utf-8") == (
+        "[Unit]\nDescription=DraftCheck backup fixture\n"
+    )
+    assert (tmp_path / "systemd" / "draftcheck-backup.timer").read_text(encoding="utf-8") == (
+        "[Timer]\nOnCalendar=daily\n"
+    )
+    assert (tmp_path / "systemctl.log").read_text(encoding="utf-8").splitlines() == [
+        "daemon-reload",
+        "enable --now draftcheck-backup.timer",
+        "list-timers --all draftcheck-backup.timer",
+    ]
 
 
 def test_backup_freshness_accepts_recent_postgres_dump(tmp_path: Path) -> None:

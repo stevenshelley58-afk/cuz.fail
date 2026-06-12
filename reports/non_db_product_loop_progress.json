@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:51:00+08:00",
+  "captured_at": "2026-06-13T01:52:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -120,7 +120,8 @@
         "scripts/ops_guardrails.py log-retention-config verifies installed journald and Docker JSON log retention files",
         "scripts/audit_non_db_launch_ops.py records log-retention install-state evidence; refreshed VPS evidence shows Docker daemon rotation present and journald drop-in missing",
         "tests/test_ops_guardrails.py now runtime-tests infra/v3/ops/guardrail-alerts.sh success aggregation, failure exit 2 output, and webhook JSON payload capture when Bash is available",
-        "uv run pytest tests/test_ops_guardrails.py -q passed locally with 24 Python tests passed and 3 Bash-wrapper tests skipped because local Windows Bash is unusable"
+        "tests/test_ops_guardrails.py now runtime-tests infra/v3/backup/install-systemd.sh missing-env failure and successful backup-config/systemd timer install flow when Bash is available",
+        "uv run pytest tests/test_ops_guardrails.py -q passed locally with 24 Python tests passed and 5 Bash-wrapper tests skipped because local Windows Bash is unusable"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
