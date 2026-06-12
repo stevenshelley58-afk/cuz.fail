@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -b && vite build",
     "dev": "vite --host 127.0.0.1",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "verify:launch": "npm run build && node scripts/verify-launch.mjs"
   },
   "dependencies": {
     "@types/marked": "^5.0.2",
