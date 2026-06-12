@@ -146,3 +146,62 @@ test("document upload polls async parser status and loads facts when parsing com
   expect(screen.getByText("m")).toBeTruthy();
   expect(screen.getByText(/DIMENSION FRONT_SETBACK=6m/i)).toBeTruthy();
 });
+
+test("uploaded evidence search renders project hits with the advisory notice", async () => {
+  apiMock.documents.listForProject.mockReset();
+  apiMock.documents.listForProject.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      items: [
+        {
+          id: "doc-evidence",
+          title: "site-plan.pdf",
+          document_type: "drawing",
+          status: "parsed",
+          parse_status: "parsed",
+          created_at: "2026-06-12T20:15:00Z",
+          fact_count: 3,
+        },
+      ],
+      count: 1,
+    },
+  });
+  apiMock.documents.searchEvidence.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      project_id: "project-golden",
+      query: "front setback",
+      items: [
+        {
+          document_id: "doc-evidence",
+          document_title: "site-plan.pdf",
+          page_number: 2,
+          chunk_index: 4,
+          text: "Front setback dimension is annotated as 6.0m from the primary street boundary.",
+          score: 0.87,
+          metadata: { parser: "pdf_vector" },
+        },
+      ],
+      count: 1,
+      legal_authority: false,
+      advisory_notice: "Uploaded documents are project evidence, not legal authority.",
+    },
+  });
+
+  render(<DocumentUpload projectId="project-golden" />);
+
+  await screen.findByText("site-plan.pdf");
+  fireEvent.change(screen.getByLabelText("Search uploaded evidence"), {
+    target: { value: "front setback" },
+  });
+  fireEvent.click(screen.getByLabelText("Run uploaded evidence search"));
+
+  await waitFor(() =>
+    expect(apiMock.documents.searchEvidence).toHaveBeenCalledWith("project-golden", "front setback"),
+  );
+  expect(await screen.findByText(/Front setback dimension is annotated as 6.0m/i)).toBeTruthy();
+  expect(screen.getByText("Page 2")).toBeTruthy();
+  expect(screen.getByText("Uploaded documents are project evidence, not legal authority.")).toBeTruthy();
+});
