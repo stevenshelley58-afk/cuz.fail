@@ -273,13 +273,14 @@ select:focus{border-color:var(--green-bright)}
 .tabbar{display:none}
 .sheetwrap{display:none}
 @media (max-width:900px){
-  .app{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) 62px}
+  .app{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr) calc(62px + env(safe-area-inset-bottom,0px))}
   .side{display:none}
   .stage{padding:0 16px}
   .tabbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid var(--line);background:var(--card);
-          align-items:stretch;padding-bottom:env(safe-area-inset-bottom,0)}
+          align-items:stretch;min-width:0;min-height:62px;padding:3px 0 env(safe-area-inset-bottom,0px)}
   .tb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
-      min-width:0;font-size:.55rem;font-weight:700;color:var(--ink-faint)}
+      min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.05;
+      font-size:.55rem;font-weight:700;color:var(--ink-faint)}
   .tb .icon{width:20px;height:20px}
   .tb.on{color:var(--green-800)}
   .tb.on .ico{background:var(--mint);border-radius:99px;padding:2px min(10px,2.2vw)}
@@ -325,5 +326,6 @@ select:focus{border-color:var(--green-bright)}
   .conv{width:calc(100vw - 24px);max-width:calc(100vw - 24px)}
   .hints{padding:0 12px}
   .tb{font-size:.5rem}
-  .tabbar{grid-template-rows:64px}
+  .tb .icon{width:18px;height:18px}
+  .tabbar{grid-template-rows:minmax(62px,auto)}
 }

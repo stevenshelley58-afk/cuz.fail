@@ -97,6 +97,17 @@ for (const configNeedle of ["VITE_CHECKOUT_URL", "AUD $29/month", "Starter launc
   assertIncludes(configSource, configNeedle, "Pricing config");
 }
 
+const stylesSource = read(join(src, "styles.css"));
+for (const stylesNeedle of [
+  "grid-template-columns:repeat(5,minmax(0,1fr))",
+  "calc(62px + env(safe-area-inset-bottom,0px))",
+  "min-height:62px",
+  "overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.05",
+  ".tb .icon{width:18px;height:18px}",
+]) {
+  assertIncludes(stylesSource, stylesNeedle, "Mobile tabbar CSS");
+}
+
 const checkoutUrl = String(process.env.VITE_CHECKOUT_URL ?? "").trim();
 if (!checkoutUrl && strict) {
   fail("VITE_CHECKOUT_URL is required for strict launch verification.");
