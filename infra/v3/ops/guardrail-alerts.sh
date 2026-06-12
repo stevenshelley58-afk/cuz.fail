@@ -8,8 +8,8 @@ COMPOSE_DIR="${DRAFTCHECK_COMPOSE_DIR:-$APP_DIR/infra/v3}"
 BACKUP_DIR="${DRAFTCHECK_BACKUP_DIR:-/srv/draftcheck/backups}"
 MAX_BACKUP_AGE_HOURS="${DRAFTCHECK_MAX_BACKUP_AGE_HOURS:-26}"
 DISK_THRESHOLD="${DRAFTCHECK_DISK_THRESHOLD:-80}"
-HEALTH_URL="${DRAFTCHECK_HEALTH_URL:-https://api.cuz.fail/api/v1/health}"
-READY_URL="${DRAFTCHECK_READY_URL:-https://api.cuz.fail/api/v1/ready}"
+HEALTH_URL="${DRAFTCHECK_HEALTH_URL:-https://lotfile.app/api/v1/health}"
+READY_URL="${DRAFTCHECK_READY_URL:-https://lotfile.app/api/v1/ready}"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 
 [[ -f /etc/draftcheck/ops-alerts.env ]] && source /etc/draftcheck/ops-alerts.env
@@ -30,13 +30,10 @@ for mount in /srv /var/lib/docker; do
     fi
 done
 
-if ! curl -fsS "$HEALTH_URL" | grep -q '"status":"ok"'; then
-    failures+=("health_probe: $HEALTH_URL did not return status ok")
-fi
-
-if ! curl -fsS "$READY_URL" | grep -q '"status":"ok"'; then
-    failures+=("ready_probe: $READY_URL did not return status ok")
-fi
+uptime_output="$("$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" uptime-targets \
+    --health-url "$HEALTH_URL" \
+    --ready-url "$READY_URL" \
+    --json 2>&1)" || failures+=("uptime_targets: $uptime_output")
 
 running_services="$(cd "$COMPOSE_DIR" && docker compose ps --status running --services 2>/dev/null || true)"
 for service in worker hermes; do

@@ -1,6 +1,8 @@
 # LotFile V3 Restore Drill
 
-<!-- Copy this file to restore-drill-YYYYMMDD.md, fill in all fields, commit. -->
+<!-- Copy this file to restore-drill-YYYYMMDD.md, fill in all fields, then run:
+python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json
+Commit only when the verifier returns status ok. -->
 
 date: YYYY-MM-DDTHH:MM:SSZ
 

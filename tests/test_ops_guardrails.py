@@ -1,11 +1,15 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime, timedelta
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
 from pathlib import Path
+import threading
 
 from scripts.ops_guardrails import (
     check_backup_freshness,
+    check_restore_drill_log,
+    check_uptime_targets,
     compare_spend_snapshots,
     normalise_database_url,
 )
@@ -83,3 +87,108 @@ def test_database_url_normalisation_accepts_sqlalchemy_driver_urls() -> None:
         normalise_database_url("postgresql+psycopg://user:pw@db:5432/app")
         == "postgresql://user:pw@db:5432/app"
     )
+
+
+def test_uptime_targets_require_json_status_ok() -> None:
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self) -> None:  # noqa: N802 - stdlib callback name
+            if self.path == "/health":
+                self.send_response(200)
+                self.send_header("content-type", "application/json")
+                self.end_headers()
+                self.wfile.write(b'{"status":"ok"}')
+                return
+            self.send_response(200)
+            self.send_header("content-type", "application/json")
+            self.end_headers()
+            self.wfile.write(b'{"status":"degraded"}')
+
+        def log_message(self, format: str, *args: object) -> None:
+            return
+
+    server = HTTPServer(("127.0.0.1", 0), Handler)
+    thread = threading.Thread(target=server.serve_forever, daemon=True)
+    thread.start()
+    try:
+        base_url = f"http://127.0.0.1:{server.server_port}"
+
+        ok = check_uptime_targets(
+            {
+                "health": f"{base_url}/health",
+            },
+            timeout_seconds=1,
+        )
+        failed = check_uptime_targets(
+            {
+                "health": f"{base_url}/health",
+                "ready": f"{base_url}/ready",
+            },
+            timeout_seconds=1,
+        )
+    finally:
+        server.shutdown()
+        thread.join(timeout=2)
+
+    assert ok.status == "ok"
+    assert failed.status == "critical"
+    assert failed.metadata["targets"]["ready"]["service_status"] == "degraded"
+
+
+def test_restore_drill_log_requires_pass_evidence(tmp_path: Path) -> None:
+    log = tmp_path / "restore-drill-20260612.md"
+    log.write_text(
+        """# LotFile V3 Restore Drill
+
+date: 2026-06-12T08:00:00Z
+
+## restic check
+
+result: PASS
+output: |
+  no errors were found
+
+## Restore latest snapshot
+
+snapshot_id: abc123ef
+
+## Dump
+
+dump_path: /tmp/draftcheck-v3-restore/srv/draftcheck/backups/20260612T020000Z/postgres.dump
+dump_size_bytes: 123456
+
+## DB restore
+
+result: PASS
+
+## Sanity counts
+
+source_versions: 286
+job_traces: 4
+
+## Result
+
+status: PASS
+notes: none
+""",
+        encoding="utf-8",
+    )
+    placeholder = tmp_path / "restore-drill-placeholder.md"
+    placeholder.write_text(
+        """# LotFile V3 Restore Drill
+date: YYYY-MM-DDTHH:MM:SSZ
+result: PASS / FAIL
+snapshot_id: (short ID from `restic snapshots --last`)
+dump_size_bytes: 0
+source_versions: 0
+job_traces: 0
+status: PASS / FAIL
+""",
+        encoding="utf-8",
+    )
+
+    assert check_restore_drill_log(log).status == "ok"
+    failed = check_restore_drill_log(placeholder)
+
+    assert failed.status == "critical"
+    assert "placeholder text remains" in failed.message
+    assert "dump_size_bytes" in failed.message

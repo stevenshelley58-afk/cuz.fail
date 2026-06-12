@@ -42,6 +42,12 @@ Run monthly after a successful backup:
 ssh draftcheck 'cd /srv/draftcheck/app && sudo bash infra/v3/backup/restore-drill.sh' > docs/ops/restore-drill-$(Get-Date -Format yyyyMMdd).md
 ```
 
+Verify the filled log before committing it:
+
+```powershell
+python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json
+```
+
 Commit the filled restore drill log only if it contains `status: PASS`. If
 restic credentials are missing, record this blocker:
 
@@ -84,7 +90,15 @@ non-zero.
 External monitor targets:
 
 - `https://lotfile.app/api/v1/health` with body keyword `"status":"ok"`
-- `https://api.cuz.fail/api/v1/ready` with body keyword `"status":"ok"`
+- `https://lotfile.app/api/v1/ready` with body keyword `"status":"ok"`
+
+Repo-local verification uses the same status contract and exits non-zero if
+either target is not JSON or does not return `status: ok`:
+
+```powershell
+python scripts/ops_guardrails.py uptime-targets --json
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py uptime-targets --json'
+```
 
 Record monitor IDs in `docs/ops/uptime-monitor.md` after provisioning. If the
 third-party monitor account is not available, leave this blocker:

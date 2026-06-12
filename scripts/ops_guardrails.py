@@ -13,7 +13,10 @@ from datetime import UTC, date, datetime, timedelta
 import json
 import os
 from pathlib import Path
+import re
 import sys
+from urllib.error import HTTPError, URLError
+from urllib.request import urlopen
 from typing import Any
 
 
@@ -198,6 +201,149 @@ def compare_spend_snapshots(before: dict[str, Any], after: dict[str, Any]) -> Gu
     )
 
 
+def _fetch_status_ok(url: str, *, timeout_seconds: float) -> dict[str, Any]:
+    try:
+        with urlopen(url, timeout=timeout_seconds) as response:  # noqa: S310 - operator-supplied monitor URL
+            status_code = response.status
+            raw = response.read(1_000_000).decode("utf-8", errors="replace")
+    except HTTPError as exc:
+        return {
+            "url": url,
+            "ok": False,
+            "http_status": exc.code,
+            "error": str(exc),
+        }
+    except (OSError, URLError) as exc:
+        return {
+            "url": url,
+            "ok": False,
+            "error": str(exc),
+        }
+
+    try:
+        body = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        return {
+            "url": url,
+            "ok": False,
+            "http_status": status_code,
+            "error": f"response was not JSON: {exc}",
+            "body_preview": raw[:200],
+        }
+
+    service_status = body.get("status")
+    return {
+        "url": url,
+        "ok": status_code == 200 and service_status == "ok",
+        "http_status": status_code,
+        "service_status": service_status,
+    }
+
+
+def check_uptime_targets(
+    targets: dict[str, str],
+    *,
+    timeout_seconds: float = 10.0,
+) -> GuardrailResult:
+    """Verify launch uptime monitor targets match the expected status contract."""
+
+    checks = {
+        name: _fetch_status_ok(url, timeout_seconds=timeout_seconds)
+        for name, url in targets.items()
+    }
+    failures = [name for name, check in checks.items() if not check["ok"]]
+    metadata = {"targets": checks, "timeout_seconds": timeout_seconds}
+    if not failures:
+        return GuardrailResult(
+            name="uptime_targets",
+            status="ok",
+            message="all uptime targets returned status ok",
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="uptime_targets",
+        status="critical",
+        message="uptime targets failed: " + ", ".join(failures),
+        metadata=metadata,
+    )
+
+
+PLACEHOLDER_PATTERNS = (
+    r"YYYY-MM-DD",
+    r"PASS / FAIL",
+    r"\(paste ",
+    r"\(short ID",
+    r"notes: \(any anomalies",
+)
+
+
+def _first_int(pattern: str, text: str) -> int | None:
+    match = re.search(pattern, text, flags=re.MULTILINE)
+    if not match:
+        return None
+    return int(match.group(1))
+
+
+def check_restore_drill_log(path: Path) -> GuardrailResult:
+    """Verify a committed restore-drill log contains accepted evidence."""
+
+    if not path.exists():
+        return GuardrailResult(
+            name="restore_drill_log",
+            status="critical",
+            message=f"restore drill log missing: {path}",
+            metadata={"path": str(path)},
+        )
+
+    text = path.read_text(encoding="utf-8")
+    failures: list[str] = []
+    placeholders = [pattern for pattern in PLACEHOLDER_PATTERNS if re.search(pattern, text)]
+    if placeholders:
+        failures.append("placeholder text remains")
+
+    if not re.search(r"^status:\s*PASS\s*$", text, flags=re.MULTILINE):
+        failures.append("status must be PASS")
+    if len(re.findall(r"^result:\s*PASS\s*$", text, flags=re.MULTILINE)) < 2:
+        failures.append("restic and DB restore results must be PASS")
+
+    snapshot = re.search(r"^snapshot_id:\s*(\S+)\s*$", text, flags=re.MULTILINE)
+    if not snapshot or snapshot.group(1).startswith("("):
+        failures.append("snapshot_id is required")
+
+    dump_size = _first_int(r"^dump_size_bytes:\s*(\d+)\s*$", text)
+    if dump_size is None or dump_size <= 0:
+        failures.append("dump_size_bytes must be greater than zero")
+
+    source_versions = _first_int(r"^source_versions:\s*(\d+)\s*$", text)
+    if source_versions is None or source_versions <= 0:
+        failures.append("source_versions sanity count must be greater than zero")
+
+    job_traces = _first_int(r"^job_traces:\s*(\d+)\s*$", text)
+    if job_traces is None or job_traces <= 0:
+        failures.append("job_traces sanity count must be greater than zero")
+
+    metadata = {
+        "path": str(path),
+        "placeholder_patterns": placeholders,
+        "dump_size_bytes": dump_size,
+        "source_versions": source_versions,
+        "job_traces": job_traces,
+    }
+    if failures:
+        return GuardrailResult(
+            name="restore_drill_log",
+            status="critical",
+            message="; ".join(failures),
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="restore_drill_log",
+        status="ok",
+        message="restore drill log has accepted PASS evidence",
+        metadata=metadata,
+    )
+
+
 def _print_result(result: GuardrailResult, *, as_json: bool) -> None:
     if as_json:
         print(json.dumps(result.to_dict(), sort_keys=True))
@@ -226,6 +372,16 @@ def main(argv: list[str] | None = None) -> int:
     compare_parser.add_argument("--before", required=True)
     compare_parser.add_argument("--after", required=True)
     compare_parser.add_argument("--json", action="store_true")
+
+    uptime_parser = subparsers.add_parser("uptime-targets")
+    uptime_parser.add_argument("--health-url", default="https://lotfile.app/api/v1/health")
+    uptime_parser.add_argument("--ready-url", default="https://lotfile.app/api/v1/ready")
+    uptime_parser.add_argument("--timeout-seconds", type=float, default=10.0)
+    uptime_parser.add_argument("--json", action="store_true")
+
+    restore_parser = subparsers.add_parser("restore-drill-log")
+    restore_parser.add_argument("--path", required=True)
+    restore_parser.add_argument("--json", action="store_true")
 
     args = parser.parse_args(argv)
     if args.command == "backup-freshness":
@@ -256,6 +412,22 @@ def main(argv: list[str] | None = None) -> int:
                 )
             )
         return 0
+
+    if args.command == "uptime-targets":
+        result = check_uptime_targets(
+            {
+                "health": args.health_url,
+                "ready": args.ready_url,
+            },
+            timeout_seconds=args.timeout_seconds,
+        )
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "restore-drill-log":
+        result = check_restore_drill_log(Path(args.path))
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
 
     before = _read_snapshot(args.before)
     after = _read_snapshot(args.after)
