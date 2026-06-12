@@ -81,6 +81,8 @@ LOG_RETENTION_STATES = {
     "LOG_RETENTION_JOURNALD_MISSING",
     "LOG_RETENTION_DOCKER_PRESENT",
     "LOG_RETENTION_DOCKER_MISSING",
+    "LOG_RETENTION_CONFIG_OK",
+    "LOG_RETENTION_CONFIG_CRITICAL",
     "SSH_SKIPPED",
     "SSH_CHECK_FAILED",
 }
@@ -221,6 +223,7 @@ def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
         evidence["uptime_monitor_doc"].startswith("ok:"),
         _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT"),
         _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT"),
+        _field_present(evidence["log_retention_config"], "LOG_RETENTION_CONFIG_OK"),
     )
     return "verified" if all(required) else "blocked"
 
@@ -274,6 +277,7 @@ def ops_guardrail_unblock_steps(evidence: dict[str, str]) -> list[str]:
     if not (
         _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT")
         and _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT")
+        and _field_present(evidence["log_retention_config"], "LOG_RETENTION_CONFIG_OK")
     ):
         steps.append(
             "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh, then rerun with DRAFTCHECK_RESTART_DOCKER=1 during a maintenance window."
@@ -316,7 +320,7 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
     if sentry_state and sentry_state not in SENTRY_STATES:
         failures.append(f"ops_guardrails.evidence.sentry_dsn has unrecognized state {sentry_state!r}")
 
-    for key in ("log_retention_journald", "log_retention_docker"):
+    for key in ("log_retention_journald", "log_retention_docker", "log_retention_config"):
         state = str(ops_evidence.get(key, ""))
         if state and state not in LOG_RETENTION_STATES:
             failures.append(f"ops_guardrails.evidence.{key} has unrecognized state {state!r}")
@@ -333,16 +337,12 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
         status_evidence = {
             key: str(ops_evidence.get(key, ""))
             for key in REQUIRED_OPS_EVIDENCE_KEYS
-            if key != "log_retention_config"
         }
         uptime_targets = str(ops_evidence.get("uptime_targets", ""))
         if uptime_targets not in {UPTIME_TARGETS_OK, "SSH_SKIPPED", "SSH_CHECK_FAILED"} and not uptime_targets.startswith(
             "https://lotfile.app API targets failed:"
         ):
             failures.append("ops_guardrails.evidence.uptime_targets is not recognized verifier output")
-        log_retention_config = str(ops_evidence.get("log_retention_config", ""))
-        if "journald" not in log_retention_config or "Docker json-file" not in log_retention_config:
-            failures.append("ops_guardrails.evidence.log_retention_config must mention journald and Docker json-file retention")
         expected_ops_status = assess_ops_guardrails_status(status_evidence)
         if ops.get("status") != expected_ops_status:
             failures.append(
@@ -398,6 +398,7 @@ def parse_vps_state(output: str) -> dict[str, str]:
     sentry_lines = [line for line in lines if line.startswith("SENTRY_DSN_")]
     journald_lines = [line for line in lines if line.startswith("LOG_RETENTION_JOURNALD_")]
     docker_log_lines = [line for line in lines if line.startswith("LOG_RETENTION_DOCKER_")]
+    log_retention_config_lines = [line for line in lines if line.startswith("LOG_RETENTION_CONFIG_")]
     disk_lines = [line for line in lines if line.startswith("DISK_USAGE_")]
     heartbeat_lines = [line for line in lines if line.startswith("WORKER_HEARTBEAT_")]
     return {
@@ -414,6 +415,9 @@ def parse_vps_state(output: str) -> dict[str, str]:
         "sentry_dsn": sentry_lines[-1] if sentry_lines else "SENTRY_DSN_MISSING",
         "log_retention_journald": journald_lines[-1] if journald_lines else "LOG_RETENTION_JOURNALD_MISSING",
         "log_retention_docker": docker_log_lines[-1] if docker_log_lines else "LOG_RETENTION_DOCKER_MISSING",
+        "log_retention_config": log_retention_config_lines[-1]
+        if log_retention_config_lines
+        else "LOG_RETENTION_CONFIG_CRITICAL",
     }
 
 
@@ -446,6 +450,11 @@ else
 fi
 test -f /etc/systemd/journald.conf.d/draftcheck.conf && echo LOG_RETENTION_JOURNALD_PRESENT || echo LOG_RETENTION_JOURNALD_MISSING
 test -f /etc/docker/daemon.json && echo LOG_RETENTION_DOCKER_PRESENT || echo LOG_RETENTION_DOCKER_MISSING
+if test -f /srv/draftcheck/app/scripts/ops_guardrails.py; then
+  python3 /srv/draftcheck/app/scripts/ops_guardrails.py log-retention-config --journald-path /etc/systemd/journald.conf.d/draftcheck.conf --docker-daemon-path /etc/docker/daemon.json --json >/tmp/draftcheck-log-retention.json 2>/dev/null && echo LOG_RETENTION_CONFIG_OK || echo LOG_RETENTION_CONFIG_CRITICAL
+else
+  echo LOG_RETENTION_CONFIG_CRITICAL
+fi
 """
     result = subprocess.run(
         ["ssh", host, remote],
@@ -467,6 +476,7 @@ test -f /etc/docker/daemon.json && echo LOG_RETENTION_DOCKER_PRESENT || echo LOG
             "sentry_dsn": "SSH_CHECK_FAILED",
             "log_retention_journald": "SSH_CHECK_FAILED",
             "log_retention_docker": "SSH_CHECK_FAILED",
+            "log_retention_config": "SSH_CHECK_FAILED",
         }
     return parse_vps_state(result.stdout)
 
@@ -499,7 +509,7 @@ def build_report(
         "uptime_monitor_doc": uptime_monitor_doc,
         "log_retention_journald": vps_state["log_retention_journald"],
         "log_retention_docker": vps_state["log_retention_docker"],
-        "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs",
+        "log_retention_config": vps_state["log_retention_config"],
     }
 
     return {
@@ -569,6 +579,7 @@ def main() -> int:
             "sentry_dsn": "SSH_SKIPPED",
             "log_retention_journald": "SSH_SKIPPED",
             "log_retention_docker": "SSH_SKIPPED",
+            "log_retention_config": "SSH_SKIPPED",
         }
         if args.skip_ssh
         else collect_vps_state(args.ssh_host)

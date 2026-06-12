@@ -32,7 +32,7 @@
       "uptime_monitor_doc": "critical: pending monitor evidence: LotFile health.provider_id, LotFile health.alert_contact, LotFile ready.provider_id, LotFile ready.alert_contact",
       "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
       "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
-      "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs"
+      "log_retention_config": "LOG_RETENTION_CONFIG_OK"
     },
     "unblock": [
       "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md.",
