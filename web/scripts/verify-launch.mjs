@@ -6,6 +6,7 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const dist = join(root, "dist");
 const src = join(root, "src");
 const publicDir = join(root, "public");
+const repoRoot = dirname(root);
 
 const failures = [];
 const strict = process.argv.includes("--strict") || process.env.LAUNCH_STRICT === "1";
@@ -106,6 +107,16 @@ for (const stylesNeedle of [
   ".tb .icon{width:18px;height:18px}",
 ]) {
   assertIncludes(stylesSource, stylesNeedle, "Mobile tabbar CSS");
+}
+
+const caddyfile = read(join(repoRoot, "infra", "v3", "Caddyfile"));
+for (const caddyNeedle of [
+  "http://lotfile.app",
+  "root * /srv/draftcheck/app/web/dist",
+  "try_files {path} /index.html",
+  "file_server",
+]) {
+  assertIncludes(caddyfile, caddyNeedle, "Caddy SPA fallback");
 }
 
 const checkoutUrl = String(process.env.VITE_CHECKOUT_URL ?? "").trim();
