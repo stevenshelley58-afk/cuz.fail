@@ -236,6 +236,18 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
         assert f"bash -n {script}" in syntax_step["run"]
 
 
+def test_v3_ci_runs_explicit_golden_fixture_e2e_gate():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    backend_steps = workflow["jobs"]["backend"]["steps"]
+
+    assert any(
+        step.get("name") == "Golden fixture E2E gate"
+        and step.get("run")
+        == "python -m pytest tests/test_v3_golden_fixture.py tests/test_golden_e2e.py -q"
+        for step in backend_steps
+    )
+
+
 def test_v3_ci_verifies_non_db_launch_ops_report_artifact():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
     backend_steps = workflow["jobs"]["backend"]["steps"]
