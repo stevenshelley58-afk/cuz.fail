@@ -129,6 +129,7 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "backup-freshness" in alert_script
     assert "disk-usage" in alert_script
     assert "worker-heartbeat" in alert_script
+    assert "log-retention-config" in alert_script
     assert "backup-config" in install_script
     assert "guardrail-cron" in cron_install_script
     assert "/etc/cron.d/draftcheck-guardrails" in cron_install_script
