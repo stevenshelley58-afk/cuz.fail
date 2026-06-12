@@ -17,6 +17,7 @@ RESTORE_DRILL_PATH = ROOT / "infra" / "v3" / "backup" / "restore-drill.sh"
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
 OPS_CRON_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-guardrail-cron.sh"
 OPS_LOG_RETENTION_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-log-retention.sh"
+OPS_SENTRY_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-sentry-dsn.sh"
 OPS_RUNBOOK_PATH = ROOT / "docs" / "ops" / "ops-guardrails.md"
 WEB_ONLY_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy-web-only.sh"
 JOURNALD_RETENTION_PATH = ROOT / "infra" / "v3" / "ops" / "journald-draftcheck.conf"
@@ -117,6 +118,7 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     alert_script = OPS_ALERT_PATH.read_text(encoding="utf-8")
     cron_install_script = OPS_CRON_INSTALL_PATH.read_text(encoding="utf-8")
     log_retention_install_script = OPS_LOG_RETENTION_INSTALL_PATH.read_text(encoding="utf-8")
+    sentry_install_script = OPS_SENTRY_INSTALL_PATH.read_text(encoding="utf-8")
     runbook = OPS_RUNBOOK_PATH.read_text(encoding="utf-8").lower()
 
     assert "systemctl enable --now draftcheck-backup.timer" in install_script
@@ -132,10 +134,15 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "log-retention-config" in log_retention_install_script
     assert "DRAFTCHECK_RESTART_DOCKER:-0" in log_retention_install_script
     assert "restart docker" in log_retention_install_script
+    assert "sentry-config" in sentry_install_script
+    assert "SENTRY_DSN is required" in sentry_install_script
+    assert "DRAFTCHECK_RESTART_SERVICES:-0" in sentry_install_script
+    assert "docker compose up -d api worker hermes" in sentry_install_script
     assert "<generated-restic-password>" in runbook
     assert "backup-config" in runbook
     assert "install-guardrail-cron.sh" in runbook
     assert "install-log-retention.sh" in runbook
+    assert "install-sentry-dsn.sh" in runbook
     assert "guardrail-cron" in runbook
     assert "uptime-monitor-doc" in runbook
     assert "sentry-config" in runbook
@@ -216,6 +223,7 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
         "infra/v3/ops/guardrail-alerts.sh",
         "infra/v3/ops/install-guardrail-cron.sh",
         "infra/v3/ops/install-log-retention.sh",
+        "infra/v3/ops/install-sentry-dsn.sh",
         "infra/v3/backup/install-systemd.sh",
         "infra/v3/backup/restore-drill.sh",
         "infra/v3/deploy-web-only.sh",

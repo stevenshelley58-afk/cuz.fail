@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
 OPS_CRON_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-guardrail-cron.sh"
 OPS_LOG_RETENTION_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-log-retention.sh"
+OPS_SENTRY_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-sentry-dsn.sh"
 BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
 RESTORE_DRILL_PATH = ROOT / "infra" / "v3" / "backup" / "restore-drill.sh"
 
@@ -299,6 +300,20 @@ exit 0
     docker.chmod(0o755)
 
 
+def _write_fake_docker(bin_dir: Path) -> None:
+    docker = bin_dir / "docker"
+    docker.write_text(
+        """\
+#!/usr/bin/env bash
+set -euo pipefail
+printf 'docker %s\n' "$*" >> "$DRAFTCHECK_FAKE_DOCKER_LOG"
+exit 0
+""",
+        encoding="utf-8",
+    )
+    docker.chmod(0o755)
+
+
 def _run_restore_drill(tmp_path: Path) -> subprocess.CompletedProcess[str]:
     bash = _require_bash()
     bin_dir = tmp_path / "bin"
@@ -328,6 +343,46 @@ def _run_restore_drill(tmp_path: Path) -> subprocess.CompletedProcess[str]:
         capture_output=True,
         text=True,
         timeout=30,
+    )
+
+
+def _run_sentry_installer(
+    tmp_path: Path,
+    *,
+    dsn: str | None = "https://public@example.ingest.sentry.io/123",
+    restart_services: bool = False,
+) -> subprocess.CompletedProcess[str]:
+    bash = _require_bash()
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    _write_fake_docker(bin_dir)
+    env_path = tmp_path / ".env"
+    env_path.write_text("POSTGRES_USER=draftcheck\nSENTRY_DSN=https://old@example.ingest.sentry.io/1\n", encoding="utf-8")
+
+    env = os.environ.copy()
+    env.update(
+        {
+            "DRAFTCHECK_APP_DIR": str(ROOT),
+            "DRAFTCHECK_ENV_PATH": str(env_path),
+            "DRAFTCHECK_COMPOSE_PATH": str(ROOT / "infra" / "v3" / "compose.yml"),
+            "DRAFTCHECK_RESTART_SERVICES": "1" if restart_services else "0",
+            "DRAFTCHECK_FAKE_DOCKER_LOG": str(tmp_path / "docker.log"),
+            "PYTHON_BIN": sys.executable,
+            "PATH": str(bin_dir) + os.pathsep + env["PATH"],
+        }
+    )
+    if dsn is not None:
+        env["SENTRY_DSN"] = dsn
+    else:
+        env.pop("SENTRY_DSN", None)
+
+    return subprocess.run(
+        [bash, str(OPS_SENTRY_INSTALL_PATH)],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=20,
     )
 
 
@@ -491,6 +546,35 @@ def test_log_retention_installer_can_restart_docker_explicitly(tmp_path: Path) -
     assert (tmp_path / "systemctl.log").read_text(encoding="utf-8").splitlines() == [
         "restart systemd-journald",
         "restart docker",
+    ]
+
+
+def test_sentry_installer_writes_dsn_without_printing_secret(tmp_path: Path) -> None:
+    result = _run_sentry_installer(tmp_path)
+
+    assert result.returncode == 0, result.stderr
+    assert "Sentry DSN installed" in result.stdout
+    assert "public@example.ingest.sentry.io" not in result.stdout
+    assert "public@example.ingest.sentry.io" not in result.stderr
+    env_text = (tmp_path / ".env").read_text(encoding="utf-8")
+    assert "POSTGRES_USER=draftcheck" in env_text
+    assert "SENTRY_DSN=https://public@example.ingest.sentry.io/123" in env_text
+    assert not (tmp_path / "docker.log").exists()
+
+
+def test_sentry_installer_requires_dsn(tmp_path: Path) -> None:
+    result = _run_sentry_installer(tmp_path, dsn=None)
+
+    assert result.returncode != 0
+    assert "SENTRY_DSN is required" in result.stderr
+
+
+def test_sentry_installer_can_restart_services_explicitly(tmp_path: Path) -> None:
+    result = _run_sentry_installer(tmp_path, restart_services=True)
+
+    assert result.returncode == 0, result.stderr
+    assert (tmp_path / "docker.log").read_text(encoding="utf-8").splitlines() == [
+        "docker compose up -d api worker hermes",
     ]
 
 

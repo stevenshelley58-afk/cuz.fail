@@ -140,7 +140,13 @@ Code already reads `SENTRY_DSN` for api, worker, and hermes. Provision the DSN
 outside the repo and write it only to the VPS compose env:
 
 ```powershell
-$env:SENTRY_DSN='https://examplePublicKey@o0.ingest.sentry.io/0'; ssh draftcheck "cd /srv/draftcheck/app/infra/v3 && grep -q '^SENTRY_DSN=' .env && sudo sed -i 's|^SENTRY_DSN=.*|SENTRY_DSN=$env:SENTRY_DSN|' .env || printf '\nSENTRY_DSN=%s\n' '$env:SENTRY_DSN' | sudo tee -a .env >/dev/null && sudo docker compose up -d api worker hermes"
+$env:SENTRY_DSN='https://examplePublicKey@o0.ingest.sentry.io/0'; ssh draftcheck "sudo SENTRY_DSN='$env:SENTRY_DSN' bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh"
+```
+
+Restart the services explicitly when the DB/worker lane is idle:
+
+```powershell
+$env:SENTRY_DSN='https://examplePublicKey@o0.ingest.sentry.io/0'; ssh draftcheck "sudo SENTRY_DSN='$env:SENTRY_DSN' DRAFTCHECK_RESTART_SERVICES=1 bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh"
 ```
 
 Verify the env and compose wiring without printing the DSN:
@@ -153,7 +159,7 @@ If no DSN is available:
 
 ```text
 BLOCKED: error reporting pending SENTRY_DSN.
-Unblock: set SENTRY_DSN in /srv/draftcheck/app/infra/v3/.env and restart api worker hermes.
+Unblock: run install-sentry-dsn.sh with SENTRY_DSN set, then restart api worker hermes.
 ```
 
 ## 6. Log retention

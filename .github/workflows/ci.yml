@@ -30,6 +30,7 @@ jobs:
           bash -n infra/v3/ops/guardrail-alerts.sh
           bash -n infra/v3/ops/install-guardrail-cron.sh
           bash -n infra/v3/ops/install-log-retention.sh
+          bash -n infra/v3/ops/install-sentry-dsn.sh
           bash -n infra/v3/backup/install-systemd.sh
           bash -n infra/v3/backup/restore-drill.sh
           bash -n infra/v3/deploy-web-only.sh
