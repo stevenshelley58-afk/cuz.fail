@@ -56,6 +56,9 @@ from draftcheck.domain.identity import (  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_DIR = ROOT / "tests" / "fixtures" / "golden"
 ORIGIN_HEADERS = {"origin": "http://localhost:5173"}
+FIXTURE_TO_API_CHECK_KEY = {
+    "primary_street_setback": "setback_front",
+}
 
 
 def test_document_upload_commits_before_async_parse_enqueue(tmp_path, monkeypatch) -> None:
@@ -282,7 +285,7 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
     fixtures = _load_golden_fixtures()
     expected_scope = set(fixtures["manifest"]["canary_scope"]["tier_1_check_keys"])
     expected_result_keys = {
-        item["check_key"]
+        _api_expectation(item)["check_key"]
         for item in fixtures["expected_compliance"]["expected_results"]
         if item["check_key"] in expected_scope
     }
@@ -350,14 +353,14 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
     )
     assert proposal.status_code == 200, proposal.text
 
-    dxf_payload = _golden_dxf_payload(fixtures["document_facts"])
+    dxf_artifact = FIXTURE_DIR / fixtures["manifest"]["artifacts"]["site_plan_dxf"]
     upload = client.post(
         "/api/v1/documents/upload",
         params={"project_id": project_id},
         files={
             "file": (
-                "m1_canary_site_plan_rev_a.dxf",
-                dxf_payload.encode("utf-8"),
+                dxf_artifact.name,
+                dxf_artifact.read_bytes(),
                 "application/dxf",
             )
         },
@@ -395,29 +398,39 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
     assert compliance.status_code == 201, compliance.text
     body = compliance.json()
     assert body["project_id"] == project_id
-    assert "advisory only" in body["advisory_disclaimer"]
-    assert "not final legal" in body["advisory_disclaimer"]
+    for expected_text in fixtures["expected_compliance"]["run"]["advisory_disclaimer_contains"]:
+        assert expected_text in body["advisory_disclaimer"]
 
     results_by_key = {result["check_key"]: result for result in body["results"]}
-    api_scope = {
-        "site_cover",
-        "setback_front",
-        "open_space",
-        "garage_dominance",
-        "boundary_wall_length",
-    }
+    api_scope = expected_result_keys
     assert api_scope <= set(results_by_key)
+    expected_by_api_key = {
+        _api_expectation(item)["check_key"]: item
+        for item in fixtures["expected_compliance"]["expected_results"]
+        if item["check_key"] in expected_scope
+    }
+    seeded_source_version_fragment = f"source_version:{_uuid('source-version:golden-rcodes')}"
 
     for check_key in api_scope:
         result = results_by_key[check_key]
+        expected_result = expected_by_api_key[check_key]
+        api_expectation = _api_expectation(expected_result)
         assert result["display_name"]
         assert result["rule_id"]
         assert result["rule_quote"]
         assert result["citation"]
-        assert "source_version:" in result["citation"]
-        assert result["status"] in {"likely_pass", "likely_fail", "needs_more_info"}
-        assert "missing_info_reason" in result
+        for citation_fragment in api_expectation["citation_contains"]:
+            assert citation_fragment in result["citation"]
+        assert seeded_source_version_fragment in result["citation"]
+        assert result["status"] == expected_result["status"]
+        assert result["threshold_value"] == api_expectation["threshold_value"]
+        assert result["threshold_unit"] == api_expectation["threshold_unit"]
+        assert result["measured_value"] == api_expectation["measured_value"]
+        assert result["missing_info_reason"] is None
         assert "drawing_evidence" in result
+        assert result["drawing_evidence"]["fact_type"] == api_expectation["drawing_fact_type"]
+        assert result["drawing_evidence"]["method"] == "document_extraction_promoted"
+        assert result["drawing_evidence"]["document_fact_id"]
         assert result["result_id"]
         assert result["review_reason"] is None
         assert result["human_override"] == {}
@@ -436,9 +449,9 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
     assert persisted_site_cover.drawing_evidence_json["document_fact_id"]
     assert persisted_site_cover.decision_trace_json["missing_info_reason"] is None
 
-    assert expected_result_keys == {
+    assert api_scope == {
         "site_cover",
-        "primary_street_setback",
+        "setback_front",
         "open_space",
         "garage_dominance",
         "boundary_wall_length",
@@ -609,44 +622,14 @@ def _seed_approved_rules(db: Session, org_id: UUID) -> None:
     db.flush()
 
 
-def _golden_dxf_payload(document_fixture: dict[str, object]) -> str:
-    promoted = {
-        item["measurement_type"]: item
-        for item in document_fixture["promoted_measurements"]
-    }
-    lot_area = float(promoted["lot_area"]["value"])
-    covered_area = float(promoted["site_cover_area"]["value"])
-    open_space_area = float(promoted["open_space_area"]["value"])
-    site_cover_pct = round((covered_area / lot_area) * 100, 2)
-    open_space_pct = round((open_space_area / lot_area) * 100, 2)
-    return "\n".join(
-        [
-            "0",
-            "SECTION",
-            "2",
-            "ENTITIES",
-            "8",
-            "A-LOT-BOUNDARY",
-            f"Lot area: {lot_area} m2",
-            "8",
-            "A-BUILDING-FOOTPRINT",
-            f"Footprint: {covered_area} m2",
-            f"Site coverage: {site_cover_pct}%",
-            "8",
-            "A-OPEN-SPACE",
-            f"Open space: {open_space_area} m2",
-            f"Open space percentage: {open_space_pct}%",
-            "8",
-            "A-DIMENSIONS",
-            f"Front setback: {promoted['primary_street_setback']['value']} m",
-            f"Garage width: {promoted['garage_width']['value']} m",
-            "8",
-            "A-WALLS",
-            f"Boundary wall length: {promoted['boundary_wall_length']['value']} m",
-            "0",
-            "ENDSEC",
-        ]
-    )
+def _api_check_key(fixture_check_key: str) -> str:
+    return FIXTURE_TO_API_CHECK_KEY.get(fixture_check_key, fixture_check_key)
+
+
+def _api_expectation(expected_result: dict[str, object]) -> dict[str, object]:
+    api_expectation = dict(expected_result["api_expectation"])
+    api_expectation.setdefault("check_key", _api_check_key(str(expected_result["check_key"])))
+    return api_expectation
 
 
 def _uuid(value: str) -> UUID:
