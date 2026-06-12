@@ -1285,14 +1285,14 @@ def _dxf_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFa
     unit_context = _dxf_unit_context(text)
     candidates = _extract_dxf_dimension_candidates(text)
     if candidates:
-        facts: list[DocumentFact] = []
+        candidate_facts: list[DocumentFact] = []
         for index, candidate in enumerate(candidates, start=1):
             value, unit, unit_metadata = _normalise_dxf_measurement(
                 candidate.measurement,
                 unit_context,
             )
             base_confidence = 0.62 if candidate.insert_scale_uncertain else 0.76
-            facts.append(
+            candidate_facts.append(
                 _fact(
                     document_id=document_id,
                     label=f"dxf dimension {index}",
@@ -1305,7 +1305,7 @@ def _dxf_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFa
                     metadata={**_dxf_dimension_metadata(candidate), **unit_metadata},
                 )
             )
-        return facts
+        return candidate_facts
 
     facts: list[DocumentFact] = []
     if "a-dimensions" not in text.lower() and "dimension" not in text.lower():
@@ -1773,7 +1773,11 @@ def _float_or_none(value: object) -> float | None:
     if value is None:
         return None
     try:
-        return float(value)
+        if isinstance(value, str):
+            return float(value.strip())
+        if isinstance(value, (bytes, bytearray, int, float)):
+            return float(value)
+        return float(str(value).strip())
     except (TypeError, ValueError):
         return None
 
@@ -1921,9 +1925,9 @@ def _ifcopenshell_quantity_candidates(text: str) -> list[dict[str, Any]]:
 
     objects_by_quantity_set = _ifcopenshell_objects_by_quantity_set(model)
     for quantity in quantities_by_id.values():
-        quantity_set_id = quantity.get("quantity_set_id")
-        if quantity_set_id:
-            quantity["related_object"] = objects_by_quantity_set.get(str(quantity_set_id))
+        related_quantity_set_id = quantity.get("quantity_set_id")
+        if related_quantity_set_id:
+            quantity["related_object"] = objects_by_quantity_set.get(str(related_quantity_set_id))
 
     return list(quantities_by_id.values())
 

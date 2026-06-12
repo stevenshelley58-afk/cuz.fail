@@ -30,11 +30,14 @@ TOKEN_RE = re.compile(r"[a-z0-9]+")
 
 
 class PageLike(Protocol):
-    id: Any
-    document_id: Any
-    page_number: int
-    text: str | None
-    metadata_json: dict[str, Any]
+    @property
+    def id(self) -> Any: ...
+
+    @property
+    def page_number(self) -> int: ...
+
+    @property
+    def text(self) -> str | None: ...
 
 
 @dataclass(frozen=True)

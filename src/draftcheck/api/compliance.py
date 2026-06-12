@@ -319,7 +319,7 @@ def record_check_result_override(
             detail=f"Compliance result {result_id} not found.",
         )
 
-    before = {
+    before: dict[str, object] = {
         "status": result.status,
         "review_reason": result.review_reason,
         "human_override": dict(result.human_override_json or {}),
@@ -327,7 +327,7 @@ def record_check_result_override(
         "reviewed_at": result.reviewed_at.isoformat() if result.reviewed_at else None,
     }
     now = datetime.now(UTC)
-    override = {
+    override: dict[str, object] = {
         "action": payload.action,
         "reason": payload.reason,
         "recorded_at": now.isoformat(),
