@@ -592,8 +592,8 @@ def check_restore_drill_log(path: Path) -> GuardrailResult:
 
     if not re.search(r"^status:\s*PASS\s*$", text, flags=re.MULTILINE):
         failures.append("status must be PASS")
-    if len(re.findall(r"^result:\s*PASS\s*$", text, flags=re.MULTILINE)) < 2:
-        failures.append("restic and DB restore results must be PASS")
+    if len(re.findall(r"^result:\s*PASS\s*$", text, flags=re.MULTILINE)) < 3:
+        failures.append("restic, storage, and DB restore results must be PASS")
 
     snapshot = re.search(r"^snapshot_id:\s*(\S+)\s*$", text, flags=re.MULTILINE)
     if not snapshot or snapshot.group(1).startswith("("):
@@ -602,6 +602,26 @@ def check_restore_drill_log(path: Path) -> GuardrailResult:
     dump_size = _first_int(r"^dump_size_bytes:\s*(\d+)\s*$", text)
     if dump_size is None or dump_size <= 0:
         failures.append("dump_size_bytes must be greater than zero")
+
+    storage_path = re.search(r"^storage_path:\s*(\S+)\s*$", text, flags=re.MULTILINE)
+    if not storage_path or storage_path.group(1).startswith("("):
+        failures.append("storage_path is required")
+
+    storage_file_count = _first_int(r"^storage_file_count:\s*(\d+)\s*$", text)
+    if storage_file_count is None or storage_file_count <= 0:
+        failures.append("storage_file_count must be greater than zero")
+
+    storage_size = _first_int(r"^storage_size_bytes:\s*(\d+)\s*$", text)
+    if storage_size is None or storage_size <= 0:
+        failures.append("storage_size_bytes must be greater than zero")
+
+    storage_manifest = re.search(
+        r"^storage_manifest_sha256:\s*([a-fA-F0-9]{64})\s*$",
+        text,
+        flags=re.MULTILINE,
+    )
+    if not storage_manifest:
+        failures.append("storage_manifest_sha256 must be a SHA-256 hex digest")
 
     source_versions = _first_int(r"^source_versions:\s*(\d+)\s*$", text)
     if source_versions is None or source_versions <= 0:
@@ -615,6 +635,10 @@ def check_restore_drill_log(path: Path) -> GuardrailResult:
         "path": str(path),
         "placeholder_patterns": placeholders,
         "dump_size_bytes": dump_size,
+        "storage_path": storage_path.group(1) if storage_path else None,
+        "storage_file_count": storage_file_count,
+        "storage_size_bytes": storage_size,
+        "storage_manifest_sha256": storage_manifest.group(1) if storage_manifest else None,
         "source_versions": source_versions,
         "job_traces": job_traces,
     }

@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:09:31+08:00",
+  "captured_at": "2026-06-13T01:11:18+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -96,6 +96,7 @@
         "tests/test_v3_infra_contract.py asserts ops scripts/runbook retain backup-config, disk, worker, and cron guardrail hooks",
         "infra/v3/backup/restore-drill.sh emits guardrail-accepted result, source_versions, job_traces, and status fields",
         "tests/test_v3_infra_contract.py asserts restore-drill.sh retains those accepted evidence fields",
+        "restore-drill acceptance now requires storage_path, storage_file_count, storage_size_bytes, and storage_manifest_sha256 evidence",
         "uv run pytest tests/test_ops_guardrails.py -q passed",
         "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json passed",
         "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json passed",

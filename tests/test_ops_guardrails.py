@@ -338,6 +338,14 @@ snapshot_id: abc123ef
 dump_path: /tmp/draftcheck-v3-restore/srv/draftcheck/backups/20260612T020000Z/postgres.dump
 dump_size_bytes: 123456
 
+## Storage restore
+
+storage_path: /tmp/draftcheck-v3-restore/srv/draftcheck/storage
+storage_file_count: 12
+storage_size_bytes: 345678
+storage_manifest_sha256: 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+result: PASS
+
 ## DB restore
 
 result: PASS
@@ -361,6 +369,9 @@ date: YYYY-MM-DDTHH:MM:SSZ
 result: PASS / FAIL
 snapshot_id: (short ID from `restic snapshots --last`)
 dump_size_bytes: 0
+storage_file_count: 0
+storage_size_bytes: 0
+storage_manifest_sha256: (64 hex chars from restore-drill.sh)
 source_versions: 0
 job_traces: 0
 status: PASS / FAIL
@@ -374,3 +385,6 @@ status: PASS / FAIL
     assert failed.status == "critical"
     assert "placeholder text remains" in failed.message
     assert "dump_size_bytes" in failed.message
+    assert "storage_path is required" in failed.message
+    assert "storage_file_count" in failed.message
+    assert "storage_manifest_sha256" in failed.message

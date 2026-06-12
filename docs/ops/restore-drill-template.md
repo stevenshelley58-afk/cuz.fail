@@ -21,6 +21,14 @@ snapshot_id: (short ID from `restic snapshots --last`)
 dump_path: /tmp/draftcheck-v3-restore-YYYYMMDDTHHMMSSZ/srv/draftcheck/backups/YYYYMMDDTHHMMSSZ/postgres.dump
 dump_size_bytes: 0
 
+## Storage restore
+
+storage_path: /tmp/draftcheck-v3-restore-YYYYMMDDTHHMMSSZ/srv/draftcheck/storage
+storage_file_count: 0
+storage_size_bytes: 0
+storage_manifest_sha256: (64 hex chars from restore-drill.sh)
+result: PASS / FAIL
+
 ## DB restore
 
 result: PASS / FAIL

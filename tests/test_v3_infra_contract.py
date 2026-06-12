@@ -90,6 +90,10 @@ def test_v3_restore_drill_emits_guardrail_accepted_fields():
     assert "result: PASS" in restore_script
     assert "-At -c \"SELECT count(*) FROM source_versions;\"" in restore_script
     assert "-At -c \"SELECT count(*) FROM job_traces;\"" in restore_script
+    assert "## Storage restore" in restore_script
+    assert "storage_file_count:" in restore_script
+    assert "storage_size_bytes:" in restore_script
+    assert "storage_manifest_sha256:" in restore_script
     assert "source_versions: $SOURCE_VERSIONS" in restore_script
     assert "job_traces: $JOB_TRACES" in restore_script
     assert "status: PASS" in restore_script

@@ -57,7 +57,39 @@ echo "dump_path: $RESTORED_DUMP"
 echo "dump_size_bytes: $DUMP_SIZE"
 echo ""
 
-# --- 4. Restore into scratch DB ---
+# --- 4. Verify restored storage tree ---
+RESTORED_STORAGE="$DRILL_DIR/srv/draftcheck/storage"
+if [[ ! -d "$RESTORED_STORAGE" ]]; then
+    echo "ERROR: restored storage tree not found at $RESTORED_STORAGE" >&2
+    exit 1
+fi
+echo "## Storage restore"
+python3 - "$RESTORED_STORAGE" <<'PY'
+import hashlib
+from pathlib import Path
+import sys
+
+root = Path(sys.argv[1])
+files = sorted(path for path in root.rglob("*") if path.is_file())
+manifest = hashlib.sha256()
+total_size = 0
+for path in files:
+    relative = path.relative_to(root).as_posix()
+    payload = path.read_bytes()
+    total_size += len(payload)
+    manifest.update(relative.encode("utf-8"))
+    manifest.update(b"\0")
+    manifest.update(hashlib.sha256(payload).hexdigest().encode("ascii"))
+    manifest.update(b"\0")
+print(f"storage_path: {root}")
+print(f"storage_file_count: {len(files)}")
+print(f"storage_size_bytes: {total_size}")
+print(f"storage_manifest_sha256: {manifest.hexdigest()}")
+PY
+echo "result: PASS"
+echo ""
+
+# --- 5. Restore into scratch DB ---
 echo "## DB restore"
 docker compose -f "$COMPOSE_FILE" exec -T db \
     dropdb -U "$POSTGRES_USER" --if-exists "$SCRATCH_DB"
@@ -69,7 +101,7 @@ docker compose -f "$COMPOSE_FILE" exec -T db \
 echo "result: PASS"
 echo ""
 
-# --- 5. Sanity check ---
+# --- 6. Sanity check ---
 echo "## Sanity counts"
 SOURCE_VERSIONS="$(
     docker compose -f "$COMPOSE_FILE" exec -T db \
@@ -85,7 +117,7 @@ echo "source_versions: $SOURCE_VERSIONS"
 echo "job_traces: $JOB_TRACES"
 echo ""
 
-# --- 6. Clean up ---
+# --- 7. Clean up ---
 docker compose -f "$COMPOSE_FILE" exec -T db \
     dropdb -U "$POSTGRES_USER" --if-exists "$SCRATCH_DB"
 rm -rf "$DRILL_DIR"
