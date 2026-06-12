@@ -13,6 +13,11 @@ from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
 
+try:
+    from scripts.ops_guardrails import check_uptime_monitor_doc
+except ModuleNotFoundError:  # pragma: no cover - direct `python scripts/...` execution
+    from ops_guardrails import check_uptime_monitor_doc
+
 
 LAUNCH_ROUTES = ("/", "/privacy", "/terms", "/app")
 API_ROUTES = ("/api/v1/health", "/api/v1/ready")
@@ -113,6 +118,11 @@ def assess_api_targets(origin: str, responses: dict[str, FetchResult]) -> str:
     return "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready"
 
 
+def assess_uptime_monitor_doc(path: Path) -> str:
+    result = check_uptime_monitor_doc(path)
+    return f"{result.status}: {result.message}"
+
+
 def parse_vps_state(output: str) -> dict[str, str]:
     lines = [line.strip() for line in output.splitlines() if line.strip()]
     checkout_line = next((line for line in lines if line.startswith("VITE_CHECKOUT_URL=")), "")
@@ -173,7 +183,15 @@ fi
     return parse_vps_state(result.stdout)
 
 
-def build_report(origin: str, vps_state: dict[str, str], pages: dict[str, FetchResult], api: dict[str, FetchResult], bundle_text: str) -> dict[str, Any]:
+def build_report(
+    origin: str,
+    vps_state: dict[str, str],
+    pages: dict[str, FetchResult],
+    api: dict[str, FetchResult],
+    bundle_text: str,
+    *,
+    uptime_monitor_doc: str,
+) -> dict[str, Any]:
     launch = assess_live_launch(origin, pages, bundle_text)
     launch["evidence"]["vps_checkout_env"] = vps_state["vps_checkout_env"]
     if vps_state["vps_checkout_env"] == "VITE_CHECKOUT_URL_MISSING":
@@ -201,6 +219,7 @@ def build_report(origin: str, vps_state: dict[str, str], pages: dict[str, FetchR
                 "ops_guardrail_script": vps_state["ops_guardrail_script"],
                 "sentry_dsn": vps_state["sentry_dsn"],
                 "uptime_targets": assess_api_targets(origin, api),
+                "uptime_monitor_doc": uptime_monitor_doc,
                 "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs",
             },
             "unblock": [
@@ -209,6 +228,7 @@ def build_report(origin: str, vps_state: dict[str, str], pages: dict[str, FetchR
                 "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
                 "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
                 "Install /etc/cron.d/draftcheck-guardrails using docs/ops/ops-guardrails.md after the latest scripts are deployed.",
+                "Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.",
                 "Set SENTRY_DSN in /srv/draftcheck/app/infra/v3/.env, restart api worker hermes, then run sentry-config from docs/ops/ops-guardrails.md.",
                 "Install log retention during a maintenance window with the commands in docs/ops/ops-guardrails.md section 6.",
             ],
@@ -235,6 +255,7 @@ def main() -> int:
     parser.add_argument("--origin", default="https://lotfile.app")
     parser.add_argument("--ssh-host", default="draftcheck")
     parser.add_argument("--output", default="reports/non_db_launch_ops_blockers.json")
+    parser.add_argument("--uptime-monitor-doc", default="docs/ops/uptime-monitor.md")
     parser.add_argument("--skip-ssh", action="store_true")
     args = parser.parse_args()
 
@@ -254,7 +275,14 @@ def main() -> int:
         if args.skip_ssh
         else collect_vps_state(args.ssh_host)
     )
-    report = build_report(origin, vps_state, pages, api, bundle_text)
+    report = build_report(
+        origin,
+        vps_state,
+        pages,
+        api,
+        bundle_text,
+        uptime_monitor_doc=assess_uptime_monitor_doc(Path(args.uptime_monitor_doc)),
+    )
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

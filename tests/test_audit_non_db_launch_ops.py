@@ -1,6 +1,14 @@
 from __future__ import annotations
 
-from scripts.audit_non_db_launch_ops import FetchResult, assess_live_launch, build_report, parse_vps_state
+from pathlib import Path
+
+from scripts.audit_non_db_launch_ops import (
+    FetchResult,
+    assess_live_launch,
+    assess_uptime_monitor_doc,
+    build_report,
+    parse_vps_state,
+)
 
 
 def test_parse_vps_state_extracts_missing_ops_state() -> None:
@@ -92,9 +100,41 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
         "sentry_dsn": "SENTRY_DSN_PRESENT",
     }
 
-    report = build_report("https://lotfile.app", vps_state, pages, api, bundle_text)
+    report = build_report(
+        "https://lotfile.app",
+        vps_state,
+        pages,
+        api,
+        bundle_text,
+        uptime_monitor_doc="ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+    )
 
     assert report["launch_surface"]["status"] == "blocked"
     assert report["launch_surface"]["evidence"]["vps_checkout_env"] == "VITE_CHECKOUT_URL_MISSING"
     assert report["ops_guardrails"]["evidence"]["sentry_dsn"] == "SENTRY_DSN_PRESENT"
     assert "status ok" in report["ops_guardrails"]["evidence"]["uptime_targets"]
+    assert report["ops_guardrails"]["evidence"]["uptime_monitor_doc"].startswith("ok:")
+
+
+def test_assess_uptime_monitor_doc_reports_pending_evidence(tmp_path: Path) -> None:
+    doc = tmp_path / "uptime-monitor.md"
+    doc.write_text(
+        """# Uptime Monitoring
+
+| URL | Purpose | Expected response |
+|-----|---------|-------------------|
+| `https://lotfile.app/api/v1/health` | Primary health probe | HTTP 200 |
+| `https://lotfile.app/api/v1/ready` | Deep-ready probe | HTTP 200 |
+
+| Monitor | Provider ID | Alert contact |
+|---------|-------------|---------------|
+| LotFile health | pending | pending |
+| LotFile ready | pending | pending |
+""",
+        encoding="utf-8",
+    )
+
+    result = assess_uptime_monitor_doc(doc)
+
+    assert result.startswith("critical:")
+    assert "pending monitor evidence" in result

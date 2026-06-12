@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:47:00+08:00",
+  "captured_at": "2026-06-13T01:48:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -114,7 +114,8 @@
         ".github/workflows/ci.yml runs bash -n over ops/deploy shell scripts on Ubuntu, with tests/test_v3_infra_contract.py locking the gate",
         "scripts/ops_guardrails.py sentry-config verifies SENTRY_DSN shape and compose wiring without printing the DSN",
         "tests/test_v3_infra_contract.py asserts api, worker, and hermes retain SENTRY_DSN compose wiring",
-        "scripts/audit_non_db_launch_ops.py records SENTRY_DSN_PRESENT/EMPTY/MISSING without echoing the DSN, and the refreshed report shows SENTRY_DSN_MISSING on the VPS"
+        "scripts/audit_non_db_launch_ops.py records SENTRY_DSN_PRESENT/EMPTY/MISSING without echoing the DSN, and the refreshed report shows SENTRY_DSN_MISSING on the VPS",
+        "scripts/audit_non_db_launch_ops.py records uptime_monitor_doc evidence separately from live endpoint health; the refreshed report shows pending monitor IDs and alert contacts"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
