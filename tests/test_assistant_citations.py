@@ -129,6 +129,24 @@ class TestFilterRelevantHits:
 # Phase 2 — Citation parsing
 # ---------------------------------------------------------------------------
 
+class TestStripReasoning:
+    def test_removes_think_block(self):
+        from draftcheck.api.sources import _strip_reasoning
+        assert _strip_reasoning("<think>internal musing</think>\nThe setback is 6 m.") == "The setback is 6 m."
+
+    def test_removes_multiple_blocks_case_insensitive(self):
+        from draftcheck.api.sources import _strip_reasoning
+        assert _strip_reasoning("<THINK>a</THINK>x<think>b</think>y") == "xy"
+
+    def test_unterminated_think_drops_tail(self):
+        from draftcheck.api.sources import _strip_reasoning
+        assert _strip_reasoning("Answer first. <think>never closed") == "Answer first."
+
+    def test_plain_answer_untouched(self):
+        from draftcheck.api.sources import _strip_reasoning
+        assert _strip_reasoning("Plain answer [1].") == "Plain answer [1]."
+
+
 class TestParseCitedIndices:
     def test_simple_marker(self):
         assert _parse_cited_indices("See [1] for details.") == frozenset({1})

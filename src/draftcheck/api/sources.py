@@ -299,6 +299,20 @@ def _parse_cited_indices(answer: str) -> frozenset[int]:
     return frozenset(indices)
 
 
+_THINK_BLOCK_RE = re.compile(r"<think>.*?</think>\s*", re.DOTALL | re.IGNORECASE)
+
+
+def _strip_reasoning(answer: str) -> str:
+    """Remove model reasoning blocks (<think>…</think>) that some providers emit inline."""
+    cleaned = _THINK_BLOCK_RE.sub("", answer)
+    # Unterminated <think> at the start: keep only what follows the opening tag's content
+    # is unrecoverable, so drop everything up to the tag if no closing tag exists.
+    lowered = cleaned.lower()
+    if "<think>" in lowered and "</think>" not in lowered:
+        cleaned = cleaned[: lowered.index("<think>")]
+    return cleaned.strip()
+
+
 def _build_grounded_response(
     answer: str,
     hits: tuple[SourceSearchHit, ...],
@@ -1127,7 +1141,7 @@ def create_sources_router(
         if getattr(provider, "is_live", False):
             try:
                 messages = _build_chat_messages(question, hits, payload.history)
-                raw_answer = provider.complete_chat(_ASSISTANT_SYSTEM_PROMPT, messages)
+                raw_answer = _strip_reasoning(provider.complete_chat(_ASSISTANT_SYSTEM_PROMPT, messages))
                 rewritten, citations, citation_map, grounded = _build_grounded_response(raw_answer, hits)
                 return {
                     "answer": rewritten,
