@@ -31,6 +31,7 @@ from draftcheck.api.deps import get_db_session  # noqa: E402
 from draftcheck.api.main import create_app  # noqa: E402
 from draftcheck.db.models import (  # noqa: E402
     Base,
+    CheckResult,
     Clause,
     Org,
     Rule,
@@ -189,6 +190,12 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
         assert result["citation"]
         assert "source_version:" in result["citation"]
         assert result["status"] in {"likely_pass", "likely_fail", "needs_more_info"}
+
+    persisted_site_cover = db.query(CheckResult).filter(CheckResult.check_key == "site_cover").one()
+    assert persisted_site_cover.drawing_evidence_json["fact_type"] == "proposed_site_cover_pct"
+    assert persisted_site_cover.drawing_evidence_json["method"] == "document_extraction_promoted"
+    assert persisted_site_cover.drawing_evidence_json["document_fact_id"]
+    assert persisted_site_cover.decision_trace_json["missing_info_reason"] is None
 
     assert expected_result_keys == {
         "site_cover",
