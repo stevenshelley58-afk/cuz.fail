@@ -59,9 +59,15 @@ function FactCard({
   const [confirmed, setConfirmed] = useState(fact.confirmed ?? fact.review_status === "confirmed");
   const [promoting, setPromoting] = useState(false);
   const [promoted, setPromoted] = useState(fact.promoted_to_measurement ?? false);
+  const [calibrating, setCalibrating] = useState(false);
+  const [calibrationRef, setCalibrationRef] = useState(
+    typeof fact.metadata?.calibration_ref === "string" ? fact.metadata.calibration_ref : "",
+  );
+  const [calibrationDraft, setCalibrationDraft] = useState(calibrationRef);
   const [err, setErr] = useState<string | null>(null);
   const factId = fact.fact_id ?? fact.fact_key;
-  const canPromote = fact.numeric_value !== null && Boolean(fact.unit);
+  const needsCalibration = fact.fact_kind === "drawing_dimension" && !calibrationRef;
+  const canPromote = fact.numeric_value !== null && Boolean(fact.unit) && !needsCalibration;
 
   async function confirm() {
     setConfirming(true);
@@ -89,6 +95,26 @@ function FactCard({
       setErr(r.message);
     } else {
       setErr("Could not make this fact available for checks.");
+    }
+  }
+
+  async function saveCalibration() {
+    const nextRef = calibrationDraft.trim();
+    if (nextRef.length < 3) {
+      setErr("Enter a calibration reference before using this dimension.");
+      return;
+    }
+    setCalibrating(true);
+    setErr(null);
+    const r = await api.documents.calibrateFact(docId, factId, nextRef);
+    setCalibrating(false);
+    if (r.kind === "ok") {
+      setCalibrationRef(nextRef);
+      onConfirmed(factId);
+    } else if (r.kind === "error") {
+      setErr(r.message);
+    } else {
+      setErr("Could not save calibration evidence.");
     }
   }
 
@@ -134,6 +160,40 @@ function FactCard({
               {fact.source_text.length > 120
                 ? fact.source_text.slice(0, 120) + "…"
                 : fact.source_text}
+            </div>
+          )}
+          {fact.fact_kind === "drawing_dimension" && !promoted && (
+            <div style={{ marginTop: 8, display: "flex", gap: 6, alignItems: "center" }}>
+              <input
+                value={calibrationDraft}
+                onChange={(e) => setCalibrationDraft(e.target.value)}
+                placeholder="Calibration ref"
+                aria-label={`Calibration reference for ${fact.fact_key.replace(/_/g, " ")}`}
+                style={{
+                  minWidth: 0,
+                  flex: 1,
+                  border: "1px solid #d1d5db",
+                  borderRadius: 5,
+                  padding: "5px 7px",
+                  fontSize: 12,
+                }}
+              />
+              <button
+                onClick={() => void saveCalibration()}
+                disabled={calibrating || calibrationDraft.trim().length < 3}
+                style={{
+                  fontSize: 12,
+                  padding: "5px 8px",
+                  background: calibrating || calibrationDraft.trim().length < 3 ? "#e5e7eb" : "#111827",
+                  color: calibrating || calibrationDraft.trim().length < 3 ? "#6b7280" : "#fff",
+                  border: "none",
+                  borderRadius: 5,
+                  cursor: calibrating || calibrationDraft.trim().length < 3 ? "not-allowed" : "pointer",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {calibrating ? "Saving..." : calibrationRef ? "Update" : "Save"}
+              </button>
             </div>
           )}
         </div>

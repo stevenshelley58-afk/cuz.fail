@@ -25,6 +25,7 @@ from __future__ import annotations
 import hashlib
 import os
 import uuid
+from datetime import UTC, datetime
 from pathlib import Path, PurePath
 from typing import Annotated, Any
 
@@ -90,6 +91,8 @@ class FactUpdateRequest(BaseModel):
 
     numeric_value: float | None = Field(default=None)
     status: str | None = Field(default=None, pattern=r"^(pending_review|confirmed|rejected)$")
+    calibration_ref: str | None = Field(default=None, min_length=3, max_length=500)
+    calibration_note: str | None = Field(default=None, max_length=1000)
 
 
 class ReviewDocumentFactPayload(BaseModel):
@@ -117,6 +120,7 @@ def _orm_fact_payload(fact: OrmDocumentFact) -> dict[str, Any]:
         "confidence": fact.confidence,
         "review_status": fact.review_status,
         "promoted_to_measurement": fact.promoted_to_measurement,
+        "metadata": fact.metadata_json or {},
     }
 
 
@@ -332,9 +336,9 @@ def update_document_fact(
     payload: FactUpdateRequest,
     db: DbSession,
     _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
-    _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
 ) -> dict[str, Any]:
-    """Update a fact's numeric_value and/or status."""
+    """Update a fact's numeric value, review status, or calibration evidence."""
     fact = _get_fact_or_404(db, doc_id, fact_id)
 
     if payload.numeric_value is not None:
@@ -344,6 +348,25 @@ def update_document_fact(
 
     if payload.status is not None:
         fact.review_status = payload.status
+
+    if payload.calibration_ref is not None:
+        if fact.fact_kind != "drawing_dimension":
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail="calibration_ref applies only to drawing_dimension facts.",
+            )
+        metadata = dict(fact.metadata_json or {})
+        metadata.update(
+            {
+                "calibration_ref": payload.calibration_ref.strip(),
+                "calibration_status": "human_confirmed",
+                "calibration_recorded_at": datetime.now(UTC).isoformat(),
+                "calibration_recorded_by": str(active_session.user.id) if active_session.user else "system",
+            }
+        )
+        if payload.calibration_note:
+            metadata["calibration_note"] = payload.calibration_note.strip()
+        fact.metadata_json = metadata
 
     db.flush()
     return _orm_fact_payload(fact)
@@ -397,22 +420,28 @@ def promote_document_fact(
 
     fact.review_status = "confirmed"
     fact.promoted_to_measurement = True
+    calibration_ref = (fact.metadata_json or {}).get("calibration_ref")
+    value_json = {"value": numeric_value, "unit": unit, "document_fact_id": str(fact.id)}
+    provenance_json = {
+        "entered_by": str(active_session.user.id) if active_session.user else "system",
+        "reason": "promoted from document fact",
+        "method": "document_extraction_promoted",
+        "source_document_id": str(fact.document_id),
+        "source_fact_id": str(fact.id),
+    }
+    if calibration_ref is not None:
+        value_json["calibration_ref"] = str(calibration_ref)
+        provenance_json["calibration_ref"] = str(calibration_ref)
 
     property_fact = PropertyFact(
         id=uuid.uuid4(),
         org_id=fact.org_id,
         project_id=fact.project_id,
         fact_type=fact_key,
-        value_json={"value": numeric_value, "unit": unit, "document_fact_id": str(fact.id)},
+        value_json=value_json,
         confidence=fact.confidence,
         method="document_extraction_promoted",
-        provenance_json={
-            "entered_by": str(active_session.user.id) if active_session.user else "system",
-            "reason": "promoted from document fact",
-            "method": "document_extraction_promoted",
-            "source_document_id": str(fact.document_id),
-            "source_fact_id": str(fact.id),
-        },
+        provenance_json=provenance_json,
         review_status="confirmed",
     )
     db.add(property_fact)

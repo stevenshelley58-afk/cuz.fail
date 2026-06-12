@@ -35,6 +35,7 @@ from draftcheck.db.models import (  # noqa: E402
     Clause,
     Document,
     Org,
+    PropertyFact,
     Rule,
     Source,
     SourceVersion,
@@ -97,6 +98,92 @@ def test_document_upload_commits_before_async_parse_enqueue(tmp_path, monkeypatc
     assert body["parse_job"] == {"enqueued": True, "job_id": "job-123", "queue": "default"}
     assert body["fact_count"] == 0
     assert events[:2] == ["commit", "enqueue"]
+
+
+def test_drawing_dimension_requires_calibration_before_promotion(tmp_path, monkeypatch) -> None:
+    app, db, active_session = _make_app()
+    _seed_identity_rows(db, active_session)
+    db.commit()
+
+    import draftcheck.api.documents as documents_module
+
+    monkeypatch.setattr(documents_module, "STORAGE_ROOT", tmp_path / "storage")
+    client = TestClient(app, headers=ORIGIN_HEADERS)
+    project = client.post(
+        "/api/v1/projects",
+        json={"name": "Calibrated DXF project", "council_scope": "Demo Bay Local Government"},
+    )
+    assert project.status_code == 201, project.text
+    project_id = project.json()["id"]
+    dxf_payload = "\n".join(
+        [
+            "0",
+            "SECTION",
+            "2",
+            "HEADER",
+            "9",
+            "$INSUNITS",
+            "70",
+            "6",
+            "0",
+            "ENDSEC",
+            "0",
+            "SECTION",
+            "2",
+            "ENTITIES",
+            "0",
+            "DIMENSION",
+            "5",
+            "D-CAL-1",
+            "8",
+            "A-DIMENSIONS",
+            "42",
+            "4.5",
+            "0",
+            "ENDSEC",
+            "0",
+            "EOF",
+        ]
+    )
+
+    upload = client.post(
+        "/api/v1/documents/upload",
+        params={"project_id": project_id},
+        files={"file": ("calibrated-setback.dxf", dxf_payload.encode(), "application/dxf")},
+    )
+    assert upload.status_code == 200, upload.text
+    db.commit()
+    body = upload.json()
+    document_id = body["document_id"]
+    fact = body["extracted_facts"][0]
+    assert fact["fact_kind"] == "drawing_dimension"
+    assert fact["unit"] == "m"
+    assert "calibration_ref" not in fact["metadata"]
+    fact_id = fact["fact_id"]
+
+    blocked = client.post(f"/api/v1/documents/{document_id}/facts/{fact_id}/promote")
+    assert blocked.status_code == 422
+    assert "calibration_ref" in blocked.text
+
+    calibrated = client.patch(
+        f"/api/v1/documents/{document_id}/facts/{fact_id}",
+        json={"calibration_ref": "scale-bar:A101:1:100", "calibration_note": "Checked against title block scale."},
+    )
+    assert calibrated.status_code == 200, calibrated.text
+    calibrated_body = calibrated.json()
+    assert calibrated_body["metadata"]["calibration_ref"] == "scale-bar:A101:1:100"
+    assert calibrated_body["metadata"]["calibration_status"] == "human_confirmed"
+
+    promoted = client.post(f"/api/v1/documents/{document_id}/facts/{fact_id}/promote")
+    assert promoted.status_code == 200, promoted.text
+    assert promoted.json()["promoted_to_measurement"] is True
+    property_fact = next(
+        fact
+        for fact in db.query(PropertyFact).all()
+        if fact.value_json.get("document_fact_id") == fact_id
+    )
+    assert property_fact.value_json["calibration_ref"] == "scale-bar:A101:1:100"
+    assert property_fact.provenance_json["calibration_ref"] == "scale-bar:A101:1:100"
 
 
 def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, monkeypatch) -> None:

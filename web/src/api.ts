@@ -250,6 +250,7 @@ export type ExtractedFact = {
   source_text: string | null;
   review_status?: string;
   promoted_to_measurement?: boolean;
+  metadata?: Record<string, unknown>;
   confirmed?: boolean;
 };
 
@@ -393,6 +394,11 @@ export const api = {
       call<DocumentEvidenceSearchResponse>("GET", `/documents/projects/${projectId}/evidence-search?q=${encodeURIComponent(q)}&limit=${limit}`),
     confirmFact: (docId: string, factId: string) =>
       call<DocumentFactUpdateResponse>("PATCH", `/documents/${docId}/facts/${factId}`, { status: "confirmed" }),
+    calibrateFact: (docId: string, factId: string, calibrationRef: string, calibrationNote?: string) =>
+      call<DocumentFactUpdateResponse>("PATCH", `/documents/${docId}/facts/${factId}`, {
+        calibration_ref: calibrationRef,
+        calibration_note: calibrationNote,
+      }),
     promoteFact: (docId: string, factId: string) =>
       call<DocumentFactPromotionResponse>("POST", `/documents/${docId}/facts/${factId}/promote`, {}),
   },
