@@ -1103,10 +1103,14 @@ def _dxf_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFa
 
 
 def _extract_dxf_dimension_candidates(text: str) -> list[_DxfDimensionCandidate]:
-    candidates = _extract_dxf_dimensions_with_ezdxf(text)
-    if candidates:
-        return candidates
-    return _extract_dxf_dimensions_from_group_codes(text)
+    ezdxf_candidates = _extract_dxf_dimensions_with_ezdxf(text)
+    group_code_candidates = _extract_dxf_dimensions_from_group_codes(text)
+    if ezdxf_candidates and (
+        any(not _nearly_equal(candidate.measurement, 0.0) for candidate in ezdxf_candidates)
+        or not group_code_candidates
+    ):
+        return ezdxf_candidates
+    return group_code_candidates
 
 
 def _extract_dxf_dimensions_with_ezdxf(text: str) -> list[_DxfDimensionCandidate]:

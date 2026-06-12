@@ -291,6 +291,46 @@ def test_v3_dxf_declared_millimetres_convert_dimension_to_metres() -> None:
     assert fact.metadata["source_unit"] == "millimetres"
 
 
+def test_v3_ezdxf_generated_dimension_is_parsed_with_entity_metadata() -> None:
+    import io
+
+    import ezdxf
+
+    library = InMemoryDocumentLibrary()
+    doc = ezdxf.new("R2010")
+    doc.header["$INSUNITS"] = 6
+    msp = doc.modelspace()
+    dimension = msp.add_linear_dim(
+        base=(0, 1),
+        p1=(0, 0),
+        p2=(4.5, 0),
+        angle=0,
+        dxfattribs={"layer": "A-DIMENSIONS"},
+    )
+    dimension.render()
+    stream = io.StringIO()
+    doc.write(stream)
+
+    result = library.upload(
+        org_id="org-docs",
+        project_id="project-docs",
+        user_id="user-docs",
+        filename="generated.dxf",
+        media_type="application/dxf",
+        content=stream.getvalue().encode(),
+    )
+
+    fact = next(fact for fact in result.facts if fact.label == "dxf dimension 1")
+    assert fact.numeric_value == 4.5
+    assert fact.unit == "m"
+    assert fact.confidence == 0.76
+    assert fact.metadata["method"] == "ezdxf_dimension_entity"
+    assert fact.metadata["entity_type"] == "DIMENSION"
+    assert fact.metadata["entity_layer"] == "A-DIMENSIONS"
+    assert fact.metadata["unit_declared"] is True
+    assert fact.metadata["measurement_compliance_ready"] is False
+
+
 def test_v3_dxf_block_insert_uniform_scale_is_recorded_on_dimension_fact() -> None:
     library = InMemoryDocumentLibrary()
     dxf_text = "\n".join(

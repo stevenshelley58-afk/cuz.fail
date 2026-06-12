@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T00:59:18+08:00",
+  "captured_at": "2026-06-13T01:02:14+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -38,7 +38,8 @@
         "src/draftcheck/domain/documents/parsers exposes a persistence-free parser protocol, registry, ParsedDocument, and DocumentArtifact descriptors",
         "DocumentParser routes existing extraction through registry-ordered parser adapters while preserving the legacy parse tuple",
         "PDF parser adapter carries text-block and vector-path metadata through the parser boundary",
-        "Worker persistence stores parser_artifacts descriptors on document metadata until DB artifact rows are available"
+        "Worker persistence stores parser_artifacts descriptors on document metadata until DB artifact rows are available",
+        "ezdxf is a runtime dependency and tests/test_v3_documents.py generates a real DXF dimension fixture through ezdxf"
       ],
       "remaining": [
         "Artifact-row persistence remains open and needs DB coordination"
@@ -113,6 +114,7 @@
   "focused_gates": [
     "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py tests/test_document_chunks.py",
     "uv run pytest tests/test_document_parser_registry.py tests/test_v3_document_parse_jobs.py -q",
+    "uv run pytest tests/test_v3_documents.py::test_v3_ezdxf_generated_dimension_is_parsed_with_entity_metadata -q",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py",
     "uv run pytest tests/test_v3_document_parse_jobs.py tests/test_v3_infra_contract.py",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py tests/test_v3_api_shell.py",
