@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { checkoutUrlFailures } from "./checkout-url.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const dist = join(root, "dist");
@@ -127,6 +128,9 @@ for (const caddyNeedle of [
 const checkoutUrl = String(process.env.VITE_CHECKOUT_URL ?? "").trim();
 if (!checkoutUrl && strict) {
   fail("VITE_CHECKOUT_URL is required for strict launch verification.");
+}
+for (const failure of checkoutUrlFailures(checkoutUrl)) {
+  fail(failure);
 }
 
 if (checkoutUrl) {

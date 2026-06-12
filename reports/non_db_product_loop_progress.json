@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T00:48:20+08:00",
+  "captured_at": "2026-06-13T01:02:20+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -27,12 +27,12 @@
       "evidence": [
         "DXF $INSUNITS now controls dimension units; missing/unitless drawings stay drawing_unit with low confidence",
         "PDF vector paths are captured as calibration-required evidence without promoting measurements",
-          "IFC STEP quantity fallback remains review-gated",
-          "Title-block fields are extracted as review-gated non-measurement metadata facts",
-          "Optional IfcOpenShell quantity extraction is used when available and falls back to STEP text parsing",
-          "DXF dimension facts carry CAD model/paper-space, layout, and entity evidence into persisted evidence_ref_json",
-          "PDF regex-derived facts carry conservative text-block bbox evidence when source text matches a parsed block"
-        ],
+        "IFC STEP quantity fallback remains review-gated",
+        "Title-block fields are extracted as review-gated non-measurement metadata facts",
+        "Optional IfcOpenShell quantity extraction is used when available and falls back to STEP text parsing",
+        "DXF dimension facts carry CAD model/paper-space, layout, and entity evidence into persisted evidence_ref_json",
+        "PDF regex-derived facts carry conservative text-block bbox evidence when source text matches a parsed block"
+      ],
       "remaining": [
         "Parser registry/protocol and artifact-row linkage are still open and may need DB coordination"
       ]
@@ -61,10 +61,12 @@
         "web/src/App.tsx routes /, /privacy, /terms, and /app",
         "web/public/robots.txt and web/public/sitemap.xml are present",
         "web/src/analytics.ts and call sites cover signup_requested, project_created, compliance_run, checkout_clicked",
-        "npm.cmd run verify:launch passed"
+        "npm.cmd run verify:launch passed",
+        "npm.cmd run verify:launch:strict passed with a Stripe-shaped VITE_CHECKOUT_URL",
+        "checkout URL validation rejects non-HTTPS and non-buy.stripe.com URLs"
       ],
       "remaining": [
-        "Run npm.cmd run verify:launch:strict with VITE_CHECKOUT_URL before paid launch",
+        "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",
         "Run live verification against lotfile.app after deployment"
       ]
     }
@@ -75,6 +77,8 @@
     "uv run pytest tests/test_v3_document_parse_jobs.py tests/test_v3_infra_contract.py",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py tests/test_v3_api_shell.py",
     "uv run pytest tests/test_v3_documents.py tests/test_v3_document_parse_jobs.py",
+    "npm.cmd run test:launch-checkout",
+    "VITE_CHECKOUT_URL=https://buy.stripe.com/test_fixture npm.cmd run verify:launch:strict",
     "npm.cmd run build",
     "npm.cmd run verify:launch"
   ]

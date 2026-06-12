@@ -1,10 +1,12 @@
 import { request } from "node:https";
+import { checkoutUrlFailures } from "./checkout-url.mjs";
 
 const origin = String(process.env.LAUNCH_ORIGIN ?? "https://lotfile.app").replace(/\/+$/, "");
 const strict = process.argv.includes("--strict") || process.env.LAUNCH_STRICT === "1";
 const expectedCheckoutUrl = String(process.env.LIVE_CHECKOUT_URL ?? process.env.VITE_CHECKOUT_URL ?? "").trim();
 const failures = [];
 const warnings = [];
+const checkoutUrlLabel = process.env.LIVE_CHECKOUT_URL ? "LIVE_CHECKOUT_URL" : "VITE_CHECKOUT_URL";
 
 function fail(message) {
   failures.push(message);
@@ -41,6 +43,10 @@ function assertIncludes(text, needle, label) {
 }
 
 const routes = ["/", "/privacy", "/terms", "/app"];
+for (const failure of checkoutUrlFailures(expectedCheckoutUrl, checkoutUrlLabel)) {
+  fail(failure);
+}
+
 const pages = new Map();
 for (const path of routes) {
   const response = await fetchText(`${origin}${path}`);
