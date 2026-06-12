@@ -211,6 +211,54 @@ def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
     return "verified" if all(required) else "blocked"
 
 
+def launch_unblock_steps(launch: dict[str, Any], checkout_env: str) -> list[str]:
+    steps: list[str] = []
+    if not _checkout_env_verified(checkout_env):
+        steps.append(
+            "Set a real Stripe Payment Link in /srv/draftcheck/app/infra/v3/.env as VITE_CHECKOUT_URL=https://buy.stripe.com/..."
+        )
+    if launch["status"] != "verified" or steps:
+        steps.append("Deploy the web bundle with: ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'")
+        steps.append("Run: cd web && npm run verify:launch:live:strict")
+    return steps
+
+
+def ops_guardrail_unblock_steps(evidence: dict[str, str]) -> list[str]:
+    steps: list[str] = []
+    if not _field_present(evidence["ops_guardrail_script"], "OPS_GUARDRAILS_PRESENT"):
+        steps.append(
+            "Deploy latest non-DB ops scripts after DB jobs are idle so /srv/draftcheck/app/scripts/ops_guardrails.py is present."
+        )
+    if not _field_present(evidence["backup_env"], "BACKUP_ENV_PRESENT") or not _field_present(
+        evidence["restic_password_file"], "RESTIC_PASSWORD_FILE_PRESENT"
+    ):
+        steps.append(
+            "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md."
+        )
+    if not _timer_verified(evidence["backup_timer"]):
+        steps.append("Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh")
+    if not evidence["restore_drill_log"].startswith("ok:"):
+        steps.append(
+            "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json"
+        )
+    if not _field_present(evidence["guardrail_cron"], "CRON_GUARDRAILS_PRESENT"):
+        steps.append("Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh")
+    if not evidence["uptime_monitor_doc"].startswith("ok:"):
+        steps.append("Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.")
+    if not _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"):
+        steps.append(
+            "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart."
+        )
+    if not (
+        _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT")
+        and _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT")
+    ):
+        steps.append(
+            "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh, then rerun with DRAFTCHECK_RESTART_DOCKER=1 during a maintenance window."
+        )
+    return steps
+
+
 def _safe_int(value: Any, default: int) -> int:
     try:
         return int(value)
@@ -402,25 +450,12 @@ def build_report(
         "scope": "non-db, non-security go-live blockers",
         "launch_surface": {
             **launch,
-            "unblock": [
-                "Set a real Stripe Payment Link in /srv/draftcheck/app/infra/v3/.env as VITE_CHECKOUT_URL=https://buy.stripe.com/...",
-                "Deploy the web bundle with: ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'",
-                "Run: cd web && npm run verify:launch:live:strict",
-            ],
+            "unblock": launch_unblock_steps(launch, vps_state["vps_checkout_env"]),
         },
         "ops_guardrails": {
             "status": assess_ops_guardrails_status(ops_evidence),
             "evidence": ops_evidence,
-            "unblock": [
-                "Deploy latest non-DB ops scripts after DB jobs are idle so /srv/draftcheck/app/scripts/ops_guardrails.py is present.",
-                "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md.",
-                "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
-                "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
-                "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh",
-                "Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.",
-                "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart.",
-                "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh, then rerun with DRAFTCHECK_RESTART_DOCKER=1 during a maintenance window.",
-            ],
+            "unblock": ops_guardrail_unblock_steps(ops_evidence),
         },
     }
 
