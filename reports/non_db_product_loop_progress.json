@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T02:20:45+08:00",
+  "captured_at": "2026-06-13T00:50:42+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -64,7 +64,8 @@
         "npm.cmd run verify:launch passed",
         "npm.cmd run verify:launch:strict passed with a Stripe-shaped VITE_CHECKOUT_URL",
         "checkout URL validation rejects non-HTTPS and non-buy.stripe.com URLs",
-        ".github/workflows/ci.yml now uses a buy.stripe.com checkout fixture that matches strict launch validation"
+        ".github/workflows/ci.yml now uses a buy.stripe.com checkout fixture that matches strict launch validation",
+        "scripts/audit_non_db_launch_ops.py refreshes live launch blocker evidence without mutating production"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",
@@ -90,7 +91,8 @@
         "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json passed",
         "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json passed",
         "uv run python scripts/ops_guardrails.py backup-config --env-path <temp fixture> --json passed",
-        "uv run python scripts/ops_guardrails.py guardrail-cron --path <temp fixture> --json passed"
+        "uv run python scripts/ops_guardrails.py guardrail-cron --path <temp fixture> --json passed",
+        "scripts/audit_non_db_launch_ops.py refreshes VPS ops blocker evidence over read-only SSH"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
@@ -114,6 +116,8 @@
     "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json",
     "uv run python scripts/ops_guardrails.py backup-config --env-path <fixture backup.env> --json",
     "uv run python scripts/ops_guardrails.py guardrail-cron --path <fixture draftcheck-guardrails> --json",
+    "uv run pytest tests/test_audit_non_db_launch_ops.py -q",
+    "uv run python scripts/audit_non_db_launch_ops.py --output reports/non_db_launch_ops_blockers.json",
     "npm.cmd run build",
     "npm.cmd run verify:launch"
   ]

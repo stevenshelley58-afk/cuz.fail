@@ -1,13 +1,14 @@
 {
-  "captured_at": "2026-06-12T23:40:29+08:00",
+  "captured_at": "2026-06-12T16:50:42.964919+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
     "evidence": {
       "live_origin": "https://lotfile.app",
       "live_index_title": "<title>LotFile</title>",
-      "vps_checkout_env": "VITE_CHECKOUT_URL_MISSING",
-      "live_verifier": "npm run verify:launch:live fails because production is serving a stale bundle without current SEO meta, legal links, analytics event strings, or pricing copy"
+      "live_verifier": "failed: /: missing LotFile - WA R-Code & Planning Compliance Checker; /: missing name=\"description\"; /: missing property=\"og:title\"; /: missing data-domain=\"lotfile.app\"; /privacy: missing LotFile - WA R-Code & Planning Compliance Checker; /privacy: missing name=\"description\"; /privacy: missing property=\"og:title\"; /privacy: missing data-domain=\"lotfile.app\"; /terms: missing LotFile - WA R-Code & Planning Compliance Checker; /terms: missing name=\"description\"; /terms: missing property=\"og:title\"; /terms: missing data-domain=\"lotfile.app\"",
+      "missing_count": 25,
+      "vps_checkout_env": "VITE_CHECKOUT_URL_MISSING"
     },
     "unblock": [
       "Set a real Stripe Payment Link in /srv/draftcheck/app/infra/v3/.env as VITE_CHECKOUT_URL=https://buy.stripe.com/...",
@@ -20,13 +21,15 @@
     "evidence": {
       "backup_env": "BACKUP_ENV_MISSING",
       "restic_password_file": "RESTIC_PASSWORD_FILE_MISSING",
-      "backup_timer": "0 timers listed for draftcheck-backup.timer",
+      "backup_timer": "0 timers listed.",
       "restore_drill_log": "no docs/ops/restore-drill-YYYYMMDD.md log found on the VPS checkout",
       "guardrail_cron": "CRON_GUARDRAILS_MISSING",
+      "ops_guardrail_script": "OPS_GUARDRAILS_MISSING",
       "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
       "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs"
     },
     "unblock": [
+      "Deploy latest non-DB ops scripts after DB jobs are idle so /srv/draftcheck/app/scripts/ops_guardrails.py is present.",
       "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md.",
       "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
       "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
