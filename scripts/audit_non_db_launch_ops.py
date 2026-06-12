@@ -74,6 +74,16 @@ RUNBOOK_COMMAND_NEEDLES = (
 )
 RAW_DSN_RE = re.compile(r"https://[^\s\"']+@[^\s\"']+", flags=re.IGNORECASE)
 BLOCKED_EVIDENCE_VALUES = {"SSH_SKIPPED", "SSH_CHECK_FAILED"}
+UPTIME_TARGETS_OK = "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready"
+SENTRY_STATES = {"SENTRY_DSN_PRESENT", "SENTRY_DSN_MISSING", "SENTRY_DSN_EMPTY", "SSH_SKIPPED", "SSH_CHECK_FAILED"}
+LOG_RETENTION_STATES = {
+    "LOG_RETENTION_JOURNALD_PRESENT",
+    "LOG_RETENTION_JOURNALD_MISSING",
+    "LOG_RETENTION_DOCKER_PRESENT",
+    "LOG_RETENTION_DOCKER_MISSING",
+    "SSH_SKIPPED",
+    "SSH_CHECK_FAILED",
+}
 
 
 @dataclass(frozen=True)
@@ -207,7 +217,7 @@ def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
         _field_present(evidence["disk_usage"], "DISK_USAGE_OK"),
         _field_present(evidence["worker_heartbeat"], "WORKER_HEARTBEAT_OK"),
         _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"),
-        "status ok" in evidence["uptime_targets"],
+        evidence["uptime_targets"] == UPTIME_TARGETS_OK,
         evidence["uptime_monitor_doc"].startswith("ok:"),
         _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT"),
         _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT"),
@@ -302,6 +312,15 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
     if RAW_DSN_RE.search(_report_text(report)):
         failures.append("report appears to contain a raw DSN or webhook URL with embedded credentials")
 
+    sentry_state = str(ops_evidence.get("sentry_dsn", ""))
+    if sentry_state and sentry_state not in SENTRY_STATES:
+        failures.append(f"ops_guardrails.evidence.sentry_dsn has unrecognized state {sentry_state!r}")
+
+    for key in ("log_retention_journald", "log_retention_docker"):
+        state = str(ops_evidence.get(key, ""))
+        if state and state not in LOG_RETENTION_STATES:
+            failures.append(f"ops_guardrails.evidence.{key} has unrecognized state {state!r}")
+
     if launch.get("status") == "verified":
         if launch_evidence.get("live_verifier") != "passed":
             failures.append("launch_surface.status verified but live_verifier is not passed")
@@ -316,6 +335,14 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
             for key in REQUIRED_OPS_EVIDENCE_KEYS
             if key != "log_retention_config"
         }
+        uptime_targets = str(ops_evidence.get("uptime_targets", ""))
+        if uptime_targets not in {UPTIME_TARGETS_OK, "SSH_SKIPPED", "SSH_CHECK_FAILED"} and not uptime_targets.startswith(
+            "https://lotfile.app API targets failed:"
+        ):
+            failures.append("ops_guardrails.evidence.uptime_targets is not recognized verifier output")
+        log_retention_config = str(ops_evidence.get("log_retention_config", ""))
+        if "journald" not in log_retention_config or "Docker json-file" not in log_retention_config:
+            failures.append("ops_guardrails.evidence.log_retention_config must mention journald and Docker json-file retention")
         expected_ops_status = assess_ops_guardrails_status(status_evidence)
         if ops.get("status") != expected_ops_status:
             failures.append(
@@ -326,6 +353,9 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
         str(value) in BLOCKED_EVIDENCE_VALUES for value in ops_evidence.values()
     ):
         failures.append("ops_guardrails.status verified with skipped or failed SSH evidence")
+
+    if ops.get("status") == "verified" and str(ops_evidence.get("uptime_targets", "")) != UPTIME_TARGETS_OK:
+        failures.append("ops_guardrails.status verified without accepted uptime-target verifier output")
 
     return failures
 
