@@ -32,7 +32,7 @@ CRON_GUARDRAILS_MISSING
 OPS_GUARDRAILS_MISSING
 DISK_USAGE_UNKNOWN
 WORKER_HEARTBEAT_UNKNOWN
-SENTRY_DSN_MISSING
+SENTRY_CONFIG_CRITICAL
 LOG_RETENTION_JOURNALD_MISSING
 LOG_RETENTION_DOCKER_MISSING
 LOG_RETENTION_CONFIG_CRITICAL
@@ -48,7 +48,7 @@ LOG_RETENTION_CONFIG_CRITICAL
     assert state["ops_guardrail_script"] == "OPS_GUARDRAILS_MISSING"
     assert state["disk_usage"] == "DISK_USAGE_UNKNOWN"
     assert state["worker_heartbeat"] == "WORKER_HEARTBEAT_UNKNOWN"
-    assert state["sentry_dsn"] == "SENTRY_DSN_MISSING"
+    assert state["sentry_dsn"] == "SENTRY_CONFIG_CRITICAL"
     assert state["log_retention_journald"] == "LOG_RETENTION_JOURNALD_MISSING"
     assert state["log_retention_docker"] == "LOG_RETENTION_DOCKER_MISSING"
     assert state["log_retention_config"] == "LOG_RETENTION_CONFIG_CRITICAL"
@@ -64,7 +64,7 @@ CRON_GUARDRAILS_PRESENT
 OPS_GUARDRAILS_PRESENT
 DISK_USAGE_OK
 WORKER_HEARTBEAT_OK
-SENTRY_DSN_PRESENT
+SENTRY_CONFIG_OK
 LOG_RETENTION_JOURNALD_PRESENT
 LOG_RETENTION_DOCKER_PRESENT
 LOG_RETENTION_CONFIG_OK
@@ -72,7 +72,7 @@ LOG_RETENTION_CONFIG_OK
 
     state = parse_vps_state(output)
 
-    assert state["sentry_dsn"] == "SENTRY_DSN_PRESENT"
+    assert state["sentry_dsn"] == "SENTRY_CONFIG_OK"
     assert state["disk_usage"] == "DISK_USAGE_OK"
     assert state["worker_heartbeat"] == "WORKER_HEARTBEAT_OK"
     assert state["log_retention_journald"] == "LOG_RETENTION_JOURNALD_PRESENT"
@@ -131,7 +131,7 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
         "disk_usage": "DISK_USAGE_OK",
         "worker_heartbeat": "WORKER_HEARTBEAT_OK",
-        "sentry_dsn": "SENTRY_DSN_PRESENT",
+        "sentry_dsn": "SENTRY_CONFIG_OK",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
         "log_retention_config": "LOG_RETENTION_CONFIG_OK",
@@ -148,7 +148,7 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
 
     assert report["launch_surface"]["status"] == "blocked"
     assert report["launch_surface"]["evidence"]["vps_checkout_env"] == "VITE_CHECKOUT_URL_MISSING"
-    assert report["ops_guardrails"]["evidence"]["sentry_dsn"] == "SENTRY_DSN_PRESENT"
+    assert report["ops_guardrails"]["evidence"]["sentry_dsn"] == "SENTRY_CONFIG_OK"
     assert report["ops_guardrails"]["evidence"]["log_retention_journald"] == "LOG_RETENTION_JOURNALD_PRESENT"
     assert report["ops_guardrails"]["evidence"]["log_retention_docker"] == "LOG_RETENTION_DOCKER_PRESENT"
     assert report["ops_guardrails"]["evidence"]["log_retention_config"] == "LOG_RETENTION_CONFIG_OK"
@@ -196,7 +196,7 @@ def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
         "disk_usage": "DISK_USAGE_OK",
         "worker_heartbeat": "WORKER_HEARTBEAT_OK",
-        "sentry_dsn": "SENTRY_DSN_PRESENT",
+        "sentry_dsn": "SENTRY_CONFIG_OK",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
         "log_retention_config": "LOG_RETENTION_CONFIG_OK",
@@ -334,7 +334,7 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
         "disk_usage": "DISK_USAGE_OK",
         "worker_heartbeat": "WORKER_HEARTBEAT_OK",
-        "sentry_dsn": "SENTRY_DSN_PRESENT",
+        "sentry_dsn": "SENTRY_CONFIG_OK",
         "uptime_targets": UPTIME_TARGETS_OK,
         "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
@@ -342,6 +342,9 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
         "log_retention_config": "LOG_RETENTION_CONFIG_OK",
     }
 
+    assert assess_ops_guardrails_status(evidence) == "blocked"
+    evidence["backup_timer"] = "1 timers listed."
+    evidence["sentry_dsn"] = "SENTRY_DSN_PRESENT"
     assert assess_ops_guardrails_status(evidence) == "blocked"
 
 
