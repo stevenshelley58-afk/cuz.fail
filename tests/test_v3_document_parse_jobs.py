@@ -80,6 +80,8 @@ def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, mon
     assert result["fact_count"] >= 3
     assert document.status == "parsed"
     assert document.metadata_json["parse_status"] == "parsed"
+    assert document.metadata_json["parser_artifacts"][0]["kind"] == "parser_output"
+    assert document.metadata_json["parser_artifacts"][0]["metadata"]["parser_name"] == "draftcheck.plain_text_parser"
     assert db.query(DocumentPage).filter_by(document_id=document.id).count() == 1
     assert db.query(DocumentChunk).filter_by(document_id=document.id).count() == 1
     facts = db.query(DocumentFact).filter_by(document_id=document.id).all()
@@ -95,6 +97,10 @@ def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, mon
     assert all(fact.promoted_to_measurement is False for fact in facts)
     assert all(fact.review_status == "pending_review" for fact in facts)
     title_block_facts = [fact for fact in facts if fact.fact_kind == "drawing_title_block"]
+    measurement_facts = [fact for fact in facts if fact.fact_kind == "drawing_measurement"]
+    assert measurement_facts
+    assert all(fact.metadata_json["parser_boundary_source"] is True for fact in measurement_facts)
+    assert all(fact.metadata_json["parser_page_parser_name"] == "draftcheck.plain_text_parser" for fact in measurement_facts)
     assert {fact.check_key for fact in title_block_facts} == {
         "drawing_number",
         "drawing_revision",
@@ -201,6 +207,7 @@ def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypa
 
     assert result["parse_status"] == "parsed"
     persisted_page = db.query(DocumentPage).filter_by(document_id=document.id).one()
+    assert document.metadata_json["parser_artifacts"][0]["metadata"]["parser_name"] == "draftcheck.pdf_text_parser"
     assert persisted_page.width == 320
     assert persisted_page.height == 240
     assert persisted_page.metadata_json["extraction_method"] == "pymupdf_text_blocks"

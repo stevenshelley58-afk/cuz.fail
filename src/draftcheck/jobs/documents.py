@@ -10,7 +10,7 @@ from __future__ import annotations
 import logging
 import os
 from datetime import UTC, datetime
-from pathlib import Path, PurePath
+from pathlib import Path
 from typing import Any
 from uuid import UUID, uuid4
 
@@ -27,11 +27,9 @@ from draftcheck.domain.documents import (
     DocumentFact,
     DocumentParseError,
     DocumentParser,
-    decode_text_bytes,
-    extract_docx_text,
-    extract_pdf_page_layouts,
     write_document_chunks,
 )
+from draftcheck.domain.documents.parsers import ParsedDocument
 from draftcheck.domain.documents.facts import DocumentFactService
 from draftcheck.jobs import procrastinate_app
 
@@ -103,10 +101,11 @@ def parse_document_for_session(
 
     try:
         content = Path(document.storage_path).read_bytes()
-        parsed_pages, parser_name = _extract_pages_from_content(
-            document.media_type or "",
-            document.title,
-            content,
+        parsed_document = _parse_content(
+            document_id=doc_uuid,
+            media_type=document.media_type or "",
+            filename=document.title,
+            content=content,
         )
     except DocumentParseError as exc:
         _mark_parse_failed(session, document, str(exc))
@@ -138,19 +137,20 @@ def parse_document_for_session(
     session.flush()
 
     pages: list[OrmDocumentPage] = []
-    for page_number, page_payload in enumerate(parsed_pages, start=1):
+    for parsed_page in parsed_document.pages:
+        page_metadata = dict(parsed_page.metadata or {})
         page = OrmDocumentPage(
             id=uuid4(),
             document_id=doc_uuid,
-            page_number=page_number,
-            width=page_payload.get("width"),
-            height=page_payload.get("height"),
-            rotation_degrees=page_payload.get("rotation_degrees"),
-            text=page_payload["text"],
+            page_number=parsed_page.page_number,
+            width=page_metadata.pop("width", None),
+            height=page_metadata.pop("height", None),
+            rotation_degrees=page_metadata.pop("rotation_degrees", None),
+            text=parsed_page.text,
             metadata_json={
-                "parser_name": parser_name,
-                "parser_version": DocumentFactService.PARSER_VERSION,
-                **page_payload.get("metadata", {}),
+                "parser_name": parsed_document.parser_name,
+                "parser_version": parsed_document.parser_version,
+                **page_metadata,
             },
         )
         session.add(page)
@@ -162,9 +162,7 @@ def parse_document_for_session(
     facts: list[OrmDocumentFact] = []
     for fact in _extract_parser_native_facts(
         document_id=doc_uuid,
-        content=content,
-        filename=document.title,
-        media_type=document.media_type or "",
+        parsed_document=parsed_document,
         org_id=document.org_id,
         project_id=document.project_id,
         page_id=pages[0].id if pages else None,
@@ -182,6 +180,15 @@ def parse_document_for_session(
             page_id=page.id,
         )
         for fact in extracted:
+            metadata = dict(fact.metadata_json or {})
+            metadata.update(
+                {
+                    "parser_boundary_source": True,
+                    "parser_page_parser_name": parsed_document.parser_name,
+                    "parser_page_number": page.page_number,
+                }
+            )
+            fact.metadata_json = metadata
             _attach_pdf_text_block_evidence(fact, page)
             session.add(fact)
             facts.append(fact)
@@ -193,11 +200,12 @@ def parse_document_for_session(
     metadata.update(
         {
             "parse_status": parse_status,
-            "parser_name": parser_name,
-            "parser_version": DocumentFactService.PARSER_VERSION,
+            "parser_name": parsed_document.parser_name,
+            "parser_version": parsed_document.parser_version,
             "page_count": len(pages),
             "chunk_count": len(chunks),
             "fact_count": len(facts),
+            "parser_artifacts": [artifact.to_dict() for artifact in parsed_document.artifacts],
             "parsed_at": _utc_now(),
             "measurement_policy": "Measurements are advisory pending automated validation.",
             "raster_measurement_policy": "Raster/PDF/image measurements are not compliance-ready without calibration.",
@@ -210,95 +218,38 @@ def parse_document_for_session(
         page_count=len(pages),
         chunk_count=len(chunks),
         fact_count=len(facts),
-        parser_name=parser_name,
+        parser_name=parsed_document.parser_name,
     )
 
 
-def _extract_pages_from_content(media_type: str, filename: str, content: bytes) -> tuple[list[dict[str, Any]], str]:
-    """Return per-page text/metadata and parser name without promoting measurements."""
-
-    suffix = PurePath(filename).suffix.lower()
-    parser_name = "draftcheck.plain_text_parser"
-
-    if media_type == "application/pdf" or suffix == ".pdf":
-        parser_name = "draftcheck.pdf_text_parser"
-        return [_pdf_page_payload(page) for page in extract_pdf_page_layouts(content)], parser_name
-
-    if media_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document" or suffix == ".docx":
-        parser_name = "draftcheck.docx_text_parser"
-        text = extract_docx_text(content)
-        return [_text_page_payload(text)] if text.strip() else [], parser_name
-
-    if suffix == ".dxf" or "dxf" in media_type:
-        parser_name = "draftcheck.dxf_text_parser"
-        text = decode_text_bytes(content)
-        return [_text_page_payload(text)] if text.strip() else [], parser_name
-
-    text = decode_text_bytes(content)
-    return [_text_page_payload(text)] if text.strip() else [], parser_name
-
-
-def _text_page_payload(text: str) -> dict[str, Any]:
-    return {"text": text, "metadata": {}}
-
-
-def _pdf_page_payload(page: Any) -> dict[str, Any]:
-    return {
-        "text": page.text,
-        "width": page.width,
-        "height": page.height,
-        "rotation_degrees": page.rotation_degrees,
-        "metadata": {
-            "extraction_method": page.extraction_method,
-            "text_blocks": [
-                {
-                    "text": block.text,
-                    "bbox": list(block.bbox),
-                    "block_number": block.block_number,
-                    "measurement_compliance_ready": False,
-                    "measurement_readiness_reason": "pdf text block bbox is not a calibrated measurement",
-                }
-                for block in page.text_blocks
-            ],
-            "vector_paths": [
-                {
-                    "bbox": list(path.bbox) if path.bbox else None,
-                    "item_count": path.item_count,
-                    "drawing_type": path.drawing_type,
-                    "measurement_compliance_ready": False,
-                    "measurement_readiness_reason": "pdf vector path is not a calibrated measurement",
-                    "calibration_required": True,
-                }
-                for path in page.vector_paths
-            ],
-            "raster_measurement_policy": "PDF measurements require explicit calibration before promotion.",
-        },
-    }
-
-
-def _extract_parser_native_facts(
+def _parse_content(
     *,
     document_id: UUID,
-    content: bytes,
-    filename: str,
     media_type: str,
-    org_id: UUID | None,
-    project_id: UUID | None,
-    page_id: UUID | None,
-) -> list[OrmDocumentFact]:
-    suffix = PurePath(filename).suffix.lower()
-    if suffix not in {".dxf", ".ifc"} and "dxf" not in media_type and "ifc" not in media_type:
-        return []
-
+    filename: str,
+    content: bytes,
+) -> ParsedDocument:
     parser = DocumentParser()
-    _normalized_media_type, parser_name, _parse_status, _pages, parsed_facts, _metadata = parser.parse(
+    return parser.parse_document(
         document_id=str(document_id),
         filename=filename,
         media_type=media_type,
         content=content,
     )
+
+
+def _extract_parser_native_facts(
+    *,
+    document_id: UUID,
+    parsed_document: ParsedDocument,
+    org_id: UUID | None,
+    project_id: UUID | None,
+    page_id: UUID | None,
+) -> list[OrmDocumentFact]:
+    if parsed_document.parser_name not in {"draftcheck.dxf_text_parser", "draftcheck.ifc_text_parser"}:
+        return []
     facts: list[OrmDocumentFact] = []
-    for index, fact in enumerate(parsed_facts, start=1):
+    for index, fact in enumerate(parsed_document.facts, start=1):
         if fact.numeric_value is None or fact.unit is None:
             continue
         check_key = _parser_fact_key(fact.label, index)
@@ -324,8 +275,8 @@ def _extract_parser_native_facts(
                 evidence_ref_json=evidence_ref,
                 promoted_to_measurement=False,
                 review_status="pending_review",
-                parser_name=parser_name,
-                parser_version=parser.version,
+                parser_name=parsed_document.parser_name,
+                parser_version=parsed_document.parser_version,
                 metadata_json={
                     **fact.metadata,
                     "parser_native_fact": True,

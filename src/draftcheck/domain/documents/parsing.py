@@ -260,6 +260,85 @@ class _FallbackTextParser(_RegisteredContentParser):
         return True
 
 
+class _PdfContentParser(_RegisteredContentParser):
+    def parse(
+        self,
+        *,
+        document_id: str,
+        filename: str,
+        media_type: str,
+        content: bytes,
+    ) -> ParsedDocument:
+        extraction_notes = ["pdf_text_only_no_raster_measurements"]
+        layouts = extract_pdf_page_layouts(content)
+        pages = tuple(
+            DocumentPage(
+                id=f"page_{document_id}_{page.page_number}",
+                document_id=document_id,
+                page_number=page.page_number,
+                text=page.text,
+                parser_name=self.name,
+                parser_version=self.version,
+                metadata={
+                    "notes": extraction_notes,
+                    "width": page.width,
+                    "height": page.height,
+                    "rotation_degrees": page.rotation_degrees,
+                    "extraction_method": page.extraction_method,
+                    "text_blocks": [
+                        {
+                            "text": block.text,
+                            "bbox": list(block.bbox),
+                            "block_number": block.block_number,
+                            "measurement_compliance_ready": False,
+                            "measurement_readiness_reason": "pdf text block bbox is not a calibrated measurement",
+                        }
+                        for block in page.text_blocks
+                    ],
+                    "vector_paths": [
+                        {
+                            "bbox": list(path.bbox) if path.bbox else None,
+                            "item_count": path.item_count,
+                            "drawing_type": path.drawing_type,
+                            "measurement_compliance_ready": False,
+                            "measurement_readiness_reason": "pdf vector path is not a calibrated measurement",
+                            "calibration_required": True,
+                        }
+                        for path in page.vector_paths
+                    ],
+                    "raster_measurement_policy": "PDF measurements require explicit calibration before promotion.",
+                },
+            )
+            for page in layouts
+        )
+        text = "\n\n".join(page.text for page in layouts)
+        facts = _facts(document_id, text, self.name, media_type)
+        artifacts = _artifacts(
+            parser_name=self.name,
+            media_type=media_type,
+            extraction_notes=extraction_notes,
+            pages=pages,
+            facts=facts,
+        )
+        parse_status = "parsed" if any(page.text.strip() for page in pages) or facts else "needs_more_info"
+        metadata = {
+            "extraction_notes": extraction_notes,
+            "measurement_policy": "Measurements are advisory pending automated validation.",
+            "raster_measurement_policy": "Raster/PDF/image measurements are not compliance-ready without calibration.",
+            "artifacts": [artifact.to_dict() for artifact in artifacts],
+        }
+        return ParsedDocument(
+            media_type=media_type,
+            parser_name=self.name,
+            parser_version=self.version,
+            parse_status=parse_status,
+            pages=pages,
+            facts=facts,
+            artifacts=artifacts,
+            metadata=metadata,
+        )
+
+
 def _default_parser_registry(version: str) -> DocumentParserRegistry:
     parsers: tuple[DocumentContentParser, ...] = (
         _RegisteredContentParser(
@@ -268,7 +347,7 @@ def _default_parser_registry(version: str) -> DocumentParserRegistry:
             media_types=DXF_MEDIA_TYPES,
             suffixes={".dxf"},
         ),
-        _RegisteredContentParser(
+        _PdfContentParser(
             name="draftcheck.pdf_text_parser",
             version=version,
             media_types=PDF_MEDIA_TYPES,
