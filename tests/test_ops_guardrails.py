@@ -12,6 +12,7 @@ from scripts.ops_guardrails import (
     check_disk_usage,
     check_restore_drill_log,
     check_uptime_targets,
+    check_worker_heartbeat,
     compare_spend_snapshots,
     normalise_database_url,
 )
@@ -127,6 +128,30 @@ def test_disk_usage_warns_when_no_paths_exist(tmp_path: Path) -> None:
 
     assert result.status == "warning"
     assert result.metadata["skipped_missing_paths"] == [str(missing)]
+
+
+def test_worker_heartbeat_accepts_required_running_services(tmp_path: Path) -> None:
+    result = check_worker_heartbeat(
+        ["worker", "hermes"],
+        {"api", "worker", "hermes"},
+        compose_dir=tmp_path,
+    )
+
+    assert result.status == "ok"
+    assert result.metadata["missing_services"] == []
+    assert result.metadata["compose_dir"] == str(tmp_path)
+
+
+def test_worker_heartbeat_flags_missing_required_services(tmp_path: Path) -> None:
+    result = check_worker_heartbeat(
+        ["worker", "hermes"],
+        {"api", "worker"},
+        compose_dir=tmp_path,
+    )
+
+    assert result.status == "critical"
+    assert result.metadata["missing_services"] == ["hermes"]
+    assert "hermes" in result.message
 
 
 def test_uptime_targets_require_json_status_ok() -> None:

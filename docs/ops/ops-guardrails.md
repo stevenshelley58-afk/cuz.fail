@@ -72,6 +72,14 @@ python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --js
 ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json'
 ```
 
+Worker heartbeat checks can be tested locally without Docker by injecting the
+running service names; the VPS command reads Docker Compose directly:
+
+```powershell
+python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py worker-heartbeat --compose-dir /srv/draftcheck/app/infra/v3 --json'
+```
+
 Install a cron entry on the VPS:
 
 ```powershell

@@ -32,12 +32,11 @@ uptime_output="$("$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" uptime-targe
     --ready-url "$READY_URL" \
     --json 2>&1)" || failures+=("uptime_targets: $uptime_output")
 
-running_services="$(cd "$COMPOSE_DIR" && docker compose ps --status running --services 2>/dev/null || true)"
-for service in worker hermes; do
-    if ! grep -qx "$service" <<<"$running_services"; then
-        failures+=("worker_heartbeat: compose service $service is not running")
-    fi
-done
+heartbeat_output="$("$PYTHON_BIN" "$APP_DIR/scripts/ops_guardrails.py" worker-heartbeat \
+    --compose-dir "$COMPOSE_DIR" \
+    --service worker \
+    --service hermes \
+    --json 2>&1)" || failures+=("worker_heartbeat: $heartbeat_output")
 
 if ((${#failures[@]} == 0)); then
     echo "draftcheck guardrails ok"

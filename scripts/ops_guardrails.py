@@ -15,6 +15,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import subprocess
 import sys
 from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
@@ -334,6 +335,50 @@ def check_disk_usage(
     )
 
 
+def check_worker_heartbeat(
+    required_services: list[str],
+    running_services: set[str],
+    *,
+    compose_dir: Path | None = None,
+) -> GuardrailResult:
+    """Verify required compose worker services are reported running."""
+
+    missing = [service for service in required_services if service not in running_services]
+    metadata = {
+        "required_services": required_services,
+        "running_services": sorted(running_services),
+        "missing_services": missing,
+        "compose_dir": str(compose_dir) if compose_dir is not None else None,
+    }
+    if missing:
+        return GuardrailResult(
+            name="worker_heartbeat",
+            status="critical",
+            message="required compose services are not running: " + ", ".join(missing),
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="worker_heartbeat",
+        status="ok",
+        message="required compose worker services are running",
+        metadata=metadata,
+    )
+
+
+def docker_compose_running_services(compose_dir: Path) -> set[str]:
+    try:
+        result = subprocess.run(
+            ["docker", "compose", "ps", "--status", "running", "--services"],
+            cwd=compose_dir,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+    except (FileNotFoundError, subprocess.CalledProcessError) as exc:
+        raise RuntimeError(f"failed to list running compose services in {compose_dir}: {exc}") from exc
+    return {line.strip() for line in result.stdout.splitlines() if line.strip()}
+
+
 PLACEHOLDER_PATTERNS = (
     r"YYYY-MM-DD",
     r"PASS / FAIL",
@@ -450,6 +495,12 @@ def main(argv: list[str] | None = None) -> int:
     disk_parser.add_argument("--max-used-percent", type=float, default=80.0)
     disk_parser.add_argument("--json", action="store_true")
 
+    heartbeat_parser = subparsers.add_parser("worker-heartbeat")
+    heartbeat_parser.add_argument("--compose-dir", default="/srv/draftcheck/app/infra/v3")
+    heartbeat_parser.add_argument("--service", action="append", default=[])
+    heartbeat_parser.add_argument("--running-service", action="append", default=[])
+    heartbeat_parser.add_argument("--json", action="store_true")
+
     restore_parser = subparsers.add_parser("restore-drill-log")
     restore_parser.add_argument("--path", required=True)
     restore_parser.add_argument("--json", action="store_true")
@@ -503,6 +554,31 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "disk-usage":
         paths = [Path(value) for value in (args.path or ["/srv", "/var/lib/docker"])]
         result = check_disk_usage(paths, max_used_percent=args.max_used_percent)
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "worker-heartbeat":
+        required_services = args.service or ["worker", "hermes"]
+        compose_dir = Path(args.compose_dir)
+        try:
+            running_services = (
+                set(args.running_service)
+                if args.running_service
+                else docker_compose_running_services(compose_dir)
+            )
+        except RuntimeError as exc:
+            result = GuardrailResult(
+                name="worker_heartbeat",
+                status="critical",
+                message=str(exc),
+                metadata={"compose_dir": str(compose_dir), "required_services": required_services},
+            )
+        else:
+            result = check_worker_heartbeat(
+                required_services,
+                running_services,
+                compose_dir=compose_dir,
+            )
         _print_result(result, as_json=args.json)
         return status_exit_code(result.status)
 
