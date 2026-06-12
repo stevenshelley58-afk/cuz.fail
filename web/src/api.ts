@@ -241,11 +241,28 @@ export type ComplianceRunResponse = {
 export type ExtractedFact = {
   fact_id?: string;
   fact_key: string;
+  fact_kind?: string;
   numeric_value: number | null;
   unit: string | null;
   confidence: number; // 0–1
   source_text: string | null;
+  review_status?: string;
+  promoted_to_measurement?: boolean;
   confirmed?: boolean;
+};
+
+export type DocumentFactUpdateResponse = ExtractedFact & {
+  fact_id: string;
+  review_status: string;
+  promoted_to_measurement: boolean;
+};
+
+export type DocumentFactPromotionResponse = {
+  fact_id: string;
+  review_status: string;
+  promoted_to_measurement: boolean;
+  property_fact_id: string;
+  advisory_notice?: string;
 };
 
 export type DocumentUploadResponse = {
@@ -349,10 +366,12 @@ export const api = {
       const d = data as { detail?: string } | null;
       return { kind: "error", status: res.status, message: d?.detail ?? res.statusText };
     },
-    facts: (docId: string) => call<{ items: ExtractedFact[] }>("GET", `/documents/${docId}/facts`),
+    facts: (docId: string) => call<{ items: ExtractedFact[]; count: number; parse_status?: string }>("GET", `/documents/${docId}/persisted-facts`),
     listForProject: (projectId: string) => call<{ items: ProjectDocumentSummary[]; count: number }>("GET", `/documents/projects/${projectId}`),
-    confirmFact: (docId: string, factKey: string) =>
-      call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/review`, { review_status: "confirmed" }),
+    confirmFact: (docId: string, factId: string) =>
+      call<DocumentFactUpdateResponse>("PATCH", `/documents/${docId}/facts/${factId}`, { status: "confirmed" }),
+    promoteFact: (docId: string, factId: string) =>
+      call<DocumentFactPromotionResponse>("POST", `/documents/${docId}/facts/${factId}/promote`, {}),
   },
   approveRule: (ruleId: string) =>
     call<{ id: string; lifecycle_status: string }>("POST", `/rules/${ruleId}/approve`, {}),

@@ -23,6 +23,7 @@ for _tbl in _models_mod.Base.metadata.tables.values():
 
 from draftcheck.db.models import Base, Document, DocumentChunk, DocumentFact, DocumentPage, Org, Project, User, UserStatus  # noqa: E402
 from draftcheck.domain.identity import IdentityRole  # noqa: E402
+from draftcheck.api.documents import get_persisted_document_facts  # noqa: E402
 from draftcheck.jobs.documents import enqueue_document_parse, parse_document_for_session  # noqa: E402
 
 
@@ -100,6 +101,13 @@ def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, mon
         == "title-block text is project metadata, not a compliance measurement"
         for fact in title_block_facts
     )
+    payload = get_persisted_document_facts(str(document.id), db, None)  # type: ignore[arg-type]
+    assert payload["parse_status"] == "parsed"
+    assert payload["count"] == len(facts)
+    assert {
+        "site_area_m2",
+        "drawing_number",
+    } <= {item["fact_key"] for item in payload["items"]}
 
 
 def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypatch) -> None:

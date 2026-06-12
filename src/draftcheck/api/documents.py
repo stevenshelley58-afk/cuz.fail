@@ -424,6 +424,35 @@ def promote_document_fact(
 # ---------------------------------------------------------------------------
 
 
+@router.get("/documents/{document_id}/persisted-facts", tags=["documents"])
+def get_persisted_document_facts(
+    document_id: str,
+    db: DbSession,
+    _active_session: Annotated[ActiveSession, Depends(get_current_session)],
+) -> dict[str, Any]:
+    try:
+        doc_uuid = uuid.UUID(document_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail="Invalid document UUID.") from exc
+
+    document = db.get(Document, doc_uuid)
+    if document is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Document {document_id} not found.")
+
+    facts = (
+        db.query(OrmDocumentFact)
+        .filter(OrmDocumentFact.document_id == doc_uuid)
+        .order_by(OrmDocumentFact.created_at, OrmDocumentFact.id)
+        .all()
+    )
+    return {
+        "document_id": str(document.id),
+        "parse_status": (document.metadata_json or {}).get("parse_status", document.status),
+        "items": [_orm_fact_payload(fact) for fact in facts],
+        "count": len(facts),
+    }
+
+
 @router.post("/documents/projects/{project_id}/upload", tags=["documents"])
 async def upload_project_document(
     project_id: str,

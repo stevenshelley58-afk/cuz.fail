@@ -43,9 +43,12 @@ function FactCard({
   onConfirmed: (factId: string) => void;
 }) {
   const [confirming, setConfirming] = useState(false);
-  const [confirmed, setConfirmed] = useState(fact.confirmed ?? false);
+  const [confirmed, setConfirmed] = useState(fact.confirmed ?? fact.review_status === "confirmed");
+  const [promoting, setPromoting] = useState(false);
+  const [promoted, setPromoted] = useState(fact.promoted_to_measurement ?? false);
   const [err, setErr] = useState<string | null>(null);
   const factId = fact.fact_id ?? fact.fact_key;
+  const canPromote = fact.numeric_value !== null && Boolean(fact.unit);
 
   async function confirm() {
     setConfirming(true);
@@ -57,6 +60,22 @@ function FactCard({
       onConfirmed(factId);
     } else {
       setErr("Could not confirm fact.");
+    }
+  }
+
+  async function promote() {
+    setPromoting(true);
+    setErr(null);
+    const r = await api.documents.promoteFact(docId, factId);
+    setPromoting(false);
+    if (r.kind === "ok") {
+      setConfirmed(true);
+      setPromoted(true);
+      onConfirmed(factId);
+    } else if (r.kind === "error") {
+      setErr(r.message);
+    } else {
+      setErr("Could not make this fact available for checks.");
     }
   }
 
@@ -105,8 +124,12 @@ function FactCard({
             </div>
           )}
         </div>
-        <div style={{ flexShrink: 0 }}>
-          {confirmed ? (
+        <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 6 }}>
+          {promoted ? (
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#16a34a", fontSize: 12 }}>
+              <CheckCircle2 size={14} /> In checks
+            </span>
+          ) : confirmed ? (
             <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#16a34a", fontSize: 12 }}>
               <CheckCircle2 size={14} /> Confirmed
             </span>
@@ -125,6 +148,24 @@ function FactCard({
               }}
             >
               {confirming ? "Confirming…" : "Confirm"}
+            </button>
+          )}
+          {!promoted && canPromote && (
+            <button
+              onClick={() => void promote()}
+              disabled={promoting}
+              aria-label={`Use ${fact.fact_key.replace(/_/g, " ")} in compliance checks`}
+              style={{
+                fontSize: 12,
+                padding: "4px 10px",
+                background: promoting ? "#e5e7eb" : "#16a34a",
+                color: promoting ? "#6b7280" : "#fff",
+                border: "none",
+                borderRadius: 4,
+                cursor: promoting ? "not-allowed" : "pointer",
+              }}
+            >
+              {promoting ? "Adding..." : "Use in checks"}
             </button>
           )}
         </div>
@@ -153,6 +194,23 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
     }
   }
 
+  async function refreshFacts(documentId: string) {
+    const r = await api.documents.facts(documentId);
+    if (r.kind === "ok") {
+      setUploadResult((current) => current && current.document_id === documentId
+        ? {
+            ...current,
+            parse_status: r.data.parse_status ?? current.parse_status,
+            fact_count: r.data.count,
+            extracted_facts: r.data.items,
+          }
+        : current);
+      setListError(null);
+    } else if (r.kind !== "auth" && r.kind !== "missing") {
+      setListError("Could not load extracted facts.");
+    }
+  }
+
   useEffect(() => {
     void refreshDocuments();
   }, [projectId]);
@@ -167,6 +225,14 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
     }, 3000);
     return () => window.clearInterval(timer);
   }, [documents, projectId, uploadResult?.parse_status]);
+
+  useEffect(() => {
+    if (!uploadResult || uploadResult.parse_status !== "parse_pending") return;
+    const parsedDocument = documents.find((doc) => doc.id === uploadResult.document_id);
+    const status = parsedDocument ? (parsedDocument.parse_status ?? parsedDocument.status) : "parse_pending";
+    if (status === "parse_pending" || status === "parsing") return;
+    void refreshFacts(uploadResult.document_id);
+  }, [documents, uploadResult]);
 
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
