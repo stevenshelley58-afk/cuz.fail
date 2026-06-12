@@ -25,6 +25,7 @@ from draftcheck.db.models import (
 )
 from draftcheck.domain.documents import (
     DocumentParseError,
+    DocumentParser,
     decode_text_bytes,
     extract_docx_text,
     extract_pdf_page_layouts,
@@ -158,6 +159,18 @@ def parse_document_for_session(
     chunks = write_document_chunks(session, document_id=doc_uuid, pages=pages)
 
     facts: list[OrmDocumentFact] = []
+    for fact in _extract_parser_native_facts(
+        document_id=doc_uuid,
+        content=content,
+        filename=document.title,
+        media_type=document.media_type or "",
+        org_id=document.org_id,
+        project_id=document.project_id,
+        page_id=pages[0].id if pages else None,
+    ):
+        session.add(fact)
+        facts.append(fact)
+
     for page in pages:
         extracted = _fact_service.extract_facts_from_text(
             text=page.text or "",
@@ -248,6 +261,76 @@ def _pdf_page_payload(page: Any) -> dict[str, Any]:
             "raster_measurement_policy": "PDF measurements require explicit calibration before promotion.",
         },
     }
+
+
+def _extract_parser_native_facts(
+    *,
+    document_id: UUID,
+    content: bytes,
+    filename: str,
+    media_type: str,
+    org_id: UUID | None,
+    project_id: UUID | None,
+    page_id: UUID | None,
+) -> list[OrmDocumentFact]:
+    suffix = PurePath(filename).suffix.lower()
+    if suffix not in {".dxf", ".ifc"} and "dxf" not in media_type and "ifc" not in media_type:
+        return []
+
+    parser = DocumentParser()
+    _normalized_media_type, parser_name, _parse_status, _pages, parsed_facts, _metadata = parser.parse(
+        document_id=str(document_id),
+        filename=filename,
+        media_type=media_type,
+        content=content,
+    )
+    facts: list[OrmDocumentFact] = []
+    for index, fact in enumerate(parsed_facts, start=1):
+        if fact.numeric_value is None or fact.unit is None:
+            continue
+        check_key = _parser_fact_key(fact.label, index)
+        value_json = {
+            "numeric_value": fact.numeric_value,
+            "unit": fact.unit,
+            "fact_key": check_key,
+            "source_text": fact.label,
+            "page_number": 1,
+        }
+        facts.append(
+            OrmDocumentFact(
+                id=uuid4(),
+                org_id=org_id,
+                project_id=project_id,
+                document_id=document_id,
+                page_id=page_id,
+                fact_kind=fact.fact_type,
+                check_key=check_key,
+                value_json=value_json,
+                confidence=fact.confidence,
+                evidence_ref_json={"page_number": 1, "source_text": fact.label},
+                promoted_to_measurement=False,
+                review_status="pending_review",
+                parser_name=parser_name,
+                parser_version=parser.version,
+                metadata_json={
+                    **fact.metadata,
+                    "parser_native_fact": True,
+                    "measurement_compliance_ready": False,
+                    "measurement_readiness_reason": fact.metadata.get(
+                        "measurement_readiness_reason",
+                        "human promotion required before compliance use",
+                    ),
+                },
+            )
+        )
+    return facts
+
+
+def _parser_fact_key(label: str, index: int) -> str:
+    sanitized = "".join(char.lower() if char.isalnum() else "_" for char in label).strip("_")
+    while "__" in sanitized:
+        sanitized = sanitized.replace("__", "_")
+    return sanitized or f"parser_fact_{index}"
 
 
 def _mark_parse_failed(session: Session, document: Document, error: str) -> None:

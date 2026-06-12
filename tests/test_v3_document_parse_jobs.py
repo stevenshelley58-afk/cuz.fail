@@ -162,6 +162,112 @@ def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypa
     assert text_blocks[0]["measurement_readiness_reason"] == "pdf text block bbox is not a calibrated measurement"
 
 
+def test_document_parse_job_persists_dxf_dimension_metadata(tmp_path, monkeypatch) -> None:
+    monkeypatch.setenv("DRAFTCHECK_EMBEDDING_PROVIDER", "stub")
+    db = _session()
+    org = Org(id=uuid4(), slug="dxf-async", name="DXF Async")
+    user = User(
+        id=uuid4(),
+        org_id=org.id,
+        email="owner@dxf-async.test",
+        role=IdentityRole.OWNER,
+        status=UserStatus.ACTIVE,
+    )
+    project = Project(id=uuid4(), org_id=org.id, created_by_user_id=user.id, name="DXF project")
+    content = "\n".join(
+        [
+            "0",
+            "SECTION",
+            "2",
+            "ENTITIES",
+            "0",
+            "DIMENSION",
+            "5",
+            "D42",
+            "8",
+            "A-DIMENSIONS",
+            "1",
+            "5.0",
+            "42",
+            "4.5",
+            "0",
+            "ENDSEC",
+            "0",
+            "EOF",
+        ]
+    ).encode()
+    stored = tmp_path / "stored.dxf"
+    stored.write_bytes(content)
+    document = Document(
+        id=uuid4(),
+        org_id=org.id,
+        project_id=project.id,
+        uploaded_by_user_id=user.id,
+        title="site-plan.dxf",
+        document_type="dxf",
+        status="parse_pending",
+        storage_path=str(stored),
+        sha256="2" * 64,
+        media_type="application/dxf",
+        size_bytes=len(content),
+        metadata_json={"parse_status": "parse_pending"},
+    )
+    db.add_all([org, user, project, document])
+    db.flush()
+
+    parse_document_for_session(db, document_id=document.id)
+
+    fact = db.query(DocumentFact).filter_by(document_id=document.id, fact_kind="drawing_dimension").one()
+    assert fact.value_json["numeric_value"] == 4.5
+    assert fact.metadata_json["entity_handle"] == "D42"
+    assert fact.metadata_json["text_override_differs"] is True
+    assert fact.metadata_json["parser_native_fact"] is True
+    assert fact.promoted_to_measurement is False
+
+
+def test_document_parse_job_persists_ifc_quantity_metadata(tmp_path, monkeypatch) -> None:
+    monkeypatch.setenv("DRAFTCHECK_EMBEDDING_PROVIDER", "stub")
+    db = _session()
+    org = Org(id=uuid4(), slug="ifc-async", name="IFC Async")
+    user = User(
+        id=uuid4(),
+        org_id=org.id,
+        email="owner@ifc-async.test",
+        role=IdentityRole.OWNER,
+        status=UserStatus.ACTIVE,
+    )
+    project = Project(id=uuid4(), org_id=org.id, created_by_user_id=user.id, name="IFC project")
+    content = b"ISO-10303-21;\nDATA;\n#10=IFCQUANTITYAREA('GrossFloorArea',$,$,182.5,$);\nENDSEC;"
+    stored = tmp_path / "stored.ifc"
+    stored.write_bytes(content)
+    document = Document(
+        id=uuid4(),
+        org_id=org.id,
+        project_id=project.id,
+        uploaded_by_user_id=user.id,
+        title="model.ifc",
+        document_type="ifc",
+        status="parse_pending",
+        storage_path=str(stored),
+        sha256="3" * 64,
+        media_type="model/ifc",
+        size_bytes=len(content),
+        metadata_json={"parse_status": "parse_pending"},
+    )
+    db.add_all([org, user, project, document])
+    db.flush()
+
+    parse_document_for_session(db, document_id=document.id)
+
+    fact = db.query(DocumentFact).filter_by(document_id=document.id, fact_kind="model_quantity").one()
+    assert fact.value_json["numeric_value"] == 182.5
+    assert fact.value_json["unit"] == "m2"
+    assert fact.metadata_json["ifc_entity_id"] == "#10"
+    assert fact.metadata_json["ifc_quantity_name"] == "GrossFloorArea"
+    assert fact.metadata_json["parser_native_fact"] is True
+    assert fact.promoted_to_measurement is False
+
+
 def test_document_parse_enqueue_reports_sync_fallback_when_queue_is_unavailable(monkeypatch) -> None:
     monkeypatch.delenv("PROCRASTINATE_DB_URI", raising=False)
     monkeypatch.delenv("DATABASE_URL", raising=False)
