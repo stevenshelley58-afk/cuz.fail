@@ -304,4 +304,13 @@ def test_v3_deploy_reloads_caddy_and_runs_live_launch_verification():
     deploy_script = VPS_DEPLOY_PATH.read_text(encoding="utf-8")
 
     assert "up -d --force-recreate --no-deps internal_caddy" in deploy_script
-    assert 'npm run verify:launch:live' in deploy_script
+    assert '(cd "$APP_DIR/web" && npm run verify:launch:live)' in deploy_script
+
+
+def test_v3_deploy_keeps_db_adjudication_explicit_opt_in():
+    deploy_script = VPS_DEPLOY_PATH.read_text(encoding="utf-8")
+
+    assert 'DRAFTCHECK_RUN_WP6_ADJUDICATE:-0' in deploy_script
+    assert 'DRAFTCHECK_RUN_WP6_ADJUDICATE=1' in deploy_script
+    assert "Skipping wp6_adjudicate" in deploy_script
+    assert "scripts/wp6_adjudicate.py --apply" in deploy_script
