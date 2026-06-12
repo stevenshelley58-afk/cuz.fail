@@ -33,6 +33,7 @@ from draftcheck.db.models import (  # noqa: E402
     Base,
     CheckResult,
     Clause,
+    Document,
     Org,
     Rule,
     Source,
@@ -50,6 +51,52 @@ from draftcheck.domain.identity import (  # noqa: E402
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_DIR = ROOT / "tests" / "fixtures" / "golden"
 ORIGIN_HEADERS = {"origin": "http://localhost:5173"}
+
+
+def test_document_upload_commits_before_async_parse_enqueue(tmp_path, monkeypatch) -> None:
+    app, db, active_session = _make_app()
+    _seed_identity_rows(db, active_session)
+    db.commit()
+
+    import draftcheck.api.documents as documents_module
+    import draftcheck.jobs.documents as document_jobs
+
+    monkeypatch.setattr(documents_module, "STORAGE_ROOT", tmp_path / "storage")
+    client = TestClient(app, headers=ORIGIN_HEADERS)
+    project = client.post(
+        "/api/v1/projects",
+        json={"name": "Async parse project", "council_scope": "Demo Bay Local Government"},
+    )
+    assert project.status_code == 201, project.text
+    project_id = project.json()["id"]
+
+    events: list[str] = []
+    original_commit = db.commit
+
+    def commit_spy() -> None:
+        events.append("commit")
+        original_commit()
+
+    def enqueue_spy(document_id: UUID) -> dict[str, object]:
+        events.append("enqueue")
+        assert db.get(Document, document_id) is not None
+        return {"enqueued": True, "job_id": "job-123", "queue": "default"}
+
+    monkeypatch.setattr(db, "commit", commit_spy)
+    monkeypatch.setattr(document_jobs, "enqueue_document_parse", enqueue_spy)
+
+    upload = client.post(
+        "/api/v1/documents/upload",
+        params={"project_id": project_id},
+        files={"file": ("async-site-plan.txt", b"Front setback: 4.5 m", "text/plain")},
+    )
+
+    assert upload.status_code == 200, upload.text
+    body = upload.json()
+    assert body["parse_status"] == "parse_pending"
+    assert body["parse_job"] == {"enqueued": True, "job_id": "job-123", "queue": "default"}
+    assert body["fact_count"] == 0
+    assert events[:2] == ["commit", "enqueue"]
 
 
 def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, monkeypatch) -> None:

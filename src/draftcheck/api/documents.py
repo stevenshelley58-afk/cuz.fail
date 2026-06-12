@@ -253,6 +253,9 @@ async def upload_document(
     )
     db.add(document)
     db.flush()
+    # The parse worker uses a separate DB session. Commit the upload record
+    # before enqueueing so a fast worker cannot race an uncommitted document.
+    db.commit()
 
     from draftcheck.jobs.documents import enqueue_document_parse, parse_document_for_session
 
