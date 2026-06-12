@@ -4,6 +4,7 @@ from fastapi.testclient import TestClient
 
 from draftcheck.api.auth import get_current_session
 from draftcheck.api.main import create_app
+from draftcheck.domain.documents import DocumentReviewStatus, InMemoryDocumentLibrary
 from draftcheck.domain.identity import ActiveSession, IdentityRole, InMemoryIdentityStore
 
 
@@ -123,6 +124,126 @@ def test_v3_dxf_upload_extracts_dimension_preview_without_promoting_measurement(
         and fact["metadata"]["measurement_compliance_ready"] is False
         for fact in facts
     )
+
+
+def test_v3_dxf_dimension_uses_group_42_and_records_text_override_difference() -> None:
+    library = InMemoryDocumentLibrary()
+    dxf_text = "\n".join(
+        [
+            "0",
+            "SECTION",
+            "2",
+            "ENTITIES",
+            "0",
+            "DIMENSION",
+            "5",
+            "2A",
+            "8",
+            "A-DIMENSIONS",
+            "1",
+            "5.0",
+            "42",
+            "4.5",
+            "0",
+            "ENDSEC",
+            "0",
+            "EOF",
+        ]
+    )
+
+    result = library.upload(
+        org_id="org-docs",
+        project_id="project-docs",
+        user_id="user-docs",
+        filename="override.dxf",
+        media_type="application/dxf",
+        content=dxf_text.encode(),
+    )
+
+    fact = result.facts[0]
+    assert fact.numeric_value == 4.5
+    assert fact.review_status == DocumentReviewStatus.PENDING_REVIEW
+    assert fact.metadata["entity_handle"] == "2A"
+    assert fact.metadata["entity_layer"] == "A-DIMENSIONS"
+    assert fact.metadata["entity_type"] == "DIMENSION"
+    assert fact.metadata["text_override"] == "5.0"
+    assert fact.metadata["text_override_numeric_value"] == 5.0
+    assert fact.metadata["text_override_differs"] is True
+    assert fact.metadata["measurement_compliance_ready"] is False
+
+
+def test_v3_dxf_block_insert_uniform_scale_is_recorded_on_dimension_fact() -> None:
+    library = InMemoryDocumentLibrary()
+    dxf_text = "\n".join(
+        [
+            "0",
+            "SECTION",
+            "2",
+            "BLOCKS",
+            "0",
+            "BLOCK",
+            "2",
+            "SETBACK_BLOCK",
+            "0",
+            "DIMENSION",
+            "5",
+            "D1",
+            "8",
+            "A-DIMENSIONS",
+            "1",
+            "<>",
+            "42",
+            "2.5",
+            "0",
+            "ENDBLK",
+            "0",
+            "ENDSEC",
+            "0",
+            "SECTION",
+            "2",
+            "ENTITIES",
+            "0",
+            "INSERT",
+            "5",
+            "I1",
+            "8",
+            "A-SITE",
+            "2",
+            "SETBACK_BLOCK",
+            "41",
+            "2.0",
+            "42",
+            "2.0",
+            "43",
+            "1.0",
+            "0",
+            "ENDSEC",
+            "0",
+            "EOF",
+        ]
+    )
+
+    result = library.upload(
+        org_id="org-docs",
+        project_id="project-docs",
+        user_id="user-docs",
+        filename="block-scale.dxf",
+        media_type="application/dxf",
+        content=dxf_text.encode(),
+    )
+
+    fact = result.facts[0]
+    assert fact.numeric_value == 5.0
+    assert fact.review_status == DocumentReviewStatus.PENDING_REVIEW
+    assert fact.metadata["block_name"] == "SETBACK_BLOCK"
+    assert fact.metadata["entity_handle"] == "D1"
+    assert fact.metadata["insert_handle"] == "I1"
+    assert fact.metadata["insert_layer"] == "A-SITE"
+    assert fact.metadata["insert_scale"] == {"x": 2.0, "y": 2.0, "z": 1.0}
+    assert fact.metadata["insert_scale_applied"] is True
+    assert fact.metadata["insert_scale_uncertain"] is False
+    assert fact.metadata["scale_status"] == "insert_scale_known"
+    assert fact.metadata["measurement_compliance_ready"] is False
 
 
 def test_v3_image_upload_is_review_only_until_calibrated() -> None:

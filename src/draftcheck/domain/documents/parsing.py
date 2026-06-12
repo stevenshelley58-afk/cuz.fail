@@ -118,6 +118,27 @@ class DocumentParseResult:
     facts: tuple[DocumentFact, ...]
 
 
+@dataclass(frozen=True)
+class _DxfDimensionCandidate:
+    measurement: float
+    handle: str | None
+    layer: str | None
+    entity_type: str
+    text_override: str | None = None
+    text_override_numeric_value: float | None = None
+    text_override_differs: bool = False
+    block_name: str | None = None
+    insert_handle: str | None = None
+    insert_layer: str | None = None
+    insert_scale_x: float | None = None
+    insert_scale_y: float | None = None
+    insert_scale_z: float | None = None
+    insert_scale_applied: bool = False
+    insert_scale_uncertain: bool = False
+    scale_review_reason: str | None = None
+    extraction_method: str = "dxf_group_code_dimension_entity"
+
+
 class DocumentNotFoundError(KeyError):
     """Raised when a document is unknown to the in-memory library."""
 
@@ -542,10 +563,34 @@ def _first_match(patterns: tuple[str, ...], text: str) -> re.Match[str] | None:
 
 
 def _dxf_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFact]:
+    candidates = _extract_dxf_dimension_candidates(text)
+    if candidates:
+        return [
+            _fact(
+                document_id=document_id,
+                label=f"dxf dimension {index}",
+                fact_type="drawing_dimension",
+                value=candidate.measurement,
+                unit="m",
+                parser_name=parser_name,
+                method=candidate.extraction_method,
+                confidence=0.62 if candidate.insert_scale_uncertain else 0.76,
+                metadata=_dxf_dimension_metadata(candidate),
+            )
+            for index, candidate in enumerate(candidates, start=1)
+        ]
+
     facts: list[DocumentFact] = []
     if "a-dimensions" not in text.lower() and "dimension" not in text.lower():
         return facts
-    for index, value in enumerate(re.findall(r"\b(?:DIMENSION|LINE_LENGTH|MEASUREMENT)[:=\s]+([0-9]+(?:\.[0-9]+)?)", text, flags=re.I), start=1):
+    for index, value in enumerate(
+        re.findall(
+            r"\b(?:DIMENSION|LINE_LENGTH|MEASUREMENT)[:=\s]+([0-9]+(?:\.[0-9]+)?)",
+            text,
+            flags=re.I,
+        ),
+        start=1,
+    ):
         facts.append(
             _fact(
                 document_id=document_id,
@@ -556,9 +601,350 @@ def _dxf_facts(document_id: str, text: str, parser_name: str) -> list[DocumentFa
                 parser_name=parser_name,
                 method="dxf_text_dimension_entity",
                 confidence=0.68,
+                metadata={
+                    "entity_type": "DIMENSION",
+                    "cad_extraction_review_status": "pending_review",
+                    "scale_status": "not_available_from_text_fallback",
+                },
             )
         )
     return facts
+
+
+def _extract_dxf_dimension_candidates(text: str) -> list[_DxfDimensionCandidate]:
+    candidates = _extract_dxf_dimensions_with_ezdxf(text)
+    if candidates:
+        return candidates
+    return _extract_dxf_dimensions_from_group_codes(text)
+
+
+def _extract_dxf_dimensions_with_ezdxf(text: str) -> list[_DxfDimensionCandidate]:
+    try:
+        import ezdxf  # type: ignore[import-not-found]
+    except ImportError:
+        return []
+
+    try:
+        doc = ezdxf.read(io.StringIO(text))
+    except Exception:
+        return []
+
+    candidates: list[_DxfDimensionCandidate] = []
+    for entity in doc.modelspace():
+        entity_type = str(entity.dxftype()).upper()
+        if entity_type == "DIMENSION":
+            candidate = _ezdxf_dimension_candidate(entity)
+            if candidate is not None:
+                candidates.append(candidate)
+        elif entity_type == "INSERT":
+            candidates.extend(_ezdxf_insert_dimension_candidates(doc, entity))
+    return candidates
+
+
+def _ezdxf_dimension_candidate(entity: Any) -> _DxfDimensionCandidate | None:
+    measurement = _ezdxf_dimension_measurement(entity)
+    if measurement is None:
+        return None
+    text_override = _clean_dxf_text_override(getattr(entity.dxf, "text", None))
+    override_value = _first_number(text_override or "")
+    return _DxfDimensionCandidate(
+        measurement=measurement,
+        handle=str(getattr(entity.dxf, "handle", "") or "") or None,
+        layer=str(getattr(entity.dxf, "layer", "") or "") or None,
+        entity_type=str(entity.dxftype()).upper(),
+        text_override=text_override,
+        text_override_numeric_value=override_value,
+        text_override_differs=_dxf_override_differs(measurement, override_value),
+        extraction_method="ezdxf_dimension_entity",
+    )
+
+
+def _ezdxf_insert_dimension_candidates(doc: Any, insert: Any) -> list[_DxfDimensionCandidate]:
+    block_name = str(getattr(insert.dxf, "name", "") or "")
+    if not block_name:
+        return []
+    try:
+        block = doc.blocks.get(block_name)
+    except Exception:
+        return []
+
+    sx = _float_or_none(getattr(insert.dxf, "xscale", 1.0)) or 1.0
+    sy = _float_or_none(getattr(insert.dxf, "yscale", 1.0)) or 1.0
+    sz = _float_or_none(getattr(insert.dxf, "zscale", 1.0)) or 1.0
+    scale_uncertain = not _nearly_equal(abs(sx), abs(sy))
+    scale_factor = abs(sx) if not scale_uncertain else 1.0
+    insert_handle = str(getattr(insert.dxf, "handle", "") or "") or None
+    insert_layer = str(getattr(insert.dxf, "layer", "") or "") or None
+
+    candidates: list[_DxfDimensionCandidate] = []
+    for entity in block:
+        if str(entity.dxftype()).upper() != "DIMENSION":
+            continue
+        base = _ezdxf_dimension_candidate(entity)
+        if base is None:
+            continue
+        candidates.append(
+            _DxfDimensionCandidate(
+                measurement=base.measurement * scale_factor,
+                handle=base.handle,
+                layer=base.layer,
+                entity_type=base.entity_type,
+                text_override=base.text_override,
+                text_override_numeric_value=base.text_override_numeric_value,
+                text_override_differs=base.text_override_differs,
+                block_name=block_name,
+                insert_handle=insert_handle,
+                insert_layer=insert_layer,
+                insert_scale_x=sx,
+                insert_scale_y=sy,
+                insert_scale_z=sz,
+                insert_scale_applied=not scale_uncertain and not _nearly_equal(scale_factor, 1.0),
+                insert_scale_uncertain=scale_uncertain,
+                scale_review_reason=(
+                    "non_uniform_insert_scale_requires_operator_review" if scale_uncertain else None
+                ),
+                extraction_method="ezdxf_block_insert_dimension_entity",
+            )
+        )
+    return candidates
+
+
+def _ezdxf_dimension_measurement(entity: Any) -> float | None:
+    for attr_name in ("get_measurement", "actual_measurement"):
+        attr = getattr(entity, attr_name, None)
+        try:
+            value = attr() if callable(attr) else attr
+        except Exception:
+            continue
+        numeric_value = _float_or_none(value)
+        if numeric_value is not None:
+            return numeric_value
+    return _float_or_none(getattr(entity.dxf, "actual_measurement", None))
+
+
+def _extract_dxf_dimensions_from_group_codes(text: str) -> list[_DxfDimensionCandidate]:
+    pairs = _dxf_group_pairs(text)
+    if not pairs:
+        return []
+
+    modelspace_dimensions: list[_DxfDimensionCandidate] = []
+    block_dimensions: dict[str, list[_DxfDimensionCandidate]] = {}
+    inserts: list[list[tuple[str, str]]] = []
+    section: str | None = None
+    current_block_name: str | None = None
+    index = 0
+    while index < len(pairs):
+        code, value = pairs[index]
+        if code != "0":
+            index += 1
+            continue
+
+        entity_type = value.strip().upper()
+        entity_pairs, next_index = _dxf_entity_pairs(pairs, index)
+        if entity_type == "SECTION":
+            section = _dxf_first(entity_pairs, "2")
+        elif entity_type == "ENDSEC":
+            section = None
+        elif section == "BLOCKS" and entity_type == "BLOCK":
+            current_block_name = _dxf_first(entity_pairs, "2")
+            if current_block_name:
+                block_dimensions.setdefault(current_block_name, [])
+        elif section == "BLOCKS" and entity_type == "ENDBLK":
+            current_block_name = None
+        elif entity_type == "DIMENSION":
+            candidate = _dxf_dimension_from_pairs(entity_pairs)
+            if candidate is not None:
+                if section == "BLOCKS" and current_block_name:
+                    block_dimensions.setdefault(current_block_name, []).append(
+                        _replace_dxf_candidate(candidate, block_name=current_block_name)
+                    )
+                elif section == "ENTITIES":
+                    modelspace_dimensions.append(candidate)
+        elif section == "ENTITIES" and entity_type == "INSERT":
+            inserts.append(entity_pairs)
+        index = next_index
+
+    candidates = list(modelspace_dimensions)
+    for insert_pairs in inserts:
+        candidates.extend(_dxf_block_insert_candidates(insert_pairs, block_dimensions))
+    return candidates
+
+
+def _dxf_group_pairs(text: str) -> list[tuple[str, str]]:
+    lines = [line.strip() for line in text.splitlines()]
+    pairs: list[tuple[str, str]] = []
+    index = 0
+    while index + 1 < len(lines):
+        code = lines[index]
+        value = lines[index + 1]
+        if re.fullmatch(r"-?\d+", code):
+            pairs.append((code, value))
+            index += 2
+        else:
+            index += 1
+    return pairs
+
+
+def _dxf_entity_pairs(
+    pairs: list[tuple[str, str]],
+    start_index: int,
+) -> tuple[list[tuple[str, str]], int]:
+    end_index = start_index + 1
+    while end_index < len(pairs) and pairs[end_index][0] != "0":
+        end_index += 1
+    return pairs[start_index:end_index], end_index
+
+
+def _dxf_dimension_from_pairs(entity_pairs: list[tuple[str, str]]) -> _DxfDimensionCandidate | None:
+    measurement = _float_or_none(_dxf_first(entity_pairs, "42"))
+    if measurement is None:
+        return None
+    text_override = _clean_dxf_text_override(_dxf_first(entity_pairs, "1"))
+    override_value = _first_number(text_override or "")
+    return _DxfDimensionCandidate(
+        measurement=measurement,
+        handle=_dxf_first(entity_pairs, "5"),
+        layer=_dxf_first(entity_pairs, "8"),
+        entity_type="DIMENSION",
+        text_override=text_override,
+        text_override_numeric_value=override_value,
+        text_override_differs=_dxf_override_differs(measurement, override_value),
+    )
+
+
+def _dxf_block_insert_candidates(
+    insert_pairs: list[tuple[str, str]],
+    block_dimensions: dict[str, list[_DxfDimensionCandidate]],
+) -> list[_DxfDimensionCandidate]:
+    block_name = _dxf_first(insert_pairs, "2")
+    if not block_name:
+        return []
+    base_dimensions = block_dimensions.get(block_name, [])
+    if not base_dimensions:
+        return []
+
+    sx = _float_or_none(_dxf_first(insert_pairs, "41")) or 1.0
+    sy = _float_or_none(_dxf_first(insert_pairs, "42")) or 1.0
+    sz = _float_or_none(_dxf_first(insert_pairs, "43")) or 1.0
+    scale_uncertain = not _nearly_equal(abs(sx), abs(sy))
+    scale_factor = abs(sx) if not scale_uncertain else 1.0
+    return [
+        _DxfDimensionCandidate(
+            measurement=dimension.measurement * scale_factor,
+            handle=dimension.handle,
+            layer=dimension.layer,
+            entity_type=dimension.entity_type,
+            text_override=dimension.text_override,
+            text_override_numeric_value=dimension.text_override_numeric_value,
+            text_override_differs=dimension.text_override_differs,
+            block_name=block_name,
+            insert_handle=_dxf_first(insert_pairs, "5"),
+            insert_layer=_dxf_first(insert_pairs, "8"),
+            insert_scale_x=sx,
+            insert_scale_y=sy,
+            insert_scale_z=sz,
+            insert_scale_applied=not scale_uncertain and not _nearly_equal(scale_factor, 1.0),
+            insert_scale_uncertain=scale_uncertain,
+            scale_review_reason=(
+                "non_uniform_insert_scale_requires_operator_review" if scale_uncertain else None
+            ),
+            extraction_method="dxf_group_code_block_insert_dimension_entity",
+        )
+        for dimension in base_dimensions
+    ]
+
+
+def _dxf_first(entity_pairs: list[tuple[str, str]], code: str) -> str | None:
+    for pair_code, value in entity_pairs:
+        if pair_code == code:
+            return value.strip() or None
+    return None
+
+
+def _replace_dxf_candidate(
+    candidate: _DxfDimensionCandidate,
+    *,
+    block_name: str | None,
+) -> _DxfDimensionCandidate:
+    return _DxfDimensionCandidate(
+        measurement=candidate.measurement,
+        handle=candidate.handle,
+        layer=candidate.layer,
+        entity_type=candidate.entity_type,
+        text_override=candidate.text_override,
+        text_override_numeric_value=candidate.text_override_numeric_value,
+        text_override_differs=candidate.text_override_differs,
+        block_name=block_name,
+        extraction_method=candidate.extraction_method,
+    )
+
+
+def _dxf_dimension_metadata(candidate: _DxfDimensionCandidate) -> dict[str, Any]:
+    metadata: dict[str, Any] = {
+        "entity_type": candidate.entity_type,
+        "entity_handle": candidate.handle,
+        "entity_layer": candidate.layer,
+        "cad_extraction_review_status": "pending_review",
+        "scale_status": "not_insert_scaled",
+    }
+    if candidate.text_override:
+        metadata.update(
+            {
+                "text_override": candidate.text_override,
+                "text_override_numeric_value": candidate.text_override_numeric_value,
+                "text_override_differs": candidate.text_override_differs,
+            }
+        )
+    if candidate.block_name:
+        scale_status = "insert_scale_uncertain" if candidate.insert_scale_uncertain else "insert_scale_known"
+        metadata.update(
+            {
+                "block_name": candidate.block_name,
+                "insert_handle": candidate.insert_handle,
+                "insert_layer": candidate.insert_layer,
+                "insert_scale": {
+                    "x": candidate.insert_scale_x,
+                    "y": candidate.insert_scale_y,
+                    "z": candidate.insert_scale_z,
+                },
+                "insert_scale_applied": candidate.insert_scale_applied,
+                "insert_scale_uncertain": candidate.insert_scale_uncertain,
+                "scale_status": scale_status,
+                "scale_review_reason": candidate.scale_review_reason,
+            }
+        )
+    return metadata
+
+
+def _clean_dxf_text_override(value: object) -> str | None:
+    if value is None:
+        return None
+    text = str(value).strip()
+    if not text or text == "<>":
+        return None
+    return text
+
+
+def _dxf_override_differs(measurement: float, override_value: float | None) -> bool:
+    return override_value is not None and not _nearly_equal(measurement, override_value)
+
+
+def _first_number(text: str) -> float | None:
+    match = re.search(r"-?[0-9]+(?:\.[0-9]+)?", text)
+    return _float_or_none(match.group(0)) if match else None
+
+
+def _float_or_none(value: object) -> float | None:
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _nearly_equal(left: float, right: float, *, tolerance: float = 0.000001) -> bool:
+    return abs(left - right) <= tolerance
 
 
 def _ifc_facts(document_id: str, text: str, parser_name: str, media_type: str) -> list[DocumentFact]:
@@ -591,7 +977,15 @@ def _fact(
     parser_name: str,
     method: str,
     confidence: float,
+    metadata: dict[str, Any] | None = None,
 ) -> DocumentFact:
+    fact_metadata = {
+        "method": method,
+        "measurement_compliance_ready": False,
+        "measurement_readiness_reason": "human promotion required before compliance use",
+    }
+    if metadata:
+        fact_metadata.update(metadata)
     return DocumentFact(
         id=f"fact_{uuid4().hex}",
         document_id=document_id,
@@ -603,11 +997,7 @@ def _fact(
         confidence=confidence,
         review_status=DocumentReviewStatus.PENDING_REVIEW,
         source=parser_name,
-        metadata={
-            "method": method,
-            "measurement_compliance_ready": False,
-            "measurement_readiness_reason": "human promotion required before compliance use",
-        },
+        metadata=fact_metadata,
     )
 
 

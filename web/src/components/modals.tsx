@@ -78,6 +78,7 @@ export function DevLoginForm({ variant, onSignedIn }: { variant: "modal" | "pane
     <>
       <input
         className={inputClass}
+        aria-label="Username"
         placeholder="username"
         autoComplete="username"
         value={username}
@@ -87,6 +88,7 @@ export function DevLoginForm({ variant, onSignedIn }: { variant: "modal" | "pane
       <input
         className={inputClass}
         type="password"
+        aria-label="Password"
         placeholder="password"
         autoComplete="current-password"
         autoFocus={variant === "modal"}
@@ -155,6 +157,7 @@ export function MagicLinkForm({ variant, onSignedIn }: { variant: "modal" | "pan
         <input
           className="inp"
           type="email"
+          aria-label="Email address"
           placeholder="your@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}

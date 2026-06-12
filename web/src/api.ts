@@ -239,6 +239,7 @@ export type ComplianceRunResponse = {
 // ── Document upload types ──
 
 export type ExtractedFact = {
+  fact_id?: string;
   fact_key: string;
   numeric_value: number | null;
   unit: string | null;
@@ -250,8 +251,21 @@ export type ExtractedFact = {
 export type DocumentUploadResponse = {
   document_id: string;
   filename: string;
-  project_id: string;
+  project_id?: string;
+  parse_status?: string;
+  parse_job?: { enqueued?: boolean; reason?: string };
+  fact_count?: number;
   extracted_facts: ExtractedFact[];
+};
+
+export type ProjectDocumentSummary = {
+  id: string;
+  title: string;
+  document_type: string;
+  status: string;
+  parse_status?: string;
+  created_at: string | null;
+  fact_count: number;
 };
 
 export const api = {
@@ -336,7 +350,7 @@ export const api = {
       return { kind: "error", status: res.status, message: d?.detail ?? res.statusText };
     },
     facts: (docId: string) => call<{ items: ExtractedFact[] }>("GET", `/documents/${docId}/facts`),
-    listForProject: (projectId: string) => call<{ items: Array<{ id: string; title: string; document_type: string; status: string; created_at: string | null; fact_count: number }> }>("GET", `/documents/projects/${projectId}`),
+    listForProject: (projectId: string) => call<{ items: ProjectDocumentSummary[]; count: number }>("GET", `/documents/projects/${projectId}`),
     confirmFact: (docId: string, factKey: string) =>
       call<{ ok: boolean }>("POST", `/documents/${docId}/facts/${factKey}/review`, { review_status: "confirmed" }),
   },

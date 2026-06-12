@@ -19,6 +19,15 @@ if [ -f "$ENV_FILE" ] && grep -q "^CORS_ALLOWED_ORIGINS=" "$ENV_FILE"; then
   fi
 fi
 
+if [ -f "$ENV_FILE" ]; then
+  for key in VITE_CHECKOUT_URL VITE_PRICE_LABEL VITE_PRICE_SUBLABEL; do
+    if grep -q "^${key}=" "$ENV_FILE"; then
+      value="$(grep "^${key}=" "$ENV_FILE" | tail -n 1 | cut -d= -f2- | tr -d '\r')"
+      export "${key}=${value}"
+    fi
+  done
+fi
+
 # --include=dev: vite/tsc are devDependencies; a production npm config on the
 # host would otherwise omit them and break the build.
 (cd web && npm ci --include=dev && npm run build)

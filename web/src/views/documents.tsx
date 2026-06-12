@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
-import { BookOpen, CheckCircle2, RefreshCw, Sparkles } from "lucide-react";
-import { api, type DocumentUploadResponse, type ExtractedFact } from "../api";
+import { useEffect, useRef, useState } from "react";
+import { BookOpen, CheckCircle2, Clock3, RefreshCw, Sparkles } from "lucide-react";
+import { api, type DocumentUploadResponse, type ExtractedFact, type ProjectDocumentSummary } from "../api";
 
 /* ── DocumentUpload ── */
 
@@ -40,20 +40,21 @@ function FactCard({
 }: {
   fact: ExtractedFact;
   docId: string;
-  onConfirmed: (factKey: string) => void;
+  onConfirmed: (factId: string) => void;
 }) {
   const [confirming, setConfirming] = useState(false);
   const [confirmed, setConfirmed] = useState(fact.confirmed ?? false);
   const [err, setErr] = useState<string | null>(null);
+  const factId = fact.fact_id ?? fact.fact_key;
 
   async function confirm() {
     setConfirming(true);
     setErr(null);
-    const r = await api.documents.confirmFact(docId, fact.fact_key);
+    const r = await api.documents.confirmFact(docId, factId);
     setConfirming(false);
     if (r.kind === "ok" || r.kind === "notBuilt") {
       setConfirmed(true);
-      onConfirmed(fact.fact_key);
+      onConfirmed(factId);
     } else {
       setErr("Could not confirm fact.");
     }
@@ -137,8 +138,35 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadResult, setUploadResult] = useState<DocumentUploadResponse | null>(null);
+  const [documents, setDocuments] = useState<ProjectDocumentSummary[]>([]);
+  const [listError, setListError] = useState<string | null>(null);
   const [confirmedKeys, setConfirmedKeys] = useState<Set<string>>(new Set());
   const fileRef = useRef<HTMLInputElement>(null);
+
+  async function refreshDocuments() {
+    const r = await api.documents.listForProject(projectId);
+    if (r.kind === "ok") {
+      setDocuments(r.data.items);
+      setListError(null);
+    } else if (r.kind !== "auth" && r.kind !== "missing") {
+      setListError("Could not refresh document status.");
+    }
+  }
+
+  useEffect(() => {
+    void refreshDocuments();
+  }, [projectId]);
+
+  useEffect(() => {
+    const hasPending =
+      uploadResult?.parse_status === "parse_pending" ||
+      documents.some((doc) => (doc.parse_status ?? doc.status) === "parse_pending");
+    if (!hasPending) return;
+    const timer = window.setInterval(() => {
+      void refreshDocuments();
+    }, 3000);
+    return () => window.clearInterval(timer);
+  }, [documents, projectId, uploadResult?.parse_status]);
 
   async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -150,6 +178,7 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
     setUploading(false);
     if (r.kind === "ok") {
       setUploadResult(r.data);
+      void refreshDocuments();
     } else if (r.kind === "notBuilt") {
       setUploadError("Document upload endpoint not yet available on this server.");
     } else if (r.kind === "auth") {
@@ -162,11 +191,13 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
     if (fileRef.current) fileRef.current.value = "";
   }
 
-  function handleConfirmed(factKey: string) {
-    setConfirmedKeys((prev) => new Set([...prev, factKey]));
+  function handleConfirmed(factId: string) {
+    setConfirmedKeys((prev) => new Set([...prev, factId]));
   }
 
   const facts = uploadResult?.extracted_facts ?? [];
+  const parseStatus = uploadResult?.parse_status ?? null;
+  const parsePending = parseStatus === "parse_pending";
 
   return (
     <div style={{ padding: "0 0 24px" }}>
@@ -239,6 +270,60 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
         </div>
       )}
 
+      {listError && (
+        <div
+          style={{
+            marginTop: 10,
+            background: "#fffbeb",
+            border: "1px solid #fde68a",
+            borderRadius: 6,
+            padding: "8px 12px",
+            color: "#92400e",
+            fontSize: 13,
+          }}
+        >
+          {listError}
+        </div>
+      )}
+
+      {documents.length > 0 && (
+        <div style={{ marginTop: 16 }}>
+          <div style={{ fontSize: 12, fontWeight: 600, color: "#6b7280", marginBottom: 8 }}>
+            Uploaded documents
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {documents.slice(0, 4).map((doc) => {
+              const status = doc.parse_status ?? doc.status;
+              const pending = status === "parse_pending";
+              return (
+                <div
+                  key={doc.id}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    gap: 10,
+                    border: "1px solid #e5e7eb",
+                    borderRadius: 8,
+                    padding: "8px 10px",
+                    background: "#fff",
+                    fontSize: 13,
+                  }}
+                >
+                  <span style={{ minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                    {doc.title}
+                  </span>
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: pending ? "#92400e" : "#16a34a", flexShrink: 0 }}>
+                    {pending ? <Clock3 size={14} /> : <CheckCircle2 size={14} />}
+                    {pending ? "Parsing" : `${doc.fact_count} facts`}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {uploadResult && (
         <div style={{ marginTop: 16 }}>
           <div
@@ -255,7 +340,7 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
             <span style={{ fontWeight: 500 }}>{uploadResult.filename}</span>
             <span style={{ color: "#6b7280" }}>·</span>
             <span style={{ color: "#6b7280" }}>
-              {facts.length} fact{facts.length !== 1 ? "s" : ""} extracted
+              {parsePending ? "Parsing queued" : `${facts.length} fact${facts.length !== 1 ? "s" : ""} extracted`}
             </span>
             {confirmedKeys.size > 0 && (
               <>
@@ -265,7 +350,14 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
             )}
           </div>
 
-          {facts.length === 0 && (
+          {parsePending && (
+            <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#92400e", fontSize: 13 }}>
+              <RefreshCw size={14} style={{ animation: "spin 1s linear infinite" }} />
+              The parser job is queued. This list refreshes while processing continues.
+            </div>
+          )}
+
+          {!parsePending && facts.length === 0 && (
             <div style={{ color: "#6b7280", fontSize: 13 }}>
               No measurable facts were extracted from this document.
             </div>
@@ -273,8 +365,8 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
 
           {facts.map((fact) => (
             <FactCard
-              key={fact.fact_key}
-              fact={{ ...fact, confirmed: confirmedKeys.has(fact.fact_key) }}
+              key={fact.fact_id ?? fact.fact_key}
+              fact={{ ...fact, confirmed: confirmedKeys.has(fact.fact_id ?? fact.fact_key) }}
               docId={uploadResult.document_id}
               onConfirmed={handleConfirmed}
             />
