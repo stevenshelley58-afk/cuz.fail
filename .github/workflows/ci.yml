@@ -36,6 +36,8 @@ jobs:
           bash -n infra/v3/deploy-web-only.sh
       - name: Tests
         run: python -m pytest -q
+      - name: Verify non-DB launch ops report
+        run: python scripts/audit_non_db_launch_ops.py --verify-report reports/non_db_launch_ops_blockers.json
       - name: Forbidden V3 patterns
         shell: bash
         run: |
