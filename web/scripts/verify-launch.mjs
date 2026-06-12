@@ -42,6 +42,40 @@ for (const asset of ["favicon.svg", "og-image.svg", "robots.txt", "sitemap.xml"]
   assertExists(join(publicDir, asset), `Public asset ${asset}`);
 }
 
+const appSource = read(join(src, "App.tsx"));
+for (const routeNeedle of [
+  'if (path === "/privacy") return "privacy"',
+  'if (path === "/terms") return "terms"',
+  'if (path.startsWith("/app")',
+  'canonical: "https://lotfile.app/privacy"',
+  'canonical: "https://lotfile.app/terms"',
+]) {
+  assertIncludes(appSource, routeNeedle, "Launch route metadata");
+}
+
+const launchSource = read(join(src, "views", "launch.tsx"));
+for (const launchNeedle of [
+  "Check an address free",
+  "lotfile_launch_address",
+  "Advisory research only",
+  "does not issue approvals",
+  "professional certification",
+  "Uploaded drawings",
+  "Liability limits",
+]) {
+  assertIncludes(launchSource, launchNeedle, "Launch/legal copy");
+}
+
+const robots = read(join(publicDir, "robots.txt"));
+for (const robotsNeedle of ["Allow: /privacy", "Allow: /terms", "Disallow: /app", "Sitemap: https://lotfile.app/sitemap.xml"]) {
+  assertIncludes(robots, robotsNeedle, "Robots policy");
+}
+
+const sitemap = read(join(publicDir, "sitemap.xml"));
+for (const sitemapNeedle of ["https://lotfile.app/", "https://lotfile.app/privacy", "https://lotfile.app/terms"]) {
+  assertIncludes(sitemap, sitemapNeedle, "Sitemap route");
+}
+
 const sourceFiles = [
   join(src, "analytics.ts"),
   join(src, "components", "modals.tsx"),
@@ -56,6 +90,11 @@ for (const eventName of ["signup_requested", "project_created", "compliance_run"
 const modalSource = read(join(src, "components", "modals.tsx"));
 for (const label of ['aria-label="Username"', 'aria-label="Password"', 'aria-label="Email address"']) {
   assertIncludes(modalSource, label, "Sign-in accessible label");
+}
+
+const configSource = read(join(src, "config.ts"));
+for (const configNeedle of ["VITE_CHECKOUT_URL", "AUD $29/month", "Starter launch plan"]) {
+  assertIncludes(configSource, configNeedle, "Pricing config");
 }
 
 const checkoutUrl = String(process.env.VITE_CHECKOUT_URL ?? "").trim();
