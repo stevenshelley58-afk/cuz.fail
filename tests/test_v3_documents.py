@@ -362,6 +362,7 @@ def test_v3_pdf_layout_extractor_records_text_block_bboxes() -> None:
     pdf = fitz.open()
     page = pdf.new_page(width=300, height=200)
     page.insert_text((36, 72), "Lot area: 450 m2")
+    page.draw_line((40, 120), (260, 120), color=(0, 0, 0), width=1)
     content = pdf.tobytes()
     pdf.close()
 
@@ -375,6 +376,9 @@ def test_v3_pdf_layout_extractor_records_text_block_bboxes() -> None:
     assert pages[0].text_blocks
     assert pages[0].text_blocks[0].bbox[2] > pages[0].text_blocks[0].bbox[0]
     assert pages[0].text_blocks[0].bbox[3] > pages[0].text_blocks[0].bbox[1]
+    assert pages[0].vector_paths
+    assert pages[0].vector_paths[0].bbox is not None
+    assert pages[0].vector_paths[0].item_count >= 1
 
 
 def test_v3_ifc_step_quantities_are_review_gated_with_entity_metadata() -> None:

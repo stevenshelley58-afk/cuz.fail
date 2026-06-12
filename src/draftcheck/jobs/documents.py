@@ -258,6 +258,17 @@ def _pdf_page_payload(page: Any) -> dict[str, Any]:
                 }
                 for block in page.text_blocks
             ],
+            "vector_paths": [
+                {
+                    "bbox": list(path.bbox) if path.bbox else None,
+                    "item_count": path.item_count,
+                    "drawing_type": path.drawing_type,
+                    "measurement_compliance_ready": False,
+                    "measurement_readiness_reason": "pdf vector path is not a calibrated measurement",
+                    "calibration_required": True,
+                }
+                for path in page.vector_paths
+            ],
             "raster_measurement_policy": "PDF measurements require explicit calibration before promotion.",
         },
     }

@@ -132,6 +132,7 @@ def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypa
     pdf = fitz.open()
     page = pdf.new_page(width=320, height=240)
     page.insert_text((40, 80), "Front setback: 4.5 m")
+    page.draw_line((40, 120), (280, 120), color=(0, 0, 0), width=1)
     content = pdf.tobytes()
     pdf.close()
     stored = tmp_path / "stored.pdf"
@@ -165,6 +166,13 @@ def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypa
     assert "Front setback" in text_blocks[0]["text"]
     assert text_blocks[0]["measurement_compliance_ready"] is False
     assert text_blocks[0]["measurement_readiness_reason"] == "pdf text block bbox is not a calibrated measurement"
+    vector_paths = persisted_page.metadata_json["vector_paths"]
+    assert vector_paths
+    assert vector_paths[0]["bbox"]
+    assert vector_paths[0]["item_count"] >= 1
+    assert vector_paths[0]["measurement_compliance_ready"] is False
+    assert vector_paths[0]["measurement_readiness_reason"] == "pdf vector path is not a calibrated measurement"
+    assert vector_paths[0]["calibration_required"] is True
 
 
 def test_document_parse_job_persists_dxf_dimension_metadata(tmp_path, monkeypatch) -> None:

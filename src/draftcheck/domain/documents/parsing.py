@@ -86,6 +86,13 @@ class PdfTextBlock:
 
 
 @dataclass(frozen=True)
+class PdfVectorPath:
+    bbox: tuple[float, float, float, float] | None
+    item_count: int
+    drawing_type: str | None
+
+
+@dataclass(frozen=True)
 class PdfPageExtraction:
     page_number: int
     text: str
@@ -93,6 +100,7 @@ class PdfPageExtraction:
     height: float | None
     rotation_degrees: float | None
     text_blocks: tuple[PdfTextBlock, ...]
+    vector_paths: tuple[PdfVectorPath, ...]
     extraction_method: str
 
 
@@ -502,6 +510,7 @@ def extract_pdf_page_layouts(content: bytes) -> list[PdfPageExtraction]:
                 height=None,
                 rotation_degrees=None,
                 text_blocks=(),
+                vector_paths=(),
                 extraction_method="pypdf_text_layer",
             )
             for index, text in enumerate(texts, start=1)
@@ -544,6 +553,7 @@ def _extract_pdf_page_layouts_with_pymupdf(content: bytes) -> list[PdfPageExtrac
                     )
                 )
             rect = page.rect
+            vector_paths = _pdf_vector_paths(page)
             pages.append(
                 PdfPageExtraction(
                     page_number=page_index,
@@ -552,12 +562,51 @@ def _extract_pdf_page_layouts_with_pymupdf(content: bytes) -> list[PdfPageExtrac
                     height=round(float(rect.height), 3),
                     rotation_degrees=float(page.rotation or 0),
                     text_blocks=tuple(blocks),
+                    vector_paths=vector_paths,
                     extraction_method="pymupdf_text_blocks",
                 )
             )
         return pages
     finally:
         doc.close()
+
+
+def _pdf_vector_paths(page: Any) -> tuple[PdfVectorPath, ...]:
+    get_drawings = getattr(page, "get_drawings", None)
+    if not callable(get_drawings):
+        return ()
+    try:
+        drawings = get_drawings() or []
+    except Exception:
+        return ()
+
+    paths: list[PdfVectorPath] = []
+    for drawing in drawings:
+        rect = drawing.get("rect") if isinstance(drawing, dict) else None
+        items = drawing.get("items", ()) if isinstance(drawing, dict) else ()
+        drawing_type = drawing.get("type") if isinstance(drawing, dict) else None
+        paths.append(
+            PdfVectorPath(
+                bbox=_pdf_rect_bbox(rect),
+                item_count=len(items) if hasattr(items, "__len__") else 0,
+                drawing_type=str(drawing_type) if drawing_type is not None else None,
+            )
+        )
+    return tuple(paths)
+
+
+def _pdf_rect_bbox(rect: Any) -> tuple[float, float, float, float] | None:
+    if rect is None:
+        return None
+    try:
+        return (
+            round(float(rect.x0), 3),
+            round(float(rect.y0), 3),
+            round(float(rect.x1), 3),
+            round(float(rect.y1), 3),
+        )
+    except (AttributeError, TypeError, ValueError):
+        return None
 
 
 def _extract_pdf_pages_with_pypdf(content: bytes) -> list[str]:
