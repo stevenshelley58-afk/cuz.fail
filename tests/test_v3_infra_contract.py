@@ -13,6 +13,7 @@ BACKUP_README_PATH = ROOT / "infra" / "v3" / "backup" / "README.md"
 BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
 OPS_RUNBOOK_PATH = ROOT / "docs" / "ops" / "ops-guardrails.md"
+WEB_ONLY_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy-web-only.sh"
 
 
 def _active_caddy_text() -> str:
@@ -73,3 +74,42 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "<generated-restic-password>" in runbook
     assert "sentry_dsn" in runbook
     assert "spend-snapshot" in runbook
+
+
+def test_v3_web_only_deploy_is_guarded_and_never_touches_db_or_containers():
+    deploy_script = WEB_ONLY_DEPLOY_PATH.read_text(encoding="utf-8")
+
+    for required in (
+        "#!/usr/bin/env bash",
+        "set -euo pipefail",
+        "/srv/draftcheck/app",
+        "git fetch origin",
+        "git restore --source \"$WEB_REF\" -- web",
+        "VITE_CHECKOUT_URL",
+        "https://buy.stripe.com/*",
+        "example",
+        "placeholder",
+        "change_me",
+        "todo",
+        "npm ci --include=dev",
+        "npm run build",
+        "verify-launch.mjs --strict",
+        "mktemp -d",
+        "cp -a",
+        "rollback()",
+        "rm -rf web/dist",
+        "without container restart",
+    ):
+        assert required in deploy_script
+
+    lowered = deploy_script.lower()
+    for forbidden in (
+        "docker compose",
+        "alembic",
+        "psql",
+        "pg_dump",
+        "wp6_adjudicate",
+        "scripts/wp6_adjudicate.py",
+        "create_all",
+    ):
+        assert forbidden not in lowered

@@ -74,58 +74,18 @@ srv1625369
 - VPS IP: `76.13.209.160`
 - Repo checkout: `/srv/draftcheck/app`
 - Live static root: `/srv/draftcheck/app/web/dist`
-- UI deploy: rebuild `web/dist` on VPS; no Vercel, no container restart.
+- UI deploy: `infra/v3/deploy-web-only.sh`; no Vercel, no container restart.
 - API health check: `https://api.cuz.fail/api/v1/health`
 - Vercel: RETIRED
 
 ## UI-Only Deploy From Main
 
 Use this when `origin/main` already contains the desired frontend and the live site is
-serving an old compiled `web/dist`.
+serving an old compiled `web/dist`. The script refuses to deploy unless
+`VITE_CHECKOUT_URL` is set to a real Stripe Payment Link in the VPS env.
 
 ```powershell
-@'
-set -euo pipefail
-git config --global --add safe.directory /srv/draftcheck/app
-cd /srv/draftcheck/app
-
-echo "== preflight =="
-git status --porcelain
-git branch -a
-git stash list
-
-if [ -n "$(git status --porcelain -- web)" ]; then
-  git stash push -m "pre-deploy web changes $(date -Is)" -- web
-fi
-
-backup_dir=""
-if [ -d web/dist ]; then
-  backup_dir="$(mktemp -d /tmp/draftcheck-web-dist.XXXXXX)"
-  cp -a web/dist/. "$backup_dir"/
-fi
-
-echo "== deploy =="
-git fetch origin
-git reset --hard origin/main
-deploy_sha="$(git rev-parse HEAD)"
-
-cd web
-npm ci
-if npm run build; then
-  [ -n "$backup_dir" ] && rm -rf "$backup_dir"
-else
-  status=$?
-  if [ -n "$backup_dir" ] && [ -d "$backup_dir" ]; then
-    rm -rf dist
-    mkdir -p dist
-    cp -a "$backup_dir"/. dist/
-    rm -rf "$backup_dir"
-  fi
-  exit "$status"
-fi
-
-echo "deployed $deploy_sha"
-'@ | ssh draftcheck "tr -d '\r' | bash -s"
+ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'
 ```
 
 ## Required Verification
@@ -143,7 +103,7 @@ curl.exe -s -w "`nHTTP_STATUS=%{http_code}`n" https://api.cuz.fail/api/v1/health
 Expected:
 
 ```text
-<title>LotFile</title>
+<title>LotFile - WA R-Code & Planning Compliance Checker</title>
 {"status":"ok","service":"draftcheck-api","version":"0.1.0"}
 HTTP_STATUS=200
 ```
@@ -178,7 +138,7 @@ ssh draftcheck "grep -o '<title>[^<]*</title>' /srv/draftcheck/app/web/dist/inde
 Expected:
 
 ```text
-<title>LotFile</title>
+<title>LotFile - WA R-Code & Planning Compliance Checker</title>
 ```
 
 ### Build Fails
