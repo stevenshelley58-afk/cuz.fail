@@ -16,6 +16,7 @@
     "verify:launch:strict": "npm run build && node scripts/verify-launch.mjs --strict",
     "verify:launch:lighthouse": "lhci autorun --config=./lighthouserc.cjs",
     "verify:launch:live": "node scripts/verify-live-launch.mjs",
+    "verify:launch:live:json": "node scripts/verify-live-launch.mjs --json",
     "verify:launch:live:strict": "node scripts/verify-live-launch.mjs --strict"
   },
   "dependencies": {

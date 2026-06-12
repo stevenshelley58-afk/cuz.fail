@@ -292,8 +292,10 @@ def test_v3_ci_runs_live_launch_preview_harness():
     preview_verify = WEB_LIVE_PREVIEW_VERIFY_PATH.read_text(encoding="utf-8")
 
     assert package_json["scripts"]["test:live-launch-preview"] == "node scripts/test-live-launch-preview.mjs"
+    assert package_json["scripts"]["verify:launch:live:json"] == "node scripts/verify-live-launch.mjs --json"
     assert any(step.get("run") == "npm run test:live-launch-preview" for step in web_steps)
     assert "scripts/verify-live-launch.mjs" in preview_verify
+    assert '"--json"' in preview_verify
     assert "LIVE_CHECKOUT_URL" in preview_verify
     assert "/api/v1/health" in preview_verify
     assert "/api/v1/ready" in preview_verify

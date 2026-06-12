@@ -66,9 +66,11 @@ function closeServer() {
 
 function runVerifier(origin) {
   return new Promise((resolveRun, rejectRun) => {
+    let stdout = "";
+    let stderr = "";
     const child = spawn(
       process.execPath,
-      ["scripts/verify-live-launch.mjs", "--strict"],
+      ["scripts/verify-live-launch.mjs", "--strict", "--json"],
       {
         cwd: process.cwd(),
         env: {
@@ -76,16 +78,43 @@ function runVerifier(origin) {
           LAUNCH_ORIGIN: origin,
           LIVE_CHECKOUT_URL: checkoutUrl,
         },
-        stdio: "inherit",
+        stdio: ["ignore", "pipe", "pipe"],
       },
     );
+    child.stdout.on("data", (chunk) => {
+      stdout += chunk;
+    });
+    child.stderr.on("data", (chunk) => {
+      stderr += chunk;
+    });
     child.on("error", rejectRun);
     child.on("exit", (code) => {
-      if (code === 0) {
-        resolveRun();
+      if (code !== 0) {
+        rejectRun(new Error(`verify-live-launch exited with ${code}\n${stderr}${stdout}`));
         return;
       }
-      rejectRun(new Error(`verify-live-launch exited with ${code}`));
+      let result;
+      try {
+        result = JSON.parse(stdout);
+      } catch (err) {
+        rejectRun(new Error(`verify-live-launch did not emit JSON: ${err instanceof Error ? err.message : String(err)}\n${stdout}`));
+        return;
+      }
+      if (result.status !== "passed") {
+        rejectRun(new Error(`verify-live-launch JSON status was ${result.status}`));
+        return;
+      }
+      for (const route of ["/", "/privacy", "/terms", "/app"]) {
+        if (result.evidence.routes[route]?.status !== 200) {
+          rejectRun(new Error(`missing JSON route evidence for ${route}`));
+          return;
+        }
+      }
+      if (result.evidence.api["/api/v1/ready"]?.service_status !== "ok") {
+        rejectRun(new Error("missing JSON ready evidence"));
+        return;
+      }
+      resolveRun();
     });
   });
 }
