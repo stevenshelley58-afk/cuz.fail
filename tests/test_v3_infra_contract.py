@@ -13,6 +13,7 @@ CADDYFILE_PATH = ROOT / "infra" / "v3" / "Caddyfile"
 DB_INIT_PATH = ROOT / "infra" / "v3" / "db" / "init-extensions.sql"
 BACKUP_README_PATH = ROOT / "infra" / "v3" / "backup" / "README.md"
 BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
+RESTORE_DRILL_PATH = ROOT / "infra" / "v3" / "backup" / "restore-drill.sh"
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
 OPS_RUNBOOK_PATH = ROOT / "docs" / "ops" / "ops-guardrails.md"
 WEB_ONLY_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy-web-only.sh"
@@ -80,6 +81,17 @@ def test_v3_backup_docs_cover_pg_dump_restic_and_restore_drill():
     assert "restic" in backup_docs
     assert "pg_restore" in backup_docs
     assert "restore drill" in backup_docs
+
+
+def test_v3_restore_drill_emits_guardrail_accepted_fields():
+    restore_script = RESTORE_DRILL_PATH.read_text(encoding="utf-8")
+
+    assert "result: PASS" in restore_script
+    assert "-At -c \"SELECT count(*) FROM source_versions;\"" in restore_script
+    assert "-At -c \"SELECT count(*) FROM job_traces;\"" in restore_script
+    assert "source_versions: $SOURCE_VERSIONS" in restore_script
+    assert "job_traces: $JOB_TRACES" in restore_script
+    assert "status: PASS" in restore_script
 
 
 def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():

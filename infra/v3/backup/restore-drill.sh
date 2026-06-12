@@ -34,6 +34,7 @@ echo ""
 # --- 1. restic check ---
 echo "## restic check"
 restic check
+echo "result: PASS"
 echo ""
 
 # --- 2. restic restore latest ---
@@ -65,16 +66,23 @@ docker compose -f "$COMPOSE_FILE" exec -T db \
 docker compose -f "$COMPOSE_FILE" exec -T db \
     pg_restore -U "$POSTGRES_USER" -d "$SCRATCH_DB" --clean --if-exists \
     < "$RESTORED_DUMP"
+echo "result: PASS"
 echo ""
 
 # --- 5. Sanity check ---
 echo "## Sanity counts"
-docker compose -f "$COMPOSE_FILE" exec -T db \
+SOURCE_VERSIONS="$(
+    docker compose -f "$COMPOSE_FILE" exec -T db \
     psql -U "$POSTGRES_USER" -d "$SCRATCH_DB" \
-    -c "SELECT count(*) AS source_versions FROM source_versions;"
-docker compose -f "$COMPOSE_FILE" exec -T db \
+        -At -c "SELECT count(*) FROM source_versions;"
+)"
+JOB_TRACES="$(
+    docker compose -f "$COMPOSE_FILE" exec -T db \
     psql -U "$POSTGRES_USER" -d "$SCRATCH_DB" \
-    -c "SELECT count(*) AS job_traces FROM job_traces;"
+        -At -c "SELECT count(*) FROM job_traces;"
+)"
+echo "source_versions: $SOURCE_VERSIONS"
+echo "job_traces: $JOB_TRACES"
 echo ""
 
 # --- 6. Clean up ---

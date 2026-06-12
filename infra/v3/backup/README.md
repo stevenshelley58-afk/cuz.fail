@@ -58,7 +58,7 @@ docker compose -f infra/v3/compose.yml exec -T db \
 
 docker compose -f infra/v3/compose.yml exec -T db \
   psql -U "$POSTGRES_USER" -d draftcheck_restore_drill \
-  -c "SELECT count(*) AS source_versions FROM source_versions;"
+  -At -c "SELECT count(*) FROM source_versions;"
 ```
 
 Storage drill:
@@ -69,9 +69,10 @@ test -d "$DRILL_DIR/srv/draftcheck/storage"
 ```
 
 Record the backup timestamp, restic snapshot ID, `pg_dump` artifact path,
-`restic check` result, scratch restore duration, checksum or manifest hash, and
-row-count sanity output in the operations audit trail before treating the drill
-as accepted evidence.
+`result: PASS` for both `restic check` and DB restore, scratch restore duration,
+checksum or manifest hash, and normalized `source_versions: N` and
+`job_traces: N` sanity output in the operations audit trail before treating the
+drill as accepted evidence.
 
 ## Systemd install
 

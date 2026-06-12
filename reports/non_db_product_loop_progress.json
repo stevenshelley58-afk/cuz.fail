@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T02:10:20+08:00",
+  "captured_at": "2026-06-13T02:20:45+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -84,6 +84,8 @@
         "infra/v3/backup/install-systemd.sh runs backup-config before enabling draftcheck-backup.timer",
         "tests/test_ops_guardrails.py covers backup env and guardrail cron fixture validation",
         "tests/test_v3_infra_contract.py asserts ops scripts/runbook retain backup-config, disk, worker, and cron guardrail hooks",
+        "infra/v3/backup/restore-drill.sh emits guardrail-accepted result, source_versions, job_traces, and status fields",
+        "tests/test_v3_infra_contract.py asserts restore-drill.sh retains those accepted evidence fields",
         "uv run pytest tests/test_ops_guardrails.py -q passed",
         "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json passed",
         "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json passed",
