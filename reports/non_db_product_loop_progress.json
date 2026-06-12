@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T00:41:10+08:00",
+  "captured_at": "2026-06-13T00:48:20+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -30,7 +30,8 @@
           "IFC STEP quantity fallback remains review-gated",
           "Title-block fields are extracted as review-gated non-measurement metadata facts",
           "Optional IfcOpenShell quantity extraction is used when available and falls back to STEP text parsing",
-          "DXF dimension facts carry CAD model/paper-space, layout, and entity evidence into persisted evidence_ref_json"
+          "DXF dimension facts carry CAD model/paper-space, layout, and entity evidence into persisted evidence_ref_json",
+          "PDF regex-derived facts carry conservative text-block bbox evidence when source text matches a parsed block"
         ],
       "remaining": [
         "Parser registry/protocol and artifact-row linkage are still open and may need DB coordination"

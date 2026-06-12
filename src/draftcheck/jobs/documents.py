@@ -182,6 +182,7 @@ def parse_document_for_session(
             page_id=page.id,
         )
         for fact in extracted:
+            _attach_pdf_text_block_evidence(fact, page)
             session.add(fact)
             facts.append(fact)
     session.flush()
@@ -337,6 +338,57 @@ def _extract_parser_native_facts(
             )
         )
     return facts
+
+
+def _attach_pdf_text_block_evidence(fact: OrmDocumentFact, page: OrmDocumentPage) -> None:
+    text_blocks = (page.metadata_json or {}).get("text_blocks")
+    if not isinstance(text_blocks, list):
+        return
+
+    source_text = str((fact.evidence_ref_json or {}).get("source_text") or "")
+    source_key = _normalise_evidence_text(source_text)
+    if not source_key:
+        return
+
+    for block in text_blocks:
+        if not isinstance(block, dict):
+            continue
+        block_text = str(block.get("text") or "")
+        if source_key not in _normalise_evidence_text(block_text):
+            continue
+        bbox = block.get("bbox")
+        if not bbox:
+            return
+        evidence = dict(fact.evidence_ref_json or {})
+        evidence.update(
+            {
+                "bbox": bbox,
+                "text_block_number": block.get("block_number"),
+                "evidence_method": "pdf_text_block_match",
+                "measurement_compliance_ready": False,
+                "measurement_readiness_reason": "pdf text block bbox is not a calibrated measurement",
+            }
+        )
+        metadata = dict(fact.metadata_json or {})
+        metadata.update(
+            {
+                "pdf_text_block_bbox": bbox,
+                "pdf_text_block_number": block.get("block_number"),
+                "pdf_text_block_evidence_method": "pdf_text_block_match",
+                "measurement_compliance_ready": False,
+                "measurement_readiness_reason": metadata.get(
+                    "measurement_readiness_reason",
+                    "human promotion required before compliance use",
+                ),
+            }
+        )
+        fact.evidence_ref_json = evidence
+        fact.metadata_json = metadata
+        return
+
+
+def _normalise_evidence_text(text: str) -> str:
+    return " ".join(text.casefold().split())
 
 
 def _parser_fact_evidence(fact: DocumentFact) -> dict[str, object]:

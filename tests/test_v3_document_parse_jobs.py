@@ -173,6 +173,21 @@ def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypa
     assert vector_paths[0]["measurement_compliance_ready"] is False
     assert vector_paths[0]["measurement_readiness_reason"] == "pdf vector path is not a calibrated measurement"
     assert vector_paths[0]["calibration_required"] is True
+    fact = db.query(DocumentFact).filter_by(
+        document_id=document.id,
+        check_key="proposed_setback_front_m",
+    ).one()
+    assert fact.evidence_ref_json["page_number"] == 1
+    assert fact.evidence_ref_json["source_text"] == "Front setback: 4.5 m"
+    assert fact.evidence_ref_json["bbox"]
+    assert fact.evidence_ref_json["evidence_method"] == "pdf_text_block_match"
+    assert fact.evidence_ref_json["measurement_compliance_ready"] is False
+    assert fact.evidence_ref_json["measurement_readiness_reason"] == (
+        "pdf text block bbox is not a calibrated measurement"
+    )
+    assert fact.metadata_json["pdf_text_block_bbox"] == fact.evidence_ref_json["bbox"]
+    assert fact.promoted_to_measurement is False
+    assert fact.review_status == "pending_review"
 
 
 def test_document_parse_job_persists_dxf_dimension_metadata(tmp_path, monkeypatch) -> None:
