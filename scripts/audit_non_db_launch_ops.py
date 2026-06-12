@@ -14,9 +14,9 @@ from urllib.error import HTTPError, URLError
 from urllib.request import urlopen
 
 try:
-    from scripts.ops_guardrails import check_uptime_monitor_doc
+    from scripts.ops_guardrails import check_restore_drill_log, check_uptime_monitor_doc
 except ModuleNotFoundError:  # pragma: no cover - direct `python scripts/...` execution
-    from ops_guardrails import check_uptime_monitor_doc
+    from ops_guardrails import check_restore_drill_log, check_uptime_monitor_doc
 
 
 LAUNCH_ROUTES = ("/", "/privacy", "/terms", "/app")
@@ -123,6 +123,60 @@ def assess_uptime_monitor_doc(path: Path) -> str:
     return f"{result.status}: {result.message}"
 
 
+def assess_restore_drill_log(ops_doc_dir: Path) -> str:
+    candidates = sorted(
+        path for path in ops_doc_dir.glob("restore-drill-[0-9]*.md") if path.is_file()
+    )
+    if not candidates:
+        return "critical: no docs/ops/restore-drill-YYYYMMDD.md log found"
+    latest = candidates[-1]
+    result = check_restore_drill_log(latest)
+    return f"{result.status}: {result.message}"
+
+
+def _checkout_env_verified(value: str) -> bool:
+    return value.startswith("https://buy.stripe.com/")
+
+
+def _timer_verified(value: str) -> bool:
+    blocked_needles = (
+        "0 timers listed",
+        "SSH_CHECK_FAILED",
+        "SSH_SKIPPED",
+        "unknown",
+    )
+    return bool(value) and not any(needle in value for needle in blocked_needles)
+
+
+def _field_present(value: str, expected: str) -> bool:
+    return value == expected
+
+
+def assess_launch_status(launch: dict[str, Any], checkout_env: str) -> str:
+    if launch["status"] != "verified":
+        return "blocked"
+    if not _checkout_env_verified(checkout_env):
+        return "blocked"
+    return "verified"
+
+
+def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
+    required = (
+        _field_present(evidence["backup_env"], "BACKUP_ENV_PRESENT"),
+        _field_present(evidence["restic_password_file"], "RESTIC_PASSWORD_FILE_PRESENT"),
+        _timer_verified(evidence["backup_timer"]),
+        evidence["restore_drill_log"].startswith("ok:"),
+        _field_present(evidence["guardrail_cron"], "CRON_GUARDRAILS_PRESENT"),
+        _field_present(evidence["ops_guardrail_script"], "OPS_GUARDRAILS_PRESENT"),
+        _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"),
+        "status ok" in evidence["uptime_targets"],
+        evidence["uptime_monitor_doc"].startswith("ok:"),
+        _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT"),
+        _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT"),
+    )
+    return "verified" if all(required) else "blocked"
+
+
 def parse_vps_state(output: str) -> dict[str, str]:
     lines = [line.strip() for line in output.splitlines() if line.strip()]
     checkout_line = next((line for line in lines if line.startswith("VITE_CHECKOUT_URL=")), "")
@@ -199,11 +253,26 @@ def build_report(
     bundle_text: str,
     *,
     uptime_monitor_doc: str,
+    restore_drill_log: str = "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
 ) -> dict[str, Any]:
     launch = assess_live_launch(origin, pages, bundle_text)
     launch["evidence"]["vps_checkout_env"] = vps_state["vps_checkout_env"]
-    if vps_state["vps_checkout_env"] == "VITE_CHECKOUT_URL_MISSING":
-        launch["status"] = "blocked"
+    launch["status"] = assess_launch_status(launch, vps_state["vps_checkout_env"])
+
+    ops_evidence = {
+        "backup_env": vps_state["backup_env"],
+        "restic_password_file": vps_state["restic_password_file"],
+        "backup_timer": vps_state["backup_timer"],
+        "restore_drill_log": restore_drill_log,
+        "guardrail_cron": vps_state["guardrail_cron"],
+        "ops_guardrail_script": vps_state["ops_guardrail_script"],
+        "sentry_dsn": vps_state["sentry_dsn"],
+        "uptime_targets": assess_api_targets(origin, api),
+        "uptime_monitor_doc": uptime_monitor_doc,
+        "log_retention_journald": vps_state["log_retention_journald"],
+        "log_retention_docker": vps_state["log_retention_docker"],
+        "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs",
+    }
 
     return {
         "captured_at": datetime.now(tz=UTC).isoformat(),
@@ -217,21 +286,8 @@ def build_report(
             ],
         },
         "ops_guardrails": {
-            "status": "blocked",
-            "evidence": {
-                "backup_env": vps_state["backup_env"],
-                "restic_password_file": vps_state["restic_password_file"],
-                "backup_timer": vps_state["backup_timer"],
-                "restore_drill_log": "no docs/ops/restore-drill-YYYYMMDD.md log found on the VPS checkout",
-                "guardrail_cron": vps_state["guardrail_cron"],
-                "ops_guardrail_script": vps_state["ops_guardrail_script"],
-                "sentry_dsn": vps_state["sentry_dsn"],
-                "uptime_targets": assess_api_targets(origin, api),
-                "uptime_monitor_doc": uptime_monitor_doc,
-                "log_retention_journald": vps_state["log_retention_journald"],
-                "log_retention_docker": vps_state["log_retention_docker"],
-                "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs",
-            },
+            "status": assess_ops_guardrails_status(ops_evidence),
+            "evidence": ops_evidence,
             "unblock": [
                 "Deploy latest non-DB ops scripts after DB jobs are idle so /srv/draftcheck/app/scripts/ops_guardrails.py is present.",
                 "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md.",
@@ -266,6 +322,7 @@ def main() -> int:
     parser.add_argument("--ssh-host", default="draftcheck")
     parser.add_argument("--output", default="reports/non_db_launch_ops_blockers.json")
     parser.add_argument("--uptime-monitor-doc", default="docs/ops/uptime-monitor.md")
+    parser.add_argument("--ops-doc-dir", default="docs/ops")
     parser.add_argument("--skip-ssh", action="store_true")
     args = parser.parse_args()
 
@@ -294,6 +351,7 @@ def main() -> int:
         api,
         bundle_text,
         uptime_monitor_doc=assess_uptime_monitor_doc(Path(args.uptime_monitor_doc)),
+        restore_drill_log=assess_restore_drill_log(Path(args.ops_doc_dir)),
     )
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)

@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:52:00+08:00",
+  "captured_at": "2026-06-13T01:53:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -121,7 +121,9 @@
         "scripts/audit_non_db_launch_ops.py records log-retention install-state evidence; refreshed VPS evidence shows Docker daemon rotation present and journald drop-in missing",
         "tests/test_ops_guardrails.py now runtime-tests infra/v3/ops/guardrail-alerts.sh success aggregation, failure exit 2 output, and webhook JSON payload capture when Bash is available",
         "tests/test_ops_guardrails.py now runtime-tests infra/v3/backup/install-systemd.sh missing-env failure and successful backup-config/systemd timer install flow when Bash is available",
-        "uv run pytest tests/test_ops_guardrails.py -q passed locally with 24 Python tests passed and 5 Bash-wrapper tests skipped because local Windows Bash is unusable"
+        "uv run pytest tests/test_ops_guardrails.py -q passed locally with 24 Python tests passed and 5 Bash-wrapper tests skipped because local Windows Bash is unusable",
+        "scripts/audit_non_db_launch_ops.py computes launch_surface and ops_guardrails status from evidence so skipped SSH, missing restore drill logs, missing credentials, pending monitor docs, and missing installs cannot report verified",
+        "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json reported both launch_surface and ops_guardrails as blocked"
       ],
       "remaining": [
         "Arm backups and run a restore drill on the VPS after credentials are available",
@@ -157,6 +159,7 @@
     "uv run python scripts/ops_guardrails.py log-retention-config --journald-path infra/v3/ops/journald-draftcheck.conf --docker-daemon-path infra/v3/ops/docker-daemon-log-rotation.json --json",
     "CI Ubuntu: bash -n infra/v3/ops/guardrail-alerts.sh infra/v3/backup/install-systemd.sh infra/v3/backup/restore-drill.sh infra/v3/deploy-web-only.sh",
     "uv run pytest tests/test_audit_non_db_launch_ops.py -q",
+    "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json",
     "uv run python scripts/audit_non_db_launch_ops.py --output reports/non_db_launch_ops_blockers.json",
     "npm.cmd run build",
     "npm.cmd run verify:launch"

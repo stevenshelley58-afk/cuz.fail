@@ -5,6 +5,8 @@ from pathlib import Path
 from scripts.audit_non_db_launch_ops import (
     FetchResult,
     assess_live_launch,
+    assess_ops_guardrails_status,
+    assess_restore_drill_log,
     assess_uptime_monitor_doc,
     build_report,
     parse_vps_state,
@@ -126,6 +128,127 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
     assert report["ops_guardrails"]["evidence"]["log_retention_docker"] == "LOG_RETENTION_DOCKER_PRESENT"
     assert "status ok" in report["ops_guardrails"]["evidence"]["uptime_targets"]
     assert report["ops_guardrails"]["evidence"]["uptime_monitor_doc"].startswith("ok:")
+    assert report["ops_guardrails"]["status"] == "blocked"
+
+
+def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None:
+    page_text = (
+        '<title>LotFile - WA R-Code & Planning Compliance Checker</title>'
+        '<meta name="description">'
+        '<meta property="og:title">'
+        '<script data-domain="lotfile.app"></script>'
+    )
+    bundle_text = "\n".join(
+        [
+            "/privacy",
+            "/terms",
+            "Check an address free",
+            "Advisory research only",
+            "signup_requested",
+            "project_created",
+            "compliance_run",
+            "checkout_clicked",
+            "AUD $29/month",
+        ]
+    )
+    pages = {route: FetchResult(status=200, text=page_text) for route in ["/", "/privacy", "/terms", "/app"]}
+    api = {
+        "/api/v1/health": FetchResult(status=200, text='{"status":"ok"}'),
+        "/api/v1/ready": FetchResult(status=200, text='{"status":"ok"}'),
+    }
+    vps_state = {
+        "vps_checkout_env": "https://buy.stripe.com/test_fixture",
+        "backup_env": "BACKUP_ENV_PRESENT",
+        "restic_password_file": "RESTIC_PASSWORD_FILE_PRESENT",
+        "backup_timer": "1 timers listed.",
+        "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+        "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+        "sentry_dsn": "SENTRY_DSN_PRESENT",
+        "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
+        "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
+    }
+
+    report = build_report(
+        "https://lotfile.app",
+        vps_state,
+        pages,
+        api,
+        bundle_text,
+        uptime_monitor_doc="ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+        restore_drill_log="ok: restore drill log accepted",
+    )
+
+    assert report["launch_surface"]["status"] == "verified"
+    assert report["ops_guardrails"]["status"] == "verified"
+
+
+def test_build_report_blocks_when_ssh_state_is_skipped() -> None:
+    page_text = (
+        '<title>LotFile - WA R-Code & Planning Compliance Checker</title>'
+        '<meta name="description">'
+        '<meta property="og:title">'
+        '<script data-domain="lotfile.app"></script>'
+    )
+    bundle_text = "\n".join(
+        [
+            "/privacy",
+            "/terms",
+            "Check an address free",
+            "Advisory research only",
+            "signup_requested",
+            "project_created",
+            "compliance_run",
+            "checkout_clicked",
+            "AUD $29/month",
+        ]
+    )
+    pages = {route: FetchResult(status=200, text=page_text) for route in ["/", "/privacy", "/terms", "/app"]}
+    api = {
+        "/api/v1/health": FetchResult(status=200, text='{"status":"ok"}'),
+        "/api/v1/ready": FetchResult(status=200, text='{"status":"ok"}'),
+    }
+    vps_state = {
+        "vps_checkout_env": "SSH_SKIPPED",
+        "backup_env": "SSH_SKIPPED",
+        "restic_password_file": "SSH_SKIPPED",
+        "backup_timer": "SSH_SKIPPED",
+        "guardrail_cron": "SSH_SKIPPED",
+        "ops_guardrail_script": "SSH_SKIPPED",
+        "sentry_dsn": "SSH_SKIPPED",
+        "log_retention_journald": "SSH_SKIPPED",
+        "log_retention_docker": "SSH_SKIPPED",
+    }
+
+    report = build_report(
+        "https://lotfile.app",
+        vps_state,
+        pages,
+        api,
+        bundle_text,
+        uptime_monitor_doc="ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+        restore_drill_log="ok: restore drill log accepted",
+    )
+
+    assert report["launch_surface"]["status"] == "blocked"
+    assert report["ops_guardrails"]["status"] == "blocked"
+
+
+def test_ops_guardrails_status_blocks_pending_fields() -> None:
+    evidence = {
+        "backup_env": "BACKUP_ENV_PRESENT",
+        "restic_password_file": "RESTIC_PASSWORD_FILE_PRESENT",
+        "backup_timer": "0 timers listed.",
+        "restore_drill_log": "ok: restore drill log accepted",
+        "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+        "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+        "sentry_dsn": "SENTRY_DSN_PRESENT",
+        "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
+        "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+        "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
+        "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
+    }
+
+    assert assess_ops_guardrails_status(evidence) == "blocked"
 
 
 def test_assess_uptime_monitor_doc_reports_pending_evidence(tmp_path: Path) -> None:
@@ -150,3 +273,10 @@ def test_assess_uptime_monitor_doc_reports_pending_evidence(tmp_path: Path) -> N
 
     assert result.startswith("critical:")
     assert "pending monitor evidence" in result
+
+
+def test_assess_restore_drill_log_reports_missing_log(tmp_path: Path) -> None:
+    result = assess_restore_drill_log(tmp_path)
+
+    assert result.startswith("critical:")
+    assert "restore-drill-YYYYMMDD.md" in result
