@@ -23,6 +23,7 @@ WEB_ONLY_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy-web-only.sh"
 JOURNALD_RETENTION_PATH = ROOT / "infra" / "v3" / "ops" / "journald-draftcheck.conf"
 DOCKER_LOG_ROTATION_PATH = ROOT / "infra" / "v3" / "ops" / "docker-daemon-log-rotation.json"
 CI_WORKFLOW_PATH = ROOT / ".github" / "workflows" / "ci.yml"
+DEPLOY_WORKFLOW_PATH = ROOT / ".github" / "workflows" / "deploy.yml"
 WEB_PACKAGE_PATH = ROOT / "web" / "package.json"
 WEB_LIGHTHOUSE_CONFIG_PATH = ROOT / "web" / "lighthouserc.cjs"
 WEB_MOBILE_VERIFY_PATH = ROOT / "web" / "scripts" / "verify-mobile-launch.mjs"
@@ -243,6 +244,20 @@ def test_v3_ci_verifies_non_db_launch_ops_report_artifact():
         and step.get("run") == "python scripts/audit_non_db_launch_ops.py --verify-report reports/non_db_launch_ops_blockers.json"
         for step in backend_steps
     )
+
+
+def test_v3_deploy_workflow_separates_ssh_connectivity_from_remote_script_failures():
+    workflow_text = DEPLOY_WORKFLOW_PATH.read_text(encoding="utf-8")
+    workflow = yaml.safe_load(workflow_text)
+    deploy_steps = workflow["jobs"]["deploy"]["steps"]
+    deploy_step = next(step for step in deploy_steps if step.get("name") == "Sync checkout to origin/main and redeploy")
+    run_script = deploy_step["run"]
+
+    assert 'ssh "${SSH_ARGS[@]}" "$SSH_TARGET" true' in run_script
+    assert "Deploy SSH connectivity failed" in run_script
+    assert "Remote deploy script failed" in run_script
+    assert "all SSH attempts timed out" not in workflow_text
+
 
 def test_v3_ci_runs_launch_action_behavior_test():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
