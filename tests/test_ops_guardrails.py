@@ -961,6 +961,42 @@ def test_uptime_monitor_doc_requires_recorded_monitor_ids(tmp_path: Path) -> Non
 | `https://lotfile.app/api/v1/health` | Primary health probe | HTTP 200 |
 | `https://lotfile.app/api/v1/ready` | Deep-ready probe | HTTP 200 |
 
+## UptimeRobot setup
+
+- Type: HTTPS
+- Monitoring Interval: 5 minutes
+- Keyword: `"status":"ok"` (Alert if keyword not found)
+
+| Monitor | Provider ID | Alert contact |
+|---------|-------------|---------------|
+| LotFile health | 123456789 | stevenshelley58@gmail.com |
+| LotFile ready | 987654321 | stevenshelley58@gmail.com |
+
+## Alert thresholds
+
+- Down alert: after 2 consecutive failures
+- Recovery alert: on first success after a down event
+""",
+        encoding="utf-8",
+    )
+
+    result = check_uptime_monitor_doc(doc)
+
+    assert result.status == "ok"
+    assert result.metadata["recorded_monitors"]["LotFile health"]["provider_id"] == "123456789"
+    assert result.metadata["missing_contract"] == []
+
+
+def test_uptime_monitor_doc_requires_keyword_monitor_contract(tmp_path: Path) -> None:
+    doc = tmp_path / "uptime-monitor.md"
+    doc.write_text(
+        """# Uptime Monitoring
+
+| URL | Purpose | Expected response |
+|-----|---------|-------------------|
+| `https://lotfile.app/api/v1/health` | Primary health probe | HTTP 200 |
+| `https://lotfile.app/api/v1/ready` | Deep-ready probe | HTTP 200 |
+
 | Monitor | Provider ID | Alert contact |
 |---------|-------------|---------------|
 | LotFile health | 123456789 | stevenshelley58@gmail.com |
@@ -971,8 +1007,10 @@ def test_uptime_monitor_doc_requires_recorded_monitor_ids(tmp_path: Path) -> Non
 
     result = check_uptime_monitor_doc(doc)
 
-    assert result.status == "ok"
-    assert result.metadata["recorded_monitors"]["LotFile health"]["provider_id"] == "123456789"
+    assert result.status == "critical"
+    assert "uptime monitor contract missing: monitor_type_https" in result.message
+    assert "uptime monitor contract missing: status_ok_keyword" in result.message
+    assert result.metadata["pending_values"] == []
 
 
 def test_uptime_monitor_doc_flags_pending_or_missing_evidence(tmp_path: Path) -> None:

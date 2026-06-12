@@ -275,6 +275,14 @@ REQUIRED_UPTIME_MONITORS = {
     "LotFile health": "https://lotfile.app/api/v1/health",
     "LotFile ready": "https://lotfile.app/api/v1/ready",
 }
+REQUIRED_UPTIME_DOC_NEEDLES = {
+    "monitor_type_https": "Type: HTTPS",
+    "monitor_interval_5_minutes": "Monitoring Interval: 5 minutes",
+    "status_ok_keyword": 'Keyword: `"status":"ok"`',
+    "keyword_missing_alert": "Alert if keyword not found",
+    "down_alert_threshold": "after 2 consecutive failures",
+    "recovery_alert_threshold": "on first success after a down event",
+}
 
 
 def _read_markdown_table_rows(text: str) -> list[list[str]]:
@@ -306,6 +314,11 @@ def check_uptime_monitor_doc(path: Path) -> GuardrailResult:
     for monitor_name, target_url in REQUIRED_UPTIME_MONITORS.items():
         if target_url not in text:
             failures.append(f"{monitor_name} target URL missing")
+    missing_contract = [
+        name for name, needle in REQUIRED_UPTIME_DOC_NEEDLES.items() if needle not in text
+    ]
+    for name in missing_contract:
+        failures.append(f"uptime monitor contract missing: {name}")
 
     rows = _read_markdown_table_rows(text)
     monitor_rows = {
@@ -334,6 +347,8 @@ def check_uptime_monitor_doc(path: Path) -> GuardrailResult:
     metadata = {
         "path": str(path),
         "required_monitors": REQUIRED_UPTIME_MONITORS,
+        "required_contract": REQUIRED_UPTIME_DOC_NEEDLES,
+        "missing_contract": missing_contract,
         "recorded_monitors": recorded_monitors,
         "pending_values": pending_values,
         "failures": failures,
