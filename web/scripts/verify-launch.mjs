@@ -8,6 +8,7 @@ const src = join(root, "src");
 const publicDir = join(root, "public");
 
 const failures = [];
+const strict = process.argv.includes("--strict") || process.env.LAUNCH_STRICT === "1";
 
 function fail(message) {
   failures.push(message);
@@ -58,9 +59,8 @@ for (const label of ['aria-label="Username"', 'aria-label="Password"', 'aria-lab
 }
 
 const checkoutUrl = String(process.env.VITE_CHECKOUT_URL ?? "").trim();
-const allowEmptyCheckout = process.env.ALLOW_EMPTY_CHECKOUT === "1";
-if (!checkoutUrl && !allowEmptyCheckout) {
-  fail("VITE_CHECKOUT_URL is required for launch verification. Set ALLOW_EMPTY_CHECKOUT=1 for local static-only checks.");
+if (!checkoutUrl && strict) {
+  fail("VITE_CHECKOUT_URL is required for strict launch verification.");
 }
 
 if (checkoutUrl) {
@@ -79,4 +79,7 @@ if (failures.length) {
   process.exit(1);
 }
 
+if (!checkoutUrl) {
+  console.warn("Launch verification passed without checkout URL. Run verify:launch:strict with VITE_CHECKOUT_URL before paid launch.");
+}
 console.log("Launch verification passed.");
