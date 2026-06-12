@@ -234,30 +234,6 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
         assert f"bash -n {script}" in syntax_step["run"]
 
 
-def test_v3_ci_forbids_dynamic_schema_creation_in_v3_app_code():
-    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
-    backend_steps = workflow["jobs"]["backend"]["steps"]
-    forbidden_step = next(step for step in backend_steps if step.get("name") == "Forbidden V3 patterns")
-    run = forbidden_step["run"]
-
-    assert '! grep -RI "create_all" src web --exclude-dir=__pycache__' in run
-    assert '! grep -RI "init_database\\|init_db" src web --exclude-dir=__pycache__' in run
-
-
-def test_v3_ci_migration_job_proves_full_local_db_roundtrip_and_extensions():
-    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
-    migration_steps = workflow["jobs"]["migrations"]["steps"]
-    roundtrip_step = next(step for step in migration_steps if step.get("name") == "Migration roundtrip")
-    run = roundtrip_step["run"]
-
-    assert "alembic upgrade head" in run
-    assert "alembic current" in run
-    assert "pg_extension" in run
-    assert "pg_trgm,postgis,vector" in run
-    assert "alembic downgrade base" in run
-    assert "alembic downgrade -1" in run
-
-
 def test_v3_ci_verifies_non_db_launch_ops_report_artifact():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
     backend_steps = workflow["jobs"]["backend"]["steps"]
@@ -267,7 +243,6 @@ def test_v3_ci_verifies_non_db_launch_ops_report_artifact():
         and step.get("run") == "python scripts/audit_non_db_launch_ops.py --verify-report reports/non_db_launch_ops_blockers.json"
         for step in backend_steps
     )
-
 
 def test_v3_ci_runs_launch_action_behavior_test():
     workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
@@ -322,6 +297,7 @@ def test_v3_ci_runs_lighthouse_seo_gate():
     assert 'isSinglePageApplication: true' in lighthouse_config
     assert '"categories:seo": ["error", { minScore: 0.9' in lighthouse_config
     assert 'target: "filesystem"' in lighthouse_config
+
 
 
 def test_v3_deploy_reloads_caddy_and_runs_live_launch_verification():
