@@ -8,7 +8,9 @@
     "dev": "vite --host 127.0.0.1",
     "preview": "vite preview --host 127.0.0.1",
     "verify:launch": "npm run build && node scripts/verify-launch.mjs",
-    "verify:launch:strict": "npm run build && node scripts/verify-launch.mjs --strict"
+    "verify:launch:strict": "npm run build && node scripts/verify-launch.mjs --strict",
+    "verify:launch:live": "node scripts/verify-live-launch.mjs",
+    "verify:launch:live:strict": "node scripts/verify-live-launch.mjs --strict"
   },
   "dependencies": {
     "@types/marked": "^5.0.2",
