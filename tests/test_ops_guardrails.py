@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
 OPS_CRON_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-guardrail-cron.sh"
 BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
+RESTORE_DRILL_PATH = ROOT / "infra" / "v3" / "backup" / "restore-drill.sh"
 
 
 def _require_bash() -> str:
@@ -239,6 +240,96 @@ def _run_guardrail_cron_installer(tmp_path: Path) -> subprocess.CompletedProcess
     )
 
 
+def _write_restore_drill_fakes(bin_dir: Path) -> None:
+    restic = bin_dir / "restic"
+    restic.write_text(
+        """\
+#!/usr/bin/env bash
+set -euo pipefail
+printf 'restic %s\n' "$*" >> "$DRAFTCHECK_RESTORE_DRILL_CALLS"
+case "$1" in
+    check)
+        exit 0
+        ;;
+    snapshots)
+        printf '[{"short_id":"abc123ef"}]\n'
+        exit 0
+        ;;
+    restore)
+        target=""
+        while (($#)); do
+            if [[ "$1" == "--target" ]]; then
+                shift
+                target="$1"
+            fi
+            shift || true
+        done
+        mkdir -p "$target/srv/draftcheck/backups/fixture" "$target/srv/draftcheck/storage/a"
+        printf 'postgres fixture\n' > "$target/srv/draftcheck/backups/fixture/postgres.dump"
+        printf 'storage fixture\n' > "$target/srv/draftcheck/storage/a/blob.txt"
+        exit 0
+        ;;
+esac
+echo "unexpected restic command: $*" >&2
+exit 2
+""",
+        encoding="utf-8",
+    )
+    restic.chmod(0o755)
+
+    docker = bin_dir / "docker"
+    docker.write_text(
+        """\
+#!/usr/bin/env bash
+set -euo pipefail
+printf 'docker %s\n' "$*" >> "$DRAFTCHECK_RESTORE_DRILL_CALLS"
+if [[ "$*" == *"SELECT count(*) FROM source_versions;"* ]]; then
+    printf '286\n'
+    exit 0
+fi
+if [[ "$*" == *"SELECT count(*) FROM job_traces;"* ]]; then
+    printf '4\n'
+    exit 0
+fi
+exit 0
+""",
+        encoding="utf-8",
+    )
+    docker.chmod(0o755)
+
+
+def _run_restore_drill(tmp_path: Path) -> subprocess.CompletedProcess[str]:
+    bash = _require_bash()
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    _write_restore_drill_fakes(bin_dir)
+    password_file = tmp_path / "restic-password"
+    compose_file = tmp_path / "compose.yml"
+    password_file.write_text("fixture-password\n", encoding="utf-8")
+    compose_file.write_text("services: {}\n", encoding="utf-8")
+
+    env = os.environ.copy()
+    env.update(
+        {
+            "RESTIC_REPOSITORY": "s3:s3.example.invalid/draftcheck-v3-backups",
+            "RESTIC_PASSWORD_FILE": str(password_file),
+            "POSTGRES_USER": "draftcheck",
+            "POSTGRES_DB": "draftcheck",
+            "COMPOSE_FILE": str(compose_file),
+            "DRAFTCHECK_RESTORE_DRILL_CALLS": str(tmp_path / "restore-drill-calls.txt"),
+            "PATH": str(bin_dir) + os.pathsep + env["PATH"],
+        }
+    )
+    return subprocess.run(
+        [bash, str(RESTORE_DRILL_PATH)],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=30,
+    )
+
+
 def test_guardrail_alert_wrapper_reports_ok_when_all_checks_pass(tmp_path: Path) -> None:
     result = _run_guardrail_alerts(tmp_path)
 
@@ -319,6 +410,24 @@ def test_guardrail_cron_installer_writes_checked_cron_entry(tmp_path: Path) -> N
         "*/10 * * * * root bash /srv/draftcheck/app/infra/v3/ops/guardrail-alerts.sh "
         ">> /var/log/draftcheck-guardrails.log 2>&1\n"
     )
+
+
+def test_restore_drill_script_emits_guardrail_accepted_log(tmp_path: Path) -> None:
+    result = _run_restore_drill(tmp_path)
+
+    assert result.returncode == 0, result.stderr
+    log = tmp_path / "restore-drill-20260613.md"
+    log.write_text(result.stdout, encoding="utf-8")
+    accepted = check_restore_drill_log(log)
+    assert accepted.status == "ok", accepted.message
+    assert "snapshot_id: abc123ef" in result.stdout
+    assert "source_versions: 286" in result.stdout
+    assert "job_traces: 4" in result.stdout
+    assert "storage_manifest_sha256:" in result.stdout
+    calls = (tmp_path / "restore-drill-calls.txt").read_text(encoding="utf-8")
+    assert "restic check" in calls
+    assert "restic restore latest" in calls
+    assert "docker compose" in calls
 
 
 def test_backup_freshness_accepts_recent_postgres_dump(tmp_path: Path) -> None:
