@@ -88,7 +88,7 @@ for (const eventName of ["signup_requested", "project_created", "compliance_run"
 }
 
 const modalSource = read(join(src, "components", "modals.tsx"));
-for (const label of ['aria-label="Username"', 'aria-label="Password"', 'aria-label="Email address"']) {
+for (const label of ['aria-label="Username"', 'aria-label="Password"', 'aria-label="Email address"', 'href="/privacy"', 'href="/terms"']) {
   assertIncludes(modalSource, label, "Sign-in accessible label");
 }
 

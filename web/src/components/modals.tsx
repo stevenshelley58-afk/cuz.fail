@@ -194,6 +194,10 @@ export function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onS
         {DEV_LOGIN
           ? <DevLoginForm variant="modal" onSignedIn={onSignedIn} />
           : <MagicLinkForm variant="modal" onSignedIn={onSignedIn} />}
+        <div className="modal-legal">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
         {onClose && <button className="modal-skip" onClick={onClose}>Continue as guest</button>}
       </div>
     </div>
@@ -258,6 +262,10 @@ export function PaywallModal({
           <Icon name={CHECKOUT_URL ? "credit_card" : "badge"} />{cta}
         </button>
         {CHECKOUT_URL && <button className="btn alt block" onClick={onSignIn}>Sign in instead</button>}
+        <div className="modal-legal">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </div>
         <button className="modal-skip" onClick={onClose}>Not now</button>
       </div>
     </div>
