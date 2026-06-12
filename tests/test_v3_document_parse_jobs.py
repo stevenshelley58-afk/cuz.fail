@@ -38,7 +38,15 @@ def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, mon
         status=UserStatus.ACTIVE,
     )
     project = Project(id=uuid4(), org_id=org.id, created_by_user_id=user.id, name="Parse job project")
-    content = b"Lot area: 450 m2\nSite coverage: 48.44%\nFront setback: 4.5 m"
+    content = (
+        b"Lot area: 450 m2\n"
+        b"Site coverage: 48.44%\n"
+        b"Front setback: 4.5 m\n"
+        b"Drawing No: A101\n"
+        b"Revision: B\n"
+        b"Drawing Title: Proposed additions\n"
+        b"Scale: 1:100\n"
+    )
     stored = tmp_path / "stored.txt"
     stored.write_bytes(content)
     document = Document(
@@ -73,9 +81,25 @@ def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, mon
         "site_area_m2",
         "proposed_site_cover_pct",
         "proposed_setback_front_m",
+        "drawing_number",
+        "drawing_revision",
+        "drawing_title",
+        "drawing_scale",
     } <= {fact.check_key for fact in facts}
     assert all(fact.promoted_to_measurement is False for fact in facts)
     assert all(fact.review_status == "pending_review" for fact in facts)
+    title_block_facts = [fact for fact in facts if fact.fact_kind == "drawing_title_block"]
+    assert {fact.check_key for fact in title_block_facts} == {
+        "drawing_number",
+        "drawing_revision",
+        "drawing_title",
+        "drawing_scale",
+    }
+    assert all(
+        fact.metadata_json["measurement_readiness_reason"]
+        == "title-block text is project metadata, not a compliance measurement"
+        for fact in title_block_facts
+    )
 
 
 def test_document_parse_job_persists_pdf_page_layout_metadata(tmp_path, monkeypatch) -> None:

@@ -152,6 +152,29 @@ _LINEAR_MEASUREMENT_PATTERNS: list[tuple[str, str, str, float]] = [
     ),
 ]
 
+_TITLE_BLOCK_PATTERNS: list[tuple[str, str, float]] = [
+    (
+        "drawing_number",
+        r"(?:drawing|sheet)\s*(?:no\.?|number|#)[:\s]*(?P<val>[A-Z0-9][A-Z0-9._/-]{1,40})\b",
+        0.74,
+    ),
+    (
+        "drawing_revision",
+        r"\b(?:revision|rev\.?)[:\s]*(?P<val>[A-Z0-9][A-Z0-9._/-]{0,20})\b",
+        0.72,
+    ),
+    (
+        "drawing_title",
+        r"(?:drawing|sheet)\s*title[:\s]*(?P<val>[^\n\r]{3,120})",
+        0.70,
+    ),
+    (
+        "drawing_scale",
+        r"\bscale[:\s]*(?P<val>(?:1\s*:\s*\d{1,5})|(?:NTS)|(?:as\s+shown))\b",
+        0.68,
+    ),
+]
+
 
 # ---------------------------------------------------------------------------
 # Service
@@ -192,6 +215,7 @@ class DocumentFactService:
         """
         facts: list[DocumentFact] = []
         seen: set[tuple[str, float]] = set()
+        seen_text: set[tuple[str, str]] = set()
 
         def _add(fact_key: str, numeric_value: float, unit: str, confidence: float, source_text: str) -> None:
             dedup_key = (fact_key, numeric_value)
@@ -227,6 +251,43 @@ class DocumentFactService:
                 )
             )
 
+        def _add_text(fact_key: str, text_value: str, confidence: float, source_text: str) -> None:
+            normalized_value = " ".join(text_value.strip().split())
+            if not normalized_value:
+                return
+            dedup_key = (fact_key, normalized_value.casefold())
+            if dedup_key in seen_text:
+                return
+            seen_text.add(dedup_key)
+            facts.append(
+                DocumentFact(
+                    id=uuid4(),
+                    org_id=org_id,
+                    project_id=project_id,
+                    document_id=document_id,
+                    page_id=page_id,
+                    fact_kind="drawing_title_block",
+                    check_key=fact_key,
+                    value_json={
+                        "text_value": normalized_value,
+                        "fact_key": fact_key,
+                        "source_text": source_text,
+                        "page_number": page_number,
+                    },
+                    confidence=confidence,
+                    evidence_ref_json={"page_number": page_number, "source_text": source_text},
+                    promoted_to_measurement=False,
+                    review_status="pending_review",
+                    parser_name="draftcheck.regex_fact_extractor",
+                    parser_version=self.PARSER_VERSION,
+                    metadata_json={
+                        "title_block_field": fact_key,
+                        "measurement_compliance_ready": False,
+                        "measurement_readiness_reason": "title-block text is project metadata, not a compliance measurement",
+                    },
+                )
+            )
+
         # --- setbacks ---
         for pattern, unit, confidence in _SETBACK_PATTERNS:
             for match in re.finditer(pattern, text, flags=re.IGNORECASE):
@@ -254,6 +315,11 @@ class DocumentFactService:
             for match in re.finditer(pattern, text, flags=re.IGNORECASE):
                 val = float(match.group("val"))
                 _add(key, val, unit, confidence, match.group(0))
+
+        # --- title-block metadata; useful context, not promoted measurements ---
+        for key, pattern, confidence in _TITLE_BLOCK_PATTERNS:
+            for match in re.finditer(pattern, text, flags=re.IGNORECASE):
+                _add_text(key, match.group("val"), confidence, match.group(0))
 
         return facts
 
