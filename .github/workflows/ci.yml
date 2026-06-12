@@ -95,6 +95,9 @@ jobs:
           VITE_PRICE_LABEL: AUD $29/month
           VITE_PRICE_SUBLABEL: Starter launch plan, cancel anytime.
         run: npm run verify:launch:strict
+      - name: Test live launch preview
+        working-directory: web
+        run: npm run test:live-launch-preview
       - name: Resolve Chrome for Lighthouse
         shell: bash
         run: |

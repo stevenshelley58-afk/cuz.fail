@@ -26,6 +26,7 @@ CI_WORKFLOW_PATH = ROOT / ".github" / "workflows" / "ci.yml"
 WEB_PACKAGE_PATH = ROOT / "web" / "package.json"
 WEB_LIGHTHOUSE_CONFIG_PATH = ROOT / "web" / "lighthouserc.cjs"
 WEB_MOBILE_VERIFY_PATH = ROOT / "web" / "scripts" / "verify-mobile-launch.mjs"
+WEB_LIVE_PREVIEW_VERIFY_PATH = ROOT / "web" / "scripts" / "test-live-launch-preview.mjs"
 
 
 def _active_caddy_text() -> str:
@@ -255,6 +256,20 @@ def test_v3_ci_runs_mobile_launch_sweep():
     assert "@media (max-width:390px)" in mobile_verify
     assert "wizard-stepper" in mobile_verify
     assert 'aria-label="Send address or question"' in mobile_verify
+
+
+def test_v3_ci_runs_live_launch_preview_harness():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    web_steps = workflow["jobs"]["web"]["steps"]
+    package_json = json.loads(WEB_PACKAGE_PATH.read_text(encoding="utf-8"))
+    preview_verify = WEB_LIVE_PREVIEW_VERIFY_PATH.read_text(encoding="utf-8")
+
+    assert package_json["scripts"]["test:live-launch-preview"] == "node scripts/test-live-launch-preview.mjs"
+    assert any(step.get("run") == "npm run test:live-launch-preview" for step in web_steps)
+    assert "scripts/verify-live-launch.mjs" in preview_verify
+    assert "LIVE_CHECKOUT_URL" in preview_verify
+    assert "/api/v1/health" in preview_verify
+    assert "/api/v1/ready" in preview_verify
 
 
 def test_v3_ci_runs_lighthouse_seo_gate():

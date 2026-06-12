@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:58:00+08:00",
+  "captured_at": "2026-06-13T01:59:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -76,6 +76,7 @@
         ".github/workflows/ci.yml now uses a buy.stripe.com checkout fixture that matches strict launch validation",
         "scripts/audit_non_db_launch_ops.py refreshes live launch blocker evidence without mutating production",
         "web/scripts/verify-live-launch.mjs now uses a tested HTTP/HTTPS fetch helper so local HTTP preview targets can run the live-launch verification path",
+        "web/scripts/test-live-launch-preview.mjs serves built web/dist with fake health/ready endpoints and runs verify-live-launch.mjs --strict against the local HTTP origin",
         "web/src/components/modals.launch.test.tsx clicks paid checkout, fallback sign-in, and magic-link signup paths and is wired into CI",
         "web/lighthouserc.cjs runs LHCI against built web/dist and CI enforces categories:seo >= 0.9",
         "Local Windows LHCI healthcheck finds Chrome and reaches SEO audits, but Lighthouse exits on Chrome temp-profile cleanup EPERM; Ubuntu CI is the authoritative Lighthouse gate",
@@ -156,6 +157,7 @@
     "npm.cmd run test:launch-checkout",
     "npm.cmd run test:launch-actions",
     "npm.cmd run test:live-fetch",
+    "npm.cmd run test:live-launch-preview",
     "VITE_CHECKOUT_URL=https://buy.stripe.com/test_fixture npm.cmd run verify:launch:strict",
     "CHROME_PATH=C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe npm.cmd run verify:launch:lighthouse",
     "npm.cmd run verify:launch:mobile",

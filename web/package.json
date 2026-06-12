@@ -10,6 +10,7 @@
     "test:launch-checkout": "node scripts/test-checkout-url.mjs",
     "test:launch-actions": "vitest run --environment jsdom src/components/modals.launch.test.tsx src/App.launch.test.tsx",
     "test:live-fetch": "node scripts/test-live-fetch.mjs",
+    "test:live-launch-preview": "node scripts/test-live-launch-preview.mjs",
     "verify:launch:mobile": "node scripts/verify-mobile-launch.mjs",
     "verify:launch": "npm run build && node scripts/verify-launch.mjs",
     "verify:launch:strict": "npm run build && node scripts/verify-launch.mjs --strict",
