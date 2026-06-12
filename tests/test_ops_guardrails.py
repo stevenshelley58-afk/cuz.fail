@@ -32,6 +32,7 @@ from scripts.ops_guardrails import (
 ROOT = Path(__file__).resolve().parents[1]
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
 OPS_CRON_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-guardrail-cron.sh"
+OPS_LOG_RETENTION_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-log-retention.sh"
 BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
 RESTORE_DRILL_PATH = ROOT / "infra" / "v3" / "backup" / "restore-drill.sh"
 
@@ -330,6 +331,38 @@ def _run_restore_drill(tmp_path: Path) -> subprocess.CompletedProcess[str]:
     )
 
 
+def _run_log_retention_installer(tmp_path: Path, *, restart_docker: bool = False) -> subprocess.CompletedProcess[str]:
+    bash = _require_bash()
+    bin_dir = tmp_path / "bin"
+    journald_target = tmp_path / "journald" / "draftcheck.conf"
+    docker_target = tmp_path / "docker" / "daemon.json"
+    systemctl_log = tmp_path / "systemctl.log"
+    bin_dir.mkdir()
+    _write_fake_systemctl(bin_dir)
+
+    env = os.environ.copy()
+    env.update(
+        {
+            "DRAFTCHECK_APP_DIR": str(ROOT),
+            "DRAFTCHECK_JOURNALD_TARGET": str(journald_target),
+            "DRAFTCHECK_DOCKER_DAEMON_TARGET": str(docker_target),
+            "DRAFTCHECK_SYSTEMCTL_BIN": str(bin_dir / "systemctl"),
+            "DRAFTCHECK_FAKE_SYSTEMCTL_LOG": str(systemctl_log),
+            "DRAFTCHECK_RESTART_DOCKER": "1" if restart_docker else "0",
+            "PYTHON_BIN": sys.executable,
+            "PATH": str(bin_dir) + os.pathsep + env["PATH"],
+        }
+    )
+    return subprocess.run(
+        [bash, str(OPS_LOG_RETENTION_INSTALL_PATH)],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+
+
 def test_guardrail_alert_wrapper_reports_ok_when_all_checks_pass(tmp_path: Path) -> None:
     result = _run_guardrail_alerts(tmp_path)
 
@@ -428,6 +461,37 @@ def test_restore_drill_script_emits_guardrail_accepted_log(tmp_path: Path) -> No
     assert "restic check" in calls
     assert "restic restore latest" in calls
     assert "docker compose" in calls
+
+
+def test_log_retention_installer_validates_configs_without_docker_restart(tmp_path: Path) -> None:
+    result = _run_log_retention_installer(tmp_path)
+
+    assert result.returncode == 0, result.stderr
+    assert "Docker log rotation config installed" in result.stdout
+    assert "installed draftcheck log retention configs" in result.stdout
+    assert (tmp_path / "journald" / "draftcheck.conf").read_text(encoding="utf-8") == (
+        "[Journal]\nSystemMaxUse=1G\nSystemKeepFree=2G\nMaxRetentionSec=14day\n"
+    )
+    assert json.loads((tmp_path / "docker" / "daemon.json").read_text(encoding="utf-8")) == {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "50m",
+            "max-file": "5",
+        },
+    }
+    assert (tmp_path / "systemctl.log").read_text(encoding="utf-8").splitlines() == [
+        "restart systemd-journald",
+    ]
+
+
+def test_log_retention_installer_can_restart_docker_explicitly(tmp_path: Path) -> None:
+    result = _run_log_retention_installer(tmp_path, restart_docker=True)
+
+    assert result.returncode == 0, result.stderr
+    assert (tmp_path / "systemctl.log").read_text(encoding="utf-8").splitlines() == [
+        "restart systemd-journald",
+        "restart docker",
+    ]
 
 
 def test_backup_freshness_accepts_recent_postgres_dump(tmp_path: Path) -> None:

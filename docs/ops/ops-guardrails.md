@@ -158,16 +158,20 @@ Unblock: set SENTRY_DSN in /srv/draftcheck/app/infra/v3/.env and restart api wor
 
 ## 6. Log retention
 
-Cap journald storage on the VPS:
+Install the checked journald and Docker log-retention configs:
+the script copies `infra/v3/ops/journald-draftcheck.conf` and
+`infra/v3/ops/docker-daemon-log-rotation.json`, then validates the installed
+targets with `log-retention-config`.
 
 ```powershell
-ssh draftcheck 'sudo install -d /etc/systemd/journald.conf.d && sudo install -m 0644 /srv/draftcheck/app/infra/v3/ops/journald-draftcheck.conf /etc/systemd/journald.conf.d/draftcheck.conf && sudo systemctl restart systemd-journald'
+ssh draftcheck 'sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh'
 ```
 
-If Docker uses `json-file` logging, install the checked daemon-level rotation config:
+The default command does not restart Docker. During the maintenance window, apply
+the Docker daemon config to running containers:
 
 ```powershell
-ssh draftcheck 'sudo install -m 0644 /srv/draftcheck/app/infra/v3/ops/docker-daemon-log-rotation.json /etc/docker/daemon.json && sudo systemctl restart docker'
+ssh draftcheck 'sudo DRAFTCHECK_RESTART_DOCKER=1 bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh'
 ```
 
 This restarts Docker, so run it during a maintenance window and verify the stack after:
