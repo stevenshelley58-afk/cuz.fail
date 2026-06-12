@@ -5,6 +5,7 @@ from pathlib import Path
 
 from scripts.audit_non_db_launch_ops import (
     FetchResult,
+    UPTIME_TARGETS_OK,
     assess_live_launch,
     assess_ops_guardrails_status,
     assess_restore_drill_log,
@@ -145,7 +146,7 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
     assert report["ops_guardrails"]["evidence"]["sentry_dsn"] == "SENTRY_DSN_PRESENT"
     assert report["ops_guardrails"]["evidence"]["log_retention_journald"] == "LOG_RETENTION_JOURNALD_PRESENT"
     assert report["ops_guardrails"]["evidence"]["log_retention_docker"] == "LOG_RETENTION_DOCKER_PRESENT"
-    assert "status ok" in report["ops_guardrails"]["evidence"]["uptime_targets"]
+    assert report["ops_guardrails"]["evidence"]["uptime_targets"] == UPTIME_TARGETS_OK
     assert report["ops_guardrails"]["evidence"]["uptime_monitor_doc"].startswith("ok:")
     assert report["ops_guardrails"]["status"] == "blocked"
     unblock = "\n".join(report["ops_guardrails"]["unblock"])
@@ -325,7 +326,7 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
         "disk_usage": "DISK_USAGE_OK",
         "worker_heartbeat": "WORKER_HEARTBEAT_OK",
         "sentry_dsn": "SENTRY_DSN_PRESENT",
-        "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
+        "uptime_targets": UPTIME_TARGETS_OK,
         "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
@@ -356,7 +357,7 @@ def test_validate_audit_report_rejects_raw_dsn_and_false_green_status() -> None:
                 "disk_usage": "DISK_USAGE_OK",
                 "worker_heartbeat": "WORKER_HEARTBEAT_OK",
                 "sentry_dsn": "https://public@example.ingest.sentry.io/123",
-                "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
+                "uptime_targets": UPTIME_TARGETS_OK,
                 "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
                 "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
                 "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
@@ -369,6 +370,45 @@ def test_validate_audit_report_rejects_raw_dsn_and_false_green_status() -> None:
 
     assert any("raw DSN" in failure for failure in failures)
     assert any("checkout URL" in failure for failure in failures)
+    assert any("expected 'blocked'" in failure for failure in failures)
+
+def test_validate_audit_report_rejects_spoofed_ops_evidence() -> None:
+    report = {
+        "launch_surface": {
+            "status": "blocked",
+            "evidence": {
+                "live_verifier": "passed",
+                "missing_count": 0,
+                "vps_checkout_env": "VITE_CHECKOUT_URL_MISSING",
+            },
+        },
+        "ops_guardrails": {
+            "status": "verified",
+            "evidence": {
+                "backup_env": "BACKUP_ENV_PRESENT",
+                "restic_password_file": "RESTIC_PASSWORD_FILE_PRESENT",
+                "backup_timer": "1 timers listed.",
+                "restore_drill_log": "ok: restore drill log accepted",
+                "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+                "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+                "disk_usage": "DISK_USAGE_OK",
+                "worker_heartbeat": "WORKER_HEARTBEAT_OK",
+                "sentry_dsn": "present, probably",
+                "uptime_targets": "status ok",
+                "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+                "log_retention_journald": "present",
+                "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
+                "log_retention_config": "retention exists",
+            },
+        },
+    }
+
+    failures = validate_audit_report(report)
+
+    assert any("sentry_dsn has unrecognized state" in failure for failure in failures)
+    assert any("uptime_targets is not recognized verifier output" in failure for failure in failures)
+    assert any("log_retention_journald has unrecognized state" in failure for failure in failures)
+    assert any("log_retention_config must mention journald and Docker json-file" in failure for failure in failures)
     assert any("expected 'blocked'" in failure for failure in failures)
 
 
@@ -399,7 +439,7 @@ def test_verify_report_artifact_combines_report_template_and_runbook_checks(tmp_
                 "disk_usage": "SSH_SKIPPED",
                 "worker_heartbeat": "SSH_SKIPPED",
                 "sentry_dsn": "SSH_SKIPPED",
-                "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
+                "uptime_targets": UPTIME_TARGETS_OK,
                 "uptime_monitor_doc": "critical: pending monitor evidence",
                 "log_retention_journald": "SSH_SKIPPED",
                 "log_retention_docker": "SSH_SKIPPED",
