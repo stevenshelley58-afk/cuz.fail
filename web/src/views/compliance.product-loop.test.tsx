@@ -88,3 +88,54 @@ test("compliance panel renders cited advisory drawing-backed results after a run
   expect(result.getByText(/document_extraction_promoted/i)).toBeTruthy();
   expect(result.getByText(/fact fact-site-cover/i)).toBeTruthy();
 });
+
+test("compliance panel records operator review notes on a result", async () => {
+  apiMock.compliance.recordReview.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      result_id: "result-site-cover",
+      check_key: "site_cover",
+      display_name: "Site cover",
+      status: "likely_pass",
+      threshold_value: 50,
+      threshold_unit: "%",
+      measured_value: 48.44,
+      rule_id: "rule-site-cover",
+      rule_quote: "Fixture site-cover rule atom.",
+      citation: "site_cover | source_version:fixture-source-version",
+      note: null,
+      missing_info_reason: null,
+      drawing_evidence: {
+        fact_type: "proposed_site_cover_pct",
+        method: "document_extraction_promoted",
+        document_fact_id: "fact-site-cover",
+      },
+      review_reason: "Reviewed against uploaded DXF evidence.",
+      human_override: { action: "operator_note" },
+      reviewed_by_user_id: "operator-1",
+      reviewed_at: "2026-06-12T20:05:00Z",
+    },
+  });
+
+  render(<CompliancePanel projectId="project-golden" />);
+
+  await userEvent.click(await screen.findByRole("button", { name: /run compliance check/i }));
+  await userEvent.click(screen.getByRole("button", { name: /site cover/i }));
+  await userEvent.type(
+    screen.getByLabelText(/review note for site cover/i),
+    "Reviewed against uploaded DXF evidence.",
+  );
+  await userEvent.click(screen.getByRole("button", { name: /^record$/i }));
+
+  await waitFor(() => {
+    expect(apiMock.compliance.recordReview).toHaveBeenCalledWith(
+      "result-site-cover",
+      "operator_note",
+      "Reviewed against uploaded DXF evidence.",
+    );
+  });
+  const reviewLabel = await screen.findByText("Review:");
+  expect(reviewLabel.parentElement?.textContent).toContain("Reviewed against uploaded DXF evidence.");
+  expect(screen.getByText(/operator note/i)).toBeTruthy();
+});
