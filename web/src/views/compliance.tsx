@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CheckCircle2, CircleAlert, CircleHelp, RefreshCw } from "lucide-react";
 import { api, type ComplianceResultItem, type ComplianceRunResponse } from "../api";
+import { trackEvent } from "../analytics";
 
 /* ── CompliancePanel ── */
 
@@ -12,13 +13,13 @@ function StatusBadge({ status }: { status: ComplianceResultItem["status"] }) {
   if (status === "likely_pass")
     return (
       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#16a34a", fontWeight: 600 }}>
-        <CheckCircle2 size={16} /> Pass
+        <CheckCircle2 size={16} /> Likely pass
       </span>
     );
   if (status === "likely_fail")
     return (
       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#dc2626", fontWeight: 600 }}>
-        <CircleAlert size={16} /> Fail
+        <CircleAlert size={16} /> Likely fail
       </span>
     );
   if (status === "needs_more_info")
@@ -182,6 +183,7 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
     setLoading(false);
     if (r.kind === "ok") {
       setRunResult(r.data);
+      trackEvent("compliance_run", { result_count: r.data.results.length, status: r.data.status });
     } else if (r.kind === "notBuilt") {
       setError("Compliance check endpoint not yet available on this server.");
     } else if (r.kind === "auth") {
@@ -205,7 +207,7 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
           <h3 style={{ margin: 0, fontSize: 16, fontWeight: 600 }}>Compliance check</h3>
           {results.length > 0 && (
             <div style={{ fontSize: 12, color: "#6b7280", marginTop: 4 }}>
-              {passCount} pass · {failCount} fail · {moreInfoCount} needs info · {results.filter(r => r.status === "unsupported").length} unsupported
+              {passCount} likely pass · {failCount} likely fail · {moreInfoCount} needs info · {results.filter(r => r.status === "unsupported").length} unsupported
             </div>
           )}
         </div>

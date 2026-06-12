@@ -73,17 +73,17 @@ _AREA_PATTERNS: list[tuple[str, str, float]] = [
 
 _PERCENTAGE_PATTERNS: list[tuple[str, str, float]] = [
     (
-        r"site\s+coverage[:\s]*(?P<val>[0-9]+(?:\.[0-9]+)?)\s*(?:%|per\s*cent)\b",
+        r"site\s+coverage[:\s]*(?P<val>[0-9]+(?:\.[0-9]+)?)\s*(?:%|\bper\s*cent\b)",
         "%",
         0.82,
     ),
     (
-        r"open\s+space\s+(?:ratio|percentage)[:\s]*(?P<val>[0-9]+(?:\.[0-9]+)?)\s*(?:%|per\s*cent)\b",
+        r"open\s+space\s+(?:ratio|percentage)[:\s]*(?P<val>[0-9]+(?:\.[0-9]+)?)\s*(?:%|\bper\s*cent\b)",
         "%",
         0.78,
     ),
     (
-        r"(?P<val>[0-9]+(?:\.[0-9]+)?)\s*(?:%|per\s*cent)\b",
+        r"(?P<val>[0-9]+(?:\.[0-9]+)?)\s*(?:%|\bper\s*cent\b)",
         "%",
         0.50,
     ),
@@ -120,9 +120,9 @@ def _setback_key(location_raw: str | None) -> str:
 def _area_key(pattern_index: int) -> str:
     keys = [
         "proposed_floor_area_sqm",
-        "proposed_site_area_sqm",
-        "proposed_footprint_sqm",
-        "proposed_open_space_sqm",
+        "site_area_m2",
+        "proposed_covered_area_m2",
+        "proposed_open_space_m2",
         "proposed_area_sqm",
     ]
     return keys[min(pattern_index, len(keys) - 1)]
@@ -130,11 +130,27 @@ def _area_key(pattern_index: int) -> str:
 
 def _percentage_key(pattern_index: int) -> str:
     keys = [
-        "proposed_site_coverage_pct",
-        "proposed_open_space_ratio_pct",
+        "proposed_site_cover_pct",
+        "proposed_open_space_pct",
         "proposed_percentage",
     ]
     return keys[min(pattern_index, len(keys) - 1)]
+
+
+_LINEAR_MEASUREMENT_PATTERNS: list[tuple[str, str, str, float]] = [
+    (
+        "proposed_garage_width_m",
+        r"garage\s+width[:\s]*(?P<val>[0-9]+(?:\.[0-9]+)?)\s*(?:m|metres?|meters?)\b",
+        "m",
+        0.78,
+    ),
+    (
+        "proposed_boundary_wall_length_m",
+        r"boundary\s+wall(?:\s+length)?[:\s]*(?P<val>[0-9]+(?:\.[0-9]+)?)\s*(?:m|metres?|meters?)\b",
+        "m",
+        0.76,
+    ),
+]
 
 
 # ---------------------------------------------------------------------------
@@ -231,6 +247,12 @@ class DocumentFactService:
             for match in re.finditer(pattern, text, flags=re.IGNORECASE):
                 val = float(match.group("val"))
                 key = _percentage_key(idx)
+                _add(key, val, unit, confidence, match.group(0))
+
+        # --- linear measurements used directly by Tier-1 checks ---
+        for key, pattern, unit, confidence in _LINEAR_MEASUREMENT_PATTERNS:
+            for match in re.finditer(pattern, text, flags=re.IGNORECASE):
+                val = float(match.group("val"))
                 _add(key, val, unit, confidence, match.group(0))
 
         return facts

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { type KeyboardEvent, useEffect, useState } from "react";
 import { api, type ApiResult, type CandidateSummary, type RuleSummary } from "../api";
 import { Icon } from "../components/common";
 
@@ -186,6 +186,12 @@ export function RulesView() {
     verticalAlign: "middle",
   };
 
+  function activateRow(event: KeyboardEvent, action: () => void) {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    action();
+  }
+
   return (
     <div className="view">
       <div className="panel">
@@ -245,8 +251,12 @@ export function RulesView() {
                         {rules.data.map((r) => (
                           <tr
                             key={r.id}
+                            role="button"
+                            tabIndex={0}
+                            aria-label={`Open rule ${r.rule_key}`}
                             style={{ cursor: "pointer" }}
                             onClick={() => setSelectedRule(r)}
+                            onKeyDown={(event) => activateRow(event, () => setSelectedRule(r))}
                             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--paper)")}
                             onMouseLeave={(e) => (e.currentTarget.style.background = "")}
                           >
@@ -298,8 +308,12 @@ export function RulesView() {
                         {candidates.data.map((c) => (
                           <tr
                             key={c.id}
+                            role="button"
+                            tabIndex={0}
+                            aria-label={`Open candidate ${c.rule_key ?? c.id}`}
                             style={{ cursor: "pointer" }}
                             onClick={() => setSelectedCandidate(c)}
+                            onKeyDown={(event) => activateRow(event, () => setSelectedCandidate(c))}
                             onMouseEnter={(e) => (e.currentTarget.style.background = "var(--paper)")}
                             onMouseLeave={(e) => (e.currentTarget.style.background = "")}
                           >

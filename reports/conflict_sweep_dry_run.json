@@ -1,0 +1,657 @@
+{
+  "wp": "WP7",
+  "dry_run": true,
+  "summary": {
+    "approved_rules_scanned": 110,
+    "exception_edges_created": 0,
+    "exception_review_items": 14,
+    "cross_instrument_conflicts": 9,
+    "extraction_bug_review_items": 0,
+    "quoteless_legal_edges": null
+  },
+  "exception_edges_created": [],
+  "exception_review_items": [
+    {
+      "review_item_id": "fd823cc2-acba-5581-8b5e-7844e83bee5f",
+      "rule_id": "a510a9af-07d3-45fd-867d-381b27244097",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "37fa0e8b-7b4a-5895-88c3-1cd6b6327793",
+      "rule_id": "5cedcd83-95bb-4f92-85cd-ec2f16783b08",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "d4a3a47d-5130-5445-9ade-8293881ed208",
+      "rule_id": "22bf195c-f701-40e5-ad71-8c997d5bf49d",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "4f488b40-08f6-5783-b75a-54e359083fb1",
+      "rule_id": "32ea3315-d985-44cd-ba1a-87b890b6f121",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "e66eb22d-5c9c-5401-85d9-e4790525a17b",
+      "rule_id": "3015971e-f555-429e-bd6f-681b9945bddc",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "f474bab9-0cc1-5477-a9c9-f1254d7e0725",
+      "rule_id": "83faa8ba-54f4-4e8d-953c-53ca83be9a13",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "cdf762c1-eeec-501e-b04e-976304d8ad3a",
+      "rule_id": "1ed98d29-b1fd-4270-9b3d-54622ab91ee6",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "1d431786-d30c-5980-9fb9-36d3dca2a389",
+      "rule_id": "157a6b30-420c-4918-a79b-f4e72fa6f51b",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "362b0269-e221-5145-9059-fab352985070",
+      "rule_id": "f3921605-cf9c-47fc-a479-9f8757c66847",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "7d22f764-e767-5d9a-ab86-4b89c536adb2",
+      "rule_id": "a5ae1596-939b-4c6f-b550-260e6e62ee71",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "189097c3-c751-556c-824f-95a6b3b80fee",
+      "rule_id": "0eefdf44-32f1-4ea8-9894-83f74daec33e",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "7cbf2594-66e6-56fe-989a-1d41767617d9",
+      "rule_id": "119d2b73-ea7f-4476-a5cb-3a7d575229ca",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "66092e5a-13d0-5f50-a87e-da0cf82c73fb",
+      "rule_id": "7faccb90-88ca-4b60-a736-96dc7d2d58e6",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
+    {
+      "review_item_id": "95e67a54-b1e7-5323-b8b2-2276db8d9218",
+      "rule_id": "ed8ce596-02bb-4aeb-a036-ae2580fb7db4",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    }
+  ],
+  "cross_instrument_conflicts": [
+    {
+      "rule_key": "building_height.all",
+      "density_code": "ALL",
+      "pathway": "deemed_to_comply",
+      "instrument_count": 2,
+      "rule_count": 2,
+      "rules": [
+        {
+          "rule_id": "835a6fd7-ded1-4e96-924a-8de6f830b80c",
+          "instrument": "Planning and Development (Local Planning Schemes) Regulations 2015",
+          "authority": "Government of Western Australia",
+          "value": [
+            "lte",
+            2.4,
+            "m"
+          ],
+          "quote": "2.4 m"
+        },
+        {
+          "rule_id": "d3b78c87-736b-4e20-86e7-ec98d488639f",
+          "instrument": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+          "authority": "Western Australian Planning Commission",
+          "value": [
+            "eq",
+            7.0,
+            "m"
+          ],
+          "quote": "Max wall height \u2013 pitched/hipped 7m 7m 7m 10m 10m 13m 13m"
+        }
+      ]
+    },
+    {
+      "rule_key": "building_height.all",
+      "density_code": "ALL",
+      "pathway": "none",
+      "instrument_count": 5,
+      "rule_count": 5,
+      "rules": [
+        {
+          "rule_id": "04341c49-9a7b-4a0f-baa4-8300850f702b",
+          "instrument": "City of Cockburn LPP 3.7 - Signs & Advertising",
+          "authority": "City of Cockburn",
+          "value": [
+            "lte",
+            3.0,
+            "m"
+          ],
+          "quote": "Maximum height of 3m."
+        },
+        {
+          "rule_id": "298babf2-6407-49af-8f31-2161889cc842",
+          "instrument": "City of Cockburn LPP 4.3 - Newmarket Precinct Design Guidelines",
+          "authority": "City of Cockburn",
+          "value": [
+            "gt",
+            12.0,
+            "m"
+          ],
+          "quote": "buildings above 12m in height"
+        },
+        {
+          "rule_id": "1524bb76-3cbc-467c-b8bd-651f95379844",
+          "instrument": "City of Cockburn LPP 5.11 - Filling and Retaining of Land",
+          "authority": "City of Cockburn",
+          "value": [
+            "gt",
+            2.0,
+            "m"
+          ],
+          "quote": "exceed 2m in height above natural ground level"
+        },
+        {
+          "rule_id": "22bf195c-f701-40e5-ad71-8c997d5bf49d",
+          "instrument": "City of Cockburn LPP 5.1 - Development of the Public Realm",
+          "authority": "City of Cockburn",
+          "value": [
+            "gt",
+            2.0,
+            "m"
+          ],
+          "quote": "Retaining Walls greater than 2m in height"
+        },
+        {
+          "rule_id": "07ef2058-9450-4170-908a-b9e5ef1ea84e",
+          "instrument": "Cockburn Scheme Text (PDF, 2.31MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "lte",
+            3.0,
+            "m"
+          ],
+          "quote": "Building on the Mixed Business lots which abut residential lots should not be higher than 3.0m in height at the residential boundary."
+        }
+      ]
+    },
+    {
+      "rule_key": "building_storeys.all",
+      "density_code": "ALL",
+      "pathway": "none",
+      "instrument_count": 2,
+      "rule_count": 2,
+      "rules": [
+        {
+          "rule_id": "5f8e87ac-8f3f-4d2d-ad6c-c43bd12b9ffd",
+          "instrument": "Cockburn Coast Emplacement Local Structure Plan 33B - WAPC Reference SPN/0478 (PDF, 17.64MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "range",
+            3.0,
+            "storeys"
+          ],
+          "quote": "3-5 storeys"
+        },
+        {
+          "rule_id": "588f7b09-5630-48fe-944b-b12d1e67a70e",
+          "instrument": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+          "authority": "Western Australian Planning Commission",
+          "value": [
+            "eq",
+            2.0,
+            "storeys"
+          ],
+          "quote": "Maximum storeys 2 2 2 3 3 4 4"
+        }
+      ]
+    },
+    {
+      "rule_key": "open_space.all",
+      "density_code": "ALL",
+      "pathway": "deemed_to_comply",
+      "instrument_count": 2,
+      "rule_count": 2,
+      "rules": [
+        {
+          "rule_id": "6f6a9915-ace8-4152-a0a0-bd5a6b45448a",
+          "instrument": "City of Cockburn LPP 4.6 - Cockburn Coast Design Guidelines for Robb Jetty & Emplacement Precincts",
+          "authority": "City of Cockburn",
+          "value": [
+            "pct_gte",
+            80.0,
+            "%"
+          ],
+          "quote": "minimum of 80% of the frontage shall be glazed"
+        },
+        {
+          "rule_id": "e976920e-a7b7-4062-836e-37284005cec3",
+          "instrument": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+          "authority": "Western Australian Planning Commission",
+          "value": [
+            "pct_gte",
+            25.0,
+            "%"
+          ],
+          "quote": "Balco\nnies are to be unscreened for at least 25% of the \ntotal perimeter of the balcony"
+        }
+      ]
+    },
+    {
+      "rule_key": "open_space.all",
+      "density_code": "ALL",
+      "pathway": "none",
+      "instrument_count": 12,
+      "rule_count": 12,
+      "rules": [
+        {
+          "rule_id": "2e800d26-8606-43dd-b1bf-aec05dad6e6d",
+          "instrument": "Barfield Road Structure Plan - WAPC Reference SPN 0467M-5 (PDF, 97.22MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_lte",
+            20.0,
+            "%"
+          ],
+          "quote": "Maximum 20% Restricted Open Space"
+        },
+        {
+          "rule_id": "630fa940-72c0-489f-98ca-d0e63cde17dd",
+          "instrument": "City of Cockburn local planning strategy (PDF, 12.83MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "public open space (a minimum of 10 per cent)"
+        },
+        {
+          "rule_id": "3015971e-f555-429e-bd6f-681b9945bddc",
+          "instrument": "City of Cockburn LPP 5.4 - Utility Infrastructure",
+          "authority": "City of Cockburn",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "the quantum of POS for residential zoned area of the Structure Plan or District Structure Plan exceeds 10 per cent of the gross subdivisional area"
+        },
+        {
+          "rule_id": "41f5b163-6528-4973-a629-6681951d5de4",
+          "instrument": "Cockburn Scheme Text (PDF, 2.31MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "10% of their landholding(s) for public open space (POS)"
+        },
+        {
+          "rule_id": "a27c8012-cd9c-43ae-ac2e-220ad2762edf",
+          "instrument": "Development Control Policy 1.3 - Strata titles",
+          "authority": "Western Australian Planning Commission",
+          "value": [
+            "pct_lte",
+            50.0,
+            "%"
+          ],
+          "quote": "maximum of 50 per cent"
+        },
+        {
+          "rule_id": "f6ba8d1b-504b-44a9-a91e-b3ba7a00b21b",
+          "instrument": "Development Control Policy 1.8 - Canal estates and artificial waterway developments",
+          "authority": "Western Australian Planning Commission",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "10 per cent public open space contribution"
+        },
+        {
+          "rule_id": "d81e7945-4845-4b79-93f9-2bb8e462d85a",
+          "instrument": "Glen Iris Estate Local Structure Plan - WAPC Reference SPN/2330 (PDF, 239.24MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "minimum 10% requirement under Liveable Neighbourhoods"
+        },
+        {
+          "rule_id": "2eb111a6-cd7c-4a06-b37e-da5b41447cc7",
+          "instrument": "Hammond Quarter Structure Plan - WAPC Reference SPN/2348 (PDF, 51.52MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "The provision of a minimum of 10% public open space"
+        },
+        {
+          "rule_id": "707ba410-98e1-412d-837a-4640c4c5287a",
+          "instrument": "Lot 34 (No. 65) Ocean Road Coogee SPN 2299 (PDF, 16.53MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_lte",
+            20.0,
+            "%"
+          ],
+          "quote": "Maximum 20% restricted POS"
+        },
+        {
+          "rule_id": "2dfa1533-1c20-4e35-a36e-c9311275ff9e",
+          "instrument": "Lot 50 Barfield Road Hammond Park SPN 2298 (PDF, 49.23MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_gte",
+            80.0,
+            "%"
+          ],
+          "quote": "Min. 80% unrestricted POS 1462.56 m 2"
+        },
+        {
+          "rule_id": "5a01dbe6-4c05-4cc7-82fa-57652c1c3128",
+          "instrument": "Lots 1, 2 & 20 Entrance Road Coogee Local Structure Plan - WAPC Reference: SPN/0785 (PDF, 4.86MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "minimum 10.0% POS required by WA Planning Commission"
+        },
+        {
+          "rule_id": "85222729-78ad-42a2-910a-1d80bddecf35",
+          "instrument": "Lots 14 15 16 17 18 41 and 500 Ocean Road Coogee Structure Plan (PDF, 10.41MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "Public open space @ 10 per cent required"
+        }
+      ]
+    },
+    {
+      "rule_key": "primary_street_setback.all",
+      "density_code": "ALL",
+      "pathway": "none",
+      "instrument_count": 4,
+      "rule_count": 4,
+      "rules": [
+        {
+          "rule_id": "0f776984-7adb-4ba0-9f6f-5c6a2c9a4b3b",
+          "instrument": "City of Cockburn LPP 3.8 - Industrial Subdivision and Development",
+          "authority": "City of Cockburn",
+          "value": [
+            "eq",
+            15.0,
+            "m"
+          ],
+          "quote": "15m (may be reduced where it can be clearly demonstrated that it is consistent with the existing streetscape for land zoned outside the Strategic Industry zone)."
+        },
+        {
+          "rule_id": "5cedcd83-95bb-4f92-85cd-ec2f16783b08",
+          "instrument": "City of Cockburn LPP 4.6 - Cockburn Coast Design Guidelines for Robb Jetty & Emplacement Precincts",
+          "authority": "City of Cockburn",
+          "value": [
+            "eq",
+            4.0,
+            "m"
+          ],
+          "quote": "permitted within the 4m setback to public parkland"
+        },
+        {
+          "rule_id": "0062e590-cdb2-4cf9-b886-9ff4c2923661",
+          "instrument": "Cockburn Scheme Text (PDF, 2.31MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "gte",
+            6.0,
+            "m"
+          ],
+          "quote": "primary street setback of not less than 6 metres"
+        },
+        {
+          "rule_id": "0784bae8-c244-4370-b90f-9790abbdb627",
+          "instrument": "Lots 14 15 16 17 18 41 and 500 Ocean Road Coogee Structure Plan (PDF, 10.41MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "lte",
+            6.0,
+            "m"
+          ],
+          "quote": "Maximum front setback of 6.0m"
+        }
+      ]
+    },
+    {
+      "rule_key": "side_setback.all",
+      "density_code": "ALL",
+      "pathway": "none",
+      "instrument_count": 5,
+      "rule_count": 5,
+      "rules": [
+        {
+          "rule_id": "3a583919-583d-4246-b5db-3f196e6b6320",
+          "instrument": "City of Cockburn LPP 4.2 - Cockburn Central North (Muriel Court) Structure Plan - Design Guidelines",
+          "authority": "City of Cockburn",
+          "value": [
+            "eq",
+            3.0,
+            "m"
+          ],
+          "quote": "Minimum side \nsetbacks\n3m"
+        },
+        {
+          "rule_id": "32ea3315-d985-44cd-ba1a-87b890b6f121",
+          "instrument": "City of Cockburn LPP 5.1 - Development of the Public Realm",
+          "authority": "City of Cockburn",
+          "value": [
+            "gte",
+            2.0,
+            "m"
+          ],
+          "quote": "provided the development is setback a minimum of 2m from any lot boundary or road reserve"
+        },
+        {
+          "rule_id": "347576b5-58d8-4b03-a896-8eea35d6f701",
+          "instrument": "Cockburn Scheme Text (PDF, 2.31MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "gte",
+            2.5,
+            "m"
+          ],
+          "quote": "side setback of not less than 2.5 metres"
+        },
+        {
+          "rule_id": "157a6b30-420c-4918-a79b-f4e72fa6f51b",
+          "instrument": "Glen Iris Estate Local Structure Plan - WAPC Reference SPN/2330 (PDF, 239.24MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "gte",
+            10.0,
+            "m"
+          ],
+          "quote": "Generally maintain a 10 metre wide minimum separation distance"
+        },
+        {
+          "rule_id": "fb8aa3af-eb13-4a5b-a894-e69fc153641b",
+          "instrument": "Lot 6 Hammond Road Success Structure Plan - WAPC Reference: SPN/0680 (PDF, 8.9MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "gte",
+            20.0,
+            "m"
+          ],
+          "quote": "Minimum distance from Lot boundary will be 20 metres"
+        }
+      ]
+    },
+    {
+      "rule_key": "site_area.all",
+      "density_code": "ALL",
+      "pathway": "none",
+      "instrument_count": 10,
+      "rule_count": 10,
+      "rules": [
+        {
+          "rule_id": "4240068d-e78c-48a4-8328-15b67b5aac02",
+          "instrument": "City of Cockburn LPP 2.1 - Rural Subdivision and Development",
+          "authority": "City of Cockburn",
+          "value": [
+            "lte",
+            3000.0,
+            "m2"
+          ],
+          "quote": "not exceed \n3000m2"
+        },
+        {
+          "rule_id": "6343d930-03db-45e3-9309-fe7a11e3959d",
+          "instrument": "City of Cockburn LPP 5.5 - Local Development Plans",
+          "authority": "City of Cockburn",
+          "value": [
+            "lt",
+            260.0,
+            "m2"
+          ],
+          "quote": "260m2"
+        },
+        {
+          "rule_id": "9412f058-7e2a-4ef0-986d-a69fdeb6e5a7",
+          "instrument": "Cockburn Scheme Text (PDF, 2.31MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "gte",
+            3500.0,
+            "m2"
+          ],
+          "quote": "The Marina Village shall include a site of not less than \n3500m2 for the development of a hotel"
+        },
+        {
+          "rule_id": "5a89a391-d5e2-48f9-a7c1-6fe92d445a58",
+          "instrument": "Development Control Policy 1.8 - Canal estates and artificial waterway developments",
+          "authority": "Western Australian Planning Commission",
+          "value": [
+            "gte",
+            1000.0,
+            "m2"
+          ],
+          "quote": "generally a minimum of 1000m2"
+        },
+        {
+          "rule_id": "270fb006-5efe-4cbc-bba6-861a2bebb139",
+          "instrument": "Glen Iris Estate Local Structure Plan - WAPC Reference SPN/2330 (PDF, 239.24MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "lt",
+            260.0,
+            "m2"
+          ],
+          "quote": "Lots with an area less than 260m\u00b2"
+        },
+        {
+          "rule_id": "61366f6a-b5d3-40c4-a1c3-7ff366ca2a17",
+          "instrument": "Hammond Park West Structure Plan Amendment No. 2 - WAPC Reference SPN 2082M-2 (PDF, 4.99MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "lte",
+            260.0,
+            "m2"
+          ],
+          "quote": "260 square metres or less"
+        },
+        {
+          "rule_id": "eca2f026-64e8-4b0f-b322-3856acb5cde2",
+          "instrument": "Hammond Quarter Structure Plan - WAPC Reference SPN/2348 (PDF, 51.52MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "lte",
+            260.0,
+            "m2"
+          ],
+          "quote": "Lots with an area of 260 square metres or less"
+        },
+        {
+          "rule_id": "f3921605-cf9c-47fc-a479-9f8757c66847",
+          "instrument": "Lot 50 Barfield Road Hammond Park SPN 2298 (PDF, 49.23MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "lt",
+            260.0,
+            "m2"
+          ],
+          "quote": "of irregular shape or less than 260m2 in area"
+        },
+        {
+          "rule_id": "226bc034-8c78-477a-baba-4fa222203176",
+          "instrument": "Lot 7 Hammond Road Success Structure Plan - WAPC Reference SPN 2304 (PDF, 6.23MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "lt",
+            260.0,
+            "m2"
+          ],
+          "quote": "Where they are less than 260m2"
+        },
+        {
+          "rule_id": "0eefdf44-32f1-4ea8-9894-83f74daec33e",
+          "instrument": "Lots 4, 125 & 126 Hammond Road Success Structure Plan - WAPC Reference: SPN/0371 (PDF, 7.99MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "lt",
+            350.0,
+            "m2"
+          ],
+          "quote": "lots with an area less than 350m2"
+        }
+      ]
+    },
+    {
+      "rule_key": "site_cover.all",
+      "density_code": "ALL",
+      "pathway": "none",
+      "instrument_count": 2,
+      "rule_count": 2,
+      "rules": [
+        {
+          "rule_id": "d5603ec0-1400-4b27-b5ea-479090b3e22b",
+          "instrument": "City of Cockburn LPP 3.1 - Commercial Development",
+          "authority": "City of Cockburn",
+          "value": [
+            "pct_lte",
+            50.0,
+            "%"
+          ],
+          "quote": "Site coverage is required to be a maximum of fifty per cent (50%)"
+        },
+        {
+          "rule_id": "84010aeb-b3c6-489b-9fbc-973a83118106",
+          "instrument": "Cockburn Scheme Text (PDF, 2.31MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "pct_lte",
+            50.0,
+            "%"
+          ],
+          "quote": "shall not exceed 50% of the lot area"
+        }
+      ]
+    }
+  ],
+  "extraction_bug_review_items": [],
+  "notes": [
+    "No AI-decided precedence changes were made."
+  ],
+  "gate_passed": true
+}
