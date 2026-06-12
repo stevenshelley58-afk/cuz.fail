@@ -22,6 +22,7 @@ DOCKER_LOG_ROTATION_PATH = ROOT / "infra" / "v3" / "ops" / "docker-daemon-log-ro
 CI_WORKFLOW_PATH = ROOT / ".github" / "workflows" / "ci.yml"
 WEB_PACKAGE_PATH = ROOT / "web" / "package.json"
 WEB_LIGHTHOUSE_CONFIG_PATH = ROOT / "web" / "lighthouserc.cjs"
+WEB_MOBILE_VERIFY_PATH = ROOT / "web" / "scripts" / "verify-mobile-launch.mjs"
 
 
 def _active_caddy_text() -> str:
@@ -210,6 +211,21 @@ def test_v3_ci_runs_launch_action_behavior_test():
     web_steps = workflow["jobs"]["web"]["steps"]
 
     assert any(step.get("run") == "npm run test:launch-actions" for step in web_steps)
+
+
+def test_v3_ci_runs_mobile_launch_sweep():
+    workflow = yaml.safe_load(CI_WORKFLOW_PATH.read_text(encoding="utf-8"))
+    web_steps = workflow["jobs"]["web"]["steps"]
+    package_json = json.loads(WEB_PACKAGE_PATH.read_text(encoding="utf-8"))
+    mobile_verify = WEB_MOBILE_VERIFY_PATH.read_text(encoding="utf-8")
+
+    assert package_json["scripts"]["verify:launch:mobile"] == "node scripts/verify-mobile-launch.mjs"
+    assert any(step.get("run") == "npm run verify:launch:mobile" for step in web_steps)
+    assert "Mobile tabbar must render exactly 5 tabs" in mobile_verify
+    assert "grid-template-columns:repeat(5,minmax(0,1fr))" in mobile_verify
+    assert "@media (max-width:390px)" in mobile_verify
+    assert "wizard-stepper" in mobile_verify
+    assert 'aria-label="Send address or question"' in mobile_verify
 
 
 def test_v3_ci_runs_lighthouse_seo_gate():

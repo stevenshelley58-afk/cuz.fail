@@ -82,6 +82,9 @@ jobs:
       - name: Test launch actions
         working-directory: web
         run: npm run test:launch-actions
+      - name: Verify mobile launch sweep
+        working-directory: web
+        run: npm run verify:launch:mobile
       - name: Verify launch surface
         working-directory: web
         env:

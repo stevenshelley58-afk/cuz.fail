@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T01:35:00+08:00",
+  "captured_at": "2026-06-13T01:46:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -78,7 +78,8 @@
         "web/scripts/verify-live-launch.mjs now uses a tested HTTP/HTTPS fetch helper so local HTTP preview targets can run the live-launch verification path",
         "web/src/components/modals.launch.test.tsx clicks paid checkout, fallback sign-in, and magic-link signup paths and is wired into CI",
         "web/lighthouserc.cjs runs LHCI against built web/dist and CI enforces categories:seo >= 0.9",
-        "Local Windows LHCI healthcheck finds Chrome and reaches SEO audits, but Lighthouse exits on Chrome temp-profile cleanup EPERM; Ubuntu CI is the authoritative Lighthouse gate"
+        "Local Windows LHCI healthcheck finds Chrome and reaches SEO audits, but Lighthouse exits on Chrome temp-profile cleanup EPERM; Ubuntu CI is the authoritative Lighthouse gate",
+        "web/scripts/verify-mobile-launch.mjs locks the 5-tab mobile nav, 390px fallback, wizard mobile layout, and key aria labels into CI"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",
@@ -137,6 +138,7 @@
     "npm.cmd run test:live-fetch",
     "VITE_CHECKOUT_URL=https://buy.stripe.com/test_fixture npm.cmd run verify:launch:strict",
     "CHROME_PATH=C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe npm.cmd run verify:launch:lighthouse",
+    "npm.cmd run verify:launch:mobile",
     "uv run pytest tests/test_ops_guardrails.py -q",
     "uv run python scripts/ops_guardrails.py disk-usage --path . --max-used-percent 100 --json",
     "uv run python scripts/ops_guardrails.py worker-heartbeat --running-service worker --running-service hermes --json",
