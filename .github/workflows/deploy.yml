@@ -60,7 +60,17 @@ jobs:
           VPS_SSH_USER: ${{ secrets.VPS_SSH_USER }}
           VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
         run: |
-          ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -p "${VPS_SSH_PORT:-22}" "${VPS_SSH_USER:-root}@${VPS_SSH_HOST:-76.13.209.160}" 'set -e; git config --global --add safe.directory /srv/draftcheck/app; cd /srv/draftcheck/app; git diff --quiet || git stash push -m "pre-deploy-auto" || true; git fetch origin --prune; git reset --hard origin/main; bash deploy/vps_deploy.sh'
+          # SSH from GH runners to the VPS intermittently times out (transient
+          # network/provider throttling) — retry up to 4 times before failing.
+          for attempt in 1 2 3 4; do
+            if ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=20 -p "${VPS_SSH_PORT:-22}" "${VPS_SSH_USER:-root}@${VPS_SSH_HOST:-76.13.209.160}" 'set -e; git config --global --add safe.directory /srv/draftcheck/app; cd /srv/draftcheck/app; git diff --quiet || git stash push -m "pre-deploy-auto" || true; git fetch origin --prune; git reset --hard origin/main; bash deploy/vps_deploy.sh'; then
+              exit 0
+            fi
+            echo "::warning title=Deploy SSH attempt $attempt failed::retrying in 30s"
+            sleep 30
+          done
+          echo "::error title=Deploy failed::all SSH attempts timed out"
+          exit 1
 
       - name: Verify live (/ready then /health)
         if: env.HAS_SSH == 'true'

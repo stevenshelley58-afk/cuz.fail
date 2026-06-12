@@ -227,8 +227,15 @@ Confirmed-open from the infra scan (backup scripts + timers + Sentry code all EX
 6. **Spend persistence**: verify daily LLM spend survives an api restart (kill + restart
    the container, check the spend counter) — if it resets, persist to `spend_events`
    (LAUNCH_HANDOFF WP-6.1).
-7. **Deploy reliability**: deploy.yml occasionally hits SSH timeouts from GH runners —
-   add one retry to the SSH step.
+7. **Deploy reliability**: DONE 2026-06-12 — deploy.yml retries SSH 4× with
+   ConnectTimeout=20. If deploys still fail, deploy manually (command at top) and check
+   the provider's network status.
+8. **Host firewall (Phase 0 gap, verified 2026-06-12)**: UFW and fail2ban are BOTH
+   inactive on the VPS; iptables INPUT policy is ACCEPT (only Tailscale chains present).
+   Apply the runbook hardening (`docs/CODEX_DEPLOY_SYNC_RUNBOOK.md` §B1): ufw allow
+   OpenSSH/80/443 + enable, enable fail2ban, disable SSH password auth. Do this in a
+   maintenance window and KEEP AN ACTIVE SSH SESSION OPEN while testing so a bad rule
+   can't lock you out.
 Gate: restore-drill log committed; monitor live; kill-restart keeps the spend counter.
 
 # PART F — Post-launch (Phases 6–8, weeks)
