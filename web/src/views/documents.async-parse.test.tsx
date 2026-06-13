@@ -240,6 +240,116 @@ test("uploaded evidence search renders project hits with the advisory notice", a
   expect(screen.getByText("Uploaded documents are project evidence, not legal authority.")).toBeTruthy();
 });
 
+test("uploaded evidence search renders empty results with the advisory notice", async () => {
+  apiMock.documents.listForProject.mockReset();
+  apiMock.documents.listForProject.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      items: [
+        {
+          id: "doc-evidence",
+          title: "site-plan.pdf",
+          document_type: "drawing",
+          status: "parsed",
+          parse_status: "parsed",
+          created_at: "2026-06-12T20:15:00Z",
+          fact_count: 3,
+        },
+      ],
+      count: 1,
+    },
+  });
+  apiMock.documents.searchEvidence.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      project_id: "project-golden",
+      query: "garage",
+      items: [],
+      count: 0,
+      legal_authority: false,
+      advisory_notice: "Uploaded documents are project evidence, not legal authority.",
+    },
+  });
+
+  render(<DocumentUpload projectId="project-golden" />);
+
+  await screen.findByText("site-plan.pdf");
+  fireEvent.change(screen.getByLabelText("Search uploaded evidence"), {
+    target: { value: "garage" },
+  });
+  fireEvent.click(screen.getByLabelText("Run uploaded evidence search"));
+
+  expect(await screen.findByText("No uploaded evidence matched this search.")).toBeTruthy();
+  expect(screen.getByText("Uploaded documents are project evidence, not legal authority.")).toBeTruthy();
+});
+
+test("uploaded evidence search clears stale hits when a later search fails", async () => {
+  apiMock.documents.listForProject.mockReset();
+  apiMock.documents.listForProject.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      items: [
+        {
+          id: "doc-evidence",
+          title: "site-plan.pdf",
+          document_type: "drawing",
+          status: "parsed",
+          parse_status: "parsed",
+          created_at: "2026-06-12T20:15:00Z",
+          fact_count: 3,
+        },
+      ],
+      count: 1,
+    },
+  });
+  apiMock.documents.searchEvidence
+    .mockResolvedValueOnce({
+      kind: "ok",
+      status: 200,
+      data: {
+        project_id: "project-golden",
+        query: "front setback",
+        items: [
+          {
+            document_id: "doc-evidence",
+            document_title: "site-plan.pdf",
+            page_number: 2,
+            chunk_index: 4,
+            text: "Front setback dimension is annotated as 6.0m from the primary street boundary.",
+            score: 0.87,
+            metadata: { parser: "pdf_vector" },
+          },
+        ],
+        count: 1,
+        legal_authority: false,
+        advisory_notice: "Uploaded documents are project evidence, not legal authority.",
+      },
+    })
+    .mockResolvedValueOnce({ kind: "error", message: "Evidence search failed." });
+
+  render(<DocumentUpload projectId="project-golden" />);
+
+  await screen.findByText("site-plan.pdf");
+  fireEvent.change(screen.getByLabelText("Search uploaded evidence"), {
+    target: { value: "front setback" },
+  });
+  fireEvent.click(screen.getByLabelText("Run uploaded evidence search"));
+
+  expect(await screen.findByText(/Front setback dimension is annotated as 6.0m/i)).toBeTruthy();
+
+  fireEvent.change(screen.getByLabelText("Search uploaded evidence"), {
+    target: { value: "garage" },
+  });
+  fireEvent.click(screen.getByLabelText("Run uploaded evidence search"));
+
+  expect(await screen.findByText("Evidence search failed.")).toBeTruthy();
+  expect(screen.queryByText(/Front setback dimension is annotated as 6.0m/i)).toBeNull();
+  expect(screen.queryByText("Uploaded documents are project evidence, not legal authority.")).toBeNull();
+});
+
 test("existing parsed documents can load persisted facts for review", async () => {
   apiMock.documents.listForProject.mockReset();
   apiMock.documents.listForProject.mockResolvedValue({
