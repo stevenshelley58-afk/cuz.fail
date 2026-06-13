@@ -153,9 +153,14 @@ ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'
 Verification:
 
 ```bash
+cd web && npm run verify:launch:live && cd ..
 curl -s https://lotfile.app/ | grep -o '<title>[^<]*</title>'      # <title>LotFile - WA R-Code & Planning Compliance Checker</title>
 curl -s https://lotfile.app/api/v1/health                          # 200 / status ok
 ```
+
+For launch-page UI releases, visually check `https://lotfile.app/` after deploy and confirm
+the orange advisory badge, orange advisory disclaimer callout, and obvious advisory/no-finality
+marketing copy are absent.
 
 ### B1. Harden + install (once, idempotent)
 
