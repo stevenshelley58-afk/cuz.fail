@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T10:46:00+08:00",
+  "captured_at": "2026-06-13T10:54:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -113,7 +113,10 @@
         "web/src/views/compliance.product-loop.test.tsx covers saved matrix load failure visibility and retry recovery",
         "web/src/views/wizard.tsx captures building_class plus primary and secondary street confirmation fields before saving proposals",
         "web/src/views/wizard.tsx blocks incomplete proposal saves client-side so users do not advance to compliance with avoidably missing proposal facts",
-        "web/src/views/wizard.proposal.test.tsx covers full proposal payload wiring, validation before API calls, and notBuilt fallback behavior"
+        "web/src/views/wizard.proposal.test.tsx covers full proposal payload wiring, validation before API calls, and notBuilt fallback behavior",
+        "web/src/views/documents.tsx lets returning users review persisted facts from already-uploaded parsed documents instead of only newly uploaded files",
+        "web/src/views/documents.tsx no longer treats confirm-fact notBuilt responses as successful local confirmation",
+        "web/src/views/documents.async-parse.test.tsx covers existing parsed document fact review and confirm-fact notBuilt error behavior"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"
