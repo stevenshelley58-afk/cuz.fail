@@ -121,6 +121,17 @@ test("proposal save requires launch-critical fields before calling the API", asy
   expect(screen.getByRole("heading", { name: /proposal details/i })).toBeTruthy();
 });
 
+test("wizard can continue to proposal details without property context", async () => {
+  const user = userEvent.setup();
+
+  render(<WizardShell wizard={{ ...wizard, step: 1, property: null }} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
+
+  expect(await screen.findByText(/property context is unavailable/i)).toBeTruthy();
+  await user.click(screen.getByRole("button", { name: /continue without property context/i }));
+
+  expect(screen.getByRole("heading", { name: /proposal details/i })).toBeTruthy();
+});
+
 test("proposal save not-built response stays on proposal step with an error", async () => {
   const user = userEvent.setup();
   apiMock.upsertProposal.mockResolvedValue({
