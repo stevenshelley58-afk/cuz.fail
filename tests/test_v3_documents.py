@@ -3,15 +3,52 @@ from __future__ import annotations
 import sys
 from types import SimpleNamespace
 
+import pytest
 from fastapi.testclient import TestClient
 
 from draftcheck.api.auth import get_current_session
 from draftcheck.api.main import create_app
-from draftcheck.domain.documents import DocumentReviewStatus, InMemoryDocumentLibrary, extract_pdf_page_layouts
+from draftcheck.domain.documents import (
+    DocumentReviewStatus,
+    InMemoryDocumentLibrary,
+    configured_max_document_bytes,
+    document_size_limit_label,
+    extract_pdf_page_layouts,
+)
 from draftcheck.domain.identity import ActiveSession, IdentityRole, InMemoryIdentityStore
 
 
 ORIGIN_HEADERS = {"origin": "http://localhost:5173"}
+
+
+def test_v3_document_upload_limit_defaults_to_cad_sized_intake(monkeypatch: pytest.MonkeyPatch) -> None:
+    for key in (
+        "DRAFTCHECK_MAX_DOCUMENT_BYTES",
+        "DRAFTCHECK_MAX_UPLOAD_BYTES",
+        "DRAFTCHECK_MAX_DOCUMENT_MB",
+        "DRAFTCHECK_MAX_UPLOAD_MB",
+    ):
+        monkeypatch.delenv(key, raising=False)
+
+    limit = configured_max_document_bytes()
+
+    assert limit == 100 * 1024 * 1024
+    assert limit > 15 * 1024 * 1024
+    assert document_size_limit_label(limit) == "100 MB"
+
+
+def test_v3_document_upload_limit_override_is_reported_by_upload_endpoint(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("DRAFTCHECK_MAX_UPLOAD_BYTES", "4")
+    client = _client()
+
+    response = client.post(
+        "/api/v1/documents/projects/project-docs/upload",
+        files={"file": ("too-large.txt", b"12345", "text/plain")},
+        headers=ORIGIN_HEADERS,
+    )
+
+    assert response.status_code == 422
+    assert response.json()["detail"] == "document exceeds the 4 bytes parser limit"
 
 
 def test_v3_document_parser_capabilities_are_live() -> None:
