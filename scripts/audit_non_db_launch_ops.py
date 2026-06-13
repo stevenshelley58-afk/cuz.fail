@@ -16,9 +16,19 @@ from urllib.parse import urlparse
 from urllib.request import urlopen
 
 try:
-    from scripts.ops_guardrails import CHECKOUT_PLACEHOLDER_NEEDLES, check_restore_drill_log, check_uptime_monitor_doc
+    from scripts.ops_guardrails import (
+        CHECKOUT_PLACEHOLDER_NEEDLES,
+        check_restore_drill_log,
+        check_uptime_monitor_doc,
+        compare_spend_snapshots,
+    )
 except ModuleNotFoundError:  # pragma: no cover - direct `python scripts/...` execution
-    from ops_guardrails import CHECKOUT_PLACEHOLDER_NEEDLES, check_restore_drill_log, check_uptime_monitor_doc
+    from ops_guardrails import (
+        CHECKOUT_PLACEHOLDER_NEEDLES,
+        check_restore_drill_log,
+        check_uptime_monitor_doc,
+        compare_spend_snapshots,
+    )
 
 
 LAUNCH_ROUTES = ("/", "/privacy", "/terms", "/app")
@@ -52,6 +62,7 @@ REQUIRED_OPS_EVIDENCE_KEYS = (
     "sentry_dsn",
     "uptime_targets",
     "uptime_monitor_doc",
+    "spend_persistence",
     "log_retention_journald",
     "log_retention_docker",
     "log_retention_config",
@@ -96,6 +107,7 @@ LOG_RETENTION_STATES = {
     "SSH_SKIPPED",
     "SSH_CHECK_FAILED",
 }
+SPEND_PERSISTENCE_STATES = {"ok", "warning", "critical"}
 
 
 @dataclass(frozen=True)
@@ -274,6 +286,40 @@ def assess_restore_drill_log(ops_doc_dir: Path) -> str:
     return f"{result.status}: {result.message}"
 
 
+def assess_spend_persistence_evidence(
+    before_snapshot: dict[str, Any] | None = None,
+    after_snapshot: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    if before_snapshot is None or after_snapshot is None:
+        return {
+            "status": "warning",
+            "message": "spend persistence evidence not supplied; compare before/after snapshots offline",
+            "source": "scripts/ops_guardrails.py compare-spend-snapshots",
+            "details": {
+                "before_snapshot_present": before_snapshot is not None,
+                "after_snapshot_present": after_snapshot is not None,
+            },
+        }
+
+    result = compare_spend_snapshots(before_snapshot, after_snapshot)
+    return {
+        "status": result.status,
+        "message": result.message,
+        "source": "scripts/ops_guardrails.py compare-spend-snapshots",
+        "details": {
+            "before": result.metadata.get("before", {}),
+            "after": result.metadata.get("after", {}),
+            "decreases": result.metadata.get("decreases", []),
+        },
+    }
+
+
+def load_spend_persistence_evidence(before_path: str, after_path: str) -> dict[str, Any]:
+    before_snapshot = json.loads(Path(before_path).read_text(encoding="utf-8")) if before_path else None
+    after_snapshot = json.loads(Path(after_path).read_text(encoding="utf-8")) if after_path else None
+    return assess_spend_persistence_evidence(before_snapshot, after_snapshot)
+
+
 def _checkout_env_verified(value: str) -> bool:
     parsed = urlparse(value.strip())
     if parsed.scheme != "https" or parsed.netloc != "buy.stripe.com" or not parsed.path.strip("/"):
@@ -304,7 +350,11 @@ def assess_launch_status(launch: dict[str, Any], checkout_env: str) -> str:
     return "verified"
 
 
-def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
+def _spend_persistence_verified(value: Any) -> bool:
+    return isinstance(value, dict) and value.get("status") == "ok"
+
+
+def assess_ops_guardrails_status(evidence: dict[str, Any]) -> str:
     required = (
         _field_present(evidence["backup_env"], "BACKUP_ENV_PRESENT"),
         _field_present(evidence["restic_password_file"], "RESTIC_PASSWORD_FILE_PRESENT"),
@@ -317,6 +367,7 @@ def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
         _field_present(evidence["sentry_dsn"], "SENTRY_CONFIG_OK"),
         evidence["uptime_targets"] == UPTIME_TARGETS_OK,
         evidence["uptime_monitor_doc"].startswith("ok:"),
+        _spend_persistence_verified(evidence["spend_persistence"]),
         _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT"),
         _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT"),
         _field_present(evidence["log_retention_config"], "LOG_RETENTION_CONFIG_OK"),
@@ -336,7 +387,7 @@ def launch_unblock_steps(launch: dict[str, Any], checkout_env: str) -> list[str]
     return steps
 
 
-def ops_guardrail_unblock_steps(evidence: dict[str, str]) -> list[str]:
+def ops_guardrail_unblock_steps(evidence: dict[str, Any]) -> list[str]:
     steps: list[str] = []
     if not _field_present(evidence["ops_guardrail_script"], "OPS_GUARDRAILS_PRESENT"):
         steps.append(
@@ -366,6 +417,10 @@ def ops_guardrail_unblock_steps(evidence: dict[str, str]) -> list[str]:
         )
     if not evidence["uptime_monitor_doc"].startswith("ok:"):
         steps.append("Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.")
+    if not _spend_persistence_verified(evidence["spend_persistence"]):
+        steps.append(
+            "Capture before/after spend snapshots around a restart, then run: python scripts/ops_guardrails.py compare-spend-snapshots --before /path/before.json --after /path/after.json --json"
+        )
     if not _field_present(evidence["sentry_dsn"], "SENTRY_CONFIG_OK"):
         steps.append(
             "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart."
@@ -421,6 +476,18 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
         if state and state not in LOG_RETENTION_STATES:
             failures.append(f"ops_guardrails.evidence.{key} has unrecognized state {state!r}")
 
+    spend_state = ops_evidence.get("spend_persistence", {})
+    if not isinstance(spend_state, dict):
+        failures.append("ops_guardrails.evidence.spend_persistence missing or malformed")
+    else:
+        status = str(spend_state.get("status", ""))
+        if status not in SPEND_PERSISTENCE_STATES:
+            failures.append(f"ops_guardrails.evidence.spend_persistence has unrecognized status {status!r}")
+        if not str(spend_state.get("message", "")).strip():
+            failures.append("ops_guardrails.evidence.spend_persistence missing message")
+        if not str(spend_state.get("source", "")).strip():
+            failures.append("ops_guardrails.evidence.spend_persistence missing source")
+
     if launch.get("status") == "verified":
         if launch_evidence.get("live_verifier") != "passed":
             failures.append("launch_surface.status verified but live_verifier is not passed")
@@ -443,7 +510,7 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
 
     if not missing_ops_keys:
         status_evidence = {
-            key: str(ops_evidence.get(key, ""))
+            key: ops_evidence.get(key, "")
             for key in REQUIRED_OPS_EVIDENCE_KEYS
         }
         uptime_targets = str(ops_evidence.get("uptime_targets", ""))
@@ -464,6 +531,9 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
 
     if ops.get("status") == "verified" and str(ops_evidence.get("uptime_targets", "")) != UPTIME_TARGETS_OK:
         failures.append("ops_guardrails.status verified without accepted uptime-target verifier output")
+
+    if ops.get("status") == "verified" and not _spend_persistence_verified(ops_evidence.get("spend_persistence")):
+        failures.append("ops_guardrails.status verified without accepted spend persistence evidence")
 
     return failures
 
@@ -679,6 +749,7 @@ def build_report(
     uptime_monitor_doc: str,
     restore_drill_log: str = "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
     live_launch_json: dict[str, Any] | None = None,
+    spend_persistence_evidence: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     launch = (
         assess_live_launch_json(origin, live_launch_json)
@@ -700,6 +771,7 @@ def build_report(
         "sentry_dsn": vps_state["sentry_dsn"],
         "uptime_targets": assess_api_targets(origin, api),
         "uptime_monitor_doc": uptime_monitor_doc,
+        "spend_persistence": spend_persistence_evidence or assess_spend_persistence_evidence(),
         "log_retention_journald": vps_state["log_retention_journald"],
         "log_retention_docker": vps_state["log_retention_docker"],
         "log_retention_config": vps_state["log_retention_config"],
@@ -745,6 +817,8 @@ def main() -> int:
     parser.add_argument("--verify-report", default="")
     parser.add_argument("--restore-template", default="docs/ops/restore-drill-template.md")
     parser.add_argument("--ops-runbook", default="docs/ops/ops-guardrails.md")
+    parser.add_argument("--spend-before", default="", help="Optional pre-restart spend snapshot JSON for offline evidence")
+    parser.add_argument("--spend-after", default="", help="Optional post-restart spend snapshot JSON for offline evidence")
     args = parser.parse_args()
 
     if args.verify_report:
@@ -787,6 +861,7 @@ def main() -> int:
         uptime_monitor_doc=assess_uptime_monitor_doc(Path(args.uptime_monitor_doc)),
         restore_drill_log=assess_restore_drill_log(Path(args.ops_doc_dir)),
         live_launch_json=live_launch_json,
+        spend_persistence_evidence=load_spend_persistence_evidence(args.spend_before, args.spend_after),
     )
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)

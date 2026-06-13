@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T00:51:04.712454+00:00",
+  "captured_at": "2026-06-13T03:23:35.410523+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
@@ -61,7 +61,7 @@
         },
         "bundles": [
           {
-            "path": "/assets/index-D1MRgJqs.js",
+            "path": "/assets/index-B7h2ss7R.js",
             "status": 200
           }
         ]
@@ -93,7 +93,16 @@
       "worker_heartbeat": "WORKER_HEARTBEAT_OK",
       "sentry_dsn": "SENTRY_CONFIG_CRITICAL",
       "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
-      "uptime_monitor_doc": "critical: pending monitor evidence: LotFile health.provider_id, LotFile health.alert_contact, LotFile ready.provider_id, LotFile ready.alert_contact",
+      "uptime_monitor_doc": "critical: pending monitor evidence: LotFile health.provider_id, LotFile ready.provider_id",
+      "spend_persistence": {
+        "status": "warning",
+        "message": "spend persistence evidence not supplied; compare before/after snapshots offline",
+        "source": "scripts/ops_guardrails.py compare-spend-snapshots",
+        "details": {
+          "before_snapshot_present": false,
+          "after_snapshot_present": false
+        }
+      },
       "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
       "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
       "log_retention_config": "LOG_RETENTION_CONFIG_OK"
@@ -103,6 +112,7 @@
       "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
       "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
       "Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.",
+      "Capture before/after spend snapshots around a restart, then run: python scripts/ops_guardrails.py compare-spend-snapshots --before /path/before.json --after /path/after.json --json",
       "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart."
     ]
   }
