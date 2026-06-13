@@ -1,0 +1,1024 @@
+{
+  "summary": {
+    "clauses_seen": 120,
+    "clauses_no_atoms": 113,
+    "atoms_emitted": 15,
+    "atoms_validators_passed": 9,
+    "atoms_validator_failed": 6,
+    "atoms_missing_clause_context": 0
+  },
+  "failure_counts": {
+    "fail_range_prior": 4,
+    "fail_no_orphan_numbers": 2,
+    "fail_r_code_sanity": 2
+  },
+  "atoms": [
+    {
+      "candidate_id": "fde6bde9-debc-58a5-8801-b56e537f6b05",
+      "clause_id": "e066a193-fe0e-4d85-9f72-06b2e8576cab",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "soft_landscaping",
+      "rule_type": "standard",
+      "pathway": "none",
+      "operator": "pct_gte",
+      "value": 15.0,
+      "unit": "%",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "any",
+        "condition": "Minimum soft landscaping requirement per site applies to single house, grouped dwelling and multiple dwelling"
+      },
+      "quote": "minimum 15% soft landscaping requirement per site",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit '%' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'soft_landscaping' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'pct_gte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'none'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 15.0 % vs prior [0.0,100.0] ['%']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "d96c833c-693d-53db-b794-dd373cf93cb2",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "328db38da837f4437234e63b74ad93b868c8246cea69301922b4d448cd70a130",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "4ba52f9e-58b8-5efe-9bae-7a4a38213df1",
+      "clause_id": "739f840b-dc92-4500-8d26-5e9e79b6469f",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "open_space",
+      "rule_type": "standard",
+      "pathway": "none",
+      "operator": "gte",
+      "value": 6.0,
+      "unit": "m2",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "multiple_dwelling",
+        "condition": "Communal open space minimum per dwelling for developments of more than 10 dwellings (up to a maximum of 300m2)"
+      },
+      "quote": "6m2 per dwelling up to \nmaximum 300m2",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm2' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'open_space' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'gte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'none'"
+        },
+        "range_prior": {
+          "pass": false,
+          "detail": "value 6.0 m2 vs prior [10.0,100.0] ['%']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": false,
+      "extraction_group_id": "3a51db96-3fbe-564a-b1ac-357085e5c284",
+      "extraction_pass": 1,
+      "review_status": "validator_failed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "572651fc7b0cfb7f3105710b4c05c0b570cef7f4c32a30b91da74327b6bf9dc3",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "62c8a659-3d06-5073-8f49-2923d5b693b2",
+      "clause_id": "739f840b-dc92-4500-8d26-5e9e79b6469f",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "open_space",
+      "rule_type": "standard",
+      "pathway": "none",
+      "operator": "lte",
+      "value": 300.0,
+      "unit": "m2",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "multiple_dwelling",
+        "condition": "Maximum communal open space requirement cap for developments of more than 10 dwellings"
+      },
+      "quote": "6m2 per dwelling up to \nmaximum 300m2",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm2' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'open_space' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'none'"
+        },
+        "range_prior": {
+          "pass": false,
+          "detail": "value 300.0 m2 vs prior [10.0,100.0] ['%']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": false,
+      "extraction_group_id": "3a51db96-3fbe-564a-b1ac-357085e5c284",
+      "extraction_pass": 1,
+      "review_status": "validator_failed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "16f05826f097837a811ad7e87a50198f134b2e03c50709410d34b44a9681ed8a",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "fde6bde9-debc-58a5-8801-b56e537f6b05",
+      "clause_id": "e066a193-fe0e-4d85-9f72-06b2e8576cab",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "soft_landscaping",
+      "rule_type": "standard",
+      "pathway": "none",
+      "operator": "pct_gte",
+      "value": 15.0,
+      "unit": "%",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "any",
+        "condition": "minimum soft landscaping requirement per site, applies to single house, grouped dwelling and multiple dwelling"
+      },
+      "quote": "minimum 15% soft landscaping requirement per site",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit '%' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'soft_landscaping' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'pct_gte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'none'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 15.0 % vs prior [0.0,100.0] ['%']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "d96c833c-693d-53db-b794-dd373cf93cb2",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "328db38da837f4437234e63b74ad93b868c8246cea69301922b4d448cd70a130",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "b8a70aad-63d2-5e4c-be41-59c6a444ffc0",
+      "clause_id": "20acb924-6cd9-49d3-85f1-3134f51e5649",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "site_cover",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "pct_lte",
+      "value": 85.0,
+      "unit": "%",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "any",
+        "condition": "Maximum site cover"
+      },
+      "quote": "C3.1.1 Maximum site cover of 85%",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'maximum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit '%' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'site_cover' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'pct_lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 85.0 % vs prior [10.0,100.0] ['%']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "81bc2969-5a30-57bf-ad6f-db825b67df19",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "ba3714a4827a84243878ae230b9b3eeed185bc737f512617fbf4dc29c6d702ba",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "93dca3c8-8001-5fcd-a816-7ddad4a59e43",
+      "clause_id": "9de08cc7-9588-4cef-86cc-4feaf8334614",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "building_storeys",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "gte",
+      "value": 2.0,
+      "unit": "storeys",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "any",
+        "condition": "Minimum building height"
+      },
+      "quote": "Minimum two storey building height",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": false,
+          "detail": "numeric value(s) ['2'] from extraction not found in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'storeys' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'building_storeys' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'gte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 2.0 storeys vs prior [1.0,10.0] ['None', 'storeys']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": false,
+      "extraction_group_id": "9c53543e-653f-5bdf-aced-5ed77b74bd1a",
+      "extraction_pass": 1,
+      "review_status": "validator_failed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "daf0928af575ff95fce477d72f3e9cf17376b7f8fe5974d2e30d7a7e5ba0b503",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "70f68777-1271-5fd6-bd8e-ca22130d1082",
+      "clause_id": "9de08cc7-9588-4cef-86cc-4feaf8334614",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "building_storeys",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "lte",
+      "value": 4.0,
+      "unit": "storeys",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "any",
+        "condition": "Maximum building height in accordance with Table 3.2a"
+      },
+      "quote": "Maximum four storey building height in accordance with Table 3.2a",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": false,
+          "detail": "numeric value(s) ['4'] from extraction not found in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'storeys' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'building_storeys' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 4.0 storeys vs prior [1.0,10.0] ['None', 'storeys']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": false,
+      "extraction_group_id": "9c53543e-653f-5bdf-aced-5ed77b74bd1a",
+      "extraction_pass": 1,
+      "review_status": "validator_failed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "9020d59d92c30b5fd89d9a3c5c25f82a3099e84624f60abdd6d3a26406dc2cc6",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "c4d5056e-31f5-5f38-a326-e1b1a11445a9",
+      "clause_id": "c0e0d535-7ce6-4980-87f1-b1cd1aca3b56",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "building_height",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "lte",
+      "value": 3.5,
+      "unit": "m",
+      "condition_json": {
+        "density_codes": [
+          "R30",
+          "R35"
+        ],
+        "dwelling_type": "any",
+        "condition": "Maximum boundary wall height for R30-R35"
+      },
+      "quote": "R30 – R35 3.5m",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'building_height' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 3.5 m vs prior [2.0,30.0] ['m']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "520b1852-39a1-5663-bdf0-6a668279f50c",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "6cfda468fd624ba36c2f313d0bde4cd1fd6722b6e2cec04317b0d7c892dc21ed",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "766ce4e5-0fe3-5ee1-9fcd-e8f54057e3a9",
+      "clause_id": "c0e0d535-7ce6-4980-87f1-b1cd1aca3b56",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "building_height",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "lte",
+      "value": 3.5,
+      "unit": "m",
+      "condition_json": {
+        "density_codes": [
+          "R40"
+        ],
+        "dwelling_type": "any",
+        "condition": "Maximum boundary wall height for R40 and above"
+      },
+      "quote": "R40 and above 3.5m",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'building_height' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 3.5 m vs prior [2.0,30.0] ['m']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "520b1852-39a1-5663-bdf0-6a668279f50c",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "72d4abb5e1f13142f00449cbf007f403725998e19eaa5b6fe1dc22c1598f32a3",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "6870c150-2700-5f15-be0c-b3cd0f8220b8",
+      "clause_id": "c0e0d535-7ce6-4980-87f1-b1cd1aca3b56",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "building_height",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "lte",
+      "value": 7.0,
+      "unit": "m",
+      "condition_json": {
+        "density_codes": [
+          "R50"
+        ],
+        "dwelling_type": "any",
+        "condition": "Maximum boundary wall height for R50 and above where frontage is 8.5m or less"
+      },
+      "quote": "Where frontage\nis 8.5m or less 7m",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'building_height' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 7.0 m vs prior [2.0,30.0] ['m']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "520b1852-39a1-5663-bdf0-6a668279f50c",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "8d5393123114a37e627865a07b8b7392d22973538f39c206081f1f16986450d5",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "8fa9b224-f139-5955-b2f7-413d785f68b1",
+      "clause_id": "c0e0d535-7ce6-4980-87f1-b1cd1aca3b56",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "boundary_wall_length",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "lte",
+      "value": 14.0,
+      "unit": "m",
+      "condition_json": {
+        "density_codes": [
+          "R50"
+        ],
+        "dwelling_type": "any",
+        "condition": "Maximum boundary wall length for R50 and above where frontage is 8.5m or less"
+      },
+      "quote": "Maximum 14m length, at which point the wall  is to be set back a \nminimum of 3m measured from the lot boundary  for a minimum length \nof 3m. Applicable to all lot boundaries.",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'boundary_wall_length' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 14.0 m vs prior [1.0,50.0] ['m']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "520b1852-39a1-5663-bdf0-6a668279f50c",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "25dfe08fbb3cd09556ebd9830f04161830ba8928e258ba1f5a6a016c6f826735",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "1b9d5e13-465f-5c3a-8a5b-0e5ada13f8e9",
+      "clause_id": "c0e0d535-7ce6-4980-87f1-b1cd1aca3b56",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "building_height",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "lte",
+      "value": 7.0,
+      "unit": "m",
+      "condition_json": {
+        "density_codes": [
+          "R50"
+        ],
+        "dwelling_type": "any",
+        "condition": "Maximum boundary wall height for R50 and above where frontage is greater than 8.5m"
+      },
+      "quote": "Where frontage\nis greater than\n8.5m\n7m",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'building_height' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 7.0 m vs prior [2.0,30.0] ['m']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "520b1852-39a1-5663-bdf0-6a668279f50c",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "309c302dccdaeaed5d952f04c419fd2519e7cc1a738e6401ad7bec29901a6b9d",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "297a8684-a785-5035-8725-088284768789",
+      "clause_id": "c0e0d535-7ce6-4980-87f1-b1cd1aca3b56",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "boundary_wall_length",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "lte",
+      "value": 14.0,
+      "unit": "m",
+      "condition_json": {
+        "density_codes": [
+          "R50"
+        ],
+        "dwelling_type": "any",
+        "condition": "Maximum boundary wall length for R50 and above where frontage is greater than 8.5m"
+      },
+      "quote": "Maximum 14m length, at which point the wall  is to be set back a \nminimum of 3m measured from the lot boundary  for a minimum length \nof 3m, with a cumulative maximum of two-thirds the length of the lot \nboundary the wall abuts measured from behind the street setback \nline.  Applicable to all lot boundaries.",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'boundary_wall_length' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 14.0 m vs prior [1.0,50.0] ['m']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "520b1852-39a1-5663-bdf0-6a668279f50c",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "2c02fea0af17888deba7b59dca957689bdd90933f7670e78fb4c39b7fd6a8ab8",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "ad61faf7-7990-57c2-abb3-6652ef9594ca",
+      "clause_id": "3ce72f43-5897-42c9-b338-6863f3f05171",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "garage_width",
+      "rule_type": "deemed_to_comply",
+      "pathway": "deemed_to_comply",
+      "operator": "pct_lte",
+      "value": 50.0,
+      "unit": "%",
+      "condition_json": {
+        "density_codes": [
+          "any"
+        ],
+        "dwelling_type": "any",
+        "condition": "Garage door and supporting structure occupying the frontage width"
+      },
+      "quote": "Garage door and supporting structure may \noccupy up to 50% of the frontage width",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit '%' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'garage_width' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'pct_lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": false,
+          "detail": "value 50.0 % vs prior [1.0,20.0] ['m']"
+        },
+        "r_code_sanity": {
+          "pass": false,
+          "detail": "invalid density codes: ['any']"
+        }
+      },
+      "passed_all": false,
+      "extraction_group_id": "705c3da7-362f-5500-b47f-5f3a05b49b6b",
+      "extraction_pass": 1,
+      "review_status": "validator_failed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "f5c1b47672e8ed988b35e7337be56754d8c6954d3a2ed4188203de9ed2afdad7",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "ec9760fc-83e0-5753-9d24-d6e4dd2a6b2a",
+      "clause_id": "3ce72f43-5897-42c9-b338-6863f3f05171",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "garage_width",
+      "rule_type": "exception",
+      "pathway": "deemed_to_comply",
+      "operator": "pct_lte",
+      "value": 60.0,
+      "unit": "%",
+      "condition_json": {
+        "density_codes": [
+          "any"
+        ],
+        "dwelling_type": "any",
+        "condition": "where upper floor or balcony extends more than half the width of the garage"
+      },
+      "quote": "Garage door and supporting structure \nmay occupy up to 60% where upper \nfloor or balcony extends more than \nhalf the width of the garage",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'minimum'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit '%' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'garage_width' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'pct_lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'deemed_to_comply'"
+        },
+        "range_prior": {
+          "pass": false,
+          "detail": "value 60.0 % vs prior [1.0,20.0] ['m']"
+        },
+        "r_code_sanity": {
+          "pass": false,
+          "detail": "invalid density codes: ['any']"
+        }
+      },
+      "passed_all": false,
+      "extraction_group_id": "705c3da7-362f-5500-b47f-5f3a05b49b6b",
+      "extraction_pass": 1,
+      "review_status": "validator_failed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "0176abc8d21c75e03e5a7efd32e9bdd88711b8f096ba5990d52d6864d66bf19b",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    }
+  ]
+}

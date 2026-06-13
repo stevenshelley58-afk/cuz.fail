@@ -1,0 +1,1287 @@
+{
+  "extractions": [
+    {
+      "clause_id": "8ee79515-b4f5-4b22-aacd-0cda65b47f42",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "637d4b6c-1d8b-4f07-a2ad-05d3564bb6bd",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "a6de504b-e835-40e5-813e-bf9223d28d45",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "13c4c822-ee94-4bb1-9516-b081ef8d1d8f",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "2835ee3a-2300-47ae-8315-4810b3e225d5",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "5e06707d-7f5b-442a-bd69-b5d1d86ce321",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 4,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Buildings setback from any boundary adjoining public parkland; setback area shall include space for landscaping and if necessary an outdoor living area"
+          },
+          "quote": "Buildings shall be setback 4m from any boundary adjoining public parkland."
+        }
+      ]
+    },
+    {
+      "clause_id": "48dd16ba-5d4c-4f1f-8a1b-074e7f6a4acb",
+      "no_rules": true,
+      "atoms": []
+    },
+    {
+      "clause_id": "3c9c42f2-675c-4e45-ae9e-3ac63c2a67b1",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Building on Mixed Business lots which abut residential lots, at the residential boundary (wall may increase 1m for every 1m setback from residential boundary)"
+          },
+          "quote": "Building on the Mixed Business lots which abut residential lots should not be higher than 3.0m in height at the residential boundary."
+        }
+      ]
+    },
+    {
+      "clause_id": "74de56f1-e3e8-495d-81c8-552f0cfaa710",
+      "no_rules": true,
+      "atoms": []
+    },
+    {
+      "clause_id": "212e1e11-2bd8-402b-a9f0-bac650b0050e",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 6,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "All setbacks from front boundary unless noted otherwise (Glen Iris Estate bulk earthworks plan note)"
+          },
+          "quote": "ALL SETBACKS TO BE 6m FROM FRONT BOUNDARY UNLESS NOTED OTHERWISE."
+        }
+      ]
+    },
+    {
+      "clause_id": "48ed8643-42ca-4f8a-b234-731c1cbe812c",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "d33d14e4-c40d-4367-a504-55ea4d827704",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "5c3c4609-019c-48f4-8f07-d9bb3f04c4ce",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "86ad5db5-f9d5-478e-9461-6c360c765ed0",
+      "atoms": [
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "design_principle",
+          "pathway": "design_principle",
+          "operator": "lte",
+          "value": 3,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Internal residential development (not along Rosalind Way and Benedick Road frontages)"
+          },
+          "quote": "Development internally may extend to a maximum of 3 storeys in height"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "02234401-5d06-4b2d-b80e-114cd7827e78",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "d73998ba-4ac9-4511-a4bc-f729d4e3cb13",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "4ebea777-1355-40ff-b684-2a4a1a624afc",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "22121355-f7f3-4350-bd0b-5c6f7ef3f602",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "1b4a32e7-8ccd-4d60-b418-123be4ba0362",
+      "atoms": [
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "pct_gte",
+          "value": 10,
+          "unit": "%",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "OLA area as percentage of lot size, or 20m2 whichever is greater"
+          },
+          "quote": "An outdoor living area (OLA) with an area of 10% of the lot size or\n20m2, whichever is greater"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 20,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum OLA area, or 10% of lot size whichever is greater"
+          },
+          "quote": "An outdoor living area (OLA) with an area of 10% of the lot size or\n20m2, whichever is greater"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "pct_gte",
+          "value": 70,
+          "unit": "%",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "At least 70% of the OLA must be uncovered"
+          },
+          "quote": "At least 70% of the OLA must be uncovered and includes areas\nunder eaves which adjoin uncovered areas."
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum length or width dimension of OLA"
+          },
+          "quote": "The OLA has a minimum 3.0m length or width dimension."
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 3.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Wall height threshold below which no maximum overshadowing applies"
+          },
+          "quote": "No maximum overshadowing for wall height 3.5m or less."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "6e50c0fb-883c-4373-ac54-c9edb04f917f",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "118aaab9-e1d1-4106-a407-77084164e987",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "2f4258b7-d374-40a3-8a0d-b96ba0212c68",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "881a5440-5f08-43ad-bafc-ad72b64fd6f2",
+      "atoms": [
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 3.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category A - Maximum height of wall"
+          },
+          "quote": "Category A 3.5 5 7"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category A - Maximum total building height, gable/skillion/concealed roof"
+          },
+          "quote": "Category A 3.5 5 7"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 7,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category A - Maximum total building height, hipped/pitched roof"
+          },
+          "quote": "Category A 3.5 5 7"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 7,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category B - Maximum height of wall"
+          },
+          "quote": "Category B 7 8 10"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 8,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category B - Maximum total building height, gable/skillion/concealed roof"
+          },
+          "quote": "Category B 7 8 10"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 10,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category B - Maximum total building height, hipped/pitched roof"
+          },
+          "quote": "Category B 7 8 10"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 9,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category C - Maximum height of wall"
+          },
+          "quote": "Category C 9 10 12"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 10,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category C - Maximum total building height, gable/skillion/concealed roof"
+          },
+          "quote": "Category C 9 10 12"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 12,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Category C - Maximum total building height, hipped/pitched roof"
+          },
+          "quote": "Category C 9 10 12"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "5c4add6c-524c-440a-a009-5c61d2d1b684",
+      "atoms": [
+        {
+          "rule_key": "site_area",
+          "rule_type": "exception",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 100,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "minimum site area where Table D reduction applied"
+          },
+          "quote": "for \nsingle houses and grouped dwellings, no \nsite is less than 100m2"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "exception",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 100,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "grouped_dwelling",
+            "condition": "minimum site area where Table D reduction applied"
+          },
+          "quote": "for \nsingle houses and grouped dwellings, no \nsite is less than 100m2"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "d17b2128-8ae6-4f8d-ba54-5cee27f0d519",
+      "atoms": [
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 15,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "single consolidated uncovered primary garden area minimum area"
+          },
+          "quote": "a single consolidated uncovered primary garden area with a minimum area of 15m 2 and a minimum dimension of 3m"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "minimum dimension of primary garden area"
+          },
+          "quote": "a single consolidated uncovered primary garden area with a minimum area of 15m 2 and a minimum dimension of 3m"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "4c0537b4-b94d-4a8d-9900-2ea4861e8574",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 40,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "Site area greater than 220 m2; primary garden area minimum (single houses and grouped dwellings)"
+          },
+          "quote": "Greater \nthan 220 40"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 35,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "Site area 191-220 m2; primary garden area minimum"
+          },
+          "quote": "191-220 35"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 30,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "Site area 161-190 m2; primary garden area minimum"
+          },
+          "quote": "161-190 30"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 25,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "Site area 131-160 m2; primary garden area minimum"
+          },
+          "quote": "131-160 25"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 20,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "Site area 100-130 m2; primary garden area minimum"
+          },
+          "quote": "100-130 20"
+        }
+      ]
+    },
+    {
+      "clause_id": "d8405e1d-9bd2-40aa-8dec-75fb9abbd499",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 8,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Studio / 1 bedroom dwelling - minimum private open space area per dwelling"
+          },
+          "quote": "Studio / 1 \nbedroom 8m2 2m"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 10,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "2 bedrooms dwelling - minimum private open space area per dwelling"
+          },
+          "quote": "2 bedrooms 10m2 2.4m"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 12,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "3 or more bedrooms dwelling - minimum private open space area per dwelling"
+          },
+          "quote": "3 or more \nbedrooms 12m\n2 2.4m"
+        },
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 15,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Ground floor dwelling - minimum private open space area per dwelling"
+          },
+          "quote": "Ground floor \ndwelling 15m\n2 3m"
+        }
+      ]
+    },
+    {
+      "clause_id": "ee2873ac-5af1-4e48-87ac-ef28a64b177a",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "outdoor_living_area",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 10,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Each multiple dwelling - minimum balcony (or equivalent) area opening directly from the primary living space"
+          },
+          "quote": "balcony or the equivalent, opening directly from the \nprimary living space and with a minimum area of \n10m2 and minimum dimension of 2.4m"
+        }
+      ]
+    },
+    {
+      "clause_id": "bac83623-16bd-412e-9cde-8c5b7b08f921",
+      "no_rules": true,
+      "atoms": []
+    },
+    {
+      "clause_id": "5f805d55-11b8-4751-8109-7e1b902c39f2",
+      "no_rules": true,
+      "atoms": []
+    },
+    {
+      "clause_id": "608ed126-5f10-4344-a9af-ac3b0690c601",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "49bcb314-522d-4f83-a3fa-8d7931d68935",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "af7b2b9a-663f-4a27-8a43-b43dccd05fc2",
+      "atoms": [
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R30",
+              "R35",
+              "R40"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum number of storeys for R30 - 40"
+          },
+          "quote": "R30 - 40 2 8m 7m 10m"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 8,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R30",
+              "R35",
+              "R40"
+            ],
+            "dwelling_type": "any",
+            "condition": "Concealed or skillion roof - Maximum building height for R30 - 40"
+          },
+          "quote": "R30 - 40 2 8m 7m 10m"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 10,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R30",
+              "R35",
+              "R40"
+            ],
+            "dwelling_type": "any",
+            "condition": "Pitched, hipped or gabled roof - Maximum total building height for R30 - 40"
+          },
+          "quote": "R30 - 40 2 8m 7m 10m"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 3,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R50",
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum number of storeys for R50 - 60"
+          },
+          "quote": "R50 - 60 3 11m 10m 13m"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 11,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R50",
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Concealed or skillion roof - Maximum building height for R50 - 60"
+          },
+          "quote": "R50 - 60 3 11m 10m 13m"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 13,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R50",
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Pitched, hipped or gabled roof - Maximum total building height for R50 - 60"
+          },
+          "quote": "R50 - 60 3 11m 10m 13m"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 4,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum number of storeys for R80"
+          },
+          "quote": "R80 4 14m 13m 16m"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 14,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "any",
+            "condition": "Concealed or skillion roof - Maximum building height for R80"
+          },
+          "quote": "R80 4 14m 13m 16m"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 16,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "any",
+            "condition": "Pitched, hipped or gabled roof - Maximum total building height for R80"
+          },
+          "quote": "R80 4 14m 13m 16m"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "95564dba-f83d-4ff9-a560-d319e0a7b861",
+      "atoms": [
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 4,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R30"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum primary street setback for R30"
+          },
+          "quote": "Primary street 4m 4m 3m 2m 2m 2m"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 4,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R35"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum primary street setback for R35"
+          },
+          "quote": "Primary street 4m 4m 3m 2m 2m 2m"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R40"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum primary street setback for R40"
+          },
+          "quote": "Primary street 4m 4m 3m 2m 2m 2m"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum primary street setback for R50"
+          },
+          "quote": "Primary street 4m 4m 3m 2m 2m 2m"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum primary street setback for R60"
+          },
+          "quote": "Primary street 4m 4m 3m 2m 2m 2m"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum primary street setback for R80"
+          },
+          "quote": "Primary street 4m 4m 3m 2m 2m 2m"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 1.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R30"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum secondary street setback for R30"
+          },
+          "quote": "Secondary street 1.5m 1.5m 1m 1m 1m 1m"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 1.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R35"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum secondary street setback for R35"
+          },
+          "quote": "Secondary street 1.5m 1.5m 1m 1m 1m 1m"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R40"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum secondary street setback for R40"
+          },
+          "quote": "Secondary street 1.5m 1.5m 1m 1m 1m 1m"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum secondary street setback for R50"
+          },
+          "quote": "Secondary street 1.5m 1.5m 1m 1m 1m 1m"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum secondary street setback for R60"
+          },
+          "quote": "Secondary street 1.5m 1.5m 1m 1m 1m 1m"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "any",
+            "condition": "Minimum secondary street setback for R80"
+          },
+          "quote": "Secondary street 1.5m 1.5m 1m 1m 1m 1m"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "bab8510f-c0b1-4288-bd79-630b40bf3825",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "5fca8bd9-ade4-4ae2-bd80-fa40451cb728",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "7586cc09-adb7-4450-9619-635a53636001",
+      "atoms": [
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 260,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R30"
+            ],
+            "dwelling_type": "grouped_dwelling",
+            "condition": "Minimum site area per grouped dwelling at R30"
+          },
+          "quote": "R30 Grouped dwelling Min 260"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 300,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R30"
+            ],
+            "dwelling_type": "grouped_dwelling",
+            "condition": "Average site area per grouped dwelling at R30"
+          },
+          "quote": "Av 300"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 300,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R30"
+            ],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Average site area per multiple dwelling at R30"
+          },
+          "quote": "Multiple dwelling Av 300"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 220,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R35"
+            ],
+            "dwelling_type": "grouped_dwelling",
+            "condition": "Minimum site area per grouped dwelling at R35"
+          },
+          "quote": "R35 Grouped dwelling Min 220"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 260,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R35"
+            ],
+            "dwelling_type": "grouped_dwelling",
+            "condition": "Average site area per grouped dwelling at R35"
+          },
+          "quote": "Av 260"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 260,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R35"
+            ],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Average site area per multiple dwelling at R35"
+          },
+          "quote": "Multiple dwelling Ave 260"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 180,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R40"
+            ],
+            "dwelling_type": "grouped_dwelling",
+            "condition": "Minimum site area per grouped dwelling at R40"
+          },
+          "quote": "R40 Grouped dwelling Min 180"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 220,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R40"
+            ],
+            "dwelling_type": "grouped_dwelling",
+            "condition": "Average site area per grouped dwelling at R40"
+          },
+          "quote": "Ave 220"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 115,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R40"
+            ],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Average site area per multiple dwelling at R40"
+          },
+          "quote": "Multiple dwelling Ave 115"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 160,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "single_house",
+            "condition": "Minimum site area per single house or grouped dwelling at R50"
+          },
+          "quote": "Min 160"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 180,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "single_house",
+            "condition": "Average site area per single house or grouped dwelling at R50"
+          },
+          "quote": "Ave 180"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 100,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Average site area per multiple dwelling at R50"
+          },
+          "quote": "Multiple dwelling Ave 100"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 120,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "single_house",
+            "condition": "Minimum site area per single house or grouped dwelling at R60"
+          },
+          "quote": "Min 120"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 150,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "single_house",
+            "condition": "Average site area per single house or grouped dwelling at R60"
+          },
+          "quote": "Ave 150"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 85,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Average site area per multiple dwelling at R60"
+          },
+          "quote": "Multiple dwelling Ave 85"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 100,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "single_house",
+            "condition": "Minimum site area per single house or grouped dwelling at R80"
+          },
+          "quote": "Min 100"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 120,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "single_house",
+            "condition": "Average site area per single house or grouped dwelling at R80"
+          },
+          "quote": "Ave 120"
+        },
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 80,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [
+              "R100-SL"
+            ],
+            "dwelling_type": "single_house",
+            "condition": "Minimum site area per single house or grouped dwelling at R100-SL"
+          },
+          "quote": "Min 80"
+        }
+      ],
+      "no_rules": false
+    }
+  ],
+  "total_atoms": 71,
+  "batches_run": 8,
+  "batches_failed": 0
+}

@@ -1,0 +1,447 @@
+{
+  "extractions": [
+    {
+      "clause_id": "118aaab9-e1d1-4106-a407-77084164e987",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "78f82a49-8fbf-4166-a24f-6d4648fa7259",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "c59592c6-7d3e-4863-ae57-59330ac2dc3e",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "0dc8408f-0c7c-4504-92e4-9ab48841f4f7",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "dcb03032-e1f1-4a24-86ca-2c3cc5e5bbde",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "e066a193-fe0e-4d85-9f72-06b2e8576cab",
+      "atoms": [
+        {
+          "rule_key": "soft_landscaping",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "pct_gte",
+          "value": 15,
+          "unit": "%",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "minimum soft landscaping requirement per site, applies to single house, grouped dwelling and multiple dwelling"
+          },
+          "quote": "minimum 15% soft landscaping requirement per site"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "d47d19bb-2e21-40fd-8f7c-9d51eb9ed78b",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "6b88b246-4735-41dd-9285-6d594abbcc8f",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "739f840b-dc92-4500-8d26-5e9e79b6469f",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "00481b8e-58a4-4256-93a6-4991e6a0cb57",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "a165caf9-1380-480b-95b8-b62285ecfe8e",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "9fbdf77e-fcc4-455e-8f98-30181f2063f4",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "a8cf97f5-33f5-4f89-89e4-d3091716e3ac",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "934ca52e-40c8-49c7-b291-40380a30e5ef",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "5b7b0c07-31e5-4f2e-bf04-2730116cefbf",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "cf14bdfb-dd3c-4af2-943c-d9eb22b7600b",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "5b779716-2b90-49fc-8a81-c404646b697e",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "f068c308-9f2f-45ab-bd35-5545fb66f7bd",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "2f4258b7-d374-40a3-8a0d-b96ba0212c68",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "6fec883e-0fdd-43ff-8918-2cd83d226123",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "f43e0c2d-0bfb-43d3-9fb5-c69722a4817c",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "4433d4a1-cc38-4b4d-b372-2f76d396c928",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "b40006d6-e9f5-4044-beba-49ed81bea0c7",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "30980595-3966-4e2a-814d-8be1798b6907",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "e262351a-6e6b-431a-829f-066a598e0c1e",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "78384999-7c0a-41ba-8882-a52c41d3d5c1",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "4fe2ac9a-be11-4867-9575-dcfdddd2230c",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "d48d2764-2294-467b-b62b-0c5bddbfcc7a",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "72ff226e-9cdf-4171-ab6a-539cf77a1aac",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "78573d25-fadd-4acb-84f3-acdb634e6690",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "20acb924-6cd9-49d3-85f1-3134f51e5649",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "site_cover",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "pct_lte",
+          "value": 85,
+          "unit": "%",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Maximum site cover"
+          },
+          "quote": "C3.1.1 Maximum site cover of 85%"
+        }
+      ]
+    },
+    {
+      "clause_id": "73a0de16-a81e-4e87-911d-f8370dc50b29",
+      "no_rules": true,
+      "atoms": []
+    },
+    {
+      "clause_id": "43817497-ea63-4a88-8b44-0d601d57a059",
+      "no_rules": true,
+      "atoms": []
+    },
+    {
+      "clause_id": "5fe145b5-82f8-4cf6-8893-1f490e22f576",
+      "no_rules": true,
+      "atoms": []
+    },
+    {
+      "clause_id": "150234a6-3318-4b10-adb4-b35a52538ca9",
+      "no_rules": true,
+      "atoms": []
+    },
+    {
+      "clause_id": "9de08cc7-9588-4cef-86cc-4feaf8334614",
+      "atoms": [
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum building height"
+          },
+          "quote": "Minimum two storey building height"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 4,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Maximum building height in accordance with Table 3.2a"
+          },
+          "quote": "Maximum four storey building height in accordance with Table 3.2a"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "03d85263-355c-4c18-83e6-746064cda438",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "965ad7ce-cc3e-421f-ba92-bd4b3d45036d",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "f37ca7e3-c1e6-49de-836b-848334cef8d8",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "0cafce47-9fa9-40f4-bfa0-093ab303189c",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "d8ae8f1e-8d09-452a-a2f6-ad5708151e0e",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "c0e0d535-7ce6-4980-87f1-b1cd1aca3b56",
+      "atoms": [
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 3.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R30",
+              "R35"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum boundary wall height for R30-R35"
+          },
+          "quote": "R30 – R35 3.5m"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 3.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R40"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum boundary wall height for R40 and above"
+          },
+          "quote": "R40 and above 3.5m"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 7,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum boundary wall height for R50 and above where frontage is 8.5m or less"
+          },
+          "quote": "Where frontage\nis 8.5m or less 7m"
+        },
+        {
+          "rule_key": "boundary_wall_length",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 14,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum boundary wall length for R50 and above where frontage is 8.5m or less"
+          },
+          "quote": "Maximum 14m length, at which point the wall  is to be set back a \nminimum of 3m measured from the lot boundary  for a minimum length \nof 3m. Applicable to all lot boundaries."
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 7,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum boundary wall height for R50 and above where frontage is greater than 8.5m"
+          },
+          "quote": "Where frontage\nis greater than\n8.5m\n7m"
+        },
+        {
+          "rule_key": "boundary_wall_length",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 14,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R50"
+            ],
+            "dwelling_type": "any",
+            "condition": "Maximum boundary wall length for R50 and above where frontage is greater than 8.5m"
+          },
+          "quote": "Maximum 14m length, at which point the wall  is to be set back a \nminimum of 3m measured from the lot boundary  for a minimum length \nof 3m, with a cumulative maximum of two-thirds the length of the lot \nboundary the wall abuts measured from behind the street setback \nline.  Applicable to all lot boundaries."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "4b9483c9-7b14-42ca-bde3-5e9a9a3301aa",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "2e8d74c5-c0ab-48da-8e6a-fa700477f159",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "222a5d6d-a031-4464-aca9-f76b1681b04d",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "3ce72f43-5897-42c9-b338-6863f3f05171",
+      "atoms": [
+        {
+          "rule_key": "garage_width",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "pct_lte",
+          "value": 50,
+          "unit": "%",
+          "applicability": {
+            "density_codes": [
+              "any"
+            ],
+            "dwelling_type": "any",
+            "condition": "Garage door and supporting structure occupying the frontage width"
+          },
+          "quote": "Garage door and supporting structure may \noccupy up to 50% of the frontage width"
+        },
+        {
+          "rule_key": "garage_width",
+          "rule_type": "exception",
+          "pathway": "deemed_to_comply",
+          "operator": "pct_lte",
+          "value": 60,
+          "unit": "%",
+          "applicability": {
+            "density_codes": [
+              "any"
+            ],
+            "dwelling_type": "any",
+            "condition": "where upper floor or balcony extends more than half the width of the garage"
+          },
+          "quote": "Garage door and supporting structure \nmay occupy up to 60% where upper \nfloor or balcony extends more than \nhalf the width of the garage"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "0330da65-03f2-4a39-b4e5-0bb70e21531c",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "dd9c5551-c1d4-4303-bda2-b4371014885d",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "761458b6-5e48-4a24-8d4c-8681621c7b03",
+      "atoms": [],
+      "no_rules": true
+    },
+    {
+      "clause_id": "78b5c067-6cfc-4a09-b76d-8f395cc36fd8",
+      "atoms": [],
+      "no_rules": true
+    }
+  ],
+  "total_atoms": 12,
+  "batches_run": 10,
+  "batches_failed": 0
+}
