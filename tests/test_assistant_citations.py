@@ -146,6 +146,10 @@ class TestStripReasoning:
         from draftcheck.api.sources import _strip_reasoning
         assert _strip_reasoning("Plain answer [1].") == "Plain answer [1]."
 
+    def test_removes_dangling_template_braces(self):
+        from draftcheck.api.sources import _strip_reasoning
+        assert _strip_reasoning("Check the address spelling. }}") == "Check the address spelling."
+
 
 class TestParseCitedIndices:
     def test_simple_marker(self):

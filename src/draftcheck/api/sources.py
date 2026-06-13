@@ -310,6 +310,7 @@ def _strip_reasoning(answer: str) -> str:
     lowered = cleaned.lower()
     if "<think>" in lowered and "</think>" not in lowered:
         cleaned = cleaned[: lowered.index("<think>")]
+    cleaned = re.sub(r"\s+\}{2,}\s*$", "", cleaned)
     return cleaned.strip()
 
 

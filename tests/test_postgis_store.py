@@ -391,6 +391,13 @@ class TestPostGISStoreIntegration:
         assert abs(top.lat - seeded_address.lat) < 1e-6
         assert abs(top.lon - seeded_address.lon) < 1e-6
 
+    def test_search_address_points_rejects_suburb_only_false_positive(
+        self, store, seeded_address
+    ) -> None:
+        suburb = seeded_address.formatted_address.split(",")[1].split()[0]
+        hits = store.search_address_points(f"7 montgue {suburb.lower()}")
+        assert all(hit.formatted_address != seeded_address.formatted_address for hit in hits)
+
     def test_exact_address_points_matches_despite_comma_and_case(self, store, seeded_address) -> None:
         query = seeded_address.formatted_address.replace(",", "").lower()
         results = store.exact_address_points(query)

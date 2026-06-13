@@ -496,6 +496,51 @@ def test_search_address_points_unknown_address_returns_empty() -> None:
     assert service.store.search_address_points("404 Unknown Road, Nowhere WA") == []
 
 
+def test_search_address_points_requires_street_name_match() -> None:
+    store = InMemorySpatialDatasetStore()
+    store.import_dataset(
+        SpatialDatasetMetadata(
+            dataset_id="approved-gnaf-hamilton-hill",
+            name="Approved Hamilton Hill addresses",
+            provider="fixture",
+            version="2026",
+            licence="CC BY 4.0",
+            licence_status=LicenceStatus.LICENSED,
+            approval_status=SourceApprovalStatus.APPROVED,
+            source_crs=GDA2020_TARGET_CRS,
+            source_version_id="source-version:approved-gnaf-hamilton-hill",
+        )
+    )
+    store.add_address_point(
+        AddressPoint(
+            address_id="address-davilak-14",
+            formatted_address="14 Davilak Avenue, Hamilton Hill WA 6163",
+            lon=115.7672,
+            lat=-32.0813,
+            parcel_id="",
+            dataset_id="approved-gnaf-hamilton-hill",
+            gnaf_pid="GNAF-DAVILAK-14",
+        )
+    )
+    store.add_address_point(
+        AddressPoint(
+            address_id="address-blackwood-14",
+            formatted_address="14 Blackwood Avenue, Hamilton Hill WA 6163",
+            lon=115.7783,
+            lat=-32.0851,
+            parcel_id="",
+            dataset_id="approved-gnaf-hamilton-hill",
+            gnaf_pid="GNAF-BLACKWOOD-14",
+        )
+    )
+    service = AddressResolutionService(store)
+
+    assert service.store.search_address_points("14 montgue hamilton hill") == []
+    hits = service.store.search_address_points("14 davilak hamilton hill")
+    assert hits
+    assert hits[0].formatted_address == "14 Davilak Avenue, Hamilton Hill WA 6163"
+
+
 def test_search_addresses_excludes_non_authoritative_datasets() -> None:
     store = InMemorySpatialDatasetStore()
     store.import_dataset(
