@@ -1,12 +1,14 @@
 {
-  "captured_at": "2026-06-13T02:00:00+08:00",
+  "captured_at": "2026-06-13T08:00:49+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
       "status": "verified",
       "evidence": [
         "tests/test_golden_e2e.py covers address -> project -> DXF upload -> fact promotion -> compliance run",
-        "uv run pytest tests/test_golden_e2e.py tests/test_v3_golden_fixture.py passed"
+        "uv run pytest tests/test_golden_e2e.py tests/test_v3_golden_fixture.py passed",
+        ".github/workflows/ci.yml runs a named Golden fixture E2E gate before the full backend test suite",
+        "GitHub CI run 27449927740 passed the Golden fixture E2E gate on main"
       ]
     },
     "c2_async_document_parsing": {
@@ -82,12 +84,15 @@
         "Local Windows LHCI healthcheck finds Chrome and reaches SEO audits, but Lighthouse exits on Chrome temp-profile cleanup EPERM; Ubuntu CI is the authoritative Lighthouse gate",
         "web/scripts/verify-mobile-launch.mjs locks the 5-tab mobile nav, 390px fallback, wizard mobile layout, and key aria labels into CI",
         "infra/v3/deploy-web-only.sh runs verify:launch:mobile before strict launch verification so the VPS UI-only deploy uses the same mobile preflight",
-        "web/src/App.launch.test.tsx runtime-tests landing metadata, privacy/terms navigation, landing address handoff into the app, guest project creation, and magic-link verification"
+        "web/src/App.launch.test.tsx runtime-tests landing metadata, privacy/terms navigation, landing address handoff into the app, guest project creation, and magic-link verification",
+        ".github/workflows/ci.yml runs npm run test:launch-checkout and npm run test:live-fetch in the web CI job",
+        "GitHub CI run 27449927740 passed the web build, launch checkout, launch actions, live fetch, mobile, strict launch, live preview, and Lighthouse SEO gates on main",
+        ".github/workflows/deploy.yml verifies https://lotfile.app/api/v1/ready and https://lotfile.app/api/v1/health after deploy",
+        "GitHub deploy run 27449978957 synced production to 233431d and passed the lotfile.app live verifier",
+        "ssh draftcheck 'cd /srv/draftcheck/app/web && npm run verify:launch:live:json' passed against https://lotfile.app with only the paid checkout URL warning"
       ],
       "remaining": [
-        "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch",
-        "Run live verification against lotfile.app after deployment",
-        "Confirm the Lighthouse SEO gate on Ubuntu CI"
+        "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"
       ]
     },
     "e_ops_guardrails": {
