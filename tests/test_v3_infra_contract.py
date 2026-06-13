@@ -31,6 +31,9 @@ WEB_LIGHTHOUSE_CONFIG_PATH = ROOT / "web" / "lighthouserc.cjs"
 WEB_MOBILE_VERIFY_PATH = ROOT / "web" / "scripts" / "verify-mobile-launch.mjs"
 WEB_LIVE_PREVIEW_VERIFY_PATH = ROOT / "web" / "scripts" / "test-live-launch-preview.mjs"
 VPS_DEPLOY_PATH = ROOT / "infra" / "v3" / "deploy.sh"
+DEPLOY_SYNC_RUNBOOK_PATH = ROOT / "docs" / "CODEX_DEPLOY_SYNC_RUNBOOK.md"
+FRONTEND_HANDOFF_PATH = ROOT / "docs" / "FRONTEND_HANDOFF.md"
+PRODUCTION_ENV_EXAMPLE_PATH = ROOT / "deploy" / "env.production.example"
 
 
 def _active_caddy_text() -> str:
@@ -300,6 +303,25 @@ def test_v3_deploy_workflow_verifies_lotfile_same_origin_api():
     assert "https://lotfile.app/api/v1/health" in run_script
     assert "https://api.cuz.fail/api/v1/ready" not in workflow_text
     assert "https://api.cuz.fail/api/v1/health" not in workflow_text
+
+
+def test_v3_operator_docs_and_env_examples_use_lotfile_as_active_target():
+    runbook = DEPLOY_SYNC_RUNBOOK_PATH.read_text(encoding="utf-8")
+    frontend_handoff = FRONTEND_HANDOFF_PATH.read_text(encoding="utf-8")
+    env_example = PRODUCTION_ENV_EXAMPLE_PATH.read_text(encoding="utf-8")
+
+    for text in (runbook, frontend_handoff):
+        assert "https://app.cuz.fail" not in text
+        assert "https://api.cuz.fail" not in text
+        assert "https://lotfile.app" in text
+
+    assert "CADDY_API_HOST=lotfile.app" in env_example
+    assert "CADDY_APP_HOST=lotfile.app" in env_example
+    assert "CORS_ALLOWED_ORIGINS=https://lotfile.app" in env_example
+    assert "OPENROUTER_SITE_URL=https://lotfile.app" in env_example
+    assert "CADDY_API_HOST=api.cuz.fail" not in env_example
+    assert "CADDY_APP_HOST=app.cuz.fail" not in env_example
+    assert "CORS_ALLOWED_ORIGINS=https://app.cuz.fail" not in env_example
 
 
 def test_v3_ci_runs_launch_action_behavior_test():

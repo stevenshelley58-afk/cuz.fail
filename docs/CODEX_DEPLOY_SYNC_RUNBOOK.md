@@ -26,7 +26,7 @@ GitHub     gh auth status (already authenticated on this machine)
 ## Command execution model
 
 - Local PowerShell/Codex is the operator shell. Use it for public checks such as
-  `curl https://app.cuz.fail/` and for launching SSH commands.
+  `curl https://lotfile.app/` and for launching SSH commands.
 - VPS deploy commands run on the server via `ssh draftcheck '...'`. Anything inside the
   quoted command executes on `srv1625369` (`root@76.13.209.160`), not on Windows.
 - The production app checkout is `/srv/draftcheck/app`. Caddy serves the web UI directly
@@ -44,7 +44,7 @@ Local repo      C:\Dev\Cuz, branch main. The active V3 workspace is now on origi
                 local dirty/untracked work may exist and must be preserved.
 Remote          origin = https://github.com/stevenshelley58-afk/cuz.fail.git (main exists)
 CI              .github/workflows/ci.yml exists on origin/main.
-VPS             srv1625369 is reachable as `ssh draftcheck`; app.cuz.fail serves
+VPS             srv1625369 is reachable as `ssh draftcheck`; lotfile.app serves
                 `/srv/draftcheck/app/web/dist` from the VPS.
 Web UI          web/index.html title is `LotFile`; live deploy requires rebuilding web/dist
                 on the VPS because Caddy serves compiled files.
@@ -140,7 +140,7 @@ Do not block anything else on this.
 
 ### B0. UI-only redeploy from current main
 
-Use this when the API/container stack is already live and only `app.cuz.fail` is serving an old
+Use this when the API/container stack is already live and only `lotfile.app` is serving an old
 compiled frontend. The script preserves unpushed `web/` work, backs up `web/dist`,
 refuses non-web deltas, requires a real Stripe `VITE_CHECKOUT_URL`, runs the strict
 launch verifier, and rolls back static files on failure. It does not run compose,
@@ -153,8 +153,8 @@ ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'
 Verification:
 
 ```bash
-curl -s https://app.cuz.fail/ | grep -o '<title>[^<]*</title>'     # <title>LotFile - WA R-Code & Planning Compliance Checker</title>
-curl -s https://api.cuz.fail/api/v1/health                         # 200 / status ok
+curl -s https://lotfile.app/ | grep -o '<title>[^<]*</title>'      # <title>LotFile - WA R-Code & Planning Compliance Checker</title>
+curl -s https://lotfile.app/api/v1/health                          # 200 / status ok
 ```
 
 ### B1. Harden + install (once, idempotent)
@@ -179,8 +179,9 @@ printf "POSTGRES_PASSWORD=%s\nAUTH_TOKEN_HASH_PEPPER=%s\nHERMES_SPEND_CAP_CENTS=
 chmod 600 infra/v3/.env'
 ```
 
-Defaults already target `api.cuz.fail`/`app.cuz.fail`, storage `/srv/draftcheck/storage`,
-CORS `https://app.cuz.fail` (`infra/v3/compose.yml`).
+Defaults already target `lotfile.app`, storage `/srv/draftcheck/storage`, and same-origin
+API calls under `/api/v1` (`infra/v3/compose.yml`). `cuz.fail` hostnames are legacy
+redirect/compatibility routes, not active production deploy targets.
 
 ### B3. Build + start
 
@@ -244,28 +245,28 @@ authorized to implement it now, per plan: `src/draftcheck/cli.py` with `login-li
 one-time bootstrap URL for a provisioned owner (email from `$DRAFTCHECK_OWNER_EMAIL`, default
 `stevenshelley58@gmail.com`), wired to the existing identity store and token machinery, with
 tests, merged through CI like everything else. Then run it on the VPS and verify a session
-cookie round-trip against `https://api.cuz.fail` once DNS is live.
+cookie round-trip against `https://lotfile.app` once DNS is live.
 
 Exit criteria B: compose healthy; postgis+vector present; alembic round-trip proven;
 `/api/v1/ready` 200; backup cron live; deploy.sh + cli login-link merged.
 
 ---
 
-## Phase C — DNS cutover (autonomous; rollback is two A records)
+## Phase C — DNS cutover (autonomous; rollback is the lotfile.app A record)
 
 1. If a DNS provider token is available (`$CLOUDFLARE_API_TOKEN` or equivalent): drop TTL on
-   `api.cuz.fail` + `app.cuz.fail` to 300, wait out the old TTL, then point both A records at
-   the VPS IP — via API, no human. If no token: put the exact records (host → IP, TTL 300) in
+   `lotfile.app` to 300, wait out the old TTL, then point the A record at
+   the VPS IP — via API, no human. If no token: put the exact record (host → IP, TTL 300) in
    the final report as the single remaining manual action, and continue with everything else.
 2. Verify once DNS resolves (Caddy fetches certs automatically):
 
 ```bash
-curl -fsS https://api.cuz.fail/api/v1/ready
-curl -fsS https://app.cuz.fail/ | head -5
-curl -s -o /dev/null -w "%{http_code}" https://api.cuz.fail/api/v1/projects   # 401/501, not 404
+curl -fsS https://lotfile.app/api/v1/ready
+curl -fsS https://lotfile.app/ | head -5
+curl -s -o /dev/null -w "%{http_code}" https://lotfile.app/api/v1/projects   # 401/501, not 404
 ```
 
-3. VPS is the only production target. Rollback = revert the two A records. Legacy `ui/` pages
+3. VPS is the only production target. Rollback = revert the `lotfile.app` A record. Legacy `ui/` pages
    call `api.cuz.fail/v1` and will break at cutover — accepted; they are design references,
    pre-M1, with no real users. Do not build a `/v1` proxy overlay unless the operator asks.
 4. Vercel is retired. No disconnect step needed; no Vercel deploys fire.
@@ -283,7 +284,7 @@ git rev-parse main origin/main              # identical
 gh run list --branch main --limit 1         # CI: success
 ssh draftcheck 'git -C /srv/draftcheck/app rev-parse HEAD'           # == origin/main
 ssh draftcheck 'cd /srv/draftcheck/app/infra/v3 && sudo docker compose ps'
-curl -fsS https://api.cuz.fail/api/v1/ready
+curl -fsS https://lotfile.app/api/v1/ready
 ```
 
 In sync = local main == origin/main == VPS HEAD, CI green, compose healthy, ready endpoint
