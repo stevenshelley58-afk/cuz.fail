@@ -1,18 +1,18 @@
 {
   "mode": "apply",
-  "vote_rows": 1070,
-  "core_groups": 669,
+  "vote_rows": 548,
+  "core_groups": 206,
   "skipped_unknown_rule_key_votes": 0,
-  "skipped_already_promoted_groups": 55,
+  "skipped_already_promoted_groups": 69,
   "promoted_groups": 0,
   "pending_by_reason": {
-    "single_model_family": 506,
-    "pathway_disagreement": 98,
+    "single_model_family": 27,
+    "pathway_disagreement": 100,
     "density_code_disagreement": 9,
     "dwelling_type_disagreement": 1
   },
   "review_items_resolved": 0,
-  "wp6_rules_before": 86,
-  "wp6_rules_after": 86,
+  "wp6_rules_before": 111,
+  "wp6_rules_after": 111,
   "top_sources_by_promotions": []
 }
