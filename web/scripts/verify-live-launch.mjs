@@ -30,6 +30,10 @@ function assertIncludes(text, needle, label) {
   if (!text.includes(needle)) fail(`${label} missing '${needle}'`);
 }
 
+function assertNotIncludes(text, needle, label) {
+  if (text.includes(needle)) fail(`${label} must not include '${needle}'`);
+}
+
 const routes = [
   {
     path: "/",
@@ -123,7 +127,9 @@ if (!assetMatches.length) {
     "/privacy",
     "/terms",
     "Check an address free",
-    "Advisory research only",
+    "WA residential planning checks",
+    "Clear next steps",
+    "Read sourced results",
     "signup_requested",
     "project_created",
     "compliance_run",
@@ -131,6 +137,17 @@ if (!assetMatches.length) {
     "AUD $29/month",
   ]) {
     assertIncludes(bundleText, needle, "live JS bundle");
+  }
+  for (const removedNeedle of [
+    "Advisory research only",
+    "does not issue approvals.",
+    "LotFile advisory check preview",
+    ">Advisory</span>",
+    "No finality claims",
+    "Read cited advisory results",
+    "LotFile provides advisory planning research only",
+  ]) {
+    assertNotIncludes(bundleText, removedNeedle, "live JS bundle removed disclaimer copy");
   }
   if (expectedCheckoutUrl) {
     assertIncludes(bundleText, expectedCheckoutUrl, "live checkout URL");
