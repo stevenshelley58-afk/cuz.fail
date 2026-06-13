@@ -29,8 +29,8 @@ Record the live monitor IDs here after provisioning:
 
 | Monitor | Provider ID | Alert contact |
 |---------|-------------|---------------|
-| LotFile health | pending | pending |
-| LotFile ready | pending | pending |
+| LotFile health | pending | stevenshelley58@gmail.com |
+| LotFile ready | pending | stevenshelley58@gmail.com |
 
 ## CLI verification
 
