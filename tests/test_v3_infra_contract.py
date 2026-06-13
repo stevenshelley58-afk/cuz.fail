@@ -5,6 +5,8 @@ from pathlib import Path
 
 import yaml
 
+from draftcheck.domain.documents import configured_max_document_bytes
+
 
 ROOT = Path(__file__).resolve().parents[1]
 COMPOSE_PATH = ROOT / "infra" / "v3" / "compose.yml"
@@ -83,6 +85,21 @@ def test_v3_caddy_routes_api_v1_and_static_web_dist():
     assert "reverse_proxy api:8000" in active_caddy
     assert "root * /srv/draftcheck/app/web/dist" in active_caddy
     assert "/v1" not in active_caddy.replace("/api/v1", "")
+
+
+def test_v3_document_upload_cap_supports_cad_intake_and_stays_within_edge_limit(monkeypatch):
+    for key in (
+        "DRAFTCHECK_MAX_DOCUMENT_BYTES",
+        "DRAFTCHECK_MAX_UPLOAD_BYTES",
+        "DRAFTCHECK_MAX_DOCUMENT_MB",
+        "DRAFTCHECK_MAX_UPLOAD_MB",
+    ):
+        monkeypatch.delenv(key, raising=False)
+
+    active_caddy = _active_caddy_text()
+
+    assert configured_max_document_bytes() == 100 * 1024 * 1024
+    assert "max_size 250MB" in active_caddy
 
 
 def test_v3_db_init_creates_postgis_and_pgvector_extensions():

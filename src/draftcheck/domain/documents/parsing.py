@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import io
+import os
 import re
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -28,7 +29,9 @@ from draftcheck.domain.documents.parsers import (
 from draftcheck.domain.sources.models import EmbeddingConfig
 
 
-MAX_DOCUMENT_BYTES = 15 * 1024 * 1024
+_MB = 1024 * 1024
+DEFAULT_MAX_DOCUMENT_BYTES = 100 * _MB
+MAX_DOCUMENT_BYTES = DEFAULT_MAX_DOCUMENT_BYTES
 TEXT_MEDIA_TYPES = {
     "text/plain",
     "text/csv",
@@ -57,6 +60,37 @@ SAMPLE_EXPECTED_FACTS = {
     "garage width": (5.4, "m"),
     "boundary wall length": (0.0, "m"),
 }
+
+
+def configured_max_document_bytes() -> int:
+    """Return the upload/parser byte cap for CAD-sized drawing intake."""
+    raw_bytes = os.getenv("DRAFTCHECK_MAX_DOCUMENT_BYTES") or os.getenv("DRAFTCHECK_MAX_UPLOAD_BYTES")
+    if raw_bytes:
+        try:
+            value = int(raw_bytes)
+        except ValueError as exc:
+            raise ValueError("DRAFTCHECK_MAX_DOCUMENT_BYTES must be an integer byte count") from exc
+        if value <= 0:
+            raise ValueError("DRAFTCHECK_MAX_DOCUMENT_BYTES must be positive")
+        return value
+
+    raw_mb = os.getenv("DRAFTCHECK_MAX_DOCUMENT_MB") or os.getenv("DRAFTCHECK_MAX_UPLOAD_MB")
+    if raw_mb:
+        try:
+            value_mb = int(raw_mb)
+        except ValueError as exc:
+            raise ValueError("DRAFTCHECK_MAX_DOCUMENT_MB must be an integer megabyte count") from exc
+        if value_mb <= 0:
+            raise ValueError("DRAFTCHECK_MAX_DOCUMENT_MB must be positive")
+        return value_mb * _MB
+
+    return DEFAULT_MAX_DOCUMENT_BYTES
+
+
+def document_size_limit_label(limit_bytes: int) -> str:
+    if limit_bytes % _MB == 0:
+        return f"{limit_bytes // _MB} MB"
+    return f"{limit_bytes} bytes"
 
 
 @dataclass(frozen=True)
@@ -476,8 +510,9 @@ class InMemoryDocumentLibrary:
     ) -> DocumentParseResult:
         if not content:
             raise ValueError("document content is required")
-        if len(content) > MAX_DOCUMENT_BYTES:
-            raise ValueError("document exceeds the 15 MB parser limit")
+        limit_bytes = configured_max_document_bytes()
+        if len(content) > limit_bytes:
+            raise ValueError(f"document exceeds the {document_size_limit_label(limit_bytes)} parser limit")
         safe_filename = _safe_filename(filename)
         document_id = f"doc_{uuid4().hex}"
         sha256 = hashlib.sha256(content).hexdigest()

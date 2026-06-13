@@ -76,6 +76,9 @@ srv1625369
 - Live static root: `/srv/draftcheck/app/web/dist`
 - UI deploy: `infra/v3/deploy-web-only.sh`; no Vercel, no container restart.
 - API health check: `https://lotfile.app/api/v1/health`
+- Document upload/parser cap: 100 MB by default; Caddy allows 250 MB. Override with
+  `DRAFTCHECK_MAX_DOCUMENT_BYTES` or `DRAFTCHECK_MAX_DOCUMENT_MB` only after checking
+  worker memory headroom.
 - Vercel: RETIRED
 
 ## UI-Only Deploy From Main

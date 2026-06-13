@@ -49,6 +49,8 @@ from draftcheck.domain.documents import (
     DocumentParser,
     DocumentReviewStatus,
     InMemoryDocumentLibrary,
+    configured_max_document_bytes,
+    document_size_limit_label,
     sample_parser_accuracy_report,
     search_persisted_document_chunks,
 )
@@ -63,7 +65,6 @@ def _configured_storage_root() -> Path:
 
 
 STORAGE_ROOT = _configured_storage_root()
-MAX_UPLOAD_BYTES = 15 * 1024 * 1024  # 15 MB
 
 
 # ---------------------------------------------------------------------------
@@ -220,10 +221,11 @@ async def upload_document(
     content = await file.read()
     if not content:
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail="File is empty.")
-    if len(content) > MAX_UPLOAD_BYTES:
+    max_upload_bytes = configured_max_document_bytes()
+    if len(content) > max_upload_bytes:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
-            detail="File exceeds the 15 MB upload limit.",
+            detail=f"File exceeds the {document_size_limit_label(max_upload_bytes)} upload limit.",
         )
 
     filename = _safe_filename(file.filename or "upload.bin")
