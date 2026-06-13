@@ -12,12 +12,13 @@ import re
 import subprocess
 from typing import Any
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse
 from urllib.request import urlopen
 
 try:
-    from scripts.ops_guardrails import check_restore_drill_log, check_uptime_monitor_doc
+    from scripts.ops_guardrails import CHECKOUT_PLACEHOLDER_NEEDLES, check_restore_drill_log, check_uptime_monitor_doc
 except ModuleNotFoundError:  # pragma: no cover - direct `python scripts/...` execution
-    from ops_guardrails import check_restore_drill_log, check_uptime_monitor_doc
+    from ops_guardrails import CHECKOUT_PLACEHOLDER_NEEDLES, check_restore_drill_log, check_uptime_monitor_doc
 
 
 LAUNCH_ROUTES = ("/", "/privacy", "/terms", "/app")
@@ -274,7 +275,11 @@ def assess_restore_drill_log(ops_doc_dir: Path) -> str:
 
 
 def _checkout_env_verified(value: str) -> bool:
-    return value.startswith("https://buy.stripe.com/")
+    parsed = urlparse(value.strip())
+    if parsed.scheme != "https" or parsed.netloc != "buy.stripe.com" or not parsed.path.strip("/"):
+        return False
+    lowered = value.lower()
+    return not any(needle in lowered for needle in CHECKOUT_PLACEHOLDER_NEEDLES)
 
 
 def _timer_verified(value: str) -> bool:
