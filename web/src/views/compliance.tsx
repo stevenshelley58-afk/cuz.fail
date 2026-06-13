@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { CheckCircle2, CircleAlert, CircleHelp, MessageSquare, RefreshCw } from "lucide-react";
 import { api, type ComplianceResultItem, type ComplianceRunResponse } from "../api";
 import { trackEvent } from "../analytics";
@@ -294,12 +294,17 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [uploadPrompted, setUploadPrompted] = useState(false);
+  const resultVersionRef = useRef(0);
 
   const loadMatrix = useCallback(async () => {
+    const requestVersion = resultVersionRef.current;
     setMatrixLoading(true);
     setMatrixLoadMessage(null);
     const r = await api.compliance.matrix(projectId);
     setMatrixLoading(false);
+    if (requestVersion !== resultVersionRef.current) {
+      return;
+    }
     if (r.kind === "ok") {
       setRunResult(r.data);
       return;
@@ -332,6 +337,7 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
   }
 
   async function runCheck() {
+    resultVersionRef.current += 1;
     setLoading(true);
     setError(null);
     const r = await api.compliance.run(projectId);
