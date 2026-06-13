@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-12T23:06:42.779774+00:00",
+  "captured_at": "2026-06-13T00:39:11.869810+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
@@ -61,7 +61,7 @@
         },
         "bundles": [
           {
-            "path": "/assets/index-tPCN6iw6.js",
+            "path": "/assets/index-D1MRgJqs.js",
             "status": 200
           }
         ]
