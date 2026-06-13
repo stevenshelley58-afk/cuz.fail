@@ -188,10 +188,10 @@ test("landing address handoff stores address, opens app, creates guest project, 
   await renderApp(api);
 
   await userEvent.type(
-    await screen.findByLabelText(/street address/i),
+    await screen.findByLabelText(/address or question/i),
     "3 Black Swan Rise, Beeliar",
   );
-  await userEvent.click(screen.getByRole("button", { name: /check an address free/i }));
+  await userEvent.click(screen.getByRole("button", { name: /^send$/i }));
 
   await waitFor(() => expect(window.location.pathname).toBe("/app"));
   await waitFor(() => expect(api.guestSession).toHaveBeenCalledOnce());
