@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T09:07:40+08:00",
+  "captured_at": "2026-06-13T10:12:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -104,7 +104,9 @@
         "reports/non_db_launch_ops_blockers.json now points the Stripe unblock command at install-checkout-url.sh",
         "web/src/App.tsx now opens a recoverable sign-in retry path when magic-link verification fails",
         "web/src/components/modals.tsx can show a sign-in notice without changing the auth form flow",
-        "web/src/App.launch.test.tsx covers expired/invalid magic-link verification so users do not silently land in guest mode"
+        "web/src/App.launch.test.tsx covers expired/invalid magic-link verification so users do not silently land in guest mode",
+        "web/src/views/projects.tsx reuses DocumentUpload inside ProjectDetail so reopened projects expose upload, review, evidence search, calibration, and fact-promotion controls next to compliance results",
+        "web/src/views/projects.detail.test.tsx covers the reopened-project document workflow and upload call wiring, and web/package.json wires it into npm run test:launch-actions"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"
