@@ -270,7 +270,7 @@ class TestBuildRetrievalQuery:
             "In one short paragraph, what is site cover in the WA R-Codes?",
             [],
         )
-        assert result == "site cover R-Codes"
+        assert result == "site cover residential design codes"
 
 
 # ---------------------------------------------------------------------------
