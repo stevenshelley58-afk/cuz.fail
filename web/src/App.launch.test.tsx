@@ -60,6 +60,20 @@ async function renderApp(api: ApiMock) {
       <div data-testid="wizard-shell">{wizard.address} / {wizard.projectId}</div>
     ),
   }));
+  vi.doMock("./views/projects", () => ({
+    projectList: (r: { kind: string; data?: unknown }) => (r.kind === "ok" && Array.isArray(r.data) ? r.data : []),
+    Projects: ({ onProjectOpen }: { onProjectOpen: (projectId: string) => void }) => (
+      <div data-testid="projects-view">
+        <button onClick={() => onProjectOpen("project-1")}>Open saved project</button>
+      </div>
+    ),
+    ProjectDetail: ({ projectId }: { projectId: string }) => (
+      <div data-testid="project-detail">Project detail {projectId}</div>
+    ),
+  }));
+  vi.doMock("./views/library", () => ({
+    Library: () => <div data-testid="library-view">Library browsing is coming soon.</div>,
+  }));
   const { App } = await import("./App");
   render(<App />);
 }
@@ -221,4 +235,21 @@ test("magic-link verify failure opens sign-in retry without leaving the app stuc
   await waitFor(() => expect(api.guestSession).toHaveBeenCalledOnce());
   expect(await screen.findByText("That sign-in link has expired or could not be verified. Send yourself a new link.")).toBeTruthy();
   expect(screen.getByRole("button", { name: /send sign-in link/i })).toBeTruthy();
+});
+
+test("shell navigation clears an open project detail", async () => {
+  setPath("/app");
+  await renderApp(makeApi({
+    session: vi.fn().mockResolvedValue({ kind: "ok", data: { role: "guest" } }),
+  }));
+
+  await waitFor(() => expect(screen.getAllByRole("button", { name: /^projects$/i }).length).toBeGreaterThan(0));
+  await userEvent.click(screen.getAllByRole("button", { name: /^projects$/i })[0]);
+  await userEvent.click(screen.getByRole("button", { name: /open saved project/i }));
+  expect(await screen.findByTestId("project-detail")).toBeTruthy();
+
+  await userEvent.click(screen.getAllByRole("button", { name: /^library$/i })[0]);
+
+  expect(await screen.findByTestId("library-view")).toBeTruthy();
+  expect(screen.queryByTestId("project-detail")).toBeNull();
 });

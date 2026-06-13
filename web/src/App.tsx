@@ -161,14 +161,18 @@ function ProductApp() {
     setSignInOpen(false);
     setSignInNotice(null);
   }, []);
+  const goView = useCallback((nextView: View) => {
+    setActiveProjectId(null);
+    setView(nextView);
+  }, []);
 
   const navItem = (v: View, icon: string, label: string) => (
-    <button className={view === v ? "on" : ""} onClick={() => setView(v)} aria-current={view === v ? "page" : undefined} aria-label={label}>
+    <button className={view === v ? "on" : ""} onClick={() => goView(v)} aria-current={view === v ? "page" : undefined} aria-label={label}>
       <Icon name={icon} />{label}
     </button>
   );
   const tab = (v: View, icon: string, label: string) => (
-    <button className={`tb${view === v ? " on" : ""}`} onClick={() => setView(v)} aria-current={view === v ? "page" : undefined} aria-label={label}>
+    <button className={`tb${view === v ? " on" : ""}`} onClick={() => goView(v)} aria-current={view === v ? "page" : undefined} aria-label={label}>
       <span className="ico"><Icon name={icon} /></span>{label}
     </button>
   );
@@ -186,7 +190,7 @@ function ProductApp() {
     <div className="app">
       <aside className="side">
         <div className="logo">Lot<span>File</span></div>
-        <button className="newbtn" onClick={() => setView("home")} aria-label="Start a new address check"><Icon name="add_home_work" />New check</button>
+        <button className="newbtn" onClick={() => goView("home")} aria-label="Start a new address check"><Icon name="add_home_work" />New check</button>
         <nav className="nav">
           {navItem("home", "home", "Home")}
           {navItem("projects", "home_work", "Projects")}
