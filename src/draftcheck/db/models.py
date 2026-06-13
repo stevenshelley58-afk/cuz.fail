@@ -525,6 +525,7 @@ class SourceReviewRecord(Base):
     __table_args__ = (
         Index("ix_source_reviews_org_source", "org_id", "source_id"),
         Index("ix_source_reviews_version", "source_version_id"),
+        Index("ix_source_reviews_reviewed_by", "reviewed_by_user_id"),
     )
 
     id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
@@ -545,6 +546,11 @@ class SourceReviewRecord(Base):
         ForeignKey("source_versions.id", ondelete="CASCADE"),
         nullable=False,
         index=True,
+    )
+    reviewed_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
     )
     review_status: Mapped[str] = mapped_column(String(40), nullable=False)
     licence_status: Mapped[str] = mapped_column(String(40), nullable=False)
@@ -1105,6 +1111,14 @@ class Rule(Base, TimestampMixin):
         nullable=True,
         index=True,
     )
+    approved_by_user_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    approved_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    approval_metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     council_scope: Mapped[str | None] = mapped_column(
         String(120), nullable=True, index=True,
@@ -1632,6 +1646,60 @@ class Export(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
     completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     metadata_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+
+
+class Validation(Base):
+    __tablename__ = "validations"
+    __table_args__ = (
+        Index("ix_validations_export_status", "export_id", "status"),
+        Index("ix_validations_check_run_status", "check_run_id", "status"),
+        Index("ix_validations_subject", "subject_type", "subject_id"),
+        Index("ix_validations_job_trace", "job_trace_id"),
+        CheckConstraint(
+            "status IN ('passed', 'failed', 'blocked')",
+            name="ck_validations_status",
+        ),
+    )
+
+    id: Mapped[UUID] = mapped_column(Uuid(as_uuid=True), primary_key=True, default=uuid4)
+    org_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("orgs.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    project_id: Mapped[UUID] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("projects.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    export_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("exports.id", ondelete="CASCADE"),
+        nullable=True,
+        index=True,
+    )
+    check_run_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("check_runs.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    job_trace_id: Mapped[UUID | None] = mapped_column(
+        Uuid(as_uuid=True),
+        ForeignKey("job_traces.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    gate_name: Mapped[str] = mapped_column(String(120), nullable=False)
+    validation_type: Mapped[str] = mapped_column(String(80), nullable=False, default="automated_export_gate")
+    subject_type: Mapped[str] = mapped_column(String(80), nullable=False)
+    subject_id: Mapped[UUID | None] = mapped_column(Uuid(as_uuid=True), nullable=True)
+    status: Mapped[str] = mapped_column(String(20), nullable=False, default="blocked")
+    summary: Mapped[str | None] = mapped_column(Text, nullable=True)
+    findings_json: Mapped[list[object]] = mapped_column(JSONB, nullable=False, default=list)
+    manifest_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)
 
 
 class AgentMemory(Base, TimestampMixin):

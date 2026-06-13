@@ -28,6 +28,10 @@ function assertIncludes(text, needle, label) {
   if (!text.includes(needle)) fail(`${label} missing '${needle}'`);
 }
 
+function assertNotIncludes(text, needle, label) {
+  if (text.includes(needle)) fail(`${label} must not include '${needle}'`);
+}
+
 const indexPath = join(dist, "index.html");
 assertExists(indexPath, "Built index");
 const index = existsSync(indexPath) ? read(indexPath) : "";
@@ -59,13 +63,24 @@ const launchSource = read(join(src, "views", "launch.tsx"));
 for (const launchNeedle of [
   "Check an address free",
   "lotfile_launch_address",
-  "Advisory research only",
-  "does not issue approvals",
-  "professional certification",
+  "WA residential planning checks",
+  "Clear next steps",
+  "Read sourced results",
   "Uploaded drawings",
   "Liability limits",
 ]) {
   assertIncludes(launchSource, launchNeedle, "Launch/legal copy");
+}
+for (const removedNeedle of [
+  "Advisory research only",
+  "does not issue approvals.",
+  "LotFile advisory check preview",
+  ">Advisory</span>",
+  "No finality claims",
+  "Read cited advisory results",
+  "LotFile provides advisory planning research only",
+]) {
+  assertNotIncludes(launchSource, removedNeedle, "Launch page removed disclaimer copy");
 }
 
 const robots = read(join(publicDir, "robots.txt"));
@@ -119,7 +134,7 @@ const caddyfile = read(join(repoRoot, "infra", "v3", "Caddyfile"));
 for (const caddyNeedle of [
   "http://lotfile.app",
   "root * /srv/draftcheck/app/web/dist",
-  "try_files {path} /index.html",
+  "try_files {path} {path}/index.html /index.html",
   "file_server",
 ]) {
   assertIncludes(caddyfile, caddyNeedle, "Caddy SPA fallback");

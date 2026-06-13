@@ -1,13 +1,13 @@
 {
-  "captured_at": "2026-06-12T18:23:41.780922+00:00",
+  "captured_at": "2026-06-12T21:54:08.200463+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
     "evidence": {
       "live_origin": "https://lotfile.app",
-      "live_index_title": "<title>LotFile</title>",
-      "live_verifier": "failed: /: missing LotFile - WA R-Code & Planning Compliance Checker; /: missing name=\"description\"; /: missing property=\"og:title\"; /: missing data-domain=\"lotfile.app\"; /privacy: missing LotFile - WA R-Code & Planning Compliance Checker; /privacy: missing name=\"description\"; /privacy: missing property=\"og:title\"; /privacy: missing data-domain=\"lotfile.app\"; /terms: missing LotFile - WA R-Code & Planning Compliance Checker; /terms: missing name=\"description\"; /terms: missing property=\"og:title\"; /terms: missing data-domain=\"lotfile.app\"",
-      "missing_count": 25,
+      "live_index_title": "<title>LotFile - WA R-Code & Planning Compliance Checker</title>",
+      "live_verifier": "failed: /privacy: missing LotFile - WA R-Code & Planning Compliance Checker; /terms: missing LotFile - WA R-Code & Planning Compliance Checker",
+      "missing_count": 2,
       "vps_checkout_env": "VITE_CHECKOUT_URL_MISSING"
     },
     "unblock": [
@@ -23,24 +23,23 @@
       "restic_password_file": "RESTIC_PASSWORD_FILE_MISSING",
       "backup_timer": "0 timers listed.",
       "restore_drill_log": "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
-      "guardrail_cron": "CRON_GUARDRAILS_MISSING",
-      "ops_guardrail_script": "OPS_GUARDRAILS_MISSING",
+      "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+      "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
+      "disk_usage": "DISK_USAGE_OK",
+      "worker_heartbeat": "WORKER_HEARTBEAT_OK",
       "sentry_dsn": "SENTRY_DSN_MISSING",
       "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
       "uptime_monitor_doc": "critical: pending monitor evidence: LotFile health.provider_id, LotFile health.alert_contact, LotFile ready.provider_id, LotFile ready.alert_contact",
-      "log_retention_journald": "LOG_RETENTION_JOURNALD_MISSING",
+      "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
       "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
-      "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs"
+      "log_retention_config": "LOG_RETENTION_CONFIG_OK"
     },
     "unblock": [
-      "Deploy latest non-DB ops scripts after DB jobs are idle so /srv/draftcheck/app/scripts/ops_guardrails.py is present.",
       "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md.",
       "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
       "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
-      "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh",
       "Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.",
-      "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart.",
-      "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh, then rerun with DRAFTCHECK_RESTART_DOCKER=1 during a maintenance window."
+      "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart."
     ]
   }
 }

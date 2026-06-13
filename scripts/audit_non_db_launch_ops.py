@@ -31,7 +31,9 @@ BUNDLE_NEEDLES = (
     "/privacy",
     "/terms",
     "Check an address free",
-    "Advisory research only",
+    "WA residential planning checks",
+    "Clear next steps",
+    "Read sourced results",
     "signup_requested",
     "project_created",
     "compliance_run",
@@ -45,6 +47,8 @@ REQUIRED_OPS_EVIDENCE_KEYS = (
     "restore_drill_log",
     "guardrail_cron",
     "ops_guardrail_script",
+    "disk_usage",
+    "worker_heartbeat",
     "sentry_dsn",
     "uptime_targets",
     "uptime_monitor_doc",
@@ -72,6 +76,18 @@ RUNBOOK_COMMAND_NEEDLES = (
 )
 RAW_DSN_RE = re.compile(r"https://[^\s\"']+@[^\s\"']+", flags=re.IGNORECASE)
 BLOCKED_EVIDENCE_VALUES = {"SSH_SKIPPED", "SSH_CHECK_FAILED"}
+UPTIME_TARGETS_OK = "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready"
+SENTRY_STATES = {"SENTRY_DSN_PRESENT", "SENTRY_DSN_MISSING", "SENTRY_DSN_EMPTY", "SSH_SKIPPED", "SSH_CHECK_FAILED"}
+LOG_RETENTION_STATES = {
+    "LOG_RETENTION_JOURNALD_PRESENT",
+    "LOG_RETENTION_JOURNALD_MISSING",
+    "LOG_RETENTION_DOCKER_PRESENT",
+    "LOG_RETENTION_DOCKER_MISSING",
+    "LOG_RETENTION_CONFIG_OK",
+    "LOG_RETENTION_CONFIG_CRITICAL",
+    "SSH_SKIPPED",
+    "SSH_CHECK_FAILED",
+}
 
 
 @dataclass(frozen=True)
@@ -202,13 +218,73 @@ def assess_ops_guardrails_status(evidence: dict[str, str]) -> str:
         evidence["restore_drill_log"].startswith("ok:"),
         _field_present(evidence["guardrail_cron"], "CRON_GUARDRAILS_PRESENT"),
         _field_present(evidence["ops_guardrail_script"], "OPS_GUARDRAILS_PRESENT"),
+        _field_present(evidence["disk_usage"], "DISK_USAGE_OK"),
+        _field_present(evidence["worker_heartbeat"], "WORKER_HEARTBEAT_OK"),
         _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"),
-        "status ok" in evidence["uptime_targets"],
+        evidence["uptime_targets"] == UPTIME_TARGETS_OK,
         evidence["uptime_monitor_doc"].startswith("ok:"),
         _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT"),
         _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT"),
+        _field_present(evidence["log_retention_config"], "LOG_RETENTION_CONFIG_OK"),
     )
     return "verified" if all(required) else "blocked"
+
+
+def launch_unblock_steps(launch: dict[str, Any], checkout_env: str) -> list[str]:
+    steps: list[str] = []
+    if not _checkout_env_verified(checkout_env):
+        steps.append(
+            "Set a real Stripe Payment Link in /srv/draftcheck/app/infra/v3/.env as VITE_CHECKOUT_URL=https://buy.stripe.com/..."
+        )
+    if launch["status"] != "verified" or steps:
+        steps.append("Deploy the web bundle with: ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'")
+        steps.append("Run: cd web && npm run verify:launch:live:strict")
+    return steps
+
+
+def ops_guardrail_unblock_steps(evidence: dict[str, str]) -> list[str]:
+    steps: list[str] = []
+    if not _field_present(evidence["ops_guardrail_script"], "OPS_GUARDRAILS_PRESENT"):
+        steps.append(
+            "Deploy latest non-DB ops scripts after DB jobs are idle so /srv/draftcheck/app/scripts/ops_guardrails.py is present."
+        )
+    if not _field_present(evidence["backup_env"], "BACKUP_ENV_PRESENT") or not _field_present(
+        evidence["restic_password_file"], "RESTIC_PASSWORD_FILE_PRESENT"
+    ):
+        steps.append(
+            "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md."
+        )
+    if not _timer_verified(evidence["backup_timer"]):
+        steps.append("Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh")
+    if not evidence["restore_drill_log"].startswith("ok:"):
+        steps.append(
+            "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json"
+        )
+    if not _field_present(evidence["guardrail_cron"], "CRON_GUARDRAILS_PRESENT"):
+        steps.append("Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh")
+    if not _field_present(evidence["disk_usage"], "DISK_USAGE_OK"):
+        steps.append(
+            "Run: python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json"
+        )
+    if not _field_present(evidence["worker_heartbeat"], "WORKER_HEARTBEAT_OK"):
+        steps.append(
+            "Run: python3 /srv/draftcheck/app/scripts/ops_guardrails.py worker-heartbeat --compose-dir /srv/draftcheck/app/infra/v3 --json"
+        )
+    if not evidence["uptime_monitor_doc"].startswith("ok:"):
+        steps.append("Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.")
+    if not _field_present(evidence["sentry_dsn"], "SENTRY_DSN_PRESENT"):
+        steps.append(
+            "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart."
+        )
+    if not (
+        _field_present(evidence["log_retention_journald"], "LOG_RETENTION_JOURNALD_PRESENT")
+        and _field_present(evidence["log_retention_docker"], "LOG_RETENTION_DOCKER_PRESENT")
+        and _field_present(evidence["log_retention_config"], "LOG_RETENTION_CONFIG_OK")
+    ):
+        steps.append(
+            "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh, then rerun with DRAFTCHECK_RESTART_DOCKER=1 during a maintenance window."
+        )
+    return steps
 
 
 def _safe_int(value: Any, default: int) -> int:
@@ -242,6 +318,15 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
     if RAW_DSN_RE.search(_report_text(report)):
         failures.append("report appears to contain a raw DSN or webhook URL with embedded credentials")
 
+    sentry_state = str(ops_evidence.get("sentry_dsn", ""))
+    if sentry_state and sentry_state not in SENTRY_STATES:
+        failures.append(f"ops_guardrails.evidence.sentry_dsn has unrecognized state {sentry_state!r}")
+
+    for key in ("log_retention_journald", "log_retention_docker", "log_retention_config"):
+        state = str(ops_evidence.get(key, ""))
+        if state and state not in LOG_RETENTION_STATES:
+            failures.append(f"ops_guardrails.evidence.{key} has unrecognized state {state!r}")
+
     if launch.get("status") == "verified":
         if launch_evidence.get("live_verifier") != "passed":
             failures.append("launch_surface.status verified but live_verifier is not passed")
@@ -254,8 +339,12 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
         status_evidence = {
             key: str(ops_evidence.get(key, ""))
             for key in REQUIRED_OPS_EVIDENCE_KEYS
-            if key != "log_retention_config"
         }
+        uptime_targets = str(ops_evidence.get("uptime_targets", ""))
+        if uptime_targets not in {UPTIME_TARGETS_OK, "SSH_SKIPPED", "SSH_CHECK_FAILED"} and not uptime_targets.startswith(
+            "https://lotfile.app API targets failed:"
+        ):
+            failures.append("ops_guardrails.evidence.uptime_targets is not recognized verifier output")
         expected_ops_status = assess_ops_guardrails_status(status_evidence)
         if ops.get("status") != expected_ops_status:
             failures.append(
@@ -266,6 +355,9 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
         str(value) in BLOCKED_EVIDENCE_VALUES for value in ops_evidence.values()
     ):
         failures.append("ops_guardrails.status verified with skipped or failed SSH evidence")
+
+    if ops.get("status") == "verified" and str(ops_evidence.get("uptime_targets", "")) != UPTIME_TARGETS_OK:
+        failures.append("ops_guardrails.status verified without accepted uptime-target verifier output")
 
     return failures
 
@@ -308,6 +400,9 @@ def parse_vps_state(output: str) -> dict[str, str]:
     sentry_lines = [line for line in lines if line.startswith("SENTRY_DSN_")]
     journald_lines = [line for line in lines if line.startswith("LOG_RETENTION_JOURNALD_")]
     docker_log_lines = [line for line in lines if line.startswith("LOG_RETENTION_DOCKER_")]
+    log_retention_config_lines = [line for line in lines if line.startswith("LOG_RETENTION_CONFIG_")]
+    disk_lines = [line for line in lines if line.startswith("DISK_USAGE_")]
+    heartbeat_lines = [line for line in lines if line.startswith("WORKER_HEARTBEAT_")]
     return {
         "vps_checkout_env": checkout_value or "VITE_CHECKOUT_URL_MISSING",
         "backup_env": "BACKUP_ENV_PRESENT" if "BACKUP_ENV_PRESENT" in lines else "BACKUP_ENV_MISSING",
@@ -317,9 +412,14 @@ def parse_vps_state(output: str) -> dict[str, str]:
         "backup_timer": timer_lines[0] if timer_lines else "draftcheck-backup.timer status unknown",
         "guardrail_cron": "CRON_GUARDRAILS_PRESENT" if "CRON_GUARDRAILS_PRESENT" in lines else "CRON_GUARDRAILS_MISSING",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT" if "OPS_GUARDRAILS_PRESENT" in lines else "OPS_GUARDRAILS_MISSING",
+        "disk_usage": disk_lines[-1] if disk_lines else "DISK_USAGE_UNKNOWN",
+        "worker_heartbeat": heartbeat_lines[-1] if heartbeat_lines else "WORKER_HEARTBEAT_UNKNOWN",
         "sentry_dsn": sentry_lines[-1] if sentry_lines else "SENTRY_DSN_MISSING",
         "log_retention_journald": journald_lines[-1] if journald_lines else "LOG_RETENTION_JOURNALD_MISSING",
         "log_retention_docker": docker_log_lines[-1] if docker_log_lines else "LOG_RETENTION_DOCKER_MISSING",
+        "log_retention_config": log_retention_config_lines[-1]
+        if log_retention_config_lines
+        else "LOG_RETENTION_CONFIG_CRITICAL",
     }
 
 
@@ -337,6 +437,13 @@ fi
 test -f /etc/cron.d/draftcheck-guardrails && echo CRON_GUARDRAILS_PRESENT || echo CRON_GUARDRAILS_MISSING
 systemctl list-timers --all draftcheck-backup.timer --no-pager 2>/dev/null || true
 test -f /srv/draftcheck/app/scripts/ops_guardrails.py && echo OPS_GUARDRAILS_PRESENT || echo OPS_GUARDRAILS_MISSING
+if test -f /srv/draftcheck/app/scripts/ops_guardrails.py; then
+  python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json >/tmp/draftcheck-disk-usage.json 2>/dev/null && echo DISK_USAGE_OK || echo DISK_USAGE_CRITICAL
+  python3 /srv/draftcheck/app/scripts/ops_guardrails.py worker-heartbeat --compose-dir /srv/draftcheck/app/infra/v3 --json >/tmp/draftcheck-worker-heartbeat.json 2>/dev/null && echo WORKER_HEARTBEAT_OK || echo WORKER_HEARTBEAT_CRITICAL
+else
+  echo DISK_USAGE_UNKNOWN
+  echo WORKER_HEARTBEAT_UNKNOWN
+fi
 if test -f /srv/draftcheck/app/infra/v3/.env && grep -q '^SENTRY_DSN=' /srv/draftcheck/app/infra/v3/.env; then
   sentry_dsn="$(grep -E '^SENTRY_DSN=' /srv/draftcheck/app/infra/v3/.env | tail -n 1 | cut -d= -f2-)"
   test -n "$sentry_dsn" && echo SENTRY_DSN_PRESENT || echo SENTRY_DSN_EMPTY
@@ -345,6 +452,11 @@ else
 fi
 test -f /etc/systemd/journald.conf.d/draftcheck.conf && echo LOG_RETENTION_JOURNALD_PRESENT || echo LOG_RETENTION_JOURNALD_MISSING
 test -f /etc/docker/daemon.json && echo LOG_RETENTION_DOCKER_PRESENT || echo LOG_RETENTION_DOCKER_MISSING
+if test -f /srv/draftcheck/app/scripts/ops_guardrails.py; then
+  python3 /srv/draftcheck/app/scripts/ops_guardrails.py log-retention-config --journald-path /etc/systemd/journald.conf.d/draftcheck.conf --docker-daemon-path /etc/docker/daemon.json --json >/tmp/draftcheck-log-retention.json 2>/dev/null && echo LOG_RETENTION_CONFIG_OK || echo LOG_RETENTION_CONFIG_CRITICAL
+else
+  echo LOG_RETENTION_CONFIG_CRITICAL
+fi
 """
     result = subprocess.run(
         ["ssh", host, remote],
@@ -361,9 +473,12 @@ test -f /etc/docker/daemon.json && echo LOG_RETENTION_DOCKER_PRESENT || echo LOG
             "backup_timer": result.stderr.strip() or "SSH_CHECK_FAILED",
             "guardrail_cron": "SSH_CHECK_FAILED",
             "ops_guardrail_script": "SSH_CHECK_FAILED",
+            "disk_usage": "SSH_CHECK_FAILED",
+            "worker_heartbeat": "SSH_CHECK_FAILED",
             "sentry_dsn": "SSH_CHECK_FAILED",
             "log_retention_journald": "SSH_CHECK_FAILED",
             "log_retention_docker": "SSH_CHECK_FAILED",
+            "log_retention_config": "SSH_CHECK_FAILED",
         }
     return parse_vps_state(result.stdout)
 
@@ -389,12 +504,14 @@ def build_report(
         "restore_drill_log": restore_drill_log,
         "guardrail_cron": vps_state["guardrail_cron"],
         "ops_guardrail_script": vps_state["ops_guardrail_script"],
+        "disk_usage": vps_state["disk_usage"],
+        "worker_heartbeat": vps_state["worker_heartbeat"],
         "sentry_dsn": vps_state["sentry_dsn"],
         "uptime_targets": assess_api_targets(origin, api),
         "uptime_monitor_doc": uptime_monitor_doc,
         "log_retention_journald": vps_state["log_retention_journald"],
         "log_retention_docker": vps_state["log_retention_docker"],
-        "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs",
+        "log_retention_config": vps_state["log_retention_config"],
     }
 
     return {
@@ -402,25 +519,12 @@ def build_report(
         "scope": "non-db, non-security go-live blockers",
         "launch_surface": {
             **launch,
-            "unblock": [
-                "Set a real Stripe Payment Link in /srv/draftcheck/app/infra/v3/.env as VITE_CHECKOUT_URL=https://buy.stripe.com/...",
-                "Deploy the web bundle with: ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'",
-                "Run: cd web && npm run verify:launch:live:strict",
-            ],
+            "unblock": launch_unblock_steps(launch, vps_state["vps_checkout_env"]),
         },
         "ops_guardrails": {
             "status": assess_ops_guardrails_status(ops_evidence),
             "evidence": ops_evidence,
-            "unblock": [
-                "Deploy latest non-DB ops scripts after DB jobs are idle so /srv/draftcheck/app/scripts/ops_guardrails.py is present.",
-                "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md.",
-                "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
-                "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
-                "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh",
-                "Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.",
-                "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart.",
-                "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh, then rerun with DRAFTCHECK_RESTART_DOCKER=1 during a maintenance window.",
-            ],
+            "unblock": ops_guardrail_unblock_steps(ops_evidence),
         },
     }
 
@@ -472,9 +576,12 @@ def main() -> int:
             "backup_timer": "SSH_SKIPPED",
             "guardrail_cron": "SSH_SKIPPED",
             "ops_guardrail_script": "SSH_SKIPPED",
+            "disk_usage": "SSH_SKIPPED",
+            "worker_heartbeat": "SSH_SKIPPED",
             "sentry_dsn": "SSH_SKIPPED",
             "log_retention_journald": "SSH_SKIPPED",
             "log_retention_docker": "SSH_SKIPPED",
+            "log_retention_config": "SSH_SKIPPED",
         }
         if args.skip_ssh
         else collect_vps_state(args.ssh_host)

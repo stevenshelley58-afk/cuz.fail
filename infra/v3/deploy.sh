@@ -40,7 +40,12 @@ fi
 
 docker compose "${compose_args[@]}" build api
 docker compose "${compose_args[@]}" up -d --wait --remove-orphans
+# Bind-mounted Caddyfile changes are not guaranteed to recreate the container.
+# Force the edge service so routing and static fallback changes are live.
+docker compose "${compose_args[@]}" up -d --force-recreate --no-deps internal_caddy
 docker compose "${compose_args[@]}" exec -T api python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=5).read()"
+
+(cd "$APP_DIR/web" && npm run verify:launch:live)
 
 # Post-deploy: re-adjudicate stored WP6 rule candidates with the family-aware
 # core-vote policy (scripts/wp6_adjudicate.py). Pure DB pass, no LLM calls,

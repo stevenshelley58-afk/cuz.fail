@@ -80,6 +80,7 @@ def test_v3_sources_spatial_foundation_tables_present() -> None:
         "spend_events",
         "target_manifest",
         "users",
+        "validations",
     }
 
 
@@ -111,6 +112,7 @@ def test_v3_source_artifact_trace_and_spend_columns() -> None:
         "source_version_id",
         "review_status",
         "licence_status",
+        "reviewed_by_user_id",
         "reviewed_at",
     } <= column_names("source_reviews")
     assert {
@@ -251,6 +253,9 @@ def test_v3_rule_compliance_document_and_output_columns() -> None:
         "condition_json",
         "quote",
         "skill_version_id",
+        "approved_by_user_id",
+        "approved_at",
+        "approval_metadata_json",
     } <= column_names("rules")
     assert {"from_type", "from_ref", "to_type", "to_ref", "relation", "review_status"} <= column_names(
         "legal_edges",
@@ -268,6 +273,20 @@ def test_v3_rule_compliance_document_and_output_columns() -> None:
         "review_status",
     } <= column_names("document_facts")
     assert {"manifest_json", "storage_path", "sections_json"} <= column_names("exports")
+    assert {
+        "org_id",
+        "project_id",
+        "export_id",
+        "check_run_id",
+        "job_trace_id",
+        "gate_name",
+        "validation_type",
+        "subject_type",
+        "subject_id",
+        "status",
+        "findings_json",
+        "manifest_json",
+    } <= column_names("validations")
     assert {"subject_type", "subject_id", "reason", "priority", "source_json"} <= column_names("review_items")
 
 
@@ -279,6 +298,11 @@ def test_v3_search_and_spatial_indexes_are_declared() -> None:
     assert "ix_parcels_geom_gist" in index_names("parcels")
     assert "ix_address_points_geom_gist" in index_names("address_points")
     assert "ix_planning_features_geom_gist" in index_names("planning_features")
+    assert "ix_validations_export_status" in index_names("validations")
+    assert "ix_validations_check_run_status" in index_names("validations")
+    assert "ix_validations_subject" in index_names("validations")
+    assert "ix_rules_approved_by_user_id" in index_names("rules")
+    assert "ix_source_reviews_reviewed_by" in index_names("source_reviews")
 
 
 def test_v3_spatial_geometry_types_use_gda2020() -> None:

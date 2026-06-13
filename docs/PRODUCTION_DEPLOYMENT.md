@@ -93,6 +93,10 @@ ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'
 Run these from local PowerShell/Codex after the deploy:
 
 ```powershell
+cd web
+npm run verify:launch:live
+cd ..
+
 curl.exe -s https://lotfile.app/ |
   Select-String -Pattern '<title>[^<]*</title>' -AllMatches |
   ForEach-Object { $_.Matches.Value }
@@ -103,6 +107,7 @@ curl.exe -s -w "`nHTTP_STATUS=%{http_code}`n" https://api.cuz.fail/api/v1/health
 Expected:
 
 ```text
+Live launch verification passed for https://lotfile.app.
 <title>LotFile - WA R-Code & Planning Compliance Checker</title>
 {"status":"ok","service":"draftcheck-api","version":"0.1.0"}
 HTTP_STATUS=200
@@ -114,6 +119,10 @@ Also load `https://lotfile.app/` at desktop width. The current LotFile UI should
 - Full-width content area across the remaining viewport.
 - One address/question box on the home screen.
 - Bottom status pills for `api` and `ready`.
+
+For launch-page UI releases, also load `https://lotfile.app/` and verify the public
+landing page no longer shows the orange advisory badge, the orange advisory disclaimer
+callout, or obvious advisory/no-finality marketing copy.
 
 ## Troubleshooting
 

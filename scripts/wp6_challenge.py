@@ -221,6 +221,7 @@ def main() -> int:
     stats: dict[str, Any] = {
         "mode": "apply" if args.apply else "dry_run",
         "candidates": 0,
+        "would_process": 0,
         "promoted": 0,
         "kept": 0,
         "rejected": 0,
@@ -240,11 +241,14 @@ def main() -> int:
             if not challenge_endpoints:
                 stats["skipped_no_other_family"] += 1
                 continue
+            stats["would_process"] += 1
             clause = {"clause_path": candidate["clause_path"], "text": candidate["text"]}
             try:
                 candidate_signature(candidate)
             except (TypeError, ValueError):
                 stats["skipped_malformed"] += 1
+                continue
+            if not args.apply:
                 continue
             print(f"[{index}/{len(candidates)}] {clause['clause_path']} {candidate['rule_key']}", flush=True)
             votes, errors = fresh_votes_for_candidate(challenge_endpoints, clause=clause, candidate=candidate)
@@ -255,16 +259,15 @@ def main() -> int:
             elif votes == 0:
                 outcome = "rejected"
             stats[outcome] += 1
-            if args.apply:
-                fresh_models = [f"{endpoint.name}:{endpoint.model}" for endpoint in challenge_endpoints]
-                apply_candidate_result(
-                    conn,
-                    candidate=candidate,
-                    votes=votes,
-                    fresh_models=fresh_models,
-                )
-                conn.commit()
-                flush_spend_events(conn, "wp6_challenge")
+            fresh_models = [f"{endpoint.name}:{endpoint.model}" for endpoint in challenge_endpoints]
+            apply_candidate_result(
+                conn,
+                candidate=candidate,
+                votes=votes,
+                fresh_models=fresh_models,
+            )
+            conn.commit()
+            flush_spend_events(conn, "wp6_challenge")
 
         if args.apply:
             flush_spend_events(conn, "wp6_challenge")

@@ -114,7 +114,7 @@ def test_v3_offline_postgresql_upgrade_sql_contains_foundation_schema() -> None:
     assert "create table rules" in sql
     assert "create table resolved_rules" in sql
     assert "create table document_facts" in sql
-    assert "create table signoffs" in sql
+    assert "create table validations" in sql
     assert "create table audit_events" in sql
     assert "create table job_traces" in sql
     assert "create table spatial_datasets" in sql
@@ -122,6 +122,7 @@ def test_v3_offline_postgresql_upgrade_sql_contains_foundation_schema() -> None:
     assert "using hnsw" in sql
     assert "using gin (to_tsvector('english', text))" in sql
     assert "using gist (geom)" in sql
+    assert "create extension if not exists pg_trgm" in sql
     assert "geometry(point,7844)" in sql
     assert "vector(1536)" in sql
     for legacy_table in LEGACY_TABLES:

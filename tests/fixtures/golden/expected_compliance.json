@@ -8,15 +8,19 @@
       "fixture_only": true,
       "requires_human_signoff_for_real_use": true,
       "no_llm_verdicts": true
-    }
+    },
+    "advisory_disclaimer_contains": [
+      "advisory only",
+      "compliance determinations"
+    ]
   },
   "expected_results": [
     {
       "id": "cr_site_cover",
       "check_key": "site_cover",
       "tier": 1,
-      "status": "needs_more_info",
-      "status_reason": "Rule and measurement evidence exist, but the source version is an artificial fixture paraphrase.",
+      "status": "likely_pass",
+      "status_reason": "The fixture measurement is below the artificial site-cover threshold.",
       "source_version_ids": [
         "sv_artificial_demo_rcodes_extract_2026_v1"
       ],
@@ -41,20 +45,28 @@
         ],
         "calculation_trace_id": "trace_fixture_site_cover",
         "not_excluded_by_precedence": true,
-        "needs_verification": true,
+        "needs_verification": false,
         "final_verdict": false
       },
       "missing_information": [],
-      "review_reasons": [
-        "Artificial source version cannot support a real project conclusion."
-      ]
+      "review_reasons": [],
+      "api_expectation": {
+        "check_key": "site_cover",
+        "threshold_value": 50.0,
+        "threshold_unit": "%",
+        "measured_value": 48.44,
+        "drawing_fact_type": "proposed_site_cover_pct",
+        "citation_contains": [
+          "site_cover"
+        ]
+      }
     },
     {
       "id": "cr_primary_street_setback",
       "check_key": "primary_street_setback",
       "tier": 1,
-      "status": "needs_more_info",
-      "status_reason": "The canary has a promoted setback measurement, but contextual discretion is intentionally unresolved.",
+      "status": "likely_pass",
+      "status_reason": "The fixture measurement meets the artificial primary-street setback threshold.",
       "source_version_ids": [
         "sv_artificial_demo_rcodes_extract_2026_v1"
       ],
@@ -77,20 +89,28 @@
         ],
         "calculation_trace_id": "trace_fixture_primary_street_setback",
         "not_excluded_by_precedence": true,
-        "needs_verification": true,
+        "needs_verification": false,
         "final_verdict": false
       },
       "missing_information": [],
-      "review_reasons": [
-        "Primary-street context remains reviewer-gated in the canary."
-      ]
+      "review_reasons": [],
+      "api_expectation": {
+        "check_key": "setback_front",
+        "threshold_value": 4.0,
+        "threshold_unit": "m",
+        "measured_value": 4.5,
+        "drawing_fact_type": "proposed_setback_front_m",
+        "citation_contains": [
+          "primary_street_setback"
+        ]
+      }
     },
     {
       "id": "cr_open_space",
       "check_key": "open_space",
       "tier": 1,
-      "status": "missing_information",
-      "status_reason": "Open-space area exists, but exclusion classification evidence is not supplied in this seed.",
+      "status": "likely_pass",
+      "status_reason": "The fixture measurement meets the artificial open-space threshold.",
       "source_version_ids": [
         "sv_artificial_demo_rcodes_extract_2026_v1"
       ],
@@ -113,22 +133,30 @@
           "pm_open_space_area",
           "pm_lot_area"
         ],
-        "calculation_trace_id": null,
+        "calculation_trace_id": "trace_fixture_open_space",
         "not_excluded_by_precedence": true,
-        "needs_verification": true,
+        "needs_verification": false,
         "final_verdict": false
       },
-      "missing_information": [
-        "open_space_exclusion_classification"
-      ],
-      "review_reasons": []
+      "missing_information": [],
+      "review_reasons": [],
+      "api_expectation": {
+        "check_key": "open_space",
+        "threshold_value": 35.0,
+        "threshold_unit": "%",
+        "measured_value": 40.0,
+        "drawing_fact_type": "proposed_open_space_pct",
+        "citation_contains": [
+          "open_space"
+        ]
+      }
     },
     {
       "id": "cr_garage_dominance",
       "check_key": "garage_dominance",
       "tier": 1,
-      "status": "needs_more_info",
-      "status_reason": "Garage width and frontage facts exist, but dominance assessment remains reviewer-gated.",
+      "status": "likely_pass",
+      "status_reason": "The fixture measurement is below the artificial garage-dominance threshold.",
       "source_version_ids": [
         "sv_artificial_demo_rcodes_extract_2026_v1"
       ],
@@ -154,20 +182,28 @@
         ],
         "calculation_trace_id": "trace_fixture_garage_dominance",
         "not_excluded_by_precedence": true,
-        "needs_verification": true,
+        "needs_verification": false,
         "final_verdict": false
       },
       "missing_information": [],
-      "review_reasons": [
-        "The fixture does not encode a deterministic design-judgement override."
-      ]
+      "review_reasons": [],
+      "api_expectation": {
+        "check_key": "garage_dominance",
+        "threshold_value": 6.0,
+        "threshold_unit": "m",
+        "measured_value": 5.4,
+        "drawing_fact_type": "proposed_garage_width_m",
+        "citation_contains": [
+          "garage_dominance"
+        ]
+      }
     },
     {
       "id": "cr_boundary_wall_length",
       "check_key": "boundary_wall_length",
       "tier": 1,
-      "status": "not_assessed",
-      "status_reason": "No boundary-wall proposal is asserted by the seed.",
+      "status": "likely_pass",
+      "status_reason": "The fixture measurement is below the artificial boundary-wall length threshold.",
       "source_version_ids": [
         "sv_artificial_demo_rcodes_extract_2026_v1"
       ],
@@ -188,15 +224,23 @@
         "promoted_measurement_ids": [
           "pm_boundary_wall_length"
         ],
-        "calculation_trace_id": null,
+        "calculation_trace_id": "trace_fixture_boundary_wall_length",
         "not_excluded_by_precedence": true,
-        "needs_verification": true,
+        "needs_verification": false,
         "final_verdict": false
       },
-      "missing_information": [
-        "boundary_wall_proposal_confirmation"
-      ],
-      "review_reasons": []
+      "missing_information": [],
+      "review_reasons": [],
+      "api_expectation": {
+        "check_key": "boundary_wall_length",
+        "threshold_value": 9.0,
+        "threshold_unit": "m",
+        "measured_value": 0.0,
+        "drawing_fact_type": "proposed_boundary_wall_length_m",
+        "citation_contains": [
+          "boundary_wall_length"
+        ]
+      }
     },
     {
       "id": "cr_building_height",

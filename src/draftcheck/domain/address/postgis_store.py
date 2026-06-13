@@ -96,6 +96,27 @@ def _coerce_licence_status(value: Any) -> LicenceStatus:
     Anything unrecognised becomes UNKNOWN — i.e. never authoritative — rather
     than crashing every read of the dataset row.
     """
+    normalized = str(value or "").strip().lower()
+    aliases = {
+        "approved": LicenceStatus.LICENSED,
+        "licensed": LicenceStatus.LICENSED,
+        "open": LicenceStatus.LICENSED,
+        "verified_open": LicenceStatus.LICENSED,
+        "public": LicenceStatus.LICENSED,
+        "cc-by": LicenceStatus.LICENSED,
+        "approved_fixture_only": LicenceStatus.LICENSED,
+        "fixture": LicenceStatus.LICENSED,
+        "review": LicenceStatus.RESTRICTED,
+        "restricted": LicenceStatus.RESTRICTED,
+        "pending_review": LicenceStatus.RESTRICTED,
+        "metadata_only": LicenceStatus.RESTRICTED,
+        "blocked": LicenceStatus.UNLICENSED,
+        "prohibited": LicenceStatus.UNLICENSED,
+        "unlicensed": LicenceStatus.UNLICENSED,
+        "unknown": LicenceStatus.UNKNOWN,
+    }
+    if normalized in aliases:
+        return aliases[normalized]
     try:
         return LicenceStatus(value)
     except ValueError:
@@ -104,6 +125,18 @@ def _coerce_licence_status(value: Any) -> LicenceStatus:
 
 
 def _coerce_approval_status(value: Any) -> SourceApprovalStatus:
+    normalized = str(value or "").strip().lower()
+    aliases = {
+        "approved": SourceApprovalStatus.APPROVED,
+        "accepted": SourceApprovalStatus.APPROVED,
+        "review": SourceApprovalStatus.PENDING_REVIEW,
+        "pending": SourceApprovalStatus.PENDING_REVIEW,
+        "pending_review": SourceApprovalStatus.PENDING_REVIEW,
+        "rejected": SourceApprovalStatus.REJECTED,
+        "blocked": SourceApprovalStatus.REJECTED,
+    }
+    if normalized in aliases:
+        return aliases[normalized]
     try:
         return SourceApprovalStatus(value)
     except ValueError:
@@ -111,12 +144,48 @@ def _coerce_approval_status(value: Any) -> SourceApprovalStatus:
         return SourceApprovalStatus.PENDING_REVIEW
 
 
+def _feature_fact_type(row: DbPlanningFeature, dataset: DbSpatialDataset) -> str:
+    meta = row.metadata_json or {}
+    raw = str(meta.get("fact_type") or row.layer_type or "").strip().lower()
+    dataset_id = str(dataset.dataset_id or "").strip().lower()
+    code = str(row.code or "").strip().upper()
+    label = str(row.label or "").strip().lower()
+    if (
+        raw in {"r_code", "residential_density", "density_code"}
+        or dataset_id == "dplh-070"
+        or label.startswith("residential design code")
+        or (code.startswith("R") and code[1:].isdigit())
+    ):
+        return "r_code"
+    return raw or "overlay"
+
+
+def _feature_value(row: DbPlanningFeature, fact_type: str) -> Any:
+    meta = row.metadata_json or {}
+    if "value" in meta and meta["value"] is not None:
+        return meta["value"]
+    code = str(row.code or "").strip()
+    label = row.label
+    if fact_type == "r_code":
+        normalized_code = code
+        if normalized_code.startswith("RR") and normalized_code[2:].isdigit():
+            normalized_code = f"R{normalized_code[2:]}"
+        return {"code": normalized_code, "label": label}
+    if fact_type == "zone":
+        return {"code": code, "label": label}
+    return {"code": code, "label": label, "layer_type": row.layer_type}
+
+
 def _db_dataset_to_metadata(row: DbSpatialDataset) -> SpatialDatasetMetadata:
     meta = row.metadata_json or {}
     source_version_id = (
         str(row.source_version_id)
         if row.source_version_id
-        else (str(meta["source_version_id"]) if meta.get("source_version_id") else None)
+        else (
+            str(meta["source_version_id"])
+            if meta.get("source_version_id")
+            else f"spatial-dataset:{row.dataset_id}:{row.version}"
+        )
     )
     return SpatialDatasetMetadata(
         dataset_id=row.dataset_id,
@@ -588,6 +657,7 @@ class PostGISSpatialDatasetStore:
         if not point.lat and not point.lon:
             return None
         with Session(self._engine) as session:
+            point_geom = func.ST_SetSRID(func.ST_MakePoint(point.lon, point.lat), 7844)
             row = session.execute(
                 select(DbParcel, DbSpatialDataset.dataset_id)
                 .join(
@@ -595,11 +665,16 @@ class PostGISSpatialDatasetStore:
                     DbParcel.spatial_dataset_id == DbSpatialDataset.id,
                 )
                 .where(
-                    func.ST_Within(
-                        func.ST_SetSRID(func.ST_MakePoint(point.lon, point.lat), 7844),
-                        DbParcel.geom,
+                    or_(
+                        func.ST_Covers(DbParcel.geom, point_geom),
+                        func.ST_DWithin(
+                            func.Geography(DbParcel.geom),
+                            func.Geography(point_geom),
+                            2.0,
+                        ),
                     )
                 )
+                .order_by(func.ST_Distance(DbParcel.geom, point_geom))
                 .limit(1)
             ).first()
             if row is None:
@@ -614,6 +689,109 @@ class PostGISSpatialDatasetStore:
                 dataset_id=str(meta.get("dataset_id", dataset_id)),
                 verification_status=str(meta.get("verification_status", "verified")),
             )
+
+    def parcel_derived_facts(self, parcel_id: str) -> list[PropertyFact]:
+        """Return geometry-derived lot facts for a cadastre parcel.
+
+        These facts are advisory property facts, not legal proof. Area uses the
+        stored cadastre value when present; frontage/corner lot are geometric
+        heuristics used to unlock rule applicability and missing-info prompts.
+        """
+        with Session(self._engine) as session:
+            row = session.execute(
+                select(DbParcel, DbSpatialDataset)
+                .join(DbSpatialDataset, DbParcel.spatial_dataset_id == DbSpatialDataset.id)
+                .where(DbParcel.cadastre_id == parcel_id)
+                .limit(1)
+            ).first()
+            if row is None:
+                return []
+            parcel_row, dataset_row = row
+            dataset = _db_dataset_to_metadata(dataset_row)
+            provenance = dataset.provenance(
+                method="parcel_geometry_measurement",
+                detail="Derived from cadastral parcel geometry; frontage and corner lot are heuristics.",
+            )
+            facts: list[PropertyFact] = []
+
+            if parcel_row.area_m2:
+                facts.append(
+                    PropertyFact(
+                        fact_id=f"{parcel_id}:lot_area_m2",
+                        fact_type="lot_area_m2",
+                        value={"value": float(parcel_row.area_m2), "unit": "m2"},
+                        provenance=provenance,
+                        confidence=Confidence.MEDIUM,
+                        review_status="pending_review",
+                    )
+                )
+
+            frontage = session.execute(
+                text(
+                    "WITH poly AS ("
+                    "  SELECT CASE WHEN ST_GeometryType(geom) = 'ST_MultiPolygon' "
+                    "         THEN ST_GeometryN(geom, 1) ELSE geom END AS geom "
+                    "  FROM parcels WHERE id = :pid"
+                    "), edges AS ("
+                    "  SELECT ST_Distance("
+                    "    ST_Transform(ST_PointN(ST_ExteriorRing(geom), i), 3112), "
+                    "    ST_Transform(ST_PointN(ST_ExteriorRing(geom), i + 1), 3112)"
+                    "  ) AS edge_len "
+                    "  FROM poly, generate_series(1, ST_NPoints(ST_ExteriorRing(geom)) - 1) AS i"
+                    ") SELECT MAX(edge_len) FROM edges"
+                ),
+                {"pid": str(parcel_row.id)},
+            ).scalar_one_or_none()
+            if frontage is not None:
+                facts.append(
+                    PropertyFact(
+                        fact_id=f"{parcel_id}:frontage",
+                        fact_type="frontage",
+                        value={
+                            "value": round(float(frontage), 2),
+                            "unit": "m",
+                            "method": "longest_exterior_edge_heuristic",
+                        },
+                        provenance=provenance,
+                        confidence=Confidence.LOW,
+                        review_status="pending_review",
+                    )
+                )
+
+            corner_row = session.execute(
+                text(
+                    "WITH poly AS ("
+                    "  SELECT CASE WHEN ST_GeometryType(geom) = 'ST_MultiPolygon' "
+                    "         THEN ST_GeometryN(geom, 1) ELSE geom END AS geom "
+                    "  FROM parcels WHERE id = :pid"
+                    "), edges AS ("
+                    "  SELECT ST_Distance("
+                    "    ST_Transform(ST_PointN(ST_ExteriorRing(geom), i), 3112), "
+                    "    ST_Transform(ST_PointN(ST_ExteriorRing(geom), i + 1), 3112)"
+                    "  ) AS edge_len "
+                    "  FROM poly, generate_series(1, ST_NPoints(ST_ExteriorRing(geom)) - 1) AS i "
+                    "  ORDER BY edge_len DESC LIMIT 2"
+                    ") SELECT COUNT(*), MAX(edge_len), MIN(edge_len) FROM edges"
+                ),
+                {"pid": str(parcel_row.id)},
+            ).first()
+            if corner_row and int(corner_row[0] or 0) >= 2 and corner_row[1]:
+                max_len = float(corner_row[1])
+                second_len = float(corner_row[2] or 0)
+                facts.append(
+                    PropertyFact(
+                        fact_id=f"{parcel_id}:corner_lot",
+                        fact_type="corner_lot",
+                        value={
+                            "value": bool(max_len and second_len / max_len >= 0.60),
+                            "method": "two_long_edges_heuristic",
+                        },
+                        provenance=provenance,
+                        confidence=Confidence.LOW,
+                        review_status="pending_review",
+                    )
+                )
+            return facts
 
     def planning_for_parcel(self, parcel_id: str) -> list[PlanningFeature]:
         """Return planning features whose geometry intersects the given parcel.
@@ -645,12 +823,13 @@ class PostGISSpatialDatasetStore:
             results: list[PlanningFeature] = []
             for pf_row, ds_row in rows:
                 meta = pf_row.metadata_json or {}
+                fact_type = _feature_fact_type(pf_row, ds_row)
                 results.append(
                     PlanningFeature(
                         feature_id=meta.get("feature_id", str(pf_row.id)),
                         parcel_id=meta.get("parcel_id", parcel_id),
-                        fact_type=meta.get("fact_type", pf_row.layer_type),
-                        value=meta.get("value"),
+                        fact_type=fact_type,
+                        value=_feature_value(pf_row, fact_type),
                         dataset_id=meta.get("dataset_id", ds_row.dataset_id),
                         label=pf_row.label,
                         target_crs=meta.get("target_crs", GDA2020_TARGET_CRS),

@@ -238,11 +238,34 @@ class TestLicenceGateApprovalStatus:
             _coerce_licence_status,
         )
 
-        assert _coerce_licence_status("approved") == LicenceStatus.UNKNOWN
-        assert _coerce_licence_status("review") == LicenceStatus.UNKNOWN
+        assert _coerce_licence_status("approved") == LicenceStatus.LICENSED
+        assert _coerce_licence_status("verified_open") == LicenceStatus.LICENSED
+        assert _coerce_licence_status("review") == LicenceStatus.RESTRICTED
+        assert _coerce_licence_status("pending_review") == LicenceStatus.RESTRICTED
         assert _coerce_licence_status("licensed") == LicenceStatus.LICENSED
         assert _coerce_approval_status("bogus") == SourceApprovalStatus.PENDING_REVIEW
         assert _coerce_approval_status("approved") == SourceApprovalStatus.APPROVED
+
+    def test_planning_feature_helper_normalizes_dplh_070_to_r_code(self) -> None:
+        """The WP2 loader stores DPLH-070 as layer_type='zone'; runtime must expose r_code."""
+        from draftcheck.db.models import PlanningFeature, SpatialDataset
+        from draftcheck.domain.address.postgis_store import _feature_fact_type, _feature_value
+
+        dataset = SpatialDataset(dataset_id="dplh-070", name="R Codes", provider="DPLH", version="2026")
+        feature = PlanningFeature(
+            layer_type="zone",
+            code="R30",
+            label="Residential Design Code R30",
+            metadata_json={},
+        )
+
+        fact_type = _feature_fact_type(feature, dataset)
+
+        assert fact_type == "r_code"
+        assert _feature_value(feature, fact_type) == {
+            "code": "R30",
+            "label": "Residential Design Code R30",
+        }
 
     def test_metadata_round_trip_preserves_source_version_id(self) -> None:
         """source_version_id must survive import -> read-back via metadata_json,

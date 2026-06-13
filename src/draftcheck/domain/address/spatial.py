@@ -696,10 +696,31 @@ class AddressResolutionService:
                 )
             )
         provenance = [point_provenance, parcel_provenance]
+        derived_facts = getattr(self.store, "parcel_derived_facts", None)
+        if callable(derived_facts):
+            for fact in derived_facts(parcel.parcel_id):
+                if fact.fact_type == "lot_area_m2" and any(
+                    existing.fact_type == "lot_area_m2" for existing in facts
+                ):
+                    continue
+                facts.append(
+                    PropertyFact(
+                        fact_id=f"{project_id}:{fact.fact_type}",
+                        fact_type=fact.fact_type,
+                        value=fact.value,
+                        provenance=fact.provenance,
+                        confidence=fact.confidence,
+                        review_status=fact.review_status,
+                    )
+                )
+                provenance.append(fact.provenance)
+        planning_review_pending = False
         for feature in self.store.planning_for_parcel(parcel.parcel_id):
             dataset = self.store.dataset_for(feature.dataset_id)
-            if dataset is None or not dataset.is_authoritative():
+            if dataset is None:
                 continue
+            authoritative_feature = dataset.is_authoritative()
+            planning_review_pending = planning_review_pending or not authoritative_feature
             feature_provenance = dataset.provenance(
                 method="parcel_planning_feature_intersection",
                 detail=feature.label,
@@ -710,11 +731,17 @@ class AddressResolutionService:
                     fact_type=feature.fact_type,
                     value=feature.value,
                     provenance=feature_provenance,
-                    confidence=Confidence.HIGH,
-                    review_status="accepted",
+                    confidence=Confidence.HIGH if authoritative_feature else Confidence.LOW,
+                    review_status="accepted" if authoritative_feature else "pending_review",
                 )
             )
             provenance.append(feature_provenance)
+
+        issues = []
+        if not parcel_verified:
+            issues.extend(("parcel_needs_authoritative_import", "planning_sources_pending_import"))
+        elif planning_review_pending:
+            issues.append("planning_sources_pending_review")
 
         return PropertyProfile(
             org_id=org_id,
@@ -729,9 +756,7 @@ class AddressResolutionService:
             local_government=parcel.local_government,
             facts=tuple(facts),
             provenance=tuple(provenance),
-            issues=()
-            if parcel_verified
-            else ("parcel_needs_authoritative_import", "planning_sources_pending_import"),
+            issues=tuple(issues),
         )
 
     def _point_only_profile(

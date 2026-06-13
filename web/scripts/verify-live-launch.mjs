@@ -20,20 +20,69 @@ function assertIncludes(text, needle, label) {
   if (!text.includes(needle)) fail(`${label} missing '${needle}'`);
 }
 
-const routes = ["/", "/privacy", "/terms", "/app"];
+function assertNotIncludes(text, needle, label) {
+  if (text.includes(needle)) fail(`${label} must not include '${needle}'`);
+}
+
+const routes = [
+  {
+    path: "/",
+    title: "LotFile - WA R-Code & Planning Compliance Checker",
+    canonical: "https://lotfile.app/",
+  },
+  {
+    path: "/privacy",
+    title: "Privacy - LotFile",
+    canonical: "https://lotfile.app/privacy",
+  },
+  {
+    path: "/terms",
+    title: "Terms - LotFile",
+    canonical: "https://lotfile.app/terms",
+  },
+  {
+    path: "/app",
+    title: "LotFile - WA R-Code & Planning Compliance Checker",
+    canonical: "https://lotfile.app/",
+  },
+];
+const publicAssets = [
+  {
+    path: "/robots.txt",
+    includes: ["Allow: /privacy", "Allow: /terms", "Disallow: /app", "Sitemap: https://lotfile.app/sitemap.xml"],
+  },
+  {
+    path: "/sitemap.xml",
+    includes: ["https://lotfile.app/", "https://lotfile.app/privacy", "https://lotfile.app/terms"],
+  },
+  { path: "/favicon.svg", includes: ["<svg"] },
+  { path: "/og-image.svg", includes: ["<svg"] },
+];
+
 for (const failure of checkoutUrlFailures(expectedCheckoutUrl, checkoutUrlLabel)) {
   fail(failure);
 }
 
 const pages = new Map();
-for (const path of routes) {
+for (const route of routes) {
+  const path = route.path;
   const response = await fetchText(`${origin}${path}`);
   pages.set(path, response);
   if (response.status !== 200) fail(`${path} returned HTTP ${response.status}`);
-  assertIncludes(response.text, "LotFile - WA R-Code & Planning Compliance Checker", `${path} SEO title`);
+  assertIncludes(response.text, `<title>${route.title}</title>`, `${path} SEO title`);
   assertIncludes(response.text, 'name="description"', `${path} description meta`);
-  assertIncludes(response.text, 'property="og:title"', `${path} Open Graph title`);
+  assertIncludes(response.text, `property="og:title" content="${route.title}"`, `${path} Open Graph title`);
+  assertIncludes(response.text, `rel="canonical" href="${route.canonical}"`, `${path} canonical`);
+  assertIncludes(response.text, `property="og:url" content="${route.canonical}"`, `${path} Open Graph URL`);
   assertIncludes(response.text, 'data-domain="lotfile.app"', `${path} Plausible script`);
+}
+
+for (const asset of publicAssets) {
+  const response = await fetchText(`${origin}${asset.path}`);
+  if (response.status !== 200) fail(`${asset.path} returned HTTP ${response.status}`);
+  for (const needle of asset.includes) {
+    assertIncludes(response.text, needle, `${asset.path} content`);
+  }
 }
 
 for (const path of ["/api/v1/health", "/api/v1/ready"]) {
@@ -63,7 +112,9 @@ if (!assetMatches.length) {
     "/privacy",
     "/terms",
     "Check an address free",
-    "Advisory research only",
+    "WA residential planning checks",
+    "Clear next steps",
+    "Read sourced results",
     "signup_requested",
     "project_created",
     "compliance_run",
@@ -71,6 +122,17 @@ if (!assetMatches.length) {
     "AUD $29/month",
   ]) {
     assertIncludes(bundleText, needle, "live JS bundle");
+  }
+  for (const removedNeedle of [
+    "Advisory research only",
+    "does not issue approvals.",
+    "LotFile advisory check preview",
+    ">Advisory</span>",
+    "No finality claims",
+    "Read cited advisory results",
+    "LotFile provides advisory planning research only",
+  ]) {
+    assertNotIncludes(bundleText, removedNeedle, "live JS bundle removed disclaimer copy");
   }
   if (expectedCheckoutUrl) {
     assertIncludes(bundleText, expectedCheckoutUrl, "live checkout URL");

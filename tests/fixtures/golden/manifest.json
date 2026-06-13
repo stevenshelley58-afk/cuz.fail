@@ -27,6 +27,9 @@
     "document_facts": "document_facts.json",
     "expected_compliance": "expected_compliance.json"
   },
+  "artifacts": {
+    "site_plan_dxf": "m1_canary_site_plan_rev_a.dxf"
+  },
   "canary_scope": {
     "phase": "M1",
     "project_id": "proj_m1_canary",

@@ -6,6 +6,7 @@ from datetime import UTC, datetime
 from draftcheck.checks.engine import (
     _base_rule_key,
     _drawing_evidence,
+    _extract_numeric,
     _extract_text_value,
     _missing_reason,
     _normalize_operator,
@@ -77,11 +78,28 @@ def test_select_rule_exact_check_key_still_matches():
     assert _select_rule([legacy], "setback_front", []) is legacy
 
 
+def test_select_rule_maps_new_registry_keys_to_wp6_base_keys():
+    rules = [
+        _rule("retaining_fill.R30", base="retaining_fill", value=0.5),
+        _rule("vehicle_access.required", base="vehicle_access", value=1.0),
+        _rule("outdoor_living_area.R30", base="outdoor_living_area", value=24.0),
+    ]
+
+    assert _select_rule(rules, "retaining_fill_trigger", []) is rules[0]
+    assert _select_rule(rules, "vehicle_access", []) is rules[1]
+    assert _select_rule(rules, "outdoor_living_area", []) is rules[2]
+
+
 def test_extract_text_value_accepts_council_shapes():
     assert _extract_text_value({"value": "City of Cockburn"}) == "City of Cockburn"
     assert _extract_text_value({"name": "Demo Bay"}) == "Demo Bay"
     assert _extract_text_value({"code": "R40"}) == "R40"
     assert _extract_text_value({}) is None
+
+
+def test_extract_numeric_accepts_boolean_trigger_facts():
+    assert _extract_numeric({"value": True}) == 1.0
+    assert _extract_numeric({"value": False}) == 0.0
 
 
 def test_resolve_council_scope_prefers_confirmed_property_fact():
@@ -99,6 +117,23 @@ def test_resolve_council_scope_prefers_confirmed_property_fact():
 
     assert council == "Fact Council"
     assert source == "property_fact:council"
+
+
+def test_resolve_council_scope_accepts_address_local_government_fact():
+    project = Project(name="p", council_scope="Legacy Council", metadata_json={})
+    council_fact = PropertyFact(
+        fact_type="local_government",
+        value_json={"name": "City of Cockburn"},
+        confidence=1.0,
+        method="postgis_st_intersects_lga",
+        provenance_json={},
+        review_status="confirmed",
+    )
+
+    council, source = _resolve_council_scope(project, {"local_government": council_fact})
+
+    assert council == "City of Cockburn"
+    assert source == "property_fact:local_government"
 
 
 def test_missing_reason_classifies_fact_rule_and_operator_gaps():

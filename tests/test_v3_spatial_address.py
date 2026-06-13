@@ -14,6 +14,7 @@ from draftcheck.domain.address import (
     LicenceStatus,
     ManualFact,
     Parcel,
+    PlanningFeature,
     SourceApprovalStatus,
     SpatialDatasetMetadata,
 )
@@ -207,6 +208,88 @@ def test_manual_override_provenance_appears_without_authoritative_claim() -> Non
     assert provenance["kind"] == "manual_override"
     assert provenance["manual_override_id"] == "manual-override-1"
     assert provenance["source_version_id"] is None
+
+
+def test_pending_review_planning_feature_is_visible_but_not_accepted() -> None:
+    store = InMemorySpatialDatasetStore()
+    gnaf = SpatialDatasetMetadata(
+        dataset_id="approved-gnaf",
+        name="Approved G-NAF",
+        provider="fixture",
+        version="2026-Q2",
+        licence="approved",
+        licence_status=LicenceStatus.LICENSED,
+        approval_status=SourceApprovalStatus.APPROVED,
+        source_version_id="source-version:approved-gnaf",
+        source_crs=GDA2020_TARGET_CRS,
+    )
+    cadastre = SpatialDatasetMetadata(
+        dataset_id="approved-cadastre",
+        name="Approved cadastre",
+        provider="fixture",
+        version="2026-Q2",
+        licence="approved",
+        licence_status=LicenceStatus.LICENSED,
+        approval_status=SourceApprovalStatus.APPROVED,
+        source_version_id="source-version:approved-cadastre",
+        source_crs=GDA2020_TARGET_CRS,
+    )
+    planning = SpatialDatasetMetadata(
+        dataset_id="pending-dplh-070",
+        name="Pending DPLH R-Codes",
+        provider="fixture",
+        version="2026-Q2",
+        licence="review",
+        licence_status=LicenceStatus.RESTRICTED,
+        approval_status=SourceApprovalStatus.PENDING_REVIEW,
+        source_version_id="source-version:pending-dplh",
+        source_crs=GDA2020_TARGET_CRS,
+    )
+    store.import_dataset(gnaf)
+    store.import_dataset(cadastre)
+    store.import_dataset(planning, require_authoritative=False)
+    store.add_parcel(
+        Parcel(
+            parcel_id="parcel-with-pending-planning",
+            lot_plan="Lot 1 on P1",
+            local_government="City of Cockburn",
+            area_m2=450,
+            dataset_id=cadastre.dataset_id,
+        )
+    )
+    store.add_address_point(
+        AddressPoint(
+            address_id="address-with-pending-planning",
+            formatted_address="1 Pending Planning Street, Beeliar WA 6164",
+            lon=115.82,
+            lat=-32.13,
+            parcel_id="parcel-with-pending-planning",
+            dataset_id=gnaf.dataset_id,
+        )
+    )
+    store.add_planning_feature(
+        PlanningFeature(
+            feature_id="dplh-070-r30",
+            parcel_id="parcel-with-pending-planning",
+            fact_type="r_code",
+            value={"code": "R30", "label": "Residential Design Code R30"},
+            dataset_id=planning.dataset_id,
+            label="Residential Design Code R30",
+        )
+    )
+
+    profile = AddressResolutionService(store).resolve_address(
+        org_id="org-fixture",
+        project_id="project-pending-planning",
+        address="1 Pending Planning Street, Beeliar WA 6164",
+    )
+
+    r_code = next(fact for fact in profile.facts if fact.fact_type == "r_code")
+    assert profile.resolution_status == "resolved"
+    assert "planning_sources_pending_review" in profile.issues
+    assert r_code.value["code"] == "R30"
+    assert r_code.review_status == "pending_review"
+    assert str(r_code.confidence) == "low"
 
 
 def test_manual_override_rejects_proposal_only_fact_types() -> None:

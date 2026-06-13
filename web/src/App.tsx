@@ -18,7 +18,7 @@ type AppRoute = "landing" | "privacy" | "terms" | "product";
 const ROUTE_META: Record<AppRoute, { title: string; description: string; canonical: string }> = {
   landing: {
     title: "LotFile - WA R-Code & Planning Compliance Checker",
-    description: "Advisory WA planning checks for addresses, drawings, R-Codes and source-cited project risk review. Not a certification or council decision.",
+    description: "WA planning checks for addresses, drawings, R-Codes and source-cited project review.",
     canonical: "https://lotfile.app/",
   },
   privacy: {
@@ -32,8 +32,8 @@ const ROUTE_META: Record<AppRoute, { title: string; description: string; canonic
     canonical: "https://lotfile.app/terms",
   },
   product: {
-    title: "LotFile App - Advisory WA Planning Checks",
-    description: "Address-first LotFile workspace for advisory WA planning checks with cited sources and uploaded drawing review.",
+    title: "LotFile App - WA Planning Checks",
+    description: "Address-first LotFile workspace for WA planning checks with cited sources and uploaded drawing review.",
     canonical: "https://lotfile.app/app",
   },
 };

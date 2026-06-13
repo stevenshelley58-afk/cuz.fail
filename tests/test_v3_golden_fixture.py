@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -119,6 +120,7 @@ def promoted_measurements_by_id(fixtures: dict[str, Any]) -> dict[str, dict[str,
 
 def test_manifest_references_complete_fixture_files() -> None:
     manifest = load_manifest()
+    fixture_root = FIXTURE_DIR.resolve()
 
     assert set(manifest["files"]) == REQUIRED_MANIFEST_FILES
     for relative_path in manifest["files"].values():
@@ -126,8 +128,19 @@ def test_manifest_references_complete_fixture_files() -> None:
         assert path.exists(), relative_path
         assert path.suffix == ".json"
         load_json(path)
+    for relative_path in manifest["artifacts"].values():
+        path = (FIXTURE_DIR / relative_path).resolve()
+        assert fixture_root in path.parents
+        assert path.exists(), relative_path
+        assert path.suffix == ".dxf"
 
     fixtures = load_fixture_files()
+    dxf_artifact = (FIXTURE_DIR / manifest["artifacts"]["site_plan_dxf"]).resolve()
+    artifact_hash = hashlib.sha256(dxf_artifact.read_bytes()).hexdigest()
+    [document] = fixtures["document_facts"]["documents"]
+    assert document["sha256"] == artifact_hash
+    assert document["artifact"]["sha256"] == artifact_hash
+
     org = fixtures["org_user"]["org"]
     users = {user["id"]: user for user in fixtures["org_user"]["users"]}
     project = fixtures["project"]["project"]

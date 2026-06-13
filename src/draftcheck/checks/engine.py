@@ -76,6 +76,24 @@ _CHECK_TO_BASE_RULE_KEYS: dict[str, tuple[str, ...]] = {
     "garage_width": ("garage_width",),
     "garage_dominance": ("garage_dominance",),
     "boundary_wall_length": ("boundary_wall_length", "boundary_wall"),
+    "site_area": ("site_area", "lot_area", "lot_area_m2"),
+    "outdoor_living_area": ("outdoor_living_area", "outdoor_living"),
+    "soft_landscaping": ("soft_landscaping", "deep_soil_tree_planting", "deep_soil"),
+    "street_surveillance": ("street_surveillance",),
+    "solar_access": ("solar_access",),
+    "privacy": ("privacy", "visual_privacy"),
+    "overshadowing": ("overshadowing",),
+    "vehicle_access": ("vehicle_access", "parking", "driveway"),
+    "bin_storage": ("bin_storage",),
+    "retaining_fill_trigger": ("retaining_fill_trigger", "retaining_fill", "retaining_wall", "fill"),
+    "ancillary_dwelling_trigger": ("ancillary_dwelling_trigger", "ancillary_dwelling"),
+    "bal_bushfire_trigger": ("bal_bushfire_trigger", "bal_bushfire", "bushfire"),
+    "heritage_overlay_trigger": ("heritage_overlay_trigger", "heritage_overlay", "heritage"),
+    "title_block_completeness": ("title_block_completeness", "title_block"),
+    "revision_completeness": ("revision_completeness", "revision"),
+    "north_point_completeness": ("north_point_completeness", "north_point"),
+    "scale_completeness": ("scale_completeness", "scale"),
+    "dimension_completeness": ("dimension_completeness", "dimension_completeness", "dimensions"),
 }
 
 
@@ -112,10 +130,7 @@ def _select_rule(
         if rule.rule_key != check_key and base not in accepted:
             continue
         raw = rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
-        try:
-            has_threshold = raw is not None and float(str(raw)) == float(str(raw))
-        except (TypeError, ValueError):
-            has_threshold = False
+        has_threshold = _coerce_numeric(raw) is not None
         specific = bool(
             rule.applicable_r_codes
             and r_codes
@@ -166,8 +181,16 @@ def _extract_numeric(value_json: dict[str, object] | None) -> float | None:
     raw = value_json.get("value")
     if raw is None:
         return None
+    return _coerce_numeric(raw)
+
+
+def _coerce_numeric(value: object) -> float | None:
+    if value is None:
+        return None
+    if isinstance(value, bool):
+        return 1.0 if value else 0.0
     try:
-        return float(str(raw))
+        return float(str(value))
     except (TypeError, ValueError):
         return None
 
@@ -193,12 +216,12 @@ def _project_council_scope(project: Project) -> str | None:
 
 def _resolve_council_scope(project: Project, fact_by_type: dict[str, PropertyFact]) -> tuple[str | None, str]:
     """Resolve council from confirmed facts first, then legacy project fields."""
-    council_fact = fact_by_type.get("council")
+    council_fact = fact_by_type.get("council") or fact_by_type.get("local_government")
     council_from_fact = _extract_text_value(
         council_fact.value_json if council_fact is not None and isinstance(council_fact.value_json, dict) else None
     )
     if council_from_fact:
-        return council_from_fact, "property_fact:council"
+        return council_from_fact, f"property_fact:{council_fact.fact_type}"
     project_scope = _project_council_scope(project)
     if project_scope:
         return project_scope, "project.council_scope"
@@ -411,16 +434,35 @@ class ComplianceEngine:
                     note="missing_rule: no approved rule found for this check key",
                 )
                 results.append(item)
+                any_missing = True
+                session.add(
+                    CheckResult(
+                        org_id=UUID(org_id),
+                        project_id=UUID(project_id),
+                        check_run_id=check_run.id,
+                        resolved_rule_id=None,
+                        check_key=check_key,
+                        status="unsupported",
+                        requirement_json={},
+                        proposed_json={"fact_keys_checked": list(check_def.fact_keys)},
+                        why_this_applies=None,
+                        citations_json=[],
+                        decision_trace_json={
+                            "engine_version": ENGINE_VERSION,
+                            "result": "unsupported",
+                            "note": item.note,
+                            "missing_info_reason": "missing_rule",
+                            "council_scope": council_scope,
+                            "council_scope_source": council_scope_source,
+                        },
+                        drawing_evidence_json={},
+                    )
+                )
                 continue
 
             # Extract threshold from rule.value_json
             threshold_raw = rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
-            threshold_value: float | None = None
-            if threshold_raw is not None:
-                try:
-                    threshold_value = float(str(threshold_raw))
-                except (TypeError, ValueError):
-                    threshold_value = None
+            threshold_value: float | None = _coerce_numeric(threshold_raw)
 
             # Find the PropertyFact for this check
             fact_keys = list(check_def.fact_keys)

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import Any
-from dataclasses import replace
+from dataclasses import dataclass, replace
 from hashlib import sha256
 import json
 import os
@@ -53,6 +53,34 @@ def default_embedding_config() -> EmbeddingConfig:
 # Legacy DB rows predate the current LicenceStatus vocabulary; never let a
 # stored value crash retrieval — map known aliases, default to UNKNOWN.
 _LEGACY_LICENCE_ALIASES = {"approved": LicenceStatus.VERIFIED_OPEN}
+
+
+@dataclass(frozen=True)
+class _ExclusionProbe:
+    """Per-reason count of FTS-matched chunks that the citation gate rejected.
+
+    `matched_chunks` is the total number of chunks that matched the FTS query
+    before any gate ran; `by_reason` maps a human-readable reason to the
+    number of chunks that failed that specific gate. A single chunk can
+    contribute to several reason buckets when multiple gates fail.
+    """
+
+    matched_chunks: int
+    by_reason: dict[str, int]
+
+    def format_reasons(self) -> str:
+        if not self.by_reason:
+            return "no remaining chunks"
+        return ", ".join(
+            f"{n} chunk{'s' if n != 1 else ''} with {reason}"
+            for reason, n in sorted(self.by_reason.items(), key=lambda kv: -kv[1])
+        )
+
+    def missing_information(self) -> tuple[str, ...]:
+        return tuple(
+            f"{reason} ({n} matched chunks)"
+            for reason, n in sorted(self.by_reason.items(), key=lambda kv: -kv[1])
+        )
 
 
 def _coerce_licence_status(value: object) -> LicenceStatus:
@@ -841,14 +869,32 @@ class SqlAlchemySourceSearchService:
     def ask(self, question: str, *, limit: int = 4) -> SourceAnswer:
         hits = self.search_chunks(question, limit=limit)
         if not hits:
+            # Surface WHY retrieval returned nothing — the corpus may exist
+            # but be excluded by licence / metadata / supersession / review
+            # gates. Counting the excluded chunks per reason lets the answer
+            # say "matched N chunks but all are metadata-only" instead of the
+            # misleading "no source citations were found". The probe runs
+            # only on the unsupported branch so it never adds latency to
+            # supported answers.
+            probe = self._probe_exclusion_reasons(question)
+            if probe.matched_chunks == 0:
+                answer_text = (
+                    "Unsupported: no source chunks matched this question in the corpus."
+                )
+                missing: tuple[str, ...] = ("no matching source chunks",)
+            else:
+                reasons = probe.format_reasons()
+                answer_text = (
+                    "Unsupported: matched source chunks exist but every match was "
+                    f"excluded by the citation gate ({reasons})."
+                )
+                missing = probe.missing_information()
             return SourceAnswer(
                 status=AnswerStatus.UNSUPPORTED,
-                answer=(
-                    "Unsupported: no approved source version citations were found for this question."
-                ),
+                answer=answer_text,
                 citations=(),
                 source_version_ids=(),
-                missing_information=("approved source version citation",),
+                missing_information=missing,
                 needs_verification=True,
             )
 
@@ -866,3 +912,60 @@ class SqlAlchemySourceSearchService:
             needs_verification=True,
             risk_level="unknown",
         )
+
+    def _probe_exclusion_reasons(self, query: str) -> "_ExclusionProbe":
+        """Count how many FTS-matched chunks are excluded by each gate.
+
+        Used only on the unsupported branch of `ask()` so the response can
+        explain *why* a corpus that has matching chunks is still unsupportable.
+        Each row in the result corresponds to a single exclusion reason; a
+        single chunk can contribute to several rows when multiple gates fail.
+        """
+        from sqlalchemy import text as sqla_text
+
+        if not query or not query.strip():
+            return _ExclusionProbe(matched_chunks=0, by_reason={})
+
+        # _coerce_licence_status is a Python helper, not a SQL function, so
+        # we replicate the rule in SQL: open / verified_open are citation-
+        # friendly; everything else (unknown, pending_review, restricted,
+        # metadata_only, prohibited) blocks citation.
+        probe_sql = sqla_text("""
+            WITH matched AS (
+                SELECT sc.id AS chunk_id, sc.source_version_id
+                FROM source_chunks sc
+                JOIN source_versions sv ON sv.id = sc.source_version_id
+                WHERE to_tsvector('english', sc.text) @@ websearch_to_tsquery('english', :q)
+            )
+            SELECT
+                COUNT(*) AS matched_chunks,
+                COUNT(*) FILTER (WHERE sv.review_status <> 'approved') AS review_not_approved,
+                COUNT(*) FILTER (
+                    WHERE sv.licence_status IS NULL
+                       OR sv.licence_status NOT IN ('open', 'verified_open')
+                ) AS licence_blocks_citation,
+                COUNT(*) FILTER (
+                    WHERE COALESCE(sv.metadata_json->>'metadata_only', '') = 'true'
+                       OR COALESCE(sv.storage_manifest_json->>'metadata_only', '') = 'true'
+                ) AS metadata_only,
+                COUNT(*) FILTER (WHERE sv.superseded_by_version_id IS NOT NULL) AS superseded
+            FROM matched m
+            JOIN source_versions sv ON sv.id = m.source_version_id
+        """)
+
+        session = self._session_factory()
+        try:
+            row = session.execute(probe_sql, {"q": query}).one()
+        finally:
+            session.close()
+
+        by_reason: dict[str, int] = {}
+        if row.review_not_approved:
+            by_reason["review_status not approved"] = int(row.review_not_approved)
+        if row.licence_blocks_citation:
+            by_reason["licence_status blocks citation"] = int(row.licence_blocks_citation)
+        if row.metadata_only:
+            by_reason["source is metadata-only"] = int(row.metadata_only)
+        if row.superseded:
+            by_reason["superseded by newer version"] = int(row.superseded)
+        return _ExclusionProbe(matched_chunks=int(row.matched_chunks), by_reason=by_reason)
