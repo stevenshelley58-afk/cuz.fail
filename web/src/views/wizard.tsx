@@ -121,13 +121,32 @@ function ProposalForm({
 
   const update = (patch: Partial<ProposalRequest>) => setData((d) => ({ ...d, ...patch }));
 
+  const missingFields = [
+    !data.proposal_type ? "proposal type" : null,
+    data.proposal_type === "residential" && !data.dwelling_type ? "dwelling type" : null,
+    !data.building_class ? "building class" : null,
+    !data.work_type ? "work type" : null,
+    !data.new_or_existing ? "new or existing building" : null,
+    !data.lot_type ? "lot type" : null,
+  ].filter(Boolean);
+  const canSave = missingFields.length === 0;
+
   const save = async () => {
+    if (!canSave) {
+      setError(`Complete ${missingFields.join(", ")} before continuing.`);
+      return;
+    }
     setBusy(true);
     setError(null);
-    const r = await api.upsertProposal(projectId, data);
+    const proposalPayload: ProposalRequest = {
+      ...data,
+      primary_street_confirmed: Boolean(data.primary_street_confirmed),
+      secondary_street_confirmed: Boolean(data.secondary_street_confirmed),
+    };
+    const r = await api.upsertProposal(projectId, proposalPayload);
     setBusy(false);
     if (r.kind === "ok") {
-      onSaved(r.data, data);
+      onSaved(r.data, proposalPayload);
     } else if (r.kind === "notBuilt") {
       setError("Proposal saving is unavailable. Try again before continuing.");
     } else if (r.kind === "auth") {
@@ -182,6 +201,17 @@ function ProposalForm({
       )}
 
       <div style={fieldWrap}>
+        <label style={labelStyle} htmlFor="building_class">Building class</label>
+        <select id="building_class" style={selectStyle} value={data.building_class ?? ""} onChange={(e) => update({ building_class: e.target.value || null })}>
+          <option value="">— select —</option>
+          <option value="class_1a">Class 1a - house or grouped dwelling</option>
+          <option value="class_1b">Class 1b - small boarding/guest accommodation</option>
+          <option value="class_2">Class 2 - apartment building</option>
+          <option value="class_10a">Class 10a - shed, garage or carport</option>
+        </select>
+      </div>
+
+      <div style={fieldWrap}>
         <label style={labelStyle} htmlFor="work_type">Work type</label>
         <select id="work_type" style={selectStyle} value={data.work_type ?? ""} onChange={(e) => update({ work_type: e.target.value || null })}>
           <option value="">— select —</option>
@@ -219,6 +249,26 @@ function ProposalForm({
           <option value="strata_title">Strata title</option>
           <option value="survey_strata">Survey strata</option>
         </select>
+      </div>
+
+      <div style={fieldWrap}>
+        <span style={labelStyle}>Street context</span>
+        <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: ".85rem", cursor: "pointer", marginBottom: 8 }}>
+          <input
+            type="checkbox"
+            checked={Boolean(data.primary_street_confirmed)}
+            onChange={(e) => update({ primary_street_confirmed: e.target.checked })}
+          />
+          <span>Primary street frontage is confirmed for this proposal.</span>
+        </label>
+        <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: ".85rem", cursor: "pointer" }}>
+          <input
+            type="checkbox"
+            checked={Boolean(data.secondary_street_confirmed)}
+            onChange={(e) => update({ secondary_street_confirmed: e.target.checked })}
+          />
+          <span>Secondary street frontage applies and is confirmed.</span>
+        </label>
       </div>
 
       {error && (
@@ -324,6 +374,12 @@ function ConfirmationStep({
               <span style={{ fontWeight: 600 }}>{proposal.work_type}</span>
             </div>
           )}
+          {proposal.building_class && (
+            <div style={{ display: "flex", gap: 8 }}>
+              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Building class</span>
+              <span style={{ fontWeight: 600 }}>{proposal.building_class}</span>
+            </div>
+          )}
           {proposal.new_or_existing && (
             <div style={{ display: "flex", gap: 8 }}>
               <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>New / existing</span>
@@ -336,6 +392,14 @@ function ConfirmationStep({
               <span style={{ fontWeight: 600 }}>{proposal.lot_type}</span>
             </div>
           )}
+          <div style={{ display: "flex", gap: 8 }}>
+            <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Primary street</span>
+            <span style={{ fontWeight: 600 }}>{proposal.primary_street_confirmed ? "Confirmed" : "Not confirmed"}</span>
+          </div>
+          <div style={{ display: "flex", gap: 8 }}>
+            <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Secondary street</span>
+            <span style={{ fontWeight: 600 }}>{proposal.secondary_street_confirmed ? "Confirmed" : "Not confirmed"}</span>
+          </div>
         </div>
       </div>
 

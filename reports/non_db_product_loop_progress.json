@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T10:37:00+08:00",
+  "captured_at": "2026-06-13T10:46:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -110,7 +110,10 @@
         "web/src/views/projects.tsx fetches and renders property context in reopened project details using existing address/property APIs and wizard property helpers",
         "web/src/views/projects.detail.test.tsx covers reopened-project address, local government, planning fact, and document workflow rendering",
         "web/src/views/compliance.tsx surfaces saved compliance matrix loading, missing, auth, not-built, error, and down states with a retry path instead of showing a false empty state",
-        "web/src/views/compliance.product-loop.test.tsx covers saved matrix load failure visibility and retry recovery"
+        "web/src/views/compliance.product-loop.test.tsx covers saved matrix load failure visibility and retry recovery",
+        "web/src/views/wizard.tsx captures building_class plus primary and secondary street confirmation fields before saving proposals",
+        "web/src/views/wizard.tsx blocks incomplete proposal saves client-side so users do not advance to compliance with avoidably missing proposal facts",
+        "web/src/views/wizard.proposal.test.tsx covers full proposal payload wiring, validation before API calls, and notBuilt fallback behavior"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"
