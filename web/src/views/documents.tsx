@@ -305,10 +305,10 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
   }, [documents, projectId, uploadResult?.parse_status]);
 
   useEffect(() => {
-    if (!uploadResult || uploadResult.parse_status !== "parse_pending") return;
+    if (!uploadResult || !isActiveParseStatus(uploadResult.parse_status)) return;
     const parsedDocument = documents.find((doc) => doc.id === uploadResult.document_id);
-    const status = parsedDocument ? (parsedDocument.parse_status ?? parsedDocument.status) : "parse_pending";
-    if (status === "parse_pending" || status === "parsing") return;
+    const status = parsedDocument ? (parsedDocument.parse_status ?? parsedDocument.status) : uploadResult.parse_status;
+    if (isActiveParseStatus(status)) return;
     void refreshFacts(uploadResult.document_id);
   }, [documents, uploadResult]);
 

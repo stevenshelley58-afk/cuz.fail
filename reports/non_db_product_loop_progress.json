@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T09:01:09+08:00",
+  "captured_at": "2026-06-13T09:07:40+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -21,7 +21,9 @@
         "tests/test_v3_document_parse_jobs.py calls parse_document() through a monkeypatched fresh session factory",
         "src/draftcheck/jobs/documents.py parses worker documents through DocumentParser.parse_document instead of a separate hard-coded page extraction path",
         "Persisted text facts are marked as parser_boundary_source with the parser page name and page number",
-        "Document upload/parser size defaults to 100 MB and remains below the 250 MB Caddy request body cap; DRAFTCHECK_MAX_DOCUMENT_BYTES or DRAFTCHECK_MAX_DOCUMENT_MB can override it for larger CAD intake"
+        "Document upload/parser size defaults to 100 MB and remains below the 250 MB Caddy request body cap; DRAFTCHECK_MAX_DOCUMENT_BYTES or DRAFTCHECK_MAX_DOCUMENT_MB can override it for larger CAD intake",
+        "web/src/views/documents.tsx refreshes extracted facts after either parse_pending or parsing upload responses transition to a completed parser status",
+        "web/src/views/documents.async-parse.test.tsx covers uploads that start as parsing so facts still load when parsing completes"
       ],
       "remaining": [
         "Run a live worker-backed upload on the VPS after DB work is idle"
