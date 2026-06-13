@@ -61,6 +61,14 @@ def test_v3_document_parser_capabilities_are_live() -> None:
     assert body["count"] >= 6
     assert body["accuracy_gate"]["status"] == "not_beta_ready"
     assert "generated parser fixtures pass" in body["accuracy_gate"]["reason"]
+    assert body["accuracy_gate"]["real_sample_evidence_schema"] == "parser_real_sample_evidence_v1"
+    assert body["accuracy_gate"]["real_sample_evidence_template"] == "docs/parser-sample-evidence-template.json"
+    assert body["accuracy_gate"]["real_sample_evidence_checker"] == "scripts/parser_sample_evidence.py"
+    assert body["accuracy_gate"]["real_sample_evidence_command"] == (
+        "uv run python scripts/parser_sample_evidence.py "
+        "docs/parser-sample-evidence-template.json --min-samples 1 "
+        "--output reports/parser-sample-evidence.local.json"
+    )
     assert body["accuracy_gate"]["required_before_beta"] == [
         "automated review gate connected to persistence",
         "operator-reviewed real project samples",
@@ -112,6 +120,14 @@ def test_v3_document_parser_accuracy_reports_canary_sample_pass() -> None:
     assert body["format_metrics"]["model/ifc"]["precision"] == 1.0
     assert body["field_metrics"]["dxf dimension 1"]["matched"] == 1
     assert body["field_metrics"]["ifc area quantity 1"]["recall"] == 1.0
+    assert body["real_sample_evidence_schema"] == "parser_real_sample_evidence_v1"
+    assert body["real_sample_evidence_template"] == "docs/parser-sample-evidence-template.json"
+    assert body["real_sample_evidence_checker"] == "scripts/parser_sample_evidence.py"
+    assert body["real_sample_evidence_command"] == (
+        "uv run python scripts/parser_sample_evidence.py "
+        "docs/parser-sample-evidence-template.json --min-samples 1 "
+        "--output reports/parser-sample-evidence.local.json"
+    )
     assert "operator-reviewed real project samples beyond generated PDF/DOCX/DXF/IFC fixtures" in body["blocked_for_beta"]
 
 

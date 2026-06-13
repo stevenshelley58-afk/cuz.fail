@@ -5,11 +5,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-from scripts.parser_sample_evidence import check_evidence
+from scripts.parser_sample_evidence import check_evidence, load_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "parser_sample_evidence.py"
+TEMPLATE = ROOT / "docs" / "parser-sample-evidence-template.json"
 
 
 def test_parser_sample_evidence_passes_reviewed_sanitized_sample() -> None:
@@ -24,6 +25,14 @@ def test_parser_sample_evidence_passes_reviewed_sanitized_sample() -> None:
         "persistence-connected validation is DB-owned"
         in check.report["beta_blockers_remaining"][0]
     )
+
+
+def test_parser_sample_evidence_template_is_valid() -> None:
+    check = check_evidence(load_evidence(TEMPLATE))
+
+    assert check.status == "passed"
+    assert check.report["valid_sample_count"] == 1
+    assert check.report["beta_status"] == "not_beta_ready"
 
 
 def test_parser_sample_evidence_blocks_when_no_reviewed_samples() -> None:
