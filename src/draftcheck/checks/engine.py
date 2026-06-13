@@ -128,8 +128,14 @@ def _select_rule(
             and r_codes
             and set(r_codes) & set(rule.applicable_r_codes)
         )
+        # A check's headline threshold should come from a base/standard rule, not
+        # an exception modifier.  Open-vocab clustering can pull "<key>.exception_*"
+        # rows into a canonical cluster; deprioritise them so the engine reports
+        # the base rule's threshold (exceptions still inform legal_edges).
+        is_standard = (rule.rule_type or "standard") != "exception"
         rank = (
             1 if has_threshold else 0,
+            1 if is_standard else 0,
             2 if specific else (1 if not rule.applicable_r_codes else 0),
             1 if _dwelling_type(rule) == "any" else 0,
             len(accepted) - accepted.index(base if base in accepted else check_key),
