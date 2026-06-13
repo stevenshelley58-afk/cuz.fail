@@ -81,6 +81,8 @@ def test_derive_skips_seed_covered_and_respects_min_rules() -> None:
         _stat("driveway_width", 12),            # derive
         _stat("rarely_seen_key", 3),            # below min_rules=5 -> skip
         _stat("Bad Key!", 40),                  # not snake_case -> skip
+        _stat("monetary_penalty", 40),          # denylisted noise -> skip
+        _stat("none", 99),                      # denylisted noise -> skip
     ]
     derived = derive_checks(stats, min_rules=5)
     keys = {d["key"] for d in derived}

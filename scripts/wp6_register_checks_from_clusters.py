@@ -46,7 +46,28 @@ DEFAULT_REPORT = _ROOT / "reports" / "wp6_checks_derived.json"
 # Cluster size at/above which a derived check is promoted to Tier-1.
 TIER1_MIN_RULES = 20
 
+# Keys that are structurally valid snake_case but are NOT regulatable design
+# quantities — open-vocab extraction occasionally emits these as noise.  They
+# must never become compliance checks even if they somehow accrue approved
+# rules.  (Substring match so e.g. "monetary_penalty" is also excluded.)
+NON_RULE_KEY_TOKENS = frozenset(
+    {
+        "none",
+        "penalty",
+        "fine",
+        "interest_rate",
+        "development_area_number",
+        "clause_number",
+        "table_number",
+        "figure_number",
+    }
+)
+
 _SNAKE = re.compile(r"[a-z][a-z0-9_]{2,160}$")
+
+
+def _is_non_rule_key(key: str) -> bool:
+    return any(token in key for token in NON_RULE_KEY_TOKENS)
 
 
 def database_url() -> str:
@@ -98,6 +119,8 @@ def derive_checks(stats: list[dict[str, Any]], min_rules: int) -> list[dict[str,
         if key in seed_canonical:
             continue
         if not _SNAKE.match(key):
+            continue
+        if _is_non_rule_key(key):
             continue
         unit = (row.get("unit") or "").strip() or None
         quote = (row.get("sample_quote") or "").strip()
