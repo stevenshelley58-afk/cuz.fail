@@ -10,8 +10,10 @@ from scripts.audit_non_db_launch_ops import (
     assess_live_launch_json,
     assess_ops_guardrails_status,
     assess_restore_drill_log,
+    assess_spend_persistence_evidence,
     assess_uptime_monitor_doc,
     build_report,
+    load_spend_persistence_evidence,
     main,
     parse_vps_state,
     run_live_launch_verifier,
@@ -23,6 +25,19 @@ from scripts.audit_non_db_launch_ops import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _spend_persistence_ok() -> dict[str, object]:
+    return assess_spend_persistence_evidence(
+        {
+            "job_traces": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+            "spend_events": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+        },
+        {
+            "job_traces": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+            "spend_events": {"rows": 2, "total_tokens": 140, "cost_cents": 25},
+        },
+    )
 
 
 def _passed_live_launch_json(origin: str = "https://lotfile.app") -> dict[str, object]:
@@ -345,6 +360,7 @@ def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None
         uptime_monitor_doc="ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
         restore_drill_log="ok: restore drill log accepted",
         live_launch_json=_passed_live_launch_json(),
+        spend_persistence_evidence=_spend_persistence_ok(),
     )
 
     assert report["launch_surface"]["status"] == "verified"
@@ -522,6 +538,7 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
         "sentry_dsn": "SENTRY_CONFIG_OK",
         "uptime_targets": UPTIME_TARGETS_OK,
         "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+        "spend_persistence": _spend_persistence_ok(),
         "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
         "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
         "log_retention_config": "LOG_RETENTION_CONFIG_OK",
@@ -531,6 +548,51 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
     evidence["backup_timer"] = "1 timers listed."
     evidence["sentry_dsn"] = "SENTRY_DSN_PRESENT"
     assert assess_ops_guardrails_status(evidence) == "blocked"
+
+
+def test_spend_persistence_evidence_uses_snapshot_comparison() -> None:
+    result = assess_spend_persistence_evidence(
+        {
+            "job_traces": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+            "spend_events": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+        },
+        {
+            "job_traces": {"rows": 1, "total_tokens": 90, "cost_cents": 20},
+            "spend_events": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+        },
+    )
+
+    assert result["status"] == "critical"
+    assert "decreased" in result["message"]
+    assert result["details"]["decreases"] == ["job_traces.total_tokens: 100 -> 90"]
+
+
+def test_load_spend_persistence_evidence_reads_offline_snapshots(tmp_path: Path) -> None:
+    before = tmp_path / "before.json"
+    after = tmp_path / "after.json"
+    before.write_text(
+        json.dumps(
+            {
+                "job_traces": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+                "spend_events": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+            }
+        ),
+        encoding="utf-8",
+    )
+    after.write_text(
+        json.dumps(
+            {
+                "job_traces": {"rows": 1, "total_tokens": 100, "cost_cents": 20},
+                "spend_events": {"rows": 2, "total_tokens": 140, "cost_cents": 25},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = load_spend_persistence_evidence(str(before), str(after))
+
+    assert result["status"] == "ok"
+    assert result["message"] == "daily spend counters persisted across restart"
 
 
 def test_validate_audit_report_rejects_raw_dsn_and_false_green_status() -> None:
@@ -557,6 +619,7 @@ def test_validate_audit_report_rejects_raw_dsn_and_false_green_status() -> None:
                 "sentry_dsn": "https://public@example.ingest.sentry.io/123",
                 "uptime_targets": UPTIME_TARGETS_OK,
                 "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+                "spend_persistence": _spend_persistence_ok(),
                 "log_retention_journald": "LOG_RETENTION_JOURNALD_PRESENT",
                 "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
                 "log_retention_config": "LOG_RETENTION_CONFIG_OK",
@@ -569,6 +632,7 @@ def test_validate_audit_report_rejects_raw_dsn_and_false_green_status() -> None:
     assert any("raw DSN" in failure for failure in failures)
     assert any("checkout URL" in failure for failure in failures)
     assert any("expected 'blocked'" in failure for failure in failures)
+
 
 def test_validate_audit_report_rejects_spoofed_ops_evidence() -> None:
     report = {
@@ -594,6 +658,7 @@ def test_validate_audit_report_rejects_spoofed_ops_evidence() -> None:
                 "sentry_dsn": "present, probably",
                 "uptime_targets": "status ok",
                 "uptime_monitor_doc": "ok: uptime monitor doc records provisioned monitor IDs and alert contacts",
+                "spend_persistence": {"status": "probably", "message": "fixture", "source": "fixture"},
                 "log_retention_journald": "present",
                 "log_retention_docker": "LOG_RETENTION_DOCKER_PRESENT",
                 "log_retention_config": "retention exists",
@@ -605,6 +670,7 @@ def test_validate_audit_report_rejects_spoofed_ops_evidence() -> None:
 
     assert any("sentry_dsn has unrecognized state" in failure for failure in failures)
     assert any("uptime_targets is not recognized verifier output" in failure for failure in failures)
+    assert any("spend_persistence has unrecognized status" in failure for failure in failures)
     assert any("log_retention_journald has unrecognized state" in failure for failure in failures)
     assert any("log_retention_config has unrecognized state" in failure for failure in failures)
     assert any("expected 'blocked'" in failure for failure in failures)
@@ -638,6 +704,7 @@ def test_validate_audit_report_rejects_spoofed_launch_json_evidence() -> None:
                 "sentry_dsn": "SSH_SKIPPED",
                 "uptime_targets": UPTIME_TARGETS_OK,
                 "uptime_monitor_doc": "critical: pending monitor evidence",
+                "spend_persistence": assess_spend_persistence_evidence(),
                 "log_retention_journald": "SSH_SKIPPED",
                 "log_retention_docker": "SSH_SKIPPED",
                 "log_retention_config": "SSH_SKIPPED",
@@ -681,6 +748,7 @@ def test_verify_report_artifact_combines_report_template_and_runbook_checks(tmp_
                 "sentry_dsn": "SSH_SKIPPED",
                 "uptime_targets": UPTIME_TARGETS_OK,
                 "uptime_monitor_doc": "critical: pending monitor evidence",
+                "spend_persistence": assess_spend_persistence_evidence(),
                 "log_retention_journald": "SSH_SKIPPED",
                 "log_retention_docker": "SSH_SKIPPED",
                 "log_retention_config": "SSH_SKIPPED",
