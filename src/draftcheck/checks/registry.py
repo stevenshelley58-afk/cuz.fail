@@ -140,8 +140,6 @@ SEED_TIER1_CHECKS: list[CheckDefinition] = [
         category=CheckCategory.BOUNDARY_WALL,
         fact_keys=(
             "proposed_boundary_wall_length_m",
-            "proposed_boundary_wall_height_m",
-            "lot_depth_m",
         ),
         rule_key_pattern="boundary_wall.length.max",
         unit="m",

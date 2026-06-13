@@ -106,15 +106,20 @@ def unit_category_for(unit: str | None) -> str:
 # Substring-ordered so it is robust to the clustering normaliser's canonical
 # forms (e.g. "minimum_frontage" normalises to "min_frontage").  First match
 # wins; list the most specific substrings first.
+#
+# IMPORTANT: every fact_key listed for a check must be a valid MEASURED value
+# for that check (alternate names are fine).  Never list a denominator/context
+# fact (lot_area_m2, site_area_m2) here — the engine uses the first PRESENT
+# fact_key as the measured value, so a stray denominator gets compared to the
+# threshold and produces a nonsense pass/fail.  Lot-INTRINSIC checks (site_area,
+# frontage, lot width/depth) legitimately measure a property fact.
 FACT_KEY_OVERRIDES: list[tuple[str, tuple[str, ...]]] = [
     ("site_area", ("lot_area_m2",)),
-    ("plot_ratio", ("proposed_plot_ratio", "lot_area_m2")),
+    ("plot_ratio", ("proposed_plot_ratio",)),
     ("frontage", ("lot_width_m", "frontage_width_m")),
     ("lot_width", ("lot_width_m",)),
     ("lot_depth", ("lot_depth_m",)),
 ]
-
-_SITE_AREA_FACT = "site_area_m2"
 
 
 def fact_keys_for(canonical_key: str, unit: str | None) -> tuple[str, ...]:
@@ -127,13 +132,13 @@ def fact_keys_for(canonical_key: str, unit: str | None) -> tuple[str, ...]:
     if cat == "length":
         return (f"proposed_{base}_m",)
     if cat == "area":
-        return (f"proposed_{base}_m2", _SITE_AREA_FACT)
+        return (f"proposed_{base}_m2",)
     if cat == "percent":
-        return (f"proposed_{base}_pct", _SITE_AREA_FACT)
+        return (f"proposed_{base}_pct",)
     if cat == "count_storeys":
         return (f"proposed_{base}_storeys",)
     if cat == "ratio":
-        return (f"proposed_{base}_ratio", _SITE_AREA_FACT)
+        return (f"proposed_{base}_ratio",)
     if cat == "angle":
         return (f"proposed_{base}_degrees",)
     return (f"proposed_{base}_count",)
