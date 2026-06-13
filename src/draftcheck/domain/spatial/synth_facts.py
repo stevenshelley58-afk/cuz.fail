@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import logging
 import math
+import re
 from typing import Any
 from uuid import UUID
 
@@ -54,6 +55,11 @@ _BBOX_SRID = 3112
 # and r_code are handled explicitly; anything else intersecting the parcel that
 # carries a code is surfaced as an overlay presence fact.
 _NON_OVERLAY_LAYERS = {"zone", "r_code", "rcode", "lga", "local_government"}
+
+# R-code density tokens: R20, R40, RR20, R-AC3, RAC0, R12.5 ...
+_RCODE_RE = re.compile(r"^R{1,2}-?AC?\d", re.IGNORECASE)
+# Zone features that are roads / reserves, not a usable planning zone.
+_ROAD_RE = re.compile(r"road|reserve|laneway|right.of.way|drainage", re.IGNORECASE)
 
 
 def _provenance(extra: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -112,13 +118,21 @@ def _bbox_dimensions(session: Session, parcel_id: UUID) -> tuple[float, float] |
 
 
 def _extract_r_code(feature: PlanningFeature) -> tuple[str, str] | None:
-    """Return ``(code, label)`` for an r_code, preferring stamped metadata."""
+    """Return ``(code, label)`` only when the feature actually carries an R-code.
+
+    Prefers the stamped ``metadata_json.r_code`` (written by
+    ``scripts/spatial_stamp_rcodes.py``); otherwise accepts ``feature.code`` only
+    if it matches the R-code pattern.  A plain zone like "Residential" or
+    "Local road" must NOT be mistaken for an R-code.
+    """
     metadata = feature.metadata_json if isinstance(feature.metadata_json, dict) else {}
-    code = metadata.get("r_code") or feature.code
-    if not code:
-        return None
-    label = feature.label or str(code)
-    return (str(code), str(label))
+    stamped = metadata.get("r_code")
+    if stamped:
+        return (str(stamped), feature.label or str(stamped))
+    code = (feature.code or "").strip()
+    if code and _RCODE_RE.match(code.replace(" ", "")):
+        return (code, feature.label or code)
+    return None
 
 
 def synth_property_facts(
@@ -239,47 +253,44 @@ def synth_property_facts(
     # ------------------------------------------------------------------
     features = _intersecting_features(session, parcel.id, spatial_dataset_id)
 
-    zone_done = False
-    rcode_done = False
+    # r_code: scan ALL intersecting features for the first one carrying a real
+    # R-code (a parcel often intersects several zone features — "Residential",
+    # "Local road", and the density "RR20" — so we must not just take the first).
+    for feature in features:
+        rc = _extract_r_code(feature)
+        if rc is not None:
+            code, label = rc
+            _add("r_code", {"code": code, "label": label}, planning_feature_id=feature.id)
+            break
+
+    # zone: first zone-layer feature that names a usable planning zone (skip
+    # roads/reserves and bare R-code density features).
+    for feature in features:
+        if (feature.layer_type or "").strip().lower() != "zone":
+            continue
+        code = (feature.code or "").strip()
+        if not code or _ROAD_RE.search(code):
+            continue
+        value: dict[str, Any] = {"code": code}
+        if feature.label:
+            value["name"] = str(feature.label)
+        _add("zone", value, planning_feature_id=feature.id)
+        break
+
+    # overlays: anything that is not a zone / r_code / lga layer (bushfire,
+    # heritage, etc.) surfaced as a presence fact.
     for feature in features:
         layer = (feature.layer_type or "").strip().lower()
+        if layer in _NON_OVERLAY_LAYERS:
+            continue
         metadata = feature.metadata_json if isinstance(feature.metadata_json, dict) else {}
-
-        if layer == "zone" and not zone_done:
-            value: dict[str, Any] = {}
-            if feature.code:
-                value["code"] = str(feature.code)
-            if feature.label:
-                value["name"] = str(feature.label)
-            if value:
-                _add("zone", value, planning_feature_id=feature.id)
-                zone_done = True
-            # A zone feature may also carry a stamped r_code.
-            if not rcode_done:
-                rc = _extract_r_code(feature)
-                if rc is not None:
-                    code, label = rc
-                    _add("r_code", {"code": code, "label": label}, planning_feature_id=feature.id)
-                    rcode_done = True
-            continue
-
-        if layer in {"r_code", "rcode"} and not rcode_done:
-            rc = _extract_r_code(feature)
-            if rc is not None:
-                code, label = rc
-                _add("r_code", {"code": code, "label": label}, planning_feature_id=feature.id)
-                rcode_done = True
-            continue
-
-        if layer not in _NON_OVERLAY_LAYERS:
-            # Overlay presence fact (bushfire / heritage / etc.).
-            overlay_value: dict[str, Any] = {"present": True}
-            overlay_code = metadata.get("code") or feature.code
-            if overlay_code:
-                overlay_value["code"] = str(overlay_code)
-            if feature.label:
-                overlay_value["label"] = str(feature.label)
-            _add(feature.layer_type, overlay_value, planning_feature_id=feature.id)
+        overlay_value: dict[str, Any] = {"present": True}
+        overlay_code = metadata.get("code") or feature.code
+        if overlay_code:
+            overlay_value["code"] = str(overlay_code)
+        if feature.label:
+            overlay_value["label"] = str(feature.label)
+        _add(feature.layer_type, overlay_value, planning_feature_id=feature.id)
 
     for fact in new_facts:
         session.add(fact)
