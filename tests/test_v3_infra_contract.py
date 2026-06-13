@@ -17,6 +17,7 @@ BACKUP_README_PATH = ROOT / "infra" / "v3" / "backup" / "README.md"
 BACKUP_INSTALL_PATH = ROOT / "infra" / "v3" / "backup" / "install-systemd.sh"
 RESTORE_DRILL_PATH = ROOT / "infra" / "v3" / "backup" / "restore-drill.sh"
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
+OPS_CHECKOUT_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-checkout-url.sh"
 OPS_CRON_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-guardrail-cron.sh"
 OPS_LOG_RETENTION_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-log-retention.sh"
 OPS_SENTRY_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-sentry-dsn.sh"
@@ -140,6 +141,7 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     install_script = BACKUP_INSTALL_PATH.read_text(encoding="utf-8")
     alert_script = OPS_ALERT_PATH.read_text(encoding="utf-8")
     cron_install_script = OPS_CRON_INSTALL_PATH.read_text(encoding="utf-8")
+    checkout_install_script = OPS_CHECKOUT_INSTALL_PATH.read_text(encoding="utf-8")
     log_retention_install_script = OPS_LOG_RETENTION_INSTALL_PATH.read_text(encoding="utf-8")
     sentry_install_script = OPS_SENTRY_INSTALL_PATH.read_text(encoding="utf-8")
     runbook = OPS_RUNBOOK_PATH.read_text(encoding="utf-8").lower()
@@ -155,6 +157,10 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "/etc/cron.d/draftcheck-guardrails" in cron_install_script
     assert "DRAFTCHECK_CRON_APP_DIR:-/srv/draftcheck/app" in cron_install_script
     assert "infra/v3/ops/guardrail-alerts.sh" in cron_install_script
+    assert "checkout-config" in checkout_install_script
+    assert "VITE_CHECKOUT_URL is required" in checkout_install_script
+    assert "DRAFTCHECK_DEPLOY_WEB_ONLY:-0" in checkout_install_script
+    assert "deploy-web-only.sh" in checkout_install_script
     assert "log-retention-config" in log_retention_install_script
     assert "DRAFTCHECK_RESTART_DOCKER:-0" in log_retention_install_script
     assert "restart docker" in log_retention_install_script
@@ -164,10 +170,12 @@ def test_v3_ops_guardrails_are_operator_runnable_without_committed_secrets():
     assert "docker compose up -d api worker hermes" in sentry_install_script
     assert "<generated-restic-password>" in runbook
     assert "backup-config" in runbook
+    assert "install-checkout-url.sh" in runbook
     assert "install-guardrail-cron.sh" in runbook
     assert "install-log-retention.sh" in runbook
     assert "install-sentry-dsn.sh" in runbook
     assert "guardrail-cron" in runbook
+    assert "checkout-config" in runbook
     assert "uptime-monitor-doc" in runbook
     assert "sentry-config" in runbook
     assert "log-retention-config" in runbook
@@ -245,6 +253,7 @@ def test_v3_ci_runs_bash_syntax_gate_for_ops_scripts():
     assert syntax_step["shell"] == "bash"
     for script in (
         "infra/v3/ops/guardrail-alerts.sh",
+        "infra/v3/ops/install-checkout-url.sh",
         "infra/v3/ops/install-guardrail-cron.sh",
         "infra/v3/ops/install-log-retention.sh",
         "infra/v3/ops/install-sentry-dsn.sh",

@@ -323,7 +323,7 @@ def launch_unblock_steps(launch: dict[str, Any], checkout_env: str) -> list[str]
     steps: list[str] = []
     if not _checkout_env_verified(checkout_env):
         steps.append(
-            "Set a real Stripe Payment Link in /srv/draftcheck/app/infra/v3/.env as VITE_CHECKOUT_URL=https://buy.stripe.com/..."
+            "Install a real Stripe Payment Link with: ssh draftcheck \"sudo VITE_CHECKOUT_URL='https://buy.stripe.com/...' bash /srv/draftcheck/app/infra/v3/ops/install-checkout-url.sh\""
         )
     if launch["status"] != "verified" or steps:
         steps.append("Deploy the web bundle with: ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'")

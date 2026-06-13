@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T08:39:11+08:00",
+  "captured_at": "2026-06-13T08:51:04+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -95,7 +95,11 @@
         "web/package.json wires the proposal wizard test into npm run test:launch-actions",
         "GitHub CI run 27451079787 passed after PR #96 merged the proposal wizard fallback fix",
         "GitHub deploy run 27451122457 synced production to a9c9249 and passed live ready/health verification",
-        "reports/non_db_launch_ops_blockers.json refreshed after deploy and verified with scripts/audit_non_db_launch_ops.py --verify-report"
+        "reports/non_db_launch_ops_blockers.json refreshed after deploy and verified with scripts/audit_non_db_launch_ops.py --verify-report",
+        "scripts/ops_guardrails.py exposes checkout-config to validate VITE_CHECKOUT_URL without printing the Payment Link",
+        "infra/v3/ops/install-checkout-url.sh installs the Stripe Payment Link into the VPS env and can optionally run deploy-web-only.sh",
+        "docs/ops/ops-guardrails.md documents the no-secret paid checkout install, verify, and UI-only deploy path",
+        "reports/non_db_launch_ops_blockers.json now points the Stripe unblock command at install-checkout-url.sh"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"
@@ -179,9 +183,10 @@
     "uv run python scripts/ops_guardrails.py backup-config --env-path <fixture backup.env> --json",
     "uv run python scripts/ops_guardrails.py guardrail-cron --path <fixture draftcheck-guardrails> --json",
     "uv run python scripts/ops_guardrails.py uptime-monitor-doc --path docs/ops/uptime-monitor.md --json",
+    "uv run python scripts/ops_guardrails.py checkout-config --env-path <fixture .env> --json",
     "uv run python scripts/ops_guardrails.py sentry-config --env-path <fixture .env> --compose-path infra/v3/compose.yml --json",
     "uv run python scripts/ops_guardrails.py log-retention-config --journald-path infra/v3/ops/journald-draftcheck.conf --docker-daemon-path infra/v3/ops/docker-daemon-log-rotation.json --json",
-    "CI Ubuntu: bash -n infra/v3/ops/guardrail-alerts.sh infra/v3/backup/install-systemd.sh infra/v3/backup/restore-drill.sh infra/v3/deploy-web-only.sh",
+    "CI Ubuntu: bash -n infra/v3/ops/guardrail-alerts.sh infra/v3/ops/install-checkout-url.sh infra/v3/backup/install-systemd.sh infra/v3/backup/restore-drill.sh infra/v3/deploy-web-only.sh",
     "uv run pytest tests/test_audit_non_db_launch_ops.py -q",
     "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json",
     "uv run python scripts/audit_non_db_launch_ops.py --output reports/non_db_launch_ops_blockers.json",
