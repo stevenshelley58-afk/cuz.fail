@@ -60,6 +60,18 @@ NON_RULE_KEY_TOKENS = frozenset(
         "clause_number",
         "table_number",
         "figure_number",
+        # The R-code density designation (R20/R40...) is the ZONE INPUT that
+        # selects which rules apply — not a quantity you check compliance against.
+        "density_code",
+        "density_recode",
+        "residential_density",
+        # Governance / administrative numbers the open-vocab extractor picks up
+        # from non-planning clauses (fees, meeting quorums, generic catch-alls).
+        "fee",
+        "quorum",
+        "other_facility_requirement",
+        "vote",
+        "levy",
     }
 )
 
