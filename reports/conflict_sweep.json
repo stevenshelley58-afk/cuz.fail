@@ -2,15 +2,20 @@
   "wp": "WP7",
   "dry_run": false,
   "summary": {
-    "approved_rules_scanned": 110,
+    "approved_rules_scanned": 117,
     "exception_edges_created": 0,
-    "exception_review_items": 14,
-    "cross_instrument_conflicts": 9,
+    "exception_review_items": 15,
+    "cross_instrument_conflicts": 10,
     "extraction_bug_review_items": 0,
     "quoteless_legal_edges": 207
   },
   "exception_edges_created": [],
   "exception_review_items": [
+    {
+      "review_item_id": "c9626460-a381-5727-97a7-adf7698aa4a7",
+      "rule_id": "d5b700cb-8ad3-4751-ab5e-0d401213f896",
+      "reason": "WP7 exception rule lacks exception_to edge and deterministic clause context does not name exactly one approved base rule."
+    },
     {
       "review_item_id": "fd823cc2-acba-5581-8b5e-7844e83bee5f",
       "rule_id": "a510a9af-07d3-45fd-867d-381b27244097",
@@ -182,9 +187,20 @@
       "rule_key": "building_storeys.all",
       "density_code": "ALL",
       "pathway": "none",
-      "instrument_count": 2,
-      "rule_count": 2,
+      "instrument_count": 3,
+      "rule_count": 3,
       "rules": [
+        {
+          "rule_id": "312bcbe1-b0a9-4808-94c5-eacc21e42105",
+          "instrument": "Building Regulations 2012",
+          "authority": "Government of Western Australia",
+          "value": [
+            "lte",
+            3.0,
+            "storeys"
+          ],
+          "quote": "not higher than 3 storeys"
+        },
         {
           "rule_id": "5f8e87ac-8f3f-4d2d-ad6c-c43bd12b9ffd",
           "instrument": "Cockburn Coast Emplacement Local Structure Plan 33B - WAPC Reference SPN/0478 (PDF, 17.64MB)",
@@ -244,8 +260,8 @@
       "rule_key": "open_space.all",
       "density_code": "ALL",
       "pathway": "none",
-      "instrument_count": 12,
-      "rule_count": 12,
+      "instrument_count": 13,
+      "rule_count": 13,
       "rules": [
         {
           "rule_id": "2e800d26-8606-43dd-b1bf-aec05dad6e6d",
@@ -257,6 +273,17 @@
             "%"
           ],
           "quote": "Maximum 20% Restricted Open Space"
+        },
+        {
+          "rule_id": "6d2f8152-c9d4-43fe-91dc-7fa8ac445e1d",
+          "instrument": "Caravan Parks and Camping Grounds Regulations 1997",
+          "authority": "Government of Western Australia",
+          "value": [
+            "pct_gte",
+            10.0,
+            "%"
+          ],
+          "quote": "At least 1/10 of the total area of a facility is to be recreational area."
         },
         {
           "rule_id": "630fa940-72c0-489f-98ca-d0e63cde17dd",
@@ -419,7 +446,7 @@
             6.0,
             "m"
           ],
-          "quote": "primary street setback of not less than 6 metres"
+          "quote": "set back a \nminimum of 6 metres from any street boundary"
         },
         {
           "rule_id": "0784bae8-c244-4370-b90f-9790abbdb627",
@@ -435,12 +462,54 @@
       ]
     },
     {
+      "rule_key": "rear_setback.all",
+      "density_code": "ALL",
+      "pathway": "none",
+      "instrument_count": 2,
+      "rule_count": 2,
+      "rules": [
+        {
+          "rule_id": "5e30b058-66ee-48fe-ad3b-392430767655",
+          "instrument": "City of Cockburn LPP 4.2 - Cockburn Central North (Muriel Court) Structure Plan - Design Guidelines",
+          "authority": "City of Cockburn",
+          "value": [
+            "eq",
+            3.0,
+            "m"
+          ],
+          "quote": "Minimum rear setback 3m"
+        },
+        {
+          "rule_id": "01149d8d-e391-4e9d-93c5-6e6219f46a8d",
+          "instrument": "Cockburn Scheme Text (PDF, 2.31MB)",
+          "authority": "Department of Planning, Lands and Heritage",
+          "value": [
+            "gte",
+            1.5,
+            "m"
+          ],
+          "quote": "1.5 metres from side and rear \nboundaries"
+        }
+      ]
+    },
+    {
       "rule_key": "side_setback.all",
       "density_code": "ALL",
       "pathway": "none",
-      "instrument_count": 5,
-      "rule_count": 5,
+      "instrument_count": 6,
+      "rule_count": 6,
       "rules": [
+        {
+          "rule_id": "d5b700cb-8ad3-4751-ab5e-0d401213f896",
+          "instrument": "Caravan Parks and Camping Grounds Regulations 1997",
+          "authority": "Government of Western Australia",
+          "value": [
+            "gte",
+            6.0,
+            "m"
+          ],
+          "quote": "There is to be at least 6 m between a caravan, camp, annexe or other structure or building on a facility and any land reserved or set aside by the Government of the State for a road unless \u2014"
+        },
         {
           "rule_id": "3a583919-583d-4246-b5db-3f196e6b6320",
           "instrument": "City of Cockburn LPP 4.2 - Cockburn Central North (Muriel Court) Structure Plan - Design Guidelines",
@@ -469,10 +538,10 @@
           "authority": "Department of Planning, Lands and Heritage",
           "value": [
             "gte",
-            2.5,
+            1.5,
             "m"
           ],
-          "quote": "side setback of not less than 2.5 metres"
+          "quote": "1.5 metres from side and rear \nboundaries"
         },
         {
           "rule_id": "157a6b30-420c-4918-a79b-f4e72fa6f51b",
@@ -502,9 +571,20 @@
       "rule_key": "site_area.all",
       "density_code": "ALL",
       "pathway": "none",
-      "instrument_count": 10,
-      "rule_count": 10,
+      "instrument_count": 11,
+      "rule_count": 11,
       "rules": [
+        {
+          "rule_id": "7de15ff6-d928-493a-9197-ffe2be510d35",
+          "instrument": "Building Regulations 2012",
+          "authority": "Government of Western Australia",
+          "value": [
+            "lte",
+            500.0,
+            "m2"
+          ],
+          "quote": "with a floor area not exceeding 500 m2"
+        },
         {
           "rule_id": "4240068d-e78c-48a4-8328-15b67b5aac02",
           "instrument": "City of Cockburn LPP 2.1 - Rural Subdivision and Development",
@@ -621,8 +701,8 @@
       "rule_key": "site_cover.all",
       "density_code": "ALL",
       "pathway": "none",
-      "instrument_count": 2,
-      "rule_count": 2,
+      "instrument_count": 3,
+      "rule_count": 3,
       "rules": [
         {
           "rule_id": "d5603ec0-1400-4b27-b5ea-479090b3e22b",
@@ -645,6 +725,17 @@
             "%"
           ],
           "quote": "shall not exceed 50% of the lot area"
+        },
+        {
+          "rule_id": "d5fe7a40-deac-43c5-ba16-d7c63ec00c88",
+          "instrument": "Health Services Act 2016",
+          "authority": "Government of Western Australia",
+          "value": [
+            "pct_lte",
+            10.0,
+            "%"
+          ],
+          "quote": "the maximum portion of the general rates to be expended or applied under that subsection is 10% of the average annual amount received by the local government from general rates during the last 2 financial years"
         }
       ]
     }

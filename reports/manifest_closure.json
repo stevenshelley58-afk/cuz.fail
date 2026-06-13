@@ -1,79 +1,31 @@
 {
-  "generated_at": "2026-06-10T07:22:04.36477+00:00",
   "wp": "WP3",
-  "totals_by_category_status": {
-    "index_page": {
-      "acquired": 6
-    },
-    "building_code": {
-      "out_of_scope": 1,
-      "pending": 4
-    },
-    "act": {
-      "pending": 1
-    },
-    "council_page": {
-      "acquired": 31
-    },
-    "structure_plan": {
-      "acquired": 33
-    },
-    "local_planning_policy": {
-      "pending": 32,
-      "acquired": 2
-    },
-    "state_planning_policy": {
-      "pending": 24,
-      "out_of_scope": 1
-    },
-    "scheme_map": {
-      "acquired": 24
-    },
-    "region_scheme": {
-      "pending": 3
-    },
-    "dc_policy": {
-      "pending": 17,
-      "out_of_scope": 2
-    },
-    "local_planning_strategy": {
-      "acquired": 17
-    },
-    "spatial_layer": {
-      "acquired": 1,
-      "metadata_only": 9
-    },
-    "local_planning_scheme": {
-      "acquired": 6
-    },
-    "local_development_plan": {
-      "acquired": 2
-    },
-    "regulations": {
-      "out_of_scope": 13,
-      "pending": 6
-    },
-    "standard": {
-      "metadata_only": 1
-    }
+  "generated_at": "2026-06-13 05:46:02.909108+00",
+  "total": 491,
+  "by_status": {
+    "metadata_only": 19,
+    "out_of_scope": 191,
+    "acquired": 281
   },
-  "totals_by_status": {
-    "metadata_only": 10,
-    "out_of_scope": 17,
-    "pending": 87,
-    "acquired": 122
+  "by_category": {
+    "index_page": 6,
+    "building_code": 5,
+    "act": 192,
+    "council_page": 31,
+    "structure_plan": 33,
+    "local_planning_policy": 34,
+    "state_planning_policy": 43,
+    "scheme_map": 24,
+    "region_scheme": 3,
+    "dc_policy": 22,
+    "local_planning_strategy": 17,
+    "spatial_layer": 10,
+    "local_planning_scheme": 8,
+    "local_development_plan": 2,
+    "regulations": 55,
+    "standard": 6
   },
-  "manifest_rows": 236,
-  "aliases": 235,
-  "source_documents": 122,
-  "orphan_count": 0,
-  "pending_count": 87,
-  "index_fetches_logged": 7,
-  "escalations": [],
-  "notes": [
-    "Index scrapes 2026-06-10: WA legislation register (P&D Act 2005 + 22 subsidiary), DPLH SPP index (24 SPPs incl SPP 7.3 Vol 1+2), DPLH DC/operational policies index (19), City of Cockburn TPS3 + 33 LPPs, ABCB NCC editions index, SLIP/PlanWA catalogue (10 spatial layers, metadata_only)",
-    "All canonical URLs verified with HTTP 200 before insert (reports/wp3/url_check_*.txt)",
-    "Reconciliation: all 122 source_documents matched or manifested from own metadata; 0 orphans",
-    "pending rows are WP4 acquisition queue (gate allows pending at seed time)"
-  ]
+  "orphan_sources": 9,
+  "pending_remaining": 0,
+  "blocked_remaining": 0
 }
