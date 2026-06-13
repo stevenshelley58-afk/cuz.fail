@@ -476,8 +476,9 @@ export function WizardShell({
 
       {state.step === 1 && !state.property && (
         <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
-          <div className="state"><Icon name="error" /><span>Property data unavailable. Address was submitted but no profile returned.</span></div>
-          <div style={{ marginTop: 12 }}>
+          <div className="state"><Icon name="info" /><span>Property context is unavailable. You can still enter proposal details and add drawings for review.</span></div>
+          <div style={{ marginTop: 12, display: "flex", gap: 8, justifyContent: "flex-end", flexWrap: "wrap" }}>
+            <button className="btn" onClick={() => setStep(2)}>Continue without property context</button>
             <button className="btn alt" onClick={onClose}>← Back</button>
           </div>
         </div>
