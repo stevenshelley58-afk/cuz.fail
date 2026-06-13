@@ -261,6 +261,7 @@ export function DocumentUpload({ projectId, focusRequest = 0 }: { projectId: str
   const [evidenceQuery, setEvidenceQuery] = useState("");
   const [evidenceResults, setEvidenceResults] = useState<DocumentEvidenceHit[]>([]);
   const [evidenceNotice, setEvidenceNotice] = useState<string | null>(null);
+  const [evidenceSubmitted, setEvidenceSubmitted] = useState(false);
   const [evidenceSearching, setEvidenceSearching] = useState(false);
   const [evidenceError, setEvidenceError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -373,6 +374,7 @@ export function DocumentUpload({ projectId, focusRequest = 0 }: { projectId: str
     if (query.length < 2) {
       setEvidenceResults([]);
       setEvidenceNotice(null);
+      setEvidenceSubmitted(false);
       setEvidenceError("Enter at least 2 characters.");
       return;
     }
@@ -380,16 +382,25 @@ export function DocumentUpload({ projectId, focusRequest = 0 }: { projectId: str
     setEvidenceError(null);
     const r = await api.documents.searchEvidence(projectId, query);
     setEvidenceSearching(false);
+    setEvidenceSubmitted(true);
     if (r.kind === "ok") {
       setEvidenceResults(r.data.items);
       setEvidenceNotice(r.data.advisory_notice);
     } else if (r.kind === "auth") {
+      setEvidenceResults([]);
+      setEvidenceNotice(null);
       setEvidenceError("Sign in required.");
     } else if (r.kind === "missing") {
+      setEvidenceResults([]);
+      setEvidenceNotice(null);
       setEvidenceError("Evidence search is not available on this server.");
     } else if (r.kind === "error") {
+      setEvidenceResults([]);
+      setEvidenceNotice(null);
       setEvidenceError(r.message);
     } else {
+      setEvidenceResults([]);
+      setEvidenceNotice(null);
       setEvidenceError("Could not search uploaded evidence.");
     }
   }
@@ -598,6 +609,18 @@ export function DocumentUpload({ projectId, focusRequest = 0 }: { projectId: str
             </div>
           )}
 
+          {evidenceNotice && (
+            <div style={{ marginTop: 8, color: "#6b7280", fontSize: 11, lineHeight: 1.45 }}>
+              {evidenceNotice}
+            </div>
+          )}
+
+          {evidenceSubmitted && !evidenceSearching && !evidenceError && evidenceResults.length === 0 && (
+            <div style={{ marginTop: 8, color: "#6b7280", fontSize: 12 }}>
+              No uploaded evidence matched this search.
+            </div>
+          )}
+
           {evidenceResults.length > 0 && (
             <div style={{ marginTop: 10, display: "flex", flexDirection: "column", gap: 8 }}>
               {evidenceResults.map((hit) => (
@@ -623,11 +646,6 @@ export function DocumentUpload({ projectId, focusRequest = 0 }: { projectId: str
                   </div>
                 </div>
               ))}
-              {evidenceNotice && (
-                <div style={{ color: "#6b7280", fontSize: 11, lineHeight: 1.45 }}>
-                  {evidenceNotice}
-                </div>
-              )}
             </div>
           )}
         </div>
