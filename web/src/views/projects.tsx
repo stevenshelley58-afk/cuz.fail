@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
-import { api, type ApiResult, type ProjectSummary } from "../api";
+import { api, type ApiResult, type ProjectSummary, type PropertyProfileResponse } from "../api";
 import { Icon } from "../components/common";
+import {
+  NOT_LEGAL_PROOF_NOTE,
+  ProvenanceAccordion,
+  confidenceBadge,
+  formatFactValue,
+  groupFactsByType,
+  resolutionBadge,
+} from "../components/property";
 import { CompliancePanel } from "./compliance";
 import { DocumentUpload } from "./documents";
 
@@ -14,11 +22,109 @@ export function projectList(r: ApiResult<ProjectSummary[] | { projects?: Project
 
 /* ── ProjectDetail — opens when a project card is clicked ── */
 
+function ProjectPropertyContext({ projectId }: { projectId: string }) {
+  const [property, setProperty] = useState<PropertyProfileResponse | null>(null);
+  const [resultKind, setResultKind] = useState<ApiResult<PropertyProfileResponse>["kind"] | "loading">("loading");
+
+  useEffect(() => {
+    let active = true;
+    setResultKind("loading");
+    setProperty(null);
+    void api.getProperty(projectId).then((r) => {
+      if (!active) return;
+      setResultKind(r.kind);
+      setProperty(r.kind === "ok" ? r.data : null);
+    });
+    return () => {
+      active = false;
+    };
+  }, [projectId]);
+
+  if (resultKind === "loading") {
+    return <div className="state"><Icon name="hourglass_empty" /><span>Loading property context...</span></div>;
+  }
+
+  if (!property) {
+    const recoverable = resultKind === "missing" || resultKind === "notBuilt";
+    return (
+      <div className="state">
+        <Icon name={recoverable ? "info" : "error"} />
+        <span>
+          {recoverable
+            ? "Property context is not available for this project yet."
+            : "Could not load property context for this project."}
+        </span>
+      </div>
+    );
+  }
+
+  const factsByType = groupFactsByType(property.facts ?? []);
+  const factGroups = Array.from(factsByType.entries()).slice(0, 4);
+
+  return (
+    <div>
+      <h3 style={{ margin: "0 0 12px" }}><Icon name="location_on" />Property context</h3>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
+        {resolutionBadge(property.resolution_status)}
+        {confidenceBadge(property.confidence)}
+      </div>
+      {property.address && (
+        <div style={{ fontWeight: 700, fontSize: ".95rem", marginBottom: 6 }}>{property.address}</div>
+      )}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10, marginBottom: 10 }}>
+        {property.local_government && (
+          <div>
+            <div style={{ fontSize: ".72rem", fontWeight: 700, color: "var(--ink-faint)", textTransform: "uppercase" }}>Local government</div>
+            <div style={{ fontWeight: 600 }}>{property.local_government}</div>
+          </div>
+        )}
+        <div>
+          <div style={{ fontSize: ".72rem", fontWeight: 700, color: "var(--ink-faint)", textTransform: "uppercase" }}>Target CRS</div>
+          <div style={{ fontWeight: 600 }}>{property.target_crs}</div>
+        </div>
+      </div>
+
+      {property.issues.length > 0 && (
+        <div className="state" style={{ alignItems: "flex-start", marginBottom: 10 }}>
+          <Icon name="warning" />
+          <span>{property.issues.join("; ")}</span>
+        </div>
+      )}
+
+      {factGroups.length > 0 && (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 8 }}>
+          {factGroups.map(([type, facts]) => (
+            <div key={type} style={{ background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "8px 10px" }}>
+              <div style={{ fontSize: ".72rem", fontWeight: 700, color: "var(--ink-faint)", textTransform: "uppercase", marginBottom: 4 }}>
+                {type.replace(/_/g, " ")}
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                {facts.slice(0, 2).map((fact) => (
+                  <div key={fact.fact_id} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: ".82rem" }}>
+                    <span style={{ color: "var(--ink-soft)" }}>{fact.review_status}</span>
+                    <span style={{ fontWeight: 650, textAlign: "right" }}>{formatFactValue(fact.value)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {NOT_LEGAL_PROOF_NOTE}
+      <ProvenanceAccordion provenance={property.provenance} />
+    </div>
+  );
+}
+
 export function ProjectDetail({ projectId, onClose }: { projectId: string; onClose: () => void }) {
   return (
     <div className="view">
       <div style={{ marginBottom: 12 }}>
         <button className="btn alt" style={{ fontSize: ".75rem", padding: "6px 12px" }} onClick={onClose}>← Back</button>
+      </div>
+      <div className="panel">
+        <ProjectPropertyContext projectId={projectId} />
       </div>
       <div className="panel">
         <CompliancePanel projectId={projectId} />

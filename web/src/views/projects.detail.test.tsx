@@ -5,6 +5,7 @@ import { ProjectDetail } from "./projects";
 const { apiMock } = vi.hoisted(() => ({
   apiMock: {
     projects: vi.fn(),
+    getProperty: vi.fn(),
     documents: {
       upload: vi.fn(),
       facts: vi.fn(),
@@ -26,6 +27,45 @@ vi.mock("./compliance", () => ({
 
 beforeEach(() => {
   vi.clearAllMocks();
+  apiMock.getProperty.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      org_id: "org-test",
+      project_id: "project-golden",
+      resolution_status: "resolved",
+      confidence: "high",
+      address: "3 Black Swan Rise, Beeliar",
+      local_government: "City of Cockburn",
+      target_crs: "EPSG:7844",
+      issues: [],
+      provenance: [
+        {
+          kind: "spatial_dataset",
+          method: "gnaf_address_point",
+          target_crs: "EPSG:7844",
+          dataset_id: "gnaf-2026-05",
+          licence_status: "approved",
+        },
+      ],
+      facts: [
+        {
+          fact_id: "fact-zone",
+          fact_type: "planning_zone",
+          value: "Residential",
+          confidence: "high",
+          review_status: "accepted",
+          provenance: {
+            kind: "spatial_dataset",
+            method: "planning_layer_intersection",
+            target_crs: "EPSG:7844",
+            dataset_id: "wa-planning",
+            licence_status: "approved",
+          },
+        },
+      ],
+    },
+  });
   apiMock.documents.listForProject.mockResolvedValue({
     kind: "ok",
     status: 200,
@@ -72,6 +112,10 @@ test("project detail gives reopened projects the full document upload workflow",
   const { container } = render(<ProjectDetail projectId="project-golden" onClose={vi.fn()} />);
 
   expect(screen.getByTestId("compliance-panel").textContent).toContain("project-golden");
+  expect(await screen.findByText("3 Black Swan Rise, Beeliar")).toBeTruthy();
+  expect(screen.getByText("City of Cockburn")).toBeTruthy();
+  expect(screen.getByText("Residential")).toBeTruthy();
+  expect(apiMock.getProperty).toHaveBeenCalledWith("project-golden");
   expect(await screen.findByText("site-plan.pdf")).toBeTruthy();
   expect(screen.getByText("Upload a drawing or document")).toBeTruthy();
   expect(screen.getByLabelText("Search uploaded evidence")).toBeTruthy();
