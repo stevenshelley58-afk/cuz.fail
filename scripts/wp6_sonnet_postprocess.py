@@ -30,9 +30,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 
-from draftcheck.extraction.normalize import normalize_unit, whitespace_normalize  # noqa: E402
+from draftcheck.extraction.normalize import normalize_unit  # noqa: E402
 from draftcheck.extraction.validators import run_all_validators  # noqa: E402
-from draftcheck.extraction.vocabulary import OPERATORS, RULE_KEYS  # noqa: E402
+from draftcheck.extraction.vocabulary import OPERATORS  # noqa: E402
 
 ORG_ID = "1d31c315-5087-47df-a8d4-ebfd08efad5d"
 ANTHROPIC_NAMESPACE = uuid.UUID("00000000-0000-5000-a000-000000000001")
