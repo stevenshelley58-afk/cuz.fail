@@ -793,6 +793,29 @@ class PostGISSpatialDatasetStore:
                 )
                 session.add(db_fact)
 
+            # WP-G: link Property.parcel_id FK from the resolved cadastre id so the
+            # engine and spatial synth can find the parcel (it was previously only
+            # stored as a string in resolution_cache_json).
+            if profile.parcel_id:
+                parcel_pk = session.execute(
+                    select(DbParcel.id)
+                    .where(DbParcel.cadastre_id == profile.parcel_id)
+                    .limit(1)
+                ).scalar_one_or_none()
+                if parcel_pk is not None:
+                    prop.parcel_id = parcel_pk
+            session.flush()
+
+            # WP-G: synthesise confirmed, engine-consumable spatial measurement
+            # facts (lot area / width / depth, r_code, zone, lga, overlays).  The
+            # engine only reads review_status='confirmed' facts; resolution writes
+            # pending_review, so without this the engine sees nothing.  Idempotent.
+            from draftcheck.domain.spatial import synth_property_facts
+
+            synth_property_facts(
+                session, org_id=str(org_id), project_id=str(project_id)
+            )
+
             session.commit()
 
     def profile_for_project(

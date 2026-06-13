@@ -31,7 +31,6 @@ import os
 import sys
 import uuid
 from collections import defaultdict
-from typing import Any
 
 import psycopg
 from psycopg.types.json import Json
