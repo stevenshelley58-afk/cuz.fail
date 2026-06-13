@@ -187,7 +187,9 @@ Current non-DB status as of 2026-06-13:
    Remaining live check: worker-backed upload on the VPS after DB work is idle.
 3. **Real CAD extraction**: ADVANCED. Parser adapters cover DXF units/entity evidence, PDF
    text/vector evidence, IFC fallback, title-block metadata, and parser capability/accuracy
-   reporting. Artifact-row persistence remains DB-owned.
+   reporting. `scripts/parser_sample_evidence.py` plus
+   `docs/parser-sample-evidence-template.json` now provide a sanitized offline scaffold for
+   operator-reviewed real parser samples. Artifact-row persistence remains DB-owned.
 4. **DocumentChunk embeddings**: VERIFIED. Document chunks are written and project-scoped
    search marks them non-authoritative (`legal_authority=false`).
 5. **Engine refinement visibility**: VERIFIED for the frontend loop. Compliance responses

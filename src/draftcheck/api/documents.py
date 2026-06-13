@@ -51,6 +51,7 @@ from draftcheck.domain.documents import (
     InMemoryDocumentLibrary,
     configured_max_document_bytes,
     document_size_limit_label,
+    parser_real_sample_evidence_metadata,
     sample_parser_accuracy_report,
     search_persisted_document_chunks,
 )
@@ -184,6 +185,7 @@ def list_document_parsers() -> dict[str, Any]:
         "accuracy_gate": {
             "status": "not_beta_ready",
             "reason": "generated parser fixtures pass, but beta still needs persistence-connected validation and operator-reviewed real samples",
+            **parser_real_sample_evidence_metadata(),
             "required_before_beta": [
                 "automated review gate connected to persistence",
                 "operator-reviewed real project samples",

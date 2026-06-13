@@ -30,6 +30,7 @@ from draftcheck.domain.documents.parsing import (
     extract_docx_text,
     extract_pdf_page_layouts,
     extract_pdf_pages,
+    parser_real_sample_evidence_metadata,
     sample_parser_accuracy_report,
 )
 
@@ -58,6 +59,7 @@ __all__ = [
     "extract_docx_text",
     "extract_pdf_page_layouts",
     "extract_pdf_pages",
+    "parser_real_sample_evidence_metadata",
     "sample_parser_accuracy_report",
     "search_document_chunks",
     "search_persisted_document_chunks",

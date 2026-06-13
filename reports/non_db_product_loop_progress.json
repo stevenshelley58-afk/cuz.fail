@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T10:06:25+08:00",
+  "captured_at": "2026-06-13T11:35:50+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -44,7 +44,10 @@
         "PDF parser adapter carries text-block and vector-path metadata through the parser boundary",
         "Worker persistence stores parser_artifacts descriptors on document metadata until DB artifact rows are available",
         "ezdxf is a runtime dependency and tests/test_v3_documents.py generates a real DXF dimension fixture through ezdxf",
-        "GET /documents/parsers/accuracy reports generated PDF, DOCX, DXF, and IFC fixture precision/recall with 7/7 matched facts while keeping beta blocked on persistence-connected validation and operator-reviewed samples"
+        "GET /documents/parsers/accuracy reports generated PDF, DOCX, DXF, and IFC fixture precision/recall with 7/7 matched facts while keeping beta blocked on persistence-connected validation and operator-reviewed samples",
+        "scripts/parser_sample_evidence.py validates sanitized operator-reviewed parser real-sample evidence without DB persistence",
+        "docs/parser-sample-evidence-template.json gives operators a passing sanitized evidence shape, and docs/parser-sample-evidence.md records the offline validation command",
+        "GET /documents/parsers and GET /documents/parsers/accuracy expose the parser real-sample evidence schema, template, checker, and command"
       ],
       "remaining": [
         "Artifact-row persistence remains open and needs DB coordination"
@@ -189,6 +192,8 @@
     "uv run pytest tests/test_document_parser_registry.py tests/test_v3_document_parse_jobs.py -q",
     "uv run pytest tests/test_v3_documents.py::test_v3_ezdxf_generated_dimension_is_parsed_with_entity_metadata -q",
     "uv run pytest tests/test_v3_documents.py::test_v3_document_parser_accuracy_reports_canary_sample_pass tests/test_v3_documents.py::test_v3_document_parser_capabilities_are_live -q",
+    "uv run pytest tests/test_parser_sample_evidence.py -q",
+    "uv run python scripts/parser_sample_evidence.py docs/parser-sample-evidence-template.json --min-samples 1 --output reports/parser-sample-evidence.local.json",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py",
     "uv run pytest tests/test_v3_document_parse_jobs.py tests/test_v3_infra_contract.py",
     "uv run pytest tests/test_golden_e2e.py tests/test_checks_engine_matching.py tests/test_v3_api_shell.py",

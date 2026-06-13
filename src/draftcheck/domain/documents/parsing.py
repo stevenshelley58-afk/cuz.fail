@@ -60,6 +60,23 @@ SAMPLE_EXPECTED_FACTS = {
     "garage width": (5.4, "m"),
     "boundary wall length": (0.0, "m"),
 }
+REAL_SAMPLE_EVIDENCE_SCHEMA = "parser_real_sample_evidence_v1"
+REAL_SAMPLE_EVIDENCE_TEMPLATE = "docs/parser-sample-evidence-template.json"
+REAL_SAMPLE_EVIDENCE_CHECKER = "scripts/parser_sample_evidence.py"
+REAL_SAMPLE_EVIDENCE_COMMAND = (
+    "uv run python scripts/parser_sample_evidence.py "
+    "docs/parser-sample-evidence-template.json --min-samples 1 "
+    "--output reports/parser-sample-evidence.local.json"
+)
+
+
+def parser_real_sample_evidence_metadata() -> dict[str, str]:
+    return {
+        "real_sample_evidence_schema": REAL_SAMPLE_EVIDENCE_SCHEMA,
+        "real_sample_evidence_template": REAL_SAMPLE_EVIDENCE_TEMPLATE,
+        "real_sample_evidence_checker": REAL_SAMPLE_EVIDENCE_CHECKER,
+        "real_sample_evidence_command": REAL_SAMPLE_EVIDENCE_COMMAND,
+    }
 
 
 def configured_max_document_bytes() -> int:
@@ -672,6 +689,7 @@ def sample_parser_accuracy_report() -> dict[str, Any]:
             for label in report["false_positives"]
         ],
         "format_fixtures": fixture_reports,
+        **parser_real_sample_evidence_metadata(),
         "blocked_for_beta": [
             "automated validation workflow connected to persistence",
             "operator-reviewed real project samples beyond generated PDF/DOCX/DXF/IFC fixtures",

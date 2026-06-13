@@ -1,0 +1,58 @@
+{
+  "schema_version": "parser_real_sample_evidence_v1",
+  "samples": [
+    {
+      "sample_id": "operator-reviewed-pdf-001",
+      "reviewed_by": "operator.fixture",
+      "reviewed_at": "2026-06-13T03:00:00+00:00",
+      "sanitization": {
+        "operator_reviewed": true,
+        "raw_source_retained": false,
+        "contains_personal_info": false,
+        "contains_client_identifiers": false
+      },
+      "document": {
+        "media_type": "application/pdf",
+        "parser_name": "draftcheck.pdf_text_parser",
+        "parser_version": "v0.1",
+        "source_hash_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "page_count": 2
+      },
+      "expected_facts": [
+        {
+          "fact_key": "front_setback",
+          "fact_type": "setback",
+          "numeric_value": 4.5,
+          "unit": "m",
+          "tolerance": 0.001
+        },
+        {
+          "fact_key": "lot_area",
+          "fact_type": "site_area",
+          "numeric_value": 450.0,
+          "unit": "m2"
+        }
+      ],
+      "extracted_facts": [
+        {
+          "fact_key": "front_setback",
+          "fact_type": "setback",
+          "numeric_value": 4.5,
+          "unit": "m",
+          "confidence": 0.91,
+          "review_status": "human_confirmed",
+          "measurement_compliance_ready": false
+        },
+        {
+          "fact_key": "lot_area",
+          "fact_type": "site_area",
+          "numeric_value": 450.0,
+          "unit": "m2",
+          "confidence": 0.94,
+          "review_status": "operator_reviewed",
+          "measurement_compliance_ready": false
+        }
+      ]
+    }
+  ]
+}
