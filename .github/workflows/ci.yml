@@ -28,6 +28,7 @@ jobs:
         shell: bash
         run: |
           bash -n infra/v3/ops/guardrail-alerts.sh
+          bash -n infra/v3/ops/install-checkout-url.sh
           bash -n infra/v3/ops/install-guardrail-cron.sh
           bash -n infra/v3/ops/install-log-retention.sh
           bash -n infra/v3/ops/install-sentry-dsn.sh

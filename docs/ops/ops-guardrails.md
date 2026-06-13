@@ -170,7 +170,37 @@ BLOCKED: error reporting pending SENTRY_DSN.
 Unblock: run install-sentry-dsn.sh with SENTRY_DSN set, then restart api worker hermes.
 ```
 
-## 6. Log retention
+## 6. Paid checkout URL
+
+Paid launch requires a real Stripe Payment Link in the VPS env before the web
+bundle is rebuilt. Do not commit the URL to this repo.
+
+Install the URL without printing it in logs:
+
+```powershell
+$env:VITE_CHECKOUT_URL='https://buy.stripe.com/...'; ssh draftcheck "sudo VITE_CHECKOUT_URL='$env:VITE_CHECKOUT_URL' bash /srv/draftcheck/app/infra/v3/ops/install-checkout-url.sh"
+```
+
+Install and immediately run the UI-only deploy when the DB/worker lane is idle:
+
+```powershell
+$env:VITE_CHECKOUT_URL='https://buy.stripe.com/...'; ssh draftcheck "sudo VITE_CHECKOUT_URL='$env:VITE_CHECKOUT_URL' DRAFTCHECK_DEPLOY_WEB_ONLY=1 bash /srv/draftcheck/app/infra/v3/ops/install-checkout-url.sh"
+```
+
+Verify the env without printing the full Payment Link:
+
+```powershell
+ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py checkout-config --env-path /srv/draftcheck/app/infra/v3/.env --json'
+```
+
+If no Payment Link is available:
+
+```text
+BLOCKED: paid checkout pending VITE_CHECKOUT_URL.
+Unblock: run install-checkout-url.sh with VITE_CHECKOUT_URL set, then run deploy-web-only.sh.
+```
+
+## 7. Log retention
 
 Install the checked journald and Docker log-retention configs:
 the script copies `infra/v3/ops/journald-draftcheck.conf` and
@@ -200,7 +230,7 @@ Verify the installed retention files before closing the blocker:
 ssh draftcheck 'python3 /srv/draftcheck/app/scripts/ops_guardrails.py log-retention-config --journald-path /etc/systemd/journald.conf.d/draftcheck.conf --docker-daemon-path /etc/docker/daemon.json --json'
 ```
 
-## 7. Audit artifact verification
+## 8. Audit artifact verification
 
 After refreshing `reports/non_db_launch_ops_blockers.json`, verify the report,
 restore-drill template, and runbook contract locally before using the artifact
@@ -210,7 +240,7 @@ as go-live evidence:
 python scripts/audit_non_db_launch_ops.py --verify-report reports/non_db_launch_ops_blockers.json
 ```
 
-## 8. Spend persistence restart check
+## 9. Spend persistence restart check
 
 Run this after at least one governed LLM call has written `job_traces` or
 `spend_events` today:

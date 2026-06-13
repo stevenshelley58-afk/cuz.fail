@@ -16,6 +16,7 @@ import pytest
 from scripts.ops_guardrails import (
     check_backup_config,
     check_backup_freshness,
+    check_checkout_config,
     check_disk_usage,
     check_guardrail_cron,
     check_log_retention_config,
@@ -31,6 +32,7 @@ from scripts.ops_guardrails import (
 
 ROOT = Path(__file__).resolve().parents[1]
 OPS_ALERT_PATH = ROOT / "infra" / "v3" / "ops" / "guardrail-alerts.sh"
+OPS_CHECKOUT_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-checkout-url.sh"
 OPS_CRON_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-guardrail-cron.sh"
 OPS_LOG_RETENTION_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-log-retention.sh"
 OPS_SENTRY_INSTALL_PATH = ROOT / "infra" / "v3" / "ops" / "install-sentry-dsn.sh"
@@ -386,6 +388,45 @@ def _run_sentry_installer(
     )
 
 
+def _run_checkout_installer(
+    tmp_path: Path,
+    *,
+    checkout_url: str | None = "https://buy.stripe.com/live_fixture_123",
+    deploy_web_only: bool = False,
+) -> subprocess.CompletedProcess[str]:
+    bash = _require_bash()
+    env_path = tmp_path / ".env"
+    env_path.write_text(
+        "POSTGRES_USER=draftcheck\nVITE_CHECKOUT_URL=https://buy.stripe.com/old_live_link\n",
+        encoding="utf-8",
+    )
+
+    env = os.environ.copy()
+    env.update(
+        {
+            "DRAFTCHECK_APP_DIR": str(ROOT),
+            "DRAFTCHECK_ENV_PATH": str(env_path),
+            "DRAFTCHECK_DEPLOY_WEB_ONLY": "1" if deploy_web_only else "0",
+            "VITE_PRICE_LABEL": "AUD $29/month",
+            "VITE_PRICE_SUBLABEL": "Starter launch plan, cancel anytime.",
+            "PYTHON_BIN": sys.executable,
+        }
+    )
+    if checkout_url is not None:
+        env["VITE_CHECKOUT_URL"] = checkout_url
+    else:
+        env.pop("VITE_CHECKOUT_URL", None)
+
+    return subprocess.run(
+        [bash, str(OPS_CHECKOUT_INSTALL_PATH)],
+        cwd=ROOT,
+        env=env,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+
+
 def _run_log_retention_installer(tmp_path: Path, *, restart_docker: bool = False) -> subprocess.CompletedProcess[str]:
     bash = _require_bash()
     bin_dir = tmp_path / "bin"
@@ -587,6 +628,28 @@ def test_sentry_installer_can_restart_services_explicitly(tmp_path: Path) -> Non
     assert (tmp_path / "docker.log").read_text(encoding="utf-8").splitlines() == [
         "docker compose up -d api worker hermes",
     ]
+
+
+def test_checkout_installer_writes_payment_link_without_printing_url(tmp_path: Path) -> None:
+    checkout_url = "https://buy.stripe.com/live_link_123"
+    result = _run_checkout_installer(tmp_path, checkout_url=checkout_url)
+
+    assert result.returncode == 0, result.stderr
+    assert "Checkout URL installed" in result.stdout
+    assert checkout_url not in result.stdout
+    assert checkout_url not in result.stderr
+    env_text = (tmp_path / ".env").read_text(encoding="utf-8")
+    assert "POSTGRES_USER=draftcheck" in env_text
+    assert f"VITE_CHECKOUT_URL={checkout_url}" in env_text
+    assert "VITE_PRICE_LABEL=AUD $29/month" in env_text
+    assert "VITE_PRICE_SUBLABEL=Starter launch plan, cancel anytime." in env_text
+
+
+def test_checkout_installer_requires_payment_link(tmp_path: Path) -> None:
+    result = _run_checkout_installer(tmp_path, checkout_url=None)
+
+    assert result.returncode != 0
+    assert "VITE_CHECKOUT_URL is required" in result.stderr
 
 
 def test_backup_freshness_accepts_recent_postgres_dump(tmp_path: Path) -> None:
@@ -870,6 +933,46 @@ def test_sentry_config_flags_missing_compose_wiring(tmp_path: Path) -> None:
     assert result.status == "critical"
     assert "compose file does not wire SENTRY_DSN" in result.message
     assert result.metadata["compose_mentions_sentry"] is False
+
+
+def test_checkout_config_accepts_stripe_payment_link_without_leaking_url(tmp_path: Path) -> None:
+    checkout_url = "https://buy.stripe.com/live_link_123"
+    env_path = tmp_path / ".env"
+    env_path.write_text(
+        f"""VITE_CHECKOUT_URL={checkout_url}
+VITE_PRICE_LABEL=AUD $29/month
+VITE_PRICE_SUBLABEL=Starter launch plan, cancel anytime.
+""",
+        encoding="utf-8",
+    )
+
+    result = check_checkout_config(env_path)
+
+    assert result.status == "ok"
+    assert result.metadata["checkout_host"] == "buy.stripe.com"
+    assert result.metadata["price_label_present"] is True
+    assert checkout_url not in str(result.metadata)
+
+
+def test_checkout_config_flags_missing_malformed_or_placeholder_url(tmp_path: Path) -> None:
+    missing = check_checkout_config(tmp_path / "missing.env")
+    assert missing.status == "critical"
+    assert "missing" in missing.message
+
+    malformed_env = tmp_path / "malformed.env"
+    malformed_env.write_text("VITE_CHECKOUT_URL=https://example.com/pay\n", encoding="utf-8")
+    malformed = check_checkout_config(malformed_env)
+    assert malformed.status == "critical"
+    assert "buy.stripe.com" in malformed.message
+
+    placeholder_env = tmp_path / "placeholder.env"
+    placeholder_env.write_text(
+        "VITE_CHECKOUT_URL=https://buy.stripe.com/lotfile_ci_fixture\n",
+        encoding="utf-8",
+    )
+    placeholder = check_checkout_config(placeholder_env)
+    assert placeholder.status == "critical"
+    assert "placeholder or test value" in placeholder.message
 
 
 def test_log_retention_config_accepts_journald_and_docker_rotation(tmp_path: Path) -> None:

@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T00:39:11.869810+00:00",
+  "captured_at": "2026-06-13T00:51:04.712454+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
@@ -75,7 +75,7 @@
       "vps_checkout_env": "VITE_CHECKOUT_URL_MISSING"
     },
     "unblock": [
-      "Set a real Stripe Payment Link in /srv/draftcheck/app/infra/v3/.env as VITE_CHECKOUT_URL=https://buy.stripe.com/...",
+      "Install a real Stripe Payment Link with: ssh draftcheck \"sudo VITE_CHECKOUT_URL='https://buy.stripe.com/...' bash /srv/draftcheck/app/infra/v3/ops/install-checkout-url.sh\"",
       "Deploy the web bundle with: ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'",
       "Run: cd web && npm run verify:launch:live:strict"
     ]

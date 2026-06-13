@@ -553,6 +553,66 @@ def check_sentry_config(env_path: Path, *, compose_path: Path | None = None) -> 
     )
 
 
+CHECKOUT_PLACEHOLDER_NEEDLES = (
+    "example",
+    "placeholder",
+    "change_me",
+    "changeme",
+    "todo",
+    "test_fixture",
+    "lotfile_ci_fixture",
+)
+
+
+def check_checkout_config(env_path: Path) -> GuardrailResult:
+    """Verify the paid checkout URL is a real Stripe Payment Link without printing it."""
+
+    if not env_path.exists():
+        return GuardrailResult(
+            name="checkout_config",
+            status="critical",
+            message=f"checkout env file missing: {env_path}",
+            metadata={"env_path": str(env_path)},
+        )
+
+    values = read_env_file(env_path)
+    checkout_url = values.get("VITE_CHECKOUT_URL", "").strip()
+    parsed = urlparse(checkout_url)
+    failures: list[str] = []
+    lowered = checkout_url.lower()
+    if not checkout_url:
+        failures.append("VITE_CHECKOUT_URL is missing or empty")
+    elif parsed.scheme != "https" or parsed.netloc != "buy.stripe.com" or not parsed.path.strip("/"):
+        failures.append("VITE_CHECKOUT_URL must be an HTTPS buy.stripe.com Payment Link")
+    elif any(needle in lowered for needle in CHECKOUT_PLACEHOLDER_NEEDLES):
+        failures.append("VITE_CHECKOUT_URL appears to be a placeholder or test value")
+
+    metadata = {
+        "env_path": str(env_path),
+        "present_keys": sorted(values),
+        "checkout_url_present": bool(checkout_url),
+        "checkout_scheme": parsed.scheme if checkout_url else None,
+        "checkout_host": parsed.netloc if checkout_url else None,
+        "checkout_path_present": bool(parsed.path and parsed.path != "/"),
+        "price_label_present": bool(values.get("VITE_PRICE_LABEL", "").strip()),
+        "price_sublabel_present": bool(values.get("VITE_PRICE_SUBLABEL", "").strip()),
+        "failures": failures,
+    }
+    if failures:
+        return GuardrailResult(
+            name="checkout_config",
+            status="critical",
+            message="checkout config is incomplete: " + "; ".join(failures),
+            metadata=metadata,
+        )
+    return GuardrailResult(
+        name="checkout_config",
+        status="ok",
+        message="Stripe checkout URL is configured",
+        metadata=metadata,
+    )
+
+
 REQUIRED_JOURNALD_RETENTION = {
     "SystemMaxUse": "1G",
     "SystemKeepFree": "2G",
@@ -896,6 +956,10 @@ def main(argv: list[str] | None = None) -> int:
     sentry_parser.add_argument("--compose-path", default="/srv/draftcheck/app/infra/v3/compose.yml")
     sentry_parser.add_argument("--json", action="store_true")
 
+    checkout_parser = subparsers.add_parser("checkout-config")
+    checkout_parser.add_argument("--env-path", default="/srv/draftcheck/app/infra/v3/.env")
+    checkout_parser.add_argument("--json", action="store_true")
+
     log_retention_parser = subparsers.add_parser("log-retention-config")
     log_retention_parser.add_argument("--journald-path", default="/etc/systemd/journald.conf.d/draftcheck.conf")
     log_retention_parser.add_argument("--docker-daemon-path", default="/etc/docker/daemon.json")
@@ -999,6 +1063,11 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "sentry-config":
         result = check_sentry_config(Path(args.env_path), compose_path=Path(args.compose_path))
+        _print_result(result, as_json=args.json)
+        return status_exit_code(result.status)
+
+    if args.command == "checkout-config":
+        result = check_checkout_config(Path(args.env_path))
         _print_result(result, as_json=args.json)
         return status_exit_code(result.status)
 
