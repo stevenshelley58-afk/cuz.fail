@@ -7,6 +7,7 @@ import { trackEvent } from "../analytics";
 
 type CompliancePanelProps = {
   projectId: string;
+  onUploadDrawing?: () => void;
 };
 
 function StatusBadge({ status }: { status: ComplianceResultItem["status"] }) {
@@ -286,7 +287,7 @@ function ComplianceResultRow({
   );
 }
 
-export function CompliancePanel({ projectId }: CompliancePanelProps) {
+export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelProps) {
   const [runResult, setRunResult] = useState<ComplianceRunResponse | null>(null);
   const [matrixLoading, setMatrixLoading] = useState(true);
   const [matrixLoadMessage, setMatrixLoadMessage] = useState<string | null>(null);
@@ -365,6 +366,11 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
         results: current.results.map((item) => (item.result_id === updated.result_id ? updated : item)),
       };
     });
+  }
+
+  function handleUploadDrawing() {
+    setUploadPrompted(true);
+    onUploadDrawing?.();
   }
 
   const results = runResult?.results ?? [];
@@ -489,7 +495,7 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
         <ComplianceResultRow
           key={item.result_id}
           item={item}
-          onUploadDrawing={item.status === "needs_more_info" ? () => setUploadPrompted(true) : undefined}
+          onUploadDrawing={item.status === "needs_more_info" ? handleUploadDrawing : undefined}
           onReviewRecorded={updateReviewedResult}
         />
       ))}

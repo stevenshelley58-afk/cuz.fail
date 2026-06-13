@@ -20,13 +20,20 @@ const { apiMock } = vi.hoisted(() => ({
 
 vi.mock("../api", () => ({ api: apiMock }));
 vi.mock("./compliance", () => ({
-  CompliancePanel: ({ projectId }: { projectId: string }) => (
-    <div data-testid="compliance-panel">Compliance for {projectId}</div>
+  CompliancePanel: ({ projectId, onUploadDrawing }: { projectId: string; onUploadDrawing?: () => void }) => (
+    <div data-testid="compliance-panel">
+      Compliance for {projectId}
+      <button onClick={onUploadDrawing}>Mock request drawing upload</button>
+    </div>
   ),
 }));
 
 beforeEach(() => {
   vi.clearAllMocks();
+  Object.defineProperty(HTMLElement.prototype, "scrollIntoView", {
+    configurable: true,
+    value: vi.fn(),
+  });
   apiMock.getProperty.mockResolvedValue({
     kind: "ok",
     status: 200,
@@ -135,4 +142,13 @@ test("project detail gives reopened projects the full document upload workflow",
       expect.objectContaining({ name: "new-site-plan.pdf" }),
     ),
   );
+});
+
+test("project detail focuses document upload when compliance needs drawing evidence", async () => {
+  render(<ProjectDetail projectId="project-golden" onClose={vi.fn()} />);
+
+  const uploadTarget = await screen.findByLabelText("Upload drawing or document");
+  fireEvent.click(screen.getByRole("button", { name: /mock request drawing upload/i }));
+
+  await waitFor(() => expect(document.activeElement).toBe(uploadTarget));
 });
