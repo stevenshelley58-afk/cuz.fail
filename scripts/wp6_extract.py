@@ -88,6 +88,25 @@ RANGE_PRIORS: dict[str, tuple[float, float, set[str | None]]] = {
     "garage_width": (1.0, 20.0, {"m"}),
     "garage_dominance": (10.0, 100.0, {"%"}),
     "soft_landscaping": (0.0, 100.0, {"%"}),
+    # 2026-06-13 vocab expansion. Sanity bounds — wider than tight typical
+    # ranges, because some WA instruments include outlier values (e.g. very
+    # large mixed-use lots, deep apartment buildings).
+    "lot_width": (4.0, 100.0, {"m"}),
+    "lot_depth": (10.0, 300.0, {"m"}),
+    "minimum_frontage": (4.0, 50.0, {"m"}),
+    "wall_height": (2.0, 25.0, {"m"}),
+    "ground_floor_height": (0.0, 4.0, {"m"}),
+    "ceiling_height": (2.0, 6.0, {"m"}),
+    "plot_ratio": (0.1, 15.0, {None}),
+    "fence_height_front": (0.3, 4.0, {"m"}),
+    "fence_height_side": (0.5, 4.0, {"m"}),
+    "retaining_wall_height": (0.1, 6.0, {"m"}),
+    "parking_bays_per_dwelling": (0.0, 5.0, {None}),
+    "visitor_parking_per_dwelling": (0.0, 2.0, {None}),
+    "car_bay_width": (2.0, 5.0, {"m"}),
+    "driveway_width": (2.0, 12.0, {"m"}),
+    "private_open_space": (4.0, 500.0, {"m2", "m"}),
+    "communal_open_space": (10.0, 2000.0, {"m2", "m", "%"}),
 }
 
 TIER1_TOPIC_RE = re.compile(

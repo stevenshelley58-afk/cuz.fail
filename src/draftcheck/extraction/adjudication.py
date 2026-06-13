@@ -104,11 +104,32 @@ def adjudicate(votes: Sequence[Vote]) -> Decision:
 
     dissent: list[str] = []
 
-    # Pathway: engine semantics — must agree.
-    pathways = {v.pathway for v in votes}
-    if len(pathways) > 1:
-        return Decision(PENDING, REASON_PATHWAY, 0.0, families=tuple(families))
-    pathway = votes[0].pathway
+    # Pathway: engine semantics. Original policy was "any disagreement -> PENDING",
+    # which blocked ~100 cores in the WP6 2026-06-13 pool (see reports/wp6_adjudication.json).
+    # Revised policy (2026-06-13): majority pathway wins. The winning pathway must (a) come
+    # from >= 2 distinct families and (b) hold a strict plurality over each loser. Ties or
+    # cross-family ties still PEND. Dissenting votes are dropped from the decision but
+    # recorded as 'pathway_dissent_<lost>' in the dissent tuple so the operator can audit.
+    pathway_counts: dict[str, int] = {}
+    pathway_families: dict[str, set[str]] = {}
+    for v in votes:
+        pathway_counts[v.pathway] = pathway_counts.get(v.pathway, 0) + 1
+        pathway_families.setdefault(v.pathway, set()).add(model_family(v.model))
+    if len(pathway_counts) > 1:
+        ranked = sorted(pathway_counts.items(), key=lambda kv: (-kv[1], kv[0]))
+        top_pathway, top_count = ranked[0]
+        second_count = ranked[1][1]
+        if top_count == second_count:
+            return Decision(PENDING, REASON_PATHWAY, 0.0, families=tuple(families))
+        if len(pathway_families[top_pathway]) < 2:
+            return Decision(PENDING, REASON_PATHWAY, 0.0, families=tuple(families))
+        pathway = top_pathway
+        for loser, _ in ranked[1:]:
+            dissent.append(f"pathway_dissent_{loser}")
+        votes = [v for v in votes if v.pathway == pathway]
+        families = sorted({model_family(v.model) for v in votes})
+    else:
+        pathway = votes[0].pathway
 
     # rule_type: informational relative to pathway — take majority, record mix.
     type_counts: dict[str, int] = {}

@@ -76,6 +76,42 @@ def test_pathway_disagreement_blocks():
     assert d.reason == REASON_PATHWAY
 
 
+def test_pathway_majority_wins_with_two_distinct_families():
+    """Two families agree on deemed_to_comply, one openai dissenter -> promote
+    with the majority pathway and record the loser as dissent."""
+    AN = "anthropic:claude-sonnet-4-6"
+    d = adjudicate([
+        vote(model=MM, pathway="deemed_to_comply"),
+        vote(model=AN, pathway="deemed_to_comply"),
+        vote(model=OA, pathway="design_principle"),
+    ])
+    assert d.outcome == PROMOTE
+    assert d.pathway == "deemed_to_comply"
+    assert "pathway_dissent_design_principle" in d.dissent
+
+
+def test_pathway_majority_blocks_when_winner_is_single_family():
+    """Two openai votes for one pathway, one minimax for another. The majority
+    pathway is single-family — still PEND (independence requirement holds)."""
+    d = adjudicate([
+        vote(model=OA, pathway="deemed_to_comply"),
+        vote(model=OA + ":challenge", pathway="deemed_to_comply"),
+        vote(model=MM, pathway="design_principle"),
+    ])
+    assert d.outcome == PENDING
+    assert d.reason == REASON_PATHWAY
+
+
+def test_pathway_tied_count_pends():
+    """1 vs 1 tie pends, even with two families."""
+    d = adjudicate([
+        vote(model=MM, pathway="deemed_to_comply"),
+        vote(model=OA, pathway="design_principle"),
+    ])
+    assert d.outcome == PENDING
+    assert d.reason == REASON_PATHWAY
+
+
 def test_density_codes_intersect_conservatively():
     d = adjudicate([
         vote(model=MM, density_codes=("R30", "R40")),
