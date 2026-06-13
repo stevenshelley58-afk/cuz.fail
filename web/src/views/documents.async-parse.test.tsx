@@ -147,6 +147,40 @@ test("document upload polls async parser status and loads facts when parsing com
   expect(screen.getByText(/DIMENSION FRONT_SETBACK=6m/i)).toBeTruthy();
 });
 
+test("document upload loads facts when the upload response starts as parsing", async () => {
+  apiMock.documents.upload.mockResolvedValueOnce({
+    kind: "ok",
+    status: 202,
+    data: {
+      document_id: "doc-async",
+      filename: "m1_canary_site_plan_rev_a.dxf",
+      project_id: "project-golden",
+      parse_status: "parsing",
+      parse_job: { enqueued: true },
+      fact_count: 0,
+      extracted_facts: [],
+    },
+  });
+
+  const { container } = render(<DocumentUpload projectId="project-golden" />);
+  await waitFor(() => expect(apiMock.documents.listForProject).toHaveBeenCalledWith("project-golden"));
+
+  const input = container.querySelector('input[type="file"]');
+  fireEvent.change(input as HTMLInputElement, {
+    target: {
+      files: [new File(["0\nSECTION\n2\nENTITIES\n0\nENDSEC\n0\nEOF"], "m1_canary_site_plan_rev_a.dxf")],
+    },
+  });
+
+  await screen.findByText(/parser job is queued or running/i);
+  expect(screen.getAllByText("Parsing").length).toBeGreaterThan(0);
+  await waitFor(() => expect(apiMock.documents.facts).toHaveBeenCalledWith("doc-async"));
+  await act(async () => {
+    resolveFacts?.(parsedFactsResponse());
+  });
+  expect(await screen.findByText(/front setback/i)).toBeTruthy();
+});
+
 test("uploaded evidence search renders project hits with the advisory notice", async () => {
   apiMock.documents.listForProject.mockReset();
   apiMock.documents.listForProject.mockResolvedValue({
