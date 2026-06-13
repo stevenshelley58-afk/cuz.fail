@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T10:54:00+08:00",
+  "captured_at": "2026-06-13T10:06:25+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -8,7 +8,7 @@
         "tests/test_golden_e2e.py covers address -> project -> DXF upload -> fact promotion -> compliance run",
         "uv run pytest tests/test_golden_e2e.py tests/test_v3_golden_fixture.py passed",
         ".github/workflows/ci.yml runs a named Golden fixture E2E gate before the full backend test suite",
-        "GitHub CI run 27449927740 passed the Golden fixture E2E gate on main"
+        "GitHub CI run 27453333933 passed the Golden fixture E2E gate on main at f5c9fcd9f71ce4bbd63de7769e3cc508b179eacd"
       ]
     },
     "c2_async_document_parsing": {
@@ -88,9 +88,9 @@
         "infra/v3/deploy-web-only.sh runs verify:launch:mobile before strict launch verification so the VPS UI-only deploy uses the same mobile preflight",
         "web/src/App.launch.test.tsx runtime-tests landing metadata, privacy/terms navigation, landing address handoff into the app, guest project creation, and magic-link verification",
         ".github/workflows/ci.yml runs npm run test:launch-checkout and npm run test:live-fetch in the web CI job",
-        "GitHub CI run 27449927740 passed the web build, launch checkout, launch actions, live fetch, mobile, strict launch, live preview, and Lighthouse SEO gates on main",
+        "GitHub CI run 27453333933 passed the web build, launch checkout, launch actions, live fetch, mobile, strict launch, live preview, and Lighthouse SEO gates on main at f5c9fcd9f71ce4bbd63de7769e3cc508b179eacd",
         ".github/workflows/deploy.yml verifies https://lotfile.app/api/v1/ready and https://lotfile.app/api/v1/health after deploy",
-        "GitHub deploy run 27449978957 synced production to 233431d and passed the lotfile.app live verifier",
+        "GitHub deploy run 27453366068 synced production to f5c9fcd9f71ce4bbd63de7769e3cc508b179eacd and passed lotfile.app ready/health verification",
         "ssh draftcheck 'cd /srv/draftcheck/app/web && npm run verify:launch:live:json' passed against https://lotfile.app with only the paid checkout URL warning",
         "web/src/views/wizard.tsx no longer advances the proposal wizard when proposal saving returns notBuilt",
         "web/src/views/wizard.proposal.test.tsx covers successful proposal save and notBuilt fallback behaviour",
@@ -111,12 +111,18 @@
         "web/src/views/projects.detail.test.tsx covers reopened-project address, local government, planning fact, and document workflow rendering",
         "web/src/views/compliance.tsx surfaces saved compliance matrix loading, missing, auth, not-built, error, and down states with a retry path instead of showing a false empty state",
         "web/src/views/compliance.product-loop.test.tsx covers saved matrix load failure visibility and retry recovery",
+        "web/src/views/compliance.tsx keeps a fresh manual run result when an older saved matrix load resolves later",
+        "web/src/views/compliance.product-loop.test.tsx covers the late saved-matrix response race",
         "web/src/views/wizard.tsx captures building_class plus primary and secondary street confirmation fields before saving proposals",
         "web/src/views/wizard.tsx blocks incomplete proposal saves client-side so users do not advance to compliance with avoidably missing proposal facts",
         "web/src/views/wizard.proposal.test.tsx covers full proposal payload wiring, validation before API calls, and notBuilt fallback behavior",
         "web/src/views/documents.tsx lets returning users review persisted facts from already-uploaded parsed documents instead of only newly uploaded files",
         "web/src/views/documents.tsx no longer treats confirm-fact notBuilt responses as successful local confirmation",
-        "web/src/views/documents.async-parse.test.tsx covers existing parsed document fact review and confirm-fact notBuilt error behavior"
+        "web/src/views/documents.async-parse.test.tsx covers existing parsed document fact review and confirm-fact notBuilt error behavior",
+        "GitHub CI run 27452982092 and deploy run 27453036862 passed after proposal capture validation at a6dd47b07236f6aa98a61e46730da82e79ce3d05",
+        "GitHub CI run 27453174900 and deploy run 27453215305 passed after existing-document review at 6b9a71b4008d9a4c6423b82b90254c96baac25cd",
+        "GitHub CI run 27453333933 and deploy run 27453366068 passed after the compliance matrix race fix at f5c9fcd9f71ce4bbd63de7769e3cc508b179eacd",
+        "ssh draftcheck 'cd /srv/draftcheck/app && git rev-parse HEAD' returned f5c9fcd9f71ce4bbd63de7769e3cc508b179eacd, and ready/health plus verify:launch:live:json passed with only the checkout URL warning"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"

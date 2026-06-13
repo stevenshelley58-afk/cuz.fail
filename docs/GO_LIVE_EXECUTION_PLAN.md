@@ -177,7 +177,28 @@ Gate: 2 consecutive clean rounds → `reports/adversarial_closure.json`.
 
 # PART C — Close the product loop end-to-end (2–4 days)
 
-Confirmed-open gaps from the Phase 4/5 scan (engine and upload basics already work):
+Current non-DB status as of 2026-06-13:
+
+1. **Golden-fixture E2E in CI**: VERIFIED. CI has a named Golden fixture E2E gate covering
+   address -> project -> DXF upload -> fact promotion -> compliance run with cited advisory
+   results. Keep this gate green before shipping product-loop changes.
+2. **Async document parsing**: ADVANCED. Uploads persist `parse_pending`, enqueue the worker
+   parser, and the SPA polls both `parse_pending` and `parsing` until facts are available.
+   Remaining live check: worker-backed upload on the VPS after DB work is idle.
+3. **Real CAD extraction**: ADVANCED. Parser adapters cover DXF units/entity evidence, PDF
+   text/vector evidence, IFC fallback, title-block metadata, and parser capability/accuracy
+   reporting. Artifact-row persistence remains DB-owned.
+4. **DocumentChunk embeddings**: VERIFIED. Document chunks are written and project-scoped
+   search marks them non-authoritative (`legal_authority=false`).
+5. **Engine refinement visibility**: VERIFIED for the frontend loop. Compliance responses
+   expose missing-info reasons, drawing evidence, cited advisory results, saved-matrix load
+   states, and operator review notes. The SPA also preserves newer manual run results when
+   an older saved matrix response resolves late.
+6. **Proposal/document review UX**: ADVANCED. The proposal wizard now captures building
+   class and street confirmations before checks, blocks incomplete proposal saves, and
+   lets returning users review persisted facts from already-uploaded parsed documents.
+
+Historical baseline from the Phase 4/5 scan, retained for traceability:
 
 1. **Golden-fixture E2E in CI**: address → project → upload DXF fixture
    (`tests/fixtures/golden/document_facts.json`) → confirm fact → approved rule → run
@@ -201,7 +222,18 @@ correct units; nothing raster-derived promotes uncalibrated.
 
 # PART D — Launch surface (before any ad dollar, 2–3 days)
 
-LAUNCH_HANDOFF WP-4/WP-5, all still open (no landing page, legal docs, analytics, pricing):
+LAUNCH_HANDOFF WP-4/WP-5 current status as of 2026-06-13:
+
+1. Static landing at `/`, `/app` SPA routing, `/privacy`, and `/terms`: VERIFIED.
+2. SEO assets and metadata (`robots.txt`, `sitemap.xml`, favicon, OG image, canonical
+   checks): VERIFIED by local and live launch verifiers.
+3. Analytics events (`signup_requested`, `project_created`, `compliance_run`,
+   `checkout_clicked`): WIRED and covered by launch-action tests.
+4. Mobile sweep: VERIFIED by `verify:launch:mobile` and launch-action coverage.
+5. Pricing/checkout: CODE VERIFIED with strict Stripe-shaped fixtures; production remains
+   blocked only until the real Stripe Payment Link is installed as `VITE_CHECKOUT_URL`.
+
+Historical LAUNCH_HANDOFF WP-4/WP-5 baseline, retained for traceability:
 1. Static landing at `/` (SPA at `/app` or render-for-logged-out), advisory-not-certification
    trust copy, CTA "Check an address free".
 2. `/privacy` + `/terms` (advisory-only, liability, uploaded-drawing data handling).
