@@ -233,8 +233,8 @@ class TestBuildGroundedResponse:
 # ---------------------------------------------------------------------------
 
 class TestBuildRetrievalQuery:
-    def test_no_history_returns_question(self):
-        assert _build_retrieval_query("what is R20?", []) == "what is R20?"
+    def test_no_history_returns_compact_keywords(self):
+        assert _build_retrieval_query("what is R20?", []) == "R20"
 
     def test_prepends_last_user_turn(self):
         history = [
@@ -244,6 +244,7 @@ class TestBuildRetrievalQuery:
         result = _build_retrieval_query("what's my rear setback?", history)
         assert "R20" in result
         assert "rear setback" in result
+        assert "what" not in result.lower()
 
     def test_skips_assistant_turns_for_context(self):
         history = [
@@ -253,6 +254,13 @@ class TestBuildRetrievalQuery:
         result = _build_retrieval_query("setback?", history)
         assert "Stirling" in result
         assert "should not appear" not in result
+
+    def test_compacts_natural_language_planning_question(self):
+        result = _build_retrieval_query(
+            "In one short paragraph, what is site cover in the WA R-Codes?",
+            [],
+        )
+        assert result == "site cover WA R-Codes"
 
 
 # ---------------------------------------------------------------------------

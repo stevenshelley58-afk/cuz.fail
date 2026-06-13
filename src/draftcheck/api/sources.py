@@ -47,6 +47,39 @@ _ASSISTANT_MAX_CONTEXT_CHUNKS: int = int(os.getenv("DRAFTCHECK_ASSISTANT_MAX_CON
 
 _ASSISTANT_HISTORY_MAX_TURNS: int = 12
 _ASSISTANT_HISTORY_MAX_CHARS: int = 6000
+_RETRIEVAL_STOP_WORDS: frozenset[str] = frozenset(
+    {
+        "a",
+        "about",
+        "an",
+        "and",
+        "are",
+        "as",
+        "brief",
+        "can",
+        "does",
+        "explain",
+        "for",
+        "give",
+        "how",
+        "i",
+        "in",
+        "is",
+        "me",
+        "my",
+        "of",
+        "one",
+        "paragraph",
+        "please",
+        "short",
+        "tell",
+        "the",
+        "to",
+        "what",
+        "whats",
+        "with",
+    }
+)
 
 _CITATION_MARKER_RE = re.compile(r"\[(\d[\d,\s]*)\]")
 
@@ -354,7 +387,21 @@ def _build_grounded_response(
 
 def _build_retrieval_query(question: str, history: list[AssistantTurn]) -> str:
     prev_user = next((t.content for t in reversed(history) if t.role == "user"), None)
-    return f"{prev_user} {question}" if prev_user else question
+    current = _compact_retrieval_query(question) or question
+    if prev_user:
+        previous = _compact_retrieval_query(prev_user) or prev_user
+        return f"{previous} {current}"
+    return current
+
+
+def _compact_retrieval_query(text: str) -> str:
+    tokens: list[str] = []
+    for token in re.findall(r"[A-Za-z0-9][A-Za-z0-9-]*", text):
+        normalized = token.strip("-").lower()
+        if normalized in _RETRIEVAL_STOP_WORDS:
+            continue
+        tokens.append(token)
+    return " ".join(tokens[:16])
 
 
 def _build_chat_messages(
