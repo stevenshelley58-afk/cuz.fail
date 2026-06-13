@@ -105,10 +105,7 @@ class ComplianceMatrixResponse(BaseModel):
     results: list[CheckResultItemResponse]
 
 
-_DISCLAIMER = (
-    "Results are advisory only (likely_pass / likely_fail / needs_more_info / unsupported). "
-    "They are not final legal, planning, building, or certification compliance determinations."
-)
+_DISCLAIMER = "Advisory — cite-checked against approved sources, not a final compliance certification."
 
 
 # ---------------------------------------------------------------------------

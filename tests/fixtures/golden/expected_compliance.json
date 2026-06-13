@@ -10,8 +10,9 @@
       "no_llm_verdicts": true
     },
     "advisory_disclaimer_contains": [
-      "advisory only",
-      "compliance determinations"
+      "Advisory",
+      "approved sources",
+      "not a final compliance certification"
     ]
   },
   "expected_results": [

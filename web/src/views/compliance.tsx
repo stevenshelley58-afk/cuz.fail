@@ -377,6 +377,9 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
   const passCount = results.filter((r) => r.status === "likely_pass").length;
   const failCount = results.filter((r) => r.status === "likely_fail").length;
   const moreInfoCount = results.filter((r) => r.status === "needs_more_info").length;
+  const unsupportedCount = results.filter((r) => r.status === "unsupported").length;
+  const actionableCount = passCount + failCount;
+  const allNeedMoreInfo = results.length > 0 && actionableCount === 0 && moreInfoCount > 0;
 
   return (
     <div style={{ padding: "0 0 24px" }}>
@@ -385,7 +388,11 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
           <h3 style={{ margin: 0, fontSize: 16, fontWeight: 600 }}>Compliance check</h3>
           {results.length > 0 && (
             <div style={{ fontSize: 12, color: "#6b7280", marginTop: 4 }}>
-              {passCount} likely pass · {failCount} likely fail · {moreInfoCount} needs info · {results.filter(r => r.status === "unsupported").length} unsupported
+              {actionableCount > 0
+                ? `${passCount} likely pass · ${failCount} likely fail${moreInfoCount > 0 ? ` · ${moreInfoCount} need a measurement` : ""}`
+                : moreInfoCount > 0
+                  ? `Ready to check ${moreInfoCount + actionableCount} rules — upload a drawing to fill in measurements`
+                  : `${unsupportedCount} check${unsupportedCount === 1 ? "" : "s"} have no rule loaded yet`}
             </div>
           )}
         </div>
@@ -469,36 +476,73 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
         </div>
       )}
 
-      {runResult?.advisory_disclaimer && (
-        <div
-          style={{
-            background: "#fffbeb",
-            border: "1px solid #fcd34d",
-            borderRadius: 6,
-            padding: "8px 12px",
-            color: "#92400e",
-            fontSize: 12,
-            marginBottom: 12,
-          }}
-        >
-          {runResult.advisory_disclaimer}
-        </div>
-      )}
-
       {results.length === 0 && !loading && !matrixLoading && !matrixLoadMessage && !error && (
         <div style={{ color: "#6b7280", fontSize: 14 }}>
           No compliance results yet. Run a check to get started.
         </div>
       )}
 
-      {results.map((item) => (
-        <ComplianceResultRow
-          key={item.result_id}
-          item={item}
-          onUploadDrawing={item.status === "needs_more_info" ? handleUploadDrawing : undefined}
-          onReviewRecorded={updateReviewedResult}
-        />
-      ))}
+      {allNeedMoreInfo && (
+        <div
+          style={{
+            background: "#eff6ff",
+            border: "1px solid #bfdbfe",
+            borderRadius: 8,
+            padding: "12px 14px",
+            marginBottom: 12,
+          }}
+        >
+          <div style={{ fontWeight: 600, color: "#1e40af", fontSize: 14, marginBottom: 4 }}>
+            Add measurements to see your results
+          </div>
+          <div style={{ fontSize: 13, color: "#1e40af", marginBottom: 8 }}>
+            We have {moreInfoCount} approved rule{moreInfoCount === 1 ? "" : "s"} ready to check against this property. Upload a drawing or enter measurements to see likely pass/fail per check.
+          </div>
+          {onUploadDrawing && (
+            <button
+              onClick={handleUploadDrawing}
+              style={{
+                fontSize: 13,
+                padding: "6px 14px",
+                background: "#2563eb",
+                color: "#fff",
+                border: "none",
+                borderRadius: 5,
+                cursor: "pointer",
+                fontWeight: 500,
+              }}
+            >
+              Upload drawing
+            </button>
+          )}
+        </div>
+      )}
+
+      {results
+        .filter((item) => !(allNeedMoreInfo && item.status === "needs_more_info"))
+        .filter((item) => item.status !== "unsupported")
+        .map((item) => (
+          <ComplianceResultRow
+            key={item.result_id}
+            item={item}
+            onUploadDrawing={item.status === "needs_more_info" ? handleUploadDrawing : undefined}
+            onReviewRecorded={updateReviewedResult}
+          />
+        ))}
+
+      {runResult?.advisory_disclaimer && (
+        <div
+          style={{
+            marginTop: 16,
+            fontSize: 11,
+            color: "#9ca3af",
+            textAlign: "center",
+            fontStyle: "italic",
+          }}
+        >
+          {runResult.advisory_disclaimer}
+        </div>
+      )}
 
       {uploadPrompted && (
         <div
