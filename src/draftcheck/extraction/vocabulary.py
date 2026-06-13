@@ -38,6 +38,31 @@ RULE_KEYS = frozenset({
     "driveway_width",
     "private_open_space",
     "communal_open_space",
+    # 2026-06-13 second expansion. Coverage of parking detail per dwelling type,
+    # bicycle parking, signage, balconies, building separation, eave/awning,
+    # dwelling area minimums, and ancillary dwelling rules - all common WA
+    # residential planning rule shapes found in Cockburn LPPs and Liveable
+    # Neighbourhoods that fell outside the first 30-key vocab.
+    "parking_bays_per_single_house",
+    "parking_bays_per_grouped_dwelling",
+    "parking_bays_per_multiple_dwelling",
+    "bicycle_parking_per_dwelling",
+    "balcony_area",
+    "balcony_depth",
+    "building_separation",
+    "eave_width",
+    "awning_depth",
+    "dwelling_area_minimum",
+    "dwelling_area_average",
+    "ancillary_dwelling_area",
+    "ancillary_dwelling_height",
+    "crossover_width",
+    "footpath_setback",
+    "sign_height_max",
+    "sign_area_max",
+    "lot_orientation_angle",
+    "noise_attenuation_distance",
+    "building_envelope_height",
 })
 
 OPERATORS = frozenset({"lte", "gte", "eq", "lt", "gt", "range", "pct_lte", "pct_gte"})

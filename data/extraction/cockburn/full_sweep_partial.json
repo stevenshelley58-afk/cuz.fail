@@ -1,0 +1,1222 @@
+{
+  "extractions": [
+    {
+      "clause_id": "f16eab79-f44c-48f0-98fe-d9bcac2e595a",
+      "atoms": [
+        {
+          "rule_key": "wall_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 4.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "Single house, including extensions and ancillary outbuildings, in the Rural Zone and Rural Living Zone, contained within a building envelope"
+          },
+          "quote": "A single house, including extensions and ancillary outbuildings with an \narea of less than 100m2 and a wall height not exceeding 4.5 in the Rural \nZone and Rural Living Zone and the proposal is contained within a \nbuilding envelope."
+        },
+        {
+          "rule_key": "wall_height",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "lte",
+          "value": 4.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "Single house, including extensions and ancillary outbuildings, in the Resource Zone, contained within a building envelope"
+          },
+          "quote": "A single house, including extensions and ancillary outbuildings with an \narea of less than 200m2 and a wall height not exceeding 4.5 in the \nResource Zone and the proposal is contained within a building envelope."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "21db95bb-9c23-4c10-a2d7-7c3b6c7b2c8f",
+      "atoms": [
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 20000,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Subdivision within the Resource Zone (not subject to clause 1.5); minimum lot size for created lots"
+          },
+          "quote": "A minimum lot size of 2ha;"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "088c0bb5-5039-40b0-9c37-137a31a90973",
+      "atoms": [
+        {
+          "rule_key": "site_area",
+          "rule_type": "exception",
+          "pathway": "none",
+          "operator": "lt",
+          "value": 20000,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Precinct 1 (Lot 98 Prinsep Road and Lots 51, 99 and 9 Jandakot Road, Jandakot); lots smaller than 2 ha only supported where reduction is required to facilitate construction of subdivisional roads"
+          },
+          "quote": "The City shall only support the creation of lots less than 2 \nhectares to the extent that the reduction in lot area is required to \nfacilitate the construction of subdivisional roads."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "6ce05b68-5917-4009-8cab-fbea5b9fa671",
+      "atoms": [
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 1000,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Child care premises site"
+          },
+          "quote": "The site is to have a regular shape, with a minimum lot area of \n1,000m2"
+        },
+        {
+          "rule_key": "minimum_frontage",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 20,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Child care premises site"
+          },
+          "quote": "an effective frontage of 20m"
+        },
+        {
+          "rule_key": "site_cover",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 50,
+          "unit": "%",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Child care premises site coverage maximum"
+          },
+          "quote": "Site coverage is required to be a maximum of fifty per cent (50%)"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "c0e94341-f879-4762-adb3-3cb1ce4a7feb",
+      "atoms": [
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 15,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum primary street setback for industrial/mixed business zones under LPP 3.8 (may be reduced where consistent with existing streetscape, outside Strategic Industry zone)"
+          },
+          "quote": "15m (may be reduced \nwhere it can be clearly \ndemonstrated that it is \nconsistent with the \nexisting streetscape for \nland zoned outside the \nStrategic Industry zone)."
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum secondary street setback for industrial/mixed business zones under LPP 3.8 (unless reduction is consistent with existing streetscape and not detrimental)"
+          },
+          "quote": "3m (unless it can \nbe demonstrated \nthat a reduced \nsetback is \nconsistent with \nthe existing \nstreetscape \nand/or that a \nreduction will not \nresult in a \ndetrimental \nimpact on the \nstreetscape)."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "064eb9ab-6167-4adf-81ba-961fe675853a",
+      "atoms": [
+        {
+          "rule_key": "site_area",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 1000,
+          "unit": "m2",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Industrial subdivision where reticulated sewerage is available"
+          },
+          "quote": "Where reticulated sewerage is available, the minimum recommended lot size is 1000m2, with a minimum frontage width of 25m."
+        },
+        {
+          "rule_key": "minimum_frontage",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 25,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Industrial subdivision where reticulated sewerage is available"
+          },
+          "quote": "Where reticulated sewerage is available, the minimum recommended lot size is 1000m2, with a minimum frontage width of 25m."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "886c6d78-9464-4b05-89b7-ba5c0e7e2d97",
+      "atoms": [
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R40"
+            ],
+            "dwelling_type": "any",
+            "condition": "Low Density Zone R40 - Minimum primary street setback"
+          },
+          "quote": "Minimum primary and secondary street setbacks Primary – 2m"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R40"
+            ],
+            "dwelling_type": "any",
+            "condition": "Low Density Zone R40 - Minimum secondary street setback"
+          },
+          "quote": "Secondary – 1m"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Medium/High Density Zone R60 - Minimum building height storeys"
+          },
+          "quote": "Building height (storeys) \nMinimum\nTwo storeys Two storeys Two storeys"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "any",
+            "condition": "Medium/High Density Zone R80 - Minimum building height storeys"
+          },
+          "quote": "Building height (storeys) \nMinimum\nTwo storeys Two storeys Two storeys"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R160"
+            ],
+            "dwelling_type": "any",
+            "condition": "Medium/High Density Zone R160 - Minimum building height storeys"
+          },
+          "quote": "Building height (storeys) \nMinimum\nTwo storeys Two storeys Two storeys"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 4,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Medium/High Density Zone R60 - Maximum building height storeys"
+          },
+          "quote": "Building height (Storeys) \nMaximum\nFour storeys Four storeys"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 4,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R80"
+            ],
+            "dwelling_type": "any",
+            "condition": "Medium/High Density Zone R80 - Maximum building height storeys"
+          },
+          "quote": "Building height (Storeys) \nMaximum\nFour storeys Four storeys"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Medium/High Density Zone R60 - Minimum primary street setback"
+          },
+          "quote": "Primary - 2m"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "Medium/High Density Zone R60 - Minimum secondary street setback"
+          },
+          "quote": "Secondary – 1m"
+        },
+        {
+          "rule_key": "side_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Mixed Business Restricted Use - Office/Residential - Minimum side setbacks"
+          },
+          "quote": "Minimum side \nsetbacks\n3m As per BCA. Nil"
+        },
+        {
+          "rule_key": "rear_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Mixed Business Restricted Use - Office/Residential - Minimum rear setback"
+          },
+          "quote": "Minimum rear setback 3m 10m Nil"
+        },
+        {
+          "rule_key": "rear_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 10,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Mixed Business Restricted Use - Non-Residential - Minimum rear setback"
+          },
+          "quote": "Minimum rear setback 3m 10m Nil"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Mixed Business Restricted Use - Office/Residential - Minimum building height storeys"
+          },
+          "quote": "Building height \n(storeys) Minimum\nThree storeys Nil Two storeys"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Local Centre - Minimum building height storeys"
+          },
+          "quote": "Building height \n(storeys) Minimum\nThree storeys Nil Two storeys"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 4,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Local Centre - Maximum building height storeys"
+          },
+          "quote": "Four Storeys"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "bdf1ec53-f4a0-4ed0-a296-0c7fbecc2b62",
+      "atoms": [
+        {
+          "rule_key": "ceiling_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3.6,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "ground floor dwellings fronting Cockburn Road and Rockingham Road"
+          },
+          "quote": "In relation to ground floor dwellings fronting Cockburn Road and Rockingham \nRoad, as a minimum, 3.6m floor to ceiling should be provided."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "f0e90911-6a8e-4d6b-8eaa-b881a3d3f6c8",
+      "atoms": [
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 4,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU25 sub-precinct (Residential R60); building height 3-4 storeys (17m)"
+          },
+          "quote": "3-4 (17m)"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 17,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU25 sub-precinct (Residential R60); building height limit"
+          },
+          "quote": "3-4 (17m)"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 5,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "R160"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU27 sub-precinct (Mixed Use R160); building height 4-5 storeys (21m)"
+          },
+          "quote": "4-5 (21m)*"
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 21,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R160"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU27 sub-precinct (Mixed Use R160); building height limit"
+          },
+          "quote": "4-5 (21m)*"
+        },
+        {
+          "rule_key": "side_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU24 sub-precinct (Mixed Use/R60); minimum side setback"
+          },
+          "quote": "Minimum Side \nSetback\n2m 3m Nil 2m"
+        },
+        {
+          "rule_key": "side_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU25 sub-precinct (Residential R60); minimum side setback"
+          },
+          "quote": "Minimum Side \nSetback\n2m 3m Nil 2m"
+        },
+        {
+          "rule_key": "side_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU29 sub-precinct (Local Activity Node R60); minimum side setback"
+          },
+          "quote": "Minimum Side \nSetback\n2m 3m Nil 2m"
+        },
+        {
+          "rule_key": "rear_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU24, SU25, SU29 sub-precincts (R60); minimum rear setback"
+          },
+          "quote": "Minimum Rear \nSetback\n3m 3m 3m 3m"
+        },
+        {
+          "rule_key": "rear_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R160"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU27 sub-precinct (Mixed Use R160); minimum rear setback"
+          },
+          "quote": "Minimum Rear \nSetback\n3m 3m 3m 3m"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU25 sub-precinct (Residential R60); minimum primary & secondary street setback"
+          },
+          "quote": "2m Nil Nil (ground floor \ncommercial)"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU25 sub-precinct (Residential R60); minimum primary & secondary street setback"
+          },
+          "quote": "2m Nil Nil (ground floor \ncommercial)"
+        },
+        {
+          "rule_key": "plot_ratio",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 2,
+          "unit": null,
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU24 sub-precinct (Mixed Use/R60); abutting Cockburn & Rockingham Roads"
+          },
+          "quote": "Abutting Cockburn \n& Rockingham \nRoads – 2.0"
+        },
+        {
+          "rule_key": "plot_ratio",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 0.8,
+          "unit": null,
+          "applicability": {
+            "density_codes": [
+              "R60"
+            ],
+            "dwelling_type": "any",
+            "condition": "SU24 sub-precinct (Mixed Use/R60); other (not abutting Cockburn & Rockingham Roads)"
+          },
+          "quote": "Other - 0.8"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "4144182d-7cbe-4a90-9fe3-e06265bc029d",
+      "atoms": [
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 16,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "landmark site development within Newmarket Precinct"
+          },
+          "quote": "The landmark site development is permitted to be up to 16 storeys \n(and not exceeding 49m in height)."
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 49,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "landmark site development within Newmarket Precinct"
+          },
+          "quote": "The landmark site development is permitted to be up to 16 storeys \n(and not exceeding 49m in height)."
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 8,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "gateway site development (north-east of Cockburn Road / Rollinson Road extension intersection)"
+          },
+          "quote": "The gateway site development is permitted to be up to eight storeys \n(and not exceeding 32m in height)."
+        },
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 32,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "gateway site development (north-east of Cockburn Road / Rollinson Road extension intersection)"
+          },
+          "quote": "The gateway site development is permitted to be up to eight storeys \n(and not exceeding 32m in height)."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "2229c7ca-1073-4c35-b56a-4c49cc35d4e9",
+      "atoms": [
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Cockburn Coast Robb Jetty & Emplacement Precincts - minimum building height per Assessment Criteria"
+          },
+          "quote": "Development shall be a minimum of three storeys"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "2835ee3a-2300-47ae-8315-4810b3e225d5",
+      "atoms": [
+        {
+          "rule_key": "side_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Levels 6+ in Activity Centre typology"
+          },
+          "quote": "Levels 6+ 5m to wall and \n2m to balconies \n(cantilevered/ligh\nt weight only\n3m 3m 5m to wall and 2m"
+        },
+        {
+          "rule_key": "rear_setback",
+          "rule_type": "deemed_to_comply",
+          "pathway": "deemed_to_comply",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Levels 6+ in Activity Centre typology"
+          },
+          "quote": "Levels 6+ 5m to wall and \n2m to balconies \n(cantilevered/ligh\nt weight only\n3m 3m 5m to wall and 2m"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "cedc1cda-d424-4e8d-8d00-a72bcc9c955e",
+      "atoms": [
+        {
+          "rule_key": "ground_floor_height",
+          "rule_type": "design_principle",
+          "pathway": "design_principle",
+          "operator": "eq",
+          "value": 4.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Ground floor for commercial use in Activity Centre typology"
+          },
+          "quote": "Floor to floor heights on the ground floor should be 4.5m to allow for \ncommercial use"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "ea8d582d-35ad-415b-abff-61323b64a7a5",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "High density residential development, Levels 1-3, street setback (minimum)"
+          },
+          "quote": "Levels 1-3 3m Nil Nil 4m to wall and 2m"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "High density residential development, Levels 4+, street setback to wall (minimum)"
+          },
+          "quote": "Levels 4+ 5m to wall and \n2m to balconies"
+        },
+        {
+          "rule_key": "side_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "High density residential development, Levels 4+, side/rear setback (minimum)"
+          },
+          "quote": "weight only\n3m 3m 5m to wall and 2m"
+        },
+        {
+          "rule_key": "rear_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "High density residential development, Levels 4+, side/rear setback (minimum)"
+          },
+          "quote": "weight only\n3m 3m 5m to wall and 2m"
+        }
+      ]
+    },
+    {
+      "clause_id": "efe5907b-39db-44ef-a3d9-a6fea91113f4",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "ground_floor_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3.1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum floor to floor height for all development"
+          },
+          "quote": "All development shall maintain a minimum floor to floor height of 3.1m."
+        }
+      ]
+    },
+    {
+      "clause_id": "07318820-b625-4420-adb9-1096950f4b1b",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "fence_height_front",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 1.2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Interface between private lots and public open space, fencing maximum height from natural ground level"
+          },
+          "quote": "The interface between private lots and the public open space may be fenced \nto a maximum height of 1.2m from natural ground level, but must be visually \npermeable above a height of 1.0m above natural ground level"
+        }
+      ]
+    },
+    {
+      "clause_id": "f36707d9-8a54-48fc-bea1-c1269eda3b92",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Medium density residential development, Levels 1-3, primary street setback (minimum)"
+          },
+          "quote": "Levels 1-3 2m (primary)"
+        },
+        {
+          "rule_key": "secondary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Medium density residential development, Levels 1-3, secondary street setback (minimum)"
+          },
+          "quote": "1m (secondary)"
+        },
+        {
+          "rule_key": "primary_street_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Medium density residential development, Levels 4+, street setback to wall (minimum)"
+          },
+          "quote": "Levels 4+ 5m to wall and \n2m to balconies"
+        },
+        {
+          "rule_key": "side_setback",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "multiple_dwelling",
+            "condition": "Medium density residential development, Levels 4+, side setback (minimum)"
+          },
+          "quote": "weight only\n3m 3m 5m to wall and 2m"
+        }
+      ]
+    },
+    {
+      "clause_id": "a7ac10b5-d1e3-4de8-9ef0-08819b21d0ee",
+      "no_rules": false,
+      "atoms": [
+        {
+          "rule_key": "ground_floor_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3.1,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum floor to floor height for all development"
+          },
+          "quote": "All development shall maintain a minimum floor to floor height of 3.1m."
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum development height (general rule, excluding listed exception lots)"
+          },
+          "quote": "Development shall be a minimum of three storeys, with the exception of Lots \n235-239 and 247-259 where the minimum height is two storeys"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "exception",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum height exception for Lots 235-239 and 247-259"
+          },
+          "quote": "with the exception of Lots \n235-239 and 247-259 where the minimum height is two storeys"
+        }
+      ]
+    },
+    {
+      "clause_id": "761dfd9d-c61e-4caf-8504-47e8d9df9d03",
+      "atoms": [
+        {
+          "rule_key": "garage_width",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 6,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "single_house",
+            "condition": "Where garage doors service only one dwelling"
+          },
+          "quote": "Where garage doors service only one dwelling they should be no \nwider than 6m"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "75facf68-a8f8-42c3-906c-35f94d308cd6",
+      "atoms": [
+        {
+          "rule_key": "ground_floor_height",
+          "rule_type": "design_principle",
+          "pathway": "design_principle",
+          "operator": "gte",
+          "value": 3.9,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [
+              "any"
+            ],
+            "dwelling_type": "any",
+            "condition": "Where commercial uses are not viable in the short term; recommended minimum ground floor tenancy/dwelling height for adaptability to future commercial uses"
+          },
+          "quote": "incorporating a \n recommended minimum ground floor tenancy/dwelling height of 3.9 \n metres above the finished ground floor level."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "3b401376-90ec-4742-9635-88b4f744f693",
+      "atoms": [
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "design_principle",
+          "pathway": "design_principle",
+          "operator": "gte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [
+              "any"
+            ],
+            "dwelling_type": "any",
+            "condition": "Buildings adjacent to Rockingham Road, to frame the street and encourage passive surveillance"
+          },
+          "quote": "buildings adjacent to Rockingham Road are encouraged to be a \n minimum of two storeys in height"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "8b2a5a3a-f676-47ee-b885-ba17a27f99d7",
+      "atoms": [
+        {
+          "rule_key": "retaining_wall_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gt",
+          "value": 2,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Planning approval required for subdivision retaining walls exceeding this height above natural ground level which abut areas of public domain including primary and/or secondary streets and/or public open space"
+          },
+          "quote": "Planning approval is required for subdivision retaining walls that exceed 2m in \nheight above natural ground level which abut areas of public domain including a \nprimary and/or secondary streets and/or public open space."
+        },
+        {
+          "rule_key": "retaining_wall_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gt",
+          "value": 0.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Planning approval required for subdivision retaining walls exceeding this height above natural ground level which abut existing residential development outside the subdivision area"
+          },
+          "quote": "Planning approval is required for subdivision retaining walls that exceed 0.5m in \nheight above natural ground level which abut existing residential development \noutside the subdivision area."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "38019e6d-3782-4367-b154-47eb79269708",
+      "atoms": [
+        {
+          "rule_key": "fence_height_front",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 0.75,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Fencing within 1.5m of a vehicle crossover that may impede visual sightlines and pedestrian/vehicular movement"
+          },
+          "quote": "Fencing which may impede visual sightlines and pedestrian /or \nvehicular movement is required to be no higher than 750mm within \n1.5m of a vehicle crossover."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "3589d8c3-d916-42de-9a92-04cfc00825cb",
+      "atoms": [
+        {
+          "rule_key": "garage_width",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 6,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Garages/carports fronting laneways under a Local Development Plan"
+          },
+          "quote": "Garage/carports to laneways limited to 6m in width or as per the R-Codes, whichever is the lesser requirement."
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "5e5f9e96-ca9c-437e-9d9a-810f9dfe5bfe",
+      "atoms": [
+        {
+          "rule_key": "building_height",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 73.5,
+          "unit": "m",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Maximum height (AHD) under Jandakot Airport Obstacle Limitation Surfaces for the subject area"
+          },
+          "quote": "This  stipulates a maximum height of 73.5m AHD for the subject area"
+        }
+      ],
+      "no_rules": false
+    },
+    {
+      "clause_id": "2a818701-499a-454d-bc77-27235a1e1a79",
+      "atoms": [
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "lte",
+          "value": 17,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Maximum building height guided by Jandakot Airport flight path contours across Structure Plan Area"
+          },
+          "quote": "the maximum height will be guided by the limitations imposed by the Jandakot Airport flight path contours (approximately 17 storeys)"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "standard",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 3,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "any",
+            "condition": "Minimum building height across the whole Structure Plan Area"
+          },
+          "quote": "set a minimum building height of 3 storeys across the whole Structure Plan Area"
+        },
+        {
+          "rule_key": "building_storeys",
+          "rule_type": "exception",
+          "pathway": "none",
+          "operator": "gte",
+          "value": 2,
+          "unit": "storeys",
+          "applicability": {
+            "density_codes": [],
+            "dwelling_type": "grouped_dwelling",
+            "condition": "Reduced minimum for attached grouped dwellings (terraces) restricted to land zoned Mixed Use (Residential, Retail and Commercial)"
+          },
+          "quote": "In some locations the building height may be reduced to two storeys to allow for attached\ngrouped dwellings (ie. terraces), however this would be restricted to land zoned Mixed Use (Residential,\nRetail and Commercial)"
+        }
+      ],
+      "no_rules": false
+    }
+  ],
+  "totals": {
+    "total_atoms": 72,
+    "total_clauses": 530,
+    "failed_batches": 65,
+    "completed_batches": 106
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "summary": {
+    "clauses_seen": 70,
+    "clauses_no_atoms": 68,
+    "atoms_emitted": 3,
+    "atoms_validators_passed": 1,
+    "atoms_validator_failed": 2,
+    "atoms_missing_clause_context": 0
+  },
+  "failure_counts": {
+    "fail_range_prior": 2
+  },
+  "atoms": [
+    {
+      "candidate_id": "fde6bde9-debc-58a5-8801-b56e537f6b05",
+      "clause_id": "e066a193-fe0e-4d85-9f72-06b2e8576cab",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "soft_landscaping",
+      "rule_type": "standard",
+      "pathway": "none",
+      "operator": "pct_gte",
+      "value": 15.0,
+      "unit": "%",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "any",
+        "condition": "Minimum soft landscaping requirement per site applies to single house, grouped dwelling and multiple dwelling"
+      },
+      "quote": "minimum 15% soft landscaping requirement per site",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'requirement'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit '%' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'soft_landscaping' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'pct_gte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'none'"
+        },
+        "range_prior": {
+          "pass": true,
+          "detail": "value 15.0 % vs prior [0.0,100.0] ['%']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": true,
+      "extraction_group_id": "d96c833c-693d-53db-b794-dd373cf93cb2",
+      "extraction_pass": 1,
+      "review_status": "validators_passed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "328db38da837f4437234e63b74ad93b868c8246cea69301922b4d448cd70a130",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "4ba52f9e-58b8-5efe-9bae-7a4a38213df1",
+      "clause_id": "739f840b-dc92-4500-8d26-5e9e79b6469f",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "open_space",
+      "rule_type": "standard",
+      "pathway": "none",
+      "operator": "gte",
+      "value": 6.0,
+      "unit": "m2",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "multiple_dwelling",
+        "condition": "Communal open space minimum per dwelling for developments of more than 10 dwellings (up to a maximum of 300m2)"
+      },
+      "quote": "6m2 per dwelling up to \nmaximum 300m2",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'requirement'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm2' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'open_space' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'gte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'none'"
+        },
+        "range_prior": {
+          "pass": false,
+          "detail": "value 6.0 m2 vs prior [10.0,100.0] ['%']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": false,
+      "extraction_group_id": "3a51db96-3fbe-564a-b1ac-357085e5c284",
+      "extraction_pass": 1,
+      "review_status": "validator_failed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "572651fc7b0cfb7f3105710b4c05c0b570cef7f4c32a30b91da74327b6bf9dc3",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    },
+    {
+      "candidate_id": "62c8a659-3d06-5073-8f49-2923d5b693b2",
+      "clause_id": "739f840b-dc92-4500-8d26-5e9e79b6469f",
+      "source_version_id": "9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+      "rule_key": "open_space",
+      "rule_type": "standard",
+      "pathway": "none",
+      "operator": "lte",
+      "value": 300.0,
+      "unit": "m2",
+      "condition_json": {
+        "density_codes": [],
+        "dwelling_type": "multiple_dwelling",
+        "condition": "Maximum communal open space requirement cap for developments of more than 10 dwellings"
+      },
+      "quote": "6m2 per dwelling up to \nmaximum 300m2",
+      "validators": {
+        "quote_anchor": {
+          "pass": true,
+          "detail": "quote found in clause text"
+        },
+        "normative_language": {
+          "pass": true,
+          "detail": "normative language found: 'requirement'"
+        },
+        "no_orphan_numbers": {
+          "pass": true,
+          "detail": "all numeric values present in quote"
+        },
+        "unit_normalization": {
+          "pass": true,
+          "detail": "unit 'm2' is canonical"
+        },
+        "rule_key": {
+          "pass": true,
+          "detail": "rule_key 'open_space' is valid"
+        },
+        "operator_vocab": {
+          "pass": true,
+          "detail": "operator 'lte'"
+        },
+        "pathway_mandatory": {
+          "pass": true,
+          "detail": "pathway 'none'"
+        },
+        "range_prior": {
+          "pass": false,
+          "detail": "value 300.0 m2 vs prior [10.0,100.0] ['%']"
+        },
+        "r_code_sanity": {
+          "pass": true,
+          "detail": "density codes ok"
+        }
+      },
+      "passed_all": false,
+      "extraction_group_id": "3a51db96-3fbe-564a-b1ac-357085e5c284",
+      "extraction_pass": 1,
+      "review_status": "validator_failed",
+      "extractor_model": "anthropic:claude-sonnet-4-6",
+      "prompt_hash": "16f05826f097837a811ad7e87a50198f134b2e03c50709410d34b44a9681ed8a",
+      "metadata_json": {
+        "wp6": true,
+        "sonnet_pilot": true,
+        "skill_version_id": "wp6_sonnet_v1"
+      }
+    }
+  ]
+}
