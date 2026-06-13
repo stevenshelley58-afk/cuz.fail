@@ -1,0 +1,16 @@
+{
+  "considered": 749,
+  "rejected": 425,
+  "condition_updated": 186,
+  "exceptions_inserted": 399,
+  "skipped_keep": 118,
+  "skipped_low_confidence": 2,
+  "skipped_missing_rule": 0,
+  "rejected_by_verdict": {
+    "reject_wrong_scope": 140,
+    "reject_wrong_operator": 39,
+    "reject_wrong_value": 22,
+    "reject_not_a_rule": 220,
+    "reject_wrong_unit": 4
+  }
+}
