@@ -46,7 +46,7 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
                   id="launch-address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
-                  placeholder="3 Black Swan Rise, Beeliar"
+                  placeholder="Enter a WA street address"
                   autoComplete="street-address"
                 />
                 <button type="submit">
