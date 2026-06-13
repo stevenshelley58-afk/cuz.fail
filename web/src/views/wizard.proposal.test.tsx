@@ -91,11 +91,22 @@ test("proposal save success advances to the confirmation step", async () => {
       secondary_street_confirmed: false,
     });
   });
-  expect(await screen.findByText("Confirm and start")).toBeTruthy();
+  expect(await screen.findByText("Confirm and review")).toBeTruthy();
   expect(screen.getByText("class_1a")).toBeTruthy();
   expect(screen.getByText("Confirmed")).toBeTruthy();
   expect(screen.getByTestId("document-upload")).toBeTruthy();
   expect(screen.getByTestId("compliance-panel")).toBeTruthy();
+});
+
+test("confirmation CTA opens the project workspace", async () => {
+  const user = userEvent.setup();
+  const onProjectOpen = vi.fn();
+
+  render(<WizardShell wizard={{ ...wizard, step: 3, proposal: { proposal_type: "residential" } }} onClose={vi.fn()} onProjectOpen={onProjectOpen} />);
+
+  await user.click(screen.getByRole("button", { name: /open project workspace/i }));
+
+  expect(onProjectOpen).toHaveBeenCalledWith("project-1");
 });
 
 test("proposal save requires launch-critical fields before calling the API", async () => {
@@ -129,5 +140,5 @@ test("proposal save not-built response stays on proposal step with an error", as
 
   expect(await screen.findByText("Proposal saving is unavailable. Try again before continuing.")).toBeTruthy();
   expect(screen.getByRole("heading", { name: /proposal details/i })).toBeTruthy();
-  expect(screen.queryByText("Confirm and start")).toBeNull();
+  expect(screen.queryByText("Confirm and review")).toBeNull();
 });
