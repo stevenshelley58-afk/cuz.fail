@@ -274,9 +274,9 @@ def synth_property_facts(
         if layer not in _NON_OVERLAY_LAYERS:
             # Overlay presence fact (bushfire / heritage / etc.).
             overlay_value: dict[str, Any] = {"present": True}
-            code = metadata.get("code") or feature.code
-            if code:
-                overlay_value["code"] = str(code)
+            overlay_code = metadata.get("code") or feature.code
+            if overlay_code:
+                overlay_value["code"] = str(overlay_code)
             if feature.label:
                 overlay_value["label"] = str(feature.label)
             _add(feature.layer_type, overlay_value, planning_feature_id=feature.id)
