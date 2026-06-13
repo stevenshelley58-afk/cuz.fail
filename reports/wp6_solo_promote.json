@@ -1,0 +1,796 @@
+{
+  "summary": {
+    "candidate_rows_considered": 1655,
+    "promoted_new_rules": 399,
+    "skipped_existing_rule": 219,
+    "skipped_pathway_disagreement": 27,
+    "skipped_density_intersection_empty": 0,
+    "skipped_dwelling_type_disagreement": 0,
+    "skipped_low_confidence": 0,
+    "by_confidence_bucket": {
+      "0.8": 39,
+      "0.6": 223,
+      "0.9": 12,
+      "0.95": 54,
+      "0.7": 71
+    },
+    "by_family_count": {
+      "1": 333,
+      "2": 61,
+      "3": 5
+    }
+  },
+  "promoted_sample": [
+    {
+      "rule_id": "28e12c0d-9a75-5adc-b6cd-fa26a6181470",
+      "rule_key": "soft_landscaping.all",
+      "value": 5.0,
+      "unit": "%",
+      "operator": "pct_gte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.8,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 3
+    },
+    {
+      "rule_id": "ea00107e-a994-5b30-808f-90f0fb5f4333",
+      "rule_key": "soft_landscaping.all.alt1",
+      "value": 10.0,
+      "unit": "%",
+      "operator": "pct_gte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.8,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 3
+    },
+    {
+      "rule_id": "b8b69fc3-dbd4-5584-8a8d-09c1955d2c58",
+      "rule_key": "open_space.all.alt1",
+      "value": 18.75,
+      "unit": "%",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "274e5651-9da7-58a8-96cb-845f0b1a15e5",
+      "rule_key": "soft_landscaping.all",
+      "value": 22.9,
+      "unit": "%",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "ae464d01-75f8-5c87-a037-315635153e5b",
+      "rule_key": "site_area.all.alt1",
+      "value": 2000.0,
+      "unit": "m2",
+      "operator": "lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.9,
+      "families": [
+        "anthropic",
+        "openai"
+      ],
+      "votes": 2
+    },
+    {
+      "rule_id": "7ecd6996-cf5e-5e35-a138-b3a6ac033d54",
+      "rule_key": "building_height.all.alt1",
+      "value": 7.0,
+      "unit": "m",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.95,
+      "families": [
+        "minimax",
+        "openai"
+      ],
+      "votes": 3
+    },
+    {
+      "rule_id": "2770cd18-d2cb-523c-98a7-b13f2e24a0c3",
+      "rule_key": "building_height.all.alt2",
+      "value": 10.0,
+      "unit": "m",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.95,
+      "families": [
+        "minimax",
+        "openai"
+      ],
+      "votes": 4
+    },
+    {
+      "rule_id": "217833d0-c717-5b1d-aa8e-9c3d32de1bd3",
+      "rule_key": "side_setback.all.multiple_dwelling",
+      "value": 1.0,
+      "unit": "m",
+      "operator": "lt",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "multiple_dwelling",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "719a1b92-ed20-5c36-8897-055a7b8d799f",
+      "rule_key": "side_setback.all.multiple_dwelling.alt1",
+      "value": 3.0,
+      "unit": "m",
+      "operator": "lt",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "multiple_dwelling",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "2d250cd2-82b6-5795-8d63-d8269435c3ea",
+      "rule_key": "building_storeys.all.alt1",
+      "value": 6.0,
+      "unit": "storeys",
+      "operator": "range",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "1b06cae6-4ec6-5bf7-8a8b-1179e129ae1a",
+      "rule_key": "building_storeys.all.alt2",
+      "value": 1.0,
+      "unit": "storeys",
+      "operator": "range",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "986f4436-4a1f-53e8-8463-fb904fe8edbc",
+      "rule_key": "minimum_frontage.all",
+      "value": 25.0,
+      "unit": "m",
+      "operator": "gte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "e76161b2-8e38-53d3-a801-bf7be439c601",
+      "rule_key": "fence_height_front.all",
+      "value": 1.2,
+      "unit": "m",
+      "operator": "lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "25e587e6-346b-5cb2-95ad-b47e8b094347",
+      "rule_key": "building_storeys.all.multiple_dwelling",
+      "value": 8.0,
+      "unit": "storeys",
+      "operator": "gt",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "multiple_dwelling",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "49c0b9a5-7226-5021-b1c3-c54a30a6deb8",
+      "rule_key": "fence_height_side.all",
+      "value": 1.2,
+      "unit": "m",
+      "operator": "lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "acea0581-b6ce-5abe-b1a8-fb1dc58a1e52",
+      "rule_key": "open_space.all.alt2",
+      "value": 17.94,
+      "unit": "%",
+      "operator": "pct_gte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.9,
+      "families": [
+        "minimax",
+        "openai"
+      ],
+      "votes": 2
+    },
+    {
+      "rule_id": "0c42cabb-8695-5263-950b-61baa888f4ef",
+      "rule_key": "site_area.all",
+      "value": 100.0,
+      "unit": "m2",
+      "operator": "lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "451600d4-ec28-53e1-9ff5-d62c55156ec3",
+      "rule_key": "private_open_space.all.grouped_dwelling",
+      "value": 10.0,
+      "unit": "m2",
+      "operator": "gte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "grouped_dwelling",
+      "confidence": 0.6,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "44a73904-2f94-51a5-9350-c2b2b8a79284",
+      "rule_key": "garage_dominance.all.alt1",
+      "value": 50.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.95,
+      "families": [
+        "anthropic",
+        "minimax",
+        "openai"
+      ],
+      "votes": 4
+    },
+    {
+      "rule_id": "f30d411d-7fe6-51ea-a49c-b2daa83a4545",
+      "rule_key": "site_area.R50.alt1",
+      "value": 180.0,
+      "unit": "m2",
+      "operator": "gte",
+      "pathway": "none",
+      "density_codes": [
+        "R50"
+      ],
+      "dwelling_type": "any",
+      "confidence": 0.7,
+      "families": [
+        "openai"
+      ],
+      "votes": 2
+    },
+    {
+      "rule_id": "c9edb328-a8b4-5256-af6f-7d840dd58dcd",
+      "rule_key": "site_area.R50.alt2",
+      "value": 180.0,
+      "unit": "m2",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [
+        "R50"
+      ],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "minimax"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "76a78ba7-f4c5-5727-bea3-5267dfa2bed6",
+      "rule_key": "open_space.all.alt1",
+      "value": 40.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "c4fbffc0-4c53-5e1c-b76a-620e39fa014d",
+      "rule_key": "open_space.all.alt2",
+      "value": 60.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "2197ce3f-2994-51d5-891a-706c66f3d1bc",
+      "rule_key": "open_space.all.alt3",
+      "value": 80.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "2f1048a7-8142-576d-8bc6-c60502126f24",
+      "rule_key": "building_height.all",
+      "value": 3.8,
+      "unit": "m",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "98ce7a8f-fcf8-5046-b08a-65430760d2dd",
+      "rule_key": "primary_street_setback.all",
+      "value": 2.75,
+      "unit": "m",
+      "operator": "gte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "minimax"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "d609b578-b2f3-5c2d-a4f5-4112c1cd3733",
+      "rule_key": "site_cover.all.alt1",
+      "value": 85.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.95,
+      "families": [
+        "anthropic",
+        "minimax",
+        "openai"
+      ],
+      "votes": 5
+    },
+    {
+      "rule_id": "d37ac68c-d006-56ed-bcc3-5e21f82498df",
+      "rule_key": "primary_street_setback.all",
+      "value": 6.0,
+      "unit": "m",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "364caa25-fd42-597f-9caa-5ac323615533",
+      "rule_key": "site_area.R40",
+      "value": 9241.0,
+      "unit": "m2",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [
+        "R40"
+      ],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "fc155f93-704a-5007-9479-ebd1686f727e",
+      "rule_key": "site_area.R25",
+      "value": 7922.0,
+      "unit": "m2",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [
+        "R25"
+      ],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "e4539d56-4c88-5354-84d3-c470085fad23",
+      "rule_key": "site_area.R30",
+      "value": 1812.0,
+      "unit": "m2",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [
+        "R30"
+      ],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "510a5367-ab36-5ecd-96b7-7c56a33f2e9f",
+      "rule_key": "parking_bays_per_dwelling.all.single_house",
+      "value": 1.0,
+      "unit": null,
+      "operator": "gte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "single_house",
+      "confidence": 0.8,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 9
+    },
+    {
+      "rule_id": "65b1e63f-5721-509c-915c-c5841bba94d5",
+      "rule_key": "parking_bays_per_dwelling.all.single_house.alt1",
+      "value": 2.0,
+      "unit": null,
+      "operator": "gte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "single_house",
+      "confidence": 0.7,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 2
+    },
+    {
+      "rule_id": "0dcabdea-82af-5a07-9606-855327f216fe",
+      "rule_key": "rear_setback.all",
+      "value": 3.0,
+      "unit": "m",
+      "operator": "gte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "anthropic"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "b895bbbe-c083-5506-b8d1-2ec1138013dd",
+      "rule_key": "side_setback.all",
+      "value": 5.0,
+      "unit": "m",
+      "operator": "range",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "c9209214-48e8-5074-95a5-ab9960708c83",
+      "rule_key": "side_setback.all.alt1",
+      "value": 2.0,
+      "unit": "m",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "4eaaadd1-a11e-5c46-85e6-9a673b9759de",
+      "rule_key": "site_cover.all.alt2",
+      "value": 15.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.95,
+      "families": [
+        "minimax",
+        "openai"
+      ],
+      "votes": 4
+    },
+    {
+      "rule_id": "c01848be-74de-51fa-a1bd-0791e4795944",
+      "rule_key": "site_cover.all.alt3",
+      "value": 25.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.95,
+      "families": [
+        "minimax",
+        "openai"
+      ],
+      "votes": 4
+    },
+    {
+      "rule_id": "109bfc74-f99d-5dcc-8123-a0153f2aee1b",
+      "rule_key": "side_setback.all.alt1",
+      "value": 10.0,
+      "unit": "m",
+      "operator": "lte",
+      "pathway": "deemed_to_comply",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "minimax"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "2a8408b6-58a9-591f-8bdd-e9660b140b85",
+      "rule_key": "site_area.all",
+      "value": 50.0,
+      "unit": "m2",
+      "operator": "pct_gte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "minimax"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "f77f235e-f8ff-5ae0-a185-e60889950144",
+      "rule_key": "site_area.all.alt1",
+      "value": 50.0,
+      "unit": "m2",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "06ae1506-c42a-5b85-8262-21d9dd1d6685",
+      "rule_key": "side_setback.all",
+      "value": 2.0,
+      "unit": "m",
+      "operator": "lt",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "197d4af5-edd5-5b82-87ac-3ec02d9a4eef",
+      "rule_key": "outdoor_living_area.all.multiple_dwelling.alt1",
+      "value": 4.0,
+      "unit": "m2",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "multiple_dwelling",
+      "confidence": 0.7,
+      "families": [
+        "openai"
+      ],
+      "votes": 2
+    },
+    {
+      "rule_id": "5b9975bd-00ee-5c4f-bce0-3a6451c813d9",
+      "rule_key": "side_setback.all",
+      "value": 0.5,
+      "unit": "m",
+      "operator": "gte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.7,
+      "families": [
+        "openai"
+      ],
+      "votes": 2
+    },
+    {
+      "rule_id": "2eac9a57-d011-55f6-9cbe-0bb3b840eb6b",
+      "rule_key": "site_area.all",
+      "value": 6000.0,
+      "unit": "m2",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.7,
+      "families": [
+        "openai"
+      ],
+      "votes": 2
+    },
+    {
+      "rule_id": "8cedf315-4248-541f-8e76-0055f62ec374",
+      "rule_key": "building_height.all",
+      "value": 5.0,
+      "unit": "m",
+      "operator": "eq",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.7,
+      "families": [
+        "openai"
+      ],
+      "votes": 2
+    },
+    {
+      "rule_id": "daa202e5-cdff-5250-899f-2ae61ed89044",
+      "rule_key": "site_cover.all",
+      "value": 20.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "70dbc973-bcfe-5604-b8a1-9f3d93866fcb",
+      "rule_key": "site_cover.all.alt1",
+      "value": 35.0,
+      "unit": "%",
+      "operator": "pct_lte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "ae819e7a-2ee4-5efe-b871-d7437019b6af",
+      "rule_key": "boundary_wall_length.all",
+      "value": 6.0,
+      "unit": "m",
+      "operator": "gte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    },
+    {
+      "rule_id": "f435669d-ad16-57c1-b8f3-2c04a7f84295",
+      "rule_key": "boundary_wall_length.all.alt1",
+      "value": 3.0,
+      "unit": "m",
+      "operator": "gte",
+      "pathway": "none",
+      "density_codes": [],
+      "dwelling_type": "any",
+      "confidence": 0.6,
+      "families": [
+        "openai"
+      ],
+      "votes": 1
+    }
+  ],
+  "promoted_total": 399
+}
