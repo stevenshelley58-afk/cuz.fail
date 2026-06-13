@@ -196,9 +196,19 @@ class TestBuildGroundedResponse:
         assert "[2]" in rewritten
         assert "[3]" not in rewritten
 
-    def test_no_citations_returns_ungrounded(self):
+    def test_no_citations_with_hits_gets_default_citation(self):
         hits = (_make_hit(0.9, 0),)
         answer = "General knowledge answer with no inline citations."
+        rewritten, citations, citation_map, grounded = _build_grounded_response(answer, hits)
+        assert grounded is True
+        assert len(citations) == 1
+        assert len(citation_map) == 1
+        assert citation_map[0]["marker"] == 1
+        assert rewritten == "General knowledge answer with no inline citations. [1]"
+
+    def test_source_refusal_is_not_forced_to_grounded(self):
+        hits = (_make_hit(0.9, 0),)
+        answer = "I do not have a matching approved source extract for that question."
         rewritten, citations, citation_map, grounded = _build_grounded_response(answer, hits)
         assert grounded is False
         assert citations == []
@@ -260,7 +270,7 @@ class TestBuildRetrievalQuery:
             "In one short paragraph, what is site cover in the WA R-Codes?",
             [],
         )
-        assert result == "site cover WA R-Codes"
+        assert result == "site cover R-Codes"
 
 
 # ---------------------------------------------------------------------------

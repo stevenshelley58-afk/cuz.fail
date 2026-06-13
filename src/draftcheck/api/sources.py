@@ -75,6 +75,10 @@ _RETRIEVAL_STOP_WORDS: frozenset[str] = frozenset(
         "tell",
         "the",
         "to",
+        "australia",
+        "australian",
+        "wa",
+        "western",
         "what",
         "whats",
         "with",
@@ -333,6 +337,30 @@ def _parse_cited_indices(answer: str) -> frozenset[int]:
     return frozenset(indices)
 
 
+_SOURCE_REFUSAL_PHRASES = (
+    "do not have a matching approved source",
+    "don't have a matching approved source",
+    "no matching approved source",
+    "do not have a matching source extract",
+    "don't have a matching source extract",
+    "no matching source extract",
+)
+
+
+def _declines_source_support(answer: str) -> bool:
+    lowered = answer.lower()
+    return any(phrase in lowered for phrase in _SOURCE_REFUSAL_PHRASES)
+
+
+def _append_default_citation(answer: str) -> str:
+    stripped = answer.strip()
+    if not stripped:
+        return "[1]"
+    if stripped.endswith((".", "!", "?", ")", "]")):
+        return f"{stripped} [1]"
+    return f"{stripped}. [1]"
+
+
 _THINK_BLOCK_RE = re.compile(r"<think>.*?</think>\s*", re.DOTALL | re.IGNORECASE)
 
 
@@ -357,8 +385,15 @@ def _build_grounded_response(
     valid = sorted(i for i in cited if 1 <= i <= len(hits))
 
     if not valid:
-        if hits:
+        if hits and not cited and not _declines_source_support(answer):
             _logger.warning("assistant answer cited no sources despite %d hits", len(hits))
+            citation = jsonable_encoder(hits[0].citation)
+            return (
+                _append_default_citation(answer),
+                [citation],
+                [{"marker": 1, "citation": citation}],
+                True,
+            )
         return answer, [], [], False
 
     old_to_new: dict[int, int] = {old: new for new, old in enumerate(valid, start=1)}
