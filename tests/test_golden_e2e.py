@@ -107,6 +107,62 @@ def test_document_upload_commits_before_async_parse_enqueue(tmp_path, monkeypatc
     assert events[:2] == ["commit", "enqueue"]
 
 
+def test_document_upload_can_auto_promote_safe_text_facts_on_first_plan(tmp_path, monkeypatch) -> None:
+    app, db, active_session = _make_app()
+    _seed_identity_rows(db, active_session)
+    db.commit()
+
+    import draftcheck.api.documents as documents_module
+
+    monkeypatch.setattr(documents_module, "STORAGE_ROOT", tmp_path / "storage")
+    client = TestClient(app, headers=ORIGIN_HEADERS)
+    project = client.post(
+        "/api/v1/projects",
+        json={"name": "First plan project", "council_scope": "Demo Bay Local Government"},
+    )
+    assert project.status_code == 201, project.text
+    project_id = project.json()["id"]
+
+    upload = client.post(
+        "/api/v1/documents/upload",
+        params={"project_id": project_id, "auto_promote_safe_facts": "true"},
+        files={
+            "file": (
+                "first-plan.txt",
+                b"Lot area: 580 m2\n"
+                b"Building footprint: 232 m2\n"
+                b"Open space: 348 m2\n"
+                b"Garage width: 5.8 m\n"
+                b"Facade width: 14.5 m\n"
+                b"Driveway width: 4.0 m\n",
+                "text/plain",
+            )
+        },
+    )
+
+    assert upload.status_code == 200, upload.text
+    body = upload.json()
+    assert body["parse_job"]["reason"] == "immediate_review_requested"
+    assert body["promotion"]["promoted_count"] >= 6
+    promoted_keys = {item["fact_key"] for item in body["promotion"]["promoted"]}
+    assert {
+        "site_area_m2",
+        "proposed_site_cover_pct",
+        "proposed_open_space_pct",
+        "proposed_garage_width_dominance_pct",
+        "driveway_width_m",
+    } <= promoted_keys
+
+    property_facts = {
+        fact.fact_type: fact
+        for fact in db.query(PropertyFact).filter(PropertyFact.project_id == UUID(project_id)).all()
+    }
+    assert property_facts["proposed_site_cover_pct"].review_status == "confirmed"
+    assert property_facts["proposed_site_cover_pct"].method == "document_extraction_auto_promoted"
+    assert property_facts["proposed_site_cover_pct"].value_json["unit"] == "%"
+    assert property_facts["driveway_width_m"].value_json["value"] == 4.0
+
+
 def test_drawing_dimension_requires_calibration_before_promotion(tmp_path, monkeypatch) -> None:
     app, db, active_session = _make_app()
     _seed_identity_rows(db, active_session)
@@ -162,7 +218,7 @@ def test_drawing_dimension_requires_calibration_before_promotion(tmp_path, monke
     db.commit()
     body = upload.json()
     document_id = body["document_id"]
-    fact = body["extracted_facts"][0]
+    fact = next(fact for fact in body["extracted_facts"] if fact["fact_kind"] == "drawing_dimension")
     assert fact["fact_kind"] == "drawing_dimension"
     assert fact["unit"] == "m"
     assert "calibration_ref" not in fact["metadata"]

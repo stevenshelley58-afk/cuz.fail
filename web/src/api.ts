@@ -273,6 +273,15 @@ export type DocumentFactPromotionResponse = {
   advisory_notice?: string;
 };
 
+export type DocumentBulkPromotionResponse = {
+  promoted_count: number;
+  blocked_count: number;
+  promoted: Array<{ fact_id: string; fact_key: string; property_fact_id: string }>;
+  blocked: Array<{ fact_id: string; fact_key: string | null; fact_kind: string; errors: string[] }>;
+  threshold: number;
+  advisory_notice?: string;
+};
+
 export type DocumentUploadResponse = {
   document_id: string;
   filename: string;
@@ -281,6 +290,8 @@ export type DocumentUploadResponse = {
   parse_job?: { enqueued?: boolean; reason?: string };
   fact_count?: number;
   extracted_facts: ExtractedFact[];
+  promotion?: DocumentBulkPromotionResponse | null;
+  compliance?: { run_id: string; status: string; result_count: number; checked_from_promoted_facts: number } | null;
 };
 
 export type ProjectDocumentSummary = {
@@ -377,7 +388,12 @@ export const api = {
       form.append("project_id", projectId);
       let res: Response;
       try {
-        res = await fetch(`${base()}/documents/upload`, {
+        const params = new URLSearchParams({
+          project_id: projectId,
+          auto_promote_safe_facts: "true",
+          run_compliance: "true",
+        });
+        res = await fetch(`${base()}/documents/upload?${params.toString()}`, {
           method: "POST",
           credentials: "include",
           body: form,

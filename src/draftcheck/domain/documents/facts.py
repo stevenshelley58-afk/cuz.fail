@@ -566,7 +566,7 @@ class DocumentFactService:
         open_space_area = _first("proposed_open_space_m2")
         garage_width = _first("proposed_garage_width_m")
         facade_width = _first("dwelling_facade_width_m")
-        if site_area and site_area > 0 and covered_area is not None:
+        if _first("proposed_site_cover_pct") is None and site_area and site_area > 0 and covered_area is not None:
             _derived(
                 "proposed_site_cover_pct",
                 (covered_area / site_area) * 100,
@@ -574,7 +574,7 @@ class DocumentFactService:
                 ("proposed_covered_area_m2", "site_area_m2"),
                 "covered_area_divided_by_site_area",
             )
-        if site_area and site_area > 0 and open_space_area is not None:
+        if _first("proposed_open_space_pct") is None and site_area and site_area > 0 and open_space_area is not None:
             _derived(
                 "proposed_open_space_pct",
                 (open_space_area / site_area) * 100,
@@ -582,7 +582,12 @@ class DocumentFactService:
                 ("proposed_open_space_m2", "site_area_m2"),
                 "open_space_area_divided_by_site_area",
             )
-        if facade_width and facade_width > 0 and garage_width is not None:
+        if (
+            _first("proposed_garage_width_dominance_pct") is None
+            and facade_width
+            and facade_width > 0
+            and garage_width is not None
+        ):
             _derived(
                 "proposed_garage_width_dominance_pct",
                 (garage_width / facade_width) * 100,

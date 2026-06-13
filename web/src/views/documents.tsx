@@ -607,7 +607,40 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
                 <span style={{ color: "#16a34a" }}>{confirmedKeys.size} confirmed</span>
               </>
             )}
+            {uploadResult.promotion && uploadResult.promotion.promoted_count > 0 && (
+              <>
+                <span style={{ color: "#6b7280" }}>{" "}</span>
+                <span style={{ color: "#16a34a" }}>
+                  {uploadResult.promotion.promoted_count} ready for checks
+                </span>
+              </>
+            )}
+            {uploadResult.compliance && (
+              <>
+                <span style={{ color: "#6b7280" }}>{" "}</span>
+                <span style={{ color: "#2563eb" }}>
+                  Compliance run {uploadResult.compliance.status}
+                </span>
+              </>
+            )}
           </div>
+
+          {uploadResult.promotion && uploadResult.promotion.blocked_count > 0 && (
+            <div
+              style={{
+                marginBottom: 10,
+                background: "#fffbeb",
+                border: "1px solid #fde68a",
+                borderRadius: 6,
+                padding: "8px 10px",
+                color: "#92400e",
+                fontSize: 12,
+                lineHeight: 1.4,
+              }}
+            >
+              {uploadResult.promotion.blocked_count} extracted facts still need review before checks.
+            </div>
+          )}
 
           {parseActive && (
             <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#92400e", fontSize: 13 }}>

@@ -209,6 +209,14 @@ async def upload_document(
     db: DbSession,
     _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    auto_promote_safe_facts: Annotated[
+        bool,
+        Query(description="Promote eligible text-extracted measurements immediately after parsing."),
+    ] = False,
+    run_compliance: Annotated[
+        bool,
+        Query(description="Run deterministic compliance after eligible facts are promoted."),
+    ] = False,
 ) -> dict[str, Any]:
     """Accept a multipart file upload, store it, parse text, extract facts.
 
@@ -262,8 +270,13 @@ async def upload_document(
 
     from draftcheck.jobs.documents import enqueue_document_parse, parse_document_for_session
 
-    parse_job = enqueue_document_parse(doc_id)
-    if not parse_job["enqueued"]:
+    immediate_parse = auto_promote_safe_facts or run_compliance
+    parse_job = (
+        {"enqueued": False, "reason": "immediate_review_requested"}
+        if immediate_parse
+        else enqueue_document_parse(doc_id)
+    )
+    if immediate_parse or not parse_job["enqueued"]:
         try:
             parse_document_for_session(db, document_id=doc_id, raise_parse_errors=True)
         except Exception as exc:
@@ -291,6 +304,37 @@ async def upload_document(
         .all()
     )
 
+    promotion_summary: dict[str, Any] | None = None
+    compliance_summary: dict[str, Any] | None = None
+    if auto_promote_safe_facts or run_compliance:
+        promotion_summary = _bulk_promote_document_facts(
+            db=db,
+            document_id=doc_id,
+            active_session=active_session,
+            threshold=float(os.getenv("AUTO_PROMOTE_FACT_CONFIDENCE_THRESHOLD", "0.6")),
+        )
+        all_orm_facts = (
+            db.query(OrmDocumentFact)
+            .filter(OrmDocumentFact.document_id == doc_id)
+            .order_by(OrmDocumentFact.created_at, OrmDocumentFact.id)
+            .all()
+        )
+
+    if run_compliance:
+        from draftcheck.checks.engine import ComplianceEngine
+
+        engine_result = ComplianceEngine().run_check(
+            project_id=project_id,
+            org_id=str(org_id),
+            session=db,
+        )
+        compliance_summary = {
+            "run_id": engine_result.check_run_id,
+            "status": engine_result.status,
+            "result_count": len(engine_result.results),
+            "checked_from_promoted_facts": promotion_summary["promoted_count"] if promotion_summary else 0,
+        }
+
     return {
         "document_id": str(doc_id),
         "filename": filename,
@@ -303,8 +347,13 @@ async def upload_document(
         "chunk_count": len(orm_chunks),
         "extracted_facts": [_orm_fact_payload(f) for f in all_orm_facts],
         "fact_count": len(all_orm_facts),
+        "promotion": promotion_summary,
+        "compliance": compliance_summary,
         "review_required": True,
-        "advisory_notice": "All extracted measurements are advisory. Promote facts to confirm before running compliance.",
+        "advisory_notice": (
+            "All extracted measurements are advisory. Eligible text measurements can be auto-promoted "
+            "for deterministic checks; calibrated drawing dimensions and blocked facts require review."
+        ),
     }
 
 
@@ -390,32 +439,92 @@ def promote_document_fact(
     """
     fact = _get_fact_or_404(db, doc_id, fact_id)
 
+    _confidence_threshold = float(os.getenv("FACT_CONFIDENCE_THRESHOLD", "0.7"))
+    promotion_errors = _promotion_errors(fact, threshold=_confidence_threshold)
+    if promotion_errors:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={"errors": promotion_errors},
+        )
+
+    property_fact = _promote_document_fact_row(
+        db=db,
+        fact=fact,
+        active_session=active_session,
+        method="document_extraction_promoted",
+        reason="promoted from document fact",
+    )
+    db.flush()
+
+    return {
+        "fact_id": str(fact.id),
+        "review_status": fact.review_status,
+        "promoted_to_measurement": fact.promoted_to_measurement,
+        "property_fact_id": str(property_fact.id),
+        "advisory_notice": "Promoted fact is advisory. Not a legal or compliance certification.",
+    }
+
+
+@router.post("/documents/{doc_id}/facts/promote-eligible", tags=["documents"])
+def promote_eligible_document_facts(
+    doc_id: str,
+    db: DbSession,
+    _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
+    active_session: Annotated[ActiveSession, Depends(get_current_session)],
+) -> dict[str, Any]:
+    """Promote all eligible text-extracted measurement facts for a document."""
+    try:
+        doc_uuid = uuid.UUID(doc_id)
+    except ValueError as exc:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_CONTENT, detail="Invalid document UUID.") from exc
+    document = db.get(Document, doc_uuid)
+    if document is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Document {doc_id} not found.")
+    return _bulk_promote_document_facts(
+        db=db,
+        document_id=doc_uuid,
+        active_session=active_session,
+        threshold=float(os.getenv("AUTO_PROMOTE_FACT_CONFIDENCE_THRESHOLD", "0.6")),
+    )
+
+
+def _promotion_errors(fact: OrmDocumentFact, *, threshold: float) -> list[str]:
     v = fact.value_json or {}
     numeric_value = v.get("numeric_value")
     unit = v.get("unit", "")
     fact_key = fact.check_key or fact.fact_kind
+    metadata = fact.metadata_json or {}
 
-    _confidence_threshold = float(os.getenv("FACT_CONFIDENCE_THRESHOLD", "0.7"))
     promotion_errors: list[str] = []
+    if fact.promoted_to_measurement:
+        promotion_errors.append("fact already promoted")
     if numeric_value is None:
         promotion_errors.append("numeric_value required for promotion")
     if not unit:
         promotion_errors.append("unit required for promotion")
     if not fact_key:
         promotion_errors.append("check_key or fact_kind required for promotion")
-    if (fact.confidence or 0.0) < _confidence_threshold:
-        promotion_errors.append(
-            f"confidence {fact.confidence} below threshold {_confidence_threshold}"
-        )
-    if fact.fact_kind == "drawing_dimension" and not fact.metadata_json.get("calibration_ref"):
-        promotion_errors.append(
-            "drawing_dimension facts require calibration_ref in metadata before promotion"
-        )
-    if promotion_errors:
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail={"errors": promotion_errors},
-        )
+    if fact.review_status != "confirmed" and (fact.confidence or 0.0) < threshold:
+        promotion_errors.append(f"confidence {fact.confidence} below threshold {threshold}")
+    if fact.fact_kind == "drawing_title_block":
+        promotion_errors.append("title-block metadata is not a compliance measurement")
+    if fact.fact_kind == "drawing_dimension" and not metadata.get("calibration_ref"):
+        promotion_errors.append("drawing_dimension facts require calibration_ref in metadata before promotion")
+    return promotion_errors
+
+
+def _promote_document_fact_row(
+    *,
+    db: Session,
+    fact: OrmDocumentFact,
+    active_session: ActiveSession,
+    method: str,
+    reason: str,
+) -> PropertyFact:
+    v = fact.value_json or {}
+    numeric_value = v.get("numeric_value")
+    unit = v.get("unit", "")
+    fact_key = fact.check_key or fact.fact_kind
 
     fact.review_status = "confirmed"
     fact.promoted_to_measurement = True
@@ -423,8 +532,8 @@ def promote_document_fact(
     value_json = {"value": numeric_value, "unit": unit, "document_fact_id": str(fact.id)}
     provenance_json = {
         "entered_by": str(active_session.user.id) if active_session.user else "system",
-        "reason": "promoted from document fact",
-        "method": "document_extraction_promoted",
+        "reason": reason,
+        "method": method,
         "source_document_id": str(fact.document_id),
         "source_fact_id": str(fact.id),
     }
@@ -436,22 +545,69 @@ def promote_document_fact(
         id=uuid.uuid4(),
         org_id=fact.org_id,
         project_id=fact.project_id,
-        fact_type=fact_key,
+        fact_type=str(fact_key),
         value_json=value_json,
         confidence=fact.confidence,
-        method="document_extraction_promoted",
+        method=method,
         provenance_json=provenance_json,
         review_status="confirmed",
     )
     db.add(property_fact)
-    db.flush()
+    return property_fact
 
+
+def _bulk_promote_document_facts(
+    *,
+    db: Session,
+    document_id: uuid.UUID,
+    active_session: ActiveSession,
+    threshold: float,
+) -> dict[str, Any]:
+    facts = (
+        db.query(OrmDocumentFact)
+        .filter(OrmDocumentFact.document_id == document_id)
+        .order_by(OrmDocumentFact.created_at, OrmDocumentFact.id)
+        .all()
+    )
+    promoted: list[dict[str, str]] = []
+    blocked: list[dict[str, Any]] = []
+    for fact in facts:
+        errors = _promotion_errors(fact, threshold=threshold)
+        if errors:
+            blocked.append(
+                {
+                    "fact_id": str(fact.id),
+                    "fact_key": fact.check_key,
+                    "fact_kind": fact.fact_kind,
+                    "errors": errors,
+                }
+            )
+            continue
+        property_fact = _promote_document_fact_row(
+            db=db,
+            fact=fact,
+            active_session=active_session,
+            method="document_extraction_auto_promoted",
+            reason="auto-promoted eligible text-extracted plan fact for deterministic check run",
+        )
+        promoted.append(
+            {
+                "fact_id": str(fact.id),
+                "fact_key": str(fact.check_key or fact.fact_kind),
+                "property_fact_id": str(property_fact.id),
+            }
+        )
+    db.flush()
     return {
-        "fact_id": str(fact.id),
-        "review_status": fact.review_status,
-        "promoted_to_measurement": fact.promoted_to_measurement,
-        "property_fact_id": str(property_fact.id),
-        "advisory_notice": "Promoted fact is advisory. Not a legal or compliance certification.",
+        "promoted_count": len(promoted),
+        "blocked_count": len(blocked),
+        "promoted": promoted,
+        "blocked": blocked,
+        "threshold": threshold,
+        "advisory_notice": (
+            "Auto-promoted facts are advisory project measurements for deterministic checks only; "
+            "they are not legal or certification determinations."
+        ),
     }
 
 
