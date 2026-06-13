@@ -1,4 +1,11 @@
-# Check registry — all check definitions in code, not DB rows.
+# Check registry — check definitions in code, not DB rows.
+#
+# Open-vocab pipeline (2026-06-14): the authoritative check list now comes from
+# ``registry_generated.py`` (seed checks + checks DERIVED from rule clusters by
+# ``scripts/wp6_register_checks_from_clusters.py``).  The hand-written checks below
+# are retained as ``SEED_*`` — they seed the generator and act as a safe fallback
+# if the generated module is ever missing or broken.  See
+# ``docs/OPEN_VOCAB_REBUILD_PLAN.md`` WP-F.
 from dataclasses import dataclass
 from enum import StrEnum
 
@@ -8,12 +15,26 @@ class CheckTier(StrEnum):
 
 
 class CheckCategory(StrEnum):
+    # Original hand-list categories (2026-06-10).
     SETBACK = "setback"
     SITE_COVER = "site_cover"
     OPEN_SPACE = "open_space"
     GARAGE = "garage"
     BOUNDARY_WALL = "boundary_wall"
     HEIGHT = "height"
+    # Open-vocab derived categories (2026-06-14). New cluster-derived checks map
+    # into these so the compliance panel can group them (WP-H groupings:
+    # Boundary setbacks / Building envelope / Site & landscape /
+    # Garages & parking / Walls & fences / Lot shape).
+    STOREYS = "storeys"
+    SITE = "site"
+    LANDSCAPE = "landscape"
+    PARKING = "parking"
+    DRIVEWAY = "driveway"
+    FENCE = "fence"
+    WALL = "wall"
+    LOT = "lot"
+    OTHER = "other"
 
 
 @dataclass(frozen=True)
@@ -28,7 +49,7 @@ class CheckDefinition:
     description: str
 
 
-TIER1_CHECKS: list[CheckDefinition] = [
+SEED_TIER1_CHECKS: list[CheckDefinition] = [
     CheckDefinition(
         key="setback_front",
         name="Front setback",
@@ -131,7 +152,7 @@ TIER1_CHECKS: list[CheckDefinition] = [
     ),
 ]
 
-TIER2_CHECKS: list[CheckDefinition] = [
+SEED_TIER2_CHECKS: list[CheckDefinition] = [
     CheckDefinition(
         key="height_overall",
         name="Overall building height",
@@ -159,6 +180,50 @@ TIER2_CHECKS: list[CheckDefinition] = [
         ),
     ),
 ]
+
+SEED_ALL_CHECKS: list[CheckDefinition] = SEED_TIER1_CHECKS + SEED_TIER2_CHECKS
+
+# Maps a seed check key -> the canonical_rule_key (open-vocab cluster label) that
+# covers the same regulated thing.  The check derivation skips generating a
+# duplicate check for these canonical keys, so the seed checks keep their stable
+# keys (and the golden fixture stays green) while the derivation adds only NEW
+# categories on top.  Consumed by scripts/wp6_register_checks_from_clusters.py.
+SEED_CANONICAL_RULE_KEYS: dict[str, str] = {
+    "setback_front": "primary_street_setback",
+    "setback_rear": "rear_setback",
+    "setback_side_primary": "side_setback",
+    "setback_side_secondary": "secondary_street_setback",
+    "site_cover": "site_cover",
+    "open_space": "open_space",
+    "garage_width": "garage_width",
+    "garage_dominance": "garage_dominance",
+    "boundary_wall_length": "boundary_wall_length",
+    "height_overall": "building_height",
+    "height_wall": "wall_height",
+}
+
+# ---------------------------------------------------------------------------
+# Public surface.
+#
+# Prefer the generated registry (seed + cluster-derived checks).  Fall back to
+# the seed checks if the generated module is missing or fails to import, so the
+# engine never loses the core checks.  The import sits at the BOTTOM of this
+# module on purpose: registry_generated imports CheckTier/CheckCategory/
+# CheckDefinition back from here, and those names are already defined above.
+# ---------------------------------------------------------------------------
+try:
+    from draftcheck.checks.registry_generated import (  # noqa: E402
+        TIER1_CHECKS as _GEN_TIER1,
+        TIER2_CHECKS as _GEN_TIER2,
+    )
+
+    TIER1_CHECKS: list[CheckDefinition] = list(_GEN_TIER1)
+    TIER2_CHECKS: list[CheckDefinition] = list(_GEN_TIER2)
+    REGISTRY_SOURCE = "generated"
+except Exception:  # pragma: no cover - defensive fallback
+    TIER1_CHECKS = list(SEED_TIER1_CHECKS)
+    TIER2_CHECKS = list(SEED_TIER2_CHECKS)
+    REGISTRY_SOURCE = "seed_fallback"
 
 ALL_CHECKS: list[CheckDefinition] = TIER1_CHECKS + TIER2_CHECKS
 CHECK_BY_KEY: dict[str, CheckDefinition] = {c.key: c for c in ALL_CHECKS}

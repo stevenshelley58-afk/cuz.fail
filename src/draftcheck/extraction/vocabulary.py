@@ -1,6 +1,17 @@
-"""Closed vocabularies for the extraction / validation pipeline."""
+"""Vocabulary hints for the extraction / validation pipeline.
 
-RULE_KEYS = frozenset({
+Under the open-vocab rule pipeline (operator decision 2026-06-14), ``RULE_KEY_HINTS``
+is a SOFT hint set used only for telemetry / confidence weighting via
+``is_hinted_key()``. It is NOT a closed/allowed-list gate: the extractor may propose
+any snake_case ``rule_key`` and validators accept new keys on their structural merits,
+so nothing is dropped merely for being absent from this set. See
+``docs/OPEN_VOCAB_REBUILD_PLAN.md`` for the canonical architecture.
+
+``OPERATORS``, ``NORMATIVE_WORDS``, and ``RULE_TYPES`` below remain canonical
+enumerations for their respective fields.
+"""
+
+RULE_KEY_HINTS = frozenset({
     # Original Tier-1 R-Codes Vol 1 design elements (2026-06-10).
     "site_cover",
     "primary_street_setback",
@@ -16,12 +27,12 @@ RULE_KEYS = frozenset({
     "outdoor_living_area",
     "soft_landscaping",
     "building_storeys",
-    # 2026-06-13 expansion. Covers the most common WA-residential rule shapes
-    # that fell outside the original 14-key vocab and showed up in WP6 Sonnet
-    # pilots as "no_rules=true" or rule_key validator failures. The compliance
-    # engine's check registry has not been expanded yet, so rules with these
-    # keys serve as reference data + retrieval hits until matching CheckDefinitions
-    # land in src/draftcheck/checks/registry.py.
+    # 2026-06-13 expansion (history). These keys were added back when the original
+    # 14-key vocab was still a hard gate; they showed up in WP6 Sonnet pilots as
+    # "no_rules=true" or rule_key validator failures. Under the open-vocab pipeline
+    # (2026-06-14) the gate is gone and these are now just additional hints, but the
+    # keys are retained as known-good signals. CheckDefinitions are derived post-hoc
+    # from clusters (see docs/OPEN_VOCAB_REBUILD_PLAN.md), not bounded by this set.
     "lot_width",
     "lot_depth",
     "minimum_frontage",
@@ -38,11 +49,12 @@ RULE_KEYS = frozenset({
     "driveway_width",
     "private_open_space",
     "communal_open_space",
-    # 2026-06-13 second expansion. Coverage of parking detail per dwelling type,
-    # bicycle parking, signage, balconies, building separation, eave/awning,
+    # 2026-06-13 second expansion (history). Coverage of parking detail per dwelling
+    # type, bicycle parking, signage, balconies, building separation, eave/awning,
     # dwelling area minimums, and ancillary dwelling rules - all common WA
     # residential planning rule shapes found in Cockburn LPPs and Liveable
-    # Neighbourhoods that fell outside the first 30-key vocab.
+    # Neighbourhoods. Added when the then-30-key vocab was still a hard gate; under
+    # the open-vocab pipeline (2026-06-14) they are soft hints like the rest.
     "parking_bays_per_single_house",
     "parking_bays_per_grouped_dwelling",
     "parking_bays_per_multiple_dwelling",
@@ -64,6 +76,14 @@ RULE_KEYS = frozenset({
     "noise_attenuation_distance",
     "building_envelope_height",
 })
+
+
+def is_hinted_key(key: str) -> bool:
+    """Return True when key matches one of the soft rule_key hints."""
+    normalized = (key or "").strip().lower().replace("-", "_")
+    normalized = "_".join(part for part in normalized.split("_") if part)
+    return normalized in RULE_KEY_HINTS
+
 
 OPERATORS = frozenset({"lte", "gte", "eq", "lt", "gt", "range", "pct_lte", "pct_gte"})
 

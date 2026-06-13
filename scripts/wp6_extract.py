@@ -64,7 +64,7 @@ from draftcheck.extraction.adjudication import (  # noqa: E402
 )
 from draftcheck.extraction.normalize import normalize_unit, whitespace_normalize  # noqa: E402
 from draftcheck.extraction.validators import run_all_validators  # noqa: E402
-from draftcheck.extraction.vocabulary import OPERATORS, RULE_KEYS  # noqa: E402
+from draftcheck.extraction.vocabulary import OPERATORS, RULE_KEY_HINTS, is_hinted_key  # noqa: E402
 
 ORG_ID = "1d31c315-5087-47df-a8d4-ebfd08efad5d"  # DraftCheck WA
 SKILL_VERSION_ID = "wp6-extractor-v2"
@@ -146,7 +146,7 @@ CLAUSE_MARKER_RE = re.compile(r"(?m)^\s*((?:C|P)\d+(?:\.\d+)+|\d+\.\d+(?:\.\d+)?
 JSON_SCHEMA_TEXT = """{
   "atoms": [
     {
-      "rule_key": "one of: %s",
+      "rule_key": "snake_case noun phrase naming the regulated thing (examples: %s). New keys allowed -- pick the most specific accurate name.",
       "rule_type": "one of: standard, exception, deemed_to_comply, design_principle",
       "pathway": "one of: deemed_to_comply, design_principle, none",
       "operator": "one of: %s",
@@ -159,7 +159,14 @@ JSON_SCHEMA_TEXT = """{
     }
   ],
   "no_rules": false
-}""" % (", ".join(sorted(RULE_KEYS)), ", ".join(sorted(OPERATORS)))
+}""" % (
+    ", ".join(sorted(RULE_KEY_HINTS)[:10] + [
+        "noise_attenuation_distance",
+        "slope_threshold_for_retaining",
+        "driveway_gradient_max",
+    ]),
+    ", ".join(sorted(OPERATORS)),
+)
 
 SYSTEM_PROMPT = (
     "You are a meticulous regulatory data extractor for the Western Australian "
@@ -522,7 +529,8 @@ def validate_atom(atom: Atom, clause_text: str, disposition: str = "rule_bearing
         ok = lo <= atom.value <= hi and atom.unit in units
         extra["range_prior"] = {
             "pass": ok,
-            "detail": f"value {atom.value} {atom.unit} vs prior [{lo},{hi}] {sorted(str(u) for u in units)}",
+            "detail": f"value {atom.value} {atom.unit} vs soft prior [{lo},{hi}] {sorted(str(u) for u in units)}",
+            "soft": True,
         }
     codes = atom.applicability.get("density_codes") or []
     bad = [c for c in codes if str(c).upper().replace(" ", "") not in VALID_R_CODES]
@@ -532,16 +540,12 @@ def validate_atom(atom: Atom, clause_text: str, disposition: str = "rule_bearing
     }
     results.update(extra)
     atom.validators = results
-    atom.valid = all(v["pass"] for v in results.values())
+    atom.valid = all(v["pass"] for v in results.values() if not v.get("soft"))
 
 
 def vocab_gap_only(atom: Atom) -> bool:
-    """True when the ONLY validator failure is an unknown rule_key."""
-    if atom.valid or not atom.validators:
-        return False
-    rk = atom.validators.get("rule_key", {"pass": True})
-    others_ok = all(v["pass"] for k, v in atom.validators.items() if k != "rule_key")
-    return others_ok and not rk["pass"]
+    """True when the atom is structurally valid but outside the hint set."""
+    return atom.valid and not is_hinted_key(atom.rule_key)
 
 
 def vote_from_atom(atom: Atom) -> Vote:
@@ -702,19 +706,16 @@ def extract_for_clause(
         for atom in atoms:
             validate_atom(atom, clause_text, disposition)
             if atom.valid:
+                metadata = {"open_vocab": True}
+                if vocab_gap_only(atom):
+                    metadata["hint_gap"] = True
+                    stats["vocab_gap_atoms"] += 1
                 insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
-                                 "validators_passed", None, prompt)
-            elif vocab_gap_only(atom):
-                # Unknown rule_key but quote/number/unit all check out: this is
-                # vocabulary growth material, not garbage. Keep it reviewable.
-                insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
-                                 "pending_review", None, prompt,
-                                 metadata={"pending_reason": "vocabulary_gap"})
-                stats["vocab_gap_atoms"] += 1
+                                 "validators_passed", None, prompt, metadata=metadata)
             else:
                 stats["validator_rejects"] += 1
                 insert_candidate(conn, sv_id, clause_id, chunk_id, atom, group_id,
-                                 "validator_failed", None, prompt)
+                                 "validator_failed", None, prompt, metadata={"open_vocab": True})
         pass_atoms.append([a for a in atoms if a.valid])
     conn.commit()
 
@@ -748,10 +749,13 @@ def extract_for_clause(
                         validate_atom(a, clause_text, disposition)
                         if not a.valid:
                             continue
+                        metadata = {"open_vocab": True}
+                        if vocab_gap_only(a):
+                            metadata["hint_gap"] = True
                         v = vote_from_atom(a)
                         if core_of(v) == core:
                             insert_candidate(conn, sv_id, clause_id, chunk_id, a, group_id,
-                                             "validators_passed", None, prompt)
+                                             "validators_passed", None, prompt, metadata=metadata)
                             pair_group.append((v, a))
                             challenged = True
                     decision = adjudicate([v for v, _ in pair_group])
@@ -773,7 +777,8 @@ def extract_for_clause(
             cid = insert_candidate(
                 conn, sv_id, clause_id, chunk_id, merged, group_id,
                 "auto_promoted", decision.confidence, prompt,
-                metadata={"adjudication": "v2-core-family",
+                metadata={"open_vocab": True,
+                          "adjudication": "v2-core-family",
                           "families": list(decision.families),
                           "dissent": list(decision.dissent)},
             )
@@ -786,7 +791,7 @@ def extract_for_clause(
             insert_candidate(
                 conn, sv_id, clause_id, chunk_id, rep_atom, group_id,
                 "pending_review", 0.5, prompt,
-                metadata={"pending_reason": decision.reason},
+                metadata={"open_vocab": True, "pending_reason": decision.reason},
             )
             pending_cores.append((core, decision.reason))
             stats["atoms_pending_review"] += 1

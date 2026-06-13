@@ -45,6 +45,8 @@ WP-H UX polish (mostly done 2026-06-13)                 │ │
 
 **Goal:** the extractor and validator no longer treat the 50 RULE_KEYS as a hard wall. The set is renamed to a hint and used only as a soft signal.
 
+**Status (2026-06-14):** scaffolding LANDED on main — `RULE_KEYS` is renamed to `RULE_KEY_HINTS` with `is_hinted_key()` in `src/draftcheck/extraction/vocabulary.py`, and `validate_rule_key` now accepts new snake_case keys as a soft signal.
+
 **Files:**
 - `src/draftcheck/extraction/vocabulary.py`
   - Rename `RULE_KEYS` → `RULE_KEY_HINTS` (keep the existing 50 keys verbatim — they remain the most likely categories).
@@ -79,6 +81,8 @@ WP-H UX polish (mostly done 2026-06-13)                 │ │
 ## WP-B — Universal structural validators (≈45 min code)
 
 **Goal:** validators no longer need to know about the rule_key at all. Every promotable atom must clear quote anchor, no-orphan-numbers, normative language, operator/unit canonical, value finite, and unit-category sanity.
+
+**Status (2026-06-14):** scaffolding LANDED on main — `validate_value_finite` and `validate_unit_category_sanity` are implemented in `src/draftcheck/extraction/validators.py`.
 
 **Files:**
 - `src/draftcheck/extraction/normalize.py`
@@ -122,6 +126,8 @@ WP-H UX polish (mostly done 2026-06-13)                 │ │
 
 **Goal:** every raw `rule_key` string in the candidate pool maps to a canonical key. Equivalent variants collapse. Long-tail one-offs survive as their own clusters until enough rules accumulate.
 
+**Status (2026-06-14):** scaffolding LANDED on main — `scripts/wp6_cluster_keys.py` and `scripts/wp6_apply_clustering.py` exist, and migration `0018_rule_canonical_keys` adds the `canonical_rule_key` columns on both tables.
+
 **Files:**
 - `scripts/wp6_cluster_keys.py` (new).
   - Pull all distinct `rule_key` strings + their candidate counts + sample quotes.
@@ -131,7 +137,7 @@ WP-H UX polish (mostly done 2026-06-13)                 │ │
   - For each cluster, the canonical key is the most frequent raw variant (tiebreaker: shortest).
   - Write `reports/key_clusters.json`: `[{canonical, members, total_rules, sample_quotes}]`.
   - Write `data/extraction/key_canonical_map.csv`: `raw,canonical`.
-- DB migration `0016_rule_key_canonical`: add `rules.canonical_rule_key` and `rule_candidates.canonical_rule_key` columns (nullable for compatibility, fill via UPDATE).
+- DB migration `0018_rule_canonical_keys`: add `rules.canonical_rule_key` and `rule_candidates.canonical_rule_key` columns (nullable for compatibility, fill via UPDATE).
 - `scripts/wp6_apply_clustering.py` (new): bulk UPDATE both tables from the CSV.
 
 **Gate:** every candidate has a non-null `canonical_rule_key`. Top-20 clusters reviewed (by hand or by spot-prompt) for "would a drafts person see this as one category?" — if any cluster mis-groups (e.g. `primary_street_setback` and `parking_bay_setback` merging), tighten the clustering threshold and re-run. Idempotent.

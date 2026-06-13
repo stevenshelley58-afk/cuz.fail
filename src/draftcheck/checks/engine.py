@@ -22,7 +22,7 @@ from uuid import UUID
 
 from sqlalchemy.orm import Session
 
-from draftcheck.checks.registry import TIER1_CHECKS
+from draftcheck.checks.registry import ALL_CHECKS
 from draftcheck.db.models import (
     CheckResult,
     CheckRun,
@@ -109,7 +109,14 @@ def _select_rule(
     best_rank: tuple = ()
     for rule in rules:
         base = _base_rule_key(rule)
-        if rule.rule_key != check_key and base not in accepted:
+        # Open-vocab derived checks key on canonical_rule_key (filled by
+        # wp6_apply_clustering.py); the seed checks key on rule_key / base key.
+        canonical = getattr(rule, "canonical_rule_key", None)
+        if (
+            rule.rule_key != check_key
+            and base not in accepted
+            and canonical != check_key
+        ):
             continue
         raw = rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
         try:
@@ -392,7 +399,7 @@ class ComplianceEngine:
         any_fail = False
         any_missing = False
 
-        for check_def in TIER1_CHECKS:
+        for check_def in ALL_CHECKS:
             check_key = check_def.key
             # Find the best matching approved rule for this check
             rule: Rule | None = _select_rule(rules, check_key, r_codes)

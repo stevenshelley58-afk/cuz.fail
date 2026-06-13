@@ -31,7 +31,6 @@ import os
 import sys
 import uuid
 from collections import defaultdict
-from typing import Any
 
 import psycopg
 from psycopg.types.json import Json
@@ -42,7 +41,7 @@ sys.path.insert(
 )
 
 from draftcheck.extraction.adjudication import core_of, model_family, Vote  # noqa: E402
-from draftcheck.extraction.vocabulary import OPERATORS, RULE_KEYS  # noqa: E402
+from draftcheck.extraction.vocabulary import OPERATORS, RULE_KEY_HINTS  # noqa: E402
 
 ORG_ID = "1d31c315-5087-47df-a8d4-ebfd08efad5d"
 SOLO_NAMESPACE = uuid.UUID("00000000-0000-5000-c000-000000000002")
@@ -121,7 +120,7 @@ def run(conn: psycopg.Connection, args) -> int:
           AND rc.operator = ANY(%s)
         ORDER BY rc.clause_id, rc.rule_key
         """,
-        (args.statuses, list(RULE_KEYS), list(OPERATORS)),
+        (args.statuses, list(RULE_KEY_HINTS), list(OPERATORS)),
     )
     rows = cur.fetchall()
 

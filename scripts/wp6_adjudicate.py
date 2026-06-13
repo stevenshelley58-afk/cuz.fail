@@ -36,8 +36,6 @@ from draftcheck.extraction.adjudication import (  # noqa: E402
     adjudicate,
     core_of,
 )
-from draftcheck.extraction.vocabulary import RULE_KEYS  # noqa: E402
-
 ORG_ID = "1d31c315-5087-47df-a8d4-ebfd08efad5d"  # DraftCheck WA
 
 
@@ -202,11 +200,7 @@ def main() -> int:
         ).fetchone()[0]
 
         groups: dict[tuple, list[dict]] = defaultdict(list)
-        skipped_unknown_key = 0
         for r in rows:
-            if r["rule_key"] not in RULE_KEYS:
-                skipped_unknown_key += 1
-                continue
             v = to_vote(r)
             groups[(str(r["clause_id"]), core_of(v))].append(r)
 
@@ -254,7 +248,7 @@ def main() -> int:
         report.update({
             "vote_rows": len(rows),
             "core_groups": len(groups),
-            "skipped_unknown_rule_key_votes": skipped_unknown_key,
+            "skipped_unknown_rule_key_votes": 0,
             "skipped_already_promoted_groups": skipped_already,
             "promoted_groups": promoted,
             "pending_by_reason": dict(pending_by_reason),

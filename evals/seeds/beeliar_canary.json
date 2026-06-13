@@ -1,0 +1,18 @@
+{
+  "canary": "beeliar_open_vocab",
+  "description": "End-to-end gate for the open-vocab rebuild (WP-I). Typing the Beeliar address into the app must return a real result set, not warnings. The 'expected' block is the acceptance contract; the 'recorded' block is filled from a real verification run on prod and then 'status' flips to 'verified'.",
+  "authority": "docs/OPEN_VOCAB_REBUILD_PLAN.md WP-I",
+  "address": "1 BLACK SWAN RISE BEELIAR",
+  "address_note": "Proxy for '3 BLACK SWAN RISE BEELIAR' which is missing from G-NAF.",
+  "expected": {
+    "council_scope": "COCKBURN, CITY OF",
+    "r_code": "RR20",
+    "min_synth_property_facts": 6,
+    "min_categories_evaluated": 25,
+    "min_pass_or_fail": 10,
+    "every_result_has_citation": true,
+    "advisory_framing": true
+  },
+  "status": "pending_verification_run",
+  "recorded": null
+}

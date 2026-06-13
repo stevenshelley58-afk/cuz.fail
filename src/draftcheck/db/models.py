@@ -1021,6 +1021,7 @@ class RuleCandidate(Base, TimestampMixin):
         index=True,
     )
     rule_key: Mapped[str | None] = mapped_column(String(160), nullable=True)
+    canonical_rule_key: Mapped[str | None] = mapped_column(String(160), nullable=True, index=True)
     rule_type: Mapped[str] = mapped_column(String(60), nullable=False, default="requirement")
     pathway: Mapped[str] = mapped_column(String(60), nullable=False, default="none")
     operator: Mapped[str | None] = mapped_column(String(40), nullable=True)
@@ -1089,6 +1090,7 @@ class Rule(Base, TimestampMixin):
         index=True,
     )
     rule_key: Mapped[str] = mapped_column(String(160), nullable=False)
+    canonical_rule_key: Mapped[str | None] = mapped_column(String(160), nullable=True, index=True)
     rule_type: Mapped[str] = mapped_column(String(60), nullable=False)
     pathway: Mapped[str] = mapped_column(String(60), nullable=False, default="none")
     lifecycle_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")

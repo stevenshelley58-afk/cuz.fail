@@ -177,6 +177,24 @@ Gate: `reports/citation_closure.json` — 0 unresolved external_references, fixp
 
 ## WP6 — Extraction + rule matrix (swarm: extractors, claim rule-bearing `source_versions`)
 
+> **SUPERSEDED 2026-06-14 — active pipeline is `docs/OPEN_VOCAB_REBUILD_PLAN.md`.**
+> The extraction pipeline no longer enforces a closed/fixed `rule_key` vocabulary, and the
+> "Tier-1 check keys × R5–R80" rule matrix below is no longer a hard gate. Extractors now
+> propose **any** `snake_case` rule_key they see (validated structurally by
+> `validators.validate_rule_key`, `[a-z][a-z0-9_]{2,60}`); the former closed set is now a
+> soft signal only (`RULE_KEY_HINTS` / `is_hinted_key()` in
+> `src/draftcheck/extraction/vocabulary.py`), not a drop filter. Universal structural
+> validators (quote-anchor, no-orphan-numbers, normative-language, operator/unit canonical,
+> `validate_value_finite`, `validate_unit_category_sanity`) catch garbage regardless of key;
+> raw keys are canonicalised post-hoc by `scripts/wp6_cluster_keys.py` /
+> `scripts/wp6_apply_clustering.py` into the `canonical_rule_key` column (migration
+> `0018_rule_canonical_keys`, on both `rules` and `rule_candidates`), and CheckDefinitions are
+> derived from clusters (`scripts/wp6_register_checks_from_clusters.py` →
+> `src/draftcheck/checks/registry_generated.py`), not declared up-front. The original WP6
+> procedure is kept below as history.
+>
+> Authority: `docs/OPEN_VOCAB_REBUILD_PLAN.md`, subordinate to `docs/MASTER_REBUILD_PLAN.md`.
+
 Phase 4 verbatim: structure pass → 3-pass blind ensemble (temp 0, strict JSON, mandatory
 quote anchors) → deterministic validators → adjudication (3/3 auto-accept @0.95, 2/3
 challenge, else `pending_review`) → per-doc acceptance gate (100% dispositions, 0 orphan
@@ -188,7 +206,10 @@ linked `performance_alternative_to` = audit failure. Table clauses get the visio
 cell coordinates in provenance.
 
 Gate: `reports/rule_matrix.csv` — Tier-1 check keys × R5–R80 × pilot LGA, 100% filled
-(approved atom or cited `n/a`). Golden evals green.
+(approved atom or cited `n/a`). Golden evals green. (Superseded 2026-06-14 — the closed Tier-1
+key matrix is no longer a hard gate; the open-vocab pipeline accepts new `snake_case` keys and
+canonicalises them post-hoc. Treat this matrix as coverage telemetry, not a vocabulary ceiling.
+See `docs/OPEN_VOCAB_REBUILD_PLAN.md`.)
 
 ## WP7 — Legal graph + conflict sweep (swarm: edge-proposers, 1 per instrument pair; precedence + sweep: 1 worker)
 

@@ -728,6 +728,20 @@ unit normalizer
 closed vocabularies
 ```
 
+> Superseded 2026-06-14 — the closed-vocab `rule_key` enum was retired; see
+> `docs/OPEN_VOCAB_REBUILD_PLAN.md` (subordinate to `docs/MASTER_REBUILD_PLAN.md`).
+> The former closed set `RULE_KEYS` is renamed to `RULE_KEY_HINTS` in
+> `src/draftcheck/extraction/vocabulary.py` and is now a soft signal only
+> (`is_hinted_key()`), not a hard gate: the extractor proposes any snake_case
+> `rule_key` and `validators.validate_rule_key` accepts new keys. Garbage is caught
+> by universal structural validators (quote-anchor, no-orphan-numbers,
+> normative-language, operator/unit canonical, `validate_value_finite`,
+> `validate_unit_category_sanity`), not by an enum. Raw keys are canonicalised
+> post-hoc into the `canonical_rule_key` column (`String(160)`, nullable, indexed)
+> added by migration `0018_rule_canonical_keys` on both the `rules` and
+> `rule_candidates` tables (`scripts/wp6_cluster_keys.py` →
+> `scripts/wp6_apply_clustering.py`).
+
 Acceptance:
 
 ```text
@@ -736,6 +750,11 @@ Invalid rule key is rejected.
 Numeric units are normalized.
 Normative-language audit cannot classify must/shall/required clauses as informational.
 ```
+
+> Superseded 2026-06-14 — "Invalid rule key is rejected" now means only that
+> `validate_rule_key` rejects strings outside `[a-z][a-z0-9_]{2,60}`; a key is no
+> longer rejected merely for being outside the former closed vocabulary. Approval is
+> driven by the universal structural validators above, not enum membership.
 
 ### PR 5: Spatial data skeleton and resolver contract
 
