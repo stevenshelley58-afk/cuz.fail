@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T08:21:00+08:00",
+  "captured_at": "2026-06-13T08:39:11+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -89,7 +89,13 @@
         "GitHub CI run 27449927740 passed the web build, launch checkout, launch actions, live fetch, mobile, strict launch, live preview, and Lighthouse SEO gates on main",
         ".github/workflows/deploy.yml verifies https://lotfile.app/api/v1/ready and https://lotfile.app/api/v1/health after deploy",
         "GitHub deploy run 27449978957 synced production to 233431d and passed the lotfile.app live verifier",
-        "ssh draftcheck 'cd /srv/draftcheck/app/web && npm run verify:launch:live:json' passed against https://lotfile.app with only the paid checkout URL warning"
+        "ssh draftcheck 'cd /srv/draftcheck/app/web && npm run verify:launch:live:json' passed against https://lotfile.app with only the paid checkout URL warning",
+        "web/src/views/wizard.tsx no longer advances the proposal wizard when proposal saving returns notBuilt",
+        "web/src/views/wizard.proposal.test.tsx covers successful proposal save and notBuilt fallback behaviour",
+        "web/package.json wires the proposal wizard test into npm run test:launch-actions",
+        "GitHub CI run 27451079787 passed after PR #96 merged the proposal wizard fallback fix",
+        "GitHub deploy run 27451122457 synced production to a9c9249 and passed live ready/health verification",
+        "reports/non_db_launch_ops_blockers.json refreshed after deploy and verified with scripts/audit_non_db_launch_ops.py --verify-report"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"
