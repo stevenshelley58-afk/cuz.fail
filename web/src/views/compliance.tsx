@@ -512,7 +512,7 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
             color: "#1e40af",
           }}
         >
-          Scroll down to the Documents section to upload a drawing or plan.
+          Use the Documents upload area to add a drawing or plan for this check.
         </div>
       )}
     </div>
