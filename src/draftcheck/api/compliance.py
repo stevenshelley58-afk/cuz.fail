@@ -105,7 +105,7 @@ class ComplianceMatrixResponse(BaseModel):
     results: list[CheckResultItemResponse]
 
 
-_DISCLAIMER = "Advisory — cite-checked against approved sources, not a final compliance certification."
+_DISCLAIMER = "Advisory — cite-checked against approved sources, not a final compliance determination."
 
 
 # ---------------------------------------------------------------------------

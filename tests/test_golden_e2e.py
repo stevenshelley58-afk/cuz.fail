@@ -392,7 +392,7 @@ def test_golden_fixture_e2e_reaches_cited_advisory_compliance_results(tmp_path, 
         promoted = client.post(f"/api/v1/documents/{document_id}/facts/{fact_id}/promote")
         assert promoted.status_code == 200, promoted.text
         assert promoted.json()["review_status"] == "confirmed"
-        assert "not a legal or compliance certification" in promoted.json()["advisory_notice"].lower()
+        assert "not a legal or compliance determination" in promoted.json()["advisory_notice"].lower()
 
     compliance = client.post(f"/api/v1/compliance/projects/{project_id}/run")
     assert compliance.status_code == 201, compliance.text

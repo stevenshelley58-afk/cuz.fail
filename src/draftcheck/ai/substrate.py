@@ -136,6 +136,7 @@ class ModelAdapter(Protocol):
 @runtime_checkable
 class JobTraceStore(Protocol):
     def append(self, trace: JobTrace) -> None: ...
+    def contains(self, trace_id: str) -> bool: ...
     def seed_daily_counters(self, today: date) -> tuple[int, int]: ...
 
 
@@ -151,6 +152,10 @@ class InMemoryJobTraceStore:
     def list_traces(self) -> tuple[JobTrace, ...]:
         with self._lock:
             return tuple(self._traces)
+
+    def contains(self, trace_id: str) -> bool:
+        with self._lock:
+            return any(trace.id == trace_id for trace in self._traces)
 
     def seed_daily_counters(self, today: date) -> tuple[int, int]:
         # In-memory store has no persistence; always starts fresh.
@@ -327,7 +332,7 @@ class HttpModelAdapter:
         provider: "Any",  # ChatProvider protocol
         *,
         spend_caps: SpendCaps | None = None,
-        trace_store: InMemoryJobTraceStore | None = None,
+        trace_store: JobTraceStore | None = None,
         circuit_breaker: CircuitBreaker | None = None,
     ) -> None:
         self._provider = provider
@@ -338,6 +343,10 @@ class HttpModelAdapter:
         self._ledger_day: date | None = None
         self._daily_tokens = 0
         self._daily_cost_cents = 0
+
+    @property
+    def trace_store(self) -> JobTraceStore:
+        return self._trace_store
 
     # ------------------------------------------------------------------
     # Public API

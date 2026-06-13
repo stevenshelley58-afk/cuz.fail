@@ -632,6 +632,57 @@ def test_api_supported_search_ask_creates_governed_trace() -> None:
     assert library.reviews[-1].org_id
 
 
+def test_api_supported_search_ask_accepts_persistent_trace_store() -> None:
+    class PersistentTraceStore:
+        def __init__(self) -> None:
+            self.ids: set[str] = set()
+
+        def append(self, trace) -> None:
+            self.ids.add(trace.id)
+
+        def contains(self, trace_id: str) -> bool:
+            return trace_id in self.ids
+
+        def seed_daily_counters(self, today) -> tuple[int, int]:
+            return 0, 0
+
+    library = InMemorySourceLibrary(embedding_config=_embedding_config())
+    trace_store = PersistentTraceStore()
+    adapter = LocalDeterministicModelAdapter(
+        mode="local",
+        trace_store=trace_store,
+        spend_caps=SpendCaps(
+            per_job_token_cap=1000,
+            daily_token_cap=1000,
+            daily_cost_cap_cents=100,
+        ),
+    )
+    reviewer_client = _client(library, reviewer=True, model_adapter=adapter)
+    imported = reviewer_client.post(
+        "/api/v1/sources/import",
+        json={
+            "title": "Persistent Trace Fixture",
+            "content": "Site cover is discussed in this approved fixture.",
+            "licence_status": "open",
+        },
+    ).json()
+    reviewer_client.post(
+        f"/api/v1/sources/{imported['source']['id']}/review",
+        json={
+            "source_version_id": imported["version"]["id"],
+            "review_status": "approved",
+            "licence_status": "verified_open",
+        },
+    )
+
+    asked = reviewer_client.post("/api/v1/search/ask", json={"query": "site cover"})
+
+    body = asked.json()
+    assert asked.status_code == 200
+    assert body["status"] == "supported_by_approved_sources"
+    assert trace_store.contains(body["trace_id"])
+
+
 def test_standards_australia_publisher_variants_are_metadata_only() -> None:
     library = InMemorySourceLibrary(embedding_config=_embedding_config())
     imported = library.import_source(

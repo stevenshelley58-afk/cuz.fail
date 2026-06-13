@@ -37,6 +37,7 @@ class DbJobTraceStore:
             id=uuid4(),
             org_id=None,
             job_id=trace.job_id,
+            correlation_id=trace.id,
             adapter_name=_ADAPTER_NAME,
             provider=trace.model_provider,
             model=trace.model,
@@ -59,6 +60,20 @@ class DbJobTraceStore:
         except Exception:
             session.rollback()
             LOGGER.warning("DbJobTraceStore.append failed — trace not persisted", exc_info=True)
+        finally:
+            session.close()
+
+    def contains(self, trace_id: str) -> bool:
+        session = self._session_factory()
+        try:
+            row = session.execute(
+                text("SELECT 1 FROM job_traces WHERE correlation_id = :trace_id LIMIT 1"),
+                {"trace_id": trace_id},
+            ).fetchone()
+            return row is not None
+        except Exception:
+            LOGGER.warning("DbJobTraceStore.contains failed", exc_info=True)
+            return False
         finally:
             session.close()
 

@@ -455,7 +455,7 @@ def promote_document_fact(
         "review_status": fact.review_status,
         "promoted_to_measurement": fact.promoted_to_measurement,
         "property_fact_id": str(property_fact.id),
-        "advisory_notice": "Promoted fact is advisory. Not a legal or compliance certification.",
+        "advisory_notice": "Promoted fact is advisory. It is not a legal or compliance determination.",
     }
 
 

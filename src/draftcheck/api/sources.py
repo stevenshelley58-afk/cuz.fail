@@ -887,10 +887,7 @@ def _trace_supported_answer(
             needs_verification=True,
             trace_id=model_response.trace_id,
         )
-    trace_store = getattr(model_adapter, "trace_store", None)
-    if not isinstance(trace_store, InMemoryJobTraceStore) or not any(
-        trace.id == model_response.trace_id for trace in trace_store.list_traces()
-    ):
+    if not _model_adapter_recorded_trace(model_adapter, model_response.trace_id):
         return SourceAnswer(
             status=AnswerStatus.UNSUPPORTED,
             answer="Unsupported: governed model adapter did not record the traced answer draft.",
@@ -901,6 +898,16 @@ def _trace_supported_answer(
             trace_id=model_response.trace_id,
         )
     return replace(answer, trace_id=model_response.trace_id)
+
+
+def _model_adapter_recorded_trace(model_adapter: ModelAdapter, trace_id: str) -> bool:
+    trace_store = getattr(model_adapter, "trace_store", None)
+    contains = getattr(trace_store, "contains", None)
+    if callable(contains):
+        return bool(contains(trace_id))
+    if isinstance(trace_store, InMemoryJobTraceStore):
+        return any(trace.id == trace_id for trace in trace_store.list_traces())
+    return False
 
 
 def create_sources_router(
