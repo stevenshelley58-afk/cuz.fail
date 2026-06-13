@@ -97,6 +97,31 @@ def _coerce_licence_status(value: Any) -> LicenceStatus:
     Anything unrecognised becomes UNKNOWN — i.e. never authoritative — rather
     than crashing every read of the dataset row.
     """
+    normalized = str(value or "").strip().lower()
+    aliases = {
+        "approved": LicenceStatus.LICENSED,
+        "licensed": LicenceStatus.LICENSED,
+        "open": LicenceStatus.LICENSED,
+        "verified_open": LicenceStatus.LICENSED,
+        "public": LicenceStatus.LICENSED,
+        "cc-by": LicenceStatus.LICENSED,
+        "cc by": LicenceStatus.LICENSED,
+        "cc by 4.0": LicenceStatus.LICENSED,
+        "cc-by-4.0": LicenceStatus.LICENSED,
+        "cc_by_4_0": LicenceStatus.LICENSED,
+        "approved_fixture_only": LicenceStatus.LICENSED,
+        "fixture": LicenceStatus.LICENSED,
+        "review": LicenceStatus.RESTRICTED,
+        "restricted": LicenceStatus.RESTRICTED,
+        "pending_review": LicenceStatus.RESTRICTED,
+        "metadata_only": LicenceStatus.RESTRICTED,
+        "blocked": LicenceStatus.UNLICENSED,
+        "prohibited": LicenceStatus.UNLICENSED,
+        "unlicensed": LicenceStatus.UNLICENSED,
+        "unknown": LicenceStatus.UNKNOWN,
+    }
+    if normalized in aliases:
+        return aliases[normalized]
     try:
         return LicenceStatus(value)
     except ValueError:
@@ -105,6 +130,18 @@ def _coerce_licence_status(value: Any) -> LicenceStatus:
 
 
 def _coerce_approval_status(value: Any) -> SourceApprovalStatus:
+    normalized = str(value or "").strip().lower()
+    aliases = {
+        "approved": SourceApprovalStatus.APPROVED,
+        "accepted": SourceApprovalStatus.APPROVED,
+        "review": SourceApprovalStatus.PENDING_REVIEW,
+        "pending": SourceApprovalStatus.PENDING_REVIEW,
+        "pending_review": SourceApprovalStatus.PENDING_REVIEW,
+        "rejected": SourceApprovalStatus.REJECTED,
+        "blocked": SourceApprovalStatus.REJECTED,
+    }
+    if normalized in aliases:
+        return aliases[normalized]
     try:
         return SourceApprovalStatus(value)
     except ValueError:
@@ -117,7 +154,11 @@ def _db_dataset_to_metadata(row: DbSpatialDataset) -> SpatialDatasetMetadata:
     source_version_id = (
         str(row.source_version_id)
         if row.source_version_id
-        else (str(meta["source_version_id"]) if meta.get("source_version_id") else None)
+        else (
+            str(meta["source_version_id"])
+            if meta.get("source_version_id")
+            else f"spatial-dataset:{row.dataset_id}:{row.version}"
+        )
     )
     return SpatialDatasetMetadata(
         dataset_id=row.dataset_id,

@@ -238,8 +238,11 @@ class TestLicenceGateApprovalStatus:
             _coerce_licence_status,
         )
 
-        assert _coerce_licence_status("approved") == LicenceStatus.UNKNOWN
-        assert _coerce_licence_status("review") == LicenceStatus.UNKNOWN
+        assert _coerce_licence_status("approved") == LicenceStatus.LICENSED
+        assert _coerce_licence_status("verified_open") == LicenceStatus.LICENSED
+        assert _coerce_licence_status("CC BY 4.0") == LicenceStatus.LICENSED
+        assert _coerce_licence_status("review") == LicenceStatus.RESTRICTED
+        assert _coerce_licence_status("pending_review") == LicenceStatus.RESTRICTED
         assert _coerce_licence_status("licensed") == LicenceStatus.LICENSED
         assert _coerce_approval_status("bogus") == SourceApprovalStatus.PENDING_REVIEW
         assert _coerce_approval_status("approved") == SourceApprovalStatus.APPROVED
