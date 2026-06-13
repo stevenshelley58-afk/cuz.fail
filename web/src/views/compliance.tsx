@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CheckCircle2, CircleAlert, CircleHelp, MessageSquare, RefreshCw } from "lucide-react";
 import { api, type ComplianceResultItem, type ComplianceRunResponse } from "../api";
 import { trackEvent } from "../analytics";
@@ -288,15 +288,48 @@ function ComplianceResultRow({
 
 export function CompliancePanel({ projectId }: CompliancePanelProps) {
   const [runResult, setRunResult] = useState<ComplianceRunResponse | null>(null);
+  const [matrixLoading, setMatrixLoading] = useState(true);
+  const [matrixLoadMessage, setMatrixLoadMessage] = useState<string | null>(null);
+  const [matrixLoadTone, setMatrixLoadTone] = useState<"info" | "error">("info");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [uploadPrompted, setUploadPrompted] = useState(false);
 
-  useEffect(() => {
-    api.compliance.matrix(projectId).then((r) => {
-      if (r.kind === "ok") setRunResult(r.data);
-    });
+  const loadMatrix = useCallback(async () => {
+    setMatrixLoading(true);
+    setMatrixLoadMessage(null);
+    const r = await api.compliance.matrix(projectId);
+    setMatrixLoading(false);
+    if (r.kind === "ok") {
+      setRunResult(r.data);
+      return;
+    }
+    if (r.kind === "auth") {
+      setMatrixLoadTone("error");
+      setMatrixLoadMessage("Sign in required to load saved compliance results.");
+    } else if (r.kind === "missing") {
+      setMatrixLoadTone("info");
+      setMatrixLoadMessage("No saved compliance matrix is available for this project yet.");
+    } else if (r.kind === "notBuilt") {
+      setMatrixLoadTone("info");
+      setMatrixLoadMessage("Saved compliance matrix loading is not available on this server yet.");
+    } else if (r.kind === "error") {
+      setMatrixLoadTone("error");
+      setMatrixLoadMessage(r.message);
+    } else {
+      setMatrixLoadTone("error");
+      setMatrixLoadMessage("Could not reach server to load saved compliance results.");
+    }
   }, [projectId]);
+
+  useEffect(() => {
+    void loadMatrix();
+  }, [loadMatrix]);
+
+  async function retryMatrixLoad() {
+    setError(null);
+    await loadMatrix();
+  }
 
   async function runCheck() {
     setLoading(true);
@@ -305,6 +338,7 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
     setLoading(false);
     if (r.kind === "ok") {
       setRunResult(r.data);
+      setMatrixLoadMessage(null);
       trackEvent("compliance_run", { result_count: r.data.results.length, status: r.data.status });
     } else if (r.kind === "notBuilt") {
       setError("Compliance check endpoint not yet available on this server.");
@@ -381,6 +415,48 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
         </div>
       )}
 
+      {matrixLoading && !runResult && (
+        <div style={{ color: "#6b7280", fontSize: 14, marginBottom: 12 }}>
+          Loading saved compliance results...
+        </div>
+      )}
+
+      {matrixLoadMessage && !runResult && (
+        <div
+          style={{
+            background: matrixLoadTone === "error" ? "#fef2f2" : "#eff6ff",
+            border: `1px solid ${matrixLoadTone === "error" ? "#fecaca" : "#bfdbfe"}`,
+            borderRadius: 6,
+            padding: "8px 12px",
+            color: matrixLoadTone === "error" ? "#b91c1c" : "#1e40af",
+            fontSize: 13,
+            marginBottom: 12,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 10,
+          }}
+        >
+          <span>{matrixLoadMessage}</span>
+          <button
+            onClick={() => void retryMatrixLoad()}
+            disabled={matrixLoading}
+            style={{
+              flexShrink: 0,
+              border: "1px solid currentColor",
+              borderRadius: 5,
+              background: "transparent",
+              color: "inherit",
+              padding: "4px 8px",
+              fontSize: 12,
+              cursor: matrixLoading ? "not-allowed" : "pointer",
+            }}
+          >
+            Retry
+          </button>
+        </div>
+      )}
+
       {runResult?.advisory_disclaimer && (
         <div
           style={{
@@ -397,7 +473,7 @@ export function CompliancePanel({ projectId }: CompliancePanelProps) {
         </div>
       )}
 
-      {results.length === 0 && !loading && !error && (
+      {results.length === 0 && !loading && !matrixLoading && !matrixLoadMessage && !error && (
         <div style={{ color: "#6b7280", fontSize: 14 }}>
           No compliance results yet. Run a check to get started.
         </div>

@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T10:26:00+08:00",
+  "captured_at": "2026-06-13T10:37:00+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -108,7 +108,9 @@
         "web/src/views/projects.tsx reuses DocumentUpload inside ProjectDetail so reopened projects expose upload, review, evidence search, calibration, and fact-promotion controls next to compliance results",
         "web/src/views/projects.detail.test.tsx covers the reopened-project document workflow and upload call wiring, and web/package.json wires it into npm run test:launch-actions",
         "web/src/views/projects.tsx fetches and renders property context in reopened project details using existing address/property APIs and wizard property helpers",
-        "web/src/views/projects.detail.test.tsx covers reopened-project address, local government, planning fact, and document workflow rendering"
+        "web/src/views/projects.detail.test.tsx covers reopened-project address, local government, planning fact, and document workflow rendering",
+        "web/src/views/compliance.tsx surfaces saved compliance matrix loading, missing, auth, not-built, error, and down states with a retry path instead of showing a false empty state",
+        "web/src/views/compliance.product-loop.test.tsx covers saved matrix load failure visibility and retry recovery"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"
