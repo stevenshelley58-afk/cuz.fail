@@ -80,6 +80,7 @@ def test_v3_sources_spatial_foundation_tables_present() -> None:
         "spend_events",
         "target_manifest",
         "users",
+        "validations",
     }
 
 
