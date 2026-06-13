@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="LotFile advisory WA planning checks">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="LotFile WA planning checks">
   <rect width="1200" height="630" fill="#F7F8F8"/>
   <rect x="72" y="64" width="1056" height="502" rx="28" fill="#FFFFFF" stroke="#E9ECEA" stroke-width="2"/>
   <text x="118" y="148" fill="#0E3B2A" font-family="Arial, sans-serif" font-size="58" font-weight="800">LotFile</text>
   <text x="118" y="224" fill="#14181B" font-family="Arial, sans-serif" font-size="44" font-weight="700">WA planning checks before you build</text>
-  <text x="118" y="284" fill="#5A6560" font-family="Arial, sans-serif" font-size="28">Advisory address, drawing and R-Code review with cited sources.</text>
+  <text x="118" y="284" fill="#5A6560" font-family="Arial, sans-serif" font-size="28">Address, drawing and R-Code review with cited sources.</text>
   <rect x="118" y="338" width="438" height="82" rx="18" fill="#0E3B2A"/>
   <text x="154" y="390" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="28" font-weight="700">Check an address free</text>
   <rect x="664" y="158" width="346" height="302" rx="22" fill="#EAF4EE" stroke="#D6E8DE" stroke-width="2"/>
@@ -11,8 +11,8 @@
   <rect x="704" y="270" width="122" height="86" rx="12" fill="#FFFFFF"/>
   <rect x="848" y="270" width="122" height="86" rx="12" fill="#FFFFFF"/>
   <rect x="704" y="378" width="266" height="42" rx="10" fill="#FFFFFF"/>
-  <text x="730" y="231" fill="#0E3B2A" font-family="Arial, sans-serif" font-size="19" font-weight="700">Source-cited advisory check</text>
+  <text x="730" y="231" fill="#0E3B2A" font-family="Arial, sans-serif" font-size="19" font-weight="700">Source-cited planning check</text>
   <text x="734" y="323" fill="#16834F" font-family="Arial, sans-serif" font-size="34" font-weight="800">R20</text>
   <text x="876" y="323" fill="#B45309" font-family="Arial, sans-serif" font-size="26" font-weight="800">Needs info</text>
-  <text x="730" y="407" fill="#5A6560" font-family="Arial, sans-serif" font-size="18">Not a certification or approval</text>
+  <text x="730" y="407" fill="#5A6560" font-family="Arial, sans-serif" font-size="18">Facts, drawings and source references</text>
 </svg>

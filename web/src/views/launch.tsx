@@ -33,15 +33,11 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
       <main className="launch-main">
         <section className="launch-hero" aria-labelledby="launch-title">
           <div className="launch-copy">
-            <p className="launch-kicker">WA residential planning, advisory only</p>
+            <p className="launch-kicker">WA residential planning checks</p>
             <h1 id="launch-title">Check a block before the drafting bill lands.</h1>
             <p className="launch-lede">
               LotFile gives address-first planning checks for WA projects with cited source versions,
               uploaded-drawing extraction and clear missing-information flags.
-            </p>
-            <p className="launch-trust">
-              Advisory research only. LotFile is not a certifier, council decision-maker,
-              lawyer, planner or building surveyor, and it does not issue approvals.
             </p>
             <form className="launch-address" onSubmit={(e) => { e.preventDefault(); startCheck(); }}>
               <label htmlFor="launch-address">Street address</label>
@@ -59,10 +55,9 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
               </div>
             </form>
           </div>
-          <div className="launch-product" aria-label="LotFile advisory check preview">
+          <div className="launch-product" aria-label="LotFile check preview">
             <div className="launch-product-top">
               <span>LotFile check</span>
-              <span>Advisory</span>
             </div>
             <div className="launch-product-address">
               <Icon name="location_on" />
@@ -93,8 +88,8 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
           </div>
           <div>
             <Icon name="gavel" />
-            <b>No finality claims</b>
-            <span>Results stay advisory: likely pass, likely fail, needs more info or unsupported.</span>
+            <b>Clear next steps</b>
+            <span>Results highlight what is known, what needs drawings and what still needs review.</span>
           </div>
         </section>
 
@@ -111,13 +106,13 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
           </article>
           <article>
             <span>3</span>
-            <h2>Read cited advisory results</h2>
-            <p>Issue cards show likely pass, likely fail, missing information or unsupported with source references.</p>
+            <h2>Read sourced results</h2>
+            <p>Issue cards show the relevant source references, extracted facts and missing information.</p>
           </article>
         </section>
 
         <footer className="launch-footer">
-          <span>LotFile provides advisory planning research only.</span>
+          <span>LotFile helps organise planning checks before you commit to drafting work.</span>
           <nav aria-label="Footer links">
             <button onClick={() => onNavigate("/privacy")}>Privacy</button>
             <button onClick={() => onNavigate("/terms")}>Terms</button>
