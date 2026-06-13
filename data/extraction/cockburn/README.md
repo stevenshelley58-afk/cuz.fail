@@ -18,11 +18,16 @@ Anthropic models (via the Claude Code session subagent path, model='sonnet') bec
 - `clauses.jsonl` — every Cockburn / R-Codes-V1 / SPP 7.3 / SPP 3.7 rule-bearing clause
   that does NOT yet have an anthropic-family candidate (1115 rows).
 - `pilot_args.json`, `pilot_extractions.json` — first 70-clause pilot (LPP 1.12 noise,
-  LPP 3.5 alfresco, sample of R-Codes V1). Outcome: 3 atoms — the closed 14-key vocab
-  in src/draftcheck/extraction/vocabulary.py rejected noise/alfresco/signage rules.
+  LPP 3.5 alfresco, sample of R-Codes V1). Outcome under the OLD closed vocab: 3 atoms —
+  the then-closed 14-key vocab in src/draftcheck/extraction/vocabulary.py rejected
+  noise/alfresco/signage rules. (Superseded 2026-06-14 — the closed-vocab cap was lifted;
+  those categories are now extracted freely and canonicalised by clustering. See
+  docs/OPEN_VOCAB_REBUILD_PLAN.md. The 3-atom count is retained here only as a historical
+  record of that closed-vocab run.)
 - `rcodes50_args.json`, `rcodes50_extractions.json` — focused 50-clause R-Codes V1 run.
-  Outcome: 12 atoms (4 clauses produced atoms), confirming the recall is real but
-  vocabulary-capped.
+  Outcome under the OLD closed vocab: 12 atoms (4 clauses produced atoms), confirming the
+  recall is real but — at the time — vocabulary-capped. (Superseded 2026-06-14 — recall is
+  no longer capped by a fixed key set; un-hinted keys now pass and are clustered.)
 - `slice1_*.{json,sql}` — combined pilot + rcodes50 (120 clauses, 15 atoms,
   9 validators_passed). The SQL is idempotent: PK = uuid5 of
   (group, atom_index, signature), so re-runs upsert in place.
@@ -60,13 +65,40 @@ ssh draftcheck "cd /srv/draftcheck/app/infra/v3 && \
   --report /app/reports/wp6_adjudication.json"
 ```
 
-## Cap / honest read
+## Cap / honest read (superseded 2026-06-14 — cap lifted, see open-vocab note below)
 
-The 14-key RULE_KEYS vocabulary in src/draftcheck/extraction/vocabulary.py is the
-ceiling. Pilot showed only 4 of 50 R-Codes V1 clauses produce in-vocab atoms;
-67 of 70 LPP clauses produce nothing (noise / alfresco / signage rules are outside
-the vocabulary by design). Even a perfect 100% Sonnet pass over the 1115 Cockburn
-slice would emit only ~250-300 atoms because most clauses don't carry a quantitative
-rule that fits the 14 keys. Lifting the ceiling needs vocabulary expansion (parking
-ratios, lot width / depth, fence height, retaining wall, secondary dwelling area,
-etc.) — see project_vocabulary_gap memory note.
+Historical record (closed-vocab era, accurate as of 2026-06-13): the 14-key RULE_KEYS
+vocabulary in src/draftcheck/extraction/vocabulary.py was the ceiling. Pilot showed only
+4 of 50 R-Codes V1 clauses produced in-vocab atoms; 67 of 70 LPP clauses produced nothing
+(noise / alfresco / signage rules were outside the vocabulary by design). Under that closed
+vocab, even a perfect 100% Sonnet pass over the 1115 Cockburn slice would have emitted only
+~250-300 atoms because most clauses don't carry a quantitative rule that fit the 14 keys.
+These counts and observations are kept as a record of that closed run.
+
+### Update 2026-06-14 — the cap is gone (open-vocab pipeline)
+
+The closed-vocab ceiling described above no longer applies. Per the operator decision
+(Steven, 2026-06-14; docs/OPEN_VOCAB_REBUILD_PLAN.md, subordinate to
+docs/MASTER_REBUILD_PLAN.md):
+
+- The former closed set is renamed `RULE_KEY_HINTS` in
+  src/draftcheck/extraction/vocabulary.py and is now only a SOFT signal (telemetry /
+  confidence weighting via `is_hinted_key()`), NOT a hard gate. The LLM proposes any
+  snake_case rule_key it sees; nothing is dropped for being "outside the vocab".
+- The previously-dropped categories (noise, alfresco, signage, plus bushfire, heritage,
+  parking ratios, lot width / depth, fence height, retaining wall, secondary dwelling area,
+  etc.) are now extracted and canonicalised — not gated out. The "vocabulary expansion"
+  this section once called for is exactly what open-vocab delivers, without a fixed key list.
+- Universal structural validators (quote-anchor, no-orphan-numbers, normative-language,
+  operator/unit canonical, value-finite, unit-category sanity) catch garbage regardless of
+  rule_key. The old range_prior check is demoted to a soft confidence score for un-hinted keys.
+- Post-hoc clustering canonicalises the raw rule_key strings: scripts/wp6_cluster_keys.py
+  groups variants and scripts/wp6_apply_clustering.py bulk-fills the `canonical_rule_key`
+  column (String(160), nullable, indexed) added by migration 0018_rule_canonical_keys on both
+  the rules and rule_candidates tables. Open-vocab candidates carry
+  `metadata_json.open_vocab = true`.
+
+So the ~250-300 atom estimate above was a property of the closed vocab, not of the data or
+the extractor; with open-vocab extraction the Cockburn slice is expected to yield materially
+more. (The project_vocabulary_gap memory note records why the old plateau existed; it is
+history, not the current ceiling.)

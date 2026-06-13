@@ -372,6 +372,8 @@ src/draftcheck/checks/registry.py   typed check_keys + calculator bindings + req
 
 versioned with the code (`engine_version`), tested with property-based tests. Fallback defaults may exist only as clearly-labelled `assumption` provenance and can never produce `likely_pass`/`likely_fail` on their own.
 
+**Open-vocab amendment (2026-06-14, operator):** the hand-written `registry.py` CheckDefinitions are no longer the up-front *declaration* of the check universe — they are the seed/fallback, not the ceiling. CheckDefinitions are now **derived from clusters** of approved rules (clusters with ≥ N approved rules emit a generated registry — documented target `scripts/wp6_register_checks_from_clusters.py` → `src/draftcheck/checks/registry_generated.py`). This follows the open-vocab rule pipeline: the extractor proposes any `rule_key`, raw keys are clustered post-hoc to a `canonical_rule_key`, and checks grow from the canonical clusters. See §8.1 and the subordinate authority `docs/OPEN_VOCAB_REBUILD_PLAN.md`.
+
 ### 5.8 RFI, outputs, agent
 
 ```text
@@ -470,6 +472,15 @@ discover -> lawful fetch (robots, licence, delay) -> source_documents -> source_
 -> clauses + legal_edges -> rule_candidates -> quote-anchor validation
 -> no-orphan audit -> normative-language audit -> human promotion -> approved rules
 ```
+
+**Rule-extraction architecture — open vocab (current, 2026-06-14, operator).** The rule-extraction pipeline NO LONGER uses a closed/fixed `rule_key` vocabulary, and nothing is dropped for being "outside the vocab." This is the current rule-extraction architecture, subordinate to this doc and detailed in `docs/OPEN_VOCAB_REBUILD_PLAN.md`:
+
+- **Extract freely.** The LLM proposes any `snake_case` rule_key it sees; `validate_rule_key` accepts `[a-z][a-z0-9_]{2,60}` and admits new keys. The former hand-picked key set is renamed `RULE_KEY_HINTS` in `src/draftcheck/extraction/vocabulary.py` and is now only a *soft* signal (telemetry / confidence via `is_hinted_key()`), not a hard gate.
+- **Universal structural validators** catch garbage regardless of rule_key — quote-anchor, no-orphan-numbers, normative-language, operator/unit canonical, plus `validate_value_finite` and `validate_unit_category_sanity` (`src/draftcheck/extraction/validators.py`). The range_prior check is a soft confidence score for un-hinted keys, not a hard reject.
+- **Post-hoc clustering** canonicalises the raw rule_key strings: `scripts/wp6_cluster_keys.py` groups variants and `scripts/wp6_apply_clustering.py` bulk-fills the `canonical_rule_key` column (`String(160)`, nullable, indexed) added to both `rules` and `rule_candidates` by migration `0018_rule_canonical_keys`.
+- **CheckDefinitions are derived from clusters**, not declared up-front (§5.7); the hand-written registry is seed/fallback.
+
+Open-vocab candidates carry `metadata_json.open_vocab = true`.
 
 Hard rules: changed text ⇒ new version; stale rules excluded from applicability; Standards Australia metadata-only unless lawfully supplied and licence-reviewed; no source supports an answer until licence/review status allows.
 

@@ -57,6 +57,21 @@ Harvestable row counts from the integrity-checked local copy:
 PR5 must harvest from a verified or recovered copy and record final row counts here before
 `draftcheck.db` is archived out of the working tree.
 
+### Open-vocab rule schema note (2026-06-14)
+
+The rule-extraction pipeline is open-vocab: the extractor proposes any snake_case `rule_key`,
+and post-hoc clustering canonicalises the raw strings (see `docs/OPEN_VOCAB_REBUILD_PLAN.md`,
+subordinate to `docs/MASTER_REBUILD_PLAN.md`). Schema impact on the `rules` and
+`rule_candidates` tables:
+
+- `canonical_rule_key` — `String(160)`, nullable, indexed. Added by migration
+  `0018_rule_canonical_keys` on BOTH `rules` and `rule_candidates`. Holds the cluster label
+  assigned by `scripts/wp6_cluster_keys.py` and bulk-filled by `scripts/wp6_apply_clustering.py`;
+  the free-form `rule_key` is preserved alongside it.
+- Open-vocab candidates carry `metadata_json.open_vocab = true` on `rule_candidates` (the
+  existing JSONB `metadata_json` column), flagging keys proposed outside the former soft-hint
+  set (`RULE_KEY_HINTS` / `is_hinted_key()` in `src/draftcheck/extraction/vocabulary.py`).
+
 ## Corpus Inventory
 
 `data/corpus/` is a local evidence input, not source code to track.
