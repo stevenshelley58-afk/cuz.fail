@@ -204,3 +204,21 @@ test("magic-link verify route verifies token and rewrites to app", async () => {
   await waitFor(() => expect(api.magicLinkVerify).toHaveBeenCalledWith("abc123"));
   await waitFor(() => expect(window.location.pathname).toBe("/app"));
 });
+
+test("magic-link verify failure opens sign-in retry without leaving the app stuck", async () => {
+  const api = makeApi({
+    magicLinkVerify: vi.fn().mockResolvedValue({ kind: "auth" }),
+    session: vi.fn()
+      .mockResolvedValueOnce({ kind: "auth" })
+      .mockResolvedValue({ kind: "ok", data: { role: "guest" } }),
+  });
+  setPath("/auth/magic-link/verify?token=expired");
+
+  await renderApp(api);
+
+  await waitFor(() => expect(api.magicLinkVerify).toHaveBeenCalledWith("expired"));
+  await waitFor(() => expect(window.location.pathname).toBe("/app"));
+  await waitFor(() => expect(api.guestSession).toHaveBeenCalledOnce());
+  expect(await screen.findByText("That sign-in link has expired or could not be verified. Send yourself a new link.")).toBeTruthy();
+  expect(screen.getByRole("button", { name: /send sign-in link/i })).toBeTruthy();
+});

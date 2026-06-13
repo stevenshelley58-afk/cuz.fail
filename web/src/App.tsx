@@ -89,27 +89,12 @@ function ProductApp() {
   const [view, setView] = useState<View>("home");
   const [session, setSession] = useState<ApiResult<SessionInfo> | null>(null);
   const [signInOpen, setSignInOpen] = useState(false);
+  const [signInNotice, setSignInNotice] = useState<string | null>(null);
   const [paywall, setPaywall] = useState<PaywallState | null>(null);
   const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
 
   const refreshSession = useCallback(() => { void api.session().then(setSession); }, []);
-
-  useEffect(() => {
-    // magic-link verify deep link: /auth/magic-link/verify?token=…
-    const url = new URL(window.location.href);
-    if (url.pathname.startsWith("/auth/magic-link/verify")) {
-      const token = url.searchParams.get("token");
-      if (token) {
-        void api.magicLinkVerify(token).then(() => {
-          window.history.replaceState(null, "", "/app");
-          refreshSession();
-        });
-        return;
-      }
-    }
-    // Guest bootstrap: no session → mint a guest session so the real product
-    // works immediately. If guest creation fails (API down, guest mode off),
-    // fall back to showing whatever the session call returned.
+  const bootstrapSession = useCallback(() => {
     void api.session().then((r) => {
       if (r.kind === "auth") {
         void api.guestSession().then((g) => {
@@ -122,13 +107,41 @@ function ProductApp() {
     });
   }, [refreshSession]);
 
+  useEffect(() => {
+    // magic-link verify deep link: /auth/magic-link/verify?token=…
+    const url = new URL(window.location.href);
+    if (url.pathname.startsWith("/auth/magic-link/verify")) {
+      const token = url.searchParams.get("token");
+      if (token) {
+        void api.magicLinkVerify(token).then((r) => {
+          window.history.replaceState(null, "", "/app");
+          if (r.kind === "ok") {
+            refreshSession();
+            return;
+          }
+          setSignInNotice("That sign-in link has expired or could not be verified. Send yourself a new link.");
+          setSignInOpen(true);
+          bootstrapSession();
+        });
+        return;
+      }
+    }
+    // Guest bootstrap: no session → mint a guest session so the real product
+    // works immediately. If guest creation fails (API down, guest mode off),
+    // fall back to showing whatever the session call returned.
+    bootstrapSession();
+  }, [bootstrapSession, refreshSession]);
+
   const role = session?.kind === "ok" ? String(session.data.role ?? session.data.user?.role ?? "") : "";
   const isGuest = role === "guest";
   const authed = session?.kind === "ok" && !isGuest;
 
   const { guestUsage, recordGuestAddress, recordGuestChat } = useGuestUsage(isGuest);
 
-  const goSignIn = useCallback(() => setSignInOpen(true), []);
+  const goSignIn = useCallback(() => {
+    setSignInNotice(null);
+    setSignInOpen(true);
+  }, []);
   const showPaywall = useCallback((feature: GuestFeature) => {
     const used = feature === "address" ? guestUsage.addressChecks : guestUsage.chatMessages;
     const limit = feature === "address" ? GUEST_ADDRESS_LIMIT : GUEST_CHAT_LIMIT;
@@ -136,12 +149,18 @@ function ProductApp() {
   }, [guestUsage]);
   const openSignIn = useCallback(() => {
     setPaywall(null);
+    setSignInNotice(null);
     setSignInOpen(true);
   }, []);
   const handleSignedIn = useCallback(() => {
     setSignInOpen(false);
+    setSignInNotice(null);
     refreshSession();
   }, [refreshSession]);
+  const closeSignIn = useCallback(() => {
+    setSignInOpen(false);
+    setSignInNotice(null);
+  }, []);
 
   const navItem = (v: View, icon: string, label: string) => (
     <button className={view === v ? "on" : ""} onClick={() => setView(v)} aria-current={view === v ? "page" : undefined} aria-label={label}>
@@ -219,7 +238,7 @@ function ProductApp() {
         {tab("settings", "tune", "Settings")}
       </div>
 
-      {signInOpen && <SignInModal onClose={() => setSignInOpen(false)} onSignedIn={handleSignedIn} />}
+      {signInOpen && <SignInModal notice={signInNotice} onClose={closeSignIn} onSignedIn={handleSignedIn} />}
       {paywall && (
         <PaywallModal
           state={paywall}

@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T08:51:04+08:00",
+  "captured_at": "2026-06-13T09:01:09+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -99,7 +99,10 @@
         "scripts/ops_guardrails.py exposes checkout-config to validate VITE_CHECKOUT_URL without printing the Payment Link",
         "infra/v3/ops/install-checkout-url.sh installs the Stripe Payment Link into the VPS env and can optionally run deploy-web-only.sh",
         "docs/ops/ops-guardrails.md documents the no-secret paid checkout install, verify, and UI-only deploy path",
-        "reports/non_db_launch_ops_blockers.json now points the Stripe unblock command at install-checkout-url.sh"
+        "reports/non_db_launch_ops_blockers.json now points the Stripe unblock command at install-checkout-url.sh",
+        "web/src/App.tsx now opens a recoverable sign-in retry path when magic-link verification fails",
+        "web/src/components/modals.tsx can show a sign-in notice without changing the auth form flow",
+        "web/src/App.launch.test.tsx covers expired/invalid magic-link verification so users do not silently land in guest mode"
       ],
       "remaining": [
         "Set the real Stripe Payment Link as VITE_CHECKOUT_URL before paid launch"

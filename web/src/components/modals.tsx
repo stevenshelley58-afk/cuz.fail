@@ -175,7 +175,15 @@ export function MagicLinkForm({ variant, onSignedIn }: { variant: "modal" | "pan
   );
 }
 
-export function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onSignedIn: () => void }) {
+export function SignInModal({
+  notice,
+  onClose,
+  onSignedIn,
+}: {
+  notice?: string | null;
+  onClose?: () => void;
+  onSignedIn: () => void;
+}) {
   const modalFocus = useModalFocus(onClose);
   return (
     <div className="modal-backdrop" onClick={() => onClose?.()}>
@@ -191,6 +199,7 @@ export function SignInModal({ onClose, onSignedIn }: { onClose?: () => void; onS
       >
         <div className="modal-logo">Lot<span>File</span></div>
         <h2>Sign in</h2>
+        {notice && <p className="modal-err">{notice}</p>}
         {DEV_LOGIN
           ? <DevLoginForm variant="modal" onSignedIn={onSignedIn} />
           : <MagicLinkForm variant="modal" onSignedIn={onSignedIn} />}
