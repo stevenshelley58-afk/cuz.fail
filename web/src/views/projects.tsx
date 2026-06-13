@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { api, type ApiResult, type ProjectSummary } from "../api";
 import { Icon } from "../components/common";
 import { CompliancePanel } from "./compliance";
+import { DocumentUpload } from "./documents";
 
 export function projectList(r: ApiResult<ProjectSummary[] | { projects?: ProjectSummary[] }>): ProjectSummary[] {
   if (r.kind !== "ok") return [];
@@ -13,20 +14,7 @@ export function projectList(r: ApiResult<ProjectSummary[] | { projects?: Project
 
 /* ── ProjectDetail — opens when a project card is clicked ── */
 
-type ProjectDoc = { id: string; title: string; document_type: string; status: string; created_at: string | null; fact_count: number };
-
 export function ProjectDetail({ projectId, onClose }: { projectId: string; onClose: () => void }) {
-  const [docs, setDocs] = useState<ProjectDoc[]>([]);
-  const [docsLoading, setDocsLoading] = useState(false);
-
-  useEffect(() => {
-    setDocsLoading(true);
-    void api.documents.listForProject(projectId).then((r) => {
-      if (r.kind === "ok") setDocs(r.data.items ?? []);
-      setDocsLoading(false);
-    });
-  }, [projectId]);
-
   return (
     <div className="view">
       <div style={{ marginBottom: 12 }}>
@@ -36,20 +24,7 @@ export function ProjectDetail({ projectId, onClose }: { projectId: string; onClo
         <CompliancePanel projectId={projectId} />
       </div>
       <div className="panel">
-        <h3 style={{ margin: "0 0 12px", fontSize: 15, fontWeight: 600 }}>Uploaded documents</h3>
-        {docsLoading && <p style={{ color: "#6b7280", fontSize: 14 }}>Loading…</p>}
-        {!docsLoading && docs.length === 0 && (
-          <p style={{ color: "#6b7280", fontSize: 14 }}>No documents uploaded yet.</p>
-        )}
-        {docs.map((doc) => (
-          <div key={doc.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: 13, padding: "8px 0", borderBottom: "1px solid #f3f4f6" }}>
-            <div>
-              <span style={{ color: "#374151", fontWeight: 500 }}>{doc.title}</span>
-              <small style={{ color: "#9ca3af", marginLeft: 8 }}>{doc.document_type} · {doc.fact_count} facts</small>
-            </div>
-            <span style={{ color: "#6b7280", fontSize: 12 }}>{doc.created_at ?? ""}</span>
-          </div>
-        ))}
+        <DocumentUpload projectId={projectId} />
       </div>
     </div>
   );
