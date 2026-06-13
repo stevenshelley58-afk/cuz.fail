@@ -74,9 +74,11 @@ function FactCard({
     setErr(null);
     const r = await api.documents.confirmFact(docId, factId);
     setConfirming(false);
-    if (r.kind === "ok" || r.kind === "notBuilt") {
+    if (r.kind === "ok") {
       setConfirmed(true);
       onConfirmed(factId);
+    } else if (r.kind === "notBuilt") {
+      setErr("Fact confirmation is not available on this server.");
     } else {
       setErr("Could not confirm fact.");
     }
@@ -254,6 +256,7 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
   const [uploadResult, setUploadResult] = useState<DocumentUploadResponse | null>(null);
   const [documents, setDocuments] = useState<ProjectDocumentSummary[]>([]);
   const [listError, setListError] = useState<string | null>(null);
+  const [factsLoading, setFactsLoading] = useState(false);
   const [confirmedKeys, setConfirmedKeys] = useState<Set<string>>(new Set());
   const [evidenceQuery, setEvidenceQuery] = useState("");
   const [evidenceResults, setEvidenceResults] = useState<DocumentEvidenceHit[]>([]);
@@ -273,7 +276,9 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
   }
 
   async function refreshFacts(documentId: string) {
+    setFactsLoading(true);
     const r = await api.documents.facts(documentId);
+    setFactsLoading(false);
     if (r.kind === "ok") {
       setUploadResult((current) => current && current.document_id === documentId
         ? {
@@ -318,6 +323,7 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
     setUploading(true);
     setUploadError(null);
     setUploadResult(null);
+    setConfirmedKeys(new Set());
     const r = await api.documents.upload(projectId, file);
     setUploading(false);
     if (r.kind === "ok") {
@@ -333,6 +339,19 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
       setUploadError("Could not reach server.");
     }
     if (fileRef.current) fileRef.current.value = "";
+  }
+
+  async function reviewDocument(doc: ProjectDocumentSummary) {
+    setConfirmedKeys(new Set());
+    setUploadResult({
+      document_id: doc.id,
+      filename: doc.title,
+      project_id: projectId,
+      parse_status: doc.parse_status ?? doc.status,
+      fact_count: doc.fact_count,
+      extracted_facts: [],
+    });
+    await refreshFacts(doc.id);
   }
 
   function handleConfirmed(factId: string) {
@@ -490,6 +509,25 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
                     {active ? <Clock3 size={14} /> : failed ? <AlertCircle size={14} /> : <CheckCircle2 size={14} />}
                     {parseStatusLabel(status, doc.fact_count)}
                   </span>
+                  {!active && !failed && (
+                    <button
+                      type="button"
+                      onClick={() => void reviewDocument(doc)}
+                      aria-label={`Review facts for ${doc.title}`}
+                      style={{
+                        fontSize: 12,
+                        padding: "4px 8px",
+                        border: "1px solid #d1d5db",
+                        borderRadius: 5,
+                        background: "#fff",
+                        color: "#111827",
+                        cursor: "pointer",
+                        flexShrink: 0,
+                      }}
+                    >
+                      Review facts
+                    </button>
+                  )}
                 </div>
               );
             })}
@@ -616,13 +654,20 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
             </div>
           )}
 
+          {factsLoading && (
+            <div style={{ display: "flex", alignItems: "center", gap: 8, color: "#2563eb", fontSize: 13 }}>
+              <RefreshCw size={14} style={{ animation: "spin 1s linear infinite" }} />
+              Loading extracted facts...
+            </div>
+          )}
+
           {parseFailed && (
             <div style={{ color: "#b91c1c", fontSize: 13 }}>
               The parser could not extract this document. Try another file format or review the document manually.
             </div>
           )}
 
-          {!parseActive && !parseFailed && facts.length === 0 && (
+          {!parseActive && !parseFailed && !factsLoading && facts.length === 0 && (
             <div style={{ color: "#6b7280", fontSize: 13 }}>
               No measurable facts were extracted from this document.
             </div>

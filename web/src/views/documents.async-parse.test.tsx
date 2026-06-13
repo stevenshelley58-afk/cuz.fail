@@ -240,6 +240,75 @@ test("uploaded evidence search renders project hits with the advisory notice", a
   expect(screen.getByText("Uploaded documents are project evidence, not legal authority.")).toBeTruthy();
 });
 
+test("existing parsed documents can load persisted facts for review", async () => {
+  apiMock.documents.listForProject.mockReset();
+  apiMock.documents.listForProject.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      items: [
+        {
+          id: "doc-existing",
+          title: "approved-site-plan.dxf",
+          document_type: "drawing",
+          status: "parsed",
+          parse_status: "parsed",
+          created_at: "2026-06-12T20:15:00Z",
+          fact_count: 1,
+        },
+      ],
+      count: 1,
+    },
+  });
+  apiMock.documents.facts.mockResolvedValue(parsedFactsResponse());
+
+  render(<DocumentUpload projectId="project-golden" />);
+
+  await screen.findByText("approved-site-plan.dxf");
+  fireEvent.click(screen.getByLabelText("Review facts for approved-site-plan.dxf"));
+
+  await waitFor(() => expect(apiMock.documents.facts).toHaveBeenCalledWith("doc-existing"));
+  expect(await screen.findByText(/front setback/i)).toBeTruthy();
+  expect(screen.getByText("DIMENSION FRONT_SETBACK=6m")).toBeTruthy();
+  expect(screen.getByRole("button", { name: "Confirm" })).toBeTruthy();
+});
+
+test("fact confirmation not-built response does not mark the fact confirmed", async () => {
+  apiMock.documents.listForProject.mockReset();
+  apiMock.documents.listForProject.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      items: [
+        {
+          id: "doc-existing",
+          title: "approved-site-plan.dxf",
+          document_type: "drawing",
+          status: "parsed",
+          parse_status: "parsed",
+          created_at: "2026-06-12T20:15:00Z",
+          fact_count: 1,
+        },
+      ],
+      count: 1,
+    },
+  });
+  apiMock.documents.facts.mockResolvedValue(parsedFactsResponse());
+  apiMock.documents.confirmFact.mockResolvedValue({ kind: "notBuilt", detail: "not implemented" });
+
+  render(<DocumentUpload projectId="project-golden" />);
+
+  await screen.findByText("approved-site-plan.dxf");
+  fireEvent.click(screen.getByLabelText("Review facts for approved-site-plan.dxf"));
+  await screen.findByText(/front setback/i);
+
+  fireEvent.click(screen.getByRole("button", { name: "Confirm" }));
+
+  expect(await screen.findByText("Fact confirmation is not available on this server.")).toBeTruthy();
+  expect(screen.getByRole("button", { name: "Confirm" })).toBeTruthy();
+  expect(screen.queryByText("Confirmed")).toBeNull();
+});
+
 test("document upload shows parser failure once the async parser reports failure", async () => {
   apiMock.documents.listForProject.mockReset();
   apiMock.documents.listForProject
