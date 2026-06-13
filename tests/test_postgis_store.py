@@ -240,6 +240,7 @@ class TestLicenceGateApprovalStatus:
 
         assert _coerce_licence_status("approved") == LicenceStatus.LICENSED
         assert _coerce_licence_status("verified_open") == LicenceStatus.LICENSED
+        assert _coerce_licence_status("CC BY 4.0") == LicenceStatus.LICENSED
         assert _coerce_licence_status("review") == LicenceStatus.RESTRICTED
         assert _coerce_licence_status("pending_review") == LicenceStatus.RESTRICTED
         assert _coerce_licence_status("licensed") == LicenceStatus.LICENSED

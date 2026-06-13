@@ -46,6 +46,10 @@ depends_on = None
 # so this migration is independent of any code-side alias changes.
 _LEGACY_REWRITES: dict[str, str] = {
     "approved": "verified_open",
+    "CC BY 4.0": "verified_open",
+    "cc by 4.0": "verified_open",
+    "cc-by-4.0": "verified_open",
+    "cc_by_4_0": "verified_open",
 }
 
 # All current V3 values (mirror of `LicenceStatus` enum). Anything outside
