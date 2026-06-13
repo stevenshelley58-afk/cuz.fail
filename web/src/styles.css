@@ -218,7 +218,7 @@ a{color:var(--green)}
 .price small{display:block;margin-top:5px;color:var(--ink-soft);font-size:.74rem;font-weight:600}
 
 /* launch / legal surface */
-.launch{height:100dvh;overflow-y:auto;background:var(--paper);color:var(--ink)}
+.launch{height:100dvh;overflow:hidden auto;background:var(--paper);color:var(--ink)}
 .launch-head{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(18px,4vw,56px);background:rgba(247,248,248,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .launch-logo{font-family:'Sora','Inter',sans-serif;font-weight:800;font-size:1.25rem;color:var(--green-900)}
 .launch-logo span{color:var(--green-bright)}
@@ -229,9 +229,9 @@ a{color:var(--green)}
 .launch-nav .launch-nav-app:hover{background:var(--green-800);color:#fff}
 .launch-main{width:min(960px,calc(100% - 36px));margin:0 auto;padding:0 0 32px;min-height:calc(100dvh - 80px);display:grid;place-items:center}
 .launch-kicker{font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--green-800);margin-bottom:12px}
-.launch-ask{width:100%;max-width:720px;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center}
-.launch-ask h1{font-size:clamp(2rem,5.5vw,3.6rem);line-height:1.05;letter-spacing:-0.01em;color:var(--ink);font-weight:800;margin:0}
-.launch-prompt{position:relative;width:100%;background:var(--card);border:1.5px solid var(--line);border-radius:18px;transition:border-color .15s,box-shadow .15s}
+.launch-ask{width:100%;max-width:720px;min-width:0;display:flex;flex-direction:column;align-items:stretch;gap:28px;text-align:center}
+.launch-ask h1{font-size:clamp(1.75rem,7vw,3.6rem);line-height:1.05;letter-spacing:-0.01em;color:var(--ink);font-weight:800;margin:0;overflow-wrap:break-word}
+.launch-prompt{position:relative;width:100%;min-width:0;background:var(--card);border:1.5px solid var(--line);border-radius:18px;transition:border-color .15s,box-shadow .15s}
 .launch-prompt:focus-within{border-color:var(--green-bright);box-shadow:0 0 0 4px rgba(31,164,104,.12)}
 .launch-prompt textarea{display:block;width:100%;min-height:96px;max-height:240px;background:transparent;border:0;outline:none;resize:none;padding:18px 64px 18px 20px;font:inherit;font-size:1.02rem;line-height:1.45;color:var(--ink);box-sizing:border-box;field-sizing:content}
 .launch-prompt textarea::placeholder{color:var(--ink-faint)}
