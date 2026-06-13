@@ -815,7 +815,7 @@ class PostGISSpatialDatasetStore:
                 .where(
                     text(
                         "ST_Intersects(planning_features.geom, "
-                        "(SELECT geom FROM parcels WHERE id = :parcel_db_id))"
+                        "(SELECT geom FROM parcels WHERE id = CAST(:parcel_db_id AS uuid)))"
                     ).bindparams(parcel_db_id=str(parcel_row.id))
                 )
             ).all()
