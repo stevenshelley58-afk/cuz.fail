@@ -58,8 +58,11 @@ test("proposal save success advances to the confirmation step", async () => {
       project_id: "project-1",
       proposal_type: "residential",
       dwelling_type: "single_house",
+      building_class: "class_1a",
       work_type: "new_construction",
       lot_type: "green_title",
+      primary_street_confirmed: true,
+      secondary_street_confirmed: false,
       created_at: "2026-06-13T00:00:00Z",
       updated_at: "2026-06-13T00:00:00Z",
     },
@@ -69,23 +72,42 @@ test("proposal save success advances to the confirmation step", async () => {
 
   await user.selectOptions(screen.getByLabelText("Proposal type"), "residential");
   await user.selectOptions(screen.getByLabelText("Dwelling type"), "single_house");
+  await user.selectOptions(screen.getByLabelText("Building class"), "class_1a");
   await user.selectOptions(screen.getByLabelText("Work type"), "new_construction");
   await user.click(screen.getByLabelText("New"));
   await user.selectOptions(screen.getByLabelText("Lot type"), "green_title");
+  await user.click(screen.getByLabelText(/primary street frontage is confirmed/i));
   await user.click(screen.getByRole("button", { name: /save & continue/i }));
 
   await waitFor(() => {
     expect(apiMock.upsertProposal).toHaveBeenCalledWith("project-1", {
       proposal_type: "residential",
       dwelling_type: "single_house",
+      building_class: "class_1a",
       work_type: "new_construction",
       new_or_existing: "new",
       lot_type: "green_title",
+      primary_street_confirmed: true,
+      secondary_street_confirmed: false,
     });
   });
   expect(await screen.findByText("Confirm and start")).toBeTruthy();
+  expect(screen.getByText("class_1a")).toBeTruthy();
+  expect(screen.getByText("Confirmed")).toBeTruthy();
   expect(screen.getByTestId("document-upload")).toBeTruthy();
   expect(screen.getByTestId("compliance-panel")).toBeTruthy();
+});
+
+test("proposal save requires launch-critical fields before calling the API", async () => {
+  const user = userEvent.setup();
+
+  render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
+
+  await user.click(screen.getByRole("button", { name: /save & continue/i }));
+
+  expect(await screen.findByText(/complete proposal type/i)).toBeTruthy();
+  expect(apiMock.upsertProposal).not.toHaveBeenCalled();
+  expect(screen.getByRole("heading", { name: /proposal details/i })).toBeTruthy();
 });
 
 test("proposal save not-built response stays on proposal step with an error", async () => {
@@ -98,6 +120,11 @@ test("proposal save not-built response stays on proposal step with an error", as
   render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
   await user.selectOptions(screen.getByLabelText("Proposal type"), "residential");
+  await user.selectOptions(screen.getByLabelText("Dwelling type"), "single_house");
+  await user.selectOptions(screen.getByLabelText("Building class"), "class_1a");
+  await user.selectOptions(screen.getByLabelText("Work type"), "new_construction");
+  await user.click(screen.getByLabelText("New"));
+  await user.selectOptions(screen.getByLabelText("Lot type"), "green_title");
   await user.click(screen.getByRole("button", { name: /save & continue/i }));
 
   expect(await screen.findByText("Proposal saving is unavailable. Try again before continuing.")).toBeTruthy();

@@ -167,6 +167,8 @@ export type ProposalResponse = {
   building_class?: string | null;
   work_type?: string | null;
   lot_type?: string | null;
+  primary_street_confirmed: boolean;
+  secondary_street_confirmed: boolean;
   created_at: string;
   updated_at: string;
 };
