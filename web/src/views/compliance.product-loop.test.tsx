@@ -89,6 +89,34 @@ test("compliance panel renders cited advisory drawing-backed results after a run
   expect(result.getByText(/fact fact-site-cover/i)).toBeTruthy();
 });
 
+test("compliance panel surfaces saved matrix load failures with retry", async () => {
+  apiMock.compliance.matrix
+    .mockResolvedValueOnce({ kind: "down", message: "network error" })
+    .mockResolvedValueOnce({
+      kind: "ok",
+      status: 200,
+      data: {
+        run_id: "run-empty",
+        project_id: "project-golden",
+        status: "complete",
+        as_of_date: "2026-06-13T10:35:00Z",
+        advisory_disclaimer: "Results are advisory only and are not final compliance determinations.",
+        results: [],
+      },
+    });
+
+  render(<CompliancePanel projectId="project-golden" />);
+
+  expect(await screen.findByText(/could not reach server to load saved compliance results/i)).toBeTruthy();
+  expect(screen.queryByText(/no compliance results yet/i)).toBeNull();
+
+  await userEvent.click(screen.getByRole("button", { name: /^retry$/i }));
+
+  await waitFor(() => expect(apiMock.compliance.matrix).toHaveBeenCalledTimes(2));
+  expect(await screen.findByText(/no compliance results yet/i)).toBeTruthy();
+  expect(screen.queryByText(/could not reach server to load saved compliance results/i)).toBeNull();
+});
+
 test("compliance panel records operator review notes on a result", async () => {
   apiMock.compliance.recordReview.mockResolvedValue({
     kind: "ok",
