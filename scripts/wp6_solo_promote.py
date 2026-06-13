@@ -93,6 +93,12 @@ def main() -> int:
         default=["validators_passed", "auto_promoted", "pending_review"],
         help="Candidate review_status values eligible for promotion",
     )
+    parser.add_argument(
+        "--open-vocab",
+        action="store_true",
+        help="Promote any structurally valid snake_case rule_key (open-vocab "
+        "pipeline), not just the closed RULE_KEY_HINTS set.",
+    )
     args = parser.parse_args()
 
     db_url = os.environ["DATABASE_URL"].replace(
@@ -108,19 +114,31 @@ def run(conn: psycopg.Connection, args) -> int:
 
     # Pull all candidates with eligible review_status. Group by (clause, core_signature)
     # so multiple passes of the same atom collapse into one vote bundle.
+    #
+    # Closed-vocab mode (default) only promotes candidates whose rule_key is in
+    # RULE_KEY_HINTS. Open-vocab mode (--open-vocab, the 2026-06-14 architecture)
+    # accepts ANY structurally valid snake_case rule_key — the validators already
+    # gated structure/quote-anchor, clustering canonicalises the keys, and the
+    # >=N-per-cluster derivation threshold is the quality gate for CHECKS.
+    if getattr(args, "open_vocab", False):
+        rule_key_filter = "AND rc.rule_key ~ '^[a-z][a-z0-9_]{2,60}$'"
+        params: tuple = (args.statuses, list(OPERATORS))
+    else:
+        rule_key_filter = "AND rc.rule_key = ANY(%s)"
+        params = (args.statuses, list(RULE_KEY_HINTS), list(OPERATORS))
     cur.execute(
-        """
+        f"""
         SELECT rc.id::text, rc.source_version_id::text, rc.clause_id::text,
                rc.rule_key, rc.rule_type, rc.pathway, rc.operator, rc.value_json,
                rc.unit, rc.condition_json, rc.quote, rc.extractor_model,
                rc.review_status, rc.metadata_json, rc.confidence
         FROM rule_candidates rc
         WHERE rc.review_status = ANY(%s)
-          AND rc.rule_key = ANY(%s)
+          {rule_key_filter}
           AND rc.operator = ANY(%s)
         ORDER BY rc.clause_id, rc.rule_key
         """,
-        (args.statuses, list(RULE_KEY_HINTS), list(OPERATORS)),
+        params,
     )
     rows = cur.fetchall()
 
