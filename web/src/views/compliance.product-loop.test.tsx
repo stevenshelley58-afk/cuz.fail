@@ -308,5 +308,5 @@ test("compliance panel explains missing drawing information and prompts upload",
   expect(screen.getByText("primary_street")).toBeTruthy();
 
   await userEvent.click(screen.getByRole("button", { name: /upload drawing to provide this data/i }));
-  expect(await screen.findByText(/scroll down to the documents section/i)).toBeTruthy();
+  expect(await screen.findByText(/use the documents upload area/i)).toBeTruthy();
 });
