@@ -1,4 +1,4 @@
-import { cleanup, render, screen, waitFor, within } from "@testing-library/react";
+import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { CompliancePanel } from "./compliance";
@@ -87,6 +87,94 @@ test("compliance panel renders cited advisory drawing-backed results after a run
   expect(result.getByText(/proposed_site_cover_pct/i)).toBeTruthy();
   expect(result.getByText(/document_extraction_promoted/i)).toBeTruthy();
   expect(result.getByText(/fact fact-site-cover/i)).toBeTruthy();
+});
+
+test("compliance panel keeps a fresh run when an older matrix load resolves later", async () => {
+  let resolveMatrix: ((value: unknown) => void) | undefined;
+  apiMock.compliance.matrix.mockImplementationOnce(
+    () =>
+      new Promise((resolve) => {
+        resolveMatrix = resolve;
+      }),
+  );
+  apiMock.compliance.run.mockResolvedValueOnce({
+    kind: "ok",
+    status: 201,
+    data: {
+      run_id: "run-fresh",
+      project_id: "project-golden",
+      status: "likely_compliant",
+      as_of_date: "2026-06-13T11:10:00Z",
+      advisory_disclaimer: "Results are advisory only and are not final compliance determinations.",
+      results: [
+        {
+          result_id: "result-fresh-site-cover",
+          check_key: "site_cover",
+          display_name: "Fresh site cover",
+          status: "likely_pass",
+          threshold_value: 50,
+          threshold_unit: "%",
+          measured_value: 48.44,
+          rule_id: "rule-site-cover",
+          rule_quote: "Fresh fixture site-cover rule atom.",
+          citation: "site_cover | source_version:fresh-source-version",
+          note: null,
+          missing_info_reason: null,
+          drawing_evidence: {},
+          review_reason: null,
+          human_override: {},
+          reviewed_by_user_id: null,
+          reviewed_at: null,
+        },
+      ],
+    },
+  });
+
+  render(<CompliancePanel projectId="project-golden" />);
+
+  await userEvent.click(screen.getByRole("button", { name: /run compliance check/i }));
+  expect(await screen.findByText(/fresh site cover/i)).toBeTruthy();
+
+  await act(async () => {
+    resolveMatrix?.({
+      kind: "ok",
+      status: 200,
+      data: {
+        run_id: "run-stale",
+        project_id: "project-golden",
+        status: "likely_compliant",
+        as_of_date: "2026-06-12T11:10:00Z",
+        advisory_disclaimer: "Older saved result.",
+        results: [
+          {
+            result_id: "result-stale-site-cover",
+            check_key: "site_cover",
+            display_name: "Stale site cover",
+            status: "likely_pass",
+            threshold_value: 50,
+            threshold_unit: "%",
+            measured_value: 49,
+            rule_id: "rule-site-cover",
+            rule_quote: "Stale fixture site-cover rule atom.",
+            citation: "site_cover | source_version:stale-source-version",
+            note: null,
+            missing_info_reason: null,
+            drawing_evidence: {},
+            review_reason: null,
+            human_override: {},
+            reviewed_by_user_id: null,
+            reviewed_at: null,
+          },
+        ],
+      },
+    });
+  });
+
+  await waitFor(() => {
+    expect(screen.getByText(/fresh site cover/i)).toBeTruthy();
+    expect(screen.queryByText(/stale site cover/i)).toBeNull();
+    expect(screen.queryByText(/older saved result/i)).toBeNull();
+  });
 });
 
 test("compliance panel surfaces saved matrix load failures with retry", async () => {
