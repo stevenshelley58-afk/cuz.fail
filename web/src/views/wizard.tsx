@@ -129,8 +129,7 @@ function ProposalForm({
     if (r.kind === "ok") {
       onSaved(r.data, data);
     } else if (r.kind === "notBuilt") {
-      setError("Proposal saving not yet available (endpoint not built).");
-      onSaved({ id: "", org_id: "", project_id: projectId, created_at: "", updated_at: "" }, data);
+      setError("Proposal saving is unavailable. Try again before continuing.");
     } else if (r.kind === "auth") {
       setError("Sign in required to save proposal.");
     } else {

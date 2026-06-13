@@ -333,6 +333,7 @@ def test_v3_ci_runs_launch_action_behavior_test():
     assert any(step.get("run") == "npm run test:launch-actions" for step in web_steps)
     assert "src/components/modals.launch.test.tsx" in launch_actions
     assert "src/App.launch.test.tsx" in launch_actions
+    assert "src/views/wizard.proposal.test.tsx" in launch_actions
 
 
 def test_v3_ci_runs_launch_checkout_and_live_fetch_smoke_tests():

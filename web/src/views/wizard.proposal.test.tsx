@@ -1,0 +1,106 @@
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { afterEach, expect, test, vi } from "vitest";
+
+import { api } from "../api";
+import type { WizardState } from "../types";
+import { WizardShell } from "./wizard";
+
+vi.mock("../api", () => ({
+  api: {
+    upsertProposal: vi.fn(),
+  },
+}));
+
+vi.mock("./documents", () => ({
+  DocumentUpload: () => <div data-testid="document-upload" />,
+}));
+
+vi.mock("./compliance", () => ({
+  CompliancePanel: () => <div data-testid="compliance-panel" />,
+}));
+
+const apiMock = vi.mocked(api);
+
+const wizard: WizardState = {
+  step: 2 as const,
+  projectId: "project-1",
+  address: "3 Black Swan Rise, Beeliar",
+  property: {
+    org_id: "org-1",
+    project_id: "project-1",
+    address: "3 Black Swan Rise, Beeliar",
+    local_government: "Cockburn",
+    resolution_status: "resolved" as const,
+    confidence: "high" as const,
+    target_crs: "EPSG:7844",
+    issues: [],
+    provenance: [],
+    facts: [],
+  },
+  proposal: {},
+  savedProposal: null,
+};
+
+afterEach(() => {
+  cleanup();
+  vi.clearAllMocks();
+});
+
+test("proposal save success advances to the confirmation step", async () => {
+  const user = userEvent.setup();
+  apiMock.upsertProposal.mockResolvedValue({
+    kind: "ok",
+    status: 200,
+    data: {
+      id: "proposal-1",
+      org_id: "org-1",
+      project_id: "project-1",
+      proposal_type: "residential",
+      dwelling_type: "single_house",
+      work_type: "new_construction",
+      lot_type: "green_title",
+      created_at: "2026-06-13T00:00:00Z",
+      updated_at: "2026-06-13T00:00:00Z",
+    },
+  });
+
+  render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
+
+  await user.selectOptions(screen.getByLabelText("Proposal type"), "residential");
+  await user.selectOptions(screen.getByLabelText("Dwelling type"), "single_house");
+  await user.selectOptions(screen.getByLabelText("Work type"), "new_construction");
+  await user.click(screen.getByLabelText("New"));
+  await user.selectOptions(screen.getByLabelText("Lot type"), "green_title");
+  await user.click(screen.getByRole("button", { name: /save & continue/i }));
+
+  await waitFor(() => {
+    expect(apiMock.upsertProposal).toHaveBeenCalledWith("project-1", {
+      proposal_type: "residential",
+      dwelling_type: "single_house",
+      work_type: "new_construction",
+      new_or_existing: "new",
+      lot_type: "green_title",
+    });
+  });
+  expect(await screen.findByText("Confirm and start")).toBeTruthy();
+  expect(screen.getByTestId("document-upload")).toBeTruthy();
+  expect(screen.getByTestId("compliance-panel")).toBeTruthy();
+});
+
+test("proposal save not-built response stays on proposal step with an error", async () => {
+  const user = userEvent.setup();
+  apiMock.upsertProposal.mockResolvedValue({
+    kind: "notBuilt",
+    detail: "not implemented",
+  });
+
+  render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
+
+  await user.selectOptions(screen.getByLabelText("Proposal type"), "residential");
+  await user.click(screen.getByRole("button", { name: /save & continue/i }));
+
+  expect(await screen.findByText("Proposal saving is unavailable. Try again before continuing.")).toBeTruthy();
+  expect(screen.getByRole("heading", { name: /proposal details/i })).toBeTruthy();
+  expect(screen.queryByText("Confirm and start")).toBeNull();
+});
