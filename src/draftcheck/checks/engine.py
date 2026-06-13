@@ -77,23 +77,36 @@ _CHECK_TO_BASE_RULE_KEYS: dict[str, tuple[str, ...]] = {
     "garage_dominance": ("garage_dominance",),
     "boundary_wall_length": ("boundary_wall_length", "boundary_wall"),
     "site_area": ("site_area", "lot_area", "lot_area_m2"),
+    "minimum_frontage": ("minimum_frontage", "frontage"),
     "outdoor_living_area": ("outdoor_living_area", "outdoor_living"),
+    "private_open_space": ("private_open_space",),
     "soft_landscaping": ("soft_landscaping", "deep_soil_tree_planting", "deep_soil"),
     "street_surveillance": ("street_surveillance",),
     "solar_access": ("solar_access",),
     "privacy": ("privacy", "visual_privacy"),
     "overshadowing": ("overshadowing",),
     "vehicle_access": ("vehicle_access", "parking", "driveway"),
+    "parking_bays_per_dwelling": ("parking_bays_per_dwelling", "parking"),
+    "visitor_parking_per_dwelling": ("visitor_parking_per_dwelling", "visitor_parking"),
+    "driveway_width": ("driveway_width",),
     "bin_storage": ("bin_storage",),
     "retaining_fill_trigger": ("retaining_fill_trigger", "retaining_fill", "retaining_wall", "fill"),
+    "retaining_wall_height": ("retaining_wall_height", "retaining_fill", "retaining_wall"),
+    "fence_height_front": ("fence_height_front", "front_fence_height"),
+    "fence_height_side": ("fence_height_side", "side_fence_height"),
     "ancillary_dwelling_trigger": ("ancillary_dwelling_trigger", "ancillary_dwelling"),
     "bal_bushfire_trigger": ("bal_bushfire_trigger", "bal_bushfire", "bushfire"),
     "heritage_overlay_trigger": ("heritage_overlay_trigger", "heritage_overlay", "heritage"),
+    "plot_ratio": ("plot_ratio",),
     "title_block_completeness": ("title_block_completeness", "title_block"),
     "revision_completeness": ("revision_completeness", "revision"),
     "north_point_completeness": ("north_point_completeness", "north_point"),
     "scale_completeness": ("scale_completeness", "scale"),
     "dimension_completeness": ("dimension_completeness", "dimension_completeness", "dimensions"),
+    "building_storeys": ("building_storeys",),
+    "wall_height": ("wall_height", "building_wall_height"),
+    "ceiling_height": ("ceiling_height",),
+    "ground_floor_height": ("ground_floor_height",),
 }
 
 
@@ -184,6 +197,83 @@ def _extract_numeric(value_json: dict[str, object] | None) -> float | None:
     return _coerce_numeric(raw)
 
 
+def _extract_unit(value_json: dict[str, object] | None) -> str | None:
+    if not isinstance(value_json, dict):
+        return None
+    raw = value_json.get("unit")
+    if raw is None:
+        return None
+    unit = str(raw).strip()
+    return unit or None
+
+
+def _normalize_unit(unit: str | None) -> str | None:
+    if unit is None:
+        return None
+    normalized = unit.strip().casefold()
+    aliases = {
+        "sqm": "m2",
+        "sq m": "m2",
+        "sq. m": "m2",
+        "m²": "m2",
+        "metre": "m",
+        "metres": "m",
+        "meter": "m",
+        "meters": "m",
+        "percent": "%",
+        "per cent": "%",
+        "percentage": "%",
+        "count": "count",
+        "number": "count",
+        "bool": "bool",
+        "boolean": "bool",
+        "storey": "storeys",
+        "storeys": "storeys",
+        "ratio": "ratio",
+    }
+    return aliases.get(normalized, normalized)
+
+
+def _units_compatible(rule_unit: str | None, fact_unit: str | None) -> bool:
+    rule_normalized = _normalize_unit(rule_unit)
+    fact_normalized = _normalize_unit(fact_unit)
+    if rule_normalized is None or fact_normalized is None:
+        return True
+    if rule_normalized == fact_normalized:
+        return True
+    if rule_normalized == "count" and fact_normalized in {"bays", "bay", "spaces", "space"}:
+        return True
+    return False
+
+
+def _fact_value_json(fact: PropertyFact) -> dict[str, object]:
+    return fact.value_json if isinstance(fact.value_json, dict) else {"value": fact.value_json}
+
+
+def _select_measurement_fact(
+    fact_by_type: dict[str, PropertyFact],
+    fact_keys: list[str],
+    rule_unit: str | None,
+) -> tuple[PropertyFact | None, float | None, str | None]:
+    first_incompatible_unit: str | None = None
+    for fk in fact_keys:
+        fact = fact_by_type.get(fk)
+        if fact is None:
+            continue
+        value_json = _fact_value_json(fact)
+        measured_value = _extract_numeric(value_json)
+        fact_unit = _extract_unit(value_json)
+        if measured_value is None:
+            continue
+        if not _units_compatible(rule_unit, fact_unit):
+            first_incompatible_unit = fact_unit
+            continue
+        return fact, measured_value, None
+    if first_incompatible_unit is not None:
+        return None, None, f"unit_mismatch: rule unit '{rule_unit}' is incompatible with fact unit '{first_incompatible_unit}'"
+    return None, None, None
+
+
 def _coerce_numeric(value: object) -> float | None:
     if value is None:
         return None
@@ -206,6 +296,22 @@ def _extract_text_value(value_json: dict[str, object] | None) -> str | None:
     return None
 
 
+def _normalize_council_scope(value: str | None) -> str | None:
+    if not value:
+        return None
+    normalized = value.strip()
+    if not normalized:
+        return None
+    normalized = normalized.split("(", 1)[0].strip()
+    lowered = normalized.casefold()
+    prefixes = ("city of ", "shire of ", "town of ")
+    for prefix in prefixes:
+        if lowered.startswith(prefix):
+            normalized = normalized[len(prefix):].strip()
+            break
+    return normalized or None
+
+
 def _project_council_scope(project: Project) -> str | None:
     council_scope: str | None = project.council_scope
     if council_scope is None and isinstance(project.metadata_json, dict):
@@ -221,10 +327,11 @@ def _resolve_council_scope(project: Project, fact_by_type: dict[str, PropertyFac
         council_fact.value_json if council_fact is not None and isinstance(council_fact.value_json, dict) else None
     )
     if council_from_fact:
-        return council_from_fact, f"property_fact:{council_fact.fact_type}"
+        normalized = _normalize_council_scope(council_from_fact) or council_from_fact
+        return normalized, f"property_fact:{council_fact.fact_type}"
     project_scope = _project_council_scope(project)
     if project_scope:
-        return project_scope, "project.council_scope"
+        return _normalize_council_scope(project_scope) or project_scope, "project.council_scope"
     return None, "missing"
 
 
@@ -464,19 +571,13 @@ class ComplianceEngine:
             threshold_raw = rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
             threshold_value: float | None = _coerce_numeric(threshold_raw)
 
-            # Find the PropertyFact for this check
+            # Find a compatible PropertyFact for this check.
             fact_keys = list(check_def.fact_keys)
-            measured_value: float | None = None
-            matched_fact: PropertyFact | None = None
-            for fk in fact_keys:
-                if fk in fact_by_type:
-                    matched_fact = fact_by_type[fk]
-                    measured_value = _extract_numeric(
-                        matched_fact.value_json
-                        if isinstance(matched_fact.value_json, dict)
-                        else {"value": matched_fact.value_json}
-                    )
-                    break
+            matched_fact, measured_value, unit_mismatch_reason = _select_measurement_fact(
+                fact_by_type,
+                fact_keys,
+                rule.unit,
+            )
 
             # Build citation string from rule
             citation = _build_citation(rule)
@@ -499,7 +600,12 @@ class ComplianceEngine:
                 continue
 
             missing_reason: str | None = None
-            if measured_value is None:
+            if unit_mismatch_reason:
+                status = "needs_more_info"
+                missing_reason = "unit_mismatch"
+                note = f"{unit_mismatch_reason}; expected compatible fact_type in: {fact_keys}"
+                any_missing = True
+            elif measured_value is None:
                 status = "needs_more_info"
                 missing_reason = _missing_reason(
                     rule=rule,

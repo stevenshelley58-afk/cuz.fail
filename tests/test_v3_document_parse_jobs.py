@@ -30,6 +30,100 @@ from draftcheck.api.documents import (  # noqa: E402
 )
 from draftcheck.jobs.documents import enqueue_document_parse, parse_document, parse_document_for_session  # noqa: E402
 from draftcheck.domain.documents.chunks import write_document_chunks  # noqa: E402
+from draftcheck.domain.documents.facts import DocumentFactService  # noqa: E402
+
+
+def test_document_fact_service_extracts_cockburn_measurements_and_derived_percentages() -> None:
+    service = DocumentFactService()
+    document_id = uuid4()
+    text = "\n".join(
+        [
+            "Lot area: 580 m2",
+            "Building footprint: 232 m2",
+            "Open space: 348 m2",
+            "Garage width: 5.8 m",
+            "Facade width: 14.5 m",
+            "Boundary wall length: 9.0 m",
+            "Boundary wall height: 3.2 m",
+            "Lot frontage: 16.0 m",
+            "Lot depth: 32.0 m",
+            "Driveway width: 4.0 m",
+            "Retaining wall height: 0.5 m",
+            "Front fence height: 1.2 m",
+            "Side fence height: 1.8 m",
+            "Parking bays per dwelling: 2",
+            "Visitor parking per dwelling: 0.25",
+            "Plot ratio: 0.5",
+            "Building storeys: 2",
+            "Ceiling height: 2.7 m",
+            "Ground floor height: 3.2 m",
+            "Drawing No: A101",
+            "Revision: B",
+            "Scale: 1:100",
+            "North arrow",
+            "Dimensions shown",
+        ]
+    )
+
+    facts = service.extract_facts_from_text(text, document_id, 1, org_id=uuid4(), project_id=uuid4())
+    by_key = {fact.check_key: fact for fact in facts}
+
+    assert {
+        "site_area_m2",
+        "proposed_covered_area_m2",
+        "proposed_open_space_m2",
+        "proposed_garage_width_m",
+        "dwelling_facade_width_m",
+        "proposed_boundary_wall_length_m",
+        "proposed_boundary_wall_height_m",
+        "frontage_width_m",
+        "lot_depth_m",
+        "driveway_width_m",
+        "retaining_wall_height_m",
+        "front_fence_height_m",
+        "side_fence_height_m",
+        "parking_bays_per_dwelling",
+        "visitor_parking_per_dwelling",
+        "plot_ratio",
+        "building_storeys",
+        "ceiling_height_m",
+        "ground_floor_height_m",
+        "proposed_site_cover_pct",
+        "proposed_open_space_pct",
+        "proposed_garage_width_dominance_pct",
+        "title_block_present",
+        "revision_present",
+        "scale_present",
+        "north_point_present",
+        "dimensions_present",
+    } <= set(by_key)
+    assert by_key["site_area_m2"].value_json["unit"] == "m2"
+    assert by_key["proposed_site_cover_pct"].value_json["unit"] == "%"
+    assert by_key["proposed_site_cover_pct"].value_json["numeric_value"] == 40.0
+    assert by_key["proposed_open_space_pct"].value_json["numeric_value"] == 60.0
+    assert by_key["proposed_garage_width_dominance_pct"].value_json["numeric_value"] == 40.0
+    assert by_key["proposed_site_cover_pct"].metadata_json["derived_from_fact_keys"] == [
+        "proposed_covered_area_m2",
+        "site_area_m2",
+    ]
+    assert all(fact.review_status == "pending_review" for fact in facts)
+    assert all(fact.metadata_json["measurement_compliance_ready"] is False for fact in facts)
+
+
+def test_document_fact_service_accepts_site_cover_and_open_space_percent_variants() -> None:
+    service = DocumentFactService()
+    facts = service.extract_facts_from_text(
+        "Site cover: 45%\nOpen space minimum: 55%\nGarage dominance: 40%",
+        uuid4(),
+        1,
+        org_id=uuid4(),
+        project_id=uuid4(),
+    )
+
+    by_key = {fact.check_key: fact for fact in facts}
+    assert by_key["proposed_site_cover_pct"].value_json["numeric_value"] == 45.0
+    assert by_key["proposed_open_space_pct"].value_json["numeric_value"] == 55.0
+    assert by_key["proposed_garage_width_dominance_pct"].value_json["numeric_value"] == 40.0
 
 
 def test_document_parse_job_persists_status_pages_chunks_and_facts(tmp_path, monkeypatch) -> None:

@@ -9,9 +9,12 @@ from draftcheck.checks.engine import (
     _extract_numeric,
     _extract_text_value,
     _missing_reason,
+    _normalize_council_scope,
     _normalize_operator,
     _resolve_council_scope,
+    _select_measurement_fact,
     _select_rule,
+    _units_compatible,
 )
 from draftcheck.db.models import Project, PropertyFact, Rule
 
@@ -83,11 +86,19 @@ def test_select_rule_maps_new_registry_keys_to_wp6_base_keys():
         _rule("retaining_fill.R30", base="retaining_fill", value=0.5),
         _rule("vehicle_access.required", base="vehicle_access", value=1.0),
         _rule("outdoor_living_area.R30", base="outdoor_living_area", value=24.0),
+        _rule("parking_bays_per_dwelling.single", base="parking_bays_per_dwelling", value=2.0),
+        _rule("driveway_width.single", base="driveway_width", value=3.0),
+        _rule("fence_height_front.single", base="fence_height_front", value=1.2),
+        _rule("plot_ratio.single", base="plot_ratio", value=0.5),
     ]
 
     assert _select_rule(rules, "retaining_fill_trigger", []) is rules[0]
     assert _select_rule(rules, "vehicle_access", []) is rules[1]
     assert _select_rule(rules, "outdoor_living_area", []) is rules[2]
+    assert _select_rule(rules, "parking_bays_per_dwelling", []) is rules[3]
+    assert _select_rule(rules, "driveway_width", []) is rules[4]
+    assert _select_rule(rules, "fence_height_front", []) is rules[5]
+    assert _select_rule(rules, "plot_ratio", []) is rules[6]
 
 
 def test_extract_text_value_accepts_council_shapes():
@@ -100,6 +111,55 @@ def test_extract_text_value_accepts_council_shapes():
 def test_extract_numeric_accepts_boolean_trigger_facts():
     assert _extract_numeric({"value": True}) == 1.0
     assert _extract_numeric({"value": False}) == 0.0
+
+
+def test_normalize_council_scope_strips_legal_prefix_and_bbox_suffix():
+    assert _normalize_council_scope("City of Cockburn (bbox extent)") == "Cockburn"
+    assert _normalize_council_scope("Shire of Example") == "Example"
+    assert _normalize_council_scope("Cockburn") == "Cockburn"
+
+
+def test_units_compatible_rejects_percent_rule_with_area_fact():
+    assert _units_compatible("%", "%") is True
+    assert _units_compatible("m2", "sqm") is True
+    assert _units_compatible("%", "m2") is False
+
+
+def test_select_measurement_fact_skips_incompatible_area_for_percent_rule():
+    area_fact = PropertyFact(
+        fact_type="site_area_m2",
+        value_json={"value": 580.0, "unit": "m2"},
+        confidence=1.0,
+        method="postgis_parcel",
+        provenance_json={},
+        review_status="confirmed",
+    )
+    pct_fact = PropertyFact(
+        fact_type="proposed_site_cover_pct",
+        value_json={"value": 48.0, "unit": "%"},
+        confidence=1.0,
+        method="document_extraction_promoted",
+        provenance_json={},
+        review_status="confirmed",
+    )
+
+    matched, measured, reason = _select_measurement_fact(
+        {"site_area_m2": area_fact},
+        ["proposed_site_cover_pct", "site_area_m2"],
+        "%",
+    )
+    assert matched is None
+    assert measured is None
+    assert reason and reason.startswith("unit_mismatch")
+
+    matched, measured, reason = _select_measurement_fact(
+        {"site_area_m2": area_fact, "proposed_site_cover_pct": pct_fact},
+        ["proposed_site_cover_pct", "site_area_m2"],
+        "%",
+    )
+    assert matched is pct_fact
+    assert measured == 48.0
+    assert reason is None
 
 
 def test_resolve_council_scope_prefers_confirmed_property_fact():
@@ -132,7 +192,7 @@ def test_resolve_council_scope_accepts_address_local_government_fact():
 
     council, source = _resolve_council_scope(project, {"local_government": council_fact})
 
-    assert council == "City of Cockburn"
+    assert council == "Cockburn"
     assert source == "property_fact:local_government"
 
 

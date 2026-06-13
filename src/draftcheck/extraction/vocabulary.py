@@ -12,9 +12,21 @@ RULE_KEYS = frozenset({
     "boundary_wall_length",
     "building_height",
     "site_area",
+    "minimum_frontage",
     "outdoor_living_area",
+    "private_open_space",
     "soft_landscaping",
     "building_storeys",
+    "wall_height",
+    "ceiling_height",
+    "ground_floor_height",
+    "parking_bays_per_dwelling",
+    "visitor_parking_per_dwelling",
+    "driveway_width",
+    "retaining_wall_height",
+    "fence_height_front",
+    "fence_height_side",
+    "plot_ratio",
 })
 
 OPERATORS = frozenset({"lte", "gte", "eq", "lt", "gt", "range", "pct_lte", "pct_gte"})
