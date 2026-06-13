@@ -1,6 +1,6 @@
-"""Closed vocabularies for the extraction / validation pipeline."""
+"""Vocabulary hints for the extraction / validation pipeline."""
 
-RULE_KEYS = frozenset({
+RULE_KEY_HINTS = frozenset({
     "site_cover",
     "primary_street_setback",
     "secondary_street_setback",
@@ -28,6 +28,14 @@ RULE_KEYS = frozenset({
     "fence_height_side",
     "plot_ratio",
 })
+
+
+def is_hinted_key(key: str) -> bool:
+    """Return True when key matches one of the soft rule_key hints."""
+    normalized = (key or "").strip().lower().replace("-", "_")
+    normalized = "_".join(part for part in normalized.split("_") if part)
+    return normalized in RULE_KEY_HINTS
+
 
 OPERATORS = frozenset({"lte", "gte", "eq", "lt", "gt", "range", "pct_lte", "pct_gte"})
 

@@ -6,6 +6,8 @@ from draftcheck.extraction.validators import (
     validate_no_orphan_numbers,
     validate_unit_normalization,
     validate_rule_key,
+    validate_unit_category_sanity,
+    validate_value_finite,
     run_all_validators,
 )
 
@@ -126,15 +128,34 @@ def test_rule_key_pass():
 
 
 def test_rule_key_fail():
-    r = validate_rule_key("hallucinated_check")
+    r = validate_rule_key("Hallucinated Check")
     assert not r.passed
 
 
-def test_rule_key_all_valid_keys():
-    from draftcheck.extraction.vocabulary import RULE_KEYS
-    for key in RULE_KEYS:
+def test_rule_key_open_vocab_passes_unhinted_snake_case():
+    r = validate_rule_key("noise_attenuation_distance")
+    assert r.passed
+    assert "hinted=False" in r.detail
+
+
+def test_rule_key_all_hint_keys():
+    from draftcheck.extraction.vocabulary import RULE_KEY_HINTS
+    for key in RULE_KEY_HINTS:
         r = validate_rule_key(key)
         assert r.passed, f"Expected {key!r} to be valid"
+
+
+def test_unit_category_sanity():
+    r = validate_unit_category_sanity({"value": 1200}, "length")
+    assert not r.passed
+
+    r = validate_unit_category_sanity({"value": 995}, "length")
+    assert r.passed
+
+
+def test_value_finite_rejects_infinity():
+    r = validate_value_finite(float("inf"))
+    assert not r.passed
 
 
 def test_run_all_validators_all_pass():
@@ -148,7 +169,7 @@ def test_run_all_validators_all_pass():
     )
     assert set(results.keys()) == {
         "quote_anchor", "normative_language", "no_orphan_numbers",
-        "unit_normalization", "rule_key",
+        "unit_normalization", "value_finite", "unit_category_sanity", "rule_key",
     }
     failed = [name for name, v in results.items() if not v["pass"]]
     assert failed == [], f"Expected all to pass, but failed: {failed}"
@@ -170,7 +191,7 @@ def test_run_all_validators_returns_dict_format():
         assert isinstance(v["detail"], str)
 
 
-def test_run_all_validators_bad_rule_key_fails():
+def test_run_all_validators_unhinted_rule_key_passes():
     results = run_all_validators(
         quote="shall not exceed 50 percent of the site area",
         clause_text="Site coverage shall not exceed 50 percent of the site area.",
@@ -179,4 +200,5 @@ def test_run_all_validators_bad_rule_key_fails():
         unit="%",
         rule_key="not_a_real_key",
     )
-    assert not results["rule_key"]["pass"]
+    assert results["rule_key"]["pass"]
+    assert "hinted=False" in results["rule_key"]["detail"]
