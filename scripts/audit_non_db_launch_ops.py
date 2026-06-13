@@ -108,6 +108,13 @@ LOG_RETENTION_STATES = {
     "SSH_CHECK_FAILED",
 }
 SPEND_PERSISTENCE_STATES = {"ok", "warning", "critical"}
+GUARDRAIL_CRON_STATES = {
+    "CRON_GUARDRAILS_OK",
+    "CRON_GUARDRAILS_CRITICAL",
+    "CRON_GUARDRAILS_MISSING",
+    "SSH_SKIPPED",
+    "SSH_CHECK_FAILED",
+}
 
 
 @dataclass(frozen=True)
@@ -342,6 +349,10 @@ def _field_present(value: str, expected: str) -> bool:
     return value == expected
 
 
+def _guardrail_cron_verified(value: str) -> bool:
+    return value == "CRON_GUARDRAILS_OK"
+
+
 def assess_launch_status(launch: dict[str, Any], checkout_env: str) -> str:
     if launch["status"] != "verified":
         return "blocked"
@@ -360,7 +371,7 @@ def assess_ops_guardrails_status(evidence: dict[str, Any]) -> str:
         _field_present(evidence["restic_password_file"], "RESTIC_PASSWORD_FILE_PRESENT"),
         _timer_verified(evidence["backup_timer"]),
         evidence["restore_drill_log"].startswith("ok:"),
-        _field_present(evidence["guardrail_cron"], "CRON_GUARDRAILS_PRESENT"),
+        _guardrail_cron_verified(str(evidence["guardrail_cron"])),
         _field_present(evidence["ops_guardrail_script"], "OPS_GUARDRAILS_PRESENT"),
         _field_present(evidence["disk_usage"], "DISK_USAGE_OK"),
         _field_present(evidence["worker_heartbeat"], "WORKER_HEARTBEAT_OK"),
@@ -405,7 +416,7 @@ def ops_guardrail_unblock_steps(evidence: dict[str, Any]) -> list[str]:
         steps.append(
             "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json"
         )
-    if not _field_present(evidence["guardrail_cron"], "CRON_GUARDRAILS_PRESENT"):
+    if not _guardrail_cron_verified(str(evidence["guardrail_cron"])):
         steps.append("Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh")
     if not _field_present(evidence["disk_usage"], "DISK_USAGE_OK"):
         steps.append(
@@ -475,6 +486,10 @@ def validate_audit_report(report: dict[str, Any]) -> list[str]:
         state = str(ops_evidence.get(key, ""))
         if state and state not in LOG_RETENTION_STATES:
             failures.append(f"ops_guardrails.evidence.{key} has unrecognized state {state!r}")
+
+    guardrail_cron_state = str(ops_evidence.get("guardrail_cron", ""))
+    if guardrail_cron_state and guardrail_cron_state not in GUARDRAIL_CRON_STATES:
+        failures.append(f"ops_guardrails.evidence.guardrail_cron has unrecognized state {guardrail_cron_state!r}")
 
     spend_state = ops_evidence.get("spend_persistence", {})
     if not isinstance(spend_state, dict):
@@ -581,6 +596,7 @@ def parse_vps_state(output: str) -> dict[str, str]:
     log_retention_config_lines = [line for line in lines if line.startswith("LOG_RETENTION_CONFIG_")]
     disk_lines = [line for line in lines if line.startswith("DISK_USAGE_")]
     heartbeat_lines = [line for line in lines if line.startswith("WORKER_HEARTBEAT_")]
+    cron_lines = [line for line in lines if line.startswith("CRON_GUARDRAILS_")]
     return {
         "vps_checkout_env": checkout_value or "VITE_CHECKOUT_URL_MISSING",
         "backup_env": "BACKUP_ENV_PRESENT" if "BACKUP_ENV_PRESENT" in lines else "BACKUP_ENV_MISSING",
@@ -588,7 +604,7 @@ def parse_vps_state(output: str) -> dict[str, str]:
         if "RESTIC_PASSWORD_FILE_PRESENT" in lines
         else "RESTIC_PASSWORD_FILE_MISSING",
         "backup_timer": timer_lines[0] if timer_lines else "draftcheck-backup.timer status unknown",
-        "guardrail_cron": "CRON_GUARDRAILS_PRESENT" if "CRON_GUARDRAILS_PRESENT" in lines else "CRON_GUARDRAILS_MISSING",
+        "guardrail_cron": cron_lines[-1] if cron_lines else "CRON_GUARDRAILS_MISSING",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT" if "OPS_GUARDRAILS_PRESENT" in lines else "OPS_GUARDRAILS_MISSING",
         "disk_usage": disk_lines[-1] if disk_lines else "DISK_USAGE_UNKNOWN",
         "worker_heartbeat": heartbeat_lines[-1] if heartbeat_lines else "WORKER_HEARTBEAT_UNKNOWN",
@@ -612,9 +628,13 @@ if test -f /etc/draftcheck/backup.env; then
 else
   echo RESTIC_PASSWORD_FILE_MISSING
 fi
-test -f /etc/cron.d/draftcheck-guardrails && echo CRON_GUARDRAILS_PRESENT || echo CRON_GUARDRAILS_MISSING
 systemctl list-timers --all draftcheck-backup.timer --no-pager 2>/dev/null || true
 test -f /srv/draftcheck/app/scripts/ops_guardrails.py && echo OPS_GUARDRAILS_PRESENT || echo OPS_GUARDRAILS_MISSING
+if test -f /srv/draftcheck/app/scripts/ops_guardrails.py; then
+  python3 /srv/draftcheck/app/scripts/ops_guardrails.py guardrail-cron --path /etc/cron.d/draftcheck-guardrails --json >/tmp/draftcheck-guardrail-cron.json 2>/dev/null && echo CRON_GUARDRAILS_OK || echo CRON_GUARDRAILS_CRITICAL
+else
+  test -f /etc/cron.d/draftcheck-guardrails && echo CRON_GUARDRAILS_CRITICAL || echo CRON_GUARDRAILS_MISSING
+fi
 if test -f /srv/draftcheck/app/scripts/ops_guardrails.py; then
   python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json >/tmp/draftcheck-disk-usage.json 2>/dev/null && echo DISK_USAGE_OK || echo DISK_USAGE_CRITICAL
   python3 /srv/draftcheck/app/scripts/ops_guardrails.py worker-heartbeat --compose-dir /srv/draftcheck/app/infra/v3 --json >/tmp/draftcheck-worker-heartbeat.json 2>/dev/null && echo WORKER_HEARTBEAT_OK || echo WORKER_HEARTBEAT_CRITICAL

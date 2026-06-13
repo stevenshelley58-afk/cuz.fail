@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T03:23:35.410523+00:00",
+  "captured_at": "2026-06-13T03:45:27.232931+00:00",
   "scope": "non-db, non-security go-live blockers",
   "launch_surface": {
     "status": "blocked",
@@ -87,7 +87,7 @@
       "restic_password_file": "RESTIC_PASSWORD_FILE_MISSING",
       "backup_timer": "0 timers listed.",
       "restore_drill_log": "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
-      "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+      "guardrail_cron": "CRON_GUARDRAILS_OK",
       "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
       "disk_usage": "DISK_USAGE_OK",
       "worker_heartbeat": "WORKER_HEARTBEAT_OK",

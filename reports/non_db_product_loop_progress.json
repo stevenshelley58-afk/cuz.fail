@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-06-13T11:35:50+08:00",
+  "captured_at": "2026-06-13T11:45:34+08:00",
   "scope": "GO_LIVE_EXECUTION_PLAN non-db, non-security product and launch loop",
   "completed": {
     "c1_golden_fixture_e2e": {
@@ -168,6 +168,8 @@
         "uv run python scripts/audit_non_db_launch_ops.py --skip-ssh --output reports/non_db_launch_ops_blockers.local.json reported both launch_surface and ops_guardrails as blocked",
         "infra/v3/ops/install-guardrail-cron.sh idempotently writes /etc/cron.d/draftcheck-guardrails and runs guardrail-cron validation before reporting success",
         "tests/test_ops_guardrails.py runtime-tests the guardrail cron installer with a temp cron path and fake Python guardrail when Bash is available",
+        "scripts/audit_non_db_launch_ops.py now records guardrail_cron from the guardrail-cron verifier result instead of cron file existence",
+        "reports/non_db_launch_ops_blockers.json refreshed from read-only VPS evidence and shows guardrail_cron=CRON_GUARDRAILS_OK",
         "tests/test_ops_guardrails.py includes a restore-drill dry-run harness that stubs restic/docker, runs infra/v3/backup/restore-drill.sh, and validates stdout with check_restore_drill_log when Bash is available",
         "uv run pytest tests/test_ops_guardrails.py -q passed locally with 24 Python tests passed and 7 Bash-wrapper tests skipped because local Windows Bash is unusable",
         "infra/v3/ops/install-log-retention.sh installs checked journald and Docker JSON log-retention configs, validates installed targets, and only restarts Docker when DRAFTCHECK_RESTART_DOCKER=1",
