@@ -310,7 +310,7 @@ function ConfirmationStep({
 
   return (
     <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
-      <h3 style={{ marginBottom: 16 }}><Icon name="check_circle" />Confirm and start</h3>
+      <h3 style={{ marginBottom: 16 }}><Icon name="check_circle" />Confirm and review</h3>
 
       <div style={{ marginBottom: 16 }}>
         <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 4 }}>Project</div>
@@ -410,7 +410,7 @@ function ConfirmationStep({
       <div className="wizard-actions" style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
         <button className="btn alt" onClick={onBack}>← Back to edit</button>
         <button className="btn" onClick={onStart}>
-          <Icon name="check_circle" />Start checking
+          <Icon name="home_work" />Open project workspace
         </button>
       </div>
     </div>
