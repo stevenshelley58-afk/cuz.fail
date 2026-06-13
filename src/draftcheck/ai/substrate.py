@@ -488,12 +488,20 @@ def build_model_adapter(settings: object | None = None) -> ModelAdapter:
 
         _provider: Any = AnthropicChatProvider(api_key=os.environ["ANTHROPIC_API_KEY"])
         return HttpModelAdapter(_provider, spend_caps=SpendCaps.from_env())
-    if provider_name in ("openai", "openai-compatible") and os.environ.get("OPENAI_API_KEY"):
-        from draftcheck.providers import OpenAIChatProvider
+    if provider_name == "openai" and os.environ.get("OPENAI_API_KEY"):
+        from draftcheck.providers import OPENAI_DEFAULT_CHAT_MODEL, OpenAIResponsesProvider
+
+        _provider = OpenAIResponsesProvider(
+            api_key=os.environ["OPENAI_API_KEY"],
+            model=os.environ.get("LLM_MODEL", OPENAI_DEFAULT_CHAT_MODEL),
+        )
+        return HttpModelAdapter(_provider, spend_caps=SpendCaps.from_env())
+    if provider_name == "openai-compatible" and os.environ.get("OPENAI_API_KEY"):
+        from draftcheck.providers import OPENAI_DEFAULT_CHAT_MODEL, OpenAIChatProvider
 
         _provider = OpenAIChatProvider(
             api_key=os.environ["OPENAI_API_KEY"],
-            model=os.environ.get("LLM_MODEL", "gpt-4o"),
+            model=os.environ.get("LLM_MODEL", OPENAI_DEFAULT_CHAT_MODEL),
         )
         return HttpModelAdapter(_provider, spend_caps=SpendCaps.from_env())
     return LocalDeterministicModelAdapter(mode="disabled")

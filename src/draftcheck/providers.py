@@ -16,10 +16,12 @@ from urllib.request import Request, urlopen
 from draftcheck.config import Settings, get_settings
 
 
-OPENAI_DEFAULT_CHAT_MODEL = "gpt-4o"
+OPENAI_DEFAULT_CHAT_MODEL = "gpt-5.5"
 OPENROUTER_DEFAULT_CHAT_MODEL = "openai/gpt-4o"
 MINIMAX_DEFAULT_CHAT_MODEL = "MiniMax-M3"
 MINIMAX_DEFAULT_BASE_URL = "https://api.minimax.chat/v1"
+OPENAI_DEFAULT_REASONING_EFFORT = "medium"
+OPENAI_DEFAULT_VERBOSITY = "medium"
 
 
 class ChatMessage(TypedDict):
@@ -148,6 +150,97 @@ class OpenAIChatProvider:
         return content.strip()
 
 
+@dataclass
+class OpenAIResponsesProvider:
+    api_key: str
+    model: str = OPENAI_DEFAULT_CHAT_MODEL
+    base_url: str = "https://api.openai.com/v1"
+    timeout_seconds: int = 30
+    max_output_tokens: int = 700
+    reasoning_effort: str = OPENAI_DEFAULT_REASONING_EFFORT
+    verbosity: str = OPENAI_DEFAULT_VERBOSITY
+    name: str = "openai"
+    is_live: bool = True
+
+    def complete(self, system_prompt: str, user_prompt: str) -> str:
+        return self.complete_chat(system_prompt, [{"role": "user", "content": user_prompt}])
+
+    def complete_chat(self, system_prompt: str, messages: Sequence[ChatMessage]) -> str:
+        if not self.api_key:
+            raise RuntimeError("API key is required when LLM_PROVIDER=openai.")
+        input_messages = _responses_input_messages(messages)
+        if not any(msg["role"] == "user" for msg in input_messages):
+            raise RuntimeError("OpenAI Responses request requires at least one user message.")
+        body: dict[str, Any] = {
+            "model": self.model,
+            "instructions": system_prompt,
+            "input": input_messages,
+            "max_output_tokens": self.max_output_tokens,
+            "reasoning": {"effort": self.reasoning_effort},
+            "text": {"verbosity": self.verbosity},
+        }
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+        }
+        request = Request(
+            f"{self.base_url.rstrip('/')}/responses",
+            data=json.dumps(body).encode("utf-8"),
+            headers=headers,
+            method="POST",
+        )
+        try:
+            with urlopen(request, timeout=self.timeout_seconds) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+        except HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")
+            raise RuntimeError(
+                f"OpenAI Responses request failed with HTTP {exc.code}: {_clip_error(detail)}"
+            ) from exc
+        except (OSError, URLError) as exc:
+            raise RuntimeError(f"OpenAI Responses request failed: {exc}") from exc
+
+        content = _extract_responses_text(payload)
+        if not content:
+            raise RuntimeError("OpenAI Responses response contained no text content.")
+        return content
+
+
+def _responses_input_messages(messages: Sequence[ChatMessage]) -> list[dict[str, str]]:
+    out: list[dict[str, str]] = []
+    for message in messages:
+        role = str(message.get("role", "")).strip().lower()
+        content = str(message.get("content", ""))
+        if role in {"user", "assistant"} and content:
+            out.append({"role": role, "content": content})
+    return out
+
+
+def _extract_responses_text(payload: dict[str, Any]) -> str:
+    direct = payload.get("output_text")
+    if isinstance(direct, str) and direct.strip():
+        return direct.strip()
+
+    parts: list[str] = []
+    output = payload.get("output")
+    if isinstance(output, list):
+        for item in output:
+            if not isinstance(item, dict):
+                continue
+            content = item.get("content")
+            if isinstance(content, list):
+                for block in content:
+                    if not isinstance(block, dict):
+                        continue
+                    text = block.get("text")
+                    if isinstance(text, str):
+                        parts.append(text)
+            text = item.get("text")
+            if isinstance(text, str):
+                parts.append(text)
+    return "".join(parts).strip()
+
+
 ANTHROPIC_DEFAULT_CHAT_MODEL = "claude-haiku-4-5-20251001"
 
 
@@ -225,7 +318,16 @@ def get_chat_provider(settings: Settings | None = None) -> ChatProvider:
             timeout_seconds=active_settings.llm_timeout_seconds,
             max_output_tokens=active_settings.llm_max_output_tokens,
         )
-    if provider in {"openai", "openai-compatible"} and active_settings.openai_api_key:
+    if provider == "openai" and active_settings.openai_api_key:
+        model = active_settings.llm_model.strip() or OPENAI_DEFAULT_CHAT_MODEL
+        return OpenAIResponsesProvider(
+            api_key=active_settings.openai_api_key,
+            model=model,
+            base_url=active_settings.openai_base_url,
+            timeout_seconds=active_settings.llm_timeout_seconds,
+            max_output_tokens=active_settings.llm_max_output_tokens,
+        )
+    if provider == "openai-compatible" and active_settings.openai_api_key:
         model = active_settings.llm_model.strip() or OPENAI_DEFAULT_CHAT_MODEL
         return OpenAIChatProvider(
             api_key=active_settings.openai_api_key,
