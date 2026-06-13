@@ -482,7 +482,7 @@ export function Home({
           <textarea
             ref={inputRef}
             aria-label="Address or planning question"
-            placeholder="Type a street address (e.g. 3 Black Swan Rise, Beeliar)… or ask anything about WA planning"
+            placeholder="Type a street address or ask anything about WA planning"
             onKeyDown={(e) => {
               if (sugs.length) {
                 if (e.key === "ArrowDown") {
