@@ -34,8 +34,10 @@ DEFAULT_MAP_OUTPUT = Path(__file__).resolve().parent.parent / "data" / "extracti
 TOKEN_ALIASES = {
     "pct": "percent",
     "percentage": "percent",
-    "per": "percent",
-    "cent": "percent",
+    # NB: do NOT alias bare "per" / "cent" to "percent" — in planning rule_keys
+    # "per" almost always means "per dwelling / per storey" (e.g.
+    # parking_bays_per_dwelling), not a percentage.  Aliasing it corrupts those
+    # canonical keys.  Only explicit pct/percentage map to percent.
     "metre": "m",
     "metres": "m",
     "meter": "m",
