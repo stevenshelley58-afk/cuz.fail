@@ -272,6 +272,10 @@ class TestBuildRetrievalQuery:
         )
         assert result == "site cover residential design codes"
 
+    def test_expands_da_to_development_application(self):
+        result = _build_retrieval_query("What does the DA process involve in WA?", [])
+        assert result == "development application process involve"
+
 
 # ---------------------------------------------------------------------------
 # Phase 4 — History capping via AssistantPayload validator

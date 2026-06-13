@@ -435,6 +435,9 @@ def _compact_retrieval_query(text: str) -> str:
         normalized = token.strip("-").lower()
         if normalized in _RETRIEVAL_STOP_WORDS:
             continue
+        if normalized == "da":
+            tokens.extend(["development", "application"])
+            continue
         if normalized in {"r-codes", "rcodes"}:
             tokens.extend(["residential", "design", "codes"])
             continue
