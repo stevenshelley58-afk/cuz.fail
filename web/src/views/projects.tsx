@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { api, type ApiResult, type ProjectSummary, type PropertyProfileResponse } from "../api";
 import { Icon } from "../components/common";
 import {
@@ -118,6 +118,16 @@ function ProjectPropertyContext({ projectId }: { projectId: string }) {
 }
 
 export function ProjectDetail({ projectId, onClose }: { projectId: string; onClose: () => void }) {
+  const documentSectionRef = useRef<HTMLDivElement>(null);
+  const [documentFocusRequest, setDocumentFocusRequest] = useState(0);
+
+  function focusDocumentUpload() {
+    setDocumentFocusRequest((value) => value + 1);
+    window.setTimeout(() => {
+      documentSectionRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+    }, 0);
+  }
+
   return (
     <div className="view">
       <div style={{ marginBottom: 12 }}>
@@ -127,10 +137,10 @@ export function ProjectDetail({ projectId, onClose }: { projectId: string; onClo
         <ProjectPropertyContext projectId={projectId} />
       </div>
       <div className="panel">
-        <CompliancePanel projectId={projectId} />
+        <CompliancePanel projectId={projectId} onUploadDrawing={focusDocumentUpload} />
       </div>
-      <div className="panel">
-        <DocumentUpload projectId={projectId} />
+      <div className="panel" ref={documentSectionRef}>
+        <DocumentUpload projectId={projectId} focusRequest={documentFocusRequest} />
       </div>
     </div>
   );

@@ -250,7 +250,7 @@ function FactCard({
   );
 }
 
-export function DocumentUpload({ projectId }: { projectId: string }) {
+export function DocumentUpload({ projectId, focusRequest = 0 }: { projectId: string; focusRequest?: number }) {
   const [uploading, setUploading] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadResult, setUploadResult] = useState<DocumentUploadResponse | null>(null);
@@ -264,6 +264,15 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
   const [evidenceSearching, setEvidenceSearching] = useState(false);
   const [evidenceError, setEvidenceError] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const uploadTargetRef = useRef<HTMLLabelElement>(null);
+
+  useEffect(() => {
+    if (focusRequest <= 0) return;
+    const target = uploadTargetRef.current;
+    if (!target) return;
+    target.scrollIntoView({ block: "center", behavior: "smooth" });
+    target.focus();
+  }, [focusRequest]);
 
   async function refreshDocuments() {
     const r = await api.documents.listForProject(projectId);
@@ -395,6 +404,9 @@ export function DocumentUpload({ projectId }: { projectId: string }) {
       <h3 style={{ margin: "0 0 12px", fontSize: 16, fontWeight: 600 }}>Documents</h3>
 
       <label
+        ref={uploadTargetRef}
+        tabIndex={-1}
+        aria-label="Upload drawing or document"
         style={{
           display: "flex",
           flexDirection: "column",
