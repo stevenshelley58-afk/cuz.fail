@@ -51,6 +51,7 @@ from draftcheck.domain.address.spatial import (
     ResolutionStatus,
     SourceApprovalStatus,
     SpatialDatasetMetadata,
+    address_candidate_matches_query_street,
     expand_street_abbreviations,
     leading_house_number,
     normalize_address,
@@ -445,6 +446,8 @@ class PostGISSpatialDatasetStore:
             return []
         expanded = expand_street_abbreviations(normalized)
         house_number = leading_house_number(normalized)
+        requested_limit = max(1, min(int(limit), 20))
+        db_row_limit = min(max(requested_limit * 8, 20), 100)
 
         wsim = func.greatest(
             func.word_similarity(normalized, DbAddressPoint.address_text),
@@ -481,7 +484,7 @@ class PostGISSpatialDatasetStore:
                 )
             )
             .order_by(text("score DESC"), DbAddressPoint.address_text.asc())
-            .limit(max(1, min(int(limit), 20)))
+            .limit(db_row_limit)
         )
 
         # Prefix-first fast path: a leading-anchored ILIKE on the raw and
@@ -509,7 +512,7 @@ class PostGISSpatialDatasetStore:
             )
             .where(or_(*[DbAddressPoint.address_text.ilike(p) for p in prefix_patterns]))
             .order_by(text("score DESC"), DbAddressPoint.address_text.asc())
-            .limit(max(1, min(int(limit), 20)))
+            .limit(db_row_limit)
         )
 
         with Session(self._engine) as session:
@@ -535,10 +538,12 @@ class PostGISSpatialDatasetStore:
                     )
                     session.rollback()
                     if not rows:
-                        rows = self._ilike_search_rows(session, normalized, expanded, limit)
+                        rows = self._ilike_search_rows(session, normalized, expanded, db_row_limit)
 
         results: list[AddressSearchHit] = []
         for row in rows:
+            if not address_candidate_matches_query_street(normalized, str(row[2])):
+                continue
             results.append(
                 AddressSearchHit(
                     address_id=str(row[0]),
@@ -550,6 +555,8 @@ class PostGISSpatialDatasetStore:
                     score=round(float(row[6]), 4),
                 )
             )
+            if len(results) >= requested_limit:
+                break
         return results
 
     def _ilike_search_rows(
@@ -573,7 +580,7 @@ class PostGISSpatialDatasetStore:
             )
             .where(or_(*[DbAddressPoint.address_text.ilike(p) for p in patterns]))
             .order_by(DbAddressPoint.address_text.asc())
-            .limit(max(1, min(int(limit), 20)))
+            .limit(max(1, min(int(limit), 100)))
         )
         return session.execute(stmt).all()
 

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
+from difflib import SequenceMatcher
 from enum import StrEnum
 from typing import Any
 
@@ -117,6 +118,69 @@ STREET_TYPE_EXPANSIONS: dict[str, str] = {
     "hts": "heights",
 }
 
+STREET_TYPE_TOKENS = frozenset(
+    {
+        "st",
+        "street",
+        "rd",
+        "road",
+        "ave",
+        "av",
+        "avenue",
+        "ln",
+        "lane",
+        "way",
+        "wy",
+        "cres",
+        "crescent",
+        "ct",
+        "court",
+        "pl",
+        "place",
+        "dr",
+        "drv",
+        "drive",
+        "hwy",
+        "highway",
+        "tce",
+        "terrace",
+        "pde",
+        "parade",
+        "bvd",
+        "blvd",
+        "boulevard",
+        "cl",
+        "close",
+        "gr",
+        "grove",
+        "gdns",
+        "gardens",
+        "cct",
+        "circuit",
+        "esp",
+        "esplanade",
+        "prom",
+        "promenade",
+        "qy",
+        "quay",
+        "rise",
+        "loop",
+        "mews",
+        "gate",
+        "vista",
+        "heights",
+        "hts",
+        "entrance",
+        "ent",
+        "retreat",
+        "rtt",
+        "square",
+        "sq",
+        "walk",
+        "bend",
+    }
+)
+
 
 def expand_street_abbreviations(normalized: str) -> str:
     """Expand street-type abbreviations in an already-normalized address.
@@ -128,6 +192,56 @@ def expand_street_abbreviations(normalized: str) -> str:
         return normalized
     expanded = [tokens[0]] + [STREET_TYPE_EXPANSIONS.get(token, token) for token in tokens[1:]]
     return " ".join(expanded)
+
+
+def _is_address_number_token(token: str) -> bool:
+    if token == "lot":
+        return True
+    stripped = token.replace("/", "").replace("-", "")
+    return bool(stripped) and stripped.isalnum() and any(ch.isdigit() for ch in stripped)
+
+
+def query_street_name_tokens(normalized_query: str) -> tuple[str, ...]:
+    """Extract query terms that should match the street name."""
+
+    tokens = normalized_query.split()
+    while tokens and _is_address_number_token(tokens[0]):
+        tokens = tokens[1:]
+    if len(tokens) <= 1:
+        return ()
+    street_type_index = next(
+        (i for i, token in enumerate(tokens) if token in STREET_TYPE_TOKENS),
+        None,
+    )
+    if street_type_index is not None:
+        candidates = tokens[:street_type_index]
+    else:
+        candidates = tokens[:1]
+    return tuple(token for token in candidates if len(token) >= 2)
+
+
+def _token_close_enough(query_token: str, candidate_token: str) -> bool:
+    if query_token == candidate_token:
+        return True
+    if len(query_token) >= 3 and candidate_token.startswith(query_token):
+        return True
+    if len(query_token) >= 4 and query_token.startswith(candidate_token):
+        return True
+    if len(query_token) >= 5 and len(candidate_token) >= 5:
+        return SequenceMatcher(None, query_token, candidate_token).ratio() >= 0.86
+    return False
+
+
+def address_candidate_matches_query_street(query: str, candidate: str) -> bool:
+    street_tokens = query_street_name_tokens(normalize_address(query))
+    if not street_tokens:
+        return True
+    candidate_tokens = set(normalize_address(candidate).split())
+    return any(
+        _token_close_enough(query_token, candidate_token)
+        for query_token in street_tokens
+        for candidate_token in candidate_tokens
+    )
 
 
 # Shared address-match thresholds (used by both stores): a hit below the
@@ -435,6 +549,8 @@ class InMemorySpatialDatasetStore:
         for point in self.address_points.values():
             best = 0.0
             for candidate in (point.formatted_address, *point.aliases):
+                if not address_candidate_matches_query_street(normalized_query, candidate):
+                    continue
                 normalized_candidate = normalize_address(candidate)
                 candidate_tokens = set(normalized_candidate.split())
                 for variant in query_variants:
