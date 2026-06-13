@@ -106,7 +106,7 @@ def test_parse_vps_state_records_sentry_presence_without_value() -> None:
 VITE_CHECKOUT_URL=https://buy.stripe.com/test_fixture
 BACKUP_ENV_PRESENT
 RESTIC_PASSWORD_FILE_PRESENT
-CRON_GUARDRAILS_PRESENT
+CRON_GUARDRAILS_OK
 1 timers listed.
 OPS_GUARDRAILS_PRESENT
 DISK_USAGE_OK
@@ -240,7 +240,7 @@ def test_build_report_blocks_without_checkout_even_when_launch_pages_pass() -> N
         "backup_env": "BACKUP_ENV_PRESENT",
         "restic_password_file": "RESTIC_PASSWORD_FILE_PRESENT",
         "backup_timer": "draftcheck-backup.timer active",
-        "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+        "guardrail_cron": "CRON_GUARDRAILS_OK",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
         "disk_usage": "DISK_USAGE_OK",
         "worker_heartbeat": "WORKER_HEARTBEAT_OK",
@@ -341,7 +341,7 @@ def test_build_report_verifies_when_all_launch_and_ops_evidence_passes() -> None
         "backup_env": "BACKUP_ENV_PRESENT",
         "restic_password_file": "RESTIC_PASSWORD_FILE_PRESENT",
         "backup_timer": "1 timers listed.",
-        "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+        "guardrail_cron": "CRON_GUARDRAILS_OK",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
         "disk_usage": "DISK_USAGE_OK",
         "worker_heartbeat": "WORKER_HEARTBEAT_OK",
@@ -531,7 +531,7 @@ def test_ops_guardrails_status_blocks_pending_fields() -> None:
         "restic_password_file": "RESTIC_PASSWORD_FILE_PRESENT",
         "backup_timer": "0 timers listed.",
         "restore_drill_log": "ok: restore drill log accepted",
-        "guardrail_cron": "CRON_GUARDRAILS_PRESENT",
+        "guardrail_cron": "CRON_GUARDRAILS_OK",
         "ops_guardrail_script": "OPS_GUARDRAILS_PRESENT",
         "disk_usage": "DISK_USAGE_OK",
         "worker_heartbeat": "WORKER_HEARTBEAT_OK",
@@ -669,6 +669,7 @@ def test_validate_audit_report_rejects_spoofed_ops_evidence() -> None:
     failures = validate_audit_report(report)
 
     assert any("sentry_dsn has unrecognized state" in failure for failure in failures)
+    assert any("guardrail_cron has unrecognized state" in failure for failure in failures)
     assert any("uptime_targets is not recognized verifier output" in failure for failure in failures)
     assert any("spend_persistence has unrecognized status" in failure for failure in failures)
     assert any("log_retention_journald has unrecognized state" in failure for failure in failures)
