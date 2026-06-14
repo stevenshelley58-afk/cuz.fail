@@ -47,12 +47,22 @@ USER_TMPL = (
     "- what_it_means: {what_it_means}\n- requirement: {requirement}\n"
     "- applies_when: {applies_when}\n- check_type: {check_type}\n- modality: {modality}\n\n"
     "Produce the most FAITHFUL version of this rule, or reject it.\n\n"
-    "REJECT (action='reject') if the quote imposes NO development-control obligation that a building/"
-    "development PROPOSAL is assessed against — i.e. it is a heading/title, a definition, a cross-"
-    "reference, narrative/background, an objective/aspiration ('to provide...'), a DESCRIPTION of what "
-    "a plan or study does or proposes ('the Structure Plan provides for...', 'X is proposed', past "
-    "tense 'was adopted'), a duty binding an AUTHORITY / Commission / the scheme document itself, or "
-    "non-development matter (administration, conveyancing, strata, mining, liquor).\n\n"
+    "REJECT (action='reject') only if the quote gives NOTHING to assess a proposal against — i.e. it is:\n"
+    "  - a heading/title, definition, cross-reference, or narrative/background;\n"
+    "  - a pure OBJECTIVE/aspiration that sets a goal but no standard ('to provide a range of housing', "
+    "'should be cost-effective', 'ensure good amenity') — with no design/siting/use/measure to test;\n"
+    "  - a DESCRIPTION or statement of fact about what a plan/study does or about existing allocations "
+    "('the Structure Plan provides for...', 'allocates R20 to lots 160061', 'X is proposed', 'was adopted');\n"
+    "  - an ADMINISTRATIVE / form-format / lodgement / report-preparation requirement ('must be in an "
+    "approved form', 'a report must be prepared');\n"
+    "  - a statement about the ASSESSMENT PROCESS or a duty binding an AUTHORITY/Commission/scheme "
+    "document ('will be considered as part of the assessment', 'the Commission must consider...');\n"
+    "  - an OPERATIONAL/utility/post-approval provision not tested at the development-application stage; "
+    "or non-development matter (conveyancing, strata, mining, liquor).\n"
+    "KEEP (and correct) any genuine standard a proposal's DESIGN is judged against — including design "
+    "PRINCIPLES and PERFORMANCE criteria ('massing should be compatible with adjoining built form', "
+    "'buildings should address the street'), measurable standards (setbacks, widths, heights, densities), "
+    "and siting/use/subdivision/servicing/environmental controls — even when phrased softly ('should').\n\n"
     "Otherwise KEEP (action='keep') and return a CORRECTED claim that asserts ONLY what the quote "
     "supports:\n"
     "- remove any obligation, threshold, number, condition, exception or consequence not in the quote;\n"
@@ -131,13 +141,15 @@ SELECT r.id::text, r.rule_key, r.check_type,
        r.rule_logic_json->>'applies_when', r.rule_logic_json->>'modality', r.quote
 FROM rules r
 WHERE r.extractor_model LIKE 'openai%%decode'
-  AND (
-    r.lifecycle_status = 'approved'
-    OR (r.lifecycle_status = 'rejected'
-        AND coalesce(r.metadata_json->>'review_denylist','false') <> 'true')
-  )
+  AND {scope}
   {skip}
 """
+
+_SCOPE_COMBINED = (
+    "(r.lifecycle_status = 'approved' OR (r.lifecycle_status = 'rejected' "
+    "AND coalesce(r.metadata_json->>'review_denylist','false') <> 'true'))"
+)
+_SCOPE_APPROVED = "r.lifecycle_status = 'approved'"
 
 REJECT_SQL = """
 UPDATE rules SET lifecycle_status='rejected', updated_at=now(),
@@ -161,6 +173,8 @@ def main() -> int:
     ap.add_argument("--model", default="gpt-4o")
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--redo", action="store_true")
+    ap.add_argument("--scope", choices=["combined", "approved"], default="combined",
+                    help="'combined' = approved + recoverable rejected; 'approved' = re-filter approved only")
     ap.add_argument("--debug", action="store_true")
     ap.add_argument("--report", default="/app/reports/wp6_correct.json")
     args = ap.parse_args()
@@ -177,7 +191,8 @@ def main() -> int:
     )
     with psycopg.connect(db_url()) as conn:
         cur = conn.cursor()
-        sql = SELECT_SQL.format(skip=skip) + (
+        scope_clause = _SCOPE_APPROVED if args.scope == "approved" else _SCOPE_COMBINED
+        sql = SELECT_SQL.format(skip=skip, scope=scope_clause) + (
             " ORDER BY random() LIMIT %(lim)s" if args.limit else "")
         cur.execute(sql, {"tag": tag, "lim": args.limit})
         rules = [
