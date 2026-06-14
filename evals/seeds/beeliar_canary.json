@@ -1,11 +1,11 @@
 {
   "canary": "beeliar_open_vocab",
-  "description": "End-to-end gate for the open-vocab rebuild (WP-I). 'expected' is the plan's acceptance target; 'recorded' is the real verification result on prod; 'gaps' documents the honest shortfalls against the target.",
+  "description": "End-to-end gate for the open-vocab rebuild (WP-I) + rich rule DECODE. 'expected' is the plan's acceptance target; 'recorded' is the real verification result on prod; 'gaps' documents the honest shortfalls against the target.",
   "authority": "docs/OPEN_VOCAB_REBUILD_PLAN.md WP-I",
   "address": "1 BLACK SWAN RISE BEELIAR",
   "address_note": "Proxy for '3 BLACK SWAN RISE BEELIAR' which is missing from G-NAF.",
   "expected": {
-    "council_scope": "City of Cockburn",
+    "council_scope": "City of Cockburn (bbox extent)",
     "r_code": "R20",
     "min_synth_property_facts": 6,
     "min_categories_evaluated": 25,
@@ -16,23 +16,47 @@
   "status": "verified_partial",
   "recorded": {
     "verified_at": "2026-06-15",
-    "method": "synth_property_facts against the real Beeliar parcel (cadastre 1585770); live auto-resolution is licence-gated so the parcel was bound directly to isolate the spatial+engine path.",
+    "method": "LIVE auto-resolution: the standard AddressResolutionService resolved '1 BLACK SWAN RISE BEELIAR' to cadastre parcel 1585770 and synthesised confirmed spatial facts. Unblocked by (a) operator open-data approval of the Landgate/DPLH SLIP datasets (audit_events: dataset_approval) and (b) a uuid-cast fix in planning_for_parcel (the parcel->planning-feature R-code/zone join previously crashed once the parcel gate opened).",
     "registry_checks": 31,
-    "council_scope": "City of Cockburn",
+    "council_scope": "City of Cockburn (bbox extent)",
     "r_code": "R20",
     "synth_property_facts": 6,
     "synth_fact_types": ["local_government", "lot_area_m2", "lot_depth_m", "lot_width_m", "r_code", "zone"],
-    "categories_evaluated": 31,
-    "status_breakdown": {"needs_more_info": 27, "unsupported": 3, "likely_pass": 1},
-    "pass_or_fail": 1,
+    "categories_evaluated": 111,
+    "numeric_checks": 31,
+    "advisory_rules_surfaced": 80,
+    "by_check_type": {"numeric_threshold": 31, "boolean_presence": 35, "categorical": 7, "conditional": 14, "qualitative_performance": 24},
+    "status_breakdown": {"needs_more_info": 74, "likely_pass": 2, "unsupported": 3, "needs_assessment": 32},
+    "pass_or_fail": 2,
     "results": [
+      {"check_key": "site_area", "status": "likely_pass", "measured": 708.3, "threshold": 450.0, "citation": true},
       {"check_key": "min_frontage", "status": "likely_pass", "measured": 27.83, "threshold": 10.0, "citation": true}
     ],
-    "wp_e_cleanup": "Adversarial review (113 Sonnet agents) over the 1726 check-backing rules rejected 419 (~25%) whose quote contradicted their canonical key; clusters cleaned, no false-alarm fails remain."
+    "advisory_samples": [
+      {"check_key": "aboriginal_access_to_land", "check_type": "boolean_presence", "status": "needs_more_info",
+       "what_it_means": "Aboriginal persons may enter upon any unenclosed and unimproved parts of the land under a diversification lease to seek their sustenance.",
+       "how_to_query": "Check if the land is unenclosed and unimproved for Aboriginal access.",
+       "citation": "aboriginal_access_to_land.d611c320a | source_version:ad0f4ae5-0ff1-4fa1-a0da-0fe19be716ae"},
+      {"check_key": "above_ground_exposed_water_and_gas_supply_pipes", "check_type": "categorical", "status": "needs_more_info",
+       "what_it_means": "Above-ground, exposed water and gas supply pipes must be made of metal.",
+       "how_to_query": "Check if the material of above-ground, exposed water and gas supply pipes is metal.",
+       "citation": "above_ground_exposed_water_and_gas_supply_pipes.dc6556f6e | source_version:f8b62acc-342a-4472-9442-115374837048"},
+      {"check_key": "abuttals_usage", "check_type": "conditional", "status": "needs_assessment",
+       "what_it_means": "Abuttals must be used in addition to dimensions unless specifically authorized otherwise.",
+       "how_to_query": "Check if abuttals are used in addition to dimensions unless there is special authorization.",
+       "citation": "abuttals_usage.da7abde86 | source_version:e3cdfe99-f0db-4a92-8fd0-f66c8267a672"}
+    ],
+    "decode_library": "3759 approved decode rules across the corpus (boolean_presence 1791, qualitative_performance 895, conditional 559, categorical 504, numeric_threshold 10), each development-relevant, cited, and decoded into what_it_is / what_it_means / how_to_query. The engine surfaces up to 80 applicable non-numeric rules per run as advisory items."
   },
   "gaps": [
-    "pass_or_fail (1) < target 10: synth provides LOT MEASUREMENTS (area/width/depth); setbacks, heights, garage, etc. require PROPOSED design values from a drawing upload and correctly return needs_more_info. The >=10 target is unreachable from spatial synth alone — it needs a proposal/drawing.",
-    "site_area and other lot-AREA checks are intentionally needs_more_info (not auto-evaluated): the R-Codes lot-size rules were extracted with inconsistent operators (eq/lt where the table means 'at least'), so comparing a real lot area could mislead. Operator-level curation is the remaining WP-E follow-up; install sentence-transformers/hdbscan for embedding-based clustering to further sharpen the canonical keys.",
-    "LIVE auto-resolution for Beeliar is blocked by dataset governance: Landgate cadastre (lgate-001) and DPLH planning (dplh-*) are approval_status=pending_review with restricted licence ('commercial use unconfirmed'). The resolver correctly refuses non-approved restricted data. Approving them is an operator legal decision; once approved, resolution runs the same synth proven here."
+    "pass_or_fail (2) < target 10: synth provides LOT MEASUREMENTS (area/width/depth). site_area and min_frontage now auto-evaluate from them; setbacks, heights, garage, plot ratio etc. require PROPOSED design values from a drawing upload and correctly return needs_more_info. The >=10 target is unreachable from spatial synth alone — it needs a proposal/drawing.",
+    "LGA assignment uses a bbox-extent match against lgate-233 (Local Government Authority Boundaries), hence council_scope 'City of Cockburn (bbox extent)'. It is correct for Beeliar but should be refined to precise polygon containment so addresses near an LGA border are not mis-assigned.",
+    "advisory_rules_surfaced is capped at 80 and ordered by canonical_rule_key (alphabetical), not by proposal relevance: the decode rules mostly have applies_when=null / no r_code scope, so they surface as a generally-applicable cited set rather than proposal-specific. Relevance ranking (applies_when -> proposal facts) is the next enrichment.",
+    "Deterministic key clustering orphans most singletons; embedding-based clustering (sentence-transformers/hdbscan, not installed) would merge near-duplicate decode keys (e.g. ..._pipes vs ..._pipes_material) so the 80 surfaced advisory rules are more distinct."
+  ],
+  "resolved_since_last_run": [
+    "Dataset governance: the Landgate cadastre (lgate-001/233) and DPLH planning (dplh-070/071) + heritage (dplh-006/008/090) datasets were operator-approved as OPEN DATA (verified_open/approved) on 2026-06-15, recorded in audit_events. LIVE auto-resolution now runs the same synth proven here.",
+    "planning_for_parcel uuid=varchar crash fixed (CAST to uuid).",
+    "site_area now auto-evaluates from lot area (WP-E operator curation)."
   ]
 }
