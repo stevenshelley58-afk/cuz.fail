@@ -27,7 +27,7 @@ _DERIVED_TIER1: list[CheckDefinition] = [
         fact_keys=('proposed_building_storey_storeys',),
         rule_key_pattern='building_storey',
         unit='storeys',
-        description='Advisory check derived from 54 approved WA/Cockburn rules for \'building storey\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Residential development along Rosalind Way and Benedick Road to be appropriately designed to ensure an integrated streetscape reflective of "',
+        description='Advisory check derived from 47 approved WA/Cockburn rules for \'building storey\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Residential development along Rosalind Way and Benedick Road to be appropriately designed to ensure an integrated streetscape reflective of "',
     ),
     CheckDefinition(
         key='driveway_width',
@@ -37,7 +37,7 @@ _DERIVED_TIER1: list[CheckDefinition] = [
         fact_keys=('proposed_driveway_width_m',),
         rule_key_pattern='driveway_width',
         unit='m',
-        description='Advisory check derived from 26 approved WA/Cockburn rules for \'driveway width\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Driveways must be minimum 5.5m wide for a minimum 6.3m length (excluding manoeuvring tapers) from the street boundary"',
+        description='Advisory check derived from 20 approved WA/Cockburn rules for \'driveway width\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Driveways must be minimum 5.5m wide for a minimum 6.3m length (excluding manoeuvring tapers) from the street boundary"',
     ),
     CheckDefinition(
         key='outdoor_living_area',
@@ -47,7 +47,7 @@ _DERIVED_TIER1: list[CheckDefinition] = [
         fact_keys=('proposed_outdoor_living_area_m2',),
         rule_key_pattern='outdoor_living_area',
         unit='m2',
-        description='Advisory check derived from 91 approved WA/Cockburn rules for \'outdoor living area\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "an area of 10% of the lot size or 20m2, whichever is greater, directly accessible from a habitable room of the dwelling and located behind t"',
+        description='Advisory check derived from 79 approved WA/Cockburn rules for \'outdoor living area\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "an area of 10% of the lot size or 20m2, whichever is greater, directly accessible from a habitable room of the dwelling and located behind t"',
     ),
     CheckDefinition(
         key='parking_bays_per_dwelling',
@@ -57,27 +57,17 @@ _DERIVED_TIER1: list[CheckDefinition] = [
         fact_keys=('proposed_parking_bays_per_dwelling_count',),
         rule_key_pattern='parking_bays_per_dwelling',
         unit='',
-        description='Advisory check derived from 71 approved WA/Cockburn rules for \'parking bays per dwelling\'. Most-cited source_version 7e7faf65-fb02-4616-b492-a325bdfed238. e.g. "Visitor car parking is to be a minimum of 10% of the total residential car parking requirement and be provided in addition to the required r"',
-    ),
-    CheckDefinition(
-        key='retaining_wall_height',
-        name='Retaining Wall Height',
-        tier=CheckTier.TIER1,
-        category=CheckCategory.WALL,
-        fact_keys=('proposed_retaining_wall_height_m',),
-        rule_key_pattern='retaining_wall_height',
-        unit='m',
-        description='Advisory check derived from 22 approved WA/Cockburn rules for \'retaining wall height\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Planning approval is required for subdivision retaining walls that exceed 2m in \r height above natural ground level which abut areas of publ"',
+        description='Advisory check derived from 59 approved WA/Cockburn rules for \'parking bays per dwelling\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Visitor car parking is to be a minimum of 10% of the total residential car parking requirement and be provided in addition to the required r"',
     ),
     CheckDefinition(
         key='site_area',
         name='Site Area',
         tier=CheckTier.TIER1,
         category=CheckCategory.SITE,
-        fact_keys=('lot_area_m2',),
+        fact_keys=('proposed_site_area_m2',),
         rule_key_pattern='site_area',
         unit='m2',
-        description='Advisory check derived from 227 approved WA/Cockburn rules for \'site area\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Consideration shall be given to allowing an ancillary dwelling to have an  internal floor area greater than 70m², up to a maximum of 100m², "',
+        description='Advisory check derived from 151 approved WA/Cockburn rules for \'site area\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "A single house, including extensions and ancillary outbuildings with an   area of less than 200m2 and a wall height not exceeding 4.5 in the"',
     ),
     CheckDefinition(
         key='soft_landscaping',
@@ -87,7 +77,7 @@ _DERIVED_TIER1: list[CheckDefinition] = [
         fact_keys=('proposed_soft_landscaping_pct',),
         rule_key_pattern='soft_landscaping',
         unit='%',
-        description='Advisory check derived from 32 approved WA/Cockburn rules for \'soft landscaping\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "the local government may reduce the minimum on-site provision to not less than five percent (5%) of the total area of the lot to be set asid"',
+        description='Advisory check derived from 21 approved WA/Cockburn rules for \'soft landscaping\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "the local government may reduce the minimum on-site provision to not less than five percent (5%) of the total area of the lot to be set asid"',
     ),
 ]
 
@@ -110,7 +100,7 @@ _DERIVED_TIER2: list[CheckDefinition] = [
         fact_keys=('proposed_car_parking_ratio_per_gla_m2',),
         rule_key_pattern='car_parking_ratio_per_gla',
         unit='m2',
-        description='Advisory check derived from 9 approved WA/Cockburn rules for \'car parking ratio per gla\'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. "- General/  General  (Licensed)  1 : 50m2 gla"',
+        description='Advisory check derived from 8 approved WA/Cockburn rules for \'car parking ratio per gla\'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. "- Veterinary   Hospital  1 : 20m2 gla"',
     ),
     CheckDefinition(
         key='ceiling_height',
@@ -211,6 +201,16 @@ _DERIVED_TIER2: list[CheckDefinition] = [
         rule_key_pattern='plot_ratio',
         unit='',
         description='Advisory check derived from 8 approved WA/Cockburn rules for \'plot ratio\'. Most-cited source_version 23165d75-774f-498f-b967-c317f63e5412. e.g. "Plot Ratio Abutting Cockburn  & Rockingham  Roads – 2.0"',
+    ),
+    CheckDefinition(
+        key='retaining_wall_height',
+        name='Retaining Wall Height',
+        tier=CheckTier.TIER2,
+        category=CheckCategory.WALL,
+        fact_keys=('proposed_retaining_wall_height_m',),
+        rule_key_pattern='retaining_wall_height',
+        unit='m',
+        description='Advisory check derived from 8 approved WA/Cockburn rules for \'retaining wall height\'. Most-cited source_version 269c77a6-7a15-4948-ad47-ae37b8a0db6e. e.g. "Planning approval is required for subdivision retaining walls that exceed 2m in \r height above natural ground level which abut areas of publ"',
     ),
     CheckDefinition(
         key='vertical_distance_above_water_table',

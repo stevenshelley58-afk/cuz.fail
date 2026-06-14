@@ -113,8 +113,15 @@ def unit_category_for(unit: str | None) -> str:
 # fact_key as the measured value, so a stray denominator gets compared to the
 # threshold and produces a nonsense pass/fail.  Lot-INTRINSIC checks (site_area,
 # frontage, lot width/depth) legitimately measure a property fact.
+# NB: lot-AREA concepts (site_area, min_lot_area, average_lot_size) are
+# deliberately NOT auto-evaluated against the property's lot_area_m2.  The
+# open-vocab "site_area" cluster mixes minimum-lot-size rules (R-Codes table)
+# with the wrong extracted operator (eq/lt where the table means "at least"),
+# so comparing a real lot area to the selected threshold can yield a misleading
+# likely_fail.  Until those operators are curated (see WP-E follow-up), these
+# stay needs_more_info rather than emit a confusing headline fail.  Frontage and
+# lot width/depth are unambiguous "minimum" checks and DO evaluate from synth.
 FACT_KEY_OVERRIDES: list[tuple[str, tuple[str, ...]]] = [
-    ("site_area", ("lot_area_m2",)),
     ("plot_ratio", ("proposed_plot_ratio",)),
     ("frontage", ("lot_width_m", "frontage_width_m")),
     ("lot_width", ("lot_width_m",)),
