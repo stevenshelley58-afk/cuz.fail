@@ -162,6 +162,23 @@ WP-H UX polish (mostly done 2026-06-13)                 │ │
 
 **Gate:** every candidate has a non-null `canonical_rule_key`. Top-20 clusters reviewed (by hand or by spot-prompt) for "would a drafts person see this as one category?" — if any cluster mis-groups (e.g. `primary_street_setback` and `parking_bay_setback` merging), tighten the clustering threshold and re-run. Idempotent.
 
+**WP-D embedding clustering (DONE 2026-06-15).** `wp6_cluster_keys.py` gained a real
+`--embed` path (sentence-transformers `all-MiniLM-L6-v2` + HDBSCAN), run on the VPS in a
+throwaway container so torch is NOT baked into the serving image. The WP-D spot-check
+caught two over-merge classes: (a) seed collisions — `wall_height` pulled into
+`boundary_wall_length` because the strings embed close on "wall"; (b) a blanket apply
+minting ~190 junk checks (`appeal_period`, `design_objective`, …) from long-tail admin
+singletons. So the safe production mode is `--embed --absorb-established`: a seed/anchor
+guard reverts collisions, and `is_variant_of` (token-subset: target tokens ⊆ member tokens,
+extras must be R-code/min/max qualifiers) absorbs ONLY clean variants into EXISTING check
+buckets. Result applied: 31 vetted absorptions (`min_frontage` +9 R-code variants,
+`site_cover` +7, `outdoor_living_area` +7, `rear_setback` +2, …) + 1576 benign
+plural→singular re-normalisations; registry regenerated 20→27 derived checks (the +7 are
+plural-consolidated planning requirements: APZ, environmental/urban/local water management
+plans, notification-on-title, land-use permissibility — advisory, cited). `site_area`
+(WP-E fix) absorbs 0 and is untouched. `min_frontage` operators verified all `gte`,
+`site_cover` all `lte`.
+
 ---
 
 ## WP-E — Adversarial review at scale (≈45 min run, $30–70 spend)

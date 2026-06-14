@@ -1,5 +1,25 @@
 from scripts.wp6_apply_clustering import load_map
-from scripts.wp6_cluster_keys import cluster_rule_keys, normalize_rule_key
+from scripts.wp6_cluster_keys import cluster_rule_keys, is_variant_of, normalize_rule_key
+
+
+def test_is_variant_of_absorbs_rcode_and_minmax_qualifiers() -> None:
+    # Clean variants — the member is the target plus R-code / min-max qualifiers.
+    assert is_variant_of("r20_min_frontage", "min_frontage")
+    assert is_variant_of("site_cover_max_r30", "site_cover")
+    assert is_variant_of("outdoor_living_area_min_r25", "outdoor_living_area")
+    assert is_variant_of("rear_setback_min_r2_5", "rear_setback")
+
+
+def test_is_variant_of_rejects_cross_dimension_and_operator() -> None:
+    # Dimension mismatch: length must NOT be absorbed into width.
+    assert not is_variant_of("driveway_length_min", "driveway_width")
+    # Operator/scope mismatch: a maximum lot area is not a per-dwelling minimum.
+    assert not is_variant_of("max_lot_area", "min_lot_area_per_dwelling")
+    # Different concept that merely shares a token.
+    assert not is_variant_of("wall_height", "boundary_wall_length")
+    # Conservative by design: a non-qualifier descriptor ("double") is NOT absorbed,
+    # so we under-merge a borderline variant rather than risk a wrong merge.
+    assert not is_variant_of("double_garage_width_max", "garage_width")
 
 
 def test_normalize_rule_key_groups_simple_variants() -> None:

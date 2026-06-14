@@ -16,7 +16,7 @@ from draftcheck.checks.registry import (
 )
 
 GENERATED_FROM = "rules.canonical_rule_key >= 5 approved rules"
-DERIVED_COUNT = 20
+DERIVED_COUNT = 27
 
 _DERIVED_TIER1: list[CheckDefinition] = [
     CheckDefinition(
@@ -37,7 +37,7 @@ _DERIVED_TIER1: list[CheckDefinition] = [
         fact_keys=('proposed_driveway_width_m',),
         rule_key_pattern='driveway_width',
         unit='m',
-        description='Advisory check derived from 20 approved WA/Cockburn rules for \'driveway width\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Driveways must be minimum 5.5m wide for a minimum 6.3m length (excluding manoeuvring tapers) from the street boundary"',
+        description='Advisory check derived from 22 approved WA/Cockburn rules for \'driveway width\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Driveways must be minimum 5.5m wide for a minimum 6.3m length (excluding manoeuvring tapers) from the street boundary"',
     ),
     CheckDefinition(
         key='outdoor_living_area',
@@ -47,7 +47,7 @@ _DERIVED_TIER1: list[CheckDefinition] = [
         fact_keys=('proposed_outdoor_living_area_m2',),
         rule_key_pattern='outdoor_living_area',
         unit='m2',
-        description='Advisory check derived from 79 approved WA/Cockburn rules for \'outdoor living area\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "an area of 10% of the lot size or 20m2, whichever is greater, directly accessible from a habitable room of the dwelling and located behind t"',
+        description='Advisory check derived from 86 approved WA/Cockburn rules for \'outdoor living area\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "an area of 10% of the lot size or 20m2, whichever is greater, directly accessible from a habitable room of the dwelling and located behind t"',
     ),
     CheckDefinition(
         key='parking_bays_per_dwelling',
@@ -83,6 +83,26 @@ _DERIVED_TIER1: list[CheckDefinition] = [
 
 _DERIVED_TIER2: list[CheckDefinition] = [
     CheckDefinition(
+        key='approved_structure_plan_regard',
+        name='Approved Structure Plan Regard',
+        tier=CheckTier.TIER2,
+        category=CheckCategory.OTHER,
+        fact_keys=('proposed_approved_structure_plan_regard_count',),
+        rule_key_pattern='approved_structure_plan_regard',
+        unit='',
+        description='Advisory check derived from 7 approved WA/Cockburn rules for \'approved structure plan regard\'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. "An approved Structure Plan together with all approved amendments shall be given due regard in the assessment of applications for subdivision"',
+    ),
+    CheckDefinition(
+        key='asset_protection_zone',
+        name='Asset Protection Zone',
+        tier=CheckTier.TIER2,
+        category=CheckCategory.OTHER,
+        fact_keys=('proposed_asset_protection_zone_count',),
+        rule_key_pattern='asset_protection_zone',
+        unit='',
+        description='Advisory check derived from 6 approved WA/Cockburn rules for \'asset protection zone\'. Most-cited source_version d0329abc-e488-4195-9851-11364ea2fc11. e.g. "Every habitable building is surrounded by, and every proposed lot can achieve, an APZ depicted on submitted plans, which meets the requireme"',
+    ),
+    CheckDefinition(
         key='average_lot_size',
         name='Average Lot Size',
         tier=CheckTier.TIER2,
@@ -111,6 +131,16 @@ _DERIVED_TIER2: list[CheckDefinition] = [
         rule_key_pattern='ceiling_height',
         unit='m',
         description='Advisory check derived from 9 approved WA/Cockburn rules for \'ceiling height\'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. "In relation to ground floor dwellings fronting Cockburn Road and Rockingham \r Road, as a minimum, 3.6m floor to ceiling should be provided."',
+    ),
+    CheckDefinition(
+        key='environmental_management_plan',
+        name='Environmental Management Plan',
+        tier=CheckTier.TIER2,
+        category=CheckCategory.OTHER,
+        fact_keys=('proposed_environmental_management_plan_count',),
+        rule_key_pattern='environmental_management_plan',
+        unit='',
+        description='Advisory check derived from 6 approved WA/Cockburn rules for \'environmental management plan\'. Most-cited source_version 91b21db7-c72b-4972-99d5-22780d570bf7. e.g. "Environmental Management Plans shall be prepared in accordance with the specifications set out in the Minister for the Environment’s “Statem"',
     ),
     CheckDefinition(
         key='exempted_sign_max_size',
@@ -143,6 +173,26 @@ _DERIVED_TIER2: list[CheckDefinition] = [
         description='Advisory check derived from 6 approved WA/Cockburn rules for \'fence height side\'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. "The interface between residential development and the public open space may be fenced to a maximum height of 1.2m from natural ground level,"',
     ),
     CheckDefinition(
+        key='land_use_permissibility',
+        name='Land Use Permissibility',
+        tier=CheckTier.TIER2,
+        category=CheckCategory.OTHER,
+        fact_keys=('proposed_land_use_permissibility_count',),
+        rule_key_pattern='land_use_permissibility',
+        unit='',
+        description='Advisory check derived from 12 approved WA/Cockburn rules for \'land use permissibility\'. Most-cited source_version 7b5f4159-70f2-4065-9111-a6eeae465af4. e.g. "Where uses are considered fundamentally unacceptable they will be prohibited (identified as an ‘X’ use). Where uses could be acceptable they"',
+    ),
+    CheckDefinition(
+        key='local_water_management_strategy',
+        name='Local Water Management Strategy',
+        tier=CheckTier.TIER2,
+        category=CheckCategory.OTHER,
+        fact_keys=('proposed_local_water_management_strategy_count',),
+        rule_key_pattern='local_water_management_strategy',
+        unit='',
+        description='Advisory check derived from 5 approved WA/Cockburn rules for \'local water management strategy\'. Most-cited source_version 016c2373-3348-41c0-a811-4b239c339b54. e.g. "The Responsible Authority must not approve any structure plan for the Amendment area unless it is satisfied, after consulting with DWER, DBC"',
+    ),
+    CheckDefinition(
         key='min_frontage',
         name='Min Frontage',
         tier=CheckTier.TIER2,
@@ -150,7 +200,7 @@ _DERIVED_TIER2: list[CheckDefinition] = [
         fact_keys=('lot_width_m', 'frontage_width_m'),
         rule_key_pattern='min_frontage',
         unit='m',
-        description='Advisory check derived from 10 approved WA/Cockburn rules for \'min frontage\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Where reticulated sewerage is available, the minimum recommended lot size is 1000m2, with a minimum frontage width of 25m."',
+        description='Advisory check derived from 19 approved WA/Cockburn rules for \'min frontage\'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. "Where reticulated sewerage is available, the minimum recommended lot size is 1000m2, with a minimum frontage width of 25m."',
     ),
     CheckDefinition(
         key='min_lot_area_per_dwelling',
@@ -161,6 +211,16 @@ _DERIVED_TIER2: list[CheckDefinition] = [
         rule_key_pattern='min_lot_area_per_dwelling',
         unit='m2',
         description='Advisory check derived from 6 approved WA/Cockburn rules for \'min lot area per dwelling\'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. "R160 lots – calculated by dividing the lot area (m2) by 62.5 to give the number of dwellings."',
+    ),
+    CheckDefinition(
+        key='notification_on_title',
+        name='Notification On Title',
+        tier=CheckTier.TIER2,
+        category=CheckCategory.OTHER,
+        fact_keys=('proposed_notification_on_title_count',),
+        rule_key_pattern='notification_on_title',
+        unit='',
+        description='Advisory check derived from 8 approved WA/Cockburn rules for \'notification on title\'. Most-cited source_version 0daa92e3-cba6-49e3-ab97-bf8a97dd51a4. e.g. "a condition be imposed on the grant of subdivision approval for a notification to be placed on the Certificate(s) of Title(s) of affected lo"',
     ),
     CheckDefinition(
         key='parking_ratio_hotel_tavern',
@@ -210,7 +270,17 @@ _DERIVED_TIER2: list[CheckDefinition] = [
         fact_keys=('proposed_retaining_wall_height_m',),
         rule_key_pattern='retaining_wall_height',
         unit='m',
-        description='Advisory check derived from 8 approved WA/Cockburn rules for \'retaining wall height\'. Most-cited source_version 269c77a6-7a15-4948-ad47-ae37b8a0db6e. e.g. "Planning approval is required for subdivision retaining walls that exceed 2m in \r height above natural ground level which abut areas of publ"',
+        description='Advisory check derived from 9 approved WA/Cockburn rules for \'retaining wall height\'. Most-cited source_version 269c77a6-7a15-4948-ad47-ae37b8a0db6e. e.g. "Planning approval is required for subdivision retaining walls that exceed 2m in \r height above natural ground level which abut areas of publ"',
+    ),
+    CheckDefinition(
+        key='urban_water_management_plan',
+        name='Urban Water Management Plan',
+        tier=CheckTier.TIER2,
+        category=CheckCategory.OTHER,
+        fact_keys=('proposed_urban_water_management_plan_count',),
+        rule_key_pattern='urban_water_management_plan',
+        unit='',
+        description='Advisory check derived from 9 approved WA/Cockburn rules for \'urban water management plan\'. Most-cited source_version 71ef7091-9d5e-43cd-96d4-4b689f439b3d. e.g. "The WAPC can include a standard condition on subdivision applications (model subdivision condition D2 (WAPC and DPLH 2019)), requiring the p"',
     ),
     CheckDefinition(
         key='vertical_distance_above_water_table',
@@ -220,7 +290,7 @@ _DERIVED_TIER2: list[CheckDefinition] = [
         fact_keys=('proposed_vertical_distance_above_water_table_m',),
         rule_key_pattern='vertical_distance_above_water_table',
         unit='m',
-        description='Advisory check derived from 5 approved WA/Cockburn rules for \'vertical distance above water table\'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. "the vertical distance between the bottom of the domestic waste effluent  disposal system is greater than 2 metres above the highest known wa"',
+        description='Advisory check derived from 7 approved WA/Cockburn rules for \'vertical distance above water table\'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. "The minimum vertical distance of land on which a building is to be erected above the highest known water table as determined by the Departme"',
     ),
 ]
 
