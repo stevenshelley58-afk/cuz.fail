@@ -254,8 +254,9 @@ def dev_login(
 
 
 # In-process per-IP limiter for guest-session creation (abuse valve; resets on
-# process restart, which is acceptable for now — noted in the PR).
-_GUEST_SESSION_LIMIT_PER_HOUR = 20
+# process restart, which is acceptable for now — noted in the PR). Overridable
+# via env so a friendly-cohort test (possibly shared-IP) isn't blocked.
+_GUEST_SESSION_LIMIT_PER_HOUR = int(os.getenv("DRAFTCHECK_GUEST_SESSION_LIMIT_PER_HOUR", "20"))
 _guest_session_window: dict[str, list[datetime]] = {}
 _guest_session_lock = Lock()
 

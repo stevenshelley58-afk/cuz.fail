@@ -4,6 +4,7 @@ from __future__ import annotations
 from datetime import UTC, datetime
 
 from draftcheck.checks.engine import (
+    _advisory_relevance_score,
     _base_rule_key,
     _drawing_evidence,
     _extract_text_value,
@@ -13,6 +14,34 @@ from draftcheck.checks.engine import (
     _select_rule,
 )
 from draftcheck.db.models import Project, PropertyFact, Rule
+
+
+def _adv_rule(key, means="", applies=None, r_codes=None, zones=None):
+    return Rule(
+        rule_key=key, canonical_rule_key=key, rule_type="standard", pathway="none",
+        lifecycle_status="approved", check_type="boolean_presence", quote="q",
+        rule_logic_json={"what_it_means": means, "applies_when": applies},
+        applicable_r_codes=r_codes, applicable_zones=zones,
+    )
+
+
+def test_advisory_relevance_prioritises_residential_over_subdivision():
+    setback = _adv_rule("primary_street_setback",
+                        means="Buildings must be set back from the street boundary")
+    subdiv = _adv_rule("subdivision_lot_design",
+                       means="Subdivision lot design and road reserve standards for commercial precincts")
+    s_set = _advisory_relevance_score(setback, ["R20"], ["Residential"])
+    s_sub = _advisory_relevance_score(subdiv, ["R20"], ["Residential"])
+    assert s_set > s_sub
+
+
+def test_advisory_relevance_boosts_rcode_match_in_applies_when():
+    generic = _adv_rule("wall_height", means="wall height limit")
+    scoped = _adv_rule("wall_height", means="wall height limit", applies="Applies to R20 coded lots")
+    assert (
+        _advisory_relevance_score(scoped, ["R20"], None)
+        > _advisory_relevance_score(generic, ["R20"], None)
+    )
 
 
 def _rule(rule_key, base=None, value=4.0, operator="gte", r_codes=None,

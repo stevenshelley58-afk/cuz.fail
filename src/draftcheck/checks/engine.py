@@ -316,15 +316,68 @@ _ADVISORY_CHECK_TYPES = (
     "conditional",
 )
 
+# Keywords used to RANK advisory rules by relevance to the proposal. The decode
+# rules mostly lack structured applicable_zones/r_codes, so a SQL filter alone
+# cannot scope them — we score by content so a residential lot surfaces siting/
+# design rules first instead of an alphabetical wall of subdivision/admin items.
+_RESIDENTIAL_KW = (
+    "setback", "boundary", "wall", "fence", "garage", "carport", "outbuilding",
+    "patio", "shed", "dwelling", "height", "storey", "plot ratio", "site cover",
+    "open space", "outdoor living", "landscap", "overlook", "privacy", "solar",
+    "parking", "driveway", "crossover", "building envelope", "facade", "roof",
+    "eaves", "porch", "verandah", "retaining", "fill", "excavation", "amenity",
+)
+_DOWNWEIGHT_KW = (
+    "subdivision", "subdivide", "lot design", "road reserve", "developer contribution",
+    "strata", "commercial", "industrial", "rural", "pastoral", "mining", "marina",
+    "dredging", "structure plan area", "precinct", "regional", "foreshore reserve",
+)
+
+
+def _advisory_relevance_score(
+    rule: Rule, r_codes: list[str] | None, zone_codes: list[str] | None
+) -> float:
+    """Heuristic relevance of a non-numeric rule to the current proposal.
+
+    Higher = more relevant. Uses the proposal r-code/zone and residential
+    development keywords; downweights subdivision/commercial/admin content.
+    """
+    logic = rule.rule_logic_json if isinstance(rule.rule_logic_json, dict) else {}
+    applies = str(logic.get("applies_when") or "").lower()
+    text = " ".join([
+        rule.canonical_rule_key or rule.rule_key or "",
+        str(logic.get("what_it_means") or ""),
+        applies,
+    ]).lower()
+    score = 0.0
+    for rc in (r_codes or []):
+        rcl = str(rc).lower()
+        if rcl and (rcl in applies or rcl in text):
+            score += 6.0
+    for zc in (zone_codes or []):
+        if str(zc).lower() in text:
+            score += 3.0
+    if "residential" in text or "dwelling" in text:
+        score += 2.0
+    score += sum(1.0 for kw in _RESIDENTIAL_KW if kw in text)
+    score -= sum(1.5 for kw in _DOWNWEIGHT_KW if kw in text)
+    # Rules explicitly scoped to this proposal (non-null applicable_*) rank above
+    # globally-applicable ones of equal content.
+    if rule.applicable_r_codes or rule.applicable_zones:
+        score += 1.0
+    return score
+
 
 def _get_advisory_rules(
     session: Session,
     *,
     council_scope: str | None,
     r_codes: list[str] | None,
+    zone_codes: list[str] | None = None,
 ) -> list[Rule]:
     """Load applicable NON-numeric development rules (categorical / presence /
-    conditional / qualitative-performance) to surface as advisory items."""
+    conditional / qualitative-performance), RANKED by relevance to the proposal
+    (not alphabetical) so the most pertinent rules surface first."""
     from sqlalchemy import cast, or_
     from sqlalchemy.dialects.postgresql import JSONB as PgJSONB
 
@@ -341,7 +394,19 @@ def _get_advisory_rules(
         for rc in r_codes:
             r_code_filters.append(Rule.applicable_r_codes.contains(cast([rc], PgJSONB)))
         q = q.filter(or_(*r_code_filters))
-    return q.order_by(Rule.canonical_rule_key, Rule.created_at.desc()).limit(3000).all()
+    if zone_codes and any(zone_codes):
+        zone_filters = [Rule.applicable_zones == None]  # noqa: E711
+        for zc in zone_codes:
+            zone_filters.append(Rule.applicable_zones.contains(cast([zc], PgJSONB)))
+        q = q.filter(or_(*zone_filters))
+    candidates = q.limit(3000).all()
+    candidates.sort(
+        key=lambda r: (
+            -_advisory_relevance_score(r, r_codes, zone_codes),
+            r.canonical_rule_key or r.rule_key or "",
+        )
+    )
+    return candidates
 
 
 def _rule_pack_hash(rules: list[Rule]) -> str:
@@ -378,16 +443,28 @@ class ComplianceEngine:
 
         # ------------------------------------------------------------------
         # 2. Load PropertyFacts for this project (needed before rule filtering)
+        #    Confirmed facts are authoritative (spatial synth / promoted docs).
+        #    Manual overrides are the USER's proposed design values — they must
+        #    also flow into the checks, otherwise a user who types a proposed
+        #    setback/height gets silent needs_more_info (their input dropped).
+        #    The rule still supplies the cited threshold; the override supplies
+        #    the measured value (provenance records it as manual_override).
         # ------------------------------------------------------------------
+        from sqlalchemy import or_
+
         facts: list[PropertyFact] = (
             session.query(PropertyFact)
             .filter(
                 PropertyFact.project_id == UUID(project_id),
-                PropertyFact.review_status == "confirmed",
+                or_(
+                    PropertyFact.review_status == "confirmed",
+                    PropertyFact.method == "manual_override",
+                ),
             )
             .all()
         )
-        # Build lookup: fact_type -> PropertyFact (most-recent wins)
+        # Build lookup: fact_type -> PropertyFact (most-recent wins, so a user's
+        # manual override of a fact takes precedence over an earlier synth value).
         fact_by_type: dict[str, PropertyFact] = {}
         for fact in sorted(facts, key=lambda f: f.created_at):
             fact_by_type[fact.fact_type] = fact
@@ -647,7 +724,8 @@ class ComplianceEngine:
         emitted_keys = {it.check_key for it in results}
         seen_adv: set[str] = set()
         for rule in _get_advisory_rules(
-            session, council_scope=council_scope, r_codes=r_codes or None
+            session, council_scope=council_scope, r_codes=r_codes or None,
+            zone_codes=zone_codes or None,
         ):
             key = rule.canonical_rule_key or rule.rule_key
             if not key or key in emitted_keys or key in seen_adv:
