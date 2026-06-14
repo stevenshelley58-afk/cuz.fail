@@ -1024,6 +1024,12 @@ class RuleCandidate(Base, TimestampMixin):
     canonical_rule_key: Mapped[str | None] = mapped_column(String(160), nullable=True, index=True)
     rule_type: Mapped[str] = mapped_column(String(60), nullable=False, default="requirement")
     pathway: Mapped[str] = mapped_column(String(60), nullable=False, default="none")
+    # Open-vocab rule decode (2026-06-15): the kind of check, how it can be
+    # evaluated, and the structured logic (what it is / what it means / how to
+    # query) for non-numeric rules.  See migration 0019.
+    check_type: Mapped[str | None] = mapped_column(String(40), nullable=True, index=True)
+    evaluable: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    rule_logic_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     operator: Mapped[str | None] = mapped_column(String(40), nullable=True)
     value_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     unit: Mapped[str | None] = mapped_column(String(40), nullable=True)
@@ -1094,6 +1100,10 @@ class Rule(Base, TimestampMixin):
     rule_type: Mapped[str] = mapped_column(String(60), nullable=False)
     pathway: Mapped[str] = mapped_column(String(60), nullable=False, default="none")
     lifecycle_status: Mapped[str] = mapped_column(String(40), nullable=False, default="pending_review")
+    # Open-vocab rule decode (2026-06-15) — see RuleCandidate / migration 0019.
+    check_type: Mapped[str | None] = mapped_column(String(40), nullable=True, index=True)
+    evaluable: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    rule_logic_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     operator: Mapped[str | None] = mapped_column(String(40), nullable=True)
     value_json: Mapped[dict[str, object]] = mapped_column(JSONB, nullable=False, default=dict)
     unit: Mapped[str | None] = mapped_column(String(40), nullable=True)
