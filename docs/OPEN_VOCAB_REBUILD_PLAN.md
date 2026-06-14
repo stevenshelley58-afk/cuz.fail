@@ -180,6 +180,19 @@ WP-H UX polish (mostly done 2026-06-13)                 │ │
 
 **Gate:** `reports/wp6_apply_adv_review.json` shows considered ≥ 80% of validators_passed pool; rejected_rate between 30–60% (similar to today's 57%). Anything outside that range = investigate before promoting.
 
+**WP-E follow-up — lot-area operator curation (DONE 2026-06-15).** The open-vocab
+`site_area` cluster mixed R-Codes Table-1 minimum/average lot-size rows with the wrong
+extracted operator (`eq`/`gt` where the table means "at least"), so `site_area` was held
+at needs_more_info (its `lot_area_m2` override removed). Fixed by
+`scripts/wp6_curate_lot_area_operators.py` (quote-driven, idempotent, audited): flips ONLY
+minimum/table rows to `gte` (45 in prod: site_area 30 eq + 4 gt, min_lot_area_per_dwelling
+5, average_lot_size 6), leaving maxima / applicability filters / ranges / noise untouched.
+`("site_area", ("lot_area_m2",))` re-added to `FACT_KEY_OVERRIDES`; registry regenerated.
+Verified with `scripts/verify_lot_area_synth.py` (parcel-inject harness): 708 m² @ R20 →
+`likely_pass` 450; 300 m² @ R20 → `likely_fail` 450. Open follow-up: deterministic
+clustering still orphans 76% of approved rules (3827 singletons) — embedding clustering
+(below) is the next lever, but any re-cluster must re-run this curation on merged clusters.
+
 ---
 
 ## WP-F — CheckDefinition derivation (≈45 min)
