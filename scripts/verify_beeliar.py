@@ -75,16 +75,32 @@ def main() -> int:
             result = ComplianceEngine().run_check(project_id=project_id, org_id=ORG_ID, session=s)
             s.commit()
             statuses: dict[str, int] = {}
-            results = []
+            by_check_type: dict[str, int] = {}
+            numeric_results = []
+            advisory_samples = []
             for item in result.results:
                 statuses[item.status] = statuses.get(item.status, 0) + 1
-                results.append({"check_key": item.check_key, "status": item.status,
-                                "citation": item.citation,
-                                "measured": item.measured_value, "threshold": item.threshold_value})
+                ct = item.check_type or "numeric_threshold"
+                by_check_type[ct] = by_check_type.get(ct, 0) + 1
+                if item.check_type and item.check_type != "numeric_threshold":
+                    if len(advisory_samples) < 8:
+                        advisory_samples.append({
+                            "check_key": item.check_key, "check_type": item.check_type,
+                            "status": item.status, "what_it_means": item.what_it_means,
+                            "how_to_query": item.how_to_query, "citation": item.citation})
+                else:
+                    numeric_results.append({"check_key": item.check_key, "status": item.status,
+                                            "citation": item.citation, "measured": item.measured_value,
+                                            "threshold": item.threshold_value})
             report["categories_evaluated"] = len(result.results)
             report["status_breakdown"] = statuses
+            report["by_check_type"] = by_check_type
+            report["numeric_checks"] = len(numeric_results)
+            report["advisory_rules_surfaced"] = sum(
+                v for k, v in by_check_type.items() if k != "numeric_threshold")
             report["pass_or_fail"] = statuses.get("likely_pass", 0) + statuses.get("likely_fail", 0)
-            report["results"] = results
+            report["numeric_results"] = numeric_results
+            report["advisory_samples"] = advisory_samples
     finally:
         # 5. cleanup throwaway project (cascade deletes facts/checks)
         with Session(engine) as s:
