@@ -148,10 +148,16 @@ def _select_rule(
 
 @dataclass
 class CheckResultItem:
-    """Advisory result for a single Tier-1 check."""
+    """Advisory result for a single check.
+
+    Numeric checks carry threshold/measured values.  Non-numeric (categorical,
+    presence, conditional, qualitative/performance) rules carry the decoded
+    ``what_it_means`` / ``how_to_query`` so the panel can show what the rule
+    requires and how it would be verified.
+    """
 
     check_key: str
-    status: str  # likely_pass | likely_fail | needs_more_info | unsupported
+    status: str  # likely_pass | likely_fail | needs_more_info | unsupported | needs_assessment
     threshold_value: float | None
     threshold_unit: str | None
     measured_value: float | None
@@ -159,6 +165,9 @@ class CheckResultItem:
     rule_quote: str | None
     citation: str | None
     note: str | None = None
+    check_type: str | None = None  # numeric_threshold | categorical | boolean_presence | ...
+    what_it_means: str | None = None
+    how_to_query: str | None = None
 
 
 @dataclass
@@ -298,6 +307,41 @@ def _get_applicable_rules(
         q = q.filter(or_(*r_code_filters))
 
     return q.all()
+
+
+_ADVISORY_CHECK_TYPES = (
+    "categorical",
+    "boolean_presence",
+    "qualitative_performance",
+    "conditional",
+)
+
+
+def _get_advisory_rules(
+    session: Session,
+    *,
+    council_scope: str | None,
+    r_codes: list[str] | None,
+) -> list[Rule]:
+    """Load applicable NON-numeric development rules (categorical / presence /
+    conditional / qualitative-performance) to surface as advisory items."""
+    from sqlalchemy import cast, or_
+    from sqlalchemy.dialects.postgresql import JSONB as PgJSONB
+
+    q = session.query(Rule).filter(
+        Rule.lifecycle_status == "approved",
+        Rule.check_type.in_(_ADVISORY_CHECK_TYPES),
+    )
+    if council_scope:
+        q = q.filter(
+            (Rule.council_scope == None) | (Rule.council_scope == council_scope)  # noqa: E711
+        )
+    if r_codes and any(r_codes):
+        r_code_filters = [Rule.applicable_r_codes == None]  # noqa: E711
+        for rc in r_codes:
+            r_code_filters.append(Rule.applicable_r_codes.contains(cast([rc], PgJSONB)))
+        q = q.filter(or_(*r_code_filters))
+    return q.order_by(Rule.canonical_rule_key, Rule.created_at.desc()).limit(3000).all()
 
 
 def _rule_pack_hash(rules: list[Rule]) -> str:
@@ -592,6 +636,46 @@ class ComplianceEngine:
                 pathway_note=rule.pathway if rule.pathway != "none" else None,
             )
             session.add(check_result)
+
+        # ------------------------------------------------------------------
+        # 7. Surface applicable NON-NUMERIC development rules as advisory items.
+        #    These carry the decoded "what it means" / "how to query" so the
+        #    panel can show the rule and how it would be verified.  They never
+        #    emit a false pass/fail — auto_presence/categorical that can't be
+        #    confirmed are needs_more_info; qualitative are needs_assessment.
+        # ------------------------------------------------------------------
+        emitted_keys = {it.check_key for it in results}
+        seen_adv: set[str] = set()
+        for rule in _get_advisory_rules(
+            session, council_scope=council_scope, r_codes=r_codes or None
+        ):
+            key = rule.canonical_rule_key or rule.rule_key
+            if not key or key in emitted_keys or key in seen_adv:
+                continue
+            seen_adv.add(key)
+            if len(seen_adv) > 80:
+                break
+            logic = rule.rule_logic_json if isinstance(rule.rule_logic_json, dict) else {}
+            adv_status = (
+                "needs_assessment" if rule.evaluable == "ai_judgement" else "needs_more_info"
+            )
+            results.append(
+                CheckResultItem(
+                    check_key=key,
+                    status=adv_status,
+                    threshold_value=None,
+                    threshold_unit=None,
+                    measured_value=None,
+                    rule_id=str(rule.id),
+                    rule_quote=rule.quote,
+                    citation=_build_citation(rule),
+                    note=str(logic.get("how_to_query") or "") or None,
+                    check_type=rule.check_type,
+                    what_it_means=str(logic.get("what_it_means") or "") or None,
+                    how_to_query=str(logic.get("how_to_query") or "") or None,
+                )
+            )
+            any_missing = True
 
         # ------------------------------------------------------------------
         # 8. Update CheckRun status
