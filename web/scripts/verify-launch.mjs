@@ -61,11 +61,9 @@ for (const routeNeedle of [
 
 const launchSource = read(join(src, "views", "launch.tsx"));
 for (const launchNeedle of [
-  "Check an address free",
+  "Check a block. Ask anything.",
   "lotfile_launch_address",
-  "WA residential planning checks",
-  "Clear next steps",
-  "Read sourced results",
+  "professional certification",
   "Uploaded drawings",
   "Liability limits",
 ]) {

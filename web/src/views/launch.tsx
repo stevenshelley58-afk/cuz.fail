@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Icon } from "../components/common";
 
 type Navigate = (path: string) => void;
+
+const EXAMPLES = [
+  "100 St Georges Tce, Perth",
+  "R-Code for my address",
+  "Setbacks for a single house",
+  "Can I subdivide this block?",
+];
 
 function Header({ onNavigate }: { onNavigate: Navigate }) {
   return (
@@ -19,106 +26,55 @@ function Header({ onNavigate }: { onNavigate: Navigate }) {
 }
 
 export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
-  const [address, setAddress] = useState("");
+  const [prompt, setPrompt] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-  function startCheck() {
-    const trimmed = address.trim();
+  function send() {
+    const trimmed = prompt.trim();
     if (trimmed) sessionStorage.setItem("lotfile_launch_address", trimmed);
     onNavigate("/app");
+  }
+
+  function onKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      send();
+    }
+  }
+
+  function fillExample(text: string) {
+    setPrompt(text);
+    textareaRef.current?.focus();
   }
 
   return (
     <div className="launch">
       <Header onNavigate={onNavigate} />
       <main className="launch-main">
-        <section className="launch-hero" aria-labelledby="launch-title">
-          <div className="launch-copy">
-            <p className="launch-kicker">WA residential planning checks</p>
-            <h1 id="launch-title">Check a block before the drafting bill lands.</h1>
-            <p className="launch-lede">
-              LotFile gives address-first planning checks for WA projects with cited source versions,
-              uploaded-drawing extraction and clear missing-information flags.
-            </p>
-            <form className="launch-address" onSubmit={(e) => { e.preventDefault(); startCheck(); }}>
-              <label htmlFor="launch-address">Street address</label>
-              <div>
-                <input
-                  id="launch-address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  placeholder="Enter a WA street address"
-                  autoComplete="street-address"
-                />
-                <button type="submit">
-                  <Icon name="location_on" />Check an address free
-                </button>
-              </div>
-            </form>
-          </div>
-          <div className="launch-product" aria-label="LotFile check preview">
-            <div className="launch-product-top">
-              <span>LotFile check</span>
-            </div>
-            <div className="launch-product-address">
-              <Icon name="location_on" />
-              <div>
-                <b>Address resolved</b>
-                <span>Source status, confidence and provenance shown before any result.</span>
-              </div>
-            </div>
-            <div className="launch-product-grid">
-              <div><b>R-Code</b><span>cited source</span></div>
-              <div><b>Setbacks</b><span>needs drawing</span></div>
-              <div><b>Open space</b><span>measurement required</span></div>
-              <div><b>Export</b><span>validation gated</span></div>
-            </div>
-          </div>
+        <section className="launch-ask" aria-labelledby="launch-title">
+          <h1 id="launch-title">Check a block. Ask anything.</h1>
+          <form className="launch-prompt" onSubmit={(e) => { e.preventDefault(); send(); }}>
+            <label htmlFor="launch-address" className="sr-only">Address or question</label>
+            <textarea
+              id="launch-address"
+              ref={textareaRef}
+              value={prompt}
+              onChange={(e) => setPrompt(e.target.value)}
+              onKeyDown={onKeyDown}
+              placeholder="Type an address or ask a question about WA planning"
+              rows={3}
+              autoComplete="off"
+            />
+            <button type="submit" aria-label="Send">→</button>
+          </form>
+          <ul className="launch-examples" aria-label="Example prompts">
+            {EXAMPLES.map((text) => (
+              <li key={text}>
+                <button type="button" onClick={() => fillExample(text)}>{text}</button>
+              </li>
+            ))}
+          </ul>
         </section>
-
-        <section className="launch-band" aria-label="Trust and governance">
-          <div>
-            <Icon name="verified" />
-            <b>Cited source library</b>
-            <span>Answers must cite approved source versions or say the library cannot support them.</span>
-          </div>
-          <div>
-            <Icon name="straighten" />
-            <b>Drawing-aware checks</b>
-            <span>Uploaded plans are used to extract facts and measurements, not to issue approvals.</span>
-          </div>
-          <div>
-            <Icon name="gavel" />
-            <b>Clear next steps</b>
-            <span>Results highlight what is known, what needs drawings and what still needs review.</span>
-          </div>
-        </section>
-
-        <section className="launch-steps" aria-label="How LotFile works">
-          <article>
-            <span>1</span>
-            <h2>Start with the address</h2>
-            <p>Resolve the project location, then review council, zone, R-Code and provenance before a check runs.</p>
-          </article>
-          <article>
-            <span>2</span>
-            <h2>Upload drawing evidence</h2>
-            <p>DXF and plan facts stay reviewable, with measurements promoted only after confirmation.</p>
-          </article>
-          <article>
-            <span>3</span>
-            <h2>Read sourced results</h2>
-            <p>Issue cards show the relevant source references, extracted facts and missing information.</p>
-          </article>
-        </section>
-
-        <footer className="launch-footer">
-          <span>LotFile helps organise planning checks before you commit to drafting work.</span>
-          <nav aria-label="Footer links">
-            <button onClick={() => onNavigate("/privacy")}>Privacy</button>
-            <button onClick={() => onNavigate("/terms")}>Terms</button>
-            <button onClick={() => onNavigate("/app")}>Open app</button>
-          </nav>
-        </footer>
       </main>
     </div>
   );
