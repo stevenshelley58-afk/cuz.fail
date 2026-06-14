@@ -113,16 +113,22 @@ def unit_category_for(unit: str | None) -> str:
 # fact_key as the measured value, so a stray denominator gets compared to the
 # threshold and produces a nonsense pass/fail.  Lot-INTRINSIC checks (site_area,
 # frontage, lot width/depth) legitimately measure a property fact.
-# NB: lot-AREA concepts (site_area, min_lot_area, average_lot_size) are
-# deliberately NOT auto-evaluated against the property's lot_area_m2.  The
-# open-vocab "site_area" cluster mixes minimum-lot-size rules (R-Codes table)
-# with the wrong extracted operator (eq/lt where the table means "at least"),
-# so comparing a real lot area to the selected threshold can yield a misleading
-# likely_fail.  Until those operators are curated (see WP-E follow-up), these
-# stay needs_more_info rather than emit a confusing headline fail.  Frontage and
-# lot width/depth are unambiguous "minimum" checks and DO evaluate from synth.
+# NB: "site_area" IS auto-evaluated against the property's lot_area_m2 — but only
+# after WP-E operator curation.  The open-vocab "site_area" cluster mixed
+# minimum-lot-size rules (R-Codes table) with the wrong extracted operator (eq/gt
+# where the table means "at least").  scripts/wp6_curate_lot_area_operators.py
+# normalised those minimum/table rows to 'gte', so the selected threshold is now a
+# real minimum and a 708 m2 lot at R20 correctly likely_passes a 450 m2 minimum.
+# (Conditional/exception rows like "2 grouped dwellings on a lot >= 900m2" stay
+# rule_type='exception', so the engine ranks them below the standard minimum.)
+# min_lot_area_per_dwelling / average_lot_size are NOT mapped to lot_area_m2: they
+# are per-dwelling / averaged quantities, not the single lot's area, so they keep
+# their proposed_* fact_keys (needs_more_info until a measurement is supplied).
+# Frontage and lot width/depth are unambiguous "minimum" checks and evaluate from
+# synth.
 FACT_KEY_OVERRIDES: list[tuple[str, tuple[str, ...]]] = [
     ("plot_ratio", ("proposed_plot_ratio",)),
+    ("site_area", ("lot_area_m2",)),
     ("frontage", ("lot_width_m", "frontage_width_m")),
     ("lot_width", ("lot_width_m",)),
     ("lot_depth", ("lot_depth_m",)),
