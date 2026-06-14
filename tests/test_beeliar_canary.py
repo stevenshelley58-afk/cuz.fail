@@ -75,6 +75,41 @@ def test_beeliar_meets_core_contract() -> None:
         assert not missing, f"pass/fail results missing citation: {missing}"
 
 
+_ADVISORY_CHECK_TYPES = {
+    "categorical",
+    "boolean_presence",
+    "qualitative_performance",
+    "conditional",
+}
+
+
+def test_advisory_rules_are_decoded_and_cited() -> None:
+    """Non-numeric rules must surface DECODED (what it means / how to query) and
+    CITED, and must never assert a false pass/fail. This pins the rich-decode
+    contract: every rule is captured as what-it-is / what-it-means / how-to-query,
+    not only numeric thresholds."""
+    data = _recorded_or_skip()
+    rec = data["recorded"]
+    samples = rec.get("advisory_samples")
+    if samples is None:
+        pytest.skip("recorded run predates rich-decode advisory surfacing")
+
+    assert rec.get("advisory_rules_surfaced", 0) >= 1, "no non-numeric rules surfaced"
+    for s in samples:
+        assert s["check_type"] in _ADVISORY_CHECK_TYPES, s["check_type"]
+        # Decoded meaning + query method must be present (the user's requirement).
+        assert (s.get("what_it_means") or "").strip(), s["check_key"]
+        assert (s.get("how_to_query") or "").strip(), s["check_key"]
+        # Cite-or-refuse: every surfaced rule carries a source citation.
+        assert (s.get("citation") or "").strip(), s["check_key"]
+        # Advisory only — never a deterministic pass/fail on a non-numeric rule.
+        assert s["status"] in {"needs_more_info", "needs_assessment"}, s
+
+    # by_check_type must record at least one non-numeric type alongside numerics.
+    by_ct = rec.get("by_check_type", {})
+    assert any(k in _ADVISORY_CHECK_TYPES for k in by_ct), by_ct
+
+
 def test_partial_verification_documents_gaps() -> None:
     """If the run is only partially verified, the shortfalls must be documented."""
     data = _load()

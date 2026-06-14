@@ -8,6 +8,26 @@ Audience: an autonomous agent picking up the next session. Each WP has exact fil
 
 ---
 
+## IMPLEMENTATION STATUS UPDATE — Rich rule DECODE model (2026-06-15)
+
+Operator reframe (Steven, 2026-06-14): **"not every rule will have a number — that's why we use an LLM to decode it. There is a rule; then we need to know what it IS, what it MEANS, and how we will QUERY it."** The pipeline below was numeric-atom-centric (only `numeric_threshold` rules survived). It is now generalised to decode **every** kind of planning rule.
+
+**New decode schema (migration `0019_rule_decode_logic`, applied to prod).** `rules` and `rule_candidates` gain:
+- `check_type` — `numeric_threshold | categorical | boolean_presence | qualitative_performance | conditional` (+ `not_a_rule`, which is filtered, not stored).
+- `evaluable` — `auto_numeric | auto_presence | ai_judgement | needs_more_info`.
+- `rule_logic_json` (JSONB) — `{what_it_is, what_it_means, requirement, applies_when, how_to_query, modality, relevance}`.
+
+**New pipeline (replaces WP-C/E for non-numeric rules; WP-D/F still apply to numerics):**
+1. `scripts/wp6_decode.py` — concurrent OpenAI (`gpt-4o-mini`, JSON mode) decoder. One clause → N rule objects, each with a **verbatim quote anchor** (cite-or-refuse) and a `relevance` class. **Keeps only `relevance='development'`** (drops administration / enforcement / definition noise — Local Government Act audit/fee/delegation provisions a draftsperson never checks against). Idempotent per `(clause_id, extractor_model)`.
+2. `scripts/wp6_promote_decode.py --apply` — promotes development decode candidates → approved, cited, advisory `rules`, carrying `check_type/evaluable/rule_logic_json`. Idempotent (`rule.id == candidate.id`).
+3. `src/draftcheck/checks/engine.py` step 7 — `_get_advisory_rules()` surfaces applicable non-numeric rules (filtered by `council_scope`/`r_codes`, capped 80) as advisory `CheckResultItem`s carrying `what_it_means` + `how_to_query` + citation. **Never a false pass/fail:** `ai_judgement` → `needs_assessment`, presence/categorical/conditional unconfirmed → `needs_more_info`.
+
+**Verified end-to-end (Beeliar, partial corpus).** A single compliance run returns the 31 numeric checks **plus** ~80 non-numeric advisory rules (`boolean_presence`, `qualitative_performance`, `conditional`, `categorical`), each decoded and cited. Contract pinned in `tests/test_beeliar_canary.py::test_advisory_rules_are_decoded_and_cited`.
+
+**Known gate (operator/legal, not a rebuild bug):** numeric checks can only evaluate against real facts when the restricted Landgate/DPLH spatial datasets (`lgate-*`, `dplh-*`) are moved from `pending_review` → `approved`. Until then address resolution correctly refuses zoning/R-code facts (cite-or-refuse). Approving restricted-licence data is Steven's legal call.
+
+---
+
 ## What changed in mental model
 
 | | Before (closed vocab) | After (open vocab) |
