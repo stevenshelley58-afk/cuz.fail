@@ -68,6 +68,12 @@ USER_TMPL = (
     "Decode this clause (path: {path}).\n\nCLAUSE TEXT:\n{text}\n\n"
     "Return JSON: {{\"rules\": [ {{\n"
     "  \"rule_key\": snake_case noun phrase naming the regulated thing,\n"
+    "  \"relevance\": one of development|administration|enforcement|definition|other. "
+    "'development' = the rule governs how LAND, BUILDINGS or DEVELOPMENT must be designed, sited, "
+    "used, built, landscaped or subdivided (what a draftsperson checks a proposal against). "
+    "'administration' = council/agency internal process (audits, fees, delegations, meetings, "
+    "record-keeping, public notices, officer duties). 'enforcement' = offences/penalties/procedure. "
+    "'definition' = defines a term. Be strict: only physical development-control rules are 'development'.,\n"
     "  \"check_type\": one of numeric_threshold|categorical|boolean_presence|qualitative_performance|conditional,\n"
     "  \"what_it_is\": short noun phrase,\n"
     "  \"what_it_means\": one plain-English sentence stating the obligation,\n"
@@ -129,7 +135,13 @@ def build_candidate(clause: dict, rule: dict, model_tag: str) -> dict | None:
     check_type = str(rule.get("check_type") or "").strip()
     quote = str(rule.get("quote") or "").strip()
     what_means = str(rule.get("what_it_means") or "").strip()
+    relevance = str(rule.get("relevance") or "").strip().lower()
     if not rule_key or check_type not in CHECK_TYPES or not what_means:
+        return None
+    # Compliance DB: keep only development-control rules; drop administrative /
+    # enforcement / definitional obligations (Local Government Act, audit/fee
+    # provisions, etc.) that a draftsperson never checks a proposal against.
+    if relevance != "development":
         return None
     if not _valid_quote(quote, clause["text"]):
         return None
@@ -162,6 +174,7 @@ def build_candidate(clause: dict, rule: dict, model_tag: str) -> dict | None:
         "applies_when": (str(rule["applies_when"])[:400] if rule.get("applies_when") else None),
         "how_to_query": str(rule.get("how_to_query") or "")[:600],
         "modality": modality,
+        "relevance": "development",
     }
     sig = f"{rule_key}|{check_type}|{operator}|{value}|{unit}|{quote[:40]}"
     cand_id = str(uuid.uuid5(DECODE_NS, f"{clause['clause_id']}|{model_tag}|{sig}"))
