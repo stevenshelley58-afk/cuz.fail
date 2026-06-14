@@ -15,7 +15,7 @@
   },
   "status": "verified_partial",
   "recorded": {
-    "verified_at": "2026-06-14",
+    "verified_at": "2026-06-15",
     "method": "synth_property_facts against the real Beeliar parcel (cadastre 1585770); live auto-resolution is licence-gated so the parcel was bound directly to isolate the spatial+engine path.",
     "registry_checks": 31,
     "council_scope": "City of Cockburn",
@@ -23,16 +23,16 @@
     "synth_property_facts": 6,
     "synth_fact_types": ["local_government", "lot_area_m2", "lot_depth_m", "lot_width_m", "r_code", "zone"],
     "categories_evaluated": 31,
-    "status_breakdown": {"needs_more_info": 26, "likely_fail": 1, "unsupported": 3, "likely_pass": 1},
-    "pass_or_fail": 2,
+    "status_breakdown": {"needs_more_info": 27, "unsupported": 3, "likely_pass": 1},
+    "pass_or_fail": 1,
     "results": [
-      {"check_key": "min_frontage", "status": "likely_pass", "measured": 27.83, "threshold": 10.0, "citation": true},
-      {"check_key": "site_area", "status": "likely_fail", "measured": 708.3, "threshold": 450.0, "citation": true}
-    ]
+      {"check_key": "min_frontage", "status": "likely_pass", "measured": 27.83, "threshold": 10.0, "citation": true}
+    ],
+    "wp_e_cleanup": "Adversarial review (113 Sonnet agents) over the 1726 check-backing rules rejected 419 (~25%) whose quote contradicted their canonical key; clusters cleaned, no false-alarm fails remain."
   },
   "gaps": [
-    "pass_or_fail (2) < target 10: synth provides LOT MEASUREMENTS (area/width/depth); setbacks, heights, garage, etc. require PROPOSED design values from a drawing upload and correctly return needs_more_info. The >=10 target is unreachable from spatial synth alone — it needs a proposal/drawing.",
-    "Auto-derived check PRECISION is limited: the clustering used the deterministic token-normalisation fallback (sentence-transformers/hdbscan are not installed), so some canonical clusters are heterogeneous (e.g. 'site_area' aggregates min-lot-size, max-area and exception rules), which can pick a wrong threshold (the site_area likely_fail above is such a case). Fix: install the ML clustering deps and run WP-D cluster review + WP-E adversarial review.",
+    "pass_or_fail (1) < target 10: synth provides LOT MEASUREMENTS (area/width/depth); setbacks, heights, garage, etc. require PROPOSED design values from a drawing upload and correctly return needs_more_info. The >=10 target is unreachable from spatial synth alone — it needs a proposal/drawing.",
+    "site_area and other lot-AREA checks are intentionally needs_more_info (not auto-evaluated): the R-Codes lot-size rules were extracted with inconsistent operators (eq/lt where the table means 'at least'), so comparing a real lot area could mislead. Operator-level curation is the remaining WP-E follow-up; install sentence-transformers/hdbscan for embedding-based clustering to further sharpen the canonical keys.",
     "LIVE auto-resolution for Beeliar is blocked by dataset governance: Landgate cadastre (lgate-001) and DPLH planning (dplh-*) are approval_status=pending_review with restricted licence ('commercial use unconfirmed'). The resolver correctly refuses non-approved restricted data. Approving them is an operator legal decision; once approved, resolution runs the same synth proven here."
   ]
 }
