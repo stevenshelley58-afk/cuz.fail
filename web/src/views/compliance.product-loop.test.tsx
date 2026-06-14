@@ -256,7 +256,8 @@ test("compliance panel records operator review notes on a result", async () => {
   expect(screen.getByText(/operator note/i)).toBeTruthy();
 });
 
-test("compliance panel explains missing drawing information and prompts upload", async () => {
+test("compliance panel collapses an all-needs-info run into a single upload prompt", async () => {
+  const onUploadDrawing = vi.fn();
   apiMock.compliance.run.mockResolvedValue({
     kind: "ok",
     status: 201,
@@ -291,15 +292,93 @@ test("compliance panel explains missing drawing information and prompts upload",
     },
   });
 
-  render(<CompliancePanel projectId="project-golden" />);
+  render(<CompliancePanel projectId="project-golden" onUploadDrawing={onUploadDrawing} />);
 
   await userEvent.click(await screen.findByRole("button", { name: /run compliance check/i }));
 
-  expect(await screen.findByText(/1 needs info/i)).toBeTruthy();
+  // When every check needs a measurement the summary leads with the actionable
+  // next step rather than an alarmist "needs info" count.
+  expect(await screen.findByText(/ready to check 1 rules/i)).toBeTruthy();
   expect(trackEventMock).toHaveBeenCalledWith("compliance_run", {
     result_count: 1,
     status: "needs_more_info",
   });
+
+  // The per-check yellow cards collapse into a single blue upload prompt; the
+  // individual result row is hidden in favour of it.
+  expect(screen.getByText("Add measurements to see your results")).toBeTruthy();
+  expect(screen.getByText(/we have 1 approved rule/i)).toBeTruthy();
+  expect(screen.queryByRole("button", { name: /primary street setback/i })).toBeNull();
+
+  await userEvent.click(screen.getByRole("button", { name: "Upload drawing" }));
+  expect(onUploadDrawing).toHaveBeenCalledTimes(1);
+  expect(await screen.findByText(/use the documents upload area/i)).toBeTruthy();
+});
+
+test("compliance panel surfaces per-check missing data when other checks are actionable", async () => {
+  const onUploadDrawing = vi.fn();
+  apiMock.compliance.run.mockResolvedValue({
+    kind: "ok",
+    status: 201,
+    data: {
+      run_id: "run-mixed",
+      project_id: "project-golden",
+      status: "needs_more_info",
+      as_of_date: "2026-06-12T20:35:00Z",
+      advisory_disclaimer: "Results are advisory only and are not final compliance determinations.",
+      results: [
+        {
+          result_id: "result-site-cover",
+          check_key: "site_cover",
+          display_name: "Site cover",
+          status: "likely_pass",
+          threshold_value: 50,
+          threshold_unit: "%",
+          measured_value: 48.44,
+          rule_id: "rule-site-cover",
+          rule_quote: "Fixture site-cover rule atom.",
+          citation: "site_cover | source_version:fixture-source-version",
+          note: null,
+          missing_info_reason: null,
+          drawing_evidence: {},
+          review_reason: null,
+          human_override: {},
+          reviewed_by_user_id: null,
+          reviewed_at: null,
+        },
+        {
+          result_id: "result-front-setback",
+          check_key: "front_setback",
+          display_name: "Primary street setback",
+          status: "needs_more_info",
+          threshold_value: null,
+          threshold_unit: "m",
+          measured_value: null,
+          rule_id: null,
+          rule_quote: null,
+          citation: null,
+          note: null,
+          missing_info_reason: "missing_drawing_measurement",
+          drawing_evidence: {},
+          review_reason: null,
+          human_override: {},
+          reviewed_by_user_id: null,
+          reviewed_at: null,
+          missing_data: ["front_setback", "primary_street"],
+        },
+      ],
+    },
+  });
+
+  render(<CompliancePanel projectId="project-golden" onUploadDrawing={onUploadDrawing} />);
+
+  await userEvent.click(await screen.findByRole("button", { name: /run compliance check/i }));
+
+  // Actionable results are present, so the needs-info row stays visible (it is
+  // not collapsed into the aggregate prompt) and exposes its missing data.
+  const summary = await screen.findByText(/1 likely pass/i);
+  expect(summary.textContent).toMatch(/1 need a measurement/i);
+  expect(screen.queryByText("Add measurements to see your results")).toBeNull();
 
   await userEvent.click(screen.getByRole("button", { name: /primary street setback/i }));
   expect(screen.getByText("Missing information")).toBeTruthy();
@@ -308,5 +387,6 @@ test("compliance panel explains missing drawing information and prompts upload",
   expect(screen.getByText("primary_street")).toBeTruthy();
 
   await userEvent.click(screen.getByRole("button", { name: /upload drawing to provide this data/i }));
+  expect(onUploadDrawing).toHaveBeenCalledTimes(1);
   expect(await screen.findByText(/use the documents upload area/i)).toBeTruthy();
 });
