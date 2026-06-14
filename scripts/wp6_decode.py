@@ -109,7 +109,9 @@ def openai_decode(text: str, path: str, model: str, base_url: str, key: str) -> 
         method="POST",
     )
     last: Exception | None = None
-    for delay in (0.0, 2.0, 6.0, 15.0):
+    # Extra attempts + longer backoff to ride out 429 rate-limit bursts; only
+    # 429/5xx are retried, other 4xx fail fast.
+    for delay in (0.0, 3.0, 8.0, 20.0, 45.0, 90.0):
         if delay:
             time.sleep(delay)
         try:
@@ -119,9 +121,14 @@ def openai_decode(text: str, path: str, model: str, base_url: str, key: str) -> 
             parsed = json.loads(content)
             rules = parsed.get("rules") if isinstance(parsed, dict) else None
             return rules if isinstance(rules, list) else []
+        except urllib.error.HTTPError as exc:
+            last = exc
+            if exc.code not in (429, 500, 502, 503, 504):
+                raise RuntimeError(f"http_{exc.code}") from exc
         except (urllib.error.URLError, OSError, KeyError, json.JSONDecodeError) as exc:
             last = exc
-    raise RuntimeError(f"decode call failed: {last}")
+    code = getattr(last, "code", None)
+    raise RuntimeError(f"http_{code}" if code else f"{type(last).__name__}")
 
 
 def _valid_quote(quote: str, clause_text: str) -> bool:
@@ -265,6 +272,8 @@ def main() -> int:
     errors = 0
     written = 0
     by_check_type: dict[str, int] = {}
+    error_clauses: list[dict] = []
+    error_kinds: dict[str, int] = {}
 
     def work(clause: dict) -> list[dict]:
         rules = openai_decode(clause["text"], clause.get("clause_path") or "", args.model, base_url, key)
@@ -280,10 +289,18 @@ def main() -> int:
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futs = {pool.submit(work, c): c for c in clauses}
         for i, fut in enumerate(as_completed(futs), 1):
+            clause = futs[fut]
             try:
                 cands = fut.result()
-            except Exception:
+            except Exception as exc:
                 errors += 1
+                kind = str(exc) or type(exc).__name__
+                error_kinds[kind] = error_kinds.get(kind, 0) + 1
+                error_clauses.append({
+                    "clause_id": clause["clause_id"],
+                    "clause_path": clause.get("clause_path"),
+                    "error": kind,
+                })
                 continue
             decoded += 1
             if not cands:
@@ -305,6 +322,7 @@ def main() -> int:
     summary = {
         "clauses": len(clauses), "decoded": decoded, "rules_written": written,
         "not_a_rule": not_a_rule, "errors": errors, "by_check_type": by_check_type,
+        "error_kinds": error_kinds, "error_clauses": error_clauses,
         "model": model_tag,
     }
     os.makedirs(os.path.dirname(args.report), exist_ok=True)
