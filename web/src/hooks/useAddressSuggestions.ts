@@ -13,6 +13,16 @@ function cacheSuggestions(key: string, value: AddressSuggestion[]) {
   suggestionCache.set(key, value);
 }
 
+async function searchAddressWithGuestBootstrap(text: string, limit: number) {
+  const result = await api.searchAddress(text, limit);
+  if (result.kind !== "auth") return result;
+
+  const guest = await api.guestSession();
+  if (guest.kind !== "ok") return result;
+
+  return api.searchAddress(text, limit);
+}
+
 export function useAddressSuggestions(limit = 6) {
   const [suggestions, setSuggestions] = useState<AddressSuggestion[]>([]);
   const [suggestionIndex, setSuggestionIndex] = useState(-1);
@@ -45,7 +55,7 @@ export function useAddressSuggestions(limit = 6) {
 
     timer.current = window.setTimeout(async () => {
       const seq = ++sequence.current;
-      const result = await api.searchAddress(trimmed, limit);
+      const result = await searchAddressWithGuestBootstrap(trimmed, limit);
       if (seq !== sequence.current) return;
       const list = result.kind === "ok"
         ? result.data.items.map((item) => ({ address: item.address, gnaf_pid: item.gnaf_pid }))

@@ -241,6 +241,37 @@ test("landing address input shows predictive address suggestions", async () => {
   await waitFor(() => expect(api.createProject).toHaveBeenCalledWith("14 Montague Street, Mount Lawley WA 6050"));
 });
 
+test("landing address suggestions create a guest session when search is auth-gated", async () => {
+  const api = makeApi({
+    searchAddress: vi.fn()
+      .mockResolvedValueOnce({ kind: "auth" })
+      .mockResolvedValue({
+        kind: "ok",
+        data: {
+          items: [
+            {
+              address: "3 Black Swan Rise, Beeliar WA 6164",
+              address_point_id: "gnaf-black-swan",
+              gnaf_pid: "GNAF-BLACK-SWAN",
+              lat: -32.13,
+              lon: 115.81,
+              score: 0.88,
+            },
+          ],
+          count: 1,
+        },
+      }),
+  });
+  await renderApp(api);
+
+  await userEvent.type(await screen.findByLabelText(/street address/i), "Black Swan Rise");
+
+  expect(await screen.findByRole("listbox", { name: /address suggestions/i })).toBeTruthy();
+  expect(screen.getByRole("option", { name: /3 black swan rise/i })).toBeTruthy();
+  expect(api.guestSession).toHaveBeenCalledOnce();
+  expect(api.searchAddress).toHaveBeenCalledTimes(2);
+});
+
 test("landing address input suggests address-like street names without a house number", async () => {
   const api = makeApi({
     searchAddress: vi.fn().mockResolvedValue({
