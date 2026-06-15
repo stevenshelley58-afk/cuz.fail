@@ -1,43 +1,54 @@
 import { useState } from "react";
 import { api, type PropertyFactResponse, type PropertyProfileResponse, type ProposalRequest, type ProposalResponse } from "../api";
 import { Icon } from "../components/common";
-import { NOT_LEGAL_PROOF_NOTE, ProvenanceAccordion, confidenceBadge, formatFactValue, groupFactsByType, resolutionBadge } from "../components/property";
+import { ProvenanceAccordion, confidenceBadge, formatFactValue, groupFactsByType, propertyDetailRows, resolutionBadge } from "../components/property";
 import type { WizardState, WizardStep } from "../types";
 import { CompliancePanel } from "./compliance";
 import { DocumentUpload } from "./documents";
 
+/* ── shared display bits ── */
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 6 }}>
+      {children}
+    </div>
+  );
+}
+
+function DetailRow({ label, value, hint, last }: { label: string; value: string; hint?: string; last?: boolean }) {
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16, padding: "9px 0", borderBottom: last ? "none" : "1px solid var(--line)" }}>
+      <span style={{ color: "var(--ink-soft)", fontSize: ".8rem", flex: "none" }}>{label}</span>
+      <span style={{ display: "inline-flex", alignItems: "baseline", gap: 8, fontWeight: 600, fontSize: ".85rem", color: "var(--ink)", textAlign: "right", wordBreak: "break-word" }}>
+        <span>{value}</span>
+        {hint && (
+          <span style={{ fontSize: ".62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".04em", color: "var(--flag)", whiteSpace: "nowrap" }}>{hint}</span>
+        )}
+      </span>
+    </div>
+  );
+}
+
 /* ── AddressResolverPanel ── */
 
 function AddressResolverPanel({ property, onContinue, onBack }: { property: PropertyProfileResponse; onContinue: () => void; onBack?: () => void }) {
-  const factsByType = groupFactsByType(property.facts ?? []);
-
-  const zoneEntry = factsByType.get("zone");
-  const rCodeEntry = factsByType.get("r_code");
-  const overlayEntries = factsByType.get("overlay");
+  const rows = propertyDetailRows(property);
 
   return (
     <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
-      <h3 style={{ marginBottom: 12 }}><Icon name="location_on" />Property Resolution</h3>
+      <h3 style={{ marginBottom: 14 }}><Icon name="location_on" />Property resolution</h3>
 
-      {NOT_LEGAL_PROOF_NOTE}
-
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 10 }}>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 18 }}>
         {resolutionBadge(property.resolution_status)}
         {confidenceBadge(property.confidence)}
       </div>
 
-      {property.address && (
-        <div style={{ fontSize: ".85rem", marginBottom: 6 }}><b>Address:</b> {property.address}</div>
-      )}
-      {property.local_government && (
-        <div style={{ fontSize: ".85rem", marginBottom: 6 }}><b>Local government:</b> {property.local_government}</div>
-      )}
-
       {property.resolution_status !== "resolved" && property.issues.length > 0 && (
-        <div className="state" style={{ marginTop: 8 }}>
+        <div className="state" style={{ marginBottom: 16 }}>
           <Icon name="error" />
           <div>
-            <div style={{ fontWeight: 700, marginBottom: 4 }}>Issues preventing full resolution:</div>
+            <div style={{ fontWeight: 700, marginBottom: 4 }}>Issues preventing full resolution</div>
             <ul style={{ margin: 0, paddingLeft: 16 }}>
               {property.issues.map((issue, i) => <li key={i}>{issue}</li>)}
             </ul>
@@ -45,54 +56,22 @@ function AddressResolverPanel({ property, onContinue, onBack }: { property: Prop
         </div>
       )}
 
-      {(zoneEntry || rCodeEntry || overlayEntries) && (
-        <div style={{ marginTop: 10, fontSize: ".85rem" }}>
-          <div style={{ fontWeight: 700, marginBottom: 6, color: "var(--ink)" }}>Planning facts</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            {zoneEntry?.map((f) => (
-              <div key={f.fact_id} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--line)" }}>
-                <span style={{ color: "var(--ink-soft)" }}>Zone</span>
-                <span style={{ fontWeight: 600 }}>{formatFactValue(f.value)}</span>
-              </div>
-            ))}
-            {rCodeEntry?.map((f) => (
-              <div key={f.fact_id} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--line)" }}>
-                <span style={{ color: "var(--ink-soft)" }}>R-Code</span>
-                <span style={{ fontWeight: 600 }}>{formatFactValue(f.value)}</span>
-              </div>
-            ))}
-            {overlayEntries?.map((f) => (
-              <div key={f.fact_id} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--line)" }}>
-                <span style={{ color: "var(--ink-soft)" }}>Overlay</span>
-                <span style={{ fontWeight: 600 }}>{formatFactValue(f.value)}</span>
-              </div>
-            ))}
-          </div>
+      <SectionLabel>Property details</SectionLabel>
+      {rows.length > 0 ? (
+        <div style={{ marginBottom: 4 }}>
+          {rows.map((r, i) => (
+            <DetailRow key={`${r.label}-${i}`} label={r.label} value={r.value} hint={r.hint} last={i === rows.length - 1} />
+          ))}
         </div>
-      )}
-
-      {factsByType.size > 0 && (
-        <div style={{ marginTop: 10, fontSize: ".85rem" }}>
-          <div style={{ fontWeight: 700, marginBottom: 6, color: "var(--ink)" }}>All facts ({property.facts.length})</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            {Array.from(factsByType.entries()).map(([factType, entries]) =>
-              entries.map((f) => (
-                <div key={f.fact_id} style={{ display: "flex", justifyContent: "space-between", padding: "4px 0", borderBottom: "1px solid var(--line)" }}>
-                  <span style={{ color: "var(--ink-soft)" }}>{factType}</span>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                    <span style={{ fontWeight: 600 }}>{formatFactValue(f.value)}</span>
-                    <span style={{ fontSize: ".66rem", color: "var(--ink-faint)" }}>{f.confidence}</span>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
+      ) : (
+        <div style={{ fontSize: ".85rem", color: "var(--ink-soft)", padding: "2px 0 8px" }}>
+          No property facts are available for this address yet.
         </div>
       )}
 
       <ProvenanceAccordion provenance={property.provenance} />
 
-      <div className="wizard-actions" style={{ display: "flex", gap: 8, marginTop: 16, justifyContent: "flex-end" }}>
+      <div className="wizard-actions" style={{ display: "flex", gap: 8, marginTop: 20, justifyContent: "flex-end" }}>
         {onBack && (
           <button className="btn alt" onClick={onBack}>← Back</button>
         )}
@@ -305,8 +284,8 @@ function ConfirmationStep({
   onStart: () => void;
 }) {
   const factsByType = property ? groupFactsByType(property.facts ?? []) : new Map<string, PropertyFactResponse[]>();
-  const zone = factsByType.get("zone")?.[0];
-  const rCode = factsByType.get("r_code")?.[0];
+  const zoneVal = formatFactValue(factsByType.get("zone")?.[0]?.value);
+  const rCodeVal = formatFactValue(factsByType.get("r_code")?.[0]?.value);
 
   return (
     <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
@@ -316,8 +295,6 @@ function ConfirmationStep({
         <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 4 }}>Project</div>
         <div style={{ fontWeight: 700, fontSize: ".95rem" }}>{address}</div>
       </div>
-
-      {NOT_LEGAL_PROOF_NOTE}
 
       {property && (
         <div style={{ marginBottom: 16 }}>
@@ -333,16 +310,16 @@ function ConfirmationStep({
                 <span style={{ fontWeight: 600 }}>{property.local_government}</span>
               </div>
             )}
-            {zone && (
+            {zoneVal && (
               <div style={{ display: "flex", gap: 8 }}>
                 <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Zone</span>
-                <span style={{ fontWeight: 600 }}>{formatFactValue(zone.value)}</span>
+                <span style={{ fontWeight: 600 }}>{zoneVal}</span>
               </div>
             )}
-            {rCode && (
+            {rCodeVal && (
               <div style={{ display: "flex", gap: 8 }}>
                 <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>R-Code</span>
-                <span style={{ fontWeight: 600 }}>{formatFactValue(rCode.value)}</span>
+                <span style={{ fontWeight: 600 }}>{rCodeVal}</span>
               </div>
             )}
             <div style={{ display: "flex", gap: 8, alignItems: "center" }}>

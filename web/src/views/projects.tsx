@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { api, type ApiResult, type ProjectSummary, type PropertyProfileResponse } from "../api";
 import { Icon } from "../components/common";
 import {
-  NOT_LEGAL_PROOF_NOTE,
   ProvenanceAccordion,
   confidenceBadge,
   formatFactValue,
@@ -102,7 +101,7 @@ function ProjectPropertyContext({ projectId }: { projectId: string }) {
                 {facts.slice(0, 2).map((fact) => (
                   <div key={fact.fact_id} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: ".82rem" }}>
                     <span style={{ color: "var(--ink-soft)" }}>{fact.review_status}</span>
-                    <span style={{ fontWeight: 650, textAlign: "right" }}>{formatFactValue(fact.value)}</span>
+                    <span style={{ fontWeight: 650, textAlign: "right" }}>{formatFactValue(fact.value) ?? "—"}</span>
                   </div>
                 ))}
               </div>
@@ -111,7 +110,6 @@ function ProjectPropertyContext({ projectId }: { projectId: string }) {
         </div>
       )}
 
-      {NOT_LEGAL_PROOF_NOTE}
       <ProvenanceAccordion provenance={property.provenance} />
     </div>
   );
