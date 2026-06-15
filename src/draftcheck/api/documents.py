@@ -29,7 +29,7 @@ from datetime import UTC, datetime
 from pathlib import Path, PurePath
 from typing import Annotated, Any
 
-from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, status
+from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, UploadFile, status
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy.orm import Session
@@ -208,10 +208,11 @@ def get_document_parser_accuracy() -> dict[str, Any]:
 @router.post("/documents/upload", tags=["documents"])
 async def upload_document(
     file: Annotated[UploadFile, File()],
-    project_id: str,
     db: DbSession,
     _allowed_origin: Annotated[None, Depends(require_allowed_origin)],
     active_session: Annotated[ActiveSession, Depends(get_current_session)],
+    project_id_form: Annotated[str | None, Form(alias="project_id")] = None,
+    project_id_query: Annotated[str | None, Query(alias="project_id")] = None,
 ) -> dict[str, Any]:
     """Accept a multipart file upload, store it, parse text, extract facts.
 
@@ -219,6 +220,11 @@ async def upload_document(
     """
     if active_session.org is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Authenticated org required.")
+
+    project_id = _resolve_upload_project_id(
+        project_id_form=project_id_form,
+        project_id_query=project_id_query,
+    )
 
     content = await file.read()
     if not content:
@@ -310,6 +316,23 @@ async def upload_document(
         "review_required": True,
         "advisory_notice": "All extracted measurements are advisory. Promote facts to confirm before running compliance.",
     }
+
+
+def _resolve_upload_project_id(*, project_id_form: str | None, project_id_query: str | None) -> str:
+    form_value = project_id_form.strip() if project_id_form else None
+    query_value = project_id_query.strip() if project_id_query else None
+    if form_value and query_value and form_value != query_value:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
+            detail="Conflicting project_id values.",
+        )
+    project_id = query_value or form_value
+    if not project_id:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
+            detail="project_id is required.",
+        )
+    return project_id
 
 
 def _doc_type_from_media(media_type: str, filename: str) -> str:

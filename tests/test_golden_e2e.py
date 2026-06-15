@@ -107,6 +107,43 @@ def test_document_upload_commits_before_async_parse_enqueue(tmp_path, monkeypatc
     assert events[:2] == ["commit", "enqueue"]
 
 
+def test_document_upload_accepts_project_id_in_multipart_form(tmp_path, monkeypatch) -> None:
+    app, db, active_session = _make_app()
+    _seed_identity_rows(db, active_session)
+    db.commit()
+
+    import draftcheck.api.documents as documents_module
+    import draftcheck.jobs.documents as document_jobs
+
+    monkeypatch.setattr(documents_module, "STORAGE_ROOT", tmp_path / "storage")
+    monkeypatch.setattr(
+        document_jobs,
+        "enqueue_document_parse",
+        lambda document_id: {"enqueued": True, "job_id": "job-form", "queue": "default"},
+    )
+    client = TestClient(app, headers=ORIGIN_HEADERS)
+    project = client.post(
+        "/api/v1/projects",
+        json={"name": "Multipart upload project", "council_scope": "Demo Bay Local Government"},
+    )
+    assert project.status_code == 201, project.text
+    project_id = project.json()["id"]
+
+    upload = client.post(
+        "/api/v1/documents/upload",
+        data={"project_id": project_id},
+        files={"file": ("browser-site-plan.pdf", b"%PDF-1.7\n%%EOF", "application/pdf")},
+    )
+
+    assert upload.status_code == 200, upload.text
+    body = upload.json()
+    assert body["parse_status"] == "parse_pending"
+    assert body["parse_job"]["job_id"] == "job-form"
+    assert db.query(Document).filter(Document.id == UUID(body["document_id"])).one().project_id == UUID(
+        project_id
+    )
+
+
 def test_drawing_dimension_requires_calibration_before_promotion(tmp_path, monkeypatch) -> None:
     app, db, active_session = _make_app()
     _seed_identity_rows(db, active_session)
