@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import type { AddressSuggestion } from "../api";
 import { Icon } from "../components/common";
+import { useAddressSuggestions } from "../hooks/useAddressSuggestions";
 
 type Navigate = (path: string) => void;
 
@@ -20,12 +22,25 @@ function Header({ onNavigate }: { onNavigate: Navigate }) {
 
 export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
   const [address, setAddress] = useState("");
+  const {
+    suggestions: sugs,
+    suggestionIndex: sugIdx,
+    setSuggestionIndex: setSugIdx,
+    closeSuggestions: closeSugs,
+    queueSuggestions: queueSuggest,
+  } = useAddressSuggestions(6);
 
-  function startCheck() {
-    const trimmed = address.trim();
+  const startCheck = useCallback((nextAddress = address) => {
+    const trimmed = nextAddress.trim();
+    closeSugs();
     if (trimmed) sessionStorage.setItem("lotfile_launch_address", trimmed);
     onNavigate("/app");
-  }
+  }, [address, closeSugs, onNavigate]);
+
+  const pickSuggestion = useCallback((suggestion: AddressSuggestion) => {
+    setAddress(suggestion.address);
+    startCheck(suggestion.address);
+  }, [startCheck]);
 
   return (
     <div className="launch">
@@ -41,18 +56,65 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
             </p>
             <form className="launch-address" onSubmit={(e) => { e.preventDefault(); startCheck(); }}>
               <label htmlFor="launch-address">Street address</label>
-              <div>
+              <div className="launch-address-row">
                 <input
                   id="launch-address"
                   value={address}
-                  onChange={(e) => setAddress(e.target.value)}
+                  onChange={(e) => {
+                    const next = e.target.value;
+                    setAddress(next);
+                    queueSuggest(next);
+                  }}
+                  onKeyDown={(e) => {
+                    if (!sugs.length) return;
+                    if (e.key === "ArrowDown") {
+                      e.preventDefault();
+                      setSugIdx((idx) => (idx + 1) % sugs.length);
+                      return;
+                    }
+                    if (e.key === "ArrowUp") {
+                      e.preventDefault();
+                      setSugIdx((idx) => (idx <= 0 ? sugs.length - 1 : idx - 1));
+                      return;
+                    }
+                    if (e.key === "Escape") {
+                      closeSugs();
+                      return;
+                    }
+                    if ((e.key === "Enter" && sugIdx >= 0) || e.key === "Tab") {
+                      e.preventDefault();
+                      pickSuggestion(sugs[sugIdx >= 0 ? sugIdx : 0]);
+                    }
+                  }}
+                  onBlur={() => window.setTimeout(closeSugs, 150)}
                   placeholder="Enter a WA street address"
                   autoComplete="street-address"
                 />
-                <button type="submit">
+                <button className="launch-address-submit" type="submit">
                   <Icon name="location_on" />Check an address free
                 </button>
               </div>
+              {sugs.length > 0 && (
+                <div className="suggest launch-suggest" role="listbox" aria-label="Address suggestions">
+                  <span className="suggest-head"><Icon name="location_on" />Addresses - pick one to start a check</span>
+                  {sugs.map((suggestion, index) => (
+                    <button
+                      key={suggestion.gnaf_pid ?? suggestion.address}
+                      type="button"
+                      role="option"
+                      aria-selected={index === sugIdx}
+                      className={`suggest-item${index === sugIdx ? " on" : ""}`}
+                      onMouseDown={(e) => {
+                        e.preventDefault();
+                        pickSuggestion(suggestion);
+                      }}
+                      onMouseEnter={() => setSugIdx(index)}
+                    >
+                      <Icon name="location_on" />{suggestion.address}
+                    </button>
+                  ))}
+                </div>
+              )}
             </form>
           </div>
           <div className="launch-product" aria-label="LotFile check preview">

@@ -235,11 +235,12 @@ a{color:var(--green)}
 .launch-trust{max-width:690px;margin-top:16px;color:var(--flag);background:var(--flag-bg);border:1px solid #F5DEB9;border-radius:16px;padding:12px 14px;font-size:.92rem;font-weight:650}
 .launch-address{margin-top:24px;max-width:720px}
 .launch-address label{display:block;font-size:.75rem;font-weight:800;color:var(--ink-soft);margin-bottom:7px}
-.launch-address div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.launch-address-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}
 .launch-address input{min-width:0;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;outline:none}
 .launch-address input:focus{border-color:var(--green-bright);box-shadow:0 0 0 3px rgba(31,164,104,.12)}
-.launch-address button{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green-900);color:#fff;border-radius:14px;padding:13px 18px;font-weight:800;white-space:nowrap}
-.launch-address button:hover{background:var(--green-800)}
+.launch-address-submit{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--green-900);color:#fff;border-radius:14px;padding:13px 18px;font-weight:800;white-space:nowrap}
+.launch-address-submit:hover{background:var(--green-800)}
+.launch-suggest{margin-top:8px}
 .launch-product{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 70px rgba(16,24,32,.12);padding:20px;align-self:center}
 .launch-product-top{display:flex;align-items:center;justify-content:space-between;color:var(--ink-faint);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:14px}
 .launch-product-address{display:flex;gap:12px;align-items:flex-start;background:var(--mint);border:1px solid var(--mint-deep);border-radius:15px;padding:14px;margin-bottom:12px}
@@ -310,8 +311,8 @@ select:focus{border-color:var(--green-bright)}
   .launch-main{padding:30px 0;width:min(100% - 28px,720px)}
   .launch-hero{min-height:0;grid-template-columns:1fr;gap:24px;align-items:start}
   .launch-copy h1{font-size:clamp(2rem,12vw,3.5rem)}
-  .launch-address div{grid-template-columns:1fr}
-  .launch-address button{width:100%;white-space:normal}
+  .launch-address-row{grid-template-columns:1fr}
+  .launch-address-submit{width:100%;white-space:normal}
   .launch-product{width:100%;padding:16px}
   .launch-band{grid-template-columns:1fr;gap:16px}
   .launch-steps{grid-template-columns:1fr}
