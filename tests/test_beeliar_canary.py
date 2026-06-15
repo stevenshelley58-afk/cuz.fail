@@ -64,6 +64,12 @@ def test_beeliar_meets_core_contract() -> None:
     assert rec["synth_property_facts"] >= exp["min_synth_property_facts"]
     assert rec.get("r_code") == exp["r_code"]
     assert rec.get("council_scope") == exp["council_scope"]
+    assert rec.get("council_scope_source") == exp.get("council_scope_source")
+
+    # WP-0: no surfaced rule may carry a different council's scope.
+    if exp.get("no_foreign_council_rules"):
+        foreign = rec.get("foreign_council_scopes_found", [])
+        assert not foreign, f"Beeliar run surfaced foreign council-scoped rules: {foreign}"
 
     # Every pass/fail result must carry a citation (cite-or-refuse).
     if exp.get("every_result_has_citation"):

@@ -22,7 +22,7 @@ Operator standing approval applies (CLAUDE.md): act, log, do not pause to ask.
     `lgate-233` (LGA boundaries), `dplh-070/071` (R-Codes / Zones & Reserves), `dplh-006/008/090`
     (heritage). `lgate-001` (cadastre) and `planning_features` (zoning) are currently ~Cockburn-area
     subsets — **verify coverage per council** (§3.2).
-  - The **engine** (`src/draftcheck/checks/engine.py`) — already council-scoped: numeric
+  - The **engine** (`src/draftcheck/checks/engine.py`) — council-scoped: numeric
     `_get_applicable_rules` and advisory `_get_advisory_rules` filter `(council_scope IS NULL OR =
     resolved scope)` and rank advisory by proposal relevance. No per-council code needed.
   - The **scripts** (`scripts/wp6_*.py`) — reusable, parameterised by source/disposition.
@@ -33,25 +33,18 @@ Operator standing approval applies (CLAUDE.md): act, log, do not pause to ask.
 All 1,723 Cockburn rules are `council_scope = NULL` (global). The moment a second council's rules
 exist, a Cockburn proposal would surface the other council's local rules and vice-versa. Fix first:
 
-1. **Normalise the LGA value.** The engine resolves council scope from the `local_government` fact,
-   which is currently `"City of Cockburn (bbox extent)"` (a bbox match against `lgate-233`). Decide
-   the canonical council string (recommend `"City of Cockburn"`) and make BOTH the resolver
-   (`postgis_store` LGA lookup → polygon containment, dropping the `(bbox extent)` suffix) and the
-   rule `council_scope` use it. **Setting `council_scope` to a value that does not exactly match what
-   the engine resolves will silently stop those rules surfacing** — verify against `verify_beeliar.py`
-   after.
+1. **Normalise the LGA value.** The engine resolves council scope from the `local_government` fact
+   (spatial synth writes `value_json = {"name": "City of ..."}`). The canonical council string is
+   `"City of Cockburn"` (`canonical_local_government_name` strips the old `(bbox extent)` suffix).
+   Polygon containment against `lg_areas` is already live; the canonical string is used for both
+   resolver output and rule `council_scope`.
 2. **Scope only LOCAL rules.** Set `council_scope = '<canonical council>'` on rules whose
    `source_documents.local_government` = that council (scheme text, LPPs, structure plans, strategy).
-   Leave state-doc rules `council_scope = NULL` (global). SQL pattern:
-   ```sql
-   UPDATE rules r SET council_scope = 'City of Cockburn'
-   FROM source_versions sv, source_documents sd
-   WHERE r.source_version_id = sv.id AND sv.source_id = sd.id
-     AND r.extractor_model LIKE 'openai%decode' AND r.lifecycle_status = 'approved'
-     AND sd.local_government ILIKE '%cockburn%';
-   ```
-3. **Gate:** re-run `verify_beeliar.py` — must still resolve R20 + surface the Cockburn advisory set.
-   Add a canary assertion that a *different* council's address does NOT surface Cockburn local rules.
+   Leave state-doc rules `council_scope = NULL` (global). Run `scripts/wp0_scope_cockburn.py` inside
+   the api container.
+3. **Gate:** re-run `scripts/verify_beeliar.py` — must still resolve R20 + surface the Cockburn
+   advisory set. The script now also asserts that a different council's project scope does NOT
+   surface Cockburn local rules.
 
 ---
 
@@ -144,7 +137,7 @@ one council each.
 
 | Council | Tier | Status | Rules | Faithful | Canary | Claimed by | Notes |
 |---|---|---|---|---|---|---|---|
-| City of Cockburn | 0 | ✅ done | 1723 | 1.00 | `beeliar_canary.json` | — (2026-06-15) | Reference implementation. ⚠️ still `council_scope=NULL` until WP-0 runs. |
+| City of Cockburn | 0 | ✅ done | 1723 | 1.00 | `beeliar_canary.json` | — (2026-06-15) | Reference implementation. WP-0 code changes done; prod DB scoping + canary run pending. |
 | City of Melville | 1 | ⬜ | | | | | Immediate neighbour. |
 | City of Fremantle | 1 | ⬜ | | | | | Immediate neighbour. |
 | Town of East Fremantle | 1 | ⬜ | | | | | Small; quick. |
@@ -186,7 +179,8 @@ zoning thin outside metro). WA has ~139 LGAs total; this tracker grows on demand
 
 ## 3. Reusable assets & where things live
 
-- **Scripts** (`scripts/`): `wp6_decode.py` (decode), `wp6_promote_decode.py` (promote),
+- **Scripts** (`scripts/`): `wp0_scope_cockburn.py` (WP-0 council scoping),
+  `wp6_decode.py` (decode), `wp6_promote_decode.py` (promote),
   `wp6_correct.py` (correct-don't-delete + real-rule filter, `--scope`), `wp6_review.py`
   (faithfulness+relevance gate + source denylist), `wp6_redecode.py` (strict re-decode — kept as a
   tool, NOT the main path), `verify_beeliar.py` (end-to-end canary harness).
@@ -232,8 +226,6 @@ zoning thin outside metro). WA has ~139 LGAs total; this tracker grows on demand
   `method='manual_override'` facts); the drawing→extraction→facts loop exists. Surfacing/UX could be
   deepened.
 - **R-Codes Vol 2 + residential LPPs** (medium-density) — ingest once, benefits all councils.
-- **LGA precision:** replace the `lgate-233` bbox-extent match with polygon containment (also fixes
-  the council_scope string — see WP-0).
 - **Advisory cap (80) + relevance ranking** could be tuned per proposal type.
 - **Durable accounts:** magic-link signup is 404 on prod; guests are quota-limited (raised for
   testing). Real auth is a separate workstream before wide public launch.
