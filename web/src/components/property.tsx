@@ -39,19 +39,97 @@ export function groupFactsByType(facts: PropertyFactResponse[]): Map<string, Pro
   return m;
 }
 
-export function formatFactValue(v: unknown): string {
-  if (v === null || v === undefined) return "—";
-  if (typeof v === "string") return v;
-  if (typeof v === "number" || typeof v === "boolean") return String(v);
-  return JSON.stringify(v);
+const FACT_LABELS: Record<string, string> = {
+  address: "Address",
+  parcel: "Parcel",
+  local_government: "Local government",
+  lot_area_m2: "Lot area",
+  lot_area: "Lot area",
+  zone: "Zone",
+  r_code: "R-Code",
+  overlay: "Overlay",
+};
+
+const UNIT_LABELS: Record<string, string> = { m2: "m²", sqm: "m²" };
+
+export function factLabel(factType: string): string {
+  return FACT_LABELS[factType] ?? factType.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-export const NOT_LEGAL_PROOF_NOTE = (
-  <div style={{ fontSize: ".72rem", fontWeight: 600, color: "var(--flag)", background: "var(--flag-bg)", border: "1px solid #F5DEB9", borderRadius: 10, padding: "6px 12px", margin: "8px 0", display: "flex", alignItems: "flex-start", gap: 6 }}>
-    <Icon name="error" />
-    <span>Not legal proof of property boundaries. Resolution status is advisory only and must not be used as a substitute for a registered survey or certificate of title.</span>
-  </div>
-);
+function formatNumber(n: number): string {
+  if (!Number.isFinite(n)) return String(n);
+  const rounded = Math.round(n * 10) / 10;
+  return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+}
+
+/** Renders a fact value as readable text. Returns null when there is nothing meaningful to show
+ *  (null/empty/blank), so callers can skip the row instead of printing "—" or raw JSON. */
+export function formatFactValue(v: unknown): string | null {
+  if (v === null || v === undefined) return null;
+  if (typeof v === "string") return v.trim() || null;
+  if (typeof v === "number") return formatNumber(v);
+  if (typeof v === "boolean") return v ? "Yes" : "No";
+  if (Array.isArray(v)) {
+    const parts = v.map((x) => formatFactValue(x)).filter((x): x is string => x !== null);
+    return parts.length ? parts.join(", ") : null;
+  }
+  if (typeof v === "object") {
+    const o = v as Record<string, unknown>;
+    if ("value" in o) {
+      const base = formatFactValue(o.value);
+      if (base === null) return null;
+      const unit = o.unit != null ? String(o.unit) : "";
+      return unit ? `${base} ${UNIT_LABELS[unit] ?? unit}` : base;
+    }
+    const primaryKey = ["formatted_address", "name", "label", "code", "parcel_id", "id"].find(
+      (k) => o[k] != null && o[k] !== "",
+    );
+    if (primaryKey) {
+      let s = String(o[primaryKey]);
+      if (o.verification_status) s += ` · ${String(o.verification_status)}`;
+      return s;
+    }
+    const pairs = Object.entries(o)
+      .map(([k, val]) => [k, formatFactValue(val)] as const)
+      .filter((entry): entry is readonly [string, string] => entry[1] !== null)
+      .map(([k, val]) => `${k.replace(/_/g, " ")}: ${val}`);
+    return pairs.length ? pairs.join(" · ") : null;
+  }
+  return String(v);
+}
+
+export type PropertyDetailRow = { label: string; value: string; hint?: string };
+
+const HEADER_FACT_TYPES = new Set(["address", "local_government"]);
+const FACT_ORDER = ["parcel", "lot_area_m2", "lot_area", "zone", "r_code", "overlay"];
+
+function factOrderIndex(factType: string): number {
+  const i = FACT_ORDER.indexOf(factType);
+  return i === -1 ? FACT_ORDER.length : i;
+}
+
+/** Curated, de-duplicated, non-empty property detail rows for the resolution view.
+ *  Address and LGA come from the profile fields; the rest are formatted facts with values. */
+export function propertyDetailRows(property: PropertyProfileResponse): PropertyDetailRow[] {
+  const rows: PropertyDetailRow[] = [];
+  if (property.address) rows.push({ label: "Address", value: property.address });
+  if (property.local_government) rows.push({ label: "Local government", value: property.local_government });
+
+  (property.facts ?? [])
+    .filter((f) => !HEADER_FACT_TYPES.has(f.fact_type))
+    .map((f) => ({ f, value: formatFactValue(f.value) }))
+    .filter((x): x is { f: PropertyFactResponse; value: string } => x.value !== null)
+    .sort((a, b) => factOrderIndex(a.f.fact_type) - factOrderIndex(b.f.fact_type))
+    .forEach(({ f, value }) =>
+      rows.push({
+        label: factLabel(f.fact_type),
+        value,
+        hint: f.confidence === "low" || f.confidence === "none" ? `${f.confidence} confidence` : undefined,
+      }),
+    );
+
+  return rows;
+}
 
 /* ── ProvenanceAccordion ── */
 
