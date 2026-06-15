@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { marked } from "marked";
 import { api, type AddressSuggestion, type AssistantTurn, type ChatReply, type CitationMapEntry, type ProjectSummary } from "../api";
+import { addressish, addressSearchIntent, looksLikeAddress } from "../addressSearch";
 import { trackEvent } from "../analytics";
 import { Icon, ThinkBlock } from "../components/common";
 import { GUEST_ADDRESS_LIMIT, GUEST_CHAT_LIMIT } from "../config";
+import { useAddressSuggestions } from "../hooks/useAddressSuggestions";
 import { guestProjectList } from "../hooks/useGuestUsage";
 import type { GuestFeature, GuestUsage, WizardState } from "../types";
 import { projectList } from "./projects";
@@ -20,50 +22,6 @@ type Msg = {
   action?: { label: string; run: () => void };
   options?: { label: string; run: () => void }[];
 };
-
-// WA street types incl. abbreviations — fallback heuristic only; the server-side
-// G-NAF search (/address/search) is the authority on whether text is an address.
-const STREET_TYPES =
-  "st|street|rd|road|ave|av|avenue|ln|lane|way|wy|cres|crescent|ct|court|pl|place|" +
-  "dr|drv|drive|hwy|highway|tce|terrace|pde|parade|bvd|blvd|boulevard|cl|close|" +
-  "gr|grove|gdns|gardens|cct|circuit|esp|esplanade|prom|promenade|qy|quay|rise|" +
-  "loop|mews|gate|vista|heights|hts|entrance|ent|retreat|circle|chase|cove|dale|" +
-  "edge|elbow|end|fairway|gap|glade|glen|green|grange|haven|hill|key|link|mall|" +
-  "nook|outlook|pass|path|ridge|rest|square|sq|trail|view|vw|walk|approach|bend|" +
-  "brace|brook|corner|crest|crossing|dell|driveway|gateway|lookout|meander|parkway|ramble";
-
-const STREET_TYPE_RE = new RegExp(
-  `^(lot\\s+\\d+\\s+|\\d+[a-z]?(?:[/-]\\d+[a-z]?)?\\s+)\\S+.*\\b(${STREET_TYPES})\\b`,
-  "i",
-);
-
-function looksLikeAddress(t: string): boolean {
-  return STREET_TYPE_RE.test(t.trim());
-}
-
-// Loose "could be an address" check — house/lot number followed by words.
-// Used to decide whether the server address search is worth consulting.
-function addressish(t: string): boolean {
-  return /^(lot\s+)?\d+[a-z]?([/-]\d+[a-z]?)?\s+[a-z]/i.test(t.trim());
-}
-
-// Looser than looksLikeAddress — fires while the user is still typing
-// (e.g. "42 Bank") so we can offer predictive suggestions early.
-function addressIntent(t: string): boolean {
-  return /^\d+[a-z]?([\s/,]|$)/i.test(t.trim()) && t.trim().length >= 3;
-}
-
-// Session-lived suggestion cache so backspacing/retyping renders instantly
-// without a round-trip. Bounded to keep memory flat.
-const sugCache = new Map<string, AddressSuggestion[]>();
-const SUG_CACHE_MAX = 200;
-function cacheSugs(key: string, value: AddressSuggestion[]) {
-  if (sugCache.size >= SUG_CACHE_MAX) {
-    const oldest = sugCache.keys().next().value;
-    if (oldest !== undefined) sugCache.delete(oldest);
-  }
-  sugCache.set(key, value);
-}
 
 function citationChip(citation: NonNullable<ChatReply["citations"]>[number]): string {
   return [
@@ -110,49 +68,13 @@ export function Home({
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const threadRef = useRef<HTMLDivElement>(null);
   const busyRef = useRef(false);
-  const [sugs, setSugs] = useState<AddressSuggestion[]>([]);
-  const [sugIdx, setSugIdx] = useState(-1);
-  const sugTimer = useRef<number | undefined>(undefined);
-  const sugSeq = useRef(0);
-
-  const closeSugs = useCallback(() => {
-    window.clearTimeout(sugTimer.current);
-    sugSeq.current += 1; // invalidate in-flight lookups
-    setSugs([]);
-    setSugIdx(-1);
-  }, []);
-
-  const queueSuggest = useCallback((text: string) => {
-    window.clearTimeout(sugTimer.current);
-    const t = text.trim();
-    if (!addressIntent(t)) {
-      closeSugs();
-      return;
-    }
-    const key = t.toLowerCase();
-    const cached = sugCache.get(key);
-    if (cached) {
-      sugSeq.current += 1; // cancel any in-flight lookup
-      setSugs(cached.slice(0, 6));
-      setSugIdx(-1);
-      return;
-    }
-    sugTimer.current = window.setTimeout(async () => {
-      const seq = ++sugSeq.current;
-      // Same endpoint send() routes through, so the dropdown and the
-      // send-time decision can never disagree about what an address is.
-      const r = await api.searchAddress(t, 6);
-      if (seq !== sugSeq.current) return; // stale response
-      const list = r.kind === "ok"
-        ? r.data.items.map((i) => ({ address: i.address, gnaf_pid: i.gnaf_pid }))
-        : [];
-      if (r.kind === "ok") cacheSugs(key, list);
-      setSugs(list.slice(0, 6));
-      setSugIdx(-1);
-    }, 120);
-  }, [closeSugs]);
-
-  useEffect(() => () => window.clearTimeout(sugTimer.current), []);
+  const {
+    suggestions: sugs,
+    suggestionIndex: sugIdx,
+    setSuggestionIndex: setSugIdx,
+    closeSuggestions: closeSugs,
+    queueSuggestions: queueSuggest,
+  } = useAddressSuggestions(6);
 
   useEffect(() => {
     if (isGuest) {
@@ -362,7 +284,7 @@ export function Home({
       .filter((m) => m.role === "q" || m.role === "a")
       .map((m) => ({ role: m.role === "q" ? "user" : "assistant" as const, content: m.text }));
     push({ role: "q", text: t });
-    const handledAsAddress = (addressish(t) || looksLikeAddress(t))
+    const handledAsAddress = (addressish(t) || looksLikeAddress(t) || addressSearchIntent(t))
       ? await routeAddress(t, history)
       : false;
     if (!handledAsAddress) {
