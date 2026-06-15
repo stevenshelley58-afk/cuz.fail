@@ -247,6 +247,56 @@ class TestLicenceGateApprovalStatus:
         assert _coerce_approval_status("bogus") == SourceApprovalStatus.PENDING_REVIEW
         assert _coerce_approval_status("approved") == SourceApprovalStatus.APPROVED
 
+    def test_canonical_local_government_name_normalizes_cockburn_load_labels(self) -> None:
+        from draftcheck.domain.address.lga import canonical_local_government_name
+
+        assert canonical_local_government_name("City of Cockburn (bbox extent)") == (
+            "City of Cockburn"
+        )
+        assert canonical_local_government_name("COCKBURN, CITY OF") == "City of Cockburn"
+        assert canonical_local_government_name("CITY OF COCKBURN") == "City of Cockburn"
+
+    def test_planning_feature_helper_normalizes_dplh_070_to_r_code(self) -> None:
+        """The WP2 loader stores DPLH-070 as layer_type='zone'; runtime must expose r_code."""
+        from draftcheck.db.models import PlanningFeature, SpatialDataset
+        from draftcheck.domain.address.postgis_store import _feature_fact_type, _feature_value
+
+        dataset = SpatialDataset(dataset_id="dplh-070", name="R Codes", provider="DPLH", version="2026")
+        feature = PlanningFeature(
+            layer_type="zone",
+            code="R20",
+            label="Residential Design Code R20",
+            metadata_json={"rcode_no": "R20", "density_code": "R20"},
+        )
+
+        fact_type = _feature_fact_type(feature, dataset)
+
+        assert fact_type == "r_code"
+        assert _feature_value(feature, fact_type) == {
+            "code": "R20",
+            "label": "Residential Design Code R20",
+        }
+
+    def test_planning_feature_helper_uses_zone_metadata_when_label_is_blank(self) -> None:
+        from draftcheck.db.models import PlanningFeature, SpatialDataset
+        from draftcheck.domain.address.postgis_store import _feature_fact_type, _feature_value
+
+        dataset = SpatialDataset(dataset_id="dplh-071", name="Zones", provider="DPLH", version="2026")
+        feature = PlanningFeature(
+            layer_type="zone",
+            code="Residential",
+            label=" ",
+            metadata_json={"zone": "Residential", "label": " "},
+        )
+
+        fact_type = _feature_fact_type(feature, dataset)
+
+        assert fact_type == "zone"
+        assert _feature_value(feature, fact_type) == {
+            "code": "Residential",
+            "label": "Residential",
+        }
+
     def test_metadata_round_trip_preserves_source_version_id(self) -> None:
         """source_version_id must survive import -> read-back via metadata_json,
         otherwise no PostGIS-registered dataset is ever authoritative."""
@@ -425,3 +475,62 @@ class TestPostGISStoreIntegration:
         assert resolved.parcel_id == parcel.parcel_id
         assert resolved.local_government == "City of Integration"
         assert resolved.area_m2 == 420.0
+
+    def test_parcel_for_address_point_prefers_lg_area_boundary_name(
+        self, store, seeded_address
+    ) -> None:
+        import uuid as _uuid
+
+        from sqlalchemy import create_engine, text as _text
+
+        from draftcheck.domain.address.spatial import Parcel
+
+        suffix = _uuid.uuid4().hex[:8]
+        dataset_id = f"integration-lga-ds-{suffix}"
+        store.import_dataset(_make_licensed_metadata(dataset_id))
+        parcel = Parcel(
+            parcel_id=f"CAD-LGA-{suffix}",
+            lot_plan="Lot 9 on P90009",
+            local_government="City of Integration (bbox extent)",
+            area_m2=520.0,
+            dataset_id=dataset_id,
+        )
+        store.add_parcel(parcel)
+        lon, lat = seeded_address.lon, seeded_address.lat
+        d = 0.00005
+        ring = (
+            f"{lon - d} {lat - d}, {lon + d} {lat - d}, "
+            f"{lon + d} {lat + d}, {lon - d} {lat + d}, {lon - d} {lat - d}"
+        )
+        engine = create_engine(os.environ["DATABASE_URL"])
+        with engine.begin() as conn:
+            conn.execute(
+                _text(
+                    "UPDATE parcels SET geom = ST_GeomFromEWKT("
+                    f"'SRID=7844;MULTIPOLYGON((({ring})))') "
+                    "WHERE cadastre_id = :cid"
+                ),
+                {"cid": parcel.parcel_id},
+            )
+            conn.execute(
+                _text(
+                    "INSERT INTO lg_areas "
+                    "(id, name, lg_code, spatial_dataset_id, geom, metadata_json, "
+                    "created_at, updated_at) "
+                    "SELECT gen_random_uuid(), 'INTEGRATION, CITY OF', :code, id, "
+                    "ST_GeomFromEWKT(:geom), '{}'::jsonb, now(), now() "
+                    "FROM spatial_datasets WHERE dataset_id = :dataset_id "
+                    "ORDER BY created_at DESC LIMIT 1"
+                ),
+                {
+                    "code": f"INT-{suffix}",
+                    "dataset_id": dataset_id,
+                    "geom": f"SRID=7844;MULTIPOLYGON((({ring})))",
+                },
+            )
+
+        resolved = store.parcel_for_address_point(seeded_address)
+
+        assert resolved is not None
+        assert resolved.parcel_id == parcel.parcel_id
+        assert resolved.local_government == "City of Integration"

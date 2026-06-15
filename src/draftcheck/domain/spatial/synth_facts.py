@@ -36,6 +36,7 @@ from uuid import UUID
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
+from draftcheck.domain.address.lga import canonical_local_government_name
 from draftcheck.db.models import (
     Parcel,
     PlanningFeature,
@@ -245,8 +246,9 @@ def synth_property_facts(
     # ------------------------------------------------------------------
     # local_government from the parcel.
     # ------------------------------------------------------------------
-    if parcel.local_government:
-        _add("local_government", {"name": str(parcel.local_government)})
+    local_government = canonical_local_government_name(parcel.local_government)
+    if local_government:
+        _add("local_government", {"name": local_government})
 
     # ------------------------------------------------------------------
     # Planning features intersecting the parcel: zone, r_code, overlays.

@@ -27,12 +27,14 @@ from sqlalchemy.orm import Session
 
 from draftcheck.db.models import (
     AddressPoint as DbAddressPoint,
+    LgArea as DbLgArea,
     Parcel as DbParcel,
     PlanningFeature as DbPlanningFeature,
     Property as DbProperty,
     PropertyFact as DbPropertyFact,
     SpatialDataset as DbSpatialDataset,
 )
+from draftcheck.domain.address.lga import canonical_local_government_name
 from draftcheck.domain.address.spatial import (
     ADDRESS_MATCH_AMBIGUITY_GAP,
     ADDRESS_MATCH_SCORE_FLOOR,
@@ -147,6 +149,48 @@ def _coerce_approval_status(value: Any) -> SourceApprovalStatus:
     except ValueError:
         logger.warning("spatial_datasets row has unrecognised approval_status %r", value)
         return SourceApprovalStatus.PENDING_REVIEW
+
+
+def _feature_fact_type(row: DbPlanningFeature, dataset: DbSpatialDataset) -> str:
+    meta = row.metadata_json or {}
+    raw = str(meta.get("fact_type") or row.layer_type or "").strip().lower()
+    dataset_id = str(dataset.dataset_id or "").strip().lower()
+    code = str(row.code or "").strip().upper()
+    label = str(row.label or "").strip().lower()
+    if (
+        raw in {"r_code", "residential_density", "density_code"}
+        or dataset_id == "dplh-070"
+        or label.startswith("residential design code")
+        or (code.startswith("R") and code[1:].isdigit())
+        or (code.startswith("RR") and code[2:].isdigit())
+    ):
+        return "r_code"
+    return raw or "overlay"
+
+
+def _feature_value(row: DbPlanningFeature, fact_type: str) -> Any:
+    meta = row.metadata_json or {}
+    if "value" in meta and meta["value"] is not None:
+        return meta["value"]
+    code = str(row.code or "").strip()
+    label = str(row.label or "").strip()
+    if fact_type == "r_code":
+        normalized_code = str(
+            meta.get("r_code") or meta.get("density_code") or meta.get("rcode_no") or code
+        ).strip()
+        if normalized_code.startswith("RR") and normalized_code[2:].isdigit():
+            normalized_code = f"R{normalized_code[2:]}"
+        if normalized_code and normalized_code[0].isdigit():
+            normalized_code = f"R{normalized_code}"
+        return {
+            "code": normalized_code,
+            "label": label or f"Residential Design Code {normalized_code}",
+        }
+    if fact_type == "zone":
+        zone_code = str(meta.get("zone") or code).strip()
+        zone_label = label or zone_code
+        return {"code": zone_code, "label": zone_label}
+    return {"code": code, "label": label, "layer_type": row.layer_type}
 
 
 def _db_dataset_to_metadata(row: DbSpatialDataset) -> SpatialDatasetMetadata:
@@ -636,6 +680,7 @@ class PostGISSpatialDatasetStore:
         if not point.lat and not point.lon:
             return None
         with Session(self._engine) as session:
+            point_geom = func.ST_SetSRID(func.ST_MakePoint(point.lon, point.lat), 7844)
             row = session.execute(
                 select(DbParcel, DbSpatialDataset.dataset_id)
                 .join(
@@ -643,25 +688,57 @@ class PostGISSpatialDatasetStore:
                     DbParcel.spatial_dataset_id == DbSpatialDataset.id,
                 )
                 .where(
-                    func.ST_Within(
-                        func.ST_SetSRID(func.ST_MakePoint(point.lon, point.lat), 7844),
-                        DbParcel.geom,
+                    or_(
+                        func.ST_Covers(DbParcel.geom, point_geom),
+                        func.ST_DWithin(
+                            func.Geography(DbParcel.geom),
+                            func.Geography(point_geom),
+                            2.0,
+                        ),
                     )
                 )
+                .order_by(func.ST_Distance(DbParcel.geom, point_geom))
                 .limit(1)
             ).first()
             if row is None:
                 return None
             parcel_row, dataset_id = row
             meta = parcel_row.metadata_json or {}
+            local_government = (
+                self._local_government_for_point(session, point_geom)
+                or canonical_local_government_name(parcel_row.local_government)
+            )
             return Parcel(
                 parcel_id=parcel_row.cadastre_id or str(parcel_row.id),
                 lot_plan=parcel_row.lot_plan or "",
-                local_government=parcel_row.local_government or "",
+                local_government=local_government,
                 area_m2=float(parcel_row.area_m2 or 0.0),
                 dataset_id=str(meta.get("dataset_id", dataset_id)),
                 verification_status=str(meta.get("verification_status", "verified")),
             )
+
+    def _local_government_for_point(
+        self,
+        session: Session,
+        point_geom: ColumnElement[Any],
+    ) -> str | None:
+        name = session.execute(
+            select(DbLgArea.name)
+            .where(
+                or_(
+                    func.ST_Covers(DbLgArea.geom, point_geom),
+                    func.ST_DWithin(
+                        func.Geography(DbLgArea.geom),
+                        func.Geography(point_geom),
+                        2.0,
+                    ),
+                )
+            )
+            .order_by(func.ST_Area(DbLgArea.geom))
+            .limit(1)
+        ).scalar_one_or_none()
+        canonical = canonical_local_government_name(name)
+        return canonical or None
 
     def planning_for_parcel(self, parcel_id: str) -> list[PlanningFeature]:
         """Return planning features whose geometry intersects the given parcel.
@@ -693,12 +770,13 @@ class PostGISSpatialDatasetStore:
             results: list[PlanningFeature] = []
             for pf_row, ds_row in rows:
                 meta = pf_row.metadata_json or {}
+                fact_type = _feature_fact_type(pf_row, ds_row)
                 results.append(
                     PlanningFeature(
                         feature_id=meta.get("feature_id", str(pf_row.id)),
                         parcel_id=meta.get("parcel_id", parcel_id),
-                        fact_type=meta.get("fact_type", pf_row.layer_type),
-                        value=meta.get("value"),
+                        fact_type=fact_type,
+                        value=_feature_value(pf_row, fact_type),
                         dataset_id=meta.get("dataset_id", ds_row.dataset_id),
                         label=pf_row.label,
                         target_crs=meta.get("target_crs", GDA2020_TARGET_CRS),

@@ -290,9 +290,17 @@ FROM (SELECT ST_Envelope(geom) e FROM lg_areas WHERE name ILIKE '%cockburn%' LIM
 DELETE FROM parcels WHERE spatial_dataset_id = current_setting('wp2.ds_id')::uuid;
 INSERT INTO parcels (id, cadastre_id, lot_plan, local_government, area_m2,
     spatial_dataset_id, geom, metadata_json, created_at, updated_at)
-SELECT gen_random_uuid(), props->>'objectid', NULL, 'City of Cockburn (bbox extent)',
+SELECT gen_random_uuid(), props->>'objectid', NULL,
+    COALESCE(lga.name, 'City of Cockburn (bbox extent)'),
     ST_Area(g::geography), current_setting('wp2.ds_id')::uuid, g, props, now(), now()
 FROM (SELECT props, """ + GEOM_EXPR + """ AS g FROM _stage) s
+LEFT JOIN LATERAL (
+    SELECT name
+    FROM lg_areas
+    WHERE ST_Covers(lg_areas.geom, ST_PointOnSurface(g))
+    ORDER BY ST_Area(lg_areas.geom)
+    LIMIT 1
+) lga ON true
 WHERE NOT ST_IsEmpty(g);
 """)
     log_fetch(key, len(feats), "succeeded")
@@ -304,8 +312,8 @@ WHERE NOT ST_IsEmpty(g);
          "COALESCE(props->>'zone', props->>'label')",
          "COALESCE(props->>'label_desc', props->>'zone', 'Unknown zone')"),
         ("dplh-070", "zone",
-         "'R' || (props->>'rcode_no')",
-         "'Residential Design Code R' || (props->>'rcode_no')"),
+         "COALESCE(props->>'r_code', props->>'density_code', props->>'rcode_no')",
+         "'Residential Design Code ' || COALESCE(props->>'r_code', props->>'density_code', props->>'rcode_no')"),
         ("obrm-001", "bushfire",
          "props->>'type'",
          "COALESCE('Bush Fire Prone Area designated ' || (props->>'designation'), 'Bush Fire Prone Area')"),
