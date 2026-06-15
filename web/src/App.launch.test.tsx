@@ -190,6 +190,102 @@ test("landing address handoff stores address, opens app, creates guest project, 
   );
 });
 
+test("landing address input shows predictive address suggestions", async () => {
+  const api = makeApi({
+    session: vi.fn()
+      .mockResolvedValueOnce({ kind: "auth" })
+      .mockResolvedValue({ kind: "ok", data: { role: "guest" } }),
+    searchAddress: vi.fn().mockResolvedValue({
+      kind: "ok",
+      data: {
+        items: [
+          {
+            address: "14 Montague Street, Mount Lawley WA 6050",
+            address_point_id: "gnaf-14",
+            gnaf_pid: "GNAF-14",
+            lat: -31.94,
+            lon: 115.87,
+            score: 0.91,
+          },
+        ],
+        count: 1,
+      },
+    }),
+    createProject: vi.fn().mockResolvedValue({
+      kind: "ok",
+      data: { id: "project-14", address: "14 Montague Street, Mount Lawley WA 6050" },
+    }),
+  });
+  await renderApp(api);
+
+  await userEvent.type(await screen.findByLabelText(/street address/i), "14 montague");
+
+  expect(await screen.findByRole("listbox", { name: /address suggestions/i })).toBeTruthy();
+  await userEvent.click(screen.getByRole("option", { name: /14 montague street/i }));
+
+  await waitFor(() => expect(window.location.pathname).toBe("/app"));
+  await waitFor(() => expect(api.createProject).toHaveBeenCalledWith("14 Montague Street, Mount Lawley WA 6050"));
+});
+
+test("landing address input suggests address-like street names without a house number", async () => {
+  const api = makeApi({
+    searchAddress: vi.fn().mockResolvedValue({
+      kind: "ok",
+      data: {
+        items: [
+          {
+            address: "3 Black Swan Rise, Beeliar WA 6164",
+            address_point_id: "gnaf-black-swan",
+            gnaf_pid: "GNAF-BLACK-SWAN",
+            lat: -32.13,
+            lon: 115.81,
+            score: 0.88,
+          },
+        ],
+        count: 1,
+      },
+    }),
+  });
+  await renderApp(api);
+
+  await userEvent.type(await screen.findByLabelText(/street address/i), "Black Swan Rise");
+
+  expect(await screen.findByRole("listbox", { name: /address suggestions/i })).toBeTruthy();
+  expect(screen.getByRole("option", { name: /3 black swan rise/i })).toBeTruthy();
+});
+
+test("app address box suggests address-like street names", async () => {
+  const api = makeApi({
+    session: vi.fn().mockResolvedValue({
+      kind: "ok",
+      data: { role: "owner", email: "owner@example.test" },
+    }),
+    searchAddress: vi.fn().mockResolvedValue({
+      kind: "ok",
+      data: {
+        items: [
+          {
+            address: "3 Black Swan Rise, Beeliar WA 6164",
+            address_point_id: "gnaf-black-swan",
+            gnaf_pid: "GNAF-BLACK-SWAN",
+            lat: -32.13,
+            lon: 115.81,
+            score: 0.88,
+          },
+        ],
+        count: 1,
+      },
+    }),
+  });
+  setPath("/app");
+  await renderApp(api);
+
+  await userEvent.type(await screen.findByLabelText(/address or planning question/i), "Black Swan Rise");
+
+  expect(await screen.findByRole("listbox", { name: /address suggestions/i })).toBeTruthy();
+  expect(screen.getByRole("option", { name: /3 black swan rise/i })).toBeTruthy();
+});
+
 test("magic-link verify route verifies token and rewrites to app", async () => {
   const api = makeApi({
     session: vi.fn().mockResolvedValue({
