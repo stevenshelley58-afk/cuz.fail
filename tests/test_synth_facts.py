@@ -185,6 +185,24 @@ def test_writes_confirmed_spatial_derived_facts(session: Session, monkeypatch) -
     # lot_area uses the parcel's stored area.
     area = next(f for f in facts if f.fact_type == "lot_area_m2")
     assert area.value_json == {"value": 540.0, "unit": "m2"}
+    local_government = next(f for f in facts if f.fact_type == "local_government")
+    assert local_government.value_json == {"name": "City of Cockburn"}
+
+
+def test_normalizes_bbox_local_government_label(session: Session, monkeypatch) -> None:
+    org_id, project_id, _prop, parcel = _seed_resolved_project(
+        session,
+        local_government="City of Cockburn (bbox extent)",
+    )
+    assert parcel is not None
+    monkeypatch.setattr(synth_facts, "_intersecting_features", lambda *a, **k: [])
+
+    synth_property_facts(session, org_id=org_id, project_id=project_id)
+
+    local_government = next(
+        f for f in session.query(PropertyFact).all() if f.fact_type == "local_government"
+    )
+    assert local_government.value_json == {"name": "City of Cockburn"}
 
 
 def test_idempotent_across_runs(session: Session, monkeypatch) -> None:
