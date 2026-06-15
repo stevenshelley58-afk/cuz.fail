@@ -125,15 +125,62 @@ canary recorded + passing; no cross-council leakage.
 
 ---
 
-## 2. Recommended council order
+## 2. Council status tracker  (the shared worklist — update as you go)
 
-Start with metro councils adjacent to Cockburn (highest G-NAF density, most similar scheme
-structure, likely already partly covered by `lgate`/`dplh`):
-1. **Melville**, **Fremantle**, **Kwinana**, **Rockingham** (immediate neighbours).
-2. **Canning**, **Gosnells**, **Armadale**, **Belmont**, **Stirling** (broader metro).
-3. Then outward / regional as data allows.
-Sequence by **availability of digital scheme text** first — pick whichever of the above has the
-cleanest machine-readable LPS. Do ONE fully (through §1.8) before starting the next.
+This is the **single source of truth** for who-is-doing-what. Multiple agents work in parallel,
+one council each.
+
+**Status legend:** ✅ done · 🔄 in progress · ⛔ blocked · ⬜ not started.
+
+**Protocol (avoid collisions):**
+1. **Claim** a row before starting: set Status → 🔄 and put `<your-agent-id> <date>` in *Claimed by*.
+   Commit/push that one-line change FIRST (tiny PR or direct to main) so other agents see the claim.
+2. Edit **only your council's row** while working (one row per agent ⇒ table merges cleanly).
+3. On completion run the §1.8 ship step, then set Status → ✅ and fill Rules / Faithful / Canary.
+4. If blocked (e.g. no digital scheme text, missing spatial coverage), set ⛔ and put the reason +
+   the one unblock action in *Notes*; move to the next council.
+5. **Do one council fully (through §1.8) before claiming another.** Tier order is the recommended
+   priority (Cockburn neighbours first), but claim by **whichever has the cleanest digital LPS**.
+
+| Council | Tier | Status | Rules | Faithful | Canary | Claimed by | Notes |
+|---|---|---|---|---|---|---|---|
+| City of Cockburn | 0 | ✅ done | 1723 | 1.00 | `beeliar_canary.json` | — (2026-06-15) | Reference implementation. ⚠️ still `council_scope=NULL` until WP-0 runs. |
+| City of Melville | 1 | ⬜ | | | | | Immediate neighbour. |
+| City of Fremantle | 1 | ⬜ | | | | | Immediate neighbour. |
+| Town of East Fremantle | 1 | ⬜ | | | | | Small; quick. |
+| City of Kwinana | 1 | ⬜ | | | | | Immediate neighbour. |
+| City of Rockingham | 1 | ⬜ | | | | | Immediate neighbour. |
+| City of Canning | 2 | ⬜ | | | | | |
+| City of Gosnells | 2 | ⬜ | | | | | |
+| City of Armadale | 2 | ⬜ | | | | | |
+| City of Belmont | 2 | ⬜ | | | | | |
+| City of South Perth | 2 | ⬜ | | | | | |
+| Town of Victoria Park | 2 | ⬜ | | | | | |
+| Shire of Serpentine-Jarrahdale | 2 | ⬜ | | | | | Peri-urban; check parcel coverage. |
+| City of Mandurah | 2 | ⬜ | | | | | |
+| City of Stirling | 3 | ⬜ | | | | | Largest metro pop. |
+| City of Wanneroo | 3 | ⬜ | | | | | |
+| City of Joondalup | 3 | ⬜ | | | | | |
+| City of Swan | 3 | ⬜ | | | | | |
+| City of Bayswater | 3 | ⬜ | | | | | |
+| Town of Bassendean | 3 | ⬜ | | | | | |
+| City of Perth | 3 | ⬜ | | | | | Complex CBD scheme. |
+| City of Vincent | 3 | ⬜ | | | | | |
+| City of Nedlands | 3 | ⬜ | | | | | |
+| City of Subiaco | 3 | ⬜ | | | | | |
+| Town of Cottesloe | 3 | ⬜ | | | | | |
+| Town of Mosman Park | 3 | ⬜ | | | | | |
+| Shire of Peppermint Grove | 3 | ⬜ | | | | | Smallest LGA in WA; trivial. |
+| Town of Claremont | 3 | ⬜ | | | | | |
+| Shire of Kalamunda | 3 | ⬜ | | | | | Hills; check spatial. |
+| Shire of Mundaring | 3 | ⬜ | | | | | Hills; check spatial. |
+
+Beyond Perth metro: extend with regional WA LGAs (Bunbury, Busselton, Albany, Geraldton, Kalgoorlie,
+etc.) by adding rows as they are targeted — same recipe, verify spatial coverage first (cadastre/
+zoning thin outside metro). WA has ~139 LGAs total; this tracker grows on demand, not all at once.
+
+**Columns:** *Rules* = approved `council_scope`'d rules; *Faithful* = 3-judge audit rate (§1.6, gate
+≥0.90); *Canary* = `evals/seeds/<council>_canary.json` filename once recorded.
 
 ---
 
