@@ -14,6 +14,7 @@ import json
 import os
 import sys
 import uuid
+from uuid import UUID
 
 sys.path.insert(0, "/app/src")
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "src"))
@@ -23,6 +24,7 @@ from sqlalchemy.orm import Session  # noqa: E402
 
 from draftcheck.checks.engine import ComplianceEngine  # noqa: E402
 from draftcheck.checks.registry import ALL_CHECKS, REGISTRY_SOURCE  # noqa: E402
+
 from draftcheck.db.models import Project, PropertyFact, Rule  # noqa: E402
 from draftcheck.domain.address import AddressResolutionService  # noqa: E402
 from draftcheck.domain.address.postgis_store import PostGISSpatialDatasetStore  # noqa: E402
