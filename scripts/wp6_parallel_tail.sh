@@ -6,12 +6,13 @@ set -euo pipefail
 COMPOSE_DIR="${WP6_COMPOSE_DIR:-/srv/draftcheck/app/infra/v3}"
 LOG="${WP6_TAIL_LOG:-/srv/draftcheck/app/reports/wp6_parallel_tail.log}"
 MAX_WORKERS="${WP6_TAIL_MAX_WORKERS:-6}"
+CLAUSE_WORKERS="${WP6_TAIL_CLAUSE_WORKERS:-2}"
 LIMIT="${WP6_TAIL_LIMIT:-80}"
 ORDER="${WP6_TAIL_ORDER:-DESC}"
 GLOBAL_ACTIVE_LIMIT="${WP6_TAIL_GLOBAL_ACTIVE_LIMIT:-12}"
 
-if ! [[ "$MAX_WORKERS" =~ ^[1-9][0-9]*$ && "$LIMIT" =~ ^[1-9][0-9]*$ && "$GLOBAL_ACTIVE_LIMIT" =~ ^[1-9][0-9]*$ ]]; then
-    echo "WP6_TAIL_MAX_WORKERS, WP6_TAIL_LIMIT, and WP6_TAIL_GLOBAL_ACTIVE_LIMIT must be positive integers" >&2
+if ! [[ "$MAX_WORKERS" =~ ^[1-9][0-9]*$ && "$CLAUSE_WORKERS" =~ ^[1-9][0-9]*$ && "$LIMIT" =~ ^[1-9][0-9]*$ && "$GLOBAL_ACTIVE_LIMIT" =~ ^[1-9][0-9]*$ ]]; then
+    echo "WP6_TAIL_MAX_WORKERS, WP6_TAIL_CLAUSE_WORKERS, WP6_TAIL_LIMIT, and WP6_TAIL_GLOBAL_ACTIVE_LIMIT must be positive integers" >&2
     exit 2
 fi
 if [[ "$ORDER" != "ASC" && "$ORDER" != "DESC" ]]; then
@@ -56,7 +57,7 @@ COUNT=0
 ACTIVE=0
 TOTAL=$(echo "$IDS" | wc -w)
 
-echo "Found $TOTAL tail source versions. Max workers: $MAX_WORKERS. Global active limit: $GLOBAL_ACTIVE_LIMIT" | tee -a "$LOG"
+echo "Found $TOTAL tail source versions. Max workers: $MAX_WORKERS. Clause workers: $CLAUSE_WORKERS. Global active limit: $GLOBAL_ACTIVE_LIMIT" | tee -a "$LOG"
 
 for SV_ID in $IDS; do
     if echo " $ACTIVE_IDS " | grep -q " $SV_ID "; then
@@ -76,7 +77,7 @@ for SV_ID in $IDS; do
     (
         sudo docker compose exec -T "${EXEC_ENV[@]}" api python scripts/wp6_extract.py \
             --source-version "$SV_ID" \
-            --workers 2 \
+            --workers "$CLAUSE_WORKERS" \
             --report "/app/reports/wp6_tail_${SV_ID}.json" \
             2>&1 | tee -a "$LOG"
 
