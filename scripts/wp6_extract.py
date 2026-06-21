@@ -212,6 +212,14 @@ def advisory_lock_key(value: str) -> int:
     return int(hashlib.sha256(value.encode("utf-8")).hexdigest()[:16], 16) & ((1 << 63) - 1)
 
 
+def write_report(path: str, body: str) -> None:
+    directory = os.path.dirname(path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(body)
+
+
 def estimate_cost_usd(model: str, input_tokens: int, output_tokens: int) -> tuple[float, bool]:
     prices = MODEL_PRICES_PER_M.get(model)
     if prices is None:
@@ -1006,8 +1014,7 @@ def main() -> int:
             report["skipped"] = "source_version_locked_by_another_wp6_runner"
             out = json.dumps(report, indent=2, default=str)
             if args.report:
-                with open(args.report, "w", encoding="utf-8") as fh:
-                    fh.write(out)
+                write_report(args.report, out)
             print(out)
             return 0
         report["source_version_lock_key"] = lock_key
@@ -1109,8 +1116,7 @@ def main() -> int:
 
     out = json.dumps(report, indent=2, default=str)
     if args.report:
-        with open(args.report, "w", encoding="utf-8") as fh:
-            fh.write(out)
+        write_report(args.report, out)
     print(out)
     return 0
 
