@@ -95,16 +95,6 @@ def classify_row(row: ManifestRow) -> TriageDecision:
     name = norm(row.instrument_name)
     category = norm(row.category)
 
-    if has_url(row):
-        return TriageDecision(
-            manifest_id=row.id,
-            instrument_name=row.instrument_name,
-            current_status=row.status,
-            recommended_status="pending",
-            reason="Has canonical_url; re-run WP4 acquisition.",
-            unblock="python scripts/wp4_acquire.py --limit 20",
-        )
-
     if category == "standard" or any(term in name for term in STANDARDS_TERMS):
         return TriageDecision(
             manifest_id=row.id,
@@ -127,6 +117,16 @@ def classify_row(row: ManifestRow) -> TriageDecision:
             recommended_status=disposition,
             reason=reason,
             unblock=None,
+        )
+
+    if has_url(row):
+        return TriageDecision(
+            manifest_id=row.id,
+            instrument_name=row.instrument_name,
+            current_status=row.status,
+            recommended_status="pending",
+            reason="Has canonical_url; re-run WP4 acquisition.",
+            unblock="python scripts/wp4_acquire.py --limit 20",
         )
 
     return TriageDecision(

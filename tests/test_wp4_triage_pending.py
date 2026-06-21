@@ -16,7 +16,9 @@ def row(**overrides) -> ManifestRow:
 
 
 def test_classify_url_backed_row_for_acquisition() -> None:
-    decision = classify_row(row(canonical_url="https://example.test/doc.pdf"))
+    decision = classify_row(
+        row(instrument_name="Planning and Development Act 2005", canonical_url="https://example.test/doc.pdf")
+    )
 
     assert decision.recommended_status == "pending"
     assert "WP4 acquisition" in decision.reason
@@ -31,6 +33,14 @@ def test_classify_standards_as_metadata_only() -> None:
 
 def test_classify_non_planning_act_as_out_of_scope() -> None:
     decision = classify_row(row(instrument_name="Freedom of Information Act 1992", category="act"))
+
+    assert decision.recommended_status == "out_of_scope"
+
+
+def test_classify_url_backed_non_planning_act_as_out_of_scope() -> None:
+    decision = classify_row(
+        row(instrument_name="Debt Collectors Licensing Act 1964", category="act", canonical_url="https://example.test/doc.pdf")
+    )
 
     assert decision.recommended_status == "out_of_scope"
 
