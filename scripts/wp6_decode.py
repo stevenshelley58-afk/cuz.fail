@@ -236,6 +236,12 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--workers", type=int, default=20)
     ap.add_argument("--model", default="gpt-4o-mini")
+    ap.add_argument("--source-version", default=None, help="restrict to one source_versions.id")
+    ap.add_argument(
+        "--uncovered-only",
+        action="store_true",
+        help="only decode clauses that do not already have a rules row",
+    )
     ap.add_argument("--redo", action="store_true", help="re-decode clauses already decoded")
     ap.add_argument("--report", default="/app/reports/wp6_decode.json")
     args = ap.parse_args()
@@ -251,16 +257,31 @@ def main() -> int:
         "AND NOT EXISTS (SELECT 1 FROM rule_candidates rc "
         "WHERE rc.clause_id=c.id AND rc.extractor_model=%(model_tag)s)"
     )
+    source_filter = "AND c.source_version_id = %(source_version)s::uuid" if args.source_version else ""
+    uncovered_filter = (
+        "AND NOT EXISTS (SELECT 1 FROM rules r WHERE r.clause_id = c.id)"
+        if args.uncovered_only
+        else ""
+    )
     with psycopg.connect(db_url()) as conn:
         cur = conn.cursor()
         cur.execute(
             f"""
             SELECT c.id::text, c.source_version_id::text, c.clause_path, c.text
             FROM clauses c
-            WHERE c.disposition = ANY(%(disp)s) AND length(c.text) BETWEEN 40 AND 8000 {skip}
+            WHERE c.disposition = ANY(%(disp)s)
+              AND length(c.text) BETWEEN 40 AND 8000
+              {source_filter}
+              {uncovered_filter}
+              {skip}
             ORDER BY c.id {('LIMIT %(lim)s' if args.limit else '')}
             """,
-            {"disp": args.dispositions, "model_tag": model_tag, "lim": args.limit},
+            {
+                "disp": args.dispositions,
+                "model_tag": model_tag,
+                "lim": args.limit,
+                "source_version": args.source_version,
+            },
         )
         clauses = [
             {"clause_id": r[0], "source_version_id": r[1], "clause_path": r[2], "text": r[3]}
@@ -324,6 +345,8 @@ def main() -> int:
         "not_a_rule": not_a_rule, "errors": errors, "by_check_type": by_check_type,
         "error_kinds": error_kinds, "error_clauses": error_clauses,
         "model": model_tag,
+        "source_version": args.source_version,
+        "uncovered_only": args.uncovered_only,
     }
     os.makedirs(os.path.dirname(args.report), exist_ok=True)
     with open(args.report, "w", encoding="utf-8") as fh:
