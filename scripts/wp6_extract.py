@@ -205,6 +205,11 @@ def spend_totals() -> dict:
     return out
 
 
+def advisory_lock_key(value: str) -> int:
+    """Stable signed 63-bit advisory lock key for one source_version id."""
+    return int(hashlib.sha256(value.encode("utf-8")).hexdigest()[:16], 16) & ((1 << 63) - 1)
+
+
 def estimate_cost_usd(model: str, input_tokens: int, output_tokens: int) -> tuple[float, bool]:
     prices = MODEL_PRICES_PER_M.get(model)
     if prices is None:
@@ -957,6 +962,18 @@ def main() -> int:
     report: dict[str, Any] = {"source_version_id": sv_id, "escalations": []}
 
     with psycopg.connect(dsn) as conn:
+        lock_key = advisory_lock_key(sv_id)
+        locked = conn.execute("SELECT pg_try_advisory_lock(%s)", (lock_key,)).fetchone()[0]
+        if not locked:
+            report["skipped"] = "source_version_locked_by_another_wp6_runner"
+            out = json.dumps(report, indent=2, default=str)
+            if args.report:
+                with open(args.report, "w", encoding="utf-8") as fh:
+                    fh.write(out)
+            print(out)
+            return 0
+        report["source_version_lock_key"] = lock_key
+
         report["structure_pass"] = structure_pass(conn, sv_id)
         print(f"structure: {report['structure_pass']}", flush=True)
 
