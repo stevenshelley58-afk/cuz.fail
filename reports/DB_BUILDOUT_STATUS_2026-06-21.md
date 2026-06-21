@@ -1,0 +1,121 @@
+# DB Build-Out Status — 2026-06-21
+
+**Pipeline is RUNNING on the VPS.** Two background processes are active:
+
+| Process | PID | What it does | Status |
+|---|---|---|---|
+| WP6 Parallel Extraction | 1150236 | 35 workers × ~176 source versions | 🟡 Active |
+| Auto Follow-up | 1168181 | Waits for WP6 → runs WP5→WP7→WP8 | 🟡 Waiting |
+
+---
+
+## What's DONE this session
+
+| WP | Status | Detail |
+|---|---|---|
+| **WP0** | ✅ | DB state probed, `db_state.json` regenerated |
+| **WP1** | ✅ | Schema confirmed at 0019, no gaps |
+| **WP2** | ✅ | `spatial_load.json` regenerated via `spatial_stamp_rcodes.py` |
+| **WP3** | ✅ | Manifest closure: all 288 source_documents matched, 0 orphans |
+| **WP4** | ✅ | Acquisition: 0 pending manifest rows (520 acquired, 1,192 blocked, 18 metadata_only) |
+| **WP5** | 🟡 | Initial run created +19,084 edges; re-run queued after WP6 |
+| **WP6** | 🟡 | **Parallel extraction running** — 35 workers, ~1 source version done |
+| **WP7** | 🟡 | Re-run queued after WP5 |
+| **WP8** | 🟡 | Round 1 queued after WP7 |
+| **WP9** | ✅ | 19 eval cases confirmed |
+| **WP10** | ✅ | Backup cron installed at `/etc/cron.d/draftcheck-backup` |
+
+---
+
+## What's RUNNING now
+
+### WP6 Parallel Extraction
+- **35 concurrent workers** processing source versions with uncovered rule-bearing clauses
+- Each worker runs `wp6_extract.py --source-version <id> --workers 2`
+- Estimated: **6-12 hours** for all ~176 source versions (was 7-14 days single-threaded)
+- Logs: `/srv/draftcheck/app/reports/wp6_parallel.log`
+
+### Auto Follow-up Pipeline
+- Monitors WP6 process every 60 seconds
+- Once WP6 finishes, automatically executes:
+  1. `wp5_citations.py` — citation closure on newly extracted versions
+  2. `wp7_conflict_sweep.py` — conflict sweep against updated rules
+  3. `adversarial_review.py re-extract --round 1` — adversarial round 1
+- Logs: `/srv/draftcheck/app/reports/followup.log`
+
+---
+
+## What YOU can do now
+
+### 1. Monitor progress (SSH to VPS)
+```bash
+ssh draftcheck
+
+# See how many source versions are done
+grep -c "Completed source_version" /srv/draftcheck/app/reports/wp6_parallel.log
+
+# See active workers
+ps aux | grep "wp6_extract" | grep -v grep | wc -l
+
+# Check follow-up status
+tail -f /srv/draftcheck/app/reports/followup.log
+```
+
+### 2. Merge the PR once CI passes
+```bash
+gh pr merge 136 --auto --squash
+# or merge manually on GitHub
+```
+
+### 3. Deploy to VPS after merge
+```bash
+ssh draftcheck 'cd /srv/draftcheck/app && git fetch origin && git reset --hard origin/main && cd infra/v3 && sudo docker compose build api && sudo docker compose up -d --wait && sudo docker compose exec -T api alembic upgrade head'
+```
+
+---
+
+## Estimated timeline
+
+| Milestone | ETA | How to check |
+|---|---|---|
+| WP6 complete | ~6-12 hours | `grep -c "Completed" /srv/draftcheck/app/reports/wp6_parallel.log` |
+| WP5 complete | +1-2 hours after WP6 | Check `followup.log` |
+| WP7 complete | +1 hour after WP5 | Check `conflict_sweep.json` timestamp |
+| WP8 complete | +2-3 hours after WP7 | Check `adversarial_findings` count |
+| **Total** | **~10-18 hours** | |
+
+---
+
+## Known issues / decisions needed
+
+### 1. 1,192 blocked target_manifest rows
+These are instruments that failed 3× fetch. Most are WA legislation amendment/repeal acts with no resolvable URL. **Options:**
+- **A.** Leave as `blocked` (current) — they're cited but unfetchable
+- **B.** Mark as `metadata_only` — no full text, but retain citation
+- **C.** Manual URL curation — Steven finds URLs for high-value ones
+
+### 2. Top uncovered clauses are general legislation
+The 20 source versions with the most uncovered rule-bearing clauses include:
+- Local Government Act 1995 (359 clauses)
+- Electoral Act 1907 (336 clauses)
+- Liquor Control Act 1988 (289 clauses)
+- Mining Act 1978 (187 clauses)
+
+These may be **out of scope** for a planning/building compliance product. The relevant ones (R-Codes, Planning and Development Act, Cockburn LPPs) are mixed in. **No action needed** — the extraction pipeline will handle all of them, and the adjudication step will filter irrelevant ones.
+
+### 3. LLM spend
+- Historical total: **$89.73**
+- WP6 extraction: estimated **$20-40** additional (based on $0.0011 per call × ~20,000 calls)
+- Total projected: **~$110-130**
+
+---
+
+## One-command status check
+```bash
+ssh draftcheck 'echo "=== WP6 Progress ===" && grep -c "Completed source_version" /srv/draftcheck/app/reports/wp6_parallel.log 2>/dev/null && echo "source versions done" && echo "=== Active Workers ===" && ps aux | grep "wp6_extract" | grep -v grep | wc -l && echo "workers" && echo "=== Follow-up ===" && tail -3 /srv/draftcheck/app/reports/followup.log && echo "=== DB State ===" && cd /srv/draftcheck/app/infra/v3 && sudo docker compose exec -T db psql -U draftcheck -c "SELECT lifecycle_status, COUNT(*) FROM rules GROUP BY lifecycle_status;" && sudo docker compose exec -T db psql -U draftcheck -c "SELECT COUNT(*) FROM adversarial_findings;"'
+```
+
+---
+
+*Report generated by Kimi Code agent, 2026-06-21.*
+*Authority: docs/DB_BUILDOUT_KIMI_SWARM_PLAN.md §9 + docs/MASTER_REBUILD_PLAN.md §5, §8, §9.*
