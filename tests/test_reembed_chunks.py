@@ -1,6 +1,11 @@
 from __future__ import annotations
 
-from draftcheck.domain.sources.library import _batch_embed, _embed, default_embedding_config
+from draftcheck.domain.sources.library import (
+    _batch_embed,
+    _embed,
+    _embedding_retry_delays,
+    default_embedding_config,
+)
 from scripts.reembed_chunks import BAD_PROVIDERS, ensure_apply_can_write_real_embeddings, pinned_config
 
 
@@ -45,6 +50,12 @@ def test_pinned_config_reads_embedding_env(monkeypatch) -> None:
         "dimension": 1536,
     }
     assert {"stub", "hash", "mock"} == set(BAD_PROVIDERS)
+
+
+def test_embedding_retry_delays_are_configurable(monkeypatch) -> None:
+    monkeypatch.setenv("DRAFTCHECK_EMBEDDING_RETRY_DELAYS", "0, 2, nope, -1, 5")
+
+    assert _embedding_retry_delays() == (0.0, 2.0, 5.0)
 
 
 def test_reembed_apply_refuses_to_stamp_api_without_key(monkeypatch) -> None:

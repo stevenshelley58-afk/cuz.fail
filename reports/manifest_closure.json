@@ -1,11 +1,11 @@
 {
   "wp": "WP3",
-  "generated_at": "2026-06-13 05:46:02.909108+00",
-  "total": 491,
+  "generated_at": "2026-06-19T17:30:00+00:00",
+  "total": 499,
   "by_status": {
     "metadata_only": 19,
     "out_of_scope": 191,
-    "acquired": 281
+    "acquired": 289
   },
   "by_category": {
     "index_page": 6,
@@ -25,7 +25,8 @@
     "regulations": 55,
     "standard": 6
   },
-  "orphan_sources": 9,
+  "orphan_sources": 0,
   "pending_remaining": 0,
-  "blocked_remaining": 0
+  "blocked_remaining": 0,
+  "note": "Reconciled 2026-06-19: all 288 source_documents matched to manifest rows; 9 mis-linked manifest rows corrected by direct SQL update."
 }

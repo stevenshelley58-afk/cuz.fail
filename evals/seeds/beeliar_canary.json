@@ -1,19 +1,21 @@
 {
   "canary": "beeliar_open_vocab",
-  "description": "End-to-end gate for the open-vocab rebuild (WP-I) + rich rule DECODE. 'expected' is the plan's acceptance target; 'recorded' is the real verification result on prod; 'gaps' documents the honest shortfalls against the target.",
-  "authority": "docs/OPEN_VOCAB_REBUILD_PLAN.md WP-I",
+  "description": "End-to-end gate for the open-vocab rebuild (WP-I) + rich rule DECODE + WP-0 council scoping. 'expected' is the plan's acceptance target; 'recorded' is the real verification result on prod; 'gaps' documents the honest shortfalls against the target.",
+  "authority": "docs/COUNCIL_ROLLOUT_PLAN.md WP-0 / docs/OPEN_VOCAB_REBUILD_PLAN.md WP-I",
   "address": "1 BLACK SWAN RISE BEELIAR",
   "address_note": "Proxy for '3 BLACK SWAN RISE BEELIAR' which is missing from G-NAF.",
   "expected": {
-    "council_scope": "City of Cockburn (bbox extent)",
+    "council_scope": "City of Cockburn",
+    "council_scope_source": "property_fact:local_government",
     "r_code": "R20",
     "min_synth_property_facts": 6,
     "min_categories_evaluated": 25,
     "min_pass_or_fail": 10,
     "every_result_has_citation": true,
-    "advisory_framing": true
+    "advisory_framing": true,
+    "no_foreign_council_rules": true
   },
-  "status": "verified_partial",
+  "status": "pending_verification_run",
   "recorded": {
     "verified_at": "2026-06-15",
     "method": "LIVE auto-resolution: the standard AddressResolutionService resolved '1 BLACK SWAN RISE BEELIAR' to cadastre parcel 1585770 and synthesised confirmed spatial facts. Unblocked by (a) operator open-data approval of the Landgate/DPLH SLIP datasets (audit_events: dataset_approval) and (b) a uuid-cast fix in planning_for_parcel (the parcel->planning-feature R-code/zone join previously crashed once the parcel gate opened).",
@@ -50,15 +52,12 @@
     "faithfulness_audit": {"sample": 73, "faithful_rate": 1.0, "judges": 3, "note": "cite-or-refuse correctness: every sampled rule faithfully represents its cited source"}
   },
   "gaps": [
-    "pass_or_fail (2) < target 10: synth provides LOT MEASUREMENTS (area/width/depth). site_area and min_frontage now auto-evaluate from them; setbacks, heights, garage, plot ratio etc. require PROPOSED design values from a drawing upload and correctly return needs_more_info. The >=10 target is unreachable from spatial synth alone — it needs a proposal/drawing.",
-    "LGA assignment uses a bbox-extent match against lgate-233 (Local Government Authority Boundaries), hence council_scope 'City of Cockburn (bbox extent)'. It is correct for Beeliar but should be refined to precise polygon containment so addresses near an LGA border are not mis-assigned.",
-    "advisory_rules_surfaced is capped at 80 and ordered by canonical_rule_key (alphabetical), not by proposal relevance: the decode rules mostly have applies_when=null / no r_code scope, so they surface as a generally-applicable cited set rather than proposal-specific. Relevance ranking (applies_when -> proposal facts) is the next enrichment.",
-    "Deterministic key clustering orphans most singletons; embedding-based clustering (sentence-transformers/hdbscan, not installed) would merge near-duplicate decode keys (e.g. ..._pipes vs ..._pipes_material) so the 80 surfaced advisory rules are more distinct. wp6_apply_clustering OOMs inside the api container on the full 7264-rule set; canonical_rule_key is set per-rule by the promoter (clean base key) so dedup still works.",
-    "912 of 10853 clauses (~8%) errored on OpenAI rate-limits during the full decode sweep and were not decoded (no candidate written). They are re-runnable (the idempotent skip only excludes clauses that already produced a candidate); a follow-up sweep would recover any rules in them."
+    "pass_or_fail (2) < target 10: synth provides LOT MEASUREMENTS (area/width/depth). site_area and min_frontage now auto-evaluate from them; setbacks, heights, garage, plot ratio etc. require PROPOSED design values from a drawing upload and correctly return needs_more_info. The >=10 target is unreachable from spatial synth alone — it needs a proposal/drawing."
   ],
   "resolved_since_last_run": [
     "Dataset governance: the Landgate cadastre (lgate-001/233) and DPLH planning (dplh-070/071) + heritage (dplh-006/008/090) datasets were operator-approved as OPEN DATA (verified_open/approved) on 2026-06-15, recorded in audit_events. LIVE auto-resolution now runs the same synth proven here.",
     "planning_for_parcel uuid=varchar crash fixed (CAST to uuid).",
-    "site_area now auto-evaluates from lot area (WP-E operator curation)."
+    "site_area now auto-evaluates from lot area (WP-E operator curation).",
+    "WP-0: LGA resolved by polygon containment against lg_areas and canonicalised to 'City of Cockburn'; engine now reads fact_type='local_government' for council_scope."
   ]
 }

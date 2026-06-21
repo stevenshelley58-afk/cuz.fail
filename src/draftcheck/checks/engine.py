@@ -214,13 +214,19 @@ def _project_council_scope(project: Project) -> str | None:
 
 
 def _resolve_council_scope(project: Project, fact_by_type: dict[str, PropertyFact]) -> tuple[str | None, str]:
-    """Resolve council from confirmed facts first, then legacy project fields."""
-    council_fact = fact_by_type.get("council")
-    council_from_fact = _extract_text_value(
-        council_fact.value_json if council_fact is not None and isinstance(council_fact.value_json, dict) else None
-    )
-    if council_from_fact:
-        return council_from_fact, "property_fact:council"
+    """Resolve council from confirmed facts first, then legacy project fields.
+
+    Spatial synth writes the resolved LGA as ``fact_type='local_government'``
+    (value_json ``{"name": "City of ..."}``).  Older paths used ``council``.
+    Both are honoured so WP-0 council scoping works regardless of fact source.
+    """
+    for fact_type in ("council", "local_government"):
+        fact = fact_by_type.get(fact_type)
+        council_from_fact = _extract_text_value(
+            fact.value_json if fact is not None and isinstance(fact.value_json, dict) else None
+        )
+        if council_from_fact:
+            return council_from_fact, f"property_fact:{fact_type}"
     project_scope = _project_council_scope(project)
     if project_scope:
         return project_scope, "project.council_scope"

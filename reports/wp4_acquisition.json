@@ -1,826 +1,248 @@
 {
   "wp": "WP4",
-  "worker": "wp4-b1e23b311df0",
-  "processed": 81,
+  "worker": "wp4-16effb17c003",
+  "processed": 23,
   "summary": {
-    "acquired": 80,
+    "acquired": 23,
     "metadata_only": 0,
-    "blocked": 1,
+    "blocked": 0,
     "errors": 0
   },
   "manifest_status_after": {
-    "acquired": 203,
-    "blocked": 2,
-    "metadata_only": 14,
-    "out_of_scope": 17
+    "metadata_only": 18,
+    "out_of_scope": 191,
+    "blocked": 1192,
+    "acquired": 520
   },
   "items": [
     {
-      "manifest_id": "4feb7abe-026b-59e5-87ba-ab369cf7a93e",
-      "instrument": "Development Control Policy 1.11 - Community schemes",
-      "category": "dc_policy",
+      "manifest_id": "d979c934-937c-565d-bd7e-3f9ec156c118",
+      "instrument": "Forrest Place and City Station Development Act 1985",
+      "category": "act",
       "status": "acquired",
-      "doc_id": "d32db5a4-7d98-4f15-acc5-fcffb37679f2",
+      "doc_id": "481014dc-545d-5e12-9c4d-388d5b61197f",
+      "notes": "WP4 acquired (90 chunks, duplicate=False)",
+      "chunks": "90",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "4d4f386f-a5e0-57a9-a39d-b3abe285010c",
+      "instrument": "Freedom of Information Act 1992",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "7f1f3e00-8bd6-5a2d-8107-0dc0351c5815",
+      "notes": "WP4 acquired (189 chunks, duplicate=False)",
+      "chunks": "189",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "cd0a7371-1319-5131-a7d1-eac47f1ad322",
+      "instrument": "Government Railways Act 1904",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "0634f37d-86c1-5c0c-8166-9980d81ed73d",
+      "notes": "WP4 acquired (124 chunks, duplicate=False)",
+      "chunks": "124",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "1086ab79-1a4f-53f6-8541-3b60925f41ca",
+      "instrument": "Guardianship and Administration Act 1990",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "50aff3e4-8a6a-5355-aef0-71e32e029a1e",
+      "notes": "WP4 acquired (350 chunks, duplicate=False)",
+      "chunks": "350",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "ed8a32a4-6b40-52d4-b222-f2db66d88ef2",
+      "instrument": "Limitation Act 1935",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "d60c817f-21da-5bc3-8639-6fa6bf1045b3",
+      "notes": "WP4 acquired (78 chunks, duplicate=False)",
+      "chunks": "78",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "157735fb-e0ef-5b5a-a137-f8d5a8af31fd",
+      "instrument": "Lotteries Commission Act 1990",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "1ea99160-b6a7-5169-9ccc-5a6b42350f13",
+      "notes": "WP4 acquired (77 chunks, duplicate=False)",
+      "chunks": "77",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "00e6ef90-3547-5fed-9046-3b9e91d7f21f",
+      "instrument": "Medicines and Poisons Act 2014",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "3fe7de99-3ae1-5190-b303-c8727802cbda",
+      "notes": "WP4 acquired (232 chunks, duplicate=False)",
+      "chunks": "232",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "0da4eae4-e128-5604-a5f1-306bc88defdd",
+      "instrument": "Museum Act 1969",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "f1e9401e-b43f-5661-9183-284ca9536f5b",
+      "notes": "WP4 acquired (48 chunks, duplicate=False)",
+      "chunks": "48",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "328266df-b462-56b0-b042-000590525b81",
+      "instrument": "Parks and Reserves Act 1895",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "00d1eb4d-91b5-5933-ae73-83509cc91838",
+      "notes": "WP4 acquired (50 chunks, duplicate=False)",
+      "chunks": "50",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "80635107-e844-576b-b585-9bb37d8af309",
+      "instrument": "Partnership Act 1895",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "eaafd039-a000-5b67-9e7b-f80c814b5898",
+      "notes": "WP4 acquired (49 chunks, duplicate=False)",
+      "chunks": "49",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "c6bad3bc-f9f4-502a-9e94-9fe4799d36a0",
+      "instrument": "Perry Lakes Redevelopment Act 2005",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "59349183-c34d-517a-b1e1-fa8474321d5a",
+      "notes": "WP4 acquired (78 chunks, duplicate=False)",
+      "chunks": "78",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "e34a63a5-2065-52a5-b755-0ee12d54f1c4",
+      "instrument": "Perth Parking Management Act 2024",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "6845eec7-77dd-582c-b8bc-4ffee98e2812",
       "notes": "WP4 acquired (9 chunks, duplicate=False)",
       "chunks": "9",
       "duplicate": "False"
     },
     {
-      "manifest_id": "a049da96-4e19-5135-b0a9-1cbdbb103563",
-      "instrument": "Development Control Policy 1.3 - Strata titles",
-      "category": "dc_policy",
+      "manifest_id": "5146653d-3f3f-5afa-89a2-2dd08019e7d4",
+      "instrument": "Petroleum and Geothermal Energy Resources Act 1967",
+      "category": "act",
       "status": "acquired",
-      "doc_id": "26a55907-cb03-4665-8476-9fff6dd98718",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "c526e188-466c-5dd1-a7bf-f5c210a1b998",
-      "instrument": "Development Control Policy 1.5 - Bicycle Planning",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "70599965-df41-4bdf-804d-22e7525a85ab",
-      "notes": "WP4 acquired (9 chunks, duplicate=False)",
-      "chunks": "9",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "3c0c3f24-d1d5-53be-8cbe-6e0db3f18039",
-      "instrument": "Development Control Policy 1.6 - Planning to support transit use and development",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "6ca2e22b-6070-404d-a0d2-68b2d2a40f48",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "36608657-574d-5cc0-8514-a077f730b0cb",
-      "instrument": "Development Control Policy 1.7 - General road planning",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "0f04f293-2306-4b03-b7e4-0a386dff7b70",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "1dccb02b-8483-510b-9fc1-692739761668",
-      "instrument": "Development Control Policy 1.8 - Canal estates and artificial waterway developments",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "ec5bc053-9ffa-43d2-9b88-6fd17f5a7940",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "4e5054e0-590e-5486-828c-ec54e683e447",
-      "instrument": "Development Control Policy 2.2 - Residential subdivision",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "72e33992-ad5a-4041-8875-f904a6bc1769",
-      "notes": "WP4 acquired (9 chunks, duplicate=False)",
-      "chunks": "9",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "8da54e3c-731a-54c1-82d8-1c2b01fc4130",
-      "instrument": "Development Control Policy 2.4 - School sites",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "4d185662-ba12-42ce-be0f-1830b9bbd7fb",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "1045ff87-cef6-5087-a695-4cef4991468f",
-      "instrument": "Development Control Policy 2.6 - Residential road planning",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "44c8df18-781a-4621-bc8d-9bf7179fd37c",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "d9c27338-e7d3-542a-a087-8276e3d6d1a1",
-      "instrument": "Development Control Policy 3.4 - Subdivision of rural land",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "e9b0074a-7538-4ae5-a7fc-7053b2908f47",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "4e072e46-7f82-5d84-b694-256723f000d6",
-      "instrument": "Development Control Policy 4.1 - Industrial subdivision",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "0393c367-fd11-44d2-b2fd-fcdc5bb52f44",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "050407ee-9cd0-50ca-a8c2-100dad71fe45",
-      "instrument": "Development Control Policy 4.2 - Planning for hazards and safety",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "60f9ebe1-c3cc-4149-8ae9-24c0e3d5a180",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "ca9876a9-ef48-51f1-8c7e-2a4173954ad8",
-      "instrument": "Development Control Policy 5.1 - Regional roads (vehicular access)",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "ff9cdd95-068e-400a-91ee-075bdac9b5d8",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "94479dda-1322-5196-835d-89ae218e6c31",
-      "instrument": "Development Control Policy 5.3 - Use of land reserved for parks, recreation and regional open space",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "12daa761-ef68-40a0-8257-4604f3a48b5b",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "c1bef617-0b6f-5d64-8ade-6406aa5d6931",
-      "instrument": "Development Control Policy 5.4 - Advertising on reserved land",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "4d52a6e2-b997-44f3-a439-052e3836313f",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "0c5a0ddd-9f52-5e34-be72-2c22965aa928",
-      "instrument": "Operational Policy 1.1 - Subdivision of land - general principles",
-      "category": "dc_policy",
-      "status": "acquired",
-      "doc_id": "7fdde9d1-95c5-4fa6-959e-91556e6cbc88",
-      "notes": "WP4 acquired (8 chunks, duplicate=False)",
-      "chunks": "8",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "78297543-3b47-57c5-9d2c-3e279a305206",
-      "instrument": "City of Cockburn LPP 1.10 - Planning Around Mosquito and Midge Infested Wetlands",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "c6311cc1-c0da-4df5-bfaa-277fd89b3639",
-      "notes": "WP4 acquired (4 chunks, duplicate=True)",
-      "chunks": "4",
+      "doc_id": "9288825c-5001-58ee-898b-82889bf9897e",
+      "notes": "WP4 acquired (750 chunks, duplicate=True)",
+      "chunks": "750",
       "duplicate": "True"
     },
     {
-      "manifest_id": "683f8658-ffc9-5c51-a7d0-e9c59d84769c",
-      "instrument": "City of Cockburn LPP 1.12 - Noise Attenuation",
-      "category": "local_planning_policy",
+      "manifest_id": "50a606cd-56b0-5b1f-8759-cae761451ddd",
+      "instrument": "Sentencing Act 1995",
+      "category": "act",
       "status": "acquired",
-      "doc_id": "01d80758-d8d2-4ad3-b148-4392f79fcc41",
-      "notes": "WP4 acquired (26 chunks, duplicate=True)",
+      "doc_id": "eed32077-3887-53fa-b315-371210127990",
+      "notes": "WP4 acquired (462 chunks, duplicate=False)",
+      "chunks": "462",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "2cb1cb3e-3891-5ee1-8c2e-d4fedf21f001",
+      "instrument": "Towing Services Act 2024",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "5952f645-ca79-5b37-ac7a-13711637b7d2",
+      "notes": "WP4 acquired (174 chunks, duplicate=False)",
+      "chunks": "174",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "911bb1af-dfb7-5756-a3cb-79a7c71076ec",
+      "instrument": "Vexatious Proceedings Restriction Act 2002",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "ed75738f-f78f-596a-b4df-1e17a9856d58",
+      "notes": "WP4 acquired (19 chunks, duplicate=False)",
+      "chunks": "19",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "a23c0d83-3329-5344-9c72-3938b72ef2e8",
+      "instrument": "War Service Land Settlement Scheme Act 1954",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "f1c39f6e-7921-558c-b903-1d42a8f50d5b",
+      "notes": "WP4 acquired (26 chunks, duplicate=False)",
       "chunks": "26",
-      "duplicate": "True"
+      "duplicate": "False"
     },
     {
-      "manifest_id": "390accb0-35aa-5f1e-88d6-f53f0f78c500",
-      "instrument": "City of Cockburn LPP 1.14 - Waste Management",
-      "category": "local_planning_policy",
+      "manifest_id": "cf2876b6-7f8a-5128-a64e-9b110811c0c9",
+      "instrument": "Waste Avoidance and Resource Recovery Levy Act 2007",
+      "category": "act",
       "status": "acquired",
-      "doc_id": "473a4b36-1841-4d19-9986-c6abf23a1ff0",
-      "notes": "WP4 acquired (8 chunks, duplicate=True)",
-      "chunks": "8",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "322eb433-e2de-552b-af72-70716325de1e",
-      "instrument": "City of Cockburn LPP 1.15 - Tourist Accommodation",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "e1838f98-9d42-4906-9f67-457c119209eb",
-      "notes": "WP4 acquired (5 chunks, duplicate=True)",
-      "chunks": "5",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "bb52302f-c66a-5a80-8efa-cabeae56a0dc",
-      "instrument": "City of Cockburn LPP 1.16 - Single House Standards for Medium Density Housing in the Development Zone",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "eb1b845b-6531-46d3-afbe-be4f7e3791ee",
-      "notes": "WP4 acquired (3 chunks, duplicate=True)",
-      "chunks": "3",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "16eb3346-c182-550a-8af2-c8e002ae58ed",
-      "instrument": "City of Cockburn LPP 1.17 - Non-Residential Uses in Residential Zones",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "7fbed1d3-e98e-46a5-b2a2-35237e81c2e9",
-      "notes": "WP4 acquired (4 chunks, duplicate=True)",
-      "chunks": "4",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "7e1ac7df-cf0c-58dd-a065-088ed41f9c02",
-      "instrument": "City of Cockburn LPP 1.2 - Residential Design Guidelines",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "bf9201b5-c06a-4c90-9b19-42f7514ab4bb",
-      "notes": "WP4 acquired (5 chunks, duplicate=True)",
-      "chunks": "5",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "f2ff9f28-25b5-5839-9cf8-0e8166a079b4",
-      "instrument": "City of Cockburn LPP 1.3 - Special Purpose Dwellings",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "3300a12d-4165-4e08-a132-b72c3815401c",
-      "notes": "WP4 acquired (6 chunks, duplicate=True)",
+      "doc_id": "b6ec61a6-e933-59ac-aa0d-ec16e7fbab45",
+      "notes": "WP4 acquired (6 chunks, duplicate=False)",
       "chunks": "6",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "425b4023-45be-5932-9c42-473d43324e41",
-      "instrument": "City of Cockburn LPP 1.8 - Design Requirements for Incidental Structures",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "064a8b2c-7256-4a2d-b9de-49fa26c52803",
-      "notes": "WP4 acquired (11 chunks, duplicate=True)",
-      "chunks": "11",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "dbc9d99f-5b83-5e3d-b037-815f719add0e",
-      "instrument": "City of Cockburn LPP 2.1 - Rural Subdivision and Development",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "3aa8e678-77be-4905-a03c-d2a1b9642bd0",
-      "notes": "WP4 acquired (25 chunks, duplicate=True)",
-      "chunks": "25",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "476218fc-e930-50f3-ad1e-06edb19892f9",
-      "instrument": "City of Cockburn LPP 3.1 - Commercial Development",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "5dff1e09-a250-4c53-abce-8ebff63ec32c",
-      "notes": "WP4 acquired (28 chunks, duplicate=True)",
-      "chunks": "28",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "49650236-b922-5aa6-a9a3-f68fe3674004",
-      "instrument": "City of Cockburn LPP 3.5 - Alfresco Dining",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "6b2464ea-8f0f-408a-a70d-3437e5de3ff0",
-      "notes": "WP4 acquired (6 chunks, duplicate=True)",
-      "chunks": "6",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "c8ec2295-a152-5cba-bf88-a486f7d74954",
-      "instrument": "City of Cockburn LPP 3.7 - Signs & Advertising",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "6299796f-006e-4c1f-9cc7-3294df3903fc",
-      "notes": "WP4 acquired (10 chunks, duplicate=True)",
-      "chunks": "10",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "bb22d4e1-f015-55d8-b9bc-4038afaa84b6",
-      "instrument": "City of Cockburn LPP 3.8 - Industrial Subdivision and Development",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "06d8a449-8aaf-4825-afc3-710f63085a6f",
-      "notes": "WP4 acquired (23 chunks, duplicate=True)",
-      "chunks": "23",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "7afca72d-d4cd-5681-9060-759deb237cc8",
-      "instrument": "City of Cockburn LPP 4.2 - Cockburn Central North (Muriel Court) Structure Plan - Design Guidelines",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "f5756d48-8af9-459f-8653-65cf82155ae1",
-      "notes": "WP4 acquired (11 chunks, duplicate=True)",
-      "chunks": "11",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "b25e88b7-b767-558b-80e3-0d1b39adcd61",
-      "instrument": "City of Cockburn LPP 4.3 - Newmarket Precinct Design Guidelines",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "95392d0c-0e14-4d5e-b9d1-42f74b501716",
-      "notes": "WP4 acquired (6 chunks, duplicate=True)",
-      "chunks": "6",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "8aa2c461-2694-5e98-82fa-b9118f304d41",
-      "instrument": "City of Cockburn LPP 4.4 - Heritage Conservation Design Guidelines",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "b81e6d14-ca73-42e2-8291-09946083bc66",
-      "notes": "WP4 acquired (10 chunks, duplicate=True)",
-      "chunks": "10",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "abba041d-1c8e-5b40-8de4-43752e1fedc7",
-      "instrument": "City of Cockburn LPP 4.5 - Naval Base Holiday Park Heritage Area",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "05c6e30b-e0fb-412a-9a29-e971fc9fc88a",
-      "notes": "WP4 acquired (4 chunks, duplicate=True)",
-      "chunks": "4",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "cdd5bc86-30bf-575d-b4eb-65962d948ebf",
-      "instrument": "City of Cockburn LPP 4.6 - Cockburn Coast Design Guidelines for Robb Jetty & Emplacement Precincts",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "89067359-ef4c-41d6-85a4-d9ac54b88e5f",
-      "notes": "WP4 acquired (55 chunks, duplicate=True)",
-      "chunks": "55",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "294ef6b2-fd7a-5769-8ca6-4c1b79e1124a",
-      "instrument": "City of Cockburn LPP 4.7 - Phoenix Activity Centre Design Guidelines",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "3c7d422e-6b32-44ca-bb94-c98b13231781",
-      "notes": "WP4 acquired (11 chunks, duplicate=True)",
-      "chunks": "11",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "2fec153f-1b49-5abc-b87b-67a03f67cc67",
-      "instrument": "City of Cockburn LPP 5.11 - Filling and Retaining of Land",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "cd01fab4-6901-40b3-b165-d8590436748b",
-      "notes": "WP4 acquired (7 chunks, duplicate=True)",
-      "chunks": "7",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "92ed3cde-7617-5cf8-b084-c15794288016",
-      "instrument": "City of Cockburn LPP 5.13 - Percent for Art",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "23eba860-3bd3-4e01-9c11-b009b89b424a",
-      "notes": "WP4 acquired (5 chunks, duplicate=True)",
-      "chunks": "5",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "f0f5e161-aee9-512c-9550-085c9210c215",
-      "instrument": "City of Cockburn LPP 5.16 - Design Review Panel",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "499ff4df-7f2b-4104-b003-785ccd1448ef",
-      "notes": "WP4 acquired (13 chunks, duplicate=True)",
-      "chunks": "13",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "d696a5a4-5d91-54d7-ba8c-e9edd6a02c6f",
-      "instrument": "City of Cockburn LPP 5.18 - Subdivision and Development - Street Trees",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "e7eab374-200b-4360-bb05-240f4662169b",
-      "notes": "WP4 acquired (6 chunks, duplicate=True)",
-      "chunks": "6",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "45ada556-003d-5ad5-bcf8-33d92f87d77e",
-      "instrument": "City of Cockburn LPP 5.1 - Development of the Public Realm",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "3eb88264-952e-4013-a133-dcbc99e00a71",
-      "notes": "WP4 acquired (25 chunks, duplicate=True)",
-      "chunks": "25",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "af16777a-d1e6-5dd1-bdfa-e1d1c2110b6e",
-      "instrument": "City of Cockburn LPP 5.21 - Temporary Events",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "8d5907ec-aad4-48b1-b3c2-460a4970d56d",
-      "notes": "WP4 acquired (5 chunks, duplicate=True)",
-      "chunks": "5",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "07cd1f97-87e7-5238-9e0c-20fba4ff81d1",
-      "instrument": "City of Cockburn LPP 5.22 - Environmental Conservation",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "cbd7aa19-0985-4b33-a4d2-3185e3742206",
-      "notes": "WP4 acquired (5 chunks, duplicate=True)",
-      "chunks": "5",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "34a63746-26af-5c78-b82c-fb749b7c010c",
-      "instrument": "City of Cockburn LPP 5.3 - Engineering, Drainage and Construction Standards",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "ff847525-9a84-442a-b873-bee6eaad3d6f",
-      "notes": "WP4 acquired (10 chunks, duplicate=True)",
-      "chunks": "10",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "cbd81b4e-c453-5494-bec2-7af6a826ff61",
-      "instrument": "City of Cockburn LPP 5.4 - Utility Infrastructure",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "25a699ee-708b-4686-8a54-b1aebaf102c3",
-      "notes": "WP4 acquired (13 chunks, duplicate=True)",
-      "chunks": "13",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "72bf7d1e-b51c-5c7a-bdc0-7bb4f3e85557",
-      "instrument": "City of Cockburn LPP 5.5 - Local Development Plans",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "87b725f4-f1f8-4f7a-b002-6b6d48ea3154",
-      "notes": "WP4 acquired (4 chunks, duplicate=True)",
-      "chunks": "4",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "dfa37f71-83aa-55e1-b660-fcef9cffcaee",
-      "instrument": "City of Cockburn LPP 5.6 - Vehicle Access",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "baec03cb-f6d5-44cc-8fc1-6f65d5937847",
-      "notes": "WP4 acquired (5 chunks, duplicate=True)",
-      "chunks": "5",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "84bb874d-8f46-5ae4-ab5f-3d1af616dde5",
-      "instrument": "City of Cockburn LPP 5.8 - Sea Containers",
-      "category": "local_planning_policy",
-      "status": "acquired",
-      "doc_id": "4a5fabae-e8fd-4acd-bd55-76bab4e9164c",
-      "notes": "WP4 acquired (3 chunks, duplicate=True)",
-      "chunks": "3",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
-      "instrument": "Greater Bunbury Region Scheme",
-      "category": "region_scheme",
-      "status": "blocked",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "Suspected landing page (1 chunks from https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
-    },
-    {
-      "manifest_id": "07931dc0-f5bd-55a6-ba83-27e1e404f426",
-      "instrument": "Metropolitan Region Scheme",
-      "category": "region_scheme",
-      "status": "acquired",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "WP4 acquired (1 chunks, duplicate=True)",
-      "chunks": "1",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "cf3f9033-7107-59d4-b964-c65fa6599730",
-      "instrument": "Peel Region Scheme",
-      "category": "region_scheme",
-      "status": "acquired",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "WP4 acquired (1 chunks, duplicate=True)",
-      "chunks": "1",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "21304b46-8115-54aa-92af-46c5dba16cb3",
-      "instrument": "Planning and Development (Local Planning Schemes) Regulations 2015",
-      "category": "regulations",
-      "status": "acquired",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "WP4 acquired (1 chunks, duplicate=True)",
-      "chunks": "1",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "f43253ae-ae6d-5c1a-812b-e5355d6f7114",
-      "instrument": "Planning and Development (Planning Codes) Regulations 2024",
-      "category": "regulations",
-      "status": "acquired",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "WP4 acquired (1 chunks, duplicate=True)",
-      "chunks": "1",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "a4c6b3da-cb07-55ff-a6d4-57fc3f259f63",
-      "instrument": "Planning and Development (Region Planning Schemes) Regulations 2023",
-      "category": "regulations",
-      "status": "acquired",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "WP4 acquired (1 chunks, duplicate=True)",
-      "chunks": "1",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "f6b98ddb-b589-56e2-b207-1bc483462fb2",
-      "instrument": "Planning and Development Regulations 2009",
-      "category": "regulations",
-      "status": "acquired",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "WP4 acquired (1 chunks, duplicate=True)",
-      "chunks": "1",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "dfbeedcc-38e8-538f-9241-d456519b9d10",
-      "instrument": "Planning and Development (State Planning Policies) Regulations 2024",
-      "category": "regulations",
-      "status": "acquired",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "WP4 acquired (1 chunks, duplicate=True)",
-      "chunks": "1",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "0aaa6e02-d0da-5c22-82ce-aba9d1c771be",
-      "instrument": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
-      "category": "regulations",
-      "status": "acquired",
-      "doc_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
-      "notes": "WP4 acquired (1 chunks, duplicate=True)",
-      "chunks": "1",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "e7f7ef23-b4bd-5c02-a775-e0e4a46e75af",
-      "instrument": "State Planning Policy 1 - State Planning Framework",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "3def5307-b36d-482b-bca7-d55e55267d3f",
-      "notes": "WP4 acquired (11 chunks, duplicate=True)",
-      "chunks": "11",
-      "duplicate": "True"
-    },
-    {
-      "manifest_id": "da5b6938-f8be-5ed8-bdc8-e36c9459ac58",
-      "instrument": "State Planning Policy 2.0 - Environment and Natural Resources",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "6ad869ef-f435-45eb-8f66-bb8aab266e5c",
-      "notes": "WP4 acquired (10 chunks, duplicate=False)",
-      "chunks": "10",
       "duplicate": "False"
     },
     {
-      "manifest_id": "ca27869f-a5ff-5e30-996f-ab993b4fe8b9",
-      "instrument": "State Planning Policy 2.4 - Planning for Basic Raw Materials",
-      "category": "state_planning_policy",
+      "manifest_id": "9694606d-dfea-5c0e-8998-3d44eb8a9427",
+      "instrument": "Water Corporations Act 1995",
+      "category": "act",
       "status": "acquired",
-      "doc_id": "34bd1ebb-a118-4711-aa6d-58c91e155814",
-      "notes": "WP4 acquired (10 chunks, duplicate=False)",
-      "chunks": "10",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "41327c93-7b27-5aca-a12a-cc241d469eee",
-      "instrument": "State Planning Policy 2.5 - Rural Planning",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "dce829e6-6dda-47e6-9a77-0d4dbc5a12e2",
-      "notes": "WP4 acquired (11 chunks, duplicate=False)",
-      "chunks": "11",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "75cef0e1-f58e-5576-92f0-d9f3b2c9759d",
-      "instrument": "State Planning Policy 2.6 - State Coastal Planning Policy",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "4310db65-37be-475a-b200-4826e5bd8766",
-      "notes": "WP4 acquired (12 chunks, duplicate=False)",
-      "chunks": "12",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "6820a32d-1c69-5759-bccd-8a7f10d149e3",
-      "instrument": "State Planning Policy 2.8 - Bushland Policy for the Perth Metropolitan Region",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "7586e22e-fdbc-4e46-b733-6888e63098c9",
-      "notes": "WP4 acquired (11 chunks, duplicate=False)",
-      "chunks": "11",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "4c391a01-4702-579f-b0b4-0e7262296d57",
-      "instrument": "State Planning Policy 2.9 - Water",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "12343616-801b-433c-b69c-9a148fe4f212",
-      "notes": "WP4 acquired (12 chunks, duplicate=False)",
-      "chunks": "12",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "7b080bb7-1f7f-559f-9a2d-9547cc0e64cc",
-      "instrument": "State Planning Policy 3.0 - Urban Growth and Settlement",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "c22e2bdb-82a5-4ed5-8bf6-90ae88f42bd2",
-      "notes": "WP4 acquired (11 chunks, duplicate=False)",
-      "chunks": "11",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "0a7be17c-90fc-5a7e-b662-f51b3f301d8c",
-      "instrument": "State Planning Policy 3.2 - Aboriginal Settlements",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "ca9ff8a8-aa9d-474a-894e-a495d1f39f69",
-      "notes": "WP4 acquired (12 chunks, duplicate=False)",
-      "chunks": "12",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "d8c5cb55-3034-5df5-b518-a704c404ceb0",
-      "instrument": "State Planning Policy 3.4 - Natural Hazards and Disasters",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "72f45d73-ce4a-4d6f-9535-315e7109ae65",
-      "notes": "WP4 acquired (10 chunks, duplicate=False)",
-      "chunks": "10",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "d80d3c74-5cc7-5755-96a2-4d2c322f7b1e",
-      "instrument": "State Planning Policy 3.5 - Historic Heritage Conservation",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "4fabec38-e456-48bb-bff0-75e92fbe9e91",
-      "notes": "WP4 acquired (9 chunks, duplicate=False)",
-      "chunks": "9",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "2b4f5ddc-8a4e-5ed0-95a3-9a222e724da6",
-      "instrument": "State Planning Policy 3.6 - Infrastructure Contributions",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "d952c864-ca87-497f-86a2-82772912c097",
-      "notes": "WP4 acquired (10 chunks, duplicate=False)",
-      "chunks": "10",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
-      "instrument": "State Planning Policy 3.7 - Planning in Bushfire Prone Areas",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "34c3a84f-0063-4ed3-a77f-31e329ccfcfb",
-      "notes": "WP4 acquired (15 chunks, duplicate=False)",
-      "chunks": "15",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "3e610b17-ed5a-5bca-831b-ea9aefa8692a",
-      "instrument": "State Planning Policy 4.2 - Activity Centres for Perth and Peel",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "1a239740-4795-445a-a54e-d421db01b858",
-      "notes": "WP4 acquired (18 chunks, duplicate=False)",
-      "chunks": "18",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "15c8f3be-b0c7-5bdf-8191-7236860c4145",
-      "instrument": "State Planning Policy 5.1 - Land Use Planning in the Vicinity of Perth Airport",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "cace71eb-558b-4137-bfce-b94c584b7b46",
-      "notes": "WP4 acquired (10 chunks, duplicate=False)",
-      "chunks": "10",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "158f547c-4f0a-50c4-a4be-5acb46e0390d",
-      "instrument": "State Planning Policy 5.2 - Telecommunications Infrastructure",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "1ba61896-595b-44b4-bd78-82a58e3003b1",
-      "notes": "WP4 acquired (10 chunks, duplicate=False)",
-      "chunks": "10",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "eb00fa3a-0c32-5a54-a95d-66a46d7fb8ab",
-      "instrument": "State Planning Policy 5.3 - Land Use Planning in the Vicinity of Jandakot Airport",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "f7b493a3-312b-40d7-ae88-7080b5020dd4",
-      "notes": "WP4 acquired (10 chunks, duplicate=False)",
-      "chunks": "10",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
-      "instrument": "State Planning Policy 5.4 - Road and Rail Noise",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "0757fb5a-13cc-4200-9950-cfaa957adb11",
-      "notes": "WP4 acquired (11 chunks, duplicate=False)",
-      "chunks": "11",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "da66ad88-471d-56a2-89de-19f8a18f536f",
-      "instrument": "State Planning Policy 6.1 - Leeuwin-Naturaliste Ridge",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "680ae6dd-157e-4913-80fb-da7ac789ba08",
-      "notes": "WP4 acquired (11 chunks, duplicate=False)",
-      "chunks": "11",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "feff1d8d-adf7-511c-abfb-72f2c8a4539d",
-      "instrument": "State Planning Policy 6.3 - Ningaloo Coast",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "26a05283-87bc-4b5e-80f9-c95640baf61d",
-      "notes": "WP4 acquired (10 chunks, duplicate=False)",
-      "chunks": "10",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "f215b646-4f1b-5806-9de7-c4f30faf18bb",
-      "instrument": "State Planning Policy 7.0 - Design of the Built Environment",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "5debbe42-7aa0-474c-83ae-fcd3dba5cc35",
-      "notes": "WP4 acquired (13 chunks, duplicate=False)",
-      "chunks": "13",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "3c0b87a5-77f7-5da8-9860-b562d8a76958",
-      "instrument": "State Planning Policy 7.2 - Precinct Design",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "2e87c7da-5f9d-476f-8bf1-7d827672d88f",
-      "notes": "WP4 acquired (15 chunks, duplicate=False)",
-      "chunks": "15",
-      "duplicate": "False"
-    },
-    {
-      "manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
-      "instrument": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
-      "category": "state_planning_policy",
-      "status": "acquired",
-      "doc_id": "783e971a-a6c4-4b88-a761-ef840ff27d40",
-      "notes": "WP4 acquired (141 chunks, duplicate=True)",
-      "chunks": "141",
+      "doc_id": "1876a36f-87eb-5d69-8fd4-e76dc6b6a31a",
+      "notes": "WP4 acquired (70 chunks, duplicate=True)",
+      "chunks": "70",
       "duplicate": "True"
     },
     {
-      "manifest_id": "7b69f715-4ddf-50d3-8c89-f8adfe3e3f98",
-      "instrument": "State Planning Policy 7.3 - Residential Design Codes Volume 2 - Apartments",
-      "category": "state_planning_policy",
+      "manifest_id": "fbd4f219-387a-5c97-bcb3-b1c51cdda91b",
+      "instrument": "Water Resources Legislation Amendment Act 2007",
+      "category": "act",
       "status": "acquired",
-      "doc_id": "459a4691-abaf-4322-9cd0-d4fd12a618f6",
-      "notes": "WP4 acquired (18 chunks, duplicate=False)",
-      "chunks": "18",
+      "doc_id": "235c4de6-20d5-5821-a006-f017d0b2215c",
+      "notes": "WP4 acquired (37 chunks, duplicate=False)",
+      "chunks": "37",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "c9bb915e-31dd-5ef9-bdff-fde98a88b4ef",
+      "instrument": "Western Australian Health Promotion Foundation Act 2016",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "e0d9ca81-0cb4-500a-b496-7985395dc271",
+      "notes": "WP4 acquired (60 chunks, duplicate=False)",
+      "chunks": "60",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "b08fbc43-0275-58b3-a196-71ea8a388f2d",
+      "instrument": "Western Australian Tourism Commission Act 1983",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "8ee8447b-0d53-54d1-9814-b9cf7a7ac8d2",
+      "notes": "WP4 acquired (50 chunks, duplicate=False)",
+      "chunks": "50",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "997a331d-a326-5077-9d1a-1828ecacab11",
+      "instrument": "Workers Compensation and Injury Management Act 2023",
+      "category": "act",
+      "status": "acquired",
+      "doc_id": "03a7b121-599f-5504-b61c-a8d717c1411c",
+      "notes": "WP4 acquired (914 chunks, duplicate=False)",
+      "chunks": "914",
       "duplicate": "False"
     }
   ]

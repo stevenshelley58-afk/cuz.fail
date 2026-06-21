@@ -190,7 +190,9 @@ SYSTEM_PROMPT = (
 MODEL_PRICES_PER_M: dict[str, tuple[float, float]] = {
     "MiniMax-M2": (0.30, 1.20),
     "gpt-4o": (2.50, 10.00),
+    "gpt-4o-mini": (0.15, 0.60),
     "openai/gpt-4o": (2.50, 10.00),
+    "openai/gpt-4o-mini": (0.15, 0.60),
 }
 
 _SPEND_LOCK = threading.Lock()
@@ -203,6 +205,35 @@ def spend_totals() -> dict:
         out = dict(_SPEND_TOTALS)
     out["cost_usd_estimate"] = round(out["cost_usd_estimate"], 6)
     return out
+
+
+def advisory_lock_key(value: str) -> int:
+    """Stable signed 63-bit advisory lock key for one source_version id."""
+    return int(hashlib.sha256(value.encode("utf-8")).hexdigest()[:16], 16) & ((1 << 63) - 1)
+
+
+def write_report(path: str, body: str) -> None:
+    directory = os.path.dirname(path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(body)
+
+
+def llm_retry_delays() -> tuple[float, ...]:
+    raw = os.environ.get("WP6_LLM_RETRY_DELAYS", "0,2,5,15,30,60")
+    delays: list[float] = []
+    for part in raw.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        try:
+            delay = float(part)
+        except ValueError:
+            continue
+        if delay >= 0:
+            delays.append(delay)
+    return tuple(delays or [0.0, 2.0, 5.0])
 
 
 def estimate_cost_usd(model: str, input_tokens: int, output_tokens: int) -> tuple[float, bool]:
@@ -306,7 +337,8 @@ class LlmEndpoint:
             method="POST",
         )
         last_err: Exception | None = None
-        for delay in (0.0, 2.0, 5.0):
+        delays = llm_retry_delays()
+        for attempt, delay in enumerate(delays):
             if delay:
                 time.sleep(delay)
             try:
@@ -321,6 +353,18 @@ class LlmEndpoint:
                 except Exception as exc:  # noqa: BLE001 — spend logging must never fail extraction
                     print(f"WARN spend capture failed: {exc}", file=sys.stderr, flush=True)
                 return content or ""
+            except urllib.error.HTTPError as exc:
+                last_err = exc
+                if exc.code == 429 and attempt < len(delays) - 1:
+                    retry_after = exc.headers.get("Retry-After")
+                    if retry_after:
+                        try:
+                            time.sleep(max(float(retry_after), 0.0))
+                        except ValueError:
+                            pass
+                    continue
+                if exc.code not in {408, 429, 500, 502, 503, 504}:
+                    raise
             except (urllib.error.URLError, OSError, KeyError, json.JSONDecodeError) as exc:
                 last_err = exc
         raise RuntimeError(f"{self.name} call failed after retries: {last_err}")
@@ -334,6 +378,42 @@ def build_endpoints() -> tuple[list[LlmEndpoint], list[str]]:
     openrouter_key = os.environ.get("OPENROUTER_API_KEY", "")
     openrouter_base = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
     openai_key = os.environ.get("OPENAI_API_KEY", "")
+    force_openai = os.environ.get("WP6_FORCE_OPENAI_ENSEMBLE", "").strip().lower() in {"1", "true", "yes"}
+
+    if force_openai or not minimax_key:
+        if openai_key:
+            mini = LlmEndpoint(
+                "openai_mini",
+                os.environ.get("WP6_OPENAI_MINI_MODEL", "gpt-4o-mini"),
+                "https://api.openai.com/v1",
+                openai_key,
+            )
+            frontier = LlmEndpoint(
+                "openai_frontier",
+                os.environ.get("WP6_OPENAI_FRONTIER_MODEL", "gpt-4o"),
+                "https://api.openai.com/v1",
+                openai_key,
+            )
+        elif openrouter_key:
+            mini = LlmEndpoint(
+                "openrouter_mini",
+                os.environ.get("WP6_OPENROUTER_MINI_MODEL", "openai/gpt-4o-mini"),
+                openrouter_base,
+                openrouter_key,
+            )
+            frontier = LlmEndpoint(
+                "openrouter_frontier",
+                os.environ.get("WP6_OPENROUTER_FRONTIER_MODEL", "openai/gpt-4o"),
+                openrouter_base,
+                openrouter_key,
+            )
+        else:
+            raise RuntimeError("No usable OpenAI/OpenRouter key for WP6 fallback ensemble")
+        escalations.append(
+            "MiniMax unavailable/disabled for WP6; using OpenAI mini + frontier fallback. "
+            "Provider-family independence is degraded but deterministic validators and quote anchors still gate promotion."
+        )
+        return [mini, mini, frontier], escalations
 
     if not minimax_key:
         raise RuntimeError("MINIMAX_API_KEY missing — cannot run ensemble")
@@ -957,6 +1037,17 @@ def main() -> int:
     report: dict[str, Any] = {"source_version_id": sv_id, "escalations": []}
 
     with psycopg.connect(dsn) as conn:
+        lock_key = advisory_lock_key(sv_id)
+        locked = conn.execute("SELECT pg_try_advisory_lock(%s)", (lock_key,)).fetchone()[0]
+        if not locked:
+            report["skipped"] = "source_version_locked_by_another_wp6_runner"
+            out = json.dumps(report, indent=2, default=str)
+            if args.report:
+                write_report(args.report, out)
+            print(out)
+            return 0
+        report["source_version_lock_key"] = lock_key
+
         report["structure_pass"] = structure_pass(conn, sv_id)
         print(f"structure: {report['structure_pass']}", flush=True)
 
@@ -981,7 +1072,7 @@ def main() -> int:
                 "SELECT c.id, c.source_chunk_id, c.clause_path, c.text, c.disposition "
                 "FROM clauses c "
                 "WHERE c.source_version_id = %s "
-                "AND NOT EXISTS (SELECT 1 FROM rule_candidates rc WHERE rc.clause_id = c.id) "
+                "AND NOT EXISTS (SELECT 1 FROM rules r WHERE r.clause_id = c.id AND r.metadata_json->>'wp6' = 'true') "
                 "ORDER BY c.clause_key",
                 (sv_id,),
             ).fetchall()
@@ -1054,8 +1145,7 @@ def main() -> int:
 
     out = json.dumps(report, indent=2, default=str)
     if args.report:
-        with open(args.report, "w", encoding="utf-8") as fh:
-            fh.write(out)
+        write_report(args.report, out)
     print(out)
     return 0
 

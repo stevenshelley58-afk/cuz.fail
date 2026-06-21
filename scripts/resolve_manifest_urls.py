@@ -2,7 +2,8 @@
 
 This is a deterministic helper for the WP5/WP4 fixpoint. It only reads the
 Western Australian Legislation acts/subsidiary "in force" letter indexes and
-fills exact title matches with the official PDF URL.
+fills exact title matches with the official PDF URL. Rows may be pending or
+blocked; a resolved blocked row is returned to pending for WP4 acquisition.
 
 Run inside the api container:
     python /app/scripts/resolve_manifest_urls.py --apply --report /app/reports/manifest_url_resolution.json
@@ -32,6 +33,7 @@ DEFAULT_REPORT = Path(__file__).resolve().parent.parent / "reports" / "manifest_
 LETTERS = tuple(ch for ch in string.ascii_lowercase if ch != "x")
 ACT_CATEGORIES = {"act"}
 SUBSIDIARY_CATEGORIES = {"regulations"}
+CANDIDATE_STATUSES = ("pending", "blocked")
 
 
 @dataclass(frozen=True)
@@ -92,14 +94,15 @@ def pending_rows(database_url: str) -> list[dict[str, Any]]:
         rows = conn.execute(
             text(
                 """
-                SELECT id::text, instrument_name, category, issuing_authority
+                SELECT id::text, instrument_name, category, issuing_authority, status
                 FROM target_manifest
-                WHERE status = 'pending'
+                WHERE status = ANY(:statuses)
                   AND COALESCE(canonical_url, '') = ''
                   AND category IN ('act', 'regulations')
-                ORDER BY category, instrument_name
+                ORDER BY status, category, instrument_name
                 """
-            )
+            ),
+            {"statuses": list(CANDIDATE_STATUSES)},
         ).mappings()
         return [dict(row) for row in rows]
 
@@ -136,10 +139,11 @@ def apply_resolutions(database_url: str, resolved: list[dict[str, Any]]) -> None
                     UPDATE target_manifest
                     SET canonical_url = :canonical_url,
                         index_source_url = COALESCE(index_source_url, :title_url),
+                        status = 'pending',
                         notes = 'Resolved from official WA Legislation in-force index; run WP4 acquisition.',
                         updated_at = now()
                     WHERE id = CAST(:id AS uuid)
-                      AND status = 'pending'
+                      AND status IN ('pending', 'blocked')
                       AND COALESCE(canonical_url, '') = ''
                     """
                 ),
@@ -173,6 +177,7 @@ def main() -> int:
         "wp": "B3",
         "mode": "apply" if args.apply else "dry_run",
         "pending_rows_scanned": len(rows),
+        "candidate_statuses": list(CANDIDATE_STATUSES),
         "resolved": len(resolved),
         "unresolved": len(unresolved),
         "index_counts": {name: len(values) for name, values in indexes.items()},

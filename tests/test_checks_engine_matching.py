@@ -130,6 +130,25 @@ def test_resolve_council_scope_prefers_confirmed_property_fact():
     assert source == "property_fact:council"
 
 
+def test_resolve_council_scope_falls_back_to_local_government_fact():
+    """WP-0: spatial synth writes fact_type='local_government', which must drive
+    council_scope when no explicit 'council' fact exists."""
+    project = Project(name="p", council_scope=None, metadata_json={})
+    lga_fact = PropertyFact(
+        fact_type="local_government",
+        value_json={"name": "City of Cockburn"},
+        confidence=0.9,
+        method="spatial_derived",
+        provenance_json={},
+        review_status="confirmed",
+    )
+
+    council, source = _resolve_council_scope(project, {"local_government": lga_fact})
+
+    assert council == "City of Cockburn"
+    assert source == "property_fact:local_government"
+
+
 def test_missing_reason_classifies_fact_rule_and_operator_gaps():
     rule = _rule("site_cover", value=50)
     assert _missing_reason(rule=None, measured_value=None, threshold_value=None) == "missing_rule"
