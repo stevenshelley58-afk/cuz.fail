@@ -1,38 +1,363 @@
 {
-  "wp": "WP2",
-  "date": "2026-06-10",
-  "crs_check": "all geom tables SRID=7844 (single DISTINCT value)",
-  "datasets": {
-    "lgate-233 lg_areas": 139,
-    "lgate-001 parcels (Cockburn bbox)": 369442,
-    "dplh-071 zones": 12175,
-    "dplh-070 r-codes": 7700,
-    "obrm-001 bushfire": 61,
-    "dplh-006 heritage(state)": 752,
-    "dplh-008 heritage(local)": 7376,
-    "dplh-090 structure-plan/zone aux": 5056,
-    "gnaf_wa address_points": 1673144
-  },
-  "licence_status": {
-    "approved": [
-      "gnaf_wa",
-      "obrm-001"
-    ],
-    "review": [
-      "lgate-001 (Landgate commercial terms unconfirmed)",
-      "lgate-233",
-      "dplh-*"
-    ]
-  },
-  "smoke_test": {
-    "address": "527C ROCKINGHAM ROAD MUNSTER WA 6166",
-    "chain": "address_point -> ST_Within parcel 1579043 -> lg_area 'COCKBURN, CITY OF' -> zone 'Residential' + density code R30 (dplh-070 RR30)",
-    "property_facts_written": [
-      "zone=Residential",
-      "density_code=RR30"
-    ],
-    "method": "parcel_intersection",
-    "result": "PASS"
-  },
-  "escalations": []
+  "considered": 23215,
+  "matched": 7440,
+  "matched_samples": [
+    {
+      "code": "RR60",
+      "density_code": "R60",
+      "id": "00033434-8909-431c-b934-e4d3b325962e",
+      "label": "Residential Design Code RR60",
+      "r_code": "R60",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R60"
+    },
+    {
+      "code": "RR20",
+      "density_code": "R20",
+      "id": "00068db1-1be5-4296-ad6f-d3a48145e6b3",
+      "label": "Residential Design Code RR20",
+      "r_code": "R20",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R20"
+    },
+    {
+      "code": "RR30",
+      "density_code": "R30",
+      "id": "00082828-9098-4fc9-9336-661fece80382",
+      "label": "Residential Design Code RR30",
+      "r_code": "R30",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R30"
+    },
+    {
+      "code": "RR50",
+      "density_code": "R50",
+      "id": "001e0965-71b4-47dc-af6e-5e027ec51c31",
+      "label": "Residential Design Code RR50",
+      "r_code": "R50",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R50"
+    },
+    {
+      "code": "RR30",
+      "density_code": "R30",
+      "id": "0027ad41-0d01-4737-90ab-a0dc5fde3ca2",
+      "label": "Residential Design Code RR30",
+      "r_code": "R30",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R30"
+    },
+    {
+      "code": "RR30",
+      "density_code": "R30",
+      "id": "0038d1c2-9f02-49fe-8639-add0ad96299b",
+      "label": "Residential Design Code RR30",
+      "r_code": "R30",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R30"
+    },
+    {
+      "code": "RR25",
+      "density_code": "R25",
+      "id": "003ae109-f793-4db8-998f-86886f1ccf29",
+      "label": "Residential Design Code RR25",
+      "r_code": "R25",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R25"
+    },
+    {
+      "code": "RR25",
+      "density_code": "R25",
+      "id": "003dc354-1c20-493e-a18c-39af94fbc46e",
+      "label": "Residential Design Code RR25",
+      "r_code": "R25",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R25"
+    },
+    {
+      "code": "RR40",
+      "density_code": "R40",
+      "id": "0041485e-9069-4f85-8d86-7ac5bfe8f9bd",
+      "label": "Residential Design Code RR40",
+      "r_code": "R40",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R40"
+    },
+    {
+      "code": "RR25",
+      "density_code": "R25",
+      "id": "0044e59c-63b8-4d64-a4df-99f0dd23e77f",
+      "label": "Residential Design Code RR25",
+      "r_code": "R25",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R25"
+    },
+    {
+      "code": "RR20",
+      "density_code": "R20",
+      "id": "005084f9-20e9-43c9-8e09-5986d7da4c2c",
+      "label": "Residential Design Code RR20",
+      "r_code": "R20",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R20"
+    },
+    {
+      "code": "RR20",
+      "density_code": "R20",
+      "id": "00546c72-a59d-4f16-90d3-4ad41d26098a",
+      "label": "Residential Design Code RR20",
+      "r_code": "R20",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R20"
+    },
+    {
+      "code": "RR20",
+      "density_code": "R20",
+      "id": "0054bb30-fd8a-45bf-837e-100c5af5bfb8",
+      "label": "Residential Design Code RR20",
+      "r_code": "R20",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R20"
+    },
+    {
+      "code": "RR30",
+      "density_code": "R30",
+      "id": "005a914e-3031-40c6-ae2b-2177d5d0cc01",
+      "label": "Residential Design Code RR30",
+      "r_code": "R30",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R30"
+    },
+    {
+      "code": "RR40",
+      "density_code": "R40",
+      "id": "005c667a-210b-4e35-87ec-bf8c766831d3",
+      "label": "Residential Design Code RR40",
+      "r_code": "R40",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R40"
+    },
+    {
+      "code": "RR80",
+      "density_code": "R80",
+      "id": "00682437-e7e8-40fa-b83b-c1b525984a2f",
+      "label": "Residential Design Code RR80",
+      "r_code": "R80",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R80"
+    },
+    {
+      "code": "RR80",
+      "density_code": "R80",
+      "id": "006ca3aa-4097-4d20-8917-64553fc56385",
+      "label": "Residential Design Code RR80",
+      "r_code": "R80",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R80"
+    },
+    {
+      "code": "RR40",
+      "density_code": "R40",
+      "id": "006d7ce4-a013-4790-a58c-39ee4c72bd6d",
+      "label": "Residential Design Code RR40",
+      "r_code": "R40",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R40"
+    },
+    {
+      "code": "RR80",
+      "density_code": "R80",
+      "id": "00754046-9769-49fd-8257-3345677f7b15",
+      "label": "Residential Design Code RR80",
+      "r_code": "R80",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R80"
+    },
+    {
+      "code": "RR20",
+      "density_code": "R20",
+      "id": "007e8919-d77c-4d27-b9d9-4038d42c74ee",
+      "label": "Residential Design Code RR20",
+      "r_code": "R20",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R20"
+    },
+    {
+      "code": "RR20",
+      "density_code": "R20",
+      "id": "007fc2fd-6875-4860-9bcf-805018810e43",
+      "label": "Residential Design Code RR20",
+      "r_code": "R20",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R20"
+    },
+    {
+      "code": "RR20",
+      "density_code": "R20",
+      "id": "009c525e-224f-4d88-9d36-474bfa3885e5",
+      "label": "Residential Design Code RR20",
+      "r_code": "R20",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R20"
+    },
+    {
+      "code": "RR40",
+      "density_code": "R40",
+      "id": "00a1143e-1add-4383-bedf-867e980a9844",
+      "label": "Residential Design Code RR40",
+      "r_code": "R40",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R40"
+    },
+    {
+      "code": "RR50",
+      "density_code": "R50",
+      "id": "00aad3d3-a298-499e-af38-bbd9beb416cb",
+      "label": "Residential Design Code RR50",
+      "r_code": "R50",
+      "source_field": "metadata_json.rcode_no",
+      "source_value": "R50"
+    },
+    {
+      "code": "Residential (R20 density unless otherwise shown)",
+      "density_code": "R20",
+      "id": "00c0f0ca-d783-4a6b-8878-5bec9e349656",
+      "label": " ",
+      "r_code": "R20",
+      "source_field": "code",
+      "source_value": "Residential (R20 density unless otherwise shown)"
+    }
+  ],
+  "mode": "dry_run",
+  "unchanged": 7431,
+  "unmatched": 15775,
+  "unmatched_samples": [
+    {
+      "code": "Residential",
+      "id": "00097ab2-6703-40c8-acba-2fe03284bdc5",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "000cf13b-e8ff-4cc3-93c8-b3e9a69ad9ce",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "000f8617-5bb3-4bc2-a98d-5557e2fd57f3",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "00100af5-a9be-40d0-9162-d6f859b67588",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "00159794-5e96-4baa-9a03-739c1452b3fb",
+      "label": " "
+    },
+    {
+      "code": "Parks and recreation",
+      "id": "00169994-1714-4333-9e7d-4dac4faae5dc",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "0016a200-fdaa-42fe-b1b9-1dc483e941bb",
+      "label": " "
+    },
+    {
+      "code": "Public open space",
+      "id": "0016ce95-9a0b-4c31-b4b2-a06c3adfae84",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "00254522-f2d3-43b4-a2f5-5c0ec3f025b8",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "002aa01c-2a9e-4374-866e-0bc9f8aea348",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "002ab9b5-2125-47b8-9181-a64cc69e2c5c",
+      "label": " "
+    },
+    {
+      "code": "Lakes and drainage",
+      "id": "002bbd59-60cb-4f02-98e8-1d7a873e48c4",
+      "label": " "
+    },
+    {
+      "code": "Public open space",
+      "id": "002ceaae-478e-49d4-a562-68538ce1ee5f",
+      "label": " "
+    },
+    {
+      "code": "Public open space",
+      "id": "002e0770-5ad2-4a2b-9c3b-3e519575f9c5",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "002ee9aa-947b-4677-b957-7e6032d932a4",
+      "label": " "
+    },
+    {
+      "code": "Special zone - restricted use",
+      "id": "002f4747-c402-4db2-915f-0b407aec5154",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "00332650-f125-42eb-86d4-5815cd69d5fe",
+      "label": " "
+    },
+    {
+      "code": "Public open space",
+      "id": "00379b4d-4bf9-496d-8ab5-9d5d7476cae9",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "00423d0d-e7a8-4a42-8444-19d7d1c9b093",
+      "label": " "
+    },
+    {
+      "code": "Local road",
+      "id": "00444ff0-a673-4c50-bce5-039377702a7f",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "0048f42a-8549-4e67-9d42-566c37f3fdf7",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "004f51c6-7aa1-495d-99d3-0300069f5045",
+      "label": " "
+    },
+    {
+      "code": "Parks and recreation",
+      "id": "0053a192-0ed4-44a6-a9fb-e078e5065fcc",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "0056b7c0-6f3f-4f74-9fda-add4da5ed6ee",
+      "label": " "
+    },
+    {
+      "code": "Residential",
+      "id": "00582643-2850-4eac-a642-7755e5eea793",
+      "label": " "
+    }
+  ],
+  "updated": 0,
+  "would_update": 9
 }
