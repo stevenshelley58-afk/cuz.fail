@@ -133,9 +133,9 @@ def _api_embedding(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
             "Content-Type": "application/json",
         },
     )
-    delays = [1.0, 2.0, 4.0]
     last_exc: Exception | None = None
-    for delay in [0.0, *delays]:
+    delays = _embedding_retry_delays()
+    for attempt, delay in enumerate(delays):
         if delay:
             time.sleep(delay)
         try:
@@ -144,7 +144,34 @@ def _api_embedding(text: str, config: EmbeddingConfig) -> tuple[float, ...]:
             return tuple(data["data"][0]["embedding"])
         except (HTTPError, URLError) as exc:
             last_exc = exc
+            if isinstance(exc, HTTPError):
+                if exc.code == 429 and attempt < len(delays) - 1:
+                    retry_after = exc.headers.get("Retry-After")
+                    if retry_after:
+                        try:
+                            time.sleep(max(float(retry_after), 0.0))
+                        except ValueError:
+                            pass
+                    continue
+                if exc.code not in {408, 429, 500, 502, 503, 504}:
+                    raise
     raise RuntimeError(f"Embedding API failed after retries: {last_exc}") from last_exc
+
+
+def _embedding_retry_delays() -> tuple[float, ...]:
+    raw = os.environ.get("DRAFTCHECK_EMBEDDING_RETRY_DELAYS", "0,1,2,4")
+    delays: list[float] = []
+    for part in raw.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        try:
+            delay = float(part)
+        except ValueError:
+            continue
+        if delay >= 0:
+            delays.append(delay)
+    return tuple(delays or [0.0, 1.0, 2.0, 4.0])
 
 
 def _app_env() -> str:
@@ -205,9 +232,9 @@ def _batch_embed(texts: list[str], config: EmbeddingConfig) -> list[tuple[float,
             data=body,
             headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
         )
-        delays = [1.0, 2.0, 4.0]
         last_exc: Exception | None = None
-        for delay in [0.0, *delays]:
+        delays = _embedding_retry_delays()
+        for attempt, delay in enumerate(delays):
             if delay:
                 time.sleep(delay)
             try:
@@ -218,6 +245,17 @@ def _batch_embed(texts: list[str], config: EmbeddingConfig) -> list[tuple[float,
                 break
             except (HTTPError, URLError) as exc:
                 last_exc = exc
+                if isinstance(exc, HTTPError):
+                    if exc.code == 429 and attempt < len(delays) - 1:
+                        retry_after = exc.headers.get("Retry-After")
+                        if retry_after:
+                            try:
+                                time.sleep(max(float(retry_after), 0.0))
+                            except ValueError:
+                                pass
+                        continue
+                    if exc.code not in {408, 429, 500, 502, 503, 504}:
+                        raise
         else:
             raise RuntimeError(f"Batch embedding API failed: {last_exc}") from last_exc
     return results
