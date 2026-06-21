@@ -22,6 +22,19 @@ echo "=== WP6 Tail Extraction Loop $(date -Iseconds) ===" | tee -a "$LOG"
 cd "$COMPOSE_DIR"
 
 ACTIVE_IDS="$(ps -ef | sed -n 's/.*--source-version \([0-9a-fA-F-]\{36\}\).*/\1/p' | sort -u | tr '\n' ' ')"
+EXEC_ENV=()
+for NAME in \
+    WP6_FORCE_OPENAI_ENSEMBLE \
+    WP6_OPENAI_MINI_MODEL \
+    WP6_OPENAI_FRONTIER_MODEL \
+    WP6_OPENROUTER_MINI_MODEL \
+    WP6_OPENROUTER_FRONTIER_MODEL \
+    WP6_LLM_SPEND_CAP_USD \
+    WP6_LLM_PRICE_OVERRIDES_JSON; do
+    if [[ -n "${!NAME:-}" ]]; then
+        EXEC_ENV+=("-e" "$NAME=${!NAME}")
+    fi
+done
 
 IDS=$(sudo docker compose exec -T db psql -U draftcheck -t -A -F" " -c "
 SELECT DISTINCT sv.id
@@ -55,7 +68,7 @@ for SV_ID in $IDS; do
 
     echo "[$COUNT/$TOTAL] Starting tail extraction for source_version $SV_ID (active: $ACTIVE)" | tee -a "$LOG"
     (
-        sudo docker compose exec -T api python scripts/wp6_extract.py \
+        sudo docker compose exec -T "${EXEC_ENV[@]}" api python scripts/wp6_extract.py \
             --source-version "$SV_ID" \
             --workers 2 \
             --report "/app/reports/wp6_tail_${SV_ID}.json" \
