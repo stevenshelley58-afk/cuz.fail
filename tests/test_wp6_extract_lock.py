@@ -1,4 +1,4 @@
-from scripts.wp6_extract import advisory_lock_key, build_endpoints, write_report
+from scripts.wp6_extract import advisory_lock_key, build_endpoints, llm_retry_delays, write_report
 
 
 def test_advisory_lock_key_is_stable_signed_63_bit() -> None:
@@ -27,3 +27,9 @@ def test_write_report_creates_parent_directory(tmp_path) -> None:
     write_report(str(report_path), '{"ok": true}')
 
     assert report_path.read_text(encoding="utf-8") == '{"ok": true}'
+
+
+def test_llm_retry_delays_ignores_invalid_values(monkeypatch) -> None:
+    monkeypatch.setenv("WP6_LLM_RETRY_DELAYS", "0, nope, 2.5, -1")
+
+    assert llm_retry_delays() == (0.0, 2.5)

@@ -220,6 +220,22 @@ def write_report(path: str, body: str) -> None:
         fh.write(body)
 
 
+def llm_retry_delays() -> tuple[float, ...]:
+    raw = os.environ.get("WP6_LLM_RETRY_DELAYS", "0,2,5,15,30,60")
+    delays: list[float] = []
+    for part in raw.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        try:
+            delay = float(part)
+        except ValueError:
+            continue
+        if delay >= 0:
+            delays.append(delay)
+    return tuple(delays or [0.0, 2.0, 5.0])
+
+
 def estimate_cost_usd(model: str, input_tokens: int, output_tokens: int) -> tuple[float, bool]:
     prices = MODEL_PRICES_PER_M.get(model)
     if prices is None:
@@ -321,7 +337,8 @@ class LlmEndpoint:
             method="POST",
         )
         last_err: Exception | None = None
-        for delay in (0.0, 2.0, 5.0):
+        delays = llm_retry_delays()
+        for attempt, delay in enumerate(delays):
             if delay:
                 time.sleep(delay)
             try:
@@ -336,6 +353,18 @@ class LlmEndpoint:
                 except Exception as exc:  # noqa: BLE001 — spend logging must never fail extraction
                     print(f"WARN spend capture failed: {exc}", file=sys.stderr, flush=True)
                 return content or ""
+            except urllib.error.HTTPError as exc:
+                last_err = exc
+                if exc.code == 429 and attempt < len(delays) - 1:
+                    retry_after = exc.headers.get("Retry-After")
+                    if retry_after:
+                        try:
+                            time.sleep(max(float(retry_after), 0.0))
+                        except ValueError:
+                            pass
+                    continue
+                if exc.code not in {408, 429, 500, 502, 503, 504}:
+                    raise
             except (urllib.error.URLError, OSError, KeyError, json.JSONDecodeError) as exc:
                 last_err = exc
         raise RuntimeError(f"{self.name} call failed after retries: {last_err}")
