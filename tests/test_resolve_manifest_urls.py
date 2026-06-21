@@ -1,4 +1,42 @@
+from scripts import resolve_manifest_urls
 from scripts.resolve_manifest_urls import parse_index_page, resolve_rows
+
+
+class FakeRows:
+    def __init__(self, rows):
+        self._rows = rows
+
+    def mappings(self):
+        return self._rows
+
+
+class FakeConn:
+    def __init__(self, rows=None):
+        self.rows = rows or []
+        self.statements = []
+        self.params = []
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_args):
+        return False
+
+    def execute(self, statement, params=None):
+        self.statements.append(str(statement))
+        self.params.append(params or {})
+        return FakeRows(self.rows)
+
+
+class FakeEngine:
+    def __init__(self, conn):
+        self.conn = conn
+
+    def connect(self):
+        return self.conn
+
+    def begin(self):
+        return self.conn
 
 
 def test_parse_index_page_extracts_official_pdf() -> None:
@@ -58,3 +96,37 @@ def test_resolve_rows_matches_by_category_and_exact_title() -> None:
 
     assert [row["id"] for row in resolved] == ["row-1"]
     assert [row["id"] for row in unresolved] == ["row-2"]
+
+
+def test_pending_rows_scans_blocked_and_pending(monkeypatch) -> None:
+    conn = FakeConn(
+        [
+            {
+                "id": "row-1",
+                "instrument_name": "Planning Act 1900",
+                "category": "act",
+                "issuing_authority": "Government of Western Australia",
+                "status": "blocked",
+            }
+        ]
+    )
+    monkeypatch.setattr(resolve_manifest_urls, "create_engine", lambda _url: FakeEngine(conn))
+
+    rows = resolve_manifest_urls.pending_rows("postgresql://example")
+
+    assert rows[0]["status"] == "blocked"
+    assert "status = ANY(:statuses)" in conn.statements[0]
+    assert conn.params[0]["statuses"] == ["pending", "blocked"]
+
+
+def test_apply_resolutions_returns_blocked_rows_to_pending(monkeypatch) -> None:
+    conn = FakeConn()
+    monkeypatch.setattr(resolve_manifest_urls, "create_engine", lambda _url: FakeEngine(conn))
+
+    resolve_manifest_urls.apply_resolutions(
+        "postgresql://example",
+        [{"id": "row-1", "canonical_url": "https://example.test/a.pdf", "title_url": "https://example.test/a"}],
+    )
+
+    assert "status = 'pending'" in conn.statements[0]
+    assert "status IN ('pending', 'blocked')" in conn.statements[0]
