@@ -7,9 +7,14 @@ COMPOSE_DIR="${WP6_COMPOSE_DIR:-/srv/draftcheck/app/infra/v3}"
 LOG="${WP6_TAIL_LOG:-/srv/draftcheck/app/reports/wp6_parallel_tail.log}"
 MAX_WORKERS="${WP6_TAIL_MAX_WORKERS:-6}"
 LIMIT="${WP6_TAIL_LIMIT:-80}"
+ORDER="${WP6_TAIL_ORDER:-DESC}"
 
 if ! [[ "$MAX_WORKERS" =~ ^[1-9][0-9]*$ && "$LIMIT" =~ ^[1-9][0-9]*$ ]]; then
     echo "WP6_TAIL_MAX_WORKERS and WP6_TAIL_LIMIT must be positive integers" >&2
+    exit 2
+fi
+if [[ "$ORDER" != "ASC" && "$ORDER" != "DESC" ]]; then
+    echo "WP6_TAIL_ORDER must be ASC or DESC" >&2
     exit 2
 fi
 
@@ -24,9 +29,9 @@ FROM source_versions sv
 JOIN clauses c ON c.source_version_id = sv.id
 WHERE c.disposition = 'rule_bearing'
   AND NOT EXISTS (
-      SELECT 1 FROM rule_candidates rc WHERE rc.source_version_id = sv.id
+      SELECT 1 FROM rules r WHERE r.clause_id = c.id AND r.metadata_json->>'wp6' = 'true'
   )
-ORDER BY sv.id DESC
+ORDER BY sv.id ${ORDER}
 LIMIT ${LIMIT};
 ")
 

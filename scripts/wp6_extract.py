@@ -190,7 +190,9 @@ SYSTEM_PROMPT = (
 MODEL_PRICES_PER_M: dict[str, tuple[float, float]] = {
     "MiniMax-M2": (0.30, 1.20),
     "gpt-4o": (2.50, 10.00),
+    "gpt-4o-mini": (0.15, 0.60),
     "openai/gpt-4o": (2.50, 10.00),
+    "openai/gpt-4o-mini": (0.15, 0.60),
 }
 
 _SPEND_LOCK = threading.Lock()
@@ -339,6 +341,42 @@ def build_endpoints() -> tuple[list[LlmEndpoint], list[str]]:
     openrouter_key = os.environ.get("OPENROUTER_API_KEY", "")
     openrouter_base = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
     openai_key = os.environ.get("OPENAI_API_KEY", "")
+    force_openai = os.environ.get("WP6_FORCE_OPENAI_ENSEMBLE", "").strip().lower() in {"1", "true", "yes"}
+
+    if force_openai or not minimax_key:
+        if openai_key:
+            mini = LlmEndpoint(
+                "openai_mini",
+                os.environ.get("WP6_OPENAI_MINI_MODEL", "gpt-4o-mini"),
+                "https://api.openai.com/v1",
+                openai_key,
+            )
+            frontier = LlmEndpoint(
+                "openai_frontier",
+                os.environ.get("WP6_OPENAI_FRONTIER_MODEL", "gpt-4o"),
+                "https://api.openai.com/v1",
+                openai_key,
+            )
+        elif openrouter_key:
+            mini = LlmEndpoint(
+                "openrouter_mini",
+                os.environ.get("WP6_OPENROUTER_MINI_MODEL", "openai/gpt-4o-mini"),
+                openrouter_base,
+                openrouter_key,
+            )
+            frontier = LlmEndpoint(
+                "openrouter_frontier",
+                os.environ.get("WP6_OPENROUTER_FRONTIER_MODEL", "openai/gpt-4o"),
+                openrouter_base,
+                openrouter_key,
+            )
+        else:
+            raise RuntimeError("No usable OpenAI/OpenRouter key for WP6 fallback ensemble")
+        escalations.append(
+            "MiniMax unavailable/disabled for WP6; using OpenAI mini + frontier fallback. "
+            "Provider-family independence is degraded but deterministic validators and quote anchors still gate promotion."
+        )
+        return [mini, mini, frontier], escalations
 
     if not minimax_key:
         raise RuntimeError("MINIMAX_API_KEY missing — cannot run ensemble")
@@ -998,7 +1036,7 @@ def main() -> int:
                 "SELECT c.id, c.source_chunk_id, c.clause_path, c.text, c.disposition "
                 "FROM clauses c "
                 "WHERE c.source_version_id = %s "
-                "AND NOT EXISTS (SELECT 1 FROM rule_candidates rc WHERE rc.clause_id = c.id) "
+                "AND NOT EXISTS (SELECT 1 FROM rules r WHERE r.clause_id = c.id AND r.metadata_json->>'wp6' = 'true') "
                 "ORDER BY c.clause_key",
                 (sv_id,),
             ).fetchall()
