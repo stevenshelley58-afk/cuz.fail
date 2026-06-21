@@ -134,7 +134,7 @@ def load_prosecutor_findings(conn: Any, round_number: int, limit: int) -> list[F
     rows = conn.execute(
         text(
             f"""
-            SELECT id::text, status, rule_key, decision_trace_json::text AS trace
+            SELECT id::text, status, check_key, decision_trace_json::text AS trace
             FROM check_results
             WHERE status IN ('likely_pass', 'likely_fail')
               AND (
@@ -154,7 +154,7 @@ def load_prosecutor_findings(conn: Any, round_number: int, limit: int) -> list[F
             round_number,
             "prosecutor",
             f"check_result:{row['id']}",
-            f"{row['status']} check result lacks required citation or decision trace for {row['rule_key']}",
+            f"{row['status']} check result lacks required citation or decision trace for {row['check_key']}",
             row["trace"],
             "critical",
         )

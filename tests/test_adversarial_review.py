@@ -1,4 +1,4 @@
-from scripts.adversarial_review import Finding, finding_for, summarize
+from scripts.adversarial_review import Finding, finding_for, load_prosecutor_findings, summarize
 
 
 class FakeRows:
@@ -12,8 +12,10 @@ class FakeRows:
 class FakeConn:
     def __init__(self, rows):
         self.rows = rows
+        self.statements = []
 
     def execute(self, *_args, **_kwargs):
+        self.statements.extend(str(arg) for arg in _args)
         return FakeRows(self.rows)
 
 
@@ -49,3 +51,23 @@ def test_summarize_fails_with_open_findings() -> None:
     )
 
     assert report["gate"]["passed"] is False
+
+
+def test_prosecutor_findings_use_check_key_schema() -> None:
+    conn = FakeConn(
+        [
+            {
+                "id": "check-1",
+                "status": "likely_fail",
+                "check_key": "setback.primary_street",
+                "trace": "{}",
+            }
+        ]
+    )
+
+    findings = load_prosecutor_findings(conn, 1, 10)
+
+    assert "check_key" in conn.statements[0]
+    assert "rule_key" not in conn.statements[0]
+    assert findings[0].target == "check_result:check-1"
+    assert "setback.primary_street" in findings[0].claim
