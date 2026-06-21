@@ -53,12 +53,20 @@ STANDARDS_TERMS = (
 
 SUPERSESSION_TERMS = (
     "amendment",
+    "commencement",
+    "citation published",
     "repeal",
     "repealed",
     "repealing",
+    "reprint of",
     "validation",
     "savings",
     "transitional",
+)
+
+FRAGMENT_PREFIXES = (
+    "act and the ",
+    "despite the ",
 )
 
 
@@ -105,11 +113,22 @@ def classify_row(row: ManifestRow) -> TriageDecision:
             unblock=None,
         )
 
+    if category in {"act", "regulations"} and (
+        any(term in name for term in SUPERSESSION_TERMS)
+        or any(name.startswith(prefix) for prefix in FRAGMENT_PREFIXES)
+    ):
+        return TriageDecision(
+            manifest_id=row.id,
+            instrument_name=row.instrument_name,
+            current_status=row.status,
+            recommended_status="out_of_scope",
+            reason="Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text.",
+            unblock=None,
+        )
+
     if category in {"act", "regulations"} and not any(term in name for term in PLANNING_TERMS):
         disposition = "out_of_scope"
         reason = "Cited WA legislation outside declared planning/building corpus scope."
-        if any(term in name for term in SUPERSESSION_TERMS):
-            reason = "Amendment/repeal/transitional instrument without in-scope consolidated text."
         return TriageDecision(
             manifest_id=row.id,
             instrument_name=row.instrument_name,

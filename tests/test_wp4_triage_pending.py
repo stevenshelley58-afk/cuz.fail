@@ -50,3 +50,24 @@ def test_classify_planning_act_without_url_as_blocked() -> None:
 
     assert decision.recommended_status == "blocked"
     assert decision.unblock is not None
+
+
+def test_classify_commencement_fragment_as_out_of_scope() -> None:
+    decision = classify_row(row(instrument_name="Assent Commencement Home Building Contracts Act 1991"))
+
+    assert decision.recommended_status == "out_of_scope"
+    assert decision.unblock is None
+
+
+def test_classify_reprint_fragment_as_out_of_scope() -> None:
+    decision = classify_row(row(instrument_name="Reprint of the Regional Development Commissions Act 1993"))
+
+    assert decision.recommended_status == "out_of_scope"
+    assert decision.unblock is None
+
+
+def test_classify_extracted_act_fragment_as_out_of_scope() -> None:
+    decision = classify_row(row(instrument_name="Act and the Western Australian Development Corporation Act 1983"))
+
+    assert decision.recommended_status == "out_of_scope"
+    assert decision.unblock is None
