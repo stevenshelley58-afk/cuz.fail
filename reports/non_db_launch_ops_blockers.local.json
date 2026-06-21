@@ -1,0 +1,50 @@
+{
+  "captured_at": "2026-06-12T20:35:34.303745+00:00",
+  "scope": "non-db, non-security go-live blockers",
+  "launch_surface": {
+    "status": "blocked",
+    "evidence": {
+      "live_origin": "https://lotfile.app",
+      "live_index_title": "<title>LotFile - WA R-Code & Planning Compliance Checker</title>",
+      "live_verifier": "passed",
+      "missing_count": 0,
+      "vps_checkout_env": "SSH_SKIPPED"
+    },
+    "unblock": [
+      "Set a real Stripe Payment Link in /srv/draftcheck/app/infra/v3/.env as VITE_CHECKOUT_URL=https://buy.stripe.com/...",
+      "Deploy the web bundle with: ssh draftcheck 'bash /srv/draftcheck/app/infra/v3/deploy-web-only.sh'",
+      "Run: cd web && npm run verify:launch:live:strict"
+    ]
+  },
+  "ops_guardrails": {
+    "status": "blocked",
+    "evidence": {
+      "backup_env": "SSH_SKIPPED",
+      "restic_password_file": "SSH_SKIPPED",
+      "backup_timer": "SSH_SKIPPED",
+      "restore_drill_log": "critical: no docs/ops/restore-drill-YYYYMMDD.md log found",
+      "guardrail_cron": "SSH_SKIPPED",
+      "ops_guardrail_script": "SSH_SKIPPED",
+      "disk_usage": "SSH_SKIPPED",
+      "worker_heartbeat": "SSH_SKIPPED",
+      "sentry_dsn": "SSH_SKIPPED",
+      "uptime_targets": "uv run python scripts/ops_guardrails.py uptime-targets --json returned status ok for lotfile.app health and ready",
+      "uptime_monitor_doc": "critical: pending monitor evidence: LotFile health.provider_id, LotFile health.alert_contact, LotFile ready.provider_id, LotFile ready.alert_contact",
+      "log_retention_journald": "SSH_SKIPPED",
+      "log_retention_docker": "SSH_SKIPPED",
+      "log_retention_config": "journald and Docker json-file retention configs are committed; VPS install is pending a maintenance window because restarting Docker can interrupt running jobs"
+    },
+    "unblock": [
+      "Deploy latest non-DB ops scripts after DB jobs are idle so /srv/draftcheck/app/scripts/ops_guardrails.py is present.",
+      "Provision RESTIC_REPOSITORY and RESTIC_PASSWORD_FILE outside git, then run the backup.env setup command in docs/ops/ops-guardrails.md.",
+      "Run: sudo bash /srv/draftcheck/app/infra/v3/backup/install-systemd.sh",
+      "Run the restore drill and verify the filled log with: python scripts/ops_guardrails.py restore-drill-log --path docs/ops/restore-drill-YYYYMMDD.md --json",
+      "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-guardrail-cron.sh",
+      "Run: python3 /srv/draftcheck/app/scripts/ops_guardrails.py disk-usage --path /srv --path /var/lib/docker --max-used-percent 80 --json",
+      "Run: python3 /srv/draftcheck/app/scripts/ops_guardrails.py worker-heartbeat --compose-dir /srv/draftcheck/app/infra/v3 --json",
+      "Provision the external uptime monitors and replace pending values in docs/ops/uptime-monitor.md.",
+      "Run: sudo SENTRY_DSN=<dsn> bash /srv/draftcheck/app/infra/v3/ops/install-sentry-dsn.sh, then rerun with DRAFTCHECK_RESTART_SERVICES=1 when api/worker/hermes can restart.",
+      "Run: sudo bash /srv/draftcheck/app/infra/v3/ops/install-log-retention.sh, then rerun with DRAFTCHECK_RESTART_DOCKER=1 during a maintenance window."
+    ]
+  }
+}
