@@ -19,7 +19,7 @@ from draftcheck.db.models import (
     SourceCitation as DbSourceCitation,
     SourceVersion as DbSourceVersion,
 )
-from draftcheck.domain.sources.library import _chunk_text, _embed, _safe_quote
+from draftcheck.domain.sources.library import _batch_embed, _chunk_text, _safe_quote
 from draftcheck.domain.sources.models import (
     ArtifactKind,
     ArtifactSubjectType,
@@ -428,7 +428,12 @@ class SourceImportOps(SourceStoreBase):
         db_version: DbSourceVersion,
         text: str,
     ) -> None:
-        for ordinal, chunk_text in enumerate(_chunk_text(text), start=1):
+        chunk_texts = list(_chunk_text(text))
+        embeddings = _batch_embed(chunk_texts, self.embedding_config)
+        if len(embeddings) != len(chunk_texts):
+            raise RuntimeError("embedding batch size did not match source chunks")
+
+        for ordinal, (chunk_text, embedding) in enumerate(zip(chunk_texts, embeddings, strict=True), start=1):
             chunk = DbSourceChunk(
                 id=uuid4(),
                 source_version_id=db_version.id,
@@ -438,7 +443,7 @@ class SourceImportOps(SourceStoreBase):
                 embedding_provider=self.embedding_config.provider,
                 embedding_model=self.embedding_config.model,
                 embedding_dimension=self.embedding_config.dimension,
-                embedding=list(_embed(chunk_text, self.embedding_config)),
+                embedding=list(embedding),
                 metadata_json={"source_id": str(db_source.id)},
             )
             session.add(chunk)
