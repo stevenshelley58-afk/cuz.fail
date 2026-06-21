@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI
@@ -204,6 +205,15 @@ def test_agent_property_check_returns_error_when_engine_layer_raises(monkeypatch
     body = response.json()
     assert body["status"] == "error"
     assert "boom" not in json.dumps(body).lower()
+
+
+def test_vps_compose_passes_blockwise_engine_token_to_api_container() -> None:
+    compose_text = Path("infra/v3/compose.yml").read_text(encoding="utf-8")
+    api_service = compose_text.split("  api:", 1)[1].split("\n  worker:", 1)[0]
+
+    assert "BLOCKWISE_ENGINE_TOKEN: ${BLOCKWISE_ENGINE_TOKEN:-}" in api_service
+    assert "DRAFTCHECK_ENGINE_TOKEN: ${DRAFTCHECK_ENGINE_TOKEN:-}" in api_service
+    assert "API_AUTH_KEYS: ${API_AUTH_KEYS:-}" in api_service
 
 
 def _client(
