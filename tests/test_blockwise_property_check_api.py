@@ -52,6 +52,8 @@ def test_agent_property_check_returns_cited_preliminary_result(monkeypatch) -> N
     assert body["normalizedFacts"]["sourceCoverage"] == "source_cited"
     assert body["normalizedFacts"]["facts"]["zone"] == {"label": "Residential", "code": "R40"}
     assert body["citations"]
+    assert all("url" not in citation for citation in body["citations"])
+    assert all("excerpt" not in citation for citation in body["citations"])
     citation_ids = {citation["id"] for citation in body["citations"]}
     for item in [*body["signals"], *body["likelyConstraints"]]:
         assert item["citationIds"]

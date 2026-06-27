@@ -149,6 +149,7 @@ def require_blockwise_engine_token(
 @router.post(
     "/agent-property-check",
     response_model=AgentPropertyCheckResponse,
+    response_model_exclude_none=True,
 )
 def agent_property_check(
     payload: AgentPropertyCheckRequest,
