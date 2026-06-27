@@ -21,13 +21,16 @@ from __future__ import annotations
 
 import logging
 from typing import Any
+from uuid import UUID
 
 from sqlalchemy import ColumnElement, Engine, case, func, literal, literal_column, or_, select, text
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from draftcheck.db.models import (
     AddressPoint as DbAddressPoint,
     LgArea as DbLgArea,
+    Org as DbOrg,
     Parcel as DbParcel,
     PlanningFeature as DbPlanningFeature,
     Property as DbProperty,
@@ -235,6 +238,29 @@ class PostGISSpatialDatasetStore:
 
     def __init__(self, engine: Engine) -> None:
         self._engine = engine
+
+    def ensure_org(self, *, org_id: str, slug: str, name: str) -> None:
+        """Ensure a durable org row exists for externally supplied org IDs."""
+        try:
+            org_uuid = UUID(org_id)
+        except (ValueError, AttributeError):
+            return
+
+        with Session(self._engine) as session:
+            if session.get(DbOrg, org_uuid) is not None:
+                return
+
+            session.add(
+                DbOrg(
+                    id=org_uuid,
+                    slug=slug,
+                    name=name[:200],
+                )
+            )
+            try:
+                session.commit()
+            except IntegrityError:
+                session.rollback()
 
     # ------------------------------------------------------------------
     # Dataset registration

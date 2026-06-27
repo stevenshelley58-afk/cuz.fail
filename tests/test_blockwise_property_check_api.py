@@ -26,7 +26,7 @@ from draftcheck.domain.address import (
 )
 
 
-TOKEN = "test-blockwise-token"
+TOKEN = "test-token"
 REQUEST = {
     "workspaceId": "workspace-1",
     "userId": "user-1",
@@ -58,6 +58,34 @@ def test_agent_property_check_returns_cited_preliminary_result(monkeypatch) -> N
         assert set(item["citationIds"]).issubset(citation_ids)
     assert body["talkingPoints"]
     assert body["engineRequestId"]
+
+
+def test_agent_property_check_ensures_uuid_workspace_org_before_resolution(monkeypatch) -> None:
+    service = AddressResolutionService()
+    calls: list[dict[str, str]] = []
+
+    def ensure_org(*, org_id: str, slug: str, name: str) -> None:
+        calls.append({"org_id": org_id, "slug": slug, "name": name})
+
+    setattr(service.store, "ensure_org", ensure_org)
+    client = _client(monkeypatch, service)
+    workspace_id = "00000000-0000-4000-8000-000000000001"
+
+    response = client.post(
+        "/api/v1/agent-property-check",
+        headers=_auth_headers(),
+        json={**REQUEST, "workspaceId": workspace_id},
+    )
+
+    assert response.status_code == 200
+    assert response.json()["status"] == "success"
+    assert calls == [
+        {
+            "org_id": workspace_id,
+            "slug": "blockwise-00000000000040008000000000000001",
+            "name": f"Blockwise workspace {workspace_id}",
+        }
+    ]
 
 
 def test_agent_property_check_response_avoids_customer_facing_internal_brand_and_unsafe_copy(

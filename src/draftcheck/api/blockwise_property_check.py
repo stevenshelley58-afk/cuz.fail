@@ -13,7 +13,7 @@ import logging
 import os
 from datetime import UTC
 from typing import Annotated, Any, Literal
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 from fastapi import APIRouter, Depends, Header, HTTPException, status
 from pydantic import BaseModel, Field
@@ -157,6 +157,7 @@ def agent_property_check(
 ) -> AgentPropertyCheckResponse:
     engine_request_id = uuid4().hex
     try:
+        _ensure_blockwise_workspace_org(service, payload.workspaceId)
         profile = service.resolve_address(
             org_id=payload.workspaceId,
             project_id=engine_request_id,
@@ -169,6 +170,23 @@ def agent_property_check(
             extra={"engine_request_id": engine_request_id},
         )
         return _error_response(engine_request_id)
+
+
+def _ensure_blockwise_workspace_org(service: AddressResolutionService, workspace_id: str) -> None:
+    ensure_org = getattr(service.store, "ensure_org", None)
+    if not callable(ensure_org):
+        return
+
+    try:
+        workspace_uuid = UUID(workspace_id)
+    except ValueError:
+        return
+
+    ensure_org(
+        org_id=str(workspace_uuid),
+        slug=f"blockwise-{workspace_uuid.hex}",
+        name=f"Blockwise workspace {workspace_uuid}",
+    )
 
 
 def _profile_to_response(
