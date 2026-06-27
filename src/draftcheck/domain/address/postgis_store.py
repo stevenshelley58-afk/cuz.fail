@@ -33,6 +33,7 @@ from draftcheck.db.models import (
     Org as DbOrg,
     Parcel as DbParcel,
     PlanningFeature as DbPlanningFeature,
+    Project as DbProject,
     Property as DbProperty,
     PropertyFact as DbPropertyFact,
     SpatialDataset as DbSpatialDataset,
@@ -255,6 +256,32 @@ class PostGISSpatialDatasetStore:
                     id=org_uuid,
                     slug=slug,
                     name=name[:200],
+                )
+            )
+            try:
+                session.commit()
+            except IntegrityError:
+                session.rollback()
+
+    def ensure_project(self, *, org_id: str, project_id: str, name: str) -> None:
+        """Ensure a durable project row exists for externally supplied project IDs."""
+        try:
+            org_uuid = UUID(org_id)
+            project_uuid = UUID(project_id)
+        except (ValueError, AttributeError):
+            return
+
+        with Session(self._engine) as session:
+            if session.get(DbProject, project_uuid) is not None:
+                return
+
+            session.add(
+                DbProject(
+                    id=project_uuid,
+                    org_id=org_uuid,
+                    name=name[:240],
+                    status="draft",
+                    metadata_json={"source": "blockwise_property_check"},
                 )
             )
             try:

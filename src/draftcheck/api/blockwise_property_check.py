@@ -157,7 +157,7 @@ def agent_property_check(
 ) -> AgentPropertyCheckResponse:
     engine_request_id = uuid4().hex
     try:
-        _ensure_blockwise_workspace_org(service, payload.workspaceId)
+        _ensure_blockwise_workspace_context(service, payload.workspaceId, engine_request_id, payload.address)
         profile = service.resolve_address(
             org_id=payload.workspaceId,
             project_id=engine_request_id,
@@ -172,21 +172,32 @@ def agent_property_check(
         return _error_response(engine_request_id)
 
 
-def _ensure_blockwise_workspace_org(service: AddressResolutionService, workspace_id: str) -> None:
+def _ensure_blockwise_workspace_context(
+    service: AddressResolutionService,
+    workspace_id: str,
+    project_id: str,
+    address: str,
+) -> None:
     ensure_org = getattr(service.store, "ensure_org", None)
-    if not callable(ensure_org):
-        return
+    ensure_project = getattr(service.store, "ensure_project", None)
 
     try:
         workspace_uuid = UUID(workspace_id)
     except ValueError:
         return
 
-    ensure_org(
-        org_id=str(workspace_uuid),
-        slug=f"blockwise-{workspace_uuid.hex}",
-        name=f"Blockwise workspace {workspace_uuid}",
-    )
+    if callable(ensure_org):
+        ensure_org(
+            org_id=str(workspace_uuid),
+            slug=f"blockwise-{workspace_uuid.hex}",
+            name=f"Blockwise workspace {workspace_uuid}",
+        )
+    if callable(ensure_project):
+        ensure_project(
+            org_id=str(workspace_uuid),
+            project_id=str(UUID(project_id)),
+            name=f"Blockwise property check: {address.strip()[:200] or project_id}",
+        )
 
 
 def _profile_to_response(

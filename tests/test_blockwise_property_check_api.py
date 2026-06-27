@@ -62,12 +62,17 @@ def test_agent_property_check_returns_cited_preliminary_result(monkeypatch) -> N
 
 def test_agent_property_check_ensures_uuid_workspace_org_before_resolution(monkeypatch) -> None:
     service = AddressResolutionService()
-    calls: list[dict[str, str]] = []
+    org_calls: list[dict[str, str]] = []
+    project_calls: list[dict[str, str]] = []
 
     def ensure_org(*, org_id: str, slug: str, name: str) -> None:
-        calls.append({"org_id": org_id, "slug": slug, "name": name})
+        org_calls.append({"org_id": org_id, "slug": slug, "name": name})
+
+    def ensure_project(*, org_id: str, project_id: str, name: str) -> None:
+        project_calls.append({"org_id": org_id, "project_id": project_id, "name": name})
 
     setattr(service.store, "ensure_org", ensure_org)
+    setattr(service.store, "ensure_project", ensure_project)
     client = _client(monkeypatch, service)
     workspace_id = "00000000-0000-4000-8000-000000000001"
 
@@ -79,13 +84,16 @@ def test_agent_property_check_ensures_uuid_workspace_org_before_resolution(monke
 
     assert response.status_code == 200
     assert response.json()["status"] == "success"
-    assert calls == [
+    assert org_calls == [
         {
             "org_id": workspace_id,
             "slug": "blockwise-00000000000040008000000000000001",
             "name": f"Blockwise workspace {workspace_id}",
         }
     ]
+    assert project_calls[0]["org_id"] == workspace_id
+    assert project_calls[0]["name"] == "Blockwise property check: 1 Example Street, Spearwood WA 6163"
+    assert len(project_calls[0]["project_id"]) == 36
 
 
 def test_agent_property_check_response_avoids_customer_facing_internal_brand_and_unsafe_copy(
