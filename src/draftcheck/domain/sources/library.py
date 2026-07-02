@@ -180,14 +180,28 @@ def _app_env() -> str:
 
 def _real_embedding_required(config: EmbeddingConfig) -> bool:
     provider = os.environ.get("DRAFTCHECK_EMBEDDING_PROVIDER", config.provider)
-    return provider in {"stub", "hash", "mock"} or not os.environ.get("OPENAI_API_KEY")
+    return provider in {"stub", "hash", "mock", "deferred"} or not os.environ.get("OPENAI_API_KEY")
+
+
+def _deferred_embedding_mode() -> bool:
+    """Deliberate operator mode: import chunks now, embed later.
+
+    Chunks are stored with ``embedding_provider='deferred'`` (placeholder hash
+    vector); retrieval scores them FTS-only until a backfill writes real
+    vectors. Unlike the stub providers, this is allowed in production because
+    it is an explicit choice, not a missing-key accident.
+    """
+    return os.environ.get("DRAFTCHECK_EMBEDDING_PROVIDER", "").lower() == "deferred"
 
 
 def _raise_if_mock_embedding_in_production(config: EmbeddingConfig) -> None:
+    if _deferred_embedding_mode():
+        return
     if _app_env() == "production" and _real_embedding_required(config):
         raise RuntimeError(
             "Real embeddings required in production. "
-            "Set OPENAI_API_KEY and DRAFTCHECK_EMBEDDING_PROVIDER=api."
+            "Set OPENAI_API_KEY and DRAFTCHECK_EMBEDDING_PROVIDER=api "
+            "(or DRAFTCHECK_EMBEDDING_PROVIDER=deferred to import now and backfill)."
         )
 
 
@@ -788,6 +802,11 @@ class SqlAlchemySourceSearchService:
             scored: list[tuple[Any, float]] = []
             for r in fts_rows:
                 fts_norm = float(r.fts_score) / max_fts
+                # Deferred-embedding chunks carry placeholder vectors — score
+                # them FTS-only until the backfill writes real embeddings.
+                if (getattr(r, "embedding_provider", None) or "") == "deferred":
+                    scored.append((r, fts_norm))
+                    continue
                 vec = _coerce_embedding(r.embedding)
                 if vec:
                     min_len = min(len(vec), len(qv))
