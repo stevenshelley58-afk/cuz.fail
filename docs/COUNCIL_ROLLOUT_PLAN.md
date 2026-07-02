@@ -137,8 +137,8 @@ one council each.
 
 | Council | Tier | Status | Rules | Faithful | Canary | Claimed by | Notes |
 |---|---|---|---|---|---|---|---|
-| City of Cockburn | 0 | ✅ done | 1723 | 1.00 | `beeliar_canary.json` | — (2026-06-15) | Reference implementation. WP-0 code changes done; prod DB scoping + canary run pending. |
-| City of Melville | 1 | 🔄 | | | | kimi-k2.7-code 2026-06-16 | Immediate neighbour. |
+| City of Cockburn | 0 | ✅ done | 4428 | 1.00 | `beeliar_canary.json` | — (2026-07-02) | Reference implementation. WP-0 EXECUTED on prod 2026-07-02: 4,428 scoped rules, canary green, cross-council isolation verified (`reports/wp0_scope_execution.md`). |
+| City of Melville | 1 | 🔄 | | | | claude-fable 2026-07-02 (reclaimed; prior claim kimi-k2.7-code 2026-06-16 stalled) | 8 docs ingested+chunked, 0 clauses/candidates. Needs: full doc ingest, clause segmentation, decode→correct→filter→scope→audit→canary. |
 | City of Fremantle | 1 | ⬜ | | | | | Immediate neighbour. |
 | Town of East Fremantle | 1 | ⬜ | | | | | Small; quick. |
 | City of Kwinana | 1 | ⬜ | | | | | Immediate neighbour. |
