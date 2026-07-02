@@ -1,0 +1,480 @@
+{
+  "registry_source": "generated",
+  "registry_checks": 38,
+  "primary": {
+    "address": "14B CHAPMAN ROAD CALISTA",
+    "project_id": "57541719-5159-4ede-90ae-353a07ee47cf",
+    "resolution_status": "resolved",
+    "parcel_id": "1605783",
+    "local_government": "City of Kwinana",
+    "synth_property_facts": 6,
+    "synth_fact_types": [
+      "local_government",
+      "lot_area_m2",
+      "lot_depth_m",
+      "lot_width_m",
+      "r_code",
+      "zone"
+    ],
+    "r_code": "R12.5/20",
+    "categories_evaluated": 118,
+    "status_breakdown": {
+      "needs_more_info": 66,
+      "unsupported": 20,
+      "likely_fail": 1,
+      "likely_pass": 1,
+      "needs_assessment": 30
+    },
+    "by_check_type": {
+      "numeric_threshold": 38,
+      "boolean_presence": 29,
+      "conditional": 26,
+      "qualitative_performance": 14,
+      "categorical": 11
+    },
+    "numeric_checks": 38,
+    "advisory_rules_surfaced": 80,
+    "pass_or_fail": 2,
+    "numeric_results": [
+      {
+        "check_key": "setback_front",
+        "status": "needs_more_info",
+        "citation": "primary_street_setback.all.alt20 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 2.0
+      },
+      {
+        "check_key": "setback_rear",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "setback_side_primary",
+        "status": "needs_more_info",
+        "citation": "side_setback.all.alt2 | source_version:1699dafe-b728-45cf-b953-9c885f783952",
+        "measured": null,
+        "threshold": 2.0
+      },
+      {
+        "check_key": "setback_side_secondary",
+        "status": "needs_more_info",
+        "citation": "secondary_street_setback.all.alt8 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 0.5
+      },
+      {
+        "check_key": "site_cover",
+        "status": "needs_more_info",
+        "citation": "site_cover.all.alt19 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 85.0
+      },
+      {
+        "check_key": "open_space",
+        "status": "needs_more_info",
+        "citation": "open_space.all.alt4 | source_version:a51f695c-039c-4198-84a5-ce7279d1209d",
+        "measured": null,
+        "threshold": 10.0
+      },
+      {
+        "check_key": "garage_width",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "garage_dominance",
+        "status": "needs_more_info",
+        "citation": "garage_dominance.all.alt1 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 50.0
+      },
+      {
+        "check_key": "boundary_wall_length",
+        "status": "needs_more_info",
+        "citation": "boundary_wall_length.all.alt4 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 10.0
+      },
+      {
+        "check_key": "building_storey",
+        "status": "needs_more_info",
+        "citation": "building_storeys.all.alt4 | source_version:2c15aa74-7aab-47a5-bcf1-6499ace6a3f5",
+        "measured": null,
+        "threshold": 2.0
+      },
+      {
+        "check_key": "driveway_width",
+        "status": "needs_more_info",
+        "citation": "driveway_width.all.alt19 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 6.0
+      },
+      {
+        "check_key": "outdoor_living_area",
+        "status": "needs_more_info",
+        "citation": "outdoor_living_area.all.alt21 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 50.0
+      },
+      {
+        "check_key": "parking_bays_per_dwelling",
+        "status": "needs_more_info",
+        "citation": "parking_bays_per_dwelling.all.alt2 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 0.0
+      },
+      {
+        "check_key": "site_area",
+        "status": "likely_fail",
+        "citation": "site_area.all.alt2 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": 961.09,
+        "threshold": 100.0
+      },
+      {
+        "check_key": "soft_landscaping",
+        "status": "needs_more_info",
+        "citation": "soft_landscaping.all.alt13 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 30.0
+      },
+      {
+        "check_key": "height_overall",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "height_wall",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "approved_structure_plan_regard",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "asset_protection_zone",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "average_lot_size",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "car_parking_ratio_per_gla",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "ceiling_height",
+        "status": "needs_more_info",
+        "citation": "ceiling_height.all | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": null,
+        "threshold": 2.4
+      },
+      {
+        "check_key": "environmental_management_plan",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "exempted_sign_max_size",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "facility_structure_spacing",
+        "status": "needs_more_info",
+        "citation": "facility_structure_spacing.all.alt4 | source_version:2064086b-a51d-47ed-8475-a5f2dd45c572",
+        "measured": null,
+        "threshold": 3.0
+      },
+      {
+        "check_key": "fence_height_side",
+        "status": "needs_more_info",
+        "citation": "fence_height_side.all | source_version:a51f695c-039c-4198-84a5-ce7279d1209d",
+        "measured": null,
+        "threshold": 2.0
+      },
+      {
+        "check_key": "land_use_permissibility",
+        "status": "needs_more_info",
+        "citation": "land_use_permissibility.d5767a3b8 | source_version:d41363a3-a192-495e-b295-bf8d1a9b6a91",
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "local_water_management_strategy",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "min_frontage",
+        "status": "likely_pass",
+        "citation": "r5_min_frontage.all | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": 52.27,
+        "threshold": 30.0
+      },
+      {
+        "check_key": "min_lot_area_per_dwelling",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "notification_on_title",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "parking_ratio_hotel_tavern",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "parking_ratio_medical_centre",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "parking_ratio_per_gla",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "plot_ratio",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "retaining_wall_height",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "urban_water_management_plan",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      },
+      {
+        "check_key": "vertical_distance_above_water_table",
+        "status": "unsupported",
+        "citation": null,
+        "measured": null,
+        "threshold": null
+      }
+    ],
+    "advisory_samples": [
+      {
+        "check_key": "ancillary_dwelling_outbuilding_external_fixture_boundary_wall_fence_patios_pergolas_verandahs_decks_garages_carports",
+        "check_type": "boolean_presence",
+        "status": "needs_more_info",
+        "what_it_means": "The works must not be located in a heritage-protected place.",
+        "how_to_query": "Check if the works are located in a heritage-protected place.",
+        "citation": "ancillary_dwelling_outbuilding_external_fixture_boundary_wall_fence_patios_pergolas_verandahs_decks_garages_carports.dbbe6a8ce | source_version:e28d75af-ef47-4d36-8c33-b512e6883ace"
+      },
+      {
+        "check_key": "access_driveway_approval",
+        "check_type": "boolean_presence",
+        "status": "needs_more_info",
+        "what_it_means": "An access driveway for a residential dwelling must be approved by the Council.",
+        "how_to_query": "Check if the proposed access driveway has received Council approval.",
+        "citation": "access_driveway_approval.d60713270 | source_version:1d8666f3-901b-4edd-9287-43b3c625da24"
+      },
+      {
+        "check_key": "access_driveway_vegetation_removal",
+        "check_type": "conditional",
+        "status": "needs_assessment",
+        "what_it_means": "Vegetation may be removed for an access driveway if approved by the Council.",
+        "how_to_query": "Check if the removal is for an access driveway and if it has Council approval.",
+        "citation": "access_driveway_vegetation_removal.dadb58dcc | source_version:1d8666f3-901b-4edd-9287-43b3c625da24"
+      },
+      {
+        "check_key": "additional_uses_support",
+        "check_type": "qualitative_performance",
+        "status": "needs_assessment",
+        "what_it_means": "Only additional uses that do not degrade the landscape buffer function and amenity of adjacent residential areas will be supported.",
+        "how_to_query": "Determine if the proposed additional uses impact the landscape buffer and amenity of adjacent residential areas.",
+        "citation": "additional_uses_support.d393e6274 | source_version:1d8666f3-901b-4edd-9287-43b3c625da24"
+      },
+      {
+        "check_key": "outdoor_acoustic_amenity",
+        "check_type": "qualitative_performance",
+        "status": "needs_assessment",
+        "what_it_means": "A reasonable degree of acoustic amenity for outdoor living areas on each residential lot.",
+        "how_to_query": "Assess the design of outdoor areas for acoustic amenity.",
+        "citation": "outdoor_acoustic_amenity.db7cc3360 | source_version:13d18ff1-8bb1-47c2-b553-f547a609d354"
+      },
+      {
+        "check_key": "building_setback_discretion",
+        "check_type": "conditional",
+        "status": "needs_more_info",
+        "what_it_means": "The setback for buildings is at the discretion of the Council, except for residential development.",
+        "how_to_query": "Determine if the development is residential; if not, check Council's discretion on setbacks.",
+        "citation": "building_setback_discretion.daefb93ee | source_version:eb3bd813-581f-499f-b01b-31eb39bfa2e5"
+      },
+      {
+        "check_key": "fencing_in_front_of_building_envelope",
+        "check_type": "categorical",
+        "status": "needs_more_info",
+        "what_it_means": "Fencing in front of the building envelope must comply with the Residential Design Codes.",
+        "how_to_query": "Check if the proposed fencing in front of the building envelope complies with the Residential Design Codes.",
+        "citation": "fencing_in_front_of_building_envelope.d870019e8 | source_version:1d8666f3-901b-4edd-9287-43b3c625da24"
+      },
+      {
+        "check_key": "higher_densities_location",
+        "check_type": "conditional",
+        "status": "needs_assessment",
+        "what_it_means": "Higher residential densities should be located near activity centres or areas of higher amenity.",
+        "how_to_query": "Determine if higher densities are proposed near activity centres or areas of higher amenity.",
+        "citation": "higher_densities_location.d210b4596 | source_version:3f1e2d01-deca-4f73-b50a-5b594b2e2738"
+      }
+    ],
+    "rule_ids": [
+      "3ad74956-10c2-53c0-ba36-5c103af2e6ad",
+      "255efbb0-808b-5687-beb2-ba17babba617",
+      "3f3e89dc-0df6-5b31-9fad-eca0f00732d2",
+      "e1914b71-f707-5b61-bfbf-c6dc4459da60",
+      "f5141c69-0673-5dba-838e-d7de353651b3",
+      "44a73904-2f94-51a5-9350-c2b2b8a79284",
+      "8392773f-4ebb-5357-b1ac-16c9090799cb",
+      "76aa2ca4-f2de-5256-99d1-a1a3f8a40d32",
+      "dde5e756-f856-5dcb-86a0-c26d98514dee",
+      "752a8248-3dae-5861-b5ea-462527c5f093",
+      "1ace07d2-5e94-550b-8ad6-c3a601f77b62",
+      "029da2e7-b2e9-5a09-8356-079eb1e3ad41",
+      "b97e9373-585c-5174-a3e3-85f3e2b5231e",
+      "6d2f65d3-9827-5cb0-a670-31c21fc8ae0f",
+      "1f1387b2-92cc-5d26-bf58-4a9a3570d441",
+      "a778b314-f348-5d3c-af0a-3715093ab5be",
+      "5767a3b8-f8b5-541d-8954-b91f510129f1",
+      "9a55b10b-b9a4-5316-bc46-894f4823b939",
+      "bbe6a8ce-336b-5425-9e1f-602f1844191b",
+      "60713270-3d35-55a2-9191-edf8b7dc049f",
+      "adb58dcc-db5f-5ad1-a04e-2bf2799cbccf",
+      "393e6274-6c37-5de7-bcb2-830f3a2de9ca",
+      "b7cc3360-8e5b-5e34-af48-569b519c8d51",
+      "aefb93ee-3289-53f4-874d-a428707e4d9b",
+      "870019e8-43a1-58b8-baf9-e2d345dc39af",
+      "210b4596-298e-54b3-8358-bb2bee1bc9d0",
+      "cad09b9f-b270-512d-8673-282a81d40492",
+      "408fc494-098c-564c-b0f9-30c6bafe46e1",
+      "83334dab-05a7-53e6-a3a6-a594c49b6159",
+      "e038ccbb-c752-5a0c-8831-80ba868e345a",
+      "e321fd3a-f7ae-5b13-b913-95b4df6e7a3a",
+      "57e3b994-bdcf-539f-97c6-8259392ff1dc",
+      "5ec5cbc6-8189-57f0-8ed5-8a2a623409b4",
+      "6e48600a-c2f1-5333-9a59-b51f7f66a1c4",
+      "0f6cc023-909d-548c-b5f0-c3bebc91b1b8",
+      "dae8ee84-2494-5a3d-9ef8-db456e1a88dd",
+      "d04af4be-9f56-5769-a7ea-e6f517f4aad8",
+      "091e48d3-0a80-527a-ad1b-370329800eb7",
+      "6e2c42fa-4cd2-58a9-8f7c-0d0e9e7d19a8",
+      "cb68aada-136d-560c-ba5b-83235b6ae3c0",
+      "ef98785a-3a7d-5d72-b2cf-d378cdb5a586",
+      "e490e4ea-ab8e-54da-9d5d-1ffa4d782391",
+      "15689c32-e928-5f57-af72-3cc164d95962",
+      "bfd91162-7485-5b91-847f-c81c45a62d43",
+      "617c8643-a86b-549b-8264-af2114205b1b",
+      "4290a53f-b51a-59a3-93a9-43eff771d730",
+      "c7e8c3cb-4bea-5ece-badd-b8133055168e",
+      "30192e79-f441-5a32-ac11-9160df4a3f4c",
+      "c35a51a5-3ffe-5535-883a-ee7910fbbf02",
+      "9890d77a-9000-5e60-ab9c-63a5c7c2d959",
+      "74bd21fc-397d-53b8-a750-cba1cf65cf64",
+      "70c95cd8-77bb-5a1b-ae0a-0258e425a7a1",
+      "40e7d979-6595-5e4e-973a-787b05140a92",
+      "cb195d37-42d3-5047-adcd-58ce94d10a8e",
+      "2a9654ea-5907-505d-993a-d200f3e9c563",
+      "36ac2f6d-e3a3-5830-864a-47bd8ec0ac10",
+      "4ff0c094-bd3b-5025-af4c-beb37148491f",
+      "31c8623b-dfb4-50c6-8266-cad353b952b5",
+      "c8b831c1-a36b-5f57-932b-a26b8e4c089d",
+      "ba423678-eeee-5925-94b7-578ce6d9539c",
+      "d231db95-ae1a-5f61-a539-5f96959105fb",
+      "62baef71-bec6-551a-8119-23f2660c6dc3",
+      "5e9e0982-5e61-522f-b51c-d275b25c2422",
+      "b6edad72-4819-54a2-b0a4-8f9e9eb72b8a",
+      "069c8682-1f5e-5e0f-8981-868deac4d03b",
+      "f509020b-98dc-5468-b717-6c86efc2572b",
+      "def3db46-cfe2-5498-9f81-f4fb6ae0558b",
+      "b7a0efa1-cdd6-562d-80be-c46c61624697",
+      "d3208860-5016-5553-903f-4958c1bbe99d",
+      "65292bf9-c589-580c-afc7-a74fa0879c2b",
+      "0a605eab-a1a4-5ecc-a070-632e01cd0084",
+      "ed3bfbd1-2cde-5306-b5d2-58ee2c039c40",
+      "3c13a6cb-cc72-5e5a-b792-880c2c2db429",
+      "3909095d-278e-58a2-b55f-cdc08e7e7b24",
+      "34dfc669-ca64-5f0a-9cc9-54277231556e",
+      "778aa6ec-ef62-5bb5-8f3a-0fa9100ec999",
+      "8f799222-25f6-55ea-9909-4d2431d1259b",
+      "b3be141e-ed4b-5f4b-8dbc-405562d8309c",
+      "0939ca2f-d424-535e-8845-c949546a954f",
+      "aa8f99c9-9704-5da9-85e1-8c733091eb4a",
+      "7fa1400c-72bb-5152-a8cc-55c815a1261b",
+      "c09acf15-f191-5d7f-9c5f-d8ada0bb276c",
+      "51b6c7aa-0914-5f4c-9fc2-4b6a478412ec",
+      "3e18b6ef-48cf-545f-9b0b-ff94236ec47c",
+      "7d19755c-6c6f-5757-9077-18b2a58d7d82",
+      "4bce38f7-7413-51f5-bff4-43f4f4a48b90",
+      "8f56b0c8-29e8-5af0-a955-1853bb44a2fc",
+      "27e0c5d9-2eaf-5c25-aa30-72dd6c3e2842",
+      "168d6053-9beb-501d-b801-1fe29fc753f2",
+      "565de8e2-122f-5c03-9d39-b3dbeeea45bb",
+      "75d426e1-d5f2-57e4-956c-68cbf2f0c7fc",
+      "7121a62d-ea8e-5677-a4b4-3b154bf4a053",
+      "9587a5c9-830a-554a-99ba-7bd90ea6d501",
+      "3c134907-5602-5565-bb1f-840393deb0b1",
+      "152ceb0d-7cda-5018-9209-aef8ddeff3c8",
+      "0a0a65e0-4671-5553-a129-fbc1e307c34b",
+      "5dc5a45b-8b20-5f35-a6e9-162f51a7eeea",
+      "5339ef6a-88ee-5230-bccb-01a9a511e4b0"
+    ],
+    "council_scope_source": "property_fact:local_government",
+    "council_scope": "City of Kwinana"
+  },
+  "cross_council": {
+    "project_council_scope": "City of Cockburn",
+    "categories_evaluated": 118,
+    "foreign_council_scopes_found": []
+  }
+}

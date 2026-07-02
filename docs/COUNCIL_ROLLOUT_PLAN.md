@@ -137,12 +137,12 @@ one council each.
 
 | Council | Tier | Status | Rules | Faithful | Canary | Claimed by | Notes |
 |---|---|---|---|---|---|---|---|
-| City of Cockburn | 0 | ✅ done | 4428 | 1.00 | `beeliar_canary.json` | — (2026-07-02) | Reference implementation. WP-0 EXECUTED on prod 2026-07-02: 4,428 scoped rules, canary green, cross-council isolation verified (`reports/wp0_scope_execution.md`). |
+| City of Cockburn | 0 | ✅ done | 4433 | 1.00 | `beeliar_canary.json` | — (2026-07-02) | Reference implementation. WP-0 EXECUTED on prod 2026-07-02 (`reports/wp0_scope_execution.md`); 5 uncorrected decode rules parked with the Tier-1 batch. |
 | City of Melville | 1 | ✅ done | 844 | 0.99 | `melville_canary.json` | claude-fable 2026-07-02 | 28 instruments (LPS6 + 26 LPPs + strategy + CBACP). 3-judge Haiku audit 74/75, 1 rule corrected post-audit. LPP 1.20 blocked (404s; note in target_manifest). |
-| City of Fremantle | 1 | ⬜ | | | | | Immediate neighbour. |
-| Town of East Fremantle | 1 | ⬜ | | | | | Small; quick. |
-| City of Kwinana | 1 | ⬜ | | | | | Immediate neighbour. |
-| City of Rockingham | 1 | ⬜ | | | | | Immediate neighbour. |
+| City of Fremantle | 1 | ✅ done | 1522 | 0.99 | `fremantle_canary.json` | claude-fable 2026-07-02 | 46 instruments (LPS4 + 39 LPPs + strategy + 7 SPs). Audit 0.987 + operator numeric check. 8 low-text/scan docs blocked (notes in target_manifest). |
+| Town of East Fremantle | 1 | ✅ done | 697 | 0.97 | `east_fremantle_canary.json` | claude-fable 2026-07-02 | 13 instruments (LPS3 + 9 LPPs + strategy + 2 precinct plans). |
+| City of Kwinana | 1 | ✅ done | 759 | 0.99 | `kwinana_canary.json` | claude-fable 2026-07-02 | 17 instruments incl. LPS2 (405 chunks) + LPS3 Town Centre. Split R-code canary (R12.5/20) exposed + fixed the R-code regex bug. 12 mop-up rules parked pending correction. |
+| City of Rockingham | 1 | ⛔ | | | | claude-fable 2026-07-02 | 38/40 docs acquired; decode died mid-run: OPENAI QUOTA EXHAUSTED. 1,131 partial rules parked (metadata_json.parked). Unblock = top up OpenAI billing, then the resume command in `reports/tier1_rollout_execution.md`. |
 | City of Canning | 2 | ⬜ | | | | | |
 | City of Gosnells | 2 | ⬜ | | | | | |
 | City of Armadale | 2 | ⬜ | | | | | |
