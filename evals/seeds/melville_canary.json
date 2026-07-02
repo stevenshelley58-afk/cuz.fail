@@ -1,0 +1,50 @@
+{
+  "canary": "melville_council_rollout",
+  "description": "End-to-end gate for the second council (City of Melville) per the per-council recipe. 'expected' is the acceptance target; 'recorded' is the real verification result on prod.",
+  "authority": "docs/COUNCIL_ROLLOUT_PLAN.md sections 1.1-1.8",
+  "address": "27 DUNVEGAN ROAD APPLECROSS",
+  "expected": {
+    "council_scope": "City of Melville",
+    "council_scope_source": "property_fact:local_government",
+    "r_code": "R15",
+    "min_synth_property_facts": 6,
+    "min_categories_evaluated": 25,
+    "every_result_has_citation": true,
+    "advisory_framing": true,
+    "no_foreign_council_rules": true,
+    "melville_local_rules_surfaced": true
+  },
+  "status": "verified",
+  "recorded": {
+    "verified_at": "2026-07-02",
+    "method": "LIVE auto-resolution via verify_beeliar.py --address '27 DUNVEGAN ROAD APPLECROSS' --other-council 'City of Cockburn' (the harness is council-agnostic). Full run: reports/melville_canary_run.json.",
+    "registry_checks": 38,
+    "council_scope": "City of Melville",
+    "council_scope_source": "property_fact:local_government",
+    "parcel_id": "1222862",
+    "r_code": "R15",
+    "synth_property_facts": 6,
+    "synth_fact_types": ["local_government", "lot_area_m2", "lot_depth_m", "lot_width_m", "r_code", "zone"],
+    "categories_evaluated": 118,
+    "numeric_checks": 38,
+    "advisory_rules_surfaced": 80,
+    "status_breakdown": {"needs_more_info": 53, "unsupported": 21, "likely_pass": 2, "needs_assessment": 42},
+    "surfaced_rule_scopes": {"City of Melville": 55, "global": 42},
+    "cross_council": {
+      "probe": "project scoped 'City of Cockburn' evaluated 118 categories",
+      "foreign_council_scopes_found": []
+    },
+    "decode_library": "844 approved Melville development rules (282 boolean_presence, 234 numeric_threshold, 184 qualitative_performance, 77 conditional, 67 categorical) from 28 acquired local instruments (LPS6 scheme text, 26 LPPs incl. 3.1 Residential Development and 1.9 Height of Buildings, WAPC-endorsed Local Planning Strategy, Canning Bridge Activity Centre Plan). Pipeline: gpt-4o-mini decode (1,493 candidates) -> promote -> gpt-4o correct-don't-delete (865 kept / 406 corrected / 655 rejected) -> filter-pass pilot showed converged (25/25 kept; full redo skipped) -> SQL noise sweep (11 broken-quote rejects) -> council_scope='City of Melville'.",
+    "faithfulness_audit": {
+      "sample": 75,
+      "faithful_rate": 0.987,
+      "judges": 3,
+      "judge_model": "claude-haiku-4-5 (3 independent judges, majority vote)",
+      "note": "1 rule confirmed unfaithful by 2/3 judges (modality escalation 'will need to' -> 'must'); corrected in place post-audit (metadata_json.audit_fix). 1 additional single-judge flag did not survive majority."
+    }
+  },
+  "gaps": [
+    "LPP 1.20 (Canning Bridge density/bonus provisions) not acquired - all URL variants 404; unblock note in target_manifest.notes. The CBACP itself (acquired, 119 chunks) carries the M10/M15 provisions.",
+    "pass_or_fail (2) reflects lot-derived measurements only (site_area, frontage); other numeric checks correctly need proposal/drawing values."
+  ]
+}
