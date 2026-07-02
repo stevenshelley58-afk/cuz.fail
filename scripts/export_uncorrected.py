@@ -44,7 +44,7 @@ def main() -> int:
                    r.rule_logic_json->>'applies_when', r.rule_logic_json->>'modality',
                    r.quote, r.lifecycle_status
             FROM rules r
-            WHERE r.extractor_model LIKE 'openai%%decode'
+            WHERE r.extractor_model LIKE '%%decode'
               AND NOT (r.metadata_json ? 'correct_model')
               AND (r.lifecycle_status = 'approved'
                    OR r.metadata_json->>'parked' = 'awaiting_correction_openai_quota')
