@@ -142,8 +142,17 @@ SELECT r.id::text, r.rule_key, r.check_type,
 FROM rules r
 WHERE r.extractor_model LIKE 'openai%%decode'
   AND {scope}
+  {council}
   {skip}
 """
+
+# Restrict a pass to one council's documents (e.g. a --redo filter run that must
+# not churn another council's already-audited rules).
+_COUNCIL_FILTER = (
+    "AND EXISTS (SELECT 1 FROM source_versions sv JOIN source_documents sd "
+    "ON sv.source_id = sd.id WHERE sv.id = r.source_version_id "
+    "AND sd.local_government = %(council)s)"
+)
 
 _SCOPE_COMBINED = (
     "(r.lifecycle_status = 'approved' OR (r.lifecycle_status = 'rejected' "
@@ -175,6 +184,8 @@ def main() -> int:
     ap.add_argument("--redo", action="store_true")
     ap.add_argument("--scope", choices=["combined", "approved"], default="combined",
                     help="'combined' = approved + recoverable rejected; 'approved' = re-filter approved only")
+    ap.add_argument("--council", default=None,
+                    help="restrict to rules from this council's docs (source_documents.local_government)")
     ap.add_argument("--debug", action="store_true")
     ap.add_argument("--report", default="/app/reports/wp6_correct.json")
     args = ap.parse_args()
@@ -192,9 +203,10 @@ def main() -> int:
     with psycopg.connect(db_url()) as conn:
         cur = conn.cursor()
         scope_clause = _SCOPE_APPROVED if args.scope == "approved" else _SCOPE_COMBINED
-        sql = SELECT_SQL.format(skip=skip, scope=scope_clause) + (
+        council_clause = _COUNCIL_FILTER if args.council else ""
+        sql = SELECT_SQL.format(skip=skip, scope=scope_clause, council=council_clause) + (
             " ORDER BY random() LIMIT %(lim)s" if args.limit else "")
-        cur.execute(sql, {"tag": tag, "lim": args.limit})
+        cur.execute(sql, {"tag": tag, "lim": args.limit, "council": args.council})
         rules = [
             {"id": r[0], "rule_key": r[1], "check_type": r[2], "what_it_means": r[3],
              "requirement": r[4], "applies_when": r[5], "modality": r[6], "quote": r[7]}

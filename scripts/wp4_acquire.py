@@ -35,6 +35,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 import httpx  # noqa: E402
 from sqlalchemy import create_engine, text  # noqa: E402
 
+from draftcheck.domain.address.lga import canonical_local_government_name  # noqa: E402
 from draftcheck.domain.identity.sqlalchemy_store import SqlAlchemyIdentityStore  # noqa: E402
 from draftcheck.domain.identity.roles import IdentityRole  # noqa: E402
 from draftcheck.domain.sources.fetching import fetch_public_source  # noqa: E402
@@ -47,6 +48,17 @@ ORG_NAME = os.environ.get("WP4_ORG_NAME", "DraftCheck WA")
 MAX_ATTEMPTS = 3
 MIN_CHUNKS = 3  # fewer than this on a fresh fetch => suspected index/landing page
 RESTRICTED_HTTP = ("401", "402", "403")
+
+
+def _local_government_for(issuing_authority: str | None) -> str | None:
+    """Council-issued instruments get tagged with their canonical LGA name.
+
+    State bodies (WAPC, DPLH, Parliament) return None so their docs stay global.
+    """
+    authority = str(issuing_authority or "").strip()
+    if authority.lower().startswith(("city of ", "town of ", "shire of ")):
+        return canonical_local_government_name(authority) or authority
+    return None
 
 CLAIM_SQL = text(
     """
@@ -109,7 +121,7 @@ def acquire_one(
                 metadata_only=False,
                 jurisdiction="WA",
                 authority=str(row["issuing_authority"] or ""),
-                local_government=None,
+                local_government=_local_government_for(row["issuing_authority"]),
                 source_type=str(row["category"]),
                 access_type="public",
                 licence_notes="",
