@@ -67,6 +67,15 @@ Fetch and ingest the council's **local** instruments into `source_documents` (ta
 Reuse the existing ingestion path (see `docs/DATA_INVENTORY.md` / the WP that loaded Cockburn's 107
 docs). Do NOT ingest other regions or non-planning statutes (they are denylisted downstream anyway).
 
+### 1.2a Corpus-completeness gate (added 2026-07-02 — do not skip)
+Before decoding, compare the council's acquired doc-type mix against expectations. Rule counts
+scale with corpus size, NOT council size: Cockburn's 4,400+ rules come from an exhaustive corpus
+(33 structure plans); a growth council with 1 ingested structure plan is missing most of its
+development standards. **Gate:** every adopted structure plan / LDP / activity-centre plan on the
+council's register (and the WAPC/DPLH register) is either acquired or blocked-with-note. A growth
+council with < 10 structure plans in the manifest fails this gate. The Tier-1 audits could not
+catch this — faithfulness audits verify what IS in the DB, not what's absent.
+
 ### 1.3 Verify spatial coverage for the council
 - Parcels: `SELECT count(*) FROM parcels p JOIN ... WHERE <in council LGA>` — must be non-trivial.
 - Zoning/R-codes: `planning_features` intersecting the LGA must exist (so resolution yields an
@@ -138,11 +147,11 @@ one council each.
 | Council | Tier | Status | Rules | Faithful | Canary | Claimed by | Notes |
 |---|---|---|---|---|---|---|---|
 | City of Cockburn | 0 | ✅ done | 4433 | 1.00 | `beeliar_canary.json` | — (2026-07-02) | Reference implementation. WP-0 EXECUTED on prod 2026-07-02 (`reports/wp0_scope_execution.md`); 5 uncorrected decode rules parked with the Tier-1 batch. |
-| City of Melville | 1 | ✅ done | 844 | 0.99 | `melville_canary.json` | claude-fable 2026-07-02 | 28 instruments (LPS6 + 26 LPPs + strategy + CBACP). 3-judge Haiku audit 74/75, 1 rule corrected post-audit. LPP 1.20 blocked (404s; note in target_manifest). |
-| City of Fremantle | 1 | ✅ done | 1522 | 0.99 | `fremantle_canary.json` | claude-fable 2026-07-02 | 46 instruments (LPS4 + 39 LPPs + strategy + 7 SPs). Audit 0.987 + operator numeric check. 8 low-text/scan docs blocked (notes in target_manifest). |
-| Town of East Fremantle | 1 | ✅ done | 697 | 0.97 | `east_fremantle_canary.json` | claude-fable 2026-07-02 | 13 instruments (LPS3 + 9 LPPs + strategy + 2 precinct plans). |
-| City of Kwinana | 1 | ✅ done | 759 | 0.99 | `kwinana_canary.json` | claude-fable 2026-07-02 | 17 instruments incl. LPS2 (405 chunks) + LPS3 Town Centre. Split R-code canary (R12.5/20) exposed + fixed the R-code regex bug. 12 mop-up rules parked pending correction. |
-| City of Rockingham | 1 | ⛔ | | | | claude-fable 2026-07-02 | 38/40 docs acquired; decode died mid-run: OPENAI QUOTA EXHAUSTED. 1,131 partial rules parked (metadata_json.parked). Unblock = top up OpenAI billing, then the resume command in `reports/tier1_rollout_execution.md`. |
+| City of Melville | 1 | 🔄 | 844 | 0.99 | `melville_canary.json` | claude-fable 2026-07-02 | Policy layer done + audited. CORPUS GAP: 6 activity-centre/structure plans seeded pending acquire+decode (OpenAI quota). LPP 1.20 blocked. |
+| City of Fremantle | 1 | 🔄 | 1522 | 0.99 | `fremantle_canary.json` | claude-fable 2026-07-02 | Policy layer done + audited (audit 0.987 + operator numeric fix). CORPUS GAP: 2 more SPs seeded pending. 8 low-text/scan docs blocked. |
+| Town of East Fremantle | 1 | ✅ done | 697 | 0.97 | `east_fremantle_canary.json` | claude-fable 2026-07-02 | 13 instruments (LPS3 + 9 LPPs + strategy + 2 precinct plans). SP sweep found no further instruments — corpus complete. |
+| City of Kwinana | 1 | 🔄 | 759 | 0.99 | `kwinana_canary.json` | claude-fable 2026-07-02 | Policy layer done + audited; split-R-code canary fixed the regex bug. CORPUS GAP: 130 structure plans/LDPs seeded pending acquire+decode — growth corridor, most development standards live in SPs. Expect final rules well above 2,000. |
+| City of Rockingham | 1 | ⛔ | | | | claude-fable 2026-07-02 | 38 policy docs acquired + 61 SP/centre-plan docs seeded pending. Decode died: OPENAI QUOTA EXHAUSTED; 1,131 partial rules parked. Unblock = top up OpenAI billing, then the resume sequence in `reports/tier1_rollout_execution.md`. |
 | City of Canning | 2 | ⬜ | | | | | |
 | City of Gosnells | 2 | ⬜ | | | | | |
 | City of Armadale | 2 | ⬜ | | | | | |

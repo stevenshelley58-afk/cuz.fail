@@ -26,15 +26,32 @@ partially-promoted rules (1,131) plus 12 Kwinana mop-up rules were **parked**
 so nothing uncorrected or unscoped is live. The correction pass's `combined`
 scope automatically recovers parked rules it keeps.
 
-**Unblock:** add credit / raise the limit at platform.openai.com → Billing, then:
+**Unblock:** add credit / raise the limit at platform.openai.com → Billing.
+
+## CORPUS GAP addendum (2026-07-02, post-review)
+
+The operator correctly flagged that per-council rule counts were implausibly low
+vs Cockburn. Root cause: rules scale with corpus size and the Tier-1 discovery
+pass under-collected the structure-plan/LDP layer (Cockburn has 33 SPs ingested;
+Kwinana had 1 despite being a growth corridor with dozens). A second discovery
+sweep seeded **199 additional instruments** (Kwinana 130, Rockingham 61,
+Melville 6, Fremantle 2 — East Fremantle confirmed complete). A
+corpus-completeness gate was added to COUNCIL_ROLLOUT_PLAN §1.2a.
+
+**Full resume sequence after OpenAI top-up** (acquire also needs OpenAI for
+embeddings; run steps sequentially, each is idempotent):
 
     ssh draftcheck 'docker exec -d draftcheck-wa-v3-api-1 sh -c "\
-      python /app/scripts/run_council_pipeline.py --council \"City of Rockingham\" && \
-      python /app/scripts/wp6_correct.py --apply --workers 16 --model gpt-4o --council \"City of Rockingham\" && \
-      python /app/scripts/wp6_correct.py --apply --workers 8 --model gpt-4o --council \"City of Kwinana\" \
-      > /app/reports/rockingham_resume.log 2>&1"'
+      mkdir -p /app/reports && \
+      python /app/scripts/wp4_acquire.py --limit 210 --report /app/reports/wp4_sp_wave.json && \
+      for c in \"City of Kwinana\" \"City of Rockingham\" \"City of Melville\" \"City of Fremantle\"; do \
+        python /app/scripts/run_council_pipeline.py --council \"$c\"; \
+        python /app/scripts/wp6_correct.py --apply --workers 16 --model gpt-4o --council \"$c\"; \
+      done > /app/reports/sp_wave_resume.log 2>&1"'
 
-then noise sweep + audit + canary per the recipe (est. remaining spend ≈ $5).
+then per council: noise sweep + fresh audit sample + 3-judge audit + canary
+refresh per the recipe. Estimated spend: ~199 docs ≈ $25–40 (decode + correct
++ embeddings).
 
 ## Structural fixes shipped (benefit every council)
 
