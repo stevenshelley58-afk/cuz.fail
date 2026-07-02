@@ -95,7 +95,6 @@ def main() -> int:
         known = {norm_url(r[1]): (r[0], r[2]) for r in cur.fetchall() if r[1]}
 
     seen: dict[str, dict] = {}
-    total_cost = 0.0
     for category, tmpl in QUERY_BATTERY:
         q = tmpl.format(c=args.council)
         try:
