@@ -1,0 +1,341 @@
+{
+ "council": "City of Cockburn",
+ "domains": [
+  "cockburn.wa.gov.au",
+  "wa.gov.au"
+ ],
+ "queries": 8,
+ "unique_urls": 66,
+ "already_in_manifest": 19,
+ "new_candidates": [
+  {
+   "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/Structure-Plans-Framework-and-Approvals/Approved-Structure-Plans",
+   "title": "Approved Structure Plans - City of Cockburn",
+   "category_guess": "structure_plan",
+   "highlight": "Approved Structure Plans - City of Cockburn\n...\n# Approved Structure Plans\n...\n## What is a Structure Plan?\n...\nA Structure Plan is, as the name suggests, a plan that illustrates the proposed structure and layout of a future development are",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/d2ece212-0f0a-4040-b01e-09f7d64e5988/ECM_6480313_v1_Cockburn-Central-North-SP-(Muriel-Court)-Structure-Plan-Report-030810.pdf.aspx",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "MURIEL COURT \n STRUCTURE PLAN \nAdopted February 2010 \nCity of \nCockburn\nCity of \nCockburn\n...\nVersion: 1, Version Date: 17/07/2017 Document Set ID: 6480313\n...\nCity of Cockburn \n \nMuriel Court Structure Plan \n2\n...\n.........................",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-07/lots-1-2-20-entrance-road-coogee-local-structure-plan-wapc-reference-spn-0785.pdf",
+   "title": "Structure Plan 0785 Lot 1 Lot 2 & Lot 20 Entrance Road Coogee",
+   "category_guess": "structure_plan",
+   "highlight": "ENDORSEMENT PAGE \nThis structure plan is prepared under the provisions of the City of Cockburn Town Planning \nScheme No. 3. \nIT IS CERTIFIED THAT THIS STRUCTURE PLAN WAS APPROVED BY RESOLUTION OF THE \nWESTERN AUSTRALIAN PLANNING COMMISSION ",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-06/lots-4-125-126-hammond-road-success-structure-plan-wapc-reference-spn-0371.pdf",
+   "title": "Lots 4, 125 & 126 Hammond Road Success Structure Plan - WAPC Reference SPN 0371",
+   "category_guess": "structure_plan",
+   "highlight": "ENDORSEMENT PAGE This structure plan is prepared under the provisions of the City of Cockburn Town Planning Scheme No. 3. IT IS CERTIFIED THAT THIS STRUCTURE PLAN WAS APPROVED BY RESOLUTION OF THE WESTERN AUSTRALIAN PLANNING COMMISSION ON: ",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/c2952705-6c98-401d-b551-8d08bb1e22fa/ECM_5552570_v1_Cockburn-Central-West-Composite-Structure-Plan-Map-pdf.aspx",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "THIS AREA MAY BE REQUIRED FOR REGIONAL SPORTS\nPURPOSES AND ACCORDINGLY SHALL NOT BE DEVELOPED\nOR SUBDIVIDED UNTIL SUCH REQUIREMENTS HAVE BEEN\nDETERMINED AND AN APPROPRIATE STRUCTURE PLAN\nHAS BEEN ADOPTED.\n...\nTHIS AREA MAY BE REQUIRED FOR P",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/Structure-Plans-Framework-and-Approvals/Structure-Plan-Framework-and-Process",
+   "title": "Structure Plan Framework and Process - City of Cockburn",
+   "category_guess": "structure_plan",
+   "highlight": "Structure Plan Framework and Process - City of Cockburn\n...\n# Structure Plan Framework and Process\n...\nStructure plans outline the structure and layout of future development areas. They may cover multiple suburbs or all or part of a townsit",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/District-Structure-Plans/Southern-Suburbs",
+   "title": "Southern Suburbs - City of Cockburn",
+   "category_guess": "structure_plan",
+   "highlight": "Southern Suburbs DSP3 was adopted by Council in September 2012. In 2015 SSDSP3 was significantly modified largely in response to a decision by the State Government not to proceed with construction of the Mandogalup Train Station on the new ",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/government/publications/cockburn-coast-district-structure-plan",
+   "title": "Cockburn Coast District Structure Plan",
+   "category_guess": "structure_plan",
+   "highlight": "Cockburn Coast District Structure Plan\n...\n# Cockburn Coast District Structure Plan\n...\nThe Cockburn coast district structure plan has been prepared to guide future land use and transport initiatives within the area stretching between South",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-04/lots-114-123-125-frankland-avenue-hammond-park-local-structure-plan-amendment-no.-3-wapc-reference-spn-0543.pdf",
+   "title": "Lots 114 & 123-125 Frankland Avenue Hammond Park Local Structure Plan Amendment No. 3 - WAPC Reference SPN 0543",
+   "category_guess": "structure_plan",
+   "highlight": "provisions of the City of\n...\nPlanning and Development\n...\nThis Structure Plan has been prepared to guide the subdivision and development of Parent Lots \n114 and 123-125 Wattleup Road \n14.7 hectares within the City of Cockburn. \nThe origina",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/8f5a40ce-3604-471f-bd46-4e87479f2ac8/ECM_4517094_v10_Cockburn-Central-North-(Muriel-Court)-Structure-Plan-Design-Guidelines-LPP4.pdf.aspx",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "Title Cockburn Central North (Muriel Court) \nStructure Plan – Design Guidelines\nPolicy Number\n(Governance Purpose) LPP4.2\n...\n[1]\n...\nLocal Planning Policy\n...\nTo provide site specific design guidelines for Development Area 19 (DA19) that w",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2021-07/DSP-cockburn_coast.pdf",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "2009\n...\nThe Cockburn Coast District Structure Plan establishes an exciting future for the Cockburn coast, promising a range of housing types, activities and employment choices. The structure plan aims to transform the area by redeveloping ",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/sites/default/files/Schemes/Chair%20Determination%20-%20City%20of%20Cockburn%20Town%20Planning%20Scheme%203%20Amendment%20175.pdf",
+   "title": "OFFICIAL",
+   "category_guess": "structure_plan",
+   "highlight": "Title: City of Cockburn Town Planning Scheme 3 Amendment 175\n...\nLocation: Local structure plan areas (31A, 31B, 31G, 31K) within Development Area 31\n...\nDescription: The amendment proposes to rationalise various structure plans within Deve",
+   "query": "City of Cockburn adopted structure plan document"
+  },
+  {
+   "url": "https://comment.cockburn.wa.gov.au/download_file/1064/690",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "ID: 11394656\n...\nPort Coogee\nRevised Local Structure Plan\nSeptember 2018\n...\nPrepared for \nFrasers Property Australia \nVersion: 1, Version Date: 08/03/2023 Document Set ID: 11394656\n...\nVersion: 1, Version Date:\n...\n08/03/2023 Document Set ",
+   "query": "City of Cockburn local structure plan report"
+  },
+  {
+   "url": "https://comment.cockburn.wa.gov.au/download_file/1572/908",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "LOCAL STRUCTURE PLAN \nNO. 116 (LOT 100) BARFIELD ROAD\n...\nHAMMOND PARK\n...\nNo. 116 (Lot 100) Barfield Road, Hammond Park Local Structure Plan\n...\nBarfield Road, Hammond Park\n...\nThis structure plan is prepared under the provisions of the \nC",
+   "query": "City of Cockburn local structure plan report"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-05/south-beach-village-structure-plan-wapc-reference-spn0821.pdf",
+   "title": "South Beach Village Structure Plan - WAPC Reference SPN 0821",
+   "category_guess": "structure_plan",
+   "highlight": "South Beach Structure Plan Report\n...\nENDORSEMENT PAGE \nThis structure plan is prepared under the provisions of the City of Cockburn Local Planning Scheme \nNo. 3. \nIT IS CERTIFIED THAT THIS STRUCTURE PLAN WAS APPROVED BY RESOLUTION OF THE \n",
+   "query": "City of Cockburn local structure plan report"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/Current-Development-Projects/Robb-Jetty",
+   "title": "Robb Jetty - City of Cockburn",
+   "category_guess": "structure_plan",
+   "highlight": "The Robb Jetty Local Structure Plan will provide a framework for subdivision and development through the coordination of land use, community facilities, ...",
+   "query": "City of Cockburn local structure plan report"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/sites/default/files/Schemes/Chair_Determination_2023-12-03_City_of_Cockburn_TPS_3_Amendment_168.pdf",
+   "title": "Description: The amendment proposes to rationalise zonings and to remove provisions from Table 9 of the Scheme, to reflect existing development that has been undertaken at the areas identified above, in accordance with the Twin Bartram Local Structure Plan (No. 36), Wentworth Heights, Success Local Structure Plan (No. 14) and Lot 3 Sciano Avenue, Success Structure Plan (No. 14A). The proposed amendment also seeks to reduce the spatial extent of ‘Development Area’ Special Control Area No. 14 (DA 14) in the scheme map.",
+   "category_guess": "structure_plan",
+   "highlight": "Title: City of Cockburn Town Planning Scheme 3 Amendment 168\n...\nLocation: Lands generally within ‘Development Area’ Special Control Areas No. 14 and 36.\n...\nDescription: The amendment proposes to rationalise zonings and to remove provision",
+   "query": "City of Cockburn local structure plan report"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/34f9e494-088a-4c5b-a978-235e7bb62e36/ECM_6583632_v7_Phoenix-Activity-Centre-Design-Guidelines-LPP4-docx.aspx",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "Policy Type \nLocal Planning Policy \nPolicy Purpose\nThe Phoenix Revitalisation Strategy identified a vision for the Phoenix Activity Centre to \nevolve into a town centre, and the Phoenix Activity Centre Structure Plan provides further \nguida",
+   "query": "City of Cockburn activity centre plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/Phoenix-Revitalisation-Strategy",
+   "title": "Phoenix Revitalisation Strategy - City of Cockburn",
+   "category_guess": "structure_plan",
+   "highlight": "The City’s draft Local Planning Strategy proposes the preparation of ‘Local Area Plans’ to identify actions to enhance the City’s established suburbs. For the existing revitalisation strategy areas this will involve reviewing the recommenda",
+   "query": "City of Cockburn activity centre plan"
+  },
+  {
+   "url": "https://cockburn.wa.gov.au/getattachment/180ced63-f5fc-40aa-88fc-7c1f1dd87c42/ECM_6469583_v1_Local-Planning-Strategy-text-pdf.aspx",
+   "title": "ECM_6469583_v1_Local Planning Strategy - text",
+   "category_guess": "structure_plan",
+   "highlight": "The Local Planning Strategy is intended to become a central feature of the scheme \nsetting out the Council's general aims and intentions for future long-term growth and \nchange. Whereas the scheme has a 5 year timescale, the strategy will l",
+   "query": "City of Cockburn activity centre plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/19f59bc9-275c-4eb8-b4b4-c98a73775947/ECM_4516039_v11_Commercial-Development-LPP3-docx.aspx",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "The City of Cockburn features a range of different commercial zones, ranging from small \nlocal centres to significant regional activity centres. The City’s Town Planning Scheme \nallows for a range of commercial land uses within these commer",
+   "query": "City of Cockburn activity centre plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/ITS",
+   "title": "Integrated Transport Strategy 2020-2030 - City of Cockburn",
+   "category_guess": "structure_plan",
+   "highlight": "### 5. Plan transport networks to support where people live and work\n...\n- Interface transport networks with Activity Centre plans and strategies\n- Develop a movement and place framework and apply to strategic centres and corridors.\n...\nIt ",
+   "query": "City of Cockburn activity centre plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/DATA/DocSetID-5533448",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "The City of Cockburn’\n...\nLocal Planning \nStrategy (LPS) sets out the long-\n...\nplanning directions for Cockburn and \nprovides the rationale for the zones and \nother provisions of the Town Planning \nScheme 3. The LPS sets out the City’s \nge",
+   "query": "City of Cockburn activity centre plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/3fad3f09-e9b6-4c13-b94f-e502c50ccb00/ECM_5546757_v1_Branch-Circus-District-Structure-Plan-pdf.aspx",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "PUBLIC PURPOSES PUBLIC PURPOSES\n...\n761\n...\nEPP WETLAND\n...\nWETLAND\n...\nWETLAND\n...\nMULTIPLE USE\n...\nWETLAND\n...\nWETLAND\n...\nMULTIPLE USE\n...\nWETLAND\n...\nCATEGORY WETLAND\n...\nWETLAND\n...\n9000\n...\nCIRCUS\nREGIONAL POS\n...\n50m CCW BUFFER\n...\n5",
+   "query": "City of Cockburn precinct structure plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Jandakot-Treeby-Urban-Expansion",
+   "title": "Jandakot/Treeby Urban Expansion Area - District Structure Plan",
+   "category_guess": "structure_plan",
+   "highlight": "Creating a new precinct ('Precinct 5 – North East') to address potential issues due to existing Water Corporation owned land and servicing infrastructure.",
+   "query": "City of Cockburn precinct structure plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Applications-and-Permits/Planning-application",
+   "title": "Planning Applications - City of Cockburn",
+   "category_guess": "local_development_plan",
+   "highlight": "Local Development Plan Applications\n...\nLocal development plans are used in limited situations to guide the design and development of small and constrained lots or to achieve particular design outcomes. Local development plans are often req",
+   "query": "City of Cockburn local development plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/37852f4c-c8fd-4cbd-bef0-8cf698c6c2c6/ECM_4514879_v11_Local-Development-Plans-LPP5-docx.aspx",
+   "title": "",
+   "category_guess": "local_development_plan",
+   "highlight": "Local Development Plans\n...\nLocal Development Plans (LDP’s) are a simple tool to facilitate the implementation of \ndesirable variations or design objectives in a consistent manner. Facilitation is achieved \nby the LDP taking into account sp",
+   "query": "City of Cockburn local development plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Applications-and-Permits/Planning-Online",
+   "title": "Online Planning Applications - City of Cockburn",
+   "category_guess": "local_development_plan",
+   "highlight": "Local development plans. Swipe or drag to see more. Local Development Plan. $1500. Modification to Local Development Plan. $750. Planning Services Fees and ...",
+   "query": "City of Cockburn local development plan"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-cockburn-local-planning-scheme-13",
+   "title": "City of Cockburn Local Planning Scheme 13 | EPA Western Australia",
+   "category_guess": "local_development_plan",
+   "highlight": "City of Cockburn Local Planning Scheme 13 | EPA Western Australia\n...\n# City of Cockburn Local Planning Scheme 13\n...\nCity of Cockburn\n...\nLocal Planning Scheme 13 (LPS 13) represents an update to the City of Cockburn’s existing Town Planni",
+   "query": "City of Cockburn local development plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/cc98d8e2-4454-42ba-88a7-7820e9e811b6/ECM_5487140_v11_Single-House-Standards-for-Medium-Density-Housing-in-the-Development-Zone-LPP1-docx.aspx",
+   "title": "",
+   "category_guess": "local_development_plan",
+   "highlight": "Policy \nSingle House Standards for Medium Density \nHousing in the Development Zone\n...\nPolicy Number\nLPP 1.16\nPolicy Type\nLocal Planning Policy\nPolicy Purpose\n...\nThe Residential Design Codes (R-Codes) is a Western Australian Planning Commi",
+   "query": "City of Cockburn local development plan"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/City-and-Council/Governance-and-Documents/Council-Policies",
+   "title": "Council Policies - City of Cockburn",
+   "category_guess": "local_planning_policy",
+   "highlight": "Planning - Town Planning & DevelopmentExpand. Access a list of all relevant local planning policies adopted under Town Planning Scheme No.3 below.",
+   "query": "City of Cockburn local planning policy"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/City-and-Council/Governance-and-Documents/Council-Policies/Policies",
+   "title": "Policies FAQ - City of Cockburn",
+   "category_guess": "local_planning_policy",
+   "highlight": "Planning policies are a subset of Council policies that are prepared in accordance with Clauses 3, 4 and 5 of Schedule 2 of the Planning and Development (Local ...",
+   "query": "City of Cockburn local planning policy"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/03354f75-f282-4773-a878-8630535242c8/ECM_5670114_v8_Subdivision-Development-Street-Trees-LPP5-docx.aspx",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "Policy Type \nLocal Planning Policy \nPolicy Purpose\n...\nThe City of Cockburn (City) manages over 65,000 street trees which benefit our City and \nsuburbs in many diverse ways. These include:\n...\nimportance of trees in contributing to the heal",
+   "query": "City of Cockburn local planning policy"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/f33baf86-3e50-4329-8bd1-75118c6afa09/ECM_4514426_v9_Special-Purpose-Dwellings-LPP1-docx.aspx",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "Policy \nSpecial Purpose Dwellings\nPolicy Number\nLPP 1.3\nPolicy Type\nLocal Planning Policy\nPolicy Purpose\nThe Residential Design Codes (R-Codes) provide for the development of special purpose \ndwellings which includes ancillary dwellings, ag",
+   "query": "City of Cockburn local planning policy"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/6680cfaa-83a0-4689-8cb7-a9a81c3f20d9/ECM_4514270_v11_Rural-Subdivision-and-Development-LPP2-docx.aspx",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "2.1\n...\nPolicy Type Local Planning Policy\n...\nThe Rural zone, the Rural Living Zone and the Resource Zone under Town Planning \nScheme No. 3 (TPS 3) are retained for rural pursuits, rural living or resource protection \npurposes. In addition,",
+   "query": "City of Cockburn local planning policy"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/getattachment/5b69177d-38a1-470f-a7bf-bfac2bb76990/ECM_4516539_v8_Sea-Containers-LPP5-docx.aspx",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "Title Sea Containers\n...\n(Governance Purpose) LPP 5.8\n...\n[1]\nPolicy Type \nLocal Planning Policy \nPolicy Purpose\n...\nSea Containers (also known as ISO Containers and Shipping Containers) have become \navailable in increasing numbers on the s",
+   "query": "City of Cockburn local planning policy"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/DATA/DocSetID-11829461",
+   "title": "",
+   "category_guess": "local_planning_scheme",
+   "highlight": "Dear Sir/Madam\n...\n. 3 - AMENDMENT NO. 159\n...\namendment\n...\nPLANNING AND DEVELOPMENT ACT 2005 \nAPPROVED LOCAL PLANNING SCHEME AMENDMENT \nCity of Cockburn \nLOCAL PLANNING SCHEME No. 3 -AMENDMENT No. 159 \nRef: TPS/3098 \nIt is hereby notified",
+   "query": "City of Cockburn local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-cockburn-town-planning-scheme-3-amendment-187",
+   "title": "City of Cockburn Town Planning Scheme 3 Amendment 187 - EPA WA",
+   "category_guess": "local_planning_scheme",
+   "highlight": "The amendment proposes the rationalisation of several structure plans associated with DA 4, 5, 26, 27, 31 and 41, and administrative scheme ...",
+   "query": "City of Cockburn local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/sites/default/files/Schemes/Chair%20Determination%20-%20City%20of%20Cockburn%20Town%20Planning%20Scheme%203%20%20Amendment%20176.pdf",
+   "title": "OFFICIAL",
+   "category_guess": "local_planning_scheme",
+   "highlight": "Title: City of Cockburn Town Planning Scheme No.3 (TPS3) Amendment No.176\n\nLocation: Various lots within ‘Development Area 16’ (South Beach Village/North Coogee)\n\nDescription: The purpose of this amendment is to:\n\n• rezone various lots with",
+   "query": "City of Cockburn local planning scheme text"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/DATA/DocSetID-6156300",
+   "title": "[PDF] TOWN PLANNING SCHEME NO. 3 AMENDMENT NO. 118",
+   "category_guess": "local_planning_scheme",
+   "highlight": "RESOLVED that the Council, in pursuance of Section 75 of the Planning and. Development Act 2005, amend the City of Cockburn Town Planning Scheme No. 3 by: 1.",
+   "query": "City of Cockburn local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/sites/default/files/Schemes/Chair%20Determination%20-%20City%20of%20Cockburn%20Town%20Planning%20Scheme%203%20Amendment%20170.pdf",
+   "title": "OFFICIAL",
+   "category_guess": "local_planning_scheme",
+   "highlight": "Title: City of Cockburn Town Planning Scheme 3 Amendment 170\n...\nLocation: Structure plan areas (26A - 26O, and 27C) within Development Area 26 and 27\n...\nDescription: The amendment proposes to rationalise various structure plans within Dev",
+   "query": "City of Cockburn local planning scheme text"
+  },
+  {
+   "url": "https://comment.cockburn.wa.gov.au/draft-lps/state-government-endorses-strategy",
+   "title": "State Government endorses Strategy | Planning the Best City",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The WAPC had endorsed the City of Cockburn Local Planning Strategy subject to modifications at their Statutory Planning Committee (SPC) ...",
+   "query": "City of Cockburn local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Suburb-Revitalisation",
+   "title": "Revitalisation Strategies - City of Cockburn",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The Western Australian Planning Commission (WAPC) approved the Local Planning Strategy on 28 October 2024. The City now needs to prepare a scope and ...",
+   "query": "City of Cockburn local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/TESTING-AREAS/CLAIRE-TEST-PAGES/Planning-Strategies-Building-for-the-Future-old/Local-Planning-Strategy-old",
+   "title": "Local Planning Strategy - City of Cockburn",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The City’s Local Planning Strategy has now been endorsed by the Western Australian Planning Commission (WAPC) for final approval. The final Local Planning Strategy can be viewed at the following link: City of Cockburn Local Planning Strateg",
+   "query": "City of Cockburn local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://comment.cockburn.wa.gov.au/draft-lps",
+   "title": "Planning the Best City - What do you think of our strategy?",
+   "category_guess": "local_planning_strategy",
+   "highlight": "Council and the Western Australian Planning Commission (WAPC) approved the draft Local Planning Strategy for public advertising. Timeline item 4 ...",
+   "query": "City of Cockburn local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-04/local-planning-strategy-guidelines.pdf",
+   "title": "Local Planning Strategy Guidelines",
+   "category_guess": "local_planning_strategy",
+   "highlight": "certification of \ndraft local planning\n...\nstrategy 6\n...\npublic \nadvertising 6\n...\nof \nsubmissions 7 \n4.10 WAPC endorsement 7 \n4.11 Publishing 7 \n4.\n...\nThese guidelines form part of the WA Planning Manual and have been prepared to provide",
+   "query": "City of Cockburn local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.cockburn.wa.gov.au/The-Lakes-Revitalisation-Strategy",
+   "title": "The Lakes Revitalisation Strategy - City of Cockburn",
+   "category_guess": "local_planning_strategy",
+   "highlight": "Why is the Lakes Amendment not supported by a WAPC endorsed Local Planning Strategy?Expand. The City's 2018 Local Housing Strategy was provided to the ...",
+   "query": "City of Cockburn local planning strategy endorsed WAPC"
+  }
+ ]
+}

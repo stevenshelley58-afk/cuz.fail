@@ -1,0 +1,404 @@
+{
+ "council": "City of Rockingham",
+ "domains": [
+  "rockingham.wa.gov.au",
+  "wa.gov.au"
+ ],
+ "queries": 8,
+ "unique_urls": 58,
+ "already_in_manifest": 2,
+ "new_candidates": [
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/localplanning/structure-plans",
+   "title": "Structure Plans - City of Rockingham",
+   "category_guess": "structure_plan",
+   "highlight": "Council has adopted District Structure Plans over large areas which are identified for future urban development and held in multiple ownership. The purpose of a ...",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/structure-plans/the-edge-structure-plan-report-part-1",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "LOCAL STRUCTURE PLAN\n...\n921\n...\n92\n...\nBALDIVIS\n...\nAND LOT\n...\nProject No. 2304Rep96C\n...\nSeptember 2015\n...\nLOCAL STRUCTURE PLAN\n...\nCERTIFICATION OF APPROVED STRUCTURE PLAN\n...\nIT IS CERTIFIED THAT THIS STRUCTURE PLAN WAS APPROVED BY RE",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/localplanning/karnup-district-structure-plan",
+   "title": "Karnup District Structure Plan - City of Rockingham",
+   "category_guess": "structure_plan",
+   "highlight": "A District Structure Plan is a high level strategic plan which will help guide where future land uses like housing, shops and open space are located. It will ...",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/structure-plans/one71-baldivis-structure-plan-report-part-1",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "2353Rep29E\nCERTIFICATION OF APPROVED STRUCTURE PLAN\nIT IS CERTIFIED THAT THIS STRUCTURE PLAN WAS APPROVED BY RESOLUTION OF \nTHE WESTERN AUSTRALIAN PLANNING COMMISSION ON:\n...\n..........................................Date\n...\nSigned for and",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/structure-plans/the-rivergums-east-structure-plan-report-part-1",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "AWARD WINNING PROPERTY DEVELOPER\n‘The Rivergums’ \nLocal Structure Plan\nSeptember 2015\n...\nRevised The Rivergums Structure Plan\nSeptember 2015\n...\nCERTIFICATION OF APPROVED STRUCTURE PLAN\nIT IS CERTIFIED THAT THIS STRUCTURE PLAN \nWAS APPROVE",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/government/document-collections/city-of-rockingham-planning-information",
+   "title": "City of Rockingham planning information",
+   "category_guess": "structure_plan",
+   "highlight": "This page contains local planning schemes, strategies, structure plans and planning publications relating to this local government area.",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/your-city/our-vision/city-centre-activity-centre-plan",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "State Planning Policy 4.2 - Activity Centres for Perth and Peel (SPP 4.2) requires the \nCity of Rockingham to prepare and maintain an endorsed Activity Centre Structure \nPlan to guide development within the Rockingham Strategic Metropolitan",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/schedule-of-modifications-rscpsp",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "SCHEDULE OF MODIFICATIONS \nWAPC Schedule of Modifications - Rockingham Strategic Centre Precinct Structure Plan (SPN/2355) \nThe Structure Plan is recommended to be modified in accordance with the following Schedule of Modifications: \nPART O",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/fact-sheet-scheme-amendment",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "HAM STRATEGIC CENTRE\n...\nGovernment \nGazette\nScheme \namendment \nconsidered \nand approved \nby WAPC and \nMinister for \nPlanning and \npublished in the \nGovernment \nGazette \nScheme Amendment No. 191 will enable the \nRockingham Strategic Centre ",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/rsc-precinct-structure-plan-fact-sheet-scheme-amen",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "HAM STRATEGIC CENTRE\n...\nGovernment \nGazette\nScheme \namendment \nconsidered \nand approved \nby WAPC and \nMinister for \nPlanning and \npublished in the \nGovernment \nGazette \nScheme Amendment No. 191 will enable the \nRockingham Strategic Centre ",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/sites/default/files/Schemes/City%20of%20Rockingham%20TPS%202%20Amd%20191%20Chair%20Determination.pdf",
+   "title": "S48A Referrals",
+   "category_guess": "structure_plan",
+   "highlight": "Title: City of Rockingham Town Planning Scheme 2 Amendment 191\n...\nLocation: Rockingham Precinct Structure Plan area, Rockingham\n...\nDescription: Amendment 191 proposes to modify and introduce new text to Scheme 2, to consolidate the existi",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/frequently-asked-questions-rscpsp-and-scheme-amend",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "Rockingham Strategic Centre were prepared over 1\n...\nyears ago. It is good practice to\n...\nreview planning documents over time to ensure that they are responding to the current \nopportunities and challenges of a place. \nIn more recent years",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/structure-plans/lot-1-fifty-road-structure-plan-report-part-1",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "Document ID: PG Planning/PG 2019/19-339 Baldivis, Lot 1 Fifty Road/6 Draft Documents/1 Draft Report/Lot 1 Fifty Road Structure Plan Folder/\n...\n5.11 City of Rockingham (Approved) Structure \nPlans 25\n...\nThis structure plan is prepared under",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/council-minutes-june-2022-initial-psp",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "Planning and Development Services \nDirectorate Planning Services \nReference No & Subject: PD-023/22 Draft Rockingham Strategic Centre \nPrecinct Structure Plan and Amendment \nNo.191 to Town Planning Scheme No.2 \nFile No: LUP/2134; LUP/2216 \n",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/structure-plans/lots-5-8-kerosene-lane-structure-plan-report-part-",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "City of Rockingham Lots 5, 6, 7 & 8 Kerosene Lane, Baldivis\n...\nDecember 2015 Rev 1.0 3 \nTABLE OF AMENDMENTS TO STRUCTURE PLAN \nAmendment \nNo. \nSummary of the Amendment Amendment \nType \nDate approved \nby the WAPC \n \n \nCity of Rockingham Lot",
+   "query": "City of Rockingham adopted structure plan document"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/structure-plans/the-spires-phase-2-structure-plan-report-part-1",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "SPATIAL PROPERTY GROUP | Spires Estate Local Structure Plan Page | i \nSPIRES ESTATE LOCAL STRUCTURE PLAN \nLots 312 & 313 Fifty Road, Lots 2, 4, 7, 8 Eighty Road and Lot 5 Baldivis Road, Baldivis\nIt is certified that Amendment 6 to the Spire",
+   "query": "City of Rockingham local structure plan report"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-procedure-1-6-preparation-and-assessment-",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "No.1.6\n...\nPREPARATION AND ASSESSMENT OF \nSTRUCTURE PLANS\n...\nA Structure Plan provides for the coordination of future zoning and subdivision of an area of land. \nThe Planning and Development (Local Planning Schemes) Regulations 2015 (the R",
+   "query": "City of Rockingham local structure plan report"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/preparation-of-environmental-assessment-report-to-",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "The City has identified that there is currently a lack of guidance material to inform the preparation \nof an Environmental Assessment and Management Strategy (EAMS), also referred to as an \nEnvironmental Assessment Report (EAR) and other su",
+   "query": "City of Rockingham local structure plan report"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-3-1-2-local-commercial-and-activit",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "Activity Centres Strategy (\n...\nstrategic planning document intended\n...\nfor activity centres\n...\nCity of Rockingham for\n...\n20\n...\nFurther information on the RSC\n...\n4 of this Strategy\n...\nStructure Plans (District and Local) \nStructure pl",
+   "query": "City of Rockingham local structure plan report"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-rockingham-town-planning-scheme-2-amendment-191",
+   "title": "City of Rockingham Town Planning Scheme 2 Amendment 191 | EPA Western Australia",
+   "category_guess": "structure_plan",
+   "highlight": "# City of Rockingham Town Planning Scheme 2 Amendment 191\n...\nCity of Rockingham\n...\nAmendment 191 proposes to modify and introduce new text to Scheme 2, to consolidate the existing ‘Primary Centre’ zones into a single ‘Strategic Centre’ zo",
+   "query": "City of Rockingham activity centre plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/localplanning/rockingham-strategic-centre-1",
+   "title": "Rockingham Strategic Centre",
+   "category_guess": "structure_plan",
+   "highlight": "Clubs and activities · Sports and hobbies · Parks and playgrounds · Pet ... City of Rockingham. Use the tiles below to explore the centre and proposed plans.",
+   "query": "City of Rockingham activity centre plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/your-city/our-vision/community-plan-strategies",
+   "title": "Community Plan Strategies - City of Rockingham",
+   "category_guess": "structure_plan",
+   "highlight": "Local Commercial and Activity Centre Strategy, Adopted 2022, PDF 4.6 MB. Rockingham Strategic Centre - Precinct Structure Plan, In development, Internal Weblink.",
+   "query": "City of Rockingham activity centre plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/fact-sheet-infill-development",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "ROCKINGHAM STRATEGIC CENTRE PRECINCT STRUCTURE PLAN\nINFILL DEVELOPMENT\nPLDP 1\nPLDP 2\nPLDP 3\nPLDP 4\nRockingham Strategic Centre Precinct Structure Plan\nResidential Density Plan\n© Hames Sharley\nStatus : Draft\nPath : P:\\44322 Local Planning Fr",
+   "query": "City of Rockingham activity centre plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/rsc-precinct-structure-plan-fact-sheet-infill-deve",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "ROCKINGHAM STRATEGIC CENTRE PRECINCT STRUCTURE PLAN\nINFILL DEVELOPMENT\nPLDP 1\nPLDP 2\nPLDP 3\nPLDP 4\nRockingham Strategic Centre Precinct Structure Plan\nResidential Density Plan\n© Hames Sharley\nStatus : Draft\nPath : P:\\44322 Local Planning Fr",
+   "query": "City of Rockingham activity centre plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/your-city/our-vision/strategic-community-plan-2023-2033",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "This document serves as a strategic\n...\nwhich will guide\n...\n33.\n...\nStrategic Community Plan (2023\n...\n) is a\n...\non the input\n...\nthrough consultation, with more than 4,600 responses from\n...\nThis Strategic Community Plan (SCP) is the pri",
+   "query": "City of Rockingham activity centre plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/localplanning/town-planning-scheme-and-zoning",
+   "title": "Town Planning Scheme and Zoning",
+   "category_guess": "structure_plan",
+   "highlight": "## Town Planning Scheme No.2\n...\nTown Planning Scheme No.2 applies to the entire city and is the primary statutory planning instrument against which development is guided and controlled.\n...\nTown Planning Scheme No.2 (TPS2) provides clear, ",
+   "query": "City of Rockingham precinct structure plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/development/local-development-plans",
+   "title": "Local Development Plans - City of Rockingham",
+   "category_guess": "local_development_plan",
+   "highlight": "A Local Development Plan (LDP), includes specific residential design requirements that generally apply to laneway 'cottage' lots.",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/development/ldps/golden-bay-plan-14-r5-lifestyle-lots",
+   "title": "",
+   "category_guess": "local_development_plan",
+   "highlight": "LOCAL DEVELOPMENT PLAN 14\n...\nENDORSEMENT TABLE\n...\n............................................................................................................................................... Manager Statutory Planning, City of Rockingh",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/development/ldps/millars-landing-plan-1",
+   "title": "",
+   "category_guess": "local_development_plan",
+   "highlight": "BURL WAY104 3043-86i-01 (25.08.2025) 1:1,500 @A3 only LOCAL DEVELOPMENT PLAN No. 1 Millars Landing - Baldivis General provisions 1. Unless provided for in this LDP, the provisions of City of Rockingham Town Planning Scheme No. 2, State Plan",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/development",
+   "title": "Development - City of Rockingham",
+   "category_guess": "local_development_plan",
+   "highlight": "Local Development Plans. Access our Local Development Plans (LDP), a set of specific residential designs.",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/localplanning",
+   "title": "Local planning - City of Rockingham",
+   "category_guess": "local_development_plan",
+   "highlight": "We plan for attractive, sustainable suburbs that provide housing diversity, quality public open spaces, walkways, amenities and facilities for the community.",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/localplanning/local-planning-strategy",
+   "title": "Local Planning Strategy - City of Rockingham",
+   "category_guess": "local_development_plan",
+   "highlight": "Rockingham: Our City, Our Future. The Local Planning Strategy (LPS) guides the growth and development of our City for the next 15 years and beyond, as well ...",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/getContentAsset/0a7b1463-0994-4192-a7f0-8b1a8ba9275a/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Scale-of-Fees.pdf?language=en",
+   "title": "Scale of Fees for Planning Services 1 July 2023",
+   "category_guess": "local_development_plan",
+   "highlight": "Planning and Development Regulations\n...\nThe fee is to be calculated in accordance with Planning and Development Regulations 2009 (Part 7 – Local Government Planning Charges) as amended from time to time. Upon receipt of the proposal, an es",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-05/rockingham2-schemetext.pdf",
+   "title": "Rockingham Scheme Text",
+   "category_guess": "local_development_plan",
+   "highlight": "CITY OF ROCKINGHAM\n\nLocal Planning Scheme No. 2\n\nUpdated to include AMD 187 GG 07/05/2024\n\nPrepared by the\n\nDepartment of Planning, Lands and Heritage\n\nOriginal Town Planning Scheme Gazettal\n...\n| 35 23/11/07 | 4/1\n...\n/07 DH Schedule 4 (Sp",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/lodge-an-application/planning-policies,-procedures-and-information",
+   "title": "Planning policies, procedures and information - City of Rockingham",
+   "category_guess": "local_development_plan",
+   "highlight": "Planning policies are the adopted position of the Council on various planning matters which either expand on the requirements in the Town Planning Scheme.",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/what-requires-development-approval",
+   "title": "",
+   "category_guess": "local_development_plan",
+   "highlight": "This information sheet outlines the types of Development Approvals administered by the City’s Planning \nStaff in order to guide applicants to determine which approvals are required when undertaking \ndevelopment.\n...\nThe City of Rockingham T",
+   "query": "City of Rockingham local development plan"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-3-4-1-public-open-space",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "The purpose of this Planning Policy is to set out the objectives and policy provisions which the \n‘Council’ shall have due regard to in assessing the provision, location, design and development \nof POS in the City of Rockingham. This Policy",
+   "query": "City of Rockingham local planning policy"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/local-planning-policy-3-3-27-community-consultatio",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "LOCAL PLANNING POLICY No.3.3.27\n...\nCOMMUNITY CONSULTATION FOR\n...\nDEVELOPMENT APPLICATIONS\n...\nThis Planning Policy should be considered in conjunction with the Regulation, which, together with TPS2, \nset out the statutory requirements for",
+   "query": "City of Rockingham local planning policy"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-3-4-3-urban-water-management",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "20\n...\nThis Policy articulates the City’s position on the planning, design and construction of Urban Water \nManagement proposals and is to be considered by applicants, and City Officers in the design, \nassessment, and determination of: \n S",
+   "query": "City of Rockingham local planning policy"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-3-3-17-variations-to-building-enve",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "The City of Rockingham Town Planning Scheme No.2 defines a 'Building Envelope' as an \narea of land within a lot marked on a plan approved by the responsible authority within which \nall buildings and effluent disposal facilities on the lot m",
+   "query": "City of Rockingham local planning policy"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-3-1-1-rural-land-strategy",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "City of Rockingham\n...\nPlanning Policy No.3.1.1 -\nRural Land Strategy\n...\n3. LOCAL PLANNING CONTEXT\n...\nPLANNING POLICY No.3.1.1\n...\nRURAL LAND STRATEGY\n...\nIn 1996, the City adopted a Rural Land Strategy to provide the basis for land use p",
+   "query": "City of Rockingham local planning policy"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-3-3-9-fast-food-outlets",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "The City of Rockingham Town Planning Scheme No.2 (TPS2) defines ‘Fast Food Outlet’ as \npremises used for the preparation, sale and serving of food to customers in a form ready to be \neaten without further preparation, primarily off the prem",
+   "query": "City of Rockingham local planning policy"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-7-2-local-bushland-strategy",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "Council regularly receives proposals to rezone, subdivide or develop land in the City where there \nis remnant bushland present. The State Government (through Bush Forever) is dealing with \nbushland considered to be regionally significant, h",
+   "query": "City of Rockingham local planning policy"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-rockingham-town-planning-scheme-2-amendment-184",
+   "title": "City of Rockingham Town Planning Scheme 2 Amendment 184 | EPA Western Australia",
+   "category_guess": "local_planning_scheme",
+   "highlight": "City of Rockingham Town Planning Scheme 2 Amendment 184 | EPA Western Australia\n...\n# City of Rockingham Town Planning Scheme 2 Amendment 184\n...\nCity of Rockingham\n...\nThe amendment proposes multiple changes to the Scheme, including modifi",
+   "query": "City of Rockingham local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-rockingham-town-planning-scheme-2-amendment-187",
+   "title": "City of Rockingham Town Planning Scheme 2 Amendment 187",
+   "category_guess": "local_planning_scheme",
+   "highlight": "The amendment also proposes scheme text for the 'Additional Uses' for the primary street setback to be a minimum of 3m, and 10m to all other lot ...",
+   "query": "City of Rockingham local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/sites/default/files/Schemes/Rockingham%20-%20Advice%20-%20130223.pdf",
+   "title": "Template",
+   "category_guess": "local_planning_scheme",
+   "highlight": "SCHEME City of Rockingham Town Planning Scheme 2 \nAmendment 184 \nLOCATION Whole of City of Rockingham \nRESPONSIBLE AUTHORITY City of Rockingham \nDECISION Referral Examined, Preliminary Investigations \nand Inquiries Conducted. Scheme Amendme",
+   "query": "City of Rockingham local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-rockingham-town-planning-scheme-2-amendment-185",
+   "title": "City of Rockingham Town Planning Scheme 2 Amendment 185",
+   "category_guess": "local_planning_scheme",
+   "highlight": "Amendment 185 proposes to modify scheme text relating to the control of advertisements in the City of Rockingham.",
+   "query": "City of Rockingham local planning scheme text"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/zoning-maps/consolidated-version-planning-and-development-loca",
+   "title": "",
+   "category_guess": "local_planning_scheme",
+   "highlight": "Part 2 — Elements of\n...\nsche\n...\n8. Contents of local planning scheme 4\n9. Defining area of local planning scheme 4\n...\n10. Local planning scheme text 4\n...\n. Contents of local planning scheme \n(1) The documents that comprise a local plann",
+   "query": "City of Rockingham local planning scheme text"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2025-06/map15_rockingham2_singleton_locality.pdf",
+   "title": "Map 15 - Singleton locality",
+   "category_guess": "local_planning_scheme",
+   "highlight": "##### Town Planning Scheme No. 2\n...\n##### City of Rockingham ( District Scheme )\n...\n##### Town Planning Scheme No. 2\n...\n## City of Rockingham\n...\nG.Gazette: 19/11/2004\n...\nPlot Date: 26 May 2025\n...\nTown Planning Scheme Map No. 15 of 19 ",
+   "query": "City of Rockingham local planning scheme text"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2025-06/map18_rockingham2_baldivis_locality_south.pdf",
+   "title": "",
+   "category_guess": "local_planning_scheme",
+   "highlight": "( District Scheme )\n...\nTown Planning Scheme No. 2\n...\nCity of Rockingham ( District Scheme )\n...\nTown Planning Scheme No. 2\n...\nCity of Rockingham\n...\nG.Gazette: 19/11/2004\n...\nPlot Date: 27 May 2025\n...\nAuthorised: T.Servaas\n...\nTown Plan",
+   "query": "City of Rockingham local planning scheme text"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/local-planning/community-engagement-programme-appendix-c1-fact-sh",
+   "title": "",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The City of Rockingham is preparing a Local Planning \nStrategy to guide the growth and development of our \nCity over the next 20 years and beyond. Everyone \nwho works, lives or plays in Rockingham is invited to \nhave a say on shaping the Ci",
+   "query": "City of Rockingham local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/your-city/council/council-and-committee-meetings/agendas-and-minutes/2025/february/planning-and-asset-services-minutes-february-2025",
+   "title": "",
+   "category_guess": "local_planning_strategy",
+   "highlight": "2.1 Local Planning Strategy and New Local Planning Scheme No.4\n2.2 Greening Plan\n...\nLocal Planning Strategy and Scheme Review Process\n...\nOn 24 August 2021, Council adopted the scheme review process which reviewed the existing Town \nPlanni",
+   "query": "City of Rockingham local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-04/local-planning-strategy-guidelines.pdf",
+   "title": "Local Planning Strategy Guidelines",
+   "category_guess": "local_planning_strategy",
+   "highlight": "certification of\n...\ndraft local planning\n...\nstrategy 6\n...\nadvertising 6\n...\nof \nsubmissions 7 \n4.10 WAPC endorsement 7 \n4.11\n...\n7 \n4\n...\nThese guidelines form part of the WA Planning Manual and have been prepared to provide clear and co",
+   "query": "City of Rockingham local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/getContentAsset/32c0fa32-0491-422a-b328-ef776f9fac77/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Local-Planning-Strategy-Issues-Paper.pdf?language=en",
+   "title": "[PDF] ISSUES PAPER - City of Rockingham",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The Local Planning Strategy is an important high-level strategic document that forms the basis of the Town. Planning Scheme. It provides the interface between ...",
+   "query": "City of Rockingham local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/your-city/our-vision/strategic-community-plan",
+   "title": "Strategic Community Plan",
+   "category_guess": "local_planning_strategy",
+   "highlight": "A Strategic Community Plan (SCP) is the principal document within the City’s “Integrated Planning and Reporting Framework”. Integrated Planning and Reporting was developed and legislated by the State Government to provide a guiding framewor",
+   "query": "City of Rockingham local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://rockingham.wa.gov.au/planning-and-building/localplanning/pedestrian-access-way-strategy",
+   "title": "Pedestrian Access Way Strategy - City of Rockingham",
+   "category_guess": "local_planning_strategy",
+   "highlight": "Following extensive advertising, Council adopted the strategy in February 2010 and it was endorsed by the Western Australian Planning Commission (WAPC) in ...",
+   "query": "City of Rockingham local planning strategy endorsed WAPC"
+  }
+ ]
+}

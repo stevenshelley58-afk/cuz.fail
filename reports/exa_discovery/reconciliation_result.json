@@ -1,0 +1,65 @@
+{
+  "City of Fremantle": {
+    "new": [
+      {
+        "instrument_name": "City of Fremantle Matilda Bay Brewery Local Structure Plan",
+        "category": "structure_plan",
+        "canonical_url": "https://mysay.fremantle.wa.gov.au/matildabay"
+      },
+      {
+        "instrument_name": "City of Fremantle South Beach Village Structure Plan",
+        "category": "structure_plan",
+        "canonical_url": "https://www.wa.gov.au/system/files/2024-05/south-beach-village-structure-plan-wapc-reference-spn0821.pdf"
+      },
+      {
+        "instrument_name": "City of Fremantle 140 Stirling Highway North Fremantle Precinct Structure Plan",
+        "category": "structure_plan",
+        "canonical_url": "https://mysay.fremantle.wa.gov.au/precinct-structure-plan-140-stirling-highway-north-fremantle"
+      },
+      {
+        "instrument_name": "City of Fremantle Local Planning Policy 3.1.3 Precinct 3",
+        "category": "local_planning_policy",
+        "canonical_url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/Local-Planning-Policy-3.1.3-Precinct-3-LPP3.1.3-CURRENT-as-of-1-July-2017-ID-462198.pdf"
+      },
+      {
+        "instrument_name": "City of Fremantle Local Planning Policy 3.1.5 Precinct 5",
+        "category": "local_planning_policy",
+        "canonical_url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/Local-Planning-Policy-3.1.5-Precinct-5-CURRENT-as-of-1-July-2017-ID-462197.pdf"
+      },
+      {
+        "instrument_name": "City of Fremantle Local Planning Policy DGN3 Stirling Highway Thompson Road Coventry Parade Craig Street Local Area",
+        "category": "local_planning_policy",
+        "canonical_url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/LPP-DGN3-Stirling-Hwy-Thompson-Rd-Coventry-Pde-Craig-St-Local-Area.pdf"
+      }
+    ],
+    "duplicate_count": 18,
+    "not_instrument_count": 27
+  },
+  "City of Melville": {
+    "new": [
+      {
+        "instrument_name": "City of Melville Melville District Centre Activity Plan",
+        "category": "activity_centre_plan",
+        "canonical_url": "https://www.wa.gov.au/system/files/2025-11/melville_district_centre_activity_plan-wapc.pdf"
+      }
+    ],
+    "duplicate_count": 24,
+    "not_instrument_count": 22
+  },
+  "Town of East Fremantle": {
+    "new": [],
+    "duplicate_count": 22,
+    "not_instrument_count": 19
+  },
+  "City of Cockburn": {
+    "new": [
+      {
+        "instrument_name": "City of Cockburn Cockburn Coast District Structure Plan",
+        "category": "structure_plan",
+        "canonical_url": "https://www.wa.gov.au/government/publications/cockburn-coast-district-structure-plan"
+      }
+    ],
+    "duplicate_count": 36,
+    "not_instrument_count": 30
+  }
+}

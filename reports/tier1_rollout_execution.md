@@ -50,8 +50,21 @@ embeddings; run steps sequentially, each is idempotent):
       done > /app/reports/sp_wave_resume.log 2>&1"'
 
 then per council: noise sweep + fresh audit sample + 3-judge audit + canary
-refresh per the recipe. Estimated spend: ~199 docs ≈ $25–40 (decode + correct
+refresh per the recipe. Estimated spend: ~205 docs ≈ $25–40 (decode + correct
 + embeddings).
+
+## Exa completeness cross-check (2026-07-02, operator-funded EXA_API_KEY)
+
+`scripts/wp_discover_docs.py` ran an 8-query semantic sweep per council
+(council domain + wa.gov.au) for all 5 Tier-1 councils plus Cockburn —
+~50 searches, < $0.50. Haiku reconcilers classified 285 candidate URLs against
+the manifest: **only 6 genuinely new instruments** (Kwinana Commercial & ACP
+Strategy 2024; Fremantle South Beach Village SP, LPP 3.1.3, LPP 3.1.5,
+LPP DGN3; Cockburn Coast District SP) — all seeded. Everything else was a
+duplicate under a different URL or a non-instrument. Conclusion: after the
+199-doc SP wave, the Tier-1 corpus matches the public registers. Evidence:
+`reports/exa_discovery/`. Exa also retrieves full text for viewer pages our
+fetcher cannot parse (e.g. Melville LPP 1.20) — candidate future unblock path.
 
 ## Structural fixes shipped (benefit every council)
 
