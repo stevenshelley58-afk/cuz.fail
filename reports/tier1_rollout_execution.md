@@ -53,6 +53,23 @@ then per council: noise sweep + fresh audit sample + 3-judge audit + canary
 refresh per the recipe. Estimated spend: ~205 docs ≈ $25–40 (decode + correct
 + embeddings).
 
+## Correction stage migrated to Claude subagents (2026-07-02)
+
+The gpt-4o correction stage (~75% of OpenAI spend) now runs on the operator's
+Claude subscription: `export_uncorrected.py` batches → Haiku corrector agents
+(same calibrated correct-don't-delete criteria, distinct model tag
+`claude:haiku-4.5:correct`) → `apply_corrections.py` with a NUMERAL GATE (any
+corrected claim asserting a number absent from the verbatim quote is withheld).
+
+Executed on the 1,143 quota-parked rules in 21 batches: **581 kept/recovered,
+554 rejected, gate blocked 8 invented-number claims** (5 fixed on strict redo,
+2 rejected as unfixable, 1 operator-fixed in pilot). Rockingham's policy layer
+went live from this: 686 approved scoped rules after sweep. Pilot + operator
+review preceded the run per COUNCIL_ROLLOUT_PLAN §4.2; the audit stage
+(3 judges + operator numeric checks) still applies before any council is
+marked done. Revised OpenAI dependency: embeddings + gpt-4o-mini decode only
+(~$10 for the remaining Tier-1 queue).
+
 ## Exa completeness cross-check (2026-07-02, operator-funded EXA_API_KEY)
 
 `scripts/wp_discover_docs.py` ran an 8-query semantic sweep per council

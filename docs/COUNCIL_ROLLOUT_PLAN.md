@@ -151,7 +151,7 @@ one council each.
 | City of Fremantle | 1 | 🔄 | 1522 | 0.99 | `fremantle_canary.json` | claude-fable 2026-07-02 | Policy layer done + audited (audit 0.987 + operator numeric fix). CORPUS GAP: 2 more SPs seeded pending. 8 low-text/scan docs blocked. |
 | Town of East Fremantle | 1 | ✅ done | 697 | 0.97 | `east_fremantle_canary.json` | claude-fable 2026-07-02 | 13 instruments (LPS3 + 9 LPPs + strategy + 2 precinct plans). SP sweep found no further instruments — corpus complete. |
 | City of Kwinana | 1 | 🔄 | 759 | 0.99 | `kwinana_canary.json` | claude-fable 2026-07-02 | Policy layer done + audited; split-R-code canary fixed the regex bug. CORPUS GAP: 130 structure plans/LDPs seeded pending acquire+decode — growth corridor, most development standards live in SPs. Expect final rules well above 2,000. |
-| City of Rockingham | 1 | ⛔ | | | | claude-fable 2026-07-02 | 38 policy docs acquired + 61 SP/centre-plan docs seeded pending. Decode died: OPENAI QUOTA EXHAUSTED; 1,131 partial rules parked. Unblock = top up OpenAI billing, then the resume sequence in `reports/tier1_rollout_execution.md`. |
+| City of Rockingham | 1 | 🔄 | 686 | | | claude-fable 2026-07-02 | Policy-layer rules LIVE: the 1,143 quota-parked rules were corrected via Claude-subagent correction (claude:haiku-4.5:correct + numeral gate), scoped and swept — 686 approved. Remaining: decode of 61 seeded SP/centre-plan docs + audit + canary, gated on OpenAI top-up (~$10: embeddings + gpt-4o-mini decode only; gpt-4o correction stage RETIRED in favour of Claude subagents). |
 | City of Canning | 2 | ⬜ | | | | | |
 | City of Gosnells | 2 | ⬜ | | | | | |
 | City of Armadale | 2 | ⬜ | | | | | |
