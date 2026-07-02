@@ -1,0 +1,27 @@
+{
+  "canary": "kwinana_council_rollout",
+  "description": "End-to-end gate for the City of Kwinana per the per-council recipe. Exercises split R-codes (R12.5/20).",
+  "authority": "docs/COUNCIL_ROLLOUT_PLAN.md sections 1.1-1.8",
+  "address": "14B CHAPMAN ROAD CALISTA",
+  "status": "verified",
+  "recorded": {
+    "verified_at": "2026-07-02",
+    "method": "verify_beeliar.py --address '14B CHAPMAN ROAD CALISTA' --other-council 'City of Cockburn'. Full run: reports/kwinana_canary_run.json. This canary exposed two structural bugs now fixed: duplicate parcels from overlapping bbox imports (111,823 rows deduped) and the R-code regex that never matched plain density codes (synth_facts.py).",
+    "council_scope": "City of Kwinana",
+    "council_scope_source": "property_fact:local_government",
+    "r_code": "R12.5/20",
+    "synth_property_facts": 6,
+    "categories_evaluated": 118,
+    "cross_council": {"probe": "City of Cockburn-scoped project", "foreign_council_scopes_found": []},
+    "decode_library": "759 approved scoped rules from 17 instruments (LPS2 405-chunk scheme text, LPS3 Town Centre, 13 LPPs incl. No. 14 Residential Development, strategy, structure plan). Pipeline: gpt-4o-mini decode (1,217+) -> gpt-4o correct (791 kept / 426 rejected) -> noise sweep (32) -> scope. 12 late mop-up rules parked pending correction (OpenAI quota).",
+    "faithfulness_audit": {
+      "sample": 75, "faithful_rate": 0.987, "judges": 3,
+      "judge_model": "claude-haiku-4-5 (majority vote + operator review)",
+      "note": "1 majority flag (modality field 'mandatory' vs quote 'MAY BE REQUIRED'); corrected in place."
+    }
+  },
+  "gaps": [
+    "LPP 5 (public art) blocked: policy page 404s on all known slugs; note in target_manifest.notes.",
+    "LPP 12 (Mandogalup) marked out_of_scope: not on the council's current register; likely revoked."
+  ]
+}

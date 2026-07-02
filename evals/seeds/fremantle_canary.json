@@ -1,0 +1,26 @@
+{
+  "canary": "fremantle_council_rollout",
+  "description": "End-to-end gate for the City of Fremantle per the per-council recipe. Exercises split R-codes (R20/25).",
+  "authority": "docs/COUNCIL_ROLLOUT_PLAN.md sections 1.1-1.8",
+  "address": "150 SAMSON STREET WHITE GUM VALLEY",
+  "status": "verified",
+  "recorded": {
+    "verified_at": "2026-07-02",
+    "method": "verify_beeliar.py --address '150 SAMSON STREET WHITE GUM VALLEY' --other-council 'City of Cockburn'. Full run: reports/fremantle_canary_run.json.",
+    "council_scope": "City of Fremantle",
+    "council_scope_source": "property_fact:local_government",
+    "r_code": "R20/25",
+    "synth_property_facts": 6,
+    "categories_evaluated": 118,
+    "cross_council": {"probe": "City of Cockburn-scoped project", "foreign_council_scopes_found": []},
+    "decode_library": "1,522 approved scoped rules from 46 instruments (LPS4 scheme text, 39 LPPs incl. 2.9 Residential Streetscapes and 3.x precinct policies, WAPC-endorsed strategy, 7 structure plans). Pipeline: gpt-4o-mini decode (2,607) -> gpt-4o correct (1,558 kept / 1,049 rejected) -> noise sweep (36) -> scope.",
+    "faithfulness_audit": {
+      "sample": 76, "faithful_rate": 0.987, "judges": 3,
+      "judge_model": "claude-haiku-4-5 (majority vote + operator review)",
+      "note": "0 majority flags; 1 single-judge numeric flag verified real by operator (parking ratio doubled: quote '1 bay per 20m2 nla (minimum 2)' decoded as '2 bays per 20m2'); corrected in place."
+    }
+  },
+  "gaps": [
+    "6 low-text drawing PDFs (4 LDPs, 2 structure plans) + LPP DGF5 (unparseable scan) + LPP DGF9 blocked by the landing-page/no-text guards; notes in target_manifest."
+  ]
+}
