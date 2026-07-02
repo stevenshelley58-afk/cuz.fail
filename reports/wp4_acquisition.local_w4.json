@@ -1,0 +1,163 @@
+{
+  "wp": "WP4",
+  "worker": "wp4-local-w4",
+  "processed": 15,
+  "summary": {
+    "acquired": 12,
+    "metadata_only": 0,
+    "blocked": 3,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "acquired": 202,
+    "blocked": 15,
+    "metadata_only": 10,
+    "out_of_scope": 17
+  },
+  "items": [
+    {
+      "manifest_id": "78297543-3b47-57c5-9d2c-3e279a305206",
+      "instrument": "City of Cockburn LPP 1.10 - Planning Around Mosquito and Midge Infested Wetlands",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "55501202-efff-5809-93ed-f4500b6703ee",
+      "notes": "WP4 acquired (4 chunks, duplicate=False)",
+      "chunks": "4",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "bb52302f-c66a-5a80-8efa-cabeae56a0dc",
+      "instrument": "City of Cockburn LPP 1.16 - Single House Standards for Medium Density Housing in the Development Zone",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "a7fffeee-9a9d-510a-a328-5761dbb14937",
+      "notes": "WP4 acquired (3 chunks, duplicate=False)",
+      "chunks": "3",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "7e1ac7df-cf0c-58dd-a065-088ed41f9c02",
+      "instrument": "City of Cockburn LPP 1.2 - Residential Design Guidelines",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "3e81ec19-61af-550e-ab7b-446eb4d298f4",
+      "notes": "WP4 acquired (5 chunks, duplicate=False)",
+      "chunks": "5",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "cdd5bc86-30bf-575d-b4eb-65962d948ebf",
+      "instrument": "City of Cockburn LPP 4.6 - Cockburn Coast Design Guidelines for Robb Jetty & Emplacement Precincts",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "631ddb15-1bfb-53c8-bfe0-605008479ddb",
+      "notes": "WP4 acquired (55 chunks, duplicate=False)",
+      "chunks": "55",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "7bee4fd0-d4af-5141-99a8-ac55e908c62f",
+      "instrument": "City of Melville LPP 3.3 - Exhibition and Display Homes",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "9b37d942-e106-5f66-b6cc-a934ac6b73b0",
+      "notes": "WP4 acquired (3 chunks, duplicate=False)",
+      "chunks": "3",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
+      "instrument": "Greater Bunbury Region Scheme",
+      "category": "region_scheme",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "a4c6b3da-cb07-55ff-a6d4-57fc3f259f63",
+      "instrument": "Planning and Development (Region Planning Schemes) Regulations 2023",
+      "category": "regulations",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "e7f7ef23-b4bd-5c02-a775-e0e4a46e75af",
+      "instrument": "State Planning Policy 1 - State Planning Framework",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "aae678bb-c396-5b8f-ba57-a4bf82f8da7f",
+      "notes": "WP4 acquired (11 chunks, duplicate=False)",
+      "chunks": "11",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "41327c93-7b27-5aca-a12a-cc241d469eee",
+      "instrument": "State Planning Policy 2.5 - Rural Planning",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "bfe9f504-865b-5067-837b-6d2371bcb1f8",
+      "notes": "WP4 acquired (11 chunks, duplicate=False)",
+      "chunks": "11",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "75cef0e1-f58e-5576-92f0-d9f3b2c9759d",
+      "instrument": "State Planning Policy 2.6 - State Coastal Planning Policy",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "d3b74745-7305-5172-b6e5-055543512a28",
+      "notes": "WP4 acquired (12 chunks, duplicate=False)",
+      "chunks": "12",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "d8c5cb55-3034-5df5-b518-a704c404ceb0",
+      "instrument": "State Planning Policy 3.4 - Natural Hazards and Disasters",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "85406dbd-bb82-5858-b7a3-ec2200d7a07d",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+      "instrument": "State Planning Policy 3.7 - Planning in Bushfire Prone Areas",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "41a1f6b5-f8da-5628-9e34-9a6aba8124a2",
+      "notes": "WP4 acquired (15 chunks, duplicate=False)",
+      "chunks": "15",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+      "instrument": "State Planning Policy 5.4 - Road and Rail Noise",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "351cb31b-3ed9-58e8-b79d-639eaed6bfa4",
+      "notes": "WP4 acquired (11 chunks, duplicate=False)",
+      "chunks": "11",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "da66ad88-471d-56a2-89de-19f8a18f536f",
+      "instrument": "State Planning Policy 6.1 - Leeuwin-Naturaliste Ridge",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "b6e6d8ca-8522-5dc7-8b57-0cf4a02ae390",
+      "notes": "WP4 acquired (11 chunks, duplicate=False)",
+      "chunks": "11",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+      "instrument": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+      "category": "state_planning_policy",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\uf06c' in position 458: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    }
+  ]
+}

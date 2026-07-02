@@ -1,0 +1,3099 @@
+{
+  "wp": "WP5",
+  "worker": "wp5-WIN-JA4C8FOQU9T",
+  "dry_run": true,
+  "summary": {
+    "versions": 7,
+    "resolved": 325,
+    "unresolved_manifest_rows": 9,
+    "edges": 334,
+    "errors": 0
+  },
+  "remaining_queue_count": 7,
+  "escalations": [],
+  "versions": [
+    {
+      "source_version_id": "ea20e951-c0d5-4e1e-916f-0e3bb13d9b57",
+      "source_id": "84bfcdae-c762-5cc3-83d4-498d8e1e56e3",
+      "title": "City of Cockburn LPP 1.12 - Noise Attenuation",
+      "source_type": "local_planning_policy",
+      "resolved": 8,
+      "unresolved_manifest_rows": 3,
+      "edges": 11,
+      "items": [
+        {
+          "chunk_id": "56c7b327-41a6-4b51-9770-e19c6709c386",
+          "chunk_index": 15,
+          "reference": "Planning and Development Act 2005",
+          "quote": "A Notification under Section Section 165 of the Planning and Development Act 2005 is to be placed on the Certificate(s) of Title of the proposed lot(s) / subject lot(s) [DELETE AS APPLICABLE].",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "84dfb48f-1732-54fd-b44d-2ed46617333f"
+        },
+        {
+          "chunk_id": "56c7b327-41a6-4b51-9770-e19c6709c386",
+          "chunk_index": 15,
+          "reference": "State Planning Policy 5.4",
+          "quote": "Residential amenity may be affected by noise and vibration and other impacts from freight rail traffic using the rail line\u2019 Important note: In relation to noise from freight rail lines, State Planning Policy 5.4 requires compliance with a LAeq(night) target of 50dB(A) for the 8 hours period between 10pm and 6am.",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "24c29a86-65cd-53d1-b10f-1736b77b6388"
+        },
+        {
+          "chunk_id": "338ba3ad-4a59-4cc8-a9d4-59912f58525c",
+          "chunk_index": 22,
+          "reference": "Building Code of Australia",
+          "quote": "Important Note: All buildings and structures are to comply with the relevant fire rating and noise attenuation requirements as set out in the National Construction Code (as amended) and the Building Code of Australia (as amended).",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "bc0b7cfc-c0d2-535c-9cb6-ba7b957f0a14"
+        },
+        {
+          "chunk_id": "3a2da576-07b6-4795-bc87-2966676e1c0f",
+          "chunk_index": 23,
+          "reference": "The Environmental Protection Act 1986",
+          "quote": "0 Related Legislation and Documents Related legislation: The Environmental Protection Act 1986 and the Environmental Protection (Noise) Regulations 1997 (EPNRs) \u2013provide powers for officers of the Department of Environment Regulation, WA Police Service and authorised Environmental Health Officers from Local Governments to deal with noise.",
+          "target_manifest_id": "d1d7a6c7-5ec6-50a4-8f78-ca9e9a5a1bf8",
+          "resolved": false,
+          "edge_id": "409059ce-960f-532c-83d7-41f174daf107"
+        },
+        {
+          "chunk_id": "3a2da576-07b6-4795-bc87-2966676e1c0f",
+          "chunk_index": 23,
+          "reference": "The Liquor Act 1988",
+          "quote": "The Liquor Act 1988 \u2013 under Section 117 of this legislation the Director Liquor Licensing Division has the power to deal with noise issues and anti-social behaviour.",
+          "target_manifest_id": "df2985c5-5eb6-520e-ab04-90ffe0f43884",
+          "resolved": false,
+          "edge_id": "d71f541a-aa3f-5e17-8f93-8209ece67419"
+        },
+        {
+          "chunk_id": "3a2da576-07b6-4795-bc87-2966676e1c0f",
+          "chunk_index": 23,
+          "reference": "The Planning and Development Act 2005",
+          "quote": "The Planning and Development Act 2005 (P&D Act) - this legislation provides the determining authority with the power to impose conditions on Development Approvals that protect the amenity of an area.",
+          "target_manifest_id": "ce9c2278-d128-5d86-8c58-12f0fe584c4c",
+          "resolved": true,
+          "edge_id": "735a465f-d68a-5446-977f-00e0591c7e3b"
+        },
+        {
+          "chunk_id": "3a2da576-07b6-4795-bc87-2966676e1c0f",
+          "chunk_index": 23,
+          "reference": "The Building Act 2011",
+          "quote": "The Building Act 2011 - this legislation provides the authority to set building standards and ensure that they are met through the issue of building and occupancy permits to protect the health and safety of a buildings inhabitants.",
+          "target_manifest_id": "2b837369-e1ce-5c49-b681-27f28108b7ff",
+          "resolved": false,
+          "edge_id": "03f14cc6-f171-552a-8fb6-10dfa866e93b"
+        },
+        {
+          "chunk_id": "3a2da576-07b6-4795-bc87-2966676e1c0f",
+          "chunk_index": 23,
+          "reference": "State Planning Policy 4.1",
+          "quote": "In addition to the above listed legislation, reference is made in these Guidelines to the following State Planning documents prepared and adopted under the P&D Act: State Planning Policy 4.1 \u201cState Industrial Buffer Policy\u201d, Gazetted May 1997 (SPP 4.",
+          "target_manifest_id": "010f29a8-5eb0-532b-8b54-58162a9e9a05",
+          "resolved": true,
+          "edge_id": "0c025fc0-f87c-57c0-8227-70f17799f49e"
+        },
+        {
+          "chunk_id": "3a2da576-07b6-4795-bc87-2966676e1c0f",
+          "chunk_index": 23,
+          "reference": "State Planning Policy 4.1",
+          "quote": "1); Draft State Planning Policy 4.1 \u201cState Industrial Buffer\u201d, November 2017 (Draft SPP 4.",
+          "target_manifest_id": "010f29a8-5eb0-532b-8b54-58162a9e9a05",
+          "resolved": true,
+          "edge_id": "0c025fc0-f87c-57c0-8227-70f17799f49e"
+        },
+        {
+          "chunk_id": "3a2da576-07b6-4795-bc87-2966676e1c0f",
+          "chunk_index": 23,
+          "reference": "State Planning Policy 5.3",
+          "quote": "1); State Planning Policy 5.3 \u201cLand Use Planning in the Vicinity of Jandakot Airport\u201d, 2006 (SPP 5.",
+          "target_manifest_id": "eb00fa3a-0c32-5a54-a95d-66a46d7fb8ab",
+          "resolved": true,
+          "edge_id": "e88e9368-293f-5c0f-91d5-89151cf28c47"
+        },
+        {
+          "chunk_id": "3a2da576-07b6-4795-bc87-2966676e1c0f",
+          "chunk_index": 23,
+          "reference": "State Planning Policy 5.4",
+          "quote": "3); State Planning Policy 5.4 \u201cRoad and Rail Noise\u201d, dated September 2019 (SPP 5.",
+          "target_manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+          "resolved": true,
+          "edge_id": "3208af54-1ef9-5004-9971-a70da5509bda"
+        }
+      ]
+    },
+    {
+      "source_version_id": "9b9b09df-e6e4-4ff1-919b-6319972fd6c1",
+      "source_id": "8b4c92f0-bf4d-50ee-b5d0-a218af1f3103",
+      "title": "City of Cockburn LPP 1.15 - Tourist Accommodation",
+      "source_type": "local_planning_policy",
+      "resolved": 4,
+      "unresolved_manifest_rows": 0,
+      "edges": 4,
+      "items": [
+        {
+          "chunk_id": "12d536d2-2ba4-43f8-8929-c3f7eb2b4a92",
+          "chunk_index": 2,
+          "reference": "Health Act 1911",
+          "quote": "15 [2] Lodging House \u2013 As per the Health Act 1911 or superseding legislation Guest \u2013 a person who is accommodated within the short-term accommodation on a temporary basis for a fee, but is not subject to a Residential Tenancy Agreement.",
+          "target_manifest_id": "f6ced431-9017-5061-8866-db6aea92d7cd",
+          "resolved": true,
+          "edge_id": "10d925b8-b8e0-59c4-b393-65dd68f597d0"
+        },
+        {
+          "chunk_id": "e1ce06e7-72b3-4ee4-8731-7af10d451186",
+          "chunk_index": 5,
+          "reference": "Residential Design Codes",
+          "quote": "oThe development of lodging houses in the residential zone shall comply with the requirements of the Residential Design Codes of Western Australia.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "9867a997-e9ae-5c87-87ea-9c7ce6bb8e66"
+        },
+        {
+          "chunk_id": "e1ce06e7-72b3-4ee4-8731-7af10d451186",
+          "chunk_index": 5,
+          "reference": "R-Codes",
+          "quote": "If located situated within the front setback area, they shall be suitable screened with visually permeable fencing (as per the requirements of the R-Codes) for the benefit of lodger privacy.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "9867a997-e9ae-5c87-87ea-9c7ce6bb8e66"
+        },
+        {
+          "chunk_id": "e1ce06e7-72b3-4ee4-8731-7af10d451186",
+          "chunk_index": 5,
+          "reference": "Building Code of Australia",
+          "quote": "Proponents are encouraged to consult the current version of the local law (9) Other Legislative Requirements Proposals for some forms of tourist accommodation may be defined as Class 3 buildings under the Building Code of Australia and may require a portion of units to be designed for persons with disabilities, may be required to comply with Australian Standard 1670.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "1d9ca7c2-a575-56ff-af26-24a2fbcac751"
+        }
+      ]
+    },
+    {
+      "source_version_id": "736597d8-ac9f-47d1-83b4-2089cc9ef940",
+      "source_id": "5d09af07-5923-52de-9b65-8e73895aa376",
+      "title": "City of Melville LPP 1.4 - Provision of Public Art in Development Proposals",
+      "source_type": "local_planning_policy",
+      "resolved": 2,
+      "unresolved_manifest_rows": 0,
+      "edges": 2,
+      "items": [
+        {
+          "chunk_id": "22c4863f-b5d1-4502-bff1-82f6be8daeb9",
+          "chunk_index": 18,
+          "reference": "Planning and Development Act 2005",
+          "quote": "Changes to this document can only be made by the Responsible Officer via a System Improvement Request Printed version is uncontrolled and valid only at the time of printing \u00a9Copyright 2009 City of Melville Page 7 of 7 References that may be applicable to this Policy Legislative Requirements: Planning and Development Act 2005 Planning and Development (Local Planning Schemes) Regulations 2015 Local Planning Scheme No.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "320a7782-55c6-5e5b-b7bd-bf959d435992"
+        },
+        {
+          "chunk_id": "22c4863f-b5d1-4502-bff1-82f6be8daeb9",
+          "chunk_index": 18,
+          "reference": "Local Planning Scheme No. 6",
+          "quote": "Changes to this document can only be made by the Responsible Officer via a System Improvement Request Printed version is uncontrolled and valid only at the time of printing \u00a9Copyright 2009 City of Melville Page 7 of 7 References that may be applicable to this Policy Legislative Requirements: Planning and Development Act 2005 Planning and Development (Local Planning Schemes) Regulations 2015 Local Planning Scheme No. 6 Procedure, Process Maps, Work Instructions: Planning Application Directorate Procedure",
+          "target_manifest_id": "8493b758-1d50-5fc4-a811-8406ed8b321a",
+          "resolved": true,
+          "edge_id": "60442200-af0f-5db0-a390-021413e6a328"
+        }
+      ]
+    },
+    {
+      "source_version_id": "b7e31792-9100-40db-ab5e-2aff5a7c862d",
+      "source_id": "4890c32f-4027-5a92-b06c-f9405d68f5b3",
+      "title": "Planning and Development Act 2005",
+      "source_type": "act",
+      "resolved": 1,
+      "unresolved_manifest_rows": 3,
+      "edges": 4,
+      "items": [
+        {
+          "chunk_id": "102c36d1-d0af-42b7-83d0-9d69546e050a",
+          "chunk_index": 1,
+          "reference": "Planning and Development Act 2005",
+          "quote": "WALW - Planning and Development Act 2005 - Home Page Western Australian Legislation Planning and Development Act 2005 Acknowledgement of Country Acts \u27a4 In force \u27a4 Ceased \u27a4 In force and ceased \u27a4 By portfolio \u27a4 As passed \u27a4 Reprints Subsidiary Legislation \u27a4 As made Legislation information \u27a4 Acts \u27a4 Subsidiary legislation \u27a4 Bills \u27a4 Historical Indexes Government Gazettes COVID-19 directions \u27a4 Emergency Management Act 2005 \u27a4 Public Health Act 2016 Search \u27a4 Acts and Subsidiary legislation \u27a4 Acts as passed \u27a4 Subsidiary legislation as made \u27a4 Reprinted legislation \u27a4 Legislation information \u27a4 COVID-19 directions Notification Feeds Parliamentary Bills Versions of this Act (includes consolidations, Reprints and \u201cAs passed\u201d versions) Subsidiary legislation made under this Act (current versions) History of this Act Please Note: The link to this page has been updated to law_a9408.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "e80ecdba-af3e-5c1d-845d-5c2033dc2ce0"
+        },
+        {
+          "chunk_id": "102c36d1-d0af-42b7-83d0-9d69546e050a",
+          "chunk_index": 1,
+          "reference": "Page Western Australian Legislation Planning and Development Act 2005",
+          "quote": "WALW - Planning and Development Act 2005 - Home Page Western Australian Legislation Planning and Development Act 2005 Acknowledgement of Country Acts \u27a4 In force \u27a4 Ceased \u27a4 In force and ceased \u27a4 By portfolio \u27a4 As passed \u27a4 Reprints Subsidiary Legislation \u27a4 As made Legislation information \u27a4 Acts \u27a4 Subsidiary legislation \u27a4 Bills \u27a4 Historical Indexes Government Gazettes COVID-19 directions \u27a4 Emergency Management Act 2005 \u27a4 Public Health Act 2016 Search \u27a4 Acts and Subsidiary legislation \u27a4 Acts as passed \u27a4 Subsidiary legislation as made \u27a4 Reprinted legislation \u27a4 Legislation information \u27a4 COVID-19 directions Notification Feeds Parliamentary Bills Versions of this Act (includes consolidations, Reprints and \u201cAs passed\u201d versions) Subsidiary legislation made under this Act (current versions) History of this Act Please Note: The link to this page has been updated to law_a9408.",
+          "target_manifest_id": "c0809ed5-5d2e-57fc-80b7-1a1e6a50d81f",
+          "resolved": false,
+          "edge_id": "c6e8c59f-47db-518e-9808-1a904e92723f"
+        },
+        {
+          "chunk_id": "102c36d1-d0af-42b7-83d0-9d69546e050a",
+          "chunk_index": 1,
+          "reference": "Emergency Management Act 2005",
+          "quote": "WALW - Planning and Development Act 2005 - Home Page Western Australian Legislation Planning and Development Act 2005 Acknowledgement of Country Acts \u27a4 In force \u27a4 Ceased \u27a4 In force and ceased \u27a4 By portfolio \u27a4 As passed \u27a4 Reprints Subsidiary Legislation \u27a4 As made Legislation information \u27a4 Acts \u27a4 Subsidiary legislation \u27a4 Bills \u27a4 Historical Indexes Government Gazettes COVID-19 directions \u27a4 Emergency Management Act 2005 \u27a4 Public Health Act 2016 Search \u27a4 Acts and Subsidiary legislation \u27a4 Acts as passed \u27a4 Subsidiary legislation as made \u27a4 Reprinted legislation \u27a4 Legislation information \u27a4 COVID-19 directions Notification Feeds Parliamentary Bills Versions of this Act (includes consolidations, Reprints and \u201cAs passed\u201d versions) Subsidiary legislation made under this Act (current versions) History of this Act Please Note: The link to this page has been updated to law_a9408.",
+          "target_manifest_id": "e1d7c837-5401-5235-8c78-e72b4e52b5c6",
+          "resolved": false,
+          "edge_id": "f5cdd697-70b2-5960-be13-85f83073189e"
+        },
+        {
+          "chunk_id": "102c36d1-d0af-42b7-83d0-9d69546e050a",
+          "chunk_index": 1,
+          "reference": "Public Health Act 2016",
+          "quote": "WALW - Planning and Development Act 2005 - Home Page Western Australian Legislation Planning and Development Act 2005 Acknowledgement of Country Acts \u27a4 In force \u27a4 Ceased \u27a4 In force and ceased \u27a4 By portfolio \u27a4 As passed \u27a4 Reprints Subsidiary Legislation \u27a4 As made Legislation information \u27a4 Acts \u27a4 Subsidiary legislation \u27a4 Bills \u27a4 Historical Indexes Government Gazettes COVID-19 directions \u27a4 Emergency Management Act 2005 \u27a4 Public Health Act 2016 Search \u27a4 Acts and Subsidiary legislation \u27a4 Acts as passed \u27a4 Subsidiary legislation as made \u27a4 Reprinted legislation \u27a4 Legislation information \u27a4 COVID-19 directions Notification Feeds Parliamentary Bills Versions of this Act (includes consolidations, Reprints and \u201cAs passed\u201d versions) Subsidiary legislation made under this Act (current versions) History of this Act Please Note: The link to this page has been updated to law_a9408.",
+          "target_manifest_id": "498d542e-0e88-5775-be53-336ff9da9bba",
+          "resolved": false,
+          "edge_id": "424ae71a-a00a-5974-a763-fe6d935cb94f"
+        }
+      ]
+    },
+    {
+      "source_version_id": "8c2aebb1-c446-41c5-887c-b10cfc842a16",
+      "source_id": "7ad914bb-8377-5d89-8c86-6979f1895bc1",
+      "title": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+      "source_type": "state_planning_policy",
+      "resolved": 282,
+      "unresolved_manifest_rows": 0,
+      "edges": 282,
+      "items": [
+        {
+          "chunk_id": "2ba10b8f-5e87-4954-9d50-2f5149312fd3",
+          "chunk_index": 1,
+          "reference": "Residential Design Codes",
+          "quote": "Residential Design Codes Volume 1 2026",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5acedd2c-4f24-586b-8f1e-ca1962d4402f"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 I Planning reform Western Australia is experiencing a shifting planning and development landscape, influenced by new disruptive technologies, changes to our economy, and a diverse population with different needs and expectations.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "Residential Design Codes",
+          "quote": "The Action Plan for Planning Reform elevates the requirement for well-designed residential development across the State and the review and update of Residential Design Codes Volume 1 (R-Codes Volume 1) supports this goal.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "The Action Plan for Planning Reform elevates the requirement for well-designed residential development across the State and the review and update of Residential Design Codes Volume 1 (R-Codes Volume 1) supports this goal.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "State Planning Policy 7.0",
+          "quote": "1 State Planning Policy 7.0 Design of the Built Environment (SPP 7.",
+          "target_manifest_id": "f215b646-4f1b-5806-9de7-c4f30faf18bb",
+          "resolved": true,
+          "edge_id": "655beafd-424e-5cad-b1fc-510a6bcbab3d"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "0) Outcomes-based planning The R-Codes strongly advocate contextual and site- specific development solutions.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "To facilitate good design outcomes, the R-Codes Volume 1 provides two pathways for development assessment and determination.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "Applications for development approval need to demonstrate that the proposal achieves the objectives of the R-Codes Volume 1 and the requirements of each design element through either of the following pathways: 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "Deemed-to-comply \u2013 deemed-to-comply provisions provide a straightforward means for the development proposal to demonstrate that it satisfies the objectives and design principles of the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "State Planning Policy 7.0",
+          "quote": "To foster good design outcomes, proponents are encouraged to access available opportunities for independent design review consistent with State Planning Policy 7.0 \u2013 Design of the Built Environment (SPP 7.",
+          "target_manifest_id": "f215b646-4f1b-5806-9de7-c4f30faf18bb",
+          "resolved": true,
+          "edge_id": "655beafd-424e-5cad-b1fc-510a6bcbab3d"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "Residential Design Codes",
+          "quote": "The Residential Design Codes Volume 1 Explanatory Guidelines (Explanatory Guidelines) have also been provided to explain and assist the interpretation and application of the R-Codes, providing additional guidance to applicants, designers, decision-makers and the community.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "The Residential Design Codes Volume 1 Explanatory Guidelines (Explanatory Guidelines) have also been provided to explain and assist the interpretation and application of the R-Codes, providing additional guidance to applicants, designers, decision-makers and the community.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "The R-Codes provide planning and design provisions for residential development across Western Australia.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "67bdfcde-68b2-4a3c-a426-67d2a31c0db7",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "R-Codes structure The R-Codes consist of two volumes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f650476d-764c-599e-87cd-7d0928bc9b07"
+        },
+        {
+          "chunk_id": "258dd08a-bdf8-446b-963f-bbc0f104d311",
+          "chunk_index": 4,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 II 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6b4daa4-7b08-5d00-a78e-bf16793cdb25"
+        },
+        {
+          "chunk_id": "258dd08a-bdf8-446b-963f-bbc0f104d311",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "PART A \u2013 OPER ATION OF CODE P art A establishes the purpose, application and operation of the R-Codes Volume 1 and consists of the following sections: Section 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6b4daa4-7b08-5d00-a78e-bf16793cdb25"
+        },
+        {
+          "chunk_id": "258dd08a-bdf8-446b-963f-bbc0f104d311",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "APPENDICES The appendices, which form part of the statutory provisions of the R-Codes Volume 1, consists of definitions, context and site analysis and application requirements.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6b4daa4-7b08-5d00-a78e-bf16793cdb25"
+        },
+        {
+          "chunk_id": "258dd08a-bdf8-446b-963f-bbc0f104d311",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "Document structure There are four parts to the R-Codes Volume 1 (this document).",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6b4daa4-7b08-5d00-a78e-bf16793cdb25"
+        },
+        {
+          "chunk_id": "2b844584-1894-483b-aaa3-122c7197dd3e",
+          "chunk_index": 5,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 III X.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b99eec1c-ffd0-58b5-a8cd-8ee677af1483"
+        },
+        {
+          "chunk_id": "2b844584-1894-483b-aaa3-122c7197dd3e",
+          "chunk_index": 5,
+          "reference": "R-Codes",
+          "quote": "The R-Codes Volume 1 applies a two-column format.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b99eec1c-ffd0-58b5-a8cd-8ee677af1483"
+        },
+        {
+          "chunk_id": "dacbba44-7fa5-4dfa-8d1f-f90360e93ad8",
+          "chunk_index": 6,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 IV CONTENTS | PART A | PART B | PART C | PART D | APPENDICES Contents ABOUT THIS DOCUMENT Planning reform I About good design I Outcomes-based planning I Who is this design code for?",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4f2dbe5b-8704-5c83-aeda-825ee74db2b4"
+        },
+        {
+          "chunk_id": "dacbba44-7fa5-4dfa-8d1f-f90360e93ad8",
+          "chunk_index": 6,
+          "reference": "R-Codes",
+          "quote": "I R-Codes structure I Document structure II Graphic layout III PART A: OPERATION OF THE CODE 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4f2dbe5b-8704-5c83-aeda-825ee74db2b4"
+        },
+        {
+          "chunk_id": "dacbba44-7fa5-4dfa-8d1f-f90360e93ad8",
+          "chunk_index": 6,
+          "reference": "R-Codes",
+          "quote": "2 Purpose of the R-Codes 2 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4f2dbe5b-8704-5c83-aeda-825ee74db2b4"
+        },
+        {
+          "chunk_id": "dacbba44-7fa5-4dfa-8d1f-f90360e93ad8",
+          "chunk_index": 6,
+          "reference": "R-Codes",
+          "quote": "3 General objectives of the R-Codes 2 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4f2dbe5b-8704-5c83-aeda-825ee74db2b4"
+        },
+        {
+          "chunk_id": "dacbba44-7fa5-4dfa-8d1f-f90360e93ad8",
+          "chunk_index": 6,
+          "reference": "R-Codes",
+          "quote": "4 Application of the R-Codes 2 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4f2dbe5b-8704-5c83-aeda-825ee74db2b4"
+        },
+        {
+          "chunk_id": "dacbba44-7fa5-4dfa-8d1f-f90360e93ad8",
+          "chunk_index": 6,
+          "reference": "R-Codes",
+          "quote": "1 R-Codes development application process 4 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4f2dbe5b-8704-5c83-aeda-825ee74db2b4"
+        },
+        {
+          "chunk_id": "dacbba44-7fa5-4dfa-8d1f-f90360e93ad8",
+          "chunk_index": 6,
+          "reference": "R-Codes",
+          "quote": "2 Assessment and determination process under the R-Codes 5 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4f2dbe5b-8704-5c83-aeda-825ee74db2b4"
+        },
+        {
+          "chunk_id": "dacbba44-7fa5-4dfa-8d1f-f90360e93ad8",
+          "chunk_index": 6,
+          "reference": "R-Codes",
+          "quote": "2 Ability of local planning frameworks to modify R-Codes 7",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4f2dbe5b-8704-5c83-aeda-825ee74db2b4"
+        },
+        {
+          "chunk_id": "21ab0aeb-b82c-4f35-9476-d8a1017a0cf9",
+          "chunk_index": 7,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 V Contents PART B 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "9e9447db-a2d8-5173-a78d-253c19ad594e"
+        },
+        {
+          "chunk_id": "eed078c2-2f33-4ead-940b-af405fa849fc",
+          "chunk_index": 8,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 VI Contents (cont.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b46efecc-d521-58fa-b9f2-07e322119c88"
+        },
+        {
+          "chunk_id": "4e4f5089-b680-4118-b8b2-67c2c118be88",
+          "chunk_index": 9,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 1 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c2291441-478e-598f-9b40-528a1f38b06e"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 2 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "Planning and Development Act 2005",
+          "quote": "1 Citation This Planning Code is made under Part 3A of the Planning and Development Act 2005 and is cited as Residential Design Codes Volume 1 (R-Codes Volume 1).",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "bb7aecbd-9c90-5464-8766-1480b5181322"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "1 Citation This Planning Code is made under Part 3A of the Planning and Development Act 2005 and is cited as Residential Design Codes Volume 1 (R-Codes Volume 1).",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "2 Purpose of the R-Codes The purpose of the R-Codes is to provide a comprehensive basis for the guidance and control of residential development throughout Western Australia.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "3 General objectives of the R-Codes The general objectives of the R-Codes are: Residential development objectives - to facilitate quality residential development that provides occupants with high amenity and liveable housing for an enhanced quality of life; - to p romote a range of housing types that provide residents with choice, including affordable options; - to en courage housing that responds to local context and contributes to the desired streetscape, precinct and neighbourhood character; - to f acilitate residential development that is environmentally, economically and socially sustainable; and - to en courage house designs that are respectful and responsive to local heritage and cultural values.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "Planning, governance and development process objectives - to facilitate residential development that is appropriately designed for the intended residential purpose, land tenure, density, place context and scheme objectives; - to en courage residential design that is responsive to the development site, inclusive of its location, size geometry and features; - to a llow variety and diversity as appropriate where it can be demonstrated this better reflects the context or scheme objectives; - to a llow for appropriate modifications to, and augmentation of R-Codes provisions through local planning frameworks; - to p rovide certainty in timely assessment and determination of proposals; and - to provide an assessment framework that supports consistent application of standards and decision-making between jurisdictions.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "4 Application of the R-Codes The R-Codes applies to all residential development throughout Western Australia.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "The R-Codes are divided into two volumes (refer Table 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "R-Codes Volume 1 applies to all single house and grouped dwelling developments; and multiple dwelling development in areas coded R10-R60.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "R-Codes Volume 2 applies to multiple dwelling (apartment) developments in areas coded R80 and above and R-AC.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "d418397e-180d-4efd-bd8e-f016ac69f10e",
+          "chunk_index": 10,
+          "reference": "R-Codes",
+          "quote": "4a Ap plication of the R-Codes development standards Residential Design Codes Single Houses Grouped Dwellings Multiple Dwellings (including dwelling components of mixed use developments) Volume 1 Part B R40 and below R25 and below R10 to R25 Part C R50 and above; R100-SL; R-AC R30 and above; R100-SL; R-AC R30 to R60 Volume 2 NA NA R80 and above; R-AC",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dca16c54-f9d5-51ed-be98-c312918937a0"
+        },
+        {
+          "chunk_id": "9169da08-daa5-444e-aa71-ca9112803df7",
+          "chunk_index": 11,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 3 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "21999de9-b3a1-50ae-85c0-43c1f48366d2"
+        },
+        {
+          "chunk_id": "9169da08-daa5-444e-aa71-ca9112803df7",
+          "chunk_index": 11,
+          "reference": "R-Codes",
+          "quote": ") R-Codes Volume 1 is comprised of four parts.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "21999de9-b3a1-50ae-85c0-43c1f48366d2"
+        },
+        {
+          "chunk_id": "9169da08-daa5-444e-aa71-ca9112803df7",
+          "chunk_index": 11,
+          "reference": "R-Codes",
+          "quote": "Part A outlines the application and decision-making processes for residential development and the modifications that can be made to the provisions of the R-Codes through local planning frameworks .",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "21999de9-b3a1-50ae-85c0-43c1f48366d2"
+        },
+        {
+          "chunk_id": "9169da08-daa5-444e-aa71-ca9112803df7",
+          "chunk_index": 11,
+          "reference": "R-Codes",
+          "quote": "5 Explanatory Guidelines The Western Australian Planning Commission (WAPC) may prepare more detailed Explanatory Guidelines on the matters addressed in the R-Codes Volume 1, in consultation with local government and relevant stakeholders, to meet the objectives of the R-Codes Volume 1 and, if prepared, these should be considered in the determination of proposals.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "21999de9-b3a1-50ae-85c0-43c1f48366d2"
+        },
+        {
+          "chunk_id": "9169da08-daa5-444e-aa71-ca9112803df7",
+          "chunk_index": 11,
+          "reference": "R-Codes",
+          "quote": "The Explanatory Guidelines, which may be amended from time to time, provide design and assessment guidance to assist interpretation and assessment of proposals against the design principles and deemed-to-comply provisions of the R-Codes Volume 1 as well as guidance for preparing local planning frameworks.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "21999de9-b3a1-50ae-85c0-43c1f48366d2"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 4 The following information provides a summary of when a development application is required.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "The R-Codes Volume 1 approval process is illustrated in the process flowchart of Figure 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "This process flowchart has been designed as a guide for all decision -makers, developers and proponents using R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "1 R-Codes development application process 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "0 Development application and decision-making process CONTENTS | PART A | PART B | PART C | PART D | APPENDICES Proponent prepares an appropriate proposal for the site addressing relevant R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "1, scheme and local planning framework requirements Proponent liaises with decision-maker (if necessary) A proposal for residential development for a particular site prepared to meet the requirements of the R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "1 Proposal addresses one or more design principles of the R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "1 Proposal meets deemed-to-comply provisions of the R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "1 and the Scheme Requires judgement of merit Development approval required1 No Ye s All other residential development Single house1 Development approval required Development approval not required Application submitted Onus on applicant to provide written support of proposal to show how all objectives and design principles are met for any matters that are not deemed-to-comply Consultation (if required) Assess proposal against its merits and relevant design principles No Ye s Refusal Should only occur where a proposal does not meet the deemed-to-comply provisions or design principles and where the applicant is not able to modify the design (liaison recommended) Development approval granted Proceed to building permit DESIGN PHASE An appropriate proposal for the site is prepared APPLICA TION PHASE Decision-maker considers application DECISION PHASE Notes 1 A scheme may require development approval for a single house irrespective of the requirements of the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "09371bbe-5b76-4d5e-98cb-63a65290365f",
+          "chunk_index": 12,
+          "reference": "R-Codes",
+          "quote": "1 R -Codes Volume 1 approval process Proponent prepares an appropriate proposal for the site addressing relevant R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c7c291d7-42fb-59f0-8758-7d3062a07968"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 5 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "Concept design Concept design consisting of preliminary designs and sketches that address development opportunities and constraints, and explore different development options for the site in accordance with the R-Codes and local planning framework.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "Deemed-to-comply provisions prescribe the development standards that an application must satisfy in order to meet the objectives of the R-Codes and the requirements of each design element.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "2 Assessment and determination process under the R-Codes 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "The decision-maker shall not vary the minimum or average site area per dwelling requirements set out in Table D except as provided for in the R-Codes Volume 1 or the scheme.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "2 Judging merit of proposal Where an application does not meet a deemed -to-comply provision(s) of the R-Codes Volume 1 and addresses a design principle(s), the decision-maker is required to exercise judgement and undertake a merit-based assessment to determine the proposal.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "The Explanatory Guidelines may assist when undertaking a merit-based assessment against the design principles of the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "an y relevant objectives and provisions of the R-Codes; iii.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "t he R-Codes Explanatory Guidelines; iv.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "a p rovision of a properly adopted local planning instrument consistent with the R-Codes; and v.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "The decision-maker shall not refuse to grant approval to an application where the application satisfies the deemed-to- comply provisions of the R-Codes Volume 1 and any relevant provision of the scheme and local planning framework .",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "561f4e87-95a7-4d93-94e7-b7d347065cfd",
+          "chunk_index": 13,
+          "reference": "R-Codes",
+          "quote": "Where an application does not satisfy a deemed -to-comply provision and is not consistent with the objectives, intent, and corresponding design principle of the R-Codes and any relevant provision of the scheme and local planning framework, the application should be refused by the decision-maker.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2976ba69-2411-5bcf-8dea-9adf2be0469c"
+        },
+        {
+          "chunk_id": "b47c6343-2445-44e7-bfeb-5aa47e7f5de8",
+          "chunk_index": 14,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 6 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "ae039a93-a50a-580f-8816-64ac0d0377c4"
+        },
+        {
+          "chunk_id": "b47c6343-2445-44e7-bfeb-5aa47e7f5de8",
+          "chunk_index": 14,
+          "reference": "R-Codes",
+          "quote": "a p roposal against one or more design principles of the R-Codes Volume 1; and ii.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "ae039a93-a50a-580f-8816-64ac0d0377c4"
+        },
+        {
+          "chunk_id": "b47c6343-2445-44e7-bfeb-5aa47e7f5de8",
+          "chunk_index": 14,
+          "reference": "R-Codes",
+          "quote": "64, part 8 in Schedule 2 of the Regulations and invited to comment on that part of the proposed development that does not meet the deemed-to-comply provisions of the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "ae039a93-a50a-580f-8816-64ac0d0377c4"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 7 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "1 Function of local planning frameworks Local planning frameworks may amend, replace and/or augment the deemed -to-comply provisions of the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "ma ximise consistency of local planning frameworks with the R-Codes; and ii.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "co nsider the need for settings that respond to a specific issue related to a locality or region, where this is consistent with the element objectives and design principles of the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "When preparing and determining local planning frameworks, proponents and decision-makers are to ensure that modifications to the R-Codes are: i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "co nsistent with the general objectives of the R-Codes Volume 1, as well as the section objectives and the design principles of Part B and C (as applicable); iv.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "Local planning framework instruments that may amend, replace and/or augment provisions of the R-Codes include schemes, local planning policies , precinct structure plans and local development plans .",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "The provisions of the R-Codes that may be amended, replaced and/or augmented by each type of local planning instrument are identified in section 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "The Explanatory Guidelines provide further detail for additional considerations when modifying deemed -to- comply provisions of the R-Codes through a local planning framework.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "2 Ability of local planning frameworks to modify R-Codes 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "1 Schemes Schemes may include clauses that amend, replace, augment and/or exclude any provision of the R-Codes as provided for in the Regulations.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "R-Codes",
+          "quote": "2 Precinct structure plans A precinct structure plan may amend, replace and/or augment any deemed-to-comply provision of the R-Codes, and provide additional requirements relating to residential development in order to achieve the objectives and outcomes of State Planning Policy 7.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2dc2ff93-139c-572d-9d9f-9dda1452b2e6"
+        },
+        {
+          "chunk_id": "de3425dc-97c2-42fe-b961-aeb19c3d6395",
+          "chunk_index": 15,
+          "reference": "State Planning Policy 7.2",
+          "quote": "2 Precinct structure plans A precinct structure plan may amend, replace and/or augment any deemed-to-comply provision of the R-Codes, and provide additional requirements relating to residential development in order to achieve the objectives and outcomes of State Planning Policy 7.2 Precinct Design (SPP 7.",
+          "target_manifest_id": "3c0b87a5-77f7-5da8-9860-b562d8a76958",
+          "resolved": true,
+          "edge_id": "4b5b9058-5417-5dc3-817f-6a23163ef9b9"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 8 i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "The following provisions of the R-Codes Volume 1 may be modified without WAPC approval: Part B 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "In addition to (i), the following provisions of the R-Codes Volume 1 may be modified by local governments located outside of the Perth and Peel regions without WAPC approval: Part B 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "In addition to (i), the following provisions of the R-Codes Volume 1 may be modified without WAPC approval for a heritage area: Part B No additional Part C 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "3 Local planning policies The R-Codes recognises that there are variations across the State in terms of local character , community requirements, climate and the environment.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "A local government may adopt a local planning policy that amends, replaces and/or augments a deemed -to-comply provision of the R-Codes Volume 1 in accordance with 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "3b Modification of the R-Codes through a local planning policy with WAPC approval Notwithstanding clause 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "3a, the local government may, with the approval of the WAPC, modify any other deemed-to-comply provision of the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "3c Local housing objectives A local government may augment the design principles of the R-Codes Volume 1 by providing local housing objectives to guide judgements about the merits of proposals for any aspect of residential development covered by this volume that does not meet the requirements, or is not provided for, under the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "Local housing objectives must be consistent with the general objectives of the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "e88c14c9-8f6e-4547-9525-e8302eba60b1",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "3a Modification of the R-Codes through a local planning policy without WAPC approval",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8994c80-c5ca-586e-a543-634ee483ed59"
+        },
+        {
+          "chunk_id": "19ae4c1e-6b56-4576-bb64-311bde6e0c08",
+          "chunk_index": 17,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 9 i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "44891720-0d74-54c4-aa26-5e3b4f5f1a88"
+        },
+        {
+          "chunk_id": "19ae4c1e-6b56-4576-bb64-311bde6e0c08",
+          "chunk_index": 17,
+          "reference": "R-Codes",
+          "quote": "The following provisions of the R-Codes Volume 1 may be modified without WAPC approval: Part B 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "44891720-0d74-54c4-aa26-5e3b4f5f1a88"
+        },
+        {
+          "chunk_id": "19ae4c1e-6b56-4576-bb64-311bde6e0c08",
+          "chunk_index": 17,
+          "reference": "R-Codes",
+          "quote": "In addition to (i), the following provisions of the R-Codes Volume 1 may be modified by local governments located outside of Perth and Peel regions without WAPC approval: Part B No additional Part C 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "44891720-0d74-54c4-aa26-5e3b4f5f1a88"
+        },
+        {
+          "chunk_id": "19ae4c1e-6b56-4576-bb64-311bde6e0c08",
+          "chunk_index": 17,
+          "reference": "R-Codes",
+          "quote": "4b Modification of the R-Codes through a local development plan with WAPC approval Notwithstanding clause 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "44891720-0d74-54c4-aa26-5e3b4f5f1a88"
+        },
+        {
+          "chunk_id": "19ae4c1e-6b56-4576-bb64-311bde6e0c08",
+          "chunk_index": 17,
+          "reference": "R-Codes",
+          "quote": "4a , the local government may, with the approval of the WAPC, modify any other deemed-to-comply provision of the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "44891720-0d74-54c4-aa26-5e3b4f5f1a88"
+        },
+        {
+          "chunk_id": "19ae4c1e-6b56-4576-bb64-311bde6e0c08",
+          "chunk_index": 17,
+          "reference": "R-Codes",
+          "quote": "As an instrument to principally coordinate development within a defined area, local development plans should not be used for the sole purpose of amending or replacing a deemed-to-comply provision(s) of the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "44891720-0d74-54c4-aa26-5e3b4f5f1a88"
+        },
+        {
+          "chunk_id": "19ae4c1e-6b56-4576-bb64-311bde6e0c08",
+          "chunk_index": 17,
+          "reference": "R-Codes",
+          "quote": "A local government may adopt a local development plan that amends, replaces and/or augments a deemed -to-comply provision of the R-Codes Volume 1 in accordance with 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "44891720-0d74-54c4-aa26-5e3b4f5f1a88"
+        },
+        {
+          "chunk_id": "19ae4c1e-6b56-4576-bb64-311bde6e0c08",
+          "chunk_index": 17,
+          "reference": "R-Codes",
+          "quote": "4a Modification of the R-Codes through a local development plan without WAPC approval",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "44891720-0d74-54c4-aa26-5e3b4f5f1a88"
+        },
+        {
+          "chunk_id": "121e322c-ab3f-42bd-8d60-297ab7db3253",
+          "chunk_index": 18,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 10 PART B 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "0aaaa46d-9a0c-580e-8907-8f394e495b2a"
+        },
+        {
+          "chunk_id": "932f07b8-4b5c-4138-8f26-efcecb438502",
+          "chunk_index": 19,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 11 OBJECTIVES A To ensure residential development meets c ommunity expectations regarding appearance, use and density.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "0e954815-1cf7-58c8-9e0d-261d1cd7a5f8"
+        },
+        {
+          "chunk_id": "e3c4709f-45a0-458f-97a9-991b2e226a81",
+          "chunk_index": 20,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 12 CONTENTS | PART A | PART B | PART C | PART D | APPENDICES 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "28cb6b67-bfa7-5726-80aa-5e3069510576"
+        },
+        {
+          "chunk_id": "c6ff1f33-2b65-475f-b01d-946e0e9cda03",
+          "chunk_index": 21,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 13 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5ac67d53-ab64-5c8d-83ea-e7de133279eb"
+        },
+        {
+          "chunk_id": "c6ff1f33-2b65-475f-b01d-946e0e9cda03",
+          "chunk_index": 21,
+          "reference": "NCC",
+          "quote": "4 A por ch, verandah, unenclosed balcony or the equivalent may (subject to the NCC) project forward of the primary street setback line to a maximum of half the required primary street setback without applying the compensating area of clause 5.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "53877d65-3dcd-5261-911c-32261891f314"
+        },
+        {
+          "chunk_id": "9677eca9-da22-4833-8c39-4ec56505a850",
+          "chunk_index": 22,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 14 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b96dd6b4-cec3-52e7-a731-5230b8549d5b"
+        },
+        {
+          "chunk_id": "9677eca9-da22-4833-8c39-4ec56505a850",
+          "chunk_index": 22,
+          "reference": "R-Codes",
+          "quote": "1 Buildings wh ich are set back in accordance with the following provisions, subject to any additional measures in other elements of the R-Codes: i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b96dd6b4-cec3-52e7-a731-5230b8549d5b"
+        },
+        {
+          "chunk_id": "e0d75382-0510-4e3c-890f-f4bfb8649e25",
+          "chunk_index": 23,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 15 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "658b9870-24e3-5f84-99f9-fbce5faed24a"
+        },
+        {
+          "chunk_id": "81a1794b-7265-423f-a069-3148307c2c04",
+          "chunk_index": 24,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 16 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "a0b5d36e-700b-5785-85db-743bc13c0fe1"
+        },
+        {
+          "chunk_id": "d4fb0ed9-72cd-4d80-b0a6-fe82dc1d69a2",
+          "chunk_index": 25,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 17 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "cb168f70-d2ac-5515-8b17-7b928e46b5c3"
+        },
+        {
+          "chunk_id": "b34e577b-d420-4078-9b1a-34fe07d3f1a6",
+          "chunk_index": 26,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 18 OBJECTIVES A To contribute towards the character of s treetscapes including their views and vistas and provides security for occupants and passers-by, a landscape to ensure adequate shade, privacy and open space for occupants, and an attractive setting for the collection of buildings.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "25ac79db-c03e-5dd3-a2a1-78705da4a518"
+        },
+        {
+          "chunk_id": "b05baad9-3a77-4b71-8ea0-e82bcefe27ba",
+          "chunk_index": 27,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 19 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5705cc78-b49e-5465-a6ec-8a0973f84474"
+        },
+        {
+          "chunk_id": "73259618-a318-44d0-a292-6f31603c3e4d",
+          "chunk_index": 28,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 20 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "cfc819ab-1b56-599f-9a3a-e439a86d49ac"
+        },
+        {
+          "chunk_id": "366fcf7b-c98c-419f-89b2-1775310fb039",
+          "chunk_index": 29,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 21 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2de30013-3ab9-5559-9d33-1e1af4430c3f"
+        },
+        {
+          "chunk_id": "daa5580d-3222-4b3f-a36a-cd296f4ff627",
+          "chunk_index": 30,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 22 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "8169173e-e802-5dbc-8c81-722a0d4f3be3"
+        },
+        {
+          "chunk_id": "0c4dcdeb-d29e-4fd6-975b-23babe34a46d",
+          "chunk_index": 31,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 23 OBJECTIVES A Landscape d esign should optimise function, useability, privacy, social opportunity, equitable access, respect neighbours\u2019 amenity and provide for practical establishment and maintenance.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "a843b1bd-675e-58a0-954b-836822de7c2f"
+        },
+        {
+          "chunk_id": "2de77e71-fdfc-4ba7-97d4-a229c49e2b97",
+          "chunk_index": 32,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 24 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "0a7e9ea3-a961-57f6-905e-5896ed404ed8"
+        },
+        {
+          "chunk_id": "70059ef3-22c3-4a9f-88d5-428cb9087ece",
+          "chunk_index": 34,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 25 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c13c5f05-8ec9-5b09-97eb-5f17da1b0042"
+        },
+        {
+          "chunk_id": "2c08bb41-8945-46df-8f84-10f4ce79aafe",
+          "chunk_index": 35,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 26 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bf4f7fb1-1084-59ba-8f1c-9502b6f52451"
+        },
+        {
+          "chunk_id": "2c08bb41-8945-46df-8f84-10f4ce79aafe",
+          "chunk_index": 35,
+          "reference": "R-Codes",
+          "quote": "whe re off-site car parking is shared with other uses, the total aggregate parking requirement for all such uses, as required by the R-Codes and the scheme being provided.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bf4f7fb1-1084-59ba-8f1c-9502b6f52451"
+        },
+        {
+          "chunk_id": "d6cd67e5-13c5-490a-8ed9-a1670596d698",
+          "chunk_index": 36,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 27 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "86a57210-ec2d-5070-bf96-449602fb9b2a"
+        },
+        {
+          "chunk_id": "410f6c16-e925-4457-85bd-f93a7f50c9b4",
+          "chunk_index": 37,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 28 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c4e404b6-a994-5f16-bbf2-60856c2a718c"
+        },
+        {
+          "chunk_id": "410f6c16-e925-4457-85bd-f93a7f50c9b4",
+          "chunk_index": 37,
+          "reference": "AS/NZS 2890.1",
+          "quote": "1 - Prohibited locations of access driveways Dimensions in metres Source: AS/NZS 2890.1:2004 (/f_igure 3.",
+          "target_manifest_id": "af539d04-5945-541b-9e57-ba2d8cc0e9e1",
+          "resolved": true,
+          "edge_id": "885d4d9b-0c64-56ae-9245-82f50ed8833f"
+        },
+        {
+          "chunk_id": "06568d60-34f3-417f-ba9c-87f646fa9409",
+          "chunk_index": 38,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 29 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2b03d8f8-3d23-5e0c-ad57-00faf80523b2"
+        },
+        {
+          "chunk_id": "e9ce84b3-a906-4879-a3bb-3dee0c84ab88",
+          "chunk_index": 39,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 30 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4a76bc31-67cf-52e9-8545-1d5b68ff45e2"
+        },
+        {
+          "chunk_id": "10e11dc2-dd46-4534-931f-f9e6922accd5",
+          "chunk_index": 40,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 31 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "ba1da15a-1c3d-5440-ab3f-1dc73a172f2b"
+        },
+        {
+          "chunk_id": "e03b3dc9-5227-47d1-9bf9-a20f4ff507db",
+          "chunk_index": 41,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 32 OBJECTIVES A To design buildings an d landscape to minimise adverse impact on the privacy of adjoining dwellings and private open space.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f9e401ca-9ba5-506b-9707-39e1e9778d8b"
+        },
+        {
+          "chunk_id": "e198f56e-f68c-4a66-a4ba-0c43203ea3df",
+          "chunk_index": 42,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 33 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "8b52f5c8-cb9f-5f86-a3da-a38c166a6196"
+        },
+        {
+          "chunk_id": "ed73662d-7ce4-4f03-92f0-518d5f50633a",
+          "chunk_index": 43,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 34 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "6449911e-89c0-5359-88c9-f09c3517c65a"
+        },
+        {
+          "chunk_id": "737d329e-c292-4763-97a1-cf299ae342f1",
+          "chunk_index": 44,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 35 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f86adb18-f1c9-5e02-98b7-4bc163e7703f"
+        },
+        {
+          "chunk_id": "9b39d9a3-3a0e-471f-8d06-bd2730ef25b0",
+          "chunk_index": 45,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 36 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) C4.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "90b85f68-bba9-50fe-abfb-3a8f960839b3"
+        },
+        {
+          "chunk_id": "ed9cad75-6da3-4f78-8afa-5974300b212b",
+          "chunk_index": 46,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 37 OBJECTIVES A To ensure residential development is provided to accommodate people with or without special needs.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6f0d234-ebcc-5d0c-a2a8-97f1c0307c1d"
+        },
+        {
+          "chunk_id": "029086f6-edd4-43a9-a7d8-6fc86c16141f",
+          "chunk_index": 47,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 38 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) C1 Ancillary dwelling associated with a single house or gro uped dwelling and on the same site where: i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b61aea44-425f-516a-94ae-bebf91d73c71"
+        },
+        {
+          "chunk_id": "0d3abda0-72fb-41ee-a59a-56e4a870ed3e",
+          "chunk_index": 48,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 39 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) C2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "ec455fc7-c53b-5f74-b723-b5a425a14e5d"
+        },
+        {
+          "chunk_id": "6051d7be-5252-4778-9e90-58ad067c62bd",
+          "chunk_index": 49,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 40 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) C3 Single bedroom dwellings sh all comply with the following: i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e50db0d9-51ba-512c-8b30-4d0924ec7a4e"
+        },
+        {
+          "chunk_id": "4209df7c-2242-45fd-b7ef-5c7356bce096",
+          "chunk_index": 50,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 41 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) C4 Accessible d wellings that seek to apply the gold level universal design site area variation as per Part D, C1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5a12e7e0-b171-5fd9-a90a-0ed21b143b4c"
+        },
+        {
+          "chunk_id": "4209df7c-2242-45fd-b7ef-5c7356bce096",
+          "chunk_index": 50,
+          "reference": "R-Codes",
+          "quote": "Note: All other provisions of the R-Codes still apply.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5a12e7e0-b171-5fd9-a90a-0ed21b143b4c"
+        },
+        {
+          "chunk_id": "af9830c5-a4e9-40d7-a687-b75aead4dc4b",
+          "chunk_index": 51,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 42 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) Small Dwellings \u2013 Part D, C1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "8eebfe27-c4de-534a-8f34-9e9a2420de08"
+        },
+        {
+          "chunk_id": "af9830c5-a4e9-40d7-a687-b75aead4dc4b",
+          "chunk_index": 51,
+          "reference": "R-Codes",
+          "quote": "all ot her provisions of the R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "8eebfe27-c4de-534a-8f34-9e9a2420de08"
+        },
+        {
+          "chunk_id": "8f73a434-42b4-41d5-ad5e-e7dbc5b5f762",
+          "chunk_index": 52,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 43 TAB LE S Table B Pri mary controls for all single house(s) in areas coded R40 and below, grouped dwellings in areas coded R25 and below; and multiple dwellings in areas coded R10 to R25 Columns 3-5 deleted and replaced by PART D , Table D by Amendment dated 10 April 2024.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dd744371-e668-5600-bb15-f0caf8a76dde"
+        },
+        {
+          "chunk_id": "5d434418-96a3-4dd6-93d3-0e746f205adb",
+          "chunk_index": 53,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 44 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "8af88515-2e60-56a2-81c3-132201633c1e"
+        },
+        {
+          "chunk_id": "0fb94b08-66db-4f81-aea4-e27d339255e1",
+          "chunk_index": 54,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 45 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "03370aea-7737-51e5-a200-ab35b272c972"
+        },
+        {
+          "chunk_id": "3c355e50-494c-439c-b407-f0910554eef5",
+          "chunk_index": 55,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 46 FIGURES Figure 2a \u2013 Measuring primary street setbacks (clause 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "1dcd0f09-a5ee-5055-9a88-457f8c39b63a"
+        },
+        {
+          "chunk_id": "5bf30831-5f82-4593-9cff-30378c135e9e",
+          "chunk_index": 56,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 47 house A2 A1A1 garage Figure 2c - Measuring street setback for garages (clause 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "7723efce-df1f-598b-8da2-7579566acf6e"
+        },
+        {
+          "chunk_id": "ed9041c7-53db-4350-b415-2278aa17a32c",
+          "chunk_index": 57,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 48 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f2ccba70-b280-5c14-9985-14accf4e194c"
+        },
+        {
+          "chunk_id": "84e0dc33-eff0-4159-a197-f8a37dfd8e1e",
+          "chunk_index": 58,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 49 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "59ee55bd-251d-552a-b26f-cbf42c0e4ca2"
+        },
+        {
+          "chunk_id": "b56f7acb-df54-45a2-b98a-ac874b10c8d7",
+          "chunk_index": 59,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 50 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "a0876fc7-a88c-5a24-b216-801729854b9b"
+        },
+        {
+          "chunk_id": "61810512-ffc8-4956-9e6a-3db3e655db12",
+          "chunk_index": 60,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 51 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "7ad43023-0a32-597c-96cd-b590b95605b8"
+        },
+        {
+          "chunk_id": "d4372b46-7742-48e1-9563-4fb8d1cc0424",
+          "chunk_index": 61,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 52 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d8782b01-c05b-5222-af33-f0bd0e175995"
+        },
+        {
+          "chunk_id": "26105670-e97b-4c68-ac55-98b942f29f59",
+          "chunk_index": 62,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 53 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "6e6089a1-691f-5130-b52d-a89239567a72"
+        },
+        {
+          "chunk_id": "879b6b01-5ba6-4353-a693-3f53d50b7bb2",
+          "chunk_index": 63,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 54 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "a444578f-f6f8-5352-881e-b3ad04d93c1e"
+        },
+        {
+          "chunk_id": "71e05b35-9879-4d0c-882f-721f926bd0b9",
+          "chunk_index": 64,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 55 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "0918f3b4-7f39-56bc-82d4-a925af1d754a"
+        },
+        {
+          "chunk_id": "12515f4e-ad5f-4e5d-8039-331864ee9f88",
+          "chunk_index": 65,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 56 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "beaf7bf5-7cc7-5d66-b40e-5660ab524522"
+        },
+        {
+          "chunk_id": "cc60ca4d-9bb9-4ec9-9c18-9ba5bacc6a98",
+          "chunk_index": 66,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 57 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d9f6e3bd-a397-5707-af2f-f336655d51ce"
+        },
+        {
+          "chunk_id": "b2072639-7619-4dc6-92da-2f08f025c392",
+          "chunk_index": 67,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 58 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "96c68d7e-c484-5ba2-8871-2d4aa0afb5c6"
+        },
+        {
+          "chunk_id": "1372dbe6-9e8d-45e2-88ae-d6b0d770118c",
+          "chunk_index": 68,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 59 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4bdbf335-74f8-5f56-a929-eea1e95d9e81"
+        },
+        {
+          "chunk_id": "49806ba0-2abf-445d-ba4e-516e39bbf199",
+          "chunk_index": 69,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 60 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "75ebd72f-d75f-5326-8b11-cc92a80dc0e8"
+        },
+        {
+          "chunk_id": "67c7dd34-bbd7-4aed-9a8a-4961f0ef1de8",
+          "chunk_index": 70,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 61 Figure Series 12 - Fences 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b7ec3f2d-7aed-58e4-913b-02ba7715fd7b"
+        },
+        {
+          "chunk_id": "830b0cc0-961c-444d-abd4-f5b2692ef2fc",
+          "chunk_index": 71,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 62 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "39ada098-6c0b-5a5e-a714-1a04fbe2ed23"
+        },
+        {
+          "chunk_id": "f53c19be-9a6a-4743-8a83-68948888a996",
+          "chunk_index": 72,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 63 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "a8a27d46-ea2f-5840-b00d-949f7992f8e4"
+        },
+        {
+          "chunk_id": "f53c19be-9a6a-4743-8a83-68948888a996",
+          "chunk_index": 72,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "0 NEIGHB OURLINESS 88 111TABLE C PRIMARY CONTROLS PART C RESIDENTIAL DESIGN CODES VOLUME 1 64 OBJECTIVES 1A To ensure dwellings are pr ovided with functional outdoor amenity and outlook.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "a8a27d46-ea2f-5840-b00d-949f7992f8e4"
+        },
+        {
+          "chunk_id": "71d1e5d1-44cb-43fb-84e5-a24b5843176f",
+          "chunk_index": 73,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 65 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5470b6b7-be0e-5cd0-8117-91067426afc8"
+        },
+        {
+          "chunk_id": "5893ed84-e869-41fe-af5e-4fbe348b2771",
+          "chunk_index": 74,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 66 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "988dd9ba-1a8a-50cb-af68-a4c403aac728"
+        },
+        {
+          "chunk_id": "33c702f2-45ec-4b56-9a09-8bff7d8237b2",
+          "chunk_index": 75,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 67 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "4454cd55-d03c-5c4e-b1b3-83e1af2a6504"
+        },
+        {
+          "chunk_id": "6d80b857-17c7-41a6-b0bb-00ae135cd1bd",
+          "chunk_index": 76,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 68 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "7d4f2e9b-88b0-5968-90fd-77eb13ee8366"
+        },
+        {
+          "chunk_id": "e3bd56d5-48f3-41ac-9523-a3aa0f2676b6",
+          "chunk_index": 77,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 69 Required deep soil area per tree Large Tree: >12m high Medium Tree: 8 - 12m high Small Tree: 3 - 8m high > 9m 6 - 9m 2 - 6m 64m2 min.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "58b51c27-b9a5-5fc3-8613-6edb6f0c855b"
+        },
+        {
+          "chunk_id": "8e98abfb-b0af-4139-a9ed-bd53d4d8a0c0",
+          "chunk_index": 78,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 70 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "3c29d710-63d5-5e3f-8e18-1ae9a11eba30"
+        },
+        {
+          "chunk_id": "02f91e0f-789d-4bc8-8d63-3b5631548014",
+          "chunk_index": 79,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 71 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "fdf8a688-d310-502f-952c-8b837280b8ba"
+        },
+        {
+          "chunk_id": "43950d6c-9a59-4eaa-a0ab-f91033b5b3f4",
+          "chunk_index": 80,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 72 OBJECTIVES 2A To promote the development o f a range of housing options to suit the needs of the community.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2c20b655-da78-5bde-90fa-145bbbf5e6ac"
+        },
+        {
+          "chunk_id": "c43bb36a-10ac-4f7f-bd46-be23550883a0",
+          "chunk_index": 81,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 73 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "6128ef98-89c1-595d-833a-e49353fd61a2"
+        },
+        {
+          "chunk_id": "b0b6bc1b-4050-4895-8fc8-314ac93249bb",
+          "chunk_index": 82,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 74 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "8c3c58e9-7c28-597c-869f-3971c870f647"
+        },
+        {
+          "chunk_id": "b0b6bc1b-4050-4895-8fc8-314ac93249bb",
+          "chunk_index": 82,
+          "reference": "NCC",
+          "quote": "All other ceilings are to meet the requirements of the NCC.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "d1912ea3-739f-5918-8251-4d621498846b"
+        },
+        {
+          "chunk_id": "270210e9-029a-4123-917a-42557927cec6",
+          "chunk_index": 83,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 75 Indoor amenity 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "24e8d521-4c68-5539-8bbc-6806e7891527"
+        },
+        {
+          "chunk_id": "d0a1e2be-a6ca-496f-bd83-c6b156dee775",
+          "chunk_index": 84,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 76 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5cfd7943-9710-5753-a90a-d427af207cb4"
+        },
+        {
+          "chunk_id": "533aafb7-c76f-4803-8b65-d5b275c1ebf9",
+          "chunk_index": 85,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 77 Indoor amenity 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "cf0e266b-c063-5e38-a292-b8d1e9544b92"
+        },
+        {
+          "chunk_id": "32329252-b6ed-4340-b47c-00f68ffaabf2",
+          "chunk_index": 86,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 78 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "0fd3b534-9377-5eb9-bf60-00b8053778c9"
+        },
+        {
+          "chunk_id": "9099cf2b-ec91-473d-99a1-fcc721962728",
+          "chunk_index": 87,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 79 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) Table 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "151ba022-f633-5a2e-8368-f217e5abc370"
+        },
+        {
+          "chunk_id": "efc6a820-407b-4b8f-b0ac-66580cd98de5",
+          "chunk_index": 88,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 80 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) Bicycle parking C2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "9783b0cd-5023-5c60-b43f-ddcb17aaa186"
+        },
+        {
+          "chunk_id": "b4f31fab-44c9-445f-a2cf-a867185e62f4",
+          "chunk_index": 89,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 81 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b8af1287-746e-500d-a031-b5aa283ff775"
+        },
+        {
+          "chunk_id": "1d2cfbb3-60ba-4f80-981f-0a9a529269a9",
+          "chunk_index": 90,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 82 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "11bcf4f3-cff5-5920-981b-e2ad80ee337e"
+        },
+        {
+          "chunk_id": "1d2cfbb3-60ba-4f80-981f-0a9a529269a9",
+          "chunk_index": 90,
+          "reference": "NCC",
+          "quote": "Note: Where required by the NCC, fir e service infrastructure is located to be visible, and with unobstructed access for its required use during an emergency.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "06e3de5a-9085-56c9-a7f2-a0740f21c321"
+        },
+        {
+          "chunk_id": "d77eb48e-7b68-4f28-aea1-2e7f204c20f8",
+          "chunk_index": 91,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 83 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "729eabb2-1d6c-5b54-87ee-bd1d2760d31b"
+        },
+        {
+          "chunk_id": "d77eb48e-7b68-4f28-aea1-2e7f204c20f8",
+          "chunk_index": 91,
+          "reference": "NCC",
+          "quote": "Outbuildings wil l need to comply with the NCC requirements, including but not limited to fire separation.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "c8fa3dbe-b518-5162-8f65-a8f3b7b24c00"
+        },
+        {
+          "chunk_id": "7d2e1ff2-2fb0-4f34-84c2-220bf2b315b5",
+          "chunk_index": 92,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 84 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2 .",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "493668a9-343c-5615-8bb8-7711330925f5"
+        },
+        {
+          "chunk_id": "7d2e1ff2-2fb0-4f34-84c2-220bf2b315b5",
+          "chunk_index": 92,
+          "reference": "R-Codes",
+          "quote": "All o ther provisions of the R-Codes still apply.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "493668a9-343c-5615-8bb8-7711330925f5"
+        },
+        {
+          "chunk_id": "7d2e1ff2-2fb0-4f34-84c2-220bf2b315b5",
+          "chunk_index": 92,
+          "reference": "R-Codes",
+          "quote": "Note: All other provisions of the R-Codes still apply.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "493668a9-343c-5615-8bb8-7711330925f5"
+        },
+        {
+          "chunk_id": "1bf6bec8-df68-4068-b0a1-8be6f1981d82",
+          "chunk_index": 93,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 85 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "25e991e0-71e4-5d53-be58-8eee348b46d6"
+        },
+        {
+          "chunk_id": "1bf6bec8-df68-4068-b0a1-8be6f1981d82",
+          "chunk_index": 93,
+          "reference": "R-Codes",
+          "quote": "The primary dwelling would still need to comply with all relevant provisions of the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "25e991e0-71e4-5d53-be58-8eee348b46d6"
+        },
+        {
+          "chunk_id": "5a25373c-8739-4ebf-a7bd-cd31cc1185db",
+          "chunk_index": 94,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 86 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "6ca6749a-b12d-5804-9b58-fbddfee57f49"
+        },
+        {
+          "chunk_id": "5a25373c-8739-4ebf-a7bd-cd31cc1185db",
+          "chunk_index": 94,
+          "reference": "R-Codes",
+          "quote": "all o ther provisions of the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "6ca6749a-b12d-5804-9b58-fbddfee57f49"
+        },
+        {
+          "chunk_id": "5a25373c-8739-4ebf-a7bd-cd31cc1185db",
+          "chunk_index": 94,
+          "reference": "R-Codes",
+          "quote": "all p rovisions of the R-Codes to apply, subject to the modifications in Table 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "6ca6749a-b12d-5804-9b58-fbddfee57f49"
+        },
+        {
+          "chunk_id": "1bb24a8c-c76c-4abd-8b1e-c559671f0056",
+          "chunk_index": 95,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 87 Housing diversity 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "320420bb-adb0-5464-ad9c-39616cef9051"
+        },
+        {
+          "chunk_id": "1bb24a8c-c76c-4abd-8b1e-c559671f0056",
+          "chunk_index": 95,
+          "reference": "NCC",
+          "quote": "All other ceilings meet the requirements of the NCC .",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "54d9aeba-f730-519f-924a-9fe9af8219a8"
+        },
+        {
+          "chunk_id": "19144542-9d58-4e09-9dc5-1caa32172c41",
+          "chunk_index": 96,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 88 OBJECTIVES 3A To deliver amenity and liveability for re sidents of new development and adjoining properties, with regard to sunlight, solar access, natural ventilation and visual privacy.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "a6fc4712-7941-5311-92f4-52677def2863"
+        },
+        {
+          "chunk_id": "6bc09991-e880-4cfd-9978-94505fa9dfec",
+          "chunk_index": 97,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 89 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d2554887-3a4f-5c56-8ce8-528eac4cbbd8"
+        },
+        {
+          "chunk_id": "2f92318d-865d-4ff1-b57b-ead36d4846d6",
+          "chunk_index": 98,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 90 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5ec88e23-8c1b-579c-9798-6d90b8209357"
+        },
+        {
+          "chunk_id": "8acf7ad3-1bd4-4f70-86d9-25cf8f287e8a",
+          "chunk_index": 99,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 91 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "155d2a65-e9a4-58ad-921f-78bd2ac34ed0"
+        },
+        {
+          "chunk_id": "8acf7ad3-1bd4-4f70-86d9-25cf8f287e8a",
+          "chunk_index": 99,
+          "reference": "NCC",
+          "quote": "Note: Minor projections will need to comply with the NCC requ irements.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "b808add3-9892-5881-aba9-99c54a755cb0"
+        },
+        {
+          "chunk_id": "8bf802e6-f12e-40b8-a3c1-f1de45ea550e",
+          "chunk_index": 100,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 92 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "dd939df0-a73e-5788-b431-fecfc6443d08"
+        },
+        {
+          "chunk_id": "5548b101-b1cd-4851-b8dc-aafb909d0c70",
+          "chunk_index": 101,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 93 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e833e16d-2bf4-5d50-8e25-ca18c765836e"
+        },
+        {
+          "chunk_id": "5548b101-b1cd-4851-b8dc-aafb909d0c70",
+          "chunk_index": 101,
+          "reference": "NCC",
+          "quote": "Note: Minor projections will need to comply with the NCC requ irements.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "f4fe67a9-a25b-57ef-9aee-4a0396476718"
+        },
+        {
+          "chunk_id": "863f5089-9350-4e92-8197-74f730f619db",
+          "chunk_index": 102,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 94 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) C3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "3bba61ec-a5e3-555c-ba9f-d0910873365c"
+        },
+        {
+          "chunk_id": "863f5089-9350-4e92-8197-74f730f619db",
+          "chunk_index": 102,
+          "reference": "NCC",
+          "quote": "Note: Carports, p atios, verandahs or equivalent structures will need to comply with the NCC requirements, including but not limited to fire separation and non-combustible materials.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "8061b961-f5b4-55ca-a406-3ea1de32e617"
+        },
+        {
+          "chunk_id": "d8be4fbd-cdaf-4691-a103-55caa289e7eb",
+          "chunk_index": 103,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 95 Built form and character 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "10896e80-c751-5098-9a33-322c2d52bb8d"
+        },
+        {
+          "chunk_id": "e2bed3e9-63a8-4dc5-9b85-386eb69deaad",
+          "chunk_index": 104,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 96 Built form and character 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "169c558b-a9b7-5454-9237-f59a74a23b40"
+        },
+        {
+          "chunk_id": "15283872-5334-4277-a0fb-5c24b2743f93",
+          "chunk_index": 105,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 97 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "98ba5e5a-35d8-5235-bf35-240035cf2c53"
+        },
+        {
+          "chunk_id": "15283872-5334-4277-a0fb-5c24b2743f93",
+          "chunk_index": 105,
+          "reference": "NCC",
+          "quote": "Note: NCC an d engineering requirements may apply.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "b397d04c-c0a3-5de5-8f91-9177df30c0d6"
+        },
+        {
+          "chunk_id": "5bd70f6e-716b-4e43-a2b3-e31478c1e160",
+          "chunk_index": 106,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 98 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "7ea2feab-13c4-5db4-b558-0b6ec5cf8356"
+        },
+        {
+          "chunk_id": "32cecfe0-beaf-4c36-a970-ae1dbbc23bf1",
+          "chunk_index": 107,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 99 Built form and character 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "700c1b5c-edba-5525-afd6-40ae55add64d"
+        },
+        {
+          "chunk_id": "257c9ddd-1953-4381-b09f-d740dad200f1",
+          "chunk_index": 108,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 100 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "6146dfd4-eda1-5833-9935-429796077a6e"
+        },
+        {
+          "chunk_id": "1655c127-eb01-45cb-8e47-a9d46c01e187",
+          "chunk_index": 109,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 101 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) C3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "7dd1523c-cd1c-5981-ab91-c0f5d5c29d17"
+        },
+        {
+          "chunk_id": "981940c7-be9b-4353-b188-1702b8228b28",
+          "chunk_index": 110,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 102 Built form and character 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c3b0194a-bdcf-5964-89f1-2f24b88eb792"
+        },
+        {
+          "chunk_id": "f84f590c-4ca4-4f00-b4e7-3134b1449584",
+          "chunk_index": 111,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 103 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) Communal street and battleaxe legs C3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d213bcc4-582e-57ec-99da-a235ee4cf3aa"
+        },
+        {
+          "chunk_id": "5c9ea707-fcc6-4c8c-8e0a-4596878fe673",
+          "chunk_index": 112,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 104 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f741f6af-bb63-5e46-afba-81f4c1ddd725"
+        },
+        {
+          "chunk_id": "5c9ea707-fcc6-4c8c-8e0a-4596878fe673",
+          "chunk_index": 112,
+          "reference": "R-Codes",
+          "quote": "the ret ained dwelling it is to comply with the following provisions of the R-Codes Part C: 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "f741f6af-bb63-5e46-afba-81f4c1ddd725"
+        },
+        {
+          "chunk_id": "7794382f-f85b-4b92-ac9d-d03d3b8b3021",
+          "chunk_index": 113,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 105 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) C3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "ea0d0c57-a637-5853-8567-07f0d4cfb582"
+        },
+        {
+          "chunk_id": "154b7042-3b60-4161-8bb2-9ea18299087a",
+          "chunk_index": 114,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 106 Figure 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "763217ed-eec4-5219-a2d3-880ea032839e"
+        },
+        {
+          "chunk_id": "561a1e7c-956c-4f28-a400-4b1c084483c1",
+          "chunk_index": 115,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 107 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "3d9ac78c-ad32-593b-ae9b-6c2b358c3fab"
+        },
+        {
+          "chunk_id": "3c1ce688-db6c-4b07-92c0-83599d31a046",
+          "chunk_index": 116,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 108 Figure 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "5873c3f4-3fa0-57ce-ac8b-b995f50a43d2"
+        },
+        {
+          "chunk_id": "478b627c-18a3-4669-9585-17cd43bee32f",
+          "chunk_index": 117,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 109 Community 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "53560703-0540-53fc-a6af-aea1173dcc38"
+        },
+        {
+          "chunk_id": "d5f28c6b-9f99-486b-8717-51518008e696",
+          "chunk_index": 118,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 110 Privacy screen minimum 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c3b0f884-9ba7-5284-ae51-c2266299c5fc"
+        },
+        {
+          "chunk_id": "2717c90e-2bff-4750-9e15-a69bf7796fb6",
+          "chunk_index": 119,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 111 This table provides a summary of deemed-to-comply primary controls for all development in Part C.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c681752d-c247-54c0-abc0-b499fb526c5a"
+        },
+        {
+          "chunk_id": "2717c90e-2bff-4750-9e15-a69bf7796fb6",
+          "chunk_index": 119,
+          "reference": "R-Codes",
+          "quote": "R30 R35 R40 R50 R60 R80 (for multiple dwellings refer R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c681752d-c247-54c0-abc0-b499fb526c5a"
+        },
+        {
+          "chunk_id": "dc371eaf-a324-4086-bde8-965d2ca57f9d",
+          "chunk_index": 120,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 112 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "acf53e48-e64c-5473-b941-ee8e1a20d662"
+        },
+        {
+          "chunk_id": "dc371eaf-a324-4086-bde8-965d2ca57f9d",
+          "chunk_index": 120,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "0 LAND 113 TABLE D 118 PART D Land RESIDENTIAL DESIGN CODES VOLUME 1 113 OBJECTIVES 1A To provide for a consistent and coord inated approach to residential built form and development.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "acf53e48-e64c-5473-b941-ee8e1a20d662"
+        },
+        {
+          "chunk_id": "26b118b4-4d48-44fa-b2dc-a41ff8223c6d",
+          "chunk_index": 121,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 114 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d17845fb-8868-50c6-8f4d-3006fd1cf153"
+        },
+        {
+          "chunk_id": "7a07dabd-88c1-42b3-ac67-6d3a1a8e68df",
+          "chunk_index": 122,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 115 DESIGN PRINCIPLES Development demonstrates compliance with the following design principles (P) P1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "00bfc2a5-c338-5cd7-be7c-02b521e84e07"
+        },
+        {
+          "chunk_id": "7a07dabd-88c1-42b3-ac67-6d3a1a8e68df",
+          "chunk_index": 122,
+          "reference": "R-Codes",
+          "quote": "3 The WAPC, in c onsultation with the local government, may approve the creation of a survey-strata lot or strata lot for an existing authorised grouped dwelling or multiple dwelling development of a lesser minimum and average site area than that specified in Table D, where, in the opinion of the WAPC or the local government, the development on the resulting survey-strata or strata lots is consistent with the objectives of the relevant design elements of the R-Codes, and the orderly and proper planning of the locality.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "00bfc2a5-c338-5cd7-be7c-02b521e84e07"
+        },
+        {
+          "chunk_id": "e1e95126-0e4c-4be3-9544-900c13c00426",
+          "chunk_index": 123,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 116 DEEMED-TO-COMPL Y Development satisfies the following deemed-to-comply requirements (C) Site area variations Site area variations are subject to C1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2648b54d-08f1-5cf2-91eb-1fa014972157"
+        },
+        {
+          "chunk_id": "623059fb-3c92-4829-a017-916f7442b44f",
+          "chunk_index": 124,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 117 PART B R-Code Dwelling type Site area per dwelling (m 2) Minimum lot area/rear battleaxe (m2) \u25bc Minimum frontage (m) \u25bc Notes R2 Single house or grouped dwelling Min 5000 - 50 R80 site area requirements apply to all single house(s) or grouped dwellings located on lots coded R100, R160 and R-AC \u25bc only applies to single houses.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "a5b71f7d-291c-5c77-92ce-7e31238bfe72"
+        },
+        {
+          "chunk_id": "e16df7aa-adec-4617-b2de-0f848bf7ad50",
+          "chunk_index": 125,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 118 PART C R-Code Dwelling type Site area per dwelling (m 2) Minimum lot area/rear battleaxe (m2) \u25bc Minimum frontage (m) \u25bc Notes R30 Grouped dwelling Min 260 Av 300 - - R80 site area requirements apply to all single house(s) or grouped dwellings located on lots coded R100, R160 and R-AC \u25bc only applies to single h ouses.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "efcb00ee-c377-57d5-b6ad-f49386ec35ac"
+        },
+        {
+          "chunk_id": "e16df7aa-adec-4617-b2de-0f848bf7ad50",
+          "chunk_index": 125,
+          "reference": "R-Codes",
+          "quote": "Average site area Multiple dwelling Av 300 - - R35 Grouped dwelling Min 220 Av 260 - - Multiple dwelling Ave 260 - - R40 Grouped dwelling Min 180 Ave 220 - - Multiple dwelling Ave 115 - - R50 Single house or grouped dwelling Min 160 Ave 180 160 - Multiple dwelling Ave 100 - - R60 Single house or grouped dwelling Min 120 Ave 150 120 - Multiple dwelling Ave 85 - - R80 Single house or grouped dwelling Min 100 Ave 120 100 - Multiple dwelling Refer R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "efcb00ee-c377-57d5-b6ad-f49386ec35ac"
+        },
+        {
+          "chunk_id": "0221adb3-7f10-4f2a-85ed-df8ba53027ea",
+          "chunk_index": 126,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 119 A1 DEFINITIONS 121 A2 CONTEX T AND SITE ANALYSIS 127 A3 APPLIC ATION DOCUMENTATION 128 A4 UNIVER SAL DESIGN REQUIREMENTS 131 APPENDICES",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d70abd33-6780-5f94-ba62-c5483f242169"
+        },
+        {
+          "chunk_id": "c0b87338-302b-4e1c-a6e4-e343f4cdc05b",
+          "chunk_index": 127,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 120 ACCESSIBLE HOUSING / DWELLINGS - dwellings having features already in place to enable use by people with a disability.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6a45c24-fc49-5227-a016-96d55d406309"
+        },
+        {
+          "chunk_id": "c0b87338-302b-4e1c-a6e4-e343f4cdc05b",
+          "chunk_index": 127,
+          "reference": "R-Codes",
+          "quote": "ADJOINING PROPERTY - any lot: - on wh ich any dwelling for which provision is made in the R-Codes may be constructed under the scheme ; and - whic h shares a boundary or portion of a boundary with a lot on which there is a proposed residential development site or is separated from that lot by a right-of-way, vehicle access way, pedestrian access way, access leg of a battleaxe lot or the equivalent not more than 6m in width.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6a45c24-fc49-5227-a016-96d55d406309"
+        },
+        {
+          "chunk_id": "c0b87338-302b-4e1c-a6e4-e343f4cdc05b",
+          "chunk_index": 127,
+          "reference": "NCC",
+          "quote": "CLIMATE ZONE - as defined by the NCC.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "771c9d7e-8663-5636-bdfc-b89f6941375a"
+        },
+        {
+          "chunk_id": "c0b87338-302b-4e1c-a6e4-e343f4cdc05b",
+          "chunk_index": 127,
+          "reference": "Strata Titles Act 1985",
+          "quote": "COMMON PROPERTY \u2013 has the meaning given by section 10 of the Strata Titles Act 1985.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "a5906637-6f79-52bb-9d86-039e06bd30a8"
+        },
+        {
+          "chunk_id": "c0b87338-302b-4e1c-a6e4-e343f4cdc05b",
+          "chunk_index": 127,
+          "reference": "R-Codes",
+          "quote": "DECISION-MAKER - that body, organisation or authorised person legally vested with the power to make decisions, pursuant to relevant legislation, in respect of residential development in accordance with the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6a45c24-fc49-5227-a016-96d55d406309"
+        },
+        {
+          "chunk_id": "c0b87338-302b-4e1c-a6e4-e343f4cdc05b",
+          "chunk_index": 127,
+          "reference": "R-Codes",
+          "quote": "DEEMED-TO-COMPL Y - a proposal, or a component of a proposal, that complies with the deemed-to-comply provisions of the R-Codes, or an adopted local planning policy.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d6a45c24-fc49-5227-a016-96d55d406309"
+        },
+        {
+          "chunk_id": "39fcef2e-bad8-4b14-8a91-62c202f340c3",
+          "chunk_index": 128,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 121 DEPENDANT PERSON - a person with a recognised form of disability requiring special accommodation for independent living or special care.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "55be3e34-5b49-5767-acec-c4837474579f"
+        },
+        {
+          "chunk_id": "39fcef2e-bad8-4b14-8a91-62c202f340c3",
+          "chunk_index": 128,
+          "reference": "R-Codes",
+          "quote": "DESIGN PRINCIPLES - specific design objectives for each element of R-Codes Volume 1 are to be met by all residential development subject to Volume 1 and are to be used in the preparation, submission and assessment for proposals for the purpose of determining their compliance with R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "55be3e34-5b49-5767-acec-c4837474579f"
+        },
+        {
+          "chunk_id": "39fcef2e-bad8-4b14-8a91-62c202f340c3",
+          "chunk_index": 128,
+          "reference": "Planning and Development Act 2005",
+          "quote": "DEVELOPMENT - as defined under the Planning and Development Act 2005.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "d90ece18-cf84-5ab8-9283-0275ae778b8e"
+        },
+        {
+          "chunk_id": "39fcef2e-bad8-4b14-8a91-62c202f340c3",
+          "chunk_index": 128,
+          "reference": "Strata Titles Act 1985",
+          "quote": "FREEHOLD SCHEME - has the meaning given by section 8(2) of the Strata Titles Act 1985.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "1aa48d54-ebfd-5b7b-ae3b-7b9948394816"
+        },
+        {
+          "chunk_id": "39fcef2e-bad8-4b14-8a91-62c202f340c3",
+          "chunk_index": 128,
+          "reference": "Transfer of Land Act 1893",
+          "quote": "GREEN TITLE LOT - a lot owned in fee simple issued with a certificate of title under the Transfer of Land Act 1893, other than a strata lot or a survey-strata lot .",
+          "target_manifest_id": "47ed201a-4575-5146-a3c7-f6bcb922251d",
+          "resolved": true,
+          "edge_id": "efa40232-a6ba-57f0-825c-4066a706f5c4"
+        },
+        {
+          "chunk_id": "39fcef2e-bad8-4b14-8a91-62c202f340c3",
+          "chunk_index": 128,
+          "reference": "NCC",
+          "quote": "HABITABLE ROOM/SPACE - as defined by the NCC for a room/space used for normal domestic activities that includes: - a bed room, living room, lounge room, music room, sitting room, television room, kitchen, scullery, dining room, sewing room, study, playroom, family room, sunroom, gymnasium, fully enclosed swimming pool or patio; but excludes: - a bat hroom, laundry, water closet, pantry, walk-in wardrobe, corridor, hallway, lobby, photographic darkroom, clothes drying room, verandah and unenclosed swimming pool or patio and other spaces of a specialised nature occupied neither frequently nor for extended periods.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "7307451c-39d6-52dd-a735-0f2eed32d9c6"
+        },
+        {
+          "chunk_id": "ad6b798d-3381-48d8-9904-c64772e798a4",
+          "chunk_index": 129,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 122 L ANEWAY - a narrow local street type without a verge located along the rear and/or side property boundary, typically used in more dense residential areas when smaller lot layouts justify rear garaging, and where alternative vehicle access is needed for lots fronting busy streets or parks.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "3b229fd7-5021-586b-b436-e8f9b8db950b"
+        },
+        {
+          "chunk_id": "ad6b798d-3381-48d8-9904-c64772e798a4",
+          "chunk_index": 129,
+          "reference": "Strata Titles Act 1985",
+          "quote": "LEASEHOLD SCHEME - has the meaning given by section 8(3) of the Strata Titles Act 1985.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "55c7005c-099d-5e8d-a4df-6118e01bf392"
+        },
+        {
+          "chunk_id": "ad6b798d-3381-48d8-9904-c64772e798a4",
+          "chunk_index": 129,
+          "reference": "Planning and Development Act 2005",
+          "quote": "LOT - for single houses, a lot as defined under the Planning and Development Act 2005, as amended.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "82a7cebc-edf3-5390-ba7c-7ec8c056c7a9"
+        },
+        {
+          "chunk_id": "ad6b798d-3381-48d8-9904-c64772e798a4",
+          "chunk_index": 129,
+          "reference": "Strata Titles Act 1985",
+          "quote": "LOT IN A STRATA SCHEME - has the meaning given by section 3 of the Strata Titles Act 1985.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "55c7005c-099d-5e8d-a4df-6118e01bf392"
+        },
+        {
+          "chunk_id": "ad6b798d-3381-48d8-9904-c64772e798a4",
+          "chunk_index": 129,
+          "reference": "Strata Titles Act 1985",
+          "quote": "LOT IN A SURVEY-STRATA SCHEME - has the meaning given by section 3 of the Strata Titles Act 1985.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "55c7005c-099d-5e8d-a4df-6118e01bf392"
+        },
+        {
+          "chunk_id": "ad6b798d-3381-48d8-9904-c64772e798a4",
+          "chunk_index": 129,
+          "reference": "NCC",
+          "quote": "NCC - National Construction Code, comprising the Building Code of Australia (BCA) and Plumbing Code of Australia (PCA).",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "4496b37e-ae03-54e2-b93d-b6a430d5152f"
+        },
+        {
+          "chunk_id": "ad6b798d-3381-48d8-9904-c64772e798a4",
+          "chunk_index": 129,
+          "reference": "NCC",
+          "quote": "NON-HABITABLE ROOM/SPACE \u2013 any room or space that is not defined as a habitable room or space in the NCC .",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "4496b37e-ae03-54e2-b93d-b6a430d5152f"
+        },
+        {
+          "chunk_id": "19479370-2eb4-4761-83b0-57360ffe1199",
+          "chunk_index": 130,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 123 OUTBUILDING - an enclosed non-habitable structure that is detached from any dwelling and may include a detached garage.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "2b4cd192-e223-5673-98a1-85e5adcc022b"
+        },
+        {
+          "chunk_id": "19479370-2eb4-4761-83b0-57360ffe1199",
+          "chunk_index": 130,
+          "reference": "Planning and Development Act 2005",
+          "quote": "SCHEME - the local planning scheme that specifies zoning and development standards gazetted pursuant to the Planning and Development Act 2005.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "e81de335-137e-53ef-a59d-116f5f486cb2"
+        },
+        {
+          "chunk_id": "19479370-2eb4-4761-83b0-57360ffe1199",
+          "chunk_index": 130,
+          "reference": "Strata Titles Act 1985",
+          "quote": "SCHEME PLAN - has the meaning given by section 3 of the Strata Titles Act 1985, and for a strata titles scheme means the strata plan or survey-strata plan registered, or proposed to be registered, for the strata titles scheme as a scheme document.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "3d6d3986-73cc-5f11-838a-c8140abb45aa"
+        },
+        {
+          "chunk_id": "71588db8-3d65-4872-b40c-443ff1821e10",
+          "chunk_index": 131,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 124 SCREENING/ SCREENED - permanently fixed external perforated panels or trellises composed of solid or obscured translucent panels.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "20da4d6e-c74e-5d01-a7b0-8c6792a3f325"
+        },
+        {
+          "chunk_id": "71588db8-3d65-4872-b40c-443ff1821e10",
+          "chunk_index": 131,
+          "reference": "R-Codes",
+          "quote": "SITE AREA - the area of land required for the construction of a dwelling to satisfy the requirements of the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "20da4d6e-c74e-5d01-a7b0-8c6792a3f325"
+        },
+        {
+          "chunk_id": "71588db8-3d65-4872-b40c-443ff1821e10",
+          "chunk_index": 131,
+          "reference": "Strata Titles Act 1985",
+          "quote": "STR ATA PL AN - has the meaning given by section 3 of the Strata Titles Act 1985.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "760d7169-daaf-526f-8889-23e5c5e361f7"
+        },
+        {
+          "chunk_id": "d31959db-71d4-44f8-ae89-3d46f6643a38",
+          "chunk_index": 132,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 125 STR ATA SCHEME - has the meaning given by section 3 of the Strata Titles Act 1985 and may include freehold or leasehold schemes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "22232125-f1e1-542e-9916-321fae944adb"
+        },
+        {
+          "chunk_id": "d31959db-71d4-44f8-ae89-3d46f6643a38",
+          "chunk_index": 132,
+          "reference": "Strata Titles Act 1985",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 125 STR ATA SCHEME - has the meaning given by section 3 of the Strata Titles Act 1985 and may include freehold or leasehold schemes.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "9580ebdd-43f1-5ea5-9ef4-38d6895ba9c4"
+        },
+        {
+          "chunk_id": "d31959db-71d4-44f8-ae89-3d46f6643a38",
+          "chunk_index": 132,
+          "reference": "Strata Titles Act 1985",
+          "quote": "STRATA TITLES SCHEME - has the meaning given by section 3 of the Strata Titles Act 1985.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "9580ebdd-43f1-5ea5-9ef4-38d6895ba9c4"
+        },
+        {
+          "chunk_id": "d31959db-71d4-44f8-ae89-3d46f6643a38",
+          "chunk_index": 132,
+          "reference": "Strata Titles Act 1985",
+          "quote": "SURVEY- STR ATA PL AN - has the meaning given by section 3 of the Strata Titles Act 1985.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "9580ebdd-43f1-5ea5-9ef4-38d6895ba9c4"
+        },
+        {
+          "chunk_id": "d31959db-71d4-44f8-ae89-3d46f6643a38",
+          "chunk_index": 132,
+          "reference": "Strata Titles Act 1985",
+          "quote": "SURVEY- STR ATA SCHEME - has the meaning given by section 3 of the Strata Titles Act 1985, and may include freehold or leasehold schemes.",
+          "target_manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+          "resolved": true,
+          "edge_id": "9580ebdd-43f1-5ea5-9ef4-38d6895ba9c4"
+        },
+        {
+          "chunk_id": "d31959db-71d4-44f8-ae89-3d46f6643a38",
+          "chunk_index": 132,
+          "reference": "State Planning Policy 7.0",
+          "quote": "TEN DESIGN PRINCIPLES - means the Design Principles as set out by State Planning Policy 7.0 Design of the Built Environment: Schedule 1.",
+          "target_manifest_id": "f215b646-4f1b-5806-9de7-c4f30faf18bb",
+          "resolved": true,
+          "edge_id": "666f213f-e8a3-5449-9346-198b0a025cc3"
+        },
+        {
+          "chunk_id": "128e70ae-8da9-4e37-9bb0-11d21aeedb1b",
+          "chunk_index": 133,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 126 Zone 1 - High humidity summer, warm winter Zone 2 - Warm humid summer, mild winter (NA to W A) Zone 3 - Hot dry summer, warm winter Zone 4 - Hot dry summer, cool winter Zone 5 - Warm temperate Zone 6 - Mild temperate Zone 7 - Cool temperate (NA to W A) Zone 8 - Alpine (NA to W A) Local Government Area Boundary Extracted from Climatic Zone map of Australia published by ABCB (last amendment August 2015) Climatic Zones - Western Australia Zone 1 - High humidity summer, warm winter Zone 2 - Warm humid summer, mild winter (NA to W A) Zone 3 - Hot dry summer, warm winter Zone 4 - Hot dry summer, cool winter Zone 5 - Warm temperate Zone 6 - Mild temperate Zone 7 - Cool temperate (NA to W A) Zone 8 - Alpine (NA to W A) Local Government Area Boundary Extracted from Climatic Zone map of Australia published by ABCB (last amendment August 2015) Climatic Zones - Western Australia Figure A1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "3a97160f-6842-58c4-9304-052e2ace785a"
+        },
+        {
+          "chunk_id": "122a846a-3483-4038-8fee-50997e9b05fe",
+          "chunk_index": 134,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 127 Category Materials Neighbourhood context A plan or aerial photo showing the site in relation to neighbourhood context including the location of: i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "0851782c-e5b3-5bc2-a866-9c557b9eaf3c"
+        },
+        {
+          "chunk_id": "e93da1a4-d888-4833-939e-efc19571493c",
+          "chunk_index": 135,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 128 Application requirements legend Information necessary to inform assessment Information may be needed dependent on circumstances Information unlikely to be required Category Materials Proposal Type Part B All residential development Part B & C Addition or alteration to existing dwelling Part C Single house or grouped dwelling (less than 10) Part C Multiple dwelling or larger scale grouped dwellings (10 or more) or mixed proposals Development proposal summary Summary table or document of key details of the development proposal, including the following: i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c9f27321-ecbe-5490-909c-11f2f5b7076c"
+        },
+        {
+          "chunk_id": "e93da1a4-d888-4833-939e-efc19571493c",
+          "chunk_index": 135,
+          "reference": "State Planning Policy 7.0",
+          "quote": "0 Design Principles statement A statement of key points to document how the proposal satisfies the ten design principles of State Planning Policy 7.0 Design of the Built Environment.",
+          "target_manifest_id": "f215b646-4f1b-5806-9de7-c4f30faf18bb",
+          "resolved": true,
+          "edge_id": "419d91b5-d9fc-5215-b92a-a7cdacd5d7b9"
+        },
+        {
+          "chunk_id": "e93da1a4-d888-4833-939e-efc19571493c",
+          "chunk_index": 135,
+          "reference": "R-Codes",
+          "quote": "R-Codes Volume 1 Design Principles Justification for where an element design principle pathway is to apply, rather than the deemed-to-comply provision.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c9f27321-ecbe-5490-909c-11f2f5b7076c"
+        },
+        {
+          "chunk_id": "e93da1a4-d888-4833-939e-efc19571493c",
+          "chunk_index": 135,
+          "reference": "R-Codes",
+          "quote": "The list below outlines the documentation recommended to be submitted for an application for residential development under R-Codes Volume 1.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "c9f27321-ecbe-5490-909c-11f2f5b7076c"
+        },
+        {
+          "chunk_id": "18178d85-917b-4ec3-a920-9c9f23573a7b",
+          "chunk_index": 136,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 129 Category Materials Proposal Type Part B All residential development Part B & C Addition or alteration to existing dwelling Part C Single house or grouped dwelling (less than 10) Part C Multiple dwelling or larger scale grouped dwellings (10 or more) or mixed proposals Other supporting information (where required by the decision- maker) i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d7f053cc-fe46-5984-90ef-0fdf70603a69"
+        },
+        {
+          "chunk_id": "4f7f32b1-f5b7-4e47-bb14-777e9ccc20ec",
+          "chunk_index": 137,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 130 Category Materials Proposal Type Part B All residential development Part B & C Addition or alteration to existing dwelling Part C Single house or grouped dwelling (less than 10) Part C Multiple dwelling or larger scale grouped dwellings (10 or more) or mixed proposals Development drawings Scale drawing (typically 1:100) showing: i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "3a6c9dd3-1e42-5768-adc5-0263c658e377"
+        },
+        {
+          "chunk_id": "4f7f32b1-f5b7-4e47-bb14-777e9ccc20ec",
+          "chunk_index": 137,
+          "reference": "R-Codes",
+          "quote": "site p lans, floor plans and accompanying information to identify which dwellings are to meet the universal design standards and demonstrating compliance with the relevant provisions of accessible dwellings AS4299 and Livable Housing Design Guidelines Landscape plan (where required by the R-Codes) Scale drawing (typically 1:100) showing: i.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "3a6c9dd3-1e42-5768-adc5-0263c658e377"
+        },
+        {
+          "chunk_id": "b84ea0b1-3ccf-4ea1-9064-2189bfd1072b",
+          "chunk_index": 138,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 131 Silver level requirements Achieved?",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e5bb9c2a-eccf-504f-b2f9-97c88d75eac8"
+        },
+        {
+          "chunk_id": "640b09e4-8f0c-4acf-81eb-1e4167c514e2",
+          "chunk_index": 139,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 132 Silver level requirements Achieved?",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "ecaf632f-871b-5113-848e-5e970a61a82d"
+        },
+        {
+          "chunk_id": "0ce1c766-7cb0-40dd-835c-92d993898954",
+          "chunk_index": 140,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 133 Silver level requirements Achieved?",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "edc5708b-76b7-57a9-bb12-cf86575bb7c8"
+        },
+        {
+          "chunk_id": "0ce1c766-7cb0-40dd-835c-92d993898954",
+          "chunk_index": 140,
+          "reference": "NCC",
+          "quote": "Note: waterproofing requirements of the NCC apply.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "4089ca96-971e-570c-94cf-9ecbcaabcd51"
+        },
+        {
+          "chunk_id": "194d5454-4eb5-40c0-9be0-6658b0aa6292",
+          "chunk_index": 141,
+          "reference": "RESIDENTIAL DESIGN CODES",
+          "quote": "RESIDENTIAL DESIGN CODES VOLUME 1 134 A1 Definitions | A2 Context and site analysis | A3 Application documentation | A4 Universal design requirements CONTENTS | PART A | PART B | PART C | PART D | APPENDICES A4 Universal design requirements (cont.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "cbf038aa-3b14-5491-84eb-6b6b9e141220"
+        }
+      ]
+    },
+    {
+      "source_version_id": "7e30952c-156f-4d15-95ff-e66c8d04acaa",
+      "source_id": "96d9eda2-2c46-58f0-b91d-4f993dd47204",
+      "title": "State Planning Policy 7.3 - Residential Design Codes Volume 2 - Apartments",
+      "source_type": "state_planning_policy",
+      "resolved": 27,
+      "unresolved_manifest_rows": 0,
+      "edges": 27,
+      "items": [
+        {
+          "chunk_id": "0a1530a5-e40d-4b96-b59f-388e39550181",
+          "chunk_index": 1,
+          "reference": "Residential Design Codes",
+          "quote": "Residential Design Codes Volume 2 - Apartments Useful links FAQ Templates Technical guidance Additional resources Provided by Contact Share Have a question or want to report a problem?",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d124f3fd-e33b-5e2a-b426-48dc81f504f9"
+        },
+        {
+          "chunk_id": "0a1530a5-e40d-4b96-b59f-388e39550181",
+          "chunk_index": 1,
+          "reference": "Residential Design Codes",
+          "quote": "Acknowledgement of Country Language Residential Design Codes Volume 2, often referred to as the Apartment Design Policy became operational following publication in the Government Gazette on 24 May 2019.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d124f3fd-e33b-5e2a-b426-48dc81f504f9"
+        },
+        {
+          "chunk_id": "0a1530a5-e40d-4b96-b59f-388e39550181",
+          "chunk_index": 1,
+          "reference": "Residential Design Codes",
+          "quote": "Consequential amendments to the Residential Design Codes Volume 2 associated with the medium density amendments to R-Codes Volume 1 have been prepared and come into effect, for more information see the Residential Design Codes page .",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d124f3fd-e33b-5e2a-b426-48dc81f504f9"
+        },
+        {
+          "chunk_id": "0a1530a5-e40d-4b96-b59f-388e39550181",
+          "chunk_index": 1,
+          "reference": "R-Codes",
+          "quote": "Consequential amendments to the Residential Design Codes Volume 2 associated with the medium density amendments to R-Codes Volume 1 have been prepared and come into effect, for more information see the Residential Design Codes page .",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d124f3fd-e33b-5e2a-b426-48dc81f504f9"
+        },
+        {
+          "chunk_id": "0a1530a5-e40d-4b96-b59f-388e39550181",
+          "chunk_index": 1,
+          "reference": "State Planning Policy 7.3",
+          "quote": "Since the public release of the State Planning Policy 7.3: Residential Design Codes Volume 2 \u2013 Apartments, a number of minor edits to the policy have been made prior to gazettal.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d124f3fd-e33b-5e2a-b426-48dc81f504f9"
+        },
+        {
+          "chunk_id": "0a1530a5-e40d-4b96-b59f-388e39550181",
+          "chunk_index": 1,
+          "reference": "Residential Design Codes",
+          "quote": "3: Residential Design Codes Volume 2 \u2013 Apartments, a number of minor edits to the policy have been made prior to gazettal.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "d124f3fd-e33b-5e2a-b426-48dc81f504f9"
+        },
+        {
+          "chunk_id": "01f71824-39e5-46e6-9ea5-d562537a74fb",
+          "chunk_index": 3,
+          "reference": "R-Codes",
+          "quote": "3 R-Codes Vol 2 relationship to pre-existing local planning framework (PDF 498 kb)",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "860a6a4f-ad19-5765-b127-17fedd51e078"
+        },
+        {
+          "chunk_id": "550efd66-2cc0-416c-a5c9-9204ff29cb69",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "This largely depends on what the relevant scheme provision that reads the R-Codes into the scheme provides for.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "342e97b3-6f98-5892-b80d-0571410b7d58"
+        },
+        {
+          "chunk_id": "550efd66-2cc0-416c-a5c9-9204ff29cb69",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "Clause 25(4) of the model provisions contained in the Planning and Development (Local Planning Schemes) Regulations 2015 provides: \u201cThe R-Codes apply to an area if the area has a coding number superimposed on it in accordance with subclause (3).",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "342e97b3-6f98-5892-b80d-0571410b7d58"
+        },
+        {
+          "chunk_id": "550efd66-2cc0-416c-a5c9-9204ff29cb69",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "\u201d Therefore, for schemes that are consistent with the model provisions, it will be the case that the R-Codes apply where there is a coding number on the scheme map.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "342e97b3-6f98-5892-b80d-0571410b7d58"
+        },
+        {
+          "chunk_id": "550efd66-2cc0-416c-a5c9-9204ff29cb69",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "In all other instances, the R-Codes will need to be given \u2018due regard\u2019 in accordance with clause 67(c) of the deemed provisions.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "342e97b3-6f98-5892-b80d-0571410b7d58"
+        },
+        {
+          "chunk_id": "550efd66-2cc0-416c-a5c9-9204ff29cb69",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "It is noted that in the previous Part 6 of the former R-Codes (SPP 3.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "342e97b3-6f98-5892-b80d-0571410b7d58"
+        },
+        {
+          "chunk_id": "550efd66-2cc0-416c-a5c9-9204ff29cb69",
+          "chunk_index": 4,
+          "reference": "R-Codes",
+          "quote": "This is no longer included in the R-Codes Volume 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "342e97b3-6f98-5892-b80d-0571410b7d58"
+        },
+        {
+          "chunk_id": "c2a246cb-ac12-498e-889f-9bc05c0cde7f",
+          "chunk_index": 5,
+          "reference": "R-Codes",
+          "quote": "The R-Codes will generally not apply to land within Improvement Scheme Areas and DevelopmentWA redevelopment areas unless stated within the scheme text.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e5a99c4c-abd3-5a42-b325-33af6e803c46"
+        },
+        {
+          "chunk_id": "c2a246cb-ac12-498e-889f-9bc05c0cde7f",
+          "chunk_index": 5,
+          "reference": "R-Codes",
+          "quote": "If the application was not approved prior to gazettal of the latest version of the R-Codes, local authorities will be required to assess it under the latest version of the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e5a99c4c-abd3-5a42-b325-33af6e803c46"
+        },
+        {
+          "chunk_id": "e861291a-b6f6-40ed-911a-1bec522ec05a",
+          "chunk_index": 8,
+          "reference": "Residential Design Codes",
+          "quote": "3 Residential Design Codes Volume 2 \u2013 Apartments are available for download from the Design WA documents and additional resources page as individual Microsoft Word documents.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "0cc552c5-3b56-5849-846f-b8e375182812"
+        },
+        {
+          "chunk_id": "e861291a-b6f6-40ed-911a-1bec522ec05a",
+          "chunk_index": 8,
+          "reference": "R-Codes",
+          "quote": "This includes: For the application of R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "0cc552c5-3b56-5849-846f-b8e375182812"
+        },
+        {
+          "chunk_id": "c402b19a-ca6f-4ce6-acc3-81669afb4ee3",
+          "chunk_index": 16,
+          "reference": "R-Codes",
+          "quote": "Indonesian Irish Italian Japanese Javanese Kannada Kazakh Khmer Kinyarwanda Korean Krio Kurdish (Kurmanji) Kurdish (Soran\u00ee) Kyrgyz Lao Latvian Lingala Lithuanian Luganda Macedonian Malagasy Malay Malayalam Maltese Maori Marathi Mongolian Nepali Norwegian Odia (Oriya) Oromo Pashto Persian Polish Portuguese Punjabi Quechua Romanian Russian Scots Gaelic Serbian Sesotho Shona Sindhi Sinhala Slovak Slovenian Somali Spanish Sundanese Swahili Swedish Tajik Tamil Tatar Telugu Thai Tigrinya Turkish Turkmen Uyghur Ukrainian Urdu Uzbek Vietnamese Welsh Xhosa Yiddish Yoruba Zulu Home WA Government Document collections AAAC Guideline for Apartment and Townhouse Acoustic Rating WALGA Multiple Dwelling Waste Management Plan Guidelines Livable Housing Design Guidelines R-Codes Volume 2 \u2013 Apartments Assessment Template A4 Design Development Guidance: Assists proponents as their designs develop.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "754bfe1e-13c8-5198-a501-32a619a626c0"
+        },
+        {
+          "chunk_id": "1264e995-d792-47cc-aedf-023e85c187c7",
+          "chunk_index": 17,
+          "reference": "Residential Design Codes",
+          "quote": "A5 Development Application Guidance: Assists proponents in formulating the appropriate materials when submitting a development application A6 Objectives Summary: Assists proponents and assessors to explain and assess the development against the Element Objectives listed in the Apartment Design Policy Residential Design Codes Residential Design Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "1d67a277-453e-5802-8837-76e1e577dc95"
+        },
+        {
+          "chunk_id": "8001663e-f4cf-4f04-8f59-9805d62f4f6d",
+          "chunk_index": 18,
+          "reference": "Residential Design Codes",
+          "quote": "Candidate public source links: Residential Design Codes page: https://www.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e12ed24d-e205-5122-962f-f5baed292373"
+        },
+        {
+          "chunk_id": "8001663e-f4cf-4f04-8f59-9805d62f4f6d",
+          "chunk_index": 18,
+          "reference": "R-Codes",
+          "quote": "3 R-Codes Vol 2 relationship to pre-existing local planning framework (PDF 498 kb): https://www.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e12ed24d-e205-5122-962f-f5baed292373"
+        },
+        {
+          "chunk_id": "8001663e-f4cf-4f04-8f59-9805d62f4f6d",
+          "chunk_index": 18,
+          "reference": "R-Codes",
+          "quote": "au/system/files/2021-07/POS-Position-Statement-SPP7-3-R-Codes-Vol-2-relationship-to-pre-existing-local-planning-framework.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e12ed24d-e205-5122-962f-f5baed292373"
+        },
+        {
+          "chunk_id": "8001663e-f4cf-4f04-8f59-9805d62f4f6d",
+          "chunk_index": 18,
+          "reference": "Residential Design Codes",
+          "quote": "pdf Residential Design Codes - Volume 2 - Apr 2024 (PDF, 12.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e12ed24d-e205-5122-962f-f5baed292373"
+        },
+        {
+          "chunk_id": "8001663e-f4cf-4f04-8f59-9805d62f4f6d",
+          "chunk_index": 18,
+          "reference": "r-codes",
+          "quote": "au/system/files/2024-04/r-codes-vol-2-2024-mar2024.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e12ed24d-e205-5122-962f-f5baed292373"
+        },
+        {
+          "chunk_id": "8001663e-f4cf-4f04-8f59-9805d62f4f6d",
+          "chunk_index": 18,
+          "reference": "R-Codes",
+          "quote": "pdf R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e12ed24d-e205-5122-962f-f5baed292373"
+        },
+        {
+          "chunk_id": "8001663e-f4cf-4f04-8f59-9805d62f4f6d",
+          "chunk_index": 18,
+          "reference": "R-Codes",
+          "quote": "docx R-Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e12ed24d-e205-5122-962f-f5baed292373"
+        },
+        {
+          "chunk_id": "8001663e-f4cf-4f04-8f59-9805d62f4f6d",
+          "chunk_index": 18,
+          "reference": "Residential Design Codes",
+          "quote": "docx Residential Design Codes Vol.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "e12ed24d-e205-5122-962f-f5baed292373"
+        }
+      ]
+    },
+    {
+      "source_version_id": "6045697e-7392-4a93-b1a8-c65e18861d9f",
+      "source_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
+      "title": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
+      "source_type": "regulations",
+      "resolved": 1,
+      "unresolved_manifest_rows": 3,
+      "edges": 4,
+      "items": [
+        {
+          "chunk_id": "9fcb6fb1-166b-4376-b975-f38f9c3f5d33",
+          "chunk_index": 1,
+          "reference": "Planning and Development Act 2005",
+          "quote": "WALW - Planning and Development Act 2005 - Subsidiary legislation Western Australian Legislation Planning and Development Act 2005 Acknowledgement of Country Acts \u27a4 In force \u27a4 Ceased \u27a4 In force and ceased \u27a4 By portfolio \u27a4 As passed \u27a4 Reprints Subsidiary Legislation \u27a4 As made Legislation information \u27a4 Acts \u27a4 Subsidiary legislation \u27a4 Bills \u27a4 Historical Indexes Government Gazettes COVID-19 directions \u27a4 Emergency Management Act 2005 \u27a4 Public Health Act 2016 Search \u27a4 Acts and Subsidiary legislation \u27a4 Acts as passed \u27a4 Subsidiary legislation as made \u27a4 Reprinted legislation \u27a4 Legislation information \u27a4 COVID-19 directions Notification Feeds Parliamentary Bills To provide feedback, please contact the Parliamentary Counsel\u2019s Office Helpdesk The Government of Western Australia acknowledges the traditional custodians throughout Western Australia and their continuing connection to the land, waters and community.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "104cfac7-c971-504c-ab93-851597c6bb04"
+        },
+        {
+          "chunk_id": "9fcb6fb1-166b-4376-b975-f38f9c3f5d33",
+          "chunk_index": 1,
+          "reference": "Western Australian Legislation Planning and Development Act 2005",
+          "quote": "WALW - Planning and Development Act 2005 - Subsidiary legislation Western Australian Legislation Planning and Development Act 2005 Acknowledgement of Country Acts \u27a4 In force \u27a4 Ceased \u27a4 In force and ceased \u27a4 By portfolio \u27a4 As passed \u27a4 Reprints Subsidiary Legislation \u27a4 As made Legislation information \u27a4 Acts \u27a4 Subsidiary legislation \u27a4 Bills \u27a4 Historical Indexes Government Gazettes COVID-19 directions \u27a4 Emergency Management Act 2005 \u27a4 Public Health Act 2016 Search \u27a4 Acts and Subsidiary legislation \u27a4 Acts as passed \u27a4 Subsidiary legislation as made \u27a4 Reprinted legislation \u27a4 Legislation information \u27a4 COVID-19 directions Notification Feeds Parliamentary Bills To provide feedback, please contact the Parliamentary Counsel\u2019s Office Helpdesk The Government of Western Australia acknowledges the traditional custodians throughout Western Australia and their continuing connection to the land, waters and community.",
+          "target_manifest_id": "552549a6-3659-5105-8e07-e9af30b42f6f",
+          "resolved": false,
+          "edge_id": "cd0d702c-0519-5f29-be27-8499fd36efa1"
+        },
+        {
+          "chunk_id": "9fcb6fb1-166b-4376-b975-f38f9c3f5d33",
+          "chunk_index": 1,
+          "reference": "Emergency Management Act 2005",
+          "quote": "WALW - Planning and Development Act 2005 - Subsidiary legislation Western Australian Legislation Planning and Development Act 2005 Acknowledgement of Country Acts \u27a4 In force \u27a4 Ceased \u27a4 In force and ceased \u27a4 By portfolio \u27a4 As passed \u27a4 Reprints Subsidiary Legislation \u27a4 As made Legislation information \u27a4 Acts \u27a4 Subsidiary legislation \u27a4 Bills \u27a4 Historical Indexes Government Gazettes COVID-19 directions \u27a4 Emergency Management Act 2005 \u27a4 Public Health Act 2016 Search \u27a4 Acts and Subsidiary legislation \u27a4 Acts as passed \u27a4 Subsidiary legislation as made \u27a4 Reprinted legislation \u27a4 Legislation information \u27a4 COVID-19 directions Notification Feeds Parliamentary Bills To provide feedback, please contact the Parliamentary Counsel\u2019s Office Helpdesk The Government of Western Australia acknowledges the traditional custodians throughout Western Australia and their continuing connection to the land, waters and community.",
+          "target_manifest_id": "e1d7c837-5401-5235-8c78-e72b4e52b5c6",
+          "resolved": false,
+          "edge_id": "64f6a133-8ca0-5e48-b585-4058da2bb560"
+        },
+        {
+          "chunk_id": "9fcb6fb1-166b-4376-b975-f38f9c3f5d33",
+          "chunk_index": 1,
+          "reference": "Public Health Act 2016",
+          "quote": "WALW - Planning and Development Act 2005 - Subsidiary legislation Western Australian Legislation Planning and Development Act 2005 Acknowledgement of Country Acts \u27a4 In force \u27a4 Ceased \u27a4 In force and ceased \u27a4 By portfolio \u27a4 As passed \u27a4 Reprints Subsidiary Legislation \u27a4 As made Legislation information \u27a4 Acts \u27a4 Subsidiary legislation \u27a4 Bills \u27a4 Historical Indexes Government Gazettes COVID-19 directions \u27a4 Emergency Management Act 2005 \u27a4 Public Health Act 2016 Search \u27a4 Acts and Subsidiary legislation \u27a4 Acts as passed \u27a4 Subsidiary legislation as made \u27a4 Reprinted legislation \u27a4 Legislation information \u27a4 COVID-19 directions Notification Feeds Parliamentary Bills To provide feedback, please contact the Parliamentary Counsel\u2019s Office Helpdesk The Government of Western Australia acknowledges the traditional custodians throughout Western Australia and their continuing connection to the land, waters and community.",
+          "target_manifest_id": "498d542e-0e88-5775-be53-336ff9da9bba",
+          "resolved": false,
+          "edge_id": "68fdc1e4-0cdf-5084-aa3d-165def502370"
+        }
+      ]
+    }
+  ]
+}

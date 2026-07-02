@@ -1,0 +1,20 @@
+{
+  "wp": "WP7",
+  "dry_run": true,
+  "summary": {
+    "approved_rules_scanned": 0,
+    "exception_edges_created": 0,
+    "exception_review_items": 0,
+    "cross_instrument_conflicts": 0,
+    "extraction_bug_review_items": 0,
+    "quoteless_legal_edges": null
+  },
+  "exception_edges_created": [],
+  "exception_review_items": [],
+  "cross_instrument_conflicts": [],
+  "extraction_bug_review_items": [],
+  "notes": [
+    "No AI-decided precedence changes were made."
+  ],
+  "gate_passed": true
+}

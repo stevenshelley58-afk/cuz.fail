@@ -1,0 +1,32 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260622062917
+Username: STEVEN\steve
+RunAs User: STEVEN\steve
+Configuration Name: 
+Machine: STEVEN (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -ExecutionPolicy Bypass -EncodedCommand JABFAHIAcgBvAHIAQQBjAHQAaQBvAG4AUAByAGUAZgBlAHIAZQBuAGMAZQAgAD0AIAAnAEMAbwBuAHQAaQBuAHUAZQAnAAoAUwB0AGEAcgB0AC0AVAByAGEAbgBzAGMAcgBpAHAAdAAgAC0AUABhAHQAaAAgACcAQwA6AFwARABlAHYAXABDAHUAegBcAHIAZQBwAG8AcgB0AHMAXAByAHUAbgB0AGkAbQBlAFwAdwBzAGwAXwByAGUAcABhAGkAcgBfADIAMAAyADYAMAA2ADIAMgBfADAANgAyADkAMQAwAC4AbABvAGcAJwAgAC0ARgBvAHIAYwBlAAoAVwByAGkAdABlAC0ASABvAHMAdAAgACcAPQA9ACAAdwBzAGwAIAAtAC0AaQBuAHMAdABhAGwAbAAgAC0AZAAgAFUAYgB1AG4AdAB1ACAAPQA9ACcACgB3AHMAbAAgAC0ALQBpAG4AcwB0AGEAbABsACAALQBkACAAVQBiAHUAbgB0AHUACgBXAHIAaQB0AGUALQBIAG8AcwB0ACAAJwA9AD0AIAB3AHMAbAAgAC0ALQB1AHAAZABhAHQAZQAgAC0ALQB3AGUAYgAtAGQAbwB3AG4AbABvAGEAZAAgAD0APQAnAAoAdwBzAGwAIAAtAC0AdQBwAGQAYQB0AGUAIAAtAC0AdwBlAGIALQBkAG8AdwBuAGwAbwBhAGQACgBXAHIAaQB0AGUALQBIAG8AcwB0ACAAJwA9AD0AIAB3AHMAbAAgAC0ALQBzAGUAdAAtAGQAZQBmAGEAdQBsAHQALQB2AGUAcgBzAGkAbwBuACAAMgAgAD0APQAnAAoAdwBzAGwAIAAtAC0AcwBlAHQALQBkAGUAZgBhAHUAbAB0AC0AdgBlAHIAcwBpAG8AbgAgADIACgBXAHIAaQB0AGUALQBIAG8AcwB0ACAAJwA9AD0AIAB3AHMAbAAgAC0ALQBsAGkAcwB0ACAALQAtAHYAZQByAGIAbwBzAGUAIAA9AD0AJwAKAHcAcwBsACAALQAtAGwAaQBzAHQAIAAtAC0AdgBlAHIAYgBvAHMAZQAKAFcAcgBpAHQAZQAtAEgAbwBzAHQAIAAnAD0APQAgAGQAbwBjAGsAZQByACAAdgBlAHIAcwBpAG8AbgAgAD0APQAnAAoAZABvAGMAawBlAHIAIAB2AGUAcgBzAGkAbwBuAAoAUwB0AG8AcAAtAFQAcgBhAG4AcwBjAHIAaQBwAHQA
+Process ID: 30048
+PSVersion: 5.1.26100.8655
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.8655
+BuildVersion: 10.0.26100.8655
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Dev\Cuz\reports\runtime\wsl_repair_20260622_062910.log
+== wsl --install -d Ubuntu ==
+wsl: WSL installation appears to be corrupted (Error code: Wsl/CallMsi/Install/REGDB_E_CLASSNOTREG).
+Press any key to repair WSL, or CTRL-C to cancel.
+This prompt will time out in 60 seconds.
+Class not registered
+Error code: Wsl/CallMsi/Install/REGDB_E_CLASSNOTREG
+== wsl --update --web-download ==
+wsl: WSL installation appears to be corrupted (Error code: Wsl/CallMsi/Install/REGDB_E_CLASSNOTREG).
+Press any key to repair WSL, or CTRL-C to cancel.
+This prompt will time out in 60 seconds.
+Class not registered
+Error code: Wsl/CallMsi/Install/REGDB_E_CLASSNOTREG
+== wsl --set-default-version 2 ==

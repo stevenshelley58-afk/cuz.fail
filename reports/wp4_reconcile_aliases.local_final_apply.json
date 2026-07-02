@@ -1,0 +1,161 @@
+{
+  "wp": "WP4",
+  "mode": "apply",
+  "rows_scanned": 15,
+  "changed": 0,
+  "by_recommendation": {
+    "blocked": 15
+  },
+  "decisions": [
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument_name": "Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "683f8658-ffc9-5c51-a7d0-e9c59d84769c",
+      "instrument_name": "City of Cockburn LPP 1.12 - Noise Attenuation",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "322eb433-e2de-552b-af72-70716325de1e",
+      "instrument_name": "City of Cockburn LPP 1.15 - Tourist Accommodation",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "592f459e-18a7-5d03-a98b-495281dae2d1",
+      "instrument_name": "City of Melville LPP 1.4 - Provision of Public Art in Development Proposals",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
+      "instrument_name": "Greater Bunbury Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "07931dc0-f5bd-55a6-ba83-27e1e404f426",
+      "instrument_name": "Metropolitan Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "cf3f9033-7107-59d4-b964-c65fa6599730",
+      "instrument_name": "Peel Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "21304b46-8115-54aa-92af-46c5dba16cb3",
+      "instrument_name": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "f43253ae-ae6d-5c1a-812b-e5355d6f7114",
+      "instrument_name": "Planning and Development (Planning Codes) Regulations 2024",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "a4c6b3da-cb07-55ff-a6d4-57fc3f259f63",
+      "instrument_name": "Planning and Development (Region Planning Schemes) Regulations 2023",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "dfbeedcc-38e8-538f-9241-d456519b9d10",
+      "instrument_name": "Planning and Development (State Planning Policies) Regulations 2024",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "f6b98ddb-b589-56e2-b207-1bc483462fb2",
+      "instrument_name": "Planning and Development Regulations 2009",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "0aaa6e02-d0da-5c22-82ce-aba9d1c771be",
+      "instrument_name": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+      "instrument_name": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "7b69f715-4ddf-50d3-8c89-f8adfe3e3f98",
+      "instrument_name": "State Planning Policy 7.3 - Residential Design Codes Volume 2 - Apartments",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    }
+  ]
+}

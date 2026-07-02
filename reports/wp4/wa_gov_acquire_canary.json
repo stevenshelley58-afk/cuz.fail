@@ -1,0 +1,71 @@
+{
+  "wp": "WP4",
+  "worker": "wp4-wa-gov-canary",
+  "claim_status": "pending",
+  "processed": 5,
+  "summary": {
+    "acquired": 5,
+    "metadata_only": 0,
+    "blocked": 0,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "acquired": 217,
+    "blocked": 23,
+    "metadata_only": 150,
+    "out_of_scope": 42,
+    "pending": 2637
+  },
+  "items": [
+    {
+      "manifest_id": "5da25c32-e6a5-5cb8-acee-ae1292135c10",
+      "instrument": "City of Albany Albany Scheme Text",
+      "category": "local_planning_scheme",
+      "status": "acquired",
+      "doc_id": "3598f70c-4491-51ab-b2bd-7666f2b3d944",
+      "notes": "WP4 acquired (367 chunks, duplicate=False)",
+      "chunks": "367",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "d9c649bd-79eb-5971-878f-167b0634ec99",
+      "instrument": "City of Armadale Armadale Scheme Text",
+      "category": "local_planning_scheme",
+      "status": "acquired",
+      "doc_id": "2da6fa45-116d-59e6-ab2c-a74079e7941b",
+      "notes": "WP4 acquired (542 chunks, duplicate=False)",
+      "chunks": "542",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "7a8d0929-dad7-5357-8c29-07ba912314ca",
+      "instrument": "City of Bayswater Bayswater Scheme Text",
+      "category": "local_planning_scheme",
+      "status": "acquired",
+      "doc_id": "abf12661-4463-53fc-87f3-2b9f95e087b0",
+      "notes": "WP4 acquired (307 chunks, duplicate=False)",
+      "chunks": "307",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "81bfdd53-a0a8-5003-9753-ae6cabd71190",
+      "instrument": "City of Belmont Belmont Scheme Text",
+      "category": "local_planning_scheme",
+      "status": "acquired",
+      "doc_id": "e4168670-896d-599e-be2d-e8f4edb7c20c",
+      "notes": "WP4 acquired (204 chunks, duplicate=False)",
+      "chunks": "204",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "3a31252e-b7c7-5af7-a101-d6e4505011d0",
+      "instrument": "City of Bunbury Bunbury scheme text",
+      "category": "local_planning_scheme",
+      "status": "acquired",
+      "doc_id": "170bf359-2c0f-58d7-859d-b72adf12fe1d",
+      "notes": "WP4 acquired (239 chunks, duplicate=False)",
+      "chunks": "239",
+      "duplicate": "False"
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "wp": "WP4",
+  "worker": "wp4-WIN-JA4C8FOQU9T",
+  "claim_status": "blocked",
+  "processed": 20,
+  "summary": {
+    "acquired": 0,
+    "metadata_only": 0,
+    "blocked": 20,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "acquired": 202,
+    "blocked": 30,
+    "metadata_only": 11,
+    "out_of_scope": 42
+  },
+  "items": [
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    }
+  ]
+}

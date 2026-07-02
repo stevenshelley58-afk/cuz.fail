@@ -1,0 +1,262 @@
+{
+  "wp": "WP4",
+  "mode": "apply",
+  "rows_scanned": 25,
+  "changed": 5,
+  "by_recommendation": {
+    "blocked": 20,
+    "acquired": 5
+  },
+  "decisions": [
+    {
+      "manifest_id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+      "instrument_name": "Aboriginal Affairs Planning Authority Act 1972",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "d312ba9e-141f-524d-b9cf-cb3494cef349",
+      "instrument_name": "Building Act 2011",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "fda5cd89-1bee-54aa-931c-da5e2c561030",
+      "instrument_name": "Framework STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "3a6e9a0a-9c6b-58e4-b202-806d20b06632",
+      "instrument_name": "Guidelines STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "4dcf522b-b4f2-52e8-bc7e-37ea1ea506f4",
+      "instrument_name": "Heritage of Western Australia Act 1990",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument_name": "Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "acquired",
+      "reason": "Title variant resolved to an already acquired source document.",
+      "source_document_id": "4890c32f-4027-5a92-b06c-f9405d68f5b3",
+      "source_title": "Planning and Development Act 2005",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_722_homepage.html"
+    },
+    {
+      "manifest_id": "77ae40c5-2b6e-55aa-a423-ddd7f68a68ba",
+      "instrument_name": "STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "ed7c54c3-4c40-5ccc-b252-208f390c225a",
+      "instrument_name": "Statements STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "9f97363f-7a3b-52d4-9255-b6dcd7087aa7",
+      "instrument_name": "Strategies STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "ce9c2278-d128-5d86-8c58-12f0fe584c4c",
+      "instrument_name": "The Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "acquired",
+      "reason": "Title variant resolved to an already acquired source document.",
+      "source_document_id": "4890c32f-4027-5a92-b06c-f9405d68f5b3",
+      "source_title": "Planning and Development Act 2005",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_722_homepage.html"
+    },
+    {
+      "manifest_id": "bd14b429-a62f-5a77-b1a7-e04648d2bf11",
+      "instrument_name": "Local Planning Scheme No 6",
+      "current_status": "blocked",
+      "recommended_status": "acquired",
+      "reason": "Title variant resolved to an already acquired source document.",
+      "source_document_id": "5c0fb323-f6f6-5651-912f-d6c151dd4220",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-02/melville_6_schemetext.pdf"
+    },
+    {
+      "manifest_id": "2c83f1bb-6f06-5873-8234-f0ae18ddd64e",
+      "instrument_name": "Local Planning Scheme No.6",
+      "current_status": "blocked",
+      "recommended_status": "acquired",
+      "reason": "Title variant resolved to an already acquired source document.",
+      "source_document_id": "5c0fb323-f6f6-5651-912f-d6c151dd4220",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-02/melville_6_schemetext.pdf"
+    },
+    {
+      "manifest_id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
+      "instrument_name": "Greater Bunbury Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "07931dc0-f5bd-55a6-ba83-27e1e404f426",
+      "instrument_name": "Metropolitan Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "cf3f9033-7107-59d4-b964-c65fa6599730",
+      "instrument_name": "Peel Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "21304b46-8115-54aa-92af-46c5dba16cb3",
+      "instrument_name": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "f43253ae-ae6d-5c1a-812b-e5355d6f7114",
+      "instrument_name": "Planning and Development (Planning Codes) Regulations 2024",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "a4c6b3da-cb07-55ff-a6d4-57fc3f259f63",
+      "instrument_name": "Planning and Development (Region Planning Schemes) Regulations 2023",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "dfbeedcc-38e8-538f-9241-d456519b9d10",
+      "instrument_name": "Planning and Development (State Planning Policies) Regulations 2024",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "f6b98ddb-b589-56e2-b207-1bc483462fb2",
+      "instrument_name": "Planning and Development Regulations 2009",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "8fb1dfe5-1e2b-5f29-be1d-c4464f0b5368",
+      "instrument_name": "Planning and Development Regulations 2015",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "0aaa6e02-d0da-5c22-82ce-aba9d1c771be",
+      "instrument_name": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
+      "current_status": "blocked",
+      "recommended_status": "acquired",
+      "reason": "Title variant resolved to an already acquired source document.",
+      "source_document_id": "d0ea9d65-65e1-59e4-88c5-cbdc4c835854",
+      "source_title": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
+      "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html"
+    },
+    {
+      "manifest_id": "72bcc5d6-0551-5897-8537-c620e65818d8",
+      "instrument_name": "State Planning Policy 2.3",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "57ec32cd-5515-5840-9861-1c0f924a61b3",
+      "instrument_name": "State Planning Policy 4.3",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    },
+    {
+      "manifest_id": "0b521284-4667-54c8-b8d5-05e09cc9cfea",
+      "instrument_name": "State Planning Policy 7.1",
+      "current_status": "blocked",
+      "recommended_status": "blocked",
+      "reason": "No safe alias or supersession reconciliation found.",
+      "source_document_id": null,
+      "source_title": null,
+      "canonical_url": null
+    }
+  ]
+}

@@ -11,9 +11,10 @@ Pipeline (docs/CORPUS_COMPLETENESS_PLAN.md Phase 4 / DB_BUILDOUT_AGENT_PLAN WP6)
      (source_version_id, clause_key)).
   2. For EVERY clause containing a number (no topic regex, no keyword
      disposition gate — the LLM decides whether a clause yields rule atoms):
-     3 blind extraction passes, temperature 0, strict JSON, mandatory
-     verbatim quote anchor per atom. Pass 1+2 = MiniMax, pass 3 = OpenAI
-     (different model family) when available (escalation logged otherwise).
+     3 blind extraction passes, strict JSON, mandatory verbatim quote anchor
+     per atom. Cheap OpenAI-compatible endpoints (Kimi/Moonshot locally) may
+     provide the first two passes; promotion still requires a genuinely
+     different model-family vote.
   3. Deterministic validators (draftcheck.extraction.validators) plus range
      priors, R-code sanity (R5..R80 + RAC/R-AC excluded), mandatory pathway.
      An atom whose ONLY failure is an unknown rule_key is kept as a
@@ -39,7 +40,9 @@ import hashlib
 import json
 import os
 import re
+import shutil
 import sys
+import subprocess
 import threading
 import time
 import urllib.error
@@ -189,6 +192,8 @@ SYSTEM_PROMPT = (
 # USD per 1M tokens (input, output). Estimates only — flagged in metadata_json.
 MODEL_PRICES_PER_M: dict[str, tuple[float, float]] = {
     "MiniMax-M2": (0.30, 1.20),
+    "kimi-k2.6": (0.95, 4.00),
+    "kimi-k2.5": (0.60, 3.00),
     "gpt-4o": (2.50, 10.00),
     "gpt-4o-mini": (0.15, 0.60),
     "openai/gpt-4o": (2.50, 10.00),
@@ -319,6 +324,8 @@ class LlmEndpoint:
     model: str
     base_url: str
     api_key: str
+    temperature: float | None = 0
+    extra_body: dict[str, Any] = field(default_factory=dict)
 
     def complete(self, system: str, user: str, max_tokens: int = 3000) -> str:
         body = {
@@ -327,9 +334,11 @@ class LlmEndpoint:
                 {"role": "system", "content": system},
                 {"role": "user", "content": user},
             ],
-            "temperature": 0,
             "max_tokens": max_tokens,
         }
+        if self.temperature is not None:
+            body["temperature"] = self.temperature
+        body.update(self.extra_body)
         req = urllib.request.Request(
             f"{self.base_url.rstrip('/')}/chat/completions",
             data=json.dumps(body).encode("utf-8"),
@@ -370,70 +379,309 @@ class LlmEndpoint:
         raise RuntimeError(f"{self.name} call failed after retries: {last_err}")
 
 
-def build_endpoints() -> tuple[list[LlmEndpoint], list[str]]:
+@dataclass
+class AnthropicEndpoint:
+    name: str
+    model: str
+    api_key: str
+    base_url: str = "https://api.anthropic.com/v1"
+
+    def complete(self, system: str, user: str, max_tokens: int = 3000) -> str:
+        body = {
+            "model": self.model,
+            "max_tokens": max_tokens,
+            "system": system,
+            "messages": [{"role": "user", "content": user}],
+        }
+        req = urllib.request.Request(
+            f"{self.base_url.rstrip('/')}/messages",
+            data=json.dumps(body).encode("utf-8"),
+            headers={
+                "x-api-key": self.api_key,
+                "anthropic-version": "2023-06-01",
+                "Content-Type": "application/json",
+            },
+            method="POST",
+        )
+        last_err: Exception | None = None
+        delays = llm_retry_delays()
+        for attempt, delay in enumerate(delays):
+            if delay:
+                time.sleep(delay)
+            try:
+                with urllib.request.urlopen(req, timeout=180) as resp:
+                    payload = json.loads(resp.read().decode("utf-8"))
+                content_blocks = payload.get("content", [])
+                text = "".join(
+                    block.get("text", "")
+                    for block in content_blocks
+                    if isinstance(block, dict) and block.get("type") == "text"
+                )
+                try:
+                    usage = payload.get("usage")
+                    record_spend(self.name, self.model, usage if isinstance(usage, dict) else None)
+                except Exception as exc:  # noqa: BLE001 — spend logging must never fail extraction
+                    print(f"WARN spend capture failed: {exc}", file=sys.stderr, flush=True)
+                if not text.strip():
+                    raise RuntimeError("anthropic response contained no text content")
+                return text.strip()
+            except urllib.error.HTTPError as exc:
+                last_err = exc
+                if exc.code == 429 and attempt < len(delays) - 1:
+                    retry_after = exc.headers.get("Retry-After")
+                    if retry_after:
+                        try:
+                            time.sleep(max(float(retry_after), 0.0))
+                        except ValueError:
+                            pass
+                    continue
+                if exc.code not in {408, 429, 500, 502, 503, 504}:
+                    raise
+            except (urllib.error.URLError, OSError, KeyError, json.JSONDecodeError) as exc:
+                last_err = exc
+        raise RuntimeError(f"{self.name} call failed after retries: {last_err}")
+
+
+@dataclass
+class ClaudeCliEndpoint:
+    name: str
+    model: str
+    cli_path: str = "claude"
+
+    def complete(self, system: str, user: str, max_tokens: int = 3000) -> str:
+        prompt_tokens = _rough_token_count(system) + _rough_token_count(user)
+        max_prompt_tokens = int(os.environ.get("WP6_CLAUDE_CLI_MAX_PROMPT_TOKENS", "12000"))
+        if prompt_tokens > max_prompt_tokens:
+            raise RuntimeError(
+                f"claude_cli prompt token estimate {prompt_tokens} exceeds "
+                f"WP6_CLAUDE_CLI_MAX_PROMPT_TOKENS={max_prompt_tokens}"
+            )
+
+        cli = shutil.which(self.cli_path) or self.cli_path
+        timeout = int(os.environ.get("WP6_CLAUDE_CLI_TIMEOUT_SECONDS", "240"))
+        budget = os.environ.get("WP6_CLAUDE_CLI_MAX_BUDGET_USD", "0.25")
+        cmd = [
+            cli,
+            "--print",
+            "--no-session-persistence",
+            "--tools",
+            "",
+            "--model",
+            self.model,
+            "--system-prompt",
+            system,
+            "--max-budget-usd",
+            budget,
+            user,
+        ]
+        completed = subprocess.run(
+            cmd,
+            check=False,
+            text=True,
+            capture_output=True,
+            timeout=timeout,
+        )
+        if completed.returncode != 0:
+            stderr = completed.stderr.strip()[-1000:]
+            raise RuntimeError(f"claude_cli exited {completed.returncode}: {stderr}")
+        text = completed.stdout.strip()
+        if not text:
+            stderr = completed.stderr.strip()[-1000:]
+            raise RuntimeError(f"claude_cli returned empty output: {stderr}")
+        record_spend(
+            self.name,
+            self.model,
+            {
+                "prompt_tokens": prompt_tokens,
+                "completion_tokens": min(max_tokens, _rough_token_count(text)),
+            },
+        )
+        return text
+
+
+def _rough_token_count(text: str) -> int:
+    return max(1, len(re.findall(r"\S+", text or "")))
+
+
+def _env_truthy(name: str) -> bool:
+    return os.environ.get(name, "").strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _first_env(*names: str) -> str:
+    for name in names:
+        value = os.environ.get(name, "").strip()
+        if value:
+            return value
+    return ""
+
+
+def _kimi_endpoint() -> LlmEndpoint | None:
+    api_key = _first_env("WP6_KIMI_API_KEY", "MOONSHOT_API_KEY", "KIMI_API_KEY")
+    if not api_key:
+        return None
+    model = os.environ.get("WP6_KIMI_MODEL", "kimi-k2.6").strip() or "kimi-k2.6"
+    base_url = os.environ.get("WP6_KIMI_BASE_URL", "https://api.moonshot.ai/v1").strip()
+    thinking = os.environ.get("WP6_KIMI_THINKING", "disabled").strip().lower()
+    extra_body: dict[str, Any] = {}
+    if model in {"kimi-k2.6", "kimi-k2.5"} and thinking in {"enabled", "disabled"}:
+        extra_body["thinking"] = {"type": thinking}
+    return LlmEndpoint(
+        "kimi",
+        model,
+        base_url,
+        api_key,
+        temperature=None,
+        extra_body=extra_body,
+    )
+
+
+def _anthropic_endpoint(escalations: list[str]) -> AnthropicEndpoint | None:
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if not api_key:
+        return None
+    model = os.environ.get("WP6_ANTHROPIC_MODEL", "").strip()
+    if not model:
+        escalations.append(
+            "ANTHROPIC_API_KEY is set but WP6_ANTHROPIC_MODEL is missing; "
+            "direct Anthropic WP6 endpoint disabled to avoid guessing a model id."
+        )
+        return None
+    return AnthropicEndpoint(
+        "anthropic",
+        model,
+        api_key,
+        os.environ.get("WP6_ANTHROPIC_BASE_URL", "https://api.anthropic.com/v1").strip(),
+    )
+
+
+type RuleExtractionEndpoint = LlmEndpoint | AnthropicEndpoint | ClaudeCliEndpoint
+
+
+def build_endpoints() -> tuple[list[RuleExtractionEndpoint], list[str]]:
     """Return ([pass1, pass2, pass3] endpoints, escalations)."""
     escalations: list[str] = []
-    minimax_key = os.environ.get("MINIMAX_API_KEY", "")
-    minimax_base = os.environ.get("MINIMAX_BASE_URL", "https://api.minimaxi.chat/v1")
+    if os.environ.get("MINIMAX_API_KEY", "").strip():
+        escalations.append("MINIMAX_API_KEY is present but ignored for this local all-WA buildout.")
+    kimi = _kimi_endpoint()
+    anthropic = _anthropic_endpoint(escalations)
     openrouter_key = os.environ.get("OPENROUTER_API_KEY", "")
     openrouter_base = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
     openai_key = os.environ.get("OPENAI_API_KEY", "")
-    force_openai = os.environ.get("WP6_FORCE_OPENAI_ENSEMBLE", "").strip().lower() in {"1", "true", "yes"}
+    force_openai = _env_truthy("WP6_FORCE_OPENAI_ENSEMBLE")
+    enable_claude_cli = _env_truthy("WP6_ENABLE_CLAUDE_CLI")
+    allow_openai = _env_truthy("WP6_ALLOW_OPENAI")
 
-    if force_openai or not minimax_key:
+    secondary: RuleExtractionEndpoint | None = None
+    if anthropic is not None:
+        secondary = anthropic
+    elif openrouter_key:
+        secondary = LlmEndpoint(
+            "openrouter",
+            os.environ.get("WP6_OPENROUTER_FRONTIER_MODEL", "anthropic/claude-sonnet-4.5"),
+            openrouter_base,
+            openrouter_key,
+        )
+    elif enable_claude_cli:
+        secondary = ClaudeCliEndpoint(
+            "claude_cli",
+            os.environ.get("WP6_CLAUDE_CLI_MODEL", "sonnet"),
+            os.environ.get("WP6_CLAUDE_CLI_PATH", "claude"),
+        )
+
+    if kimi is not None:
+        if secondary is None:
+            escalations.append(
+                "Kimi endpoint configured without a second model family; WP6 can extract "
+                "validator-passed candidates but family-aware adjudication will not auto-promote."
+            )
+            return [kimi, kimi, kimi], escalations
+        escalations.append(
+            "Using Kimi/Moonshot for cheap WP6 passes and a separate configured endpoint for "
+            "the independent family vote."
+        )
+        return [kimi, kimi, secondary], escalations
+
+    if force_openai or (allow_openai and openai_key):
         if openai_key:
             mini = LlmEndpoint(
-                "openai_mini",
+                "openai",
                 os.environ.get("WP6_OPENAI_MINI_MODEL", "gpt-4o-mini"),
                 "https://api.openai.com/v1",
                 openai_key,
             )
             frontier = LlmEndpoint(
-                "openai_frontier",
+                "openai",
                 os.environ.get("WP6_OPENAI_FRONTIER_MODEL", "gpt-4o"),
                 "https://api.openai.com/v1",
                 openai_key,
             )
         elif openrouter_key:
             mini = LlmEndpoint(
-                "openrouter_mini",
+                "openrouter",
                 os.environ.get("WP6_OPENROUTER_MINI_MODEL", "openai/gpt-4o-mini"),
                 openrouter_base,
                 openrouter_key,
             )
             frontier = LlmEndpoint(
-                "openrouter_frontier",
+                "openrouter",
                 os.environ.get("WP6_OPENROUTER_FRONTIER_MODEL", "openai/gpt-4o"),
                 openrouter_base,
                 openrouter_key,
             )
+        elif enable_claude_cli:
+            claude = ClaudeCliEndpoint(
+                "claude_cli",
+                os.environ.get("WP6_CLAUDE_CLI_MODEL", "sonnet"),
+                os.environ.get("WP6_CLAUDE_CLI_PATH", "claude"),
+            )
+            escalations.append(
+                "MiniMax/OpenAI/OpenRouter unavailable; using opt-in Claude CLI subscription "
+                "fallback. Provider-family independence is not met and token/cost usage is "
+                "estimated, but extraction still runs through the WP6 quote validators and "
+                "spend-event buffer."
+            )
+            return [claude, claude, claude], escalations
         else:
             raise RuntimeError("No usable OpenAI/OpenRouter key for WP6 fallback ensemble")
         escalations.append(
-            "MiniMax unavailable/disabled for WP6; using OpenAI mini + frontier fallback. "
-            "Provider-family independence is degraded but deterministic validators and quote anchors still gate promotion."
+            "Kimi unavailable; using explicitly allowed OpenAI/OpenRouter fallback. "
+            "Endpoint labels are conservative, so same-provider passes do not count as independent families."
         )
         return [mini, mini, frontier], escalations
 
-    if not minimax_key:
-        raise RuntimeError("MINIMAX_API_KEY missing — cannot run ensemble")
-    mm = LlmEndpoint("minimax", os.environ.get("MINIMAX_MODEL", "MiniMax-M2"), minimax_base, minimax_key)
-
     if openrouter_key:
-        other = LlmEndpoint("openrouter", "openai/gpt-4o", openrouter_base, openrouter_key)
-    elif openai_key:
-        other = LlmEndpoint("openai", "gpt-4o", "https://api.openai.com/v1", openai_key)
-        escalations.append(
-            "OPENROUTER_API_KEY missing on VPS; used direct OpenAI gpt-4o as the second "
-            "model family for pass 3. Unblock: add OPENROUTER_API_KEY to infra/v3 env."
+        fallback = LlmEndpoint(
+            "openrouter",
+            os.environ.get("WP6_OPENROUTER_MINI_MODEL", "openai/gpt-4o-mini"),
+            openrouter_base,
+            openrouter_key,
         )
+        escalations.append(
+            "Kimi unavailable; using OpenRouter-only fallback. Family independence is not met."
+        )
+        return [fallback, fallback, secondary or fallback], escalations
+    elif enable_claude_cli:
+        claude = ClaudeCliEndpoint(
+            "claude_cli",
+            os.environ.get("WP6_CLAUDE_CLI_MODEL", "sonnet"),
+            os.environ.get("WP6_CLAUDE_CLI_PATH", "claude"),
+        )
+        escalations.append(
+            "Kimi/OpenRouter/OpenAI unavailable; using opt-in Claude CLI fallback only. "
+            "Provider-family independence is not met and token/cost usage is estimated."
+        )
+        return [claude, claude, claude], escalations
+    elif anthropic is not None:
+        escalations.append(
+            "Kimi/OpenRouter/OpenAI unavailable; using direct Anthropic fallback only. "
+            "Provider-family independence is not met."
+        )
+        return [anthropic, anthropic, anthropic], escalations
     else:
-        other = mm
-        escalations.append(
-            "Neither OPENROUTER_API_KEY nor OPENAI_API_KEY present — all 3 passes ran on "
-            "MiniMax (independent calls). 'Different model family' requirement NOT met."
+        raise RuntimeError(
+            "No usable WP6 endpoint; set WP6_KIMI_API_KEY or MOONSHOT_API_KEY for Kimi, "
+            "or configure OPENROUTER_API_KEY / WP6_ENABLE_CLAUDE_CLI for a fallback."
         )
-    return [mm, mm, other], escalations
 
 
 def parse_llm_json(raw: str) -> dict | None:
@@ -763,7 +1011,7 @@ def open_review_item(conn: psycopg.Connection, clause_id: str, reason: str) -> N
 
 def extract_for_clause(
     conn: psycopg.Connection,
-    endpoints: list[LlmEndpoint],
+    endpoints: list[RuleExtractionEndpoint],
     sv_id: str,
     clause_id: str,
     chunk_id: str | None,

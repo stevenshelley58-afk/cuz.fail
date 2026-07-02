@@ -9,7 +9,7 @@ single-insertion-path pipeline (fetch_public_source -> import_source -> chunks
   - HTTP 401/402/403         -> status='metadata_only' (licensed/paid; no full text)
   - 3 failed attempts        -> status='blocked', notes carry the error + the
                                 one-command unblock (re-run this script)
-  - no canonical_url         -> status='blocked' with a discovery note
+  - no canonical_url         -> left to WP4 triage/reporting; not claimable here
 
 Idempotent: import_source dedupes by content hash; re-running is safe. Workers
 never talk to each other — the manifest table is the queue.
@@ -21,6 +21,7 @@ Run inside the api container:
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import json
 import os
 import socket
@@ -53,7 +54,15 @@ CLAIM_SQL = text(
     UPDATE target_manifest SET claimed_by = :worker, lease_expires_at = now() + interval '30 minutes'
     WHERE id = (
         SELECT id FROM target_manifest
-        WHERE status = 'pending'
+        WHERE status = :claim_status
+          AND canonical_url IS NOT NULL
+          AND btrim(canonical_url) <> ''
+          AND (
+              CAST(:blocked_retry_started_at AS timestamptz) IS NULL
+              OR status <> 'blocked'
+              OR last_checked_at IS NULL
+              OR last_checked_at < CAST(:blocked_retry_started_at AS timestamptz)
+          )
           AND (lease_expires_at IS NULL OR lease_expires_at < now())
         ORDER BY category, instrument_name
         LIMIT 1
@@ -135,11 +144,12 @@ def acquire_one(
                 metadata=public_source.metadata,
                 completed=True,
             )
-            if len(result.chunks) < MIN_CHUNKS and not result.duplicate:
+            if len(result.chunks) < MIN_CHUNKS:
                 # A statute or policy that parses to a couple of chunks is almost
                 # certainly an index/landing page, not the instrument itself.
                 return {"status": "blocked", "doc_id": result.source.id,
-                        "notes": f"Suspected landing page ({len(result.chunks)} chunks from {url}). "
+                        "notes": f"Suspected landing page ({len(result.chunks)} chunks, "
+                                 f"duplicate={result.duplicate} from {url}). "
                                  "UNBLOCK: set canonical_url to the document itself (PDF), "
                                  "reset status='pending', re-run scripts/wp4_acquire.py"}
             return {"status": "acquired", "doc_id": result.source.id,
@@ -162,12 +172,21 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0, help="max manifest rows to process (0 = drain)")
     ap.add_argument("--worker-id", default=f"wp4-{socket.gethostname()}")
     ap.add_argument("--report", default="")
+    ap.add_argument(
+        "--claim-status",
+        choices=("pending", "blocked"),
+        default="pending",
+        help="manifest status to drain; use blocked to retry previously failed fetches",
+    )
     args = ap.parse_args()
 
     database_url = os.environ["DATABASE_URL"]
     org_id, user_id = operator_ids(database_url)
     library = SqlAlchemySourceLibrary.from_database_url(database_url)
     engine = create_engine(database_url)
+    blocked_retry_started_at = (
+        datetime.now(timezone.utc) if args.claim_status == "blocked" else None
+    )
 
     summary: dict[str, int] = {"acquired": 0, "metadata_only": 0, "blocked": 0, "errors": 0}
     items: list[dict[str, Any]] = []
@@ -175,7 +194,14 @@ def main() -> int:
 
     while args.limit == 0 or processed < args.limit:
         with engine.begin() as conn:
-            claimed = conn.execute(CLAIM_SQL, {"worker": args.worker_id}).mappings().first()
+            claimed = conn.execute(
+                CLAIM_SQL,
+                {
+                    "worker": args.worker_id,
+                    "claim_status": args.claim_status,
+                    "blocked_retry_started_at": blocked_retry_started_at,
+                },
+            ).mappings().first()
         if claimed is None:
             break
         row = dict(claimed)
@@ -202,7 +228,7 @@ def main() -> int:
         remaining = conn.execute(
             text("SELECT status, count(*) FROM target_manifest GROUP BY 1")
         ).fetchall()
-    report = {"wp": "WP4", "worker": args.worker_id, "processed": processed,
+    report = {"wp": "WP4", "worker": args.worker_id, "claim_status": args.claim_status, "processed": processed,
               "summary": summary, "manifest_status_after": dict(remaining), "items": items}
     out = json.dumps(report, indent=2, default=str)
     print(out)

@@ -1,0 +1,1638 @@
+{
+  "anchors_scanned": 5,
+  "by_authority": {
+    "City of Albany": 71,
+    "City of Armadale": 40,
+    "City of Bayswater": 8,
+    "City of Belmont": 10,
+    "City of Bunbury": 32
+  },
+  "by_category": {
+    "local_planning_scheme": 5,
+    "local_planning_strategy": 4,
+    "scheme_map": 70,
+    "structure_plan": 82
+  },
+  "councils_with_documents": 5,
+  "db_changes": {
+    "inserted_or_updated": 0,
+    "unchanged": 0
+  },
+  "documents_discovered": 161,
+  "failed_collections": [],
+  "instruments": [
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-01/albany-2-schemetext.pdf",
+      "category": "local_planning_scheme",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Albany Scheme Text",
+      "issuing_authority": "City of Albany",
+      "link_text": "Albany Scheme Text",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/LST-Albany.pdf",
+      "category": "local_planning_strategy",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Albany local planning strategy",
+      "issuing_authority": "City of Albany",
+      "link_text": "Albany local planning strategy",
+      "source_section": "Local Planning Strategies",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/bayonet-head-oyster-harbour-interim-revised.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Bayonet Head (Oyster Harbour) Interim Revised Outline Development Plan - WAPC Reference DP-12-00026",
+      "issuing_authority": "City of Albany",
+      "link_text": "Bayonet Head (Oyster Harbour) Interim Revised Outline Development Plan - WAPC Reference DP-12-00026",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-0374-big-grove-outline-development-plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Big Grove Outline Development Plan - WAPC Reference SPN 0374",
+      "issuing_authority": "City of Albany",
+      "link_text": "Big Grove Outline Development Plan - WAPC Reference SPN 0374",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/boundary_le_grade_and_flemington_street_stru.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Boundary, Le Grande and Flemington Street Structure Plan - WAPC Reference 801-05-04-0004P",
+      "issuing_authority": "City of Albany",
+      "link_text": "Boundary, Le Grande and Flemington Street Structure Plan - WAPC Reference 801-05-04-0004P",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-0252-catalina-rd-l30-and-35-lange.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Catalina Rd L30 and 35 Lange Outline Development Plan - WAPC Reference SPN/0252",
+      "issuing_authority": "City of Albany",
+      "link_text": "Catalina Rd L30 and 35 Lange Outline Development Plan - WAPC Reference SPN/0252",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/east_gledhow_northern_catchment_outline_devel.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany East Gledhow Northern Catchment Outline Development Plan - WAPC Reference SPN 0555",
+      "issuing_authority": "City of Albany",
+      "link_text": "East Gledhow Northern Catchment Outline Development Plan - WAPC Reference SPN 0555",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/federal-gladville_road_structure_plan_mckail.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Federal-Gladville Road Structure Plan McKail - WAPC Reference TPS 0352",
+      "issuing_authority": "City of Albany",
+      "link_text": "Federal-Gladville Road Structure Plan McKail - WAPC Reference TPS 0352",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/kalgan_rural_village_structure_plan-wapc_re.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Kalgan Rural Village Structure Plan - WAPC Reference SPN 0256",
+      "issuing_authority": "City of Albany",
+      "link_text": "Kalgan Rural Village Structure Plan - WAPC Reference SPN 0256",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/little_grove_structure_plan-wapc_reference.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Little Grove Structure Plan - WAPC Reference SPN 0375",
+      "issuing_authority": "City of Albany",
+      "link_text": "Little Grove Structure Plan - WAPC Reference SPN 0375",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/albany2_index_.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Albany Map Sheet Index",
+      "issuing_authority": "City of Albany",
+      "link_text": "Albany Map Sheet Index",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map1_albany_lps2_wellstead_surrounds.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 01 - Surrounds to Wellstead townsite",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 01 - Surrounds to Wellstead townsite",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map2_albany_lps2_stirling_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 02 - South Stirling townsite",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 02 - South Stirling townsite",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map3_albany_lps2_wellstead_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 03 - Wellstead locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 03 - Wellstead locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map4_albany_lps2_redmond_west_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 04 - Redmond West locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 04 - Redmond West locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map5_albany_lps2_redmond_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 05 - Redmond townsite",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 05 - Redmond townsite",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map6_albany_lps2_redmond_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 06 - Redmond locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 06 - Redmond locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map7_albany_lps2_napier_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 07 - Napier locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 07 - Napier locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map8_albany_lps2_kalgan_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 08 - Kalgan locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 08 - Kalgan locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map9_albany_lps2_kalgan_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 09 - Kalgan townsite",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 09 - Kalgan townsite",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map10_albany_lps2_manypeaks_locality_west.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 10 - Manypeaks locality (West)",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 10 - Manypeaks locality (West)",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map11_albany_lps2_manypeaks_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 11 - Manypeaks townsite",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 11 - Manypeaks townsite",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map12_albany_lps2_manypeaks_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 12 - Manypeaks locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 12 - Manypeaks locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map13_albany_lps2_cheynes_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 13 - Cheynes locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 13 - Cheynes locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map14_albany_lps2_wellstead_east.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 14 - Wellstead East",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 14 - Wellstead East",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map15_albany_lps2_youngs_siding_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 15 - Youngs Siding townsite",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 15 - Youngs Siding townsite",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map16_albany_lps2_youngs_siding_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 16 - Youngs Siding locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 16 - Youngs Siding locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map17_albany_lps2_torbay_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 17 - Torbay townsite",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 17 - Torbay townsite",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map18_albany_lps2_elleker_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 18 - Elleker townsite",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 18 - Elleker townsite",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map19_albany_lps2_morbay_marbelup_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 19 - Torbay Marbelup locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 19 - Torbay Marbelup locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map20_albany_lps2_willyung_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 20 - Willyung locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 20 - Willyung locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-02/map21_albany_lps2_gledhow_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 21 - Gledhow locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 21 - Gledhow locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-01/map22_albany_lps2_lower_king_bayonet_head_loc.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 22 - Lower King Bayonet Head locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 22 - Lower King Bayonet Head locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map23_albany_lps2_collingwood_park_emu_point_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 23 - Collingwood Park Emu Point locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 23 - Collingwood Park Emu Point locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map24_albany_lps2_nanarup_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 24 - Nanarup locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 24 - Nanarup locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map25_albany_lps2_manypeaks_locality_south_0.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 25 - Manypeaks locality South",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 25 - Manypeaks locality South",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map26_albany_lps2_bald_island_nature_reserve.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 26 - Bald Island nature reserve",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 26 - Bald Island nature reserve",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map27_albany_lps2_cheynes_locality_south.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 27 - Cheynes locality South",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 27 - Cheynes locality South",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map28_albany_lps2_ocean_beach_nullaki_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 28 - Ocean Beach Nullaki locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 28 - Ocean Beach Nullaki locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map29_albany_lps2_lowlands_west_cape_howe_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 29 - Lowlands West Cape Howe locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 29 - Lowlands West Cape Howe locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map30_albany_lps2_sandpatch_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 30 - Sandpatch/Torndirrup locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 30 - Sandpatch/Torndirrup locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map31_albany_lps2_torndirrup_little_grove_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 31 - Torndirrup/Little grove locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 31 - Torndirrup/Little grove locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map32_albany_lps2_torndirrup_locality_south_west.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 32 - Torndirrup locality (South-West)",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 32 - Torndirrup locality (South-West)",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map33_albany_lps2_vancouver_peninsula_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 33 - Vancouver Peninsula locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 33 - Vancouver Peninsula locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map34_albany_lps2_torndirrup_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 34 - Torndirrup locality",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 34 - Torndirrup locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-03/map35_albany_lps2_torndirrup_locality_east.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Local Planning Schemes - Map 35 - Torndirrup locality East",
+      "issuing_authority": "City of Albany",
+      "link_text": "Map 35 - Torndirrup locality East",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-0528m-1-mckail-north-outline-development-plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany McKail North Outline Development Plan - WAPC Reference SPN 0528M-1",
+      "issuing_authority": "City of Albany",
+      "link_text": "McKail North Outline Development Plan - WAPC Reference SPN 0528M-1",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/mckail_outline_development_plan-wapc_refere.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany McKail Outline Development Plan - WAPC Reference SPN 0136",
+      "issuing_authority": "City of Albany",
+      "link_text": "McKail Outline Development Plan - WAPC Reference SPN 0136",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-04/mckail-structure-plan-wapc-reference-spn-0144m-1_0.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany McKail Structure Plan - WAPC Reference SPN 0144M-1",
+      "issuing_authority": "City of Albany",
+      "link_text": "McKail Structure Plan - WAPC Reference SPN 0144M-1",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/south_lockyer_structure_plan-wapc_reference.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany South Lockyer Structure Plan - WAPC Reference 801-05-21-0011P",
+      "issuing_authority": "City of Albany",
+      "link_text": "South Lockyer Structure Plan - WAPC Reference 801-05-21-0011P",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/southern_mckail_outline_development_plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Southern Mckail Outline Development Plan (Silver, Costigan, Junction Sts & Le Grande Avenue) - WAPC Reference 808-05-21-0002P",
+      "issuing_authority": "City of Albany",
+      "link_text": "Southern Mckail Outline Development Plan (Silver, Costigan, Junction Sts & Le Grande Avenue) - WAPC Reference 808-05-21-0002P",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-853-05-04-0005p0235-almore-drive-rowney-road-and-princess-avenue-robinson-subdivision-guide-plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Almore Drive, Rowney Road and Princess Avenue Robinson Subdivision Guide Plan - WAPC Reference 853-05-04-0005P0235",
+      "issuing_authority": "City of Albany",
+      "link_text": "Almore Drive, Rowney Road and Princess Avenue Robinson Subdivision Guide Plan - WAPC Reference 853-05-04-0005P0235",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2159-Ardess-Walmsley-Report.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Ardess Walmsley SPN 2159",
+      "issuing_authority": "City of Albany",
+      "link_text": "Ardess Walmsley SPN 2159",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/bushby-bon-accord-road-subdivision-guide-plan-wapc-reference-853-05-04-0005p0159.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Bushby Bon Accord Road Subdivision Guide Plan - WAPC Reference 853-05-04-0005P0159",
+      "issuing_authority": "City of Albany",
+      "link_text": "Bushby Bon Accord Road Subdivision Guide Plan - WAPC Reference 853-05-04-0005P0159",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN0838-Albany-East-Gledhow-Southern-Catchment.PDF",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - East Gledhow Southern Catchment SPN 0838",
+      "issuing_authority": "City of Albany",
+      "link_text": "East Gledhow Southern Catchment SPN 0838",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2139-Albany-Lot-84-Harding-Rd%2C-Lots-85-86-Home-Rd-Lots-87-98-Frenchmans-Bay-Road-Robinson-Approval.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Harding Rd, Lot 84 , Lots 85-86 Home Rd and Lots 87, 98 Frenchmans Bay Road, Robinson SPN 2139",
+      "issuing_authority": "City of Albany",
+      "link_text": "Harding Rd, Lot 84 , Lots 85-86 Home Rd and Lots 87, 98 Frenchmans Bay Road, Robinson SPN 2139",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/john_street_and_morris_road_development_guide.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - John Street and Morris Road Development Guide Plan - WAPC Reference SPN 0357",
+      "issuing_authority": "City of Albany",
+      "link_text": "John Street and Morris Road Development Guide Plan - WAPC Reference SPN 0357",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2175-Albany-Johnston-Creek-Rural-Residential-No-17.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Johnston Creek Rural Residential SPN 2175",
+      "issuing_authority": "City of Albany",
+      "link_text": "Johnston Creek Rural Residential SPN 2175",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2193-Albany-Local-Structure-Plan-No-7-Lot-9000-Lancaster-Road-McKail.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Lot 9000 Lancaster Road McKail SPN 2193",
+      "issuing_authority": "City of Albany",
+      "link_text": "Lot 9000 Lancaster Road McKail SPN 2193",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-853-05-04-0005p0288-lot-9002-pony-club-road-subdivision-guide-plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Lot 9002 Pony Club Road Subdivision Guide Plan - WAPC Reference 853-05-04-0005P0288",
+      "issuing_authority": "City of Albany",
+      "link_text": "Lot 9002 Pony Club Road Subdivision Guide Plan - WAPC Reference 853-05-04-0005P0288",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2167-Albany-Lot-9041-Willyung-Road-Willyung-No-16.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Lot 9041 Willyung Road Willyung SPN 2167",
+      "issuing_authority": "City of Albany",
+      "link_text": "Lot 9041 Willyung Road Willyung SPN 2167",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/mcbride_road_goode_beach_subdivision_guide_pl.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - McBride Road Goode Beach Subdivision Guide Plan - WAPC Reference TPS 0617",
+      "issuing_authority": "City of Albany",
+      "link_text": "McBride Road Goode Beach Subdivision Guide Plan - WAPC Reference TPS 0617",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2016-1-Albany-Middleton-Beach-Activity-Centre-Plan-ALBT.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Middleton Beach Activity Centre Plan ALBT-2016-1",
+      "issuing_authority": "City of Albany",
+      "link_text": "Middleton Beach Activity Centre Plan ALBT-2016-1",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2202-No-13-Nanarup-Kula-Roads%2C-Lower-King.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Nanarup & Kula Roads, Lower King SPN 2202",
+      "issuing_authority": "City of Albany",
+      "link_text": "Nanarup & Kula Roads, Lower King SPN 2202",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/nanarup_and_gull_rock_road_subsivision_guide.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Nanarup and Gull Rock Road Subsivision Guide Plan - WAPC Reference 853-05-04-0005P0171",
+      "issuing_authority": "City of Albany",
+      "link_text": "Nanarup and Gull Rock Road Subsivision Guide Plan - WAPC Reference 853-05-04-0005P0171",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/pendeen_industrial_development_guide_plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Pendeen Industrial Development Guide Plan - WAPC Reference 853-05-04-0005P0119",
+      "issuing_authority": "City of Albany",
+      "link_text": "Pendeen Industrial Development Guide Plan - WAPC Reference 853-05-04-0005P0119",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/tps-0075-roberts-manni-monroe-crt-racecourse-rd-robinson-subdivision.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Roberts, Manni, Monroe Crt, Racecourse Rd Robinson Subdivision Guide Plan - WAPC Reference TPS 0075",
+      "issuing_authority": "City of Albany",
+      "link_text": "Roberts, Manni, Monroe Crt, Racecourse Rd Robinson Subdivision Guide Plan - WAPC Reference TPS 0075",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2176-Albany-Rural-Residential-Zone-22.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Rural Residential Zone 22 SPN 2176",
+      "issuing_authority": "City of Albany",
+      "link_text": "Rural Residential Zone 22 SPN 2176",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2086-Albany-Warrenup-Walmsley.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Warrenup-Walmsley SPN 2086",
+      "issuing_authority": "City of Albany",
+      "link_text": "Warrenup-Walmsley SPN 2086",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-853-05-04-0005p0177-willyung-pony-club-road-subdivision-guide-plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Structure Plans - Willyung-Pony Club Road Subdivision Guide Plan - WAPC Reference 853-05-04-0005P0177",
+      "issuing_authority": "City of Albany",
+      "link_text": "Willyung-Pony Club Road Subdivision Guide Plan - WAPC Reference 853-05-04-0005P0177",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-0726m-1-yakamia-lange.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-albany-planning-information",
+      "instrument_name": "City of Albany Yakamia/Lange Structure Structure Plan - WAPC Reference SPN 0726M-1",
+      "issuing_authority": "City of Albany",
+      "link_text": "Yakamia/Lange Structure Structure Plan - WAPC Reference SPN 0726M-1",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/spn-853-02-22-0004p0153-admiral-road-precinct-bedfordale.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Admiral Road Precinct Bedfordale Structure Plan - WAPC Reference 853-02-22-0004P0153",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Admiral Road Precinct Bedfordale Structure Plan - WAPC Reference 853-02-22-0004P0153",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-801-02-22-0012p-albany-hwy-owtram-rd-clarence-rd-frys-lane-armadale.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Albany Hwy Owtram Rd , Clarence Rd Frys Lane Armadale Structure Plan Precinct 1 - WAPC Reference 801-02-22-0012P",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Albany Hwy Owtram Rd , Clarence Rd Frys Lane Armadale Structure Plan Precinct 1 - WAPC Reference 801-02-22-0012P",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-09/anstey-keane-urban-development-precinct-east-structure-plan-amendment-no-1-wapc-reference-spn2225m-1.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Anstey Keane Urban Development Precinct (East) Structure Plan Amendment No. 1 - WAPC Reference: SPN/2225M-1",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Anstey Keane Urban Development Precinct (East) Structure Plan Amendment No. 1 - WAPC Reference: SPN/2225M-1",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/armadale_rd_l700_armadale_haynes_shopping_centre_structure_plan_amendment_no_1-wapc_reference_spn_0204m-1.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Armadale Rd L700 Armadale (Haynes Shopping Centre) Structure Plan Amendment No. 1 - WAPC Reference SPN 0204M-1",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Armadale Rd L700 Armadale (Haynes Shopping Centre) Structure Plan Amendment No. 1 - WAPC Reference SPN 0204M-1",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-04/armadale4-schemetext.pdf",
+      "category": "local_planning_scheme",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Armadale Scheme Text",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Armadale Scheme Text",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/spn-0811-cy-oconnor-village.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale CY O'Connor Village Structure Plan - WAPC Reference SPN 0811",
+      "issuing_authority": "City of Armadale",
+      "link_text": "CY O'Connor Village Structure Plan - WAPC Reference SPN 0811",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/centre_road_canning_river_west_precinct_urb.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Centre Road Canning River (West) Precinct Urban Structure Plan - WAPC Reference 801-02-22-0017P",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Centre Road Canning River (West) Precinct Urban Structure Plan - WAPC Reference 801-02-22-0017P",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2023-06/harrisdale-green-structure-plan-amendment-no-1-wapc-reference-spn-2212m-1.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Harrisdale Green Structure Plan Amendment No. 1 - WAPC Reference SPN 2212M-1",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Harrisdale Green Structure Plan Amendment No. 1 - WAPC Reference SPN 2212M-1",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2023-11/harrisdale-north-structure-plan-wapc-reference-spn-2346.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Harrisdale North Structure Plan - WAPC Reference SPN/2346",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Harrisdale North Structure Plan - WAPC Reference SPN/2346",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/spn-0446-lake-road-precinct-b-local_0.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Lake Road Precinct B Local Structure Plan - WAPC Reference SPN 0446",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lake Road Precinct B Local Structure Plan - WAPC Reference SPN 0446",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2023-07/lake-road-precinct-c-structure-plan-wapc-reference-spn-2337.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Lake Road Precinct C Structure Plan - WAPC Reference SPN 2337",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lake Road Precinct C Structure Plan - WAPC Reference SPN 2337",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/lake_road_westfield_structure_plan-wapc_ref.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Lake Road Westfield Structure Plan - WAPC Reference 801-02-22-0016P",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lake Road Westfield Structure Plan - WAPC Reference 801-02-22-0016P",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-10/LPSC-Armadale-Map-Index.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Armadale Map Index",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Armadale Map Index",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-10/map1_armadale_tps4_illawarra_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 01 - Illawarra locality",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 01 - Illawarra locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-10/map2_armadale_tps4_kelmscott_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 02 - Armadale Kelmscott locality",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 02 - Armadale Kelmscott locality",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-10/map3_armadale_tps4_roleystone_and_karragullen.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 03 - Roleystone and Karragullen localities",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 03 - Roleystone and Karragullen localities",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-10/map4_armadale_tps4_forrestdale_and_brookdale_0.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 04 - Armadale Forrestdale and Brookdale localities",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 04 - Armadale Forrestdale and Brookdale localities",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-10/map5_armadale_tps4_armadale_sevillegrove_moun.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 05 - Armadale Seville Grove and Mount Nasura localities",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 05 - Armadale Seville Grove and Mount Nasura localities",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-10/map6_armadale_tps4_bedfordale_illawarra.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 06 - Bedfordale Illawarra and Roleystone localities",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 06 - Bedfordale Illawarra and Roleystone localities",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-04/map7_armadale_tps4_forrestdale_and_brookdale.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 07 - Forrestdale and Brookdale localities south",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 07 - Forrestdale and Brookdale localities south",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-10/map8_armadale_tps4_brookdale_wungong_and.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 08 - Brookdale Wungong and Bedfordale localities",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 08 - Brookdale Wungong and Bedfordale localities",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-10/map9_armadale_tps4_bedfordale_and_illawarra.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Local Planning Schemes - Map 09 - Bedfordale and Illawarra localities",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Map 09 - Bedfordale and Illawarra localities",
+      "source_section": "Local Planning Schemes",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/lot-805-weelarra-heights-bedfordale-structure_rhianne-fiander.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Lot 805 Weelarra Heights Bedfordale Structure Plan - WAPC Reference SPN 0253",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lot 805 Weelarra Heights Bedfordale Structure Plan - WAPC Reference SPN 0253",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2023-09/lot-9012-jayes-road-piara-waters-local-structure-plan-wapc-reference-spn-2344.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Lot 9012 Jayes Road Piara Waters Local Structure Plan - WAPC Reference SPN 2344",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lot 9012 Jayes Road Piara Waters Local Structure Plan - WAPC Reference SPN 2344",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2023-08/lot-9101-warton-road-piara-waters-local-structure-plan-wapc-reference-spn-2326.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Lot 9101 Warton Road Piara Waters Local Structure Plan - WAPC Reference SPN 2326",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lot 9101 Warton Road Piara Waters Local Structure Plan - WAPC Reference SPN 2326",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-801-02-22-0013p-lowanna-way-little-john-rd-gladstone-rd-and-railway-ave-armadale.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Lowanna Way Little John Rd Gladstone Rd And Railway Ave Armadale Structure Plan - WAPC Reference 801-02-22-0013P",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lowanna Way Little John Rd Gladstone Rd And Railway Ave Armadale Structure Plan - WAPC Reference 801-02-22-0013P",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/spn-0066-oxley-rd-l431-forrestdale.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Oxley Rd L431 Forrestdale Structure Plan - WAPC Reference SPN 0066",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Oxley Rd L431 Forrestdale Structure Plan - WAPC Reference SPN 0066",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/spn-0251-seville-grove-portion-urban-unit-a14-consolidated.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Seville Grove Portion Urban Unit A14 Consolidated Structure Plan - WAPC Reference SPN 0251",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Seville Grove Portion Urban Unit A14 Consolidated Structure Plan - WAPC Reference SPN 0251",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-11/south-west_piara_waters_structure_plan_amendm.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale South-West Piara Waters Structure Plan Amendment No. 1 - WAPC Reference SPN 2320M-1",
+      "issuing_authority": "City of Armadale",
+      "link_text": "South-West Piara Waters Structure Plan Amendment No. 1 - WAPC Reference SPN 2320M-1",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2211-Armadale-Anstey-Keane-Urban-Development-Precinct-Northwest-Precinct.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - Anstey-Keane Urban Development Precinct- Northwest Precinct SPN 2211",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Anstey-Keane Urban Development Precinct- Northwest Precinct SPN 2211",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2222-Armadale-Anstey-Keane-Urban-Development-Precinct-South-West-Precinct.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - Anstey-Keane Urban Development Precinct-South West Precinct SPN 2222",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Anstey-Keane Urban Development Precinct-South West Precinct SPN 2222",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2015-4-Armadale-Canning-River-Clifton-Street-Precinct-South-ARMA.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - Canning River Clifton Street Precinct South ARMA-2015-4",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Canning River Clifton Street Precinct South ARMA-2015-4",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2256-Development-Area-No-25-North-Forrestdale-Stage-1-Central-Reilly-Road.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - Development Area No 25 North Forrestdale Stage 1 Central (Reilly Road) SPN 2256",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Development Area No 25 North Forrestdale Stage 1 Central (Reilly Road) SPN 2256",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2178-Armadale-Harrisdale-Activity-Centre-Plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - Harrisdale Activity Centre Plan SPN 2178",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Harrisdale Activity Centre Plan SPN 2178",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2123-Armadale-Lake-Road-Precinct-A1.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - Lake Road Precinct A1 SPN 2123",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lake Road Precinct A1 SPN 2123",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2015-3-Armadale-Lot-58-60-Centre-Road-and-Lot-27-Westfield-Road-Camillo-ARMA.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - Lot 58-60 Centre Road and Lot 27 Westfield Road Camillo ARMA-2015-3",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lot 58-60 Centre Road and Lot 27 Westfield Road Camillo ARMA-2015-3",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2146-Armadale-Lots-55-100-104-106-Shepherd-Court-Lots-112-124-Hatch-Court-Harrisdale.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - Lots 55, 100-104, 106 Shepherd Court & Lots 112 & 124 Hatch Court Harrisdale SPN 2146",
+      "issuing_authority": "City of Armadale",
+      "link_text": "Lots 55, 100-104, 106 Shepherd Court & Lots 112 & 124 Hatch Court Harrisdale SPN 2146",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2264-South-Forrestdale-Industrial-Area-Stage-1.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale Structure Plans - South Forrestdale Industrial Area Stage 1 SPN 2264",
+      "issuing_authority": "City of Armadale",
+      "link_text": "South Forrestdale Industrial Area Stage 1 SPN 2264",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-11/west-piara-urban-precinct-south-structure-plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale West Piara Urban Precinct South Structure Plan - Structure Plan Report SPN/2352",
+      "issuing_authority": "City of Armadale",
+      "link_text": "West Piara Urban Precinct South Structure Plan - Structure Plan Report SPN/2352",
+      "source_section": "Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/LST_City_of_Armadale.pdf",
+      "category": "local_planning_strategy",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-armadale-planning-information",
+      "instrument_name": "City of Armadale local planning strategy",
+      "issuing_authority": "City of Armadale",
+      "link_text": "City of Armadale local planning strategy",
+      "source_section": "Local Planning Strategies",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-02/bayswater24_schemetext_0.pdf",
+      "category": "local_planning_scheme",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bayswater-planning-information",
+      "instrument_name": "City of Bayswater Bayswater Scheme Text",
+      "issuing_authority": "City of Bayswater",
+      "link_text": "Bayswater Scheme Text",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-01/city-of-bayswater-strategy.pdf",
+      "category": "local_planning_strategy",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bayswater-planning-information",
+      "instrument_name": "City of Bayswater Local Planning Strategy",
+      "issuing_authority": "City of Bayswater",
+      "link_text": "City of Bayswater Local Planning Strategy",
+      "source_section": "Local planning strategy",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-10/LPSC-Bayswater-Map-Index.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bayswater-planning-information",
+      "instrument_name": "City of Bayswater Local planning scheme - Bayswater Map Index",
+      "issuing_authority": "City of Bayswater",
+      "link_text": "Bayswater Map Index",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2023-12/map1_bayswater_tps24_bayswater_north.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bayswater-planning-information",
+      "instrument_name": "City of Bayswater Local planning scheme - Map 01 - Bayswater North",
+      "issuing_authority": "City of Bayswater",
+      "link_text": "Map 01 - Bayswater North",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-08/map-2_bayswater_tps24_bayswater_south.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bayswater-planning-information",
+      "instrument_name": "City of Bayswater Local planning scheme - Map 02 - Bayswater South",
+      "issuing_authority": "City of Bayswater",
+      "link_text": "Map 02 - Bayswater South",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2145-Bayswater-Town-Centre.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bayswater-planning-information",
+      "instrument_name": "City of Bayswater Structure plans - Bayswater Town Centre SPN 2145",
+      "issuing_authority": "City of Bayswater",
+      "link_text": "Bayswater Town Centre SPN 2145",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2093-Bayswater-Meltham-Station-Precinct.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bayswater-planning-information",
+      "instrument_name": "City of Bayswater Structure plans - Meltham Station Precinct SPN 2093",
+      "issuing_authority": "City of Bayswater",
+      "link_text": "Meltham Station Precinct SPN 2093",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2120-Bayswater-Morley-Activity-Centre-Plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bayswater-planning-information",
+      "instrument_name": "City of Bayswater Structure plans - Morley Activity Centre Plan SPN 2120",
+      "issuing_authority": "City of Bayswater",
+      "link_text": "Morley Activity Centre Plan SPN 2120",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-06/ascot-inn-development-area-10-structure-plan-wapc-reference-spn-0270m.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Ascot Inn Development Area 10 Structure Plan - WAPC Reference SPN 0270M",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Ascot Inn Development Area 10 Structure Plan - WAPC Reference SPN 0270M",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-02/belmont15-schemetext.pdf",
+      "category": "local_planning_scheme",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Belmont Scheme Text",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Belmont Scheme Text",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-10/LPSC-Belmont-Map-Index.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Local planning scheme - Belmont Map Index",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Belmont Map Index",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-04/map1_belmont_lps15_ascot_racecourse.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Local planning scheme - Map 01 - Ascot Racecourse",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Map 01 - Ascot Racecourse",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-04/map2_belmont_lps15_redcliffe_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Local planning scheme - Map 02 - Redcliffe locality",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Map 02 - Redcliffe locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-04/map3_belmont_lps15_belmont_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Local planning scheme - Map 03 - Belmont locality",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Map 03 - Belmont locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-04/map4_belmont_lps15_cloverdale_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Local planning scheme - Map 04 - Cloverdale locality",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Map 04 - Cloverdale locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-04/map5_belmont_lps15_belmont_locality_west.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Local planning scheme - Map 05 - Belmont locality West",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Map 05 - Belmont locality West",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-04/map6_belmont_lps15_kewdale_locality_east.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont Local planning scheme - Map 06 - Kewdale locality East",
+      "issuing_authority": "City of Belmont",
+      "link_text": "Map 06 - Kewdale locality East",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-07/the-springs-local-structure-plan-wapc-reference-spn-0016.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-belmont-planning-information",
+      "instrument_name": "City of Belmont The Springs Local Structure Plan - WAPC Reference SPN 0016",
+      "issuing_authority": "City of Belmont",
+      "link_text": "The Springs Local Structure Plan - WAPC Reference SPN 0016",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-bunb-2015-2-back-beach-precinct-north-lot-66-ocean-drive.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Back Beach Precinct North (Lot 66 Ocean Drive) Structure Plan - WAPC Reference BUNB-2015-2",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Back Beach Precinct North (Lot 66 Ocean Drive) Structure Plan - WAPC Reference BUNB-2015-2",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-bunb-2015-1-back-beach-tourism-central-precinct-south-lot-497-ocean-drive.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Back Beach Tourism Central Precinct South (Lot 497 Ocean Drive) Structure Plan - WAPC Reference BUNB-2015-1",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Back Beach Tourism Central Precinct South (Lot 497 Ocean Drive) Structure Plan - WAPC Reference BUNB-2015-1",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/back_beach_tourism_northern_and_southern_prec.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Back Beach Tourism Northern and Southern Precincts Structure Plan - WAPC Reference SPN 0668",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Back Beach Tourism Northern and Southern Precincts Structure Plan - WAPC Reference SPN 0668",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/back_beach_tourism_structure_plan-wapc_refe.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Back Beach Tourism Structure Plan - WAPC Reference SPN 0669",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Back Beach Tourism Structure Plan - WAPC Reference SPN 0669",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-06/bunbury-8-schemetext.pdf",
+      "category": "local_planning_scheme",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Bunbury scheme text",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Bunbury scheme text",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-01/glen-iris-district-structure-plan-wapc-reference-spn_2338.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Glen Iris District Structure Plan - WAPC Reference SPN/2338",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Glen Iris District Structure Plan - WAPC Reference SPN/2338",
+      "source_section": "District Structure Plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/glen-iris-local-structure-plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Glen Iris Local Structure Plan - WAPC Reference 801-06-02-0004P",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Glen Iris Local Structure Plan - WAPC Reference 801-06-02-0004P",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/koombana_north_bunbury_waterfront_structure.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Koombana North (Bunbury Waterfront) Structure Plan - WAPC Reference SPN 0527",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Koombana North (Bunbury Waterfront) Structure Plan - WAPC Reference SPN 0527",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-10/bunbury_strategy.pdf",
+      "category": "local_planning_strategy",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local Planning Strategy",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "City of Bunbury Local Planning Strategy",
+      "source_section": "Local planning strategy",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-10/LPSC-Bunbury-Map-Index.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Bunbury Map Index",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Bunbury Map Index",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map1-bunbury_lps8_north_bunbury_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 01 - North Bunbury locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 01 - North Bunbury locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map2-bunbury_lps8_koombana_bay.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 02 - Koombana Bay",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 02 - Koombana Bay",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map3-bunbury_lps8_vittoria_bay.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 03 - Vittoria Bay",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 03 - Vittoria Bay",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map4_bunbury_lps8_south_bunbury_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 04 - South Bunbury locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 04 - South Bunbury locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map5-bunbury_lps8_east_bunbury_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 05 - East Bunbury locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 05 - East Bunbury locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map6-bunbury_lps8_glen_iris_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 06 - Glen Iris locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 06 - Glen Iris locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map7-bunbury_lps8_withers_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 07 - Withers locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 07 - Withers locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-04/map8_bunbury_lps8_carey_park_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 08 - Carey Park locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 08 - Carey Park locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map9-bunbury_lps8_picton_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 09 - Picton locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 09 - Picton locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map10-bunbury_lp8_usher_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 10 - Usher locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 10 - Usher locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map11-bunbury_lps8_college_grove_locality.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 11 - College Grove locality",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 11 - College Grove locality",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map12-bunbury_lps8_davenport_locality_north.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 12 - Davenport locality North",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 12 - Davenport locality North",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2026-03/map13-bunbury_lps8_davenport_locality_south.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Local planning scheme - Map 13 - Davenport locality South",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Map 13 - Davenport locality South",
+      "source_section": "Local planning scheme",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-07/preston-industrial-park-northern-precinct.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Preston Industrial Park (Northern Precinct) Structure Plan - WAPC Reference 801-06-01-0028P",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Preston Industrial Park (Northern Precinct) Structure Plan - WAPC Reference 801-06-01-0028P",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2246-Bunbury-Racecourses.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Structure plans - Bunbury Racecourses SPN 2246",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Bunbury Racecourses SPN 2246",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2269-Central-Withers-Local-Structure-Plan%2C-Bunbury.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Structure plans - Central Withers, Bunbury SPN 2269",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Central Withers, Bunbury SPN 2269",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2087-Bunbury-Centrepoint-Activity-Centre-Plan.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Structure plans - Centrepoint Activity Centre Plan SPN 2087",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Centrepoint Activity Centre Plan SPN 2087",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/SPL-SPN2195-Bunbury-Lot-70-Winthrop-Avenue-College-Grove.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Structure plans - Lot 70 Winthrop Avenue College Grove SPN 2195",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Lot 70 Winthrop Avenue College Grove SPN 2195",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2022-01/Lot-81-South-Western-Highway-Davenport-Structure-Plan-WAPC-ref-SPN-2085.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Structure plans - Lot 81 South Western Highway Davenport SPN 2085",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Lot 81 South Western Highway Davenport SPN 2085",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2022-08/SPL_Nenke-Way-Structure-Plan-SPN_2259.PDF",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Structure plans - Nenke Way SPN 2259",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Nenke Way SPN 2259",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/spn-0223-tuart-brook.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Tuart Brook Structure Plan - WAPC Reference SPN 0223",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Tuart Brook Structure Plan - WAPC Reference SPN 0223",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2025-09/wimbridge_precinct_structure_plan-wapc_refe.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/city-of-bunbury-planning-information",
+      "instrument_name": "City of Bunbury Wimbridge Precinct Structure Plan - WAPC Reference SPN 0445",
+      "issuing_authority": "City of Bunbury",
+      "link_text": "Wimbridge Precinct Structure Plan - WAPC Reference SPN 0445",
+      "source_section": "Structure plans",
+      "status": "pending"
+    }
+  ],
+  "mode": "dry_run",
+  "source": "wa.gov.au council planning-information collections",
+  "wp": "WP3"
+}

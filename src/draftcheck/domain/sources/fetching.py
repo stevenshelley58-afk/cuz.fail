@@ -437,8 +437,17 @@ def _extract_pdf_text_with_metadata(content: bytes) -> SourceTextExtraction:
         from pypdf import PdfReader
     except ImportError as exc:  # pragma: no cover - dependency is locked in pyproject
         raise ValueError("PDF parser is unavailable") from exc
-    reader = PdfReader(BytesIO(content))
-    pages = [page.extract_text() or "" for page in reader.pages]
+    try:
+        reader = PdfReader(BytesIO(content))
+        pages = [page.extract_text() or "" for page in reader.pages]
+    except Exception as exc:  # noqa: BLE001 - malformed public PDFs should fall back, not block
+        fallback = extract_pdf_text_with_pymupdf(content)
+        fallback.metadata["extraction"] = {
+            **dict(fallback.metadata.get("extraction", {})),
+            "fallback_from": "pypdf_text_layer",
+            "fallback_reason": str(exc)[:500],
+        }
+        return fallback
     normalized_pages = [page.strip() for page in pages]
     text_pages = [page for page in normalized_pages if page]
     text = "\n\n".join(text_pages)

@@ -1,0 +1,11 @@
+{
+  "wp": "WP8",
+  "generated_at": "2026-06-21T23:28:45.117125+00:00",
+  "rounds_completed": 0,
+  "rounds": [],
+  "totals": {},
+  "gate": {
+    "passed": false,
+    "rule": "two consecutive full rounds with zero confirmed findings and no open findings"
+  }
+}

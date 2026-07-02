@@ -1,0 +1,293 @@
+{
+  "wp": "WP6",
+  "total_rule_bearing_clauses": 51,
+  "by_status": {
+    "candidate_not_promoted": 27,
+    "no_candidate": 24
+  },
+  "uncovered_total": 51,
+  "source_shards": [
+    {
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "uncovered": 51
+    }
+  ],
+  "samples": [
+    {
+      "clause_id": "578aec16-98b8-4d78-bd8d-bc2fb17941bb",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "11.5",
+      "rules_count": 0,
+      "candidates_count": 13,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "1dd8edcb-c36f-46cb-9a94-1a44964cac3c",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "13.5",
+      "rules_count": 0,
+      "candidates_count": 9,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "37d83d6d-3b88-4e02-959f-943c615ef36e",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "13.5",
+      "rules_count": 0,
+      "candidates_count": 11,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "01923a11-c920-4692-bfcf-9a2e5aef0024",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "16.0",
+      "rules_count": 0,
+      "candidates_count": 18,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "2df28c2d-0753-4e22-aa1c-a983268d3129",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "16.0",
+      "rules_count": 0,
+      "candidates_count": 18,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "1532f548-02a6-471e-86aa-ad6ab0292922",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "2890.1",
+      "rules_count": 0,
+      "candidates_count": 5,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "524d20bc-821a-47f5-98e7-4887897115a0",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-1",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "1cd60d77-955d-4363-a964-de3de766a838",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-11",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "48b280f9-06fb-443d-a1ee-7574f4690086",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-15",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "75da9bba-a635-4b9f-ac63-7e6bb6c03b42",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-16",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "b9b5d059-0eae-4b48-a23f-90c058a5c02f",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-18",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "a400b2b9-e03f-4108-80dd-15134fb6dba3",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-2",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "be9d39c3-b1aa-4ecd-bf09-81142c7d1bf2",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-20",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "e422aab7-cad8-4615-b270-49903b37caac",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-25",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "7a994224-d751-4b0c-8c4a-f886ee8f5fda",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-32",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "07881476-b74a-4319-b011-71141135d6a3",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-33",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "afd47802-33c7-4b03-b8b4-4b73a8234528",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-34",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "6ad2d512-b7c7-4062-a0f6-6a813b205d12",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-35",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "223b948f-d7ed-48e3-b19b-a85d84a3794f",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-36",
+      "rules_count": 0,
+      "candidates_count": 0,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "no_candidate"
+    },
+    {
+      "clause_id": "4144ed3a-40b1-4512-b68d-7f0d6055ec2a",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-38",
+      "rules_count": 0,
+      "candidates_count": 20,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "b8d6e93e-2e35-41a3-8ea3-1c1f4ad54f8d",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-39",
+      "rules_count": 0,
+      "candidates_count": 6,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "72d59b7d-c0b0-4c28-b329-4784e0c665c0",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-40",
+      "rules_count": 0,
+      "candidates_count": 46,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "a73d30f7-e9c2-4181-8847-f64162c0eb08",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-41",
+      "rules_count": 0,
+      "candidates_count": 5,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "ce8e7ff0-0e84-4984-971a-574986ceffeb",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-42",
+      "rules_count": 0,
+      "candidates_count": 4,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    },
+    {
+      "clause_id": "8d2a2583-9402-489d-b01e-5b7e827b1bec",
+      "source_version_id": "ef26df99-a14f-49a7-8a25-aa09b1949682",
+      "source_title": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "clause_path": "chunk-47",
+      "rules_count": 0,
+      "candidates_count": 4,
+      "decode_candidates_count": 0,
+      "rejected_candidates_count": 0,
+      "coverage_status": "candidate_not_promoted"
+    }
+  ]
+}

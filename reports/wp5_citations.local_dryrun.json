@@ -1,0 +1,228 @@
+{
+  "wp": "WP5",
+  "worker": "wp5-WIN-JA4C8FOQU9T",
+  "dry_run": true,
+  "summary": {
+    "versions": 5,
+    "resolved": 17,
+    "unresolved_manifest_rows": 0,
+    "edges": 18,
+    "errors": 0
+  },
+  "remaining_queue_count": 5,
+  "escalations": [],
+  "versions": [
+    {
+      "source_version_id": "349bf54d-3f3f-4500-9858-4352c14bc0be",
+      "source_id": "55501202-efff-5809-93ed-f4500b6703ee",
+      "title": "City of Cockburn LPP 1.10 - Planning Around Mosquito and Midge Infested Wetlands",
+      "source_type": "local_planning_policy",
+      "resolved": 1,
+      "unresolved_manifest_rows": 0,
+      "edges": 1,
+      "items": [
+        {
+          "chunk_id": "fbeb3325-ed15-462b-b476-b12ac90ec512",
+          "chunk_index": 2,
+          "reference": "Planning and Development Act 2005",
+          "quote": "(2) The City will require subdivider(s)/developer(s) of land between 500m and 800m of the lake or wetland edge to impose a Notification, pursuant to Section 165 of the Planning and Development Act 2005 on the title of each new residential lot advising prospective purchaser(s) that the land may be affected by midge infestation.",
+          "target_manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+          "resolved": true,
+          "edge_id": "66c630c3-0467-5ed4-9536-52d5c8773cd4"
+        }
+      ]
+    },
+    {
+      "source_version_id": "52d661b1-8426-44ff-ad73-b33fa0824dc2",
+      "source_id": "bd4344e7-6fd7-51ad-b1dd-0855b4e37da9",
+      "title": "City of Cockburn LPP 1.14 - Waste Management",
+      "source_type": "local_planning_policy",
+      "resolved": 0,
+      "unresolved_manifest_rows": 0,
+      "edges": 1,
+      "items": [
+        {
+          "no_references": true,
+          "edge_id": "14fb0008-d4a9-56ec-ad5d-c5dded6fdea6"
+        }
+      ]
+    },
+    {
+      "source_version_id": "d3f4302b-70c6-4fd2-9852-e42c1c6b59b8",
+      "source_id": "a7fffeee-9a9d-510a-a328-5761dbb14937",
+      "title": "City of Cockburn LPP 1.16 - Single House Standards for Medium Density Housing in the Development Zone",
+      "source_type": "local_planning_policy",
+      "resolved": 12,
+      "unresolved_manifest_rows": 0,
+      "edges": 12,
+      "items": [
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "Residential Design Codes",
+          "quote": "16 Policy Type Local Planning Policy Policy Purpose The Residential Design Codes (R-Codes) is a Western Australian Planning Commission (WAPC) State Planning Policy, which was previously gazetted on 04 October 2002 and was recently updated on 23 October 2015.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bd186764-32b4-5fcf-ac5b-7077efc2e460"
+        },
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "R-Codes",
+          "quote": "16 Policy Type Local Planning Policy Policy Purpose The Residential Design Codes (R-Codes) is a Western Australian Planning Commission (WAPC) State Planning Policy, which was previously gazetted on 04 October 2002 and was recently updated on 23 October 2015.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bd186764-32b4-5fcf-ac5b-7077efc2e460"
+        },
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "R-Codes",
+          "quote": "The R-Codes provide a comprehensive basis for the control of residential development through Western Australia.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bd186764-32b4-5fcf-ac5b-7077efc2e460"
+        },
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "R-Codes",
+          "quote": "It is based on contemporary housing typologies and incorporates existing R-Codes variations that have been applied to date.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bd186764-32b4-5fcf-ac5b-7077efc2e460"
+        },
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "Residential Design Codes",
+          "quote": "This Local Planning Policy shall outline acceptable variations to the deemed-to-comply provisions of the Residential Design Codes (R-Codes) for medium density single dwellings in areas zoned \u2018Development\u2019 under the City\u2019s Town Planning Scheme No.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bd186764-32b4-5fcf-ac5b-7077efc2e460"
+        },
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "R-Codes",
+          "quote": "This Local Planning Policy shall outline acceptable variations to the deemed-to-comply provisions of the Residential Design Codes (R-Codes) for medium density single dwellings in areas zoned \u2018Development\u2019 under the City\u2019s Town Planning Scheme No.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bd186764-32b4-5fcf-ac5b-7077efc2e460"
+        },
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "R-Codes",
+          "quote": "This policy applies to all development to which the R-Codes apply and does not exempt compliance with other requirements of the R-Codes, TPS 3, and other Council policies, Local Development Plans (LDP\u2019s) and/or the Building Code of Australia.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bd186764-32b4-5fcf-ac5b-7077efc2e460"
+        },
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "Building Code of Australia",
+          "quote": "This policy applies to all development to which the R-Codes apply and does not exempt compliance with other requirements of the R-Codes, TPS 3, and other Council policies, Local Development Plans (LDP\u2019s) and/or the Building Code of Australia.",
+          "target_manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+          "resolved": true,
+          "edge_id": "00aa52eb-ad2f-5ac6-a857-d715e3b647ed"
+        },
+        {
+          "chunk_id": "05fc5f1b-0fd7-4a6a-9ed4-519843696282",
+          "chunk_index": 1,
+          "reference": "R-Codes",
+          "quote": "The purpose of this policy is to replace the deemed-to-comply requirements of the following clauses of the R-Codes with those set out in the provisions of this policy: \u2022Building and Garage setbacks \u2013 Clauses 5.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "bd186764-32b4-5fcf-ac5b-7077efc2e460"
+        },
+        {
+          "chunk_id": "508b3ea6-7228-421b-b585-a4f4c2a1579c",
+          "chunk_index": 2,
+          "reference": "R-Codes",
+          "quote": "City of Cockburn \u2013 Policy page 2 Implementation (1) Development approval will not be required for a single dwelling that complies with the provisions of this policy (and all other deemed-to-comply requirements of the R-Codes), in accordance with Clause 61(4)(c) of the deemed provisions of the Planning and Development (Local Planning Schemes) Regulations 2015.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "7283a203-df65-5f65-8f4e-9287e41ca144"
+        },
+        {
+          "chunk_id": "508b3ea6-7228-421b-b585-a4f4c2a1579c",
+          "chunk_index": 2,
+          "reference": "R-Codes",
+          "quote": "(4) Where a proposal does not meet the provisions of this policy, the City will consider the proposal on its merits in accordance with the relevant \u2018design principles\u2019 of the R-Codes having due regard to Clause 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "7283a203-df65-5f65-8f4e-9287e41ca144"
+        },
+        {
+          "chunk_id": "508b3ea6-7228-421b-b585-a4f4c2a1579c",
+          "chunk_index": 2,
+          "reference": "R-Codes",
+          "quote": "At this point, lots with a density coding of R60 shall be assessed against the provisions of Part C of the R-Codes.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "7283a203-df65-5f65-8f4e-9287e41ca144"
+        }
+      ]
+    },
+    {
+      "source_version_id": "fa6509d8-3f1a-49a1-86fa-3784e51d303a",
+      "source_id": "60c64d7c-8ac5-575b-8d79-9071c9e30e41",
+      "title": "City of Cockburn LPP 1.17 - Non-Residential Uses in Residential Zones",
+      "source_type": "local_planning_policy",
+      "resolved": 1,
+      "unresolved_manifest_rows": 0,
+      "edges": 1,
+      "items": [
+        {
+          "chunk_id": "cddcc0af-bc05-4d88-a638-c060554cb658",
+          "chunk_index": 3,
+          "reference": "Residential Design Codes",
+          "quote": "Building setbacks (street and side) and heights shall be as per the residential code of the land in accordance with the Residential Design Codes of WA.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "b30b310d-7ffd-5af0-bc47-14094f08d7e0"
+        }
+      ]
+    },
+    {
+      "source_version_id": "fdca68de-09a2-4194-b7a4-523441dd75be",
+      "source_id": "3e81ec19-61af-550e-ab7b-446eb4d298f4",
+      "title": "City of Cockburn LPP 1.2 - Residential Design Guidelines",
+      "source_type": "local_planning_policy",
+      "resolved": 3,
+      "unresolved_manifest_rows": 0,
+      "edges": 3,
+      "items": [
+        {
+          "chunk_id": "143d5ce1-142b-4452-8be6-64bf00c42533",
+          "chunk_index": 1,
+          "reference": "State Planning Policy 7.0",
+          "quote": "2 [1] Policy Type Local Planning Policy Policy Purpose The policy aims to ensure that the 10 design principles of State Planning Policy 7.0 \u2018Design of the Built Environment\u2019 are implemented with regard to medium density development.",
+          "target_manifest_id": "f215b646-4f1b-5806-9de7-c4f30faf18bb",
+          "resolved": true,
+          "edge_id": "1cbeb94a-5c11-51fd-860d-73f8f8ab9b74"
+        },
+        {
+          "chunk_id": "2a5971d1-aa92-405f-bba1-ebb92ee2abb1",
+          "chunk_index": 2,
+          "reference": "R-Codes",
+          "quote": "2 [2] (8) This policy does not exempt compliance with all other requirements of TPS 3, the R-Codes or other relevant City of Cockburn Policies and/or the Building Code of Australia/relevant Australian Standard(s).",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "fa648818-376b-5500-ae20-5c8a4c7cfff3"
+        },
+        {
+          "chunk_id": "2a5971d1-aa92-405f-bba1-ebb92ee2abb1",
+          "chunk_index": 2,
+          "reference": "R-Codes",
+          "quote": "The Design Principles of the R-Codes where \u2018deemed to comply\u2019 provisions have not been met; 2.",
+          "target_manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+          "resolved": true,
+          "edge_id": "fa648818-376b-5500-ae20-5c8a4c7cfff3"
+        }
+      ]
+    }
+  ]
+}

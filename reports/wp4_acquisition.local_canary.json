@@ -1,0 +1,218 @@
+{
+  "wp": "WP4",
+  "worker": "wp4-local-canary",
+  "processed": 20,
+  "summary": {
+    "acquired": 19,
+    "metadata_only": 0,
+    "blocked": 1,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "metadata_only": 10,
+    "out_of_scope": 17,
+    "pending": 75,
+    "blocked": 1,
+    "acquired": 141
+  },
+  "items": [
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "3916b22a-17f8-53cb-9f9a-0711ddb44f87",
+      "instrument": "National Construction Code 2025 Housing Provisions Standard",
+      "category": "building_code",
+      "status": "acquired",
+      "doc_id": "ce956f02-e503-5bf4-8ed1-82687632f003",
+      "notes": "WP4 acquired (6 chunks, duplicate=False)",
+      "chunks": "6",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+      "instrument": "National Construction Code 2025 Volume One",
+      "category": "building_code",
+      "status": "acquired",
+      "doc_id": "ce956f02-e503-5bf4-8ed1-82687632f003",
+      "notes": "WP4 acquired (6 chunks, duplicate=True)",
+      "chunks": "6",
+      "duplicate": "True"
+    },
+    {
+      "manifest_id": "ab7ee2e8-e7cf-5c50-97b4-f758ed02ca7a",
+      "instrument": "National Construction Code 2025 Volume Three",
+      "category": "building_code",
+      "status": "acquired",
+      "doc_id": "ce956f02-e503-5bf4-8ed1-82687632f003",
+      "notes": "WP4 acquired (6 chunks, duplicate=True)",
+      "chunks": "6",
+      "duplicate": "True"
+    },
+    {
+      "manifest_id": "41eb38f2-e507-5088-a5f4-ef723d1cb282",
+      "instrument": "National Construction Code 2025 Volume Two",
+      "category": "building_code",
+      "status": "acquired",
+      "doc_id": "ce956f02-e503-5bf4-8ed1-82687632f003",
+      "notes": "WP4 acquired (6 chunks, duplicate=True)",
+      "chunks": "6",
+      "duplicate": "True"
+    },
+    {
+      "manifest_id": "7b467dab-07db-53d3-811d-23c0f0f44e4b",
+      "instrument": "Development Control Policy 1.10 - Freeway service centres, roadhouses incl signage",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "5ab8024d-0ede-5117-b052-f01246688914",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "4feb7abe-026b-59e5-87ba-ab369cf7a93e",
+      "instrument": "Development Control Policy 1.11 - Community schemes",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "b38eb50d-5333-5c9c-892f-7e7ea7210b39",
+      "notes": "WP4 acquired (9 chunks, duplicate=False)",
+      "chunks": "9",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "a049da96-4e19-5135-b0a9-1cbdbb103563",
+      "instrument": "Development Control Policy 1.3 - Strata titles",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "b6c19ce1-289a-5622-b7fe-5416d3344339",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "c526e188-466c-5dd1-a7bf-f5c210a1b998",
+      "instrument": "Development Control Policy 1.5 - Bicycle Planning",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "89b2e3d6-0a8d-515a-a3c6-7be6a85244e3",
+      "notes": "WP4 acquired (9 chunks, duplicate=False)",
+      "chunks": "9",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "3c0c3f24-d1d5-53be-8cbe-6e0db3f18039",
+      "instrument": "Development Control Policy 1.6 - Planning to support transit use and development",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "672a83ce-e3c6-51a2-944a-8372c3afb808",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "36608657-574d-5cc0-8514-a077f730b0cb",
+      "instrument": "Development Control Policy 1.7 - General road planning",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "e149be31-7a9c-5821-b13c-d7fb125cd9e9",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "1dccb02b-8483-510b-9fc1-692739761668",
+      "instrument": "Development Control Policy 1.8 - Canal estates and artificial waterway developments",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "5a393153-3830-5a5a-a2b1-8ba3c6969d4b",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "4e5054e0-590e-5486-828c-ec54e683e447",
+      "instrument": "Development Control Policy 2.2 - Residential subdivision",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "91e8f9ad-927b-53fd-a322-b6d72a94768d",
+      "notes": "WP4 acquired (9 chunks, duplicate=False)",
+      "chunks": "9",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "8da54e3c-731a-54c1-82d8-1c2b01fc4130",
+      "instrument": "Development Control Policy 2.4 - School sites",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "99d29a73-0661-5384-81ac-dc612c272627",
+      "notes": "WP4 acquired (9 chunks, duplicate=False)",
+      "chunks": "9",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "1045ff87-cef6-5087-a695-4cef4991468f",
+      "instrument": "Development Control Policy 2.6 - Residential road planning",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "4b14c3ec-b98b-51cb-b1d3-1085bd235ab9",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "d9c27338-e7d3-542a-a087-8276e3d6d1a1",
+      "instrument": "Development Control Policy 3.4 - Subdivision of rural land",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "b9be4926-0f01-5aaf-8fd5-706849b4049a",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "4e072e46-7f82-5d84-b694-256723f000d6",
+      "instrument": "Development Control Policy 4.1 - Industrial subdivision",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "619f6a4e-043e-53af-a93e-798a75b940bd",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "050407ee-9cd0-50ca-a8c2-100dad71fe45",
+      "instrument": "Development Control Policy 4.2 - Planning for hazards and safety",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "d130e379-2b28-558e-8985-f4a3a8368f57",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "ca9876a9-ef48-51f1-8c7e-2a4173954ad8",
+      "instrument": "Development Control Policy 5.1 - Regional roads (vehicular access)",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "71bd152c-52d1-5fa1-8acc-9cd76eea59f1",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "94479dda-1322-5196-835d-89ae218e6c31",
+      "instrument": "Development Control Policy 5.3 - Use of land reserved for parks, recreation and regional open space",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "35970089-27bd-53bf-bcd1-ba42f42ec394",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "wp": "WP4",
+  "worker": "wp4-WIN-JA4C8FOQU9T",
+  "claim_status": "blocked",
+  "processed": 5,
+  "summary": {
+    "acquired": 0,
+    "metadata_only": 0,
+    "blocked": 5,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "acquired": 202,
+    "blocked": 30,
+    "metadata_only": 11,
+    "out_of_scope": 42
+  },
+  "items": [
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument": "Planning and Development Act 2005",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "683f8658-ffc9-5c51-a7d0-e9c59d84769c",
+      "instrument": "City of Cockburn LPP 1.12 - Noise Attenuation",
+      "category": "local_planning_policy",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u2010' in position 469: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "322eb433-e2de-552b-af72-70716325de1e",
+      "instrument": "City of Cockburn LPP 1.15 - Tourist Accommodation",
+      "category": "local_planning_policy",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u25aa' in position 984: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "592f459e-18a7-5d03-a98b-495281dae2d1",
+      "instrument": "City of Melville LPP 1.4 - Provision of Public Art in Development Proposals",
+      "category": "local_planning_policy",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\uf0b7' in position 0: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
+      "instrument": "Greater Bunbury Region Scheme",
+      "category": "region_scheme",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    }
+  ]
+}

@@ -109,7 +109,7 @@ def main() -> None:
                 out.append(
                     f"INSERT INTO instrument_aliases (id, alias_text, canonical_manifest_id, match_kind, "
                     f"created_at, updated_at) VALUES ('{aid}', {q(ct)}, '{target['id']}', 'exact', now(), now()) "
-                    f"ON CONFLICT (alias_text, match_kind) DO NOTHING;"
+                    f"ON CONFLICT DO NOTHING;"
                 )
             continue
 
@@ -141,7 +141,7 @@ def main() -> None:
             out.append(
                 f"INSERT INTO instrument_aliases (id, alias_text, canonical_manifest_id, match_kind, "
                 f"created_at, updated_at) VALUES ('{aid}', {q(title[:500])}, '{mid}', 'exact', now(), now()) "
-                f"ON CONFLICT (alias_text, match_kind) DO NOTHING;"
+                f"ON CONFLICT DO NOTHING;"
             )
 
     out.append("COMMIT;")

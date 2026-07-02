@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LotFile for Agents — UX prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+/* ===== LotFile design tokens (matched to web/src/styles.css) ===== */
+:root{
+  --ink:#14181B; --ink-soft:#5A6560; --ink-faint:#606B65;
+  --paper:#F7F8F8; --card:#FFFFFF;
+  --green-900:#0E3B2A; --green-800:#14543B; --green:#16834F; --green-bright:#1FA468;
+  --mint:#EAF4EE; --mint-deep:#D6E8DE; --line:#E9ECEA;
+  --flag:#B45309; --flag-bg:#FEF3E2;
+  --blue:#1D4ED8; --blue-bg:#EFF6FF;
+  --red:#B91C1C; --red-bg:#FEF2F2;
+  --radius:20px; --shadow:0 4px 16px rgba(16,24,32,.05);
+  --shadow-lg:0 12px 36px rgba(16,24,32,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.5}
+h1,h2,h3,h4,.logo{font-family:'Sora','Inter',sans-serif;letter-spacing:-.02em}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,textarea{font:inherit}
+a{color:var(--green);text-decoration:none}
+svg.ic{width:1em;height:1em;vertical-align:middle;flex:none;stroke:currentColor;fill:none;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}
+
+/* ===== app shell ===== */
+.app{height:100dvh;display:grid;grid-template-columns:248px 1fr;grid-template-rows:minmax(0,1fr)}
+.side{background:var(--card);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:18px 14px;min-height:0}
+.logo{font-weight:800;font-size:1.3rem;color:var(--green-900);padding:0 10px 4px;display:flex;align-items:center;gap:7px}
+.logo span{color:var(--green-bright)}
+.logo .tag{font-family:'Inter';font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--green-800);background:var(--mint);border:1px solid var(--mint-deep);padding:3px 7px;border-radius:99px}
+.sub-brand{font-size:.7rem;color:var(--ink-faint);padding:0 10px 16px;font-weight:600}
+.newbtn{display:flex;align-items:center;gap:9px;background:var(--green-900);color:#fff;font-weight:700;
+  font-size:.85rem;padding:11px 14px;border-radius:13px;margin:0 2px 14px}
+.newbtn:hover{background:var(--green-800)}
+.newbtn svg{width:18px;height:18px}
+.nav{display:flex;flex-direction:column;gap:3px}
+.nav button{display:flex;align-items:center;gap:11px;color:var(--ink-soft);text-align:left;
+  font-size:.88rem;font-weight:600;padding:9px 12px;border-radius:12px;width:100%}
+.nav button svg{width:19px;height:19px;color:var(--ink-faint)}
+.nav button.on{background:var(--mint);color:var(--green-800)}
+.nav button.on svg{color:var(--green)}
+.nav button:hover:not(.on){background:var(--paper)}
+.nav .count{margin-left:auto;font-size:.68rem;font-weight:700;color:var(--ink-faint);background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:1px 8px}
+.nav button.on .count{background:#fff;border-color:var(--mint-deep);color:var(--green-800)}
+.side .grow{flex:1}
+.user{display:flex;align-items:center;gap:10px;padding:10px;border-top:1px solid var(--line);font-size:.78rem}
+.avatar{width:32px;height:32px;border-radius:99px;background:var(--green-900);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;flex:none}
+.user .who{font-weight:600;min-width:0;overflow:hidden}
+.user .who small{display:block;color:var(--ink-faint);font-weight:500;font-size:.68rem}
+
+.stage{min-height:0;min-width:0;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.scroll{flex:1;overflow-y:auto;min-height:0}
+.view{display:none}
+.view.on{display:block}
+
+/* ===== Home / search ===== */
+.home-wrap{max-width:760px;margin:0 auto;padding:0 32px;min-height:100%;display:flex;flex-direction:column;justify-content:center}
+.home-pad{padding:48px 0}
+.greet{text-align:center;margin-bottom:26px}
+.greet h1{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.12;margin-bottom:10px}
+.greet p{color:var(--ink-soft);font-size:.98rem;max-width:540px;margin:0 auto}
+.onebox{background:var(--card);border:1.5px solid var(--line);border-radius:22px;
+  box-shadow:var(--shadow);padding:14px;transition:border-color .15s,box-shadow .15s}
+.onebox:focus-within{border-color:var(--green-bright);box-shadow:0 0 0 3px rgba(31,164,104,.12),var(--shadow)}
+.onebox textarea{width:100%;border:none;outline:none;resize:none;background:none;color:var(--ink);
+  font-size:1.04rem;min-height:46px;max-height:160px}
+.onebox textarea::placeholder{color:var(--ink-faint)}
+.suggest{display:flex;flex-direction:column;gap:2px;margin:6px 0;padding:6px;background:var(--paper);
+  border:1px solid var(--line);border-radius:14px}
+.suggest-head{display:flex;align-items:center;gap:5px;font-size:.64rem;font-weight:800;color:var(--ink-faint);
+  text-transform:uppercase;letter-spacing:.05em;padding:3px 8px 5px}
+.suggest-head svg{width:12px;height:12px}
+.suggest-item{display:flex;align-items:center;gap:9px;text-align:left;width:100%;padding:9px 10px;border-radius:10px;
+  font-size:.9rem;color:var(--ink)}
+.suggest-item svg{width:15px;height:15px;color:var(--green-800)}
+.suggest-item:hover{background:var(--mint);color:var(--green-800)}
+.suggest-item small{margin-left:auto;color:var(--ink-faint);font-weight:600}
+.belt{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap}
+.chip{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:99px;display:inline-flex;align-items:center;gap:5px;
+  border:1px solid var(--line);color:var(--ink-faint);background:var(--paper)}
+.chip.on{background:var(--mint);border-color:var(--mint-deep);color:var(--green-800)}
+.chip svg{width:13px;height:13px}
+.belt .grow{flex:1}
+.go{width:42px;height:42px;border-radius:13px;background:var(--green-900);color:#fff;display:flex;align-items:center;justify-content:center}
+.go:hover{background:var(--green-800)}
+.go svg{width:20px;height:20px}
+.hints{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.hints button{font-size:.78rem;font-weight:600;color:var(--ink-soft);background:var(--card);
+  border:1px solid var(--line);padding:8px 14px;border-radius:99px;display:flex;align-items:center;gap:6px}
+.hints button:hover{border-color:var(--green-bright);color:var(--green-800)}
+.hints button svg{width:15px;height:15px;color:var(--green)}
+
+.recent{max-width:760px;margin:34px auto 0;padding:0 32px 40px}
+.recent h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-faint);margin-bottom:10px}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+/* ===== listing cards ===== */
+.lcard{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px;transition:transform .12s,box-shadow .12s,border-color .12s}
+.lcard:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--mint-deep)}
+.lcard .top{display:flex;align-items:flex-start;gap:9px}
+.lcard .ph{width:38px;height:38px;border-radius:11px;background:var(--mint);color:var(--green-800);display:flex;align-items:center;justify-content:center;flex:none}
+.lcard .ph svg{width:19px;height:19px}
+.lcard .addr{font-weight:700;font-size:.9rem;line-height:1.25}
+.lcard .addr small{display:block;color:var(--ink-faint);font-weight:600;font-size:.72rem;margin-top:1px}
+.lcard .facts{display:flex;gap:6px;flex-wrap:wrap}
+.lcard .headline{font-size:.82rem;color:var(--green-800);font-weight:700;display:flex;align-items:center;gap:5px;margin-top:1px}
+.lcard .headline svg{width:14px;height:14px}
+.pill{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:99px;display:inline-flex;align-items:center;gap:4px}
+.pill svg{width:12px;height:12px}
+.pill.fact{background:var(--paper);border:1px solid var(--line);color:var(--ink-soft)}
+.pill.ok{background:var(--mint);color:var(--green-800)}
+.pill.info{background:var(--blue-bg);color:var(--blue)}
+.pill.warn{background:var(--flag-bg);color:var(--flag)}
+.pill.bad{background:var(--red-bg);color:var(--red)}
+
+/* ===== Report ===== */
+.rep-top{position:sticky;top:0;z-index:6;background:rgba(247,248,248,.86);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);padding:14px 32px 0}
+.rep-top .crumb{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.backbtn{display:inline-flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;color:var(--ink-soft);
+  border:1px solid var(--line);background:var(--card);border-radius:99px;padding:6px 12px}
+.backbtn:hover{border-color:var(--green-bright);color:var(--green-800)}
+.backbtn svg{width:14px;height:14px}
+.rep-head{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.rep-head .h-main{min-width:0;flex:1}
+.rep-head h1{font-size:1.5rem;line-height:1.15;display:flex;align-items:center;gap:9px}
+.rep-head h1 svg{width:22px;height:22px;color:var(--green)}
+.rep-head .meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px}
+.rep-head .acts{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;border-radius:12px;padding:9px 14px}
+.btn svg{width:16px;height:16px}
+.btn.primary{background:var(--green-900);color:#fff}
+.btn.primary:hover{background:var(--green-800)}
+.btn.alt{background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.btn.alt:hover{border-color:var(--green-bright);color:var(--green-800)}
+.repnav{display:flex;gap:4px;margin-top:14px;overflow-x:auto}
+.repnav button{font-size:.8rem;font-weight:700;color:var(--ink-soft);padding:9px 13px;border-radius:10px 10px 0 0;white-space:nowrap;border-bottom:2px solid transparent}
+.repnav button.on{color:var(--green-800);border-bottom-color:var(--green-bright)}
+.repnav button:hover:not(.on){color:var(--ink);background:var(--card)}
+
+.rep-body{max-width:880px;margin:0 auto;padding:24px 32px 64px}
+.section{margin-bottom:30px;scroll-margin-top:140px}
+.section>h2{font-size:1.06rem;display:flex;align-items:center;gap:9px;margin-bottom:4px}
+.section>h2 svg{width:18px;height:18px;color:var(--green)}
+.section>.sub{color:var(--ink-soft);font-size:.85rem;margin-bottom:14px}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.cardpad{padding:16px 18px}
+
+/* snapshot grid */
+.snap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.snap .cell{background:var(--card);padding:14px 16px}
+.snap .k{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-faint);display:flex;align-items:center;gap:6px}
+.snap .k svg{width:13px;height:13px;color:var(--green)}
+.snap .v{font-size:1.18rem;font-weight:700;font-family:'Sora';margin-top:5px;line-height:1.1}
+.snap .v small{font-size:.8rem;font-weight:600;color:var(--ink-soft)}
+.src{margin-top:7px;display:flex;flex-wrap:wrap;gap:5px}
+.srcchip{font-size:.66rem;font-weight:700;color:var(--green-800);background:var(--mint);border:1px solid var(--mint-deep);
+  border-radius:99px;padding:2px 8px;display:inline-flex;align-items:center;gap:4px}
+.srcchip svg{width:11px;height:11px}
+.srcchip.low{color:var(--flag);background:var(--flag-bg);border-color:#F5DEB9}
+
+/* upside cards */
+.ups{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.up{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px}
+.up .uh{display:flex;align-items:flex-start;gap:10px}
+.up .ico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.up .ico svg{width:18px;height:18px}
+.up .ut{font-weight:700;font-size:.95rem;line-height:1.2}
+.up .ut small{display:block;font-weight:600;font-size:.74rem;color:var(--ink-faint);margin-top:2px}
+.up .big{font-family:'Sora';font-weight:800;font-size:1.5rem;line-height:1;color:var(--green-900)}
+.up .desc{font-size:.83rem;color:var(--ink-soft)}
+.up .cite{font-size:.72rem;color:var(--ink-faint);border-top:1px dashed var(--line);padding-top:8px;display:flex;align-items:center;gap:6px}
+.up .cite svg{width:13px;height:13px;color:var(--green);flex:none}
+.ico.likely{background:var(--mint);color:var(--green-800)}
+.ico.possible{background:var(--blue-bg);color:var(--blue)}
+.ico.more_info{background:var(--flag-bg);color:var(--flag)}
+.ico.constrained{background:var(--red-bg);color:var(--red)}
+
+/* flags */
+.flags{display:flex;flex-direction:column;gap:9px}
+.flag{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.flag .fh{display:flex;align-items:center;gap:12px;padding:13px 16px;width:100%;text-align:left}
+.flag .fdot{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:none}
+.flag .fdot svg{width:17px;height:17px}
+.flag .fl{font-weight:700;font-size:.9rem}
+.flag .fl small{display:block;font-weight:600;font-size:.76rem;color:var(--ink-faint);margin-top:1px}
+.flag .chev{margin-left:auto;color:var(--ink-faint);transition:transform .18s}
+.flag .chev svg{width:18px;height:18px}
+.flag.open .chev{transform:rotate(180deg)}
+.flag .fbody{display:none;padding:0 16px 14px 62px;font-size:.84rem;color:var(--ink-soft)}
+.flag.open .fbody{display:block}
+.flag .fbody .src{margin-top:8px}
+.fdot.attention{background:var(--flag-bg);color:var(--flag)}
+.fdot.low{background:var(--blue-bg);color:var(--blue)}
+.fdot.clear{background:var(--mint);color:var(--green-800)}
+
+/* listing copy */
+.copywrap{display:grid;grid-template-columns:1fr;gap:14px}
+.tonebar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.seg{display:inline-flex;background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:3px}
+.seg button{font-size:.78rem;font-weight:700;color:var(--ink-soft);padding:6px 13px;border-radius:8px}
+.seg button.on{background:var(--card);color:var(--green-800);box-shadow:var(--shadow)}
+.copybox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;font-size:.92rem;line-height:1.6;box-shadow:var(--shadow);position:relative}
+.copybox .stca{display:block;margin-top:12px;font-size:.74rem;color:var(--ink-faint);border-top:1px dashed var(--line);padding-top:10px}
+.tps{display:flex;flex-wrap:wrap;gap:8px}
+.tp{font-size:.8rem;font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:99px;padding:7px 13px;display:inline-flex;align-items:center;gap:6px}
+.tp svg{width:14px;height:14px;color:var(--green)}
+
+/* ask */
+.askbox{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.qrow{display:flex;flex-wrap:wrap;gap:8px;padding:16px}
+.qchip{font-size:.82rem;font-weight:600;color:var(--green-800);background:var(--mint);border:1px solid var(--mint-deep);border-radius:99px;padding:8px 14px}
+.qchip:hover{background:var(--mint-deep)}
+.answer{border-top:1px solid var(--line);padding:16px;display:none}
+.answer.on{display:block}
+.answer .q{font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.answer .q svg{width:16px;height:16px;color:var(--green)}
+.answer .a{font-size:.9rem;line-height:1.6;color:var(--ink)}
+.answer .a sup a{color:var(--green);font-weight:700;text-decoration:none}
+.answer .cites{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+
+/* disclaimer banner */
+.disc{background:var(--flag-bg);border:1px solid #F5DEB9;border-radius:14px;padding:14px 16px;font-size:.8rem;color:#7c4a12;display:flex;gap:10px;line-height:1.5}
+.disc svg{width:18px;height:18px;flex:none;color:var(--flag);margin-top:1px}
+.disc b{color:#5e380d}
+
+/* generic page (library/settings) */
+.page{max-width:760px;margin:0 auto;padding:28px 32px 60px}
+.page h1{font-size:1.5rem;margin-bottom:6px}
+.page .lead{color:var(--ink-soft);font-size:.92rem;margin-bottom:22px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.78rem;font-weight:700;color:var(--ink-soft);margin-bottom:6px}
+.field input,.field textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 13px;background:var(--card);outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--green-bright);box-shadow:0 0 0 3px rgba(31,164,104,.12)}
+.note{background:var(--mint);border:1px solid var(--mint-deep);border-radius:14px;padding:14px 16px;font-size:.85rem;color:var(--green-900);display:flex;gap:10px}
+.note svg{width:18px;height:18px;color:var(--green);flex:none}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);opacity:0;
+  background:var(--green-900);color:#fff;font-size:.85rem;font-weight:600;padding:12px 18px;border-radius:13px;
+  box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:9px;pointer-events:none;transition:.25s;z-index:50}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast svg{width:17px;height:17px}
+
+/* explainer ribbon */
+.ribbon{background:var(--green-900);color:#fff;font-size:.74rem;padding:7px 16px;display:flex;align-items:center;gap:8px;justify-content:center}
+.ribbon svg{width:14px;height:14px;color:var(--green-bright)}
+.ribbon b{color:#fff}
+.ribbon span{opacity:.85}
+
+@media (max-width:880px){
+  .app{grid-template-columns:1fr}
+  .side{display:none}
+  .snap,.strip{grid-template-columns:1fr 1fr}
+  .ups{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="ribbon">
+  <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+  <span><b>Prototype</b> — clickable concept for the real-estate-agent experience. Same address engine as LotFile, reframed for selling an existing home. Sample data.</span>
+</div>
+
+<div class="app">
+  <!-- ===== sidebar ===== -->
+  <aside class="side">
+    <div class="logo">Lot<span>File</span> <span class="tag">Agents</span></div>
+    <div class="sub-brand">inside Blockwise</div>
+    <button class="newbtn" onclick="go('home')"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New property</button>
+    <nav class="nav" id="nav">
+      <button data-v="home" onclick="go('home')"><svg class="ic" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>Search</button>
+      <button data-v="listings" onclick="go('listings')"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>My listings<span class="count">3</span></button>
+      <button data-v="library" onclick="go('library')"><svg class="ic" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2zM18 3v18"/></svg>Planning Q&amp;A</button>
+      <button data-v="settings" onclick="go('settings')"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h11M19 7h1M4 17h6M14 17h6"/><circle cx="17" cy="7" r="2.2"/><circle cx="11" cy="17" r="2.2"/></svg>Agency settings</button>
+    </nav>
+    <div class="grow"></div>
+    <div class="user">
+      <div class="avatar">JM</div>
+      <div class="who">Jordan Mercer<small>Mercer &amp; Co · Cockburn</small></div>
+    </div>
+  </aside>
+
+  <!-- ===== stage ===== -->
+  <main class="stage">
+    <div class="scroll" id="scroll">
+
+      <!-- ========== HOME ========== -->
+      <section class="view on" id="view-home">
+        <div class="home-wrap home-pad">
+          <div class="greet">
+            <h1>Know what you're selling.</h1>
+            <p>Type an address to pull zoning, lot facts, development upside and the disclosure flags buyers will ask about — listing-ready in seconds, every figure cited.</p>
+          </div>
+          <div class="onebox" id="onebox">
+            <textarea id="addrInput" rows="1" placeholder="Enter a property address (e.g. 12 Marri Place, Beeliar)"
+              oninput="onAddrInput(this)" onfocus="showSugs(true)"></textarea>
+            <div class="suggest" id="sugs" style="display:none">
+              <div class="suggest-head"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>WA address library — pick one to open the report</div>
+              <button class="suggest-item" onclick="openReport('marri')"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>12 Marri Place, Beeliar WA 6164 <small>R40 · 728 m²</small></button>
+              <button class="suggest-item" onclick="openReport('hammond')"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>8 Hammond Road, Cockburn Central WA 6164 <small>R60 · 612 m²</small></button>
+              <button class="suggest-item" onclick="openReport('erpingham')"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>41 Erpingham Road, Hamilton Hill WA 6163 <small>R20/R30 · 506 m²</small></button>
+            </div>
+            <div class="belt">
+              <span class="chip on"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>WA library</span>
+              <span class="chip"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>Landgate · live</span>
+              <span class="grow"></span>
+              <button class="go" onclick="openReport('marri')" aria-label="Search"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <div class="hints">
+            <button onclick="openReport('marri')"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>Try 12 Marri Place, Beeliar</button>
+            <button onclick="go('library'); askLib('subdivide')"><svg class="ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Can this lot be subdivided?</button>
+            <button onclick="go('library'); askLib('disclose')"><svg class="ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>What do I have to disclose?</button>
+          </div>
+        </div>
+        <div class="recent">
+          <h2>Recent</h2>
+          <div class="strip" id="recentStrip"></div>
+        </div>
+      </section>
+
+      <!-- ========== REPORT ========== -->
+      <section class="view" id="view-report">
+        <div class="rep-top">
+          <div class="crumb">
+            <button class="backbtn" onclick="go('home')"><svg class="ic" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>Back</button>
+          </div>
+          <div class="rep-head" id="repHead"></div>
+          <div class="repnav" id="repNav">
+            <button class="on" onclick="jump('s-snap',this)">Snapshot</button>
+            <button onclick="jump('s-upside',this)">Development upside</button>
+            <button onclick="jump('s-flags',this)">Risk &amp; disclosure</button>
+            <button onclick="jump('s-copy',this)">Listing copy</button>
+            <button onclick="jump('s-ask',this)">Ask</button>
+          </div>
+        </div>
+        <div class="rep-body" id="repBody"></div>
+      </section>
+
+      <!-- ========== LISTINGS ========== -->
+      <section class="view" id="view-listings">
+        <div class="page" style="max-width:880px">
+          <h1>My listings</h1>
+          <p class="lead">Every property you've looked up. Open one to get the full report, refresh the data, or generate listing copy.</p>
+          <div class="strip" id="listingsGrid" style="grid-template-columns:repeat(2,1fr)"></div>
+        </div>
+      </section>
+
+      <!-- ========== LIBRARY / Q&A ========== -->
+      <section class="view" id="view-library">
+        <div class="page">
+          <h1>Planning Q&amp;A</h1>
+          <p class="lead">Ask anything about WA planning, R-Codes or disclosure. Answers are drawn from the approved source library and cited — or they'll tell you the library can't support an answer.</p>
+          <div class="askbox">
+            <div class="qrow">
+              <button class="qchip" onclick="askLib('subdivide')">Can an R40 lot be subdivided?</button>
+              <button class="qchip" onclick="askLib('granny')">Are granny flats allowed?</button>
+              <button class="qchip" onclick="askLib('disclose')">What must I disclose to buyers?</button>
+              <button class="qchip" onclick="askLib('bushfire')">What does "bushfire prone" mean for a sale?</button>
+            </div>
+            <div class="answer" id="libAnswer"></div>
+          </div>
+          <div style="margin-top:18px" class="disc">
+            <svg class="ic" viewBox="0 0 24 24"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+            <div>LotFile is <b>advisory only</b>. It is not legal advice, a planning certificate, or a compliance approval. Always confirm with the relevant local government and a licensed professional.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== SETTINGS ========== -->
+      <section class="view" id="view-settings">
+        <div class="page">
+          <h1>Agency settings</h1>
+          <p class="lead">Branding and default wording applied to every exported one-pager and listing pack.</p>
+          <div class="field"><label>Agency name</label><input value="Mercer &amp; Co Real Estate" /></div>
+          <div class="field"><label>Agent name &amp; licence</label><input value="Jordan Mercer · Triennial Cert. 12345" /></div>
+          <div class="field"><label>Default disclaimer on every export</label>
+            <textarea rows="3">Indicative only and subject to council approval (STCA). Not a planning certificate, survey or legal advice. Buyers should make their own enquiries with the City of Cockburn and a licensed surveyor.</textarea></div>
+          <div class="note"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><div>This disclaimer wording satisfies LotFile's advisory-output policy. It can't be removed — only edited — so exports never imply final approval.</div></div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   ICONS
+============================================================ */
+const I = {
+  pin:'<path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/>',
+  home:'<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',
+  check:'<path d="M20 6L9 17l-5-5"/>',
+  verified:'<path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/>',
+  layers:'<path d="m12 2 9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 17l9 5 9-5"/>',
+  ruler:'<path d="M3 8h18v8H3zM7 8v3M11 8v3M15 8v3M19 8v3"/>',
+  zone:'<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/>',
+  parcel:'<path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7M12 11v10"/>',
+  trend:'<path d="M3 17l6-6 4 4 8-8M21 7v5h-5"/>',
+  split:'<path d="M6 3v6a3 3 0 0 0 3 3h6a3 3 0 0 1 3 3v6M6 21V3M18 21v-3"/>',
+  granny:'<path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-5h4v5"/>',
+  units:'<rect x="4" y="3" width="7" height="18" rx="1"/><rect x="13" y="8" width="7" height="13" rx="1"/><path d="M7 7h1M7 11h1M16 12h1M16 16h1"/>',
+  storey:'<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M5 12h14M9 7h2M13 16h2"/>',
+  fire:'<path d="M12 3c1 3-2 4-2 7a2 2 0 0 0 4 0c0-1 0-1 .5-2 1.5 2 2.5 3.5 2.5 6a5 5 0 0 1-10 0c0-4 5-6 5-11z"/>',
+  plane:'<path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L11 19v-5.5z"/>',
+  water:'<path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/>',
+  easement:'<path d="M4 4v16M20 4v16M4 9h16M4 15h16"/>',
+  shield:'<path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+  alert:'<path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/>',
+  doc:'<path d="M6 2h8l4 4v16H6zM14 2v4h4"/><path d="M9 13h6M9 17h6"/>',
+  copy:'<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
+  download:'<path d="M12 3v12M7 10l5 5 5-5M5 21h14"/>',
+  chat:'<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  chev:'<path d="M6 9l6 6 6-6"/>',
+  back:'<path d="M15 18l-6-6 6-6"/>',
+  refresh:'<path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/>',
+  share:'<circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8 11l8-4M8 13l8 4"/>',
+  spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>',
+  dollar:'<path d="M12 2v20M16 6.5C16 5 14.5 4 12 4S8 5 8 6.8 9.5 9 12 9.5s4 1.5 4 3.5S14.5 16 12 16s-4-1-4-2.5"/>',
+};
+function ic(n){return '<svg class="ic" viewBox="0 0 24 24">'+(I[n]||'')+'</svg>';}
+
+/* ============================================================
+   DATA  — mirrors the LotFile API shape (facts + provenance),
+   reframed into agent-facing sections.
+============================================================ */
+const FEAS = {
+  likely:   {label:'Likely feasible', cls:'likely'},
+  possible: {label:'Worth exploring', cls:'possible'},
+  more_info:{label:'Needs more info', cls:'more_info'},
+  constrained:{label:'Constrained', cls:'constrained'},
+};
+
+const PROPS = {
+  marri: {
+    address:'12 Marri Place, Beeliar', suburb:'Beeliar WA 6164', council:'City of Cockburn',
+    status:'resolved', confidence:'high', retrieved:'22 Jun 2026', headline:'Up to 3 dwellings',
+    facts:[
+      {k:'Zone', v:'Residential', icon:'zone', src:'Cockburn LPS 3', conf:'high'},
+      {k:'R-Code', v:'R40', sub:'medium density', icon:'layers', src:'Cockburn LPS 3', conf:'high'},
+      {k:'Lot area', v:'728', unit:'m²', icon:'ruler', src:'Landgate cadastre', conf:'high'},
+      {k:'Frontage', v:'18.2', unit:'m', icon:'ruler', src:'Landgate cadastre', conf:'medium'},
+      {k:'Land use', v:'Single house', icon:'home', src:'Existing · imagery', conf:'medium'},
+      {k:'Parcel', v:'Lot 214', sub:'DP 38217', icon:'parcel', src:'Landgate cadastre', conf:'high'},
+    ],
+    upside:[
+      {title:'Subdivision', sub:'green-title / survey-strata', icon:'split', feas:'likely',
+       big:'Up to 3', desc:'728 m² at R40 (avg site 220 m², min 180 m²). 728 ÷ 220 ≈ 3.3 — supports up to 3 dwellings or survey-strata lots.',
+       cite:'R-Codes SPP 7.3 Vol 1, Table 1 — R40 site areas'},
+      {title:'Ancillary dwelling', sub:'granny flat / dual living', icon:'granny', feas:'likely',
+       big:'≤ 70 m²', desc:'Lot is ≥ 350 m², so an ancillary dwelling is deemed-to-comply. Strong rental-income / multigenerational angle.',
+       cite:'R-Codes SPP 7.3 Vol 1, cl. 5.5.1'},
+      {title:'Multiple dwellings', sub:'grouped / units', icon:'units', feas:'possible',
+       big:'Explore', desc:'R40 can support grouped or multiple dwellings. Plot-ratio and open-space tests apply — worth a pre-lodgement chat with the City.',
+       cite:'R-Codes SPP 7.3 Vol 1, Part 5'},
+      {title:'Two-storey build', sub:'height envelope', icon:'storey', feas:'possible',
+       big:'2 storeys', desc:'R40 generally permits up to two storeys subject to building-height and setback rules. Confirm against the deemed-to-comply height.',
+       cite:'R-Codes SPP 7.3 Vol 1, cl. 5.1.6'},
+    ],
+    flags:[
+      {label:'Bushfire prone area', sub:'BAL assessment may apply', sev:'attention', icon:'fire',
+       detail:'The property falls within a designated bushfire-prone area on the OBRM map. Habitable development may require a Bushfire Attack Level (BAL) assessment and construction to AS 3959. Relevant to disclosure and to any buyer planning to build.',
+       src:'DFES Bushfire Prone Areas map 2026'},
+      {label:'Aircraft noise — Jandakot ANEF', sub:'within 20–25 ANEF contour', sev:'attention', icon:'plane',
+       detail:'Sits within the Jandakot Airport ANEF 20–25 contour. New noise-sensitive development may need acoustic treatment, and aircraft noise is a matter buyers commonly ask about — disclose proactively.',
+       src:'Jandakot Airport ANEF 2025 (endorsed)'},
+      {label:'Acid sulfate soils', sub:'moderate–low risk', sev:'low', icon:'water',
+       detail:'Mapped moderate-to-low risk given proximity to the Beeliar wetlands. Investigation/management may be required for excavation or dewatering (e.g. a pool or basement). Not usually a barrier to a standard sale.',
+       src:'DWER Acid Sulfate Soils risk map'},
+      {label:'Drainage easement', sub:'2.0 m along rear boundary', sev:'low', icon:'easement',
+       detail:'A 2.0 m drainage easement runs along the rear boundary. You generally can\'t build over it, which slightly reduces the developable footprint — factor it into any subdivision concept.',
+       src:'Landgate interest on title'},
+      {label:'Heritage', sub:'not listed — clear', sev:'clear', icon:'shield',
+       detail:'No State Register or local heritage listing found for this property. No heritage approval pathway applies.',
+       src:'inHerit + Cockburn local heritage list'},
+      {label:'Flood / inundation', sub:'not mapped — clear', sev:'clear', icon:'shield',
+       detail:'Not within a mapped floodway or flood-fringe. No flood-related development controls identified.',
+       src:'DWER floodplain mapping'},
+    ],
+    copy:{
+      marketing:'<b>Develop, subdivide or build your dream home (STCA).</b> A rare R40 opportunity on a generous 728 sqm block in tightly-held Beeliar. The medium-density zoning opens the door to <b>up to three dwellings</b> or a survey-strata development, with room to add an ancillary dwelling for dual living or rental income. Walk to the Beeliar Regional Park wetlands and minutes to Cockburn Gateway and the freeway. Whether you land-bank, develop now or design a single statement home, the upside here is real.',
+      factual:'728 sqm survey lot zoned Residential R40 in the City of Cockburn. Under the R-Codes the site area (avg 220 sqm/dwelling) indicatively supports <b>up to three dwellings or survey-strata lots</b>, and an ancillary dwelling is deemed-to-comply. Buyers should note the property is within a designated bushfire-prone area and the Jandakot ANEF 20–25 contour, and carries a 2.0 m rear drainage easement. Figures are indicative and subject to council approval.'
+    },
+    tps:[
+      {t:'Yes — indicatively up to 3 (STCA)', q:'Can I subdivide?'},
+      {t:'Granny flat ≤ 70 m² deemed-to-comply', q:'Can I add a granny flat?'},
+      {t:'Disclose: bushfire + aircraft noise', q:'What do I disclose?'},
+      {t:'Two storeys generally OK', q:'Can I build up?'},
+    ],
+    faqs:[
+      {q:'Can a buyer subdivide this block?', a:'Indicatively yes. At 728 m² with R40 coding, the R-Codes use an average site area of 220 m² per dwelling, so the lot supports <b>up to three</b> dwellings or survey-strata lots (728 ÷ 220 ≈ 3.3) <sup><a>[1]</a></sup>. A 2.0 m rear drainage easement slightly trims the developable area <sup><a>[2]</a></sup>. This is indicative only — a licensed surveyor and the City of Cockburn confirm the achievable yield.', cites:['R-Codes SPP 7.3 Vol 1, Table 1 — R40 · retrieved 22 Jun 2026','Landgate title interest — drainage easement']},
+      {q:'What do I have to tell buyers?', a:'The two material items here are that the property is in a <b>designated bushfire-prone area</b> <sup><a>[1]</a></sup> and within the <b>Jandakot Airport ANEF 20–25</b> noise contour <sup><a>[2]</a></sup>. Both are commonly asked about and are best disclosed up front. Acid-sulfate-soil risk and the rear easement are minor but worth noting. LotFile is advisory and not legal advice — confirm disclosure obligations with your agency principal.', cites:['DFES Bushfire Prone Areas map 2026','Jandakot Airport ANEF 2025 (endorsed)']},
+    ],
+  },
+
+  hammond: {
+    address:'8 Hammond Road, Cockburn Central', suburb:'Cockburn Central WA 6164', council:'City of Cockburn',
+    status:'needs_more_info', confidence:'medium', retrieved:'22 Jun 2026', headline:'High-density / mixed use',
+    facts:[
+      {k:'Zone', v:'Residential', icon:'zone', src:'Cockburn LPS 3', conf:'high'},
+      {k:'R-Code', v:'R60', sub:'high density', icon:'layers', src:'Cockburn LPS 3', conf:'high'},
+      {k:'Lot area', v:'612', unit:'m²', icon:'ruler', src:'Landgate cadastre', conf:'high'},
+      {k:'Frontage', v:'15.1', unit:'m', icon:'ruler', src:'Landgate cadastre', conf:'medium'},
+      {k:'Land use', v:'Single house', icon:'home', src:'Existing · imagery', conf:'low'},
+      {k:'Parcel', v:'Lot 9', sub:'DP 41880', icon:'parcel', src:'Landgate cadastre', conf:'high'},
+    ],
+    upside:[
+      {title:'Subdivision', sub:'survey-strata', icon:'split', feas:'likely',
+       big:'Up to 4', desc:'612 m² at R60 (avg 150 m², min 120 m²). 612 ÷ 150 ≈ 4.1 — supports up to 4 dwellings/lots.',
+       cite:'R-Codes SPP 7.3 Vol 1, Table 1 — R60 site areas'},
+      {title:'Multiple dwellings / apartments', sub:'activity-centre fringe', icon:'units', feas:'more_info',
+       big:'Check ACP', desc:'Close to the Cockburn activity centre — an Activity Centre Plan may lift density beyond base R60. Needs a structure-plan check before relying on it.',
+       cite:'Cockburn Central activity-centre framework'},
+      {title:'Ancillary dwelling', sub:'granny flat', icon:'granny', feas:'likely',
+       big:'≤ 70 m²', desc:'Lot ≥ 350 m² — ancillary dwelling deemed-to-comply.',
+       cite:'R-Codes SPP 7.3 Vol 1, cl. 5.5.1'},
+    ],
+    flags:[
+      {label:'Land use unconfirmed', sub:'verify before listing', sev:'attention', icon:'alert',
+       detail:'Current improvements couldn\'t be confirmed from available data (low confidence). Confirm whether the existing dwelling is tenanted/strata before marketing development upside.',
+       src:'LotFile resolution — needs_more_info'},
+      {label:'Aircraft noise — Jandakot ANEF', sub:'within 20–25 contour', sev:'attention', icon:'plane',
+       detail:'Within the Jandakot ANEF 20–25 contour — acoustic treatment may apply to new noise-sensitive dwellings. Disclose.',
+       src:'Jandakot Airport ANEF 2025 (endorsed)'},
+      {label:'Heritage', sub:'not listed — clear', sev:'clear', icon:'shield',
+       detail:'No heritage listing identified.', src:'inHerit + Cockburn local list'},
+    ],
+    copy:{
+      marketing:'<b>Develop in the heart of Cockburn Central (STCA).</b> 612 sqm of R60 high-density land a short stroll from the train station, Gateway shopping and the future activity centre. Indicative potential for up to four dwellings, with possible upside under the activity-centre framework. A genuine developer\'s entry point — or a savvy land-bank.',
+      factual:'612 sqm lot zoned Residential R60, City of Cockburn. R-Codes site area (avg 150 sqm) indicatively supports up to four dwellings/lots. Activity-centre provisions may permit additional density — to be confirmed. Within the Jandakot ANEF 20–25 contour. Existing land use unconfirmed. Indicative only and subject to council approval.'
+    },
+    tps:[
+      {t:'Indicatively up to 4 (STCA)', q:'Subdivision?'},
+      {t:'Possible apartment upside — verify ACP', q:'Apartments?'},
+      {t:'Confirm existing land use first', q:'Caveat?'},
+    ],
+    faqs:[
+      {q:'How many dwellings could fit?', a:'At 612 m² with R60 coding (average site 150 m²), the lot indicatively supports <b>up to four</b> dwellings or survey-strata lots <sup><a>[1]</a></sup>. Being on the fringe of the Cockburn Central activity centre, an endorsed structure or activity-centre plan could allow more — that needs to be checked before it\'s relied on <sup><a>[2]</a></sup>.', cites:['R-Codes SPP 7.3 Vol 1, Table 1 — R60 · retrieved 22 Jun 2026','Cockburn Central activity-centre framework — verify currency']},
+    ],
+  },
+
+  erpingham: {
+    address:'41 Erpingham Road, Hamilton Hill', suburb:'Hamilton Hill WA 6163', council:'City of Cockburn',
+    status:'resolved', confidence:'high', retrieved:'22 Jun 2026', headline:'Retain & build / duplex',
+    facts:[
+      {k:'Zone', v:'Residential', icon:'zone', src:'Cockburn LPS 3', conf:'high'},
+      {k:'R-Code', v:'R20/R30', sub:'split coding', icon:'layers', src:'Cockburn LPS 3', conf:'high'},
+      {k:'Lot area', v:'506', unit:'m²', icon:'ruler', src:'Landgate cadastre', conf:'high'},
+      {k:'Frontage', v:'17.0', unit:'m', icon:'ruler', src:'Landgate cadastre', conf:'high'},
+      {k:'Land use', v:'Single house', icon:'home', src:'Existing · imagery', conf:'medium'},
+      {k:'Parcel', v:'Lot 56', sub:'DP 22014', icon:'parcel', src:'Landgate cadastre', conf:'high'},
+    ],
+    upside:[
+      {title:'Subdivision', sub:'green-title', icon:'split', feas:'possible',
+       big:'2 (at R30)', desc:'Split-coded R20/R30. At R30 (avg 300 m²) 506 ÷ 300 ≈ 1.7 — a two-lot subdivision is possible but the higher code usually needs to be triggered/justified.',
+       cite:'R-Codes SPP 7.3 Vol 1, Table 1 + LPS split-code provisions'},
+      {title:'Retain & build behind', sub:'keep the house', icon:'home', feas:'possible',
+       big:'Retain +1', desc:'Frontage and depth may allow keeping the existing home and adding one dwelling behind — popular with downsizers and investors.',
+       cite:'R-Codes SPP 7.3 Vol 1, Part 5'},
+      {title:'Ancillary dwelling', sub:'granny flat', icon:'granny', feas:'likely',
+       big:'≤ 70 m²', desc:'Lot ≥ 350 m² — ancillary dwelling deemed-to-comply.',
+       cite:'R-Codes SPP 7.3 Vol 1, cl. 5.5.1'},
+    ],
+    flags:[
+      {label:'Split density code', sub:'R20/R30 — higher code is conditional', sev:'attention', icon:'split',
+       detail:'The R30 density usually only applies if a trigger in the scheme is met (e.g. amalgamation, sewer, or design criteria). Market the upside as "potential" — confirm the trigger with the City before promising two lots.',
+       src:'Cockburn LPS 3 split-coding provisions'},
+      {label:'Heritage / character', sub:'not listed — clear', sev:'clear', icon:'shield',
+       detail:'No heritage or character-area control identified.', src:'inHerit + Cockburn local list'},
+      {label:'Bushfire', sub:'not prone — clear', sev:'clear', icon:'shield',
+       detail:'Not within a designated bushfire-prone area.', src:'DFES Bushfire Prone Areas map 2026'},
+    ],
+    copy:{
+      marketing:'<b>Live now, develop later (STCA).</b> A solid home on 506 sqm with split R20/R30 zoning in fast-changing Hamilton Hill. Move in or rent out today, with potential down the track to subdivide or retain-and-build subject to meeting the scheme\'s density trigger. Walk to cafés, minutes to the coast.',
+      factual:'506 sqm lot, split-coded Residential R20/R30, City of Cockburn. At R30 (avg 300 sqm) the site indicatively supports two lots, but the higher code is conditional on a scheme trigger. Retain-and-build and ancillary-dwelling options exist. Indicative only and subject to council approval.'
+    },
+    tps:[
+      {t:'Two lots possible at R30 (conditional)', q:'Subdivide?'},
+      {t:'Retain the home, build behind', q:'Keep house?'},
+      {t:'No bushfire / heritage controls', q:'Clear?'},
+    ],
+    faqs:[
+      {q:'Is this really subdividable?', a:'It has <b>potential</b>, not a certainty. The lot is split-coded R20/R30. At the lower R20 it stays a single lot; at R30 (average 300 m²) the 506 m² site indicatively supports two lots <sup><a>[1]</a></sup>. The catch is that the higher R30 density only applies when the scheme\'s trigger is met <sup><a>[2]</a></sup> — so market it as "subdivision potential, subject to council" rather than a guaranteed two lots.', cites:['R-Codes SPP 7.3 Vol 1, Table 1 — R20/R30 · retrieved 22 Jun 2026','Cockburn LPS 3 — split-coding trigger provisions']},
+    ],
+  },
+};
+
+const ORDER = ['marri','hammond','erpingham'];
+
+/* ============================================================
+   NAVIGATION
+============================================================ */
+function go(view){
+  document.querySelectorAll('.view').forEach(function(v){v.classList.remove('on');});
+  document.getElementById('view-'+view).classList.add('on');
+  document.querySelectorAll('#nav button').forEach(function(b){b.classList.toggle('on', b.dataset.v===view);});
+  document.getElementById('scroll').scrollTop = 0;
+  if(view==='home'){ renderRecent(); showSugs(false); }
+  if(view==='listings') renderListings();
+}
+function onAddrInput(el){ showSugs(true); }
+function showSugs(on){ document.getElementById('sugs').style.display = on ? 'flex' : 'none'; }
+
+/* ============================================================
+   HOME — recent strip + listings grid
+============================================================ */
+function statusPill(p){
+  if(p.status==='resolved') return '<span class="pill ok">'+ic('verified')+'Resolved · '+p.confidence+'</span>';
+  if(p.status==='needs_more_info') return '<span class="pill warn">'+ic('alert')+'Needs more info</span>';
+  return '<span class="pill info">'+p.status+'</span>';
+}
+function listingCard(id){
+  var p=PROPS[id];
+  var f=p.facts;
+  return '<button class="lcard" onclick="openReport(\''+id+'\')">'+
+    '<div class="top"><div class="ph">'+ic('home')+'</div>'+
+      '<div class="addr">'+p.address+'<small>'+p.council+'</small></div></div>'+
+    '<div class="facts"><span class="pill fact">'+f[1].v+'</span><span class="pill fact">'+f[2].v+' m²</span>'+statusPill(p)+'</div>'+
+    '<div class="headline">'+ic('trend')+p.headline+'</div>'+
+  '</button>';
+}
+function renderRecent(){ document.getElementById('recentStrip').innerHTML = ORDER.map(listingCard).join(''); }
+function renderListings(){ document.getElementById('listingsGrid').innerHTML = ORDER.map(listingCard).join(''); }
+
+/* ============================================================
+   REPORT
+============================================================ */
+var CUR='marri';
+function openReport(id){
+  CUR=id; var p=PROPS[id];
+  document.getElementById('repHead').innerHTML =
+    '<div class="h-main">'+
+      '<h1>'+ic('pin')+p.address+'</h1>'+
+      '<div class="meta">'+statusPill(p)+
+        '<span class="pill fact">'+p.council+'</span>'+
+        '<span class="pill fact">'+ic('refresh')+'Data retrieved '+p.retrieved+'</span></div>'+
+    '</div>'+
+    '<div class="acts">'+
+      '<button class="btn alt" onclick="copySummary()">'+ic('copy')+'Copy listing summary</button>'+
+      '<button class="btn alt" onclick="toast(\'Preparing branded one-pager (PDF)…\',\'download\')">'+ic('download')+'One-pager</button>'+
+      '<button class="btn primary" onclick="toast(\'Share link copied\',\'check\')">'+ic('share')+'Share</button>'+
+    '</div>';
+  document.getElementById('repBody').innerHTML = repBody(p);
+  resetCopyTone();
+  document.querySelectorAll('#repNav button').forEach(function(b,i){b.classList.toggle('on', i===0);});
+  go('report');
+}
+
+function repBody(p){
+  return (
+    '<div class="section" id="s-snap">'+
+      '<h2>'+ic('home')+'Property snapshot</h2>'+
+      '<div class="sub">The facts you need for the listing and the appraisal — every value tagged with its source and confidence.</div>'+
+      '<div class="snap">'+ p.facts.map(snapCell).join('') +'</div>'+
+    '</div>'+
+
+    '<div class="section" id="s-upside">'+
+      '<h2>'+ic('trend')+'Development upside</h2>'+
+      '<div class="sub">What a buyer could do with the block, computed from the R-Code and lot size. Indicative only — every scenario is subject to council approval.</div>'+
+      '<div class="ups">'+ p.upside.map(upCard).join('') +'</div>'+
+    '</div>'+
+
+    '<div class="section" id="s-flags">'+
+      '<h2>'+ic('shield')+'Risk &amp; disclosure flags</h2>'+
+      '<div class="sub">Overlays and interests buyers ask about — surface them before you market, not after the offer. Tap a flag for detail and source.</div>'+
+      '<div class="flags">'+ p.flags.map(flagRow).join('') +'</div>'+
+    '</div>'+
+
+    '<div class="section" id="s-copy">'+
+      '<h2>'+ic('doc')+'Listing copy &amp; talking points</h2>'+
+      '<div class="sub">A ready-to-paste blurb built from the facts above, with the STCA disclaimer baked in. Switch tone, then copy.</div>'+
+      '<div class="copywrap">'+
+        '<div class="tonebar"><div class="seg">'+
+          '<button id="tone-marketing" class="on" onclick="setTone(\'marketing\')">Marketing</button>'+
+          '<button id="tone-factual" onclick="setTone(\'factual\')">Factual</button>'+
+        '</div>'+
+        '<button class="btn alt" onclick="copyBlurb()">'+ic('copy')+'Copy blurb</button></div>'+
+        '<div class="copybox"><span id="blurb"></span>'+
+          '<span class="stca">Indicative only · subject to council approval (STCA) · not a planning certificate or legal advice · buyers should make their own enquiries with the '+p.council+'.</span>'+
+        '</div>'+
+        '<div class="tps">'+ p.tps.map(function(tp){return '<span class="tp">'+ic('check')+'<b style="font-weight:700">'+tp.q+'</b>&nbsp;'+tp.t+'</span>';}).join('') +'</div>'+
+      '</div>'+
+    '</div>'+
+
+    '<div class="section" id="s-ask">'+
+      '<h2>'+ic('chat')+'Ask about this property</h2>'+
+      '<div class="sub">Buyer questions, answered from this property\'s facts and the approved planning library — with citations.</div>'+
+      '<div class="askbox"><div class="qrow">'+
+        p.faqs.map(function(f,i){return '<button class="qchip" onclick="askProp('+i+')">'+f.q+'</button>';}).join('')+
+        '<button class="qchip" onclick="toast(\'Type any question — answers stay cited\',\'chat\')">+ Ask your own</button>'+
+      '</div><div class="answer" id="propAnswer"></div></div>'+
+    '</div>'+
+
+    '<div class="disc">'+ic('alert')+'<div><b>LotFile is assistive, not authoritative.</b> Figures and scenarios are indicative, generated from mapped data and the R-Codes — they are not a planning certificate, survey, or compliance approval, and don\'t constitute legal advice. Confirm everything with the '+p.council+' and a licensed surveyor before relying on it in a contract.</div></div>'
+  );
+}
+
+function snapCell(f){
+  var low = (f.conf==='low'||f.conf==='none');
+  return '<div class="cell"><div class="k">'+ic(f.icon)+f.k+'</div>'+
+    '<div class="v">'+f.v+(f.unit?' <small>'+f.unit+'</small>':'')+(f.sub?' <small>'+f.sub+'</small>':'')+'</div>'+
+    '<div class="src"><span class="srcchip'+(low?' low':'')+'">'+ic(low?'alert':'verified')+f.src+' · '+f.conf+'</span></div></div>';
+}
+function upCard(u){
+  var fe=FEAS[u.feas];
+  var pillcls = fe.cls==='likely'?'ok':fe.cls==='possible'?'info':fe.cls==='more_info'?'warn':'bad';
+  return '<div class="up"><div class="uh"><div class="ico '+fe.cls+'">'+ic(u.icon)+'</div>'+
+    '<div><div class="ut">'+u.title+'<small>'+u.sub+'</small></div></div></div>'+
+    '<div class="big">'+u.big+'</div>'+
+    '<span class="pill '+pillcls+'" style="align-self:flex-start">'+fe.label+'</span>'+
+    '<div class="desc">'+u.desc+'</div>'+
+    '<div class="cite">'+ic('verified')+u.cite+'</div></div>';
+}
+function flagRow(f,i){
+  return '<div class="flag" id="flag-'+i+'"><button class="fh" onclick="toggleFlag('+i+')">'+
+    '<div class="fdot '+f.sev+'">'+ic(f.icon)+'</div>'+
+    '<div class="fl">'+f.label+'<small>'+f.sub+'</small></div>'+
+    '<span class="chev">'+ic('chev')+'</span></button>'+
+    '<div class="fbody">'+f.detail+'<div class="src"><span class="srcchip">'+ic('verified')+'Source: '+f.src+'</span></div></div></div>';
+}
+function toggleFlag(i){ document.getElementById('flag-'+i).classList.toggle('open'); }
+
+function jump(id,btn){
+  document.querySelectorAll('#repNav button').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  var el=document.getElementById(id);
+  if(el && el.scrollIntoView) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function setTone(t){
+  var p=PROPS[CUR];
+  document.getElementById('blurb').innerHTML = p.copy[t];
+  document.getElementById('tone-marketing').classList.toggle('on', t==='marketing');
+  document.getElementById('tone-factual').classList.toggle('on', t==='factual');
+}
+function resetCopyTone(){ setTone('marketing'); }
+function copyBlurb(){
+  var p=PROPS[CUR];
+  var tone = document.getElementById('tone-marketing').classList.contains('on')?'marketing':'factual';
+  var text = stripHtml(p.copy[tone]) + '\n\nIndicative only · subject to council approval (STCA) · not a planning certificate or legal advice · buyers should make their own enquiries with the '+p.council+'.';
+  copyText(text,'Listing blurb copied');
+}
+function copySummary(){
+  var p=PROPS[CUR]; var f=p.facts;
+  var lines=[
+    p.address+' — '+p.council,
+    'Zone '+f[0].v+' · '+f[1].v+' · '+f[2].v+' m² · frontage '+f[3].v+' m',
+    '',
+    'Development upside:'
+  ];
+  p.upside.forEach(function(u){ lines.push('• '+u.title+' — '+FEAS[u.feas].label+': '+u.big); });
+  lines.push('');
+  lines.push('Disclosure flags: '+p.flags.filter(function(x){return x.sev!=='clear';}).map(function(x){return x.label;}).join('; '));
+  lines.push('');
+  lines.push('Indicative only · subject to council approval (STCA) · not a planning certificate. Source: LotFile, retrieved '+p.retrieved+'.');
+  copyText(lines.join('\n'),'Listing summary copied');
+}
+
+function askProp(i){
+  var f=PROPS[CUR].faqs[i];
+  var box=document.getElementById('propAnswer');
+  box.classList.add('on');
+  box.innerHTML = '<div class="q">'+ic('chat')+f.q+'</div><div class="a">'+f.a+'</div>'+
+    '<div class="cites">'+f.cites.map(function(c,n){return '<span class="srcchip">'+ic('verified')+'['+(n+1)+'] '+c+'</span>';}).join('')+'</div>';
+  if(box.scrollIntoView) box.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+var LIB={
+  subdivide:{q:'Can an R40 lot be subdivided?',
+    a:'R40 is a medium-density code. Under the R-Codes the minimum site area is 180 m² and the average is 220 m² per dwelling <sup><a>[1]</a></sup>. To estimate yield you divide the lot area by the average — e.g. a 728 m² lot ÷ 220 ≈ 3.3, so up to three dwellings or survey-strata lots, subject to access, open space and council approval.',
+    cites:['R-Codes SPP 7.3 Vol 1, Table 1 — R40 site areas · retrieved 22 Jun 2026']},
+  granny:{q:'Are granny flats (ancillary dwellings) allowed?',
+    a:'Generally yes. An ancillary dwelling of up to 70 m² is deemed-to-comply on a lot of 350 m² or more, where there\'s a single main dwelling <sup><a>[1]</a></sup>. It\'s a strong rental-income and dual-living selling point. Setbacks, parking and open-space rules still apply.',
+    cites:['R-Codes SPP 7.3 Vol 1, cl. 5.5.1 — ancillary dwellings · retrieved 22 Jun 2026']},
+  disclose:{q:'What must I disclose to buyers?',
+    a:'There is no single statewide vendor-disclosure schedule in WA the way there is in some states, but agents must not mislead and should proactively surface material facts — commonly things like bushfire-prone designation, aircraft-noise (ANEF) contours, heritage listing, easements and known contamination <sup><a>[1]</a></sup>. LotFile flags these per property. This is general information, not legal advice — confirm obligations with your principal.',
+    cites:['Material-fact / misleading-conduct principles — confirm with agency principal']},
+  bushfire:{q:'What does "bushfire prone" mean for a sale?',
+    a:'If a property is mapped as bushfire-prone, habitable building work can trigger a Bushfire Attack Level (BAL) assessment and construction to AS 3959 <sup><a>[1]</a></sup>. It doesn\'t stop a sale, but it can affect build cost and insurance, so it\'s a sensible thing to disclose and to mention if buyers plan to develop.',
+    cites:['DFES designated bushfire-prone areas + AS 3959 · retrieved 22 Jun 2026']},
+};
+function askLib(key){
+  var f=LIB[key]; if(!f) return;
+  var box=document.getElementById('libAnswer');
+  box.classList.add('on');
+  box.innerHTML='<div class="q">'+ic('chat')+f.q+'</div><div class="a">'+f.a+'</div>'+
+    '<div class="cites">'+f.cites.map(function(c,n){return '<span class="srcchip">'+ic('verified')+'['+(n+1)+'] '+c+'</span>';}).join('')+'</div>';
+}
+
+/* ============================================================
+   UTIL
+============================================================ */
+function stripHtml(h){ var d=document.createElement('div'); d.innerHTML=h; return d.textContent||d.innerText||''; }
+function copyText(text,msg){
+  var done=function(){toast(msg,'check');};
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(function(){fallbackCopy(text,done);});
+  } else fallbackCopy(text,done);
+}
+function fallbackCopy(text,done){
+  var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta); done();
+}
+var toastTimer;
+function toast(msg,icon){
+  var t=document.getElementById('toast');
+  t.innerHTML=ic(icon||'check')+msg; t.classList.add('on');
+  clearTimeout(toastTimer); toastTimer=setTimeout(function(){t.classList.remove('on');},2200);
+}
+
+/* init */
+renderRecent();
+</script>
+</body>
+</html>
