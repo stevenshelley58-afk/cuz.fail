@@ -50,13 +50,13 @@ KEEP_SQL = """
 UPDATE rules SET updated_at=now(), lifecycle_status='approved',
   rule_logic_json = rule_logic_json || %(logic)s::jsonb,
   metadata_json = (coalesce(metadata_json,'{}'::jsonb) - 'parked') || %(meta)s::jsonb
-WHERE id = %(id)s AND extractor_model LIKE 'openai%%decode'
+WHERE id = %(id)s AND extractor_model LIKE '%%decode'
 """
 
 REJECT_SQL = """
 UPDATE rules SET updated_at=now(), lifecycle_status='rejected',
   metadata_json = (coalesce(metadata_json,'{}'::jsonb) - 'parked') || %(meta)s::jsonb
-WHERE id = %(id)s AND extractor_model LIKE 'openai%%decode'
+WHERE id = %(id)s AND extractor_model LIKE '%%decode'
 """
 
 
