@@ -146,12 +146,12 @@ one council each.
 
 | Council | Tier | Status | Rules | Faithful | Canary | Claimed by | Notes |
 |---|---|---|---|---|---|---|---|
-| City of Cockburn | 0 | ✅ done | 4433 | 1.00 | `beeliar_canary.json` | — (2026-07-02) | Reference implementation. WP-0 EXECUTED on prod 2026-07-02 (`reports/wp0_scope_execution.md`); 5 uncorrected decode rules parked with the Tier-1 batch. |
-| City of Melville | 1 | 🔄 | 844 | 0.99 | `melville_canary.json` | claude-fable 2026-07-02 | Policy layer done + audited. CORPUS GAP: 6 activity-centre/structure plans seeded pending acquire+decode (OpenAI quota). LPP 1.20 blocked. |
-| City of Fremantle | 1 | 🔄 | 1522 | 0.99 | `fremantle_canary.json` | claude-fable 2026-07-02 | Policy layer done + audited (audit 0.987 + operator numeric fix). CORPUS GAP: 2 more SPs seeded pending. 8 low-text/scan docs blocked. |
+| City of Cockburn | 0 | 🔄 | 4518 | | `beeliar_canary.json` | codex 2026-07-03 | SP-wave decode+correct complete (openai:codex tags; +Cockburn Coast DSP + backlog clauses; noise sweep -689). RE-AUDIT PENDING (Claude 3-judge) since new rules joined the audited set. |
+| City of Melville | 1 | 🔄 | 1081 | | `melville_canary.json` | codex 2026-07-03 | SP wave (6 ACPs/SPs) decoded+corrected by Codex. AUDIT + canary refresh pending (Claude). LPP 1.20 blocked. |
+| City of Fremantle | 1 | 🔄 | 1728 | | `fremantle_canary.json` | codex 2026-07-03 | SP wave decoded+corrected by Codex. AUDIT + canary refresh pending (Claude). Scan-blocked SPs in vision-recovery queue. |
 | Town of East Fremantle | 1 | ✅ done | 697 | 0.97 | `east_fremantle_canary.json` | claude-fable 2026-07-02 | 13 instruments (LPS3 + 9 LPPs + strategy + 2 precinct plans). SP sweep found no further instruments — corpus complete. |
-| City of Kwinana | 1 | 🔄 | 759 | 0.99 | `kwinana_canary.json` | claude-fable 2026-07-02 | Policy layer done + audited; split-R-code canary fixed the regex bug. CORPUS GAP: 130 structure plans/LDPs seeded pending acquire+decode — growth corridor, most development standards live in SPs. Expect final rules well above 2,000. |
-| City of Rockingham | 1 | 🔄 | 686 | | | claude-fable 2026-07-02 | Policy-layer rules LIVE: the 1,143 quota-parked rules were corrected via Claude-subagent correction (claude:haiku-4.5:correct + numeral gate), scoped and swept — 686 approved. Remaining: decode of 61 seeded SP/centre-plan docs + audit + canary, gated on OpenAI top-up (~$10: embeddings + gpt-4o-mini decode only; gpt-4o correction stage RETIRED in favour of Claude subagents). |
+| City of Kwinana | 1 | 🔄 | 2675 | | `kwinana_canary.json` | codex 2026-07-03 | 41 SPs + LSP texts decoded+corrected by Codex (759 → 2,675). AUDIT + canary refresh pending (Claude). 23 Exa-recovered docs + LDP vision queue remain. |
+| City of Rockingham | 1 | 🔄 | 1639 | | | codex 2026-07-03 | 45 SP reports decoded+corrected by Codex (686 → 1,639). FIRST AUDIT + FIRST CANARY pending (Claude). Recovered-doc mop-up + vision queue remain. |
 | City of Canning | 2 | ⬜ | | | | | |
 | City of Gosnells | 2 | ⬜ | | | | | |
 | City of Armadale | 2 | ⬜ | | | | | |
