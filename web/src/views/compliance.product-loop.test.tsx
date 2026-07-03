@@ -63,7 +63,7 @@ afterEach(() => {
 });
 
 test("compliance panel renders cited advisory drawing-backed results after a run", async () => {
-  render(<CompliancePanel projectId="project-golden" />);
+  render(<CompliancePanel projectId="project-golden" proposalReady />);
 
   await waitFor(() => expect(apiMock.compliance.matrix).toHaveBeenCalledWith("project-golden"));
   await userEvent.click(screen.getByRole("button", { name: /run compliance check/i }));
@@ -130,7 +130,7 @@ test("compliance panel keeps a fresh run when an older matrix load resolves late
     },
   });
 
-  render(<CompliancePanel projectId="project-golden" />);
+  render(<CompliancePanel projectId="project-golden" proposalReady />);
 
   await userEvent.click(screen.getByRole("button", { name: /run compliance check/i }));
   expect(await screen.findByText(/fresh site cover/i)).toBeTruthy();
@@ -201,7 +201,7 @@ test("compliance panel surfaces saved matrix load failures with retry", async ()
   await userEvent.click(screen.getByRole("button", { name: /^retry$/i }));
 
   await waitFor(() => expect(apiMock.compliance.matrix).toHaveBeenCalledTimes(2));
-  expect(await screen.findByText(/no compliance results yet/i)).toBeTruthy();
+  expect(await screen.findByText(/no source-backed planning rules are available/i)).toBeTruthy();
   expect(screen.queryByText(/could not reach server to load saved compliance results/i)).toBeNull();
 });
 
@@ -234,7 +234,7 @@ test("compliance panel records operator review notes on a result", async () => {
     },
   });
 
-  render(<CompliancePanel projectId="project-golden" />);
+  render(<CompliancePanel projectId="project-golden" proposalReady />);
 
   await userEvent.click(await screen.findByRole("button", { name: /run compliance check/i }));
   await userEvent.click(screen.getByRole("button", { name: /site cover/i }));
@@ -256,15 +256,15 @@ test("compliance panel records operator review notes on a result", async () => {
   expect(screen.getByText(/operator note/i)).toBeTruthy();
 });
 
-test("compliance panel collapses an all-needs-info run into a single upload prompt", async () => {
+test("compliance panel renders an address-only matrix as a positive rules browser", async () => {
   const onUploadDrawing = vi.fn();
-  apiMock.compliance.run.mockResolvedValue({
+  apiMock.compliance.matrix.mockResolvedValue({
     kind: "ok",
-    status: 201,
+    status: 200,
     data: {
-      run_id: "run-missing",
+      run_id: "run-address-only",
       project_id: "project-golden",
-      status: "needs_more_info",
+      status: "incomplete",
       as_of_date: "2026-06-12T20:35:00Z",
       advisory_disclaimer: "Results are advisory only and are not final compliance determinations.",
       results: [
@@ -276,9 +276,12 @@ test("compliance panel collapses an all-needs-info run into a single upload prom
           threshold_value: null,
           threshold_unit: "m",
           measured_value: null,
-          rule_id: null,
-          rule_quote: null,
-          citation: null,
+          rule_id: "rule-front-setback",
+          rule_quote: "Buildings set back from the primary street as set out in Table 1.",
+          citation: "R-Codes Vol. 1 | clause 5.1.2",
+          check_type: "numeric_threshold",
+          what_it_means: "The design needs a primary street setback measurement before this rule can be assessed.",
+          modality: "mandatory",
           note: null,
           missing_info_reason: "missing_drawing_measurement",
           drawing_evidence: {},
@@ -286,31 +289,51 @@ test("compliance panel collapses an all-needs-info run into a single upload prom
           human_override: {},
           reviewed_by_user_id: null,
           reviewed_at: null,
-          missing_data: ["front_setback", "primary_street"],
+        },
+        {
+          result_id: "result-site-cover",
+          check_key: "site_cover",
+          display_name: "Site cover",
+          status: "likely_pass",
+          threshold_value: 50,
+          threshold_unit: "%",
+          measured_value: 48,
+          rule_id: "rule-site-cover",
+          rule_quote: "Site coverage is not to exceed the table value.",
+          citation: "R-Codes Vol. 1 | clause 5.1.4",
+          check_type: "numeric_threshold",
+          what_it_means: "Site cover rules apply to the lot once the proposed building footprint is known.",
+          modality: "mandatory",
+          note: null,
+          missing_info_reason: null,
+          drawing_evidence: {},
+          review_reason: null,
+          human_override: {},
+          reviewed_by_user_id: null,
+          reviewed_at: null,
         },
       ],
     },
   });
 
-  render(<CompliancePanel projectId="project-golden" onUploadDrawing={onUploadDrawing} />);
+  render(<CompliancePanel projectId="project-golden" onUploadDrawing={onUploadDrawing} councilName="City of Cockburn" />);
 
-  await userEvent.click(await screen.findByRole("button", { name: /run compliance check/i }));
+  expect(await screen.findByText(/we found 2 planning rules that apply to this property/i)).toBeTruthy();
+  expect(screen.getByText(/planning context: city of cockburn/i)).toBeTruthy();
+  expect(screen.getByText("Numeric Threshold")).toBeTruthy();
+  expect(screen.queryByText(/likely pass/i)).toBeNull();
+  expect(screen.queryByText(/more info needed/i)).toBeNull();
+  expect(screen.queryByText(/need a measurement/i)).toBeNull();
+  expect(screen.queryByRole("button", { name: /run compliance check/i })).toBeNull();
 
-  // When every check needs a measurement the summary leads with the actionable
-  // next step rather than an alarmist "needs info" count.
-  expect(await screen.findByText(/ready to check 1 rules/i)).toBeTruthy();
-  expect(trackEventMock).toHaveBeenCalledWith("compliance_run", {
-    result_count: 1,
-    status: "needs_more_info",
-  });
+  await userEvent.click(screen.getByRole("button", { name: /primary street setback/i }));
+  expect(screen.getByText(/the design needs a primary street setback measurement/i)).toBeTruthy();
+  expect(screen.getByText(/buildings set back from the primary street/i)).toBeTruthy();
+  expect(screen.getByText(/r-codes vol\. 1 \| clause 5\.1\.2/i)).toBeTruthy();
+  expect(screen.getByText(/mandatory standard/i)).toBeTruthy();
+  expect(screen.getByText(/add your proposal details or upload house plans/i)).toBeTruthy();
 
-  // The per-check yellow cards collapse into a single blue upload prompt; the
-  // individual result row is hidden in favour of it.
-  expect(screen.getByText("Add measurements to see your results")).toBeTruthy();
-  expect(screen.getByText(/we have 1 approved rule/i)).toBeTruthy();
-  expect(screen.queryByRole("button", { name: /primary street setback/i })).toBeNull();
-
-  await userEvent.click(screen.getByRole("button", { name: "Upload drawing" }));
+  await userEvent.click(screen.getByRole("button", { name: /next: upload house plans/i }));
   expect(onUploadDrawing).toHaveBeenCalledTimes(1);
   expect(await screen.findByText(/use the documents upload area/i)).toBeTruthy();
 });
@@ -370,7 +393,7 @@ test("compliance panel surfaces per-check missing data when other checks are act
     },
   });
 
-  render(<CompliancePanel projectId="project-golden" onUploadDrawing={onUploadDrawing} />);
+  render(<CompliancePanel projectId="project-golden" onUploadDrawing={onUploadDrawing} proposalReady />);
 
   await userEvent.click(await screen.findByRole("button", { name: /run compliance check/i }));
 
@@ -381,10 +404,9 @@ test("compliance panel surfaces per-check missing data when other checks are act
   expect(screen.queryByText("Add measurements to see your results")).toBeNull();
 
   await userEvent.click(screen.getByRole("button", { name: /primary street setback/i }));
-  expect(screen.getByText("Missing information")).toBeTruthy();
-  expect(screen.getByText(/reason: missing drawing measurement/i)).toBeTruthy();
-  expect(screen.getByText("front_setback")).toBeTruthy();
-  expect(screen.getByText("primary_street")).toBeTruthy();
+  expect(screen.getByText(/we need front setback and primary street to assess this rule/i)).toBeTruthy();
+  expect(screen.getByText("Front Setback")).toBeTruthy();
+  expect(screen.getByText("Primary Street")).toBeTruthy();
 
   await userEvent.click(screen.getByRole("button", { name: /upload drawing to provide this data/i }));
   expect(onUploadDrawing).toHaveBeenCalledTimes(1);

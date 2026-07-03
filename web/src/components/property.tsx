@@ -108,25 +108,72 @@ function factOrderIndex(factType: string): number {
   return i === -1 ? FACT_ORDER.length : i;
 }
 
+function normalizeRCodeText(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return trimmed;
+  let code = trimmed.replace(/^Residential\s+Design\s+Codes?\s*/i, "").trim();
+  code = code.replace(/^RR(?=\d)/i, "R");
+  code = code.replace(/^R\s+(?=\d)/i, "R");
+  if (/^\d/.test(code)) return `R${code}`;
+  return code;
+}
+
+function formatRCodeValue(value: unknown): string | null {
+  if (value === null || value === undefined) return null;
+  if (typeof value === "object" && !Array.isArray(value)) {
+    const o = value as Record<string, unknown>;
+    for (const key of ["code", "value", "label", "name"]) {
+      const formatted = formatFactValue(o[key]);
+      if (formatted) return normalizeRCodeText(formatted);
+    }
+  }
+  const formatted = formatFactValue(value);
+  return formatted ? normalizeRCodeText(formatted) : null;
+}
+
+export function formatFactValueForType(factType: string, value: unknown): string | null {
+  if (factType === "r_code") return formatRCodeValue(value);
+  return formatFactValue(value);
+}
+
 /** Curated, de-duplicated, non-empty property detail rows for the resolution view.
  *  Address and LGA come from the profile fields; the rest are formatted facts with values. */
 export function propertyDetailRows(property: PropertyProfileResponse): PropertyDetailRow[] {
   const rows: PropertyDetailRow[] = [];
   if (property.address) rows.push({ label: "Address", value: property.address });
   if (property.local_government) rows.push({ label: "Local government", value: property.local_government });
+  const seenRows = new Set(rows.map((row) => `${row.label}\u0000${row.value}`));
+  const zoneValues: string[] = [];
+  let zoneHint: string | undefined;
+  let zoneInsertIndex: number | null = null;
 
   (property.facts ?? [])
     .filter((f) => !HEADER_FACT_TYPES.has(f.fact_type))
-    .map((f) => ({ f, value: formatFactValue(f.value) }))
+    .map((f) => ({ f, value: formatFactValueForType(f.fact_type, f.value) }))
     .filter((x): x is { f: PropertyFactResponse; value: string } => x.value !== null)
     .sort((a, b) => factOrderIndex(a.f.fact_type) - factOrderIndex(b.f.fact_type))
-    .forEach(({ f, value }) =>
-      rows.push({
-        label: factLabel(f.fact_type),
-        value,
-        hint: f.confidence === "low" || f.confidence === "none" ? `${f.confidence} confidence` : undefined,
-      }),
-    );
+    .forEach(({ f, value }) => {
+      const label = factLabel(f.fact_type);
+      const hint = f.confidence === "low" || f.confidence === "none" ? `${f.confidence} confidence` : undefined;
+      if (label === "Zone") {
+        if (zoneInsertIndex === null) zoneInsertIndex = rows.length;
+        if (!zoneValues.includes(value)) zoneValues.push(value);
+        zoneHint ??= hint;
+        return;
+      }
+      const rowKey = `${label}\u0000${value}`;
+      if (seenRows.has(rowKey)) return;
+      seenRows.add(rowKey);
+      rows.push({ label, value, hint });
+    });
+
+  if (zoneValues.length > 0) {
+    rows.splice(zoneInsertIndex ?? rows.length, 0, {
+      label: zoneValues.length === 1 ? "Zone" : "Zones",
+      value: zoneValues.join(", "),
+      hint: zoneHint,
+    });
+  }
 
   return rows;
 }

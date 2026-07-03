@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { api, type ApiResult, type ProjectSummary, type PropertyProfileResponse } from "../api";
 import { Icon } from "../components/common";
 import {
   ProvenanceAccordion,
   confidenceBadge,
-  formatFactValue,
+  formatFactValueForType,
   groupFactsByType,
   resolutionBadge,
 } from "../components/property";
@@ -21,7 +21,13 @@ export function projectList(r: ApiResult<ProjectSummary[] | { projects?: Project
 
 /* ── ProjectDetail — opens when a project card is clicked ── */
 
-function ProjectPropertyContext({ projectId }: { projectId: string }) {
+function ProjectPropertyContext({
+  projectId,
+  onLoaded,
+}: {
+  projectId: string;
+  onLoaded?: (property: PropertyProfileResponse | null) => void;
+}) {
   const [property, setProperty] = useState<PropertyProfileResponse | null>(null);
   const [resultKind, setResultKind] = useState<ApiResult<PropertyProfileResponse>["kind"] | "loading">("loading");
 
@@ -29,15 +35,18 @@ function ProjectPropertyContext({ projectId }: { projectId: string }) {
     let active = true;
     setResultKind("loading");
     setProperty(null);
+    onLoaded?.(null);
     void api.getProperty(projectId).then((r) => {
       if (!active) return;
+      const loadedProperty = r.kind === "ok" ? r.data : null;
       setResultKind(r.kind);
-      setProperty(r.kind === "ok" ? r.data : null);
+      setProperty(loadedProperty);
+      onLoaded?.(loadedProperty);
     });
     return () => {
       active = false;
     };
-  }, [projectId]);
+  }, [projectId, onLoaded]);
 
   if (resultKind === "loading") {
     return <div className="state"><Icon name="hourglass_empty" /><span>Loading property context...</span></div>;
@@ -101,7 +110,7 @@ function ProjectPropertyContext({ projectId }: { projectId: string }) {
                 {facts.slice(0, 2).map((fact) => (
                   <div key={fact.fact_id} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: ".82rem" }}>
                     <span style={{ color: "var(--ink-soft)" }}>{fact.review_status}</span>
-                    <span style={{ fontWeight: 650, textAlign: "right" }}>{formatFactValue(fact.value) ?? "—"}</span>
+                    <span style={{ fontWeight: 650, textAlign: "right" }}>{formatFactValueForType(fact.fact_type, fact.value) ?? "—"}</span>
                   </div>
                 ))}
               </div>
@@ -118,6 +127,10 @@ function ProjectPropertyContext({ projectId }: { projectId: string }) {
 export function ProjectDetail({ projectId, onClose }: { projectId: string; onClose: () => void }) {
   const documentSectionRef = useRef<HTMLDivElement>(null);
   const [documentFocusRequest, setDocumentFocusRequest] = useState(0);
+  const [property, setProperty] = useState<PropertyProfileResponse | null>(null);
+  const handlePropertyLoaded = useCallback((loadedProperty: PropertyProfileResponse | null) => {
+    setProperty(loadedProperty);
+  }, []);
 
   function focusDocumentUpload() {
     setDocumentFocusRequest((value) => value + 1);
@@ -132,10 +145,10 @@ export function ProjectDetail({ projectId, onClose }: { projectId: string; onClo
         <button className="btn alt" style={{ fontSize: ".75rem", padding: "6px 12px" }} onClick={onClose}>← Back</button>
       </div>
       <div className="panel">
-        <ProjectPropertyContext projectId={projectId} />
+        <ProjectPropertyContext projectId={projectId} onLoaded={handlePropertyLoaded} />
       </div>
       <div className="panel">
-        <CompliancePanel projectId={projectId} onUploadDrawing={focusDocumentUpload} />
+        <CompliancePanel projectId={projectId} onUploadDrawing={focusDocumentUpload} councilName={property?.local_government} />
       </div>
       <div className="panel" ref={documentSectionRef}>
         <DocumentUpload projectId={projectId} focusRequest={documentFocusRequest} />

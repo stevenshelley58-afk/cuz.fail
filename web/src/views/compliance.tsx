@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CheckCircle2, CircleAlert, CircleHelp, MessageSquare, RefreshCw } from "lucide-react";
+import { CheckCircle2, ChevronDown, ChevronRight, CircleAlert, CircleHelp, MessageSquare, RefreshCw } from "lucide-react";
 import { api, type ComplianceResultItem, type ComplianceRunResponse } from "../api";
 import { trackEvent } from "../analytics";
 
@@ -8,31 +8,288 @@ import { trackEvent } from "../analytics";
 type CompliancePanelProps = {
   projectId: string;
   onUploadDrawing?: () => void;
+  onProposalDetails?: () => void;
+  proposalReady?: boolean;
+  councilName?: string | null;
 };
 
-function StatusBadge({ status }: { status: ComplianceResultItem["status"] }) {
-  if (status === "likely_pass")
+function humanizeLabel(value: string): string {
+  return value
+    .replace(/[_-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function humanizeSentence(value: string): string {
+  return humanizeLabel(value).toLowerCase();
+}
+
+function joinSentenceParts(parts: string[]): string {
+  if (parts.length <= 1) return parts[0] ?? "";
+  if (parts.length === 2) return `${parts[0]} and ${parts[1]}`;
+  return `${parts.slice(0, -1).join(", ")}, and ${parts[parts.length - 1]}`;
+}
+
+function missingDataLabels(item: ComplianceResultItem): string[] {
+  return (item.missing_data ?? [])
+    .map((part) => humanizeSentence(part))
+    .filter((part) => part.length > 0);
+}
+
+function missingAsk(item: ComplianceResultItem): string {
+  const labels = missingDataLabels(item);
+  if (labels.length > 0) {
+    return `We need ${joinSentenceParts(labels)} to assess this rule.`;
+  }
+  if (item.missing_info_reason) {
+    return `We need ${humanizeSentence(item.missing_info_reason)} to assess this rule.`;
+  }
+  return "We need more proposal information to assess this rule.";
+}
+
+function missingBadgeLabel(item: ComplianceResultItem): string {
+  const labels = missingDataLabels(item);
+  if (labels.length > 0) return `Need ${labels[0]}`;
+  return "More info needed";
+}
+
+function ruleTopic(item: ComplianceResultItem): string {
+  if (item.check_type?.trim()) return humanizeLabel(item.check_type);
+  return "Planning Rules";
+}
+
+function modalityLabel(modality: string): string {
+  const key = modality.trim();
+  const labels: Record<string, string> = {
+    mandatory: "Mandatory standard",
+    deemed_to_comply: "Deemed-to-comply standard",
+    design_principle: "Design principle",
+    advisory: "Advisory / guidance",
+  };
+  return labels[key] ?? humanizeLabel(key);
+}
+
+function hasProposalEvidence(item: ComplianceResultItem): boolean {
+  const evidence = item.drawing_evidence ?? {};
+  const method = typeof evidence.method === "string" ? evidence.method.toLowerCase() : "";
+  return (
+    method === "manual_override" ||
+    method.includes("document") ||
+    method.includes("drawing") ||
+    typeof evidence.document_fact_id === "string" ||
+    typeof evidence.source_document_id === "string"
+  );
+}
+
+function hasPostProposalSignal(item: ComplianceResultItem): boolean {
+  return hasProposalEvidence(item) || Boolean(item.missing_data?.length);
+}
+
+function StatusBadge({ item }: { item: ComplianceResultItem }) {
+  if (item.status === "likely_pass")
     return (
       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#16a34a", fontWeight: 600 }}>
         <CheckCircle2 size={16} /> Likely pass
       </span>
     );
-  if (status === "likely_fail")
+  if (item.status === "likely_fail")
     return (
       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#dc2626", fontWeight: 600 }}>
         <CircleAlert size={16} /> Likely fail
       </span>
     );
-  if (status === "needs_more_info")
+  if (item.status === "needs_more_info")
     return (
       <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#ca8a04", fontWeight: 600 }}>
-        <CircleHelp size={16} /> More info needed
+        <CircleHelp size={16} /> {missingBadgeLabel(item)}
       </span>
     );
   return (
     <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#6b7280", fontWeight: 600 }}>
       — Unsupported
     </span>
+  );
+}
+
+function RuleSourceDetails({ item, preProposal = false }: { item: ComplianceResultItem; preProposal?: boolean }) {
+  const whatItMeans = item.what_it_means?.trim() || item.note?.trim();
+
+  return (
+    <>
+      {whatItMeans && (
+        <div style={{ marginBottom: 10 }}>
+          <div style={{ fontSize: 11, color: "#6b7280", marginBottom: 3, fontWeight: 600 }}>What this rule says</div>
+          <div style={{ color: "#374151" }}>{whatItMeans}</div>
+        </div>
+      )}
+
+      {item.rule_quote && (
+        <blockquote
+          style={{
+            margin: "0 0 8px",
+            paddingLeft: 10,
+            borderLeft: "3px solid #d1d5db",
+            color: "#4b5563",
+            fontStyle: "italic",
+            fontSize: 12,
+          }}
+        >
+          {item.rule_quote}
+        </blockquote>
+      )}
+
+      {item.citation && (
+        <div style={{ fontSize: 12, color: "#6b7280", marginBottom: 8 }}>
+          <span style={{ fontWeight: 500 }}>Source:</span> {item.citation}
+        </div>
+      )}
+
+      {item.modality?.trim() && (
+        <div style={{ fontSize: 12, color: "#6b7280", marginBottom: 8 }}>
+          <span style={{ fontWeight: 500 }}>Modality:</span> {modalityLabel(item.modality)}
+        </div>
+      )}
+
+      {preProposal && (
+        <div style={{ fontSize: 12, color: "#6b7280", marginTop: 10 }}>
+          Add your proposal details or upload house plans and we'll review this rule against your design.
+        </div>
+      )}
+    </>
+  );
+}
+
+function RuleBrowserRow({ item }: { item: ComplianceResultItem }) {
+  const [expanded, setExpanded] = useState(false);
+  return (
+    <div style={{ border: "1px solid #e5e7eb", borderRadius: 8, overflow: "hidden", background: "#fff" }}>
+      <button
+        onClick={() => setExpanded((value) => !value)}
+        aria-expanded={expanded}
+        style={{
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 12,
+          padding: "10px 14px",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          textAlign: "left",
+        }}
+      >
+        <span style={{ fontWeight: 600, fontSize: 14, color: "#111827" }}>{item.display_name ?? humanizeLabel(item.check_key)}</span>
+        <span style={{ display: "inline-flex", alignItems: "center", color: "#6b7280" }}>
+          {expanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+        </span>
+      </button>
+      {expanded && (
+        <div style={{ padding: "0 14px 14px", fontSize: 13, color: "#374151" }}>
+          <RuleSourceDetails item={item} preProposal />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function RulesBrowser({
+  results,
+  councilName,
+  onUploadDrawing,
+  onProposalDetails,
+}: {
+  results: ComplianceResultItem[];
+  councilName?: string | null;
+  onUploadDrawing?: () => void;
+  onProposalDetails?: () => void;
+}) {
+  const applicableRules = results.filter((item) => item.status !== "unsupported");
+  const grouped = new Map<string, ComplianceResultItem[]>();
+  for (const item of applicableRules) {
+    const topic = ruleTopic(item);
+    grouped.set(topic, [...(grouped.get(topic) ?? []), item]);
+  }
+  const planningContext = councilName ? `Planning context: ${councilName}` : "Planning context resolved for this address.";
+
+  if (applicableRules.length === 0) {
+    return (
+      <div style={{ color: "#6b7280", fontSize: 14 }}>
+        No source-backed planning rules are available for this property yet.
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div
+        style={{
+          background: "#f0fdf4",
+          border: "1px solid #bbf7d0",
+          borderRadius: 8,
+          padding: "12px 14px",
+          marginBottom: 14,
+        }}
+      >
+        <div style={{ color: "#166534", fontSize: 15, fontWeight: 700, marginBottom: 4 }}>
+          We found {applicableRules.length} planning rule{applicableRules.length === 1 ? "" : "s"} that apply to this property
+        </div>
+        <div style={{ color: "#166534", fontSize: 13 }}>{planningContext}</div>
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+        {Array.from(grouped.entries()).map(([topic, items]) => (
+          <section key={topic}>
+            <h4 style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#374151" }}>{topic}</h4>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {items.map((item) => (
+                <RuleBrowserRow key={item.result_id} item={item} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      {(onProposalDetails || onUploadDrawing) && (
+        <div style={{ marginTop: 14, display: "flex", justifyContent: "flex-end", gap: 8, flexWrap: "wrap" }}>
+          {onProposalDetails && (
+            <button
+              onClick={onProposalDetails}
+              style={{
+                fontSize: 13,
+                padding: "7px 14px",
+                background: "#2563eb",
+                color: "#fff",
+                border: "none",
+                borderRadius: 5,
+                cursor: "pointer",
+                fontWeight: 600,
+              }}
+            >
+              Next: Proposal details →
+            </button>
+          )}
+          {!onProposalDetails && onUploadDrawing && (
+            <button
+              onClick={onUploadDrawing}
+              style={{
+                fontSize: 13,
+                padding: "7px 14px",
+                background: "#2563eb",
+                color: "#fff",
+                border: "none",
+                borderRadius: 5,
+                cursor: "pointer",
+                fontWeight: 600,
+              }}
+            >
+              Next: Upload house plans
+            </button>
+          )}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -109,7 +366,7 @@ function ComplianceResultRow({
         }}
       >
         <span style={{ fontWeight: 500, fontSize: 14 }}>{item.display_name ?? item.check_key}</span>
-        <StatusBadge status={item.status} />
+        <StatusBadge item={item} />
       </button>
 
       {expanded && (
@@ -142,26 +399,7 @@ function ComplianceResultRow({
             </div>
           )}
 
-          {item.rule_quote && (
-            <blockquote
-              style={{
-                margin: "0 0 8px",
-                paddingLeft: 10,
-                borderLeft: "3px solid #d1d5db",
-                color: "#4b5563",
-                fontStyle: "italic",
-                fontSize: 12,
-              }}
-            >
-              {item.rule_quote}
-            </blockquote>
-          )}
-
-          {item.citation && (
-            <div style={{ fontSize: 12, color: "#6b7280", marginBottom: 8 }}>
-              <span style={{ fontWeight: 500 }}>Source:</span> {item.citation}
-            </div>
-          )}
+          <RuleSourceDetails item={item} />
 
           {hasDrawingEvidence && (
             <div
@@ -194,16 +432,11 @@ function ComplianceResultRow({
                 marginTop: 8,
               }}
             >
-              <div style={{ fontWeight: 500, marginBottom: 4, color: "#92400e" }}>Missing information</div>
-              {item.missing_info_reason && (
-                <div style={{ fontSize: 12, marginBottom: 6 }}>
-                  Reason: {item.missing_info_reason.replace(/_/g, " ")}
-                </div>
-              )}
+              <div style={{ fontWeight: 600, marginBottom: 4, color: "#92400e" }}>{missingAsk(item)}</div>
               {item.missing_data && item.missing_data.length > 0 ? (
                 <ul style={{ margin: "0 0 8px", paddingLeft: 16 }}>
                   {item.missing_data.map((d) => (
-                    <li key={d} style={{ fontSize: 12 }}>{d}</li>
+                    <li key={d} style={{ fontSize: 12 }}>{humanizeLabel(d)}</li>
                   ))}
                 </ul>
               ) : null}
@@ -287,7 +520,13 @@ function ComplianceResultRow({
   );
 }
 
-export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelProps) {
+export function CompliancePanel({
+  projectId,
+  onUploadDrawing,
+  onProposalDetails,
+  proposalReady = false,
+  councilName,
+}: CompliancePanelProps) {
   const [runResult, setRunResult] = useState<ComplianceRunResponse | null>(null);
   const [matrixLoading, setMatrixLoading] = useState(true);
   const [matrixLoadMessage, setMatrixLoadMessage] = useState<string | null>(null);
@@ -295,6 +534,7 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [uploadPrompted, setUploadPrompted] = useState(false);
+  const [ranAssessment, setRanAssessment] = useState(false);
   const resultVersionRef = useRef(0);
 
   const loadMatrix = useCallback(async () => {
@@ -346,6 +586,7 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
     if (r.kind === "ok") {
       setRunResult(r.data);
       setMatrixLoadMessage(null);
+      setRanAssessment(true);
       trackEvent("compliance_run", { result_count: r.data.results.length, status: r.data.status });
     } else if (r.kind === "notBuilt") {
       setError("Compliance check endpoint not yet available on this server.");
@@ -374,19 +615,22 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
   }
 
   const results = runResult?.results ?? [];
+  const hasPostProposalEvidence = results.some(hasPostProposalSignal);
+  const isPostProposal = ranAssessment || hasPostProposalEvidence;
+  const canRunAssessment = proposalReady || isPostProposal;
   const passCount = results.filter((r) => r.status === "likely_pass").length;
   const failCount = results.filter((r) => r.status === "likely_fail").length;
   const moreInfoCount = results.filter((r) => r.status === "needs_more_info").length;
   const unsupportedCount = results.filter((r) => r.status === "unsupported").length;
   const actionableCount = passCount + failCount;
-  const allNeedMoreInfo = results.length > 0 && actionableCount === 0 && moreInfoCount > 0;
+  const showRulesBrowser = results.length > 0 && !isPostProposal;
 
   return (
     <div style={{ padding: "0 0 24px" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
         <div>
           <h3 style={{ margin: 0, fontSize: 16, fontWeight: 600 }}>Compliance check</h3>
-          {results.length > 0 && (
+          {isPostProposal && results.length > 0 && (
             <div style={{ fontSize: 12, color: "#6b7280", marginTop: 4 }}>
               {actionableCount > 0
                 ? `${passCount} likely pass · ${failCount} likely fail${moreInfoCount > 0 ? ` · ${moreInfoCount} need a measurement` : ""}`
@@ -396,26 +640,28 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
             </div>
           )}
         </div>
-        <button
-          onClick={() => void runCheck()}
-          disabled={loading}
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: 6,
-            padding: "8px 16px",
-            background: loading ? "#e5e7eb" : "#2563eb",
-            color: loading ? "#6b7280" : "#fff",
-            border: "none",
-            borderRadius: 6,
-            cursor: loading ? "not-allowed" : "pointer",
-            fontWeight: 500,
-            fontSize: 14,
-          }}
-        >
-          <RefreshCw size={15} style={loading ? { animation: "spin 1s linear infinite" } : {}} />
-          {loading ? "Running…" : "Run compliance check"}
-        </button>
+        {canRunAssessment && (
+          <button
+            onClick={() => void runCheck()}
+            disabled={loading}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
+              padding: "8px 16px",
+              background: loading ? "#e5e7eb" : "#2563eb",
+              color: loading ? "#6b7280" : "#fff",
+              border: "none",
+              borderRadius: 6,
+              cursor: loading ? "not-allowed" : "pointer",
+              fontWeight: 500,
+              fontSize: 14,
+            }}
+          >
+            <RefreshCw size={15} style={loading ? { animation: "spin 1s linear infinite" } : {}} />
+            {loading ? "Running…" : "Run compliance check"}
+          </button>
+        )}
       </div>
 
       {error && (
@@ -478,48 +724,22 @@ export function CompliancePanel({ projectId, onUploadDrawing }: CompliancePanelP
 
       {results.length === 0 && !loading && !matrixLoading && !matrixLoadMessage && !error && (
         <div style={{ color: "#6b7280", fontSize: 14 }}>
-          No compliance results yet. Run a check to get started.
+          {canRunAssessment
+            ? "No compliance results yet. Run a check to get started."
+            : "No source-backed planning rules are available for this property yet."}
         </div>
       )}
 
-      {allNeedMoreInfo && (
-        <div
-          style={{
-            background: "#eff6ff",
-            border: "1px solid #bfdbfe",
-            borderRadius: 8,
-            padding: "12px 14px",
-            marginBottom: 12,
-          }}
-        >
-          <div style={{ fontWeight: 600, color: "#1e40af", fontSize: 14, marginBottom: 4 }}>
-            Add measurements to see your results
-          </div>
-          <div style={{ fontSize: 13, color: "#1e40af", marginBottom: 8 }}>
-            We have {moreInfoCount} approved rule{moreInfoCount === 1 ? "" : "s"} ready to check against this property. Upload a drawing or enter measurements to see likely pass/fail per check.
-          </div>
-          {onUploadDrawing && (
-            <button
-              onClick={handleUploadDrawing}
-              style={{
-                fontSize: 13,
-                padding: "6px 14px",
-                background: "#2563eb",
-                color: "#fff",
-                border: "none",
-                borderRadius: 5,
-                cursor: "pointer",
-                fontWeight: 500,
-              }}
-            >
-              Upload drawing
-            </button>
-          )}
-        </div>
+      {showRulesBrowser && (
+        <RulesBrowser
+          results={results}
+          councilName={councilName}
+          onUploadDrawing={onUploadDrawing ? handleUploadDrawing : undefined}
+          onProposalDetails={onProposalDetails}
+        />
       )}
 
-      {results
-        .filter((item) => !(allNeedMoreInfo && item.status === "needs_more_info"))
+      {isPostProposal && results
         .filter((item) => item.status !== "unsupported")
         .map((item) => (
           <ComplianceResultRow
