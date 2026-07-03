@@ -146,12 +146,12 @@ one council each.
 
 | Council | Tier | Status | Rules | Faithful | Canary | Claimed by | Notes |
 |---|---|---|---|---|---|---|---|
-| City of Cockburn | 0 | 🔄 | 4518 | | `beeliar_canary.json` | codex 2026-07-03 | SP-wave decode+correct complete (openai:codex tags; +Cockburn Coast DSP + backlog clauses; noise sweep -689). RE-AUDIT PENDING (Claude 3-judge) since new rules joined the audited set. |
-| City of Melville | 1 | 🔄 | 1081 | | `melville_canary.json` | codex 2026-07-03 | SP wave (6 ACPs/SPs) decoded+corrected by Codex. AUDIT + canary refresh pending (Claude). LPP 1.20 blocked. |
-| City of Fremantle | 1 | 🔄 | 1728 | | `fremantle_canary.json` | codex 2026-07-03 | SP wave decoded+corrected by Codex. AUDIT + canary refresh pending (Claude). Scan-blocked SPs in vision-recovery queue. |
+| City of Cockburn | 0 | ✅ done | 4543 | 0.933 | `beeliar_canary.json` | codex 2026-07-03 | Final 75-rule audit passed after sampler NULL-stratum fix; 5 majority actions applied plus density wording fix. |
+| City of Melville | 1 | ✅ done | 1105 | 1.00 | `melville_canary.json` | codex 2026-07-03 | Three judges reported zero majority flags. LPP 1.20 remains a non-gating dead-URL backlog item. |
+| City of Fremantle | 1 | ✅ done | 1751 | 0.933 | `fremantle_canary.json` | codex 2026-07-03 | Final 75-rule audit passed after 3 rejects and 2 advisory wording fixes. Scan-blocked SPs remain non-gating backlog. |
 | Town of East Fremantle | 1 | ✅ done | 697 | 0.97 | `east_fremantle_canary.json` | claude-fable 2026-07-02 | 13 instruments (LPS3 + 9 LPPs + strategy + 2 precinct plans). SP sweep found no further instruments — corpus complete. |
-| City of Kwinana | 1 | 🔄 | 2675 | | `kwinana_canary.json` | codex 2026-07-03 | 41 SPs + LSP texts decoded+corrected by Codex (759 → 2,675). AUDIT + canary refresh pending (Claude). 23 Exa-recovered docs + LDP vision queue remain. |
-| City of Rockingham | 1 | 🔄 | 1639 | | | codex 2026-07-03 | 45 SP reports decoded+corrected by Codex (686 → 1,639). FIRST AUDIT + FIRST CANARY pending (Claude). Recovered-doc mop-up + vision queue remain. |
+| City of Kwinana | 1 | ✅ done | 3271 | 0.987 | `kwinana_canary.json` | codex 2026-07-03 | Final audit passed; 12 scan-only documents remain non-gating backlog. |
+| City of Rockingham | 1 | ✅ done | 1792 | 0.987 | `rockingham_canary.json` | codex 2026-07-03 | Final audit passed; 10 amendment/navigation-only documents remain non-gating backlog. |
 | City of Canning | 2 | ⬜ | | | | | |
 | City of Gosnells | 2 | ⬜ | | | | | |
 | City of Armadale | 2 | ⬜ | | | | | |
