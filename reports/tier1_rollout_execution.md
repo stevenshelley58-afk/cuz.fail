@@ -120,3 +120,49 @@ verdicts (prompt updated).
   before quota exhaustion.
 - Claude: ~15 Haiku agents (discovery ×5, judges ×9, babysitter ×1); main loop
   orchestration only.
+
+## Final Tier-1 closeout (2026-07-03)
+
+All Tier-1 council faithfulness gates are closed. Live scoped counts were queried from the
+production database after the final rejects.
+
+| Council | Approved scoped rules | Rejected scoped rows | Final audited rate | Canary seed |
+|---|---:|---:|---:|---|
+| City of Cockburn | 4,543 | 1,276 | 0.933 | `beeliar_canary.json` |
+| City of Melville | 1,105 | 834 | 1.00 | `melville_canary.json` |
+| City of Fremantle | 1,751 | 1,251 | 0.933 | `fremantle_canary.json` |
+| Town of East Fremantle | 697 | 515 | 0.97 | `east_fremantle_canary.json` |
+| City of Kwinana | 3,271 | 2,479 | 0.987 | `kwinana_canary.json` |
+| City of Rockingham | 1,792 | 1,313 | 0.987 | `rockingham_canary.json` |
+
+Final audit actions applied with `metadata_json.audit_fix =
+tier1_final_3judge_2026-07-03`:
+
+| Council | Rule | Action |
+|---|---|---|
+| City of Fremantle | `68540c1f-d6b6-59a9-9ea3-d3852d1aca64` | Rejected: descriptive freeboard data, not a control. |
+| City of Fremantle | `3e4fa8f3-71b5-50ff-8cfe-a5eb02c24746` | Rejected: definition presented as a development control. |
+| City of Fremantle | `f861ee7b-5ea7-566e-af05-551bd90943a2` | Rejected: scope/applicability statement, not a rule. |
+| City of Fremantle | `3c7ef679-513a-50b1-97d9-9b7593b4e2eb` | Fixed in place: modality `advisory`; technical reports may be required for structure plan and large-scale subdivision applications. |
+| City of Fremantle | `4c2bce53-be2c-5939-b09e-e6d58203070a` | Fixed in place: modality `advisory`; retained/enhanced heritage features framed as an assessment criterion. |
+| City of Cockburn | `91d38b5a-8e04-569e-9d42-eb50ed02cb3e` | Fixed in place: density wording mirrors R20 cap and Council's R40 permission pathway north of Forrest Road. |
+| City of Cockburn | `975494ec-049e-59a3-ab22-e946c18a23be` | Rejected: descriptive cul-de-sac position data, not a control. |
+| City of Cockburn | `0113b064-e8f9-51bf-96d0-6e43ff92c9c2` | Rejected: scope/vision statement converted into a development control. |
+| City of Cockburn | `fc47bbaa-09c2-51f2-a95b-fc0a78027a1f` | Fixed in place: modality `advisory`; bushfire measures wording now mirrors "will need to be implemented". |
+| City of Cockburn | `aa783563-da5f-5996-898e-ec649775f4f2` | Fixed in place: modality `advisory`; firebreak maintenance wording now mirrors "will maintain ... or alternatively provide a bond". |
+| City of Cockburn | `8562268d-f170-5d56-bf15-a4a8305b0d0c` | Fixed in place: modality `advisory`; staged density wording now mirrors "may be achieved". |
+| City of Kwinana | `2241f295-c8ec-5b4d-ad10-ae42bc8c8b5d` | Previously applied fix: modality/wording corrected to recommended/preferably storage near retained trees. |
+| City of Rockingham | `f6f56c7d-8df5-537c-9995-96e53c75bcd1` | Previously applied reject: plan-phase recommendation was upgraded and over-specified. |
+| City of Rockingham | `a9e9d5fb-b98d-568a-9863-79abcd46582a` | Previously applied reject: context-free fragment invented battle-axe scope. |
+| City of Rockingham | `71127f50-e4d4-506a-80f2-d0fabc4a3c50` | Previously applied reject: claim invented cash-in-lieu exemption consequence absent from quote. |
+
+Cockburn's prior sampler shortfall is fixed in `scripts/export_audit_sample.py`: `NULL`
+`check_type` strata now use NULL-safe equality, and the final Cockburn export returned
+75/75 rows from a 4,545-row approved population before the two sample rejects.
+
+Remaining non-gating backlog:
+
+- 23 blocked documents remain outside the Tier-1 gate: Kwinana 12 scan-only documents,
+  Melville 1 dead URL, and Rockingham 10 amendment/navigation-only documents.
+- Run embedding backfill before Tier 2 expansion.
+- Add OCR fallback for scan-only planning instruments.

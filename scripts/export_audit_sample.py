@@ -62,7 +62,8 @@ def main() -> int:
                        rule_logic_json->>'applies_when',
                        rule_logic_json->>'modality', quote
                 FROM rules
-                WHERE lifecycle_status='approved' AND council_scope=%s AND check_type=%s
+                WHERE lifecycle_status='approved' AND council_scope=%s
+                  AND check_type IS NOT DISTINCT FROM %s
                 ORDER BY random() LIMIT %s
                 """,
                 (args.council, check_type, take),
