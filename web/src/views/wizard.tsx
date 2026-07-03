@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { api, type PropertyFactResponse, type PropertyProfileResponse, type ProposalRequest, type ProposalResponse } from "../api";
 import { Icon } from "../components/common";
-import { ProvenanceAccordion, confidenceBadge, formatFactValue, groupFactsByType, propertyDetailRows, resolutionBadge } from "../components/property";
+import { ProvenanceAccordion, confidenceBadge, formatFactValueForType, groupFactsByType, propertyDetailRows, resolutionBadge } from "../components/property";
 import type { WizardState, WizardStep } from "../types";
 import { CompliancePanel } from "./compliance";
 import { DocumentUpload } from "./documents";
@@ -284,8 +284,8 @@ function ConfirmationStep({
   onStart: () => void;
 }) {
   const factsByType = property ? groupFactsByType(property.facts ?? []) : new Map<string, PropertyFactResponse[]>();
-  const zoneVal = formatFactValue(factsByType.get("zone")?.[0]?.value);
-  const rCodeVal = formatFactValue(factsByType.get("r_code")?.[0]?.value);
+  const zoneVal = formatFactValueForType("zone", factsByType.get("zone")?.[0]?.value);
+  const rCodeVal = formatFactValueForType("r_code", factsByType.get("r_code")?.[0]?.value);
 
   return (
     <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
@@ -382,7 +382,7 @@ function ConfirmationStep({
 
       <DocumentUpload projectId={projectId} />
 
-      <CompliancePanel projectId={projectId} />
+      <CompliancePanel projectId={projectId} proposalReady councilName={property?.local_government} />
 
       <div className="wizard-actions" style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
         <button className="btn alt" onClick={onBack}>← Back to edit</button>
