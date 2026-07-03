@@ -2,11 +2,11 @@
   "registry_source": "generated",
   "registry_checks": 38,
   "primary": {
-    "address": "14B CHAPMAN ROAD CALISTA",
-    "project_id": "150f9d67-67bf-4826-9f9d-18228957f78f",
+    "address": "7 DYER LINK BALDIVIS",
+    "project_id": "800da8b3-a9c3-4611-883d-5439b01e5854",
     "resolution_status": "resolved",
-    "parcel_id": "1605783",
-    "local_government": "City of Kwinana",
+    "parcel_id": "1697042",
+    "local_government": "City of Rockingham",
     "synth_property_facts": 6,
     "synth_fact_types": [
       "local_government",
@@ -16,21 +16,20 @@
       "r_code",
       "zone"
     ],
-    "r_code": "R12.5/20",
+    "r_code": "R20",
     "categories_evaluated": 118,
     "status_breakdown": {
-      "needs_more_info": 64,
+      "needs_more_info": 54,
       "unsupported": 20,
-      "likely_fail": 1,
-      "likely_pass": 1,
-      "needs_assessment": 32
+      "likely_pass": 2,
+      "needs_assessment": 42
     },
     "by_check_type": {
       "numeric_threshold": 38,
-      "boolean_presence": 25,
-      "qualitative_performance": 29,
+      "categorical": 10,
+      "boolean_presence": 24,
       "conditional": 21,
-      "categorical": 5
+      "qualitative_performance": 25
     },
     "numeric_checks": 38,
     "advisory_rules_surfaced": 80,
@@ -39,9 +38,9 @@
       {
         "check_key": "setback_front",
         "status": "needs_more_info",
-        "citation": "primary_street_setback.all.alt20 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "citation": "primary_street_setback.R100_R15_R20_R25_R30_R35_R40_R50_R60_R80.alt4 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
         "measured": null,
-        "threshold": 2.0
+        "threshold": 1.5
       },
       {
         "check_key": "setback_rear",
@@ -60,9 +59,9 @@
       {
         "check_key": "setback_side_secondary",
         "status": "needs_more_info",
-        "citation": "secondary_street_setback.all.alt8 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "citation": "secondary_street_setback.R15_R17p5_R20_R25_R30_R35.single_house.alt2 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
         "measured": null,
-        "threshold": 0.5
+        "threshold": 1.5
       },
       {
         "check_key": "site_cover",
@@ -74,9 +73,9 @@
       {
         "check_key": "open_space",
         "status": "needs_more_info",
-        "citation": "open_space.all.alt4 | source_version:a51f695c-039c-4198-84a5-ce7279d1209d",
+        "citation": "open_space.R15_R17p5_R20_R25.grouped_dwelling.alt2 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
         "measured": null,
-        "threshold": 10.0
+        "threshold": 50.0
       },
       {
         "check_key": "garage_width",
@@ -95,9 +94,9 @@
       {
         "check_key": "boundary_wall_length",
         "status": "needs_more_info",
-        "citation": "boundary_wall_length.all.alt4 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "citation": "boundary_wall_length.R20_R25.alt5 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
         "measured": null,
-        "threshold": 10.0
+        "threshold": 9.0
       },
       {
         "check_key": "building_storey",
@@ -116,9 +115,9 @@
       {
         "check_key": "outdoor_living_area",
         "status": "needs_more_info",
-        "citation": "outdoor_living_area.all.alt21 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "citation": "outdoor_living_area.R20_R25.single_house.alt2 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
         "measured": null,
-        "threshold": 50.0
+        "threshold": 30.0
       },
       {
         "check_key": "parking_bays_per_dwelling",
@@ -129,10 +128,10 @@
       },
       {
         "check_key": "site_area",
-        "status": "likely_fail",
-        "citation": "site_area.all.alt2 | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
-        "measured": 961.09,
-        "threshold": 100.0
+        "status": "likely_pass",
+        "citation": "site_area.R20 | source_version:d1fe42eb-b6b8-4dde-b3f5-699d916a29fd",
+        "measured": 600.68,
+        "threshold": 450.0
       },
       {
         "check_key": "soft_landscaping",
@@ -220,8 +219,8 @@
       },
       {
         "check_key": "land_use_permissibility",
-        "status": "needs_more_info",
-        "citation": "land_use_permissibility.d5767a3b8 | source_version:d41363a3-a192-495e-b295-bf8d1a9b6a91",
+        "status": "unsupported",
+        "citation": null,
         "measured": null,
         "threshold": null
       },
@@ -235,9 +234,9 @@
       {
         "check_key": "min_frontage",
         "status": "likely_pass",
-        "citation": "r5_min_frontage.all | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
-        "measured": 52.27,
-        "threshold": 30.0
+        "citation": "minimum_frontage.R20.single_house | source_version:9a909193-662d-4c8d-a595-fa2b25d0dcc4",
+        "measured": 33.31,
+        "threshold": 10.0
       },
       {
         "check_key": "min_lot_area_per_dwelling",
@@ -276,8 +275,8 @@
       },
       {
         "check_key": "plot_ratio",
-        "status": "unsupported",
-        "citation": null,
+        "status": "needs_more_info",
+        "citation": "plot_ratio.d9e498474 | source_version:055085fb-7b4e-4575-8627-d706362d6c9d",
         "measured": null,
         "threshold": null
       },
@@ -305,6 +304,14 @@
     ],
     "advisory_samples": [
       {
+        "check_key": "dwelling_density",
+        "check_type": "categorical",
+        "status": "needs_assessment",
+        "what_it_means": "The proposal must satisfy this quoted development control: All land use classifications, their permissibility and also corresponding development standards under the \u201eResidential\u201f Zone for all proposed residential sites (R20, R30, R40 and R60) shall be as per the provisions of TPS2 and the Residential Design Codes of Western Australia (2002).",
+        "how_to_query": "Compare the proposal details against the quoted development control.",
+        "citation": "dwelling_density.da7d0b9fb | source_version:4fa496e5-6b9c-484f-9793-d92b29c10410"
+      },
+      {
         "check_key": "ancillary_dwelling_outbuilding_external_fixture_boundary_wall_fence_patios_pergolas_verandahs_decks_garages_carports",
         "check_type": "boolean_presence",
         "status": "needs_more_info",
@@ -314,166 +321,158 @@
       },
       {
         "check_key": "building_height",
-        "check_type": "qualitative_performance",
+        "check_type": "conditional",
         "status": "needs_assessment",
-        "what_it_means": "The proposal must satisfy this quoted development control: Residential development to adhere to the setback requirements under the R-Codes (R80) Height: The site slopes away from Glenmore Avenue and a minimum height of two storeys will be applied to ensure that the built form presents itself to this street.",
+        "what_it_means": "The proposal must satisfy this quoted development control: or (b) if the building is used for purposes other than residential purposes, means the maximum vertical distance between the natural ground level and the finished roof height directly above, excluding minor projections as that term is defined in the R-Codes;",
         "how_to_query": "Compare the proposal details against the quoted development control.",
-        "citation": "building_height.d6138927f | source_version:8ee70302-db41-4ff0-b640-3baf9f566709"
+        "citation": "building_height.d40fa4dda | source_version:d24a3402-0fbb-4f30-8110-36513d477337"
       },
       {
-        "check_key": "private_open_space_area",
+        "check_key": "car_parking",
         "check_type": "boolean_presence",
         "status": "needs_more_info",
-        "what_it_means": "The proposal must satisfy this quoted development control: These will be setback in accordance with Residential Design Code requirements (4.5m) and provide individual private open space, car parking and climate design as required by the Residential Design Codes.",
+        "what_it_means": "The proposal must satisfy this quoted development control: Lots have been carefully designed to ensure street frontages are not overly dominated by car parking and garages and to provide maximum opportunity for passive surveillance from habitable rooms from proposed residential dwellings.",
         "how_to_query": "Compare the proposal details against the quoted development control.",
-        "citation": "private_open_space_area.d0172f017 | source_version:8c0ba734-eb4e-4f2a-91af-5d3cd40a2647"
+        "citation": "car_parking.d984afdc9 | source_version:4fa496e5-6b9c-484f-9793-d92b29c10410"
       },
       {
         "check_key": "street_setback",
-        "check_type": "conditional",
+        "check_type": "categorical",
         "status": "needs_assessment",
-        "what_it_means": "The proposal must satisfy this quoted development control: 3.1.3 OF RESIDENTIAL DESIGN CODES (2) ZERO SIDE BOUNDARY SETBACK PERMISSIBLE ON ALL LOTS EXCEPT CORNER SECONDARY STREET BOUNDARIES (3) STANDARD OF THE RESIDENTIAL DESIGN CODES APPLY UNLESS OTHERWISE SPECIFIED UNDER ANZS-4299-1995 \"ADAPTABLE HOUSING\" (4) (5) (6) GARAGES ON LOTS 2 - 7 SHALL BE PERMITTED AT A MINIMUM ZERO FRONT SETBACK.",
+        "what_it_means": "The proposal must satisfy this quoted development control: This will include enforcement (via DAPs) of appropriate setbacks and major openings facing the open space with any form of blank or boundary wall explicitly prohibited to this interface, ensuring the dwelling design increases rather than undermines the amenity of the interface.",
         "how_to_query": "Compare the proposal details against the quoted development control.",
-        "citation": "street_setback.d4603063d | source_version:2e2300d9-edee-48b8-bbb4-a66503096478"
+        "citation": "street_setback.ddfa14c44 | source_version:ccc4886e-3a9c-422e-ad3f-5d4db207ccf4"
       },
       {
-        "check_key": "street_setback_4",
+        "check_key": "land_use",
         "check_type": "qualitative_performance",
         "status": "needs_assessment",
-        "what_it_means": "The proposal must satisfy this quoted development control: Special rear setbacks are introduced for residential development backing onto the retaining wall and the rear setbacks are therefore presented as follows: Setbacks for the Residential Zone Lot Minimum Rear Condition Setback Residential Lot 3 development backing onto existing Lot 5 retaining wall.",
+        "what_it_means": "The proposal must satisfy this quoted development control: (e) Residential dwellings within this portion of the Zone shall be located between the predominant use on the site and the northern boundary;",
         "how_to_query": "Compare the proposal details against the quoted development control.",
-        "citation": "street_setback_4.d0f1b244b | source_version:839c7892-228d-42ce-9729-bd120258a5b2"
+        "citation": "land_use.d152b5ad6 | source_version:d24a3402-0fbb-4f30-8110-36513d477337"
       },
       {
-        "check_key": "access_driveway_approval",
+        "check_key": "landscaping",
+        "check_type": "qualitative_performance",
+        "status": "needs_assessment",
+        "what_it_means": "The proposal must satisfy this quoted development control: Lot 109 Lake and Sloan Streets and Lot 54 Lake and Vickery Streets, Rockingham AMD 10 GG 28/7/06 Residential The development of no more than twenty one (21) grouped dwellings conforming to the requirements of the R40 Code of the R-Codes.",
+        "how_to_query": "Compare the proposal details against the quoted development control.",
+        "citation": "landscaping.d2f48c673 | source_version:d24a3402-0fbb-4f30-8110-36513d477337"
+      },
+      {
+        "check_key": "landscaping_2",
         "check_type": "boolean_presence",
         "status": "needs_more_info",
-        "what_it_means": "An access driveway for a residential dwelling must be approved by the Council.",
-        "how_to_query": "Check if the proposed access driveway has received Council approval.",
-        "citation": "access_driveway_approval.d60713270 | source_version:1d8666f3-901b-4edd-9287-43b3c625da24"
-      },
-      {
-        "check_key": "access_driveway_vegetation_removal",
-        "check_type": "conditional",
-        "status": "needs_assessment",
-        "what_it_means": "Vegetation may be removed for an access driveway if approved by the Council.",
-        "how_to_query": "Check if the removal is for an access driveway and if it has Council approval.",
-        "citation": "access_driveway_vegetation_removal.dadb58dcc | source_version:1d8666f3-901b-4edd-9287-43b3c625da24"
-      },
-      {
-        "check_key": "additional_uses_support",
-        "check_type": "qualitative_performance",
-        "status": "needs_assessment",
-        "what_it_means": "Only additional uses that do not degrade the landscape buffer function and amenity of adjacent residential areas will be supported.",
-        "how_to_query": "Determine if the proposed additional uses impact the landscape buffer and amenity of adjacent residential areas.",
-        "citation": "additional_uses_support.d393e6274 | source_version:1d8666f3-901b-4edd-9287-43b3c625da24"
+        "what_it_means": "The proposal must satisfy this quoted development control: Landscaped open space areas shall incorporate features and facilities to both encourage residential growth and to provide public, aesthetic and site character building amenities to residents.",
+        "how_to_query": "Compare the proposal details against the quoted development control.",
+        "citation": "landscaping_2.defe407b0 | source_version:ccc4886e-3a9c-422e-ad3f-5d4db207ccf4"
       }
     ],
     "rule_ids": [
-      "3ad74956-10c2-53c0-ba36-5c103af2e6ad",
+      "8b6484d6-1226-5088-af35-5f2fb5f50fa3",
       "255efbb0-808b-5687-beb2-ba17babba617",
-      "3f3e89dc-0df6-5b31-9fad-eca0f00732d2",
+      "b76fce1f-af6d-50bc-be74-cef63e66f7f5",
       "e1914b71-f707-5b61-bfbf-c6dc4459da60",
-      "f5141c69-0673-5dba-838e-d7de353651b3",
+      "aa641e55-40d9-5022-a815-69327f42d06c",
       "44a73904-2f94-51a5-9350-c2b2b8a79284",
-      "8392773f-4ebb-5357-b1ac-16c9090799cb",
+      "e6c0df11-3a0e-59b9-8f66-8b57454e4f93",
       "76aa2ca4-f2de-5256-99d1-a1a3f8a40d32",
       "dde5e756-f856-5dcb-86a0-c26d98514dee",
-      "752a8248-3dae-5861-b5ea-462527c5f093",
+      "a8c81a1f-c5ea-5ad9-bb76-4fe119fe8438",
       "1ace07d2-5e94-550b-8ad6-c3a601f77b62",
-      "029da2e7-b2e9-5a09-8356-079eb1e3ad41",
+      "1bb4cd9b-fda4-5ac9-b771-25ef7f36c06a",
       "b97e9373-585c-5174-a3e3-85f3e2b5231e",
       "6d2f65d3-9827-5cb0-a670-31c21fc8ae0f",
       "1f1387b2-92cc-5d26-bf58-4a9a3570d441",
       "a778b314-f348-5d3c-af0a-3715093ab5be",
-      "5767a3b8-f8b5-541d-8954-b91f510129f1",
-      "9a55b10b-b9a4-5316-bc46-894f4823b939",
+      "9859ea76-ddf2-5050-ac22-8fb020145834",
+      "9e498474-83a7-511e-8a2f-7b555922eeb6",
+      "a7d0b9fb-c265-5aa3-8c2a-2f5e3d70295a",
       "bbe6a8ce-336b-5425-9e1f-602f1844191b",
-      "6138927f-f2a8-5359-a171-f27a3ec83d15",
-      "0172f017-64b5-5f07-aa6a-5d0bc6c6049b",
-      "4603063d-cf64-502f-b3e3-688fd30fe153",
-      "0f1b244b-921e-5c12-ab2b-c45df5cf852c",
-      "60713270-3d35-55a2-9191-edf8b7dc049f",
-      "adb58dcc-db5f-5ad1-a04e-2bf2799cbccf",
-      "393e6274-6c37-5de7-bcb2-830f3a2de9ca",
-      "54905e70-5c32-5001-b6fe-21e195635660",
-      "cb77de3a-2bfc-5b8a-8dc9-fd5b560214ec",
+      "40fa4dda-4de4-58af-a9bf-366e27270226",
+      "984afdc9-83ed-5b29-bca3-4037a7090554",
+      "dfa14c44-8312-5374-bc7b-655d5e1b7157",
+      "152b5ad6-3cbc-519c-8461-a29b58a07101",
+      "2f48c673-7745-5463-a343-aa137b3fc9a6",
+      "efe407b0-3652-5725-b28e-b980a80d432e",
+      "8ac4a7cb-30af-5fe0-8dbf-13471569b109",
       "b7cc3360-8e5b-5e34-af48-569b519c8d51",
-      "aefb93ee-3289-53f4-874d-a428707e4d9b",
-      "56cc3653-b52c-5641-adc9-03ffc2751fe8",
-      "b890e6e5-3126-551e-bdd3-dd0324d307ff",
-      "aaf36f7d-84e9-5a8c-9579-523af09e2006",
-      "95f1e92d-0d5e-5242-89df-82a40cfe07af",
-      "870019e8-43a1-58b8-baf9-e2d345dc39af",
-      "210b4596-298e-54b3-8358-bb2bee1bc9d0",
-      "53a66d67-5cd1-54c7-b1b8-f397b2028fcf",
-      "75fed2a3-4654-5e82-9701-00590bc5d274",
-      "d9734148-eb4d-525e-b6ac-dca33b6d3300",
-      "214d4692-55f6-5f45-9d5a-55f0c6d1b821",
-      "4d6e8fd8-7b69-57b7-b051-d38e7b09dc30",
-      "cad09b9f-b270-512d-8673-282a81d40492",
+      "df6cdd57-4397-5f88-bc84-3768cdcf28ce",
+      "8f92f2cc-3740-5840-9efe-1c90274c849d",
+      "ddc0317f-6075-5285-994b-5ff2cd4f2590",
+      "dd8b5638-7d1a-5a23-93f0-7f0ce0b176ca",
+      "00c2ce3e-cd44-5285-9b65-d3f81d680b74",
+      "5287257f-be0c-59f0-b3b1-db434dd9c8ee",
+      "a1540bf0-6c36-577d-bd50-9b75c7cbb397",
+      "7bae4cf9-626d-51f6-8385-76b2287cc459",
+      "aa2fa9f3-f08d-5416-b34b-2bcf354ac290",
+      "1ad7f0ea-ee3c-5013-8692-86f6b5e24436",
+      "922e436d-45c1-5810-9efd-fac62b7b1ec1",
+      "d24dbff0-c458-57a5-99df-4573ff5f3df9",
+      "493deb92-8ead-572e-b1fb-cd6daa11f870",
+      "2ced382e-e424-55b1-905d-ea46bc73a77a",
       "408fc494-098c-564c-b0f9-30c6bafe46e1",
       "83334dab-05a7-53e6-a3a6-a594c49b6159",
-      "2be68f60-734d-5234-bfe7-4eedb0c64c15",
-      "d88e445a-7de8-50e3-87ee-7f0427e23db2",
-      "e038ccbb-c752-5a0c-8831-80ba868e345a",
-      "e27e10b8-91e3-5a1a-8531-74690886efad",
-      "fd82881e-98e8-57b5-958e-a8b0ce83fe6e",
-      "ffdfd155-45c3-5c3d-8cb9-c8b94b51fb6f",
-      "bb388265-09d9-58ca-99c9-2d5683bbe3de",
-      "00903e31-8eb8-532d-a80e-62629d111995",
-      "295c7bdd-479f-5502-9ed6-62372b913fdf",
-      "987fa4d8-c94f-55b2-8cd9-985b8dd1ba7a",
-      "799c77cc-1d01-5157-9368-de07051894c2",
-      "642046ea-0883-555b-b373-19fd15da7891",
-      "614d8c67-ce1d-5392-9dc0-5403ac5c4d53",
-      "682febea-50f7-511d-b0a8-b007a0d8408b",
-      "83eb9784-d5e4-5dd2-b136-3b8a6bc73125",
-      "32207017-5331-59ae-84a8-3e24de2477e6",
-      "b4fec0fd-6b3a-57a5-b683-755bddf16dff",
-      "f46efa39-83d5-5324-84bb-1678c34b3396",
-      "174fce88-fbfa-59e1-8f60-71a165884d5e",
-      "b2f7d597-0c0b-52b1-b3af-f76d1d8927c2",
-      "e321fd3a-f7ae-5b13-b913-95b4df6e7a3a",
+      "6fca4fff-3cdf-550b-98e8-a15dc89cce73",
+      "dccad0fd-7ce0-5816-9fd9-01f32eec4109",
+      "e5c6cabf-bc3c-536d-ac51-28da29c67eff",
+      "33c63e06-5354-5104-abf3-62dc85b48526",
+      "2137a2c6-56f7-59c2-83b3-6a44f2f7a1ee",
       "57e3b994-bdcf-539f-97c6-8259392ff1dc",
       "5ec5cbc6-8189-57f0-8ed5-8a2a623409b4",
-      "6e48600a-c2f1-5333-9a59-b51f7f66a1c4",
       "0f6cc023-909d-548c-b5f0-c3bebc91b1b8",
-      "66c35c98-ac31-5bab-a40c-c64c145ca5f2",
-      "d9c7720b-8002-59a2-a588-235c09a259ca",
-      "dae8ee84-2494-5a3d-9ef8-db456e1a88dd",
+      "d08b3605-69d3-5ed9-8120-92877f0fcb95",
+      "59401093-6362-5a5a-9e1d-6588eedcf046",
+      "70daa21a-3d10-55a7-8c91-44dc4a21ac93",
       "d04af4be-9f56-5769-a7ea-e6f517f4aad8",
-      "9d8d1150-aeb0-5ee0-a877-cb5ebc1675d1",
-      "091e48d3-0a80-527a-ad1b-370329800eb7",
-      "0ad999fa-e8d1-5e36-b9be-65d16efe6213",
-      "6e2c42fa-4cd2-58a9-8f7c-0d0e9e7d19a8",
-      "cb68aada-136d-560c-ba5b-83235b6ae3c0",
-      "ef98785a-3a7d-5d72-b2cf-d378cdb5a586",
-      "e490e4ea-ab8e-54da-9d5d-1ffa4d782391",
-      "15689c32-e928-5f57-af72-3cc164d95962",
+      "12767692-8aad-5e14-abc1-615cde72b660",
+      "add30b35-e352-5ae2-a9a1-63a7cdc82a8b",
+      "916d8b77-fb26-50e2-922a-32eb1221e1ca",
       "bfd91162-7485-5b91-847f-c81c45a62d43",
-      "617c8643-a86b-549b-8264-af2114205b1b",
-      "ef6a60ee-6b3d-53c6-99b9-9992d6aa92c6",
-      "638414fc-c9ad-5a5c-a9a0-83e54aff0fd9",
-      "0d41a3fc-1ca3-5ad9-858b-1e1e7dd6e61a",
-      "93068e1f-a32c-5544-a84d-8abb4056fc19",
-      "25597ec6-62c0-59f9-9cc1-b1c59c5700b9",
-      "42a4e67f-e2ef-5a66-8267-7bd67af1f039",
-      "26c8032d-f292-5bf9-90a2-0c6706c43b66",
-      "7561f7df-a179-5561-9acb-6305cdb0e425",
-      "95942e84-05b5-5107-905e-e9dfec394c80",
-      "a7eaf63e-9559-571f-bd19-aef1f6a3bf68",
-      "b6d857fc-92c0-5f8d-8d1d-acd9fae213ad",
-      "7bd5c4d1-3158-54ef-abd9-043c7d550625",
-      "b5334dd7-1797-5ad5-a13f-b016bf58708b",
-      "0803ad38-6d36-5dd2-afb6-41d341090a7b",
-      "c955d13d-9a18-5b0e-9d04-596466353764"
+      "09002f37-4b16-5f33-8694-3a672c1c8fe3",
+      "d84924ac-fe63-58a1-96bb-57484e4ebd01",
+      "be9f2b37-2f9d-5b49-b0c5-4f7bb6c22ea9",
+      "3c2844d0-6894-51d5-8558-a52b901a70ca",
+      "c34e83d8-79bd-53dc-a524-2513926dd463",
+      "dcd06b46-a621-50b3-a580-7f6b85605560",
+      "4290a53f-b51a-59a3-93a9-43eff771d730",
+      "cd9de400-c5c5-571a-b6f9-a5b5c66e3af8",
+      "30192e79-f441-5a32-ac11-9160df4a3f4c",
+      "9890d77a-9000-5e60-ab9c-63a5c7c2d959",
+      "74bd21fc-397d-53b8-a750-cba1cf65cf64",
+      "70c95cd8-77bb-5a1b-ae0a-0258e425a7a1",
+      "ec4cbb05-e3cb-5382-9f7d-41b156db0a12",
+      "4ff0c094-bd3b-5025-af4c-beb37148491f",
+      "a9e9d5fb-b98d-568a-9863-79abcd46582a",
+      "a0698e30-b332-5de3-82f9-0307d50c8b32",
+      "0f562267-64d5-5d3f-8a19-b6d2a7cd9bdf",
+      "ba423678-eeee-5925-94b7-578ce6d9539c",
+      "d231db95-ae1a-5f61-a539-5f96959105fb",
+      "62baef71-bec6-551a-8119-23f2660c6dc3",
+      "f509020b-98dc-5468-b717-6c86efc2572b",
+      "b71e0dc0-c1a5-5c06-89b9-ab50364466a3",
+      "d085dcbf-7c53-5ba4-874c-c50432ea57b5",
+      "6489afa8-d182-56e4-9d98-ad438eb0058a",
+      "7aaca4e7-8d84-50da-889a-3f70bd3e6870",
+      "0a605eab-a1a4-5ecc-a070-632e01cd0084",
+      "3c13a6cb-cc72-5e5a-b792-880c2c2db429",
+      "6cc89630-021a-5684-9bf9-a7d835a7ce89",
+      "3909095d-278e-58a2-b55f-cdc08e7e7b24",
+      "d30ebfb2-bcfb-5588-a4e3-dcc0020ab6ee",
+      "4384b08f-c145-5e7f-bd8f-f58e39454259",
+      "778aa6ec-ef62-5bb5-8f3a-0fa9100ec999",
+      "8f799222-25f6-55ea-9909-4d2431d1259b",
+      "c09acf15-f191-5d7f-9c5f-d8ada0bb276c",
+      "80406124-bf18-52de-ac2b-8d99119f6c54",
+      "94031e2f-c5a7-5bf6-9ec5-84d88d9a710b",
+      "deef2539-da8b-5f1a-b851-87706ab4a5c8",
+      "47a29d00-0e66-5fbf-b91e-8a5de8e1640c"
     ],
     "council_scope_source": "property_fact:local_government",
-    "council_scope": "City of Kwinana"
+    "council_scope": "City of Rockingham"
   },
   "cross_council": {
-    "project_council_scope": "City of Rockingham",
+    "project_council_scope": "City of Cockburn",
     "categories_evaluated": 118,
     "foreign_council_scopes_found": []
   }
