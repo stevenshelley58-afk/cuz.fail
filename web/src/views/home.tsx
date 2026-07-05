@@ -462,7 +462,7 @@ export function Home({
         </div>
         {msgs.length === 0 && (
           <div className="hints">
-            <button className="addr" onClick={() => fill("3 Black Swan Rise, Beeliar")}><Icon name="location_on" />Try an address</button>
+            <button className="addr" onClick={() => fill("6 Bettong Way, Beeliar")}><Icon name="location_on" />Try an address</button>
             <button onClick={() => fill("What does R20 zoning allow?")}><Icon name="forum" />What does R20 zoning allow?</button>
             <button onClick={() => fill("What drawings do I need for a DA?")}><Icon name="forum" />What drawings do I need for a DA?</button>
           </div>
