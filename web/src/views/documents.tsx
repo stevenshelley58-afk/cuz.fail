@@ -17,35 +17,6 @@ function parseStatusLabel(status: string | null | undefined, factCount: number):
   return `${factCount} facts`;
 }
 
-function ConfidenceBar({ value }: { value: number }) {
-  const pct = Math.round(value * 100);
-  const color = pct >= 80 ? "#16a34a" : pct >= 50 ? "#ca8a04" : "#dc2626";
-  return (
-    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-      <div
-        style={{
-          flex: 1,
-          height: 6,
-          background: "#e5e7eb",
-          borderRadius: 3,
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            width: `${pct}%`,
-            height: "100%",
-            background: color,
-            borderRadius: 3,
-            transition: "width 0.3s",
-          }}
-        />
-      </div>
-      <span style={{ fontSize: 11, color: "#6b7280", minWidth: 32 }}>{pct}%</span>
-    </div>
-  );
-}
-
 function FactCard({
   fact,
   docId,
@@ -145,7 +116,6 @@ function FactCard({
               <span style={{ color: "#9ca3af" }}>No numeric value</span>
             )}
           </div>
-          <ConfidenceBar value={fact.confidence} />
           {fact.source_text && (
             <div
               style={{
