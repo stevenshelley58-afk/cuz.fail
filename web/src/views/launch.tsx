@@ -124,14 +124,14 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
             <div className="launch-product-address">
               <Icon name="location_on" />
               <div>
-                <b>3 Black Swan Rise, Beeliar</b>
+                <b>6 Bettong Way, Beeliar</b>
                 <span>24 planning rules apply to this block.</span>
               </div>
             </div>
             <div className="launch-product-grid">
               <div><b>R-Code</b><span>R20</span></div>
               <div><b>Zone</b><span>Residential</span></div>
-              <div><b>Lot area</b><span>581 m²</span></div>
+              <div><b>Lot area</b><span>602 m²</span></div>
               <div><b>Council</b><span>City of Cockburn</span></div>
             </div>
           </div>
