@@ -320,6 +320,10 @@ test("compliance panel renders an address-only matrix as a positive rules browse
 
   expect(await screen.findByText(/we found 2 planning rules that apply to this property/i)).toBeTruthy();
   expect(screen.getByText(/planning context: city of cockburn/i)).toBeTruthy();
+
+  // Rule list starts collapsed behind a clear expand control
+  expect(screen.queryByText("Numeric Threshold")).toBeNull();
+  await userEvent.click(screen.getByRole("button", { name: /show all 2 rules/i }));
   expect(screen.getByText("Numeric Threshold")).toBeTruthy();
   expect(screen.queryByText(/likely pass/i)).toBeNull();
   expect(screen.queryByText(/more info needed/i)).toBeNull();

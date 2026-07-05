@@ -19,7 +19,15 @@ function DetailRow({ label, value, last }: { label: string; value: string; last?
 
 /* ── PropertySummary — compact, no process chatter ── */
 
-function PropertySummary({ address, property }: { address: string; property: WizardState["property"] }) {
+function PropertySummary({
+  address,
+  property,
+  actions,
+}: {
+  address: string;
+  property: WizardState["property"];
+  actions?: React.ReactNode;
+}) {
   const [open, setOpen] = useState(false);
   const rows = property ? propertyDetailRows(property) : [];
   const headline = rows.filter((r) => ["Local government", "Zone", "Zones", "R-Code", "Lot area"].includes(r.label));
@@ -71,6 +79,8 @@ function PropertySummary({ address, property }: { address: string; property: Wiz
           We couldn't load property details for this address, but you can still browse the rules and upload plans.
         </div>
       )}
+
+      {actions}
     </div>
   );
 }
@@ -81,12 +91,14 @@ function RefinePanel({
   projectId,
   initial,
   onSaved,
+  defaultOpen = false,
 }: {
   projectId: string;
   initial: ProposalRequest;
   onSaved: (data: ProposalRequest) => void;
+  defaultOpen?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
   const [data, setData] = useState<ProposalRequest>(initial);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -273,6 +285,23 @@ function RefinePanel({
 
 /* ── CheckView — address in, results out, one screen ── */
 
+function heroActionStyle(active: boolean): React.CSSProperties {
+  return {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    fontSize: ".78rem",
+    fontWeight: 700,
+    padding: "7px 13px",
+    borderRadius: 999,
+    border: `1.5px solid ${active ? "var(--green-bright)" : "var(--line)"}`,
+    background: "var(--card)",
+    color: active ? "var(--green-800)" : "var(--ink-soft)",
+    cursor: "pointer",
+    fontFamily: "inherit",
+  };
+}
+
 export function WizardShell({
   wizard,
   onClose,
@@ -284,12 +313,35 @@ export function WizardShell({
 }) {
   const [proposalSaves, setProposalSaves] = useState(0);
   const [proposal, setProposal] = useState<ProposalRequest>(wizard.proposal);
+  const [refineOpen, setRefineOpen] = useState(false);
+  const [docsOpen, setDocsOpen] = useState(false);
 
   void onClose;
 
   return (
     <div className="view wizard-view" style={{ paddingTop: 16, width: "100%", maxWidth: 760, margin: "0 auto" }}>
-      <PropertySummary address={wizard.address} property={wizard.property} />
+      <PropertySummary
+        address={wizard.address}
+        property={wizard.property}
+        actions={
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+            <button
+              style={heroActionStyle(refineOpen)}
+              onClick={() => setRefineOpen((o) => !o)}
+              aria-expanded={refineOpen}
+            >
+              <Icon name="tune" size={14} />Add project details
+            </button>
+            <button
+              style={heroActionStyle(docsOpen)}
+              onClick={() => setDocsOpen((o) => !o)}
+              aria-expanded={docsOpen}
+            >
+              <Icon name="upload_file" size={14} />Upload plans
+            </button>
+          </div>
+        }
+      />
 
       <div className="panel">
         <CompliancePanel
@@ -301,18 +353,23 @@ export function WizardShell({
         />
       </div>
 
-      <RefinePanel
-        projectId={wizard.projectId}
-        initial={proposal}
-        onSaved={(data) => {
-          setProposal(data);
-          setProposalSaves((n) => n + 1);
-        }}
-      />
+      {refineOpen && (
+        <RefinePanel
+          projectId={wizard.projectId}
+          initial={proposal}
+          defaultOpen
+          onSaved={(data) => {
+            setProposal(data);
+            setProposalSaves((n) => n + 1);
+          }}
+        />
+      )}
 
-      <div className="panel">
-        <DocumentUpload projectId={wizard.projectId} />
-      </div>
+      {docsOpen && (
+        <div className="panel">
+          <DocumentUpload projectId={wizard.projectId} />
+        </div>
+      )}
 
       <div style={{ display: "flex", justifyContent: "flex-end", padding: "4px 0 24px" }}>
         <button className="btn alt" onClick={() => onProjectOpen(wizard.projectId)}>

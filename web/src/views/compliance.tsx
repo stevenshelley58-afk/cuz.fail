@@ -206,13 +206,17 @@ function RulesBrowser({
   councilName,
   onUploadDrawing,
   onProposalDetails,
+  filterActive = false,
 }: {
   results: ComplianceResultItem[];
   totalCount?: number;
   councilName?: string | null;
   onUploadDrawing?: () => void;
   onProposalDetails?: () => void;
+  /** An active search/topic filter expands the list so matches are visible. */
+  filterActive?: boolean;
 }) {
+  const [showRules, setShowRules] = useState(false);
   const applicableRules = results.filter((item) => item.status !== "unsupported");
   const foundCount = totalCount ?? applicableRules.length;
   const grouped = new Map<string, ComplianceResultItem[]>();
@@ -221,6 +225,7 @@ function RulesBrowser({
     grouped.set(topic, [...(grouped.get(topic) ?? []), item]);
   }
   const planningContext = councilName ? `Planning context: ${councilName}` : "Planning context resolved for this address.";
+  const rulesVisible = showRules || filterActive;
 
   if (foundCount === 0) {
     return (
@@ -250,22 +255,53 @@ function RulesBrowser({
         </div>
       </div>
 
-      {applicableRules.length === 0 && (
-        <div style={{ color: "#6b7280", fontSize: 14, marginBottom: 12 }}>No rules match your filter.</div>
+      {!filterActive && (
+        <button
+          onClick={() => setShowRules((v) => !v)}
+          aria-expanded={rulesVisible}
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 6,
+            padding: "10px 14px",
+            marginBottom: rulesVisible ? 14 : 0,
+            background: "#fff",
+            border: "1px solid #e5e7eb",
+            borderRadius: 8,
+            cursor: "pointer",
+            fontWeight: 600,
+            fontSize: 13,
+            color: "#374151",
+            fontFamily: "inherit",
+          }}
+        >
+          {rulesVisible ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+          {rulesVisible ? "Hide rules" : `Show all ${foundCount} rule${foundCount === 1 ? "" : "s"}`}
+        </button>
       )}
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-        {Array.from(grouped.entries()).map(([topic, items]) => (
-          <section key={topic}>
-            <h4 style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#374151" }}>{topic}</h4>
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              {items.map((item) => (
-                <RuleBrowserRow key={item.result_id} item={item} />
-              ))}
-            </div>
-          </section>
-        ))}
-      </div>
+      {rulesVisible && (
+        <>
+          {applicableRules.length === 0 && (
+            <div style={{ color: "#6b7280", fontSize: 14, marginBottom: 12 }}>No rules match your filter.</div>
+          )}
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            {Array.from(grouped.entries()).map(([topic, items]) => (
+              <section key={topic}>
+                <h4 style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#374151" }}>{topic}</h4>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {items.map((item) => (
+                    <RuleBrowserRow key={item.result_id} item={item} />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </>
+      )}
 
       {(onProposalDetails || onUploadDrawing) && (
         <div style={{ marginTop: 14, display: "flex", justifyContent: "flex-end", gap: 8, flexWrap: "wrap" }}>
@@ -692,6 +728,7 @@ export function CompliancePanel({
   }, [applicableResults, query, statusFilter, topicFilter]);
   const showFilters = applicableResults.length > 3;
   const showRulesBrowser = results.length > 0 && !isPostProposal;
+  const browserFilterActive = query.trim().length > 0 || topicFilter !== "all";
 
   return (
     <div style={{ padding: "0 0 24px" }}>
@@ -869,6 +906,7 @@ export function CompliancePanel({
           councilName={councilName}
           onUploadDrawing={onUploadDrawing ? handleUploadDrawing : undefined}
           onProposalDetails={onProposalDetails}
+          filterActive={browserFilterActive}
         />
       )}
 

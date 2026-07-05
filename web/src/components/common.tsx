@@ -10,6 +10,7 @@ import {
   CircleAlert,
   CircleHelp,
   CreditCard,
+  FileUp,
   Construction,
   Gavel,
   Gauge,
@@ -51,6 +52,7 @@ const ICONS: Record<string, LucideIcon> = {
   sparkles: Sparkles,
   sync: RefreshCw,
   tune: Settings2,
+  upload_file: FileUp,
   verified: ShieldCheck,
 };
 
