@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { CheckCircle2, ChevronDown, ChevronRight, CircleAlert, CircleHelp, MessageSquare, RefreshCw } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { CheckCircle2, ChevronDown, ChevronRight, CircleAlert, CircleHelp, MessageSquare, RefreshCw, Search } from "lucide-react";
 import { api, type ComplianceResultItem, type ComplianceRunResponse } from "../api";
 import { trackEvent } from "../analytics";
 
@@ -11,7 +11,13 @@ type CompliancePanelProps = {
   onProposalDetails?: () => void;
   proposalReady?: boolean;
   councilName?: string | null;
+  /** Run a check automatically when no saved results exist yet (results-first view). */
+  autoRun?: boolean;
+  /** Increment to trigger a fresh run from outside (e.g. after refining the proposal). */
+  runRequest?: number;
 };
+
+type StatusFilter = "all" | "likely_pass" | "likely_fail" | "needs_more_info";
 
 function humanizeLabel(value: string): string {
   return value
@@ -196,16 +202,19 @@ function RuleBrowserRow({ item }: { item: ComplianceResultItem }) {
 
 function RulesBrowser({
   results,
+  totalCount,
   councilName,
   onUploadDrawing,
   onProposalDetails,
 }: {
   results: ComplianceResultItem[];
+  totalCount?: number;
   councilName?: string | null;
   onUploadDrawing?: () => void;
   onProposalDetails?: () => void;
 }) {
   const applicableRules = results.filter((item) => item.status !== "unsupported");
+  const foundCount = totalCount ?? applicableRules.length;
   const grouped = new Map<string, ComplianceResultItem[]>();
   for (const item of applicableRules) {
     const topic = ruleTopic(item);
@@ -213,7 +222,7 @@ function RulesBrowser({
   }
   const planningContext = councilName ? `Planning context: ${councilName}` : "Planning context resolved for this address.";
 
-  if (applicableRules.length === 0) {
+  if (foundCount === 0) {
     return (
       <div style={{ color: "#6b7280", fontSize: 14 }}>
         No source-backed planning rules are available for this property yet.
@@ -233,10 +242,17 @@ function RulesBrowser({
         }}
       >
         <div style={{ color: "#166534", fontSize: 15, fontWeight: 700, marginBottom: 4 }}>
-          We found {applicableRules.length} planning rule{applicableRules.length === 1 ? "" : "s"} that apply to this property
+          We found {foundCount} planning rule{foundCount === 1 ? "" : "s"} that apply to this property
         </div>
-        <div style={{ color: "#166534", fontSize: 13 }}>{planningContext}</div>
+        <div style={{ color: "#166534", fontSize: 13 }}>
+          {planningContext}
+          {applicableRules.length !== foundCount ? ` · Showing ${applicableRules.length}` : ""}
+        </div>
       </div>
+
+      {applicableRules.length === 0 && (
+        <div style={{ color: "#6b7280", fontSize: 14, marginBottom: 12 }}>No rules match your filter.</div>
+      )}
 
       <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
         {Array.from(grouped.entries()).map(([topic, items]) => (
@@ -526,6 +542,8 @@ export function CompliancePanel({
   onProposalDetails,
   proposalReady = false,
   councilName,
+  autoRun = false,
+  runRequest,
 }: CompliancePanelProps) {
   const [runResult, setRunResult] = useState<ComplianceRunResponse | null>(null);
   const [matrixLoading, setMatrixLoading] = useState(true);
@@ -535,7 +553,38 @@ export function CompliancePanel({
   const [error, setError] = useState<string | null>(null);
   const [uploadPrompted, setUploadPrompted] = useState(false);
   const [ranAssessment, setRanAssessment] = useState(false);
+  const [query, setQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [topicFilter, setTopicFilter] = useState("all");
   const resultVersionRef = useRef(0);
+  const autoRanRef = useRef(false);
+  const lastRunRequestRef = useRef(runRequest ?? 0);
+
+  const runCheck = useCallback(async (opts?: { auto?: boolean }) => {
+    resultVersionRef.current += 1;
+    setLoading(true);
+    setError(null);
+    const r = await api.compliance.run(projectId);
+    setLoading(false);
+    if (r.kind === "ok") {
+      setRunResult(r.data);
+      setMatrixLoadMessage(null);
+      if (!opts?.auto) setRanAssessment(true);
+      trackEvent("compliance_run", { result_count: r.data.results.length, status: r.data.status });
+    } else if (opts?.auto) {
+      // Silent first-load run: fall back to the quiet empty state instead of an error banner.
+      setMatrixLoadTone("info");
+      setMatrixLoadMessage("No results for this address yet.");
+    } else if (r.kind === "notBuilt") {
+      setError("Compliance check endpoint not yet available on this server.");
+    } else if (r.kind === "auth") {
+      setError("Sign in required.");
+    } else if (r.kind === "error") {
+      setError(r.message);
+    } else {
+      setError("Could not reach server.");
+    }
+  }, [projectId]);
 
   const loadMatrix = useCallback(async () => {
     const requestVersion = resultVersionRef.current;
@@ -550,12 +599,17 @@ export function CompliancePanel({
       setRunResult(r.data);
       return;
     }
+    if (r.kind === "missing" && autoRun && !autoRanRef.current) {
+      autoRanRef.current = true;
+      await runCheck({ auto: true });
+      return;
+    }
     if (r.kind === "auth") {
       setMatrixLoadTone("error");
       setMatrixLoadMessage("Sign in required to load saved compliance results.");
     } else if (r.kind === "missing") {
       setMatrixLoadTone("info");
-      setMatrixLoadMessage("No saved compliance matrix is available for this project yet.");
+      setMatrixLoadMessage("No results for this project yet.");
     } else if (r.kind === "notBuilt") {
       setMatrixLoadTone("info");
       setMatrixLoadMessage("Saved compliance matrix loading is not available on this server yet.");
@@ -566,37 +620,23 @@ export function CompliancePanel({
       setMatrixLoadTone("error");
       setMatrixLoadMessage("Could not reach server to load saved compliance results.");
     }
-  }, [projectId]);
+  }, [projectId, autoRun, runCheck]);
 
   useEffect(() => {
     void loadMatrix();
   }, [loadMatrix]);
 
+  useEffect(() => {
+    const next = runRequest ?? 0;
+    if (next > lastRunRequestRef.current) {
+      lastRunRequestRef.current = next;
+      void runCheck();
+    }
+  }, [runRequest, runCheck]);
+
   async function retryMatrixLoad() {
     setError(null);
     await loadMatrix();
-  }
-
-  async function runCheck() {
-    resultVersionRef.current += 1;
-    setLoading(true);
-    setError(null);
-    const r = await api.compliance.run(projectId);
-    setLoading(false);
-    if (r.kind === "ok") {
-      setRunResult(r.data);
-      setMatrixLoadMessage(null);
-      setRanAssessment(true);
-      trackEvent("compliance_run", { result_count: r.data.results.length, status: r.data.status });
-    } else if (r.kind === "notBuilt") {
-      setError("Compliance check endpoint not yet available on this server.");
-    } else if (r.kind === "auth") {
-      setError("Sign in required.");
-    } else if (r.kind === "error") {
-      setError(r.message);
-    } else {
-      setError("Could not reach server.");
-    }
   }
 
   function updateReviewedResult(updated: ComplianceResultItem) {
@@ -623,6 +663,34 @@ export function CompliancePanel({
   const moreInfoCount = results.filter((r) => r.status === "needs_more_info").length;
   const unsupportedCount = results.filter((r) => r.status === "unsupported").length;
   const actionableCount = passCount + failCount;
+
+  const applicableResults = useMemo(() => results.filter((item) => item.status !== "unsupported"), [results]);
+  const topics = useMemo(() => {
+    const set = new Set<string>();
+    for (const item of applicableResults) set.add(ruleTopic(item));
+    return Array.from(set).sort();
+  }, [applicableResults]);
+  const filteredResults = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return applicableResults.filter((item) => {
+      if (topicFilter !== "all" && ruleTopic(item) !== topicFilter) return false;
+      if (statusFilter !== "all" && item.status !== statusFilter) return false;
+      if (q) {
+        const haystack = [
+          item.display_name,
+          item.check_key,
+          item.citation,
+          item.rule_quote,
+          item.what_it_means,
+          item.note,
+          ruleTopic(item),
+        ].filter(Boolean).join(" ").toLowerCase();
+        if (!haystack.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [applicableResults, query, statusFilter, topicFilter]);
+  const showFilters = applicableResults.length > 3;
   const showRulesBrowser = results.length > 0 && !isPostProposal;
 
   return (
@@ -730,17 +798,85 @@ export function CompliancePanel({
         </div>
       )}
 
+      {showFilters && (showRulesBrowser || isPostProposal) && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center", marginBottom: 14 }}>
+          <div style={{ position: "relative", flex: "1 1 220px", minWidth: 180 }}>
+            <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: "#9ca3af" }} />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Filter rules — setbacks, open space, height…"
+              aria-label="Filter rules"
+              style={{
+                width: "100%",
+                border: "1px solid #e5e7eb",
+                borderRadius: 8,
+                padding: "8px 10px 8px 30px",
+                fontSize: 13,
+                outline: "none",
+                fontFamily: "inherit",
+              }}
+            />
+          </div>
+          {topics.length > 1 && (
+            <select
+              value={topicFilter}
+              onChange={(e) => setTopicFilter(e.target.value)}
+              aria-label="Filter by topic"
+              style={{ border: "1px solid #e5e7eb", borderRadius: 8, padding: "8px 10px", fontSize: 13, background: "#fff", fontFamily: "inherit" }}
+            >
+              <option value="all">All topics</option>
+              {topics.map((t) => (
+                <option key={t} value={t}>{t}</option>
+              ))}
+            </select>
+          )}
+          {isPostProposal && (
+            <div style={{ display: "flex", gap: 6 }}>
+              {([
+                ["all", `All (${applicableResults.length})`],
+                ["likely_pass", `Pass (${passCount})`],
+                ["likely_fail", `Fail (${failCount})`],
+                ["needs_more_info", `Needs info (${moreInfoCount})`],
+              ] as const).map(([value, label]) => (
+                <button
+                  key={value}
+                  onClick={() => setStatusFilter(value)}
+                  aria-pressed={statusFilter === value}
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 600,
+                    padding: "6px 10px",
+                    borderRadius: 99,
+                    border: `1px solid ${statusFilter === value ? "#111827" : "#e5e7eb"}`,
+                    background: statusFilter === value ? "#111827" : "#fff",
+                    color: statusFilter === value ? "#fff" : "#374151",
+                    cursor: "pointer",
+                  }}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
       {showRulesBrowser && (
         <RulesBrowser
-          results={results}
+          results={filteredResults}
+          totalCount={applicableResults.length}
           councilName={councilName}
           onUploadDrawing={onUploadDrawing ? handleUploadDrawing : undefined}
           onProposalDetails={onProposalDetails}
         />
       )}
 
-      {isPostProposal && results
-        .filter((item) => item.status !== "unsupported")
+      {isPostProposal && filteredResults.length === 0 && applicableResults.length > 0 && (
+        <div style={{ color: "#6b7280", fontSize: 14 }}>No rules match your filter.</div>
+      )}
+
+      {isPostProposal && filteredResults
         .map((item) => (
           <ComplianceResultRow
             key={item.result_id}

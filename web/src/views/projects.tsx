@@ -1,13 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { api, type ApiResult, type ProjectSummary, type PropertyProfileResponse } from "../api";
 import { Icon } from "../components/common";
-import {
-  ProvenanceAccordion,
-  confidenceBadge,
-  formatFactValueForType,
-  groupFactsByType,
-  resolutionBadge,
-} from "../components/property";
+import { formatFactValueForType, groupFactsByType } from "../components/property";
 import { CompliancePanel } from "./compliance";
 import { DocumentUpload } from "./documents";
 
@@ -71,26 +65,17 @@ function ProjectPropertyContext({
 
   return (
     <div>
-      <h3 style={{ margin: "0 0 12px" }}><Icon name="location_on" />Property context</h3>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 10 }}>
-        {resolutionBadge(property.resolution_status)}
-        {confidenceBadge(property.confidence)}
-      </div>
-      {property.address && (
-        <div style={{ fontWeight: 700, fontSize: ".95rem", marginBottom: 6 }}>{property.address}</div>
+      {property.address ? (
+        <h3 style={{ margin: "0 0 10px" }}><Icon name="location_on" />{property.address}</h3>
+      ) : (
+        <h3 style={{ margin: "0 0 10px" }}><Icon name="location_on" />Property</h3>
       )}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10, marginBottom: 10 }}>
-        {property.local_government && (
-          <div>
-            <div style={{ fontSize: ".72rem", fontWeight: 700, color: "var(--ink-faint)", textTransform: "uppercase" }}>Local government</div>
-            <div style={{ fontWeight: 600 }}>{property.local_government}</div>
-          </div>
-        )}
-        <div>
-          <div style={{ fontSize: ".72rem", fontWeight: 700, color: "var(--ink-faint)", textTransform: "uppercase" }}>Target CRS</div>
-          <div style={{ fontWeight: 600 }}>{property.target_crs}</div>
+      {property.local_government && (
+        <div style={{ fontSize: ".85rem", marginBottom: 10 }}>
+          <span style={{ color: "var(--ink-soft)" }}>Local government </span>
+          <b>{property.local_government}</b>
         </div>
-      </div>
+      )}
 
       {property.issues.length > 0 && (
         <div className="state" style={{ alignItems: "flex-start", marginBottom: 10 }}>
@@ -108,9 +93,8 @@ function ProjectPropertyContext({
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                 {facts.slice(0, 2).map((fact) => (
-                  <div key={fact.fact_id} style={{ display: "flex", justifyContent: "space-between", gap: 8, fontSize: ".82rem" }}>
-                    <span style={{ color: "var(--ink-soft)" }}>{fact.review_status}</span>
-                    <span style={{ fontWeight: 650, textAlign: "right" }}>{formatFactValueForType(fact.fact_type, fact.value) ?? "—"}</span>
+                  <div key={fact.fact_id} style={{ fontSize: ".82rem", fontWeight: 650 }}>
+                    {formatFactValueForType(fact.fact_type, fact.value) ?? "—"}
                   </div>
                 ))}
               </div>
@@ -118,8 +102,6 @@ function ProjectPropertyContext({
           ))}
         </div>
       )}
-
-      <ProvenanceAccordion provenance={property.provenance} />
     </div>
   );
 }

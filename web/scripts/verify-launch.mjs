@@ -64,8 +64,8 @@ for (const launchNeedle of [
   "Check an address free",
   "lotfile_launch_address",
   "WA residential planning checks",
-  "Clear next steps",
-  "Read sourced results",
+  "Straight answers",
+  "See every rule",
   "Uploaded drawings",
   "Liability limits",
 ]) {

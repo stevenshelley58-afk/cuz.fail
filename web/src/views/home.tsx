@@ -95,28 +95,22 @@ export function Home({
       const id = created.data.id;
       trackEvent("project_created", { guest: isGuest });
       if (isGuest) onGuestAddressDone(address, id);
-      push({ role: "a", tone: "note", text: `Project created for ${address}. Resolving the property…`, chips: ["POST /projects · live"] });
+      push({ role: "a", tone: "note", text: `Checking ${address}…` });
       const resolved = await api.resolveAddress(id, address);
       if (resolved.kind === "ok") {
-        // Launch the Stage 2 wizard
         setWizard({
-          step: 1,
           projectId: id,
           address,
           property: resolved.data,
           proposal: {},
-          savedProposal: null,
         });
       } else if (resolved.kind === "notBuilt" || resolved.kind === "missing") {
-        // resolveAddress not built yet — show wizard with null property so user can still enter proposal
-        push({ role: "a", tone: "note", text: "Property resolution not yet available. You can still enter proposal details.", chips: ["resolve-address · not built"] });
+        // resolveAddress unavailable — still open the results view so the user can browse rules
         setWizard({
-          step: 1,
           projectId: id,
           address,
           property: null,
           proposal: {},
-          savedProposal: null,
         });
       } else if (resolved.kind === "auth") {
         onNeedSignIn();
@@ -334,9 +328,6 @@ export function Home({
           >
             ← Back to home
           </button>
-          <span style={{ fontSize: ".78rem", color: "var(--ink-faint)", fontWeight: 600 }}>
-            {wizard.address}
-          </span>
         </div>
         <WizardShell wizard={wizard} onClose={() => setWizard(null)} onProjectOpen={(id) => { setWizard(null); onProjectOpen(id); }} />
       </>
