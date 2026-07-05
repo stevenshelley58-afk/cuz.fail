@@ -47,13 +47,22 @@ afterEach(() => {
   vi.clearAllMocks();
 });
 
-test("check view shows results, refine panel and upload on a single screen", () => {
+test("check view shows results with subtle hero actions for refine and upload", async () => {
+  const user = userEvent.setup();
   render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
   expect(screen.getByText("3 Black Swan Rise, Beeliar")).toBeTruthy();
   expect(screen.getByTestId("compliance-panel")).toBeTruthy();
+  // Refine and upload stay tucked behind hero actions until asked for
+  expect(screen.queryByTestId("document-upload")).toBeNull();
+  expect(screen.queryByRole("button", { name: /tell us about your project/i })).toBeNull();
+
+  await user.click(screen.getByRole("button", { name: /upload plans/i }));
   expect(screen.getByTestId("document-upload")).toBeTruthy();
+
+  await user.click(screen.getByRole("button", { name: /add project details/i }));
   expect(screen.getByRole("button", { name: /tell us about your project/i })).toBeTruthy();
+
   // No stepper, no confirmation gate
   expect(screen.queryByText(/confirm and review/i)).toBeNull();
   expect(screen.queryByText(/next: proposal details/i)).toBeNull();
@@ -82,7 +91,7 @@ test("refine save success updates results via a fresh compliance run", async () 
 
   render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
-  await user.click(screen.getByRole("button", { name: /tell us about your project/i }));
+  await user.click(screen.getByRole("button", { name: /add project details/i }));
   await user.selectOptions(screen.getByLabelText("Proposal type"), "residential");
   await user.selectOptions(screen.getByLabelText("Dwelling type"), "single_house");
   await user.selectOptions(screen.getByLabelText("Building class"), "class_1a");
@@ -126,18 +135,21 @@ test("refine save requires launch-critical fields before calling the API", async
 
   render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
-  await user.click(screen.getByRole("button", { name: /tell us about your project/i }));
+  await user.click(screen.getByRole("button", { name: /add project details/i }));
   await user.click(screen.getByRole("button", { name: /update results/i }));
 
   expect(await screen.findByText(/complete proposal type/i)).toBeTruthy();
   expect(apiMock.upsertProposal).not.toHaveBeenCalled();
 });
 
-test("check view still works without property context", () => {
+test("check view still works without property context", async () => {
+  const user = userEvent.setup();
   render(<WizardShell wizard={{ ...wizard, property: null }} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
   expect(screen.getByText(/couldn't load property details/i)).toBeTruthy();
   expect(screen.getByTestId("compliance-panel")).toBeTruthy();
+
+  await user.click(screen.getByRole("button", { name: /upload plans/i }));
   expect(screen.getByTestId("document-upload")).toBeTruthy();
 });
 
@@ -150,7 +162,7 @@ test("refine save not-built response surfaces an error and keeps the panel open"
 
   render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
-  await user.click(screen.getByRole("button", { name: /tell us about your project/i }));
+  await user.click(screen.getByRole("button", { name: /add project details/i }));
   await user.selectOptions(screen.getByLabelText("Proposal type"), "residential");
   await user.selectOptions(screen.getByLabelText("Dwelling type"), "single_house");
   await user.selectOptions(screen.getByLabelText("Building class"), "class_1a");
