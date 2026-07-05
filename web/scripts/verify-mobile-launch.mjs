@@ -56,9 +56,7 @@ for (const stylesNeedle of [
   ".tb{font-size:.5rem}",
   ".tb .icon{width:18px;height:18px}",
   ".tabbar{grid-template-rows:minmax(62px,auto)}",
-  ".wizard-stepper{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))",
-  ".wizard-step-label{white-space:normal!important;text-align:center;line-height:1.15;max-width:92px}",
-  ".wizard-actions{flex-wrap:wrap!important}",
+  ".wizard-view{padding-left:0;padding-right:0}",
 ]) {
   assertIncludes(stylesSource, stylesNeedle, "Mobile launch CSS");
 }
@@ -82,13 +80,16 @@ for (const modalNeedle of [
   assertIncludes(modalSource, modalNeedle, "Mobile modal accessibility");
 }
 
+// Single-screen check view: address results, filterable rules, refine panel — no stepper.
 for (const wizardNeedle of [
-  'aria-label="Check steps"',
-  "wizard-stepper",
-  "wizard-step-label",
-  "wizard-actions",
+  "wizard-view",
+  "CompliancePanel",
+  "DocumentUpload",
 ]) {
-  assertIncludes(wizardSource, wizardNeedle, "375px wizard structure");
+  assertIncludes(wizardSource, wizardNeedle, "375px check view structure");
+}
+for (const removedNeedle of ["wizard-stepper", "wizard-step-label", 'aria-label="Check steps"']) {
+  assertNotIncludes(wizardSource, removedNeedle, "375px check view structure");
 }
 
 if (failures.length) {
