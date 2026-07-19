@@ -57,8 +57,12 @@ _BBOX_SRID = 3112
 # carries a code is surfaced as an overlay presence fact.
 _NON_OVERLAY_LAYERS = {"zone", "r_code", "rcode", "lga", "local_government"}
 
-# R-code density tokens: R20, R40, RR20, R-AC3, RAC0, R12.5 ...
-_RCODE_RE = re.compile(r"^R{1,2}-?AC?\d", re.IGNORECASE)
+# R-code density tokens: R20, R40, RR20, R-AC3, RAC0, R12.5, split codes like
+# R12.5/20.  The old pattern (R{1,2}-?AC?\d) only matched activity-centre codes;
+# plain densities were only recognised via the stamped metadata_json.r_code that
+# scripts/spatial_stamp_rcodes.py wrote for the original 2026-06-10 import —
+# every later unstamped import silently lost its R-code fact.
+_RCODE_RE = re.compile(r"^R{1,2}-?(?:AC)?\d+(?:\.\d+)?(?:/\d+(?:\.\d+)?)?$", re.IGNORECASE)
 # Zone features that are roads / reserves, not a usable planning zone.
 _ROAD_RE = re.compile(r"road|reserve|laneway|right.of.way|drainage", re.IGNORECASE)
 

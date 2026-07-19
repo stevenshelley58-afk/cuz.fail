@@ -1,99 +1,104 @@
 import { useState } from "react";
-import { api, type PropertyFactResponse, type PropertyProfileResponse, type ProposalRequest, type ProposalResponse } from "../api";
+import { api, type ProposalRequest } from "../api";
 import { Icon } from "../components/common";
-import { ProvenanceAccordion, confidenceBadge, formatFactValue, groupFactsByType, propertyDetailRows, resolutionBadge } from "../components/property";
-import type { WizardState, WizardStep } from "../types";
+import { propertyDetailRows } from "../components/property";
+import type { WizardState } from "../types";
 import { CompliancePanel } from "./compliance";
 import { DocumentUpload } from "./documents";
 
 /* ── shared display bits ── */
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function DetailRow({ label, value, last }: { label: string; value: string; last?: boolean }) {
   return (
-    <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 6 }}>
-      {children}
-    </div>
-  );
-}
-
-function DetailRow({ label, value, hint, last }: { label: string; value: string; hint?: string; last?: boolean }) {
-  return (
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16, padding: "9px 0", borderBottom: last ? "none" : "1px solid var(--line)" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16, padding: "8px 0", borderBottom: last ? "none" : "1px solid var(--line)" }}>
       <span style={{ color: "var(--ink-soft)", fontSize: ".8rem", flex: "none" }}>{label}</span>
-      <span style={{ display: "inline-flex", alignItems: "baseline", gap: 8, fontWeight: 600, fontSize: ".85rem", color: "var(--ink)", textAlign: "right", wordBreak: "break-word" }}>
-        <span>{value}</span>
-        {hint && (
-          <span style={{ fontSize: ".62rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".04em", color: "var(--flag)", whiteSpace: "nowrap" }}>{hint}</span>
-        )}
-      </span>
+      <span style={{ fontWeight: 600, fontSize: ".85rem", color: "var(--ink)", textAlign: "right", wordBreak: "break-word" }}>{value}</span>
     </div>
   );
 }
 
-/* ── AddressResolverPanel ── */
+/* ── PropertySummary — compact, no process chatter ── */
 
-function AddressResolverPanel({ property, onContinue, onBack }: { property: PropertyProfileResponse; onContinue: () => void; onBack?: () => void }) {
-  const rows = propertyDetailRows(property);
+function PropertySummary({
+  address,
+  property,
+  actions,
+}: {
+  address: string;
+  property: WizardState["property"];
+  actions?: React.ReactNode;
+}) {
+  const [open, setOpen] = useState(false);
+  const rows = property ? propertyDetailRows(property) : [];
+  const headline = rows.filter((r) => ["Local government", "Zone", "Zones", "R-Code", "Lot area"].includes(r.label));
+  const rest = rows.filter((r) => !headline.includes(r) && r.label !== "Address");
 
   return (
-    <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
-      <h3 style={{ marginBottom: 14 }}><Icon name="location_on" />Property resolution</h3>
+    <div className="panel">
+      <h3 style={{ marginBottom: 10 }}><Icon name="location_on" />{address}</h3>
 
-      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 18 }}>
-        {resolutionBadge(property.resolution_status)}
-        {confidenceBadge(property.confidence)}
-      </div>
-
-      {property.resolution_status !== "resolved" && property.issues.length > 0 && (
-        <div className="state" style={{ marginBottom: 16 }}>
-          <Icon name="error" />
-          <div>
-            <div style={{ fontWeight: 700, marginBottom: 4 }}>Issues preventing full resolution</div>
-            <ul style={{ margin: 0, paddingLeft: 16 }}>
-              {property.issues.map((issue, i) => <li key={i}>{issue}</li>)}
-            </ul>
-          </div>
+      {property && property.resolution_status !== "resolved" && property.issues.length > 0 && (
+        <div className="state" style={{ marginBottom: 12 }}>
+          <Icon name="info" />
+          <span>{property.issues.join("; ")}</span>
         </div>
       )}
 
-      <SectionLabel>Property details</SectionLabel>
-      {rows.length > 0 ? (
-        <div style={{ marginBottom: 4 }}>
-          {rows.map((r, i) => (
-            <DetailRow key={`${r.label}-${i}`} label={r.label} value={r.value} hint={r.hint} last={i === rows.length - 1} />
+      {headline.length > 0 && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 18px", marginBottom: rest.length ? 8 : 0 }}>
+          {headline.map((r) => (
+            <span key={r.label} style={{ fontSize: ".85rem" }}>
+              <span style={{ color: "var(--ink-soft)" }}>{r.label} </span>
+              <b>{r.value}</b>
+            </span>
           ))}
         </div>
-      ) : (
-        <div style={{ fontSize: ".85rem", color: "var(--ink-soft)", padding: "2px 0 8px" }}>
-          No property facts are available for this address yet.
+      )}
+
+      {rest.length > 0 && (
+        <>
+          <button
+            style={{ fontSize: ".75rem", fontWeight: 700, color: "var(--ink-soft)", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+            onClick={() => setOpen((o) => !o)}
+            aria-expanded={open}
+          >
+            {open ? "Hide details" : "Open details"}
+          </button>
+          {open && (
+            <div style={{ marginTop: 6 }}>
+              {rest.map((r, i) => (
+                <DetailRow key={`${r.label}-${i}`} label={r.label} value={r.value} last={i === rest.length - 1} />
+              ))}
+            </div>
+          )}
+        </>
+      )}
+
+      {!property && (
+        <div style={{ fontSize: ".85rem", color: "var(--ink-soft)" }}>
+          We couldn't load property details for this address, but you can still browse the rules and upload plans.
         </div>
       )}
 
-      <ProvenanceAccordion provenance={property.provenance} />
-
-      <div className="wizard-actions" style={{ display: "flex", gap: 8, marginTop: 20, justifyContent: "flex-end" }}>
-        {onBack && (
-          <button className="btn alt" onClick={onBack}>← Back</button>
-        )}
-        <button className="btn" onClick={onContinue}>Next: Proposal details →</button>
-      </div>
+      {actions}
     </div>
   );
 }
 
-/* ── ProposalForm (Step 2) ── */
+/* ── RefinePanel — optional proposal details, collapsed by default ── */
 
-function ProposalForm({
+function RefinePanel({
   projectId,
   initial,
   onSaved,
-  onBack,
+  defaultOpen = false,
 }: {
   projectId: string;
   initial: ProposalRequest;
-  onSaved: (proposal: ProposalResponse, data: ProposalRequest) => void;
-  onBack: () => void;
+  onSaved: (data: ProposalRequest) => void;
+  defaultOpen?: boolean;
 }) {
+  const [open, setOpen] = useState(defaultOpen);
   const [data, setData] = useState<ProposalRequest>(initial);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -108,11 +113,10 @@ function ProposalForm({
     !data.new_or_existing ? "new or existing building" : null,
     !data.lot_type ? "lot type" : null,
   ].filter(Boolean);
-  const canSave = missingFields.length === 0;
 
   const save = async () => {
-    if (!canSave) {
-      setError(`Complete ${missingFields.join(", ")} before continuing.`);
+    if (missingFields.length > 0) {
+      setError(`Complete ${missingFields.join(", ")} before updating results.`);
       return;
     }
     setBusy(true);
@@ -125,11 +129,12 @@ function ProposalForm({
     const r = await api.upsertProposal(projectId, proposalPayload);
     setBusy(false);
     if (r.kind === "ok") {
-      onSaved(r.data, proposalPayload);
+      onSaved(proposalPayload);
+      setOpen(false);
     } else if (r.kind === "notBuilt") {
-      setError("Proposal saving is unavailable. Try again before continuing.");
+      setError("Proposal saving is unavailable. Try again in a moment.");
     } else if (r.kind === "auth") {
-      setError("Sign in required to save proposal.");
+      setError("Sign in required to save proposal details.");
     } else {
       setError(r.kind === "error" ? r.message : `Failed (${r.kind}).`);
     }
@@ -148,253 +153,154 @@ function ProposalForm({
   } as React.CSSProperties;
 
   const labelStyle = { fontSize: ".75rem", fontWeight: 700, color: "var(--ink-soft)", display: "block", marginBottom: 4 } as React.CSSProperties;
-
   const fieldWrap = { marginBottom: 14 } as React.CSSProperties;
 
   return (
-    <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
-      <h3 style={{ marginBottom: 16 }}><Icon name="home_work" />Proposal details</h3>
+    <div className="panel">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, background: "none", border: "none", cursor: "pointer", padding: 0, textAlign: "left" }}
+      >
+        <span>
+          <h3 style={{ margin: 0 }}><Icon name="tune" />Tell us about your project</h3>
+          <span style={{ fontSize: ".8rem", color: "var(--ink-soft)" }}>Optional — narrows the results to rules that apply to your build.</span>
+        </span>
+        <Icon name={open ? "expand_less" : "expand_more"} />
+      </button>
 
-      <div style={fieldWrap}>
-        <label style={labelStyle} htmlFor="proposal_type">Proposal type</label>
-        <select id="proposal_type" style={selectStyle} value={data.proposal_type ?? ""} onChange={(e) => update({ proposal_type: e.target.value || null })}>
-          <option value="">— select —</option>
-          <option value="residential">Residential</option>
-          <option value="commercial">Commercial</option>
-          <option value="mixed_use">Mixed use</option>
-        </select>
-      </div>
+      {open && (
+        <div style={{ marginTop: 14 }}>
+          <div style={fieldWrap}>
+            <label style={labelStyle} htmlFor="proposal_type">Proposal type</label>
+            <select id="proposal_type" style={selectStyle} value={data.proposal_type ?? ""} onChange={(e) => update({ proposal_type: e.target.value || null })}>
+              <option value="">— select —</option>
+              <option value="residential">Residential</option>
+              <option value="commercial">Commercial</option>
+              <option value="mixed_use">Mixed use</option>
+            </select>
+          </div>
 
-      {data.proposal_type === "residential" && (
-        <div style={fieldWrap}>
-          <label style={labelStyle} htmlFor="dwelling_type">Dwelling type</label>
-          <select id="dwelling_type" style={selectStyle} value={data.dwelling_type ?? ""} onChange={(e) => update({ dwelling_type: e.target.value || null })}>
-            <option value="">— select —</option>
-            <option value="single_house">Single house</option>
-            <option value="grouped_dwelling">Grouped dwelling</option>
-            <option value="multiple_dwelling">Multiple dwelling</option>
-            <option value="ancillary_dwelling">Ancillary dwelling</option>
-            <option value="short_stay">Short stay</option>
-          </select>
-        </div>
-      )}
+          {data.proposal_type === "residential" && (
+            <div style={fieldWrap}>
+              <label style={labelStyle} htmlFor="dwelling_type">Dwelling type</label>
+              <select id="dwelling_type" style={selectStyle} value={data.dwelling_type ?? ""} onChange={(e) => update({ dwelling_type: e.target.value || null })}>
+                <option value="">— select —</option>
+                <option value="single_house">Single house</option>
+                <option value="grouped_dwelling">Grouped dwelling</option>
+                <option value="multiple_dwelling">Multiple dwelling</option>
+                <option value="ancillary_dwelling">Ancillary dwelling</option>
+                <option value="short_stay">Short stay</option>
+              </select>
+            </div>
+          )}
 
-      <div style={fieldWrap}>
-        <label style={labelStyle} htmlFor="building_class">Building class</label>
-        <select id="building_class" style={selectStyle} value={data.building_class ?? ""} onChange={(e) => update({ building_class: e.target.value || null })}>
-          <option value="">— select —</option>
-          <option value="class_1a">Class 1a - house or grouped dwelling</option>
-          <option value="class_1b">Class 1b - small boarding/guest accommodation</option>
-          <option value="class_2">Class 2 - apartment building</option>
-          <option value="class_10a">Class 10a - shed, garage or carport</option>
-        </select>
-      </div>
+          <div style={fieldWrap}>
+            <label style={labelStyle} htmlFor="building_class">Building class</label>
+            <select id="building_class" style={selectStyle} value={data.building_class ?? ""} onChange={(e) => update({ building_class: e.target.value || null })}>
+              <option value="">— select —</option>
+              <option value="class_1a">Class 1a - house or grouped dwelling</option>
+              <option value="class_1b">Class 1b - small boarding/guest accommodation</option>
+              <option value="class_2">Class 2 - apartment building</option>
+              <option value="class_10a">Class 10a - shed, garage or carport</option>
+            </select>
+          </div>
 
-      <div style={fieldWrap}>
-        <label style={labelStyle} htmlFor="work_type">Work type</label>
-        <select id="work_type" style={selectStyle} value={data.work_type ?? ""} onChange={(e) => update({ work_type: e.target.value || null })}>
-          <option value="">— select —</option>
-          <option value="new_construction">New construction</option>
-          <option value="extension">Extension</option>
-          <option value="renovation">Renovation</option>
-          <option value="demolition">Demolition</option>
-          <option value="change_of_use">Change of use</option>
-        </select>
-      </div>
+          <div style={fieldWrap}>
+            <label style={labelStyle} htmlFor="work_type">Work type</label>
+            <select id="work_type" style={selectStyle} value={data.work_type ?? ""} onChange={(e) => update({ work_type: e.target.value || null })}>
+              <option value="">— select —</option>
+              <option value="new_construction">New construction</option>
+              <option value="extension">Extension</option>
+              <option value="renovation">Renovation</option>
+              <option value="demolition">Demolition</option>
+              <option value="change_of_use">Change of use</option>
+            </select>
+          </div>
 
-      <div style={fieldWrap}>
-        <span style={labelStyle}>New or existing building</span>
-        <div style={{ display: "flex", gap: 16 }}>
-          {(["new", "existing"] as const).map((v) => (
-            <label key={v} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: ".85rem", cursor: "pointer" }}>
+          <div style={fieldWrap}>
+            <span style={labelStyle}>New or existing building</span>
+            <div style={{ display: "flex", gap: 16 }}>
+              {(["new", "existing"] as const).map((v) => (
+                <label key={v} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: ".85rem", cursor: "pointer" }}>
+                  <input
+                    type="radio"
+                    name="new_or_existing"
+                    value={v}
+                    checked={data.new_or_existing === v}
+                    onChange={() => update({ new_or_existing: v })}
+                  />
+                  {v.charAt(0).toUpperCase() + v.slice(1)}
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div style={fieldWrap}>
+            <label style={labelStyle} htmlFor="lot_type">Lot type</label>
+            <select id="lot_type" style={selectStyle} value={data.lot_type ?? ""} onChange={(e) => update({ lot_type: e.target.value || null })}>
+              <option value="">— select —</option>
+              <option value="green_title">Green title</option>
+              <option value="strata_title">Strata title</option>
+              <option value="survey_strata">Survey strata</option>
+            </select>
+          </div>
+
+          <div style={fieldWrap}>
+            <span style={labelStyle}>Street context</span>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: ".85rem", cursor: "pointer", marginBottom: 8 }}>
               <input
-                type="radio"
-                name="new_or_existing"
-                value={v}
-                checked={data.new_or_existing === v}
-                onChange={() => update({ new_or_existing: v })}
+                type="checkbox"
+                checked={Boolean(data.primary_street_confirmed)}
+                onChange={(e) => update({ primary_street_confirmed: e.target.checked })}
               />
-              {v.charAt(0).toUpperCase() + v.slice(1)}
+              <span>Primary street frontage is confirmed for this proposal.</span>
             </label>
-          ))}
-        </div>
-      </div>
+            <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: ".85rem", cursor: "pointer" }}>
+              <input
+                type="checkbox"
+                checked={Boolean(data.secondary_street_confirmed)}
+                onChange={(e) => update({ secondary_street_confirmed: e.target.checked })}
+              />
+              <span>Secondary street frontage applies and is confirmed.</span>
+            </label>
+          </div>
 
-      <div style={fieldWrap}>
-        <label style={labelStyle} htmlFor="lot_type">Lot type</label>
-        <select id="lot_type" style={selectStyle} value={data.lot_type ?? ""} onChange={(e) => update({ lot_type: e.target.value || null })}>
-          <option value="">— select —</option>
-          <option value="green_title">Green title</option>
-          <option value="strata_title">Strata title</option>
-          <option value="survey_strata">Survey strata</option>
-        </select>
-      </div>
+          {error && (
+            <div className="state" style={{ marginBottom: 10 }}>
+              <Icon name="error" /><span>{error}</span>
+            </div>
+          )}
 
-      <div style={fieldWrap}>
-        <span style={labelStyle}>Street context</span>
-        <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: ".85rem", cursor: "pointer", marginBottom: 8 }}>
-          <input
-            type="checkbox"
-            checked={Boolean(data.primary_street_confirmed)}
-            onChange={(e) => update({ primary_street_confirmed: e.target.checked })}
-          />
-          <span>Primary street frontage is confirmed for this proposal.</span>
-        </label>
-        <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: ".85rem", cursor: "pointer" }}>
-          <input
-            type="checkbox"
-            checked={Boolean(data.secondary_street_confirmed)}
-            onChange={(e) => update({ secondary_street_confirmed: e.target.checked })}
-          />
-          <span>Secondary street frontage applies and is confirmed.</span>
-        </label>
-      </div>
-
-      {error && (
-        <div className="state" style={{ marginBottom: 10 }}>
-          <Icon name="error" /><span>{error}</span>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button className="btn" onClick={() => void save()} disabled={busy}>
+              {busy ? "Updating…" : "Update results"}
+            </button>
+          </div>
         </div>
       )}
-
-      <div className="wizard-actions" style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-        <button className="btn alt" onClick={onBack} disabled={busy}>← Back</button>
-        <button className="btn" onClick={() => void save()} disabled={busy}>
-          {busy ? "Saving…" : "Save & Continue →"}
-        </button>
-      </div>
     </div>
   );
 }
 
-/* ── ConfirmationStep (Step 3) ── */
+/* ── CheckView — address in, results out, one screen ── */
 
-function ConfirmationStep({
-  projectId,
-  address,
-  property,
-  proposal,
-  onBack,
-  onStart,
-}: {
-  projectId: string;
-  address: string;
-  property: PropertyProfileResponse | null;
-  proposal: ProposalRequest;
-  onBack: () => void;
-  onStart: () => void;
-}) {
-  const factsByType = property ? groupFactsByType(property.facts ?? []) : new Map<string, PropertyFactResponse[]>();
-  const zoneVal = formatFactValue(factsByType.get("zone")?.[0]?.value);
-  const rCodeVal = formatFactValue(factsByType.get("r_code")?.[0]?.value);
-
-  return (
-    <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
-      <h3 style={{ marginBottom: 16 }}><Icon name="check_circle" />Confirm and review</h3>
-
-      <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 4 }}>Project</div>
-        <div style={{ fontWeight: 700, fontSize: ".95rem" }}>{address}</div>
-      </div>
-
-      {property && (
-        <div style={{ marginBottom: 16 }}>
-          <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 8 }}>Property summary</div>
-          <div style={{ fontSize: ".85rem", display: "flex", flexDirection: "column", gap: 4 }}>
-            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Status</span>
-              {resolutionBadge(property.resolution_status)}
-            </div>
-            {property.local_government && (
-              <div style={{ display: "flex", gap: 8 }}>
-                <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>LGA</span>
-                <span style={{ fontWeight: 600 }}>{property.local_government}</span>
-              </div>
-            )}
-            {zoneVal && (
-              <div style={{ display: "flex", gap: 8 }}>
-                <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Zone</span>
-                <span style={{ fontWeight: 600 }}>{zoneVal}</span>
-              </div>
-            )}
-            {rCodeVal && (
-              <div style={{ display: "flex", gap: 8 }}>
-                <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>R-Code</span>
-                <span style={{ fontWeight: 600 }}>{rCodeVal}</span>
-              </div>
-            )}
-            <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Confidence</span>
-              {confidenceBadge(property.confidence)}
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: ".72rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: ".08em", color: "var(--ink-faint)", marginBottom: 8 }}>Proposal summary</div>
-        <div style={{ fontSize: ".85rem", display: "flex", flexDirection: "column", gap: 4 }}>
-          {proposal.proposal_type && (
-            <div style={{ display: "flex", gap: 8 }}>
-              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Type</span>
-              <span style={{ fontWeight: 600 }}>{proposal.proposal_type}</span>
-            </div>
-          )}
-          {proposal.dwelling_type && (
-            <div style={{ display: "flex", gap: 8 }}>
-              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Dwelling</span>
-              <span style={{ fontWeight: 600 }}>{proposal.dwelling_type}</span>
-            </div>
-          )}
-          {proposal.work_type && (
-            <div style={{ display: "flex", gap: 8 }}>
-              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Work type</span>
-              <span style={{ fontWeight: 600 }}>{proposal.work_type}</span>
-            </div>
-          )}
-          {proposal.building_class && (
-            <div style={{ display: "flex", gap: 8 }}>
-              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Building class</span>
-              <span style={{ fontWeight: 600 }}>{proposal.building_class}</span>
-            </div>
-          )}
-          {proposal.new_or_existing && (
-            <div style={{ display: "flex", gap: 8 }}>
-              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>New / existing</span>
-              <span style={{ fontWeight: 600 }}>{proposal.new_or_existing}</span>
-            </div>
-          )}
-          {proposal.lot_type && (
-            <div style={{ display: "flex", gap: 8 }}>
-              <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Lot type</span>
-              <span style={{ fontWeight: 600 }}>{proposal.lot_type}</span>
-            </div>
-          )}
-          <div style={{ display: "flex", gap: 8 }}>
-            <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Primary street</span>
-            <span style={{ fontWeight: 600 }}>{proposal.primary_street_confirmed ? "Confirmed" : "Not confirmed"}</span>
-          </div>
-          <div style={{ display: "flex", gap: 8 }}>
-            <span style={{ color: "var(--ink-soft)", minWidth: 120 }}>Secondary street</span>
-            <span style={{ fontWeight: 600 }}>{proposal.secondary_street_confirmed ? "Confirmed" : "Not confirmed"}</span>
-          </div>
-        </div>
-      </div>
-
-      <DocumentUpload projectId={projectId} />
-
-      <CompliancePanel projectId={projectId} />
-
-      <div className="wizard-actions" style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-        <button className="btn alt" onClick={onBack}>← Back to edit</button>
-        <button className="btn" onClick={onStart}>
-          <Icon name="home_work" />Open project workspace
-        </button>
-      </div>
-    </div>
-  );
+function heroActionStyle(active: boolean): React.CSSProperties {
+  return {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 6,
+    fontSize: ".78rem",
+    fontWeight: 700,
+    padding: "7px 13px",
+    borderRadius: 999,
+    border: `1.5px solid ${active ? "var(--green-bright)" : "var(--line)"}`,
+    background: "var(--card)",
+    color: active ? "var(--green-800)" : "var(--ink-soft)",
+    cursor: "pointer",
+    fontFamily: "inherit",
+  };
 }
-
-/* ── WizardShell ── */
 
 export function WizardShell({
   wizard,
@@ -405,84 +311,71 @@ export function WizardShell({
   onClose: () => void;
   onProjectOpen: (projectId: string) => void;
 }) {
-  const [state, setState] = useState<WizardState>(wizard);
+  const [proposalSaves, setProposalSaves] = useState(0);
+  const [proposal, setProposal] = useState<ProposalRequest>(wizard.proposal);
+  const [refineOpen, setRefineOpen] = useState(false);
+  const [docsOpen, setDocsOpen] = useState(false);
 
-  const setStep = (step: WizardStep) => setState((s) => ({ ...s, step }));
-
-  const steps = ["Address & property", "Proposal details", "Confirm"] as const;
+  void onClose;
 
   return (
-    <div className="view wizard-view" style={{ paddingTop: 16 }}>
-      {/* stepper */}
-      <div className="wizard-stepper" style={{ display: "flex", alignItems: "center", gap: 0, marginBottom: 20, maxWidth: 640, margin: "0 auto 20px" }} aria-label="Check steps">
-        {steps.map((label, idx) => {
-          const stepNum = (idx + 1) as WizardStep;
-          const isCurrent = state.step === stepNum;
-          const isDone = state.step > stepNum;
-          return (
-            <div key={idx} className="wizard-step" style={{ display: "flex", alignItems: "center", flex: idx < 2 ? 1 : undefined }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
-                <div style={{
-                  width: 28, height: 28, borderRadius: 99, display: "flex", alignItems: "center", justifyContent: "center",
-                  background: isCurrent ? "var(--green-900)" : isDone ? "var(--green)" : "var(--paper)",
-                  border: isCurrent || isDone ? "none" : "1.5px solid var(--line)",
-                  color: isCurrent || isDone ? "#fff" : "var(--ink-faint)",
-                  fontSize: ".75rem", fontWeight: 800,
-                }}>
-                  {isDone ? <Icon name="check_circle" /> : stepNum}
-                </div>
-                <div className="wizard-step-label" style={{ fontSize: ".65rem", fontWeight: 700, color: isCurrent ? "var(--green-800)" : "var(--ink-faint)", whiteSpace: "nowrap" }}>
-                  {label}
-                </div>
-              </div>
-              {idx < 2 && (
-                <div className="wizard-rail" style={{ flex: 1, height: 2, background: isDone ? "var(--green)" : "var(--line)", margin: "0 6px 16px" }} />
-              )}
-            </div>
-          );
-        })}
+    <div className="view wizard-view" style={{ paddingTop: 16, width: "100%", maxWidth: 760, margin: "0 auto" }}>
+      <PropertySummary
+        address={wizard.address}
+        property={wizard.property}
+        actions={
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+            <button
+              style={heroActionStyle(refineOpen)}
+              onClick={() => setRefineOpen((o) => !o)}
+              aria-expanded={refineOpen}
+            >
+              <Icon name="tune" size={14} />Add project details
+            </button>
+            <button
+              style={heroActionStyle(docsOpen)}
+              onClick={() => setDocsOpen((o) => !o)}
+              aria-expanded={docsOpen}
+            >
+              <Icon name="upload_file" size={14} />Upload plans
+            </button>
+          </div>
+        }
+      />
+
+      <div className="panel">
+        <CompliancePanel
+          projectId={wizard.projectId}
+          councilName={wizard.property?.local_government}
+          proposalReady={proposalSaves > 0}
+          runRequest={proposalSaves}
+          autoRun
+        />
       </div>
 
-      {state.step === 1 && state.property && (
-        <AddressResolverPanel
-          property={state.property}
-          onContinue={() => setStep(2)}
-          onBack={onClose}
-        />
-      )}
-
-      {state.step === 1 && !state.property && (
-        <div className="panel" style={{ maxWidth: 640, margin: "0 auto" }}>
-          <div className="state"><Icon name="info" /><span>Property context is unavailable. You can still enter proposal details and add drawings for review.</span></div>
-          <div style={{ marginTop: 12, display: "flex", gap: 8, justifyContent: "flex-end", flexWrap: "wrap" }}>
-            <button className="btn" onClick={() => setStep(2)}>Continue without property context</button>
-            <button className="btn alt" onClick={onClose}>← Back</button>
-          </div>
-        </div>
-      )}
-
-      {state.step === 2 && (
-        <ProposalForm
-          projectId={state.projectId}
-          initial={state.proposal}
-          onSaved={(saved, data) => setState((s) => ({ ...s, savedProposal: saved, proposal: data, step: 3 }))}
-          onBack={() => setStep(1)}
-        />
-      )}
-
-      {state.step === 3 && (
-        <ConfirmationStep
-          projectId={state.projectId}
-          address={state.address}
-          property={state.property}
-          proposal={state.proposal}
-          onBack={() => setStep(2)}
-          onStart={() => {
-            if (state.projectId) onProjectOpen(state.projectId);
-            else onClose();
+      {refineOpen && (
+        <RefinePanel
+          projectId={wizard.projectId}
+          initial={proposal}
+          defaultOpen
+          onSaved={(data) => {
+            setProposal(data);
+            setProposalSaves((n) => n + 1);
           }}
         />
       )}
+
+      {docsOpen && (
+        <div className="panel">
+          <DocumentUpload projectId={wizard.projectId} />
+        </div>
+      )}
+
+      <div style={{ display: "flex", justifyContent: "flex-end", padding: "4px 0 24px" }}>
+        <button className="btn alt" onClick={() => onProjectOpen(wizard.projectId)}>
+          <Icon name="home_work" />Open project workspace
+        </button>
+      </div>
     </div>
   );
 }

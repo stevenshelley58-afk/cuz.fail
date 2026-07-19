@@ -1,0 +1,292 @@
+{
+ "council": "Town of East Fremantle",
+ "domains": [
+  "eastfremantle.wa.gov.au",
+  "wa.gov.au"
+ ],
+ "queries": 8,
+ "unique_urls": 41,
+ "already_in_manifest": 1,
+ "new_candidates": [
+  {
+   "url": "https://www.wa.gov.au/government/document-collections/town-of-east-fremantle-planning-information",
+   "title": "Town of East Fremantle planning information",
+   "category_guess": "structure_plan",
+   "highlight": "# Town of East Fremantle planning information\n...\nLocal planning information for the Town of East Fremantle.\n...\nThis page contains local planning schemes, strategies, structure plans and planning publications relating to this local governm",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/development/planning/local-planning-strategy.aspx",
+   "title": "Local Planning Strategy - Town of East Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "The Town of East Fremantle has now adopted a Local Planning Strategy (LPS) to provide a blueprint for the growth and development of neighbourhoods and ...",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "http://www.eastfremantle.wa.gov.au/documents/14/town-planning-scheme-no-3",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "TOWN OF EAST FREMANTLE\nTOWN PLANNING SCHEME NO. 3\n...\n9 gg 31/8\n...\nTOWN OF EAST FREMANTLE TPS 3 –TEXT AMENDMENTS\n...\nThis Town Planning Scheme of the Town of East Fremantle consists of this Scheme Text and the \nScheme Maps. The Scheme Text",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/Profiles/eastfremantle/Assets/ClientData/Schedule_of_Modifications_Town_of_East_Fremantle_Local_Planning_Strategy_-_For_Final_Endorsement.pdf",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "include that the Local Commercial Needs\n...\nshould consider scenarios with and without the Leeuwin Barracks.\n...\nModify Planning Area A – precinct structure plan.\n...\npossible plan for the Town’s education needs. Petra\n...\ndeveloping a |\n..",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2025-12/east_fremantle3_schemetext.pdf",
+   "title": "East Fremantle 3 Schemetext",
+   "category_guess": "structure_plan",
+   "highlight": "## TOWN OF EAST FREMANTLE\n\n### Local Planning Scheme No. 3\n\n#### Updated to include AMD 20 GG 18/11/2025\n\n##### Original Town Planning Scheme Gazettal 3 December 2004\n...\nTOWN OF EAST FREMANTLE LPS 3 –TEXT AMENDMENTS\n...\n... 7\n...\nADOPTION ",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/development/planning/local-planning-scheme-no-4.aspx",
+   "title": "Development of Local Planning Scheme No. 4 » Town of East Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "At its Ordinary Council Meeting on Tuesday 17 June, Council agreed to begin the process of preparing a new Local Planning Scheme No. 4 to replace Local Planning Scheme No.3. Read the official Public Notice.\n...\nThe Town is progressing with ",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/Profiles/eastfremantle/Assets/ClientData/Document-Centre/Town_Planning/Draft_Part_2_Background_Information_and_Analysis.pdf",
+   "title": "(Draft)",
+   "category_guess": "structure_plan",
+   "highlight": "1.1 Purpose The purpose of Part 2 is to provide the rationale and evidence base for Part 1. It provides the relevant background information and analysis which supports the planning directions and actions outlined within Part 1 of the Town o",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/10/town-planning-scheme-no-3-amendment-10",
+   "title": "[PDF] Town Planning Scheme No. 3 Amendment No. 10",
+   "category_guess": "structure_plan",
+   "highlight": "Structure Plan commences operation on the date it is adopted by the local government pursuant to clause 6.2.5.15.",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/development/planning/information-about-the-future-local-planning-scheme-no-4.aspx",
+   "title": "Information about the Future Local Planning Scheme No. 4",
+   "category_guess": "structure_plan",
+   "highlight": "LPS 3 is the Town's current statutory planning document guiding land use, zoning, development scale, and housing density. It provides the framework for ...",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/",
+   "title": "Documents in General Council Documents » Town of East Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "Category: Any Category Minutes: Town Planning and Building Committee > 2007 Minutes: Finance Committee > 2007 Minutes: Town Planning and Building Committee > 2008 Minutes: Finance Committee > 2008 Minutes: Town Planning and Building Committ",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/our-town/corporate-documents-and-news/corporate-plans-and-strategies.aspx",
+   "title": "Corporate Plans and Strategies - Town of East Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "The Town of East Fremantle's Strategic Community Plan is our highest-order planning and strategy document that sets our policy and corporate objectives.",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/Profiles/eastfremantle/Assets/ClientData/TOEF_strategic_plan_pages_LR.pdf",
+   "title": "Strategic Community Plan",
+   "category_guess": "structure_plan",
+   "highlight": "It is my pleasure to present the Town of East Fremantle Strategic Community Plan 2020-2030. This revised plan is a further refinement of the Town’s future vision first drafted in 2013 and revisited in 2017.\n...\nWelcome to the Town of East F",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/profiles/eastfremantle/assets/clientdata/document-centre/council-policies/built-natural-environment/2.1.4-town-centre-redevelopment-guidelines-policy.pdf",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "TOWN CENTRE REDEVELOPMENT\n...\nThe intent of this document is to provide detailed guidance for new development within the \nEast Fremantle town centre. The document provides:\n...\nThe document is supported by attached plans that indicate:\n...\n",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/953/town-of-east-fremantle-strategic-community-plan-2024-2028",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "I present the Town of East Fremantle’s Corporate Business Plan 2024/25 – 2027/28. Our plan represents Councillors working with the Administration and guided by community input to chart the course for implementing our Strategic Community Pla",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/council-services/town-planning/updates-town-planning-scheme-amendments.aspx",
+   "title": "Town Planning Scheme Amendments - Updates",
+   "category_guess": "structure_plan",
+   "highlight": "At the Council Meeting of 17 November 2015, the Council of the Town of East Fremantle resolved to adopt Amendment No. 11 without modification.",
+   "query": "Town of East Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/development/town-planning/local-planning.aspx",
+   "title": "Local Planning Framework - Town of East Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "Plan Project Information about the future Local Planning Scheme No 4 Building Crossovers and Fences Fact Sheets Fee Calculators. View the Town's Local Planning ...",
+   "query": "Town of East Fremantle local structure plan report"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/news/council-approves-preparation-of-new-local-planning-scheme-no-4/21008",
+   "title": "News Story - Council approves preparation of new Local Planning Scheme No. 4 » Town of East Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "News Story - Council approves preparation of new Local Planning Scheme No. 4 » Town of East Fremantle\n...\n# Council approves preparation of new Local Planning Scheme No. 4\n...\nAt its Council Meeting on Tuesday 17 June, Council agreed to beg",
+   "query": "Town of East Fremantle local structure plan report"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/development/planning/local-planning-scheme-local-planning-policies.aspx",
+   "title": "Local Planning Scheme No. 3 - Town of East Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "The Regulations contain provisions relating to local planning strategies, schemes and scheme amendments. They also contain a Model Scheme Text.",
+   "query": "Town of East Fremantle local structure plan report"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/planning-and-building/town-planning/town-planning.aspx",
+   "title": "Town Planning » Town of East Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "# Town Planning\n...\nThe broad objective for town planning in the Town of East Fremantle is to provide for the current and future needs of the community in a sustainable manner. This is achieved through the application of strategic planning ",
+   "query": "Town of East Fremantle local structure plan report"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/1109/313-lpp-town-centre-redevelopment-guidelines",
+   "title": "3.1.3 Town Centre Redevelopment Guidelines – Local Planning Policy",
+   "category_guess": "structure_plan",
+   "highlight": "The intent of this policy is to provide detailed guidance for development within the East Fremantle \nTown Centre and a defined area surrounding it. This document provides: \n- A background summary of the prevailing planning context. \n- A sta",
+   "query": "Town of East Fremantle local structure plan report"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/development/planning/local-commercial-centres-assessment-and-strategy.aspx",
+   "title": "Local Commercial Centres Assessment and Strategy",
+   "category_guess": "structure_plan",
+   "highlight": "The LCCAS helps to understand the Town's needs over the next 15-20 years taking into account changes in population as well as changes in retail shopping and ...",
+   "query": "Town of East Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/Profiles/eastfremantle/Assets/ClientData/Fact_Sheet_-_Local_Commercial_Centres_Strategy_Jan_2023_-_REV.pdf",
+   "title": "Copy of Fact Sheet Local Commercial Centres Strategy December 2021",
+   "category_guess": "structure_plan",
+   "highlight": "Petra Street Centre (District Centre) (half shared with City of Melville); Town Centre and Canning Highway Mixed Uses (Neighbourhood Centre); and George Street Centre (Local Centre).\n...\nOutcomes Developed in line with the Western Australia",
+   "query": "Town of East Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/1131/313-town-centre-policy",
+   "title": "3.1.3 Town Centre Redevelopment Guidelines – Local Planning Policy",
+   "category_guess": "structure_plan",
+   "highlight": "of this policy is to provide\n...\nA statement of\n...\nin respect to\n...\nof elements that need to be considered during the planning \nand design of development. \nThis policy document is supported by the following attached plans: \nPlan 1: A cont",
+   "query": "Town of East Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/946/town-centre-precinct-pamphlet",
+   "title": "TOWN CENTRE PRECINCT",
+   "category_guess": "structure_plan",
+   "highlight": "BACKGROUND \nThe ‘Town Centre’ is one of eight precincts identified \nwithin the Town of East Fremantle Residential Design \nGuidelines, 2016 (Figure 1). \nThe Town Centre Precinct is a small area divided \nby Canning Highway and the extension o",
+   "query": "Town of East Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/Profiles/eastfremantle/Assets/ClientData/Copy_of_Copy_of_Fact_Sheet_Local_Planning_Strategy_Nov_2021.pdf",
+   "title": "Copy of Copy of Fact Sheet Local Planning Strategy Nov 2021",
+   "category_guess": "structure_plan",
+   "highlight": "Local Planning Strategy As a final step, the WAPC resolved on 19 July 2022 to endorse the LPS subject to further modifications. The LPS is now finalised and published on the Town's website.\n...\nLittle to no change to low density and single ",
+   "query": "Town of East Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/945/riverside-precinct-pamphlet",
+   "title": "RIVERSIDE PRECINCT",
+   "category_guess": "structure_plan",
+   "highlight": "BACKGROUND ‘Riverside’ is one of eight precincts identified within the Town of East Fremantle Residential Design Guidelines, 2016 (Figure 1). The Riverside Precinct is located on a steep western facing slope with many residences capitalisin",
+   "query": "Town of East Fremantle precinct structure plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/726/311-lpp-residential-design-guidelines-amended-17-may-2016-(formerly-222)",
+   "title": "3. REGULATORY SERVICES",
+   "category_guess": "structure_plan",
+   "highlight": "3.7.1\n...\n3.7\n...\n3.7.15 -- Woodside & Richmond Precincts 41 \n3.7.16 -- Plympton Precinct 53 \n3.7.17 -- Richmond Hill Precinct 63 \n3.7.18 -- Riverside 74 \n3\n...\n19 -- Preston Point Precinct 86 \n3.7.20-- Richmond Raceway Precinct 87\n...\n3.5 ",
+   "query": "Town of East Fremantle precinct structure plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/development/planning/local-planning-policies.aspx",
+   "title": "Local Planning Policies - Town of East Fremantle",
+   "category_guess": "local_development_plan",
+   "highlight": "Development of Local Planning Scheme No. 4 · George Street Place Plan Project · Information about the future Local Planning Scheme No 4 · Building · Crossovers ...",
+   "query": "Town of East Fremantle local development plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/development/planning",
+   "title": "Planning - Town of East Fremantle",
+   "category_guess": "local_development_plan",
+   "highlight": "Town Planning Find information about including development approvals and request copies of plans. Fee Calculators Use one of the six online calculators.",
+   "query": "Town of East Fremantle local development plan"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/council/governance/policies-and-local-laws.aspx",
+   "title": "Policies and Local Laws » Town of East Fremantle",
+   "category_guess": "local_planning_policy",
+   "highlight": "## Regulatory Services - Planning\n...\n3.1.1 Residential Design Guidelines\n...\n3.1.3 Town Centre Policy\n...\n3.1.4 Payment in Lieu of Parking Plan - Local Planning Policy\n...\n3.1.5 Community Design Advisory Committee\n...\n3.1.6 George Street D",
+   "query": "Town of East Fremantle local planning policy"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/1130/312-sign-policy",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "3.1.2 Signage Design Guidelines - Local Planning Policy\n...\nservice is being carried out. \nPolicy \nThe purpose of this guideline is to provide a reasonable scope for advertising and information signs \nfor commercial property in a manner whi",
+   "query": "Town of East Fremantle local planning policy"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/1137/3119-precinct-for-art-policy",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "3.1.9 Percent for Public Art – Local Planning Policy\n...\nType: Regulatory Services - Planning\n...\nLegislation: Planning and Development Act 2005\n...\nPlanning and Development (Local Planning Schemes)\n...\nRegulations 2015\n...\nThe objectives o",
+   "query": "Town of East Fremantle local planning policy"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/council-services--town-planning--information-sheets--when-do-i-need-planning-approval.aspx",
+   "title": "When Do I Need Development Approval » Town of East Fremantle",
+   "category_guess": "local_planning_policy",
+   "highlight": "In most cases, planning approval is required for all developments, although, if a development complies with the deemed-to-comply provisions of the Residential Design Codes of WA (R-Codes) and the Town’s Residential Design Guidelines, or is ",
+   "query": "Town of East Fremantle local planning policy"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/1136/318-wood-encouragement-policy-general",
+   "title": "3.1.8 Wood Encouragement – General",
+   "category_guess": "local_planning_policy",
+   "highlight": "Type: Regulatory Services - Planning \nLegislation: Planning and Development Act 2005 \nPlanning and Development (Local Planning Schemes) \nRegulations 2015 \nDelegation: N/A \nOther Related Document: ToEF Residential Design Guidelines – Local P",
+   "query": "Town of East Fremantle local planning policy"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/Profiles/eastfremantle/Assets/ClientData/Draft_Payment_in_Lieu_of_Parking_Plan.pdf",
+   "title": "DRAFT",
+   "category_guess": "local_planning_policy",
+   "highlight": "### 3.1.4 Payment in Lieu of Parking Plan – Local Planning Policy\n...\nType: Regulatory Services - Planning \nLegislation: Schedule 2, Part 9A of the Planning and Development (Local \nPlanning Schemes) Regulations 2015 \nDelegation: N/A \nOther ",
+   "query": "Town of East Fremantle local planning policy"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/news/planning-scheme-amendment-no-20-(short-term-rental-accommodation)-changes/21018",
+   "title": "Planning Scheme Amendment No. 20 (Short-term Rental ...",
+   "category_guess": "local_planning_scheme",
+   "highlight": "Council resolved to initiate Amendment No. 20 (Short-term Rental Accommodation) to Local Planning Scheme No. 3.",
+   "query": "Town of East Fremantle local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/town-east-fremantle-local-planning-scheme-3-amendment-18",
+   "title": "Town of East Fremantle Local Planning Scheme 3 Amendment 18 | EPA Western Australia",
+   "category_guess": "local_planning_scheme",
+   "highlight": "Town of East Fremantle Local Planning Scheme 3 Amendment 18 | EPA Western Australia\n...\n# Town of East Fremantle Local Planning Scheme 3 Amendment 18\n...\nScheme/scheme amendment\n...\nTown of East Fremantle\n...\nTo reclassify a portion of Lot ",
+   "query": "Town of East Fremantle local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/town-east-fremantle-local-planning-scheme-3-amendment-16",
+   "title": "Town of East Fremantle - Local Planning Scheme 3 - Amendment 16",
+   "category_guess": "local_planning_scheme",
+   "highlight": "Town of East Fremantle - Local Planning Scheme 3 - Amendment 16 · Date of determination. Monday, 10 September, 2018 · Decision. Referral examined, ...",
+   "query": "Town of East Fremantle local planning scheme text"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/17/deemed-provisions",
+   "title": "",
+   "category_guess": "local_planning_scheme",
+   "highlight": "25 August 2015 GOVERNMENT GAZETTE, WA 3515 \nPlanning and Development (Local Planning Schemes) Regulations 2015 \nDeemed provisions for local planning schemes Schedule 2 \nPreliminary Part 1 \ncl. 1 \n\nSchedule 2 — Deemed provisions for local pl",
+   "query": "Town of East Fremantle local planning scheme text"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/1132/314-payment-in-lieu-of-parking-plan-local-planning-policy",
+   "title": "3.1.4 Payment in Lieu of Parking Plan – Local Planning Policy",
+   "category_guess": "local_planning_strategy",
+   "highlight": "Legislation:\n...\nthe Planning and Development (\n...\nPlanning Schemes)\n...\nation: N/A \nOther Related Document: Town of\n...\nFremantle Local Planning Scheme No. 3\n...\nIntroduction \n1.1 Regulatory compliance \nThis Payment in Lieu of Parking Pla",
+   "query": "Town of East Fremantle local planning strategy endorsed WAPC"
+  }
+ ]
+}

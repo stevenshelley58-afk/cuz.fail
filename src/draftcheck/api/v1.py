@@ -18,6 +18,7 @@ from draftcheck.db.engine import create_runtime_engine
 
 from draftcheck.api.address import router as address_router
 from draftcheck.api.auth import router as auth_router
+from draftcheck.api.blockwise_property_check import router as blockwise_property_check_router
 from draftcheck.api.compliance import router as compliance_router
 from draftcheck.api.documents import router as documents_router
 from draftcheck.api.health import router as health_router
@@ -137,6 +138,7 @@ def create_v1_router(library: Any | None = None) -> APIRouter:
     api_router.include_router(documents_router)
     api_router.include_router(rules_router)
     api_router.include_router(compliance_router)
+    api_router.include_router(blockwise_property_check_router)
 
     @api_router.get("/ops/dashboard", tags=["ops"])
     def ops_dashboard() -> dict[str, Any]:

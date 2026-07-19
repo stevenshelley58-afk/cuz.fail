@@ -13,6 +13,8 @@ from difflib import SequenceMatcher
 from enum import StrEnum
 from typing import Any
 
+from draftcheck.domain.address.lga import canonical_local_government_name
+
 
 GDA2020_TARGET_CRS = "EPSG:7844"
 
@@ -794,7 +796,10 @@ class AddressResolutionService:
             PropertyFact(
                 fact_id=f"{project_id}:local_government",
                 fact_type="local_government",
-                value={"name": parcel.local_government},
+                value={
+                    "name": canonical_local_government_name(parcel.local_government)
+                    or parcel.local_government
+                },
                 provenance=parcel_provenance,
                 confidence=parcel_confidence,
                 review_status=parcel_review_status,

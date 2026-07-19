@@ -67,6 +67,15 @@ Fetch and ingest the council's **local** instruments into `source_documents` (ta
 Reuse the existing ingestion path (see `docs/DATA_INVENTORY.md` / the WP that loaded Cockburn's 107
 docs). Do NOT ingest other regions or non-planning statutes (they are denylisted downstream anyway).
 
+### 1.2a Corpus-completeness gate (added 2026-07-02 — do not skip)
+Before decoding, compare the council's acquired doc-type mix against expectations. Rule counts
+scale with corpus size, NOT council size: Cockburn's 4,400+ rules come from an exhaustive corpus
+(33 structure plans); a growth council with 1 ingested structure plan is missing most of its
+development standards. **Gate:** every adopted structure plan / LDP / activity-centre plan on the
+council's register (and the WAPC/DPLH register) is either acquired or blocked-with-note. A growth
+council with < 10 structure plans in the manifest fails this gate. The Tier-1 audits could not
+catch this — faithfulness audits verify what IS in the DB, not what's absent.
+
 ### 1.3 Verify spatial coverage for the council
 - Parcels: `SELECT count(*) FROM parcels p JOIN ... WHERE <in council LGA>` — must be non-trivial.
 - Zoning/R-codes: `planning_features` intersecting the LGA must exist (so resolution yields an
@@ -137,12 +146,12 @@ one council each.
 
 | Council | Tier | Status | Rules | Faithful | Canary | Claimed by | Notes |
 |---|---|---|---|---|---|---|---|
-| City of Cockburn | 0 | ✅ done | 1723 | 1.00 | `beeliar_canary.json` | — (2026-06-15) | Reference implementation. WP-0 code changes done; prod DB scoping + canary run pending. |
-| City of Melville | 1 | 🔄 | | | | kimi-k2.7-code 2026-06-16 | Immediate neighbour. |
-| City of Fremantle | 1 | ⬜ | | | | | Immediate neighbour. |
-| Town of East Fremantle | 1 | ⬜ | | | | | Small; quick. |
-| City of Kwinana | 1 | ⬜ | | | | | Immediate neighbour. |
-| City of Rockingham | 1 | ⬜ | | | | | Immediate neighbour. |
+| City of Cockburn | 0 | ✅ done | 4543 | 0.933 | `beeliar_canary.json` | codex 2026-07-03 | Final 75-rule audit passed after sampler NULL-stratum fix; 5 majority actions applied plus density wording fix. |
+| City of Melville | 1 | ✅ done | 1105 | 1.00 | `melville_canary.json` | codex 2026-07-03 | Three judges reported zero majority flags. LPP 1.20 remains a non-gating dead-URL backlog item. |
+| City of Fremantle | 1 | ✅ done | 1751 | 0.933 | `fremantle_canary.json` | codex 2026-07-03 | Final 75-rule audit passed after 3 rejects and 2 advisory wording fixes. Scan-blocked SPs remain non-gating backlog. |
+| Town of East Fremantle | 1 | ✅ done | 697 | 0.97 | `east_fremantle_canary.json` | claude-fable 2026-07-02 | 13 instruments (LPS3 + 9 LPPs + strategy + 2 precinct plans). SP sweep found no further instruments — corpus complete. |
+| City of Kwinana | 1 | ✅ done | 3271 | 0.987 | `kwinana_canary.json` | codex 2026-07-03 | Final audit passed; 12 scan-only documents remain non-gating backlog. |
+| City of Rockingham | 1 | ✅ done | 1792 | 0.987 | `rockingham_canary.json` | codex 2026-07-03 | Final audit passed; 10 amendment/navigation-only documents remain non-gating backlog. |
 | City of Canning | 2 | ⬜ | | | | | |
 | City of Gosnells | 2 | ⬜ | | | | | |
 | City of Armadale | 2 | ⬜ | | | | | |

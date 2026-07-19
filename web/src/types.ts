@@ -1,4 +1,4 @@
-import type { PropertyProfileResponse, ProposalRequest, ProposalResponse } from "./api";
+import type { PropertyProfileResponse, ProposalRequest } from "./api";
 
 export type GuestFeature = "address" | "chat";
 
@@ -22,15 +22,11 @@ export type PaywallState = {
   limit: number;
 };
 
-/* ── wizard types ── */
-
-export type WizardStep = 1 | 2 | 3;
+/* ── check view state ── */
 
 export type WizardState = {
-  step: WizardStep;
   projectId: string;
   address: string;
   property: PropertyProfileResponse | null;
   proposal: ProposalRequest;
-  savedProposal: ProposalResponse | null;
 };

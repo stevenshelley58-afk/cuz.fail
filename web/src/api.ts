@@ -227,6 +227,9 @@ export type ComplianceResultItem = {
   rule_quote: string | null;
   citation: string | null;
   note: string | null;
+  check_type?: string | null;
+  what_it_means?: string | null;
+  modality?: string | null;
   missing_info_reason?: string | null;
   drawing_evidence?: Record<string, unknown>;
   review_reason?: string | null;

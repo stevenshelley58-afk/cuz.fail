@@ -42,7 +42,7 @@ SELECT
     COALESCE(rc.metadata_json, '{}'::jsonb) || jsonb_build_object('promoted_from', 'decode'),
     now(), now()
 FROM rule_candidates rc
-WHERE rc.extractor_model LIKE 'openai%%decode'
+WHERE rc.extractor_model LIKE '%%decode'
   AND rc.review_status = 'validators_passed'
   AND (rc.rule_logic_json->>'relevance') = 'development'
   AND rc.rule_key IS NOT NULL AND btrim(rc.rule_key) <> ''
@@ -66,7 +66,7 @@ def main() -> int:
         cur = conn.cursor()
         cur.execute(
             "SELECT count(*) FROM rule_candidates rc "
-            "WHERE rc.extractor_model LIKE 'openai%%decode' "
+            "WHERE rc.extractor_model LIKE '%%decode' "
             "AND rc.review_status='validators_passed' "
             "AND (rc.rule_logic_json->>'relevance')='development'"
         )

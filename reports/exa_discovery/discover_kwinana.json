@@ -1,0 +1,327 @@
+{
+ "council": "City of Kwinana",
+ "domains": [
+  "kwinana.wa.gov.au",
+  "wa.gov.au"
+ ],
+ "queries": 8,
+ "unique_urls": 58,
+ "already_in_manifest": 13,
+ "new_candidates": [
+  {
+   "url": "https://www.wa.gov.au/government/document-collections/city-of-kwinana-planning-information",
+   "title": "City of Kwinana planning information",
+   "category_guess": "structure_plan",
+   "highlight": "# City of Kwinana planning information\n...\nThis page contains local planning schemes, strategies, structure plans and planning publications relating to this local government area.\n...\n## Structure plans\n...\nAnketell North Local Structure Pl",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2020/lsp-orelia-lot-505-dargin-place-orelia-trails",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "STRUCTURE PLAN, LOT D, KWINANA EDUCATION PRECINCT, \nTOWN OF KWINANA, \nOCTOBER 2008\n...\nvision to venture >\n...\nSTRUCTURE PLAN\nLOT D, KWINANA EDUCATION PRECINCT\nTOWN OF KWINANA\nOCTOBER 2008\nPREPARED BY: ROBERTS DAY TOWN PLANNING + DESIGN\n HA",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2020/lsp-kwinana-town-centre-cassia-glades-estate-plan",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "Structure Plan Boundary\n...\nInvestigation Area*\n...\naccordance with the Land\n...\nAdministration Act 1997 and zoned Kwinana\n...\nLOTS E26, 303 & 9036 GILMORE RD & PT CLOSED WELLARD RD\n...\nSTATUTORY STRUCTURE PLAN MAP\nSATTERLEY PROPERTY GROUP ",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/lsp-kwinana-town-centre-challenger-precinct-(e26)-",
+   "title": "LSP - Kwinana Town Centre - Cassia Glades Estate - Plan",
+   "category_guess": "structure_plan",
+   "highlight": "Planner: JD\n...\nDate: 09.09.13 Client: SATTERLEY/DOH\n...\n60 80 100m SCALE 1:3,000 (A3)\n...\nLEGEND \nRESERVES \nPark Recreation & Drainage Reserve \nNeighbourhood Connector 'B'\n...\nZONES\n...\n80) Single Residential (R25-30) Single Residential (R",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/business-and-development/projects-and-city-planning/local-planning-scheme-(lps)-and-policies",
+   "title": "Local Planning Scheme and Policies | City of Kwinana",
+   "category_guess": "structure_plan",
+   "highlight": "A 'Development' zone requires a Local Structure Plan be prepared and adopted prior to the subdivision and /or development of the land.",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/policies/2020/local-planning-policy-no-6-guidelines-for-structur",
+   "title": "Local Planning Policy No.6 - Guidelines for Structure Planning in the Casuarina Cell",
+   "category_guess": "structure_plan",
+   "highlight": "#### Local Planning Policy No. 6\n...\n### Guidelines for Structure Planning in the Casuarina Cell\n...\nAdopted: 23 May 2018 \nLast Reviewed: \nLegal Authority: Planning and Development (Local Planning Schemes) Regulations \n2015 \nSchedule 2 – Pa",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/policies/2020/local-planning-policy-no-2-streetscapes",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "1\nLocal Planning Policy No. 2 \nStreetscapes\nAdopted: 26 April 2017 (Resolution 480)\nLast reviewed:\nLegal Authority Division 2 – Local Planning Policies of Part 2 – Deemed \nprovisions for local planning schemes of Planning and \nDevelopment (",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/business-and-development/town-planning/local-planning-strategy",
+   "title": "Local Planning Strategy | City of Kwinana",
+   "category_guess": "structure_plan",
+   "highlight": "The City of Kwinana has prepared a draft Local Planning Strategy (LPS) to guide the growth and development of the City over the next 10 - 15 years.",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2025/ldp-wellard-sunrise-at-wellard-stage-9a",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "ISSUED FOR DESIGN INTENT\n...\nDETAIL DESIGN AND SURVEY\n...\nPLAN SUBJECT AREA\n...\nThis Local Development Plan (LDP) has been approved by\nthe City of Kwinana under the provisions of Local Planning\nScheme No.2 and Schedule 2 (Deemed Provisions)",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2021-10/LPSC-Kwinana-Map-Index-Scheme-2.pdf",
+   "title": "City of Kwinana Town Planning Scheme No 2 Map Sheet Index",
+   "category_guess": "structure_plan",
+   "highlight": "Kwinana\n...\nKWINANA\n...\nNo. 2\n...\nKwinana\n...\nKwinana Beach\n...\nKWINANA ( District Scheme )\n...\nTown Planning Scheme No. 2\n...\nMAP SHEET INDEX\n...\nCity of Kwinana",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2024/local-commercial-and-activity-centre-strategy",
+   "title": "Local Commercial and Activity Centre",
+   "category_guess": "structure_plan",
+   "highlight": "Summary 56\n...\n9\n...\n9.3 The\n...\nof the City of Kwinana 65 \n10 Appendix 1 Activity Centre Hierarchy 67 \n11 Appendix 2 Terminology 68 \n12 Appendix 3 Activity Centre \nPerformance Monitoring \nAnd Evaluation 69 \n13 Appendix 4 71 \n12.1 Gravity M",
+   "query": "City of Kwinana adopted structure plan document"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/business-and-development/town-planning/local-structure-plans-(lsps)",
+   "title": "Local Structure Plans (LSPs) | City of Kwinana",
+   "category_guess": "structure_plan",
+   "highlight": "The City's Local Structure Plans can be found below. On this page. Anketell; Bertram; Calista, Casuarina and Kwinana Town Centre; Mandogalup; Medina and ...",
+   "query": "City of Kwinana local structure plan report"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/business-and-development/town-planning",
+   "title": "Town Planning | City of Kwinana",
+   "category_guess": "structure_plan",
+   "highlight": "Local Planning Strategy · Local Planning Scheme and Policies · Local Structure Plans (LSPs) · Local Development Plans (LDPs) · Development Contributions.",
+   "query": "City of Kwinana local structure plan report"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2025/strategic-community-plan-2025-2035",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "The Strategic Community Plan is the City’s guiding document \nof the community’s vision for Kwinana’s future. It represents \nour community’s long term vision, values, aspirations and \npriorities and what we will do to achieve them. This docu",
+   "query": "City of Kwinana local structure plan report"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/plans-and-strategies",
+   "title": "Plans and Strategies | City of Kwinana",
+   "category_guess": "structure_plan",
+   "highlight": "The Strategic Community Plan sets out the long term vision of the Kwinana community over the next 10 years. This strategic roadmap outlines where the community ...",
+   "query": "City of Kwinana local structure plan report"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2024/local-commercial-and-activity-centre-strategy-2023",
+   "title": "Local Commercial and Activity Centre",
+   "category_guess": "structure_plan",
+   "highlight": "City of Kwinana (City) has experienced considerable economic, development and population growth since the adoption of the City’s first Local Commercial and Activity Centre Strategy in 2014 (LCACS 2014). It is anticipated that the City will ",
+   "query": "City of Kwinana activity centre plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2020/lsp-kwinana-town-centre-challenger-precinct-(e26)-",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "RESERVES\n...\nPark Recreation & Drainage Reserve\n...\nNeighbourhood Connector 'B'\n...\nMixed Use (R80)\n...\nSingle Residential (R25-30)\n...\nSingle Residential (R30-60)\n...\nGrouped Residential (R60-80)\n...\nStructure Plan Boundary\n...\nInvestigati",
+   "query": "City of Kwinana activity centre plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2025/corporate-business-plan-2025-2029",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "y Finalise City Centre Precinct Structure Plan\n...\nReview and update the City’s Local Planning Policy \nFramework to align with\n...\ny Finalise City Centre Precinct Structure Plan\n...\ny Review and update the City’s Local Planning Policy \nFram",
+   "query": "City of Kwinana precinct structure plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/news/2024/december/kwinana%E2%80%99s-future-is-thriving-thanks-to-$17-1millio",
+   "title": "Kwinana's future is thriving thanks to $17.1million in grants",
+   "category_guess": "structure_plan",
+   "highlight": "The Kwinana City Centre precinct plan seeks to provide a vibrant, accessible, and sustainable urban space for the growing Kwinana community. The ...",
+   "query": "City of Kwinana precinct structure plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2021/corporate-business-plan-2021-2025",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "y Finalise City Centre Precinct Structure Plan\n...\nReview and update the City’s Local Planning Policy \nFramework to align with\n...\ny Finalise City Centre Precinct Structure Plan\n...\ny Review and update the City’s Local Planning Policy \nFram",
+   "query": "City of Kwinana precinct structure plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/business-and-development/town-planning/local-development-plans-(ldps)",
+   "title": "Local Development Plans (LDPs) - City of Kwinana",
+   "category_guess": "local_development_plan",
+   "highlight": "The City's Local Development Plans (LDPs) can be found below. On this page. Anketell; Bertram; Calista and Kwinana Town Centre; Mandogalup; Medina, ...",
+   "query": "City of Kwinana local development plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2025/ldp-anketell-vastu-vista-estate",
+   "title": "",
+   "category_guess": "local_development_plan",
+   "highlight": "This Local Development Plan (LDP) has been approved by the City\nof Kwinana under the provisions of Local Planning Scheme No.2 andSchedule 2 (Deemed Provisions) of the Planning and Development(Local Planning Schemes) Regulations 2015. This L",
+   "query": "City of Kwinana local development plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2023/ldp-mandogalup-florence-estate-stages-1-9",
+   "title": "",
+   "category_guess": "local_development_plan",
+   "highlight": "• 7282A-LDP-01-O\nStages 1 - 9 Local Development Plan\nPage 1 - 2\n...\nBOULEVARD\n...\nQUARTERMAINE\n...\nSTAGES 1 - 9 LOCAL DEVELOPMENT PLAN\n...\nFLORENCE ESTATE\n...\nMANDOGALUP \nEndorsement Table\n...\nThis Local Development Plan (LDP) has been \napp",
+   "query": "City of Kwinana local development plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2022/ldp-mandogalup-%E2%80%93-apsley-stage-5b",
+   "title": "",
+   "category_guess": "local_development_plan",
+   "highlight": "LOCAL DEVELOPMENT PLAN\n...\nApsley Stage 5B\n...\nCity of Kwinana\n...\nLOCATION PLAN KWINANA FREEWAY\n...\nDisclaimer: The information contained and depicted in this draft Local Development Plan,\n...\nincluding lot design, road layout and developm",
+   "query": "City of Kwinana local development plan"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-kwinana-draft-local-planning-scheme-4",
+   "title": "City of Kwinana Draft Local Planning Scheme 4 - EPA WA",
+   "category_guess": "local_development_plan",
+   "highlight": "The City of Kwinana has prepared draft Local Planning Scheme 4 (LPS 4) as an update to the City's existing Local Planning Scheme's 2 and 3 ...",
+   "query": "City of Kwinana local development plan"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/policies",
+   "title": "Policies - City of Kwinana",
+   "category_guess": "local_planning_policy",
+   "highlight": "Local Planning Policy No. 1 - Landscape Feature and Tree Retention 306 kB (opens in new window) · Local Planning Policy No. 2 - Streetscapes 1 MB (opens in ...",
+   "query": "City of Kwinana local planning policy"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/policies/2025/local-planning-policy-no-10-commercial-vehicle-par",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "Local Planning Policy\nNo.10\n\nCommercial Vehicle\nParking\n...\nLOCAL PLANNING POLICY NO.10 COMMERCIAL VEHICLE \nPARKING\nAdopted: 24 April 2018; Resolution No. # 147\nReviewed: 26 November 2025; Resolution # 2\n...\nLegal Authority: Planning and De",
+   "query": "City of Kwinana local planning policy"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/policies/2024/local-planning-policy-no-7-uniform-fencing",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "This Policy will provide the City’s position in regards to the criteria for fencing types \nand styles as set out in the Western Australian Planning Commission Operational \nPolicy 2.2: Residential Subdivision (Clause 4.7 - Provision of Scree",
+   "query": "City of Kwinana local planning policy"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/policies/2018/local-planning-policy-no-9-advertising-signage",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "Local Planning Policy 9:\nAdvertisements (Sighage)\n...\nPage 2 of 32\n...\nLocal Planning Policy 9: Advertisements \n(Signage)\n...\nAdopted: 14 November 2018; Resolution No. # 312\n...\nReviewed: 17 December 2025; Resolution # 35\n...\nLocal Planning",
+   "query": "City of Kwinana local planning policy"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/policies/2021/local-planning-policy-%E2%80%93-development-within-the-spe",
+   "title": "Development within the Special Residential Zones",
+   "category_guess": "local_planning_policy",
+   "highlight": "### Development within the Special Residential Zones\n\nDevelopment within the Special Residential Zones To provide a consistent development control approach to the Special Residential zone for aspects not specifically covered in the Town Pla",
+   "query": "City of Kwinana local planning policy"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/policies/2024/local-planning-policy-no-4-administration-of-devel",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "Local Planning Policy No. 4\n\nAdministration of Development\nContributions\n\nLocal Planning Policy No. 4 – Administration of \nDevelopment Contribution Plans\n...\n1.1 To set out the requirements for developers to meet, in order to claim a \ncredi",
+   "query": "City of Kwinana local planning policy"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/policies/2018/local-planning-policy-no-11-site-requirements-and-",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "Local Planning Policy No.11 - Site \nRequirements and Standards for Development\n...\nwithin Industrial Zones\n...\nAdopted: 1\n...\nDecember 2018 Resolution\n...\n369\n...\nPolicy: \n1. Title \nLocal Planning Policy No.11 - Site Requirements and Standa",
+   "query": "City of Kwinana local planning policy"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/policies/2020/policy-residential-subdivision-and-development-gui",
+   "title": "",
+   "category_guess": "local_planning_policy",
+   "highlight": "proposed as part of the policy\n...\nare intended to ensure that\n...\n’s character, generally facilitate a\n...\nand to ensure a distinctive,\n...\nand yet harmonious urban environment.\n...\nAdopted: 1\n...\n/20\n...\nA primary objective of the Town of",
+   "query": "City of Kwinana local planning policy"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2025/local-planning-scheme-no-2-amendment-164-wapc-noti",
+   "title": "[PDF] Local Planning Schemes No. 2 AMENDMENT NO. 164",
+   "category_guess": "local_planning_scheme",
+   "highlight": "CITY OF KWINANA LOCAL PLANNING SCHEME NO. 2 AMENDMENT NO. 164. The ... Insert the following Clause in to the Scheme text: 5.15.5. Public ...",
+   "query": "City of Kwinana local planning scheme text"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2025/wapc-notice-of-approval",
+   "title": "Yours sincerely",
+   "category_guess": "local_planning_scheme",
+   "highlight": "CITY OF KWINANA LOCAL PLANNING SCHEME NO. 2 AMENDMENT NO. 165\n...\nThe Western Australian Planning Commission (Commission) has considered the amendment and submitted its recommendation to the Minister in accordance with section 87(1) of the ",
+   "query": "City of Kwinana local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-kwinana-local-planning-scheme-2-amendment-165",
+   "title": "City of Kwinana Local Planning Scheme 2 Amendment 165 - EPA WA",
+   "category_guess": "local_planning_scheme",
+   "highlight": "The amendment proposes a scheme text amendment to delete 'Ancillary Accommodation' land use from 'Table 1 - Zoning and Use Classes' in Local ...",
+   "query": "City of Kwinana local planning scheme text"
+  },
+  {
+   "url": "https://epa.wa.gov.au/city-kwinana-draft-local-planning-scheme-4",
+   "title": "City of Kwinana Draft Local Planning Scheme 4 | EPA Western Australia",
+   "category_guess": "local_planning_scheme",
+   "highlight": "City of Kwinana Draft Local Planning Scheme 4 | EPA Western Australia\n...\n# City of Kwinana Draft Local Planning Scheme 4\n...\nScheme/scheme amendment\n...\nCity of Kwinana\n...\nThe City of Kwinana has prepared draft Local Planning Scheme 4 (LP",
+   "query": "City of Kwinana local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/sites/default/files/Schemes/Chair%20Determination%20-%20City%20of%20Kwinana%20Draft%20Local%20Planning%20Scheme%204.pdf",
+   "title": "OFFICIAL",
+   "category_guess": "local_planning_scheme",
+   "highlight": "s.48A Referrals Title: City of Kwinana Draft Local Planning Scheme 4 Location: City of Kwinana local government area Description: The City of Kwinana has prepared draft Local Planning Scheme 4 (LPS 4) as an update to the City’s existing Loc",
+   "query": "City of Kwinana local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-kwinana-local-planning-scheme-2-amendment-155",
+   "title": "City of Kwinana - Local Planning Scheme 2 - Amendment 155 | EPA Western Australia",
+   "category_guess": "local_planning_scheme",
+   "highlight": "City of Kwinana - Local Planning Scheme 2 - Amendment 155 | EPA Western Australia\n...\n# City of Kwinana - Local Planning Scheme 2 - Amendment 155\n...\nCity of Kwinana\n...\nThe City of Kwinana proposes to modify the scheme text regarding the c",
+   "query": "City of Kwinana local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-kwinana-local-planning-scheme-2-amendment-152",
+   "title": "City of Kwinana Local Planning Scheme 2 Amendment 152 | EPA Western Australia",
+   "category_guess": "local_planning_scheme",
+   "highlight": "City of Kwinana Local Planning Scheme 2 Amendment 152 | EPA Western Australia\n...\n# City of Kwinana Local Planning Scheme 2 Amendment 152\n...\nScheme/scheme amendment\n...\nCity of Kwinana\n...\nAmendment 152 proposes to delete provisions of Loc",
+   "query": "City of Kwinana local planning scheme text"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/information-sheets-and-guides/2021/local-planning-strategy-faqs",
+   "title": "",
+   "category_guess": "local_planning_strategy",
+   "highlight": "Local Planning Strategy Overview \nThe City of Kwinana has embarked on the preparation of a Local Planning Strategy (LPS) and is inviting \neveryone who lives, works or plays in Kwinana to have a say and help guide the growth and development ",
+   "query": "City of Kwinana local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-04/local-planning-strategy-guidelines.pdf",
+   "title": "[PDF] Local Planning Strategy Guidelines - Western Australian Government",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The WAPC and local government to publish endorsed local planning strategy on their respective websites. (Reg 16). 11. Publishing. (see section ...",
+   "query": "City of Kwinana local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/information-sheets-and-guides/2021/discussion-paper-rural-lands",
+   "title": "",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The land set aside as Rural B under the\n...\nPlanning Scheme 2 is the Alcoa Residue Disposal \nArea which is identified in the Planning Framework 2018 as ‘Industrial’. The Postans area is shown \nas Industrial Expansion and the\n...\nportion of ",
+   "query": "City of Kwinana local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2024/community-infrastructure-plan-2011-31",
+   "title": "",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The Community Infrastructure Plan has also been \nprepared to meet the requirements of the WAPC’s, State \nPlanning Policy 3.6 ‘ Infrastructure Contributions’ and \nestablishes a framework upon which the policy can be \napplied and implemented.",
+   "query": "City of Kwinana local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/plans-and-strategies/2020/community-infrastructure-plan-2011-31",
+   "title": "",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The Community Infrastructure Plan has also been \nprepared to meet the requirements of the WAPC’s, State \nPlanning Policy 3.6 ‘ Infrastructure Contributions’ and \nestablishes a framework upon which the policy can be \napplied and implemented.",
+   "query": "City of Kwinana local planning strategy endorsed WAPC"
+  }
+ ]
+}

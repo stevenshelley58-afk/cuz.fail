@@ -1,33 +1,6 @@
-import { useState } from "react";
 import type { PropertyFactResponse, PropertyProfileResponse } from "../api";
-import { Icon } from "./common";
 
-/* ── helpers for wizard display ── */
-
-export function resolutionBadge(status: PropertyProfileResponse["resolution_status"]) {
-  const map: Record<string, { label: string; bg: string; color: string }> = {
-    resolved: { label: "Resolved", bg: "var(--mint)", color: "var(--green-800)" },
-    missing_info: { label: "Missing info", bg: "var(--flag-bg)", color: "var(--flag)" },
-    needs_more_info: { label: "Needs more info", bg: "#EFF6FF", color: "#1D4ED8" },
-    needs_human_review: { label: "Needs human review", bg: "#EFF6FF", color: "#1D4ED8" },
-    unsupported: { label: "Unsupported", bg: "#FEF2F2", color: "#B91C1C" },
-  };
-  const s = map[status] ?? { label: status, bg: "#EFF1F1", color: "var(--ink-soft)" };
-  return (
-    <span style={{ fontSize: ".72rem", fontWeight: 700, padding: "3px 10px", borderRadius: 99, background: s.bg, color: s.color, display: "inline-flex", alignItems: "center", gap: 5 }}>
-      {s.label}
-    </span>
-  );
-}
-
-export function confidenceBadge(confidence: string) {
-  const colors: Record<string, string> = { high: "var(--green-800)", medium: "var(--flag)", low: "#B91C1C", none: "var(--ink-soft)" };
-  return (
-    <span style={{ fontSize: ".72rem", fontWeight: 700, padding: "3px 10px", borderRadius: 99, background: "var(--paper)", border: "1px solid var(--line)", color: colors[confidence] ?? "var(--ink-soft)", display: "inline-flex", alignItems: "center", gap: 4 }}>
-      Confidence: {confidence}
-    </span>
-  );
-}
+/* ── property fact formatting ── */
 
 export function groupFactsByType(facts: PropertyFactResponse[]): Map<string, PropertyFactResponse[]> {
   const m = new Map<string, PropertyFactResponse[]>();
@@ -98,7 +71,7 @@ export function formatFactValue(v: unknown): string | null {
   return String(v);
 }
 
-export type PropertyDetailRow = { label: string; value: string; hint?: string };
+export type PropertyDetailRow = { label: string; value: string };
 
 const HEADER_FACT_TYPES = new Set(["address", "local_government"]);
 const FACT_ORDER = ["parcel", "lot_area_m2", "lot_area", "zone", "r_code", "overlay"];
@@ -108,57 +81,68 @@ function factOrderIndex(factType: string): number {
   return i === -1 ? FACT_ORDER.length : i;
 }
 
+function normalizeRCodeText(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return trimmed;
+  let code = trimmed.replace(/^Residential\s+Design\s+Codes?\s*/i, "").trim();
+  code = code.replace(/^RR(?=\d)/i, "R");
+  code = code.replace(/^R\s+(?=\d)/i, "R");
+  if (/^\d/.test(code)) return `R${code}`;
+  return code;
+}
+
+function formatRCodeValue(value: unknown): string | null {
+  if (value === null || value === undefined) return null;
+  if (typeof value === "object" && !Array.isArray(value)) {
+    const o = value as Record<string, unknown>;
+    for (const key of ["code", "value", "label", "name"]) {
+      const formatted = formatFactValue(o[key]);
+      if (formatted) return normalizeRCodeText(formatted);
+    }
+  }
+  const formatted = formatFactValue(value);
+  return formatted ? normalizeRCodeText(formatted) : null;
+}
+
+export function formatFactValueForType(factType: string, value: unknown): string | null {
+  if (factType === "r_code") return formatRCodeValue(value);
+  return formatFactValue(value);
+}
+
 /** Curated, de-duplicated, non-empty property detail rows for the resolution view.
  *  Address and LGA come from the profile fields; the rest are formatted facts with values. */
 export function propertyDetailRows(property: PropertyProfileResponse): PropertyDetailRow[] {
   const rows: PropertyDetailRow[] = [];
   if (property.address) rows.push({ label: "Address", value: property.address });
   if (property.local_government) rows.push({ label: "Local government", value: property.local_government });
+  const seenRows = new Set(rows.map((row) => `${row.label}\u0000${row.value}`));
+  const zoneValues: string[] = [];
+  let zoneInsertIndex: number | null = null;
 
   (property.facts ?? [])
     .filter((f) => !HEADER_FACT_TYPES.has(f.fact_type))
-    .map((f) => ({ f, value: formatFactValue(f.value) }))
+    .map((f) => ({ f, value: formatFactValueForType(f.fact_type, f.value) }))
     .filter((x): x is { f: PropertyFactResponse; value: string } => x.value !== null)
     .sort((a, b) => factOrderIndex(a.f.fact_type) - factOrderIndex(b.f.fact_type))
-    .forEach(({ f, value }) =>
-      rows.push({
-        label: factLabel(f.fact_type),
-        value,
-        hint: f.confidence === "low" || f.confidence === "none" ? `${f.confidence} confidence` : undefined,
-      }),
-    );
+    .forEach(({ f, value }) => {
+      const label = factLabel(f.fact_type);
+      if (label === "Zone") {
+        if (zoneInsertIndex === null) zoneInsertIndex = rows.length;
+        if (!zoneValues.includes(value)) zoneValues.push(value);
+        return;
+      }
+      const rowKey = `${label}\u0000${value}`;
+      if (seenRows.has(rowKey)) return;
+      seenRows.add(rowKey);
+      rows.push({ label, value });
+    });
+
+  if (zoneValues.length > 0) {
+    rows.splice(zoneInsertIndex ?? rows.length, 0, {
+      label: zoneValues.length === 1 ? "Zone" : "Zones",
+      value: zoneValues.join(", "),
+    });
+  }
 
   return rows;
-}
-
-/* ── ProvenanceAccordion ── */
-
-export function ProvenanceAccordion({ provenance }: { provenance: PropertyProfileResponse["provenance"] }) {
-  const [open, setOpen] = useState(false);
-  if (!provenance || provenance.length === 0) return null;
-  return (
-    <div style={{ marginTop: 8 }}>
-      <button
-        style={{ fontSize: ".72rem", fontWeight: 700, color: "var(--ink-soft)", display: "flex", alignItems: "center", gap: 5, background: "none", border: "none", cursor: "pointer" }}
-        onClick={() => setOpen((o) => !o)}
-        aria-expanded={open}
-      >
-        <Icon name="verified" />
-        {open ? "Hide" : "Show"} data provenance ({provenance.length})
-      </button>
-      {open && (
-        <div style={{ marginTop: 6, display: "flex", flexDirection: "column", gap: 6 }}>
-          {provenance.map((p, i) => (
-            <div key={i} style={{ fontSize: ".72rem", background: "var(--paper)", border: "1px solid var(--line)", borderRadius: 10, padding: "8px 12px" }}>
-              <div><b>Kind:</b> {p.kind}</div>
-              <div><b>Method:</b> {p.method}</div>
-              <div><b>CRS:</b> {p.target_crs}</div>
-              {p.dataset_id && <div><b>Dataset:</b> {p.dataset_id}</div>}
-              {p.licence_status && <div><b>Licence:</b> {p.licence_status}</div>}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
 }

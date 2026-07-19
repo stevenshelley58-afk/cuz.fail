@@ -51,8 +51,8 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
             <p className="launch-kicker">WA residential planning checks</p>
             <h1 id="launch-title">Check a block before the drafting bill lands.</h1>
             <p className="launch-lede">
-              LotFile gives address-first planning checks for WA projects with cited source versions,
-              uploaded-drawing extraction and clear missing-information flags.
+              Type a WA address and see every planning rule that applies to the block —
+              zoning, R-Code, setbacks, open space — in seconds.
             </p>
             <form className="launch-address" onSubmit={(e) => { e.preventDefault(); startCheck(); }}>
               <label htmlFor="launch-address">Street address</label>
@@ -124,52 +124,52 @@ export function LandingPage({ onNavigate }: { onNavigate: Navigate }) {
             <div className="launch-product-address">
               <Icon name="location_on" />
               <div>
-                <b>Address resolved</b>
-                <span>Source status, confidence and provenance shown before any result.</span>
+                <b>6 Bettong Way, Beeliar</b>
+                <span>24 planning rules apply to this block.</span>
               </div>
             </div>
             <div className="launch-product-grid">
-              <div><b>R-Code</b><span>cited source</span></div>
-              <div><b>Setbacks</b><span>needs drawing</span></div>
-              <div><b>Open space</b><span>measurement required</span></div>
-              <div><b>Export</b><span>validation gated</span></div>
+              <div><b>R-Code</b><span>R20</span></div>
+              <div><b>Zone</b><span>Residential</span></div>
+              <div><b>Lot area</b><span>602 m²</span></div>
+              <div><b>Council</b><span>City of Cockburn</span></div>
             </div>
           </div>
         </section>
 
-        <section className="launch-band" aria-label="Trust and governance">
+        <section className="launch-band" aria-label="What LotFile does">
           <div>
             <Icon name="verified" />
-            <b>Cited source library</b>
-            <span>Answers must cite approved source versions or say the library cannot support them.</span>
+            <b>Every rule in one place</b>
+            <span>Zoning, R-Codes and council rules for the block, with the source clause a tap away.</span>
           </div>
           <div>
             <Icon name="straighten" />
-            <b>Drawing-aware checks</b>
-            <span>Uploaded plans are used to extract facts and measurements, not to issue approvals.</span>
+            <b>Reads your plans</b>
+            <span>Upload a drawing and LotFile pulls the measurements it needs to check your design.</span>
           </div>
           <div>
             <Icon name="gavel" />
-            <b>Clear next steps</b>
-            <span>Results highlight what is known, what needs drawings and what still needs review.</span>
+            <b>Straight answers</b>
+            <span>Likely pass, likely fail, or exactly what's missing — no digging through PDFs.</span>
           </div>
         </section>
 
         <section className="launch-steps" aria-label="How LotFile works">
           <article>
             <span>1</span>
-            <h2>Start with the address</h2>
-            <p>Resolve the project location, then review council, zone, R-Code and provenance before a check runs.</p>
+            <h2>Type an address</h2>
+            <p>LotFile finds the block, its zoning, R-Code and council instantly.</p>
           </article>
           <article>
             <span>2</span>
-            <h2>Upload drawing evidence</h2>
-            <p>DXF and plan facts stay reviewable, with measurements promoted only after confirmation.</p>
+            <h2>See every rule</h2>
+            <p>All the planning rules that apply, in one list you can search and filter.</p>
           </article>
           <article>
             <span>3</span>
-            <h2>Read sourced results</h2>
-            <p>Issue cards show the relevant source references, extracted facts and missing information.</p>
+            <h2>Check your design</h2>
+            <p>Add project details or upload plans to see what passes and what needs attention.</p>
           </article>
         </section>
 

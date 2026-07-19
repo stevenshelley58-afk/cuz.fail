@@ -1,0 +1,376 @@
+{
+ "council": "City of Fremantle",
+ "domains": [
+  "fremantle.wa.gov.au",
+  "wa.gov.au"
+ ],
+ "queries": 8,
+ "unique_urls": 60,
+ "already_in_manifest": 8,
+ "new_candidates": [
+  {
+   "url": "https://www.wa.gov.au/government/document-collections/city-of-fremantle-planning-information",
+   "title": "City of Fremantle planning information",
+   "category_guess": "structure_plan",
+   "highlight": "# City of Fremantle planning information\n...\nThis page contains local planning schemes, strategies, structure plans and planning publications relating to this local government area.\n...\nLocal Planning Strategy for the City of Fremantle (PDF",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/matildabay",
+   "title": "Matilda Bay Brewery Local Structure Plan \n | My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "A local structure plan has been prepared and approved for the former Matilda Bay Brewery site in North Fremantle.\n...\nThe purpose of the structure plan is to provide for residential and mixed-use development on the site, and includes the fo",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/04/Report-of-Review-2025-Local-Planning-Scheme-No.-4.pdf",
+   "title": "Local Planning Scheme No. 4",
+   "category_guess": "structure_plan",
+   "highlight": "The City of Fremantle Local Planning Scheme No. 4 (LPS4) was gazetted on 8 March 2007. The City completed a review report on the functions of the LPS4 in February 2020 and submitted this to the Western Australian Planning Commission (WAPC).",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/KSESP",
+   "title": "Amendment to the Knutsford Street east structure plan | My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "The City has made amendments to the Knutsford Street East Structure Plan. The purpose of the amendment is to more easily allow for redevelopment of the area.",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-05/south-beach-village-structure-plan-wapc-reference-spn0821.pdf",
+   "title": "South Beach Village Structure Plan - WAPC Reference SPN 0821",
+   "category_guess": "structure_plan",
+   "highlight": "ENDORSEMENT PAGE \nThis structure plan is prepared under the provisions of the City of Cockburn Local Planning Scheme \nNo. 3. \nIT IS CERTIFIED THAT THIS STRUCTURE PLAN WAS APPROVED BY RESOLUTION OF THE \nWESTERN AUSTRALIAN PLANNING COMMISSION",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/your-city-and-council/about-council/strategies-plans-local-laws-and-policies/",
+   "title": "Strategies, plans, policies, FOI, and local laws - City of Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "The City of Fremantle Strategic Community Plan 2024-2034 is the City's most significant guiding document and establishes the community's long-term aspirations ...",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/04/Additional-information-Ordinary-Meeting-of-Council-29-April-2020.pdf",
+   "title": "Additional information",
+   "category_guess": "structure_plan",
+   "highlight": "C2004-12 DAVIS PARK PRECINCT LOCAL STRUCTURE PLAN, BEACONSFIELD - OUTCOMES OF COMMUNITY CONSULTATION AND RECOMMENDATION\n...\n1. Davis Park Structure Plan – Part 2\n...\n1. INTRODUCTION AND PURPOSE This part of the report provides an explanatio",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/the-heart-of-beaconsfield",
+   "title": "The Heart of Beaconsfield | My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "The masterplan (below) has now been adopted by Council. To download a copy, click here or visit the document library. The concept plans give more detail on the ...",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/LPP-DGN12-Leighton-Marshalling-Yards-Land-Use-and-Development-Policy.pdf",
+   "title": "North Fremantle - Leighton Marshalling Yards Land Use and Development - DGN12",
+   "category_guess": "structure_plan",
+   "highlight": "a) A detailed structure plan is required for the proposed urban development area prior to the requisite Town Planning Scheme amendment for the site, subdivision and development applications. The structure plan should be consistent with City",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/north-fremantle-plan",
+   "title": "City Plan: North Fremantle | My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "The Masterplan identifies public amenity and recreational facilities that will occur in five stages of development and addresses a range of matters including ...",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/fremantle-city-centre-plan",
+   "title": "Fremantle City Plan | My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "A City Plan is a comprehensive urban design and strategic planning process that outlines our city's spatial vision, objectives, and strategies for sustainable ...",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/04/Additional-Documents-Ordinary-Meeting-of-Council-14-August-2024.pdf",
+   "title": "Additional Documents - 14 August 2024",
+   "category_guess": "structure_plan",
+   "highlight": "2408-1 FINAL APPROVAL OF LOCAL DEVELOPMENT PLAN – LOTS 72 \nAND 25, 2-4 CLONTARF ROAD, AND LOT 73, 1 NAYLOR \nSTREET, BEACONSFIELD ... 3\n...\n... 4\n...\nC2408-1 FINAL APPROVAL OF LOCAL DEVELOPMENT PLAN – LOTS 72 AND 25, 2-4 CLONTARF ROAD, AND L",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/your-city-and-council/news-and-media/adoption-of-local-planning-policy-3-7-south-beach-village/",
+   "title": "Adoption of Local Planning Policy 3.7 – South Beach Village",
+   "category_guess": "structure_plan",
+   "highlight": "At the 8 April 2026 Ordinary Council Meeting, Council resolved to adopt Local Planning Policy 3.7 – South Beach Village. The amended policy ...",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/LPP-DGN3-Stirling-Hwy-Thompson-Rd-Coventry-Pde-Craig-St-Local-Area.pdf",
+   "title": "2.1 Council will seek to retain, wherever possible, buildings of potential heritage significance which have been marked on Diagram D.G.N3b.",
+   "category_guess": "structure_plan",
+   "highlight": "D.G.N3 STIRLING HIGHWAY, THOMPSON ROAD, COVENTRY PARADE, AND CRAIG STREET LOCAL AREA\n...\nThe objective of this policy is to identify appropriate redevelopment sites within the Local Area and guide redevelopment so that it complements the ov",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.eastfremantle.wa.gov.au/documents/10/town-planning-scheme-no-3-amendment-10",
+   "title": "Town Planning Scheme No. 3",
+   "category_guess": "structure_plan",
+   "highlight": "apply to the Special Control Area. 6.2\n...\nStructure Plans\n...\n.2.4.1\n...\nStructure Plan may include plans and other documents. 6.2.4.2 A Structure Plan may, with the agreement of the local government, be prepared and implemented in stages.",
+   "query": "City of Fremantle adopted structure plan document"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/planning-and-building/town-planning/structure-and-local-development-plans/",
+   "title": "Structure and local development plans - City of Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "140 Stirling Highway North Fremantle Precinct Structure Plan 15.4 MB · Local Structure Plan | 9-15 McCabe Street 1.9 MB · Local Structure Plan – Swanbourne ...",
+   "query": "City of Fremantle local structure plan report"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/document/local-structure-plan-9-15-mccabe-street/",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "Endorsement Page \nThis structure plan is prepared under the provisions of the City of Fremantle Local Planning Scheme\nNo. 4 \nIT IS CERTIFIED THAT THIS STRUCTURE PLAN WAS APPROVED ON: \n03 March 2009 \nIn accordance with Schedule 2, Part 4, Cl",
+   "query": "City of Fremantle local structure plan report"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/precinct-structure-plan-140-stirling-highway-north-fremantle",
+   "title": "Precinct Structure Plan | 140 Stirling Highway, North Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "The Precinct Structure Plan envisages a mix of residential housing, ranging from townhouses to multiple dwellings (apartments) with podium-level ...",
+   "query": "City of Fremantle local structure plan report"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/04/WAPC-Recommendation-Scheme-Review-Report.pdf",
+   "title": "Chief Executive Officer City of Fremantle PO Box 807 Fremantle WA 6959",
+   "category_guess": "structure_plan",
+   "highlight": "Dear Sir\n\nREVIEW OF CITY OF FREMANTLE LOCAL PLANNING SCHEME NO. 4\n\nI refer to your letter dated 5 March 2020 regarding the review of Scheme No. 4.\n...\nThe WAPC has considered the report of review scheme under regulation 67 of the Planning a",
+   "query": "City of Fremantle local structure plan report"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/planning-and-building/",
+   "title": "Planning and building - City of Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "Find out how to report planning and building compliance issues on private property. Learn more · Heritage. Learn more about heritage listings and areas in ...",
+   "query": "City of Fremantle local structure plan report"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/lpp3-24",
+   "title": "Local Planning Policy 3.1: Fremantle City Centre & Northern Gateway  \n | My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "## At the 10 December 2025 Ordinary Council Meeting draft Local Planning Policy 3.1: Fremantle City Centre & Northern Gateway was endorsed by Council for the purpose of public advertising and community engagement. The policy is now open for",
+   "query": "City of Fremantle local structure plan report"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/101164/widgets/464848/documents/311706",
+   "title": "[PDF] DRAFT Local Planning Strategy – Part 1 - MySay Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "In response to Activity Centre planning, the City has also pinpointed a need to identify and delineate Neighbourhood and/or Local centres along ...",
+   "query": "City of Fremantle activity centre plan"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/fremantle-city-centre-plan/widgets/434717/faqs",
+   "title": "FAQs | \nFremantle City Plan \n | My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "The City Plan will be a spatial vision for Fremantle’s city centre to guide its growth over the next 20 years. It will identify priorities for development, planning strategies and policies that guide infrastructure investment.\n...\nIt will i",
+   "query": "City of Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/your-city-and-council/news-and-media/new-local-planning-strategy-endorsed/",
+   "title": "New Local Planning Strategy endorsed - City of Fremantle",
+   "category_guess": "structure_plan",
+   "highlight": "The City's new Local Planning Strategy is now in effect and will guide the future direction of development in the City.",
+   "query": "City of Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/Local-Planning-Policy-3.1.5-Precinct-5-CURRENT-as-of-1-July-2017-ID-462197.pdf",
+   "title": "CITY OF FREMANTLE",
+   "category_guess": "structure_plan",
+   "highlight": "1. ABOUT THIS DOCUMENT The purpose of this policy is to detail design provisions to complement the land use and development requirements prescribed in the Local Planning Scheme No. 4 for Precinct 5. Precinct 5 is situated in the inner part ",
+   "query": "City of Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/Local-Planning-Policy-3.1.3-Precinct-3-LPP3.1.3-CURRENT-as-of-1-July-2017-ID-462198.pdf",
+   "title": "Precinct 3 local planning policy ADOPTED 28Nov2012",
+   "category_guess": "structure_plan",
+   "highlight": "The purpose of this policy is to detail design provisions to complement the land use and development requirements prescribed in Local Planning Scheme No. 4 for Precinct 3. Precinct 3 is situated in the north eastern part of the broader Frem",
+   "query": "City of Fremantle activity centre plan"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/07/City-of-Fremantle-Corporate-Plan-2025-29.pdf",
+   "title": "",
+   "category_guess": "structure_plan",
+   "highlight": "The City of Fremantle’s Corporate Plan 2025–29 continues to \ndemonstrate progress against each of the themes in the Strategic \nCommunity Plan. Key projects, plans and strategies have been \npresented under the themes: Liveable, Thriving, Cre",
+   "query": "City of Fremantle activity centre plan"
+  },
+  {
+   "url": "https://transport.wa.gov.au/marine/projects-coastal-management/maritime-coastal-infrastructure-projects/fremantle-harbours",
+   "title": "Fremantle Harbours Master Plan | Transport WA",
+   "category_guess": "structure_plan",
+   "highlight": "The Fremantle Harbours Master Plan will guide the development of the Fremantle Fishing Boat, Challenger and Success Harbours for the next 40 years.\n...\nThe aspirational master plan identifies opportunities for improved infrastructure, ways ",
+   "query": "City of Fremantle activity centre plan"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/davis-park-structure-plan",
+   "title": "Davis Park Precinct Structure Plan, Beaconsfield - My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "The purpose of this plan is to guide the future redevelopment of the precinct to support new residential and commercial development.",
+   "query": "City of Fremantle precinct structure plan"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/davispark",
+   "title": "Davis Park Precinct - Amendment 72 | My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "The new zoning would require a structure plan, developed with community input, to be established prior to comprehensive development of the site. The Department ...",
+   "query": "City of Fremantle precinct structure plan"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/davis-park-development-closures",
+   "title": "Davis Park Precinct: Proposed Public Access Way Closures",
+   "category_guess": "structure_plan",
+   "highlight": "The Davis Park Precinct Structure Plan (PSP) has previously undergone a public engagement and consultation process. This part of the PSP deals specifically with ...",
+   "query": "City of Fremantle precinct structure plan"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/fremantle-oval-precinct-redevelopment",
+   "title": "Fremantle Oval Precinct Redevelopment - My Say Freo",
+   "category_guess": "structure_plan",
+   "highlight": "The Fremantle Oval Precinct Masterplan (the Masterplan) is intended to provide a vision for the development of the precinct, establish principles for its ...",
+   "query": "City of Fremantle precinct structure plan"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/Local-Planning-Policy-3.1.3.1-7-15-Quarry-Street-Fremantle-ADOPTED-WAPC-Approved-ID-5119729.pdf",
+   "title": "CITY OF FREMANTLE",
+   "category_guess": "structure_plan",
+   "highlight": "FREMANTLE\n...\n3.1.3.1\n...\nPRECINCT 3, AREA 6A: 7-15 QUARRY STREET, FREMANTLE\n...\nIn 2020, sub area 2.3.1 within Schedule 8 of the scheme (the Queen Victoria Residential Precinct) was expanded to include Lots 1, 2 and 8 (Nos. 7 and 9 – 15) Q",
+   "query": "City of Fremantle precinct structure plan"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/planning-and-building/town-planning/town-planning-documents/",
+   "title": "Local planning documents - City of Fremantle",
+   "category_guess": "local_development_plan",
+   "highlight": "Local planning documents. Local Planning Strategy. Endorsed by the Western Australian Planning Commission in February 2026.",
+   "query": "City of Fremantle local development plan"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/clontarf-lpd",
+   "title": "Local Development Plan, 2-4 Clontarf Road and 1 Naylor Street ...",
+   "category_guess": "local_development_plan",
+   "highlight": "The subdivision will create 184 lots with a network of new roads and laneways, and six open space reserves.",
+   "query": "City of Fremantle local development plan"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/planning-and-building/town-planning/local-planning-policies/",
+   "title": "Local planning policies - City of Fremantle",
+   "category_guess": "local_development_plan",
+   "highlight": "Local planning policies (LPPs) are adopted by Council under the City's Local Planning Scheme No. 4. They can relate to a number of town planning matters ...",
+   "query": "City of Fremantle local development plan"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-fremantle-local-planning-scheme-4-amendment-76",
+   "title": "City of Fremantle Local Planning Scheme 4 Amendment 76 | EPA Western Australia",
+   "category_guess": "local_development_plan",
+   "highlight": "City of Fremantle Local Planning Scheme 4 Amendment 76 | EPA Western Australia\n...\n# City of Fremantle Local Planning Scheme 4 Amendment 76\n...\nCity of Fremantle\n...\nThe amendment proposes to increase residential density from R30 to R160, a",
+   "query": "City of Fremantle local development plan"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-fremantle-local-planning-scheme-4-amendment-75",
+   "title": "City of Fremantle - Local Planning Scheme 4 - Amendment 75 | EPA Western Australia",
+   "category_guess": "local_development_plan",
+   "highlight": "City of Fremantle - Local Planning Scheme 4 - Amendment 75 | EPA Western Australia\n...\n# City of Fremantle - Local Planning Scheme 4 - Amendment 75\n...\nCity of Fremantle\n...\nThe City of Fremantle has initiated Amendment 75 to include Lot 20",
+   "query": "City of Fremantle local development plan"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/amendment86",
+   "title": "Scheme Amendment No. 86 | My Say Freo - MySay Fremantle",
+   "category_guess": "local_development_plan",
+   "highlight": "At the 9 July 2025 Ordinary Council Meeting, Council resolved to endorse Scheme Amendment No.86 for the purpose of public advertising and community engagement.",
+   "query": "City of Fremantle local development plan"
+  },
+  {
+   "url": "https://www.fremantle.wa.gov.au/your-city-and-council/news-and-media/adoption-and-revocation-of-various-local-planning-policies/",
+   "title": "Adoption and revocation of various local planning policies",
+   "category_guess": "local_development_plan",
+   "highlight": "Adoption of six new or amended local planning policies and subsequent revocation of outdated policies.",
+   "query": "City of Fremantle local development plan"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/LPP317",
+   "title": "Local Planning Policy 3.17 Hilton Local Centre - MySay Fremantle",
+   "category_guess": "local_planning_policy",
+   "highlight": "The policy provides additional design direction for future development proposals, with an emphasis on enhancing the character of the area and promoting an ...",
+   "query": "City of Fremantle local planning policy"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/lpp-221",
+   "title": "Local Planning Policy 2.21 : R60 bonus in Mixed Use zone",
+   "category_guess": "local_planning_policy",
+   "highlight": "The local planning scheme provides for a discretionary increase in residential density to R60 under clause 4.2.5 if a site is located within a local centre, ...",
+   "query": "City of Fremantle local planning policy"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/101481/widgets/465980/documents/311168",
+   "title": "[PDF] Local Planning Policy 3.22 - My Say Freo",
+   "category_guess": "local_planning_policy",
+   "highlight": "This policy applies to all land within the City of Fremantle Local Planning Scheme No. 4. Specific sub-areas are designated on the map below (Figure 1).",
+   "query": "City of Fremantle local planning policy"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/heritage-policies",
+   "title": "Amendments to Heritage Local Planning Policies - MySay Fremantle",
+   "category_guess": "local_planning_policy",
+   "highlight": "The City is seeking comments until 5pm Friday 27 June 2025 on draft revisions to the following local planning policies.",
+   "query": "City of Fremantle local planning policy"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-fremantle-local-planning-scheme-4-amendment-79",
+   "title": "City of Fremantle Local Planning Scheme 4 Amendment 79 | EPA Western Australia",
+   "category_guess": "local_planning_scheme",
+   "highlight": "City of Fremantle Local Planning Scheme 4 Amendment 79 | EPA Western Australia\n...\n# City of Fremantle Local Planning Scheme 4 Amendment 79\n...\nScheme/scheme amendment\n...\nCity of Fremantle\n...\nAmendment 79 proposes updating references to t",
+   "query": "City of Fremantle local planning scheme text"
+  },
+  {
+   "url": "https://www.epa.wa.gov.au/city-fremantle-local-planning-scheme-4-amendment-78",
+   "title": "City of Fremantle Local Planning Scheme 4 Amendment 78 | EPA Western Australia",
+   "category_guess": "local_planning_scheme",
+   "highlight": "City of Fremantle Local Planning Scheme 4 Amendment 78 | EPA Western Australia\n...\n# City of Fremantle Local Planning Scheme 4 Amendment 78\n...\nScheme/scheme amendment\n...\nCity of Fremantle\n...\nThe City of Fremantle proposes to delete schem",
+   "query": "City of Fremantle local planning scheme text"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/Freo_Alternative",
+   "title": "The Freo Alternative (Local Planning Scheme Amendment No. 63)\n | My Say Freo",
+   "category_guess": "local_planning_scheme",
+   "highlight": "On 12 February 2019, the new planning scheme provisions for Freo Alternative were officially gazetted after being signed off by the Minister for Planning. These provisions now form part of the Local Planning Scheme. The areas where these ne",
+   "query": "City of Fremantle local planning scheme text"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2021-07/PD_Model_scheme_template.pdf",
+   "title": "Template - Local Planning Scheme prepared in accordance with the Planning and Development (Local Planning Schemes) Regulations 2015",
+   "category_guess": "local_planning_scheme",
+   "highlight": "The City/Town/Shire of [INSERT NAME] under the powers conferred by the Planning and Development Act 2005 makes the following Local Planning Scheme.\n...\nTABLE OF CONTENTS \n(Local governments may use the template provided below or a comprehen",
+   "query": "City of Fremantle local planning scheme text"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/planning-strategy",
+   "title": "Local Planning Strategy | My Say Freo - MySay Fremantle",
+   "category_guess": "local_planning_strategy",
+   "highlight": "Local Planning Strategy has finished this stage. City Officers liaise with WAPC Officers to amend the strategy. May 2025. Local Planning Strategy has finished ...",
+   "query": "City of Fremantle local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://www.wa.gov.au/system/files/2024-04/local-planning-strategy-guidelines.pdf",
+   "title": "Local Planning Strategy Guidelines",
+   "category_guess": "local_planning_strategy",
+   "highlight": "certification of\n...\ndraft local planning\n...\nstrategy 6\n...\nadvertising 6\n...\nof \nsubmissions 7 \n4.10 WAPC endorsement 7 \n4.11\n...\n7 \n4\n...\nThese guidelines form part of the WA Planning Manual and have been prepared to provide clear and co",
+   "query": "City of Fremantle local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/quarrystreet/news_feed/local-planning-policy-3-1-3-1-wapc-approval",
+   "title": "Local Planning Policy 3.1.3.1 - WAPC Approval - MySay Fremantle",
+   "category_guess": "local_planning_strategy",
+   "highlight": "The WAPC resolved to remove a clause recommended by Council relating to overshadowing not exceeding 25 percent of the neighbouring site.",
+   "query": "City of Fremantle local planning strategy endorsed WAPC"
+  },
+  {
+   "url": "https://mysay.fremantle.wa.gov.au/lpp1-11",
+   "title": "Draft Local Planning Policy 1.11 - 'Significant' Development Applications Made Under Part 17 of the Planning & Development Act\n | My Say Freo",
+   "category_guess": "local_planning_strategy",
+   "highlight": "## The approval pathway for certain 'significant' developments has recently been changed by the WA Government. We're seeking feedback on our draft local planning policy which outlines how we will consider these applications.\n...\nUnder these",
+   "query": "City of Fremantle local planning strategy endorsed WAPC"
+  }
+ ]
+}

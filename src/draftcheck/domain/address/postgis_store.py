@@ -21,15 +21,19 @@ from __future__ import annotations
 
 import logging
 from typing import Any
+from uuid import UUID
 
 from sqlalchemy import ColumnElement, Engine, case, func, literal, literal_column, or_, select, text
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from draftcheck.db.models import (
     AddressPoint as DbAddressPoint,
     LgArea as DbLgArea,
+    Org as DbOrg,
     Parcel as DbParcel,
     PlanningFeature as DbPlanningFeature,
+    Project as DbProject,
     Property as DbProperty,
     PropertyFact as DbPropertyFact,
     SpatialDataset as DbSpatialDataset,
@@ -235,6 +239,55 @@ class PostGISSpatialDatasetStore:
 
     def __init__(self, engine: Engine) -> None:
         self._engine = engine
+
+    def ensure_org(self, *, org_id: str, slug: str, name: str) -> None:
+        """Ensure a durable org row exists for externally supplied org IDs."""
+        try:
+            org_uuid = UUID(org_id)
+        except (ValueError, AttributeError):
+            return
+
+        with Session(self._engine) as session:
+            if session.get(DbOrg, org_uuid) is not None:
+                return
+
+            session.add(
+                DbOrg(
+                    id=org_uuid,
+                    slug=slug,
+                    name=name[:200],
+                )
+            )
+            try:
+                session.commit()
+            except IntegrityError:
+                session.rollback()
+
+    def ensure_project(self, *, org_id: str, project_id: str, name: str) -> None:
+        """Ensure a durable project row exists for externally supplied project IDs."""
+        try:
+            org_uuid = UUID(org_id)
+            project_uuid = UUID(project_id)
+        except (ValueError, AttributeError):
+            return
+
+        with Session(self._engine) as session:
+            if session.get(DbProject, project_uuid) is not None:
+                return
+
+            session.add(
+                DbProject(
+                    id=project_uuid,
+                    org_id=org_uuid,
+                    name=name[:240],
+                    status="draft",
+                    metadata_json={"source": "blockwise_property_check"},
+                )
+            )
+            try:
+                session.commit()
+            except IntegrityError:
+                session.rollback()
 
     # ------------------------------------------------------------------
     # Dataset registration

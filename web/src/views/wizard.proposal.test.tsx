@@ -17,13 +17,14 @@ vi.mock("./documents", () => ({
 }));
 
 vi.mock("./compliance", () => ({
-  CompliancePanel: () => <div data-testid="compliance-panel" />,
+  CompliancePanel: ({ runRequest }: { runRequest?: number }) => (
+    <div data-testid="compliance-panel" data-run-request={runRequest ?? 0} />
+  ),
 }));
 
 const apiMock = vi.mocked(api);
 
 const wizard: WizardState = {
-  step: 2 as const,
   projectId: "project-1",
   address: "3 Black Swan Rise, Beeliar",
   property: {
@@ -39,7 +40,6 @@ const wizard: WizardState = {
     facts: [],
   },
   proposal: {},
-  savedProposal: null,
 };
 
 afterEach(() => {
@@ -47,7 +47,28 @@ afterEach(() => {
   vi.clearAllMocks();
 });
 
-test("proposal save success advances to the confirmation step", async () => {
+test("check view shows results with subtle hero actions for refine and upload", async () => {
+  const user = userEvent.setup();
+  render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
+
+  expect(screen.getByText("3 Black Swan Rise, Beeliar")).toBeTruthy();
+  expect(screen.getByTestId("compliance-panel")).toBeTruthy();
+  // Refine and upload stay tucked behind hero actions until asked for
+  expect(screen.queryByTestId("document-upload")).toBeNull();
+  expect(screen.queryByRole("button", { name: /tell us about your project/i })).toBeNull();
+
+  await user.click(screen.getByRole("button", { name: /upload plans/i }));
+  expect(screen.getByTestId("document-upload")).toBeTruthy();
+
+  await user.click(screen.getByRole("button", { name: /add project details/i }));
+  expect(screen.getByRole("button", { name: /tell us about your project/i })).toBeTruthy();
+
+  // No stepper, no confirmation gate
+  expect(screen.queryByText(/confirm and review/i)).toBeNull();
+  expect(screen.queryByText(/next: proposal details/i)).toBeNull();
+});
+
+test("refine save success updates results via a fresh compliance run", async () => {
   const user = userEvent.setup();
   apiMock.upsertProposal.mockResolvedValue({
     kind: "ok",
@@ -70,6 +91,7 @@ test("proposal save success advances to the confirmation step", async () => {
 
   render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
+  await user.click(screen.getByRole("button", { name: /add project details/i }));
   await user.selectOptions(screen.getByLabelText("Proposal type"), "residential");
   await user.selectOptions(screen.getByLabelText("Dwelling type"), "single_house");
   await user.selectOptions(screen.getByLabelText("Building class"), "class_1a");
@@ -77,7 +99,7 @@ test("proposal save success advances to the confirmation step", async () => {
   await user.click(screen.getByLabelText("New"));
   await user.selectOptions(screen.getByLabelText("Lot type"), "green_title");
   await user.click(screen.getByLabelText(/primary street frontage is confirmed/i));
-  await user.click(screen.getByRole("button", { name: /save & continue/i }));
+  await user.click(screen.getByRole("button", { name: /update results/i }));
 
   await waitFor(() => {
     expect(apiMock.upsertProposal).toHaveBeenCalledWith("project-1", {
@@ -91,48 +113,47 @@ test("proposal save success advances to the confirmation step", async () => {
       secondary_street_confirmed: false,
     });
   });
-  expect(await screen.findByText("Confirm and review")).toBeTruthy();
-  expect(screen.getByText("class_1a")).toBeTruthy();
-  expect(screen.getByText("Confirmed")).toBeTruthy();
-  expect(screen.getByTestId("document-upload")).toBeTruthy();
-  expect(screen.getByTestId("compliance-panel")).toBeTruthy();
+  // The compliance panel is asked to re-run
+  await waitFor(() => {
+    expect(screen.getByTestId("compliance-panel").getAttribute("data-run-request")).toBe("1");
+  });
 });
 
-test("confirmation CTA opens the project workspace", async () => {
+test("open project workspace CTA hands off the project id", async () => {
   const user = userEvent.setup();
   const onProjectOpen = vi.fn();
 
-  render(<WizardShell wizard={{ ...wizard, step: 3, proposal: { proposal_type: "residential" } }} onClose={vi.fn()} onProjectOpen={onProjectOpen} />);
+  render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={onProjectOpen} />);
 
   await user.click(screen.getByRole("button", { name: /open project workspace/i }));
 
   expect(onProjectOpen).toHaveBeenCalledWith("project-1");
 });
 
-test("proposal save requires launch-critical fields before calling the API", async () => {
+test("refine save requires launch-critical fields before calling the API", async () => {
   const user = userEvent.setup();
 
   render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
-  await user.click(screen.getByRole("button", { name: /save & continue/i }));
+  await user.click(screen.getByRole("button", { name: /add project details/i }));
+  await user.click(screen.getByRole("button", { name: /update results/i }));
 
   expect(await screen.findByText(/complete proposal type/i)).toBeTruthy();
   expect(apiMock.upsertProposal).not.toHaveBeenCalled();
-  expect(screen.getByRole("heading", { name: /proposal details/i })).toBeTruthy();
 });
 
-test("wizard can continue to proposal details without property context", async () => {
+test("check view still works without property context", async () => {
   const user = userEvent.setup();
+  render(<WizardShell wizard={{ ...wizard, property: null }} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
-  render(<WizardShell wizard={{ ...wizard, step: 1, property: null }} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
+  expect(screen.getByText(/couldn't load property details/i)).toBeTruthy();
+  expect(screen.getByTestId("compliance-panel")).toBeTruthy();
 
-  expect(await screen.findByText(/property context is unavailable/i)).toBeTruthy();
-  await user.click(screen.getByRole("button", { name: /continue without property context/i }));
-
-  expect(screen.getByRole("heading", { name: /proposal details/i })).toBeTruthy();
+  await user.click(screen.getByRole("button", { name: /upload plans/i }));
+  expect(screen.getByTestId("document-upload")).toBeTruthy();
 });
 
-test("proposal save not-built response stays on proposal step with an error", async () => {
+test("refine save not-built response surfaces an error and keeps the panel open", async () => {
   const user = userEvent.setup();
   apiMock.upsertProposal.mockResolvedValue({
     kind: "notBuilt",
@@ -141,15 +162,15 @@ test("proposal save not-built response stays on proposal step with an error", as
 
   render(<WizardShell wizard={wizard} onClose={vi.fn()} onProjectOpen={vi.fn()} />);
 
+  await user.click(screen.getByRole("button", { name: /add project details/i }));
   await user.selectOptions(screen.getByLabelText("Proposal type"), "residential");
   await user.selectOptions(screen.getByLabelText("Dwelling type"), "single_house");
   await user.selectOptions(screen.getByLabelText("Building class"), "class_1a");
   await user.selectOptions(screen.getByLabelText("Work type"), "new_construction");
   await user.click(screen.getByLabelText("New"));
   await user.selectOptions(screen.getByLabelText("Lot type"), "green_title");
-  await user.click(screen.getByRole("button", { name: /save & continue/i }));
+  await user.click(screen.getByRole("button", { name: /update results/i }));
 
-  expect(await screen.findByText("Proposal saving is unavailable. Try again before continuing.")).toBeTruthy();
-  expect(screen.getByRole("heading", { name: /proposal details/i })).toBeTruthy();
-  expect(screen.queryByText("Confirm and review")).toBeNull();
+  expect(await screen.findByText(/proposal saving is unavailable/i)).toBeTruthy();
+  expect(screen.getByTestId("compliance-panel").getAttribute("data-run-request")).toBe("0");
 });

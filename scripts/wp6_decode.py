@@ -165,7 +165,7 @@ def build_candidate(clause: dict, rule: dict, model_tag: str) -> dict | None:
             # number must appear in the quote
             pass
         operator = str(numeric.get("operator") or "").strip() or None
-        unit = normalize_unit(numeric.get("unit"))
+        value, unit = normalize_unit(value, numeric.get("unit"))
         value_json = {"value": value}
 
     evaluable = str(rule.get("evaluable") or "").strip()

@@ -23,6 +23,7 @@ from uuid import UUID
 from sqlalchemy.orm import Session
 
 from draftcheck.checks.registry import ALL_CHECKS
+from draftcheck.domain.address.lga import canonical_local_government_name
 from draftcheck.db.models import (
     CheckResult,
     CheckRun,
@@ -226,10 +227,12 @@ def _resolve_council_scope(project: Project, fact_by_type: dict[str, PropertyFac
             fact.value_json if fact is not None and isinstance(fact.value_json, dict) else None
         )
         if council_from_fact:
-            return council_from_fact, f"property_fact:{fact_type}"
+            canonical = canonical_local_government_name(council_from_fact)
+            return canonical or council_from_fact, f"property_fact:{fact_type}"
     project_scope = _project_council_scope(project)
     if project_scope:
-        return project_scope, "project.council_scope"
+        canonical = canonical_local_government_name(project_scope)
+        return canonical or project_scope, "project.council_scope"
     return None, "missing"
 
 

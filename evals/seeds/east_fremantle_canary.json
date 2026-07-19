@@ -1,0 +1,23 @@
+{
+  "canary": "east_fremantle_council_rollout",
+  "description": "End-to-end gate for the Town of East Fremantle per the per-council recipe.",
+  "authority": "docs/COUNCIL_ROLLOUT_PLAN.md sections 1.1-1.8",
+  "address": "87 PETRA STREET EAST FREMANTLE",
+  "status": "verified",
+  "recorded": {
+    "verified_at": "2026-07-02",
+    "method": "verify_beeliar.py --address '87 PETRA STREET EAST FREMANTLE' --other-council 'City of Cockburn'. Full run: reports/east_fremantle_canary_run.json.",
+    "council_scope": "Town of East Fremantle",
+    "council_scope_source": "property_fact:local_government",
+    "r_code": "R12",
+    "synth_property_facts": 10,
+    "categories_evaluated": 118,
+    "cross_council": {"probe": "City of Cockburn-scoped project", "foreign_council_scopes_found": []},
+    "decode_library": "697 approved scoped rules from 13 instruments (LPS3 scheme text, 9 LPPs incl. 3.1.1 Residential Design Guidelines, strategy, 2 precinct plans). Pipeline: gpt-4o-mini decode (1,212) -> gpt-4o correct (705 kept / 507 rejected) -> noise sweep (8) -> scope.",
+    "faithfulness_audit": {
+      "sample": 75, "faithful_rate": 0.973, "judges": 3,
+      "judge_model": "claude-haiku-4-5 (majority vote + operator review)",
+      "note": "3 majority flags: 1 real (vague quote fragment overstated, corrected in place); 2 overturned on operator review (claims restate their quotes verbatim; judge reasons were self-contradicting)."
+    }
+  }
+}
