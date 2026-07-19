@@ -1,0 +1,224 @@
+{
+  "anchors_scanned": 1,
+  "by_authority": {
+    "Shire of Derby-West Kimberley": 20
+  },
+  "by_category": {
+    "local_planning_scheme": 1,
+    "local_planning_strategy": 1,
+    "scheme_map": 15,
+    "structure_plan": 3
+  },
+  "councils_with_documents": 1,
+  "db_changes": {
+    "inserted_or_updated": 20,
+    "unchanged": 0
+  },
+  "documents_discovered": 20,
+  "failed_collections": [],
+  "instruments": [
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-08/alfonsas-street-structure-plan-wapc-reference-spn0411.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Alfonsas Street Structure Plan - WAPC Reference: SPN/0411",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Alfonsas Street Structure Plan - WAPC Reference: SPN/0411",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/derby_west-kimberly-schemetext9.pdf",
+      "category": "local_planning_scheme",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Derby/West Kimberley Scheme Text",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Derby/West Kimberley Scheme Text",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-08/fitzroy-maxted-structure-plan-wapc-reference-808-07-04-0003p.PDF",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Fitzroy / Maxted Structure Plan - WAPC Reference: 808/07/04/0003P",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Fitzroy / Maxted Structure Plan - WAPC Reference: 808/07/04/0003P",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-08/fitzroy-street-structure-plan-wapc-reference-spn0034.pdf",
+      "category": "structure_plan",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Fitzroy Street Structure Plan - WAPC Reference: SPN/0034",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Fitzroy Street Structure Plan - WAPC Reference: SPN/0034",
+      "source_section": "Structure plans",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/derby_west_kimberley_lps9_indexmap.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Derby/West Kimberley Map Index Scheme 9",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Derby/West Kimberley Map Index Scheme 9",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map1_derby_wk_lps9_derby_west_kimberley_north.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 01 - Derby Townsite North West",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 01 - Derby Townsite North West",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map2_derby_wk_lps9_derby_west_kimberley_north.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 02 - Derby Townsite North East",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 02 - Derby Townsite North East",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map3_derby_wk_lps9_derby_west_kimberley_south.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 03 - Derby Townsite South West",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 03 - Derby Townsite South West",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map4_derby_wk_lps9_derby_west_kimberley_south.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 04 - Derby Townsite South East",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 04 - Derby Townsite South East",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map5_derby_wk_lps9_derby_townsite_north_west.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 05 - Derby Townsite North West",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 05 - Derby Townsite North West",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map6_derby_wk_lps9_derby_townsite_north_east.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 06 - Derby Townsite North East",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 06 - Derby Townsite North East",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map7_derby_wk_lps9_derby_townsite_central_wes.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 07 - Derby Townsite Central West",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 07 - Derby Townsite Central West",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map8_derby_wk_lps9_derby_townsite_central_eas.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 08 - Derby Townsite Central East",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 08 - Derby Townsite Central East",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map9_derby_wk_lps9_derby_townsite_south.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 09 - Derby Townsite South",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 09 - Derby Townsite South",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map10_derby_wk_lps9_birdwood_rise_meda_locali.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 10 - Birdwood Rise Media Locality",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 10 - Birdwood Rise Media Locality",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map11_derby_wk_lps9_camballin_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 11 - Camballin Townsite",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 11 - Camballin Townsite",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map12_derby_wk_lps9_fitzroy_crossing_surround.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 12 - Fitzroy Crossing Surrounds",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 12 - Fitzroy Crossing Surrounds",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map13_derby_wk_lps9_fitzroy_crossing_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 13 - Fitzroy Crossing Townsite North",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 13 - Fitzroy Crossing Townsite North",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2024-12/map14_derby_wk_lps9_fitzroy_crossing_townsite.pdf",
+      "category": "scheme_map",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Local planning scheme 9 - Map 14 - Fitzroy Crossing Townsite South",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Map 14 - Fitzroy Crossing Townsite South",
+      "source_section": "Local planning scheme 9",
+      "status": "pending"
+    },
+    {
+      "canonical_url": "https://www.wa.gov.au/system/files/2021-11/LST-Derby-West-Kimberley-local-planning-strategy.pdf",
+      "category": "local_planning_strategy",
+      "index_source_url": "https://www.wa.gov.au/government/document-collections/shire-of-derbywest-kimberley-planning-information",
+      "instrument_name": "Shire of Derby-West Kimberley Shire of Derby/West Kimberley local planning strategy",
+      "issuing_authority": "Shire of Derby-West Kimberley",
+      "link_text": "Shire of Derby/West Kimberley local planning strategy",
+      "source_section": "Local planning strategy",
+      "status": "pending"
+    }
+  ],
+  "mode": "apply",
+  "source": "wa.gov.au council planning-information collections",
+  "wp": "WP3"
+}

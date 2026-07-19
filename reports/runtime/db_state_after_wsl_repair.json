@@ -1,0 +1,889 @@
+{
+  "db-state": {
+    "alembic_head": "0019_rule_decode_logic",
+    "expected_alembic_head": "0019_rule_decode_logic",
+    "extensions": [
+      "postgis",
+      "vector"
+    ],
+    "row_counts": {
+      "address_points": 0,
+      "adversarial_findings": 0,
+      "agent_memory": 0,
+      "alembic_version": 1,
+      "artifacts": 155,
+      "audit_events": 0,
+      "check_results": 0,
+      "check_runs": 0,
+      "clauses": 97,
+      "document_chunks": 0,
+      "document_facts": 0,
+      "document_pages": 0,
+      "documents": 0,
+      "eval_cases": 0,
+      "eval_runs": 0,
+      "exports": 0,
+      "governance_controls": 0,
+      "governance_findings": 0,
+      "governance_kpi_results": 0,
+      "governance_kpis": 0,
+      "governance_pipeline_steps": 0,
+      "governance_reviews": 0,
+      "governance_risks": 0,
+      "guest_usage": 0,
+      "instrument_aliases": 293,
+      "job_traces": 0,
+      "legal_edges": 293,
+      "lg_areas": 0,
+      "magic_link_tokens": 0,
+      "orgs": 2,
+      "parcels": 0,
+      "planning_features": 0,
+      "projects": 0,
+      "properties": 0,
+      "property_facts": 0,
+      "proposals": 0,
+      "resolved_rules": 0,
+      "response_drafts": 0,
+      "review_items": 30,
+      "rfi_items": 0,
+      "rule_candidates": 347,
+      "rule_clause_links": 0,
+      "rules": 0,
+      "sessions": 0,
+      "skill_versions": 0,
+      "source_chunks": 928,
+      "source_citations": 928,
+      "source_documents": 198,
+      "source_fetch_log": 87,
+      "source_reviews": 0,
+      "source_versions": 77,
+      "spatial_datasets": 0,
+      "spatial_ref_sys": 8500,
+      "spend_events": 264,
+      "target_manifest": 285,
+      "users": 2,
+      "validations": 0
+    },
+    "manifest_by_status": {
+      "acquired": 202,
+      "blocked": 15,
+      "metadata_only": 10,
+      "out_of_scope": 17,
+      "pending": 41
+    },
+    "manifest_by_category": {
+      "act": 33,
+      "building_code": 5,
+      "council_page": 31,
+      "dc_policy": 19,
+      "index_page": 6,
+      "local_development_plan": 2,
+      "local_planning_policy": 41,
+      "local_planning_scheme": 9,
+      "local_planning_strategy": 17,
+      "region_scheme": 3,
+      "regulations": 22,
+      "scheme_map": 24,
+      "spatial_layer": 10,
+      "standard": 2,
+      "state_planning_policy": 28,
+      "structure_plan": 33
+    },
+    "manifest_by_issuing_authority_top": [
+      {
+        "issuing_authority": "City of Cockburn",
+        "count": 83
+      },
+      {
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "count": 62
+      },
+      {
+        "issuing_authority": "Government of Western Australia",
+        "count": 61
+      },
+      {
+        "issuing_authority": "Western Australian Planning Commission",
+        "count": 49
+      },
+      {
+        "issuing_authority": "City of Melville",
+        "count": 8
+      },
+      {
+        "issuing_authority": "Australian Building Codes Board",
+        "count": 6
+      },
+      {
+        "issuing_authority": "DPLH (SLIP)",
+        "count": 3
+      },
+      {
+        "issuing_authority": "",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Heritage Council WA / DPLH (SLIP)",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Landgate",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Landgate (SLIP)",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Standards Australia",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Department of Fire and Emergency Services",
+        "count": 1
+      },
+      {
+        "issuing_authority": "DFES / Office of Bushfire Risk Management (SLIP)",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Geoscape Australia",
+        "count": 1
+      }
+    ],
+    "pending_manifest_sample": [
+      {
+        "id": "bd14b429-a62f-5a77-b1a7-e04648d2bf11",
+        "instrument_name": "Local Planning Scheme No 6",
+        "category": "local_planning_scheme",
+        "issuing_authority": "",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "2c83f1bb-6f06-5873-8234-f0ae18ddd64e",
+        "instrument_name": "Local Planning Scheme No.6",
+        "category": "local_planning_scheme",
+        "issuing_authority": "",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+        "instrument_name": "Aboriginal Affairs Planning Authority Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "abc14fd6-c00f-52ad-8a60-8bda2c14037b",
+        "instrument_name": "Aboriginal Communities Act 1979",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "c720aad7-c82d-52bd-bf63-12ba0cc3c35b",
+        "instrument_name": "Amendment Regulations 2025",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "d312ba9e-141f-524d-b9cf-cb3494cef349",
+        "instrument_name": "Building Act 2011",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "c91c6522-2228-588b-b12a-3bba69595d4a",
+        "instrument_name": "Child Care Services Act 2007",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "6db88a88-912c-53b8-9785-a32ac26623e2",
+        "instrument_name": "Commonwealth Telecommunications Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "7493cd5a-494c-555e-a3b2-fff6de800a7b",
+        "instrument_name": "Community Titles Act 2018",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "7ba62e3c-9980-5e6e-9eb1-59ea38936877",
+        "instrument_name": "Community Titles Regulations 2021",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "4892e92d-69be-5098-9414-e5ed9aa7106c",
+        "instrument_name": "Contaminated Sites Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "20e5df7a-f123-518e-a6bb-77c200b82b37",
+        "instrument_name": "Environmental Protection Act 1986",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "fda5cd89-1bee-54aa-931c-da5e2c561030",
+        "instrument_name": "Framework STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "3a6e9a0a-9c6b-58e4-b202-806d20b06632",
+        "instrument_name": "Guidelines STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "f6ced431-9017-5061-8866-db6aea92d7cd",
+        "instrument_name": "Health Act 1911",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "4dcf522b-b4f2-52e8-bc7e-37ea1ea506f4",
+        "instrument_name": "Heritage of Western Australia Act 1990",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "5902b77a-2eb1-560c-975e-96ce199b5326",
+        "instrument_name": "Hospitals and Health Services Act 1927",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "82c5cabb-963b-5a64-91e8-ebdb5c733788",
+        "instrument_name": "Land Tax Assessment Act 2002",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "abb541b7-3e2e-5d8d-864d-5a81c76e26dd",
+        "instrument_name": "Liquor Control Act 1988",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "3c0f4723-7496-5726-a664-ffa9078a3448",
+        "instrument_name": "Local Government Act 1995",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "e41007c3-f020-5cbc-9ae0-a974dee15750",
+        "instrument_name": "Main Roads Act 1930",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "a18b7fa4-03f7-5992-a3b2-cc2b0aa599b7",
+        "instrument_name": "Planning and Development Amendment Act 2023",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "8fb1dfe5-1e2b-5f29-be1d-c4464f0b5368",
+        "instrument_name": "Planning and Development Regulations 2015",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "03672ce0-5aa1-5737-a719-86dc1dcd18bf",
+        "instrument_name": "Policy Scope Under the Telecommunications Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "b80a39d3-51c0-563c-b333-a9ff2eb034b6",
+        "instrument_name": "Racing and Wagering Western Australia Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "cfa8aa02-0932-5bbb-8f46-22bc6e0367ac",
+        "instrument_name": "Significant Development Pathway Planning and Development Amendment Act 2023",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "29fd5845-64ea-5d1e-8053-540164f9ae3a",
+        "instrument_name": "State Administrative Tribunal Act 2004",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "77ae40c5-2b6e-55aa-a423-ddd7f68a68ba",
+        "instrument_name": "STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "ed7c54c3-4c40-5ccc-b252-208f390c225a",
+        "instrument_name": "Statements STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "753723be-c47d-56db-9267-04a10aa743cc",
+        "instrument_name": "Strata Titles Act 1985",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "4ba378ee-cb83-512e-924f-49c314447e2a",
+        "instrument_name": "Strata Titles Act 1995",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "9f97363f-7a3b-52d4-9255-b6dcd7087aa7",
+        "instrument_name": "Strategies STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "bc6af9bd-0a63-5ffd-bbbf-67d3f69890d7",
+        "instrument_name": "Telecommunications Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "51ec4167-bfd9-5210-bbd1-0faa4aca5295",
+        "instrument_name": "The Interpretation Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "ce9c2278-d128-5d86-8c58-12f0fe584c4c",
+        "instrument_name": "The Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "47ed201a-4575-5146-a3c7-f6bcb922251d",
+        "instrument_name": "Transfer of Land Act 1893",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "c3a23a33-ea88-54ee-8ee3-b51843da51d1",
+        "instrument_name": "WA Biodiversity Conservation Act 2016",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "af539d04-5945-541b-9e57-ba2d8cc0e9e1",
+        "instrument_name": "AS/NZS 2890.1",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "72bcc5d6-0551-5897-8537-c620e65818d8",
+        "instrument_name": "State Planning Policy 2.3",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "57ec32cd-5515-5840-9861-1c0f924a61b3",
+        "instrument_name": "State Planning Policy 4.3",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      },
+      {
+        "id": "0b521284-4667-54c8-b8d5-05e09cc9cfea",
+        "instrument_name": "State Planning Policy 7.1",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": null,
+        "notes": "WP5 unresolved citation placeholder; run WP4 acquisition after URL discovery."
+      }
+    ],
+    "blocked_manifest_sample": [
+      {
+        "id": "683f8658-ffc9-5c51-a7d0-e9c59d84769c",
+        "instrument_name": "City of Cockburn LPP 1.12 - Noise Attenuation",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Cockburn",
+        "canonical_url": "https://www.cockburn.wa.gov.au/getattachment/9bdea550-8053-4acc-8ce7-44c213a99f7a/ECM_4518974_v9_Noise-Attenuation-LPP1-docx.aspx",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u2010' in position 469: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "322eb433-e2de-552b-af72-70716325de1e",
+        "instrument_name": "City of Cockburn LPP 1.15 - Tourist Accommodation",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Cockburn",
+        "canonical_url": "https://www.cockburn.wa.gov.au/getattachment/1f4ffe93-5d91-4693-a0e1-b6aa30f6e71a/ECM_5092850_v12_Tourist-Accommodation-LPP1-docx.aspx",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u25aa' in position 984: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "592f459e-18a7-5d03-a98b-495281dae2d1",
+        "instrument_name": "City of Melville LPP 1.4 - Provision of Public Art in Development Proposals",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Melville",
+        "canonical_url": "https://www.melvillecity.com.au/getContentAsset/3c0e658f-1832-49e9-9fda-caba31787366/3ca954ad-3848-47c6-8f97-68cebe0b47a2/LPP-1-4-Provision-of-Public-Art-in-Development-Proposals.pdf?language=en",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\uf0b7' in position 0: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
+        "instrument_name": "Greater Bunbury Region Scheme",
+        "category": "region_scheme",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "07931dc0-f5bd-55a6-ba83-27e1e404f426",
+        "instrument_name": "Metropolitan Region Scheme",
+        "category": "region_scheme",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "cf3f9033-7107-59d4-b964-c65fa6599730",
+        "instrument_name": "Peel Region Scheme",
+        "category": "region_scheme",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "21304b46-8115-54aa-92af-46c5dba16cb3",
+        "instrument_name": "Planning and Development (Local Planning Schemes) Regulations 2015",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "f43253ae-ae6d-5c1a-812b-e5355d6f7114",
+        "instrument_name": "Planning and Development (Planning Codes) Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "a4c6b3da-cb07-55ff-a6d4-57fc3f259f63",
+        "instrument_name": "Planning and Development (Region Planning Schemes) Regulations 2023",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "dfbeedcc-38e8-538f-9241-d456519b9d10",
+        "instrument_name": "Planning and Development (State Planning Policies) Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+        "instrument_name": "Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_722_homepage.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 155: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "f6b98ddb-b589-56e2-b207-1bc483462fb2",
+        "instrument_name": "Planning and Development Regulations 2009",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "0aaa6e02-d0da-5c22-82ce-aba9d1c771be",
+        "instrument_name": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+        "instrument_name": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": "https://www.wa.gov.au/system/files/2026-04/r-codes-volume-1-10-april-2026.pdf",
+        "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\uf06c' in position 458: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "7b69f715-4ddf-50d3-8c89-f8adfe3e3f98",
+        "instrument_name": "State Planning Policy 7.3 - Residential Design Codes Volume 2 - Apartments",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": "https://www.wa.gov.au/government/document-collections/state-planning-policy-73-residential-design-codes-apartments",
+        "notes": "3 fetch attempts failed: 'utf-8' codec can't decode byte 0x96 in position 1965: invalid start byte. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      }
+    ],
+    "metadata_only_manifest_sample": [
+      {
+        "id": "391a6da3-c90e-5a61-a091-4f3daf6d8361",
+        "instrument_name": "Bush Fire Prone Areas 2025 OBRM-024",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Fire and Emergency Services",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/bush-fire-prone-areas-2025",
+        "notes": "Open CC BY 4.0; free SLIP login for vectors"
+      },
+      {
+        "id": "86958dff-1b2d-5ece-9d32-06959a26c454",
+        "instrument_name": "Heritage Council State Register DPLH-006",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/heritage-council-wa-state-register",
+        "notes": "Open"
+      },
+      {
+        "id": "c92d6290-0846-5662-be69-6fcaeda20b31",
+        "instrument_name": "Heritage List DPLH-090",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/heritage-list-dplh-090",
+        "notes": "Open"
+      },
+      {
+        "id": "7372c952-bbde-5102-b450-a5e7a4c3f274",
+        "instrument_name": "LPS R-Codes DPLH-070",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-r-codes-dop-101",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "e2ab6aeb-ff49-51d2-883b-7c574991ed6d",
+        "instrument_name": "LPS Special Control Areas DPLH-068",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-special-area-dop-090",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "7f13e5b9-a39b-5d2e-b9b5-2bb4562421d6",
+        "instrument_name": "LPS Zones and Reserves DPLH-071",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-zones-and-reserves-dop-025",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "cb71dc2f-5a2f-5b47-aec1-0bd14c3a2043",
+        "instrument_name": "Region Scheme Zones and Reserves DPLH-023",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/region-scheme-zones-and-reserves-dop-072",
+        "notes": "Display free; vector restricted"
+      },
+      {
+        "id": "2923b0b0-bbc8-58dd-89b4-5341c5779cb1",
+        "instrument_name": "Cadastre (No Attributes) - SLIP public",
+        "category": "spatial_layer",
+        "issuing_authority": "Landgate",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/cadastre-polygon",
+        "notes": "Public geometry tier; free SLIP account"
+      },
+      {
+        "id": "6c7827fe-b510-5911-b801-249ada27e754",
+        "instrument_name": "Cadastre (Polygon) LGATE-217",
+        "category": "spatial_layer",
+        "issuing_authority": "Landgate",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/cadastre-polygon",
+        "notes": "Fees apply \u00e2\u20ac\u201d subscription. Unblock: email customerexperience@landgate.wa.gov.au"
+      },
+      {
+        "id": "7083fb6c-d93f-5a0c-b214-29b59f815c79",
+        "instrument_name": "AS 3959 Construction of buildings in bushfire-prone areas",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": "https://www.standards.org.au/",
+        "notes": "Paid/proprietary \u00e2\u20ac\u201d never store full text. Unblock: purchase licence from Standards Australia"
+      }
+    ],
+    "out_of_scope_manifest_sample": [
+      {
+        "id": "b638628d-a6a1-5b36-88a1-a55c117c6363",
+        "instrument_name": "National Construction Code 2022 (all volumes)",
+        "category": "building_code",
+        "issuing_authority": "Australian Building Codes Board",
+        "canonical_url": "https://ncc.abcb.gov.au/editions-national-construction-code",
+        "notes": "superseded \u00e2\u20ac\u201d NCC 2025 in force since 1 May 2025; free download, ABCB registration optional"
+      },
+      {
+        "id": "4918af6a-31d7-5df5-a5b8-0fb04680f507",
+        "instrument_name": "By-law providing for enforcement of any by-law made under section 30",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "8d23351a-8a7b-5074-adfa-dea656ee5390",
+        "instrument_name": "By-law under the Second Schedule of the Town Planning and Development Act 1928",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "51400ba6-76bd-5610-879e-7645216d4264",
+        "instrument_name": "By-laws for the Control of Hoardings",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "4f4b2cf5-d5ba-5349-8a8b-c6304d8ae403",
+        "instrument_name": "Planning and Development (Development Assessment Panels) Regulations 2011",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "e3f69c11-5a5b-5586-b99f-318189af4e29",
+        "instrument_name": "Planning and Development (Fees) Notice 2021",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "4b9caee8-4a3c-517c-827b-f3f1bba44fa3",
+        "instrument_name": "Planning and Development (Part 11B Fees) Notice 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "d1714879-8801-56fc-a03a-efc9670fd691",
+        "instrument_name": "Planning and Development (Part 17 Fees) Notice 2020",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "533706a1-54b3-5f8b-883e-e400ce979b34",
+        "instrument_name": "Planning and Development (Significant Development) Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "df251e89-503e-53ad-8087-2c050c11485d",
+        "instrument_name": "Planning and Development (Western Australian Planning Commission) Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "4196c683-9078-5df9-b27b-c3232ab7eea6",
+        "instrument_name": "Town Planning (Buildings) Uniform General By-laws 1989",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "c0afb614-6c41-5742-a87b-aa68dc0f2cae",
+        "instrument_name": "Town Planning and Development By-laws (Excavations in Subdivided Areas)",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "49b61183-b497-590d-9e10-b6a7d71502c7",
+        "instrument_name": "Town Planning and Development By-laws By-law 3",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "807c29f5-7a81-5936-afef-c6f2c9f8cddc",
+        "instrument_name": "Uniform General By-laws (Section 30 Subsection 1) New Subdivisions and Re-subdivisions",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "d91b82ae-e99f-5333-a9fa-ba733cf0d82f",
+        "instrument_name": "Draft Development Control Policy 4.3 - Planning for high-pressure gas pipelines",
+        "category": "dc_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": "https://www.wa.gov.au/government/publications/draft-development-control-policy-43-planning-high-pressure-gas-pipelines",
+        "notes": "Draft \u00e2\u20ac\u201d not in force; drafts are out of scope per docs/CORPUS_SCOPE.md"
+      },
+      {
+        "id": "c05652cf-2499-5cca-b046-dda82a7ece87",
+        "instrument_name": "Draft Operational Policy 1.12 - Planning Proposals Adjoining Regional Roads in Western Australia",
+        "category": "dc_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": "https://www.wa.gov.au/government/publications/draft-operational-policy-112-planning-proposals-adjoining-regional-roads-western-australia",
+        "notes": "Draft \u00e2\u20ac\u201d not in force; drafts are out of scope per docs/CORPUS_SCOPE.md"
+      },
+      {
+        "id": "010f29a8-5eb0-532b-8b54-58162a9e9a05",
+        "instrument_name": "State Planning Policy 4.1 - Industrial Interface",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": "https://www.wa.gov.au/government/publications/draft-state-planning-policy-41-industrial-interface",
+        "notes": "Listed as draft on the SPP index \u00e2\u20ac\u201d not in force; drafts are out of scope per docs/CORPUS_SCOPE.md"
+      }
+    ],
+    "failed_urls_sample": [],
+    "source_versions_by_review_status": {
+      "pending_review": 77
+    },
+    "source_versions_by_licence_status": {
+      "pending_review": 77
+    },
+    "source_versions_by_licence": {
+      "": 77
+    },
+    "source_citations_by_kind": {
+      "source_chunk": 928
+    },
+    "clauses_by_disposition": {
+      "definition": 11,
+      "informational": 30,
+      "procedural": 5,
+      "rule_bearing": 51
+    },
+    "rule_candidates_by_review_status": {
+      "pending_review": 121,
+      "validator_failed": 34,
+      "validators_passed": 192
+    },
+    "rules_by_lifecycle_status": {},
+    "review_items_by_status": {
+      "open": 30
+    },
+    "spend_events_by_provider": {
+      "claude_cli": 264
+    },
+    "citation_summary": {
+      "source_citations": 928,
+      "legal_edges": 293,
+      "legal_edges_by_review_status": {
+        "approved": 9,
+        "pending_review": 284
+      }
+    },
+    "wp6_summary": {
+      "clauses": 97,
+      "rule_candidates": 347,
+      "rules": 0,
+      "auto_promoted_candidates": 0,
+      "auto_promoted_without_two_model_families": 0
+    },
+    "conflict_summary": {
+      "adversarial_findings_by_status": {},
+      "open_conflict_findings": 0
+    },
+    "acceptance": {
+      "postgis_present": true,
+      "vector_present": true,
+      "alembic_at_expected_head": true,
+      "target_manifest_pending": 41,
+      "target_manifest_pending_zero": false,
+      "auto_promoted_without_two_model_families": 0,
+      "no_single_family_auto_promotions": true,
+      "open_conflict_findings": 0,
+      "no_open_conflict_findings": true
+    }
+  }
+}

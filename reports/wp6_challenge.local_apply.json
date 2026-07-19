@@ -1,0 +1,24 @@
+{
+  "mode": "apply",
+  "candidates": 10,
+  "promoted": 0,
+  "kept": 0,
+  "rejected": 0,
+  "skipped_no_other_family": 10,
+  "skipped_malformed": 0,
+  "llm_errors": [],
+  "endpoint_escalations": [
+    "MiniMax/OpenAI/OpenRouter unavailable; using opt-in Claude CLI subscription fallback. Provider-family independence is not met and token/cost usage is estimated, but extraction still runs through the WP6 quote validators and spend-event buffer."
+  ],
+  "available_models": [
+    "claude_cli:sonnet",
+    "claude_cli:sonnet",
+    "claude_cli:sonnet"
+  ],
+  "llm_spend": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cost_usd_estimate": 0.0
+  }
+}

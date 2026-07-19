@@ -1,0 +1,15 @@
+{
+  "wp": "WP5",
+  "worker": "wp5-WIN-JA4C8FOQU9T",
+  "dry_run": true,
+  "summary": {
+    "versions": 0,
+    "resolved": 0,
+    "unresolved_manifest_rows": 0,
+    "edges": 0,
+    "errors": 0
+  },
+  "remaining_queue_count": 0,
+  "escalations": [],
+  "versions": []
+}

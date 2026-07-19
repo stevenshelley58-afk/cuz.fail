@@ -1,0 +1,234 @@
+{
+  "wp": "WP4",
+  "worker": "wp4-local-w3",
+  "processed": 22,
+  "summary": {
+    "acquired": 19,
+    "metadata_only": 0,
+    "blocked": 3,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "acquired": 202,
+    "blocked": 13,
+    "metadata_only": 10,
+    "out_of_scope": 17,
+    "pending": 2
+  },
+  "items": [
+    {
+      "manifest_id": "0c5a0ddd-9f52-5e34-be72-2c22965aa928",
+      "instrument": "Operational Policy 1.1 - Subdivision of land - general principles",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "9d5923bb-ecf6-5c88-88af-c3837ab51a0f",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "322eb433-e2de-552b-af72-70716325de1e",
+      "instrument": "City of Cockburn LPP 1.15 - Tourist Accommodation",
+      "category": "local_planning_policy",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u25aa' in position 984: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "425b4023-45be-5932-9c42-473d43324e41",
+      "instrument": "City of Cockburn LPP 1.8 - Design Requirements for Incidental Structures",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "3a3ec2c8-7385-5c8a-919a-d7bd29d702c6",
+      "notes": "WP4 acquired (11 chunks, duplicate=False)",
+      "chunks": "11",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "476218fc-e930-50f3-ad1e-06edb19892f9",
+      "instrument": "City of Cockburn LPP 3.1 - Commercial Development",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "759828b8-72a2-5df9-b9e0-cab1c6d44824",
+      "notes": "WP4 acquired (28 chunks, duplicate=False)",
+      "chunks": "28",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "c8ec2295-a152-5cba-bf88-a486f7d74954",
+      "instrument": "City of Cockburn LPP 3.7 - Signs & Advertising",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "94216722-db2d-5489-a4a2-05b165f8fac0",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "7afca72d-d4cd-5681-9060-759deb237cc8",
+      "instrument": "City of Cockburn LPP 4.2 - Cockburn Central North (Muriel Court) Structure Plan - Design Guidelines",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "9fc1826d-c84c-5819-a8b3-c787bed6d70f",
+      "notes": "WP4 acquired (11 chunks, duplicate=False)",
+      "chunks": "11",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "abba041d-1c8e-5b40-8de4-43752e1fedc7",
+      "instrument": "City of Cockburn LPP 4.5 - Naval Base Holiday Park Heritage Area",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "5e01d9bd-aaff-5a4b-9d51-6f690e252acd",
+      "notes": "WP4 acquired (4 chunks, duplicate=False)",
+      "chunks": "4",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "2fec153f-1b49-5abc-b87b-67a03f67cc67",
+      "instrument": "City of Cockburn LPP 5.11 - Filling and Retaining of Land",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "7e9f7f51-bfc0-537e-977f-ee3c1fc9a4e1",
+      "notes": "WP4 acquired (7 chunks, duplicate=False)",
+      "chunks": "7",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "f0f5e161-aee9-512c-9550-085c9210c215",
+      "instrument": "City of Cockburn LPP 5.16 - Design Review Panel",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "3887bfbc-f3d4-53c1-a27c-26e5697f67cc",
+      "notes": "WP4 acquired (13 chunks, duplicate=False)",
+      "chunks": "13",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "34a63746-26af-5c78-b82c-fb749b7c010c",
+      "instrument": "City of Cockburn LPP 5.3 - Engineering, Drainage and Construction Standards",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "b52f627a-998b-5329-92e6-7205cab6eb37",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "dfa37f71-83aa-55e1-b660-fcef9cffcaee",
+      "instrument": "City of Cockburn LPP 5.6 - Vehicle Access",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "03509936-aa54-56c2-b0e0-e70bff3a648e",
+      "notes": "WP4 acquired (5 chunks, duplicate=False)",
+      "chunks": "5",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "c15da45c-47aa-5acb-a811-c6c420f55454",
+      "instrument": "City of Melville LPP 1.2 - Design Review Panel",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "baaec612-a5a8-5652-be2f-ce7a5e2c35ee",
+      "notes": "WP4 acquired (7 chunks, duplicate=False)",
+      "chunks": "7",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "cd790d9f-a23f-546e-a0d8-16ab82934b3b",
+      "instrument": "City of Melville LPP 1.6 - Parking and Access",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "67503073-ad62-58b9-a1e1-7826b90ef4a4",
+      "notes": "WP4 acquired (46 chunks, duplicate=False)",
+      "chunks": "46",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "cf3f9033-7107-59d4-b964-c65fa6599730",
+      "instrument": "Peel Region Scheme",
+      "category": "region_scheme",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "dfbeedcc-38e8-538f-9241-d456519b9d10",
+      "instrument": "Planning and Development (State Planning Policies) Regulations 2024",
+      "category": "regulations",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "da5b6938-f8be-5ed8-bdc8-e36c9459ac58",
+      "instrument": "State Planning Policy 2.0 - Environment and Natural Resources",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "43d05501-22ba-5f06-9cef-0451ff19455b",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "ca27869f-a5ff-5e30-996f-ab993b4fe8b9",
+      "instrument": "State Planning Policy 2.4 - Planning for Basic Raw Materials",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "99175de9-89a6-5a81-a560-a792c1c4cd13",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "6820a32d-1c69-5759-bccd-8a7f10d149e3",
+      "instrument": "State Planning Policy 2.8 - Bushland Policy for the Perth Metropolitan Region",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "eb63e6c4-066b-5419-985a-af016358bfc0",
+      "notes": "WP4 acquired (11 chunks, duplicate=False)",
+      "chunks": "11",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "0a7be17c-90fc-5a7e-b662-f51b3f301d8c",
+      "instrument": "State Planning Policy 3.2 - Aboriginal Settlements",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "1cc03104-85f9-5084-9f41-69b3e727daae",
+      "notes": "WP4 acquired (12 chunks, duplicate=False)",
+      "chunks": "12",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "d80d3c74-5cc7-5755-96a2-4d2c322f7b1e",
+      "instrument": "State Planning Policy 3.5 - Historic Heritage Conservation",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "cb5a643e-ad0d-595c-a541-61f76e342acc",
+      "notes": "WP4 acquired (9 chunks, duplicate=False)",
+      "chunks": "9",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "15c8f3be-b0c7-5bdf-8191-7236860c4145",
+      "instrument": "State Planning Policy 5.1 - Land Use Planning in the Vicinity of Perth Airport",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "6a48f710-3ecf-5d91-b492-033ae0525559",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "feff1d8d-adf7-511c-abfb-72f2c8a4539d",
+      "instrument": "State Planning Policy 6.3 - Ningaloo Coast",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "b8279ee5-5256-516b-a08b-9f9e0dedc2e2",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    }
+  ]
+}

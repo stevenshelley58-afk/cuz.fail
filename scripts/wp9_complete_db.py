@@ -36,6 +36,7 @@ import psycopg
 from psycopg.types.json import Json
 
 ORG_ID = "1d31c315-5087-47df-a8d4-ebfd08efad5d"  # DraftCheck WA (same as WP6)
+EXPECTED_HEAD = "0019_rule_decode_logic"
 
 GOLDEN_PROJECT_NAME = "M1 Golden Fixture — 244 Vincent Street, North Perth WA 6006"
 
@@ -328,6 +329,12 @@ def run_check(conn: psycopg.Connection) -> dict:
 
 def db_state(conn: psycopg.Connection) -> dict:
     head = conn.execute("SELECT version_num FROM alembic_version").fetchone()
+    extensions = [
+        r[0]
+        for r in conn.execute(
+            "SELECT extname FROM pg_extension WHERE extname IN ('postgis', 'vector') ORDER BY extname"
+        ).fetchall()
+    ]
     tables = [t[0] for t in conn.execute(
         "SELECT tablename FROM pg_tables WHERE schemaname='public' "
         "AND tablename NOT LIKE 'procrastinate%' ORDER BY tablename"
@@ -335,7 +342,168 @@ def db_state(conn: psycopg.Connection) -> dict:
     counts = {}
     for t in tables:
         counts[t] = conn.execute(f'SELECT count(*) FROM "{t}"').fetchone()[0]  # noqa: S608
-    return {"alembic_head": head[0] if head else None, "row_counts": counts}
+
+    def group_counts(sql: str) -> dict[str, int]:
+        return {str(row[0]): int(row[1]) for row in conn.execute(sql).fetchall()}
+
+    def scalar_int(sql: str) -> int:
+        return int(conn.execute(sql).fetchone()[0])
+
+    manifest_by_status = group_counts(
+        "SELECT status, count(*) FROM target_manifest GROUP BY status ORDER BY status"
+    )
+    pending_target_manifest = int(manifest_by_status.get("pending", 0))
+    auto_promoted_without_two_families = scalar_int(
+        """
+        SELECT count(*)
+        FROM rule_candidates
+        WHERE review_status = 'auto_promoted'
+          AND (
+            NOT (metadata_json ? 'families')
+            OR jsonb_typeof(metadata_json -> 'families') <> 'array'
+            OR jsonb_array_length(metadata_json -> 'families') < 2
+          )
+        """
+    )
+    open_conflict_findings = scalar_int(
+        """
+        SELECT count(*)
+        FROM adversarial_findings
+        WHERE status IN ('open', 'confirmed')
+        """
+    )
+
+    def manifest_sample(status: str) -> list[dict[str, Any]]:
+        return [
+            {
+                "id": str(row[0]),
+                "instrument_name": row[1],
+                "category": row[2],
+                "issuing_authority": row[3],
+                "canonical_url": row[4],
+                "notes": row[5],
+            }
+            for row in conn.execute(
+                """
+                SELECT id, instrument_name, category, issuing_authority, canonical_url, notes
+                FROM target_manifest
+                WHERE status = %s
+                ORDER BY issuing_authority, instrument_name
+                LIMIT 200
+                """,
+                (status,),
+            ).fetchall()
+        ]
+
+    return {
+        "alembic_head": head[0] if head else None,
+        "expected_alembic_head": EXPECTED_HEAD,
+        "extensions": extensions,
+        "row_counts": counts,
+        "manifest_by_status": manifest_by_status,
+        "manifest_by_category": group_counts(
+            "SELECT category, count(*) FROM target_manifest GROUP BY category ORDER BY category"
+        ),
+        "manifest_by_issuing_authority_top": [
+            {"issuing_authority": row[0], "count": int(row[1])}
+            for row in conn.execute(
+                """
+                SELECT issuing_authority, count(*)
+                FROM target_manifest
+                GROUP BY issuing_authority
+                ORDER BY count(*) DESC, issuing_authority
+                LIMIT 100
+                """
+            ).fetchall()
+        ],
+        "pending_manifest_sample": manifest_sample("pending"),
+        "blocked_manifest_sample": manifest_sample("blocked"),
+        "metadata_only_manifest_sample": manifest_sample("metadata_only"),
+        "out_of_scope_manifest_sample": manifest_sample("out_of_scope"),
+        "failed_urls_sample": [
+            {
+                "source_fetch_log_id": str(row[0]),
+                "status": row[1],
+                "url": row[2],
+                "source_title": row[3],
+                "error": row[4],
+                "requested_at": row[5].isoformat() if row[5] else None,
+                "completed_at": row[6].isoformat() if row[6] else None,
+            }
+            for row in conn.execute(
+                """
+                SELECT sfl.id, sfl.status, sd.canonical_url, sd.title, sfl.error,
+                       sfl.requested_at, sfl.completed_at
+                FROM source_fetch_log sfl
+                JOIN source_documents sd ON sd.id = sfl.source_id
+                WHERE sfl.status NOT IN ('success', 'succeeded', 'ok')
+                   OR sfl.error IS NOT NULL
+                ORDER BY sfl.requested_at DESC
+                LIMIT 200
+                """
+            ).fetchall()
+        ],
+        "source_versions_by_review_status": group_counts(
+            "SELECT review_status, count(*) FROM source_versions GROUP BY review_status ORDER BY review_status"
+        ),
+        "source_versions_by_licence_status": group_counts(
+            "SELECT licence_status, count(*) FROM source_versions GROUP BY licence_status ORDER BY licence_status"
+        ),
+        "source_versions_by_licence": group_counts(
+            "SELECT coalesce(licence, ''), count(*) FROM source_versions GROUP BY coalesce(licence, '') ORDER BY coalesce(licence, '')"
+        ),
+        "source_citations_by_kind": group_counts(
+            "SELECT citation_kind, count(*) FROM source_citations GROUP BY citation_kind ORDER BY citation_kind"
+        ),
+        "clauses_by_disposition": group_counts(
+            "SELECT disposition, count(*) FROM clauses GROUP BY disposition ORDER BY disposition"
+        ),
+        "rule_candidates_by_review_status": group_counts(
+            "SELECT review_status, count(*) FROM rule_candidates GROUP BY review_status ORDER BY review_status"
+        ),
+        "rules_by_lifecycle_status": group_counts(
+            "SELECT lifecycle_status, count(*) FROM rules GROUP BY lifecycle_status ORDER BY lifecycle_status"
+        ),
+        "review_items_by_status": group_counts(
+            "SELECT status, count(*) FROM review_items GROUP BY status ORDER BY status"
+        ),
+        "spend_events_by_provider": group_counts(
+            "SELECT provider, count(*) FROM spend_events GROUP BY provider ORDER BY provider"
+        ),
+        "citation_summary": {
+            "source_citations": int(counts.get("source_citations", 0)),
+            "legal_edges": int(counts.get("legal_edges", 0)),
+            "legal_edges_by_review_status": group_counts(
+                "SELECT review_status, count(*) FROM legal_edges GROUP BY review_status ORDER BY review_status"
+            ),
+        },
+        "wp6_summary": {
+            "clauses": int(counts.get("clauses", 0)),
+            "rule_candidates": int(counts.get("rule_candidates", 0)),
+            "rules": int(counts.get("rules", 0)),
+            "auto_promoted_candidates": scalar_int(
+                "SELECT count(*) FROM rule_candidates WHERE review_status = 'auto_promoted'"
+            ),
+            "auto_promoted_without_two_model_families": auto_promoted_without_two_families,
+        },
+        "conflict_summary": {
+            "adversarial_findings_by_status": group_counts(
+                "SELECT status, count(*) FROM adversarial_findings GROUP BY status ORDER BY status"
+            ),
+            "open_conflict_findings": open_conflict_findings,
+        },
+        "acceptance": {
+            "postgis_present": "postgis" in extensions,
+            "vector_present": "vector" in extensions,
+            "alembic_at_expected_head": (head[0] if head else None) == EXPECTED_HEAD,
+            "target_manifest_pending": pending_target_manifest,
+            "target_manifest_pending_zero": pending_target_manifest == 0,
+            "auto_promoted_without_two_model_families": auto_promoted_without_two_families,
+            "no_single_family_auto_promotions": auto_promoted_without_two_families == 0,
+            "open_conflict_findings": open_conflict_findings,
+            "no_open_conflict_findings": open_conflict_findings == 0,
+        },
+    }
 
 
 # ---------------------------------------------------------------------------
