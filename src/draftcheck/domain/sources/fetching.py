@@ -442,11 +442,11 @@ def _extract_pdf_text_with_metadata(content: bytes) -> SourceTextExtraction:
         pages = [page.extract_text() or "" for page in reader.pages]
     except Exception as exc:  # noqa: BLE001 - malformed public PDFs should fall back, not block
         fallback = extract_pdf_text_with_pymupdf(content)
-        fallback.metadata["extraction"] = {
-            **dict(fallback.metadata.get("extraction", {})),
-            "fallback_from": "pypdf_text_layer",
-            "fallback_reason": str(exc)[:500],
-        }
+        prior = fallback.metadata.get("extraction")
+        extraction_meta = dict(prior) if isinstance(prior, dict) else {}
+        extraction_meta["fallback_from"] = "pypdf_text_layer"
+        extraction_meta["fallback_reason"] = str(exc)[:500]
+        fallback.metadata["extraction"] = extraction_meta
         return fallback
     normalized_pages = [page.strip() for page in pages]
     text_pages = [page for page in normalized_pages if page]
