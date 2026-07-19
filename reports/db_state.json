@@ -1,61 +1,3669 @@
 {
-  "wp": "WP0",
-  "alembic_current": "0019_rule_decode_logic",
-  "generated_at": "2026-06-19T17:24:34+00:00",
-  "row_counts": {
-    "address_points": 1673144,
-    "adversarial_findings": 0,
-    "artifacts": 592,
-    "audit_events": 52,
-    "check_results": 253,
-    "check_runs": 10,
-    "clauses": 35056,
-    "document_chunks": 4,
-    "document_facts": 21,
-    "documents": 3,
-    "document_pages": 3,
-    "eval_cases": 19,
-    "eval_runs": 16,
-    "exports": 0,
-    "instrument_aliases": 507,
-    "job_traces": 7,
-    "legal_edges": 3335,
-    "lg_areas": 139,
-    "orgs": 107,
-    "parcels": 471164,
-    "planning_features": 38893,
-    "projects": 25,
-    "properties": 20,
-    "property_facts": 95,
-    "proposals": 9,
-    "resolved_rules": 253,
-    "review_items": 239,
-    "rule_candidates": 19288,
-    "rule_clause_links": 162,
-    "rules": 12480,
-    "sessions": 181,
-    "skill_versions": 2,
-    "source_chunks": 29083,
-    "source_citations": 29083,
-    "source_documents": 288,
-    "source_fetch_log": 509,
-    "source_reviews": 241,
-    "source_versions": 370,
-    "spatial_datasets": 16,
-    "spend_events": 69332,
-    "target_manifest": 499,
-    "users": 109
-  },
-  "manifest_breakdown": {
-    "acquired": 289,
-    "metadata_only": 19,
-    "out_of_scope": 191
-  },
-  "gaps": {
-    "total_rule_bearing_clauses": 9416,
-    "rule_bearing_clauses_without_rules": 6407,
-    "chunkless_source_versions": 82,
-    "quoteless_legal_edges": 207,
-    "pending_review_citation_edges": 3085
+  "db-state": {
+    "alembic_head": "0019_rule_decode_logic",
+    "expected_alembic_head": "0019_rule_decode_logic",
+    "extensions": [
+      "postgis",
+      "vector"
+    ],
+    "row_counts": {
+      "address_points": 1673144,
+      "adversarial_findings": 8940,
+      "agent_memory": 0,
+      "alembic_version": 1,
+      "artifacts": 1773,
+      "audit_events": 59,
+      "check_results": 715,
+      "check_runs": 25,
+      "clauses": 72412,
+      "document_chunks": 10,
+      "document_facts": 39,
+      "document_pages": 5,
+      "documents": 5,
+      "eval_cases": 19,
+      "eval_runs": 16,
+      "exports": 0,
+      "governance_controls": 0,
+      "governance_findings": 0,
+      "governance_kpi_results": 0,
+      "governance_kpis": 0,
+      "governance_pipeline_steps": 0,
+      "governance_reviews": 0,
+      "governance_risks": 0,
+      "guest_usage": 49,
+      "instrument_aliases": 4480,
+      "job_traces": 7,
+      "legal_edges": 51083,
+      "lg_areas": 139,
+      "magic_link_tokens": 51,
+      "orgs": 130,
+      "parcels": 469528,
+      "planning_features": 46879,
+      "projects": 56,
+      "properties": 51,
+      "property_facts": 506,
+      "proposals": 13,
+      "resolved_rules": 715,
+      "response_drafts": 0,
+      "review_items": 1442,
+      "rfi_items": 0,
+      "rule_candidates": 60832,
+      "rule_clause_links": 2054,
+      "rules": 31029,
+      "sessions": 201,
+      "skill_versions": 2,
+      "source_chunks": 81786,
+      "source_citations": 81786,
+      "source_documents": 839,
+      "source_fetch_log": 1091,
+      "source_reviews": 241,
+      "source_versions": 1007,
+      "spatial_datasets": 23,
+      "spatial_ref_sys": 8500,
+      "spend_events": 132253,
+      "target_manifest": 4820,
+      "users": 129,
+      "validations": 0
+    },
+    "manifest_by_status": {
+      "acquired": 874,
+      "blocked": 44,
+      "metadata_only": 54,
+      "out_of_scope": 3848
+    },
+    "manifest_by_category": {
+      "act": 3840,
+      "building_code": 5,
+      "council_page": 31,
+      "dc_policy": 22,
+      "index_page": 6,
+      "local_development_plan": 100,
+      "local_planning_policy": 161,
+      "local_planning_scheme": 16,
+      "local_planning_strategy": 23,
+      "region_scheme": 3,
+      "regulations": 371,
+      "scheme_map": 24,
+      "spatial_layer": 10,
+      "standard": 10,
+      "state_planning_policy": 43,
+      "structure_plan": 155
+    },
+    "manifest_by_issuing_authority_top": [
+      {
+        "issuing_authority": "Government of Western Australia",
+        "count": 4217
+      },
+      {
+        "issuing_authority": "City of Kwinana",
+        "count": 150
+      },
+      {
+        "issuing_authority": "City of Rockingham",
+        "count": 101
+      },
+      {
+        "issuing_authority": "City of Cockburn",
+        "count": 84
+      },
+      {
+        "issuing_authority": "Western Australian Planning Commission",
+        "count": 67
+      },
+      {
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "count": 62
+      },
+      {
+        "issuing_authority": "City of Fremantle",
+        "count": 58
+      },
+      {
+        "issuing_authority": "City of Melville",
+        "count": 36
+      },
+      {
+        "issuing_authority": "Town of East Fremantle",
+        "count": 13
+      },
+      {
+        "issuing_authority": "Standards Australia",
+        "count": 10
+      },
+      {
+        "issuing_authority": "Australian Building Codes Board",
+        "count": 6
+      },
+      {
+        "issuing_authority": "",
+        "count": 4
+      },
+      {
+        "issuing_authority": "DPLH (SLIP)",
+        "count": 3
+      },
+      {
+        "issuing_authority": "Heritage Council WA / DPLH (SLIP)",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Landgate",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Landgate (SLIP)",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Department of Fire and Emergency Services",
+        "count": 1
+      },
+      {
+        "issuing_authority": "DFES / Office of Bushfire Risk Management (SLIP)",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Geoscape Australia",
+        "count": 1
+      }
+    ],
+    "pending_manifest_sample": [],
+    "blocked_manifest_sample": [
+      {
+        "id": "ebe9e019-672c-5fd7-8f6e-c71cdbf98b2a",
+        "instrument_name": "City of Fremantle LPP DGF5 - Arthur Head Reserve Strategy Plan",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Fremantle",
+        "canonical_url": "https://www.fremantle.wa.gov.au/wp-content/uploads/2025/05/LPP-DGF5-Arthur-Head-Reserve-Strategy-Plan.pdf",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "dafc8d18-3711-5f82-9bb7-c617223ccc4f",
+        "instrument_name": "City of Kwinana Local Planning Policy No. 5 - Development Contribution Towards Public Art",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/policies/2018/local-planning-policy-no-5-development-contributio",
+        "notes": "BLOCKED: policy page 404s on all known slugs (2016/2024/2018 paths tried). Low rule value (public-art contribution). UNBLOCK: find working URL on kwinana.wa.gov.au policies register, set canonical_url + status=pending, re-run wp4_acquire."
+      },
+      {
+        "id": "5b13491a-d922-58af-baf0-3d37bbb30774",
+        "instrument_name": "City of Kwinana Local Planning Policy No. 8 - Designing Out Crime",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/policies/2020/local-planning-policy-no-8-designing-out-crime",
+        "notes": "3 fetch attempts failed: restricted source URL or licence notes require automated validation. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+      },
+      {
+        "id": "fddeacf7-e452-514f-a555-709a43ade0a2",
+        "instrument_name": "City of Kwinana Lot 9237 Parmelia Avenue (Cassia Rise Estate) Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2025/ldp-lot-9237-parmelia-avenue-cassia-rise-estate",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "492933b9-cd92-52da-9e1d-161b34b18dd1",
+        "instrument_name": "City of Kwinana Mandogalup Apsley Estate Stage 13 Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2022/ldp-%E2%80%93-mandogalup-%E2%80%93-apsley-estate-stage-13",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "e497736f-d9cb-5a76-ba0d-765cdd6b35dc",
+        "instrument_name": "City of Kwinana Wellard Little Bert Estate (Lot 501 Bertram Road) Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2023/ldp-wellard-little-bert-estate-(lot-501-bertram-ro",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "42771362-7472-5056-9311-225cdfd0afb5",
+        "instrument_name": "City of Kwinana Wellard Oakebella Stage 2 Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-%E2%80%93-wellard-%E2%80%93-oakebella-%E2%80%93-stage-2",
+        "notes": "Suspected landing page (1 chunks from https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-%E2%80%93-wellard-%E2%80%93-oakebella-%E2%80%93-stage-2). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "78343296-7bad-5f85-8773-dbc1169776e8",
+        "instrument_name": "City of Kwinana Wellard Oakebella Stage 4 Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2023/ldp-wellard-oakebella-stage-4",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "96021f80-fc6f-5931-9be4-1fd3efb2427d",
+        "instrument_name": "City of Kwinana Wellard Oakebella Stage 8 Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2025/ldp-wellard-oakebella-stage-8-(1)",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "39d2c400-1319-50eb-8770-f82b331a6fe1",
+        "instrument_name": "City of Kwinana Wellard Tamblyn Private Estate Stage 1 Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-wellard-tamblyn-private-estate-stage-1",
+        "notes": "3 fetch attempts failed: restricted source URL or licence notes require automated validation. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "b9e3e610-a25e-5e82-bca8-77910dd16685",
+        "instrument_name": "City of Kwinana Wellard The Village Stage 37A Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-wellard-the-village-stage-37a",
+        "notes": "Suspected landing page (1 chunks from https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-wellard-the-village-stage-37a). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py | Vision recovery left blocked: text extraction too short (31 chars; pages=2, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "28bbdaa9-d095-5348-80fc-b3f44766df14",
+        "instrument_name": "City of Kwinana Wellard The Village Stage 41 Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-wellard-the-village-stage-41",
+        "notes": "Suspected landing page (1 chunks from https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-wellard-the-village-stage-41). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py | Vision recovery left blocked: text extraction too short (31 chars; pages=2, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "6c69038b-1223-5418-8c2f-eec525640522",
+        "instrument_name": "City of Kwinana Wellard The Village Stage 44 Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2021/ldp-wellard-the-village-stage-44",
+        "notes": "Suspected landing page (1 chunks from https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2021/ldp-wellard-the-village-stage-44). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py | Vision recovery left blocked: text extraction too short (31 chars; pages=2, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "aab15b54-b4bc-53c5-ab09-ea48438043a5",
+        "instrument_name": "City of Kwinana Wellard The Village Stages 35A and 35B Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-wellard-the-village-stage-35a-and-35b",
+        "notes": "Suspected landing page (1 chunks from https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2020/ldp-wellard-the-village-stage-35a-and-35b). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py | Vision recovery left blocked: text extraction too short (48 chars; pages=3, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "cabd837b-8faf-509a-aa59-e7621f60f528",
+        "instrument_name": "City of Kwinana Wellard West Emerald Park No. 12 Local Development Plan",
+        "category": "local_development_plan",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2023/ldp-wellard-west-emerald-park-no-12",
+        "notes": "Suspected landing page (1 chunks from https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications,-forms,-and-public-notices/plans-and-strategies/2023/ldp-wellard-west-emerald-park-no-12). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py | Vision recovery left blocked: text extraction too short (37 chars; pages=1, pages_with_text=1); OCR unavailable locally"
+      },
+      {
+        "id": "b32c5e90-8e4b-59b8-b4ff-64ad63eaeff0",
+        "instrument_name": "City of Melville LPP 1.20 - Canning Bridge Activity Centre Plan - Density and Bonus Provisions",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Melville",
+        "canonical_url": "https://www.melvillecity.com.au/getContentAsset/e80d231d-9d16-4c24-bc36-0bd702080a17/3ca954ad-3848-47c6-8f97-68cebe0b47a2/lpp1-20-canning-bridge-activity-centre-plan-\u2013-dens?language=en",
+        "notes": "BLOCKED: all asset-URL variants 404 (raw E2-80-93 slug, %%-encoded, literal en dash) + publications page 400s on fetch. UNBLOCK: browse melvillecity.com.au Local Planning Policies page manually, copy the working LPP 1.20 PDF link into canonical_url, set status=pending, re-run wp4_acquire.py. Interim: CBACP (acquired) carries the M10/M15 density/bonus provisions. | Vision recovery left blocked: UnicodeEncodeError: 'ascii' codec can't encode character '\\u2013' in position 139: ordinal not in range(128)"
+      },
+      {
+        "id": "48ee42e2-f47a-599c-86b2-d705f878debe",
+        "instrument_name": "City of Rockingham Anstey Park Local Structure Plan Amendment No. 1 - Structure Plan Report Part 1",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://www.rockingham.wa.gov.au/getContentAsset/1f55cb68-7436-4ee6-81ea-4bc89b86f97a/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Anstey-Park-Local-Structure-Plan-Amendment-No-1-St.pdf?language=en",
+        "notes": "Unexpected worker error: Array-based stream has at least 75067650 > 75000000 output bytes.. UNBLOCK: re-run scripts/wp4_acquire.py | SPN hunt 2026-07-03: only an amendment PDF on wa.gov.au; base plan needs council-site navigation."
+      },
+      {
+        "id": "079b7295-6512-5347-9f98-92850a8b0299",
+        "instrument_name": "City of Rockingham Anstey Park Local Structure Plan Amendment No. 1 - Structure Plan Report Part 2",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://www.rockingham.wa.gov.au/getContentAsset/003232f3-46e7-4a9f-bd3c-20ecfccc433b/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Anstey-Park-Local-Structure-Plan-Amendment-No-1.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | SPN hunt 2026-07-03: only an amendment PDF on wa.gov.au; base plan needs council-site navigation."
+      },
+      {
+        "id": "d79641a4-3b42-5a08-aebf-52de7f67ff29",
+        "instrument_name": "City of Rockingham Golden Bay Neighbourhood Centre Development Plan",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/getContentAsset/6ddc2a8d-6ba9-42cd-9fd6-e5c54ee65e04/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Golden-Bay-Neighbourhood-Centre-Development-Plan.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery resolved landing page to PDF URL | Vision recovery left blocked: text extraction too short (99 chars; pages=6, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "bb3b940b-9175-549d-9905-39dd70bf7448",
+        "instrument_name": "City of Rockingham Highbury Park Structure Plan",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/getContentAsset/22068b9a-08b6-45eb-9c22-dfd9b0b4251d/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Highbury-Park-Structure-Plan.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery resolved landing page to PDF URL | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "04410490-4a1f-5109-9176-9700532038ed",
+        "instrument_name": "City of Rockingham Kennedy Bay Master Precinct Plan",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/getContentAsset/4c6ef1a2-831a-4dd4-88c9-1ebe17529472/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Kennedy-Bay-Master-Precinct-Plan.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery resolved landing page to PDF URL | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "78a1f316-7fd7-51b5-826d-f82d805c4336",
+        "instrument_name": "City of Rockingham Singleton Village Neighbourhood Centre Development Plan",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/getContentAsset/53e69493-544f-4b81-b134-aa49e07a7fc0/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Singleton-Village-Neighbourhood-Centre-Development.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery resolved landing page to PDF URL | Vision recovery left blocked: text extraction too short (31 chars; pages=2, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "7da00039-9328-5c21-9b11-7a85af03d0f2",
+        "instrument_name": "City of Rockingham South Baldivis District Structure Plan",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/getContentAsset/bab4162c-0424-479d-b067-422aa414c50d/3ca954ad-3848-47c6-8f97-68cebe0b47a2/South-Baldivis-District-Structure-Plan.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery resolved landing page to PDF URL | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "9d244b07-7d1d-5cfa-a26c-fa2534a664fa",
+        "instrument_name": "City of Rockingham Spud Shed Neighbourhood Centre Development Plan",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/getContentAsset/e0039af8-d0be-4e76-acca-f20b4416d7e0/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Spud-Shed-Neighbourhood-Centre-Development-Plan.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery resolved landing page to PDF URL | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "62a3332e-58c5-5fdd-9d98-08b0d63bb423",
+        "instrument_name": "City of Rockingham Tuart Lakes National Lifestyle Village Structure Plan",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/getContentAsset/e75c8a95-dc1e-40d5-b68e-2e86c8a94d5e/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Tuart-Lakes-National-Lifestyle-Village-Structure-P.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery resolved landing page to PDF URL | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "fd4b8b70-8e16-59a1-88ed-49cc637d4c33",
+        "instrument_name": "City of Rockingham Tuart Ridge Neighbourhood Centre Development Plan",
+        "category": "structure_plan",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/getContentAsset/2daf7304-9c29-4f1f-b0d9-28d06549308b/3ca954ad-3848-47c6-8f97-68cebe0b47a2/Tuart-Ridge-Neighbourhood-Centre-Development-Plan.pdf?language=en",
+        "notes": "3 fetch attempts failed: source fetch produced no parseable text. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url) | Vision recovery resolved landing page to PDF URL | Vision recovery left blocked: text extraction too short (14 chars; pages=1, pages_with_text=0); OCR unavailable locally"
+      },
+      {
+        "id": "30dca348-5004-5f1b-aae2-85149a05456d",
+        "instrument_name": "Australia Building and Construction Industry Training Levy Act 1990",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "8b5b987a-7f2d-542d-a0a4-36b3d8060b55",
+        "instrument_name": "Australia Forrest Place and City Station Development Act 1985",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "a58f4596-dbf7-5df6-8661-dfcd16c406a9",
+        "instrument_name": "Esperance Development Authority Act 1990",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "aea64b96-cac6-5466-8829-504a3d6b2b1d",
+        "instrument_name": "Great Southern Development Authority Act 1987",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "f77615f7-4f2d-519d-8c6a-e1c185fa5598",
+        "instrument_name": "Industrial Development Dampier Solar Salt Industry Agreement Act 1967",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "e7198ed6-fac0-5a19-ad07-5923eaca2260",
+        "instrument_name": "Industrial Lands Development Authority Act 1966",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "fd397add-2859-5a13-9b52-fe994ef2034c",
+        "instrument_name": "Industry and Technology Development Act 1998",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_44440.pdf",
+        "notes": "Unexpected worker error: Batch embedding API failed: HTTP Error 429: Too Many Requests. UNBLOCK: re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "df938ffd-b69d-59dd-88e5-f23e7b4544cb",
+        "instrument_name": "Metropolitan Redevelopment Authority Regulations 2011",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47077.pdf",
+        "notes": "Resolved official URL, but WP4 acquisition is blocked by OpenAI embedding 429. UNBLOCK: rerun scripts/wp4_acquire.py after embedding quota recovers."
+      },
+      {
+        "id": "277f05fb-441b-58ae-8672-cee1080a14ca",
+        "instrument_name": "Pilbara Development Commission Act 1992",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "93ca30cf-46f5-5cb7-b4e7-5152d49f9a0f",
+        "instrument_name": "Shell Development Pilbara Ports Authority Jetties Act 1926",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "0f5c562a-fec8-50f6-ad20-bc29229e385b",
+        "instrument_name": "South West Development Authority Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "85fd3af7-df9c-5787-b658-1ec576180a15",
+        "instrument_name": "State Employment and Skills Development Authority Act 1990",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "2a7d2276-c51c-53b6-9c87-411f4f4924a9",
+        "instrument_name": "The Aboriginal Cultural Heritage Act 2021",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "7fcdc1c2-4634-5918-af13-9dd2a7132adb",
+        "instrument_name": "The Great Southern Development Authority Act 1987",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "703fecf9-c41f-53cc-b2f6-0c76338aa63f",
+        "instrument_name": "The Pilbara Development Commission Act 1992",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "47822d8b-ee4b-57ac-bcd8-4b135feac76f",
+        "instrument_name": "The South West Development Authority Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "33bfdea2-be1d-560b-9782-e56c142b496b",
+        "instrument_name": "West Development Authority Act 1988",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "67897720-ba3d-546b-8aee-84c8f7124a7e",
+        "instrument_name": "Western Australian Development Corporation Act 1983",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      }
+    ],
+    "metadata_only_manifest_sample": [
+      {
+        "id": "3916b22a-17f8-53cb-9f9a-0711ddb44f87",
+        "instrument_name": "National Construction Code 2025 Housing Provisions Standard",
+        "category": "building_code",
+        "issuing_authority": "Australian Building Codes Board",
+        "canonical_url": "https://ncc.abcb.gov.au/editions-national-construction-code",
+        "notes": "NCC 2025 \u2014 current edition in force; free download, ABCB registration optional | NCC 2025 download requires free ABCB registration (registration-gated licence); full text not stored. Unblock: register at https://ncc.abcb.gov.au, download the volume PDF, and ingest via 'draftcheck import-source' with the licence recorded."
+      },
+      {
+        "id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+        "instrument_name": "National Construction Code 2025 Volume One",
+        "category": "building_code",
+        "issuing_authority": "Australian Building Codes Board",
+        "canonical_url": "https://ncc.abcb.gov.au/editions-national-construction-code",
+        "notes": "NCC 2025 \u2014 current edition in force; free download, ABCB registration optional | NCC 2025 download requires free ABCB registration (registration-gated licence); full text not stored. Unblock: register at https://ncc.abcb.gov.au, download the volume PDF, and ingest via 'draftcheck import-source' with the licence recorded."
+      },
+      {
+        "id": "ab7ee2e8-e7cf-5c50-97b4-f758ed02ca7a",
+        "instrument_name": "National Construction Code 2025 Volume Three",
+        "category": "building_code",
+        "issuing_authority": "Australian Building Codes Board",
+        "canonical_url": "https://ncc.abcb.gov.au/editions-national-construction-code",
+        "notes": "NCC 2025 \u2014 current edition in force; free download, ABCB registration optional | NCC 2025 download requires free ABCB registration (registration-gated licence); full text not stored. Unblock: register at https://ncc.abcb.gov.au, download the volume PDF, and ingest via 'draftcheck import-source' with the licence recorded."
+      },
+      {
+        "id": "391a6da3-c90e-5a61-a091-4f3daf6d8361",
+        "instrument_name": "Bush Fire Prone Areas 2025 OBRM-024",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Fire and Emergency Services",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/bush-fire-prone-areas-2025",
+        "notes": "Open CC BY 4.0; free SLIP login for vectors"
+      },
+      {
+        "id": "86958dff-1b2d-5ece-9d32-06959a26c454",
+        "instrument_name": "Heritage Council State Register DPLH-006",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/heritage-council-wa-state-register",
+        "notes": "Open"
+      },
+      {
+        "id": "c92d6290-0846-5662-be69-6fcaeda20b31",
+        "instrument_name": "Heritage List DPLH-090",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/heritage-list-dplh-090",
+        "notes": "Open"
+      },
+      {
+        "id": "7372c952-bbde-5102-b450-a5e7a4c3f274",
+        "instrument_name": "LPS R-Codes DPLH-070",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-r-codes-dop-101",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "e2ab6aeb-ff49-51d2-883b-7c574991ed6d",
+        "instrument_name": "LPS Special Control Areas DPLH-068",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-special-area-dop-090",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "7f13e5b9-a39b-5d2e-b9b5-2bb4562421d6",
+        "instrument_name": "LPS Zones and Reserves DPLH-071",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-zones-and-reserves-dop-025",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "cb71dc2f-5a2f-5b47-aec1-0bd14c3a2043",
+        "instrument_name": "Region Scheme Zones and Reserves DPLH-023",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/region-scheme-zones-and-reserves-dop-072",
+        "notes": "Display free; vector restricted"
+      },
+      {
+        "id": "08cb5674-7fdd-5a42-b74f-e8f3ac4586f5",
+        "instrument_name": "Assent Commencement Country Areas Water Supply Act 1947",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "e871852f-106b-54de-869a-50f344c2bb5b",
+        "instrument_name": "Assent Commencement Country Areas Water Supply Amendment Act 1981",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "691270ed-169e-54fa-b605-ac4b1188cdf6",
+        "instrument_name": "Assent Commencement Gas Standards Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "48cc2348-0b9d-5c9c-bc6e-d44cf7102aee",
+        "instrument_name": "Commonwealth Food Standards Australia New Zealand Act 1991",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "d07b2191-5e6a-555b-8a70-5166cc340174",
+        "instrument_name": "Country Areas Water Supply Act Amendment Act 1950",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "2e463da2-67b5-5c81-9754-b4c355f599f3",
+        "instrument_name": "Country Areas Water Supply Act Amendment Act 1957",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "21af1122-ae52-5e5f-a14d-9e7ba691d6c5",
+        "instrument_name": "Country Areas Water Supply Act Amendment Act 1960",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "29f71fc1-1f13-5649-85e0-f9bda60966c2",
+        "instrument_name": "Country Areas Water Supply Act Amendment Act 1964",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "0723763a-6ff2-5b1c-86e0-6bfb600d5df4",
+        "instrument_name": "Country Areas Water Supply Act Amendment Act 1974",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "67ad1518-c5a0-54ab-b8a8-73ac8a8c5047",
+        "instrument_name": "Country Areas Water Supply Act Amendment Act 1976",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "f89b0fed-a9da-5b9b-b591-02f584c982d9",
+        "instrument_name": "Country Areas Water Supply Act Amendment Act 1977",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "6960b6b2-9056-5cbf-ac90-4e6ead1ebfe6",
+        "instrument_name": "Country Areas Water Supply Act Amendment Act 1978",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "97f5710a-37a0-5d58-956c-41acc1a04441",
+        "instrument_name": "Country Areas Water Supply Amendment Act 1980",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "a6610a96-0abd-50ed-a48c-48db2c13e8fc",
+        "instrument_name": "Country Areas Water Supply Amendment Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "13270ad4-1baf-5aef-a2b5-0fb1aa207b85",
+        "instrument_name": "Gas and Electricity Safety Legislation Amendment Act 2007",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "f1e5b99d-d08b-5e60-849d-128abe2a86b2",
+        "instrument_name": "Gas Corporation Act 1994",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "00d4fd7f-c3dd-5010-8b23-7c8c97099888",
+        "instrument_name": "GAS INFECTIOUS SUBSTANCE CORROSIVE DANGEROUS GOODS Litter Regulations 1981",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "efe85bd8-d94d-5d4d-a49a-0614ce60fb6f",
+        "instrument_name": "Gas Services Information Act 2012",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "4abcb177-0347-5f6b-ba80-6fa16349f380",
+        "instrument_name": "Gas Standards Act Amendment Act 1979",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "d75581f5-408f-5a77-8276-83b45e3733c4",
+        "instrument_name": "Gas Standards Amendment Act 1985",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "e36b2fc3-9367-5103-9a0f-75957119cb98",
+        "instrument_name": "Genetically Modified Crops Free Areas Repeal Act 2016",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "1f2dc7a4-78e2-5472-8ee2-3adba871415e",
+        "instrument_name": "Geothermal Energy and Greenhouse Gas Storage Act 1967",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "fafcf6fe-f61f-5023-8c2b-66f06f4abc95",
+        "instrument_name": "Offshore Petroleum and Greenhouse Gas Storage Act 2006",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "ad5188c8-0134-55f5-a446-db3888262fe1",
+        "instrument_name": "Reprint of the Country Areas Water Supply Act 1947",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "5070f76a-f5ef-5d18-9fe4-470675697dde",
+        "instrument_name": "Reprint of the Gas Standards Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "6c853391-128c-529a-909f-a69d2bece3d3",
+        "instrument_name": "Seas and Submerged Lands Act 1973",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "08738c93-952d-53d8-91e7-7db1e8d09870",
+        "instrument_name": "The Country Areas Water Supply Act 1947",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "96ea69cd-81b1-5665-a1c9-a67e95e06360",
+        "instrument_name": "The Gas Standards Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "428198be-0d5f-536a-8dda-31aa4066d0af",
+        "instrument_name": "The Seas and Submerged Lands Act 1973",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "f060abb8-29d8-50a3-94d8-a2b4c744b158",
+        "instrument_name": "Western Australia Country Areas Water Supply Act 1947",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "9a1a34ce-f758-5531-8b76-8079fbe3ac20",
+        "instrument_name": "Western Australia Gas Standards Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "d8d4fecb-559f-52d4-8cb8-dacab5e3e6b6",
+        "instrument_name": "Western Australia Petroleum and Greenhouse Gas Pipelines Act 1969",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "2923b0b0-bbc8-58dd-89b4-5341c5779cb1",
+        "instrument_name": "Cadastre (No Attributes) - SLIP public",
+        "category": "spatial_layer",
+        "issuing_authority": "Landgate",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/cadastre-polygon",
+        "notes": "Public geometry tier; free SLIP account"
+      },
+      {
+        "id": "6c7827fe-b510-5911-b801-249ada27e754",
+        "instrument_name": "Cadastre (Polygon) LGATE-217",
+        "category": "spatial_layer",
+        "issuing_authority": "Landgate",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/cadastre-polygon",
+        "notes": "Fees apply \u2014 subscription. Unblock: email customerexperience@landgate.wa.gov.au"
+      },
+      {
+        "id": "7083fb6c-d93f-5a0c-b214-29b59f815c79",
+        "instrument_name": "AS 3959 Construction of buildings in bushfire-prone areas",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": "https://www.standards.org.au/",
+        "notes": "Paid/proprietary \u2014 never store full text. Unblock: purchase licence from Standards Australia"
+      },
+      {
+        "id": "bf339400-5d32-5099-a1bc-6ef4076f94f7",
+        "instrument_name": "AS/NZS 1547",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "Paid standard per CORPUS_SCOPE.md (Standards Australia). Unblock: purchase licence from Standards Australia."
+      },
+      {
+        "id": "a87a1852-5678-55c4-8957-5675f6517513",
+        "instrument_name": "AS/NZS 2107",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "Paid standard per CORPUS_SCOPE.md (Standards Australia). Unblock: purchase licence from Standards Australia."
+      },
+      {
+        "id": "537bcabc-1a0d-5a46-ae2f-b46b84d0178d",
+        "instrument_name": "AS/NZS 2208",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "af539d04-5945-541b-9e57-ba2d8cc0e9e1",
+        "instrument_name": "AS/NZS 2890.1",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "Paid standard per CORPUS_SCOPE.md (Standards Australia). Unblock: purchase licence from Standards Australia."
+      },
+      {
+        "id": "0edaf16d-c8ec-586d-a670-2c9061e8a2db",
+        "instrument_name": "AS/NZS 3500.2.2",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "30473ebe-f0f6-5bd1-a738-9a67b5bed19d",
+        "instrument_name": "AS/NZS 4280.1",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "573b99be-bf78-50d7-9067-9c2a26204259",
+        "instrument_name": "AS/NZS 4280.2",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "988d0db4-19c2-586e-9f18-1ddd6db13da1",
+        "instrument_name": "AS/NZS 5667.1",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "Paid standard per CORPUS_SCOPE.md (Standards Australia). Unblock: purchase licence from Standards Australia."
+      },
+      {
+        "id": "1b90175d-1b55-546e-9f0d-a293e946a20e",
+        "instrument_name": "AS/NZS 5667.4",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "Paid standard per CORPUS_SCOPE.md (Standards Australia). Unblock: purchase licence from Standards Australia."
+      }
+    ],
+    "out_of_scope_manifest_sample": [
+      {
+        "id": "461197e1-8db4-51aa-93ab-bdd98015ac79",
+        "instrument_name": "Local Planning Scheme No. 3",
+        "category": "local_planning_scheme",
+        "issuing_authority": "",
+        "canonical_url": null,
+        "notes": "Orphan citation: scheme number without council context. City of Cockburn TPS 3 (pilot LGA) already acquired."
+      },
+      {
+        "id": "667ea03f-cef4-53ea-af4b-2c8ec37f4718",
+        "instrument_name": "LOCAL PLANNING SCHEME NO. 3",
+        "category": "local_planning_scheme",
+        "issuing_authority": "",
+        "canonical_url": null,
+        "notes": "Orphan citation: scheme number without council context. City of Cockburn TPS 3 (pilot LGA) already acquired."
+      },
+      {
+        "id": "ea5c5e12-9ad3-5534-9b21-ead5fa43e677",
+        "instrument_name": "City of Kwinana Local Planning Policy No. 12 - Mandogalup Future Development",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://www.kwinana.wa.gov.au/council/documents,-publications-and-forms/publications-and-forms-(all)/policies/2020/local-planning-policy-no-12-%E2%80%93-mandogalup-future-de",
+        "notes": "Not on the council current policies register (lists 1-11); likely revoked/superseded by Mandogalup structure plans. Searched kwinana.wa.gov.au, wa.gov.au, DPLH archives 2026-07-02."
+      },
+      {
+        "id": "ddad3fbf-29ba-5bf6-9777-0fec8d49dcba",
+        "instrument_name": "City of Rockingham Planning Policy 3.2.1 - Development Policy Plan - City Centre Sector",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-3-2-1-development-policy-plan-city",
+        "notes": "Superseded by the Rockingham Strategic Centre Precinct Structure Plan (adopted Dec 2023, acquired). Not on the current policies register."
+      },
+      {
+        "id": "87f5f633-8acb-53c3-bfc1-72022f32f8d5",
+        "instrument_name": "City of Rockingham Planning Policy 3.2.6 - Development Policy Plan - Northern Waterfront Sector",
+        "category": "local_planning_policy",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "https://rockingham.wa.gov.au/forms-and-publications/planning-and-building/policies-and-procedures/planning-policy-3-2-6-development-policy-plan-nort",
+        "notes": "Superseded by the Rockingham Strategic Centre Precinct Structure Plan (adopted Dec 2023, acquired). Not on the current policies register."
+      },
+      {
+        "id": "dad302e4-6e1b-55df-8268-e9fb4c3abd37",
+        "instrument_name": "Abattoirs Act 1909",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "cce464a5-7ac7-50fc-908f-d8bac2d0c335",
+        "instrument_name": "Aboriginal Affairs Planning Authority Act Amendment Act 1973",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49436.pdf",
+        "notes": "WP4 reconcile: Superseded, amendment-only, commencement, reprint, or extracted citation fragment. Covered by: Aboriginal Affairs Planning Authority Act 1972"
+      },
+      {
+        "id": "c014f5ff-3f60-548c-9d20-a37fd6b92b43",
+        "instrument_name": "Aboriginal Affairs Planning Authority Amendment Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49436.pdf",
+        "notes": "WP4 reconcile: Superseded, amendment-only, commencement, reprint, or extracted citation fragment. Covered by: Aboriginal Affairs Planning Authority Act 1972"
+      },
+      {
+        "id": "30348be6-a6b0-5005-bd34-2893f13f0b8f",
+        "instrument_name": "Aboriginal Affairs Planning Authority Amendment Act 2012",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49436.pdf",
+        "notes": "WP4 reconcile: Superseded, amendment-only, commencement, reprint, or extracted citation fragment. Covered by: Aboriginal Affairs Planning Authority Act 1972"
+      },
+      {
+        "id": "d0c45e6b-ecf6-5fdc-8aeb-59bee96e2ba5",
+        "instrument_name": "Aboriginal Cultural Heritage Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Out of scope per CORPUS_SCOPE.md: Aboriginal Cultural Heritage Act is site clearance process, not lot-level design rules. Heritage mapping is in scope as spatial layer only."
+      },
+      {
+        "id": "b5117eab-2412-5609-af5d-d422379ca213",
+        "instrument_name": "Aboriginal Cultural Heritage Act 2021",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Out of scope per CORPUS_SCOPE.md: Aboriginal Cultural Heritage Act is site clearance process, not lot-level design rules. Heritage mapping is in scope as spatial layer only."
+      },
+      {
+        "id": "56711698-a14b-5f8d-a46a-8c4c958e80d1",
+        "instrument_name": "Aboriginal Heritage Amendment Act 1995",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49437.pdf",
+        "notes": "WP4 reconcile: Superseded, amendment-only, commencement, reprint, or extracted citation fragment. Covered by: Aboriginal Heritage Act 1972"
+      },
+      {
+        "id": "1638c852-800a-587d-aaf3-11fe13ffbe46",
+        "instrument_name": "Aboriginal Heritage Amendment Regulations 1995",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text."
+      },
+      {
+        "id": "40636602-3b52-554b-ab22-06ea59ad2e99",
+        "instrument_name": "Aboriginal Heritage Amendment Regulations 2023",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text."
+      },
+      {
+        "id": "e9c83ec2-d1bb-5af3-8093-0714f219e12a",
+        "instrument_name": "Aboriginal Heritage Amendment Regulations 2026",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text."
+      },
+      {
+        "id": "e2672b9a-d15f-55a7-b23b-e054ee99466e",
+        "instrument_name": "Aboriginal Heritage Legislation Amendment and Repeal Act 2023",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Out of scope per CORPUS_SCOPE.md: Aboriginal Cultural Heritage Act is site clearance process, not lot-level design rules. Heritage mapping is in scope as spatial layer only."
+      },
+      {
+        "id": "bafa2506-7e58-5acc-bd61-fc01d879cfe9",
+        "instrument_name": "Aboriginal Housing Legislation Amendment Act 2010",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "97f95ba9-6e47-5f2e-8043-5ace5eaa97ca",
+        "instrument_name": "Aborigines Act 1905",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "56a3a2e6-3097-5760-a107-cd5cccdaf404",
+        "instrument_name": "Abortion Legislation Reform Act 2023",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "149a4123-63f8-504f-972c-c0726417abe6",
+        "instrument_name": "Act and the Betting Control Act 1954",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "4501efbe-f206-56dc-9508-6fd2e7ff00c5",
+        "instrument_name": "Act and the Biodiversity Conservation Act 2016",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "cd787a5c-3c70-5105-87a4-344a953ce56f",
+        "instrument_name": "Act and the Commonwealth Electoral Act 1918",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "cd827b13-f8f4-569b-96fa-28f1021955ac",
+        "instrument_name": "Act and the Constitution Acts Amendment Act 1899",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "fcf4338d-8edd-5e40-b9f9-81649c43d538",
+        "instrument_name": "Act and the Electoral Act 1907",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "c2c4ae0d-c64e-5ddf-93cb-af13d75f1df8",
+        "instrument_name": "Act and the Fair Trading Act 2010",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "15f30e3f-2d87-56c3-9843-160b415e2364",
+        "instrument_name": "Act and the Land Administration Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "465292dd-00e2-57c8-9d8e-86228e35003a",
+        "instrument_name": "Act and the Land Tax Assessment Act 1907",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "38d2fc87-e57c-5993-adb1-8a209c761f76",
+        "instrument_name": "Act and the Legal Deposit Act 2012",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "03a0586f-0b14-5884-8b63-53bfe2ddef16",
+        "instrument_name": "Act and the Local Government Act 1995",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "08422dbe-1657-5568-bea1-43fe9c34c862",
+        "instrument_name": "Act and the Mining Act 1978",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6bad9bac-68e0-5dd7-8ac0-ee690f982b03",
+        "instrument_name": "Act and the Public Sector Management Act 1994",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "767997f1-f4b4-573a-94dc-22b648217422",
+        "instrument_name": "Act and the Sentence Administration Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "b8abb962-35e5-53a3-a5fa-d3ec3aea4b07",
+        "instrument_name": "Act and the Taxation Administration Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "5762edf6-f622-5fcd-8f43-f0c7a0b36956",
+        "instrument_name": "Act and the Western Australian Development Corporation Act 1983",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text."
+      },
+      {
+        "id": "cb06af3f-8d9b-591f-b4a3-92bceb8f9a05",
+        "instrument_name": "Act and Uniform Law The Interpretation Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "3db7ceac-1c74-5f4d-82d6-59235d2cc84a",
+        "instrument_name": "Act Murdoch University Act 1973",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "e7d811a5-73fb-55bf-bf44-8ee58e734d16",
+        "instrument_name": "Act of the Interpretation Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "3e9dd00a-34d1-513c-9909-619ae56676ea",
+        "instrument_name": "Acts Amendment Act 1974",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "4cc3aacb-7841-5ff1-a449-654816ac711e",
+        "instrument_name": "Acts and the Wildlife Conservation Act 1950",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6fadf8b2-1597-5ecc-aa08-ca71ddb66b04",
+        "instrument_name": "Acts Interpretation Act 1901",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "daeb868b-1031-5598-b86d-e82ef4af5038",
+        "instrument_name": "Acts The Betting Tax Assessment Act 2018",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "1e59fe01-fcfa-572b-8d61-558072632777",
+        "instrument_name": "Acts The Land Tax Assessment Act 2002",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "13f7e94f-2b61-53e5-9fea-2b899659292f",
+        "instrument_name": "Acts The Taxation Administration Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "ff4cecd7-a9e7-52b2-bd76-296ff79a3c66",
+        "instrument_name": "Act Workers Compensation and Injury Management Act 2023",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "9d249817-8b4e-546f-8e59-4e927f20ced9",
+        "instrument_name": "Administration Act Amendment Act 1909",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "aa8faffa-09d0-5c14-8d68-5ed76bbc00c8",
+        "instrument_name": "Administration Act Amendment Act 1921",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "4d2c70fd-d850-5b02-a448-dd98e82b33ec",
+        "instrument_name": "Administration Act Amendment Act 1922",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "0b87b11a-6ff9-52ec-bec9-ab53e1f1d323",
+        "instrument_name": "Administration Act Amendment Act 1939",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "dedf18b8-c8c7-5ae6-bc38-9d4d8054c9d4",
+        "instrument_name": "Administration Act Amendment Act 1942",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "f92208aa-d310-5616-a45a-70d496c82f5b",
+        "instrument_name": "Administration Act Amendment Act 1945",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "40c9540a-95f3-59cd-9f6c-415812be0316",
+        "instrument_name": "Administration Act Amendment Act 1949",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "98e693fd-7a85-5e5b-9d92-0ffcb6eab6e4",
+        "instrument_name": "Administration Act Amendment Act 1950",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "2f229db8-f700-5b57-bc3d-b3e861d6f009",
+        "instrument_name": "Administration Act Amendment Act 1953",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "063fb0fb-16d8-5138-b10b-303e931a8288",
+        "instrument_name": "Administration Act Amendment Act 1954",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "9e74d684-2ec6-51a7-a5a7-1ae0d2e08d4d",
+        "instrument_name": "Administration Act Amendment Act 1955",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "7446149f-ad2c-510e-802f-012dc1b54220",
+        "instrument_name": "Administration Act Amendment Act 1956",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "4020c96c-8e5f-5362-a738-b6afe48632aa",
+        "instrument_name": "Administration Act Amendment Act 1960",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "3eb8700a-29ef-5885-a73d-b34f918dfb88",
+        "instrument_name": "Administration Act Amendment Act 1961",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "e87ad900-ebf4-588d-ad2d-b71d4a3428ca",
+        "instrument_name": "Administration Act Amendment Act 1962",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "fc4a6ecf-7fb4-5b4e-8e1f-5e7f49129e94",
+        "instrument_name": "Administration Act Amendment Act 1963",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "7101b890-c58e-5495-a69a-74ae1a6aeed5",
+        "instrument_name": "Administration Act Amendment Act 1964",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "513416f9-28c8-5161-a892-bbdecce0785f",
+        "instrument_name": "Administration Act Amendment Act 1965",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "37bbf2b3-6f4e-5d03-92c6-cdc64759c4f6",
+        "instrument_name": "Administration Act Amendment Act 1966",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "2de6ddb2-9ee1-5a4d-8f2b-71bbbdbe89f6",
+        "instrument_name": "Administration Act Amendment Act 1969",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "f07d60b9-e509-5d0a-9aa6-3674ae44eb0c",
+        "instrument_name": "Administration Act Amendment Act 1970",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "41d979f3-fd98-5801-9a3d-0edb41fb8afc",
+        "instrument_name": "Administration Act Amendment Act 1971",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "7c4bbf44-7431-561e-80b2-c0a41f4fd7e0",
+        "instrument_name": "Administration Act Amendment Act 1976",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "af598891-d117-5c50-8296-46ed5d6c27e7",
+        "instrument_name": "Administration Act Amendment Act 1977",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "93ae5f0f-adea-5fb8-8f82-9eb74a999ede",
+        "instrument_name": "Administration Act Amendment Act 1979",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "f40a630f-515d-5547-80ec-37a4b85a0df2",
+        "instrument_name": "Administration Amendment Act 1980",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "4a36b5c0-fced-5315-83fb-dde40d4f9ce9",
+        "instrument_name": "Administration Amendment Act 1982",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "66c6536c-08c6-5e09-9487-ba7e9eba90f7",
+        "instrument_name": "Administration Amendment Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "362d3e12-3a6f-52a1-9ca2-d509e3018f3b",
+        "instrument_name": "Administration Amendment Act 1986",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "75be9778-7146-5f8e-b893-b46b10c0bdd5",
+        "instrument_name": "Administration Amendment Act 2022",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "868d721d-822a-5d73-9507-2b4f01931839",
+        "instrument_name": "Administration of Act The Taxation Administration Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "ac2a613a-c99a-5a0f-91e5-8c96fd37dab7",
+        "instrument_name": "Admiralty Act 1988",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6652f75b-11c4-5f0c-bfe7-d75946ea0b22",
+        "instrument_name": "Adoption Amendment Act 1999",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "5fc982b6-c07a-5f16-beb0-7290446514ca",
+        "instrument_name": "Adoption Amendment Act 2012",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "b0603da1-c08e-5ca0-be27-03f2184f828f",
+        "instrument_name": "Adoption of Children Act 1896",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "f01baf08-a3f8-5f42-8d13-a6612931b3d1",
+        "instrument_name": "Adoption Regulations 1995",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "656faf6e-6401-5a33-b8f6-98da53ead49c",
+        "instrument_name": "Advance Authorization Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "f40f31fa-683a-519a-ad1b-96b29d23661f",
+        "instrument_name": "Affidavits and Statutory Declarations Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "4bfd1822-b81c-548d-9815-5bf1d92ec691",
+        "instrument_name": "Aged Care Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "b48d6bfc-1a8b-5b68-bbec-cafdaee30ec8",
+        "instrument_name": "Aged Care Amendment Act 2011",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "3b37f7a6-acdd-5dc7-a25c-a3af693ad5ae",
+        "instrument_name": "Agent General Act 1895",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "afecc31a-fb9c-5b69-9948-807d387af23f",
+        "instrument_name": "Age of Majority Act Amendment Act 1973",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "4a632a60-fcda-5a87-8fc4-a4c28d52afd4",
+        "instrument_name": "Agreement Act 1963",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "db8df9be-a17c-544b-9e68-3b1487286abd",
+        "instrument_name": "Agreement Act 1964",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "c6a1d2b6-e865-5d88-96b2-d6d796122b3e",
+        "instrument_name": "Agreement Act 1971",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "b37d70d8-b73c-5bbc-975f-482281193d0f",
+        "instrument_name": "Agreement Act 1979",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "ca2054c2-46f5-5a79-86d4-329893287e3c",
+        "instrument_name": "Agreement Act 1985",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "95f76e8e-deae-599b-91be-778497f87499",
+        "instrument_name": "Agreement Amendment Act 2011",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "aba56e4d-629d-50ec-a768-12518e3db722",
+        "instrument_name": "Agreements Act 1985",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "5c277126-4d3a-59f9-a15e-dd60063c6e6e",
+        "instrument_name": "Agricultural and Veterinary Chemicals Code Act 1994",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "a03c9716-780e-5a10-9238-1fc00e574d95",
+        "instrument_name": "Agricultural Legislation Amendment and Repeal Act 1998",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "55872a12-a357-5573-89bd-7cf440c2e495",
+        "instrument_name": "Agricultural Produce Commission Act 1988",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "01bf6590-f8e2-51e6-86b6-6a8df5d33d26",
+        "instrument_name": "Agriculture and Related Resources Protection Act 1976",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6169209b-5a79-52c3-89f7-547c09411826",
+        "instrument_name": "Agriculture Protection Board Act 1950",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "a105aaed-b1bd-5e4f-a21b-ef583af5922c",
+        "instrument_name": "Air Navigation Act 1937",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "15e21678-2702-5414-b223-70af084ab90f",
+        "instrument_name": "Airports Act 1996",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Out of scope per CORPUS_SCOPE.md: Commonwealth law (except NCC) is not in scope; WA product."
+      },
+      {
+        "id": "0b5e13fb-7bfc-5713-955d-27ef09fbfe60",
+        "instrument_name": "Airspace Act 2007",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "e627e984-9d52-5a89-bb4c-fa750a9385b3",
+        "instrument_name": "Alcohol and Drug Authority Amendment Act 2015",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "90a62119-d526-5a07-bb90-44fca99f67eb",
+        "instrument_name": "Alterations of Statutory Designations Act 1974",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6ac38df6-17b8-5436-9033-6fe60f262497",
+        "instrument_name": "Amendment Act 1878",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "a9f46462-559d-57e3-8c5d-5baf238e109c",
+        "instrument_name": "Amendment Act 1880",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "6fd2279c-b92f-5d92-8caa-cc56d942f0a1",
+        "instrument_name": "Amendment Act 1888",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "b0ef9b87-c81c-5ba2-8bba-b5ca90a86b95",
+        "instrument_name": "Amendment Act 1894",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "bbeaff0d-50a4-5d81-98c9-ab11d6b81ba0",
+        "instrument_name": "Amendment Act 1896",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "65335fed-c4b9-5a8c-bf93-309bac93ff1a",
+        "instrument_name": "Amendment Act 1934",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "0ae67331-9537-5697-883e-c70332960ab4",
+        "instrument_name": "Amendment Act 1937",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "78e8650b-9c89-5bb3-a848-98861d7dc229",
+        "instrument_name": "Amendment Act 1945",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "37da6a44-3ada-5d3b-ab73-17a70e24a6c3",
+        "instrument_name": "Amendment Act 1981",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "bd6d4363-be3e-5c61-aab5-630457c042c5",
+        "instrument_name": "Amendment Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "b18c3857-108a-5d8b-a0de-f85e266169cc",
+        "instrument_name": "Amendment Act 1986",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "89ad0850-1d1b-5e44-aa89-10c2d605aa84",
+        "instrument_name": "Amendment Act 1987",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "4211d862-50d8-5239-bacb-90ade021e550",
+        "instrument_name": "Amendment Act 1989",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "fd12cc95-644a-54c4-8d10-00b7807b0104",
+        "instrument_name": "Amendment Act 1990",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "ce2f3edc-e2d6-5183-a172-c9c056e3949c",
+        "instrument_name": "Amendment Act 1991",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "4b74d8d0-ba71-5a58-bef0-77677eeea029",
+        "instrument_name": "Amendment Act 1994",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "58f3b3aa-9865-5246-a910-de6a93ce9fe2",
+        "instrument_name": "Amendment Act 1996",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "9d7338bc-f5eb-5583-ba48-59389c8cc4f4",
+        "instrument_name": "Amendment Act 1999",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "6d9abfb3-7779-5f59-b465-b736c3c339c3",
+        "instrument_name": "Amendment Act 2000",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "88860461-81df-5398-9113-f57d5b792006",
+        "instrument_name": "Amendment Act 2002",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "57fb719b-c7ec-5a87-a0ee-1b592be537b1",
+        "instrument_name": "Amendment Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "23f054bc-bc77-5af5-b549-8dbccaaff11f",
+        "instrument_name": "Amendment Act 2004",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "bdeb07f3-8805-5b73-afce-a0af300999cb",
+        "instrument_name": "Amendment Act 2006",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "293f3592-da66-5472-993d-74767081735a",
+        "instrument_name": "Amendment Act 2007",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "1da42f8a-2d4e-5ec2-905d-946f6008af14",
+        "instrument_name": "Amendment Act 2008",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "d926e002-80ab-5d55-9bbb-9d8e3e12b7c8",
+        "instrument_name": "Amendment Act 2010",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "5f810426-578e-55d8-a60b-59bcbd1212e6",
+        "instrument_name": "Amendment Act 2011",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "c0918c1b-b495-5be4-9dab-c5ed31b42a7a",
+        "instrument_name": "Amendment Act 2013",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "9413794f-c103-5af2-b742-5eb41a18980f",
+        "instrument_name": "Amendment Act 2014",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "21c4d1b3-f123-5bee-bf7a-e0df0cb4a3ef",
+        "instrument_name": "Amendment Act 2018",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "d02ff943-740b-5482-98c8-743cb42d01b1",
+        "instrument_name": "Amendment Act 2020",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "ddfed407-1c35-5dca-8d15-62dfcc5412e5",
+        "instrument_name": "Amendment Act 2021",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "19043700-3be1-5f41-b3fd-8e957dfdabd1",
+        "instrument_name": "Amendment Act 2022",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "0cdce3cd-0ac4-55e6-8446-1904932d2f02",
+        "instrument_name": "Amendment Act 2024",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "c8e9aac9-d181-514b-be6d-d45926fd4843",
+        "instrument_name": "Amendment and Expiry Act 2014",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "feb7331d-c697-5347-8b95-35eb3446bc39",
+        "instrument_name": "Amendment and Repeal Act 1993",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "4abb423f-ca99-5573-90d3-1808c797cc3a",
+        "instrument_name": "Amendment and Repeal Act 2004",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "3a5c4b06-073b-5b27-b78a-a44774556994",
+        "instrument_name": "Amendment Regulations 1996",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "61a77762-2655-553b-b5e9-acabe943bad1",
+        "instrument_name": "Amendment Regulations 1997",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "df2934ab-119c-56d4-9603-cb225025b662",
+        "instrument_name": "Amendment Regulations 2001",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "9306ba63-b83b-570e-97d2-ca50857d0ce1",
+        "instrument_name": "Amendment Regulations 2004",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "60a53755-8b0e-52fd-801d-81c245ac774c",
+        "instrument_name": "Amendment Regulations 2015",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Superseded/amendment instrument: consolidated parent already acquired (amendments are rolled into the in-force consolidated text on legislation.wa.gov.au)."
+      },
+      {
+        "id": "2910ef04-0f59-513a-b4f7-9932ccad796b",
+        "instrument_name": "Amendment Regulations 2016",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Superseded/amendment instrument: consolidated parent already acquired (amendments are rolled into the in-force consolidated text on legislation.wa.gov.au)."
+      },
+      {
+        "id": "0218eaec-5fe7-572c-9cf4-cdf28eab8073",
+        "instrument_name": "Amendment Regulations 2020",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Superseded/amendment instrument: consolidated parent already acquired (amendments are rolled into the in-force consolidated text on legislation.wa.gov.au)."
+      },
+      {
+        "id": "69856823-ec74-540a-b64b-a61d15d1a35a",
+        "instrument_name": "Amendment Regulations 2021",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Superseded/amendment instrument: consolidated parent already acquired (amendments are rolled into the in-force consolidated text on legislation.wa.gov.au)."
+      },
+      {
+        "id": "abbc51f9-c414-5718-9a2f-b6e0065795c0",
+        "instrument_name": "Amendment Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Superseded/amendment instrument: consolidated parent already acquired (amendments are rolled into the in-force consolidated text on legislation.wa.gov.au)."
+      },
+      {
+        "id": "c720aad7-c82d-52bd-bf63-12ba0cc3c35b",
+        "instrument_name": "Amendment Regulations 2025",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "Superseded/amendment instrument: consolidated parent already acquired (amendments are rolled into the in-force consolidated text on legislation.wa.gov.au)."
+      },
+      {
+        "id": "36330497-f231-51f3-9a6d-5c5244773c6e",
+        "instrument_name": "Amendments Incorporation Act 1938",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "537b9573-1391-5ec7-afbb-e2492a21a009",
+        "instrument_name": "Anatomy Act 1930",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "a3a874f3-ba36-5fa5-83e3-bc5d87292fce",
+        "instrument_name": "and the Betting Control Act 1954",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "36e9a312-bfe8-53e0-ad23-72ff28d44c01",
+        "instrument_name": "Anglican Church of Australia Act 1976",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "8f5b94e5-f677-52cc-a9f2-b8bf85b8ec42",
+        "instrument_name": "Anglican Church of Australia Lands Act 1914",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "07fec02c-eafc-5493-b079-605c790d313f",
+        "instrument_name": "Anglican Church of Australia School Lands Act 1896",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6e53f8ae-6471-56b9-8140-3d2a5a1c1b32",
+        "instrument_name": "Animal Resources Authority Amendment and Repeal Act 2022",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "56be4036-005e-5284-8987-5692d9b5650f",
+        "instrument_name": "Animals Act 1912",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "96138dee-0081-5eb0-aa18-0c127b1e23e5",
+        "instrument_name": "Animal Welfare Amendment Act 2018",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "ce4f22ad-258c-5ef4-bc3c-b2b81afeeace",
+        "instrument_name": "Animal Welfare and Trespass Legislation Amendment Act 2023",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "579aaedd-731c-514b-8221-a2805038c19d",
+        "instrument_name": "Anzac Day Act 1960",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "c67637fe-1c34-5123-822b-a0002aeffd7a",
+        "instrument_name": "Appellate Jurisdiction Act 1911",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "ee196c3d-e9ae-5bf7-890f-089286c9cf0d",
+        "instrument_name": "Appendix Litter Regulations 1981",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "59f565e2-eba1-5422-822e-8c107eea66d6",
+        "instrument_name": "Application of Criminal and Found Property Disposal Act 2006",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "7ddd2112-aa00-5c1e-bd38-e43ee5a9cfea",
+        "instrument_name": "Application of Criminal Investigation Act 2006",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "f666967e-f512-59b1-94c9-448bd1e963c6",
+        "instrument_name": "Application of Fair Trading Act 2010",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "9ab90c05-33ab-5a09-9a42-6dae9505f9f6",
+        "instrument_name": "Application of Family Court Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "d49afdce-5cf8-5514-8a5c-f58e10a1f4b8",
+        "instrument_name": "Application of Family Provision Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "55fc9b10-ad8d-5ff2-a520-1ef1e090856e",
+        "instrument_name": "Application of Financial Management Act 2006",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "29b854cf-2a98-57d5-b140-9ddfbad54ce9",
+        "instrument_name": "Application of Human Reproductive Technology Act 1991",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "75635d21-54a9-5894-af88-06b72eda7105",
+        "instrument_name": "Application of Industrial Relations Act 1979",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "f93de025-4a4c-590b-ad71-44a242246739",
+        "instrument_name": "Application of Interpretation Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "OCR/extraction artefact (fragment of a section header or note, not a separate instrument)."
+      },
+      {
+        "id": "4c233304-a2ee-547e-b2f8-3fe692a636a4",
+        "instrument_name": "Application of Juries Act 1957",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "38e5c8d2-9e77-5d05-85b1-87488abafaad",
+        "instrument_name": "Application of Land Act 1933",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "67744879-0c3e-5673-93b7-d77056a89ffc",
+        "instrument_name": "Application of Land Administration Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "83649f12-8b07-5fdb-a62e-fdc6024516eb",
+        "instrument_name": "Application of Local Government Act 1995",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "fce1082b-4928-5280-9d6c-d132f2ce3575",
+        "instrument_name": "Application of Public Sector Management Act 1994",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "78d8511f-d3cf-5ecf-980b-5ab3d2d82cfb",
+        "instrument_name": "Application of Public Works Act 1902",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "c93a3d81-0965-572a-b2a3-cbe20380a67a",
+        "instrument_name": "Application of Residential Tenancies Act 1987",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "24b9a94f-eb01-5f44-8198-7f23713f72d8",
+        "instrument_name": "Application of Sentencing Act 1995",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "13cbd163-0f48-54ae-987e-ac91f636179d",
+        "instrument_name": "Application of Sentencing Legislation Amendment Act 2016",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "dfb5522b-7cc3-59ff-830f-336aedf0e657",
+        "instrument_name": "Application of Solar Energy Act 1994",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "b6e144c5-c31f-5f98-9974-9c9f9c079a7b",
+        "instrument_name": "Application of Solar Energy Repeal Act 2006",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "10fae1c0-97af-5d9d-a741-a1e527a0b6e9",
+        "instrument_name": "Application of Superannuation and Family Benefits Act 1938",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "1d520d79-38a6-5881-9d49-45178379270b",
+        "instrument_name": "Application of Taxation Administration Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6618459c-acb8-5098-8933-6c52da0f3eab",
+        "instrument_name": "Application of the Interpretation Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "250ec3f8-7568-515f-9f14-da2fd941047d",
+        "instrument_name": "Aquatic Resources Management Amendment Act 2021",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "d000313b-0346-5d41-a453-e3ff79209d0d",
+        "instrument_name": "Arbitration Act 1895",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "7caf31f6-7ab7-5d23-8ee5-ef4d22876da5",
+        "instrument_name": "Arbitration Act 1996",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "b2149263-3cba-5a1b-ab76-265b45f3c70f",
+        "instrument_name": "Architects Act 1921",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6a43c4dc-81c9-5ef8-bad5-77e18ddc96ff",
+        "instrument_name": "Architects Amendment Act 2025",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "6df5095c-890f-5ccb-b1af-424c45cd1bf8",
+        "instrument_name": "Armadale Redevelopment Act 2001",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_47505.pdf",
+        "notes": "WP4 reconcile: Superseded, amendment-only, commencement, reprint, or extracted citation fragment. Covered by: Metropolitan Redevelopment Authority Act 2011"
+      },
+      {
+        "id": "cc92e8e0-3b8e-59bc-9a19-ec3cfb30e950",
+        "instrument_name": "Arson Legislation Amendment Act 2009",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "31efa793-8720-53b4-9d12-9661e6010383",
+        "instrument_name": "Art Gallery Act Amendment Act 1968",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "9656ba5c-7471-503f-b787-6ff92eb1e980",
+        "instrument_name": "Art Gallery Act Amendment Act 1974",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "c9f39e2f-7f0b-53e1-ae37-acb6255f761f",
+        "instrument_name": "Art Gallery Act Amendment Act 1978",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "cd178b4d-f69f-508b-ab13-a359bec65f69",
+        "instrument_name": "Art Gallery Amendment Act 1981",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "15226dc6-98df-504f-99c1-84d0bf3d9038",
+        "instrument_name": "Art Gallery Amendment Act 1988",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/transitional instrument without in-scope consolidated text."
+      },
+      {
+        "id": "d1fddd53-0ad3-5720-a010-ef7bdc82f315",
+        "instrument_name": "Art Gallery of Western Australia Act 1911",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "17b08e7c-fc90-5f16-bfb7-f8045a7805b9",
+        "instrument_name": "Assent Commencement Aboriginal Affairs Planning Authority Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/RedirectURL?OpenAgent&query=mrdoc_49436.pdf",
+        "notes": "WP4 reconcile: Superseded, amendment-only, commencement, reprint, or extracted citation fragment. Covered by: Aboriginal Affairs Planning Authority Act 1972"
+      }
+    ],
+    "failed_urls_sample": [
+      {
+        "source_fetch_log_id": "9fa88734-effa-4aa7-b8e2-00ece43158d5",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.200482+00:00",
+        "completed_at": "2026-06-09T16:11:14.200295+00:00"
+      },
+      {
+        "source_fetch_log_id": "780baaa2-4dd9-408e-958c-f83d2c3ed4e1",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-and-Development/Town-Planning-and-Development/Current-Development-Projects",
+        "source_title": "Current Development Projects",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.191418+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "e649a36d-a339-4b0a-852d-8b150400e2e3",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-and-Development/Town-planning-and-development/Current-development-projects",
+        "source_title": "Town Planning Scheme",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.181448+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "14fccbd8-57de-4025-a6c5-36dbbbc4b937",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.166467+00:00",
+        "completed_at": "2026-06-09T16:11:14.166187+00:00"
+      },
+      {
+        "source_fetch_log_id": "98b7813c-7644-4f7a-9d78-ad9099aeb92e",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.155531+00:00",
+        "completed_at": "2026-06-09T16:11:14.155288+00:00"
+      },
+      {
+        "source_fetch_log_id": "86b99be3-8731-4230-a15d-3abd80f8897e",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.130979+00:00",
+        "completed_at": "2026-06-09T16:11:14.130807+00:00"
+      },
+      {
+        "source_fetch_log_id": "1cace1ab-b745-4642-a888-1dc6c26b0db3",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.119860+00:00",
+        "completed_at": "2026-06-09T16:11:14.119693+00:00"
+      },
+      {
+        "source_fetch_log_id": "03d82a44-6b53-4819-beef-d2b5d19fc751",
+        "status": "pending_fetch",
+        "url": "https://www.planning.wa.gov.au/docs/default-source/default-document-library/guide-to-subdivision-applications-and-fees.pdf?sfvrsn=556d6dfe_4",
+        "source_title": "WAPC Application Guide",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.110535+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "1d55bb0f-8f53-4cac-9703-e1790654a5cb",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.094495+00:00",
+        "completed_at": "2026-06-09T16:11:14.094304+00:00"
+      },
+      {
+        "source_fetch_log_id": "7fc1e19c-e7cf-41f7-aae0-5bb7bb585aa4",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.083289+00:00",
+        "completed_at": "2026-06-09T16:11:14.083017+00:00"
+      },
+      {
+        "source_fetch_log_id": "81117cfd-73e2-42ea-80d9-e258e464d70b",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/Current-Development-Projects",
+        "source_title": "Current Development Projects Find out about current projects being developed in the City of Cockburn.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.070342+00:00",
+        "completed_at": "2026-06-09T16:11:14.070067+00:00"
+      },
+      {
+        "source_fetch_log_id": "74313f72-9ea6-4cb4-b6ff-0f706393865b",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/District-Structure-Plans",
+        "source_title": "District Structure Plans",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.059405+00:00",
+        "completed_at": "2026-06-09T16:11:14.059186+00:00"
+      },
+      {
+        "source_fetch_log_id": "d1e90102-64bb-437b-b092-85bda9c850ea",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/Structure-Plans-Framework-and-Approvals",
+        "source_title": "Structure Plans Framework and Approvals",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.048781+00:00",
+        "completed_at": "2026-06-09T16:11:14.048584+00:00"
+      },
+      {
+        "source_fetch_log_id": "be59da28-4b0c-4c6c-971e-aaebb3559b13",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.034072+00:00",
+        "completed_at": "2026-06-09T16:11:14.033811+00:00"
+      },
+      {
+        "source_fetch_log_id": "05ebf5a6-cfb8-4de2-9688-1463f96c6845",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.022187+00:00",
+        "completed_at": "2026-06-09T16:11:14.021962+00:00"
+      },
+      {
+        "source_fetch_log_id": "e87f91ad-b348-4966-aa45-b78137f1cb68",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/Current-Development-Projects",
+        "source_title": "Current Development Projects Find out about current projects being developed in the City of Cockburn.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:14.009332+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "e0c263c2-fd7a-4ea4-83ed-40ad5356e28a",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/District-Structure-Plans",
+        "source_title": "District Structure Plans",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.995023+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "0c911c9d-6784-4c76-954b-2bf9afab51e1",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Structure-Plans/Structure-Plans-Framework-and-Approvals",
+        "source_title": "Structure Plans Framework and Approvals",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.983524+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "ef7cdfa3-b3e5-4e81-9370-54bc721b77f5",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.970352+00:00",
+        "completed_at": "2026-06-09T16:11:13.970160+00:00"
+      },
+      {
+        "source_fetch_log_id": "46762e01-8a21-40e3-b8eb-c01fd32f64eb",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.961527+00:00",
+        "completed_at": "2026-06-09T16:11:13.961366+00:00"
+      },
+      {
+        "source_fetch_log_id": "bd427a5e-30d2-4261-a0d9-d8538f286606",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies/5G-Mobile-Phone-Networks",
+        "source_title": "5G Mobile Phone Networks Mobile phone carriers are currently upgrading 4G networks around Australia to 5G with many network upgrades already completed.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.950668+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "2a4e62dd-da8f-48cb-ba52-b018cd430c08",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies/Underground-Power-(1)",
+        "source_title": "Underground Power Find out about underground power in the City including suburbs, costs, timelines, benefits, and what to expect.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.940863+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "adc34546-6481-45ce-8e27-c43f21123e71",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies/Yangebup-Revitalisation-Strategy",
+        "source_title": "Yangebup Revitalisation Strategy Find out about the Yangebup Revitalisation Strategy including objectives, key issues, planning context, implementation timelines and progress.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.929192+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "af51f5ca-5a3b-4b53-b6a3-ed7704266e00",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies/The-Lakes-Revitalisation-Strategy",
+        "source_title": "The Lakes Revitalisation Strategy Access information about the Lakes Revitalisation Strategy, including objectives, key issues, planning context, implementation timelines and progress.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.918352+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "e0efecbb-d645-4c87-84d9-4e60802599ea",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies/Phoenix-Revitalisation-Strategy",
+        "source_title": "Phoenix Revitalisation Strategy Find out about the Phoenix Central Revitalisation Strategy, its aims and the key issues involved, information about the timeframe and who to contact.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.905364+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "ab2ac5b2-0874-453d-abad-3d7e80288ef9",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies/Hamilton-Hill-Revitalisation-Strategy",
+        "source_title": "Hamilton Hill Revitalisation Strategy Find out about the Hamilton Hill Revitalisation Strategy, including aim, background, key issues, program of works, context and who to contact.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.893072+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "6c70c9fd-2e0e-43a0-a13d-33bdaa5d01df",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies/Coolbellup-Revitalisation-Strategy",
+        "source_title": "Coolbellup Revitalisation Strategy Find out about the Coolbellup Revitalisation Strategy to revive the suburb, including key issues, timeframe, infill development and who to contact.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.877828+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "3b2470e9-dc65-4647-86ac-238120c11214",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.862014+00:00",
+        "completed_at": "2026-06-09T16:11:13.861801+00:00"
+      },
+      {
+        "source_fetch_log_id": "12f1f8b5-e665-4b19-b995-28550b298004",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.852176+00:00",
+        "completed_at": "2026-06-09T16:11:13.851937+00:00"
+      },
+      {
+        "source_fetch_log_id": "b1fd6155-0a08-4f75-9a1f-619d4904a5d2",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.836613+00:00",
+        "completed_at": "2026-06-09T16:11:13.836382+00:00"
+      },
+      {
+        "source_fetch_log_id": "fa914463-11b9-4d4b-ba0d-b33054882226",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.826374+00:00",
+        "completed_at": "2026-06-09T16:11:13.826139+00:00"
+      },
+      {
+        "source_fetch_log_id": "bac6fa75-c41f-455d-b299-07026c159147",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Planning-Projects/Coogee-Golf-Complex",
+        "source_title": "Proposed Coogee Golf Complex View information about the Proposed Coogee Golf Complex.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.814407+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "0d2088ab-ad94-4b2a-9767-18406c1c7e84",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Planning-Projects/Discovery-Parks-lease-at-Coogee-Beach-Caravan-Park",
+        "source_title": "Discovery Parks lease at Coogee Beach Holiday Park Read information on the Discovery Parks lease at Coogee Beach Holiday Park.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.802831+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "9d26bc51-2678-4697-b324-32df0f54b2c1",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Planning-Projects/Coogee-Beach-Master-Plan",
+        "source_title": "Coogee Beach Master Plan",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.790618+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "9c0be6b6-e03f-43eb-a521-b00c6eebf4a9",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Planning-Projects/Naval-Base-Shacks",
+        "source_title": "Naval Base Shacks Find out about the Naval Base shacks and the Naval Base Holiday Park, including lease agreements, management plans and rules for building approvals.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.777868+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "25632712-1080-424d-80a9-1f368bf647ab",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.764301+00:00",
+        "completed_at": "2026-06-09T16:11:13.764032+00:00"
+      },
+      {
+        "source_fetch_log_id": "2a12d64c-f926-48bb-ade9-be330bb6cc15",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.754746+00:00",
+        "completed_at": "2026-06-09T16:11:13.754531+00:00"
+      },
+      {
+        "source_fetch_log_id": "310cc5da-44f2-432f-8a6d-4c56d01094c1",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/getattachment/Building-Planning-and-Roads/General-Planning-Information/The-approval-process-for-new-development-in-Cockburn-\u2013-Video-transcript.pdf.aspx?lang=en-AU",
+        "source_title": "View video transcript",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.741434+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "f718d399-ed2d-4a88-a15c-061ca135a41e",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2022-11/cockburn3%20schemetext%20.pdf",
+        "source_title": "Town Planning Scheme web page.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.731385+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "7cd7bc68-4342-4b88-87f3-951ebb88c03c",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.718204+00:00",
+        "completed_at": "2026-06-09T16:11:13.718017+00:00"
+      },
+      {
+        "source_fetch_log_id": "593323aa-7b17-49da-a237-d21c483e02f7",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Short-Term-Rental-Accommodation",
+        "source_title": "Short Term Rental Accommodation Find out where to register your short term rental accommodation and any approvals required.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.706829+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "5f4dfb16-e091-4c7a-b714-31684d69c50c",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Jandakot-Treeby-Urban-Expansion",
+        "source_title": "Jandakot/Treeby Urban Expansion The Minister for Planning has made the decision that the Jandakot/Treeby Urban Expansion will become an urban area in the future.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.694208+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "294c90d5-fdf6-47ab-8a07-b9f31efe0d23",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Latitude-32",
+        "source_title": "Latitude 32 Access information and contacts relating to Latitude 32 industrial development in the Hope Valley and Wattleup areas, managed by LandCorp.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.682105+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "d68d5968-ba42-4c75-af6d-9544d3ef9e40",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Roe-8-(West)-and-Roe-9",
+        "source_title": "Roe 8 (West) and Roe 9 Find out about the State Government\u2019s investigation in to future possible land use.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.669502+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "dfcfc67b-7394-4c1a-b029-b94b409d0510",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Jandakot-Airport-Masterplan",
+        "source_title": "Jandakot Airport Masterplan Access information in the Jandakot Airport Masterplan guides development of the airport site, prepared and updated by Jandakot Airport Holdings.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.657589+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "80e57380-f1df-4b58-8e96-e77eefcc2c02",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Cockburn-Central-Activity-Centre-Strategy",
+        "source_title": "Cockburn Central Activity Centre Strategy Find out about the road projects within the City, including the scope, aims, key issues and timeline of the Cockburn Central Activity Centre Strategy.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.646500+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "553f6aeb-d9d7-4e66-ac43-2515b22f97a6",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Land-Management-Strategy",
+        "source_title": "Land Management Strategy Find out about the City\u2019s Land Management Strategy, its scope, aims, timeframe, the key issues involved and the process for review.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.635099+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "181c4191-b453-4668-a2d3-de509f0cb7ce",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Local-Commercial-and-Activity-Centres-Strategy",
+        "source_title": "Local Commercial and Activity Centres Strategy Find out about the Local Commercial and Activity Centres Strategy, including its aim, objectives, key issues, strategic planning context and timeline.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.625784+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "0b7ad26a-ae65-44f6-ad68-9829f74a9e51",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Affordable-Housing",
+        "source_title": "Housing Affordability Find out about affordable housing for residents and developers. An affordable housing toolkit is also provided here.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.616201+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "f02edbdb-a3c4-4240-b5fc-088cddabd11d",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Strategy-and-Key-Initiatives/Local-Planning-Strategy",
+        "source_title": "Local Planning Strategy Learn about the Local Planning Strategy (LPS) which covers key issues such as housing, employment, business activity, transport and public open space.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.605875+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "49b94b3b-743e-4380-b26d-40f1d431d474",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.592679+00:00",
+        "completed_at": "2026-06-09T16:11:13.592518+00:00"
+      },
+      {
+        "source_fetch_log_id": "902ec248-9883-4a0f-867b-29ea6a430f6e",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.583722+00:00",
+        "completed_at": "2026-06-09T16:11:13.583559+00:00"
+      },
+      {
+        "source_fetch_log_id": "89d74028-2b65-433c-af36-3cafc1fd5225",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Scheme/Approved-Scheme-Amendments-Town-Planning-Scheme",
+        "source_title": "Approved Scheme Amendments - Town Planning Scheme 3 Access approved Scheme Amendments and the associated documents. Approved Amendments are listed in order of their Amendment number.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.573694+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "59be7da5-9f60-4c6f-9cb4-3b47ec6071ac",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Scheme/Planning-Scheme",
+        "source_title": "Planning Scheme Information on the Town Planning Scheme No. 3, its scope and amendments to current town planning schemes in the City.",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.564158+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "884974d3-38af-4496-a6d8-24ddd759b789",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.549914+00:00",
+        "completed_at": "2026-06-09T16:11:13.549732+00:00"
+      },
+      {
+        "source_fetch_log_id": "1b42040f-99b9-4279-83a6-21b515bbeefb",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.541037+00:00",
+        "completed_at": "2026-06-09T16:11:13.540821+00:00"
+      },
+      {
+        "source_fetch_log_id": "ccd1b4b7-dc8f-46fe-8880-beeec8e16a72",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.529686+00:00",
+        "completed_at": "2026-06-09T16:11:13.529517+00:00"
+      },
+      {
+        "source_fetch_log_id": "9f60e8d4-fa0d-4afd-8f67-c46f799ad6f7",
+        "status": "pending_fetch",
+        "url": "https://www.planning.wa.gov.au/dop_pub_pdf/Local_Development_Plan_Framework.pdf",
+        "source_title": "Department of Planning - Local Development Plan Framework opens in a new window",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.518447+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "7ebc5071-1849-4d15-9c8a-aabc119ce032",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-and-Development/Guidance-and-advice/Building-and-planning-advice",
+        "source_title": "Building and Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.509600+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "6e16aee5-f97d-4e02-8796-0c39cd04364f",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.495439+00:00",
+        "completed_at": "2026-06-09T16:11:13.495254+00:00"
+      },
+      {
+        "source_fetch_log_id": "8fd4165c-757e-4fd5-a827-c8ab88c96b06",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.485402+00:00",
+        "completed_at": "2026-06-09T16:11:13.485194+00:00"
+      },
+      {
+        "source_fetch_log_id": "45b5d32c-0cd4-4ec6-9f49-b6e18d547787",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-and-Development/Town-Planning-and-Development/Current-Development-Projects",
+        "source_title": "Current Development Projects",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.473290+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "6560bbc9-390f-4b9d-973d-6af52e52d3dd",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-and-Development/Town-planning-and-development/Structure-plans/Structure-plan-framework-and-process",
+        "source_title": "Structure Plan Framework and Process",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.459641+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "65443b6e-20ae-430b-b543-163ae487e244",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-and-Development/Town-planning-and-development/Suburb-revitalisation",
+        "source_title": "Suburb Revitalisation",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.449648+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "ec31d628-5b78-42a0-9b8d-8299218e806b",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-and-Development/Town-planning-and-development/Structure-plans/Approved-structure-plans",
+        "source_title": "Approved Structure Plans",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.438987+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "5cda9459-9f01-4bcd-b730-051af0299469",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.429548+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "46df9c88-713f-4d57-bb05-5fd7fa7335cb",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-and-Development/Town-Planning-and-Development/Current-Development-Projects",
+        "source_title": "Current Development Projects",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.418768+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "e7cc8804-4d7b-4760-b831-f360f6a51add",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/government/document-collections/current-development-assessment-panel-applications-and-information",
+        "source_title": "Current Development Assessment Panel applications",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.408420+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "139110ea-f401-491a-8970-d93f33397376",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/City-and-Council/About-Council-Meetings-and-Elections/Agendas-and-Minutes/Joint-Development-Assessment-Panel",
+        "source_title": "View the JDAP agendas and minutes",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.394996+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "6304bed7-a6b4-42d2-aa07-cb8ca3a0ad87",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.379621+00:00",
+        "completed_at": "2026-06-09T16:11:13.379431+00:00"
+      },
+      {
+        "source_fetch_log_id": "8146903f-8a7e-4ad5-ab3a-bc0d301c341e",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.368798+00:00",
+        "completed_at": "2026-06-09T16:11:13.368573+00:00"
+      },
+      {
+        "source_fetch_log_id": "3051bbd7-3892-4864-8cc3-1d951c4a91d9",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.352606+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "29f1bb69-0a6a-4794-b7ea-e7d1209fe252",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.340099+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "903d5909-56d9-494b-bc8f-415c8b3a9e9f",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.324334+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "e4c41881-e199-41fb-977d-0b93916c8bec",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/General-Planning-Information",
+        "source_title": "Planning Advice",
+        "error": null,
+        "requested_at": "2026-06-09T16:11:13.309971+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "b28135b4-7351-4c98-ad3f-04e4fc6cc586",
+        "status": "skipped_no_improvement",
+        "url": "https://www.wa.gov.au/system/files/2024-07/australian-marine-complex-technology-precinct-structure-plan-structure-plan-report.pdf",
+        "source_title": "Australian Marine Complex Technology Precinct Structure Plan - WAPC Reference: SPN/0820 (PDF, 16.89MB)",
+        "error": null,
+        "requested_at": "2026-06-08T07:08:31.500282+00:00",
+        "completed_at": "2026-06-08T07:08:31.498763+00:00"
+      },
+      {
+        "source_fetch_log_id": "f4bb5737-8e47-411b-ba63-fbbc8381e0e5",
+        "status": "skipped_no_improvement",
+        "url": "https://www.wa.gov.au/system/files/2023-12/cockburn-central-west-structure-plan-23c-wapc-reference-spn-0560m-1.pdf",
+        "source_title": "Cockburn Central West Structure Plan 23C - WAPC Reference SPN 0560M-1 (PDF, 15.91MB)",
+        "error": null,
+        "requested_at": "2026-06-08T07:01:26.092795+00:00",
+        "completed_at": "2026-06-08T07:01:26.092445+00:00"
+      },
+      {
+        "source_fetch_log_id": "10eb75b1-0759-44ea-afa6-19dc5e98c65a",
+        "status": "skipped_no_improvement",
+        "url": "https://www.wa.gov.au/system/files/2024-01/cockburn-central-town-centre-structure-plan-23b-wapc-reference-spn-0849.pdf",
+        "source_title": "Cockburn Central Town Centre Structure Plan 23B - WAPC Reference SPN 0849 (PDF, 2.02MB)",
+        "error": null,
+        "requested_at": "2026-06-08T07:01:26.044473+00:00",
+        "completed_at": "2026-06-08T07:01:26.044157+00:00"
+      },
+      {
+        "source_fetch_log_id": "11822cd9-516d-4acb-bf2f-b4db163d6d38",
+        "status": "skipped_no_improvement",
+        "url": "https://www.wa.gov.au/system/files/2024-07/australian-marine-complex-technology-precinct-structure-plan-structure-plan-report.pdf",
+        "source_title": "Australian Marine Complex Technology Precinct Structure Plan - WAPC Reference: SPN/0820 (PDF, 16.89MB)",
+        "error": null,
+        "requested_at": "2026-06-08T07:01:26.023978+00:00",
+        "completed_at": "2026-06-08T07:01:26.022820+00:00"
+      },
+      {
+        "source_fetch_log_id": "3d447591-ba22-4b6e-8c4d-f7a8cdde39c4",
+        "status": "failed",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Glen-Iris-%281%29",
+        "source_title": "Redevelopment of Cockburn Gateway Shopping City Find out what role the City plays in the $1.08 billion development application for a proposed extensive four-stage redevelopment of Cockburn Gateway Shopping City.",
+        "error": "Client error '404 Not Found' for url 'https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Glen-Iris-(1'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+        "requested_at": "2026-06-08T05:15:23.440794+00:00",
+        "completed_at": "2026-06-08T05:15:23.440436+00:00"
+      },
+      {
+        "source_fetch_log_id": "cc7dc250-59a4-4e5b-a675-9ece64c18f7f",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2022-02/Lot-50-Barfield-Road-Hammond-Park-Structure-Plan-SPN-2298.pdf",
+        "source_title": "Lot 50 Barfield Road Hammond Park SPN 2298 (PDF, 49.23MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.460488+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "28c3d7be-e966-4caf-ae62-a99d40d39041",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2022-08/SPL_Lot-34-65-Ocean-Road-Coogee-Structure-Plan-ref-SPN_2299.PDF",
+        "source_title": "Lot 34 (No. 65) Ocean Road Coogee SPN 2299 (PDF, 16.53MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.450559+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "d4ae871d-8239-43e6-b8b5-7cf183ef55fd",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-05/lot-32-barfield-road-hammond-park-structure-plan-wapc-reference-spn-0783.pdf",
+        "source_title": "Lot 32 Barfield Road Hammond Park Structure Plan - WAPC Reference: SPN/0783 (PDF, 116.49MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.440561+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "2dab18c4-5af3-4d9a-ac89-87fe162b8617",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2023-12/lot-27-28-29-rockingham-road-munster-structure-plan-wapc-reference-801-02-23-0050.pdf",
+        "source_title": "Lot 27, 28 & 29 Rockingham Road Munster Structure Plan - WAPC Reference 801-02-23-0050 (PDF, 1.17MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.430928+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "bc63f61b-2734-4d01-b649-37f3aeafafa8",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-10/lots-14-15-16-17-18-41-and-500-ocean-road-coogee-structure-plan.pdf",
+        "source_title": "Lots 14 15 16 17 18 41 and 500 Ocean Road Coogee Structure Plan (PDF, 10.41MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.422329+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "818544fd-74bd-4807-82da-3d4091c5105c",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2023-03/SPL-Lot-7-Hammond-Road-Success-Structure-Plan-WAPC-Reference-SPN-2304.pdf",
+        "source_title": "Lot 7 Hammond Road Success Structure Plan - WAPC Reference SPN 2304 (PDF, 6.23MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.413816+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "ca820c8a-661f-4091-8fcc-cf8893742935",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-08/lot-6-hammond-road-success-structure-plan-wapc-reference-spn0680.pdf",
+        "source_title": "Lot 6 Hammond Road Success Structure Plan - WAPC Reference: SPN/0680 (PDF, 8.9MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.405328+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "74d123da-7940-4cff-b726-26d35bfe8c6c",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-06/lot-5-rockingham-road-munster-structure-plan-wapc-reference-spn-2098.pdf",
+        "source_title": "Lot 5 Rockingham Road Munster Structure Plan - WAPC Reference: SPN/2098 (PDF, 3.37MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.396296+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "c85a7ad5-ce36-48cf-a3de-fd1a64faea41",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-06/lots-4-125-126-hammond-road-success-structure-plan-wapc-reference-spn-0371.pdf",
+        "source_title": "Lots 4, 125 & 126 Hammond Road Success Structure Plan - WAPC Reference: SPN/0371 (PDF, 7.99MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.387656+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "69177076-338c-44b2-a0e8-c2ff5108452d",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2023-12/lot-1-24-25-26-rockingham-road-munster-structure-plan-wapc-reference801-02-23-0048.pdf",
+        "source_title": "Lot 1, 24 25 & 26 Rockingham Road Munster Structure Plan - WAPC Reference 801-02-23-0048 (PDF, 1.24MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.377068+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "ef2b27d3-04c7-4f91-b41a-e0b69fceeb93",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-07/lots-1-2-20-entrance-road-coogee-local-structure-plan-wapc-reference-spn-0785.pdf",
+        "source_title": "Lots 1, 2 & 20 Entrance Road Coogee Local Structure Plan - WAPC Reference: SPN/0785 (PDF, 4.86MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.359375+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "fa084a20-9510-4858-9258-d288fee5cbbe",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2026-03/latitude_32_development_area_6a_structure_plan.pdf",
+        "source_title": "Latitude 32 Development Area 6A Structure Plan - WAPC Reference SPN 2227 (PDF, 3.61MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.340952+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "c2a0ea01-709b-454e-9773-acc074eba40f",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2026-03/latitude-32-development-area-2-structure-plan-wapc-reference-spn-0646.pdf",
+        "source_title": "Latitude 32 Development Area 2 Structure Plan - WAPC Reference SPN 0646 (PDF, 9.58MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.323035+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "47dfabd6-a63e-4092-a4d2-af5f90b1c44a",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-03/koorilla-school-site-34b-local-structure-plan-wapc-reference-spn_0274.pdf",
+        "source_title": "Koorilla School Site (34B) Local Structure Plan - WAPC Reference SPN/0274 (PDF, 2.6MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.313203+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "892d764d-0bfe-4657-b453-2d7255e9e4df",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-02/hammond-quarter-structure-plan-wapc-reference-spn_2348.pdf",
+        "source_title": "Hammond Quarter Structure Plan - WAPC Reference SPN/2348 (PDF, 51.52MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.303899+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "6526c4ee-de1f-442c-8a11-f3564d137f04",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2022-09/Hammond-Park-West-Structure-Plan-Amendment-No.2-WAPC-Reference-SPN-2082M-2.pdf",
+        "source_title": "Hammond Park West Structure Plan Amendment No. 2 - WAPC Reference SPN 2082M-2 (PDF, 4.99MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.295057+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "63b356b6-20db-4167-9451-748950a3bc24",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-09/glen-iris-estate-local-structure-plan-wapc-reference-spn-2330.pdf",
+        "source_title": "Glen Iris Estate Local Structure Plan - WAPC Reference SPN/2330 (PDF, 239.24MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.285694+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "77989874-d665-42c1-ba87-991bb72fc549",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-05/coolbellup-town-centre-structure-plan-wapc-reference-spn_0476.pdf",
+        "source_title": "Coolbellup Town Centre Structure Plan - WAPC Reference SPN/0476 (PDF, 12.3MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.275611+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "9b649a25-d542-478e-8577-3e220bc98520",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-02/cockburn-coast-emplacement-local-structure-plan-33b-wapc-reference-spn_0478.pdf",
+        "source_title": "Cockburn Coast Emplacement Local Structure Plan 33B - WAPC Reference SPN/0478 (PDF, 17.64MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.263612+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "cf1aed11-322d-405b-94a1-684e8bb5d068",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2023-12/cockburn-central-west-structure-plan-23c-wapc-reference-spn-0560m-1.pdf",
+        "source_title": "Cockburn Central West Structure Plan 23C - WAPC Reference SPN 0560M-1 (PDF, 15.91MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.251985+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "c68dc41e-4e1d-4582-be91-23f7804becde",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-01/cockburn-central-town-centre-structure-plan-23b-wapc-reference-spn-0849.pdf",
+        "source_title": "Cockburn Central Town Centre Structure Plan 23B - WAPC Reference SPN 0849 (PDF, 2.02MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.240018+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "d082ac73-2ccb-44cd-8de9-5eee3265dbd6",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2024-02/cockburn-central-north-muriel-court-local-structure-plan-wapc-reference-spn-0801m-7.pdf",
+        "source_title": "Cockburn Central North (Muriel Court) Local Structure Plan - WAPC Reference SPN/0801M-7 (PDF, 2.7MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.229677+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "b88c8e44-9980-42cc-96b8-206c04f28dee",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2025-06/cell-9-yangebup-cell-10-beeliar-local-structure-plan-wapc-reference-spn-0511m-2.pdf",
+        "source_title": "Cell 9 (Yangebup) & Cell 10 (Beeliar) Local Structure Plan - WAPC Reference SPN 0511M-2 (PDF, 2.41MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.218851+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "0a731766-d7d5-4407-8cfb-23937a9ecbab",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2025-06/cell-6-yangebupbeeliar-structure-plan-amendment-no.7-wapc-reference-spn-0510m-3.pdf",
+        "source_title": "Cell 6 Yangebup/Beeliar Structure Plan Amendment No. 7 - WAPC Reference SPN 0510M-3 (PDF, 6.92MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.207224+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "dafb419b-19e5-4265-b3f0-931d6ed1b09b",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/system/files/2025-03/barfield_road_structure_plan.pdf",
+        "source_title": "Barfield Road Structure Plan - WAPC Reference SPN 0467M-5 (PDF, 97.22MB)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:52.188121+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "eaa5be6e-7e1c-4d3d-ae63-b227c54ef1c1",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Glen-Iris-%281%29",
+        "source_title": "Redevelopment of Cockburn Gateway Shopping City Find out what role the City plays in the $1.08 billion development application for a proposed extensive four-stage redevelopment of Cockburn Gateway Shopping City.",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:51.883391+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "45501f23-77d7-4347-8025-e401205a9cd2",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Planning-Projects",
+        "source_title": "Planning Projects Learn about the City's planning projects.",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:51.873139+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "c4ec15fc-5b80-4c89-81a8-39ab09715774",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Subdivisions",
+        "source_title": "Subdivisions Find out about the subdivision process, engineering, standards and guidelines.",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:51.862937+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "fbba47b7-9bb9-4df2-8565-f204b0a6c5e5",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Revitalisation-Strategies",
+        "source_title": "Revitalisation Strategies Find out about suburb revitalisation strategies for Coolbellup, The Lakes, Hamilton Hill and Phoenix.",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:51.821378+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "26865cff-1bd6-4e8c-a8c3-c97d789f3e75",
+        "status": "duplicate",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Development-Assessment-Panel",
+        "source_title": "Development Assessment Panel (DAP)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:51.777997+00:00",
+        "completed_at": "2026-06-08T04:43:51.777821+00:00"
+      },
+      {
+        "source_fetch_log_id": "d32d97ed-254c-4881-bc77-517a0b841bed",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Development-Assessment-Panel",
+        "source_title": "Development Assessment Panel (DAP)",
+        "error": null,
+        "requested_at": "2026-06-08T04:43:51.736612+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "ff776cca-a1a1-4ff3-979a-f730cbd5c842",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development",
+        "source_title": "Town Planning and Development",
+        "error": null,
+        "requested_at": "2026-06-08T04:11:45.637321+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "0819f1e3-4a7b-4ec0-942a-ae8a517db604",
+        "status": "pending_fetch",
+        "url": "https://www.wa.gov.au/government/document-collections/city-of-cockburn-planning-information",
+        "source_title": "City of Cockburn planning information source anchor",
+        "error": null,
+        "requested_at": "2026-06-08T04:11:45.627454+00:00",
+        "completed_at": null
+      },
+      {
+        "source_fetch_log_id": "4c5b56a1-35a0-4aeb-bf6b-37ef646af03b",
+        "status": "pending_fetch",
+        "url": "https://www.cockburn.wa.gov.au/Building-Planning-and-Roads/Town-Planning-and-Development/Local-Planning-Policies",
+        "source_title": "Local Planning Policies Access the full list of all relevant local planning policies adopted under Town Planning Scheme No.3.",
+        "error": null,
+        "requested_at": "2026-06-08T04:11:45.611416+00:00",
+        "completed_at": null
+      }
+    ],
+    "source_versions_by_review_status": {
+      "approved": 1007
+    },
+    "source_versions_by_licence_status": {
+      "open": 762,
+      "verified_open": 245
+    },
+    "source_versions_by_licence": {
+      "": 766,
+      "Discovered from official public source page; fetch, licence, currency, and source-version review required before citation.": 153,
+      "Example fixture for local tests; official page must be fetched, reviewed, and approved before use as a citable source.": 2,
+      "Official Cockburn planning entry point. Use as discovery anchor; approve fetched documents before citation.": 2,
+      "Official public-register source fetched lawfully for WP4 corpus build-out; licence, currency, and source-version review required before citation.": 82,
+      "Official WA Government Cockburn planning collection. Fetch only public documents and review source version before indexing.": 2
+    },
+    "source_citations_by_kind": {
+      "source_chunk": 81786
+    },
+    "clauses_by_disposition": {
+      "definition": 486,
+      "informational": 49868,
+      "manual_review": 1,
+      "procedural": 4383,
+      "rule_bearing": 17674
+    },
+    "rule_candidates_by_review_status": {
+      "auto_promoted": 3915,
+      "pending_review": 2783,
+      "rejected": 1118,
+      "validator_failed": 18812,
+      "validators_passed": 34204
+    },
+    "rules_by_lifecycle_status": {
+      "approved": 16532,
+      "rejected": 14497
+    },
+    "review_items_by_status": {
+      "open": 1400,
+      "resolved": 42
+    },
+    "spend_events_by_provider": {
+      "minimax": 40762,
+      "openai": 30334,
+      "openai_frontier": 20999,
+      "openai_mini": 40158
+    },
+    "citation_summary": {
+      "source_citations": 81786,
+      "legal_edges": 51083,
+      "legal_edges_by_review_status": {
+        "approved": 43,
+        "pending_review": 51040
+      }
+    },
+    "wp6_summary": {
+      "clauses": 72412,
+      "rule_candidates": 60832,
+      "rules": 31029,
+      "auto_promoted_candidates": 3915,
+      "auto_promoted_without_two_model_families": 1828
+    },
+    "conflict_summary": {
+      "adversarial_findings_by_status": {
+        "fixed": 2516,
+        "open": 6424
+      },
+      "open_conflict_findings": 6424
+    },
+    "acceptance": {
+      "postgis_present": true,
+      "vector_present": true,
+      "alembic_at_expected_head": true,
+      "target_manifest_pending": 0,
+      "target_manifest_pending_zero": true,
+      "auto_promoted_without_two_model_families": 1828,
+      "no_single_family_auto_promotions": false,
+      "open_conflict_findings": 6424,
+      "no_open_conflict_findings": false
+    }
   }
 }
