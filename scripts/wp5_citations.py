@@ -226,8 +226,16 @@ def queued_versions(conn: Connection, limit: int) -> list[dict[str, Any]]:
                sd.title, sd.authority, sd.source_type
         FROM source_versions sv
         JOIN source_documents sd ON sd.id = sv.source_id
+        JOIN (
+            SELECT source_version_id, count(*) AS chunk_count
+            FROM source_chunks
+            GROUP BY source_version_id
+        ) cc ON cc.source_version_id = sv.id AND cc.chunk_count >= 3
         WHERE EXISTS (
-            SELECT 1 FROM source_chunks sc WHERE sc.source_version_id = sv.id
+            SELECT 1
+            FROM target_manifest tm
+            WHERE tm.source_document_id = sd.id
+              AND tm.status = 'acquired'
         )
           AND NOT EXISTS (
             SELECT 1 FROM legal_edges le
@@ -444,7 +452,18 @@ def remaining_queue_count(conn: Connection) -> int:
             """
             SELECT count(*)
             FROM source_versions sv
-            WHERE EXISTS (SELECT 1 FROM source_chunks sc WHERE sc.source_version_id = sv.id)
+            JOIN source_documents sd ON sd.id = sv.source_id
+            JOIN (
+                SELECT source_version_id, count(*) AS chunk_count
+                FROM source_chunks
+                GROUP BY source_version_id
+            ) cc ON cc.source_version_id = sv.id AND cc.chunk_count >= 3
+            WHERE EXISTS (
+                SELECT 1
+                FROM target_manifest tm
+                WHERE tm.source_document_id = sd.id
+                  AND tm.status = 'acquired'
+            )
               AND NOT EXISTS (
                 SELECT 1 FROM legal_edges le
                 WHERE le.relation = 'cites'

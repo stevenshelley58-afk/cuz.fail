@@ -1,0 +1,257 @@
+﻿[1] dc_policy: Development Control Policy 5.4 - Advertising on reserved land
+[2] local_planning_policy: City of Cockburn LPP 1.14 - Waste Management
+[3] local_planning_policy: City of Cockburn LPP 1.17 - Non-Residential Uses in Residential Zones
+[4] local_planning_policy: City of Cockburn LPP 1.3 - Special Purpose Dwellings
+[5] local_planning_policy: City of Cockburn LPP 2.1 - Rural Subdivision and Development
+[6] local_planning_policy: City of Cockburn LPP 3.5 - Alfresco Dining
+[7] local_planning_policy: City of Cockburn LPP 3.8 - Industrial Subdivision and Development
+[8] local_planning_policy: City of Cockburn LPP 4.4 - Heritage Conservation Design Guidelines
+[9] local_planning_policy: City of Cockburn LPP 5.1 - Development of the Public Realm
+[10] local_planning_policy: City of Cockburn LPP 5.18 - Subdivision and Development - Street Trees
+[11] local_planning_policy: City of Cockburn LPP 5.22 - Environmental Conservation
+[12] local_planning_policy: City of Cockburn LPP 5.5 - Local Development Plans
+[13] local_planning_policy: City of Melville LPP 1.1 - Planning Process and Decision Making
+[14] local_planning_policy: City of Melville LPP 1.7 - Telecommunications Facilities and Communica
+[15] local_planning_scheme: City of Melville Local Planning Scheme No. 6 - Scheme Text
+[16] regulations: Planning and Development (Local Planning Schemes) Regulations 2015
+[17] regulations: Planning and Development Regulations 2009
+[18] state_planning_policy: State Planning Policy 2.9 - Water
+[19] state_planning_policy: State Planning Policy 3.6 - Infrastructure Contributions
+[20] state_planning_policy: State Planning Policy 5.3 - Land Use Planning in the Vicinity of Janda
+[21] state_planning_policy: State Planning Policy 7.2 - Precinct Design
+[22] state_planning_policy: State Planning Policy 7.3 - Residential Design Codes Volume 2 - Apartm
+{
+  "wp": "WP4",
+  "worker": "wp4-local-w2",
+  "processed": 22,
+  "summary": {
+    "acquired": 19,
+    "metadata_only": 0,
+    "blocked": 3,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "acquired": 202,
+    "blocked": 14,
+    "metadata_only": 10,
+    "out_of_scope": 17,
+    "pending": 1
+  },
+  "items": [
+    {
+      "manifest_id": "c1bef617-0b6f-5d64-8ade-6406aa5d6931",
+      "instrument": "Development Control Policy 5.4 - Advertising on reserved land",
+      "category": "dc_policy",
+      "status": "acquired",
+      "doc_id": "1c11684e-57f4-57a6-bddd-9422b9c2e2a4",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "390accb0-35aa-5f1e-88d6-f53f0f78c500",
+      "instrument": "City of Cockburn LPP 1.14 - Waste Management",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "bd4344e7-6fd7-51ad-b1dd-0855b4e37da9",
+      "notes": "WP4 acquired (8 chunks, duplicate=False)",
+      "chunks": "8",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "16eb3346-c182-550a-8af2-c8e002ae58ed",
+      "instrument": "City of Cockburn LPP 1.17 - Non-Residential Uses in Residential Zones",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "60c64d7c-8ac5-575b-8d79-9071c9e30e41",
+      "notes": "WP4 acquired (4 chunks, duplicate=False)",
+      "chunks": "4",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "f2ff9f28-25b5-5839-9cf8-0e8166a079b4",
+      "instrument": "City of Cockburn LPP 1.3 - Special Purpose Dwellings",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "ec7940aa-1b94-5938-817b-a3d7f5e73152",
+      "notes": "WP4 acquired (6 chunks, duplicate=False)",
+      "chunks": "6",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "dbc9d99f-5b83-5e3d-b037-815f719add0e",
+      "instrument": "City of Cockburn LPP 2.1 - Rural Subdivision and Development",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "c7e5b5ed-2f4f-5931-8a64-beb315d84a45",
+      "notes": "WP4 acquired (25 chunks, duplicate=False)",
+      "chunks": "25",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "49650236-b922-5aa6-a9a3-f68fe3674004",
+      "instrument": "City of Cockburn LPP 3.5 - Alfresco Dining",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "a9737ad9-d7ae-5394-9737-7595547f2011",
+      "notes": "WP4 acquired (6 chunks, duplicate=False)",
+      "chunks": "6",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "bb22d4e1-f015-55d8-b9bc-4038afaa84b6",
+      "instrument": "City of Cockburn LPP 3.8 - Industrial Subdivision and Development",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "55e8759f-5490-50c2-ace0-eff2ae1b0573",
+      "notes": "WP4 acquired (23 chunks, duplicate=False)",
+      "chunks": "23",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "8aa2c461-2694-5e98-82fa-b9118f304d41",
+      "instrument": "City of Cockburn LPP 4.4 - Heritage Conservation Design Guidelines",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "58b90130-d2be-5776-a72f-80d9d7d357d1",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "45ada556-003d-5ad5-bcf8-33d92f87d77e",
+      "instrument": "City of Cockburn LPP 5.1 - Development of the Public Realm",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "efcf981a-3a86-5eea-a8f8-b9244a3fa184",
+      "notes": "WP4 acquired (25 chunks, duplicate=False)",
+      "chunks": "25",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "d696a5a4-5d91-54d7-ba8c-e9edd6a02c6f",
+      "instrument": "City of Cockburn LPP 5.18 - Subdivision and Development - Street Trees",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "7fa612c6-aedf-5b15-a526-1b849118c573",
+      "notes": "WP4 acquired (6 chunks, duplicate=False)",
+      "chunks": "6",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "07cd1f97-87e7-5238-9e0c-20fba4ff81d1",
+      "instrument": "City of Cockburn LPP 5.22 - Environmental Conservation",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "54175015-069b-5ddc-8b3f-68e540f7c49d",
+      "notes": "WP4 acquired (5 chunks, duplicate=False)",
+      "chunks": "5",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "72bf7d1e-b51c-5c7a-bdc0-7bb4f3e85557",
+      "instrument": "City of Cockburn LPP 5.5 - Local Development Plans",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "322bbd3c-ea01-5f26-91fe-faf40dbf1d8b",
+      "notes": "WP4 acquired (4 chunks, duplicate=False)",
+      "chunks": "4",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "b7cfdf34-bb0b-5b89-ae4b-abdfc83bc4e6",
+      "instrument": "City of Melville LPP 1.1 - Planning Process and Decision Making",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "74709ab1-e2fe-5ad1-ab0f-7e9df6051d4d",
+      "notes": "WP4 acquired (41 chunks, duplicate=False)",
+      "chunks": "41",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "42b5032b-3e63-5ba9-9e3a-d7b16c09cf40",
+      "instrument": "City of Melville LPP 1.7 - Telecommunications Facilities and Communications Equipment",
+      "category": "local_planning_policy",
+      "status": "acquired",
+      "doc_id": "4f0ac61d-6a19-5e83-b878-8b36f46d393c",
+      "notes": "WP4 acquired (7 chunks, duplicate=False)",
+      "chunks": "7",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "8493b758-1d50-5fc4-a811-8406ed8b321a",
+      "instrument": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "category": "local_planning_scheme",
+      "status": "acquired",
+      "doc_id": "5c0fb323-f6f6-5651-912f-d6c151dd4220",
+      "notes": "WP4 acquired (91 chunks, duplicate=False)",
+      "chunks": "91",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "21304b46-8115-54aa-92af-46c5dba16cb3",
+      "instrument": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "category": "regulations",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "f6b98ddb-b589-56e2-b207-1bc483462fb2",
+      "instrument": "Planning and Development Regulations 2009",
+      "category": "regulations",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'charmap' codec can't encode character '\\u27a4' in position 168: character maps to <undefined>. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    },
+    {
+      "manifest_id": "4c391a01-4702-579f-b0b4-0e7262296d57",
+      "instrument": "State Planning Policy 2.9 - Water",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "e8bf840e-201f-5710-9037-d7409e505ed7",
+      "notes": "WP4 acquired (12 chunks, duplicate=False)",
+      "chunks": "12",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "2b4f5ddc-8a4e-5ed0-95a3-9a222e724da6",
+      "instrument": "State Planning Policy 3.6 - Infrastructure Contributions",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "2a876b8b-5e0f-58ac-a8b9-cb97c309a330",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "eb00fa3a-0c32-5a54-a95d-66a46d7fb8ab",
+      "instrument": "State Planning Policy 5.3 - Land Use Planning in the Vicinity of Jandakot Airport",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "7a35d100-9043-55f3-aa9a-c30a4e69a780",
+      "notes": "WP4 acquired (10 chunks, duplicate=False)",
+      "chunks": "10",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "3c0b87a5-77f7-5da8-9860-b562d8a76958",
+      "instrument": "State Planning Policy 7.2 - Precinct Design",
+      "category": "state_planning_policy",
+      "status": "acquired",
+      "doc_id": "103792e7-3a6e-55c1-874e-4097cbbfcf9b",
+      "notes": "WP4 acquired (15 chunks, duplicate=False)",
+      "chunks": "15",
+      "duplicate": "False"
+    },
+    {
+      "manifest_id": "7b69f715-4ddf-50d3-8c89-f8adfe3e3f98",
+      "instrument": "State Planning Policy 7.3 - Residential Design Codes Volume 2 - Apartments",
+      "category": "state_planning_policy",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "3 fetch attempts failed: 'utf-8' codec can't decode byte 0x96 in position 1965: invalid start byte. UNBLOCK: re-run scripts/wp4_acquire.py (or fix canonical_url)"
+    }
+  ]
+}
+

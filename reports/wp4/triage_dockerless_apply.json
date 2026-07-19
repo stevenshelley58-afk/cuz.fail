@@ -1,0 +1,462 @@
+{
+  "wp": "WP4",
+  "mode": "apply",
+  "rows_scanned": 56,
+  "changed": 41,
+  "by_recommendation": {
+    "pending": 15,
+    "blocked": 15,
+    "out_of_scope": 25,
+    "metadata_only": 1
+  },
+  "decisions": [
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument_name": "Planning and Development Act 2005",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "683f8658-ffc9-5c51-a7d0-e9c59d84769c",
+      "instrument_name": "City of Cockburn LPP 1.12 - Noise Attenuation",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "322eb433-e2de-552b-af72-70716325de1e",
+      "instrument_name": "City of Cockburn LPP 1.15 - Tourist Accommodation",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "592f459e-18a7-5d03-a98b-495281dae2d1",
+      "instrument_name": "City of Melville LPP 1.4 - Provision of Public Art in Development Proposals",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
+      "instrument_name": "Greater Bunbury Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "07931dc0-f5bd-55a6-ba83-27e1e404f426",
+      "instrument_name": "Metropolitan Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "cf3f9033-7107-59d4-b964-c65fa6599730",
+      "instrument_name": "Peel Region Scheme",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "21304b46-8115-54aa-92af-46c5dba16cb3",
+      "instrument_name": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "f43253ae-ae6d-5c1a-812b-e5355d6f7114",
+      "instrument_name": "Planning and Development (Planning Codes) Regulations 2024",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "a4c6b3da-cb07-55ff-a6d4-57fc3f259f63",
+      "instrument_name": "Planning and Development (Region Planning Schemes) Regulations 2023",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "dfbeedcc-38e8-538f-9241-d456519b9d10",
+      "instrument_name": "Planning and Development (State Planning Policies) Regulations 2024",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "f6b98ddb-b589-56e2-b207-1bc483462fb2",
+      "instrument_name": "Planning and Development Regulations 2009",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "0aaa6e02-d0da-5c22-82ce-aba9d1c771be",
+      "instrument_name": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+      "instrument_name": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "7b69f715-4ddf-50d3-8c89-f8adfe3e3f98",
+      "instrument_name": "State Planning Policy 7.3 - Residential Design Codes Volume 2 - Apartments",
+      "current_status": "blocked",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+      "instrument_name": "Aboriginal Affairs Planning Authority Act 1972",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "abc14fd6-c00f-52ad-8a60-8bda2c14037b",
+      "instrument_name": "Aboriginal Communities Act 1979",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "d312ba9e-141f-524d-b9cf-cb3494cef349",
+      "instrument_name": "Building Act 2011",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "c91c6522-2228-588b-b12a-3bba69595d4a",
+      "instrument_name": "Child Care Services Act 2007",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "6db88a88-912c-53b8-9785-a32ac26623e2",
+      "instrument_name": "Commonwealth Telecommunications Act 1997",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "7493cd5a-494c-555e-a3b2-fff6de800a7b",
+      "instrument_name": "Community Titles Act 2018",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "4892e92d-69be-5098-9414-e5ed9aa7106c",
+      "instrument_name": "Contaminated Sites Act 2003",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "20e5df7a-f123-518e-a6bb-77c200b82b37",
+      "instrument_name": "Environmental Protection Act 1986",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "fda5cd89-1bee-54aa-931c-da5e2c561030",
+      "instrument_name": "Framework STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "3a6e9a0a-9c6b-58e4-b202-806d20b06632",
+      "instrument_name": "Guidelines STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "f6ced431-9017-5061-8866-db6aea92d7cd",
+      "instrument_name": "Health Act 1911",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "4dcf522b-b4f2-52e8-bc7e-37ea1ea506f4",
+      "instrument_name": "Heritage of Western Australia Act 1990",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "5902b77a-2eb1-560c-975e-96ce199b5326",
+      "instrument_name": "Hospitals and Health Services Act 1927",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "82c5cabb-963b-5a64-91e8-ebdb5c733788",
+      "instrument_name": "Land Tax Assessment Act 2002",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "abb541b7-3e2e-5d8d-864d-5a81c76e26dd",
+      "instrument_name": "Liquor Control Act 1988",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "3c0f4723-7496-5726-a664-ffa9078a3448",
+      "instrument_name": "Local Government Act 1995",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "e41007c3-f020-5cbc-9ae0-a974dee15750",
+      "instrument_name": "Main Roads Act 1930",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "a18b7fa4-03f7-5992-a3b2-cc2b0aa599b7",
+      "instrument_name": "Planning and Development Amendment Act 2023",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "03672ce0-5aa1-5737-a719-86dc1dcd18bf",
+      "instrument_name": "Policy Scope Under the Telecommunications Act 1997",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "b80a39d3-51c0-563c-b333-a9ff2eb034b6",
+      "instrument_name": "Racing and Wagering Western Australia Act 2003",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "cfa8aa02-0932-5bbb-8f46-22bc6e0367ac",
+      "instrument_name": "Significant Development Pathway Planning and Development Amendment Act 2023",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "29fd5845-64ea-5d1e-8053-540164f9ae3a",
+      "instrument_name": "State Administrative Tribunal Act 2004",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "77ae40c5-2b6e-55aa-a423-ddd7f68a68ba",
+      "instrument_name": "STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "ed7c54c3-4c40-5ccc-b252-208f390c225a",
+      "instrument_name": "Statements STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "753723be-c47d-56db-9267-04a10aa743cc",
+      "instrument_name": "Strata Titles Act 1985",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "4ba378ee-cb83-512e-924f-49c314447e2a",
+      "instrument_name": "Strata Titles Act 1995",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "9f97363f-7a3b-52d4-9255-b6dcd7087aa7",
+      "instrument_name": "Strategies STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "bc6af9bd-0a63-5ffd-bbbf-67d3f69890d7",
+      "instrument_name": "Telecommunications Act 1997",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "51ec4167-bfd9-5210-bbd1-0faa4aca5295",
+      "instrument_name": "The Interpretation Act 1984",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "ce9c2278-d128-5d86-8c58-12f0fe584c4c",
+      "instrument_name": "The Planning and Development Act 2005",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "47ed201a-4575-5146-a3c7-f6bcb922251d",
+      "instrument_name": "Transfer of Land Act 1893",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "c3a23a33-ea88-54ee-8ee3-b51843da51d1",
+      "instrument_name": "WA Biodiversity Conservation Act 2016",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "bd14b429-a62f-5a77-b1a7-e04648d2bf11",
+      "instrument_name": "Local Planning Scheme No 6",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "2c83f1bb-6f06-5873-8234-f0ae18ddd64e",
+      "instrument_name": "Local Planning Scheme No.6",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "c720aad7-c82d-52bd-bf63-12ba0cc3c35b",
+      "instrument_name": "Amendment Regulations 2025",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "7ba62e3c-9980-5e6e-9eb1-59ea38936877",
+      "instrument_name": "Community Titles Regulations 2021",
+      "current_status": "pending",
+      "recommended_status": "out_of_scope",
+      "reason": "Cited WA legislation outside declared planning/building corpus scope.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "8fb1dfe5-1e2b-5f29-be1d-c4464f0b5368",
+      "instrument_name": "Planning and Development Regulations 2015",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "af539d04-5945-541b-9e57-ba2d8cc0e9e1",
+      "instrument_name": "AS/NZS 2890.1",
+      "current_status": "pending",
+      "recommended_status": "metadata_only",
+      "reason": "Likely Standards Australia or paid/licensed standard; full text not stored.",
+      "unblock": null
+    },
+    {
+      "manifest_id": "72bcc5d6-0551-5897-8537-c620e65818d8",
+      "instrument_name": "State Planning Policy 2.3",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "57ec32cd-5515-5840-9861-1c0f924a61b3",
+      "instrument_name": "State Planning Policy 4.3",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "0b521284-4667-54c8-b8d5-05e09cc9cfea",
+      "instrument_name": "State Planning Policy 7.1",
+      "current_status": "pending",
+      "recommended_status": "blocked",
+      "reason": "No resolvable canonical_url for an in-scope or ambiguous planning instrument.",
+      "unblock": "Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "wp": "WP4",
+  "worker": "wp4-WIN-JA4C8FOQU9T",
+  "claim_status": "blocked",
+  "processed": 5,
+  "summary": {
+    "acquired": 0,
+    "metadata_only": 0,
+    "blocked": 5,
+    "errors": 0
+  },
+  "manifest_status_after": {
+    "acquired": 202,
+    "blocked": 30,
+    "metadata_only": 11,
+    "out_of_scope": 42
+  },
+  "items": [
+    {
+      "manifest_id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+      "instrument": "Aboriginal Affairs Planning Authority Act 1972",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "No canonical_url \u2014 needs discovery. UNBLOCK: set canonical_url, reset status='pending', re-run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+      "instrument": "Aboriginal Affairs Planning Authority Act 1972",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "No canonical_url \u2014 needs discovery. UNBLOCK: set canonical_url, reset status='pending', re-run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+      "instrument": "Aboriginal Affairs Planning Authority Act 1972",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "No canonical_url \u2014 needs discovery. UNBLOCK: set canonical_url, reset status='pending', re-run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+      "instrument": "Aboriginal Affairs Planning Authority Act 1972",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "No canonical_url \u2014 needs discovery. UNBLOCK: set canonical_url, reset status='pending', re-run scripts/wp4_acquire.py"
+    },
+    {
+      "manifest_id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+      "instrument": "Aboriginal Affairs Planning Authority Act 1972",
+      "category": "act",
+      "status": "blocked",
+      "doc_id": "None",
+      "notes": "No canonical_url \u2014 needs discovery. UNBLOCK: set canonical_url, reset status='pending', re-run scripts/wp4_acquire.py"
+    }
+  ]
+}

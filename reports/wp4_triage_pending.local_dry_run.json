@@ -1,0 +1,771 @@
+{
+  "wp": "WP4",
+  "mode": "dry_run",
+  "rows_scanned": 95,
+  "changed": 0,
+  "by_recommendation": {
+    "pending": 95
+  },
+  "decisions": [
+    {
+      "manifest_id": "98ccfbd5-e073-5533-80ed-a25b46b7b23c",
+      "instrument_name": "Planning and Development Act 2005",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "3916b22a-17f8-53cb-9f9a-0711ddb44f87",
+      "instrument_name": "National Construction Code 2025 Housing Provisions Standard",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "45d5dbdd-dc43-50ee-b7c6-4937c822d1a0",
+      "instrument_name": "National Construction Code 2025 Volume One",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "ab7ee2e8-e7cf-5c50-97b4-f758ed02ca7a",
+      "instrument_name": "National Construction Code 2025 Volume Three",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "41eb38f2-e507-5088-a5f4-ef723d1cb282",
+      "instrument_name": "National Construction Code 2025 Volume Two",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "7b467dab-07db-53d3-811d-23c0f0f44e4b",
+      "instrument_name": "Development Control Policy 1.10 - Freeway service centres, roadhouses incl signage",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "4feb7abe-026b-59e5-87ba-ab369cf7a93e",
+      "instrument_name": "Development Control Policy 1.11 - Community schemes",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "a049da96-4e19-5135-b0a9-1cbdbb103563",
+      "instrument_name": "Development Control Policy 1.3 - Strata titles",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "c526e188-466c-5dd1-a7bf-f5c210a1b998",
+      "instrument_name": "Development Control Policy 1.5 - Bicycle Planning",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "3c0c3f24-d1d5-53be-8cbe-6e0db3f18039",
+      "instrument_name": "Development Control Policy 1.6 - Planning to support transit use and development",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "36608657-574d-5cc0-8514-a077f730b0cb",
+      "instrument_name": "Development Control Policy 1.7 - General road planning",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "1dccb02b-8483-510b-9fc1-692739761668",
+      "instrument_name": "Development Control Policy 1.8 - Canal estates and artificial waterway developments",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "4e5054e0-590e-5486-828c-ec54e683e447",
+      "instrument_name": "Development Control Policy 2.2 - Residential subdivision",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "8da54e3c-731a-54c1-82d8-1c2b01fc4130",
+      "instrument_name": "Development Control Policy 2.4 - School sites",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "1045ff87-cef6-5087-a695-4cef4991468f",
+      "instrument_name": "Development Control Policy 2.6 - Residential road planning",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "d9c27338-e7d3-542a-a087-8276e3d6d1a1",
+      "instrument_name": "Development Control Policy 3.4 - Subdivision of rural land",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "4e072e46-7f82-5d84-b694-256723f000d6",
+      "instrument_name": "Development Control Policy 4.1 - Industrial subdivision",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "050407ee-9cd0-50ca-a8c2-100dad71fe45",
+      "instrument_name": "Development Control Policy 4.2 - Planning for hazards and safety",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "ca9876a9-ef48-51f1-8c7e-2a4173954ad8",
+      "instrument_name": "Development Control Policy 5.1 - Regional roads (vehicular access)",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "94479dda-1322-5196-835d-89ae218e6c31",
+      "instrument_name": "Development Control Policy 5.3 - Use of land reserved for parks, recreation and regional open space",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "c1bef617-0b6f-5d64-8ade-6406aa5d6931",
+      "instrument_name": "Development Control Policy 5.4 - Advertising on reserved land",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "0c5a0ddd-9f52-5e34-be72-2c22965aa928",
+      "instrument_name": "Operational Policy 1.1 - Subdivision of land - general principles",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "78297543-3b47-57c5-9d2c-3e279a305206",
+      "instrument_name": "City of Cockburn LPP 1.10 - Planning Around Mosquito and Midge Infested Wetlands",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "683f8658-ffc9-5c51-a7d0-e9c59d84769c",
+      "instrument_name": "City of Cockburn LPP 1.12 - Noise Attenuation",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "390accb0-35aa-5f1e-88d6-f53f0f78c500",
+      "instrument_name": "City of Cockburn LPP 1.14 - Waste Management",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "322eb433-e2de-552b-af72-70716325de1e",
+      "instrument_name": "City of Cockburn LPP 1.15 - Tourist Accommodation",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "bb52302f-c66a-5a80-8efa-cabeae56a0dc",
+      "instrument_name": "City of Cockburn LPP 1.16 - Single House Standards for Medium Density Housing in the Development Zone",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "16eb3346-c182-550a-8af2-c8e002ae58ed",
+      "instrument_name": "City of Cockburn LPP 1.17 - Non-Residential Uses in Residential Zones",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "7e1ac7df-cf0c-58dd-a065-088ed41f9c02",
+      "instrument_name": "City of Cockburn LPP 1.2 - Residential Design Guidelines",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "f2ff9f28-25b5-5839-9cf8-0e8166a079b4",
+      "instrument_name": "City of Cockburn LPP 1.3 - Special Purpose Dwellings",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "425b4023-45be-5932-9c42-473d43324e41",
+      "instrument_name": "City of Cockburn LPP 1.8 - Design Requirements for Incidental Structures",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "dbc9d99f-5b83-5e3d-b037-815f719add0e",
+      "instrument_name": "City of Cockburn LPP 2.1 - Rural Subdivision and Development",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "476218fc-e930-50f3-ad1e-06edb19892f9",
+      "instrument_name": "City of Cockburn LPP 3.1 - Commercial Development",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "49650236-b922-5aa6-a9a3-f68fe3674004",
+      "instrument_name": "City of Cockburn LPP 3.5 - Alfresco Dining",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "c8ec2295-a152-5cba-bf88-a486f7d74954",
+      "instrument_name": "City of Cockburn LPP 3.7 - Signs & Advertising",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "bb22d4e1-f015-55d8-b9bc-4038afaa84b6",
+      "instrument_name": "City of Cockburn LPP 3.8 - Industrial Subdivision and Development",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "7afca72d-d4cd-5681-9060-759deb237cc8",
+      "instrument_name": "City of Cockburn LPP 4.2 - Cockburn Central North (Muriel Court) Structure Plan - Design Guidelines",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "b25e88b7-b767-558b-80e3-0d1b39adcd61",
+      "instrument_name": "City of Cockburn LPP 4.3 - Newmarket Precinct Design Guidelines",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "8aa2c461-2694-5e98-82fa-b9118f304d41",
+      "instrument_name": "City of Cockburn LPP 4.4 - Heritage Conservation Design Guidelines",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "abba041d-1c8e-5b40-8de4-43752e1fedc7",
+      "instrument_name": "City of Cockburn LPP 4.5 - Naval Base Holiday Park Heritage Area",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "cdd5bc86-30bf-575d-b4eb-65962d948ebf",
+      "instrument_name": "City of Cockburn LPP 4.6 - Cockburn Coast Design Guidelines for Robb Jetty & Emplacement Precincts",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "294ef6b2-fd7a-5769-8ca6-4c1b79e1124a",
+      "instrument_name": "City of Cockburn LPP 4.7 - Phoenix Activity Centre Design Guidelines",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "45ada556-003d-5ad5-bcf8-33d92f87d77e",
+      "instrument_name": "City of Cockburn LPP 5.1 - Development of the Public Realm",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "2fec153f-1b49-5abc-b87b-67a03f67cc67",
+      "instrument_name": "City of Cockburn LPP 5.11 - Filling and Retaining of Land",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "92ed3cde-7617-5cf8-b084-c15794288016",
+      "instrument_name": "City of Cockburn LPP 5.13 - Percent for Art",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "f0f5e161-aee9-512c-9550-085c9210c215",
+      "instrument_name": "City of Cockburn LPP 5.16 - Design Review Panel",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "d696a5a4-5d91-54d7-ba8c-e9edd6a02c6f",
+      "instrument_name": "City of Cockburn LPP 5.18 - Subdivision and Development - Street Trees",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "af16777a-d1e6-5dd1-bdfa-e1d1c2110b6e",
+      "instrument_name": "City of Cockburn LPP 5.21 - Temporary Events",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "07cd1f97-87e7-5238-9e0c-20fba4ff81d1",
+      "instrument_name": "City of Cockburn LPP 5.22 - Environmental Conservation",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "34a63746-26af-5c78-b82c-fb749b7c010c",
+      "instrument_name": "City of Cockburn LPP 5.3 - Engineering, Drainage and Construction Standards",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "cbd81b4e-c453-5494-bec2-7af6a826ff61",
+      "instrument_name": "City of Cockburn LPP 5.4 - Utility Infrastructure",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "72bf7d1e-b51c-5c7a-bdc0-7bb4f3e85557",
+      "instrument_name": "City of Cockburn LPP 5.5 - Local Development Plans",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "dfa37f71-83aa-55e1-b660-fcef9cffcaee",
+      "instrument_name": "City of Cockburn LPP 5.6 - Vehicle Access",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "84bb874d-8f46-5ae4-ab5f-3d1af616dde5",
+      "instrument_name": "City of Cockburn LPP 5.8 - Sea Containers",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "b7cfdf34-bb0b-5b89-ae4b-abdfc83bc4e6",
+      "instrument_name": "City of Melville LPP 1.1 - Planning Process and Decision Making",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "5972f86b-10d9-5c4e-bd62-9992785a6b7b",
+      "instrument_name": "City of Melville LPP 1.10 - Amenity Policy",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "c15da45c-47aa-5acb-a811-c6c420f55454",
+      "instrument_name": "City of Melville LPP 1.2 - Design Review Panel",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "592f459e-18a7-5d03-a98b-495281dae2d1",
+      "instrument_name": "City of Melville LPP 1.4 - Provision of Public Art in Development Proposals",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "cd790d9f-a23f-546e-a0d8-16ab82934b3b",
+      "instrument_name": "City of Melville LPP 1.6 - Parking and Access",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "42b5032b-3e63-5ba9-9e3a-d7b16c09cf40",
+      "instrument_name": "City of Melville LPP 1.7 - Telecommunications Facilities and Communications Equipment",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "7bee4fd0-d4af-5141-99a8-ac55e908c62f",
+      "instrument_name": "City of Melville LPP 3.3 - Exhibition and Display Homes",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "8493b758-1d50-5fc4-a811-8406ed8b321a",
+      "instrument_name": "City of Melville Local Planning Scheme No. 6 - Scheme Text",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
+      "instrument_name": "Greater Bunbury Region Scheme",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "07931dc0-f5bd-55a6-ba83-27e1e404f426",
+      "instrument_name": "Metropolitan Region Scheme",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "cf3f9033-7107-59d4-b964-c65fa6599730",
+      "instrument_name": "Peel Region Scheme",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "21304b46-8115-54aa-92af-46c5dba16cb3",
+      "instrument_name": "Planning and Development (Local Planning Schemes) Regulations 2015",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "f43253ae-ae6d-5c1a-812b-e5355d6f7114",
+      "instrument_name": "Planning and Development (Planning Codes) Regulations 2024",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "a4c6b3da-cb07-55ff-a6d4-57fc3f259f63",
+      "instrument_name": "Planning and Development (Region Planning Schemes) Regulations 2023",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "dfbeedcc-38e8-538f-9241-d456519b9d10",
+      "instrument_name": "Planning and Development (State Planning Policies) Regulations 2024",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "f6b98ddb-b589-56e2-b207-1bc483462fb2",
+      "instrument_name": "Planning and Development Regulations 2009",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "0aaa6e02-d0da-5c22-82ce-aba9d1c771be",
+      "instrument_name": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "e7f7ef23-b4bd-5c02-a775-e0e4a46e75af",
+      "instrument_name": "State Planning Policy 1 - State Planning Framework",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "da5b6938-f8be-5ed8-bdc8-e36c9459ac58",
+      "instrument_name": "State Planning Policy 2.0 - Environment and Natural Resources",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "ca27869f-a5ff-5e30-996f-ab993b4fe8b9",
+      "instrument_name": "State Planning Policy 2.4 - Planning for Basic Raw Materials",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "41327c93-7b27-5aca-a12a-cc241d469eee",
+      "instrument_name": "State Planning Policy 2.5 - Rural Planning",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "75cef0e1-f58e-5576-92f0-d9f3b2c9759d",
+      "instrument_name": "State Planning Policy 2.6 - State Coastal Planning Policy",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "6820a32d-1c69-5759-bccd-8a7f10d149e3",
+      "instrument_name": "State Planning Policy 2.8 - Bushland Policy for the Perth Metropolitan Region",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "4c391a01-4702-579f-b0b4-0e7262296d57",
+      "instrument_name": "State Planning Policy 2.9 - Water",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "7b080bb7-1f7f-559f-9a2d-9547cc0e64cc",
+      "instrument_name": "State Planning Policy 3.0 - Urban Growth and Settlement",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "0a7be17c-90fc-5a7e-b662-f51b3f301d8c",
+      "instrument_name": "State Planning Policy 3.2 - Aboriginal Settlements",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "d8c5cb55-3034-5df5-b518-a704c404ceb0",
+      "instrument_name": "State Planning Policy 3.4 - Natural Hazards and Disasters",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "d80d3c74-5cc7-5755-96a2-4d2c322f7b1e",
+      "instrument_name": "State Planning Policy 3.5 - Historic Heritage Conservation",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "2b4f5ddc-8a4e-5ed0-95a3-9a222e724da6",
+      "instrument_name": "State Planning Policy 3.6 - Infrastructure Contributions",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "551e7fb8-cad6-52b9-95c5-2bbc6543cde4",
+      "instrument_name": "State Planning Policy 3.7 - Planning in Bushfire Prone Areas",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "3e610b17-ed5a-5bca-831b-ea9aefa8692a",
+      "instrument_name": "State Planning Policy 4.2 - Activity Centres for Perth and Peel",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "15c8f3be-b0c7-5bdf-8191-7236860c4145",
+      "instrument_name": "State Planning Policy 5.1 - Land Use Planning in the Vicinity of Perth Airport",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "158f547c-4f0a-50c4-a4be-5acb46e0390d",
+      "instrument_name": "State Planning Policy 5.2 - Telecommunications Infrastructure",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "eb00fa3a-0c32-5a54-a95d-66a46d7fb8ab",
+      "instrument_name": "State Planning Policy 5.3 - Land Use Planning in the Vicinity of Jandakot Airport",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "f181f64c-3dd5-58fd-945a-ab0069585263",
+      "instrument_name": "State Planning Policy 5.4 - Road and Rail Noise",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "da66ad88-471d-56a2-89de-19f8a18f536f",
+      "instrument_name": "State Planning Policy 6.1 - Leeuwin-Naturaliste Ridge",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "feff1d8d-adf7-511c-abfb-72f2c8a4539d",
+      "instrument_name": "State Planning Policy 6.3 - Ningaloo Coast",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "f215b646-4f1b-5806-9de7-c4f30faf18bb",
+      "instrument_name": "State Planning Policy 7.0 - Design of the Built Environment",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "3c0b87a5-77f7-5da8-9860-b562d8a76958",
+      "instrument_name": "State Planning Policy 7.2 - Precinct Design",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "fff68390-38c1-507b-a72d-046e4f6b87be",
+      "instrument_name": "State Planning Policy 7.3 - Residential Design Codes Volume 1",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    },
+    {
+      "manifest_id": "7b69f715-4ddf-50d3-8c89-f8adfe3e3f98",
+      "instrument_name": "State Planning Policy 7.3 - Residential Design Codes Volume 2 - Apartments",
+      "current_status": "pending",
+      "recommended_status": "pending",
+      "reason": "Has canonical_url; re-run WP4 acquisition.",
+      "unblock": "python scripts/wp4_acquire.py --limit 20"
+    }
+  ]
+}

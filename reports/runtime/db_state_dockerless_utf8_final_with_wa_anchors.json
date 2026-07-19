@@ -1,0 +1,2283 @@
+{
+  "db-state": {
+    "alembic_head": "0019_rule_decode_logic",
+    "expected_alembic_head": "0019_rule_decode_logic",
+    "extensions": [
+      "postgis",
+      "vector"
+    ],
+    "row_counts": {
+      "address_points": 0,
+      "adversarial_findings": 0,
+      "agent_memory": 0,
+      "alembic_version": 1,
+      "artifacts": 169,
+      "audit_events": 0,
+      "check_results": 0,
+      "check_runs": 0,
+      "clauses": 97,
+      "document_chunks": 0,
+      "document_facts": 0,
+      "document_pages": 0,
+      "documents": 0,
+      "eval_cases": 0,
+      "eval_runs": 0,
+      "exports": 0,
+      "governance_controls": 0,
+      "governance_findings": 0,
+      "governance_kpi_results": 0,
+      "governance_kpis": 0,
+      "governance_pipeline_steps": 0,
+      "governance_reviews": 0,
+      "governance_risks": 0,
+      "guest_usage": 0,
+      "instrument_aliases": 296,
+      "job_traces": 0,
+      "legal_edges": 484,
+      "lg_areas": 0,
+      "magic_link_tokens": 0,
+      "orgs": 2,
+      "parcels": 0,
+      "planning_features": 0,
+      "projects": 0,
+      "properties": 0,
+      "property_facts": 0,
+      "proposals": 0,
+      "resolved_rules": 0,
+      "response_drafts": 0,
+      "review_items": 30,
+      "rfi_items": 0,
+      "rule_candidates": 347,
+      "rule_clause_links": 0,
+      "rules": 0,
+      "sessions": 0,
+      "skill_versions": 0,
+      "source_chunks": 1140,
+      "source_citations": 1140,
+      "source_documents": 203,
+      "source_fetch_log": 102,
+      "source_reviews": 0,
+      "source_versions": 84,
+      "spatial_datasets": 0,
+      "spatial_ref_sys": 8500,
+      "spend_events": 264,
+      "target_manifest": 427,
+      "users": 2,
+      "validations": 0
+    },
+    "manifest_by_status": {
+      "acquired": 212,
+      "blocked": 23,
+      "metadata_only": 150,
+      "out_of_scope": 42
+    },
+    "manifest_by_category": {
+      "act": 36,
+      "building_code": 5,
+      "council_page": 170,
+      "dc_policy": 19,
+      "index_page": 6,
+      "local_development_plan": 2,
+      "local_planning_policy": 41,
+      "local_planning_scheme": 9,
+      "local_planning_strategy": 17,
+      "region_scheme": 3,
+      "regulations": 22,
+      "scheme_map": 24,
+      "spatial_layer": 10,
+      "standard": 2,
+      "state_planning_policy": 28,
+      "structure_plan": 33
+    },
+    "manifest_by_issuing_authority_top": [
+      {
+        "issuing_authority": "City of Cockburn",
+        "count": 84
+      },
+      {
+        "issuing_authority": "Government of Western Australia",
+        "count": 64
+      },
+      {
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "count": 62
+      },
+      {
+        "issuing_authority": "Western Australian Planning Commission",
+        "count": 49
+      },
+      {
+        "issuing_authority": "City of Melville",
+        "count": 9
+      },
+      {
+        "issuing_authority": "Australian Building Codes Board",
+        "count": 6
+      },
+      {
+        "issuing_authority": "DPLH (SLIP)",
+        "count": 3
+      },
+      {
+        "issuing_authority": "",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Heritage Council WA / DPLH (SLIP)",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Landgate",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Landgate (SLIP)",
+        "count": 2
+      },
+      {
+        "issuing_authority": "Standards Australia",
+        "count": 2
+      },
+      {
+        "issuing_authority": "City of Albany",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Armadale",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Bayswater",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Belmont",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Bunbury",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Busselton",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Canning",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Fremantle",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Gosnells",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Greater Geraldton",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Joondalup",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Kalamunda",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Kalgoorlie-Boulder",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Karratha",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Kwinana",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Mandurah",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Nedlands",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Perth",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Rockingham",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of South Perth",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Stirling",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Subiaco",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Swan",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Vincent",
+        "count": 1
+      },
+      {
+        "issuing_authority": "City of Wanneroo",
+        "count": 1
+      },
+      {
+        "issuing_authority": "DFES / Office of Bushfire Risk Management (SLIP)",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Department of Fire and Emergency Services",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Geoscape Australia",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Ashburton",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Augusta Margaret River",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Beverley",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Boddington",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Boyup Brook",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Bridgetown-Greenbushes",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Brookton",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Broome",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Broomehill- Tambellup",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Bruce Rock",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Capel",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Carnamah",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Carnarvon",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Chapman Valley",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Chittering",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Christmas Island",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Cocos (Keeling) Islands",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Collie",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Coolgardie",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Coorow",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Corrigin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Cranbrook",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Cuballing",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Cue",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Cunderdin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Dalwallinu",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Dandaragan",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Dardanup",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Denmark",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Derby-West Kimberley",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Donnybrook Balingup",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Dowerin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Dumbleyung",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Dundas",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of East Pilbara",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Esperance",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Exmouth",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Gingin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Gnowangerup",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Goomalling",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Halls Creek",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Harvey",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Irwin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Jerramungup",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Katanning",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Kellerberrin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Kent",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Kojonup",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Kondinin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Koorda",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Kulin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Lake Grace",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Laverton",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Leonora",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Manjimup",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Meekatharra",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Menzies",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Merredin",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Mingenew",
+        "count": 1
+      },
+      {
+        "issuing_authority": "Shire of Moora",
+        "count": 1
+      }
+    ],
+    "pending_manifest_sample": [],
+    "blocked_manifest_sample": [
+      {
+        "id": "e38515f5-bcfe-5387-abf2-b1cc28e1196e",
+        "instrument_name": "Aboriginal Affairs Planning Authority Act 1972",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "d312ba9e-141f-524d-b9cf-cb3494cef349",
+        "instrument_name": "Building Act 2011",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "fda5cd89-1bee-54aa-931c-da5e2c561030",
+        "instrument_name": "Framework STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "e15bfffd-9b7f-5732-a0cd-4c0dc4e68fe5",
+        "instrument_name": "Greater Bunbury Region Scheme",
+        "category": "region_scheme",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page (1 chunks from https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "3a6e9a0a-9c6b-58e4-b202-806d20b06632",
+        "instrument_name": "Guidelines STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "4dcf522b-b4f2-52e8-bc7e-37ea1ea506f4",
+        "instrument_name": "Heritage of Western Australia Act 1990",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "07931dc0-f5bd-55a6-ba83-27e1e404f426",
+        "instrument_name": "Metropolitan Region Scheme",
+        "category": "region_scheme",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page (1 chunks, duplicate=True from legislation subsidiary index). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "cf3f9033-7107-59d4-b964-c65fa6599730",
+        "instrument_name": "Peel Region Scheme",
+        "category": "region_scheme",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page (1 chunks, duplicate=True from legislation subsidiary index). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "21304b46-8115-54aa-92af-46c5dba16cb3",
+        "instrument_name": "Planning and Development (Local Planning Schemes) Regulations 2015",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page (1 chunks, duplicate=True from legislation subsidiary index). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "f43253ae-ae6d-5c1a-812b-e5355d6f7114",
+        "instrument_name": "Planning and Development (Planning Codes) Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page (1 chunks, duplicate=True from legislation subsidiary index). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "a4c6b3da-cb07-55ff-a6d4-57fc3f259f63",
+        "instrument_name": "Planning and Development (Region Planning Schemes) Regulations 2023",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page (1 chunks, duplicate=True from legislation subsidiary index). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "dfbeedcc-38e8-538f-9241-d456519b9d10",
+        "instrument_name": "Planning and Development (State Planning Policies) Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page (1 chunks, duplicate=True from legislation subsidiary index). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "f6b98ddb-b589-56e2-b207-1bc483462fb2",
+        "instrument_name": "Planning and Development Regulations 2009",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page (1 chunks, duplicate=True from legislation subsidiary index). UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "8fb1dfe5-1e2b-5f29-be1d-c4464f0b5368",
+        "instrument_name": "Planning and Development Regulations 2015",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "77ae40c5-2b6e-55aa-a423-ddd7f68a68ba",
+        "instrument_name": "STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "ed7c54c3-4c40-5ccc-b252-208f390c225a",
+        "instrument_name": "Statements STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "9f97363f-7a3b-52d4-9255-b6dcd7087aa7",
+        "instrument_name": "Strategies STATE PLANNING FRAMEWORK Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "2b837369-e1ce-5c49-b681-27f28108b7ff",
+        "instrument_name": "The Building Act 2011",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "ce9c2278-d128-5d86-8c58-12f0fe584c4c",
+        "instrument_name": "The Planning and Development Act 2005",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/main_mrtitle_722_homepage.html",
+        "notes": "Suspected landing page/low-signal alias target. UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "0aaa6e02-d0da-5c22-82ce-aba9d1c771be",
+        "instrument_name": "Town Planning (Height of Obstructions at Corners) General By-laws 1975",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "Suspected landing page/low-signal alias target. UNBLOCK: set canonical_url to the document itself (PDF), reset status='pending', re-run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "72bcc5d6-0551-5897-8537-c620e65818d8",
+        "instrument_name": "State Planning Policy 2.3",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "57ec32cd-5515-5840-9861-1c0f924a61b3",
+        "instrument_name": "State Planning Policy 4.3",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      },
+      {
+        "id": "0b521284-4667-54c8-b8d5-05e09cc9cfea",
+        "instrument_name": "State Planning Policy 7.1",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": null,
+        "notes": "WP4 triage: No resolvable canonical_url for an in-scope or ambiguous planning instrument. UNBLOCK: Set target_manifest.canonical_url to the official document URL, set status='pending', then run scripts/wp4_acquire.py"
+      }
+    ],
+    "metadata_only_manifest_sample": [
+      {
+        "id": "33431500-da88-58a3-92b9-0ea9e6fda232",
+        "instrument_name": "City of Albany official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Albany",
+        "canonical_url": "http://albany.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "b3109b38-c82f-5909-bf9c-8f40eacf5a06",
+        "instrument_name": "City of Armadale official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Armadale",
+        "canonical_url": "https://armadale.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "b1bea850-6551-5a1f-b761-95740137a9e7",
+        "instrument_name": "City of Bayswater official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Bayswater",
+        "canonical_url": "http://bayswater.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "72e3ac9b-3794-5547-a1a1-8e4ce7cb296a",
+        "instrument_name": "City of Belmont official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Belmont",
+        "canonical_url": "http://belmont.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "dd373a22-7311-59fd-a434-a8fee4ca1e09",
+        "instrument_name": "City of Bunbury official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Bunbury",
+        "canonical_url": "http://bunbury.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "ac9b7ee4-86e0-592d-aee6-2a0d8c7a3d83",
+        "instrument_name": "City of Busselton official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Busselton",
+        "canonical_url": "https://busselton.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "4a0d13a7-f8a7-5b70-bd60-6b3854a3cb25",
+        "instrument_name": "City of Canning official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Canning",
+        "canonical_url": "https://canning.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "91852da7-7f60-58c9-beef-e71727ca4e27",
+        "instrument_name": "City of Cockburn official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Cockburn",
+        "canonical_url": "https://cockburn.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "7559fc64-6364-5f42-8f7a-ea4043230f56",
+        "instrument_name": "City of Fremantle official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Fremantle",
+        "canonical_url": "https://fremantle.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "a7b2d747-f575-50b7-8b41-9d964420c416",
+        "instrument_name": "City of Gosnells official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Gosnells",
+        "canonical_url": "https://gosnells.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "74a47618-50a3-525c-adf4-4067d0ba4b56",
+        "instrument_name": "City of Greater Geraldton official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Greater Geraldton",
+        "canonical_url": "https://cgg.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "1e93b3ef-08ca-5e5e-9a2d-5c0816470cd5",
+        "instrument_name": "City of Joondalup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Joondalup",
+        "canonical_url": "https://joondalup.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "51632823-7294-568c-b386-221d1e0a1c27",
+        "instrument_name": "City of Kalamunda official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Kalamunda",
+        "canonical_url": "http://kalamunda.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "379aed62-8e73-5cee-8b11-14f12cdc53de",
+        "instrument_name": "City of Kalgoorlie-Boulder official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Kalgoorlie-Boulder",
+        "canonical_url": "https://ckb.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "d57bfc91-7c0c-5521-bdb8-f63fce5cc464",
+        "instrument_name": "City of Karratha official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Karratha",
+        "canonical_url": "http://karratha.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "93cc8bee-904c-583c-b7b7-bb8edd6550d0",
+        "instrument_name": "City of Kwinana official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Kwinana",
+        "canonical_url": "https://kwinana.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "36da55b5-8211-5e45-8ef4-5f54e8a11a3e",
+        "instrument_name": "City of Mandurah official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Mandurah",
+        "canonical_url": "https://mandurah.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "d72eca93-7900-57f6-b794-ada58d0ccd0b",
+        "instrument_name": "City of Melville official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Melville",
+        "canonical_url": "https://melvillecity.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "37cf5ccf-29ec-5523-82d7-171b8a6da73d",
+        "instrument_name": "City of Nedlands official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Nedlands",
+        "canonical_url": "https://nedlands.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "c522ccca-55ed-58fb-be11-3eafd771b36a",
+        "instrument_name": "City of Perth official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Perth",
+        "canonical_url": "https://perth.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "45c11635-3cb0-5984-a857-6a598ef4fab9",
+        "instrument_name": "City of Rockingham official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Rockingham",
+        "canonical_url": "http://rockingham.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "431222b2-9293-5a88-9021-b5ee0f57e5ee",
+        "instrument_name": "City of South Perth official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of South Perth",
+        "canonical_url": "https://southperth.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "fd613cb9-ed7e-5097-91a2-200cb511c10c",
+        "instrument_name": "City of Stirling official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Stirling",
+        "canonical_url": "https://stirling.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "4563fb82-cd5e-5089-b5c6-0b318793404c",
+        "instrument_name": "City of Subiaco official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Subiaco",
+        "canonical_url": "https://subiaco.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "3914eb4b-4920-5636-9c92-259ee6e494de",
+        "instrument_name": "City of Swan official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Swan",
+        "canonical_url": "https://swan.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "9bb4b21a-e1dc-5140-a4e8-4a1fec8b32d5",
+        "instrument_name": "City of Vincent official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Vincent",
+        "canonical_url": "https://vincent.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "7cfd6b62-d48b-5eaa-a7d9-5a3aaa29508b",
+        "instrument_name": "City of Wanneroo official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "City of Wanneroo",
+        "canonical_url": "https://wanneroo.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "391a6da3-c90e-5a61-a091-4f3daf6d8361",
+        "instrument_name": "Bush Fire Prone Areas 2025 OBRM-024",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Fire and Emergency Services",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/bush-fire-prone-areas-2025",
+        "notes": "Open CC BY 4.0; free SLIP login for vectors"
+      },
+      {
+        "id": "86958dff-1b2d-5ece-9d32-06959a26c454",
+        "instrument_name": "Heritage Council State Register DPLH-006",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/heritage-council-wa-state-register",
+        "notes": "Open"
+      },
+      {
+        "id": "c92d6290-0846-5662-be69-6fcaeda20b31",
+        "instrument_name": "Heritage List DPLH-090",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/heritage-list-dplh-090",
+        "notes": "Open"
+      },
+      {
+        "id": "7372c952-bbde-5102-b450-a5e7a4c3f274",
+        "instrument_name": "LPS R-Codes DPLH-070",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-r-codes-dop-101",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "e2ab6aeb-ff49-51d2-883b-7c574991ed6d",
+        "instrument_name": "LPS Special Control Areas DPLH-068",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-special-area-dop-090",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "7f13e5b9-a39b-5d2e-b9b5-2bb4562421d6",
+        "instrument_name": "LPS Zones and Reserves DPLH-071",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/local-planning-scheme-zones-and-reserves-dop-025",
+        "notes": "WMS open; bulk vector Government-Use-Only. Unblock: email spatialdata@dplh.wa.gov.au"
+      },
+      {
+        "id": "cb71dc2f-5a2f-5b47-aec1-0bd14c3a2043",
+        "instrument_name": "Region Scheme Zones and Reserves DPLH-023",
+        "category": "spatial_layer",
+        "issuing_authority": "Department of Planning, Lands and Heritage",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/region-scheme-zones-and-reserves-dop-072",
+        "notes": "Display free; vector restricted"
+      },
+      {
+        "id": "2923b0b0-bbc8-58dd-89b4-5341c5779cb1",
+        "instrument_name": "Cadastre (No Attributes) - SLIP public",
+        "category": "spatial_layer",
+        "issuing_authority": "Landgate",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/cadastre-polygon",
+        "notes": "Public geometry tier; free SLIP account"
+      },
+      {
+        "id": "6c7827fe-b510-5911-b801-249ada27e754",
+        "instrument_name": "Cadastre (Polygon) LGATE-217",
+        "category": "spatial_layer",
+        "issuing_authority": "Landgate",
+        "canonical_url": "https://catalogue.data.wa.gov.au/dataset/cadastre-polygon",
+        "notes": "Fees apply \u00e2\u20ac\u201d subscription. Unblock: email customerexperience@landgate.wa.gov.au"
+      },
+      {
+        "id": "15726d62-5489-5b02-9e98-5921b6ea2c45",
+        "instrument_name": "Shire of Ashburton official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Ashburton",
+        "canonical_url": "https://ashburton.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "79bbb7d6-53bc-56ec-bfdd-82a9016792e6",
+        "instrument_name": "Shire of Augusta Margaret River official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Augusta Margaret River",
+        "canonical_url": "https://amrshire.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "a6308d78-67ae-53fc-a05e-70864f7a3873",
+        "instrument_name": "Shire of Beverley official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Beverley",
+        "canonical_url": "https://beverley.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "bdfa8852-aa80-5f50-a2b4-596f3afa157b",
+        "instrument_name": "Shire of Boddington official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Boddington",
+        "canonical_url": "https://boddington.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "b9f86e0e-668a-5b7e-9ee1-a6790a3d8a1a",
+        "instrument_name": "Shire of Boyup Brook official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Boyup Brook",
+        "canonical_url": "https://boyupbrook.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "bbdf9368-6fd9-5d71-b4b9-726f2c0fd158",
+        "instrument_name": "Shire of Bridgetown-Greenbushes official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Bridgetown-Greenbushes",
+        "canonical_url": "https://bridgetown.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f84a2260-35fc-5d18-a0d1-e660ea60f525",
+        "instrument_name": "Shire of Brookton official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Brookton",
+        "canonical_url": "https://brookton.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "9cda45cb-70fc-564f-8b61-b47e192ecfa0",
+        "instrument_name": "Shire of Broome official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Broome",
+        "canonical_url": "http://broome.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "56121f99-6497-5589-a8b3-919caa96a805",
+        "instrument_name": "Shire of Broomehill- Tambellup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Broomehill- Tambellup",
+        "canonical_url": "http://shirebt.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "1b79726a-6af7-566d-883f-ffb849413581",
+        "instrument_name": "Shire of Bruce Rock official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Bruce Rock",
+        "canonical_url": "https://brucerock.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "6f12b0ad-cd1e-5160-9344-690bf498328a",
+        "instrument_name": "Shire of Capel official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Capel",
+        "canonical_url": "http://capel.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "98749006-9421-5fa0-9daf-30ec714b0fed",
+        "instrument_name": "Shire of Carnamah official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Carnamah",
+        "canonical_url": "http://carnamah.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "bcbd6727-c91d-52b3-ad2f-9b5274c06ea5",
+        "instrument_name": "Shire of Carnarvon official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Carnarvon",
+        "canonical_url": "https://carnarvon.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "36c4078e-4cc0-5d76-a69c-29dc4e450c16",
+        "instrument_name": "Shire of Chapman Valley official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Chapman Valley",
+        "canonical_url": "https://chapmanvalley.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "086b5bca-9f08-5aa7-9a52-ddcf3354d66d",
+        "instrument_name": "Shire of Chittering official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Chittering",
+        "canonical_url": "https://chittering.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f8fc36d4-68ad-5711-9e39-387115ac8182",
+        "instrument_name": "Shire of Christmas Island official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Christmas Island",
+        "canonical_url": "https://shire.gov.cx",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "40d61d72-f4a8-552a-8bb6-a0348009bf08",
+        "instrument_name": "Shire of Cocos (Keeling) Islands official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Cocos (Keeling) Islands",
+        "canonical_url": "https://shire.cc",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "d1ddd313-b754-51fd-8626-383ca7bfeefa",
+        "instrument_name": "Shire of Collie official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Collie",
+        "canonical_url": "https://collie.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "a3b5f1dd-c44e-531b-bb64-0f651cb76239",
+        "instrument_name": "Shire of Coolgardie official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Coolgardie",
+        "canonical_url": "https://coolgardie.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "6b414bbf-baed-504d-978a-e41ac3df5f35",
+        "instrument_name": "Shire of Coorow official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Coorow",
+        "canonical_url": "https://coorow.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f314c2dd-6a57-5985-a1cf-530febe1d628",
+        "instrument_name": "Shire of Corrigin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Corrigin",
+        "canonical_url": "https://corrigin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "30131cbc-e783-5b5a-a04a-fb410228db74",
+        "instrument_name": "Shire of Cranbrook official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Cranbrook",
+        "canonical_url": "https://cranbrook.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "16dc0e4b-4e23-5137-b9e4-c6d48ed5d21c",
+        "instrument_name": "Shire of Cuballing official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Cuballing",
+        "canonical_url": "https://cuballing.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "effed9a5-8536-595c-85c1-d182879da9d1",
+        "instrument_name": "Shire of Cue official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Cue",
+        "canonical_url": "https://cue.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "426dfca1-7d28-590d-9741-685d315003ee",
+        "instrument_name": "Shire of Cunderdin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Cunderdin",
+        "canonical_url": "https://cunderdin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "1c9a3aa5-23d6-5d20-8acf-ff2b64f213e5",
+        "instrument_name": "Shire of Dalwallinu official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Dalwallinu",
+        "canonical_url": "https://dalwallinu.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "2dbc1b31-1d3a-5033-a811-9a2c39f4da53",
+        "instrument_name": "Shire of Dandaragan official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Dandaragan",
+        "canonical_url": "https://dandaragan.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "6bf51990-0d98-56af-8262-9253db082164",
+        "instrument_name": "Shire of Dardanup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Dardanup",
+        "canonical_url": "https://dardanup.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "e31ca80b-76cd-5d57-96b4-174f49b0ce24",
+        "instrument_name": "Shire of Denmark official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Denmark",
+        "canonical_url": "https://denmark.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "cb0dde0d-69c7-5bf0-a790-b53cbb6335ea",
+        "instrument_name": "Shire of Derby-West Kimberley official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Derby-West Kimberley",
+        "canonical_url": "https://sdwk.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "0b002069-02ba-5ef2-aa65-1ec18d435146",
+        "instrument_name": "Shire of Donnybrook Balingup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Donnybrook Balingup",
+        "canonical_url": "http://donnybrook-balingup.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "6bd379f0-1d3e-5d1d-85ce-d13e87131a72",
+        "instrument_name": "Shire of Dowerin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Dowerin",
+        "canonical_url": "https://dowerin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "dbb2b8bc-2258-5211-b556-b29fb7163f19",
+        "instrument_name": "Shire of Dumbleyung official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Dumbleyung",
+        "canonical_url": "https://dumbleyung.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "fd027d17-020b-518a-a525-cc187962e20d",
+        "instrument_name": "Shire of Dundas official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Dundas",
+        "canonical_url": "https://dundas.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f5273856-01a9-5f82-8a7b-933e013d9996",
+        "instrument_name": "Shire of East Pilbara official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of East Pilbara",
+        "canonical_url": "http://eastpilbara.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "df2f8f49-d57a-5d97-9e61-056ae67f06c3",
+        "instrument_name": "Shire of Esperance official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Esperance",
+        "canonical_url": "https://esperance.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "a00696ca-96e6-5ead-9798-5cf45837bdb6",
+        "instrument_name": "Shire of Exmouth official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Exmouth",
+        "canonical_url": "https://exmouth.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "2a018b14-3a0b-5864-bc50-1e5840b12e20",
+        "instrument_name": "Shire of Gingin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Gingin",
+        "canonical_url": "https://gingin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "31dce9da-6ebf-5c9d-b010-6cdf618dd4c9",
+        "instrument_name": "Shire of Gnowangerup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Gnowangerup",
+        "canonical_url": "http://gnowangerup.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "e1ce8677-6bc6-53d2-8cb2-933ba1ec414b",
+        "instrument_name": "Shire of Goomalling official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Goomalling",
+        "canonical_url": "https://goomalling.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "aa57c3ad-a79b-58bd-8af9-911f4804472f",
+        "instrument_name": "Shire of Halls Creek official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Halls Creek",
+        "canonical_url": "https://hallscreek.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "5c2a13b7-91f2-512a-9373-7e4bf30e25a6",
+        "instrument_name": "Shire of Harvey official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Harvey",
+        "canonical_url": "https://harvey.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "7df10399-3e36-540b-9b05-81f74f802520",
+        "instrument_name": "Shire of Irwin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Irwin",
+        "canonical_url": "https://irwin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "7ff5f26f-add5-585e-9397-43baddfc2306",
+        "instrument_name": "Shire of Jerramungup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Jerramungup",
+        "canonical_url": "http://jerramungup.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "9a155858-496c-5d4c-b50b-f1d9856ff14f",
+        "instrument_name": "Shire of Katanning official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Katanning",
+        "canonical_url": "https://katanning.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "65221ed3-23a4-5b8e-b473-0b92881b2a3b",
+        "instrument_name": "Shire of Kellerberrin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Kellerberrin",
+        "canonical_url": "https://kellerberrin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "3e8f61df-0e77-58b9-8720-7e6e7f7e026a",
+        "instrument_name": "Shire of Kent official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Kent",
+        "canonical_url": "https://kent.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "65de1c12-18e5-5808-b061-99ecac09ddc7",
+        "instrument_name": "Shire of Kojonup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Kojonup",
+        "canonical_url": "https://kojonup.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "3201c242-ed6c-56da-9cdb-2130b67f95a7",
+        "instrument_name": "Shire of Kondinin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Kondinin",
+        "canonical_url": "http://kondinin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "925d0dd4-847e-55df-ac85-bdd615bc9dcf",
+        "instrument_name": "Shire of Koorda official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Koorda",
+        "canonical_url": "http://koorda.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f48528b4-8211-5436-8a9c-087208ab9e18",
+        "instrument_name": "Shire of Kulin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Kulin",
+        "canonical_url": "https://kulin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "c90f4dc5-e53d-5c8e-8280-da23d1634b2f",
+        "instrument_name": "Shire of Lake Grace official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Lake Grace",
+        "canonical_url": "https://lakegrace.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "e47f079a-daa8-54b3-b86e-5f9929c6a87e",
+        "instrument_name": "Shire of Laverton official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Laverton",
+        "canonical_url": "https://laverton.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "e94e702b-593d-5cfd-a3be-2f485fddd5a7",
+        "instrument_name": "Shire of Leonora official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Leonora",
+        "canonical_url": "https://leonora.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "9189e85d-ab30-505b-a6bc-c3d1989606ed",
+        "instrument_name": "Shire of Manjimup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Manjimup",
+        "canonical_url": "https://manjimup.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "a28970ff-661d-5553-a1e9-c2783216cae0",
+        "instrument_name": "Shire of Meekatharra official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Meekatharra",
+        "canonical_url": "https://meekatharra.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "bd57aa18-da47-5902-8d49-565a7c97361e",
+        "instrument_name": "Shire of Menzies official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Menzies",
+        "canonical_url": "https://menzies.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "83692763-5928-58a8-9a1f-1cc4afcc4728",
+        "instrument_name": "Shire of Merredin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Merredin",
+        "canonical_url": "https://merredin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "cba34a98-040f-5918-8dce-abe90140f608",
+        "instrument_name": "Shire of Mingenew official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Mingenew",
+        "canonical_url": "https://mingenew.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "5ff9e4d1-05f1-578e-a445-45be10c61508",
+        "instrument_name": "Shire of Moora official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Moora",
+        "canonical_url": "https://moora.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "4d94ba6c-ce7c-5d65-b4a3-b3248cd3c103",
+        "instrument_name": "Shire of Morawa official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Morawa",
+        "canonical_url": "https://morawa.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "d5faa824-69a7-5531-bd21-262deb6af4e0",
+        "instrument_name": "Shire of Mount Magnet official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Mount Magnet",
+        "canonical_url": "http://mtmagnet.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f36d42f1-df6b-5168-bbcd-9e00e86f58fd",
+        "instrument_name": "Shire of Mt Marshall official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Mt Marshall",
+        "canonical_url": "https://mtmarshall.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "7e18b100-46c3-5a2e-a72c-1e8b8d4e0388",
+        "instrument_name": "Shire of Mukinbudin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Mukinbudin",
+        "canonical_url": "https://mukinbudin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "cf1f100c-ac92-56bb-9b78-0a4c56e2ad02",
+        "instrument_name": "Shire of Mundaring official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Mundaring",
+        "canonical_url": "https://mundaring.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "2b3106db-4191-56fc-85ef-9186f83985fa",
+        "instrument_name": "Shire of Murchison official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Murchison",
+        "canonical_url": "https://murchison.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "ac4f28d9-fcc8-592c-ab33-77deabbf0938",
+        "instrument_name": "Shire of Murray official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Murray",
+        "canonical_url": "https://murray.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "766bb0d8-41f3-5529-9e13-e4e2778b4f5c",
+        "instrument_name": "Shire of Nannup official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Nannup",
+        "canonical_url": "https://nannup.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "dfd0fcbe-ac29-51cb-8df8-12c440360fb3",
+        "instrument_name": "Shire of Narembeen official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Narembeen",
+        "canonical_url": "https://narembeen.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "39b3a3c0-4c00-5a7d-bced-1ff95b840f6b",
+        "instrument_name": "Shire of Narrogin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Narrogin",
+        "canonical_url": "https://narrogin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "bad039f7-11af-5f60-9109-a6fea8bdf675",
+        "instrument_name": "Shire of Ngaanyatjarraku official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Ngaanyatjarraku",
+        "canonical_url": "http://ngaanyatjarraku.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "68aef404-1baf-5fa0-ab60-104895bad098",
+        "instrument_name": "Shire of Northam official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Northam",
+        "canonical_url": "https://northam.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "ff5ad789-94d5-50e4-b2f2-cae0684a356e",
+        "instrument_name": "Shire of Northampton official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Northampton",
+        "canonical_url": "https://northampton.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "1a539521-8529-554d-b9b7-4518393da59b",
+        "instrument_name": "Shire of Nungarin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Nungarin",
+        "canonical_url": "http://nungarin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "4640b208-83c8-5303-8c69-cc77b83b886b",
+        "instrument_name": "Shire of Peppermint Grove official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Peppermint Grove",
+        "canonical_url": "https://peppermintgrove.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "57ca3c04-9068-5749-a052-3866b3dca2dd",
+        "instrument_name": "Shire of Perenjori official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Perenjori",
+        "canonical_url": "http://perenjori.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "d734ea1d-0a17-5dff-b732-b2b41f62dbbb",
+        "instrument_name": "Shire of Pingelly official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Pingelly",
+        "canonical_url": "https://pingelly.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "b426bbd6-86c2-5fef-910c-e5fde56ca998",
+        "instrument_name": "Shire of Plantagenet official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Plantagenet",
+        "canonical_url": "http://plantagenet.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "affcc1f3-c62a-55b6-b08b-296f20688692",
+        "instrument_name": "Shire of Quairading official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Quairading",
+        "canonical_url": "https://quairading.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "58387f81-a916-5b40-86f2-0b2d10342887",
+        "instrument_name": "Shire of Ravensthorpe official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Ravensthorpe",
+        "canonical_url": "https://ravensthorpe.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "2dcfeb3b-b32c-5350-a334-24ff852c81c1",
+        "instrument_name": "Shire of Sandstone official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Sandstone",
+        "canonical_url": "https://sandstone.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "df27e421-9203-5d67-b354-5dfeae020f17",
+        "instrument_name": "Shire of Serpentine Jarrahdale official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Serpentine Jarrahdale",
+        "canonical_url": "http://sjshire.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "9affeef3-08ec-5a14-8369-b0a87daf46be",
+        "instrument_name": "Shire of Shark Bay official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Shark Bay",
+        "canonical_url": "https://sharkbay.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "1d27163d-8937-50b2-a734-3b80a04297f7",
+        "instrument_name": "Shire of Tammin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Tammin",
+        "canonical_url": "https://tammin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "d6f9ff41-e138-553a-b9e3-f6f2506a6ae4",
+        "instrument_name": "Shire of Three Springs official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Three Springs",
+        "canonical_url": "http://threesprings.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "07900d09-345e-5476-b9e0-c4a1f8b1e989",
+        "instrument_name": "Shire of Toodyay official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Toodyay",
+        "canonical_url": "https://toodyay.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "ff2778c6-e11d-51d8-9778-31b9f7c9c83b",
+        "instrument_name": "Shire of Trayning official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Trayning",
+        "canonical_url": "http://trayning.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "23a29a67-ce59-54a4-bda7-dbaf9545016d",
+        "instrument_name": "Shire of Upper Gascoyne official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Upper Gascoyne",
+        "canonical_url": "https://uppergascoyne.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "60745023-bce3-525a-bc15-6792547b2721",
+        "instrument_name": "Shire of Victoria Plains official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Victoria Plains",
+        "canonical_url": "https://victoriaplains.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "c40e74cf-839b-5693-9e61-01cef1c293b6",
+        "instrument_name": "Shire of Wagin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Wagin",
+        "canonical_url": "https://wagin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "8395f951-bba8-59f2-ba33-e452d04fb811",
+        "instrument_name": "Shire of Wandering official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Wandering",
+        "canonical_url": "https://wandering.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "ee533c8a-d7cb-55ba-9bf6-c61087f2f850",
+        "instrument_name": "Shire of Waroona official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Waroona",
+        "canonical_url": "https://waroona.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "a2f63ff2-d7af-5b90-9904-6fa6df89b1e9",
+        "instrument_name": "Shire of West Arthur official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of West Arthur",
+        "canonical_url": "https://westarthur.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "1c3e2295-c1e9-5ea7-97c8-03a240ae263e",
+        "instrument_name": "Shire of Westonia official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Westonia",
+        "canonical_url": "https://westonia.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "b6f803a9-3d2c-5ee6-aadf-84104951a228",
+        "instrument_name": "Shire of Wickepin official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Wickepin",
+        "canonical_url": "https://wickepin.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "5c5652ce-453d-5922-870d-45fe6f2e4e51",
+        "instrument_name": "Shire of Williams official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Williams",
+        "canonical_url": "https://williams.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "a6627d51-95a9-5aed-a7ad-ba956872d26a",
+        "instrument_name": "Shire of Wiluna official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Wiluna",
+        "canonical_url": "https://wiluna.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "82816864-efd6-56b6-a558-39244bf41505",
+        "instrument_name": "Shire of Wongan-Ballidu official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Wongan-Ballidu",
+        "canonical_url": "https://wongan.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f38183da-9723-56de-a051-44b092fffb0b",
+        "instrument_name": "Shire of Woodanilling official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Woodanilling",
+        "canonical_url": "https://woodanilling.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "0ff5b6e6-752c-5a93-b440-1dad9a63e60b",
+        "instrument_name": "Shire of Wyalkatchem official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Wyalkatchem",
+        "canonical_url": "http://wyalkatchem.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "b4919dfb-8611-5116-9dfb-d564b3a024e5",
+        "instrument_name": "Shire of Wyndham-East Kimberley official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Wyndham-East Kimberley",
+        "canonical_url": "https://swek.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "c1a8eac9-8ab2-57f5-9321-ac13777b2cae",
+        "instrument_name": "Shire of Yalgoo official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Yalgoo",
+        "canonical_url": "https://yalgoo.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "c89ebca4-1eee-50b0-91e4-2c84fcd33c95",
+        "instrument_name": "Shire of Yilgarn official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of Yilgarn",
+        "canonical_url": "https://yilgarn.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "8f613993-d094-5d42-911d-d4ad88eeba90",
+        "instrument_name": "Shire of York official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Shire of York",
+        "canonical_url": "https://york.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "7083fb6c-d93f-5a0c-b214-29b59f815c79",
+        "instrument_name": "AS 3959 Construction of buildings in bushfire-prone areas",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": "https://www.standards.org.au/",
+        "notes": "Paid/proprietary \u00e2\u20ac\u201d never store full text. Unblock: purchase licence from Standards Australia"
+      },
+      {
+        "id": "af539d04-5945-541b-9e57-ba2d8cc0e9e1",
+        "instrument_name": "AS/NZS 2890.1",
+        "category": "standard",
+        "issuing_authority": "Standards Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Likely Standards Australia or paid/licensed standard; full text not stored."
+      },
+      {
+        "id": "5c6f80ac-4b12-5b28-b4c9-02c790fea3bb",
+        "instrument_name": "Town of Bassendean official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Town of Bassendean",
+        "canonical_url": "https://bassendean.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "a5556971-5fc3-5f4e-b9de-48e8e38c0815",
+        "instrument_name": "Town of Cambridge official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Town of Cambridge",
+        "canonical_url": "https://cambridge.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "00cd7b5f-c464-55ca-9237-f4a9a6ac94fe",
+        "instrument_name": "Town of Claremont official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Town of Claremont",
+        "canonical_url": "https://claremont.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "8e2243a8-566f-5f2c-801d-cb6d776ae3ce",
+        "instrument_name": "Town of Cottesloe official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Town of Cottesloe",
+        "canonical_url": "https://cottesloe.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "b2df9c6a-449f-5e54-bdfe-079da9017c46",
+        "instrument_name": "Town of East Fremantle official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Town of East Fremantle",
+        "canonical_url": "https://eastfremantle.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "99f4df1d-befe-5cad-9453-dbcd5d670bee",
+        "instrument_name": "Town of Mosman Park official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Town of Mosman Park",
+        "canonical_url": "https://mosmanpark.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f95b45f0-ca67-5a11-b424-144af5dcf025",
+        "instrument_name": "Town of Port Hedland official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Town of Port Hedland",
+        "canonical_url": "https://porthedland.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      },
+      {
+        "id": "f5264a73-dde9-5883-aa2e-1509129f144f",
+        "instrument_name": "Town of Victoria Park official website source anchor",
+        "category": "council_page",
+        "issuing_authority": "Town of Victoria Park",
+        "canonical_url": "https://victoriapark.wa.gov.au",
+        "notes": "WALGA 2026 council website anchor; metadata-only until per-council planning/building instrument discovery emits scheme text, maps, strategies, policies, LDPs and structure plans. UNBLOCK: run council discovery for this authority, add official document URLs as target_manifest rows, then run WP4/WP5."
+      }
+    ],
+    "out_of_scope_manifest_sample": [
+      {
+        "id": "abc14fd6-c00f-52ad-8a60-8bda2c14037b",
+        "instrument_name": "Aboriginal Communities Act 1979",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "c720aad7-c82d-52bd-bf63-12ba0cc3c35b",
+        "instrument_name": "Amendment Regulations 2025",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text."
+      },
+      {
+        "id": "4918af6a-31d7-5df5-a5b8-0fb04680f507",
+        "instrument_name": "By-law providing for enforcement of any by-law made under section 30",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "8d23351a-8a7b-5074-adfa-dea656ee5390",
+        "instrument_name": "By-law under the Second Schedule of the Town Planning and Development Act 1928",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "c91c6522-2228-588b-b12a-3bba69595d4a",
+        "instrument_name": "Child Care Services Act 2007",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "6db88a88-912c-53b8-9785-a32ac26623e2",
+        "instrument_name": "Commonwealth Telecommunications Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "7493cd5a-494c-555e-a3b2-fff6de800a7b",
+        "instrument_name": "Community Titles Act 2018",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "7ba62e3c-9980-5e6e-9eb1-59ea38936877",
+        "instrument_name": "Community Titles Regulations 2021",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "4892e92d-69be-5098-9414-e5ed9aa7106c",
+        "instrument_name": "Contaminated Sites Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "20e5df7a-f123-518e-a6bb-77c200b82b37",
+        "instrument_name": "Environmental Protection Act 1986",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "f6ced431-9017-5061-8866-db6aea92d7cd",
+        "instrument_name": "Health Act 1911",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "5902b77a-2eb1-560c-975e-96ce199b5326",
+        "instrument_name": "Hospitals and Health Services Act 1927",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "82c5cabb-963b-5a64-91e8-ebdb5c733788",
+        "instrument_name": "Land Tax Assessment Act 2002",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "abb541b7-3e2e-5d8d-864d-5a81c76e26dd",
+        "instrument_name": "Liquor Control Act 1988",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "3c0f4723-7496-5726-a664-ffa9078a3448",
+        "instrument_name": "Local Government Act 1995",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "e41007c3-f020-5cbc-9ae0-a974dee15750",
+        "instrument_name": "Main Roads Act 1930",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "4f4b2cf5-d5ba-5349-8a8b-c6304d8ae403",
+        "instrument_name": "Planning and Development (Development Assessment Panels) Regulations 2011",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "e3f69c11-5a5b-5586-b99f-318189af4e29",
+        "instrument_name": "Planning and Development (Fees) Notice 2021",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "4b9caee8-4a3c-517c-827b-f3f1bba44fa3",
+        "instrument_name": "Planning and Development (Part 11B Fees) Notice 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "d1714879-8801-56fc-a03a-efc9670fd691",
+        "instrument_name": "Planning and Development (Part 17 Fees) Notice 2020",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "533706a1-54b3-5f8b-883e-e400ce979b34",
+        "instrument_name": "Planning and Development (Significant Development) Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "df251e89-503e-53ad-8087-2c050c11485d",
+        "instrument_name": "Planning and Development (Western Australian Planning Commission) Regulations 2024",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "a18b7fa4-03f7-5992-a3b2-cc2b0aa599b7",
+        "instrument_name": "Planning and Development Amendment Act 2023",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text."
+      },
+      {
+        "id": "03672ce0-5aa1-5737-a719-86dc1dcd18bf",
+        "instrument_name": "Policy Scope Under the Telecommunications Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "b80a39d3-51c0-563c-b333-a9ff2eb034b6",
+        "instrument_name": "Racing and Wagering Western Australia Act 2003",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "cfa8aa02-0932-5bbb-8f46-22bc6e0367ac",
+        "instrument_name": "Significant Development Pathway Planning and Development Amendment Act 2023",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Amendment/repeal/commencement/reprint or extracted citation fragment without consolidated text."
+      },
+      {
+        "id": "29fd5845-64ea-5d1e-8053-540164f9ae3a",
+        "instrument_name": "State Administrative Tribunal Act 2004",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "753723be-c47d-56db-9267-04a10aa743cc",
+        "instrument_name": "Strata Titles Act 1985",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "4ba378ee-cb83-512e-924f-49c314447e2a",
+        "instrument_name": "Strata Titles Act 1995",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "bc6af9bd-0a63-5ffd-bbbf-67d3f69890d7",
+        "instrument_name": "Telecommunications Act 1997",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "d1d7a6c7-5ec6-50a4-8f78-ca9e9a5a1bf8",
+        "instrument_name": "The Environmental Protection Act 1986",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "51ec4167-bfd9-5210-bbd1-0faa4aca5295",
+        "instrument_name": "The Interpretation Act 1984",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "df2985c5-5eb6-520e-ab04-90ffe0f43884",
+        "instrument_name": "The Liquor Act 1988",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "4196c683-9078-5df9-b27b-c3232ab7eea6",
+        "instrument_name": "Town Planning (Buildings) Uniform General By-laws 1989",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "c0afb614-6c41-5742-a87b-aa68dc0f2cae",
+        "instrument_name": "Town Planning and Development By-laws (Excavations in Subdivided Areas)",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "49b61183-b497-590d-9e10-b6a7d71502c7",
+        "instrument_name": "Town Planning and Development By-laws By-law 3",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "47ed201a-4575-5146-a3c7-f6bcb922251d",
+        "instrument_name": "Transfer of Land Act 1893",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "807c29f5-7a81-5936-afef-c6f2c9f8cddc",
+        "instrument_name": "Uniform General By-laws (Section 30 Subsection 1) New Subdivisions and Re-subdivisions",
+        "category": "regulations",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": "https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9408_subsidiary.html",
+        "notes": "out_of_scope per docs/CORPUS_SCOPE.md: administrative/fees/process instrument, not a drafting-check input"
+      },
+      {
+        "id": "c3a23a33-ea88-54ee-8ee3-b51843da51d1",
+        "instrument_name": "WA Biodiversity Conservation Act 2016",
+        "category": "act",
+        "issuing_authority": "Government of Western Australia",
+        "canonical_url": null,
+        "notes": "WP4 triage: Cited WA legislation outside declared planning/building corpus scope."
+      },
+      {
+        "id": "d91b82ae-e99f-5333-a9fa-ba733cf0d82f",
+        "instrument_name": "Draft Development Control Policy 4.3 - Planning for high-pressure gas pipelines",
+        "category": "dc_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": "https://www.wa.gov.au/government/publications/draft-development-control-policy-43-planning-high-pressure-gas-pipelines",
+        "notes": "Draft \u00e2\u20ac\u201d not in force; drafts are out of scope per docs/CORPUS_SCOPE.md"
+      },
+      {
+        "id": "c05652cf-2499-5cca-b046-dda82a7ece87",
+        "instrument_name": "Draft Operational Policy 1.12 - Planning Proposals Adjoining Regional Roads in Western Australia",
+        "category": "dc_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": "https://www.wa.gov.au/government/publications/draft-operational-policy-112-planning-proposals-adjoining-regional-roads-western-australia",
+        "notes": "Draft \u00e2\u20ac\u201d not in force; drafts are out of scope per docs/CORPUS_SCOPE.md"
+      },
+      {
+        "id": "010f29a8-5eb0-532b-8b54-58162a9e9a05",
+        "instrument_name": "State Planning Policy 4.1 - Industrial Interface",
+        "category": "state_planning_policy",
+        "issuing_authority": "Western Australian Planning Commission",
+        "canonical_url": "https://www.wa.gov.au/government/publications/draft-state-planning-policy-41-industrial-interface",
+        "notes": "Listed as draft on the SPP index \u00e2\u20ac\u201d not in force; drafts are out of scope per docs/CORPUS_SCOPE.md"
+      }
+    ],
+    "failed_urls_sample": [],
+    "source_versions_by_review_status": {
+      "pending_review": 84
+    },
+    "source_versions_by_licence_status": {
+      "pending_review": 84
+    },
+    "source_versions_by_licence": {
+      "": 84
+    },
+    "source_citations_by_kind": {
+      "source_chunk": 1140
+    },
+    "clauses_by_disposition": {
+      "definition": 11,
+      "informational": 30,
+      "procedural": 5,
+      "rule_bearing": 51
+    },
+    "rule_candidates_by_review_status": {
+      "pending_review": 121,
+      "validator_failed": 34,
+      "validators_passed": 192
+    },
+    "rules_by_lifecycle_status": {},
+    "review_items_by_status": {
+      "open": 30
+    },
+    "spend_events_by_provider": {
+      "claude_cli": 264
+    },
+    "citation_summary": {
+      "source_citations": 1140,
+      "legal_edges": 484,
+      "legal_edges_by_review_status": {
+        "approved": 9,
+        "pending_review": 475
+      }
+    },
+    "wp6_summary": {
+      "clauses": 97,
+      "rule_candidates": 347,
+      "rules": 0,
+      "auto_promoted_candidates": 0,
+      "auto_promoted_without_two_model_families": 0
+    },
+    "conflict_summary": {
+      "adversarial_findings_by_status": {},
+      "open_conflict_findings": 0
+    },
+    "acceptance": {
+      "postgis_present": true,
+      "vector_present": true,
+      "alembic_at_expected_head": true,
+      "target_manifest_pending": 0,
+      "target_manifest_pending_zero": true,
+      "auto_promoted_without_two_model_families": 0,
+      "no_single_family_auto_promotions": true,
+      "open_conflict_findings": 0,
+      "no_open_conflict_findings": true
+    }
+  }
+}

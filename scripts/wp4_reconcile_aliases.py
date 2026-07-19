@@ -110,6 +110,7 @@ class SourceDoc:
     id: str
     title: str
     canonical_url: str | None
+    chunk_count: int = 3
 
 
 @dataclass(frozen=True)
@@ -274,10 +275,14 @@ def load_sources(database_url_value: str) -> dict[str, SourceDoc]:
         rows = conn.execute(
             text(
                 """
-                SELECT s.id::text, s.title, s.canonical_url
+                SELECT s.id::text, s.title, s.canonical_url, count(sc.id) AS chunk_count
                 FROM source_documents s
                 JOIN target_manifest tm ON tm.source_document_id = s.id
+                JOIN source_versions sv ON sv.source_id = s.id
+                JOIN source_chunks sc ON sc.source_version_id = sv.id
                 WHERE tm.status = 'acquired'
+                GROUP BY s.id, s.title, s.canonical_url
+                HAVING count(sc.id) >= 3
                 """
             )
         ).mappings()
@@ -286,6 +291,7 @@ def load_sources(database_url_value: str) -> dict[str, SourceDoc]:
                 id=str(row["id"]),
                 title=str(row["title"]),
                 canonical_url=row["canonical_url"],
+                chunk_count=int(row["chunk_count"]),
             )
             for row in rows
         }
