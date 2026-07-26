@@ -90,12 +90,10 @@ class TestCoverageCheckDefinitions:
         "setback_front_secondary",
         "deep_soil_area",
         "tree_planting",
-        "outdoor_living_area",
         "outdoor_living_dimension",
         "pool_barrier_height",
         "smoke_alarm",
         "min_lot_size",
-        "min_frontage",
     ]
 
     EXPECTED_TIER2_KEYS = [
@@ -106,7 +104,6 @@ class TestCoverageCheckDefinitions:
         "car_parking_spaces",
         "street_surveillance",
         "building_height_partc",
-        "plot_ratio",
         "building_separation",
         "communal_open_space",
         "bal_construction",

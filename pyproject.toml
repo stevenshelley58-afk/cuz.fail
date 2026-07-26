@@ -23,11 +23,13 @@ dependencies = [
   "procrastinate>=3.8.1",
   "sentry-sdk[fastapi]>=2.0.0",
   "ezdxf>=1.3.0",
+  "pdfplumber>=0.11.0",
 ]
 
 [project.optional-dependencies]
 dev = [
   "pytest>=8.0.0",
+  "pytest-timeout>=2.3.0",
   "ruff>=0.6.0",
   "mypy>=1.11.0",
   "pre-commit>=3.8.0",
@@ -44,6 +46,9 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = [
+  "integration: marks tests requiring a live database (deselect with -m 'not integration')",
+]
 
 [tool.ruff]
 line-length = 100

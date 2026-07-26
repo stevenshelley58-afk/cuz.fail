@@ -222,16 +222,6 @@ COVERAGE_TIER1_CHECKS: list[CheckDefinition] = [
         description="Minimum number of trees to be planted.",
     ),
     CheckDefinition(
-        key="outdoor_living_area",
-        name="Outdoor living area",
-        tier=CheckTier.TIER1,
-        category=CheckCategory.OPEN_SPACE,
-        fact_keys=("proposed_outdoor_living_area_m2",),
-        rule_key_pattern="outdoor_living_area",
-        unit="m2",
-        description="Minimum outdoor living area.",
-    ),
-    CheckDefinition(
         key="outdoor_living_dimension",
         name="Outdoor living min dimension",
         tier=CheckTier.TIER1,
@@ -270,16 +260,6 @@ COVERAGE_TIER1_CHECKS: list[CheckDefinition] = [
         rule_key_pattern="min_lot_size",
         unit="m2",
         description="Minimum lot size per R-Code (DCP 2.2).",
-    ),
-    CheckDefinition(
-        key="min_frontage",
-        name="Minimum frontage",
-        tier=CheckTier.TIER1,
-        category=CheckCategory.SUBDIVISION,
-        fact_keys=("frontage_width_m",),
-        rule_key_pattern="min_frontage",
-        unit="m",
-        description="Minimum lot frontage width (DCP 2.2).",
     ),
 ]
 
@@ -353,16 +333,6 @@ COVERAGE_TIER2_CHECKS: list[CheckDefinition] = [
         rule_key_pattern="building_height.partc",
         unit="m",
         description="Maximum building height under Part C (medium density).",
-    ),
-    CheckDefinition(
-        key="plot_ratio",
-        name="Plot ratio",
-        tier=CheckTier.TIER2,
-        category=CheckCategory.LOT,
-        fact_keys=("proposed_plot_ratio", "site_area_m2"),
-        rule_key_pattern="plot_ratio",
-        unit="ratio",
-        description="Maximum plot ratio (GFA / site area).",
     ),
     CheckDefinition(
         key="building_separation",
