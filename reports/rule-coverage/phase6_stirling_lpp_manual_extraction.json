@@ -1,0 +1,2502 @@
+{
+  "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+  "source_pdf": "/app/data/raw-sources/councils/stirling/lpp_policy_manual_all_sections.pdf",
+  "instrument_section": "LPP 6.6, 6.7, 6.10, 6.11",
+  "tables_requested": [
+    "LPP 6.6 provisions",
+    "LPP 6.7 Tables 1-4 + cl 5.1-9",
+    "LPP 6.10 Table 1",
+    "LPP 6.11 cl 4-5 + Table 1"
+  ],
+  "candidates_extracted": 87,
+  "warnings": [
+    "REVOKED sections NOT extracted: 2.6 Residential Building Heights (revoked 20 Feb 2023), 2.7 Streetscapes (2016), 2.8 Multiple Dwellings (2019), 2.9 Single Houses and Grouped Dwellings (2017), 6.2 Bicycle Parking (revoked 20 Jan 2023, superseded by LPP 6.7 Table 4).",
+    "LPP 6.7 cl 5.2(c): R-Codes (SPP 7.3) parking applies to all residential components; Table 1/2 ratios are non-residential only - no conflict with R-Code residential parking defaults.",
+    "Character Retention Guidelines Inglewood (3.1A) contains street-setback augmentations to R-Codes 5.1.2/5.1.3/5.1.6/5.3.7/5.2.1 (e.g. 2m single-storey addition setback, garage 0.5m behind dwelling alignment) - heritage-area specific, flagged for a future pass.",
+    "Parking ratios encoded as 'm2 per bay' maximums (smaller value = more parking) to keep numeric comparability; check semantics at evaluation time."
+  ],
+  "candidates": [
+    {
+      "rule_key": "stirling.planting_area_min_width_mm",
+      "canonical_rule_key": "stirling.planting_area_min_width_mm",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 500
+      },
+      "unit": "mm",
+      "condition_json": {},
+      "quote": "All individual planting areas, excluding those in or adjacent to public car parks, must have a minimum width in any direction of 500mm and a minimum plantable area of two square metres.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Landscaping Areas",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.planting_area_min_m2",
+      "canonical_rule_key": "stirling.planting_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "m2",
+      "condition_json": {},
+      "quote": "All individual planting areas, excluding those in or adjacent to public car parks, must have a minimum width in any direction of 500mm and a minimum plantable area of two square metres.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Landscaping Areas",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.mulch_depth_min_mm",
+      "canonical_rule_key": "stirling.mulch_depth_min_mm",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 75
+      },
+      "unit": "mm",
+      "condition_json": {},
+      "quote": "A minimum depth of 75mm of mulch (gravel not permitted) is to be applied to all landscaping beds.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Reticulation and Mulching",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.carpark_bays_per_tree_max.residential",
+      "canonical_rule_key": "stirling.carpark_bays_per_tree_max.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 4
+      },
+      "unit": "bays_per_tree",
+      "condition_json": {
+        "container_min_litres": {
+          "exotics": 45,
+          "natives": 11
+        }
+      },
+      "quote": "A minimum of 1 tree per 4 bays for residential development and 1 tree per 6 bays for non-residetial development (Minimum 45 litre container for exotics and 11 litre container for natives) is required in open parking areas.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Parking Areas",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.carpark_bays_per_tree_max.non_residential",
+      "canonical_rule_key": "stirling.carpark_bays_per_tree_max.non_residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "bays_per_tree",
+      "condition_json": {},
+      "quote": "A minimum of 1 tree per 4 bays for residential development and 1 tree per 6 bays for non-residetial development (Minimum 45 litre container for exotics and 11 litre container for natives) is required in open parking areas.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Parking Areas",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.commercial_landscaping_min_pct",
+      "canonical_rule_key": "stirling.commercial_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "total site area"
+      },
+      "quote": "Development applications for commercial development must contain a minimum of 10% landscaping of the total site area. This must include 'soft' landscaped buffers, where setbacks are provided, to adjacent properties with a minimum width of 1.5m.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Commercial provisions",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.commercial_landscape_buffer_width_min_m",
+      "canonical_rule_key": "stirling.commercial_landscape_buffer_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Development applications for commercial development must contain a minimum of 10% landscaping of the total site area. This must include 'soft' landscaped buffers, where setbacks are provided, to adjacent properties with a minimum width of 1.5m.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Commercial provisions",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.industrial_street_landscaping_width_min_m",
+      "canonical_rule_key": "stirling.industrial_street_landscaping_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "excludes": "Balcatta Precinct"
+      },
+      "quote": "In all industrial precincts (except the Balcatta Precinct), a landscaped area not less than 1.5m wide shall be provided adjoining all street boundaries, primarily as planting bed.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Industrial provisions",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.balcatta_mixed_business_landscaping_min_pct",
+      "canonical_rule_key": "stirling.balcatta_mixed_business_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 16.67
+      },
+      "unit": "%",
+      "condition_json": {
+        "fraction": "one-sixth",
+        "of": "gross site area"
+      },
+      "quote": "In the Balcatta Precinct and the Mixed Business zone, a minimum of one-sixth of the gross site area shall be landscaped.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Industrial provisions",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.balcatta_primary_road_landscape_strip_min_m",
+      "canonical_rule_key": "stirling.balcatta_primary_road_landscape_strip_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "road": "primary"
+      },
+      "quote": "In the Balcatta Precinct and the Mixed Business zone, a minimum landscaping strip of 6m wide along a primary road and 1.5m wide along a secondary road shall be provided, primarily as planting bed.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Industrial provisions",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.balcatta_secondary_road_landscape_strip_min_m",
+      "canonical_rule_key": "stirling.balcatta_secondary_road_landscape_strip_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "road": "secondary"
+      },
+      "quote": "In the Balcatta Precinct and the Mixed Business zone, a minimum landscaping strip of 6m wide along a primary road and 1.5m wide along a secondary road shall be provided, primarily as planting bed.",
+      "instrument_section": "LPP 6.6 Landscaping",
+      "table_reference": "LPP 6.6 Industrial provisions",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "37a5db8e-71d8-42b0-8775-c0d343b86988",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.delivery_bay_min_count.non_residential",
+      "canonical_rule_key": "stirling.delivery_bay_min_count.non_residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "count",
+      "condition_json": {
+        "gfa_gt_m2": 500
+      },
+      "quote": "In non-residential developments with over 500m\u00b2 of GFA, a minimum of one bay shall be permanently set aside and marked for the exclusive use of delivery, service, and courier vehicles.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 5.1.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.ev_charging_bays_min_count.non_residential",
+      "canonical_rule_key": "stirling.ev_charging_bays_min_count.non_residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "count",
+      "condition_json": {
+        "carpark_bays_gt": 500
+      },
+      "quote": "In non-residential developments with over 500 car parking bays on-site, a minimum of three electric car charging bays shall be provided on the site.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 5.1.3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r12_5",
+      "canonical_rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r12_5",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 12.5
+      },
+      "unit": "m2 GFA per bay",
+      "condition_json": {
+        "activity_centres": [
+          "NC5 Flynn Street",
+          "NC10 Mirrabooka Village",
+          "NC15 Stirling Village",
+          "NC19 Woodlands Village",
+          "LC8 Blythe Avenue",
+          "LC9 Brighton Road",
+          "LC10 Calais Road",
+          "LC13 Central Avenue",
+          "LC14 Coode Street",
+          "LC18 Elsie Street",
+          "LC25 Herdsman Hotel"
+        ],
+        "applies": "non-residential development in identified centres"
+      },
+      "quote": "Table 1: Activity Centre Car Parking Ratios \u2014 1 bay per 12.5m\u00b2 GFA for: NC5 Flynn Street; NC10 Mirrabooka Village; NC15 Stirling Village; NC19 Woodlands Village et al..",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r20",
+      "canonical_rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r20",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "m2 GFA per bay",
+      "condition_json": {
+        "activity_centres": [
+          "NC13 North Beach Plaza",
+          "NC14 North Beach Drive"
+        ],
+        "applies": "non-residential development in identified centres"
+      },
+      "quote": "Table 1: Activity Centre Car Parking Ratios \u2014 1 bay per 20m\u00b2 GFA for: NC13 North Beach Plaza; NC14 North Beach Drive.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r25",
+      "canonical_rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r25",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 25
+      },
+      "unit": "m2 GFA per bay",
+      "condition_json": {
+        "activity_centres": [
+          "DC1 Dianella Plaza",
+          "DC2 Dog Swamp",
+          "DC9 Stirling Central",
+          "NC4 Fieldgate Square",
+          "NC6 Glendalough",
+          "NC8 Gwelup Plaza",
+          "NC12 Nollamara",
+          "NC18 Balga Plaza",
+          "LC1-LC5, LC12, LC16, LC17, LC20, LC21, LC24, LC28-LC32, LC35, LC36, LC41, LC45-LC48 (see policy Table 1)"
+        ],
+        "applies": "non-residential development in identified centres"
+      },
+      "quote": "Table 1: Activity Centre Car Parking Ratios \u2014 1 bay per 25m\u00b2 GFA for: DC1 Dianella Plaza; DC2 Dog Swamp; DC9 Stirling Central; NC4 Fieldgate Square et al..",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r33",
+      "canonical_rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r33",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 33
+      },
+      "unit": "m2 GFA per bay",
+      "condition_json": {
+        "activity_centres": [
+          "NC2 Coode Street",
+          "NC7 Grindleford Drive",
+          "NC9 Lord Street",
+          "NC11 Morris Place",
+          "NC17 Walter Road West",
+          "LC6, LC11, LC19, LC26, LC27, LC34, LC38-LC40 (see policy Table 1)"
+        ],
+        "applies": "non-residential development in identified centres"
+      },
+      "quote": "Table 1: Activity Centre Car Parking Ratios \u2014 1 bay per 33m\u00b2 GFA for: NC2 Coode Street; NC7 Grindleford Drive; NC9 Lord Street; NC11 Morris Place et al..",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r50",
+      "canonical_rule_key": "stirling.activity_centre_parking_m2_gfa_per_bay_max.r50",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "m2 GFA per bay",
+      "condition_json": {
+        "activity_centres": [
+          "NC1 Adair Parade",
+          "LC22 Green Avenue",
+          "LC23 Harrison Street",
+          "LC37 Powell Street",
+          "LC43 St Peters Place",
+          "LC44 Sylvia Street"
+        ],
+        "applies": "non-residential development in identified centres"
+      },
+      "quote": "Table 1: Activity Centre Car Parking Ratios \u2014 1 bay per 50m\u00b2 GFA for: NC1 Adair Parade; LC22 Green Avenue; LC23 Harrison Street; LC37 Powell Street et al..",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.office_upper_floor_parking_m2_gfa_per_bay_max",
+      "canonical_rule_key": "stirling.office_upper_floor_parking_m2_gfa_per_bay_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "m2 GFA per bay",
+      "condition_json": {
+        "use": "Office",
+        "floor": "upper floors"
+      },
+      "quote": "A parking ratio of 1 bay per 50m\u00b2 GFA applies to Office land uses on upper floors as per Table 2. Reductions available in Table 3 are also applicable to Office land uses on upper floors.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 5.2(e)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_m2_gfa_per_bay_max.industry",
+      "canonical_rule_key": "stirling.parking_m2_gfa_per_bay_max.industry",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "m2 GFA per bay",
+      "condition_json": {
+        "uses": [
+          "Industry - Extractive",
+          "Industry - General",
+          "Industry - Light",
+          "Industry - Noxious",
+          "Industry - Service",
+          "Motor Vehicle Repair",
+          "Office",
+          "Warehouse"
+        ]
+      },
+      "quote": "Industry (Extractive, General, Light, Noxious, Service), Motor Vehicle Repair, Office, Warehouse \u2014 1 bay per 50m2 of GFA.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_m2_public_floorspace_per_bay_max.fast_food_group",
+      "canonical_rule_key": "stirling.parking_m2_public_floorspace_per_bay_max.fast_food_group",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "m2 public floorspace per bay",
+      "condition_json": {
+        "uses": [
+          "Club Premises",
+          "Drive-Through Fast Food Outlet",
+          "Fast Food Outlet",
+          "Reception Centre",
+          "Restaurant"
+        ]
+      },
+      "quote": "Club Premises, Drive-Through Fast Food Outlet, Fast Food Outlet, Reception Centre, Restaurant \u2014 1 bay per 10m2 of public floorspace.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_m2_public_floorspace_per_bay_max.tavern_small_bar",
+      "canonical_rule_key": "stirling.parking_m2_public_floorspace_per_bay_max.tavern_small_bar",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m2 public floorspace per bay",
+      "condition_json": {
+        "uses": [
+          "Small Bar",
+          "Tavern"
+        ]
+      },
+      "quote": "Small Bar, Tavern \u2014 1 bay per 6m2 of public floorspace.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_m2_per_bay_max.alfresco",
+      "canonical_rule_key": "stirling.parking_m2_per_bay_max.alfresco",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 14
+      },
+      "unit": "m2 alfresco floor area per bay",
+      "condition_json": {
+        "applies_when": "alfresco floor area > 30m2"
+      },
+      "quote": "Alfresco Area: 0 - 30m2 - no bays required; Greater than 30m2 - 1 bay per 14m2 of alfresco floor area. (Note - for example a 60m2 alfresco requires 4.2 bays.)",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_m2_display_per_bay_max.retail_display",
+      "canonical_rule_key": "stirling.parking_m2_display_per_bay_max.retail_display",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 80
+      },
+      "unit": "m2 display area per bay",
+      "condition_json": {
+        "uses": [
+          "Garden Centre",
+          "Motor Vehicle Boat or Caravan Sale",
+          "Hardware Showroom",
+          "Retail Establishment",
+          "Showroom"
+        ]
+      },
+      "quote": "Garden Centre, Motor Vehicle Boat or Caravan Sale, Hardware Showroom, Retail Establishment, Showroom \u2014 1 bay per 80m2 of display area.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_m2_gla_per_bay_max.shop_small",
+      "canonical_rule_key": "stirling.parking_m2_gla_per_bay_max.shop_small",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 12.5
+      },
+      "unit": "m2 GLA per bay",
+      "condition_json": {
+        "gla_lte_m2": 5000
+      },
+      "quote": "Convenience Store, Personal Care Services, Personal Services, Shop: 5,000m2 or less - 1 bay per 12.5m2 of GLA.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_base.shop_medium",
+      "canonical_rule_key": "stirling.parking_bays_base.shop_medium",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 400
+      },
+      "unit": "bays",
+      "condition_json": {
+        "gfa_range_m2": [
+          5001,
+          10000
+        ]
+      },
+      "quote": "Convenience Store, Personal Care Services, Personal Services, Shop: 5,001 - 10,000m2 - 400 bays; and 1 bay per 14.25m2 of GLA in excess of 5,000m2.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_m2_gla_per_bay_max.shop_medium_excess",
+      "canonical_rule_key": "stirling.parking_m2_gla_per_bay_max.shop_medium_excess",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 14.25
+      },
+      "unit": "m2 GLA per bay",
+      "condition_json": {
+        "of": "GLA in excess of 5,000m2"
+      },
+      "quote": "Convenience Store, Personal Care Services, Personal Services, Shop: 5,001 - 10,000m2 - 400 bays; and 1 bay per 14.25m2 of GLA in excess of 5,000m2.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_base.shop_large",
+      "canonical_rule_key": "stirling.parking_bays_base.shop_large",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 750
+      },
+      "unit": "bays",
+      "condition_json": {
+        "gfa_gte_m2": 10001
+      },
+      "quote": "Convenience Store, Personal Care Services, Personal Services, Shop: 10,001m2 or more - 750 bays; and 1 bay per 16.5m2 of GLA in excess of 10,000m2.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_m2_gla_per_bay_max.shop_large_excess",
+      "canonical_rule_key": "stirling.parking_m2_gla_per_bay_max.shop_large_excess",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 16.5
+      },
+      "unit": "m2 GLA per bay",
+      "condition_json": {
+        "of": "GLA in excess of 10,000m2"
+      },
+      "quote": "Convenience Store, Personal Care Services, Personal Services, Shop: 10,001m2 or more - 750 bays; and 1 bay per 16.5m2 of GLA in excess of 10,000m2.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_bedroom.boarding_house",
+      "canonical_rule_key": "stirling.parking_bays_min_per_bedroom.boarding_house",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "bay per bedroom",
+      "condition_json": {},
+      "quote": "Boarding House \u2014 1 bay per separately lodged bedroom.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_bed.hostel",
+      "canonical_rule_key": "stirling.parking_bays_min_per_bed.hostel",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "bay per bed",
+      "condition_json": {},
+      "quote": "Hostel \u2014 1 bay per separately lodged bed in a shared room.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_staff.child_care",
+      "canonical_rule_key": "stirling.parking_bays_min_per_staff.child_care",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "bay per staff member",
+      "condition_json": {},
+      "quote": "Child Care Premises \u2014 1 bay per staff member in attendance; and 1 bay per 7 children in attendance.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_children_per_bay_max.child_care",
+      "canonical_rule_key": "stirling.parking_children_per_bay_max.child_care",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 7
+      },
+      "unit": "children per bay",
+      "condition_json": {},
+      "quote": "Child Care Premises \u2014 1 bay per staff member in attendance; and 1 bay per 7 children in attendance.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_classroom.primary",
+      "canonical_rule_key": "stirling.parking_bays_min_per_classroom.primary",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "bays per classroom",
+      "condition_json": {},
+      "quote": "Education Establishment Pre-primary / Primary - 1 bay per staff member in attendance; and 3.5 bays per classroom.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_classroom.secondary",
+      "canonical_rule_key": "stirling.parking_bays_min_per_classroom.secondary",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "bays per classroom",
+      "condition_json": {},
+      "quote": "Education Establishment Secondary - 1 bay per staff member in attendance; and 3 bays per classroom.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_students_per_bay_max.tertiary",
+      "canonical_rule_key": "stirling.parking_students_per_bay_max.tertiary",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "students per bay",
+      "condition_json": {},
+      "quote": "Education Establishment Tertiary / Technical - 1 bay per 3.5 students in attendance; and 1.25 bays per classroom.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_classroom.tertiary",
+      "canonical_rule_key": "stirling.parking_bays_min_per_classroom.tertiary",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.25
+      },
+      "unit": "bays per classroom",
+      "condition_json": {},
+      "quote": "Education Establishment Tertiary / Technical - 1 bay per 3.5 students in attendance; and 1.25 bays per classroom.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_practitioner.medical",
+      "canonical_rule_key": "stirling.parking_bays_min_per_practitioner.medical",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 5
+      },
+      "unit": "bays per practitioner",
+      "condition_json": {
+        "first_practitioners": 2
+      },
+      "quote": "Consulting Rooms, Medical Centre, Veterinary Centre \u2014 5 bays for each practitioner in attendance up to 2 practitioners; 2 additional bays for each practitioner in attendance in excess of 2 practitioners.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_practitioner_over2.medical",
+      "canonical_rule_key": "stirling.parking_bays_min_per_practitioner_over2.medical",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "bays per practitioner",
+      "condition_json": {
+        "practitioners_beyond": 2
+      },
+      "quote": "Consulting Rooms, Medical Centre, Veterinary Centre \u2014 5 bays for each practitioner in attendance up to 2 practitioners; 2 additional bays for each practitioner in attendance in excess of 2 practitioners.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_patient_beds_per_bay_max.hospital",
+      "canonical_rule_key": "stirling.parking_patient_beds_per_bay_max.hospital",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "patient beds per bay",
+      "condition_json": {},
+      "quote": "Hospital, Nursing Home, Place of Worship, Public Amusement, Public Amusement (Cinema/Theatre), Recreation - Private \u2014 1 bay per 2 patient beds; and 1 bay per staff member in attendance.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_staff.hospital",
+      "canonical_rule_key": "stirling.parking_bays_min_per_staff.hospital",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "bay per staff member",
+      "condition_json": {},
+      "quote": "Hospital, Nursing Home, Place of Worship, Public Amusement, Public Amusement (Cinema/Theatre), Recreation - Private \u2014 1 bay per 2 patient beds; and 1 bay per staff member in attendance.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_persons_per_bay_max.public_amusement_cinema",
+      "canonical_rule_key": "stirling.parking_persons_per_bay_max.public_amusement_cinema",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 4
+      },
+      "unit": "persons per bay",
+      "condition_json": {},
+      "quote": "Public Amusement (Cinema/Theatre) \u2014 1 bay per 4 persons in attendance.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_bays_min_per_service_bay.service_station",
+      "canonical_rule_key": "stirling.parking_bays_min_per_service_bay.service_station",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "bay per service bay",
+      "condition_json": {},
+      "quote": "Service Station \u2014 1 bay per service bay provided: and any other specific uses are to be as per the relevant activity / use ratio.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_ratio",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_reduction_max_cumulative_pct",
+      "canonical_rule_key": "stirling.parking_reduction_max_cumulative_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Reductions to calculations may be granted cumulatively, to a maximum cumulative reduction of 50% of the number of bays identified by Table 2.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 5.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_reduction_pct.rail_800m",
+      "canonical_rule_key": "stirling.parking_reduction_pct.rail_800m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "%",
+      "condition_json": {
+        "within_m_of_rail_station": 800
+      },
+      "quote": "Table 3: 10% reduction \u2014 the proposed development is within 800 metres of a rail station; or 20% within 400 metres of a rail station.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_reduction_pct.rail_400m",
+      "canonical_rule_key": "stirling.parking_reduction_pct.rail_400m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "%",
+      "condition_json": {
+        "within_m_of_rail_station": 400
+      },
+      "quote": "Table 3: 10% reduction \u2014 the proposed development is within 800 metres of a rail station; or 20% within 400 metres of a rail station.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_reduction_pct.hf_bus_400m",
+      "canonical_rule_key": "stirling.parking_reduction_pct.hf_bus_400m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "%",
+      "condition_json": {
+        "within_m_of_hf_bus_stop": 400
+      },
+      "quote": "Table 3: 10% reduction \u2014 within 400 metres of a stop on a high frequency bus route or a bus station; or 15% within 200 metres.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_reduction_pct.hf_bus_200m",
+      "canonical_rule_key": "stirling.parking_reduction_pct.hf_bus_200m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "%",
+      "condition_json": {
+        "within_m_of_hf_bus_stop": 200
+      },
+      "quote": "Table 3: 10% reduction \u2014 within 400 metres of a stop on a high frequency bus route or a bus station; or 15% within 200 metres.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.parking_reduction_pct.centre_or_heritage",
+      "canonical_rule_key": "stirling.parking_reduction_pct.centre_or_heritage",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table 3: 10% reduction \u2014 the proposed development is within a Regional Centre, District Centre or Neighbourhood Centre as detailed in the City's Local Planning Strategy; 10% where the building/place is listed on the City's Heritage List, Heritage Survey, or the State Register of Heritage Places.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.shared_parking_max_pct.minimal_overlap",
+      "canonical_rule_key": "stirling.shared_parking_max_pct.minimal_overlap",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 90
+      },
+      "unit": "%",
+      "condition_json": {
+        "overlap": "minimal (<30 minutes)"
+      },
+      "quote": "The City may consider the following shared parking arrangements: a) Up to 90% of the parking requirement specified, where there is minimal overlap (less than 30 minutes) in the operating times of uses; or b) Up to 50% of the parking requirement specified, where there is partial overlap (not more than 50 percent) in operating times of the uses.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 5.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.shared_parking_max_pct.partial_overlap",
+      "canonical_rule_key": "stirling.shared_parking_max_pct.partial_overlap",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "overlap": "partial (<=50%)"
+      },
+      "quote": "The City may consider the following shared parking arrangements: a) Up to 90% of the parking requirement specified, where there is minimal overlap (less than 30 minutes) in the operating times of uses; or b) Up to 50% of the parking requirement specified, where there is partial overlap (not more than 50 percent) in operating times of the uses.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 5.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.motorcycle_parking_m2_gfa_per_space_max",
+      "canonical_rule_key": "stirling.motorcycle_parking_m2_gfa_per_space_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 1000
+      },
+      "unit": "m2 GFA per space",
+      "condition_json": {
+        "gfa_gte_m2": 500
+      },
+      "quote": "All non-residential components of developments with 500m\u00b2 or more of gross floor area, where works increase the number of non-residential car parking bays provided on site, one motorcycle parking space shall be provided for every 1,000m2 of gross floor area.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.bicycle_spaces_per_students.primary_secondary",
+      "canonical_rule_key": "stirling.bicycle_spaces_per_students.primary_secondary",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 5
+      },
+      "unit": "students per space",
+      "condition_json": {},
+      "quote": "Table 4: Bicycle Parking Ratios \u2014 Educational Establishment Pre-primary / Primary: 1 space per 5 students (over year 4); Secondary: 1 space per 5 students; Tertiary / Technical: 1 space per 20 students.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.bicycle_spaces_per_students.tertiary",
+      "canonical_rule_key": "stirling.bicycle_spaces_per_students.tertiary",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "students per space",
+      "condition_json": {},
+      "quote": "Table 4: Bicycle Parking Ratios \u2014 Educational Establishment Pre-primary / Primary: 1 space per 5 students (over year 4); Secondary: 1 space per 5 students; Tertiary / Technical: 1 space per 20 students.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.bicycle_m2_gfa_per_space_max.retail_small",
+      "canonical_rule_key": "stirling.bicycle_m2_gfa_per_space_max.retail_small",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 150
+      },
+      "unit": "m2 GFA per space",
+      "condition_json": {
+        "gfa_lte_m2": 5000
+      },
+      "quote": "Table 4: Bicycle Parking Ratios \u2014 Retail (Convenience Store, Personal Care Services, Personal Services, Shop): 0 - 5000m\u00b2 - 1 space per 150m\u00b2 of GFA; 5000m\u00b2 - 10,000m2 - 1 space per 175m\u00b2 of GFA; 10,000m2 plus - 1 space per 200m\u00b2 of GFA.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.bicycle_m2_gfa_per_space_max.retail_medium",
+      "canonical_rule_key": "stirling.bicycle_m2_gfa_per_space_max.retail_medium",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 175
+      },
+      "unit": "m2 GFA per space",
+      "condition_json": {
+        "gfa_range_m2": [
+          5000,
+          10000
+        ]
+      },
+      "quote": "Table 4: Bicycle Parking Ratios \u2014 Retail: 5000m\u00b2 - 10,000m2 - 1 space per 175m\u00b2 of GFA.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.bicycle_m2_gfa_per_space_max.retail_large",
+      "canonical_rule_key": "stirling.bicycle_m2_gfa_per_space_max.retail_large",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 200
+      },
+      "unit": "m2 GFA per space",
+      "condition_json": {
+        "gfa_gt_m2": 10000
+      },
+      "quote": "Table 4: Bicycle Parking Ratios \u2014 Retail: 10,000m2 plus - 1 space per 200m\u00b2 of GFA.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.bicycle_m2_gfa_per_space_max.other_uses",
+      "canonical_rule_key": "stirling.bicycle_m2_gfa_per_space_max.other_uses",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 400
+      },
+      "unit": "m2 GFA per space",
+      "condition_json": {},
+      "quote": "Table 4: Bicycle Parking Ratios \u2014 All other uses: 1 space per 400m\u00b2 of gross floor area (GFA).",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 Table 4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.residential_manoeuvring_depth_min_m.single_garage",
+      "canonical_rule_key": "stirling.residential_manoeuvring_depth_min_m.single_garage",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "As per the Australian Standards AS 2890.1, a manoeuvring depth of: a) 6.0 metres is required for single vehicle garages or multiple vehicles garages containing internal walls and/or obstructions between vehicles.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 8.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.residential_manoeuvring_depth_min_m.multi_garage_open",
+      "canonical_rule_key": "stirling.residential_manoeuvring_depth_min_m.multi_garage_open",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 5.8
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "As per the Australian Standards AS 2890.1, a manoeuvring depth of: b) 5.8 metres may be considered for multiple vehicle garages with no internal walls and/or obstructions between vehicles.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 8.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.driveway_taper_max",
+      "canonical_rule_key": "stirling.driveway_taper_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.2,
+        "raw_text": "maximum internal driveway taper of 1:5"
+      },
+      "unit": "ratio (1:5)",
+      "condition_json": {},
+      "quote": "As per the Australian Standards AS 2890.1, to ensure vehicles can traverse a driveway: a) A maximum internal driveway taper of 1:5 is permitted.",
+      "instrument_section": "LPP 6.7 Parking and Access",
+      "table_reference": "LPP 6.7 cl 8.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "624226f2-9aa4-495c-a7cb-bdb6bac5be62",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_system_max_count_per_lot.residential",
+      "canonical_rule_key": "stirling.wind_system_max_count_per_lot.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "count",
+      "condition_json": {},
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Residential zones, Small Wind Energy System Permitted: NUMBER OF SYSTEMS 1 per lot.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_nameplate_capacity_max_kw.small",
+      "canonical_rule_key": "stirling.wind_nameplate_capacity_max_kw.small",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "kW",
+      "condition_json": {},
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Small Wind Energy System: NAMEPLATE CAPACITY Max 2kW.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_pole_height_max_m.residential",
+      "canonical_rule_key": "stirling.wind_pole_height_max_m.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "mounting": "pole",
+        "measured_from": "natural ground level"
+      },
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Residential zones: HEIGHT Pole Mounted: Max 6m total height (above NGL).",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_pole_height_max_m.non_residential",
+      "canonical_rule_key": "stirling.wind_pole_height_max_m.non_residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Mixed Use",
+        "Non-Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "m",
+      "condition_json": {
+        "mounting": "pole",
+        "measured_from": "natural ground level"
+      },
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Mixed Use Zone and Non-Residential Zone: HEIGHT Pole Mounted: Max 10m total height (above NGL).",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_roof_mounted_height_above_roofline_max_m.residential",
+      "canonical_rule_key": "stirling.wind_roof_mounted_height_above_roofline_max_m.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "mounting": "roof"
+      },
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Residential zones: Roof Mounted: Maximum total height 3.0m above roofline.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_roof_mounted_height_above_roofline_max_m.non_residential",
+      "canonical_rule_key": "stirling.wind_roof_mounted_height_above_roofline_max_m.non_residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Mixed Use",
+        "Non-Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 7.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "mounting": "roof",
+        "min_clearance_from_roofline_m": 1
+      },
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Mixed Use Zone and Non-Residential Zone: Roof Mounted: Maximum 7.5m above roofline; Minimum 1m clearance from roofline.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_blade_diameter_max_m.residential",
+      "canonical_rule_key": "stirling.wind_blade_diameter_max_m.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Residential zones: DIAMETER 2m blade diameter max.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_blade_diameter_max_m.non_residential",
+      "canonical_rule_key": "stirling.wind_blade_diameter_max_m.non_residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Mixed Use",
+        "Non-Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "lte",
+      "value_json": {
+        "value": 5.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Mixed Use Zone and Non-Residential Zone: DIAMETER 5.5m blade diameter max.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_roof_mounted_major_opening_distance_min_m",
+      "canonical_rule_key": "stirling.wind_roof_mounted_major_opening_distance_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 7.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "mounting": "roof",
+        "from": "major opening of adjoining building"
+      },
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Roof Mounted: No minimum setback from boundary, however Wind Energy System to be located minimum of 7.5 metres from major opening of adjoining dwelling / adjoining building.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_pole_boundary_setback_min_height_fraction.residential",
+      "canonical_rule_key": "stirling.wind_pole_boundary_setback_min_height_fraction.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "x total height",
+      "condition_json": {
+        "mounting": "pole",
+        "of": "total height of wind energy system"
+      },
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Pole Mounted (Residential): BOUNDARY SETBACKS (SIDE & REAR): The setback from boundaries is not less than the total height of the wind energy system.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.wind_pole_boundary_setback_min_height_fraction.non_residential",
+      "canonical_rule_key": "stirling.wind_pole_boundary_setback_min_height_fraction.non_residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Mixed Use",
+        "Non-Residential"
+      ],
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "x total height",
+      "condition_json": {
+        "mounting": "pole",
+        "of": "total height of wind energy system"
+      },
+      "quote": "TABLE 1 \u2013 Wind Energy System Development Standards \u2014 Pole Mounted (Mixed Use / Non-Residential): The setback from boundaries is not less than half of the total height of the wind energy system.",
+      "instrument_section": "LPP 6.10 Renewable Energy Systems",
+      "table_reference": "LPP 6.10 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "0a68f917-16d2-4860-a741-8210c6930fd6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.significant_tree_height_min_m",
+      "canonical_rule_key": "stirling.significant_tree_height_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 4
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "'Significant Tree' - means a woody plant at a height of at least four (4) metres above ground level and meets one of the following criteria.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 4.0",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "definition",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.significant_tree_trunk_circumference_min_mm.single_trunk",
+      "canonical_rule_key": "stirling.significant_tree_trunk_circumference_min_mm.single_trunk",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 500
+      },
+      "unit": "mm",
+      "condition_json": {
+        "trunk": "single",
+        "measured_at_m": 1.0
+      },
+      "quote": "for a single trunk species, a trunk circumference of at least 500mm at a height of one (1.0) metre above ground level.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 4.0",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "definition",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.significant_tree_trunk_circumference_min_mm.multi_trunk",
+      "canonical_rule_key": "stirling.significant_tree_trunk_circumference_min_mm.multi_trunk",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 250
+      },
+      "unit": "mm",
+      "condition_json": {
+        "trunk": "multi",
+        "measured_at_m": 1.0
+      },
+      "quote": "for a multi trunk species, a trunk circumference of at least 250mm at a height of one (1.0) metre above ground level.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 4.0",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "definition",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.advanced_tree_container_min_litres",
+      "canonical_rule_key": "stirling.advanced_tree_container_min_litres",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 90
+      },
+      "unit": "litres",
+      "condition_json": {},
+      "quote": "'Advanced Tree' - means a tree which requires planting in at least a 90 litre container or greater size and which is at least 2 metres in height and at least 2 years of age.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 4.0",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "definition",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.advanced_tree_height_min_m",
+      "canonical_rule_key": "stirling.advanced_tree_height_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "'Advanced Tree' - means a tree which requires planting in at least a 90 litre container or greater size and which is at least 2 metres in height and at least 2 years of age.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 4.0",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "definition",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.advanced_trees_min_count.site_lte500",
+      "canonical_rule_key": "stirling.advanced_trees_min_count.site_lte500",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "count",
+      "condition_json": {
+        "site_area_band": "1m2 - 500m2"
+      },
+      "quote": "Table 1 \u2013 Maximum Ratio of Advanced Trees (excluding Multiple Dwellings): SITE AREA 1m2 - 500m2 \u2014 NUMBER OF ADVANCED TREES TO BE PLANTED 1.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.advanced_trees_min_count.site_501_1000",
+      "canonical_rule_key": "stirling.advanced_trees_min_count.site_501_1000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "count",
+      "condition_json": {
+        "site_area_band": "501m2 - 1,000m2"
+      },
+      "quote": "Table 1 \u2013 Maximum Ratio of Advanced Trees (excluding Multiple Dwellings): SITE AREA 501m2 - 1,000m2 \u2014 NUMBER OF ADVANCED TREES TO BE PLANTED 2.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.advanced_trees_min_count.site_1001_1500",
+      "canonical_rule_key": "stirling.advanced_trees_min_count.site_1001_1500",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "count",
+      "condition_json": {
+        "site_area_band": "1,001m2 - 1,500m2"
+      },
+      "quote": "Table 1 \u2013 Maximum Ratio of Advanced Trees (excluding Multiple Dwellings): SITE AREA 1,001m2 - 1,500m2 \u2014 NUMBER OF ADVANCED TREES TO BE PLANTED 3.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.advanced_trees_min_count.site_1501_2000",
+      "canonical_rule_key": "stirling.advanced_trees_min_count.site_1501_2000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 4
+      },
+      "unit": "count",
+      "condition_json": {
+        "site_area_band": "1,501m2 - 2,000m2"
+      },
+      "quote": "Table 1 \u2013 Maximum Ratio of Advanced Trees (excluding Multiple Dwellings): SITE AREA 1,501m2 - 2,000m2 \u2014 NUMBER OF ADVANCED TREES TO BE PLANTED 4.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.advanced_trees_min_per_500m2.site_over_2000",
+      "canonical_rule_key": "stirling.advanced_trees_min_per_500m2.site_over_2000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "per 500m2",
+      "condition_json": {
+        "site_area_gt_m2": 2000
+      },
+      "quote": "Table 1 \u2013 Maximum Ratio of Advanced Trees (excluding Multiple Dwellings): Over 2,000m2 \u2014 1 for every 500m\u00b2 (or part thereof).",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 Table 1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.tree_soil_space_min_m2",
+      "canonical_rule_key": "stirling.tree_soil_space_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 9
+      },
+      "unit": "m2",
+      "condition_json": {
+        "excludes": "Multiple Dwellings (R-Codes Vol 2 Table 3.3b applies)"
+      },
+      "quote": "Where the Council approves development on a site with a condition of development approval requiring the retention of a significant tree or the planting of an advanced tree, the following minimum soil space (at ground level free of intrusions) is required around each tree: For all other development: 9m2.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 5.1(d)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.crossover_setback_from_street_tree_min_m.dbh_lte200",
+      "canonical_rule_key": "stirling.crossover_setback_from_street_tree_min_m.dbh_lte200",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "m",
+      "condition_json": {
+        "street_tree_dbh": "<= 200mm"
+      },
+      "quote": "A minimum setback of a crossover/driveway from any street tree on the verge is required. The setback distance will be in direct relation to the Diameter at Breast Height (DBH) of the street tree: DBH of up to 200mm requires a minimum setback of one metre.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 5.2(c)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.crossover_setback_from_street_tree_min_m.dbh_201_400",
+      "canonical_rule_key": "stirling.crossover_setback_from_street_tree_min_m.dbh_201_400",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "m",
+      "condition_json": {
+        "street_tree_dbh": "201-400mm"
+      },
+      "quote": "DBH of 201mm to 400mm requires a minimum setback of two metres.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 5.2(c)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.crossover_setback_from_street_tree_min_m.dbh_gte401",
+      "canonical_rule_key": "stirling.crossover_setback_from_street_tree_min_m.dbh_gte401",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "street_tree_dbh": ">= 401mm"
+      },
+      "quote": "DBH of 401mm or greater requires a minimum setback of three metres.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 5.2(c)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "stirling.crossover_setback_from_street_tree_absolute_min_m",
+      "canonical_rule_key": "stirling.crossover_setback_from_street_tree_absolute_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Stirling",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "To keep retained trees in a sound condition and to reduce the impact on its root system, no setback requests less than 1.0 metre will be accepted.",
+      "instrument_section": "LPP 6.11 Trees and Development",
+      "table_reference": "LPP 6.11 cl 5.2(d)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "89c21932-116c-4e7c-94d1-db8cd64b52cb",
+      "clause_id": "cb30eab2-241f-4a40-b3ae-57e8e3dcca02",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    }
+  ]
+}

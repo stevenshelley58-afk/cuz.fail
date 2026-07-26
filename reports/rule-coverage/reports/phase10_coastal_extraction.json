@@ -1,0 +1,120 @@
+{
+  "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+  "instrument_section": "SPP 2.6 setbacks",
+  "candidates_extracted": 4,
+  "warnings": [],
+  "candidates": [
+    {
+      "rule_key": "coastal_setback_schedule_one_verification",
+      "canonical_rule_key": "coastal_setback_schedule_one_verification",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify: coastal setback / coastal processes allowance calculated per SPP 2.6 Schedule One (no fixed numeric setback codified - site-specific)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Schedule One Calculation of coastal processes",
+      "instrument_section": "SPP 2.6 setbacks",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "318380a1-d8d7-47cf-a056-88f9d6823ee1",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_setback_foreshore_reserve",
+      "canonical_rule_key": "coastal_setback_foreshore_reserve",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: development setback must respect coastal foreshore reserve delineation under s.5.9"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "5.9 Coastal foreshore reserve (i) Coastal foreshore reserves are required to accommodate a range of functions and values.",
+      "instrument_section": "SPP 2.6 setbacks",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "dd2b6f57-1d43-4867-9cf6-cf1af548d436",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_hazard_referral_300m",
+      "canonical_rule_key": "coastal_hazard_referral_300m",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: development within 300 metres of the coast engages SPP 2.6 provisions (height limits; hazard checks)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "5.4 Building height limits (i) The provisions of this part of the policy apply to all development within 300 metres of",
+      "instrument_section": "SPP 2.6 setbacks",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "c3f1d7f6-66e4-4bef-8bc3-abd9985b2dd0",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_infill_adaptation_review",
+      "canonical_rule_key": "coastal_infill_adaptation_review",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: previously approved coastal risk areas subject to re-review when hazard information materially changes"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "(iv) Where new information or methods become available that significantly modify the understanding of the coastal hazards then all areas within the newly defined risk areas should be reviewed again through the coastal hazard risk management and adaptation planning hierarchy above",
+      "instrument_section": "SPP 2.6 setbacks",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "a251e173-fde4-4f99-a43f-daba010eb3c2",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "report": "phase5_op22_cross_reference",
+  "op22_source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+  "rcodes_vol1_source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+  "findings": [
+    {
+      "id": "XREF-1",
+      "severity": "info",
+      "finding": "Phase 1 Table B extraction (R-Codes Vol 1 April 2026, Part B) contains no minimum or average lot-size rules. Its canonical keys are limited to open space, outdoor living area, street/rear setbacks, site cover, landscaping, heights and boundary setbacks. In the April 2026 edition, minimum/average site-area provisions live in Part D clause 1.1 / Table D, which was outside Phase 1/2 extraction scope. No numeric conflict between OP 2.2 and Phase 1 Table B rules is therefore possible."
+    },
+    {
+      "id": "XREF-2",
+      "severity": "note",
+      "conflict": true,
+      "finding": "OP 2.2 s4.2.4(a) permits subdivision approval where ONE lot is reduced by up to 5% below the R-Codes Table D minimum lot size (and the subdivision average by up to 5%). R-Codes Table D minimums themselves are absolute. A lot approved under OP 2.2 s4.2.4(a) at 95% of the Table D minimum would be below the development standard if later assessed against Table D minima; the two instruments intentionally diverge here (subdivision consent vs development standard)."
+    },
+    {
+      "id": "XREF-3",
+      "severity": "note",
+      "conflict": true,
+      "finding": "OP 2.2 s4.2.4(b) allows average lot size variations GREATER than 5% for single-coded R10-R35 corner lots where all lots still meet Table D minimum lot size and frontage. This is a further sanctioned divergence from Table D averages."
+    },
+    {
+      "id": "XREF-4",
+      "severity": "info",
+      "finding": "OP 2.2 s4.5.5 prohibits any reduction of minimum or average lot sizes for battleaxe lots, closing the s4.2.4(a) 5% allowance for battleaxe configurations. Internally consistent; no conflict."
+    },
+    {
+      "id": "XREF-5",
+      "severity": "info",
+      "finding": "OP 2.2 s4.5.6 minimum battleaxe effective lot area of 850m2 applies only to locations NOT subject to the R-Codes (UNCODED). It does not overlap or conflict with any coded Table B/Table D value."
+    },
+    {
+      "id": "XREF-6",
+      "severity": "info",
+      "finding": "OP 2.2 s4.2.1 defers minimum/average lot size and frontage requirements to the relevant R-Code (Table D). OP 2.2 restates no Table D values, so no value-level conflicts with the R-Codes source were found; gaps in lot-size coverage are due to Part D Table D not yet being extracted from the Vol 1 source."
+    }
+  ]
+}

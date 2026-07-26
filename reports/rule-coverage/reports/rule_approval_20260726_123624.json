@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase7_coastal_extraction.json",
+  "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 8,
+  "failed_count": 0,
+  "skipped_needs_review": 0,
+  "failures": [],
+  "timestamp": "20260726_123624"
+}

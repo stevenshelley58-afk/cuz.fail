@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase12_westernpower_extraction.json",
+  "source_version_id": "b32e0648-b379-4c07-a735-90ffbb062887",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 3,
+  "failed_count": 0,
+  "skipped_needs_review": 1,
+  "failures": [],
+  "timestamp": "20260726_123628"
+}

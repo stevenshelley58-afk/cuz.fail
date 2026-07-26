@@ -1,0 +1,1299 @@
+{
+  "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+  "source_pdf": "/app/data/raw-sources/councils/armadale/pln3_10_r_codes_variations_2026.pdf",
+  "instrument_section": "PLN 3.10 R-Codes Variations & R-MD Codes",
+  "tables_requested": [
+    "Table 1 Single House Standards for Medium Density in Urban Development zone"
+  ],
+  "candidates_extracted": 30,
+  "warnings": [
+    "s4.2 (carport/patio height) defers to R-Codes Table 3 Category A \u2014 no override, not extracted.",
+    "s4.3 (outbuildings) defers to PLN 3.4 Outbuildings \u2014 separate policy, not extracted.",
+    "R-MD 25 front fences 'as per R-Codes' \u2014 no override.",
+    "Lots with frontage <10.5m require single/tandem garaging \u2014 qualitative, not extracted."
+  ],
+  "candidates": [
+    {
+      "rule_key": "armadale.garage_boundary_wall_height_max_m.r175",
+      "canonical_rule_key": "armadale.garage_boundary_wall_height_max_m.r175",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R17.5"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "measured_from": "natural ground level",
+        "boundaries": "one site boundary"
+      },
+      "quote": "In R17.5 coded areas, garages may be constructed up to one site boundary provided they do not exceed 3.0m in height above natural ground level, are no longer than 9m in length and maintain a minimum street setback of 4.5m from a primary street or 1.5m from a secondary street.",
+      "instrument_section": "s4.1",
+      "table_reference": null,
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "9d67f88b-301e-4683-99f3-3d821935a8a9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.garage_boundary_wall_length_max_m.r175",
+      "canonical_rule_key": "armadale.garage_boundary_wall_length_max_m.r175",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R17.5"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 9
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "are no longer than 9m in length",
+      "instrument_section": "s4.1",
+      "table_reference": null,
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "9d67f88b-301e-4683-99f3-3d821935a8a9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.garage_boundary_wall_primary_setback_min_m.r175",
+      "canonical_rule_key": "armadale.garage_boundary_wall_primary_setback_min_m.r175",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R17.5"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "street": "primary"
+      },
+      "quote": "maintain a minimum street setback of 4.5m from a primary street or 1.5m from a secondary street.",
+      "instrument_section": "s4.1",
+      "table_reference": null,
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "9d67f88b-301e-4683-99f3-3d821935a8a9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.garage_boundary_wall_secondary_setback_min_m.r175",
+      "canonical_rule_key": "armadale.garage_boundary_wall_secondary_setback_min_m.r175",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R17.5"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "street": "secondary"
+      },
+      "quote": "maintain a minimum street setback of 4.5m from a primary street or 1.5m from a secondary street.",
+      "instrument_section": "s4.1",
+      "table_reference": null,
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "9d67f88b-301e-4683-99f3-3d821935a8a9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_primary_street_setback_min_m.rmd25",
+      "canonical_rule_key": "armadale.rmd_primary_street_setback_min_m.rmd25",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "no_average": true
+      },
+      "quote": "Street Setbacks (R-Codes 5.1.2) R-MD 25: 3m minimum (no average). 1.5m to porch/veranda (no max length). 1.5m minimum to secondary street.",
+      "instrument_section": "s4.4 Table 1 Street Setbacks",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_primary_street_setback_min_m.rmd30_40",
+      "canonical_rule_key": "armadale.rmd_primary_street_setback_min_m.rmd30_40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "no_average": true
+      },
+      "quote": "R-MD 30 & R-MD 40: 2m minimum (no average). 1.5m to porch/veranda (no max length). 1m minimum to secondary street.",
+      "instrument_section": "s4.4 Table 1 Street Setbacks",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_porch_setback_min_m",
+      "canonical_rule_key": "armadale.rmd_porch_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "element": "porch/veranda"
+      },
+      "quote": "1.5m to porch/veranda (no max length) (R-MD 25, 30 and 40)",
+      "instrument_section": "s4.4 Table 1 Street Setbacks",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_secondary_street_setback_min_m.rmd25",
+      "canonical_rule_key": "armadale.rmd_secondary_street_setback_min_m.rmd25",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true
+      },
+      "quote": "1.5m minimum to secondary street (R-MD 25)",
+      "instrument_section": "s4.4 Table 1 Street Setbacks",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_secondary_street_setback_min_m.rmd30_40",
+      "canonical_rule_key": "armadale.rmd_secondary_street_setback_min_m.rmd30_40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true
+      },
+      "quote": "1m minimum to secondary street (R-MD 30 & R-MD 40)",
+      "instrument_section": "s4.4 Table 1 Street Setbacks",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_front_fence_height_max_mm.rmd30_40",
+      "canonical_rule_key": "armadale.rmd_front_fence_height_max_mm.rmd30_40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 900
+      },
+      "unit": "mm",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "location": "within primary street setback area",
+        "measured_from": "primary street side"
+      },
+      "quote": "Front fences within the primary street setback area being a maximum height of 900mm above natural ground level, measured from the primary street side of the front fence.",
+      "instrument_section": "s4.4 Table 1 Front Fences",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_lot_boundary_setback_min_m.no_major_openings",
+      "canonical_rule_key": "armadale.rmd_lot_boundary_setback_min_m.no_major_openings",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "wall_height_max_m": 3.5,
+        "major_openings": false
+      },
+      "quote": "Lot Boundary Setback (R-Codes 5.1.3, C3.1): 1m for wall height 3.5m or less without major openings. 1.2m for wall height 3.5m or less with major openings.",
+      "instrument_section": "s4.4 Table 1 Lot Boundary Setback",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_lot_boundary_setback_min_m.major_openings",
+      "canonical_rule_key": "armadale.rmd_lot_boundary_setback_min_m.major_openings",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.2
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "wall_height_max_m": 3.5,
+        "major_openings": true
+      },
+      "quote": "1.2m for wall height 3.5m or less with major openings.",
+      "instrument_section": "s4.4 Table 1 Lot Boundary Setback",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_boundary_wall_max_length_fraction.first_side.rmd30",
+      "canonical_rule_key": "armadale.rmd_boundary_wall_max_length_fraction.first_side.rmd30",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.667
+      },
+      "unit": "x side boundary length",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "wall_height_max_m": 3.5,
+        "side": "one side boundary"
+      },
+      "quote": "Walls to Boundary R-MD 30: To both side boundaries subject to: 2/3 maximum length to one side boundary; 1/3 max length to second side boundary, for wall height 3.5m or less.",
+      "instrument_section": "s4.4 Table 1 Walls to Boundary",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_boundary_wall_max_length_fraction.second_side.rmd30",
+      "canonical_rule_key": "armadale.rmd_boundary_wall_max_length_fraction.second_side.rmd30",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.333
+      },
+      "unit": "x side boundary length",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "wall_height_max_m": 3.5,
+        "side": "second side boundary"
+      },
+      "quote": "1/3 max length to second side boundary (R-MD 30), for wall height 3.5m or less.",
+      "instrument_section": "s4.4 Table 1 Walls to Boundary",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_boundary_wall_max_length_fraction.second_side.rmd40",
+      "canonical_rule_key": "armadale.rmd_boundary_wall_max_length_fraction.second_side.rmd40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.667
+      },
+      "unit": "x side boundary length",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "wall_height_max_m": 3.5,
+        "side": "second side boundary"
+      },
+      "quote": "Walls to Boundary R-MD 40: To both side boundaries subject to: No maximum length to one side boundary; 2/3 max length to second side boundary, for wall height 3.5m or less.",
+      "instrument_section": "s4.4 Table 1 Walls to Boundary",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_ola_area_min_pct_lot",
+      "canonical_rule_key": "armadale.rmd_ola_area_min_pct_lot",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "%",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "alternative_min_m2": 20,
+        "whichever": "greater",
+        "no_other_site_cover_standards": true
+      },
+      "quote": "An outdoor living area (OLA) with an area of 10% of the lot size or 20m2, whichever is greater, directly accessible from a habitable room of the dwelling and located behind the street setback area.",
+      "instrument_section": "s4.4 Table 1 Open Space",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_ola_area_min_m2",
+      "canonical_rule_key": "armadale.rmd_ola_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "m2",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "alternative_min_pct": 10,
+        "whichever": "greater"
+      },
+      "quote": "An outdoor living area (OLA) with an area of 10% of the lot size or 20m2, whichever is greater, directly accessible from a habitable room of the dwelling and located behind the street setback area.",
+      "instrument_section": "s4.4 Table 1 Open Space",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_ola_uncovered_min_pct",
+      "canonical_rule_key": "armadale.rmd_ola_uncovered_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 70
+      },
+      "unit": "%",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true
+      },
+      "quote": "At least 70% of the OLA must be uncovered and includes areas under eaves which adjoin uncovered areas.",
+      "instrument_section": "s4.4 Table 1 Open Space",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_ola_min_dimension_m",
+      "canonical_rule_key": "armadale.rmd_ola_min_dimension_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "applies_to": "length and width"
+      },
+      "quote": "The OLA has a minimum 3m length and width dimension.",
+      "instrument_section": "s4.4 Table 1 Open Space",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_garage_laneway_setback_min_m.rear_load",
+      "canonical_rule_key": "armadale.rmd_garage_laneway_setback_min_m.rear_load",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "access": "rear load"
+      },
+      "quote": "Rear load: 0.5m garage setback to laneway.",
+      "instrument_section": "s4.4 Table 1 Garage Setback",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_garage_primary_setback_min_m.front_load",
+      "canonical_rule_key": "armadale.rmd_garage_primary_setback_min_m.front_load",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "access": "front load"
+      },
+      "quote": "Front load: 4.5m garage setback from the primary street and 1.5m from a secondary street.",
+      "instrument_section": "s4.4 Table 1 Garage Setback",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_garage_secondary_setback_min_m.front_load",
+      "canonical_rule_key": "armadale.rmd_garage_secondary_setback_min_m.front_load",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "access": "front load",
+        "street": "secondary"
+      },
+      "quote": "Front load: 4.5m garage setback from the primary street and 1.5m from a secondary street.",
+      "instrument_section": "s4.4 Table 1 Garage Setback",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_garage_primary_setback_reduced_min_m.front_load",
+      "canonical_rule_key": "armadale.rmd_garage_primary_setback_reduced_min_m.front_load",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 4
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "access": "front load",
+        "requires": "footpath/shared path >0.5m from street boundary"
+      },
+      "quote": "The garage setback from the primary street may be reduced to 4m where an existing or planned footpath or shared path is located more than 0.5m from the street boundary.",
+      "instrument_section": "s4.4 Table 1 Garage Setback",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_double_garage_width_max_m",
+      "canonical_rule_key": "armadale.rmd_double_garage_width_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "frontage_min_m": 10.5,
+        "frontage_max_m": 12,
+        "garage_behind_alignment_min_m": 0.5,
+        "entry_feature_min_depth_m": 1.2
+      },
+      "quote": "For front loaded lots with street frontages between 10.5 and 12m, a double garage is permitted to a maximum width of 6m as viewed from the street subject to: Garage setback a minimum of 0.5m behind the building alignment; A major opening to a habitable room directly facing the primary street; An entry feature consisting of a porch or veranda with a minimum depth of 1.2m; and No vehicular crossover wider than 4.5m where it meets the street.",
+      "instrument_section": "s4.4 Table 1 Garage Width",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_crossover_width_max_m",
+      "canonical_rule_key": "armadale.rmd_crossover_width_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "measured_at": "street"
+      },
+      "quote": "No vehicular crossover wider than 4.5m where it meets the street.",
+      "instrument_section": "s4.4 Table 1 Garage Width",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_overshadowing_rear_half_max_pct.rmd25",
+      "canonical_rule_key": "armadale.rmd_overshadowing_rear_half_max_pct.rmd25",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 25
+      },
+      "unit": "%",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "of": "adjoining site area",
+        "trigger": "intrudes into rear half of lot"
+      },
+      "quote": "Overshadowing R-MD 25: No maximum overshadowing for wall height 3.5m or less. No maximum overshadowing for wall height greater than 3.5m where overshadowing is confined to the front half of the lot. If overshadowing intrudes into rear half of the lot, shadow cast does not exceed 25%.",
+      "instrument_section": "s4.4 Table 1 Overshadowing",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_overshadowing_rear_half_max_pct.rmd30_40",
+      "canonical_rule_key": "armadale.rmd_overshadowing_rear_half_max_pct.rmd30_40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "lte",
+      "value_json": {
+        "value": 35
+      },
+      "unit": "%",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "of": "adjoining site area",
+        "trigger": "intrudes into rear half of lot"
+      },
+      "quote": "Overshadowing R-MD 30 & R-MD 40: If overshadowing intrudes into rear half of the lot, shadow cast does not exceed 35%.",
+      "instrument_section": "s4.4 Table 1 Overshadowing",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_privacy_setback_bedrooms_min_m",
+      "canonical_rule_key": "armadale.rmd_privacy_setback_bedrooms_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "opening_type": "bedrooms and studies"
+      },
+      "quote": "Privacy: R-Codes clause 5.4.1 C1.1 applies, however the setback distances are: 3m to bedrooms and studies; 4.5m to major openings to habitable rooms other than bedrooms and studies; and 6m to unenclosed outdoor active habitable spaces.",
+      "instrument_section": "s4.4 Table 1 Privacy",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_privacy_setback_habitable_min_m",
+      "canonical_rule_key": "armadale.rmd_privacy_setback_habitable_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "opening_type": "major openings to habitable rooms other than bedrooms/studies"
+      },
+      "quote": "4.5m to major openings to habitable rooms other than bedrooms and studies;",
+      "instrument_section": "s4.4 Table 1 Privacy",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "armadale.rmd_privacy_setback_outdoor_active_min_m",
+      "canonical_rule_key": "armadale.rmd_privacy_setback_outdoor_active_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Armadale",
+      "operator": "gte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "zone": "Urban Development",
+        "ldp": "no approved LDP, or LDP approved after 25 May 2020",
+        "excluded_estates": [
+          "Heron Park",
+          "Kamara",
+          "Mason Green",
+          "Holland Park",
+          "Piara Gardens",
+          "Riva",
+          "The Nursery"
+        ],
+        "ldp_prevails": true,
+        "opening_type": "unenclosed outdoor active habitable spaces"
+      },
+      "quote": "6m to unenclosed outdoor active habitable spaces.",
+      "instrument_section": "s4.4 Table 1 Privacy",
+      "table_reference": "PLN 3.10 Table 1 R-MD Codes",
+      "effective_from": "2026-03-23",
+      "effective_to": null,
+      "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+      "clause_id": "034a1113-cdf5-422d-b661-615346670e78",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    }
+  ]
+}

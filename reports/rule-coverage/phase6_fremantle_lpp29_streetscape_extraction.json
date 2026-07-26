@@ -1,0 +1,474 @@
+{
+  "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+  "source_pdf": "/app/data/raw-sources/councils/fremantle/lpp2_9_residential_streetscapes.pdf",
+  "instrument_section": "LPP2.9 Residential Streetscapes",
+  "tables_requested": [
+    "Table 1.1a Primary Street Setbacks"
+  ],
+  "candidates_extracted": 15,
+  "warnings": [
+    "Heritage areas excluded from all provisions; South Fremantle/Samson/O'Connor/Hilton ground+upper setbacks revert to R-Codes (no LPP override).",
+    "s3 Building height modifies no D-t-C criteria (design principles only) \u2014 not extracted.",
+    "LPP2.8 Fences cross-referenced for carport doors/gates \u2014 separate instrument."
+  ],
+  "candidates": [
+    {
+      "rule_key": "fremantle.primary_street_setback_ground_min_m.fremantle_north",
+      "canonical_rule_key": "fremantle.primary_street_setback_ground_min_m.fremantle_north",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 5
+      },
+      "unit": "m",
+      "condition_json": {
+        "suburbs": [
+          "Fremantle",
+          "North Fremantle"
+        ],
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Table 1.1a: Primary Street Setbacks \u2014 Fremantle 5m 7m; North Fremantle 5m 7m.",
+      "instrument_section": "s1 C2.1(i) Table 1.1a",
+      "table_reference": "LPP2.9 Table 1.1a Primary Street Setbacks",
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "cbd13c64-8294-4965-bd0e-4aea375a4600",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.primary_street_setback_upper_min_m.fremantle_north",
+      "canonical_rule_key": "fremantle.primary_street_setback_upper_min_m.fremantle_north",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 7
+      },
+      "unit": "m",
+      "condition_json": {
+        "suburbs": [
+          "Fremantle",
+          "North Fremantle"
+        ],
+        "storey": "upper",
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Table 1.1a: Primary Street Setbacks \u2014 Fremantle 5m 7m; North Fremantle 5m 7m.",
+      "instrument_section": "s1 C2.1(i) Table 1.1a",
+      "table_reference": "LPP2.9 Table 1.1a Primary Street Setbacks",
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "cbd13c64-8294-4965-bd0e-4aea375a4600",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.primary_street_setback_ground_min_m.beaconsfield_wgv",
+      "canonical_rule_key": "fremantle.primary_street_setback_ground_min_m.beaconsfield_wgv",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 7
+      },
+      "unit": "m",
+      "condition_json": {
+        "suburbs": [
+          "Beaconsfield",
+          "White Gum Valley"
+        ],
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Table 1.1a: Primary Street Setbacks \u2014 Beaconsfield 7m 10m; White Gum Valley 7m 10m.",
+      "instrument_section": "s1 C2.1(i) Table 1.1a",
+      "table_reference": "LPP2.9 Table 1.1a Primary Street Setbacks",
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "cbd13c64-8294-4965-bd0e-4aea375a4600",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.primary_street_setback_upper_min_m.beaconsfield_wgv",
+      "canonical_rule_key": "fremantle.primary_street_setback_upper_min_m.beaconsfield_wgv",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "m",
+      "condition_json": {
+        "suburbs": [
+          "Beaconsfield",
+          "White Gum Valley"
+        ],
+        "storey": "upper",
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Table 1.1a: Primary Street Setbacks \u2014 Beaconsfield 7m 10m; White Gum Valley 7m 10m.",
+      "instrument_section": "s1 C2.1(i) Table 1.1a",
+      "table_reference": "LPP2.9 Table 1.1a Primary Street Setbacks",
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "cbd13c64-8294-4965-bd0e-4aea375a4600",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.ground_floor_wall_height_max_m",
+      "canonical_rule_key": "fremantle.ground_floor_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 4
+      },
+      "unit": "m",
+      "condition_json": {
+        "defines": "ground floor vs upper floor setback applicability",
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "For purposes of this clause, ground floor setbacks apply to wall heights up to 4m on the street elevation. Above this height, the upper floor setbacks apply.",
+      "instrument_section": "s1 C2.1(i) Table 1.1a note",
+      "table_reference": "LPP2.9 Table 1.1a Primary Street Setbacks",
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "cbd13c64-8294-4965-bd0e-4aea375a4600",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.primary_street_setback_reduction_max_pct.south_4",
+      "canonical_rule_key": "fremantle.primary_street_setback_reduction_max_pct.south_4",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "suburbs": [
+          "South Fremantle",
+          "Samson",
+          "O'Connor",
+          "Hilton"
+        ],
+        "requires": "equal-area open space compensation + min 50% soft landscaping",
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "iii. Within the suburbs of South Fremantle, Samson, O'Connor and Hilton only (excluding Heritage Areas): reduced by up to 50 per cent provided that the area of any building, including a garage encroaching into the setback area, is compensated for by at least an equal area of open space that is located between the street setback line and a line drawn parallel to it at twice the setback distance, with such ground floor area occupied by a minimum 50% soft landscaping.",
+      "instrument_section": "s1 C2.1(iii)",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "cbd13c64-8294-4965-bd0e-4aea375a4600",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "fremantle.minor_projection_into_street_setback_max_m",
+      "canonical_rule_key": "fremantle.minor_projection_into_street_setback_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.75
+      },
+      "unit": "m",
+      "condition_json": {
+        "elements": [
+          "chimneys",
+          "eaves",
+          "window hoods",
+          "architectural features"
+        ],
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Minor projections, such as chimneys, eaves, window hoods and other architectural features, are acceptable provided they do not project more than 0.75m into the street setback.",
+      "instrument_section": "s1 C3.3.1",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "cbd13c64-8294-4965-bd0e-4aea375a4600",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.carport_street_setback_min_m",
+      "canonical_rule_key": "fremantle.carport_street_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "element": "carport in front of dwelling",
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Carports may be located in front of the dwelling where: i. The entire carport (including roof, eaves and pillars/posts) is set back a minimum of 1.5m from primary and secondary street boundaries;",
+      "instrument_section": "s2 C2.1(i)",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "6a2766b2-6d1d-4573-92a4-6c86b8d38d22",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.carport_pillar_dimension_max_mm",
+      "canonical_rule_key": "fremantle.carport_pillar_dimension_max_mm",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 450
+      },
+      "unit": "mm",
+      "condition_json": {
+        "applies_to": "pillars and posts (both dimensions)",
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Carports may be located in front of the dwelling where: ii. Pillars and posts have a maximum dimension of 450mm by 450mm;",
+      "instrument_section": "s2 C2.1(ii)",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "6a2766b2-6d1d-4573-92a4-6c86b8d38d22",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.carport_height_max_m",
+      "canonical_rule_key": "fremantle.carport_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "measured_from": "natural ground level",
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Carports may be located in front of the dwelling where: iii. The carport does not exceed a maximum height of 3 metres above natural ground level as viewed from the street;",
+      "instrument_section": "s2 C2.1(iii)",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "6a2766b2-6d1d-4573-92a4-6c86b8d38d22",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.carport_width_max_m.frontage_12m_plus",
+      "canonical_rule_key": "fremantle.carport_width_max_m.frontage_12m_plus",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "frontage_min_m": 12,
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Carports may be located in front of the dwelling where: vi. The maximum width of the carport is 6 metres on a property with a frontage of 12 metres or greater, and 3 metres on a property with a frontage of less than 12 metres;",
+      "instrument_section": "s2 C2.1(vi)",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "6a2766b2-6d1d-4573-92a4-6c86b8d38d22",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.carport_width_max_m.frontage_under_12m",
+      "canonical_rule_key": "fremantle.carport_width_max_m.frontage_under_12m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "frontage_max_m_exclusive": 12,
+        "excluded": "heritage-protected places incl. all heritage areas"
+      },
+      "quote": "Carports may be located in front of the dwelling where: vi. The maximum width of the carport is 6 metres on a property with a frontage of 12 metres or greater, and 3 metres on a property with a frontage of less than 12 metres;",
+      "instrument_section": "s2 C2.1(vi)",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "6a2766b2-6d1d-4573-92a4-6c86b8d38d22",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.driveway_width_min_m",
+      "canonical_rule_key": "fremantle.driveway_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "serves_max_dwellings": 4,
+        "measured_at": "street boundary"
+      },
+      "quote": "Driveways to primary or secondary street provided as follows: driveways serving four dwellings or less not narrower than 3m at the street boundary;",
+      "instrument_section": "s4 C5.2",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "54dea4ce-620f-4e4e-bac2-bbbc6d1e8b4a",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.driveway_width_max_m",
+      "canonical_rule_key": "fremantle.driveway_width_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "measured_at": "street boundary"
+      },
+      "quote": "Driveways to primary or secondary street provided as follows: no driveway wider than 4.5m at the street boundary and driveways in aggregate no greater than 6m for any one property. C3.7.3ii Driveways must be a maximum 4.5m wide at the street boundary.",
+      "instrument_section": "s4 C5.2 / C3.7.3ii",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "54dea4ce-620f-4e4e-bac2-bbbc6d1e8b4a",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.driveway_aggregate_width_max_m",
+      "canonical_rule_key": "fremantle.driveway_aggregate_width_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "scope": "all driveways on any one property"
+      },
+      "quote": "Driveways to primary or secondary street provided as follows: no driveway wider than 4.5m at the street boundary and driveways in aggregate no greater than 6m for any one property.",
+      "instrument_section": "s4 C5.2",
+      "table_reference": null,
+      "effective_from": "2020-03-31",
+      "effective_to": null,
+      "source_version_id": "da8dac23-f06c-4bb3-bd8a-1def12683fed",
+      "clause_id": "54dea4ce-620f-4e4e-bac2-bbbc6d1e8b4a",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    }
+  ]
+}

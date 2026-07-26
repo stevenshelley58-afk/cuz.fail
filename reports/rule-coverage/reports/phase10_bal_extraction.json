@@ -1,0 +1,178 @@
+{
+  "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+  "instrument_section": "Guidelines Table 2 overlays",
+  "candidates_extracted": 6,
+  "warnings": [
+    "BAL overlay categories are names/triggers only; AS 3959 values deliberately not codified."
+  ],
+  "candidates": [
+    {
+      "rule_key": "bal_overlay_bal_fz",
+      "canonical_rule_key": "bal_overlay_bal_fz",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "overlay: BAL-FZ (Flame Zone) - development approval always required; highest construction referral category (name only, no AS 3959 values)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "If the BAL shown on the Contour Map and/or BAL assessment is BAL–40 or BAL–FZ, development approval is always required.",
+      "instrument_section": "Guidelines Table 2 overlays",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "35c74b61-78a8-4a3b-82b7-039eafd6c631",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_overlay_bal_40",
+      "canonical_rule_key": "bal_overlay_bal_40",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "overlay: BAL-40 - development approval always required; construction referral category (name only, no AS 3959 values)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "If the BAL shown on the Contour Map and/or BAL assessment is BAL–40 or BAL–FZ, development approval is always required.",
+      "instrument_section": "Guidelines Table 2 overlays",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "1f1e32b1-e441-4b47-bdd5-1b7b3fa04cae",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_overlay_bal_29",
+      "canonical_rule_key": "bal_overlay_bal_29",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "overlay: BAL-29 construction referral category (name only, no AS 3959 values)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines Table 2 overlays",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "1e2fd745-781a-401b-9bef-a5346e45d69f",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_overlay_bal_19",
+      "canonical_rule_key": "bal_overlay_bal_19",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "overlay: BAL-19 construction referral category (name only, no AS 3959 values)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines Table 2 overlays",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "813d3bcb-27c7-4a84-866b-8c3699ee8c4d",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_overlay_bal_125",
+      "canonical_rule_key": "bal_overlay_bal_125",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "overlay: BAL-12.5 construction referral category (name only, no AS 3959 values)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines Table 2 overlays",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "afa7edfa-27bf-45e7-af4e-650add8d719a",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_overlay_bal_low",
+      "canonical_rule_key": "bal_overlay_bal_low",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "overlay: BAL-LOW - no bushfire construction category applies (name only, no AS 3959 values)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines Table 2 overlays",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "d7a6f33f-13b6-45fa-a387-533de42f40f6",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    }
+  ]
+}

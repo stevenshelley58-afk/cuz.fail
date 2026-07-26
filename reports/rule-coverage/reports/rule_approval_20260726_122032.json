@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase6_cockburn_lpp1_incidental_extraction.json",
+  "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 33,
+  "failed_count": 0,
+  "skipped_needs_review": 0,
+  "failures": [],
+  "timestamp": "20260726_122032"
+}

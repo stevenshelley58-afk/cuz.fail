@@ -1,0 +1,122 @@
+{
+  "source_version_id": "6956e6ae-0fd4-4149-b467-5d27129b3f77",
+  "instrument_section": "metadata-only",
+  "candidates_extracted": 4,
+  "warnings": [
+    "Metadata-only source; service verification triggers only."
+  ],
+  "candidates": [
+    {
+      "rule_key": "svc_water_connection_verification",
+      "canonical_rule_key": "svc_water_connection_verification",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify: potable water service available/connection approved with Water Corporation before occupancy"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Water Corporation water service connection requirements (metadata-only verification pointer - Water Corporation technical requirements not stored; verify with Water Corporation)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "6956e6ae-0fd4-4149-b467-5d27129b3f77",
+      "clause_id": "a33ede12-4591-4117-9d00-48d484478cbc",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "svc_sewer_connection_verification",
+      "canonical_rule_key": "svc_sewer_connection_verification",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify: sewer connection or approved on-site wastewater disposal per Water Corporation / health requirements"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Water Corporation wastewater connection requirements (metadata-only verification pointer - Water Corporation technical requirements not stored; verify with Water Corporation)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "6956e6ae-0fd4-4149-b467-5d27129b3f77",
+      "clause_id": "96bb6124-7292-4d27-b9c9-04ad9d21e4a6",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "svc_watercorp_referral_trigger",
+      "canonical_rule_key": "svc_watercorp_referral_trigger",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: subdivision/development affecting Water Corporation infrastructure referred to Water Corporation for conditions"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Water Corporation referral requirements (metadata-only verification pointer - Water Corporation technical requirements not stored; verify with Water Corporation)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "6956e6ae-0fd4-4149-b467-5d27129b3f77",
+      "clause_id": "8b4735af-6f02-4d65-b306-a68061313b34",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "svc_stormwater_drainage_connection",
+      "canonical_rule_key": "svc_stormwater_drainage_connection",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify: stormwater disposal to approved drainage system or on-site containment per local government requirements"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Local government / Water Corporation stormwater drainage requirements (metadata-only verification pointer - Water Corporation technical requirements not stored; verify with Water Corporation)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "6956e6ae-0fd4-4149-b467-5d27129b3f77",
+      "clause_id": "4d381746-21b3-48b0-9b4c-4782209fcde0",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    }
+  ]
+}

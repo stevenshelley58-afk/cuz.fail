@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase1_rcodes_partb_extraction.json",
+  "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 463,
+  "failed_count": 0,
+  "skipped_needs_review": 0,
+  "failures": [],
+  "timestamp": "20260726_120345"
+}

@@ -1,0 +1,136 @@
+{
+  "source_version_id": "8d9af7c2-1d93-418a-b98e-545004cff86b",
+  "source_pdf": "/app/data/raw-sources/councils/fremantle/lpp2_2_split_density_codes.pdf",
+  "instrument_section": "LPP2.2 Part B Energy Efficiency and Sustainability Schedule",
+  "tables_requested": [],
+  "candidates_extracted": 4,
+  "warnings": [
+    "Part A pathways (heritage retention, low income housing, non-conforming use removal) are qualitative eligibility routes under LPS4 cl 4.3.4 \u2014 not extracted.",
+    "Part B cl 1.4 (electric hot water/cooking) is a specification requirement \u2014 qualitative, not extracted."
+  ],
+  "candidates": [
+    {
+      "rule_key": "fremantle.splitcode_nathers_stars_above_bca_min",
+      "canonical_rule_key": "fremantle.splitcode_nathers_stars_above_bca_min",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "stars above BCA requirement",
+      "condition_json": {
+        "applies_to": "new dwelling development on split-coded land connected to reticulated sewer",
+        "pathway": "LPS4 cl 4.3.4 higher density code via Energy Efficiency Schedule",
+        "certification": "suitably qualified and accredited energy assessor at DA stage"
+      },
+      "quote": "1.1 The dwelling shall be designed and constructed to a Nationwide House Energy Rating Scheme (NatHERS) star rating a minimum of one star in excess of the current energy efficiency requirement of the Building Codes of Australia for class 1A buildings, or an equivalent demonstrating comparable energy efficiency.",
+      "instrument_section": "Part B cl 1.1",
+      "table_reference": null,
+      "effective_from": "2022-01-19",
+      "effective_to": null,
+      "source_version_id": "8d9af7c2-1d93-418a-b98e-545004cff86b",
+      "clause_id": "8f9dc8fc-4093-49b5-a8b4-db530413140d",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.splitcode_pv_system_min_kw",
+      "canonical_rule_key": "fremantle.splitcode_pv_system_min_kw",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "kW",
+      "condition_json": {
+        "applies_to": "new dwelling development on split-coded land connected to reticulated sewer",
+        "pathway": "LPS4 cl 4.3.4 higher density code via Energy Efficiency Schedule"
+      },
+      "quote": "1.2 Provision of a minimum 3kW photovoltaic solar panel system;",
+      "instrument_section": "Part B cl 1.2",
+      "table_reference": null,
+      "effective_from": "2022-01-19",
+      "effective_to": null,
+      "source_version_id": "8d9af7c2-1d93-418a-b98e-545004cff86b",
+      "clause_id": "8f9dc8fc-4093-49b5-a8b4-db530413140d",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.splitcode_rainwater_tank_min_l",
+      "canonical_rule_key": "fremantle.splitcode_rainwater_tank_min_l",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 3000
+      },
+      "unit": "L",
+      "condition_json": {
+        "applies_to": "new dwelling development on split-coded land connected to reticulated sewer",
+        "pathway": "LPS4 cl 4.3.4 higher density code via Energy Efficiency Schedule",
+        "alternatives": [
+          "approved greywater reuse system",
+          "registered significant tree retention"
+        ],
+        "plumbed_to": "toilet or laundry"
+      },
+      "quote": "1.3 Provision of: (a) a minimum 3000L capacity rainwater tank plumbed to either a toilet or laundry within the dwelling; or (b) an approved greywater reuse system ...; or (c) successful registration of an existing tree on the City's Significant Tree and Vegetation Areas Register and its subsequent retention;",
+      "instrument_section": "Part B cl 1.3(a)",
+      "table_reference": null,
+      "effective_from": "2022-01-19",
+      "effective_to": null,
+      "source_version_id": "8d9af7c2-1d93-418a-b98e-545004cff86b",
+      "clause_id": "8f9dc8fc-4093-49b5-a8b4-db530413140d",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.splitcode_alternative_nathers_stars_min",
+      "canonical_rule_key": "fremantle.splitcode_alternative_nathers_stars_min",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "additional stars per substituted item",
+      "condition_json": {
+        "applies_to": "new dwelling development on split-coded land connected to reticulated sewer",
+        "pathway": "LPS4 cl 4.3.4 higher density code via Energy Efficiency Schedule",
+        "substitutes": "clause 1.2 (PV) and/or 1.3 (water/tree) items"
+      },
+      "quote": "In cases where an applicant demonstrates that the requirements of clause 1.2 and/or 1.3 of Part B cannot reasonably be met, Council may accept the achievement of an additional half (0.5) star NatHERS star rating in lieu of each of the items at clause 1.2 and/or 1.3 as an alternative means of complying with this policy.",
+      "instrument_section": "Part B alternative",
+      "table_reference": null,
+      "effective_from": "2022-01-19",
+      "effective_to": null,
+      "source_version_id": "8d9af7c2-1d93-418a-b98e-545004cff86b",
+      "clause_id": "8f9dc8fc-4093-49b5-a8b4-db530413140d",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    }
+  ]
+}

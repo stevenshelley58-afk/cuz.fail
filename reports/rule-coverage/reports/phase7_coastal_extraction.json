@@ -1,0 +1,232 @@
+{
+  "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+  "instrument_section": "SPP 2.6",
+  "candidates_extracted": 8,
+  "warnings": [],
+  "candidates": [
+    {
+      "rule_key": "coastal_chrmap_trigger",
+      "canonical_rule_key": "coastal_chrmap_trigger",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: where proposed development is in an area at risk of coastal hazards over the planning timeframe, coastal hazard risk management and adaptation planning (CHRMAP) is required"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "5.5 Coastal hazard risk management and adaptation planning (i) Adequate coastal hazard risk management and adaptation planning should be undertaken by the responsible management authority and/or proponent where existing or proposed development or landholders are in an area at risk of being affected by coastal hazards over the planning timeframe.",
+      "instrument_section": "SPP 2.6",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "3d2a86c2-f3ba-40db-8e26-bed52b826b00",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_title_notification",
+      "canonical_rule_key": "coastal_title_notification",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: on subdivision/development approval, notification of coastal hazard risk on certificate of title (VULNERABLE COASTAL ...)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "On consideration of approval for subdivision and/or development current and/or future lot owners should be made aware of the coastal hazard risk by providing the following notification on the certificate on title: VULNERABLE COASTAL",
+      "instrument_section": "SPP 2.6",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "c68f43e8-e88f-4f2e-bfc2-54ac37c38def",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_avoidance_hierarchy",
+      "canonical_rule_key": "coastal_avoidance_hierarchy",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: adaptation hierarchy applied sequentially - avoid, planned/managed retreat, accommodate, then protect"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "(1) Avoid the presence of new development within an area identified to be affected by coastal hazards.",
+      "instrument_section": "SPP 2.6",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "4c4d3c16-96c7-45e6-82a2-bcd181808328",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_foreshore_reserve_determination",
+      "canonical_rule_key": "coastal_foreshore_reserve_determination",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: delineation of coastal foreshore reserve considers coastal hazards, habitats, access, recreation and safety"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "5.9 Coastal foreshore reserve (i) Coastal foreshore reserves are required to accommodate a range of functions and values.",
+      "instrument_section": "SPP 2.6",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "5b0c1e6c-a917-4e91-8ac9-4a4239492667",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_foreshore_reserve_merits",
+      "canonical_rule_key": "coastal_foreshore_reserve_merits",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: each proposal assessed on merits against Schedule One and Coastal Planning Policy Guidelines for foreshore reserve width"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "(ii) The required coastal foreshore reserve will vary according to the circumstances of any particular proposal. Each proposal must be assessed on its merits having regard to this policy, including the principles and guidelines of Schedule One",
+      "instrument_section": "SPP 2.6",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "72c0a3ec-7f2c-42a7-a759-f9601043b67c",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_schedule_one_processes",
+      "canonical_rule_key": "coastal_schedule_one_processes",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: coastal processes allowance (setback basis) estimated per Schedule One methodology"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Schedule One Calculation of coastal processes",
+      "instrument_section": "SPP 2.6",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "cbb8f5f4-a287-40c3-8cef-5e30ab97bb4a",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_protection_works_presumption",
+      "canonical_rule_key": "coastal_protection_works_presumption",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: new coastal protection works not permitted except after avoidance/adaptation options fully explored"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "New coastal protection works are not permitted, except where such works are considered only after all other options for avoiding and adapting to coastal hazards have been fully explored",
+      "instrument_section": "SPP 2.6",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "b7a05b04-c895-4cb6-a8eb-9d1718677a82",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "coastal_building_height_300m",
+      "canonical_rule_key": "coastal_building_height_300m",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: building height provisions apply to all development within 300 metres of the coast"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "5.4 Building height limits (i) The provisions of this part of the policy apply to all development within 300 metres of",
+      "instrument_section": "SPP 2.6",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1c9fe296-7a27-4c20-b01e-4161c700db58",
+      "clause_id": "93b12c78-9fe3-4a83-b574-bf7eedd6e3a8",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    }
+  ]
+}

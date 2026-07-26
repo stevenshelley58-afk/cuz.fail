@@ -1,0 +1,711 @@
+{
+  "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+  "source_pdf": "/app/data/raw-sources/transfer_of_land_act_1893.pdf",
+  "instrument_section": "Parts IV, IVA, V, XIV (title & encumbrance provisions)",
+  "tables_requested": [
+    "s. 61",
+    "s. 106",
+    "s. 129B",
+    "s. 129BA",
+    "s. 136C",
+    "s. 137",
+    "s. 138",
+    "s. 138B",
+    "s. 138C",
+    "s. 138D",
+    "s. 139",
+    "s. 140",
+    "s. 141",
+    "s. 219",
+    "s. 220",
+    "s. 227"
+  ],
+  "candidates_extracted": 24,
+  "warnings": [
+    "Textual statute codified manually; applicable_r_codes and operator are null for boolean/verification rules by design.",
+    "s. 121/122 20-year easement non-user provisions reviewed but not codified: operative mechanism is via s. 20 application and requires legal interpretation \u2014 flagged for future human review."
+  ],
+  "candidates": [
+    {
+      "rule_key": "tla_caveat_lodgement_standing",
+      "canonical_rule_key": "tla_caveat_lodgement_standing",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_caveat_lodgement_standing"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "caveator must claim an estate or interest in the land, lease, mortgage or charge"
+      },
+      "quote": "Any beneficiary or other person claiming any estate or interest in land under the operation of this Act or in any lease mortgage or charge under any unregistered instrument document or writing or under any equitable mortgage or charge by deposit without writing or by devolution in law or otherwise may lodge a caveat with the Registrar in an approved form forbidding the registration of any person as transferee or proprietor.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 137(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "aaffae2f-1a56-4cf6-8964-a6cb7a5c55a5",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_form_signature_address",
+      "canonical_rule_key": "tla_caveat_form_signature_address",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_caveat_form_signature_address"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "caveat states caveator name and address and is signed"
+      },
+      "quote": "Every such caveat shall state the name and address of the person by whom or on whose behalf the same is lodged and (except in case of a caveat lodged by order of the Supreme Court or by the Registrar pursuant to the direction of the Commissioner as hereinafter provided) shall be signed by the caveator or by his agent.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 137(1A)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "aaffae2f-1a56-4cf6-8964-a6cb7a5c55a5",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_service_address_required",
+      "canonical_rule_key": "tla_caveat_service_address_required",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_caveat_service_address_required"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "caveat specifies Australian address or prescribed electronic notice method"
+      },
+      "quote": "A caveat under this section cannot be lodged unless one of the following is specified in it for the purposes of the service of notices in relation to the caveat \u2014 (a) an address in Australia; (c) a way of receiving notices electronically (for example, an email address) that is prescribed by the regulations for the purposes of this paragraph.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 137(1D)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "aaffae2f-1a56-4cf6-8964-a6cb7a5c55a5",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_statutory_declaration_max_days",
+      "canonical_rule_key": "tla_caveat_statutory_declaration_max_days",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 7
+      },
+      "unit": "days",
+      "condition_json": {
+        "trigger": "Registrar requisition of statutory declaration",
+        "consequence": "caveat absolutely null and void"
+      },
+      "quote": "The person lodging such caveat shall if required by the Registrar support the same by statutory declaration stating the nature of the estate or interest claimed and the title thereto ... If such declaration when required by the Registrar be not lodged with him within 7 days from the date of such requisition the caveat shall be absolutely null and void.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 137(1B)-(1C)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "aaffae2f-1a56-4cf6-8964-a6cb7a5c55a5",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_lapse_after_notice_days",
+      "canonical_rule_key": "tla_caveat_lapse_after_notice_days",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 14
+      },
+      "unit": "days",
+      "condition_json": {
+        "trigger": "notice served on caveator of application for registration",
+        "exception": "caveat by beneficiary under will or settlement, or by Registrar on Commissioner's direction"
+      },
+      "quote": "Except in the case of a caveat lodged by or on behalf of a beneficiary claiming under any will or settlement or by the Registrar pursuant to the direction of the Commissioner every caveat lodged against a proprietor shall be deemed to have lapsed as to the land affected by the transfer or other dealing upon the expiration of 14 days after notice served on the caveator that such proprietor has applied for the registration of a transfer or other dealing unless in the meantime such application is withdrawn.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 138(3)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "7bc68fa8-8902-4c6f-912f-17b546f23f2c",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_21_day_lapse_without_court_order",
+      "canonical_rule_key": "tla_caveat_21_day_lapse_without_court_order",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 21
+      },
+      "unit": "days",
+      "condition_json": {
+        "trigger": "service of Registrar's notice on caveator (s. 138B(1))",
+        "applies_to": "section 138A caveats"
+      },
+      "quote": "If the notice referred to in subsection (1) is served on the caveator then the caveat lapses 21 days after the day on which the notice was served unless, before that time, the caveator has \u2014 (a) obtained from the Supreme Court an order extending the operation of the caveat \u2014 (i) for such further period as is specified in the order; or (ii) until the further order of the court; and (b) lodged with the Registrar a copy of the order.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 138B(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "9c975c0a-d37d-4500-bb2b-1bdd1915587b",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_court_extension_substance",
+      "canonical_rule_key": "tla_caveat_court_extension_substance",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_caveat_court_extension_substance"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "Supreme Court extends caveat only if claim has or may have substance"
+      },
+      "quote": "On the hearing of an application under subsection (1), the Supreme Court \u2014 (a) if satisfied that the caveator's claim has or may have substance \u2014 (i) may make an order extending the operation of the caveat for such period as is specified in the order; or (ii) may make an order extending the operation of the caveat until the further order of the court; and (b) if not satisfied that the caveator's claim has or may have substance, shall dismiss the application.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 138C(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "803bebfa-f005-42f8-9c5a-294f6d38f00c",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_no_further_caveat_same_land",
+      "canonical_rule_key": "tla_caveat_no_further_caveat_same_land",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_caveat_no_further_caveat_same_land"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "prior s. 138A caveat withdrawn after s. 138B(1) notice, lapsed, or lost effect by court order/dismissal"
+      },
+      "quote": "the caveator cannot lodge with the Registrar any further section 138A caveat in respect of the same land unless \u2014 (d) the consent of the proprietor to do so and, if the notice issued under section 138B(1) was issued on the application of a judgment creditor, the consent of the judgment creditor to do so are endorsed on the further caveat; or (e) the Supreme Court has made an order giving leave for the lodgment of the further caveat and a copy of that order has been served on the Registrar.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 138D(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "629a87c4-39b7-4829-b69b-78938a432f12",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_blocks_registration",
+      "canonical_rule_key": "tla_caveat_blocks_registration",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_caveat_blocks_registration"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "title search shows no caveat in force before registering dealing"
+      },
+      "quote": "While any caveat shall remain in force prohibiting any registration or dealing the Registrar shall not enter in the Register any change in the proprietorship of or any transfer or other instrument purporting to transfer or otherwise deal with or affect the estate or interest in respect to which such caveat may be lodged unless \u2014 (a) subsection (2) applies; or (b) the instrument is a property (seizure and sale) order within the meaning given in section 133; or (c) the instrument is a sheriff's dealing (within the meaning given in section 133) and the matter to which the caveat relates does not, under section 133(7), prevail against the dealing; or (d) section 142 applies.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 139(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "99c483a1-184b-448e-8f5f-4c684aafc2f9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_compensation_without_reasonable_cause",
+      "canonical_rule_key": "tla_caveat_compensation_without_reasonable_cause",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_caveat_compensation_without_reasonable_cause"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "caveat lodged with reasonable cause"
+      },
+      "quote": "Any person lodging any caveat with the Registrar either against bringing land under this Act or otherwise without reasonable cause shall be liable to make to any person who may have sustained damage thereby such compensation as a judge on a summons in chambers shall deem just and order.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 140",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "fa945f29-25aa-4523-bf5c-79a80ec3eee7",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_caveat_memorandum_on_title",
+      "canonical_rule_key": "tla_caveat_memorandum_on_title",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_caveat_memorandum_on_title"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "memorandum of caveat or lapse appears on certificate of title"
+      },
+      "quote": "Where \u2014 (a) a caveat is lodged under section 137; or (b) a caveat lapses, whether because of the effect of a provision of this Act or the operation of an order of the Supreme Court, the Registrar shall enter a memorandum of the caveat or the lapse of the caveat, as the case requires, on the certificate of title for the land in respect of which the caveat was lodged.",
+      "instrument_section": "Part V \u2014 Caveats",
+      "table_reference": "s. 141(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "c5241227-3566-40fc-9c5f-37a47ec5496f",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_restrictive_covenant_discharge_agreement",
+      "canonical_rule_key": "tla_restrictive_covenant_discharge_agreement",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_restrictive_covenant_discharge_agreement"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "all persons interested consent; s. 129BA covenants follow s. 129BB; Part IVA covenants follow s. 136J"
+      },
+      "quote": "Notwithstanding anything contained in this Act to the contrary, but subject to subsection (3), any covenant or agreement affecting or restricting the use of land may be discharged or modified by agreement by all persons interested in the land affected by such covenant or agreement consenting to such discharge or modification. The Commissioner shall, when satisfied that all parties interested as aforesaid have agreed to the discharge or modification of any covenant entered on any certificate of title in the Register, direct the Registrar to enter a memorandum of the discharge or modification on each such certificate.",
+      "instrument_section": "Part IV \u2014 Dealings with land",
+      "table_reference": "s. 129B(1)-(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "f754a6dd-220a-442c-8c91-8d135006b3da",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_restrictive_covenant_lg_public_authority",
+      "canonical_rule_key": "tla_restrictive_covenant_lg_public_authority",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_restrictive_covenant_lg_public_authority"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "covenant beneficiary is local government or public authority"
+      },
+      "quote": "A restrictive covenant may, under this section, be created and made binding in respect of land under the operation of this Act for the benefit of \u2014 (a) the local government in whose district the land is situated; or (b) a public authority, notwithstanding that the benefit of the restrictive covenant would not be in respect of land.",
+      "instrument_section": "Part IV \u2014 Dealings with land",
+      "table_reference": "s. 129BA(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "c995963b-8182-4c07-8c94-61a7a06eed52",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_restrictive_covenant_lg_form_consent",
+      "canonical_rule_key": "tla_restrictive_covenant_lg_form_consent",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_restrictive_covenant_lg_form_consent"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "approved form instrument plus written consent of each registered interest holder"
+      },
+      "quote": "A restrictive covenant under this section shall be in an instrument in an approved form that is lodged with the Registrar and accompanied by \u2014 (a) the written consent of each person who has a registered interest in any land that would be burdened by the restrictive covenant; and (b) the prescribed fee.",
+      "instrument_section": "Part IV \u2014 Dealings with land",
+      "table_reference": "s. 129BA(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "c995963b-8182-4c07-8c94-61a7a06eed52",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_easement_notation_burdened_lot_on_plan",
+      "canonical_rule_key": "tla_easement_notation_burdened_lot_on_plan",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_easement_notation_burdened_lot_on_plan"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "burdened land is a subject of the subdivision plan"
+      },
+      "quote": "An easement cannot be noted on a plan unless the land to be burdened by the easement is a subject of the plan but any land to be benefited by the easement need not be a subject of the plan.",
+      "instrument_section": "Part IVA \u2014 Creation of easements and restrictive covenants by notations on subdivision plans and diagrams",
+      "table_reference": "s. 136C(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "fa3fcb86-3533-4ff5-bc9a-a369d553bf40",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_easement_notation_lg_public_authority_benefit",
+      "canonical_rule_key": "tla_easement_notation_lg_public_authority_benefit",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_easement_notation_lg_public_authority_benefit"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "easement benefiting local government or public authority may be noted without benefited land"
+      },
+      "quote": "An easement for the benefit of \u2014 (a) the local government in whose district the land is situated; or (b) a public authority, may be noted on a plan under this section notwithstanding that the benefit of the easement would not be in respect of land.",
+      "instrument_section": "Part IVA \u2014 Creation of easements and restrictive covenants by notations on subdivision plans and diagrams",
+      "table_reference": "s. 136C(3)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "fa3fcb86-3533-4ff5-bc9a-a369d553bf40",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_easement_notation_required_particulars",
+      "canonical_rule_key": "tla_easement_notation_required_particulars",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_easement_notation_required_particulars"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "plan or instrument specifies burdened land, benefited land or authority, and easement description"
+      },
+      "quote": "The following information about the easement shall, subject to subsection (6), be specified in either the plan or in an instrument lodged in relation to the plan, or in both the plan and the instrument \u2014 (a) the land to be burdened by the easement; and (b) either \u2014 (i) the land to be benefited; or (ii) the name of the local government or the public authority to be benefited, by the easement, as the case may be; and (c) a description of the easement, whether by way of a short form, a modified or supplemented short form or in another manner.",
+      "instrument_section": "Part IVA \u2014 Creation of easements and restrictive covenants by notations on subdivision plans and diagrams",
+      "table_reference": "s. 136C(5)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "fa3fcb86-3533-4ff5-bc9a-a369d553bf40",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_mortgage_operates_as_security_only",
+      "canonical_rule_key": "tla_mortgage_operates_as_security_only",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_mortgage_operates_as_security_only"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "registered mortgage recorded as security, not transfer of land"
+      },
+      "quote": "a mortgage and a charge under this Act shall when registered as hereinbefore provided have effect as a security but shall not operate as a transfer of the land thereby mortgaged or charged.",
+      "instrument_section": "Part IV \u2014 Dealings with land",
+      "table_reference": "s. 106(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "1c2dca4a-a77a-471a-ab4d-5437d7c5fac0",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_mortgage_default_notice_period_months",
+      "canonical_rule_key": "tla_mortgage_default_notice_period_months",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "months",
+      "condition_json": {
+        "trigger": "default in payment or covenant observance",
+        "default_period": "one month unless otherwise expressly fixed",
+        "consequence": "mortgagee may serve written default notice"
+      },
+      "quote": "and in case default be made in payment of the principal sum interest or annuity secured or any part thereof respectively or in the performance or observance of any covenant expressed in any mortgage or charge or hereby declared to be implied in any mortgage and such default be continued for one month or for such other period of time as may therein for that purpose be expressly fixed the mortgagee or annuitant or his transferees may serve on the mortgagor or grantor or his transferees notice in writing to pay the money owing on such mortgage or charge or to perform and observe the aforesaid covenants (as the case may be).",
+      "instrument_section": "Part IV \u2014 Dealings with land",
+      "table_reference": "s. 106(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "1c2dca4a-a77a-471a-ab4d-5437d7c5fac0",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "numeric_threshold",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_no_survivorship_dealing_restriction",
+      "canonical_rule_key": "tla_no_survivorship_dealing_restriction",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_no_survivorship_dealing_restriction"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "words \"no survivorship\" entered on certificate of title",
+        "verification": "dealing requires Supreme Court or Commissioner order if not by registered proprietors"
+      },
+      "quote": "In every case after such words shall have been signed by the Registrar whether under this or any preceding section it shall not be lawful for any persons other than the proprietors registered to transfer or otherwise deal with the property without the order of the Supreme Court or a judge thereof obtained on motion or petition or the order of the Commissioner.",
+      "instrument_section": "Part IV \u2014 Dealings with land",
+      "table_reference": "s. 61(3)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "48f8ca6f-579c-45dd-8c9d-367999277549",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_survivor_joint_proprietor_registration",
+      "canonical_rule_key": "tla_survivor_joint_proprietor_registration",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_survivor_joint_proprietor_registration"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "death of joint proprietor",
+        "verification": "survivorship application with proof of death"
+      },
+      "quote": "Upon the death of any person registered with any other person as joint proprietor of any land or of any lease or charge or as joint proprietor of any mortgage owned on a joint account in equity the Commissioner on the application of the person entitled and proof to his satisfaction of such events as aforesaid may direct the Registrar to register such applicant as the proprietor thereof.",
+      "instrument_section": "Part XIV \u2014 Miscellaneous",
+      "table_reference": "s. 227",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "23abcc7b-cb79-422a-8272-b0658e73ea7c",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_transmission_application_evidence",
+      "canonical_rule_key": "tla_transmission_application_evidence",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_transmission_application_evidence"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "transmission on death",
+        "verification": "probate or letters of administration produced"
+      },
+      "quote": "A devisee or person claiming any estate of freehold in possession or a power to appoint transfer or dispose of the same on a transmission may make application in writing to the Commissioner to be registered as proprietor thereof and shall produce the will or an office copy or probate of the will of the deceased proprietor or letters of administration with his will annexed or the letters of administration in case of intestacy or the settlement under which such applicant claims and shall afterwards furnish such other evidence as may be deemed necessary.",
+      "instrument_section": "Part XIV \u2014 Miscellaneous",
+      "table_reference": "s. 219(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "17bdce04-eb83-43cc-b0ee-ec8df993d28f",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_transmission_application_contents",
+      "canonical_rule_key": "tla_transmission_application_contents",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "tla_transmission_application_contents"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "application states other interests and property value"
+      },
+      "quote": "Such application shall state the nature of every interest held by any other person at law or equity in the land within the applicant's knowledge and that he verily believes himself to be entitled to the estate in or power over such land in respect to which he applies to be registered and shall also state the value of the property.",
+      "instrument_section": "Part XIV \u2014 Miscellaneous",
+      "table_reference": "s. 219(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "17bdce04-eb83-43cc-b0ee-ec8df993d28f",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tla_transmission_notice_min_days",
+      "canonical_rule_key": "tla_transmission_notice_min_days",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 14
+      },
+      "unit": "days",
+      "condition_json": {
+        "trigger": "advertisement of transmission application",
+        "verification": "no caveat lodged forbidding registration"
+      },
+      "quote": "the Commissioner shall appoint a time not less than 14 days from the advertisement or the first of such advertisements if more than one upon or after which the Registrar shall unless a caveat shall be lodged forbidding the same register such applicant as the proprietor of such land or estate by entering in the Register the particulars of the transmission through which such applicant claims and by registering a certificate of title to the land or estate so transmitted.",
+      "instrument_section": "Part XIV \u2014 Miscellaneous",
+      "table_reference": "s. 220(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+      "clause_id": "bdfbe3fb-4335-48b9-9381-07f288aa209d",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    }
+  ]
+}

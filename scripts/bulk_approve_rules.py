@@ -98,7 +98,7 @@ def gov_rule_004(conn: Any, candidate: dict[str, Any]) -> None:
                WHERE rule_key = %s
                  AND lifecycle_status = 'approved'
                  AND applicable_r_codes @> %s::jsonb
-                 AND (dwelling_type = %s OR (dwelling_type IS NULL AND %s IS NULL))""",
+                 AND (dwelling_type = %s::varchar OR (dwelling_type IS NULL AND %s::varchar IS NULL))""",
             (rule_key, json.dumps([rc]), dwelling_type, dwelling_type),
         )
         existing = cur.fetchone()

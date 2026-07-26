@@ -1,0 +1,3123 @@
+{
+  "wp": "WP-F",
+  "min_rules": 3,
+  "tier1_promote_at": 20,
+  "derived_count": 239,
+  "seed_count": 11,
+  "total_checks": 250,
+  "out": "/app/src/draftcheck/checks/registry_generated.py",
+  "dry_run": false,
+  "derived": [
+    {
+      "key": "acid_sulfate_soil_risk_depth",
+      "name": "Acid Sulfate Soil Risk Depth",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_acid_sulfate_soil_risk_depth_m"
+      ],
+      "rule_key_pattern": "acid_sulfate_soil_risk_depth",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'acid sulfate soil risk depth'. Most-cited source_version 71ef7091-9d5e-43cd-96d4-4b689f439b3d. e.g. \"classified as having a \u2018moderate to low risk\u2019 of acid sulfate soils (ASS) occurring within 3 m of the natural soil surface.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "active_frontage",
+      "name": "Active Frontage",
+      "tier": "TIER2",
+      "category": "LOT",
+      "fact_keys": [
+        "lot_width_m",
+        "frontage_width_m"
+      ],
+      "rule_key_pattern": "active_frontage",
+      "unit": "",
+      "description": "Advisory check derived from 18 approved WA/Cockburn rules for 'active frontage'. Most-cited source_version d69be01d-b1b8-4e5e-8015-b310710402e3. e.g. \"Laneways - while the current Concept Plan does not suggest the provision of laneways, should they be proposed these shall be a minimum width\"",
+      "_n_approved": 18
+    },
+    {
+      "key": "active_frontage_2",
+      "name": "Active Frontage 2",
+      "tier": "TIER2",
+      "category": "LOT",
+      "fact_keys": [
+        "lot_width_m",
+        "frontage_width_m"
+      ],
+      "rule_key_pattern": "active_frontage_2",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'active frontage 2'. Most-cited source_version 2a83dab7-de00-4d4a-a3fe-6f86e1c37bba. e.g. \"At least one lot with a frontage of more than 7.5 metres shall be provided between each group of lots with a frontage of 7.5 metres or less.\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "affordable_housing_provision",
+      "name": "Affordable Housing Provision",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_affordable_housing_provision_pct"
+      ],
+      "rule_key_pattern": "affordable_housing_provision",
+      "unit": "%",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'affordable housing provision'. Most-cited source_version 15cfdc8c-9552-4681-bc00-06feca6fd97c. e.g. \"A minimum of 10% of the residential net lettable area of the development shall be provided in the form of dwellings which meet the definitio\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "amenity_detriment",
+      "name": "Amenity Detriment",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_amenity_detriment_count"
+      ],
+      "rule_key_pattern": "amenity_detriment",
+      "unit": "",
+      "description": "Advisory check derived from 8 approved WA/Cockburn rules for 'amenity detriment'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"the proposal would not be detrimental to the amenity of adjoining properties or the locality\"",
+      "_n_approved": 8
+    },
+    {
+      "key": "amenity_impact",
+      "name": "Amenity Impact",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_amenity_impact_count"
+      ],
+      "rule_key_pattern": "amenity_impact",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'amenity impact'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"the discretion sought has the less amenity impact as the deemed to comply requirement;\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "ancillary_dwelling_max_net_area",
+      "name": "Ancillary Dwelling Max Net Area",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_ancillary_dwelling_max_net_area_m2"
+      ],
+      "rule_key_pattern": "ancillary_dwelling_max_net_area",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'ancillary dwelling max net area'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"in the Rural Zone  and the Rural Living Zone  the net area of the ancillary dwelling does not exceed 100m2\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "ancillary_dwelling_net_area",
+      "name": "Ancillary Dwelling Net Area",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_ancillary_dwelling_net_area_m2"
+      ],
+      "rule_key_pattern": "ancillary_dwelling_net_area",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'ancillary dwelling net area'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"in the Rural Zone and the Rural Living Zone the net area of the ancillary dwelling does not exceed 100m2\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "bicycle_parking",
+      "name": "Bicycle Parking",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_bicycle_parking_count"
+      ],
+      "rule_key_pattern": "bicycle_parking",
+      "unit": "",
+      "description": "Advisory check derived from 6 approved WA/Cockburn rules for 'bicycle parking'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"Pedestrian and bicycle connections with the surrounding education precinct, sporting, residential, communal buildings and civic spaces shall\"",
+      "_n_approved": 6
+    },
+    {
+      "key": "bicycle_parking_facilities",
+      "name": "Bicycle Parking Facilities",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_bicycle_parking_facilities_count"
+      ],
+      "rule_key_pattern": "bicycle_parking_facilities",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'bicycle parking facilities'. Most-cited source_version 1bbf01da-ab99-458e-bbd2-d1773dc704fc. e.g. \"bicycle parking facilities shall provide weather protection via an awning or similar and shall consist of rails, stands, locker or any other\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "bicycle_rack_ratio_per_gla",
+      "name": "Bicycle Rack Ratio Per Gla",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_bicycle_rack_ratio_per_gla_m2"
+      ],
+      "rule_key_pattern": "bicycle_rack_ratio_per_gla",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'bicycle rack ratio per gla'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"1 : 200m2 gla  - Light 1 : 50m2 gla\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "building_envelope_area_max",
+      "name": "Building Envelope Area Max",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_building_envelope_area_max_m2"
+      ],
+      "rule_key_pattern": "building_envelope_area_max",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'building envelope area max'. Most-cited source_version 047f0c9d-9902-4646-9bb4-225da3d2c700. e.g. \"The building envelope area does not exceed 3000m2\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "building_envelope_location",
+      "name": "Building Envelope Location",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_building_envelope_location_count"
+      ],
+      "rule_key_pattern": "building_envelope_location",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'building envelope location'. Most-cited source_version 047f0c9d-9902-4646-9bb4-225da3d2c700. e.g. \"be located on land that has the best capability for construction of dwellings and on-site effluent disposal and, where possible, be located \"",
+      "_n_approved": 3
+    },
+    {
+      "key": "building_envelope_setback",
+      "name": "Building Envelope Setback",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_building_envelope_setback_m"
+      ],
+      "rule_key_pattern": "building_envelope_setback",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'building envelope setback'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"no building shall be erected within 10 metres of any boundary of the lot or 20 metres from any road reserve\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "building_facade_requirements",
+      "name": "Building Facade Requirements",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_building_facade_requirements_count"
+      ],
+      "rule_key_pattern": "building_facade_requirements",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'building facade requirements'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"including a building fa\u00e7ade on the South Street frontage which incorporates windows and doors at the ground floor and windows to the first f\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "building_height_2",
+      "name": "Building Height 2",
+      "tier": "TIER1",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_building_height_2_count"
+      ],
+      "rule_key_pattern": "building_height_2",
+      "unit": "",
+      "description": "Advisory check derived from 59 approved WA/Cockburn rules for 'building height 2'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"Facade Design (Street Level) Minimum Clear Glazing % 70% of building frontage 50% of building frontage Minimum Frontage Build Out 70% (up to\"",
+      "_n_approved": 59
+    },
+    {
+      "key": "building_height_3",
+      "name": "Building Height 3",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_building_height_3_count"
+      ],
+      "rule_key_pattern": "building_height_3",
+      "unit": "",
+      "description": "Advisory check derived from 16 approved WA/Cockburn rules for 'building height 3'. Most-cited source_version ae1c6189-f858-457a-b738-9dab1bba9047. e.g. \"Remove all flammable matter except living trees, shrubs, green lawns and plants under cultivation to a minimum width of 5 metres and a minim\"",
+      "_n_approved": 16
+    },
+    {
+      "key": "building_height_4",
+      "name": "Building Height 4",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_building_height_4_count"
+      ],
+      "rule_key_pattern": "building_height_4",
+      "unit": "",
+      "description": "Advisory check derived from 6 approved WA/Cockburn rules for 'building height 4'. Most-cited source_version d5ed399e-d1d9-4dbb-9f80-3aad1d46cf54. e.g. \"\u0096 Ground covers (<0.5 metres in height): can be planted under trees but must be properly maintained to remove dead plant material and any pa\"",
+      "_n_approved": 6
+    },
+    {
+      "key": "building_height_limit",
+      "name": "Building Height Limit",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_building_height_limit_storeys"
+      ],
+      "rule_key_pattern": "building_height_limit",
+      "unit": "storeys",
+      "description": "Advisory check derived from 9 approved WA/Cockburn rules for 'building height limit'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"The highest part of any building shall not exceed the Australian Height Datum levels as set out in the table below for Area\u2019s A, B and C of \"",
+      "_n_approved": 9
+    },
+    {
+      "key": "building_materials",
+      "name": "Building Materials",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_building_materials_count"
+      ],
+      "rule_key_pattern": "building_materials",
+      "unit": "",
+      "description": "Advisory check derived from 181 approved WA/Cockburn rules for 'building materials'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"GENERAL ITEMS Portable battery operated AM/FM radio Waterproof torch New spare batteries First aid kit with manual Woollen blankets FOOD AND\"",
+      "_n_approved": 181
+    },
+    {
+      "key": "building_materials_2",
+      "name": "Building Materials 2",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_building_materials_2_count"
+      ],
+      "rule_key_pattern": "building_materials_2",
+      "unit": "",
+      "description": "Advisory check derived from 26 approved WA/Cockburn rules for 'building materials 2'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"Building Materials & Colours Material and colour selection shall respond to contemporary architectural character with the following material\"",
+      "_n_approved": 26
+    },
+    {
+      "key": "building_orientation",
+      "name": "Building Orientation",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_building_orientation_count"
+      ],
+      "rule_key_pattern": "building_orientation",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'building orientation'. Most-cited source_version 15cfdc8c-9552-4681-bc00-06feca6fd97c. e.g. \"Building orientation must consider the site, the street and neighbouring buildings to maximise amenity, including architectural form to the \"",
+      "_n_approved": 3
+    },
+    {
+      "key": "building_storey",
+      "name": "Building Storey",
+      "tier": "TIER1",
+      "category": "STOREYS",
+      "fact_keys": [
+        "proposed_building_storey_storeys"
+      ],
+      "rule_key_pattern": "building_storey",
+      "unit": "storeys",
+      "description": "Advisory check derived from 33 approved WA/Cockburn rules for 'building storey'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. \"Residential development along Rosalind Way and Benedick Road to be appropriately designed to ensure an integrated streetscape reflective of \"",
+      "_n_approved": 33
+    },
+    {
+      "key": "bushfire_hazard_assessment",
+      "name": "Bushfire Hazard Assessment",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_bushfire_hazard_assessment_count"
+      ],
+      "rule_key_pattern": "bushfire_hazard_assessment",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'bushfire hazard assessment'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"The strategic planning proposal, subdivision and development application is located in an area where the bushfire hazard assessment is or wi\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "bushfire_management_plan",
+      "name": "Bushfire Management Plan",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_bushfire_management_plan_count"
+      ],
+      "rule_key_pattern": "bushfire_management_plan",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'bushfire management plan'. Most-cited source_version 02fb4ae3-45c2-409b-9288-2dcaaad0adb4. e.g. \"Any Proposed Structure Plan shall include a Bushfire Management Plan detailing appropriate Bushfire mitigation measures and design responses\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "bushfire_risk_assessment",
+      "name": "Bushfire Risk Assessment",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_bushfire_risk_assessment_count"
+      ],
+      "rule_key_pattern": "bushfire_risk_assessment",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'bushfire risk assessment'. Most-cited source_version 80aa2c0a-3566-4b8f-86db-75949c26121d. e.g. \"Avoid further land-use intensification in Bushfire Prone Areas unless adequately assessed and managed in accordance with SPP 3.7.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "car_parking",
+      "name": "Car Parking",
+      "tier": "TIER1",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_car_parking_count"
+      ],
+      "rule_key_pattern": "car_parking",
+      "unit": "",
+      "description": "Advisory check derived from 115 approved WA/Cockburn rules for 'car parking'. Most-cited source_version d24a3402-0fbb-4f30-8110-36513d477337. e.g. \"89 Plot Ratio: means the ratio of the gross total of the areas of all floors to the area of land within the site boundaries and in calculati\"",
+      "_n_approved": 115
+    },
+    {
+      "key": "car_parking_2",
+      "name": "Car Parking 2",
+      "tier": "TIER1",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_car_parking_2_count"
+      ],
+      "rule_key_pattern": "car_parking_2",
+      "unit": "",
+      "description": "Advisory check derived from 20 approved WA/Cockburn rules for 'car parking 2'. Most-cited source_version 7e7faf65-fb02-4616-b492-a325bdfed238. e.g. \"4 - CARPARKING TABLE * AMD 178 GG 03/02/2023, AMD 191 GG 18/2/25 USE CLASS MINIMUM CARPARKING REQUIREMENT Bulky Goods showroom AMD 173 GG 29\"",
+      "_n_approved": 20
+    },
+    {
+      "key": "car_parking_3",
+      "name": "Car Parking 3",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_car_parking_3_count"
+      ],
+      "rule_key_pattern": "car_parking_3",
+      "unit": "",
+      "description": "Advisory check derived from 9 approved WA/Cockburn rules for 'car parking 3'. Most-cited source_version 083b314a-bd65-49d7-a7f6-43a29e00aa80. e.g. \"With every planning application submitted for a \u2018gymnasium\u2019, a detailed floor plan showing number of machines and active floor space in squa\"",
+      "_n_approved": 9
+    },
+    {
+      "key": "car_parking_4",
+      "name": "Car Parking 4",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_car_parking_4_count"
+      ],
+      "rule_key_pattern": "car_parking_4",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'car parking 4'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"Service bays and loading areas are to be incorporated into the building design and screened from view from public spaces, such as adjoining \"",
+      "_n_approved": 5
+    },
+    {
+      "key": "car_parking_provision",
+      "name": "Car Parking Provision",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_car_parking_provision_count"
+      ],
+      "rule_key_pattern": "car_parking_provision",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'car parking provision'. Most-cited source_version 6b88c88d-a2cd-4335-9c79-752a4b6de1c8. e.g. \"Car parking shall be provided at a rate and in such a location as specified by the approved Structure Plan.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "car_parking_ratio_per_gla",
+      "name": "Car Parking Ratio Per Gla",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_car_parking_ratio_per_gla_m2"
+      ],
+      "rule_key_pattern": "car_parking_ratio_per_gla",
+      "unit": "m2",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'car parking ratio per gla'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"- Veterinary   Hospital  1 : 20m2 gla\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "carports_materials_matching",
+      "name": "Carports Materials Matching",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_carports_materials_matching_count"
+      ],
+      "rule_key_pattern": "carports_materials_matching",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'carports materials matching'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Carports associated with existing residences are not required to mimic or match the materials of the house.\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "ceiling_height",
+      "name": "Ceiling Height",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_ceiling_height_m"
+      ],
+      "rule_key_pattern": "ceiling_height",
+      "unit": "m",
+      "description": "Advisory check derived from 9 approved WA/Cockburn rules for 'ceiling height'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"In relation to ground floor dwellings fronting Cockburn Road and Rockingham \r Road, as a minimum, 3.6m floor to ceiling should be provided.\"",
+      "_n_approved": 9
+    },
+    {
+      "key": "climate_change_consideration",
+      "name": "Climate Change Consideration",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_climate_change_consideration_count"
+      ],
+      "rule_key_pattern": "climate_change_consideration",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'climate change consideration'. Most-cited source_version 02fb4ae3-45c2-409b-9288-2dcaaad0adb4. e.g. \"Take into account the potential for impacts from changes in climate and weather on human activities and cultural heritage including coastal \"",
+      "_n_approved": 3
+    },
+    {
+      "key": "compatible_form_bulk_scale",
+      "name": "Compatible Form Bulk Scale",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_compatible_form_bulk_scale_count"
+      ],
+      "rule_key_pattern": "compatible_form_bulk_scale",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'compatible form bulk scale'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"New developments, additions and alterations to be of a compatible form, bulk and scale to traditional development in the immediate locality.\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "conservation_objectives",
+      "name": "Conservation Objectives",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_conservation_objectives_count"
+      ],
+      "rule_key_pattern": "conservation_objectives",
+      "unit": "",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'conservation objectives'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"the proposal would be consistent, if applicable, with conservation objectives for the site and locality generally\"",
+      "_n_approved": 7
+    },
+    {
+      "key": "cultural_heritage_significance",
+      "name": "Cultural Heritage Significance",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_cultural_heritage_significance_count"
+      ],
+      "rule_key_pattern": "cultural_heritage_significance",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'cultural heritage significance'. Most-cited source_version f6bf7b45-ee38-4df8-aa17-c03a62de9722. e.g. \"Uses detrimental to the preservation, conservation or sustainment of the cultural heritage significance of any existing place or space will \"",
+      "_n_approved": 3
+    },
+    {
+      "key": "design_elements_compliance",
+      "name": "Design Elements Compliance",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_design_elements_compliance_count"
+      ],
+      "rule_key_pattern": "design_elements_compliance",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'design elements compliance'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Developments to comply with all design elements of this Local Planning Policy.\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "development_approval_exemption",
+      "name": "Development Approval Exemption",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_approval_exemption_count"
+      ],
+      "rule_key_pattern": "development_approval_exemption",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'development approval exemption'. Most-cited source_version 1450c38c-80a8-44c2-abad-e4353d806d5c. e.g. \"Development approval is not required for works if \u2014 (a) the works are of a class specified in Column 1 of an item in the Table; and (b) if c\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "development_approval_required",
+      "name": "Development Approval Required",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_approval_required_count"
+      ],
+      "rule_key_pattern": "development_approval_required",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'development approval required'. Most-cited source_version 3dd7fd7f-de46-4da0-9e2e-5ed49b009e60. e.g. \"a person must not commence or carry out that development on land to which the planning scheme or interim development order applies unless \u2014 \"",
+      "_n_approved": 4
+    },
+    {
+      "key": "development_approval_requirement",
+      "name": "Development Approval Requirement",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_approval_requirement_count"
+      ],
+      "rule_key_pattern": "development_approval_requirement",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'development approval requirement'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"all development within a Public Drinking Water Resource Protection Area shall be subject to a requirement for development approval\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "development_design",
+      "name": "Development Design",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_design_count"
+      ],
+      "rule_key_pattern": "development_design",
+      "unit": "",
+      "description": "Advisory check derived from 189 approved WA/Cockburn rules for 'development design'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"(ii) The plan referred to in Provision 25(a)(i) shall detail measures to ensure public safety and protection of the high pressure natural ga\"",
+      "_n_approved": 189
+    },
+    {
+      "key": "development_design_2",
+      "name": "Development Design 2",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_design_2_count"
+      ],
+      "rule_key_pattern": "development_design_2",
+      "unit": "",
+      "description": "Advisory check derived from 13 approved WA/Cockburn rules for 'development design 2'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"To promote housing diversity the LSP includes a provision requiring that in development comprising ten or more Multiple Dwellings, a minimum\"",
+      "_n_approved": 13
+    },
+    {
+      "key": "development_standard",
+      "name": "Development Standard",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_count"
+      ],
+      "rule_key_pattern": "development_standard",
+      "unit": "",
+      "description": "Advisory check derived from 522 approved WA/Cockburn rules for 'development standard'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"enough water supply, petrol/diesel portable pump, generator, protective clothing etc If you are not prepared to the highest level, leaving b\"",
+      "_n_approved": 522
+    },
+    {
+      "key": "development_standard_2",
+      "name": "Development Standard 2",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_2_count"
+      ],
+      "rule_key_pattern": "development_standard_2",
+      "unit": "",
+      "description": "Advisory check derived from 97 approved WA/Cockburn rules for 'development standard 2'. Most-cited source_version 71dac7c9-a226-4221-9ba0-f0fe5ef43e90. e.g. \"Groundwater Quality Bores D3 & D5(s) Pumped bore samples Quarterly for 3 years by Developer (typically Jan, April, July, October) In\u2010situ: p\"",
+      "_n_approved": 97
+    },
+    {
+      "key": "development_standard_3",
+      "name": "Development Standard 3",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_3_count"
+      ],
+      "rule_key_pattern": "development_standard_3",
+      "unit": "",
+      "description": "Advisory check derived from 27 approved WA/Cockburn rules for 'development standard 3'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"In the event that a nutrient fixing effluent disposal system is not required, every dwelling shall have connected an effluent disposal syste\"",
+      "_n_approved": 27
+    },
+    {
+      "key": "development_standard_4",
+      "name": "Development Standard 4",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_4_count"
+      ],
+      "rule_key_pattern": "development_standard_4",
+      "unit": "",
+      "description": "Advisory check derived from 14 approved WA/Cockburn rules for 'development standard 4'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"Unless otherwise approved by the Department of Water and Environmental Regulation, all meter readings must be recorded monthly via the Depar\"",
+      "_n_approved": 14
+    },
+    {
+      "key": "development_standard_5",
+      "name": "Development Standard 5",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_5_count"
+      ],
+      "rule_key_pattern": "development_standard_5",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'development standard 5'. Most-cited source_version 817ab8d0-659c-4efb-a2a3-6be9faae43cd. e.g. \"The meter readings must be reported via the \u2018Water Online Portal\u2019 or submitted via a completed \u2018Meter Water Use Card\u2019 to the Department of W\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "development_standard_eq_1",
+      "name": "Development Standard Eq 1",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_eq_1_count"
+      ],
+      "rule_key_pattern": "development_standard_eq_1",
+      "unit": "",
+      "description": "Advisory check derived from 10 approved WA/Cockburn rules for 'development standard eq 1'. Most-cited source_version 0cee4b29-09b0-45b5-b222-b98644ca8963. e.g. \"The provisions of Electrical Networks Corporation Easement in Gross prevail and the following is not permitted:\uf0b7 growth, cultivation or rete\"",
+      "_n_approved": 10
+    },
+    {
+      "key": "development_standard_eq_2",
+      "name": "Development Standard Eq 2",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_eq_2_count"
+      ],
+      "rule_key_pattern": "development_standard_eq_2",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'development standard eq 2'. Most-cited source_version 0cee4b29-09b0-45b5-b222-b98644ca8963. e.g. \"type of density envisioned under the MSACSP. Based on 35 dwellings per hectare the site would be required to deliver 231\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "development_standard_gte_1",
+      "name": "Development Standard Gte 1",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_gte_1_m"
+      ],
+      "rule_key_pattern": "development_standard_gte_1",
+      "unit": "m",
+      "description": "Advisory check derived from 8 approved WA/Cockburn rules for 'development standard gte 1'. Most-cited source_version 083b314a-bd65-49d7-a7f6-43a29e00aa80. e.g. \"\u26ab Import fill placed and compacted as required maintaining a minimum separation of 1.8m from any\"",
+      "_n_approved": 8
+    },
+    {
+      "key": "development_standard_gte_2",
+      "name": "Development Standard Gte 2",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_gte_2_count"
+      ],
+      "rule_key_pattern": "development_standard_gte_2",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'development standard gte 2'. Most-cited source_version 2a83dab7-de00-4d4a-a3fe-6f86e1c37bba. e.g. \"on each lift of fill at the rate of 1 test per 500 m 3 or at least 2 tests per layer, whichever is greater;\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "development_standard_gte_3",
+      "name": "Development Standard Gte 3",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_gte_3_m"
+      ],
+      "rule_key_pattern": "development_standard_gte_3",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'development standard gte 3'. Most-cited source_version 28845fff-3015-4418-b630-7876bcb44e88. e.g. \"on each lift of fill at the rate of 1 test per 500 m 3 or at least 2 tests per layer, whichever is greater;\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "development_standard_lte_1",
+      "name": "Development Standard Lte 1",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_development_standard_lte_1_count"
+      ],
+      "rule_key_pattern": "development_standard_lte_1",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'development standard lte 1'. Most-cited source_version 71dac7c9-a226-4221-9ba0-f0fe5ef43e90. e.g. \"topsoil to clean fill depends on the organic content of the blended material (must be less than 2%) and\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "direct_access_from_private_open_space_to_pos",
+      "name": "Direct Access From Private Open Space To Pos",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_direct_access_from_private_open_space_to_pos_count"
+      ],
+      "rule_key_pattern": "direct_access_from_private_open_space_to_pos",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'direct access from private open space to pos'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Where sites back onto POS, consider providing direct access from private open space to POS.\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "driveway_width",
+      "name": "Driveway Width",
+      "tier": "TIER1",
+      "category": "DRIVEWAY",
+      "fact_keys": [
+        "proposed_driveway_width_m"
+      ],
+      "rule_key_pattern": "driveway_width",
+      "unit": "m",
+      "description": "Advisory check derived from 22 approved WA/Cockburn rules for 'driveway width'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. \"Driveways must be minimum 5.5m wide for a minimum 6.3m length (excluding manoeuvring tapers) from the street boundary\"",
+      "_n_approved": 22
+    },
+    {
+      "key": "dwelling_density",
+      "name": "Dwelling Density",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_dwelling_density_count"
+      ],
+      "rule_key_pattern": "dwelling_density",
+      "unit": "",
+      "description": "Advisory check derived from 136 approved WA/Cockburn rules for 'dwelling density'. Most-cited source_version cd4b9799-0518-4038-b475-0902cbeb372d. e.g. \"4.2 District Centre Targets Area of Focus District Centre Targets Service Population 20,000 \u2013 50,000 people Walkable Catchment 400 metres Tr\"",
+      "_n_approved": 136
+    },
+    {
+      "key": "dwelling_density_2",
+      "name": "Dwelling Density 2",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_dwelling_density_2_count"
+      ],
+      "rule_key_pattern": "dwelling_density_2",
+      "unit": "",
+      "description": "Advisory check derived from 22 approved WA/Cockburn rules for 'dwelling density 2'. Most-cited source_version 80b8fbd9-c33b-4715-b7cd-e78eb59b539a. e.g. \"Importantly, the proposed densities for the southern portion of the Neighbourhood Centre address the principles of Liveable Neighbourhoods w\"",
+      "_n_approved": 22
+    },
+    {
+      "key": "dwelling_density_3",
+      "name": "Dwelling Density 3",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_dwelling_density_3_count"
+      ],
+      "rule_key_pattern": "dwelling_density_3",
+      "unit": "",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'dwelling density 3'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"c) The R-Codes density applicable to land within the Scheme Area shall be determined by reference to the R-Codes density number superimposed\"",
+      "_n_approved": 7
+    },
+    {
+      "key": "dwelling_density_4",
+      "name": "Dwelling Density 4",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_dwelling_density_4_count"
+      ],
+      "rule_key_pattern": "dwelling_density_4",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'dwelling density 4'. Most-cited source_version 71dac7c9-a226-4221-9ba0-f0fe5ef43e90. e.g. \"Over-excavation and replacement of loose materials must be done where the minimum dry density ratio cannot be achieved.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "effluent_system_horizontal_distance_to_wetland_or_bore",
+      "name": "Effluent System Horizontal Distance To Wetland Or Bore",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_effluent_system_horizontal_distance_to_wetland_or_bore_m"
+      ],
+      "rule_key_pattern": "effluent_system_horizontal_distance_to_wetland_or_bore",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'effluent system horizontal distance to wetland or bore'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"the horizontal distance between the proposed system and a wetland or a public water supply bore is greater than 100 metres, the local govern\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "effluent_system_vertical_clearance_above_water_table",
+      "name": "Effluent System Vertical Clearance Above Water Table",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_effluent_system_vertical_clearance_above_water_table_m"
+      ],
+      "rule_key_pattern": "effluent_system_vertical_clearance_above_water_table",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'effluent system vertical clearance above water table'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"the vertical distance between the bottom of the domestic waste effluent disposal system is less than 2 metres , and the horizontal distance \"",
+      "_n_approved": 4
+    },
+    {
+      "key": "employment_of_non_household_members",
+      "name": "Employment Of Non Household Members",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_employment_of_non_household_members_count"
+      ],
+      "rule_key_pattern": "employment_of_non_household_members",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'employment of non household members'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"does not involve employing a person who is not a member of the occupier\u2019s household\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "equity",
+      "name": "Equity",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_equity_count"
+      ],
+      "rule_key_pattern": "equity",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'equity'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"Infrastructure contributions should be levied equitably from identified stakeholders within a contribution area, based on the relative contr\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "equivalent_dwelling_per_land_area",
+      "name": "Equivalent Dwelling Per Land Area",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_equivalent_dwelling_per_land_area_m2"
+      ],
+      "rule_key_pattern": "equivalent_dwelling_per_land_area",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'equivalent dwelling per land area'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"1x equivalent dwellings per 100m2 of net land area\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "exempted_sign_max_size",
+      "name": "Exempted Sign Max Size",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_exempted_sign_max_size_m2"
+      ],
+      "rule_key_pattern": "exempted_sign_max_size",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'exempted sign max size'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"Advertising. Relating directly  to advising the name,  address, telephone number  and purpose of the service  provided on the property on  w\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "external_screen",
+      "name": "External Screen",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_external_screen_count"
+      ],
+      "rule_key_pattern": "external_screen",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'external screen'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"They shall be completely protected externally by screens with a mesh with a maximum aperture of 2 mm, made of corrosion-resistant steel, bro\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "facility_structure_spacing",
+      "name": "Facility Structure Spacing",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_facility_structure_spacing_m"
+      ],
+      "rule_key_pattern": "facility_structure_spacing",
+      "unit": "m",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'facility structure spacing'. Most-cited source_version 2064086b-a51d-47ed-8475-a5f2dd45c572. e.g. \"There is to be at least 6 m between a caravan, camp, annexe or other structure or building on a facility and any land reserved or set aside \"",
+      "_n_approved": 7
+    },
+    {
+      "key": "fence_height_and_permeability",
+      "name": "Fence Height And Permeability",
+      "tier": "TIER2",
+      "category": "FENCE",
+      "fact_keys": [
+        "proposed_fence_height_and_permeability_count"
+      ],
+      "rule_key_pattern": "fence_height_and_permeability",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'fence height and permeability'. Most-cited source_version 57843d6c-da66-4f21-b919-2f702417d5c6. e.g. \"substantially of solid construction to 1.2 metres in height and visually permeable to a maximum height (between 1.8 metres and 2.4 metres)\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "fence_height_front",
+      "name": "Fence Height Front",
+      "tier": "TIER2",
+      "category": "FENCE",
+      "fact_keys": [
+        "proposed_fence_height_front_m"
+      ],
+      "rule_key_pattern": "fence_height_front",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'fence height front'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"The interface between private lots and the public open space may be fenced \r to a maximum height of 1.2m from natural ground level, but must\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "fence_height_side",
+      "name": "Fence Height Side",
+      "tier": "TIER2",
+      "category": "FENCE",
+      "fact_keys": [
+        "proposed_fence_height_side_m"
+      ],
+      "rule_key_pattern": "fence_height_side",
+      "unit": "m",
+      "description": "Advisory check derived from 6 approved WA/Cockburn rules for 'fence height side'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"The interface between residential development and the public open space may be fenced to a maximum height of 1.2m from natural ground level,\"",
+      "_n_approved": 6
+    },
+    {
+      "key": "fencing_visual_permeability",
+      "name": "Fencing Visual Permeability",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_fencing_visual_permeability_count"
+      ],
+      "rule_key_pattern": "fencing_visual_permeability",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'fencing visual permeability'. Most-cited source_version 3861f6a2-4c07-44b8-b4a1-70bb1453353b. e.g. \"minimum of two-thirds of the length is to be visually permeable above 1.2m to a maximum height of 1.8m\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "firebreak_width",
+      "name": "Firebreak Width",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_firebreak_width_count"
+      ],
+      "rule_key_pattern": "firebreak_width",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'firebreak width'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"On completion of development, firebreaks would not be required for the residential cells which will be less than <4,047 m2 in area. Three me\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "five_meter_wide_easement",
+      "name": "Five Meter Wide Easement",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_five_meter_wide_easement_count"
+      ],
+      "rule_key_pattern": "five_meter_wide_easement",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'five meter wide easement'. Most-cited source_version 4af72d2e-fa44-4487-bf0d-73225f6673aa. e.g. \"5M WIDE EASEMENT REQUIRED.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "flora_clearing_buffer",
+      "name": "Flora Clearing Buffer",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_flora_clearing_buffer_m"
+      ],
+      "rule_key_pattern": "flora_clearing_buffer",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'flora clearing buffer'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"clear or suffer to permit to be cleared any flora within a distance of 50 metres from the lot boundary adjoining the road reserve of Berriga\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "fremantle_buffer_area_requirements",
+      "name": "Fremantle Buffer Area Requirements",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_fremantle_buffer_area_requirements_count"
+      ],
+      "rule_key_pattern": "fremantle_buffer_area_requirements",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'fremantle buffer area requirements'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Developments, additions and alterations must comply with the Fremantle Buffer Area requirements.\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "front_fence_height",
+      "name": "Front Fence Height",
+      "tier": "TIER2",
+      "category": "FENCE",
+      "fact_keys": [
+        "proposed_front_fence_height_m"
+      ],
+      "rule_key_pattern": "front_fence_height",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'front fence height'. Most-cited source_version 67af6c04-3f0d-42c4-a9bc-d97f6b8c2196. e.g. \"not exceeding a height of 0.75m within 1.5m of vehicle access points\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "garage_location",
+      "name": "Garage Location",
+      "tier": "TIER2",
+      "category": "GARAGE",
+      "fact_keys": [
+        "proposed_garage_location_count"
+      ],
+      "rule_key_pattern": "garage_location",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'garage location'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Garages or carports are located behind the building line to ensure that they are not visible from the primary street.\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "garages_and_carports_design_compatibility",
+      "name": "Garages And Carports Design Compatibility",
+      "tier": "TIER2",
+      "category": "GARAGE",
+      "fact_keys": [
+        "proposed_garages_and_carports_design_compatibility_count"
+      ],
+      "rule_key_pattern": "garages_and_carports_design_compatibility",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'garages and carports design compatibility'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Where garages and/or carports are part of a development they must be incorporated into, and be compatible with the design of the building or\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "garages_and_carports_visual_dominance",
+      "name": "Garages And Carports Visual Dominance",
+      "tier": "TIER2",
+      "category": "GARAGE",
+      "fact_keys": [
+        "proposed_garages_and_carports_visual_dominance_count"
+      ],
+      "rule_key_pattern": "garages_and_carports_visual_dominance",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'garages and carports visual dominance'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Garages and carports shall not visually dominate the dwelling as viewed from the street;\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "garages_carports_outbuildings_materials",
+      "name": "Garages Carports Outbuildings Materials",
+      "tier": "TIER2",
+      "category": "GARAGE",
+      "fact_keys": [
+        "proposed_garages_carports_outbuildings_materials_count"
+      ],
+      "rule_key_pattern": "garages_carports_outbuildings_materials",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'garages carports outbuildings materials'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Garages, carports or outbuildings should comply with the recommended building materials for the Precinct.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "green_star_rating",
+      "name": "Green Star Rating",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_green_star_rating_count"
+      ],
+      "rule_key_pattern": "green_star_rating",
+      "unit": "",
+      "description": "Advisory check derived from 6 approved WA/Cockburn rules for 'green star rating'. Most-cited source_version fdb20427-1558-46ff-82cf-efda8891dc54. e.g. \"All mixed use and multiple dwellings as well as commercial developments in excess of 1,000sq.m GLA require buildings to be designed and cons\"",
+      "_n_approved": 6
+    },
+    {
+      "key": "heritage_assessment_requirement",
+      "name": "Heritage Assessment Requirement",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_heritage_assessment_requirement_count"
+      ],
+      "rule_key_pattern": "heritage_assessment_requirement",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'heritage assessment requirement'. Most-cited source_version 016c2373-3348-41c0-a811-4b239c339b54. e.g. \"the local government may require a heritage assessment to be carried out prior to the approval of any development proposed in a Heritage Are\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "horizontal_distance_to_wetland_or_bore",
+      "name": "Horizontal Distance To Wetland Or Bore",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_horizontal_distance_to_wetland_or_bore_m"
+      ],
+      "rule_key_pattern": "horizontal_distance_to_wetland_or_bore",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'horizontal distance to wetland or bore'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"the horizontal distance between the proposed  system and a wetland or a public water supply bore is greater than 100  metres\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "infrastructure_contribution",
+      "name": "Infrastructure Contribution",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_infrastructure_contribution_count"
+      ],
+      "rule_key_pattern": "infrastructure_contribution",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'infrastructure contribution'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"Cost contributions in relation to the development of stormwater management infrastructure on the Peel Main Drain are to be made by landowner\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "land_use",
+      "name": "Land Use",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_land_use_count"
+      ],
+      "rule_key_pattern": "land_use",
+      "unit": "",
+      "description": "Advisory check derived from 248 approved WA/Cockburn rules for 'land use'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"Murdoch Specialised Centre Murdoch retail market potential graph - aspirational scenario Source: Pracsys 2013 Murdoch retail market potentia\"",
+      "_n_approved": 248
+    },
+    {
+      "key": "land_use_2",
+      "name": "Land Use 2",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_land_use_2_count"
+      ],
+      "rule_key_pattern": "land_use_2",
+      "unit": "",
+      "description": "Advisory check derived from 38 approved WA/Cockburn rules for 'land use 2'. Most-cited source_version 4fa496e5-6b9c-484f-9793-d92b29c10410. e.g. \"TABLE I - NOISE LEVELS VS ACCEPTABILITY OF LANDUSE Rating Day Noise Night Noise Zoning Level dB(A) Level dB(A) Acceptable Conditionally Unac\"",
+      "_n_approved": 38
+    },
+    {
+      "key": "land_use_3",
+      "name": "Land Use 3",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_land_use_3_count"
+      ],
+      "rule_key_pattern": "land_use_3",
+      "unit": "",
+      "description": "Advisory check derived from 12 approved WA/Cockburn rules for 'land use 3'. Most-cited source_version 4fa496e5-6b9c-484f-9793-d92b29c10410. e.g. \"As demonstrated in the retail study, the proposed local centre is anticipated to have a negligible effect on the planned hierarchy of centre\"",
+      "_n_approved": 12
+    },
+    {
+      "key": "land_use_compatibility",
+      "name": "Land Use Compatibility",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_land_use_compatibility_count"
+      ],
+      "rule_key_pattern": "land_use_compatibility",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'land use compatibility'. Most-cited source_version 30fda83e-bff9-4c59-a89e-4ffbf106625a. e.g. \"It is also critical that any uses introduced do not limit the current or potential future operation of the regionally significant land uses\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "land_use_permissibility",
+      "name": "Land Use Permissibility",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_land_use_permissibility_count"
+      ],
+      "rule_key_pattern": "land_use_permissibility",
+      "unit": "",
+      "description": "Advisory check derived from 14 approved WA/Cockburn rules for 'land use permissibility'. Most-cited source_version 4af72d2e-fa44-4487-bf0d-73225f6673aa. e.g. \"Land Use permissibility within the Structure Plan area shall be in accordance with the Structure Plan Map (Plan 1) and corresponding Zones a\"",
+      "_n_approved": 14
+    },
+    {
+      "key": "land_use_special_use_zone",
+      "name": "Land Use Special Use Zone",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_land_use_special_use_zone_count"
+      ],
+      "rule_key_pattern": "land_use_special_use_zone",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'land use special use zone'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"A person must not use any land, or any structure or buildings on land, in a special use zone except for the purpose set out against that lan\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "landowner_contribution_requirement",
+      "name": "Landowner Contribution Requirement",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_landowner_contribution_requirement_count"
+      ],
+      "rule_key_pattern": "landowner_contribution_requirement",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'landowner contribution requirement'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"Landowners within the catchment as shown on the figure \u2018Item M\u2019, as contained within the Development Contribution Plan 1 Report, are require\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "landscape_amenity_conservation",
+      "name": "Landscape Amenity Conservation",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscape_amenity_conservation_count"
+      ],
+      "rule_key_pattern": "landscape_amenity_conservation",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'landscape amenity conservation'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"The landscape amenity of the Bollard Bullrush Swamps shall be conserved;\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "landscaped_area_min",
+      "name": "Landscaped Area Min",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaped_area_min_pct"
+      ],
+      "rule_key_pattern": "landscaped_area_min",
+      "unit": "%",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'landscaped area min'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"the local government may reduce the minimum on-site provision to not less than five percent (5%) of the total area of the lot\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "landscaped_area_reduction",
+      "name": "Landscaped Area Reduction",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaped_area_reduction_count"
+      ],
+      "rule_key_pattern": "landscaped_area_reduction",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'landscaped area reduction'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"the landscaped area may be reduced by up to 50%\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "landscaping",
+      "name": "Landscaping",
+      "tier": "TIER1",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_count"
+      ],
+      "rule_key_pattern": "landscaping",
+      "unit": "",
+      "description": "Advisory check derived from 324 approved WA/Cockburn rules for 'landscaping'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"(2) In considering a proposal to include a place on the register of significant trees, the Council shall \u2013 (a) notify in writing the owner a\"",
+      "_n_approved": 324
+    },
+    {
+      "key": "landscaping_2",
+      "name": "Landscaping 2",
+      "tier": "TIER1",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_2_count"
+      ],
+      "rule_key_pattern": "landscaping_2",
+      "unit": "",
+      "description": "Advisory check derived from 82 approved WA/Cockburn rules for 'landscaping 2'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"Scale NTS l Date November 2015 l Project No 115795-5-003.ai 2.5m Dual Use Path Proposed Intersectionm Sand Quarry 304m Sand Quarry 405m Clay\"",
+      "_n_approved": 82
+    },
+    {
+      "key": "landscaping_3",
+      "name": "Landscaping 3",
+      "tier": "TIER1",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_3_count"
+      ],
+      "rule_key_pattern": "landscaping_3",
+      "unit": "",
+      "description": "Advisory check derived from 27 approved WA/Cockburn rules for 'landscaping 3'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"However, in areas where a large number of potential targets are found, or are likely to be introduced by way of the development of the area \"",
+      "_n_approved": 27
+    },
+    {
+      "key": "landscaping_4",
+      "name": "Landscaping 4",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_4_count"
+      ],
+      "rule_key_pattern": "landscaping_4",
+      "unit": "",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'landscaping 4'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"providing arboricultural input and further investigation has been undertaken to ascertain the level of encroa chment, the potential impact o\"",
+      "_n_approved": 7
+    },
+    {
+      "key": "landscaping_5",
+      "name": "Landscaping 5",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_5_count"
+      ],
+      "rule_key_pattern": "landscaping_5",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'landscaping 5'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"e) There shall be not less than one (1) shade tree planted for every 10 linear metres of verge frontage or for every 50 square metres of the\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "landscaping_gte_1",
+      "name": "Landscaping Gte 1",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_gte_1_m"
+      ],
+      "rule_key_pattern": "landscaping_gte_1",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'landscaping gte 1'. Most-cited source_version 4fa496e5-6b9c-484f-9793-d92b29c10410. e.g. \"The proposed local streets with a road reserve of 15 metres are a standard access street, or yield\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "landscaping_gte_3",
+      "name": "Landscaping Gte 3",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_gte_3_m"
+      ],
+      "rule_key_pattern": "landscaping_gte_3",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'landscaping gte 3'. Most-cited source_version 0370e334-e627-48ef-be37-9171149077a5. e.g. \"9m\u00b2 in area. Deep planting zones shall be planted with a 400L tree species approved by the City prior\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "landscaping_plan_approval",
+      "name": "Landscaping Plan Approval",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_plan_approval_count"
+      ],
+      "rule_key_pattern": "landscaping_plan_approval",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'landscaping plan approval'. Most-cited source_version 265dcdd8-f044-45fa-85aa-b870ceb481da. e.g. \"Landscaping is to accord with an overall landscaping plan for the site, which has been approved by the local government.\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "landscaping_requirements",
+      "name": "Landscaping Requirements",
+      "tier": "TIER2",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_landscaping_requirements_count"
+      ],
+      "rule_key_pattern": "landscaping_requirements",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'landscaping requirements'. Most-cited source_version ee75c57d-ad8b-4796-87f4-2370d6362154. e.g. \"Landscaping on the site is substantially upgraded or new landscaping is proposed along the frontage that meets the minimum landscaping requi\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "lesser_height_imposition",
+      "name": "Lesser Height Imposition",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_lesser_height_imposition_count"
+      ],
+      "rule_key_pattern": "lesser_height_imposition",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'lesser height imposition'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"Council may impose a lesser height in the event that the proposal does not satisfy any one or all of the above requirements\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "lighting_signage",
+      "name": "Lighting Signage",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_lighting_signage_count"
+      ],
+      "rule_key_pattern": "lighting_signage",
+      "unit": "",
+      "description": "Advisory check derived from 215 approved WA/Cockburn rules for 'lighting signage'. Most-cited source_version 71dac7c9-a226-4221-9ba0-f0fe5ef43e90. e.g. \"J5679 QUBE Property Group Pty Ltd QUBE Land, Mandogalup - LWMS 10 12 14 16 18 20 22Water Level (mAHD) Date Groundwater Levels - Time Series \"",
+      "_n_approved": 215
+    },
+    {
+      "key": "lighting_signage_2",
+      "name": "Lighting Signage 2",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_lighting_signage_2_count"
+      ],
+      "rule_key_pattern": "lighting_signage_2",
+      "unit": "",
+      "description": "Advisory check derived from 25 approved WA/Cockburn rules for 'lighting signage 2'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"Acknowledgement that ownership of cultural knowledge remains with Traditional Owners and as such they must be continually involved in the pl\"",
+      "_n_approved": 25
+    },
+    {
+      "key": "lighting_signage_3",
+      "name": "Lighting Signage 3",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_lighting_signage_3_count"
+      ],
+      "rule_key_pattern": "lighting_signage_3",
+      "unit": "",
+      "description": "Advisory check derived from 6 approved WA/Cockburn rules for 'lighting signage 3'. Most-cited source_version ee17a9b3-d0cf-4ca4-99fb-5c46c984f748. e.g. \"Where Peet Ltd is the proponent, the above process shall proceed as described, and Peet Ltd shall take the comments and recommendations of t\"",
+      "_n_approved": 6
+    },
+    {
+      "key": "lighting_signage_5",
+      "name": "Lighting Signage 5",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_lighting_signage_5_count"
+      ],
+      "rule_key_pattern": "lighting_signage_5",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'lighting signage 5'. Most-cited source_version 5ed903f4-9a9b-4f7b-8deb-63006080446e. e.g. \"The intersection of Millar Road and Road A is to be configured as an unsignalised channelised \"T\" intersection with splitter islands on the \"",
+      "_n_approved": 3
+    },
+    {
+      "key": "loading_and_unloading_areas",
+      "name": "Loading And Unloading Areas",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_loading_and_unloading_areas_count"
+      ],
+      "rule_key_pattern": "loading_and_unloading_areas",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'loading and unloading areas'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"Areas for the loading and unloading of vehicles carrying goods or commodities to or from premises within the \u2018Mixed Business 1\u2019 Zone shall b\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "lot_size",
+      "name": "Lot Size",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_lot_size_count"
+      ],
+      "rule_key_pattern": "lot_size",
+      "unit": "",
+      "description": "Advisory check derived from 35 approved WA/Cockburn rules for 'lot size'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"5.7.1 Notwithstanding the minimum and average site area and plot ratio requirements of clause 5.1.1, 6.1.1, table 1 and table 4 of the Resid\"",
+      "_n_approved": 35
+    },
+    {
+      "key": "max_gros_lettable_area",
+      "name": "Max Gros Lettable Area",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_max_gros_lettable_area_m2"
+      ],
+      "rule_key_pattern": "max_gros_lettable_area",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'max gros lettable area'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"the gross  lettable area is no  more than 200m2\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "max_gros_lettable_area_convenience_store",
+      "name": "Max Gros Lettable Area Convenience Store",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_max_gros_lettable_area_convenience_store_m2"
+      ],
+      "rule_key_pattern": "max_gros_lettable_area_convenience_store",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'max gros lettable area convenience store'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"convenience store (200m 2   gla)\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "max_gros_lettable_area_hardware_store",
+      "name": "Max Gros Lettable Area Hardware Store",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_max_gros_lettable_area_hardware_store_m2"
+      ],
+      "rule_key_pattern": "max_gros_lettable_area_hardware_store",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'max gros lettable area hardware store'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"hardware store (100m2 gla)\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "maximum_building_height",
+      "name": "Maximum Building Height",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_maximum_building_height_m"
+      ],
+      "rule_key_pattern": "maximum_building_height",
+      "unit": "m",
+      "description": "Advisory check derived from 12 approved WA/Cockburn rules for 'maximum building height'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"Council may impose a lesser building height on the part of development within Areas 2, 6a and 6b, 7, 8, 10a and 10b, 11, 12 and 13 that dire\"",
+      "_n_approved": 12
+    },
+    {
+      "key": "maximum_building_heights_category_a",
+      "name": "Maximum Building Heights Category A",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_maximum_building_heights_category_a_count"
+      ],
+      "rule_key_pattern": "maximum_building_heights_category_a",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'maximum building heights category a'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Category \u2018A\u2019 provisions as set out within Table 3 \u2013 Maximum Building Heights of the Residential Design Codes are applicable as the \u2018Acceptab\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "maximum_external_wall_height",
+      "name": "Maximum External Wall Height",
+      "tier": "TIER2",
+      "category": "WALL",
+      "fact_keys": [
+        "proposed_maximum_external_wall_height_m"
+      ],
+      "rule_key_pattern": "maximum_external_wall_height",
+      "unit": "m",
+      "description": "Advisory check derived from 6 approved WA/Cockburn rules for 'maximum external wall height'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"The maximum external wall height shall be ten metres as measured from ground level.\"",
+      "_n_approved": 6
+    },
+    {
+      "key": "maximum_height",
+      "name": "Maximum Height",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_maximum_height_m"
+      ],
+      "rule_key_pattern": "maximum_height",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'maximum height'. Most-cited source_version a7e30075-04e0-4373-891d-8efedfcfaa2a. e.g. \"Signs to be a maximum height of 3m when measured from ground level\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "maximum_podium_height",
+      "name": "Maximum Podium Height",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_maximum_podium_height_storeys"
+      ],
+      "rule_key_pattern": "maximum_podium_height",
+      "unit": "storeys",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'maximum podium height'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Maximum Podium Height 3 Storeys\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "maximum_primary_secondary_street_setback",
+      "name": "Maximum Primary Secondary Street Setback",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_maximum_primary_secondary_street_setback_m"
+      ],
+      "rule_key_pattern": "maximum_primary_secondary_street_setback",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'maximum primary secondary street setback'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Maximum Primary/ Secondary Street 6m\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "maximum_roof_pitch",
+      "name": "Maximum Roof Pitch",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_maximum_roof_pitch_count"
+      ],
+      "rule_key_pattern": "maximum_roof_pitch",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'maximum roof pitch'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"maximum roof plain pitch of 33 degrees\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "maximum_roof_ridge_height",
+      "name": "Maximum Roof Ridge Height",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_maximum_roof_ridge_height_m"
+      ],
+      "rule_key_pattern": "maximum_roof_ridge_height",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'maximum roof ridge height'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"the overall roof ridge shall not exceed 8.5 metres above ground level.\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "maximum_storeys",
+      "name": "Maximum Storeys",
+      "tier": "TIER2",
+      "category": "STOREYS",
+      "fact_keys": [
+        "proposed_maximum_storeys_storeys"
+      ],
+      "rule_key_pattern": "maximum_storeys",
+      "unit": "storeys",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'maximum storeys'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"maximum of four storeys above ground level\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "minimum_building_height",
+      "name": "Minimum Building Height",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_minimum_building_height_storeys"
+      ],
+      "rule_key_pattern": "minimum_building_height",
+      "unit": "storeys",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'minimum building height'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"A minimum building height of two storeys is required within the \u2018Mixed-Use\u2019, \u2018Commercial\u2019 and \u2018Service Commercial\u2019 zones of the RPSP as show\"",
+      "_n_approved": 7
+    },
+    {
+      "key": "minimum_clear_glazing",
+      "name": "Minimum Clear Glazing",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_minimum_clear_glazing_pct"
+      ],
+      "rule_key_pattern": "minimum_clear_glazing",
+      "unit": "%",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'minimum clear glazing'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Minimum Clear Glazing - 80% of Building Frontage or 2/3 Lot Frontage\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "minimum_dwelling_target",
+      "name": "Minimum Dwelling Target",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_minimum_dwelling_target_count"
+      ],
+      "rule_key_pattern": "minimum_dwelling_target",
+      "unit": "count",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'minimum dwelling target'. Most-cited source_version 0fc2a060-1cae-48b3-87dd-1948d54bf5c2. e.g. \"a minimum dwelling target of 336 dwellings across the residential sub - precincts\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "minimum_frontage_build_out",
+      "name": "Minimum Frontage Build Out",
+      "tier": "TIER2",
+      "category": "LOT",
+      "fact_keys": [
+        "lot_width_m",
+        "frontage_width_m"
+      ],
+      "rule_key_pattern": "minimum_frontage_build_out",
+      "unit": "%",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'minimum frontage build out'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Minimum Frontage Build Out  70% (up to 30% for crossover/side setbacks)\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "minimum_height",
+      "name": "Minimum Height",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_minimum_height_storeys"
+      ],
+      "rule_key_pattern": "minimum_height",
+      "unit": "storeys",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'minimum height'. Most-cited source_version fb9a6cd2-c74c-42a1-ad1c-a4579d78ca72. e.g. \"development being to a minimum height of 2 storeys\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "minimum_lot_size",
+      "name": "Minimum Lot Size",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_minimum_lot_size_m2"
+      ],
+      "rule_key_pattern": "minimum_lot_size",
+      "unit": "m2",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'minimum lot size'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"It allows for subdivision to be considered to a minimum lot size of 8ha\"",
+      "_n_approved": 7
+    },
+    {
+      "key": "minimum_podium_height",
+      "name": "Minimum Podium Height",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_minimum_podium_height_storeys"
+      ],
+      "rule_key_pattern": "minimum_podium_height",
+      "unit": "storeys",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'minimum podium height'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Minimum Podium Height 2 Storeys\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "minimum_primary_street_setback",
+      "name": "Minimum Primary Street Setback",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_minimum_primary_street_setback_m"
+      ],
+      "rule_key_pattern": "minimum_primary_street_setback",
+      "unit": "m",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'minimum primary street setback'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Minimum Primary Street 4m\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "minimum_secondary_street_setback",
+      "name": "Minimum Secondary Street Setback",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_minimum_secondary_street_setback_m"
+      ],
+      "rule_key_pattern": "minimum_secondary_street_setback",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'minimum secondary street setback'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Minimum Secondary Street 2m\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "mitigation_hierarchy_application",
+      "name": "Mitigation Hierarchy Application",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_mitigation_hierarchy_application_count"
+      ],
+      "rule_key_pattern": "mitigation_hierarchy_application",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'mitigation hierarchy application'. Most-cited source_version 71ef7091-9d5e-43cd-96d4-4b689f439b3d. e.g. \"The application of the mitigation hierarchy should be applied to avoid or minimise impacts to terrestrial fauna where possible.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "native_vegetation_clearing_permit",
+      "name": "Native Vegetation Clearing Permit",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_native_vegetation_clearing_permit_count"
+      ],
+      "rule_key_pattern": "native_vegetation_clearing_permit",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'native vegetation clearing permit'. Most-cited source_version 71ef7091-9d5e-43cd-96d4-4b689f439b3d. e.g. \"Where clearing of vegetation is proposed, a clearing permit will need to be attained pursuant to Part V of the Environmental Protection Act \"",
+      "_n_approved": 3
+    },
+    {
+      "key": "neighbourhood_amenity",
+      "name": "Neighbourhood Amenity",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_neighbourhood_amenity_count"
+      ],
+      "rule_key_pattern": "neighbourhood_amenity",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'neighbourhood amenity'. Most-cited source_version c0f5bf0c-d35d-49e5-be55-13b35676067c. e.g. \"(b) will not cause injury to or adversely affect the amenity of the neighbourhood;\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "net_land_area_per_equivalent_dwelling",
+      "name": "Net Land Area Per Equivalent Dwelling",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_net_land_area_per_equivalent_dwelling_m2"
+      ],
+      "rule_key_pattern": "net_land_area_per_equivalent_dwelling",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'net land area per equivalent dwelling'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"R100 1x dwellings per 100m2 of net land area\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "new_developments_form_bulk_scale",
+      "name": "New Developments Form Bulk Scale",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_new_developments_form_bulk_scale_count"
+      ],
+      "rule_key_pattern": "new_developments_form_bulk_scale",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'new developments form bulk scale'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"New developments should reflect the prevailing form, bulk and scale of the immediate locality;\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "noise_attenuation",
+      "name": "Noise Attenuation",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_noise_attenuation_count"
+      ],
+      "rule_key_pattern": "noise_attenuation",
+      "unit": "",
+      "description": "Advisory check derived from 36 approved WA/Cockburn rules for 'noise attenuation'. Most-cited source_version 6cdc94ef-a38a-407a-be22-f6ec1fa92f85. e.g. \"sufficient independent water suppl y of at least 20,000 litres and a petrol, diesel or a generator powered pump capable of pumping 400 litre\"",
+      "_n_approved": 36
+    },
+    {
+      "key": "noise_attenuation_2",
+      "name": "Noise Attenuation 2",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_noise_attenuation_2_count"
+      ],
+      "rule_key_pattern": "noise_attenuation_2",
+      "unit": "",
+      "description": "Advisory check derived from 14 approved WA/Cockburn rules for 'noise attenuation 2'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"When applying these criteria to new noise sensitive developments, the objectives of the Policy are to achieve: \uf0d8 acceptable indoor noise lev\"",
+      "_n_approved": 14
+    },
+    {
+      "key": "noise_mitigation",
+      "name": "Noise Mitigation",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_noise_mitigation_count"
+      ],
+      "rule_key_pattern": "noise_mitigation",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'noise mitigation'. Most-cited source_version e891934a-ae34-47a7-a5ba-41729e24f3e9. e.g. \"Noise mitigation in the form of quiet house design would be required in proximity to Kwinana Freeway and Berrigan Drive.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "noise_transmission",
+      "name": "Noise Transmission",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_noise_transmission_count"
+      ],
+      "rule_key_pattern": "noise_transmission",
+      "unit": "dB(A)",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'noise transmission'. Most-cited source_version f5514d20-9e3c-415c-9681-2accdcc88e2b. e.g. \"iii. Noise transmission emanating from the Port (attenuation in the order of 30dB(A) is required;\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "non_conforming_use_discontinuation",
+      "name": "Non Conforming Use Discontinuation",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_non_conforming_use_discontinuation_count"
+      ],
+      "rule_key_pattern": "non_conforming_use_discontinuation",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'non conforming use discontinuation'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"When a non-conforming use of any land or building has been discontinued for a period of six months or more such land or building shall not t\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "not_applicable",
+      "name": "Not Applicable",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_not_applicable_count"
+      ],
+      "rule_key_pattern": "not_applicable",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'not applicable'. Most-cited source_version 1699dafe-b728-45cf-b953-9c885f783952. e.g. \"not more than 30 m from each site\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "notice_on_title",
+      "name": "Notice On Title",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_notice_on_title_count"
+      ],
+      "rule_key_pattern": "notice_on_title",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'notice on title'. Most-cited source_version b01ba7f5-2ab7-4b11-bd67-7f9b05a3a856. e.g. \"A \u2018notice on title\u2019 pursuant to s70a of the Transfer of Land Act 1893 advising of the potential for noise nuisance is to be required as a co\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "one_sign_per_lot_frontage",
+      "name": "One Sign Per Lot Frontage",
+      "tier": "TIER2",
+      "category": "LOT",
+      "fact_keys": [
+        "lot_width_m",
+        "frontage_width_m"
+      ],
+      "rule_key_pattern": "one_sign_per_lot_frontage",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'one sign per lot frontage'. Most-cited source_version a7e30075-04e0-4373-891d-8efedfcfaa2a. e.g. \"Limited to one sign per lot frontage\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "open_space_gte_1",
+      "name": "Open Space Gte 1",
+      "tier": "TIER1",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_gte_1_count"
+      ],
+      "rule_key_pattern": "open_space_gte_1",
+      "unit": "",
+      "description": "Advisory check derived from 39 approved WA/Cockburn rules for 'open space gte 1'. Most-cited source_version 4fa496e5-6b9c-484f-9793-d92b29c10410. e.g. \"of three large neighbourhood parks which allows all dwellings to still be within 400m of POS as required\"",
+      "_n_approved": 39
+    },
+    {
+      "key": "open_space_gte_2",
+      "name": "Open Space Gte 2",
+      "tier": "TIER1",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_gte_2_count"
+      ],
+      "rule_key_pattern": "open_space_gte_2",
+      "unit": "",
+      "description": "Advisory check derived from 24 approved WA/Cockburn rules for 'open space gte 2'. Most-cited source_version c11b07da-2e59-4d01-9814-e2cef1d97070. e.g. \"2) WAPC requires that the POS Schedule show the pipeline easement as restricted POS (100% credit) and the\"",
+      "_n_approved": 24
+    },
+    {
+      "key": "open_space_gte_3",
+      "name": "Open Space Gte 3",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_gte_3_count"
+      ],
+      "rule_key_pattern": "open_space_gte_3",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'open space gte 3'. Most-cited source_version 2d1dc664-6455-49b8-ab11-2ef99dcaf174. e.g. \"2) WAPC requires that the POS Schedule show the pipeline easement as restricted POS (100% credit) and the\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "open_space_gte_4",
+      "name": "Open Space Gte 4",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_gte_4_count"
+      ],
+      "rule_key_pattern": "open_space_gte_4",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'open space gte 4'. Most-cited source_version 2d1dc664-6455-49b8-ab11-2ef99dcaf174. e.g. \"Minimum Unrestricted Open Space (80%): 1.03\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "open_space_gte_5",
+      "name": "Open Space Gte 5",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_gte_5_count"
+      ],
+      "rule_key_pattern": "open_space_gte_5",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'open space gte 5'. Most-cited source_version ccc4886e-3a9c-422e-ad3f-5d4db207ccf4. e.g. \"Minimum Unrestricted POS Required 1.68ha\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "open_space_lte_1",
+      "name": "Open Space Lte 1",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_lte_1_count"
+      ],
+      "rule_key_pattern": "open_space_lte_1",
+      "unit": "",
+      "description": "Advisory check derived from 11 approved WA/Cockburn rules for 'open space lte 1'. Most-cited source_version bc162712-9156-4fb8-9fd0-19ef629b4bf2. e.g. \"policies at the time in 2005, which allowed for the provision of a minimum 8% POS land contribution and a maximum\"",
+      "_n_approved": 11
+    },
+    {
+      "key": "open_space_lte_2",
+      "name": "Open Space Lte 2",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_lte_2_count"
+      ],
+      "rule_key_pattern": "open_space_lte_2",
+      "unit": "",
+      "description": "Advisory check derived from 12 approved WA/Cockburn rules for 'open space lte 2'. Most-cited source_version bc162712-9156-4fb8-9fd0-19ef629b4bf2. e.g. \"The POS will be irrigated at a maximum rate of 7,500 kL/ha/year, therefore a total volume of 1, 508\"",
+      "_n_approved": 12
+    },
+    {
+      "key": "open_space_lte_3",
+      "name": "Open Space Lte 3",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_lte_3_count"
+      ],
+      "rule_key_pattern": "open_space_lte_3",
+      "unit": "",
+      "description": "Advisory check derived from 17 approved WA/Cockburn rules for 'open space lte 3'. Most-cited source_version ccc4886e-3a9c-422e-ad3f-5d4db207ccf4. e.g. \"The POS will be irrigated at a maximum rate of 7,500 kL/ha/year, therefore a total volume of 1, 508\"",
+      "_n_approved": 17
+    },
+    {
+      "key": "open_space_lte_4",
+      "name": "Open Space Lte 4",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_lte_4_count"
+      ],
+      "rule_key_pattern": "open_space_lte_4",
+      "unit": "",
+      "description": "Advisory check derived from 14 approved WA/Cockburn rules for 'open space lte 4'. Most-cited source_version ccc4886e-3a9c-422e-ad3f-5d4db207ccf4. e.g. \"The POS will be irrigated at a maximum rate of 7,500 kL/ha/year, therefore a total volume of 1, 508\"",
+      "_n_approved": 14
+    },
+    {
+      "key": "open_space_lte_6",
+      "name": "Open Space Lte 6",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_open_space_lte_6_count"
+      ],
+      "rule_key_pattern": "open_space_lte_6",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'open space lte 6'. Most-cited source_version ccc4886e-3a9c-422e-ad3f-5d4db207ccf4. e.g. \"Maximum Restricted Open Space Permitted 0.43ha\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "original_materials_retention",
+      "name": "Original Materials Retention",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_original_materials_retention_count"
+      ],
+      "rule_key_pattern": "original_materials_retention",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'original materials retention'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Where possible the original materials to contributory buildings should be retained.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "outdoor_acoustic_amenity",
+      "name": "Outdoor Acoustic Amenity",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_outdoor_acoustic_amenity_count"
+      ],
+      "rule_key_pattern": "outdoor_acoustic_amenity",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'outdoor acoustic amenity'. Most-cited source_version f8b62acc-342a-4472-9442-115374837048. e.g. \"A reasonable degree of acoustic amenity for outdoor living areas on each residential lot\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "parking_areas_reflect_existing_streetscape",
+      "name": "Parking Areas Reflect Existing Streetscape",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_parking_areas_reflect_existing_streetscape_count"
+      ],
+      "rule_key_pattern": "parking_areas_reflect_existing_streetscape",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'parking areas reflect existing streetscape'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Parking areas of lots and development sites shall reflect the existing streetscape where possible\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "parking_bays_per_dwelling",
+      "name": "Parking Bays Per Dwelling",
+      "tier": "TIER1",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_parking_bays_per_dwelling_count"
+      ],
+      "rule_key_pattern": "parking_bays_per_dwelling",
+      "unit": "",
+      "description": "Advisory check derived from 59 approved WA/Cockburn rules for 'parking bays per dwelling'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. \"Visitor car parking is to be a minimum of 10% of the total residential car parking requirement and be provided in addition to the required r\"",
+      "_n_approved": 59
+    },
+    {
+      "key": "parking_gte_1",
+      "name": "Parking Gte 1",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_parking_gte_1_count"
+      ],
+      "rule_key_pattern": "parking_gte_1",
+      "unit": "",
+      "description": "Advisory check derived from 8 approved WA/Cockburn rules for 'parking gte 1'. Most-cited source_version cacca72c-7324-44fc-9947-d52f0f9988b8. e.g. \"LPP 1.6 prescribes requirements relating to non-residential car parking standards and vehicle access. Non-residential land uses\"",
+      "_n_approved": 8
+    },
+    {
+      "key": "parking_gte_2",
+      "name": "Parking Gte 2",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_parking_gte_2_count"
+      ],
+      "rule_key_pattern": "parking_gte_2",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'parking gte 2'. Most-cited source_version cacca72c-7324-44fc-9947-d52f0f9988b8. e.g. \"Australian Standard AS 2890.3: Parking Facilities \u2013\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "parking_gte_6",
+      "name": "Parking Gte 6",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_parking_gte_6_count"
+      ],
+      "rule_key_pattern": "parking_gte_6",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'parking gte 6'. Most-cited source_version 0370e334-e627-48ef-be37-9171149077a5. e.g. \"11. Carport, garage and car parking locations shall be provided in the locations designated on the LDP.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "parking_location",
+      "name": "Parking Location",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_parking_location_count"
+      ],
+      "rule_key_pattern": "parking_location",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'parking location'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"A1.1 Parking to be located to the side of the dwelling.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "parking_ratio_reception_centre",
+      "name": "Parking Ratio Reception Centre",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_parking_ratio_reception_centre_count"
+      ],
+      "rule_key_pattern": "parking_ratio_reception_centre",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'parking ratio reception centre'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"1 : 30 seats OR* 1 : 100 people accommodated\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "parking_ratio_restaurant",
+      "name": "Parking Ratio Restaurant",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_parking_ratio_restaurant_count"
+      ],
+      "rule_key_pattern": "parking_ratio_restaurant",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'parking ratio restaurant'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"1 : 30 seats OR* 1 : 100 people accommodated\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "passive_surveillance",
+      "name": "Passive Surveillance",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_passive_surveillance_count"
+      ],
+      "rule_key_pattern": "passive_surveillance",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'passive surveillance'. Most-cited source_version 1d6e7447-eb8b-453f-8287-627b12da09dc. e.g. \"Passive surveillance of the street and other public spaces is to be provided by frequent upper floor windows, terraces and balconies overloo\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "pedestrian_access",
+      "name": "Pedestrian Access",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_pedestrian_access_count"
+      ],
+      "rule_key_pattern": "pedestrian_access",
+      "unit": "",
+      "description": "Advisory check derived from 119 approved WA/Cockburn rules for 'pedestrian access'. Most-cited source_version 819ab3f1-7f9b-4835-9e03-9dc7448675c8. e.g. \"LANDSCAPE CONCEPT PLAN 04 02 03 06 07 08 05 05 08 08 PEEL MAIN DRAIN EASEMENT LEGEND INSITU CONCRETE PEDESTRIAN PATH NETWORK TO ACCOMMODATE \"",
+      "_n_approved": 119
+    },
+    {
+      "key": "pedestrian_access_2",
+      "name": "Pedestrian Access 2",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_pedestrian_access_2_count"
+      ],
+      "rule_key_pattern": "pedestrian_access_2",
+      "unit": "",
+      "description": "Advisory check derived from 20 approved WA/Cockburn rules for 'pedestrian access 2'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"Streetscape (R46 - R47) The subject site does not contain any existing mature trees which can be retained and used to help establish streets\"",
+      "_n_approved": 20
+    },
+    {
+      "key": "planning_approval_condition",
+      "name": "Planning Approval Condition",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_planning_approval_condition_count"
+      ],
+      "rule_key_pattern": "planning_approval_condition",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'planning approval condition'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"A development which requires planning approval under the Scheme, that complies with or may be approved under the provisions of the Residenti\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "policy_application",
+      "name": "Policy Application",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_policy_application_count"
+      ],
+      "rule_key_pattern": "policy_application",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'policy application'. Most-cited source_version 0574adab-4379-439e-8f91-cdaf7b12a170. e.g. \"This Policy applies to any proposed change or intensification of land use (for uses permitted under existing TPS\u2019s), or proposed development\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "predominant_height_patterns",
+      "name": "Predominant Height Patterns",
+      "tier": "TIER2",
+      "category": "HEIGHT",
+      "fact_keys": [
+        "proposed_predominant_height_patterns_count"
+      ],
+      "rule_key_pattern": "predominant_height_patterns",
+      "unit": "",
+      "description": "Advisory check derived from 8 approved WA/Cockburn rules for 'predominant height patterns'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"that the proposal is consistent with predominant, height patterns of adjoining properties and the locality generally\"",
+      "_n_approved": 8
+    },
+    {
+      "key": "predominant_use",
+      "name": "Predominant Use",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_predominant_use_count"
+      ],
+      "rule_key_pattern": "predominant_use",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'predominant use'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"The predominant use shall be rural provided such uses are not in conflict with principles of groundwater conservation and do not significant\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "predominant_uses",
+      "name": "Predominant Uses",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_predominant_uses_count"
+      ],
+      "rule_key_pattern": "predominant_uses",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'predominant uses'. Most-cited source_version eb3bd813-581f-499f-b01b-31eb39bfa2e5. e.g. \"The Predominant uses shall be: Amusement Centre, Eating House, Health Studio, Liquor Store, Office, Professional Office, Shops, Fish Shop, P\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "privacy_screening",
+      "name": "Privacy Screening",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_privacy_screening_count"
+      ],
+      "rule_key_pattern": "privacy_screening",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'privacy screening'. Most-cited source_version 083b314a-bd65-49d7-a7f6-43a29e00aa80. e.g. \"This means your home needs to have been constructed to bushfire protection levels, for a start it must have enclosed eaves, an independent w\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "private_open_space_area",
+      "name": "Private Open Space Area",
+      "tier": "TIER1",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_private_open_space_area_count"
+      ],
+      "rule_key_pattern": "private_open_space_area",
+      "unit": "",
+      "description": "Advisory check derived from 74 approved WA/Cockburn rules for 'private open space area'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"Mechanical ventilation/airconditioning Away from corrido r No requirements Living and work areas Facing corridor \uf0d8 10 mm laminated glazing \uf0d8\"",
+      "_n_approved": 74
+    },
+    {
+      "key": "private_open_space_area_2",
+      "name": "Private Open Space Area 2",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_private_open_space_area_2_count"
+      ],
+      "rule_key_pattern": "private_open_space_area_2",
+      "unit": "",
+      "description": "Advisory check derived from 17 approved WA/Cockburn rules for 'private open space area 2'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"8.For lots with frontage greater than 13m, minimum:Open space 35% (site cover 65%) subject to the provision of an Outdoor Living Area/ Prima\"",
+      "_n_approved": 17
+    },
+    {
+      "key": "private_open_space_area_3",
+      "name": "Private Open Space Area 3",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_private_open_space_area_3_count"
+      ],
+      "rule_key_pattern": "private_open_space_area_3",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'private open space area 3'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"building shall cantilever over the outdoor living area) iii.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "prohibited_uses",
+      "name": "Prohibited Uses",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_prohibited_uses_count"
+      ],
+      "rule_key_pattern": "prohibited_uses",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'prohibited uses'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"X All other uses are not permitted.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "public_access",
+      "name": "Public Access",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_public_access_count"
+      ],
+      "rule_key_pattern": "public_access",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'public access'. Most-cited source_version f6bf7b45-ee38-4df8-aa17-c03a62de9722. e.g. \"Public access should be provided through the area subject to safety and security requirements.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "public_open_space",
+      "name": "Public Open Space",
+      "tier": "TIER1",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_public_open_space_count"
+      ],
+      "rule_key_pattern": "public_open_space",
+      "unit": "",
+      "description": "Advisory check derived from 174 approved WA/Cockburn rules for 'public open space'. Most-cited source_version 20d37680-c719-4a72-81d9-8944b25ec6b8. e.g. \"ORIGINAL LANDHOLDING J__J I I \\ , 1 l J LEGEND 1 APPLICATION BOUNDARY(85.03ha) 1 DESIGN CONTOURS (1m) LOT SUMMARY Lots 1 Balance Lots 1 Tota\"",
+      "_n_approved": 174
+    },
+    {
+      "key": "public_open_space_2",
+      "name": "Public Open Space 2",
+      "tier": "TIER1",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_public_open_space_2_count"
+      ],
+      "rule_key_pattern": "public_open_space_2",
+      "unit": "",
+      "description": "Advisory check derived from 30 approved WA/Cockburn rules for 'public open space 2'. Most-cited source_version 2a83dab7-de00-4d4a-a3fe-6f86e1c37bba. e.g. \"The road network within the southern catchment will be graded towards the POS and drainage areas, providing a flow path for major storm even\"",
+      "_n_approved": 30
+    },
+    {
+      "key": "public_open_space_3",
+      "name": "Public Open Space 3",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_public_open_space_3_count"
+      ],
+      "rule_key_pattern": "public_open_space_3",
+      "unit": "",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'public open space 3'. Most-cited source_version 230c4a18-9706-4448-aae9-181fc92f4556. e.g. \"As illustrated in Table 1, and pursuant to R4 of Element 4 of Liveable Neighbourhoods, a minimum of ten per cent (10%) open space is provide\"",
+      "_n_approved": 7
+    },
+    {
+      "key": "public_open_space_4",
+      "name": "Public Open Space 4",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_public_open_space_4_count"
+      ],
+      "rule_key_pattern": "public_open_space_4",
+      "unit": "",
+      "description": "Advisory check derived from 8 approved WA/Cockburn rules for 'public open space 4'. Most-cited source_version 784f12d9-312c-43f4-9959-1f1806f75bbb. e.g. \"Proposed Public Open Space Schedule Site Area (Lots 816, 1000, 803,805,200, 9001, 817, 1001 and 9002) Deductions Dedicated drainage reserve \"",
+      "_n_approved": 8
+    },
+    {
+      "key": "public_open_space_provision",
+      "name": "Public Open Space Provision",
+      "tier": "TIER2",
+      "category": "OPEN_SPACE",
+      "fact_keys": [
+        "proposed_public_open_space_provision_count"
+      ],
+      "rule_key_pattern": "public_open_space_provision",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'public open space provision'. Most-cited source_version 407acdc5-67c6-4660-93b2-d3dec22a0739. e.g. \"Public open space shall be provided for community schemes in accordance with Development Control Policy 2.3 Public Open Space in Residential\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "public_submission_period_min_days",
+      "name": "Public Submission Period Min Days",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_public_submission_period_min_days_count"
+      ],
+      "rule_key_pattern": "public_submission_period_min_days",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'public submission period min days'. Most-cited source_version 412afad3-5658-444f-93c0-6dcca1e796ba. e.g. \"within a period determined by the CEO that is not less than 60 days after the day on which the notice is published\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "residential_use_restriction",
+      "name": "Residential Use Restriction",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_residential_use_restriction_count"
+      ],
+      "rule_key_pattern": "residential_use_restriction",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'residential use restriction'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"Residential uses will not be permitted in new buildings at ground level adjacent to Queen Victoria Street at the following locations\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "retaining_wall_height",
+      "name": "Retaining Wall Height",
+      "tier": "TIER2",
+      "category": "WALL",
+      "fact_keys": [
+        "proposed_retaining_wall_height_m"
+      ],
+      "rule_key_pattern": "retaining_wall_height",
+      "unit": "m",
+      "description": "Advisory check derived from 9 approved WA/Cockburn rules for 'retaining wall height'. Most-cited source_version 269c77a6-7a15-4948-ad47-ae37b8a0db6e. e.g. \"Planning approval is required for subdivision retaining walls that exceed 2m in \r height above natural ground level which abut areas of publ\"",
+      "_n_approved": 9
+    },
+    {
+      "key": "road_reserve_setback",
+      "name": "Road Reserve Setback",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_road_reserve_setback_m"
+      ],
+      "rule_key_pattern": "road_reserve_setback",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'road reserve setback'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"not less than 40 metres wide to a road reserve or other public reserve\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "roof_form",
+      "name": "Roof Form",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_roof_form_count"
+      ],
+      "rule_key_pattern": "roof_form",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'roof form'. Most-cited source_version 13f3fdd0-5c0a-4adb-931f-1b3f9d83e50c. e.g. \"Flat and curved roofs are permitted subject to compliance with insulation requirements and providing they fall within the building envelope\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "setback_gte_1",
+      "name": "Setback Gte 1",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_setback_gte_1_count"
+      ],
+      "rule_key_pattern": "setback_gte_1",
+      "unit": "",
+      "description": "Advisory check derived from 6 approved WA/Cockburn rules for 'setback gte 1'. Most-cited source_version 1e6e6221-2b91-4ba8-8e3f-db2dba0ac9e8. e.g. \"Minimum 2.0m Primary Street SetbackMinimum 3.0m Primary Street Setback(R20)Minimum 1.0m Secondary Street setbackMinimum 0.5m Laneway Setback\"",
+      "_n_approved": 6
+    },
+    {
+      "key": "setback_gte_2",
+      "name": "Setback Gte 2",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_setback_gte_2_count"
+      ],
+      "rule_key_pattern": "setback_gte_2",
+      "unit": "",
+      "description": "Advisory check derived from 8 approved WA/Cockburn rules for 'setback gte 2'. Most-cited source_version 1e6e6221-2b91-4ba8-8e3f-db2dba0ac9e8. e.g. \"Minimum 2.0m Primary Street SetbackMinimum 3.0m Primary Street Setback(R20)Minimum 1.0m Secondary Street setbackMinimum 0.5m Laneway Setback\"",
+      "_n_approved": 8
+    },
+    {
+      "key": "setback_gte_3",
+      "name": "Setback Gte 3",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_setback_gte_3_m"
+      ],
+      "rule_key_pattern": "setback_gte_3",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'setback gte 3'. Most-cited source_version 15c136fa-b86f-4e74-8ce4-d305be2022ba. e.g. \"Minimum 2.0m Primary Street SetbackMinimum 3.0m Primary Street Setback(R20)Minimum 1.0m Secondary Street setbackMinimum 0.5m Laneway Setback\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "setback_gte_4",
+      "name": "Setback Gte 4",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_setback_gte_4_m"
+      ],
+      "rule_key_pattern": "setback_gte_4",
+      "unit": "m",
+      "description": "Advisory check derived from 6 approved WA/Cockburn rules for 'setback gte 4'. Most-cited source_version 15c136fa-b86f-4e74-8ce4-d305be2022ba. e.g. \"Minimum 2.0m Primary Street SetbackMinimum 3.0m Primary Street Setback(R20)Minimum 1.0m Secondary Street setbackMinimum 0.5m Laneway Setback\"",
+      "_n_approved": 6
+    },
+    {
+      "key": "setback_lte_5",
+      "name": "Setback Lte 5",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_setback_lte_5_m"
+      ],
+      "rule_key_pattern": "setback_lte_5",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'setback lte 5'. Most-cited source_version 9cde2bda-63ff-41b7-ad80-847d58752129. e.g. \"street setback line to a maximum of 4.0m from the rear boundary, unless otherwise\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "setback_requirements",
+      "name": "Setback Requirements",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_setback_requirements_count"
+      ],
+      "rule_key_pattern": "setback_requirements",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'setback requirements'. Most-cited source_version 265dcdd8-f044-45fa-85aa-b870ceb481da. e.g. \"There is no difference in either the primary street or secondary street setback requirements or the maximum wall height requirements under T\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "setbacks",
+      "name": "Setbacks",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_setbacks_count"
+      ],
+      "rule_key_pattern": "setbacks",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'setbacks'. Most-cited source_version d3a25db5-16e9-414b-a89d-2d9d64c5f6c9. e.g. \"Nil setbacks, except where the site abuts a residential lot in which instance the setbacks are to align with the Residential Design Codes of\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "side_setbacks",
+      "name": "Side Setbacks",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_side_setbacks_count"
+      ],
+      "rule_key_pattern": "side_setbacks",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'side setbacks'. Most-cited source_version a4de8fe1-351c-4bec-b761-2acd89e3adb2. e.g. \"Developments are to have side setbacks complementary with the predominant streetscape.\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "side_setbacks_podium",
+      "name": "Side Setbacks Podium",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_side_setbacks_podium_m"
+      ],
+      "rule_key_pattern": "side_setbacks_podium",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'side setbacks podium'. Most-cited source_version 055085fb-7b4e-4575-8627-d706362d6c9d. e.g. \"Side Setbacks (Podium) Nil: Where major openings are provided, setbacks to comply with BCA.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "sign_location",
+      "name": "Sign Location",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_sign_location_count"
+      ],
+      "rule_key_pattern": "sign_location",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'sign location'. Most-cited source_version 54a08a49-726f-4a4a-bba4-e4e921cae1bc. e.g. \"Signs should be located on the gable end, parapet, verandah, awning edge or end, or above and below windows, and generally should not be fix\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "single_storey_additions",
+      "name": "Single Storey Additions",
+      "tier": "TIER2",
+      "category": "STOREYS",
+      "fact_keys": [
+        "proposed_single_storey_additions_count"
+      ],
+      "rule_key_pattern": "single_storey_additions",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'single storey additions'. Most-cited source_version 34029933-239a-48c9-9e35-0cb7a714b296. e.g. \"Additions and alterations to a contributory dwelling are single storey and leave the existing building completely intact.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "site_area",
+      "name": "Site Area",
+      "tier": "TIER1",
+      "category": "SITE",
+      "fact_keys": [
+        "lot_area_m2"
+      ],
+      "rule_key_pattern": "site_area",
+      "unit": "m2",
+      "description": "Advisory check derived from 121 approved WA/Cockburn rules for 'site area'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. \"A single house, including extensions and ancillary outbuildings with an   area of less than 200m2 and a wall height not exceeding 4.5 in the\"",
+      "_n_approved": 121
+    },
+    {
+      "key": "site_contamination_investigation",
+      "name": "Site Contamination Investigation",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_site_contamination_investigation_count"
+      ],
+      "rule_key_pattern": "site_contamination_investigation",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'site contamination investigation'. Most-cited source_version 58d03e34-d66d-40e8-b6fc-07754c50695b. e.g. \"Investigations of potential site contamination to the satisfaction of the DEC.\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "site_density",
+      "name": "Site Density",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_site_density_m2"
+      ],
+      "rule_key_pattern": "site_density",
+      "unit": "m2",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'site density'. Most-cited source_version 2064086b-a51d-47ed-8475-a5f2dd45c572. e.g. \"one site for each 50 m 2 of camping ground\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "soft_landscaping",
+      "name": "Soft Landscaping",
+      "tier": "TIER1",
+      "category": "LANDSCAPE",
+      "fact_keys": [
+        "proposed_soft_landscaping_pct"
+      ],
+      "rule_key_pattern": "soft_landscaping",
+      "unit": "%",
+      "description": "Advisory check derived from 21 approved WA/Cockburn rules for 'soft landscaping'. Most-cited source_version 9a909193-662d-4c8d-a595-fa2b25d0dcc4. e.g. \"the local government may reduce the minimum on-site provision to not less than five percent (5%) of the total area of the lot to be set asid\"",
+      "_n_approved": 21
+    },
+    {
+      "key": "stormwater_management",
+      "name": "Stormwater Management",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_stormwater_management_count"
+      ],
+      "rule_key_pattern": "stormwater_management",
+      "unit": "",
+      "description": "Advisory check derived from 120 approved WA/Cockburn rules for 'stormwater management'. Most-cited source_version 71dac7c9-a226-4221-9ba0-f0fe5ef43e90. e.g. \"x Maintain minimum 1.5m clearance between habitable floor level and MGL x 1 year ARI 1 hour event from lots will be infiltrated on lot via s\"",
+      "_n_approved": 120
+    },
+    {
+      "key": "stormwater_management_2",
+      "name": "Stormwater Management 2",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_stormwater_management_2_count"
+      ],
+      "rule_key_pattern": "stormwater_management_2",
+      "unit": "",
+      "description": "Advisory check derived from 25 approved WA/Cockburn rules for 'stormwater management 2'. Most-cited source_version fae91813-db1e-4f66-b7c6-44fa9a7ef88d. e.g. \"x As compared to a development that does not actively manage stormwater quality: x At least 80% reduction of TSS x At least 60% reduction of\"",
+      "_n_approved": 25
+    },
+    {
+      "key": "stormwater_management_3",
+      "name": "Stormwater Management 3",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_stormwater_management_3_count"
+      ],
+      "rule_key_pattern": "stormwater_management_3",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'stormwater management 3'. Most-cited source_version 1b5ae1a4-aaf2-46b5-92d9-b16759b4a8bc. e.g. \", The stormwater design has been based on the minor and major principles for drainage, where minor events (1-year and 5-year ARI storm) are \"",
+      "_n_approved": 5
+    },
+    {
+      "key": "street_setback",
+      "name": "Street Setback",
+      "tier": "TIER1",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_street_setback_count"
+      ],
+      "rule_key_pattern": "street_setback",
+      "unit": "",
+      "description": "Advisory check derived from 184 approved WA/Cockburn rules for 'street setback'. Most-cited source_version 9554ea37-dd7d-47ad-833b-ebec2e99fcac. e.g. \"If developed as Grouped Dwellings, the Primary Street set back shall apply onlyto the Primary Dwelling Orientation denoted by this LDP.c)For\"",
+      "_n_approved": 184
+    },
+    {
+      "key": "street_setback_2",
+      "name": "Street Setback 2",
+      "tier": "TIER1",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_street_setback_2_m"
+      ],
+      "rule_key_pattern": "street_setback_2",
+      "unit": "m",
+      "description": "Advisory check derived from 66 approved WA/Cockburn rules for 'street setback 2'. Most-cited source_version 2d591235-c81e-45b5-a3d6-59ed23281aee. e.g. \"6.Garagesa)Garages / carports may be located as designated on this LDP subject to the design ofsecondary street fencing (where proposed) in \"",
+      "_n_approved": 66
+    },
+    {
+      "key": "street_setback_3",
+      "name": "Street Setback 3",
+      "tier": "TIER1",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_street_setback_3_count"
+      ],
+      "rule_key_pattern": "street_setback_3",
+      "unit": "",
+      "description": "Advisory check derived from 29 approved WA/Cockburn rules for 'street setback 3'. Most-cited source_version 2d591235-c81e-45b5-a3d6-59ed23281aee. e.g. \"If developed as Grouped Dwellings, the Primary Street set back shallapply only to the Primary Dwelling Orientation denoted by this LDP.c)For\"",
+      "_n_approved": 29
+    },
+    {
+      "key": "street_setback_4",
+      "name": "Street Setback 4",
+      "tier": "TIER2",
+      "category": "SETBACK",
+      "fact_keys": [
+        "proposed_street_setback_4_count"
+      ],
+      "rule_key_pattern": "street_setback_4",
+      "unit": "",
+      "description": "Advisory check derived from 11 approved WA/Cockburn rules for 'street setback 4'. Most-cited source_version 2d591235-c81e-45b5-a3d6-59ed23281aee. e.g. \"Special rear setbacks are introduced for residential development backing onto the retaining wall and the rear setbacks are therefore present\"",
+      "_n_approved": 11
+    },
+    {
+      "key": "structure_plan_preparation",
+      "name": "Structure Plan Preparation",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_structure_plan_preparation_count"
+      ],
+      "rule_key_pattern": "structure_plan_preparation",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'structure plan preparation'. Most-cited source_version dd103e88-2b29-43d9-834a-4dec8a69aaed. e.g. \"where the proposal is part of a larger development precinct or policy area established under the Scheme, a Structure Plan shall be prepared \"",
+      "_n_approved": 5
+    },
+    {
+      "key": "subdivision_and_development",
+      "name": "Subdivision And Development",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_subdivision_and_development_count"
+      ],
+      "rule_key_pattern": "subdivision_and_development",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'subdivision and development'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"Subdivision and development of land shall be in accordance with the zones shown on the Zoning and Subdivision Plan\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "subdivision_layout",
+      "name": "Subdivision Layout",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_subdivision_layout_count"
+      ],
+      "rule_key_pattern": "subdivision_layout",
+      "unit": "",
+      "description": "Advisory check derived from 120 approved WA/Cockburn rules for 'subdivision layout'. Most-cited source_version d24a3402-0fbb-4f30-8110-36513d477337. e.g. \"36/143 \u2018Value\u2019 means fair nett expectance value which is to be calculated by determining the highest and best use of the land in its inglobo\"",
+      "_n_approved": 120
+    },
+    {
+      "key": "subdivision_layout_2",
+      "name": "Subdivision Layout 2",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_subdivision_layout_2_count"
+      ],
+      "rule_key_pattern": "subdivision_layout_2",
+      "unit": "",
+      "description": "Advisory check derived from 22 approved WA/Cockburn rules for 'subdivision layout 2'. Most-cited source_version d24a3402-0fbb-4f30-8110-36513d477337. e.g. \"DA20 DELETED BY AMD 174 GG 18/02/20 DA21 DELETED BY AMD 174 GG 18/02/20 DA22 Baldivis (North) AMD 35 GG 23/11/07 AMD 62 GG 10/3/09 An approv\"",
+      "_n_approved": 22
+    },
+    {
+      "key": "subdivision_layout_3",
+      "name": "Subdivision Layout 3",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_subdivision_layout_3_count"
+      ],
+      "rule_key_pattern": "subdivision_layout_3",
+      "unit": "",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'subdivision layout 3'. Most-cited source_version d24a3402-0fbb-4f30-8110-36513d477337. e.g. \"Any subdivision or development proposal involving land near the junction of the RRL, PNGP and the planned Rowley Road is to acknowledge, in \"",
+      "_n_approved": 7
+    },
+    {
+      "key": "substantial_change_prohibition",
+      "name": "Substantial Change Prohibition",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_substantial_change_prohibition_count"
+      ],
+      "rule_key_pattern": "substantial_change_prohibition",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'substantial change prohibition'. Most-cited source_version 3dd7fd7f-de46-4da0-9e2e-5ed49b009e60. e.g. \"cannot substantially change the approved development\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "uniform_fencing_construction",
+      "name": "Uniform Fencing Construction",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_uniform_fencing_construction_count"
+      ],
+      "rule_key_pattern": "uniform_fencing_construction",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'uniform fencing construction'. Most-cited source_version 089b7aed-0727-4442-a96b-bc033fa219ee. e.g. \"Uniform fencing is required to be constructed by the proponent for all residential properties with any boundary that abuts any road with a \u2018\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "vegetation_complex_protection_min_percent",
+      "name": "Vegetation Complex Protection Min Percent",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_vegetation_complex_protection_min_percent_pct"
+      ],
+      "rule_key_pattern": "vegetation_complex_protection_min_percent",
+      "unit": "%",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'vegetation complex protection min percent'. Most-cited source_version d0329abc-e488-4195-9851-11364ea2fc11. e.g. \"targeting a minimum of 10% of each vegetation complex for protection\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "vehicle_access_2",
+      "name": "Vehicle Access 2",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_vehicle_access_2_count"
+      ],
+      "rule_key_pattern": "vehicle_access_2",
+      "unit": "",
+      "description": "Advisory check derived from 17 approved WA/Cockburn rules for 'vehicle access 2'. Most-cited source_version 2d591235-c81e-45b5-a3d6-59ed23281aee. e.g. \"If vehicle access is necessary from the primary street, vehicle entrance points and services areas are to be integrated into the overall bui\"",
+      "_n_approved": 17
+    },
+    {
+      "key": "vehicle_access_3",
+      "name": "Vehicle Access 3",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_vehicle_access_3_count"
+      ],
+      "rule_key_pattern": "vehicle_access_3",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'vehicle access 3'. Most-cited source_version 5f3460c0-e7e4-4ab8-ad54-07326ee433d3. e.g. \"The LDP may provide details to achieve this, for example showing garage and crossover locations, require reciprocal access, or show where lo\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "vehicle_ingress_egress_design",
+      "name": "Vehicle Ingress Egress Design",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_vehicle_ingress_egress_design_count"
+      ],
+      "rule_key_pattern": "vehicle_ingress_egress_design",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'vehicle ingress egress design'. Most-cited source_version d3a25db5-16e9-414b-a89d-2d9d64c5f6c9. e.g. \"The design of vehicle ingress / egress to enable the provision of parking, delivery bays, access and manoeuvrability and to minimise traffic\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "vehicle_parking_location",
+      "name": "Vehicle Parking Location",
+      "tier": "TIER2",
+      "category": "PARKING",
+      "fact_keys": [
+        "proposed_vehicle_parking_location_count"
+      ],
+      "rule_key_pattern": "vehicle_parking_location",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'vehicle parking location'. Most-cited source_version 15cfdc8c-9552-4681-bc00-06feca6fd97c. e.g. \"Vehicle parking contained in semi-basement or undercroft parking is to be located either behind street front tenancies or otherwise suitably\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "vehicle_weight_limit",
+      "name": "Vehicle Weight Limit",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_vehicle_weight_limit_count"
+      ],
+      "rule_key_pattern": "vehicle_weight_limit",
+      "unit": "tonnes",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'vehicle weight limit'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"does not involve the presence, use or calling of a vehicle of more than 4.5 tonnes tare weight\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "vertical_distance_above_water_table",
+      "name": "Vertical Distance Above Water Table",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_vertical_distance_above_water_table_m"
+      ],
+      "rule_key_pattern": "vertical_distance_above_water_table",
+      "unit": "m",
+      "description": "Advisory check derived from 7 approved WA/Cockburn rules for 'vertical distance above water table'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"The minimum vertical distance of land on which a building is to be erected above the highest known water table as determined by the Departme\"",
+      "_n_approved": 7
+    },
+    {
+      "key": "visual_dominance",
+      "name": "Visual Dominance",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_visual_dominance_count"
+      ],
+      "rule_key_pattern": "visual_dominance",
+      "unit": "",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'visual dominance'. Most-cited source_version 095d5932-7c14-49f0-8eb5-f94dd8dd1f72. e.g. \"Do not visually dominate the streetscape or the buildings to which they belong\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "washing_line_length",
+      "name": "Washing Line Length",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_washing_line_length_m"
+      ],
+      "rule_key_pattern": "washing_line_length",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'washing line length'. Most-cited source_version 2064086b-a51d-47ed-8475-a5f2dd45c572. e.g. \"60 m of washing line\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "waste_disposal_horizontal_distance_to_wetland_or_bore",
+      "name": "Waste Disposal Horizontal Distance To Wetland Or Bore",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_waste_disposal_horizontal_distance_to_wetland_or_bore_m"
+      ],
+      "rule_key_pattern": "waste_disposal_horizontal_distance_to_wetland_or_bore",
+      "unit": "m",
+      "description": "Advisory check derived from 3 approved WA/Cockburn rules for 'waste disposal horizontal distance to wetland or bore'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"the horizontal distance between the proposed  system and a wetland or a public water supply bore is greater than 100  metres\"",
+      "_n_approved": 3
+    },
+    {
+      "key": "waste_disposal_vertical_clearance_above_water_table",
+      "name": "Waste Disposal Vertical Clearance Above Water Table",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_waste_disposal_vertical_clearance_above_water_table_m"
+      ],
+      "rule_key_pattern": "waste_disposal_vertical_clearance_above_water_table",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'waste disposal vertical clearance above water table'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"the vertical distance between the bottom of the domestic waste effluent  disposal system is greater than 2 metres above the highest known wa\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "waste_servicing",
+      "name": "Waste Servicing",
+      "tier": "TIER1",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_waste_servicing_count"
+      ],
+      "rule_key_pattern": "waste_servicing",
+      "unit": "",
+      "description": "Advisory check derived from 51 approved WA/Cockburn rules for 'waste servicing'. Most-cited source_version 7d26dcab-dc65-4486-b0bd-77d11bf42e86. e.g. \"Touch Voltage Step Voltage [V] Max Hazard from CDEGS [V] Safety Limit [V] Compliance Achieved? Design Margin Max Hazard from CDEGS [V] Safet\"",
+      "_n_approved": 51
+    },
+    {
+      "key": "waste_servicing_2",
+      "name": "Waste Servicing 2",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_waste_servicing_2_count"
+      ],
+      "rule_key_pattern": "waste_servicing_2",
+      "unit": "",
+      "description": "Advisory check derived from 10 approved WA/Cockburn rules for 'waste servicing 2'. Most-cited source_version 7d26dcab-dc65-4486-b0bd-77d11bf42e86. e.g. \"If in combination with adjoining (offsite) land , it must be justified how the offsite land can most reasonably be expected to either remain\"",
+      "_n_approved": 10
+    },
+    {
+      "key": "waste_servicing_3",
+      "name": "Waste Servicing 3",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_waste_servicing_3_count"
+      ],
+      "rule_key_pattern": "waste_servicing_3",
+      "unit": "",
+      "description": "Advisory check derived from 5 approved WA/Cockburn rules for 'waste servicing 3'. Most-cited source_version 71768cd3-56c2-446b-a981-6552cca58f49. e.g. \"(c) External bin storage enclosures shall be adequately sized to contain all waste generated in one week and be a minimum of 1.8m high, fitt\"",
+      "_n_approved": 5
+    },
+    {
+      "key": "waste_servicing_4",
+      "name": "Waste Servicing 4",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_waste_servicing_4_count"
+      ],
+      "rule_key_pattern": "waste_servicing_4",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'waste servicing 4'. Most-cited source_version 71768cd3-56c2-446b-a981-6552cca58f49. e.g. \"Bin stores shall have 75mm concrete floors grading to a 100mm industrial floor waste (including a charged \u2018water-trap\u2019 connected to sewer or\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "waste_servicing_5",
+      "name": "Waste Servicing 5",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_waste_servicing_5_count"
+      ],
+      "rule_key_pattern": "waste_servicing_5",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'waste servicing 5'. Most-cited source_version 71768cd3-56c2-446b-a981-6552cca58f49. e.g. \"The bin presentation area or collection point is to be flat, with the travel path between the bin store and collection point/vehicle clear o\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "waste_servicing_6",
+      "name": "Waste Servicing 6",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_waste_servicing_6_count"
+      ],
+      "rule_key_pattern": "waste_servicing_6",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'waste servicing 6'. Most-cited source_version 71768cd3-56c2-446b-a981-6552cca58f49. e.g. \"24 Figure 12 | KW-NT 91: Electric field exposure profile under maximum loading ..................................................\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "water_sensitive_design",
+      "name": "Water Sensitive Design",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_water_sensitive_design_count"
+      ],
+      "rule_key_pattern": "water_sensitive_design",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'water sensitive design'. Most-cited source_version 1d8666f3-901b-4edd-9287-43b3c625da24. e.g. \"Subdivision for residential purposes should respond to water sensitive design criteria in accord with principles of catchment management\"",
+      "_n_approved": 4
+    },
+    {
+      "key": "water_sensitive_urban_design",
+      "name": "Water Sensitive Urban Design",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_water_sensitive_urban_design_count"
+      ],
+      "rule_key_pattern": "water_sensitive_urban_design",
+      "unit": "",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'water sensitive urban design'. Most-cited source_version 3b77361f-93d5-4c00-bc0d-e0a8740fbf0f. e.g. \"Water sensitive urban design (WSUD) features within road reserves and public open spaces to treat stormwater runoff (Cities of Melville and \"",
+      "_n_approved": 4
+    },
+    {
+      "key": "wetland_buffer",
+      "name": "Wetland Buffer",
+      "tier": "TIER2",
+      "category": "OTHER",
+      "fact_keys": [
+        "proposed_wetland_buffer_m"
+      ],
+      "rule_key_pattern": "wetland_buffer",
+      "unit": "m",
+      "description": "Advisory check derived from 4 approved WA/Cockburn rules for 'wetland buffer'. Most-cited source_version 53d1da5b-3393-4146-8f39-b3e90b5a8023. e.g. \"an appropriate wetland buffer, if considered relevant by the assessing authority,\"",
+      "_n_approved": 4
+    }
+  ]
+}

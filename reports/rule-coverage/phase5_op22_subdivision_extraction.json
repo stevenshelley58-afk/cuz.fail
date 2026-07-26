@@ -1,0 +1,1156 @@
+{
+  "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+  "source_pdf": "/app/data/raw-sources/dcp_2_2_subdivision.pdf",
+  "instrument_section": "Section 4 \u2014 Policy measures",
+  "tables_requested": [
+    "s4_1",
+    "s4_2",
+    "s4_5",
+    "s4_6",
+    "s4_7"
+  ],
+  "candidates_extracted": 31,
+  "warnings": [],
+  "candidates": [
+    {
+      "rule_key": "op22_avg_lot_size_variation_gt5pct_eligibility",
+      "canonical_rule_key": "avg_lot_size_variation_gt5pct_eligibility",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "Average lot size variation >5% only considered for single-coded R10-R35 corner lots where all proposed lots meet Table D minimum lot size and frontage."
+      },
+      "unit": "text",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "OP 2.2 s4.2.4(b): any average lot size variation greater than five per cent meets all of the following criteria: a single residential coding of R10 to R35 applies to the land; the site is a corner lot with frontage to two different streets ...; all proposed lots comply with the minimum lot size and frontage requirements specified in the R-Codes Volume 1 Table D.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "88f499fc-48bb-4ddb-bf5a-96a3a9f28d3b",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "op22_avg_lot_size_variation_max_pct",
+      "canonical_rule_key": "avg_lot_size_variation_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 5.0
+      },
+      "unit": "%",
+      "condition_json": {
+        "reference": "R-Codes Volume 1 Table D average lot size"
+      },
+      "quote": "OP 2.2 s4.2.4(a): the variation in the area of that one lot reduces the average lot size of the overall subdivision by no more than five per cent of the average lot size specified in the R-Codes Volume 1 Table D or elsewhere in the R-Codes.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "88f499fc-48bb-4ddb-bf5a-96a3a9f28d3b",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_access_legs_adjoining_max",
+      "canonical_rule_key": "battleaxe_access_legs_adjoining_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "count",
+      "condition_json": {
+        "exception": "exceptional circumstances"
+      },
+      "quote": "OP 2.2 s4.5.10: Battleaxe arrangements involving more than two access legs will not be accepted unless there are exceptional circumstances to justify such an arrangement. Where more than two adjoining battle-axe legs are proposed, access should be provided by way of a constructed street.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_driveway_width_min_m",
+      "canonical_rule_key": "battleaxe_driveway_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "OP 2.2 s4.5.7: ... to allow for a 3m constructed driveway, landscaping space and the necessary public utility services.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_effective_lot_area_min_m2_uncoded",
+      "canonical_rule_key": "battleaxe_effective_lot_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "UNCODED"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 850.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "applies_where": "locations not subject to the provisions of the R-Codes"
+      },
+      "quote": "OP 2.2 s4.5.6: In locations not subject to the provisions of the R-Codes, the WAPC will normally require residential battleaxe lots to have an effective lot area of at least 850m2 to overcome the sense of confinement from lack of street frontage.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_truncation_at_effective_area_min_m",
+      "canonical_rule_key": "battleaxe_leg_truncation_at_effective_area_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "truncation_diagonal_m": 4.24,
+        "location": "access leg joins effective area of lot"
+      },
+      "quote": "OP 2.2 s4.5.12: A 3 x 3 metre truncation of 4.24 metres may be required at the point where the access leg joins the effective area of the lot, for vehicular access and manoeuvrability.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_truncation_at_street_min_m",
+      "canonical_rule_key": "battleaxe_leg_truncation_at_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "truncation_diagonal_m": 2.12,
+        "location": "access leg meets street reserve"
+      },
+      "quote": "OP 2.2 s4.5.12: A 1.5 x 1.5 metre truncation of 2.12 metres may be required at the point where the access leg meets the street reserve, particularly on major roads and where non visually permeable street walls and fences exist.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r10",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R10"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r100",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.6
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R50 and higher",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r12_5",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R12.5"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r15",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R15"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r160",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.6
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R50 and higher",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r17_5",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R17.5"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r2",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r20",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R20"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r25",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r2_5",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2.5"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r30",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r35",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r40",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r5",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R5"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R2-R40",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r50",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.6
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R50 and higher",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r60",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.6
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R50 and higher",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_min_m_r80",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.6
+      },
+      "unit": "m",
+      "condition_json": {
+        "r_code_band": "R50 and higher",
+        "purpose": "allow for a 3m constructed driveway, landscaping space and the necessary public utility services"
+      },
+      "quote": "OP 2.2 s4.5.7: A battleaxe leg should be a minimum of: 4 metres in width (R2-R40); or, 3.6 metres in width (R50 and higher).",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_battleaxe_leg_width_rural_long_legs",
+      "canonical_rule_key": "battleaxe_leg_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "WAPC may require battleaxe leg wider than 4 metres for R2-R25 subdivisions requiring long legs or constrained sites."
+      },
+      "unit": "text",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "OP 2.2 s4.5.8: In rural, rural-residential and low-density (R2-R25) subdivisions requiring long battleaxe legs, and locations where there are particular physical or topographical constraints, the WAPC, on the advice of the local government, may require a battleaxe leg wider than 4 metres.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "op22_battleaxe_lot_size_reduction_prohibited",
+      "canonical_rule_key": "battleaxe_lot_size_reduction_prohibited",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "Minimum battleaxe lot area per R-Codes Vol 1 Part D Table D; no reductions in minimum or average lot sizes for battleaxe lots."
+      },
+      "unit": "text",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "OP 2.2 s4.5.5: The minimum battleaxe lot area will be as set out in the R-Codes Volume 1 Part D clause 1.1 and Table D. The WAPC will not permit reductions in the minimum or average lot sizes for battleaxe lots.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "9c5cc525-a83c-4bf9-bac1-ff45df0c8253",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "op22_communal_street_passing_points_min_dwellings",
+      "canonical_rule_key": "communal_street_passing_points_min_dwellings",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 5.0
+      },
+      "unit": "dwellings",
+      "condition_json": {
+        "requirement": "passing points at one or more points"
+      },
+      "quote": "OP 2.2 s4.6.2: The communal street must be designed to allow vehicles to pass in opposite directions at one or more points where five or more dwellings are served by the driveway in accordance with the R-Codes Volume 1.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "a10bb87a-c811-4c39-a0b6-1d3ae42b3f42",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_lot_size_min_variation_max_pct",
+      "canonical_rule_key": "lot_size_min_variation_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 5.0
+      },
+      "unit": "%",
+      "condition_json": {
+        "applies_to": "one_lot_only",
+        "reference": "R-Codes Volume 1 Table D minimum lot size",
+        "note": "For dual coded land, applicable to base coding only"
+      },
+      "quote": "OP 2.2 s4.2.4(a): the variation reduces the area of that one lot by no more than five per cent of the minimum lot size specified in R-Codes Volume 1 Table D or elsewhere in the R-Codes.",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "88f499fc-48bb-4ddb-bf5a-96a3a9f28d3b",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_screen_fence_height_max_m",
+      "canonical_rule_key": "screen_fence_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.4
+      },
+      "unit": "m",
+      "condition_json": {
+        "applies_where": "lots abutting public reserves, where local planning framework does not outline specific standards"
+      },
+      "quote": "OP 2.2 s4.7.2: ... visually permeable to a maximum height (between 1.8 metres and 2.4 metres) ...",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "768a155c-43b2-4082-9077-96952fc53a8e",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_screen_fence_height_min_m",
+      "canonical_rule_key": "screen_fence_height_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.8
+      },
+      "unit": "m",
+      "condition_json": {
+        "applies_where": "lots abutting public reserves, where local planning framework does not outline specific standards"
+      },
+      "quote": "OP 2.2 s4.7.2: ... visually permeable to a maximum height (between 1.8 metres and 2.4 metres) ...",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "768a155c-43b2-4082-9077-96952fc53a8e",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "op22_screen_fence_solid_height_max_m",
+      "canonical_rule_key": "screen_fence_solid_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R2",
+        "R2.5",
+        "R5",
+        "R10",
+        "R12.5",
+        "R15",
+        "R17.5",
+        "R20",
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80",
+        "R100",
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 1.2
+      },
+      "unit": "m",
+      "condition_json": {
+        "applies_where": "lots abutting public reserves, where local planning framework does not outline specific standards"
+      },
+      "quote": "OP 2.2 s4.7.2: the fences will be: substantially of solid construction to 1.2 metres in height and visually permeable to a maximum height (between 1.8 metres and 2.4 metres) ...",
+      "instrument_section": "Section 4 \u2014 Policy measures",
+      "table_reference": "s4_7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+      "clause_id": "768a155c-43b2-4082-9077-96952fc53a8e",
+      "extractor_model": "targeted_text_extraction:op2_2-may2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    }
+  ]
+}

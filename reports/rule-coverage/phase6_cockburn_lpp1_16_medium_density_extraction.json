@@ -1,0 +1,82 @@
+{
+  "source_version_id": "f905d3f4-9003-47bc-9a16-f40605985cb1",
+  "source_pdf": "/app/data/raw-sources/councils/cockburn/lpp1_single_house_standards_medium_density.docx",
+  "instrument_section": "Policy Purpose / Policy Statement",
+  "tables_requested": [
+    "Provisions (raster image - not extracted)"
+  ],
+  "candidates_extracted": 2,
+  "warnings": [
+    "CONFLICT WITH R-CODE DEFAULTS: policy replaces R-Codes D-t-C clauses 5.12, 5.13, 5.21, 5.1.4, 5.3.3, 5.4.1, 5.4.2 for R25-R60 single houses in Development Zone; replacement values are embedded raster images (word/media/image2.png, image3.png) and cannot be transcribed without calibration - flagged for operator review.",
+    "R60 provisions sunset 10 April 2026 (Planning Bulletin 114/2024); R60 then assessed under R-Codes Part C."
+  ],
+  "candidates": [
+    {
+      "rule_key": "cockburn.rmd_r60_provisions_sunset",
+      "canonical_rule_key": "cockburn.rmd_r60_provisions_sunset",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": [
+        "Development"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "eq",
+      "value_json": {
+        "value": "2026-04-10",
+        "raw_text": "R60 provisions sunset 2026-04-10; R60 lots then assessed under R-Codes Part C"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "The provisions relating to R60 within this policy shall be of no effect as of 10 April 2026 in accordance with WAPC Planning Bulletin 114/2024. At this point, lots with a density coding of R60 shall be assessed against the provisions of Part C of the R-Codes.",
+      "instrument_section": "Policy Purpose",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f905d3f4-9003-47bc-9a16-f40605985cb1",
+      "clause_id": "162d6dcd-be4c-487d-a183-c232df531d6a",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "temporal_scope",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "cockburn.rmd_replaced_rcodes_clauses",
+      "canonical_rule_key": "cockburn.rmd_replaced_rcodes_clauses",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R25",
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60"
+      ],
+      "applicable_zones": [
+        "Development"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "eq",
+      "value_json": {
+        "value": "5.12,5.13,5.21,5.1.4,5.3.3,5.4.1,5.4.2",
+        "raw_text": "Replacement values are in raster-image provisions tables; not extracted without calibration"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "The purpose of this policy is to replace the deemed-to-comply requirements of the following clauses of the R-Codes with those set out in the provisions of this policy: Building and Garage setbacks (5.12, 5.13, 5.21); Open Space (5.1.4); Parking (5.3.3); Visual Privacy (5.4.1); Solar Access (5.4.2).",
+      "instrument_section": "Policy Purpose",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f905d3f4-9003-47bc-9a16-f40605985cb1",
+      "clause_id": "162d6dcd-be4c-487d-a183-c232df531d6a",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "policy_override_scope",
+      "evaluable": "needs_human_review"
+    }
+  ]
+}

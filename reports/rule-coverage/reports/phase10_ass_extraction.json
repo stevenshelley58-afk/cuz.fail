@@ -1,0 +1,94 @@
+{
+  "source_version_id": "986bfb24-9969-47ce-8ef0-e58e2626185c",
+  "instrument_section": "metadata-only",
+  "candidates_extracted": 3,
+  "warnings": [
+    "Metadata-only source; referral triggers only."
+  ],
+  "candidates": [
+    {
+      "rule_key": "ass_risk_map_check",
+      "canonical_rule_key": "ass_risk_map_check",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: check DWER ASS risk mapping for the subject land; ground disturbance in ASS risk areas requires investigation"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "DWER acid sulfate soil risk maps (metadata-only verification pointer - DWER ASS risk mapping not stored; verify against current DWER acid sulfate soil risk maps)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "986bfb24-9969-47ce-8ef0-e58e2626185c",
+      "clause_id": "2ddc21f7-4f8b-4ad3-a17d-1769af1b903b",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ass_investigation_trigger",
+      "canonical_rule_key": "ass_investigation_trigger",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: where earthworks/dewatering proposed in ASS risk area, ASS investigation and (if confirmed) management plan required"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "DWER acid sulfate soil risk maps (metadata-only verification pointer - DWER ASS risk mapping not stored; verify against current DWER acid sulfate soil risk maps)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "986bfb24-9969-47ce-8ef0-e58e2626185c",
+      "clause_id": "5ac32e19-beb7-4923-89f3-a4d63f348ad5",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ass_dewatering_trigger",
+      "canonical_rule_key": "ass_dewatering_trigger",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: dewatering in ASS risk areas requires ASS management measures - per-council/DWER criteria vary"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "DWER acid sulfate soil risk maps (metadata-only verification pointer - DWER ASS risk mapping not stored; verify against current DWER acid sulfate soil risk maps)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "986bfb24-9969-47ce-8ef0-e58e2626185c",
+      "clause_id": "2f1e85de-6360-41e2-8bf2-ddbd51bfa015",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "needs_human_review"
+    }
+  ]
+}

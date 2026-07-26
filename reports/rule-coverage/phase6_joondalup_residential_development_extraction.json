@@ -1,0 +1,822 @@
+{
+  "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+  "source_pdf": "/app/data/raw-sources/councils/joondalup/lpp_residential_development.pdf",
+  "instrument_section": "Appendices 1-3 (Parts B, C, D)",
+  "tables_requested": [
+    "Appendix 1 Part B clauses",
+    "Appendix 2 Part C clauses + C3.4.4 boundary wall table",
+    "Appendix 3 Part D cl 1.1"
+  ],
+  "candidates_extracted": 26,
+  "warnings": [
+    "CONFLICTS WITH R-CODE DEFAULTS (adopted replacements): App 1 replaces Part B cl 5.2.5 C5, 5.3.7 C7.1, 5.4.2 C2.1-C2.2; adds 5.2.1 C1.5-C1.6, 5.3.1 C1.3, 5.3.2 C2.3. App 2 replaces Part C cl 3.4 C3.4.4, 3.5 C3.5.1, 3.7 C3.7.7, 3.3 C3.3.4/C3.3.6, 3.9 C3.9.1-C3.9.3; adds 1.1 C1.1.5, 1.2 C1.2.9. App 3 adds Part D cl 1.1 C1.1.9-C1.1.10.",
+    "Solar access (overshadowing) provisions restate LPS3 cl 26(6) 'for completeness' - policy notes LPS3 is the operative instrument; encoded once from Part B Appendix 1 (identical text in Part C cl 3.9).",
+    "Sightline and excavation replacements are identical in Appendices 1 and 2; encoded once per Part (Part B primary, Part C duplicates keyed .part_c)."
+  ],
+  "candidates": [
+    {
+      "rule_key": "joondalup.sightline_structure_height_max_m",
+      "canonical_rule_key": "joondalup.sightline_structure_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.75
+      },
+      "unit": "m",
+      "condition_json": {
+        "within_m_of_intersection": 1.5,
+        "replaces": "R-Codes Vol 1 Part B cl 5.2.5 C5"
+      },
+      "quote": "C5 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than 1.8m above natural ground level in accordance with clause 5.2.5 C5) within 1.5m of where walls, fences or other structures adjoin: a driveway that intersects a street, right-of-way or communal street; a right-of-way or communal street that intersects a public street; and two streets that intersect.",
+      "instrument_section": "Appendix 1 Part B cl 5.2.5 C5",
+      "table_reference": "Appendix 1 cl 5.2.5 C5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.sightline_pillar_height_max_m",
+      "canonical_rule_key": "joondalup.sightline_pillar_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 1.8
+      },
+      "unit": "m",
+      "condition_json": {
+        "element": "solid pillars",
+        "measured_from": "natural ground level"
+      },
+      "quote": "C5 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than 1.8m above natural ground level in accordance with clause 5.2.5 C5) within 1.5m of where walls, fences or other structures adjoin (solid pillars not more than 1.8m above natural ground level).",
+      "instrument_section": "Appendix 1 Part B cl 5.2.5 C5",
+      "table_reference": "Appendix 1 cl 5.2.5 C5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.excavation_fill_front_max_m",
+      "canonical_rule_key": "joondalup.excavation_fill_front_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "between street and building or front setback area",
+        "measured_from": "natural ground level",
+        "replaces": "R-Codes Vol 1 Part B cl 5.3.7 C7.1"
+      },
+      "quote": "C7.1 Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural ground level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling.",
+      "instrument_section": "Appendix 1 Part B cl 5.3.7 C7.1",
+      "table_reference": "Appendix 1 cl 5.3.7 C7.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.garage_secondary_street_setback_min_m.hdd",
+      "canonical_rule_key": "joondalup.garage_secondary_street_setback_min_m.hdd",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "requires": "existing or planned footpath in adjacent verge"
+      },
+      "quote": "C1.5 Garages and carports setback 4.5 m to the secondary street where an existing or planned footpath is located in the adjacent verge area.",
+      "instrument_section": "Appendix 1 Part B cl 5.2.1 C1.5",
+      "table_reference": "Appendix 1 cl 5.2.1 C1.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.garage_row_primary_setback_min_m.hdd",
+      "canonical_rule_key": "joondalup.garage_row_primary_setback_min_m.hdd",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 5
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "right_of_way_role": "acts as primary street"
+      },
+      "quote": "C1.6 Garages and carports abutting a right of way which acts as the primary street for the lot, setback 5 m from the street boundary.",
+      "instrument_section": "Appendix 1 Part B cl 5.2.1 C1.6",
+      "table_reference": "Appendix 1 cl 5.2.1 C1.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.street_tree_frontage_m_per_tree_max",
+      "canonical_rule_key": "joondalup.street_tree_frontage_m_per_tree_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 9
+      },
+      "unit": "m frontage per tree",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "location": "street verge adjacent to lot"
+      },
+      "quote": "C2.3 Street verge(s) adjacent to the lot(s) shall be landscaped in accordance with any street verge guidelines published by the City of Joondalup and shall include a minimum of one street tree for every 9 m of lot frontage width (in addition to the trees required at C2.1 and C2.2). Note: Each retained existing street tree satisfies the requirement for one street tree in C2.3.",
+      "instrument_section": "Appendix 1 Part B cl 5.3.2 C2.3",
+      "table_reference": "Appendix 1 cl 5.3.2 C2.3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.overshadowing_max_pct.adj_r60_plus",
+      "canonical_rule_key": "joondalup.overshadowing_max_pct.adj_r60_plus",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 40
+      },
+      "unit": "%",
+      "condition_json": {
+        "adjoining_code": "R60+",
+        "at": "midday 21 June",
+        "of": "adjoining site area",
+        "application": "Higher dual density code",
+        "source": "LPS3 cl 26(6)"
+      },
+      "quote": "C2.1 For residential areas with a dual code and the higher code is applied, where a development site shares its southern boundary with any other adjoining property, its shadow cast at midday 21 June shall not exceed the following limits: i. On adjoining sites coded R60 or greater \u2014 40% of the site area.",
+      "instrument_section": "Appendix 1 Part B cl 5.4.2 C2.1",
+      "table_reference": "Appendix 1 cl 5.4.2 C2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.overshadowing_max_pct.adj_r30_r40",
+      "canonical_rule_key": "joondalup.overshadowing_max_pct.adj_r30_r40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 35
+      },
+      "unit": "%",
+      "condition_json": {
+        "adjoining_code": "R30-R40",
+        "at": "midday 21 June",
+        "of": "adjoining site area",
+        "application": "Higher dual density code",
+        "source": "LPS3 cl 26(6)"
+      },
+      "quote": "C2.1 For residential areas with a dual code and the higher code is applied, where a development site shares its southern boundary with any other adjoining property, its shadow cast at midday 21 June shall not exceed the following limits: ii. On adjoining sites coded R30 to R40 inclusive \u2014 35% of the site area.",
+      "instrument_section": "Appendix 1 Part B cl 5.4.2 C2.1",
+      "table_reference": "Appendix 1 cl 5.4.2 C2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.overshadowing_max_pct.adj_r25_lower",
+      "canonical_rule_key": "joondalup.overshadowing_max_pct.adj_r25_lower",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 25
+      },
+      "unit": "%",
+      "condition_json": {
+        "adjoining_code": "R25 and lower",
+        "at": "midday 21 June",
+        "of": "adjoining site area",
+        "application": "Higher dual density code",
+        "source": "LPS3 cl 26(6)"
+      },
+      "quote": "C2.1 For residential areas with a dual code and the higher code is applied, where a development site shares its southern boundary with any other adjoining property, its shadow cast at midday 21 June shall not exceed the following limits: iii. On adjoining sites coded R25 and lower \u2014 25% of the site area.",
+      "instrument_section": "Appendix 1 Part B cl 5.4.2 C2.1",
+      "table_reference": "Appendix 1 cl 5.4.2 C2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.solar_collector_access_min_hours",
+      "canonical_rule_key": "joondalup.solar_collector_access_min_hours",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 4
+      },
+      "unit": "hours/day",
+      "condition_json": {
+        "at": "21 June",
+        "for": "existing solar collectors on neighbouring sites"
+      },
+      "quote": "C2.1 v. Buildings are oriented to maintain 4 hours per day solar access on 21 June for existing solar collectors on neighbouring sites.",
+      "instrument_section": "Appendix 1 Part B cl 5.4.2 C2.1",
+      "table_reference": "Appendix 1 cl 5.4.2 C2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "bb415d08-0d75-4c50-88e7-fe6721099edf",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_height_max_m.r30_r35",
+      "canonical_rule_key": "joondalup.boundary_wall_height_max_m.r30_r35",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "General residential (Part C)"
+      },
+      "quote": "C3.4.4 Boundary walls table \u2014 R30-R35: Maximum boundary wall height 3.5 m.",
+      "instrument_section": "Appendix 2 Part C cl 3.4 C3.4.4",
+      "table_reference": "Appendix 2 cl 3.4 C3.4.4 table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_height_max_m.r40",
+      "canonical_rule_key": "joondalup.boundary_wall_height_max_m.r40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "General residential (Part C)"
+      },
+      "quote": "C3.4.4 Boundary walls table \u2014 R40: Maximum boundary wall height 3.5 m.",
+      "instrument_section": "Appendix 2 Part C cl 3.4 C3.4.4",
+      "table_reference": "Appendix 2 cl 3.4 C3.4.4 table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_height_max_m.r50_r80",
+      "canonical_rule_key": "joondalup.boundary_wall_height_max_m.r50_r80",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50",
+        "R60",
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "General residential (Part C)"
+      },
+      "quote": "C3.4.4 Boundary walls table \u2014 R50-R80: Maximum boundary wall height 3.5 m.",
+      "instrument_section": "Appendix 2 Part C cl 3.4 C3.4.4",
+      "table_reference": "Appendix 2 cl 3.4 C3.4.4 table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_length_max_fraction.r30_r35",
+      "canonical_rule_key": "joondalup.boundary_wall_length_max_fraction.r30_r35",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.667
+      },
+      "unit": "x lot boundary length",
+      "condition_json": {
+        "max_boundaries": 2,
+        "measured_from": "behind street setback line"
+      },
+      "quote": "R30 \u2013 R35: Maximum two-thirds the length of the lot boundary the wall abuts, measured from behind the street setback line. Applicable up to two lot boundaries.",
+      "instrument_section": "Appendix 2 Part C cl 3.4 C3.4.4",
+      "table_reference": "Appendix 2 cl 3.4 C3.4.4 table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_length_max_fraction.r40",
+      "canonical_rule_key": "joondalup.boundary_wall_length_max_fraction.r40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.667
+      },
+      "unit": "x lot boundary length",
+      "condition_json": {
+        "applicable_boundaries": "all"
+      },
+      "quote": "R40: Maximum two-thirds the length of the lot boundary the wall abuts, measured from behind the street setback line. Applicable to all lot boundaries.",
+      "instrument_section": "Appendix 2 Part C cl 3.4 C3.4.4",
+      "table_reference": "Appendix 2 cl 3.4 C3.4.4 table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_length_max_m.r50_r80",
+      "canonical_rule_key": "joondalup.boundary_wall_length_max_m.r50_r80",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50",
+        "R60",
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 14
+      },
+      "unit": "m",
+      "condition_json": {
+        "then": "wall set back min 3m from lot boundary for min length 3m",
+        "cumulative_max": "two-thirds lot boundary where frontage > 8.5m"
+      },
+      "quote": "R50 \u2013 R80: Maximum 14 m length, at which point the wall is to be set back a minimum of 3 m measured from the lot boundary for a minimum length of 3 m.",
+      "instrument_section": "Appendix 2 Part C cl 3.4 C3.4.4",
+      "table_reference": "Appendix 2 cl 3.4 C3.4.4 table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_break_setback_min_m.r50_r80",
+      "canonical_rule_key": "joondalup.boundary_wall_break_setback_min_m.r50_r80",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50",
+        "R60",
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "after_continuous_length_m": 14,
+        "min_break_length_m": 3
+      },
+      "quote": "R50 \u2013 R80: Maximum 14 m length, at which point the wall is to be set back a minimum of 3 m measured from the lot boundary for a minimum length of 3 m.",
+      "instrument_section": "Appendix 2 Part C cl 3.4 C3.4.4",
+      "table_reference": "Appendix 2 cl 3.4 C3.4.4 table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.garage_primary_street_setback_min_m.r30_plus",
+      "canonical_rule_key": "joondalup.garage_primary_street_setback_min_m.r30_plus",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "Higher dual density code"
+      },
+      "quote": "C3.3.4 Garages are setback from the primary street boundary in accordance with the following: R30 and above \u2014 4.5 m.",
+      "instrument_section": "Appendix 2 Part C cl 3.3 C3.3.4",
+      "table_reference": "Appendix 2 cl 3.3 C3.3.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.garage_secondary_street_setback_min_m.r30_plus",
+      "canonical_rule_key": "joondalup.garage_secondary_street_setback_min_m.r30_plus",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "requires": "existing or planned footpath in verge"
+      },
+      "quote": "C3.3.6 i. Setback 4.5 m from the street boundary where an existing or planned footpath is located in the verge area immediately adjacent.",
+      "instrument_section": "Appendix 2 Part C cl 3.3 C3.3.6",
+      "table_reference": "Appendix 2 cl 3.3 C3.3.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.garage_row_primary_setback_min_m.r30_plus",
+      "canonical_rule_key": "joondalup.garage_row_primary_setback_min_m.r30_plus",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30",
+        "R35",
+        "R40",
+        "R50",
+        "R60",
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 5
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "right_of_way_role": "acts as primary street"
+      },
+      "quote": "C3.3.6 i. Setback 5 m from the street boundary where abutting a right of way which acts as the primary street for the lot.",
+      "instrument_section": "Appendix 2 Part C cl 3.3 C3.3.6",
+      "table_reference": "Appendix 2 cl 3.3 C3.3.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.excavation_fill_front_max_m.part_c",
+      "canonical_rule_key": "joondalup.excavation_fill_front_max_m.part_c",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "between street and building or front setback area",
+        "replaces": "R-Codes Vol 1 Part C cl 3.5 C3.5.1"
+      },
+      "quote": "C3.5.1 Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural ground level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling.",
+      "instrument_section": "Appendix 2 Part C cl 3.5 C3.5.1",
+      "table_reference": "Appendix 2 cl 3.5 C3.5.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.sightline_structure_height_max_m.part_c",
+      "canonical_rule_key": "joondalup.sightline_structure_height_max_m.part_c",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.75
+      },
+      "unit": "m",
+      "condition_json": {
+        "within_m_of_intersection": 1.5,
+        "replaces": "R-Codes Vol 1 Part C cl 3.7 C3.7.7"
+      },
+      "quote": "C3.7.7 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than 1.8m above natural ground level in accordance with clause 3.6 C3.6.8) within 1.5m of where walls, fences or other structures adjoin.",
+      "instrument_section": "Appendix 2 Part C cl 3.7 C3.7.7",
+      "table_reference": "Appendix 2 cl 3.7 C3.7.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.street_tree_frontage_m_per_tree_max.part_c",
+      "canonical_rule_key": "joondalup.street_tree_frontage_m_per_tree_max.part_c",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 9
+      },
+      "unit": "m frontage per tree",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "location": "street verge adjacent to lot"
+      },
+      "quote": "C1.2.9 Street verge(s) adjacent to the lot(s) shall be landscaped in accordance with any street verge guidelines published by the City of Joondalup and shall include one street tree for every 9m of lot frontage width (in addition to the trees required at C1.2.4 and C1.2.5).",
+      "instrument_section": "Appendix 2 Part C cl 1.2 C1.2.9",
+      "table_reference": "Appendix 2 cl 1.2 C1.2.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "6109b84a-f1d9-4f1e-b000-4556c8ec2ffa",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.min_frontage_m.dual_code_single_grouped",
+      "canonical_rule_key": "joondalup.min_frontage_m.dual_code_single_grouped",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 9
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "dwelling": "single and grouped dwellings",
+        "source": "LPS3 cl 26(5)"
+      },
+      "quote": "C1.1.9 In residential areas where dual coding applies, site areas under the higher coding may be applied subject to the following: i. Development of single and grouped dwellings which complies with a minimum frontage of 9 m at the primary street setback.",
+      "instrument_section": "Appendix 3 Part D cl 1.1 C1.1.9",
+      "table_reference": "Appendix 3 cl 1.1 C1.1.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "045889d8-fae0-4f95-a2a3-51ba13ca92ee",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.min_frontage_m.dual_code_corner_grouped",
+      "canonical_rule_key": "joondalup.min_frontage_m.dual_code_corner_grouped",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "lot_type": "corner, two street frontages, rear common property access"
+      },
+      "quote": "C1.1.9 ii. Development of grouped dwellings on corner lots with frontage to two streets, with rear common property access, which complies with a minimum frontage of 6 m.",
+      "instrument_section": "Appendix 3 Part D cl 1.1 C1.1.9",
+      "table_reference": "Appendix 3 cl 1.1 C1.1.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "045889d8-fae0-4f95-a2a3-51ba13ca92ee",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.multiple_dwelling_min_site_width_m",
+      "canonical_rule_key": "joondalup.multiple_dwelling_min_site_width_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "m",
+      "condition_json": {
+        "application": "Higher dual density code",
+        "dwelling": "multiple dwellings",
+        "source": "LPS3 cl 26(7)"
+      },
+      "quote": "C1.1.10 i. Development of multiple dwellings which complies with a minimum site width street boundary of 20 m.",
+      "instrument_section": "Appendix 3 Part D cl 1.1 C1.1.10",
+      "table_reference": "Appendix 3 cl 1.1 C1.1.10",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dbedbd59-39ce-4baf-8485-6e0e16166412",
+      "clause_id": "045889d8-fae0-4f95-a2a3-51ba13ca92ee",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    }
+  ]
+}

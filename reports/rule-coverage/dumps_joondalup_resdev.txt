@@ -1,0 +1,545 @@
+=== PAGE 1 ===
+Residential Development Local Planning Policy
+Responsible directorate: Planning and Community Development
+Objectives:
+• To provide a planning framework which is complementary to the Residential Design Codes
+Volume 1 to support a high standard of urban design and amenity for residential developments
+in the City of Joondalup.
+• To ensure that residential development outcomes in the City of Joondalup are reflective of the
+current and future desired character of the area.
+• To ensure that development occurring at the higher dual density code within Housing
+Opportunity Areas is of a scale that provides an appropriate transition to adjoining land uses.
+• To ensure that adequate parking facilities are provided for new developments.
+• To contribute to improvement of the City’s urban tree canopy and protect and enhance amenity
+of residents through attractive landscaped streetscapes and increased greening of verges.
+1. Authority:
+This Policy has been prepared in accordance with Schedule 2, Part 2 of the Planning and
+Development (Local Planning Schemes) Regulations 2015 (Regulations) which allows the local
+government to prepare local planning policies relating to planning and development within the
+Scheme area, and in accordance with Clause 3.1 of the Residential Design Codes Volume 1
+which allows a local planning policy to amend, replace and/or augment provisions of the
+Residential Design Codes Volume 1.
+2. Application:
+This policy applies to residential development in the City of Joondalup.
+Appendix 1 of this policy applies to Part B of the R-Codes including the following:
+• Single houses: R40 and below
+• Grouped dwellings: R25 and below
+Residential Development 1
+=== PAGE 2 ===
+• Multiple dwellings: R10–R25
+Appendix 2 of this policy applies to Part C of the R-Codes including the following:
+• Single houses: R50 and above
+• Grouped dwellings: R30 and above
+• Multiple dwellings: R30–R60
+Locational application of requirements:
+General residential locations refer to all lots outside of Housing
+General residential: Opportunity Areas and lots within Housing Opportunity Areas
+which are being developed at the lower (R20) code.
+Higher dual density code locations refer to all lots within a
+Higher dual density code: Housing Opportunity Area which are being developed at the
+higher applicable dual density code.
+Where this policy does not contain specific requirements for development matters that are
+otherwise contained in the Residential Design Codes Volume 1, or any approved structure plan
+or local development plan, then that document’s controls shall prevail in that instance only.
+3. Definitions:
+“Housing Opportunity Area” means an area with a dual density code applied to it in the City’s
+Local Planning Scheme No 3.
+“verge” means the portion of land between the road and boundary of the adjacent lot.
+4. Statement:
+The City of Joondalup supports residential development that provides a diversity of housing
+typologies, which vary from low-density single houses and grouped dwellings, to medium-density
+grouped and multiple dwellings and ancillary accommodation. Medium and high-density
+development should be strategically located to support a more compact sustainable urban form
+around centres, train stations and public open space.
+The City recognises that infill development outcomes for lots developed to the higher dual
+density code will result in a new scale of development in those areas that may be greater than
+the existing built form. As such there is a need to moderate the scale of development to provide
+a considered change from present character to future character. This will ensure a sustainable
+level of amenity is provided for residents and neighbours, now and into the future.
+This policy provides development provisions for residential development that aims to create
+high-quality built form outcomes which appropriately manage the amenity impacts of infill
+development, while ensuring consistency with the Residential Design Codes Volume 1, where
+appropriate.
+Residential Development 2
+[TABLE p2.0]
+General residential: | General residential locations refer to all lots outside of Housing / Opportunity Areas and lots within Housing Opportunity Areas / which are being developed at the lower (R20) code.
+Higher dual density code: | Higher dual density code locations refer to all lots within a / Housing Opportunity Area which are being developed at the / higher applicable dual density code.
+[/TABLE]
+=== PAGE 3 ===
+5. Details:
+This policy provides replacement or additional Residential Design Codes ‘deemed-to-comply’
+requirements for residential development and is structured in accordance with the Residential
+Design Codes Volume 1. This policy should be used by first identifying the applicable Appendix
+and associated part (B or C) followed by the locational application as either ‘General residential’
+or ‘Higher dual density code’ to identify the applicable replacement or additional deemed-to-
+comply requirements.
+This policy is to be read in conjunction with the Local Planning Scheme No. 3, Residential
+Design Codes Volume 1, relevant structure plans, and/or local development plans.
+The deemed-to-comply requirements of the following clauses of the Residential Design Codes
+Volume 1 are modified by the provisions set out in Appendices 1–3 of this policy:
+• Sightlines/Access — Part B, clause 5.2.5, Part C, clause 3.7
+• Site works/Site works and retaining walls — Part B, clause 5.3.7, Part C, clause 3.5
+• Setback of garages and carports/Street setbacks — Part B, clause 5.2.1, Part C,
+clause 3.3
+• Outdoor living areas/Private open space — Part B, clause 5.3.1, Part C, clause 1.1
+• Landscaping/Trees and landscaping — Part B, clause 5.3.2, Part C, clause 1.2
+• Lot boundary setbacks — Part C, clause 3.4
+Residential development will be assessed against the applicable replacement or additional
+deemed to comply requirements of that clause, in addition to any other applicable deemed-to-
+comply requirements or ‘design principles’ of the Residential Design Codes Volume 1.
+Creation date: December 2015 (CJ228-12/15)
+Formerly: NA
+Amendments: CJ099-08/19, JSC02-03/20, CJ358-12/25
+Last reviewed: December 2025 (CJ358-12/25)
+Related documentation: • City of Joondalup Local Planning Scheme No 3
+• Residential Design Codes Volume 1 2024
+File reference: 104919
+Residential Development 3
+=== PAGE 4 ===
+APPENDIX 1
+PART B – Residential Design Codes Volume 1
+Replacement and additional deemed-to-comply requirements:
+Deemed-to-comply requirements that replace or add to the ‘deemed-to comply’ requirements of the Residential Design Codes Volume 1 applicable to:
+• Single houses: R40 and below
+• Grouped dwellings: R25 and below
+• Multiple dwellings: R10–R25
+Application: General residential
+5.2 Streetscape
+Clause 5.2.5 Sightlines
+Clause 5.2.5, C5 is replaced with the following:
+C5 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than
+1.8m above natural ground level in accordance with clause 5.2.5 C5) within 1.5m of where walls, fences or other structures adjoin:
+i. a driveway that intersects a street, right-of-way or communal street;
+ii. a right-of-way or communal street that intersects a public street; and
+iii. two streets that intersect (refer Figure 10c).
+5.3 Site planning and design
+Clause 5.3.7 Site works
+Clause 5.3.7, C7.1 is replaced with the following:
+C7.1 Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural ground
+level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling.
+Application: Higher dual density code
+5.2 Streetscape
+Clause 5.2.1 Setbacks of garages and carports
+Clause 5.2.1 is amended to include the following additional ‘deemed to comply’ requirements as C1.5 and C1.6:
+C1.5 Garages and carports setback 4.5 m to the secondary street where an existing or planned footpath is located in the adjacent verge area.
+C1.6 Garages and carports abutting a right of way which acts as the primary street for the lot, setback 5 m from the street boundary.
+Clause 5.2.5 Sightlines
+Clause 5.2.5, C5 is replaced with the following:
+C5 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than
+1.8m above natural ground level in accordance with clause 5.2.5 C5) within 1.5m of where walls, fences or other structures adjoin:
+i. a driveway that intersects a street, right-of-way or communal street;
+ii. a right-of-way or communal street that intersects a public street; and
+iii. two streets that intersect (refer Figure 10c).
+Residential Development 4
+[TABLE p4.0]
+ | PART B – Residential Design Codes Volume 1 |  |  |  | 
+ | Replacement and additional deemed-to-comply requirements: |  |  |  | 
+ |  |  |  |  | 
+ | Deemed-to-comply requirements that replace or add to the ‘deemed-to comply’ requirements of the Residential Design Codes Volume 1 applicable to: |  |  |  | 
+ | • Single houses: R40 and below |  |  |  | 
+ | • Grouped dwellings: R25 and below |  |  |  | 
+ | • Multiple dwellings: R10–R25 |  |  |  | 
+Application: General residential | Application: General residential |  |  |  | 
+ | 5.2 Streetscape |  |  |  | 
+ | Clause 5.2.5 Sightlines |  |  |  | 
+Clause 5.2.5, C5 is replaced with the following: / C5 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than / 1.8m above natural ground level in accordance with clause 5.2.5 C5) within 1.5m of where walls, fences or other structures adjoin: / i. a driveway that intersects a street, right-of-way or communal street; / ii. a right-of-way or communal street that intersects a public street; and / iii. two streets that intersect (refer Figure 10c). |  |  |  |  | 
+ | 5.3 Site planning and design |  |  |  | 
+ | Clause 5.3.7 Site works |  |  |  | 
+ | Clause 5.3.7, C7.1 is replaced with the following: |  |  |  | 
+ |  |  |  |  | 
+C7.1 | C7.1 |  |  | Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural ground | 
+ |  |  |  | level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling. | 
+Application: Higher dual density code | Application: Higher dual density code |  |  |  | 
+ | 5.2 Streetscape |  |  |  | 
+ | Clause 5.2.1 Setbacks of garages and carports |  |  |  | 
+ | Clause 5.2.1 is amended to include the following additional ‘deemed to comply’ requirements as C1.5 and C1.6: |  |  |  | 
+ |  |  |  |  | 
+ | C1.5 |  |  | Garages and carports setback 4.5 m to the secondary street where an existing or planned footpath is located in the adjacent verge area. | 
+ |  |  |  |  | 
+ | C1.6 |  |  | Garages and carports abutting a right of way which acts as the primary street for the lot, setback 5 m from the street boundary. | 
+ | Clause 5.2.5 Sightlines |  |  |  | 
+ | Clause 5.2.5, C5 is replaced with the following: |  |  |  | 
+ |  |  |  |  | 
+C5 | C5 |  |  | Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than | 
+ |  |  |  | 1.8m above natural ground level in accordance with clause 5.2.5 C5) within 1.5m of where walls, fences or other structures adjoin: | 
+ |  |  |  | i. a driveway that intersects a street, right-of-way or communal street; | 
+ |  |  |  | ii. a right-of-way or communal street that intersects a public street; and | 
+ |  |  |  | iii. two streets that intersect (refer Figure 10c). | 
+ |  |  |  |  | 
+[/TABLE]
+=== PAGE 5 ===
+Application: Higher dual density code
+5.3 Site planning and design
+Clause 5.3.1 Outdoor living areas
+Clause 5.3.1 is amended to include the following additional ‘deemed-to-comply’ requirement as C1.3:
+C1.3 Outdoor living areas may be located in the street setback area where street walls or fences within the primary street setback area are visually permeable in
+accordance with clause 5.2.4 C4.1.
+Clause 5.3.2 Landscaping
+Clause 5.3.2 is amended to include the following additional ‘deemed-to-comply’ requirement as C2.3:
+C2.3 Street verge(s) adjacent to the lot(s) shall be landscaped in accordance with any street verge guidelines published by the City of Joondalup and shall include
+a minimum of one street tree for every 9 m of lot frontage width (in addition to the trees required at C2.1 and C2.2).
+Note: Each retained existing street tree satisfies the requirement for one street tree in C2.3.
+Clause 5.3.7 Site works
+Clause 5.3.7, C7.1 is replaced with the following:
+C7.1 Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural ground
+level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling.
+5.4 Building design
+Clause 5.4.2 Solar access for adjoining sites
+Note: Changes to clause 5.4.2, C2.1 and 2.2 as per Clause 26(6) of Local Planning Scheme No. 3 are not affected by this policy and are included for completeness
+only:
+Clause 5.4.2, C2.1 and C2.2 are replaced with the following:
+C2.1 For residential areas with a dual code and the higher code is applied, where a development site shares its southern boundary with any other adjoining
+property, its shadow cast at midday 21 June shall not exceed the following limits:
+i. On adjoining sites coded R60 or greater — 40% of the site area.
+ii. On adjoining sites coded R30 to R40 inclusive — 35% of the site area.
+iii. On adjoining sites coded R25 and lower — 25% of the site area.
+iv. Where an adjoining site is subject to a dual density code and the site is yet to be developed to the higher code, the base density code applied for the
+purposes of determining the maximum amount of shadow cast permitted.
+v. Buildings are oriented to maintain 4 hours per day solar access on 21 June for existing solar collectors on neighbouring sites.
+vi. Where a development site shares its southern boundary with a lot, and that lot is bound to the north by another lots(s), the limit of shading for the
+development site set out in clause 26(6) i–iii shall be reduced proportionate to the percentage of the affected property’s northern boundary that the
+development site abuts.
+Residential Development 5
+[TABLE p5.0]
+Application: Higher dual density code |  |  |  | 
+ | 5.3 Site planning and design |  |  | 
+ | Clause 5.3.1 Outdoor living areas |  |  | 
+Clause 5.3.1 is amended to include the following additional ‘deemed-to-comply’ requirement as C1.3: / C1.3 Outdoor living areas may be located in the street setback area where street walls or fences within the primary street setback area are visually permeable in / accordance with clause 5.2.4 C4.1. |  |  |  | 
+ | Clause 5.3.2 Landscaping |  |  | 
+Clause 5.3.2 is amended to include the following additional ‘deemed-to-comply’ requirement as C2.3: / C2.3 Street verge(s) adjacent to the lot(s) shall be landscaped in accordance with any street verge guidelines published by the City of Joondalup and shall include / a minimum of one street tree for every 9 m of lot frontage width (in addition to the trees required at C2.1 and C2.2). / Note: Each retained existing street tree satisfies the requirement for one street tree in C2.3. |  |  |  | 
+ | Clause 5.3.7 Site works |  |  | 
+ | Clause 5.3.7, C7.1 is replaced with the following: |  |  | 
+ |  |  |  | 
+C7.1 | C7.1 |  | Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural ground | 
+ |  |  | level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling. | 
+ | 5.4 Building design |  |  | 
+ | Clause 5.4.2 Solar access for adjoining sites |  |  | 
+ | Note: Changes to clause 5.4.2, C2.1 and 2.2 as per Clause 26(6) of Local Planning Scheme No. 3 are not affected by this policy and are included for completeness |  |  | 
+ | only: |  |  | 
+ |  |  |  | 
+ | Clause 5.4.2, C2.1 and C2.2 are replaced with the following: |  |  | 
+ |  |  |  | 
+C2.1 | C2.1 |  | For residential areas with a dual code and the higher code is applied, where a development site shares its southern boundary with any other adjoining | 
+ |  |  | property, its shadow cast at midday 21 June shall not exceed the following limits: | 
+ |  |  | i. On adjoining sites coded R60 or greater — 40% of the site area. | 
+ |  |  | ii. On adjoining sites coded R30 to R40 inclusive — 35% of the site area. | 
+ |  |  | iii. On adjoining sites coded R25 and lower — 25% of the site area. | 
+ |  |  | iv. Where an adjoining site is subject to a dual density code and the site is yet to be developed to the higher code, the base density code applied for the | 
+ |  |  | purposes of determining the maximum amount of shadow cast permitted. | 
+ |  |  | v. Buildings are oriented to maintain 4 hours per day solar access on 21 June for existing solar collectors on neighbouring sites. | 
+ |  |  | vi. Where a development site shares its southern boundary with a lot, and that lot is bound to the north by another lots(s), the limit of shading for the | 
+ |  |  | development site set out in clause 26(6) i–iii shall be reduced proportionate to the percentage of the affected property’s northern boundary that the | 
+ |  |  | development site abuts. | 
+[/TABLE]
+=== PAGE 6 ===
+APPENDIX 2
+PART C – Residential Design Codes Volume 1
+Replacement and additional deemed-to-comply requirements:
+Deemed-to-comply requirements that replace or add to the ‘deemed-to-comply’ requirements of the Residential Design Codes Volume 1 applicable to:
+• Single houses: R50 and above
+• Grouped dwellings: R30 and above
+• Multiple dwellings: R30–R60
+Application: General residential
+3.0 Neighbourliness
+Clause 3.4 Lot boundary setbacks
+Clause 3.4, C3.4.4 is replaced with the following:
+C3.4.4 Boundary walls may be built in accordance with the following:
+i. boundary walls are located behind the street setback;
+ii. overshadowing does not exceed the limits set out in Local Planning Scheme No 3; and
+iii. they are finished to an equivalent standard to the rest of the development, to the satisfaction of the decision maker.
+Maximum
+R-Coding boundary wall Maximum boundary wall length Related figure
+height
+R30 – R35 3.5 m Maximum two-thirds the length of the lot boundary the wall abuts, measured Figure 3.4f
+from behind the street setback line. Applicable up to two lot boundaries.
+R40 3.5 m Maximum two-thirds the length of the lot boundary the wall abuts, measured Figure 3.4g
+from behind the street setback line. Applicable to all lot boundaries.
+Where 3.5 m Maximum 14 m length, at which point the wall is to be set back a minimum of 3 Figure 3.4h
+frontage is m measured from the lot boundary for a minimum length of 3 m. Applicable to all
+8.5 m or lot boundaries.
+R50 – less
+R80 Where 3.5 m Maximum 14 m length, at which point the wall is to be set back a minimum of 3 Figure 3.4g and 3.4h
+frontage is m measured from the lot boundary for a minimum length of 3 m, with a
+greater cumulative maximum of two-thirds the length of the lot boundary the wall abuts
+than 8.5m measured from behind the street setback line. Applicable to all lot boundaries.
+R80 Code standards apply to single houses and grouped dwellings in areas coded R100, R160 and R-AC.
+Where the subject site is adjacent to a site with a lower density code, the maximum wall length and height of the boundary wall between them is
+determined by the lower density code.
+Where a boundary wall incorporates a retaining wall directly beneath the boundary wall, the retaining wall does not require assessment under clause
+C3.5.2 and is to be included in the wall height for the purpose of clause C3.4.4 (refer Figure 3.4i).
+Residential Development 6
+[TABLE p6.0]
+ | PART C – Residential Design Codes Volume 1 |  |  | 
+ | Replacement and additional deemed-to-comply requirements: |  |  | 
+ |  |  |  | 
+ | Deemed-to-comply requirements that replace or add to the ‘deemed-to-comply’ requirements of the Residential Design Codes Volume 1 applicable to: |  |  | 
+ | • Single houses: R50 and above |  |  | 
+ | • Grouped dwellings: R30 and above |  |  | 
+ | • Multiple dwellings: R30–R60 |  |  | 
+Application: General residential | Application: General residential |  |  | 
+ | 3.0 Neighbourliness |  |  | 
+ | Clause 3.4 Lot boundary setbacks |  |  | 
+ | Clause 3.4, C3.4.4 is replaced with the following: |  |  | 
+C3.4.4 | C3.4.4 | Boundary walls may be built in accordance with the following: / i. boundary walls are located behind the street setback; / ii. overshadowing does not exceed the limits set out in Local Planning Scheme No 3; and / iii. they are finished to an equivalent standard to the rest of the development, to the satisfaction of the decision maker. / Maximum / R-Coding boundary wall Maximum boundary wall length Related figure / height / R30 – R35 3.5 m Maximum two-thirds the length of the lot boundary the wall abuts, measured Figure 3.4f / from behind the street setback line. Applicable up to two lot boundaries. / R40 3.5 m Maximum two-thirds the length of the lot boundary the wall abuts, measured Figure 3.4g / from behind the street setback line. Applicable to all lot boundaries. / Where 3.5 m Maximum 14 m length, at which point the wall is to be set back a minimum of 3 Figure 3.4h / frontage is m measured from the lot boundary for a minimum length of 3 m. Applicable to all / 8.5 m or lot boundaries. / R50 – less / R80 Where 3.5 m Maximum 14 m length, at which point the wall is to be set back a minimum of 3 Figure 3.4g and 3.4h / frontage is m measured from the lot boundary for a minimum length of 3 m, with a / greater cumulative maximum of two-thirds the length of the lot boundary the wall abuts / than 8.5m measured from behind the street setback line. Applicable to all lot boundaries. / R80 Code standards apply to single houses and grouped dwellings in areas coded R100, R160 and R-AC. / Where the subject site is adjacent to a site with a lower density code, the maximum wall length and height of the boundary wall between them is / determined by the lower density code. / Where a boundary wall incorporates a retaining wall directly beneath the boundary wall, the retaining wall does not require assessment under clause / C3.5.2 and is to be included in the wall height for the purpose of clause C3.4.4 (refer Figure 3.4i). | Boundary walls may be built in accordance with the following: | 
+ |  |  | i. boundary walls are located behind the street setback; | 
+ |  |  | ii. overshadowing does not exceed the limits set out in Local Planning Scheme No 3; and | 
+ |  |  | iii. they are finished to an equivalent standard to the rest of the development, to the satisfaction of the decision maker. | 
+[/TABLE]
+[TABLE p6.1]
+R-Coding |  |  |  |  | Maximum |  | Maximum boundary wall length |  |  | Related figure
+ |  |  |  |  | boundary wall |  |  |  |  | 
+ |  |  |  |  | height |  |  |  |  | 
+R30 – R35 |  |  |  | 3.5 m | 3.5 m |  |  | Maximum two-thirds the length of the lot boundary the wall abuts, measured |  | Figure 3.4f
+ |  |  |  |  |  |  |  | from behind the street setback line. Applicable up to two lot boundaries. |  | 
+R40 |  |  |  | 3.5 m |  |  |  | Maximum two-thirds the length of the lot boundary the wall abuts, measured |  | Figure 3.4g
+ |  |  |  |  |  |  |  | from behind the street setback line. Applicable to all lot boundaries. |  | 
+R50 – / R80 |  | Where |  | 3.5 m |  |  | Maximum 14 m length, at which point the wall is to be set back a minimum of 3 / m measured from the lot boundary for a minimum length of 3 m. Applicable to all / lot boundaries. | Maximum 14 m length, at which point the wall is to be set back a minimum of 3 |  | Figure 3.4h
+ |  | frontage is |  |  |  |  |  | m measured from the lot boundary for a minimum length of 3 m. Applicable to all |  | 
+ |  | 8.5 m or |  |  |  |  |  | lot boundaries. |  | 
+ |  | less |  |  |  |  |  |  |  | 
+ |  | Where |  | 3.5 m |  |  |  | Maximum 14 m length, at which point the wall is to be set back a minimum of 3 |  | Figure 3.4g and 3.4h
+ |  | frontage is |  |  |  |  |  | m measured from the lot boundary for a minimum length of 3 m, with a |  | 
+ |  | greater |  |  |  |  |  | cumulative maximum of two-thirds the length of the lot boundary the wall abuts |  | 
+ |  | than 8.5m |  |  |  |  |  | measured from behind the street setback line. Applicable to all lot boundaries. |  | 
+R80 Code standards apply to single houses and grouped dwellings in areas coded R100, R160 and R-AC. / Where the subject site is adjacent to a site with a lower density code, the maximum wall length and height of the boundary wall between them is / determined by the lower density code. / Where a boundary wall incorporates a retaining wall directly beneath the boundary wall, the retaining wall does not require assessment under clause / C3.5.2 and is to be included in the wall height for the purpose of clause C3.4.4 (refer Figure 3.4i). |  |  |  |  |  |  |  |  |  | 
+[/TABLE]
+[TABLE p6.2]
+R50 –
+R80
+[/TABLE]
+[TABLE p6.3]
+R80 Code standards apply to single houses and grouped dwellings in areas coded R100, R160 and R-AC.
+Where the subject site is adjacent to a site with a lower density code, the maximum wall length and height of the boundary wall between them is
+determined by the lower density code.
+Where a boundary wall incorporates a retaining wall directly beneath the boundary wall, the retaining wall does not require assessment under clause
+C3.5.2 and is to be included in the wall height for the purpose of clause C3.4.4 (refer Figure 3.4i).
+[/TABLE]
+=== PAGE 7 ===
+Application: General residential
+Clause 3.5 Site works and retaining walls
+Clause 3.5, C3.5.1 is replaced with the following:
+C3.5.1 Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural
+ground level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling.
+Clause 3.7 Access
+Clause 3.7, C3.7.7 is replaced with the following:
+C3.7.7 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than
+1.8m above natural ground level in accordance with clause 3.6 C3.6.8) within 1.5m of where walls, fences or other structures adjoin:
+i. a driveway that intersects a street, right-of-way or communal street;
+ii. a right-of-way or communal street that intersects a public street; and
+iii. two streets that intersect (refer Figure 3.7e).
+Application: Higher dual density code
+1.0 The garden
+Clause 1.1 Private open space
+Clause 1.1 is amended to include the following additional ‘deemed-to-comply’ requirement as C1.1.5:
+C1.1.5 For single houses and grouped dwellings, a single consolidated primary garden area may be located in the primary street setback area where any street
+walls or fences within the primary street setback area are visually permeable in accordance with clause 3.6 C3.6.7.
+Clause 1.2 Trees and landscaping
+Clause 1.2 is amended to include the following additional ‘deemed-to-comply’ requirement as C1.2.9:
+C1.2.9 Street verge(s) adjacent to the lot(s) shall be landscaped in accordance with any street verge guidelines published by the City of Joondalup and shall
+include one street tree for every 9m of lot frontage width (in addition to the trees required at C1.2.4 and C1.2.5).
+Note: Each retained existing street tree satisfies the requirement for one street tree in C1.2.9.
+Residential Development 7
+[TABLE p7.0]
+Application: General residential |  |  |  | 
+ | Clause 3.5 Site works and retaining walls |  |  | 
+ | Clause 3.5, C3.5.1 is replaced with the following: |  |  | 
+C3.5.1 | C3.5.1 |  | Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural | 
+ |  |  | ground level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling. | 
+ | Clause 3.7 Access |  |  | 
+Clause 3.7, C3.7.7 is replaced with the following: / C3.7.7 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than / 1.8m above natural ground level in accordance with clause 3.6 C3.6.8) within 1.5m of where walls, fences or other structures adjoin: / i. a driveway that intersects a street, right-of-way or communal street; / ii. a right-of-way or communal street that intersects a public street; and / iii. two streets that intersect (refer Figure 3.7e). |  |  |  | 
+Application: Higher dual density code |  |  |  | 
+ | 1.0 The garden |  |  | 
+ | Clause 1.1 Private open space |  |  | 
+Clause 1.1 is amended to include the following additional ‘deemed-to-comply’ requirement as C1.1.5: / C1.1.5 For single houses and grouped dwellings, a single consolidated primary garden area may be located in the primary street setback area where any street / walls or fences within the primary street setback area are visually permeable in accordance with clause 3.6 C3.6.7. |  |  |  | 
+ | Clause 1.2 Trees and landscaping |  |  | 
+ | Clause 1.2 is amended to include the following additional ‘deemed-to-comply’ requirement as C1.2.9: |  |  | 
+C1.2.9 | C1.2.9 |  | Street verge(s) adjacent to the lot(s) shall be landscaped in accordance with any street verge guidelines published by the City of Joondalup and shall | 
+ |  |  | include one street tree for every 9m of lot frontage width (in addition to the trees required at C1.2.4 and C1.2.5). | 
+ |  |  |  | 
+ |  |  | Note: Each retained existing street tree satisfies the requirement for one street tree in C1.2.9. | 
+[/TABLE]
+=== PAGE 8 ===
+Application: Higher dual density code
+3.0 Neighbourliness
+Clause 3.3 Street setbacks
+Setback of garages and carports
+Clause 3.3, C3.3.4 and C3.3.6 are replaced by the following:
+C3.3.4 Garages are setback from the primary street boundary in accordance with the following:
+R-Coding Primary street setback
+R30 and above 4.5 m
+C3.3.6 Garages and carports setback from a secondary street, right of way and communal street in accordance with the following:
+R-Coding Secondary street setback Right of way setback Communal street
+R30 and Garages and carports setback in accordance Garages and carports setback in Garages and carports are setback from
+above with table 3.3a of the Residential Design accordance with Table 3.3a of the a communal street in accordance with
+Codes Volume 1, except: Residential Design Codes Volume 1, except: Table 3.3a of the Residential Design
+i. Setback 4.5 m from the street boundary i. Setback 5 m from the street boundary Codes Volume 1.
+where an existing or planned footpath is where abutting a right of way which acts
+located in the verge area immediately as the primary street for the lot.
+adjacent.
+Residential Development 8
+[TABLE p8.0]
+Application: Higher dual density code |  |  |  |  |  |  |  |  | 
+ | 3.0 Neighbourliness |  |  |  |  |  |  |  | 
+ | Clause 3.3 Street setbacks |  |  |  |  |  |  |  | 
+ | Setback of garages and carports |  |  |  |  |  |  |  | 
+ | Clause 3.3, C3.3.4 and C3.3.6 are replaced by the following: |  |  |  |  |  |  |  | 
+C3.3.4 | C3.3.4 | Garages are setback from the primary street boundary in accordance with the following: / R-Coding Primary street setback / R30 and above 4.5 m | Garages are setback from the primary street boundary in accordance with the following: |  |  |  |  |  | 
+ |  |  |  |  |  |  |  |  | 
+ |  |  |  | R-Coding |  |  | Primary street setback |  | 
+ |  |  |  | R30 and above |  |  | 4.5 m |  | 
+C3.3.6 |  | Garages and carports setback from a secondary street, right of way and communal street in accordance with the following: / R-Coding Secondary street setback Right of way setback Communal street / R30 and Garages and carports setback in accordance Garages and carports setback in Garages and carports are setback from / above with table 3.3a of the Residential Design accordance with Table 3.3a of the a communal street in accordance with / Codes Volume 1, except: Residential Design Codes Volume 1, except: Table 3.3a of the Residential Design / i. Setback 4.5 m from the street boundary i. Setback 5 m from the street boundary Codes Volume 1. / where an existing or planned footpath is where abutting a right of way which acts / located in the verge area immediately as the primary street for the lot. / adjacent. |  |  |  |  |  |  | 
+[/TABLE]
+[TABLE p8.1]
+Garages and carports setback from a secondary street, right of way and communal street in accordance with the following: |  |  |  |  |  |  |  |  |  |  | 
+ |  |  |  |  |  |  |  |  |  |  | 
+ | R-Coding |  |  | Secondary street setback |  |  | Right of way setback |  |  | Communal street | 
+R30 and / above | R30 and |  |  | Garages and carports setback in accordance |  | Garages and carports setback in / accordance with Table 3.3a of the / Residential Design Codes Volume 1, except: / i. Setback 5 m from the street boundary / where abutting a right of way which acts / as the primary street for the lot. | Garages and carports setback in |  | Garages and carports are setback from / a communal street in accordance with / Table 3.3a of the Residential Design / Codes Volume 1. | Garages and carports are setback from | 
+ | above |  |  | with table 3.3a of the Residential Design |  |  | accordance with Table 3.3a of the |  |  | a communal street in accordance with | 
+ |  |  |  | Codes Volume 1, except: |  |  | Residential Design Codes Volume 1, except: |  |  | Table 3.3a of the Residential Design | 
+ |  |  |  | i. Setback 4.5 m from the street boundary |  |  | i. Setback 5 m from the street boundary |  |  | Codes Volume 1. | 
+ |  |  |  | where an existing or planned footpath is |  |  | where abutting a right of way which acts |  |  |  | 
+ |  |  |  | located in the verge area immediately |  |  | as the primary street for the lot. |  |  |  | 
+ |  |  |  | adjacent. |  |  |  |  |  |  | 
+[/TABLE]
+=== PAGE 9 ===
+Application: Higher dual density code
+Clause 3.4 Lot boundary setbacks
+Clause 3.4, C3.4.4 is replaced by the following:
+C3.4.4 Boundary walls may be built in accordance with the following:
+i. boundary walls are located behind the street setback;
+ii. overshadowing does not exceed the limits set out in Local Planning Scheme No 3; and
+iii. they are finished to an equivalent standard to the rest of the development, to the satisfaction of the decision maker.
+Maximum
+R-Coding boundary wall Maximum boundary wall length Related figure
+height
+R30 – R35 3.5 m Maximum two-thirds the length of the lot boundary the wall abuts, measured Figure 3.4f
+from behind the street setback line. Applicable up to two lot boundaries.
+R40 3.5 m Maximum two-thirds the length of the lot boundary the wall abuts, measured Figure 3.4g
+from behind the street setback line. Applicable to all lot boundaries.
+Where 3.5 m Maximum 14 m length, at which point the wall is to be set back a minimum of 3 Figure 3.4h
+frontage is m measured from the lot boundary for a minimum length of 3 m. Applicable to all
+8.5 m or lot boundaries.
+R50 – less
+R80 Where 3.5 m Maximum 14 m length, at which point the wall is to be set back a minimum of 3 Figure 3.4g and 3.4h
+frontage is m measured from the lot boundary for a minimum length of 3 m, with a
+greater cumulative maximum of two-thirds the length of the lot boundary the wall abuts
+than 8.5 m measured from behind the street setback line. Applicable to all lot boundaries.
+R80 Code standards apply to single houses and grouped dwellings in areas coded R100, R160 and R-AC.
+Where the subject site is adjacent to a site with a lower density code, the maximum wall length and height of the boundary wall between them is
+determined by the lower density code.
+Where a boundary wall incorporates a retaining wall directly beneath the boundary wall, the retaining wall does not require assessment under clause
+C3.5.2 and is to be included in the wall height for the purpose of clause C3.4.4 (refer Figure 3.4i).
+Clause 3.5 Site works and retaining walls
+Clause 3.5, C3.5.1 is replaced with the following:
+C3.5.1 Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural
+ground level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling.
+Residential Development 9
+[TABLE p9.0]
+Application: Higher dual density code |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+ | Clause 3.4 Lot boundary setbacks |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+ | Clause 3.4, C3.4.4 is replaced by the following: |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+C3.4.4 | C3.4.4 | Boundary walls may be built in accordance with the following: / i. boundary walls are located behind the street setback; / ii. overshadowing does not exceed the limits set out in Local Planning Scheme No 3; and / iii. they are finished to an equivalent standard to the rest of the development, to the satisfaction of the decision maker. / Maximum / R-Coding boundary wall Maximum boundary wall length Related figure / height / R30 – R35 3.5 m Maximum two-thirds the length of the lot boundary the wall abuts, measured Figure 3.4f / from behind the street setback line. Applicable up to two lot boundaries. / R40 3.5 m Maximum two-thirds the length of the lot boundary the wall abuts, measured Figure 3.4g / from behind the street setback line. Applicable to all lot boundaries. / Where 3.5 m Maximum 14 m length, at which point the wall is to be set back a minimum of 3 Figure 3.4h / frontage is m measured from the lot boundary for a minimum length of 3 m. Applicable to all / 8.5 m or lot boundaries. / R50 – less / R80 Where 3.5 m Maximum 14 m length, at which point the wall is to be set back a minimum of 3 Figure 3.4g and 3.4h / frontage is m measured from the lot boundary for a minimum length of 3 m, with a / greater cumulative maximum of two-thirds the length of the lot boundary the wall abuts / than 8.5 m measured from behind the street setback line. Applicable to all lot boundaries. / R80 Code standards apply to single houses and grouped dwellings in areas coded R100, R160 and R-AC. / Where the subject site is adjacent to a site with a lower density code, the maximum wall length and height of the boundary wall between them is / determined by the lower density code. / Where a boundary wall incorporates a retaining wall directly beneath the boundary wall, the retaining wall does not require assessment under clause / C3.5.2 and is to be included in the wall height for the purpose of clause C3.4.4 (refer Figure 3.4i). | Boundary walls may be built in accordance with the following: |  |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  | i. boundary walls are located behind the street setback; |  |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  | ii. overshadowing does not exceed the limits set out in Local Planning Scheme No 3; and |  |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  | iii. they are finished to an equivalent standard to the rest of the development, to the satisfaction of the decision maker. |  |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  | R-Coding |  |  |  |  |  | Maximum |  | Maximum boundary wall length |  |  | Related figure |  | 
+ |  |  |  |  |  |  |  |  | boundary wall |  |  |  |  |  |  | 
+ |  |  |  |  |  |  |  |  | height |  |  |  |  |  |  | 
+ |  |  | R30 – R35 |  |  |  |  | 3.5 m | 3.5 m |  |  | Maximum two-thirds the length of the lot boundary the wall abuts, measured |  | Figure 3.4f |  | 
+ |  |  |  |  |  |  |  |  |  |  |  | from behind the street setback line. Applicable up to two lot boundaries. |  |  |  | 
+ |  |  | R40 |  |  |  |  | 3.5 m |  |  |  | Maximum two-thirds the length of the lot boundary the wall abuts, measured |  | Figure 3.4g |  | 
+ |  |  |  |  |  |  |  |  |  |  |  | from behind the street setback line. Applicable to all lot boundaries. |  |  |  | 
+ |  |  | R50 – / R80 |  |  | Where |  | 3.5 m |  |  | Maximum 14 m length, at which point the wall is to be set back a minimum of 3 / m measured from the lot boundary for a minimum length of 3 m. Applicable to all / lot boundaries. | Maximum 14 m length, at which point the wall is to be set back a minimum of 3 |  | Figure 3.4h |  | 
+ |  |  |  |  |  | frontage is |  |  |  |  |  | m measured from the lot boundary for a minimum length of 3 m. Applicable to all |  |  |  | 
+ |  |  |  |  |  | 8.5 m or |  |  |  |  |  | lot boundaries. |  |  |  | 
+ |  |  |  |  |  | less |  |  |  |  |  |  |  |  |  | 
+ |  |  |  |  |  | Where |  | 3.5 m |  |  |  | Maximum 14 m length, at which point the wall is to be set back a minimum of 3 |  | Figure 3.4g and 3.4h |  | 
+ |  |  |  |  |  | frontage is |  |  |  |  |  | m measured from the lot boundary for a minimum length of 3 m, with a |  |  |  | 
+ |  |  |  |  |  | greater |  |  |  |  |  | cumulative maximum of two-thirds the length of the lot boundary the wall abuts |  |  |  | 
+ |  |  |  |  |  | than 8.5 m |  |  |  |  |  | measured from behind the street setback line. Applicable to all lot boundaries. |  |  |  | 
+ |  |  |  | R80 Code standards apply to single houses and grouped dwellings in areas coded R100, R160 and R-AC. |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  |  | Where the subject site is adjacent to a site with a lower density code, the maximum wall length and height of the boundary wall between them is |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  |  | determined by the lower density code. |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  |  | Where a boundary wall incorporates a retaining wall directly beneath the boundary wall, the retaining wall does not require assessment under clause |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  |  | C3.5.2 and is to be included in the wall height for the purpose of clause C3.4.4 (refer Figure 3.4i). |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+ | Clause 3.5 Site works and retaining walls |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+ | Clause 3.5, C3.5.1 is replaced with the following: |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+C3.5.1 | C3.5.1 |  | Excavation or filling between the street and building, or within the front setback area, whichever distance is lesser, shall not exceed 1 m from natural |  |  |  |  |  |  |  |  |  |  |  |  | 
+ |  |  | ground level, except where necessary to provide for pedestrian or vehicle access, drainage works or natural light for a dwelling. |  |  |  |  |  |  |  |  |  |  |  |  | 
+[/TABLE]
+[TABLE p9.1]
+R50 –
+R80
+[/TABLE]
+=== PAGE 10 ===
+Application: Higher dual density code
+Clause 3.7 Access
+Sightlines
+Clause 3.7, C3.7.7 is replaced with the following:
+C3.7.7 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than
+1.8m above natural ground level in accordance with clause 3.6 C3.6.8) within 1.5m of where walls, fences or other structures adjoin:
+i. a driveway that intersects a street, right-of-way or communal street;
+ii. a right-of-way or communal street that intersects a public street; and
+iii. two streets that intersect (refer Figure 3.7e).
+Clause 3.9 Solar access for adjoining sites
+Note: Changes to clause 3.9 as per Clause 26(6) of Local Planning Scheme No 3 are not affected by this policy and are included for completeness only:
+Clause 3.9, C3.9.1 – C3.9.3 is replaced with the following:
+C3.9.1 For residential areas with a dual code and the higher code is applied, where a development site shares its southern boundary with any other adjoining
+property, its shadow cast at midday 21 June shall not exceed the following limits:
+i. On adjoining sites coded R60 or greater – 40% of the site area.
+ii. On adjoining sites coded R30 to R40 inclusive – 35% of the site area.
+iii. On adjoining sites coded R25 and lower – 25% of the site area.
+iv. Where an adjoining site is subject to a dual density code and the site is yet to be developed to the higher code, the base density code applied for the
+purposes of determining the maximum amount of shadow cast permitted.
+v. Buildings are oriented to maintain 4 hours per day solar access on 21 June for existing solar collectors on neighbouring sites.
+vi. Where a development site shares its southern boundary with a lot, and that lot is bound to the north by another lots(s), the limit of shading for the
+development site set out in clause 26(6) i-iii shall be reduced proportionate to the percentage of the affected property’s northern boundary that the
+development site abuts.
+Residential Development 10
+[TABLE p10.0]
+Application: Higher dual density code |  | 
+ | Clause 3.7 Access | 
+Sightlines / Clause 3.7, C3.7.7 is replaced with the following: / C3.7.7 Walls, fences and other structures truncated, reduced in height or visually permeable above 0.75m of natural ground level (with solid pillars not more than / 1.8m above natural ground level in accordance with clause 3.6 C3.6.8) within 1.5m of where walls, fences or other structures adjoin: / i. a driveway that intersects a street, right-of-way or communal street; / ii. a right-of-way or communal street that intersects a public street; and / iii. two streets that intersect (refer Figure 3.7e). |  | 
+ | Clause 3.9 Solar access for adjoining sites | 
+Note: Changes to clause 3.9 as per Clause 26(6) of Local Planning Scheme No 3 are not affected by this policy and are included for completeness only: / Clause 3.9, C3.9.1 – C3.9.3 is replaced with the following: / C3.9.1 For residential areas with a dual code and the higher code is applied, where a development site shares its southern boundary with any other adjoining / property, its shadow cast at midday 21 June shall not exceed the following limits: / i. On adjoining sites coded R60 or greater – 40% of the site area. / ii. On adjoining sites coded R30 to R40 inclusive – 35% of the site area. / iii. On adjoining sites coded R25 and lower – 25% of the site area. / iv. Where an adjoining site is subject to a dual density code and the site is yet to be developed to the higher code, the base density code applied for the / purposes of determining the maximum amount of shadow cast permitted. / v. Buildings are oriented to maintain 4 hours per day solar access on 21 June for existing solar collectors on neighbouring sites. / vi. Where a development site shares its southern boundary with a lot, and that lot is bound to the north by another lots(s), the limit of shading for the / development site set out in clause 26(6) i-iii shall be reduced proportionate to the percentage of the affected property’s northern boundary that the / development site abuts. |  | 
+[/TABLE]
+=== PAGE 11 ===
+APPENDIX 3
+PART D - Residential Design Codes Volume 1
+Replacement and additional deemed-to-comply requirements:
+Deemed-to-comply requirements that add to the ‘deemed-to-comply’ requirements of the Residential Design Codes Volume 1 applicable to:
+• Single houses and grouped dwellings (all density codes)
+• Multiple dwellings: R10–R60
+Application: Higher dual density code
+1.0 Land
+Clause 1.1 Site area
+Note: Changes to clause 1.1 C1.1.9 and C1.1.10 as per Clause 26(5) and Clause 26(7) of Local Planning Scheme No 3 are not affected by this policy and are
+included for completeness only:
+Clause 1.1 of the Residential Design Codes Volume 1, Part D is modified by inserting the additional ‘deemed-to-comply’ criteria as C1.1.9 and C1.1.10:
+C1.1.9 In residential areas where dual coding applies, site areas under the higher coding may be applied subject to the following:
+i. Development of single and grouped dwellings which complies with a minimum frontage of 9 m at the primary street setback; or
+ii. Development of grouped dwellings on corner lots with frontage to two streets, with rear common property access, which complies with a minimum
+frontage of 6 m.
+C1.1.10 In addition to Clause 1.1 of the Residential Design Codes Volume 1, Part D and the Primary Controls Table 2.1 of the Residential Design Codes Volume 2,
+the following development standards apply:
+i. Development of multiple dwellings which complies with a minimum site width street boundary of 20 m; and
+ii. For residential areas coded R20–40 multiple dwellings shall comply with the average site area per dwelling requirement specified for a single or grouped
+dwelling for the applicable density code under the Residential Design Codes Volume 1, unless the site:
+a. has a primary street frontage to a road with scheme reservation classification of Local Distributor Road or Other Regional Road; or
+b. is located within an 800 m walkable catchment, as defined on the Scheme map, from any existing or proposed strategic metropolitan, secondary
+or specialised activity centre or railway station on a high frequency rail route; or
+c. is located within a 400 m walkable catchment, as defined on the Scheme map, from any existing or proposed district activity centre.
+Residential Development 11
+[TABLE p11.0]
+ | PART D - Residential Design Codes Volume 1 | 
+ | Replacement and additional deemed-to-comply requirements: | 
+ |  | 
+ | Deemed-to-comply requirements that add to the ‘deemed-to-comply’ requirements of the Residential Design Codes Volume 1 applicable to: | 
+ | • Single houses and grouped dwellings (all density codes) | 
+ | • Multiple dwellings: R10–R60 | 
+Application: Higher dual density code | Application: Higher dual density code | 
+ | 1.0 Land | 
+ | Clause 1.1 Site area | 
+Note: Changes to clause 1.1 C1.1.9 and C1.1.10 as per Clause 26(5) and Clause 26(7) of Local Planning Scheme No 3 are not affected by this policy and are / included for completeness only: / Clause 1.1 of the Residential Design Codes Volume 1, Part D is modified by inserting the additional ‘deemed-to-comply’ criteria as C1.1.9 and C1.1.10: / C1.1.9 In residential areas where dual coding applies, site areas under the higher coding may be applied subject to the following: / i. Development of single and grouped dwellings which complies with a minimum frontage of 9 m at the primary street setback; or / ii. Development of grouped dwellings on corner lots with frontage to two streets, with rear common property access, which complies with a minimum / frontage of 6 m. / C1.1.10 In addition to Clause 1.1 of the Residential Design Codes Volume 1, Part D and the Primary Controls Table 2.1 of the Residential Design Codes Volume 2, / the following development standards apply: / i. Development of multiple dwellings which complies with a minimum site width street boundary of 20 m; and / ii. For residential areas coded R20–40 multiple dwellings shall comply with the average site area per dwelling requirement specified for a single or grouped / dwelling for the applicable density code under the Residential Design Codes Volume 1, unless the site: / a. has a primary street frontage to a road with scheme reservation classification of Local Distributor Road or Other Regional Road; or / b. is located within an 800 m walkable catchment, as defined on the Scheme map, from any existing or proposed strategic metropolitan, secondary / or specialised activity centre or railway station on a high frequency rail route; or / c. is located within a 400 m walkable catchment, as defined on the Scheme map, from any existing or proposed district activity centre. |  | 
+[/TABLE]

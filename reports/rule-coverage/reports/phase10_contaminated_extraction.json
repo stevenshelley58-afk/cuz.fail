@@ -1,0 +1,150 @@
+{
+  "source_version_id": "f8e39d86-40bb-479c-80c4-ccfd9f76234d",
+  "instrument_section": "Contaminated Sites Act 2003",
+  "candidates_extracted": 5,
+  "warnings": [
+    "Reused pre-existing approved source version (no duplicate registration)."
+  ],
+  "candidates": [
+    {
+      "rule_key": "contaminated_duty_to_report",
+      "canonical_rule_key": "contaminated_duty_to_report",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: duty to report a known or suspected contaminated site to DWER (Contaminated Sites Act 2003 s.11)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Penalty: $250 000, and a daily penalty of $50 000. (4) The following persons have a duty to report a site under subsection (3)",
+      "instrument_section": "Contaminated Sites Act 2003",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f8e39d86-40bb-479c-80c4-ccfd9f76234d",
+      "clause_id": "bd59e62f-1033-462b-bafe-a66e8da1b510",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "contaminated_classification_notice",
+      "canonical_rule_key": "contaminated_classification_notice",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: CEO classifies reported sites and issues written notice of classification within 10 days"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "15. Notice of classification is to be given (1) As soon as is practicable after a site is classified, and in any event not later than 10 days after the site is classified, the CEO is to cause written notice of the classification",
+      "instrument_section": "Contaminated Sites Act 2003",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f8e39d86-40bb-479c-80c4-ccfd9f76234d",
+      "clause_id": "ce2983fe-3cfc-44b5-a665-74df0d19148b",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "contaminated_investigation_required",
+      "canonical_rule_key": "contaminated_investigation_required",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: site classified 'possibly contaminated - investigation required' - mandatory site investigation before development reliance"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "16. Site classified as possibly contaminated - investigation required",
+      "instrument_section": "Contaminated Sites Act 2003",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f8e39d86-40bb-479c-80c4-ccfd9f76234d",
+      "clause_id": "3ae07e36-5357-43f6-94ec-033733bb581d",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "contaminated_remediation_required",
+      "canonical_rule_key": "contaminated_remediation_required",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: sites classified 'contaminated - remediation required' must be remediated; memorial on title restricts dealings"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "The only sites that are required to be remediated under this Act are sites classified as contaminated - remediation required.",
+      "instrument_section": "Contaminated Sites Act 2003",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f8e39d86-40bb-479c-80c4-ccfd9f76234d",
+      "clause_id": "f45e7be5-32b3-4fc4-8ba9-a7f5f31c48d5",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "contaminated_memorial_on_title",
+      "canonical_rule_key": "contaminated_memorial_on_title",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: memorial lodged on title where land classified contaminated - verify memorial status before settlement/development"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "58. Memorial is to be lodged if notice given, or land classified as contaminated",
+      "instrument_section": "Contaminated Sites Act 2003",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "f8e39d86-40bb-479c-80c4-ccfd9f76234d",
+      "clause_id": "4d350fd5-599b-4a9e-a489-c938b5e4b138",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+  "instrument_section": "Guidelines v1.4",
+  "candidates_extracted": 13,
+  "warnings": [
+    "wa.gov.au file name for this v1.4 PDF is marked 'repealed'; registered per operator instruction. Confirm current edition before relying on these rules.",
+    "AS 3959 BAL heat-flux values are paid Standards content and were deliberately not codified."
+  ],
+  "candidates": [
+    {
+      "rule_key": "bal_assessment_required_habitable",
+      "canonical_rule_key": "bal_assessment_required_habitable",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: BAL assessment or BAL Contour Map required for development of habitable/specified buildings in designated bushfire prone areas"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Under the LPS Regulations 2015, a BAL assessment or BAL Contour Map is required for the development of all habitable buildings or specified",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "f6b197f0-08d4-480d-a5de-5b7c1c848256",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_contour_map_alternative",
+      "canonical_rule_key": "bal_contour_map_alternative",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "BAL Contour Map (scale map of indicative BAL ratings, vegetation within 150m) acceptable alternative to site-specific BAL assessment"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "A BAL Contour Map is a scale map of the subject [site] and associated indicative BAL ratings in reference to any vegetation remaining within 150 metres",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "24172f78-4199-4b0e-b326-061d81258f7d",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal40_balfz_dev_approval_always",
+      "canonical_rule_key": "bal40_balfz_dev_approval_always",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: where BAL is BAL-40 or BAL-FZ, development approval is always required"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "If the BAL shown on the Contour Map and/or BAL assessment is BAL–40 or BAL–FZ, development approval is always required.",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "56558fab-9deb-4b95-8e04-d5770e177eb9",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_assessment_bushfire_prone_area",
+      "canonical_rule_key": "bal_assessment_bushfire_prone_area",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: in bushfire prone areas a BAL assessment or BAL Contour Map is required for habitable/specified buildings"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "risk (BAL–40 or BAL–Flame Zone). They specifically require a BAL assessment or BAL Contour Map be undertaken for any habitable or specified building",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "a34bbffd-e403-415e-a134-337b3ae1dc60",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_category_bal_low",
+      "canonical_rule_key": "bal_category_bal_low",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "BAL category name: BAL-LOW (name only; AS 3959 heat flux values are paid Standards - not codified)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "68c64052-1d19-46ef-8041-69ddc9f71a00",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_category_bal_125",
+      "canonical_rule_key": "bal_category_bal_125",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "BAL category name: BAL-12.5 (name only; AS 3959 values not codified)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "3bfbc59b-6dec-4754-bf79-82cfad41ffaf",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_category_bal_19",
+      "canonical_rule_key": "bal_category_bal_19",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "BAL category name: BAL-19 (name only; AS 3959 values not codified)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "71646ec3-e453-4cf7-a0b9-ef4714e18979",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_category_bal_29",
+      "canonical_rule_key": "bal_category_bal_29",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "BAL category name: BAL-29 (name only; AS 3959 values not codified)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "f4f9643d-dca7-40e0-94ee-1a4583dc7732",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_category_bal_40",
+      "canonical_rule_key": "bal_category_bal_40",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "BAL category name: BAL-40 (name only; AS 3959 values not codified)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "6e433145-389d-49bb-85b4-00554219957d",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bal_category_bal_fz",
+      "canonical_rule_key": "bal_category_bal_fz",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "BAL category name: BAL-FZ / BAL-Flame Zone (name only; AS 3959 values not codified)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Table 2: BAL and corresponding descriptions of the predicted levels of exposure and heat flux exposure thresholds",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "20c16532-19eb-46a3-ac14-c0edaf546c18",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bushfire_protection_criteria_appendix4",
+      "canonical_rule_key": "bushfire_protection_criteria_appendix4",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "bushfire protection criteria (Appendix 4) are the performance-based assessment basis: Elements 1-4 (location, siting and design, vehicular access, water) and Element 5 (vulnerable tourism land uses)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "The bushfire protection criteria (Appendix Four) are a performance-based system of assessing bushfire risk",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "db72ba67-84c3-427a-bde1-3f76d9b7332a",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "bmp_required_with_application",
+      "canonical_rule_key": "bmp_required_with_application",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: applications for vulnerable/high-risk land uses in bushfire prone areas must be accompanied by a Bushfire Management Plan"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "The application must also be accompanied by a BMP.",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "d5a29b12-537d-41eb-b423-f78c51cd6f8d",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "dfes_advice_referral",
+      "canonical_rule_key": "dfes_advice_referral",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: seek DFES comments/advice for bushfire local planning policies, BMP performance-principle solutions, Method 2 assessments per AS 3959, and strategic proposals with a BMP"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "seeking comments and advice from DFES in relation to",
+      "instrument_section": "Guidelines v1.4",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "dab29595-c9d0-486a-a2ba-c6a849a60d39",
+      "clause_id": "ae5c6ffc-77d6-412e-940e-d2a3e771dfc3",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    }
+  ]
+}
