@@ -1142,6 +1142,30 @@ class Rule(Base, TimestampMixin):
     applicable_r_codes: Mapped[list | None] = mapped_column(
         JSONB, nullable=True, comment="R-codes this rule applies to; NULL = all R-codes"
     )
+    # -- Coverage columns (migration 0020) --
+    dwelling_type: Mapped[str | None] = mapped_column(
+        String(80), nullable=True, index=True,
+        comment=(
+            "Dwelling type: single_house, grouped_dwelling, multiple_dwelling, "
+            "ancillary_dwelling, small_dwelling, accessible_dwelling. NULL = any"
+        ),
+    )
+    effective_from: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True,
+        comment="Rule effective from date (for time-limited provisions)",
+    )
+    effective_to: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True), nullable=True,
+        comment="Rule expiry (e.g. C2.2.4 solar exemption expires 2030-04-10)",
+    )
+    instrument_section: Mapped[str | None] = mapped_column(
+        String(120), nullable=True, index=True,
+        comment="Source instrument section reference (e.g. 'Part B 2.1', 'Part C C3.1')",
+    )
+    table_reference: Mapped[str | None] = mapped_column(
+        String(120), nullable=True,
+        comment="Specific table within instrument (e.g. 'Table 2.1a', 'Table B')",
+    )
 
 
 class RuleClauseLink(Base, TimestampMixin):

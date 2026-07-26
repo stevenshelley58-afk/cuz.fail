@@ -235,3 +235,191 @@ checks:
     requirement:
       value_key: dimensions_present
       expected: 1
+
+  # --- Rule coverage expansion checks (§2.3, 2026-07-26) ---
+
+  - key: setback_front_secondary
+    label: Secondary street setback
+    category: planning
+    method: min_value
+    source_query: secondary street setback R-Codes
+    requirement:
+      min_value: 2.0
+      value_key: setback_front_secondary_m
+      unit: m
+
+  - key: deep_soil_area
+    label: Deep soil area
+    category: planning
+    method: min_value
+    source_query: deep soil area landscaping R-Codes
+    requirement:
+      min_value: 12.0
+      value_key: deep_soil_area_m2
+      unit: m2
+
+  - key: tree_planting
+    label: Tree planting
+    category: planning
+    method: min_value
+    source_query: tree planting landscaping R-Codes
+    requirement:
+      min_value: 1.0
+      value_key: tree_count
+      unit: count
+
+  - key: outdoor_living_dimension
+    label: Outdoor living minimum dimension
+    category: planning
+    method: min_value
+    source_query: outdoor living area minimum dimension R-Codes
+    requirement:
+      min_value: 4.0
+      value_key: outdoor_living_min_dimension_m
+      unit: m
+
+  - key: solar_access
+    label: Solar access
+    category: amenity
+    method: min_value
+    source_query: solar access north facing openings R-Codes
+    requirement:
+      min_value: 2.0
+      value_key: solar_access_hours
+      unit: hours
+
+  - key: visual_privacy
+    label: Visual privacy
+    category: amenity
+    method: min_value
+    source_query: visual privacy overlooking setback R-Codes
+    requirement:
+      min_value: 1.8
+      value_key: privacy_setback_m
+      unit: m
+
+  - key: overshadowing
+    label: Overshadowing
+    category: amenity
+    method: max_percentage
+    source_query: overshadowing adjoining property R-Codes
+    requirement:
+      max_percent: 25
+      part_key: overshadowed_area_m2
+      whole_key: neighbour_site_area_m2
+
+  - key: vehicle_access
+    label: Vehicle access
+    category: parking
+    method: boolean_required
+    source_query: vehicle access driveway R-Codes
+    requirement:
+      value_key: vehicle_access_provided
+      expected: 1
+
+  - key: car_parking_spaces
+    label: Car parking spaces
+    category: parking
+    method: min_value
+    source_query: car parking spaces provision R-Codes
+    requirement:
+      min_value: 2.0
+      value_key: parking_spaces_count
+      unit: count
+
+  - key: street_surveillance
+    label: Street surveillance
+    category: planning
+    method: boolean_required
+    source_query: street surveillance habitable openings R-Codes
+    requirement:
+      value_key: street_surveillance_provided
+      expected: 1
+
+  - key: building_height_partc
+    label: Building height (Part C)
+    category: planning
+    method: max_value
+    source_query: building height Part C medium density R-Codes
+    requirement:
+      max_value: 11.0
+      value_key: building_height_m
+      unit: m
+
+  - key: plot_ratio
+    label: Plot ratio
+    category: planning
+    method: max_value
+    source_query: plot ratio floor area R-Codes apartments
+    requirement:
+      max_value: 0.6
+      value_key: plot_ratio
+      unit: ratio
+
+  - key: building_separation
+    label: Building separation
+    category: planning
+    method: min_value
+    source_query: building separation distance R-Codes
+    requirement:
+      min_value: 3.0
+      value_key: building_separation_m
+      unit: m
+
+  - key: communal_open_space
+    label: Communal open space
+    category: planning
+    method: min_value
+    source_query: communal open space grouped multiple dwelling R-Codes
+    requirement:
+      min_value: 25.0
+      value_key: communal_open_space_m2
+      unit: m2
+
+  - key: bal_construction
+    label: BAL construction level
+    category: environmental
+    method: trigger_flag
+    source_query: bushfire attack level construction AS 3959
+    requirement:
+      value_key: bal_construction_level
+      trigger_value: 1
+
+  - key: pool_barrier_height
+    label: Pool barrier height
+    category: building_safety
+    method: min_value
+    source_query: pool barrier height Building Regulations
+    requirement:
+      min_value: 1200
+      value_key: pool_barrier_height_mm
+      unit: mm
+
+  - key: smoke_alarm
+    label: Smoke alarm compliance
+    category: building_safety
+    method: boolean_required
+    source_query: smoke alarm photoelectric interconnected Building Regulations
+    requirement:
+      value_key: smoke_alarm_compliant
+      expected: 1
+
+  - key: min_lot_size
+    label: Minimum lot size
+    category: subdivision
+    method: min_value
+    source_query: minimum lot size DCP 2.2 residential subdivision
+    requirement:
+      min_value: 350.0
+      value_key: lot_size_m2
+      unit: m2
+
+  - key: min_frontage
+    label: Minimum frontage
+    category: subdivision
+    method: min_value
+    source_query: minimum frontage lot width DCP 2.2
+    requirement:
+      min_value: 10.0
+      value_key: frontage_width_m
+      unit: m
