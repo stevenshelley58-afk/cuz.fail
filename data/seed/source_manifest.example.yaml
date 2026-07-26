@@ -89,3 +89,85 @@ sources:
     access_type: public
     scrape_allowed: true
     version_label: anchor-only
+
+  # --- Rule coverage expansion sources (§4, Phases 2-12) ---
+
+  - title: WA R-Codes Volume 2 (Apartments) source anchor
+    jurisdiction: WA
+    authority: Department of Planning, Lands and Heritage
+    source_type: r_code
+    canonical_url: https://www.wa.gov.au/government/document-collections/residential-design-codes-volume-2-apartments
+    licence_notes: Provided source anchor. Verify lawful fetch and current downloadable documents before indexing.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: DCP 2.2 Residential Subdivision source anchor
+    jurisdiction: WA
+    authority: Western Australian Planning Commission
+    source_type: dcp
+    canonical_url: https://www.wa.gov.au/government/publications/development-control-policy-22-residential-subdivision
+    licence_notes: Provided source anchor. WAPC policy, publicly available. Verify version before indexing.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: Building Regulations 2012 (WA) source anchor
+    jurisdiction: WA
+    authority: Department of Energy, Mines, Industry Regulation and Safety
+    source_type: building_regulation
+    canonical_url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a1471224.html
+    licence_notes: WA legislation, publicly available. Extract pool barrier, smoke alarm, RCD provisions.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: Strata Titles Act 1985 (WA) source anchor
+    jurisdiction: WA
+    authority: Parliament of Western Australia
+    source_type: legislation
+    canonical_url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a9034.html
+    licence_notes: WA legislation, publicly available. Strata verification rules (Phase 11).
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: Transfer of Land Act 1893 (WA) source anchor
+    jurisdiction: WA
+    authority: Parliament of Western Australia
+    source_type: legislation
+    canonical_url: https://www.legislation.wa.gov.au/legislation/statutes.nsf/law_a133.html
+    licence_notes: WA legislation, publicly available. Title and encumbrance verification (Phase 8).
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: AS 3959 Bushfire construction standard metadata anchor
+    jurisdiction: AU
+    authority: Standards Australia
+    source_type: standard_metadata
+    canonical_url: https://www.standards.org.au/standards-catalogue/sa-snz/buildings/bd-006/as-3959
+    licence_notes: Metadata only. Paid standard — do NOT store full text. Extract BAL thresholds from public DFES guidance only.
+    access_type: restricted
+    scrape_allowed: false
+    version_label: metadata-only
+
+  - title: WAPC Coastal Planning Policy source anchor
+    jurisdiction: WA
+    authority: Western Australian Planning Commission
+    source_type: state_planning_policy
+    canonical_url: https://www.wa.gov.au/government/publications/state-planning-policy-26-coastal-planning
+    licence_notes: WAPC policy, publicly available. Coastal setback thresholds (Phase 7/10).
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
+
+  - title: Heritage Council WA source anchor
+    jurisdiction: WA
+    authority: Heritage Council of Western Australia
+    source_type: heritage
+    canonical_url: https://www.heritage.wa.gov.au/
+    licence_notes: Heritage triggers and local heritage inventory references. Boolean/alert rules.
+    access_type: public
+    scrape_allowed: true
+    version_label: anchor-only
