@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { api, type ProposalRequest } from "../api";
 import { Icon } from "../components/common";
-import { propertyDetailRows } from "../components/property";
+import { propertyDetailRows, propertyImage } from "../components/property";
 import type { WizardState } from "../types";
 import { CompliancePanel } from "./compliance";
 import { DocumentUpload } from "./documents";
@@ -347,6 +347,7 @@ export function WizardShell({
         <CompliancePanel
           projectId={wizard.projectId}
           councilName={wizard.property?.local_government}
+          propertyImage={propertyImage(wizard.property)}
           proposalReady={proposalSaves > 0}
           runRequest={proposalSaves}
           autoRun

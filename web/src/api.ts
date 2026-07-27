@@ -119,6 +119,14 @@ export type PropertyFactResponse = {
   provenance: ProvenanceResponse;
 };
 
+export type PropertyImage = {
+  url: string;
+  alt?: string | null;
+  provider?: string | null;
+  captured_at?: string | null;
+  attribution?: string | null;
+};
+
 export type AddressSearchHit = {
   address: string;
   address_point_id: string;
@@ -227,9 +235,17 @@ export type ComplianceResultItem = {
   rule_quote: string | null;
   citation: string | null;
   note: string | null;
+  category?: string | null;
   check_type?: string | null;
   what_it_means?: string | null;
   modality?: string | null;
+  source?: {
+    title: string;
+    url: string | null;
+    authority?: string | null;
+    section?: string | null;
+    version_label?: string | null;
+  } | null;
   missing_info_reason?: string | null;
   drawing_evidence?: Record<string, unknown>;
   review_reason?: string | null;

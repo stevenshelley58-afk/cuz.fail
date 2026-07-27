@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 import type { PropertyProfileResponse } from "../api";
-import { propertyDetailRows } from "./property";
+import { propertyDetailRows, propertyImage } from "./property";
 
 const provenance = {
   kind: "spatial_dataset" as const,
@@ -73,4 +73,42 @@ test("property detail rows preserve R-AC and split R-Code formats", () => {
 
   expect(racRows).toContainEqual({ label: "R-Code", value: "R-AC3", hint: undefined });
   expect(splitRows).toContainEqual({ label: "R-Code", value: "R12.5/20", hint: undefined });
+});
+
+test("provider-backed imagery is attributed and kept out of property detail rows", () => {
+  const property: PropertyProfileResponse = {
+    org_id: "org-test",
+    project_id: "project-test",
+    resolution_status: "resolved",
+    confidence: "high",
+    address: "3 Black Swan Rise, Beeliar",
+    local_government: "City of Cockburn",
+    target_crs: "EPSG:7844",
+    issues: [],
+    provenance: [provenance],
+    facts: [
+      {
+        fact_id: "imagery-1",
+        fact_type: "aerial_image",
+        value: {
+          image_url: "https://imagery.example.test/property.jpg",
+          provider: "Nearmap",
+          captured_at: "2026-07-12",
+          attribution: "© Nearmap",
+        },
+        confidence: "high",
+        review_status: "accepted",
+        provenance,
+      },
+    ],
+  };
+
+  expect(propertyImage(property)).toEqual({
+    url: "https://imagery.example.test/property.jpg",
+    alt: "Aerial view of 3 Black Swan Rise, Beeliar",
+    provider: "Nearmap",
+    captured_at: "2026-07-12",
+    attribution: "© Nearmap",
+  });
+  expect(propertyDetailRows(property).some((row) => row.value.includes("imagery.example.test"))).toBe(false);
 });

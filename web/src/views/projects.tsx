@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { api, type ApiResult, type ProjectSummary, type PropertyProfileResponse } from "../api";
 import { Icon } from "../components/common";
-import { formatFactValueForType, groupFactsByType } from "../components/property";
+import { formatFactValueForType, groupFactsByType, propertyImage } from "../components/property";
 import { CompliancePanel } from "./compliance";
 import { DocumentUpload } from "./documents";
 
@@ -130,7 +130,12 @@ export function ProjectDetail({ projectId, onClose }: { projectId: string; onClo
         <ProjectPropertyContext projectId={projectId} onLoaded={handlePropertyLoaded} />
       </div>
       <div className="panel">
-        <CompliancePanel projectId={projectId} onUploadDrawing={focusDocumentUpload} councilName={property?.local_government} />
+        <CompliancePanel
+          projectId={projectId}
+          onUploadDrawing={focusDocumentUpload}
+          councilName={property?.local_government}
+          propertyImage={propertyImage(property)}
+        />
       </div>
       <div className="panel" ref={documentSectionRef}>
         <DocumentUpload projectId={projectId} focusRequest={documentFocusRequest} />
