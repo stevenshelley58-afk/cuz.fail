@@ -840,11 +840,14 @@ class AddressResolutionService:
                     or feature.value.get("filenumber")
                 )
                 if raw_code:
-                    from draftcheck.domain.address.planwa import normalize_spatial_code
-
-                    local_codes.setdefault(feature.fact_type, set()).add(
-                        normalize_spatial_code(raw_code)
+                    from draftcheck.domain.address.planwa import (
+                        is_usable_zone_code,
+                        normalize_spatial_code,
                     )
+
+                    normalized_code = normalize_spatial_code(raw_code)
+                    if feature.fact_type != "zone" or is_usable_zone_code(normalized_code):
+                        local_codes.setdefault(feature.fact_type, set()).add(normalized_code)
             feature_provenance = dataset.provenance(
                 method="parcel_planning_feature_intersection",
                 detail=feature.label,

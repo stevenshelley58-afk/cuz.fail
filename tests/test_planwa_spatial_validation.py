@@ -13,6 +13,7 @@ from draftcheck.domain.address.planwa import (
     PLANWA_PROPERTY_AND_PLANNING,
     PlanWALiveResult,
     PlanWALiveVerifier,
+    is_usable_zone_code,
     structure_plan_is_current,
 )
 from draftcheck.domain.address.spatial import (
@@ -135,12 +136,18 @@ def test_live_disagreement_is_exact_and_fail_closed_for_black_swan_canary() -> N
         "structure_plan": {"SPN/2330"},
         "special_area": {"DCA 13"},
         "r_code": {"R20"},
-        "zone": {"Residential"},
+        "zone": {"Residential", "Local road"},
     }
 
     assert live.disagreements(local) == {
         "structure_plan": {"local": ["SPN/2330"], "live": []}
     }
+
+
+def test_transport_and_reserve_polygons_are_not_development_zones() -> None:
+    assert is_usable_zone_code("Residential")
+    assert not is_usable_zone_code("Local road")
+    assert not is_usable_zone_code("Parks and recreation reserve")
 
 
 class _FakeVerifier:
