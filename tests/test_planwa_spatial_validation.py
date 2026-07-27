@@ -18,6 +18,7 @@ from draftcheck.domain.address.planwa import (
 )
 from draftcheck.domain.address.spatial import (
     AddressResolutionService,
+    PlanningFeature,
     ResolutionStatus,
     create_default_spatial_store,
 )
@@ -216,3 +217,26 @@ def test_address_resolution_requires_review_when_live_and_local_disagree() -> No
 
     assert profile.resolution_status == ResolutionStatus.NEEDS_MORE_INFO
     assert "planwa_live_disagrees_with_local_spatial_data" in profile.issues
+
+
+def test_address_profile_omits_adjacent_road_from_development_zone_facts() -> None:
+    store = create_default_spatial_store()
+    store.add_planning_feature(
+        PlanningFeature(
+            feature_id="adjacent-local-road",
+            parcel_id="parcel-cockburn-fixture-1",
+            fact_type="zone",
+            value={"code": "Local road", "label": "Local road"},
+            dataset_id="fixture-cockburn-planning-2026-06",
+        )
+    )
+    service = AddressResolutionService(store=store)
+
+    profile = service.resolve_address(
+        org_id="fixture-org",
+        project_id="fixture-project",
+        address="1 Example Street, Spearwood WA 6163",
+    )
+
+    zones = [fact.value for fact in profile.facts if fact.fact_type == "zone"]
+    assert zones == [{"label": "Residential", "code": "R40"}]
