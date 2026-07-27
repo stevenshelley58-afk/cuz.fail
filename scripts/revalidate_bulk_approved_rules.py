@@ -52,7 +52,17 @@ def main() -> int:
     parser.add_argument(
         "--since",
         required=True,
-        help="Only inspect bulk-approved rules created at or after this ISO timestamp.",
+        help="Only inspect bulk-approved rules approved at or after this ISO timestamp.",
+    )
+    parser.add_argument(
+        "--batch",
+        action="append",
+        required=True,
+        help="Exact approval_metadata_json batch name to inspect; repeat for multiple batches.",
+    )
+    parser.add_argument(
+        "--actor-user-id",
+        help="User performing the quarantine. Omit for an explicit system/script actor.",
     )
     parser.add_argument("--apply", action="store_true", help="Apply quarantine changes.")
     args = parser.parse_args()
@@ -71,11 +81,11 @@ def main() -> int:
             FROM rules r
             JOIN clauses c ON c.id = r.clause_id
             WHERE r.lifecycle_status = 'approved'
-              AND r.approval_metadata_json ? 'batch'
-              AND r.created_at >= %s::timestamptz
+              AND r.approval_metadata_json->>'batch' = ANY(%s)
+              AND r.approved_at >= %s::timestamptz
             ORDER BY r.created_at, r.id
             """,
-            (args.since,),
+            (args.batch, args.since),
         ).fetchall()
 
         for row in rows:
@@ -102,6 +112,11 @@ def main() -> int:
                 "failed_validators": failed,
                 "validator_results": results,
                 "script": "revalidate_bulk_approved_rules.py",
+                "actor": (
+                    f"user:{args.actor_user_id}"
+                    if args.actor_user_id
+                    else "system:revalidate_bulk_approved_rules"
+                ),
             }
             conn.execute(
                 """
@@ -142,7 +157,7 @@ def main() -> int:
                 (
                     str(uuid4()),
                     row["org_id"],
-                    row["approved_by_user_id"],
+                    args.actor_user_id,
                     row["id"],
                     json.dumps({"lifecycle_status": "approved"}),
                     json.dumps({"lifecycle_status": "pending_review"}),
@@ -158,6 +173,7 @@ def main() -> int:
     report = {
         "mode": "apply" if args.apply else "dry_run",
         "since": args.since,
+        "batches": sorted(set(args.batch)),
         "inspected": valid_count + len(invalid_rows),
         "valid": valid_count,
         "quarantined": len(invalid_rows) if args.apply else 0,

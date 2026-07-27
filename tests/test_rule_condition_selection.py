@@ -82,3 +82,27 @@ def test_unknown_condition_requires_review_instead_of_a_verdict() -> None:
 
     assert selected is None
     assert missing == ("condition:unmodelled_exception",)
+
+
+def test_unconditioned_base_rule_cannot_bypass_missing_table_conditions() -> None:
+    conditional = _rule(4.5, 15.0, 2.5)
+    base = SimpleNamespace(
+        rule_key="boundary_setback_major_openings_min_m",
+        canonical_rule_key="boundary_setback_major_openings_min_m",
+        value_json={"value": 1.0},
+        condition_json={},
+        applicable_r_codes=["R20"],
+        rule_type="standard",
+        created_at=datetime(2026, 1, 2, tzinfo=UTC),
+    )
+
+    selected, missing = _select_rule_with_context(
+        [base, conditional],
+        "boundary_setback_major_openings_min_m",
+        ["R20"],
+        {},
+    )
+
+    assert selected is None
+    assert "proposed_wall_height_m" in missing
+    assert "proposed_wall_length_m" in missing

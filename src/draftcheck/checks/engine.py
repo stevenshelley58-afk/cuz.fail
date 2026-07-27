@@ -193,6 +193,8 @@ def _select_rule_with_context(
     best: Rule | None = None
     best_rank: tuple[Any, ...] = ()
     missing_conditions: list[str] = []
+    conditional_rules_seen = False
+    conditional_rule_matched = False
     for rule in rules:
         base = _base_rule_key(rule)
         # Open-vocab derived checks key on canonical_rule_key (filled by
@@ -200,10 +202,14 @@ def _select_rule_with_context(
         canonical = getattr(rule, "canonical_rule_key", None)
         if rule.rule_key != check_key and base not in accepted and canonical != check_key:
             continue
+        conditions = rule.condition_json if isinstance(rule.condition_json, dict) else {}
+        has_material_conditions = bool(set(conditions) - _CONDITION_METADATA_KEYS)
+        conditional_rules_seen = conditional_rules_seen or has_material_conditions
         conditions_match, conditions_rank, missing = _condition_rank(rule, fact_by_type)
         missing_conditions.extend(missing)
         if not conditions_match:
             continue
+        conditional_rule_matched = conditional_rule_matched or has_material_conditions
 
         raw = rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
         try:
@@ -223,13 +229,19 @@ def _select_rule_with_context(
             1 if is_standard else 0,
             2 if specific else (1 if not rule.applicable_r_codes else 0),
             1 if _dwelling_type(rule) == "any" else 0,
+            1 if has_material_conditions else 0,
             conditions_rank,
             len(accepted) - accepted.index(base if base in accepted else check_key),
             rule.created_at or datetime.min.replace(tzinfo=UTC),
         )
         if rank > best_rank:
             best, best_rank = rule, rank
-    return best, tuple(dict.fromkeys(missing_conditions))
+    unresolved = tuple(dict.fromkeys(missing_conditions))
+    if unresolved:
+        return None, unresolved
+    if conditional_rules_seen and not conditional_rule_matched:
+        return None, ("condition:no_matching_rule",)
+    return best, ()
 
 
 def _select_rule(
