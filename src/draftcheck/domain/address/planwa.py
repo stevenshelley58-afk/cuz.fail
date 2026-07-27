@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
+import re
 from typing import Any, Mapping
 
 import httpx
@@ -33,11 +34,21 @@ PLANWA_LAYERS: tuple[PlanWALayer, ...] = (
     PlanWALayer(111, "r_code", ("rcode_no",), ("rcode_no",)),
     PlanWALayer(112, "zone", ("zone", "label"), ("label_desc", "zone")),
 )
+_NON_DEVELOPMENT_ZONE_RE = re.compile(
+    r"road|reserve|laneway|right.of.way|drainage",
+    re.IGNORECASE,
+)
 
 
 def normalize_spatial_code(value: object) -> str:
     """Normalize identifiers without changing their legal/content meaning."""
     return " ".join(str(value or "").strip().upper().split())
+
+
+def is_usable_zone_code(value: object) -> bool:
+    """Exclude transport/reserve boundary artefacts from development zoning."""
+    code = str(value or "").strip()
+    return bool(code) and _NON_DEVELOPMENT_ZONE_RE.search(code) is None
 
 
 def _first(properties: Mapping[str, Any], names: tuple[str, ...]) -> str:
@@ -90,6 +101,8 @@ class PlanWALiveResult:
         mismatches: dict[str, dict[str, list[str]]] = {}
         for layer in PLANWA_LAYERS:
             local = {normalize_spatial_code(code) for code in local_codes.get(layer.fact_type, set())}
+            if layer.fact_type == "zone":
+                local = {code for code in local if is_usable_zone_code(code)}
             live = set(self.codes.get(layer.fact_type, frozenset()))
             if local != live:
                 mismatches[layer.fact_type] = {
@@ -134,6 +147,8 @@ class PlanWALiveVerifier:
                         continue
                     code = normalize_spatial_code(_first(properties, layer.code_fields))
                     label = _first(properties, layer.label_fields)
+                    if layer.fact_type == "zone" and not is_usable_zone_code(code):
+                        continue
                     if code:
                         layer_codes.add(code)
                     normalized_features.append(
