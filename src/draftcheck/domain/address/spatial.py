@@ -833,6 +833,7 @@ class AddressResolutionService:
             dataset = self.store.dataset_for(feature.dataset_id)
             if dataset is None or not dataset.is_authoritative():
                 continue
+            raw_code: object | None = None
             if isinstance(feature.value, dict):
                 raw_code = (
                     feature.value.get("code")
@@ -846,8 +847,11 @@ class AddressResolutionService:
                     )
 
                     normalized_code = normalize_spatial_code(raw_code)
-                    if feature.fact_type != "zone" or is_usable_zone_code(normalized_code):
-                        local_codes.setdefault(feature.fact_type, set()).add(normalized_code)
+                    if feature.fact_type == "zone" and not is_usable_zone_code(
+                        normalized_code
+                    ):
+                        continue
+                    local_codes.setdefault(feature.fact_type, set()).add(normalized_code)
             feature_provenance = dataset.provenance(
                 method="parcel_planning_feature_intersection",
                 detail=feature.label,
