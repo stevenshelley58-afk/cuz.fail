@@ -11,9 +11,13 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from difflib import SequenceMatcher
 from enum import StrEnum
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from draftcheck.domain.address.lga import canonical_local_government_name
+
+if TYPE_CHECKING:
+    from draftcheck.domain.address.postgis_store import PostGISSpatialDatasetStore
+    from draftcheck.domain.address.planwa import PlanWALiveVerifier
 
 
 GDA2020_TARGET_CRS = "EPSG:7844"
@@ -49,6 +53,7 @@ class Confidence(StrEnum):
 class ProvenanceKind(StrEnum):
     SPATIAL_DATASET = "spatial_dataset"
     MANUAL_OVERRIDE = "manual_override"
+    LIVE_API = "live_api"
 
 
 FactValue = dict[str, Any] | list[Any] | str | int | float | bool | None
@@ -599,8 +604,14 @@ class InMemorySpatialDatasetStore:
 
 
 class AddressResolutionService:
-    def __init__(self, store: InMemorySpatialDatasetStore | None = None) -> None:
+    def __init__(
+        self,
+        store: InMemorySpatialDatasetStore | PostGISSpatialDatasetStore | None = None,
+        *,
+        live_verifier: PlanWALiveVerifier | None = None,
+    ) -> None:
         self.store = store or create_default_spatial_store()
+        self.live_verifier = live_verifier
 
     def resolve_address(
         self,
@@ -817,10 +828,23 @@ class AddressResolutionService:
                 )
             )
         provenance = [point_provenance, parcel_provenance]
+        local_codes: dict[str, set[str]] = {}
         for feature in self.store.planning_for_parcel(parcel.parcel_id):
             dataset = self.store.dataset_for(feature.dataset_id)
             if dataset is None or not dataset.is_authoritative():
                 continue
+            if isinstance(feature.value, dict):
+                raw_code = (
+                    feature.value.get("code")
+                    or feature.value.get("reference")
+                    or feature.value.get("filenumber")
+                )
+                if raw_code:
+                    from draftcheck.domain.address.planwa import normalize_spatial_code
+
+                    local_codes.setdefault(feature.fact_type, set()).add(
+                        normalize_spatial_code(raw_code)
+                    )
             feature_provenance = dataset.provenance(
                 method="parcel_planning_feature_intersection",
                 detail=feature.label,
@@ -837,22 +861,81 @@ class AddressResolutionService:
             )
             provenance.append(feature_provenance)
 
+        issues: list[str] = []
+        live_disagreements: dict[str, dict[str, list[str]]] = {}
+        if self.live_verifier is not None:
+            live = self.live_verifier.verify_point(lon=point.lon, lat=point.lat)
+            live_provenance = ResolutionProvenance(
+                kind=ProvenanceKind.LIVE_API,
+                method="planwa_live_point_intersection",
+                dataset_id="planwa-live",
+                source_crs=GDA2020_TARGET_CRS,
+                target_crs=GDA2020_TARGET_CRS,
+                detail=(
+                    f"Official PlanWA ArcGIS endpoint checked at {live.checked_at.isoformat()}."
+                    if live.available
+                    else f"PlanWA live verification unavailable: {live.error}"
+                ),
+            )
+            provenance.append(live_provenance)
+            if live.available:
+                live_disagreements = live.disagreements(local_codes)
+                if live_disagreements:
+                    issues.append("planwa_live_disagrees_with_local_spatial_data")
+            else:
+                issues.append("planwa_live_verification_unavailable")
+            facts.append(
+                PropertyFact(
+                    fact_id=f"{project_id}:planwa_live_verification",
+                    fact_type="planwa_live_verification",
+                    value={
+                        "available": live.available,
+                        "checked_at": live.checked_at.isoformat(),
+                        "endpoint": live.endpoint,
+                        "codes": {
+                            key: sorted(values) for key, values in live.codes.items()
+                        },
+                        "disagreements": live_disagreements,
+                        "error": live.error,
+                    },
+                    provenance=live_provenance,
+                    confidence=Confidence.HIGH if live.available else Confidence.LOW,
+                    review_status=(
+                        "pending_review"
+                        if live_disagreements or not live.available
+                        else "accepted"
+                    ),
+                )
+            )
+
+        resolution_status = (
+            ResolutionStatus.NEEDS_MORE_INFO
+            if live_disagreements or not parcel_verified
+            else ResolutionStatus.RESOLVED
+        )
         return PropertyProfile(
             org_id=org_id,
             project_id=project_id,
-            resolution_status=(
-                ResolutionStatus.RESOLVED if parcel_verified else ResolutionStatus.NEEDS_MORE_INFO
+            resolution_status=resolution_status,
+            confidence=(
+                Confidence.HIGH
+                if parcel_verified and not live_disagreements
+                else Confidence.MEDIUM
             ),
-            confidence=Confidence.HIGH if parcel_verified else Confidence.MEDIUM,
             address=point.formatted_address,
             address_point_id=point.address_id,
             parcel_id=parcel.parcel_id,
             local_government=parcel.local_government,
             facts=tuple(facts),
             provenance=tuple(provenance),
-            issues=()
-            if parcel_verified
-            else ("parcel_needs_authoritative_import", "planning_sources_pending_import"),
+            issues=tuple(
+                issues
+                + (
+                    []
+                    if parcel_verified
+                    else ["parcel_needs_authoritative_import", "planning_sources_pending_import"]
+                )
+            ),
         )
 
     def _point_only_profile(

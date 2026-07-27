@@ -113,6 +113,20 @@ def get_address_service() -> AddressResolutionService:
     if _address_service is None:
         import os
 
+        live_verifier = None
+        if os.environ.get("DRAFTCHECK_PLANWA_LIVE_VERIFY", "").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "on",
+        }:
+            from draftcheck.domain.address.planwa import PlanWALiveVerifier
+
+            live_verifier = PlanWALiveVerifier(
+                timeout_seconds=float(
+                    os.environ.get("DRAFTCHECK_PLANWA_TIMEOUT_SECONDS", "4")
+                )
+            )
         database_url = os.environ.get("DATABASE_URL")
         if database_url:
             try:
@@ -122,7 +136,10 @@ def get_address_service() -> AddressResolutionService:
 
                 engine = create_engine(database_url)
                 postgis_store = PostGISSpatialDatasetStore(engine)
-                _address_service = AddressResolutionService(store=postgis_store)  # type: ignore[arg-type]
+                _address_service = AddressResolutionService(
+                    store=postgis_store,
+                    live_verifier=live_verifier,
+                )
             except Exception:  # pragma: no cover – PostGIS not available in all envs
                 import logging
 
@@ -131,9 +148,9 @@ def get_address_service() -> AddressResolutionService:
                     "initialise; falling back to in-memory store",
                     exc_info=True,
                 )
-                _address_service = AddressResolutionService()
+                _address_service = AddressResolutionService(live_verifier=live_verifier)
         else:
-            _address_service = AddressResolutionService()
+            _address_service = AddressResolutionService(live_verifier=live_verifier)
     return _address_service
 
 

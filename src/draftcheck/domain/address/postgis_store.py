@@ -25,7 +25,7 @@ from uuid import UUID
 
 from sqlalchemy import ColumnElement, Engine, case, func, literal, literal_column, or_, select, text
 from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, aliased
 
 from draftcheck.db.models import (
     AddressPoint as DbAddressPoint,
@@ -352,6 +352,12 @@ class PostGISSpatialDatasetStore:
                         reason="existing_approved_dataset_not_overwritten",
                     )
 
+            source_version_uuid: UUID | None = None
+            if metadata.source_version_id:
+                try:
+                    source_version_uuid = UUID(metadata.source_version_id)
+                except (ValueError, TypeError, AttributeError):
+                    source_version_uuid = None
             row = DbSpatialDataset(
                 dataset_id=metadata.dataset_id,
                 name=metadata.name,
@@ -361,6 +367,7 @@ class PostGISSpatialDatasetStore:
                 licence_status=str(metadata.licence_status),
                 approval_status=str(metadata.approval_status),
                 source_crs=metadata.source_crs,
+                source_version_id=source_version_uuid,
                 fetched_at=metadata.fetched_at,
                 refresh_due=metadata.refresh_due,
                 metadata_json=_metadata_to_dict(metadata),
@@ -381,7 +388,32 @@ class PostGISSpatialDatasetStore:
             row = session.execute(
                 select(DbSpatialDataset)
                 .where(DbSpatialDataset.dataset_id == dataset_id)
-                .order_by(DbSpatialDataset.created_at.desc())
+                .order_by(
+                    case(
+                        (
+                            (DbSpatialDataset.approval_status == "approved")
+                            & (
+                                func.lower(DbSpatialDataset.licence_status).in_(
+                                    (
+                                        "licensed",
+                                        "approved",
+                                        "open",
+                                        "verified_open",
+                                        "public",
+                                        "cc-by",
+                                        "cc by",
+                                        "cc by 4.0",
+                                        "cc-by-4.0",
+                                        "cc_by_4_0",
+                                    )
+                                )
+                            ),
+                            1,
+                        ),
+                        else_=0,
+                    ).desc(),
+                    DbSpatialDataset.created_at.desc(),
+                )
                 .limit(1)
             ).scalar_one_or_none()
             if row is None:
@@ -806,6 +838,31 @@ class PostGISSpatialDatasetStore:
             if parcel_row is None:
                 return []
 
+            latest_dataset = aliased(DbSpatialDataset)
+            latest_dataset_id = (
+                select(latest_dataset.id)
+                .where(
+                    latest_dataset.dataset_id == DbSpatialDataset.dataset_id,
+                    latest_dataset.approval_status == "approved",
+                    func.lower(latest_dataset.licence_status).in_(
+                        (
+                            "licensed",
+                            "approved",
+                            "open",
+                            "verified_open",
+                            "public",
+                            "cc-by",
+                            "cc by",
+                            "cc by 4.0",
+                            "cc-by-4.0",
+                            "cc_by_4_0",
+                        )
+                    ),
+                )
+                .order_by(latest_dataset.created_at.desc(), latest_dataset.id.desc())
+                .limit(1)
+                .scalar_subquery()
+            )
             rows = session.execute(
                 select(DbPlanningFeature, DbSpatialDataset)
                 .join(
@@ -813,8 +870,11 @@ class PostGISSpatialDatasetStore:
                     DbPlanningFeature.spatial_dataset_id == DbSpatialDataset.id,
                 )
                 .where(
+                    DbSpatialDataset.id == latest_dataset_id,
                     text(
                         "ST_Intersects(planning_features.geom, "
+                        "(SELECT geom FROM parcels WHERE id = CAST(:parcel_db_id AS uuid))) "
+                        "AND NOT ST_Touches(planning_features.geom, "
                         "(SELECT geom FROM parcels WHERE id = CAST(:parcel_db_id AS uuid)))"
                     ).bindparams(parcel_db_id=str(parcel_row.id))
                 )

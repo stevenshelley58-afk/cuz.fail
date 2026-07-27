@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import re
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from typing import Any
@@ -31,6 +32,8 @@ from draftcheck.db.models import (
     PropertyFact,
     ResolvedRule,
     Rule,
+    Source,
+    SourceVersion,
 )
 
 logger = logging.getLogger(__name__)
@@ -350,6 +353,145 @@ def _resolve_council_scope(
     return None, "missing"
 
 
+_SPATIAL_REFERENCE_RE = re.compile(r"\b(?:SPN|LDP)\s*[/_-]?\s*\d+\b", re.IGNORECASE)
+_SPATIALLY_SCOPED_SOURCE_TYPES = {
+    "structure_plan",
+    "local_structure_plan",
+    "local_development_plan",
+    "precinct_structure_plan",
+}
+_SPATIALLY_SCOPED_TITLE_MARKERS = (
+    "structure plan",
+    "local development plan",
+)
+
+
+def _normalized_spatial_reference(value: object) -> str:
+    raw = " ".join(str(value or "").strip().upper().split())
+    match = re.fullmatch(r"(SPN|LDP)\s*[/_-]?\s*(\d+)", raw)
+    return f"{match.group(1)}/{match.group(2)}" if match else raw
+
+
+def _property_spatial_scopes(facts: list[PropertyFact]) -> dict[str, set[str]]:
+    scopes: dict[str, set[str]] = {}
+    for fact in facts:
+        fact_type = str(fact.fact_type or "").strip().lower()
+        if fact_type not in {"structure_plan", "special_area", "local_development_plan"}:
+            continue
+        value = fact.value_json if isinstance(fact.value_json, dict) else {}
+        if fact_type in {"structure_plan", "local_development_plan"}:
+            from draftcheck.domain.address.planwa import structure_plan_is_current
+
+            if not structure_plan_is_current(value):
+                continue
+        raw_values: list[object] = [
+            value.get("code"),
+            value.get("reference"),
+            value.get("filenumber"),
+            value.get("file_number"),
+        ]
+        references = value.get("references")
+        if isinstance(references, list):
+            raw_values.extend(references)
+        normalized = {
+            _normalized_spatial_reference(item)
+            for item in raw_values
+            if item is not None and str(item).strip()
+        }
+        scopes.setdefault(fact_type, set()).update(normalized)
+    return scopes
+
+
+def _source_spatial_scope(source: Source) -> tuple[bool, str, set[str]]:
+    """Return (scope_required, fact_type, references) for a source document."""
+    metadata = source.metadata_json if isinstance(source.metadata_json, dict) else {}
+    explicit = metadata.get("spatial_scope")
+    explicit = explicit if isinstance(explicit, dict) else {}
+    source_type = str(source.source_type or "").strip().lower()
+    title = str(source.title or "")
+    title_lower = title.lower()
+    scope_required = bool(explicit.get("required")) or source_type in _SPATIALLY_SCOPED_SOURCE_TYPES
+    scope_required = scope_required or any(
+        marker in title_lower for marker in _SPATIALLY_SCOPED_TITLE_MARKERS
+    )
+    fact_type = str(explicit.get("fact_type") or explicit.get("kind") or "structure_plan")
+    if fact_type == "local_development_plan":
+        fact_type = "structure_plan"
+
+    refs: set[str] = set()
+    explicit_refs = explicit.get("references") or explicit.get("refs") or []
+    if isinstance(explicit_refs, str):
+        explicit_refs = [explicit_refs]
+    if isinstance(explicit_refs, list):
+        refs.update(
+            _normalized_spatial_reference(value)
+            for value in explicit_refs
+            if str(value or "").strip()
+        )
+    searchable = " ".join(
+        [
+            title,
+            str(source.canonical_url or ""),
+            str(metadata.get("file_number") or ""),
+            str(metadata.get("reference") or ""),
+        ]
+    )
+    refs.update(
+        _normalized_spatial_reference(match.group(0))
+        for match in _SPATIAL_REFERENCE_RE.finditer(searchable)
+    )
+    return scope_required, fact_type, refs
+
+
+def _source_applies_to_spatial_facts(
+    source: Source,
+    property_scopes: dict[str, set[str]],
+) -> bool:
+    required, fact_type, required_refs = _source_spatial_scope(source)
+    if not required:
+        return True
+    # Fail closed: a parcel-specific source with no mappable reference must not
+    # silently become an LGA-wide rule.
+    if not required_refs:
+        return False
+    return bool(required_refs & property_scopes.get(fact_type, set()))
+
+
+def _filter_rules_by_spatial_scope(
+    session: Session,
+    rules: list[Rule],
+    facts: list[PropertyFact],
+    *,
+    blocked_scope_types: set[str] | None = None,
+) -> list[Rule]:
+    version_ids = {rule.source_version_id for rule in rules if rule.source_version_id}
+    if not version_ids:
+        return rules
+    sources_by_version = {
+        version_id: source
+        for version_id, source in (
+            session.query(SourceVersion.id, Source)
+            .join(Source, SourceVersion.source_id == Source.id)
+            .filter(SourceVersion.id.in_(version_ids))
+            .all()
+        )
+    }
+    property_scopes = _property_spatial_scopes(facts)
+    for fact_type in blocked_scope_types or set():
+        property_scopes.pop(fact_type, None)
+    return [
+        rule
+        for rule in rules
+        if (
+            rule.source_version_id not in sources_by_version
+            or _source_applies_to_spatial_facts(
+                sources_by_version[rule.source_version_id],
+                property_scopes,
+            )
+        )
+    ]
+
+
 def _missing_reason(
     *,
     rule: Rule | None,
@@ -562,7 +704,11 @@ def _get_advisory_rules(
         for zc in zone_codes:
             zone_filters.append(Rule.applicable_zones.contains(cast([zc], PgJSONB)))
         q = q.filter(or_(*zone_filters))
-    candidates = q.limit(3000).all()
+    # Spatially-scoped sources are filtered after this query because their
+    # applicability comes from the source document + parcel facts. Loading the
+    # complete approved advisory set prevents a large unrelated structure-plan
+    # corpus from crowding global/local-scheme rules out before that gate.
+    candidates = q.all()
     candidates.sort(
         key=lambda r: (
             -_advisory_relevance_score(r, r_codes, zone_codes),
@@ -626,6 +772,26 @@ class ComplianceEngine:
             )
             .all()
         )
+        live_verification = (
+            session.query(PropertyFact)
+            .filter(
+                PropertyFact.project_id == UUID(project_id),
+                PropertyFact.fact_type == "planwa_live_verification",
+            )
+            .order_by(PropertyFact.created_at.desc())
+            .first()
+        )
+        live_value = (
+            live_verification.value_json
+            if live_verification is not None
+            and isinstance(live_verification.value_json, dict)
+            else {}
+        )
+        raw_live_disagreements = live_value.get("disagreements")
+        live_disagreements: dict[str, object] = (
+            raw_live_disagreements if isinstance(raw_live_disagreements, dict) else {}
+        )
+        blocked_scope_types = set(live_disagreements)
         # Build lookup: fact_type -> PropertyFact (most-recent wins, so a user's
         # manual override of a fact takes precedence over an earlier synth value).
         fact_by_type: dict[str, PropertyFact] = {}
@@ -658,6 +824,12 @@ class ComplianceEngine:
             council_scope=council_scope,
             zone_codes=zone_codes or None,
             r_codes=r_codes or None,
+        )
+        rules = _filter_rules_by_spatial_scope(
+            session,
+            rules,
+            facts,
+            blocked_scope_types=blocked_scope_types,
         )
 
         # ------------------------------------------------------------------
@@ -807,10 +979,18 @@ class ComplianceEngine:
                         note = f"{missing_reason}: {exc}"
                         any_missing = True
                     else:
-                        status = "likely_pass" if passes else "likely_fail"
-                        note = None
-                        if not passes:
-                            any_fail = True
+                        if live_disagreements:
+                            status = "needs_more_info"
+                            note = (
+                                "planwa_live_disagreement: local and live official spatial "
+                                f"layers differ ({sorted(live_disagreements)})"
+                            )
+                            any_missing = True
+                        else:
+                            status = "likely_pass" if passes else "likely_fail"
+                            note = None
+                            if not passes:
+                                any_fail = True
 
             item = CheckResultItem(
                 check_key=check_key,
@@ -901,12 +1081,18 @@ class ComplianceEngine:
         # ------------------------------------------------------------------
         emitted_keys = {it.check_key for it in results}
         seen_adv: set[str] = set()
-        for rule in _get_advisory_rules(
+        advisory_rules = _filter_rules_by_spatial_scope(
             session,
-            council_scope=council_scope,
-            r_codes=r_codes or None,
-            zone_codes=zone_codes or None,
-        ):
+            _get_advisory_rules(
+                session,
+                council_scope=council_scope,
+                r_codes=r_codes or None,
+                zone_codes=zone_codes or None,
+            ),
+            facts,
+            blocked_scope_types=blocked_scope_types,
+        )
+        for rule in advisory_rules:
             key = rule.canonical_rule_key or rule.rule_key
             if not key or key in emitted_keys or key in seen_adv:
                 continue

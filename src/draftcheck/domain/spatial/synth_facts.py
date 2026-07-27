@@ -204,6 +204,7 @@ def synth_property_facts(
         value: dict[str, Any],
         *,
         planning_feature_id: UUID | None = None,
+        fact_spatial_dataset_id: UUID | None = None,
         provenance_extra: dict[str, Any] | None = None,
     ) -> None:
         new_facts.append(
@@ -216,7 +217,7 @@ def synth_property_facts(
                 confidence=SYNTH_CONFIDENCE,
                 method=SYNTH_METHOD,
                 provenance_json=_provenance(provenance_extra),
-                spatial_dataset_id=spatial_dataset_id,
+                spatial_dataset_id=fact_spatial_dataset_id or spatial_dataset_id,
                 parcel_id=parcel.id,
                 planning_feature_id=planning_feature_id,
                 review_status="confirmed",
@@ -266,7 +267,12 @@ def synth_property_facts(
         rc = _extract_r_code(feature)
         if rc is not None:
             code, label = rc
-            _add("r_code", {"code": code, "label": label}, planning_feature_id=feature.id)
+            _add(
+                "r_code",
+                {"code": code, "label": label},
+                planning_feature_id=feature.id,
+                fact_spatial_dataset_id=feature.spatial_dataset_id,
+            )
             break
 
     # zone: first zone-layer feature that names a usable planning zone (skip
@@ -280,7 +286,12 @@ def synth_property_facts(
         value: dict[str, Any] = {"code": code}
         if feature.label:
             value["name"] = str(feature.label)
-        _add("zone", value, planning_feature_id=feature.id)
+        _add(
+            "zone",
+            value,
+            planning_feature_id=feature.id,
+            fact_spatial_dataset_id=feature.spatial_dataset_id,
+        )
         break
 
     # overlays: anything that is not a zone / r_code / lga layer (bushfire,
@@ -290,13 +301,22 @@ def synth_property_facts(
         if layer in _NON_OVERLAY_LAYERS:
             continue
         metadata = feature.metadata_json if isinstance(feature.metadata_json, dict) else {}
-        overlay_value: dict[str, Any] = {"present": True}
+        embedded_value = metadata.get("value")
+        overlay_value: dict[str, Any] = (
+            dict(embedded_value) if isinstance(embedded_value, dict) else {}
+        )
+        overlay_value["present"] = True
         overlay_code = metadata.get("code") or feature.code
         if overlay_code:
             overlay_value["code"] = str(overlay_code)
         if feature.label:
             overlay_value["label"] = str(feature.label)
-        _add(feature.layer_type, overlay_value, planning_feature_id=feature.id)
+        _add(
+            feature.layer_type,
+            overlay_value,
+            planning_feature_id=feature.id,
+            fact_spatial_dataset_id=feature.spatial_dataset_id,
+        )
 
     for fact in new_facts:
         session.add(fact)
@@ -321,10 +341,23 @@ def _intersecting_features(
         rows = session.execute(
             text(
                 """
+                WITH latest_datasets AS (
+                    SELECT DISTINCT ON (dataset_id) id
+                    FROM spatial_datasets
+                    WHERE approval_status = 'approved'
+                      AND lower(licence_status) IN (
+                          'licensed', 'approved', 'open', 'verified_open',
+                          'public', 'cc-by', 'cc by', 'cc by 4.0',
+                          'cc-by-4.0', 'cc_by_4_0'
+                      )
+                    ORDER BY dataset_id, created_at DESC, id DESC
+                )
                 SELECT pf.id
                 FROM planning_features pf
+                JOIN latest_datasets latest ON latest.id = pf.spatial_dataset_id
                 JOIN parcels p ON p.id = :pid
                 WHERE ST_Intersects(pf.geom, p.geom)
+                  AND NOT ST_Touches(pf.geom, p.geom)
                 """
             ),
             {"pid": str(parcel_id)},

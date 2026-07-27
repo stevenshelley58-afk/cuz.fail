@@ -1,0 +1,11 @@
+[Unit]
+Description=Weekly DPLH PlanWA spatial refresh
+
+[Timer]
+OnCalendar=Sun *-*-* 03:20:00 Australia/Perth
+Persistent=true
+RandomizedDelaySec=20m
+Unit=draftcheck-planwa-refresh.service
+
+[Install]
+WantedBy=timers.target
