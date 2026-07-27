@@ -13,6 +13,7 @@ import {
   ImageIcon,
   LandPlot,
   Leaf,
+  MapPinned,
   MessageSquare,
   RefreshCw,
   Ruler,
@@ -88,6 +89,7 @@ type RuleGroup = {
 };
 
 const RULE_GROUPS: RuleGroup[] = [
+  { key: "zoning", label: "Zoning & land use", description: "Zoning, R-Code density and whether a proposed use is permitted." },
   { key: "setbacks", label: "Setbacks & boundaries", description: "Distances from streets, side and rear boundaries." },
   { key: "building", label: "Building form", description: "Height, storeys, roof form and the overall building envelope." },
   { key: "site", label: "Site design & landscaping", description: "Site cover, open space, trees, landscaping and outdoor areas." },
@@ -102,14 +104,38 @@ function ruleGroup(item: ComplianceResultItem): RuleGroup {
   const category = item.category?.trim().toLowerCase() ?? "";
   const key = `${item.check_key} ${item.display_name ?? ""}`.toLowerCase();
   let groupKey = "other";
+  const categoryGroup: Record<string, string> = {
+    zoning: "zoning",
+    land_use: "zoning",
+    setback: "setbacks",
+    height: "building",
+    storeys: "building",
+    site_cover: "site",
+    open_space: "site",
+    site: "site",
+    landscape: "site",
+    garage: "access",
+    parking: "access",
+    driveway: "access",
+    boundary_wall: "walls",
+    wall: "walls",
+    fence: "walls",
+    lot: "lot",
+    subdivision: "lot",
+    amenity: "amenity",
+    building_safety: "amenity",
+    environmental: "amenity",
+  };
 
-  if (category === "setback" || /\bsetback|boundary distance/.test(key)) groupKey = "setbacks";
-  else if (["height", "storeys"].includes(category) || /\bheight|storey|storeys|ceiling|roof|building envelope/.test(key)) groupKey = "building";
-  else if (["site_cover", "open_space", "site", "landscape"].includes(category) || /site cover|open space|landscap|tree|deep soil/.test(key)) groupKey = "site";
-  else if (["garage", "parking", "driveway"].includes(category) || /garage|parking|car ?park|driveway|vehicle access/.test(key)) groupKey = "access";
-  else if (["boundary_wall", "wall", "fence"].includes(category) || /wall|fence|screening/.test(key)) groupKey = "walls";
-  else if (["lot", "subdivision"].includes(category) || /lot width|lot area|density|subdivision/.test(key)) groupKey = "lot";
-  else if (["amenity", "building_safety", "environmental"].includes(category) || /amenity|privacy|overlooking|bushfire|flood|noise|safety|environment/.test(key)) groupKey = "amenity";
+  if (categoryGroup[category]) groupKey = categoryGroup[category];
+  else if (/land[_ ]use|zoning|permissib|dwelling[_ ]density|r[_ -]?code|density[_ ]code|special[_ ]use/.test(key)) groupKey = "zoning";
+  else if (category === "setback" || /\bsetback|boundary distance/.test(key)) groupKey = "setbacks";
+  else if (/wall|fence|screening/.test(key)) groupKey = "walls";
+  else if (/garage|parking|car ?park|driveway|vehicle access/.test(key)) groupKey = "access";
+  else if (/lot width|lot area|density|subdivision/.test(key)) groupKey = "lot";
+  else if (/\bheight|storey|storeys|ceiling|roof|building envelope/.test(key)) groupKey = "building";
+  else if (/site cover|open space|landscap|tree|deep soil/.test(key)) groupKey = "site";
+  else if (/amenity|privacy|overlooking|bushfire|flood|noise|safety|environment/.test(key)) groupKey = "amenity";
 
   return RULE_GROUPS.find((group) => group.key === groupKey) ?? RULE_GROUPS[RULE_GROUPS.length - 1];
 }
@@ -120,6 +146,7 @@ function ruleTopic(item: ComplianceResultItem): string {
 
 function RuleGroupIcon({ groupKey }: { groupKey: string }) {
   const props = { size: 18, strokeWidth: 1.8, "aria-hidden": true } as const;
+  if (groupKey === "zoning") return <MapPinned {...props} />;
   if (groupKey === "setbacks") return <Ruler {...props} />;
   if (groupKey === "building") return <Building2 {...props} />;
   if (groupKey === "site") return <Leaf {...props} />;
@@ -264,29 +291,42 @@ function RuleBrowserRow({ item }: { item: ComplianceResultItem }) {
 
 function RulesBrowser({
   results,
+  summaryResults,
   totalCount,
   councilName,
   onUploadDrawing,
   onProposalDetails,
+  selectedTopic = "all",
+  onSelectTopic,
   filterActive = false,
 }: {
   results: ComplianceResultItem[];
+  summaryResults?: ComplianceResultItem[];
   totalCount?: number;
   councilName?: string | null;
   onUploadDrawing?: () => void;
   onProposalDetails?: () => void;
+  selectedTopic?: string;
+  onSelectTopic?: (topic: string) => void;
   /** An active search/topic filter expands the list so matches are visible. */
   filterActive?: boolean;
 }) {
   const [showRules, setShowRules] = useState(false);
   const applicableRules = results.filter((item) => item.status !== "unsupported");
+  const summaryRules = (summaryResults ?? results).filter((item) => item.status !== "unsupported");
   const foundCount = totalCount ?? applicableRules.length;
   const grouped = new Map<string, ComplianceResultItem[]>();
   for (const item of applicableRules) {
     const group = ruleGroup(item);
     grouped.set(group.key, [...(grouped.get(group.key) ?? []), item]);
   }
+  const summaryGrouped = new Map<string, ComplianceResultItem[]>();
+  for (const item of summaryRules) {
+    const group = ruleGroup(item);
+    summaryGrouped.set(group.key, [...(summaryGrouped.get(group.key) ?? []), item]);
+  }
   const visibleGroups = RULE_GROUPS.filter((group) => grouped.has(group.key));
+  const visibleSummaryGroups = RULE_GROUPS.filter((group) => summaryGrouped.has(group.key));
   const planningContext = councilName ? `Planning context: ${councilName}` : "Planning context resolved for this address.";
   const rulesVisible = showRules || filterActive;
 
@@ -309,14 +349,24 @@ function RulesBrowser({
           {planningContext}
           {applicableRules.length !== foundCount ? ` · Showing ${applicableRules.length}` : ""}
         </div>
-        <div className="rules-summary__topics" aria-label={`${visibleGroups.length} planning topics`}>
-          {visibleGroups.map((group) => (
-            <span key={group.key}>
-              <RuleGroupIcon groupKey={group.key} />
-              {group.label}
-              <strong>{grouped.get(group.key)?.length ?? 0}</strong>
-            </span>
-          ))}
+        <div className="rules-summary__topics" aria-label={`${visibleSummaryGroups.length} planning topics`}>
+          {visibleSummaryGroups.map((group) => {
+            const count = summaryGrouped.get(group.key)?.length ?? 0;
+            const selected = selectedTopic === group.label;
+            return (
+              <button
+                key={group.key}
+                type="button"
+                aria-label={`${group.label}: ${count} rule${count === 1 ? "" : "s"}`}
+                aria-pressed={selected}
+                onClick={() => onSelectTopic?.(selected ? "all" : group.label)}
+              >
+                <RuleGroupIcon groupKey={group.key} />
+                {group.label}
+                <strong>{count}</strong>
+              </button>
+            );
+          })}
         </div>
       </div>
 
@@ -981,10 +1031,13 @@ export function CompliancePanel({
       {showRulesBrowser && (
         <RulesBrowser
           results={filteredResults}
+          summaryResults={applicableResults}
           totalCount={applicableResults.length}
           councilName={councilName}
           onUploadDrawing={onUploadDrawing ? handleUploadDrawing : undefined}
           onProposalDetails={onProposalDetails}
+          selectedTopic={topicFilter}
+          onSelectTopic={setTopicFilter}
           filterActive={browserFilterActive}
         />
       )}

@@ -64,7 +64,7 @@
   margin-top: 16px;
 }
 
-.rules-summary__topics > span {
+.rules-summary__topics > button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -74,8 +74,24 @@
   border-radius: 999px;
   background: rgb(255 255 255 / 72%);
   color: #315f4d;
+  cursor: pointer;
+  font-family: inherit;
   font-size: 11px;
   font-weight: 650;
+  transition: border-color 150ms ease, background 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.rules-summary__topics > button:hover {
+  border-color: rgb(15 81 60 / 30%);
+  background: #fff;
+  box-shadow: 0 4px 12px rgb(15 81 60 / 8%);
+  transform: translateY(-1px);
+}
+
+.rules-summary__topics > button[aria-pressed="true"] {
+  border-color: #2f745a;
+  background: #174f3b;
+  color: #fff;
 }
 
 .rules-summary__topics svg {
@@ -92,6 +108,11 @@
   background: #dcece4;
   color: #174d39;
   font-size: 10px;
+}
+
+.rules-summary__topics > button[aria-pressed="true"] strong {
+  background: rgb(255 255 255 / 18%);
+  color: #fff;
 }
 
 .rules-browser__toggle {
@@ -376,6 +397,7 @@
 }
 
 .rules-browser__toggle:focus-visible,
+.rules-summary__topics > button:focus-visible,
 .rule-row__toggle:focus-visible,
 .rule-details__source a:focus-visible {
   outline: 3px solid rgb(31 135 95 / 25%);
@@ -391,7 +413,7 @@
     font-size: 16px;
   }
 
-  .rules-summary__topics > span {
+  .rules-summary__topics > button {
     max-width: 100%;
   }
 

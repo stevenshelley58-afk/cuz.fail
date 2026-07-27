@@ -332,6 +332,34 @@ test("compliance panel renders an address-only matrix as a positive rules browse
           reviewed_by_user_id: null,
           reviewed_at: null,
         },
+        {
+          result_id: "result-land-use",
+          check_key: "land_use_permissibility",
+          display_name: "Land use permissibility",
+          status: "needs_more_info",
+          threshold_value: null,
+          threshold_unit: null,
+          measured_value: null,
+          rule_id: "rule-land-use",
+          rule_quote: "A single house is a permitted use in the applicable residential zone.",
+          citation: "City of Cockburn Town Planning Scheme | zoning table",
+          category: "other",
+          check_type: "categorical",
+          what_it_means: "The proposed land use must be permitted in this property's zone.",
+          modality: "mandatory",
+          source: {
+            title: "City of Cockburn Town Planning Scheme",
+            url: "https://example.test/cockburn-town-planning-scheme.pdf",
+            section: "Zoning table",
+          },
+          note: null,
+          missing_info_reason: "proposal_type_required",
+          drawing_evidence: {},
+          review_reason: null,
+          human_override: {},
+          reviewed_by_user_id: null,
+          reviewed_at: null,
+        },
       ],
     },
   });
@@ -351,7 +379,7 @@ test("compliance panel renders an address-only matrix as a positive rules browse
     />,
   );
 
-  expect(await screen.findByText(/we found 2 planning rules that apply to this property/i)).toBeTruthy();
+  expect(await screen.findByText(/we found 3 planning rules that apply to this property/i)).toBeTruthy();
   expect(screen.getByText(/planning context: city of cockburn/i)).toBeTruthy();
   expect(screen.getByRole("img", { name: /aerial view of the test property/i }).getAttribute("src")).toBe(
     "https://imagery.example.test/property.jpg",
@@ -360,7 +388,14 @@ test("compliance panel renders an address-only matrix as a positive rules browse
 
   // Rule list starts collapsed behind a clear expand control
   expect(screen.queryByText("Setbacks & boundaries")).toBeTruthy();
-  await userEvent.click(screen.getByRole("button", { name: /explore all 2 rules/i }));
+  expect(screen.getByRole("button", { name: /zoning & land use: 1 rule/i })).toBeTruthy();
+  await userEvent.click(screen.getByRole("button", { name: /zoning & land use: 1 rule/i }));
+  expect(await screen.findByRole("button", { name: /land use permissibility/i })).toBeTruthy();
+  expect(screen.queryByRole("button", { name: /primary street setback/i })).toBeNull();
+  expect(screen.getByRole("button", { name: /zoning & land use: 1 rule/i }).getAttribute("aria-pressed")).toBe("true");
+
+  await userEvent.click(screen.getByRole("button", { name: /zoning & land use: 1 rule/i }));
+  await userEvent.click(screen.getByRole("button", { name: /explore all 3 rules/i }));
   expect(screen.getAllByText("Setbacks & boundaries").length).toBeGreaterThan(0);
   expect(screen.getAllByText("Site design & landscaping").length).toBeGreaterThan(0);
   expect(screen.queryByText(/likely pass/i)).toBeNull();
