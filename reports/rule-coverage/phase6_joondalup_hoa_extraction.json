@@ -1,0 +1,1153 @@
+{
+  "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+  "source_pdf": "/app/data/raw-sources/councils/joondalup/lpp_development_housing_opportunity_areas.pdf",
+  "instrument_section": "Sections 1-19",
+  "tables_requested": [
+    "s1 urban design",
+    "s4 height table",
+    "s5 street setback table",
+    "s6 side/rear",
+    "s7 parking location",
+    "s9-10 access",
+    "s11-15 tree canopy/deep soil tables",
+    "s16-18 dwelling layout"
+  ],
+  "candidates_extracted": 40,
+  "warnings": [
+    "CONFLICTS WITH R-CODE DEFAULTS (adopted replacements): s4.1 replaces Vol 1 cl 5.1.6 C6 / Vol 2 El 2.2.1 (2 storeys max in HOAs); s5 amends cl 5.1.2 (no setback averaging); s6 amends cl 5.1.3; s7 replaces cl 5.2.1 C1.1-C1.5 and 5.2.2 C2; s9 amends cl 5.3.3 Location A definition; s11-14 replace cl 5.3.2 C2 / Vol 2 El 3.3 (20% landscape area replaces open space/tree requirements).",
+    "HOA street setbacks prohibit averaging (explicit policy note) - overrides R-Codes cl 5.1.2 C2.3 averaging.",
+    "Tree ratios in s13.1 vary by lot-area band; encoded as per-tree landscape-area ratios (small 20m2, medium 60m2, large 100m2) which apply across bands; see policy table for band-specific combinations.",
+    "Sections 2/3 (frontage 9m/6m; multiple dwelling site width 20m) restate LPS3 cl 26(5)/26(7); encoded from the Residential Development LPP Appendix 3 (same values) and not duplicated here."
+  ],
+  "candidates": [
+    {
+      "rule_key": "joondalup.blank_walls_max_pct_frontage.hoa",
+      "canonical_rule_key": "joondalup.blank_walls_max_pct_frontage.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "total lot frontage to public realm"
+      },
+      "quote": "1.3. Blank walls, vehicle access and building services (e.g. bin store, booster hydrant) shall not exceed 20% of the total lot frontage to the public realm, except for development with two street frontages, where no blank walls will be permitted to either street frontage.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s1.3",
+      "table_reference": "HOA s1.3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.building_height_max_storeys.hoa.r20_r25",
+      "canonical_rule_key": "joondalup.building_height_max_storeys.hoa.r20_r25",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "dual_code": "R20/R25"
+      },
+      "quote": "4.1 Building height \u2014 R20/R25: Maximum 2 storeys. Note: Refer Table 2.2, Figure 2.2a, Figure 2.2b of SPP7.3 \u2014 Volume 2 for interpretation of indicative overall height in metres.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s4.1",
+      "table_reference": "HOA s4.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_storeys",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.primary_street_setback_min_m.hoa.r20_r25",
+      "canonical_rule_key": "joondalup.primary_street_setback_min_m.hoa.r20_r25",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "dual_code": "R20/R25",
+        "averaging": "not permitted"
+      },
+      "quote": "5.1. Street setbacks \u2014 R20/R25: Primary street 4.0 metres. Note: The setbacks listed above are minimum setbacks. Averaging is not permitted.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s5.1",
+      "table_reference": "HOA s5.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.building_height_max_storeys.hoa.r20_r30",
+      "canonical_rule_key": "joondalup.building_height_max_storeys.hoa.r20_r30",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "dual_code": "R20/R30"
+      },
+      "quote": "4.1 Building height \u2014 R20/R30: Maximum 2 storeys. Note: Refer Table 2.2, Figure 2.2a, Figure 2.2b of SPP7.3 \u2014 Volume 2 for interpretation of indicative overall height in metres.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s4.1",
+      "table_reference": "HOA s4.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_storeys",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.primary_street_setback_min_m.hoa.r20_r30",
+      "canonical_rule_key": "joondalup.primary_street_setback_min_m.hoa.r20_r30",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "dual_code": "R20/R30",
+        "averaging": "not permitted"
+      },
+      "quote": "5.1. Street setbacks \u2014 R20/R30: Primary street 4.0 metres. Note: The setbacks listed above are minimum setbacks. Averaging is not permitted.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s5.1",
+      "table_reference": "HOA s5.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.building_height_max_storeys.hoa.r20_r40",
+      "canonical_rule_key": "joondalup.building_height_max_storeys.hoa.r20_r40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "dual_code": "R20/R40"
+      },
+      "quote": "4.1 Building height \u2014 R20/R40: Maximum 2 storeys. Note: Refer Table 2.2, Figure 2.2a, Figure 2.2b of SPP7.3 \u2014 Volume 2 for interpretation of indicative overall height in metres.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s4.1",
+      "table_reference": "HOA s4.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_storeys",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.primary_street_setback_min_m.hoa.r20_r40",
+      "canonical_rule_key": "joondalup.primary_street_setback_min_m.hoa.r20_r40",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "dual_code": "R20/R40",
+        "averaging": "not permitted"
+      },
+      "quote": "5.1. Street setbacks \u2014 R20/R40: Primary street 4.0 metres. Note: The setbacks listed above are minimum setbacks. Averaging is not permitted.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s5.1",
+      "table_reference": "HOA s5.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.building_height_max_storeys.hoa.r20_r60",
+      "canonical_rule_key": "joondalup.building_height_max_storeys.hoa.r20_r60",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "dual_code": "R20/R60"
+      },
+      "quote": "4.1 Building height \u2014 R20/R60: Maximum 2 storeys. Note: Refer Table 2.2, Figure 2.2a, Figure 2.2b of SPP7.3 \u2014 Volume 2 for interpretation of indicative overall height in metres.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s4.1",
+      "table_reference": "HOA s4.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_storeys",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.primary_street_setback_min_m.hoa.r20_r60",
+      "canonical_rule_key": "joondalup.primary_street_setback_min_m.hoa.r20_r60",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "dual_code": "R20/R60",
+        "averaging": "not permitted"
+      },
+      "quote": "5.1. Street setbacks \u2014 R20/R60: Primary street 2.0 metres. Note: The setbacks listed above are minimum setbacks. Averaging is not permitted.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s5.1",
+      "table_reference": "HOA s5.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.secondary_street_setback_min_m.hoa",
+      "canonical_rule_key": "joondalup.secondary_street_setback_min_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "dual_codes": [
+          "R20/R25",
+          "R20/R30",
+          "R20/R40",
+          "R20/R60"
+        ]
+      },
+      "quote": "5.1. Street setbacks \u2014 Secondary street: 2.0 metres (R20/R25, R20/R30, R20/R40, R20/R60). Note: The setbacks listed above are minimum setbacks. Averaging is not permitted.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s5.1",
+      "table_reference": "HOA s5.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.porch_projection_max_m.hoa",
+      "canonical_rule_key": "joondalup.porch_projection_max_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "5.2. A porch, balcony, verandah, chimney or equivalent may (subject to the Building Code of Australia) project not more than 1.0 metre into the street setback area. Projections up to 1.0 metre shall not exceed 50 per cent of the building fa\u00e7ade as viewed from the street.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s5.2",
+      "table_reference": "HOA s5.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.porch_projection_max_pct_facade.hoa",
+      "canonical_rule_key": "joondalup.porch_projection_max_pct_facade.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "building fa\u00e7ade as viewed from street"
+      },
+      "quote": "5.2. A porch, balcony, verandah, chimney or equivalent may (subject to the Building Code of Australia) project not more than 1.0 metre into the street setback area. Projections up to 1.0 metre shall not exceed 50 per cent of the building fa\u00e7ade as viewed from the street.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s5.2",
+      "table_reference": "HOA s5.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.side_setback_ground_floor_min_m.multiple_dwelling",
+      "canonical_rule_key": "joondalup.side_setback_ground_floor_min_m.multiple_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey": "ground floor",
+        "dwelling": "multiple dwelling"
+      },
+      "quote": "6.1. A minimum side lot boundary setback of: a. 2.0 metres to the ground floor; and b. 3.0 metres to the upper floor.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s6.1",
+      "table_reference": "HOA s6.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.side_setback_upper_floor_min_m.multiple_dwelling",
+      "canonical_rule_key": "joondalup.side_setback_upper_floor_min_m.multiple_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey": "upper floor",
+        "dwelling": "multiple dwelling"
+      },
+      "quote": "6.1. A minimum side lot boundary setback of: a. 2.0 metres to the ground floor; and b. 3.0 metres to the upper floor.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s6.1",
+      "table_reference": "HOA s6.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_length_max_m.hoa",
+      "canonical_rule_key": "joondalup.boundary_wall_length_max_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 9.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "6.2. A wall may be built up to one side lot boundary behind the street setback within the following limits: a. A maximum length of 9.0 metres; b. A maximum height of 3.5 metres from natural ground level; and, c. An average height of 3.0 metres from natural ground level.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s6.2",
+      "table_reference": "HOA s6.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_height_max_m.hoa",
+      "canonical_rule_key": "joondalup.boundary_wall_height_max_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "measured_from": "natural ground level"
+      },
+      "quote": "6.2. A wall may be built up to one side lot boundary behind the street setback within the following limits: a. A maximum length of 9.0 metres; b. A maximum height of 3.5 metres from natural ground level; and, c. An average height of 3.0 metres from natural ground level.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s6.2",
+      "table_reference": "HOA s6.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.boundary_wall_avg_height_max_m.hoa",
+      "canonical_rule_key": "joondalup.boundary_wall_avg_height_max_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "measured_from": "natural ground level",
+        "metric": "average"
+      },
+      "quote": "6.2. A wall may be built up to one side lot boundary behind the street setback within the following limits: a. A maximum length of 9.0 metres; b. A maximum height of 3.5 metres from natural ground level; and, c. An average height of 3.0 metres from natural ground level.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s6.2",
+      "table_reference": "HOA s6.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.resident_parking_setback_min_m.hoa",
+      "canonical_rule_key": "joondalup.resident_parking_setback_min_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 5.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "7.1. Resident parking, including a carport, garage or other hardstand area, shall be setback a minimum of 5.5 metres from the public road boundary.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s7.1",
+      "table_reference": "HOA s7.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.parking_manoeuvring_space_min_m.hoa",
+      "canonical_rule_key": "joondalup.parking_manoeuvring_space_min_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "abutting private street or ROW (not primary/secondary street)"
+      },
+      "quote": "7.2. Resident parking up to a boundary abutting a private street or right-of-way which is not the primary or secondary street for the dwelling, shall be provided with a manoeuvring space of at least six metres, located immediately in front of the parking and permanently available.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s7.2",
+      "table_reference": "HOA s7.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.garage_width_max_pct_frontage.hoa",
+      "canonical_rule_key": "joondalup.garage_width_max_pct_frontage.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "at": "setback line"
+      },
+      "quote": "7.4. The width of an enclosed garage and its supporting structures facing the primary street shall not occupy more than 50% of the frontage at the setback line as viewed from the street. This may be increased to 60% where an upper floor habitable room with a major opening or balcony extends for the full width of the garage and the entrance to the dwelling is clearly visible from the primary street.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s7.4",
+      "table_reference": "HOA s7.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.garage_width_max_pct_frontage_with_upper_room.hoa",
+      "canonical_rule_key": "joondalup.garage_width_max_pct_frontage_with_upper_room.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 60
+      },
+      "unit": "%",
+      "condition_json": {
+        "requires": "upper floor habitable room/balcony full width of garage; entrance visible from street"
+      },
+      "quote": "7.4. ... This may be increased to 60% where an upper floor habitable room with a major opening or balcony extends for the full width of the garage and the entrance to the dwelling is clearly visible from the primary street.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s7.4",
+      "table_reference": "HOA s7.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.location_a_train_walkable_catchment_m.hoa",
+      "canonical_rule_key": "joondalup.location_a_train_walkable_catchment_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 800
+      },
+      "unit": "m",
+      "condition_json": {
+        "of": "train station within/adjacent to HOA",
+        "amends": "R-Codes Location A definition"
+      },
+      "quote": "9.1. Location A parking requirements: Resident parking ratios shall be in accordance with Location A (SPP7.3) where: a. Development is within an 800 metre walkable catchment of a train station within or adjacent to a Housing Opportunity Area. b. Development is within a 200 metres walkable catchment of a high frequency bus stop.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s9.1",
+      "table_reference": "HOA s9.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.location_a_hf_bus_walkable_catchment_m.hoa",
+      "canonical_rule_key": "joondalup.location_a_hf_bus_walkable_catchment_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 200
+      },
+      "unit": "m",
+      "condition_json": {
+        "of": "high frequency bus stop",
+        "amends": "R-Codes Location A definition"
+      },
+      "quote": "9.1. Location A parking requirements: ... b. Development is within a 200 metres walkable catchment of a high frequency bus stop.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s9.1",
+      "table_reference": "HOA s9.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.crossover_width_max_m.yield_over_10",
+      "canonical_rule_key": "joondalup.crossover_width_max_m.yield_over_10",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "development_yield_gt_dwellings": 10
+      },
+      "quote": "10.1. A crossover shall be limited to a maximum width as detailed below: a. Where the proposed development yield exceeds 10 dwellings, then a maximum crossover width of 6.0 metres is permitted.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s10.1",
+      "table_reference": "HOA s10.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.crossover_width_max_m.yield_lte_10",
+      "canonical_rule_key": "joondalup.crossover_width_max_m.yield_lte_10",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "development_yield_lte_dwellings": 10,
+        "exception_6m": "communal visitor parking or bin collection access"
+      },
+      "quote": "10.1. ... b. Where the proposed development yield does not exceed 10 dwellings, then a maximum crossover width of 4.5 metres is permitted, except where required to facilitate access to communal onsite visitor parking or onsite bin collection where a maximum crossover width of 6.0 metres is permitted.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s10.1",
+      "table_reference": "HOA s10.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.landscape_area_min_pct.hoa",
+      "canonical_rule_key": "joondalup.landscape_area_min_pct.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "site area",
+        "replaces": "R-Codes Vol 1 cl 5.3.2 C2 / Vol 2 El 3.3"
+      },
+      "quote": "11.1 The minimum landscape area is to be calculated as 20% of the site area.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s11.1",
+      "table_reference": "HOA s11.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.permeable_paving_max_pct_landscape_area.hoa",
+      "canonical_rule_key": "joondalup.permeable_paving_max_pct_landscape_area.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 30
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "landscape area"
+      },
+      "quote": "11.4 Permeable paving or decking within a landscape area is permitted provided it does not exceed 30% of the landscape area and will not inhibit the planting and growth of adjacent trees in the landscape area.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s11.4",
+      "table_reference": "HOA s11.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.landscape_area_min_dimension_m.hoa",
+      "canonical_rule_key": "joondalup.landscape_area_min_dimension_m.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "11.5 The minimum dimension of any landscape area shall be 1.5 metres.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s11.5",
+      "table_reference": "HOA s11.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.front_setback_landscape_min_pct.hoa",
+      "canonical_rule_key": "joondalup.front_setback_landscape_min_pct.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "front setback area"
+      },
+      "quote": "11.6 A minimum of 50% of the area between the front of the dwelling and the street lot boundary (front setback area) shall be landscape area.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s11.6",
+      "table_reference": "HOA s11.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.small_tree_m2_landscape_per_tree_max.hoa",
+      "canonical_rule_key": "joondalup.small_tree_m2_landscape_per_tree_max.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 20.0
+      },
+      "unit": "m2 landscape area per tree",
+      "condition_json": {
+        "tree_size": "small",
+        "applies": "all lot area bands (see policy table)"
+      },
+      "quote": "13.1. The minimum number of trees to be provided onsite (with shade producing canopies) within deep soil areas shall be determined by the landscape area as follows: 1 small tree for every 20.0 square metres of landscape area.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s13.1",
+      "table_reference": "HOA s13.1 trees table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.medium_tree_m2_landscape_per_tree_max.hoa",
+      "canonical_rule_key": "joondalup.medium_tree_m2_landscape_per_tree_max.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 60.0
+      },
+      "unit": "m2 landscape area per tree",
+      "condition_json": {
+        "tree_size": "medium",
+        "applies": "all lot area bands (see policy table)"
+      },
+      "quote": "13.1. ... 1 medium tree for every 60.0 square metres of landscape area.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s13.1",
+      "table_reference": "HOA s13.1 trees table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.large_tree_m2_landscape_per_tree_max.hoa",
+      "canonical_rule_key": "joondalup.large_tree_m2_landscape_per_tree_max.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 100.0
+      },
+      "unit": "m2 landscape area per tree",
+      "condition_json": {
+        "tree_size": "large",
+        "applies": "all lot area bands (see policy table)"
+      },
+      "quote": "13.1. ... 1 large tree for every 100.0 square metres of landscape area.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s13.1",
+      "table_reference": "HOA s13.1 trees table",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.street_tree_frontage_m_per_tree_max.hoa",
+      "canonical_rule_key": "joondalup.street_tree_frontage_m_per_tree_max.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "lte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "m frontage per tree",
+      "condition_json": {
+        "location": "verge adjacent to lot"
+      },
+      "quote": "13.2. The verge(s) adjacent to the lot(s) shall be landscaped to the specifications and satisfaction of the City and shall include one street tree for every 10.0 metres of lot frontage width.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s13.2",
+      "table_reference": "HOA s13.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.tree_retention_credit_m2.medium",
+      "canonical_rule_key": "joondalup.tree_retention_credit_m2.medium",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "eq",
+      "value_json": {
+        "value": 75
+      },
+      "unit": "m2 landscape area",
+      "condition_json": {
+        "tree_size": "mature medium"
+      },
+      "quote": "14.1. The landscape area specified in Clause 14 can be reduced where existing medium and large trees (as per Table 3.3b of SPP7.3 \u2014 Volume 2) are retained onsite, equivalent to the following: a. Retention of a mature medium tree is equivalent to 75 square metres landscape area.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s14.1",
+      "table_reference": "HOA s14.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "exact_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.tree_retention_credit_m2.large",
+      "canonical_rule_key": "joondalup.tree_retention_credit_m2.large",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "eq",
+      "value_json": {
+        "value": 125
+      },
+      "unit": "m2 landscape area",
+      "condition_json": {
+        "tree_size": "mature large"
+      },
+      "quote": "14.1. ... b. Retention of a mature large tree is equivalent to 125 square metres landscape area.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s14.1",
+      "table_reference": "HOA s14.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "exact_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.ceiling_height_min_m.habitable",
+      "canonical_rule_key": "joondalup.ceiling_height_min_m.habitable",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.7
+      },
+      "unit": "m",
+      "condition_json": {
+        "room": "habitable"
+      },
+      "quote": "16.2. Dwellings shall have a minimum ceiling height of 2.7 metres in habitable rooms and 2.4 metres in non-habitable spaces.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s16.2",
+      "table_reference": "HOA s16.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.ceiling_height_min_m.non_habitable",
+      "canonical_rule_key": "joondalup.ceiling_height_min_m.non_habitable",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.4
+      },
+      "unit": "m",
+      "condition_json": {
+        "room": "non-habitable"
+      },
+      "quote": "16.2. Dwellings shall have a minimum ceiling height of 2.7 metres in habitable rooms and 2.4 metres in non-habitable spaces.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s16.2",
+      "table_reference": "HOA s16.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.window_glass_area_min_pct_floor_area.hoa",
+      "canonical_rule_key": "joondalup.window_glass_area_min_pct_floor_area.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "floor area of room"
+      },
+      "quote": "18.2. Habitable rooms shall have a window in an external wall which: a. Has a minimum glass area not less than 15% of the floor area of the room; b. Comprise a minimum of 50% clear glazing; and, c. Is openable for 50% the size of the window.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s18.2",
+      "table_reference": "HOA s18.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.window_clear_glazing_min_pct.hoa",
+      "canonical_rule_key": "joondalup.window_clear_glazing_min_pct.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "18.2. Habitable rooms shall have a window in an external wall which: ... b. Comprise a minimum of 50% clear glazing.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s18.2",
+      "table_reference": "HOA s18.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "joondalup.window_openable_min_pct.hoa",
+      "canonical_rule_key": "joondalup.window_openable_min_pct.hoa",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Joondalup",
+      "operator": "gte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "window size"
+      },
+      "quote": "18.2. Habitable rooms shall have a window in an external wall which: ... c. Is openable for 50% the size of the window.",
+      "instrument_section": "Development in Housing Opportunity Areas LPP s18.2",
+      "table_reference": "HOA s18.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "1bc7ba4a-d761-4d23-bec0-6b60a21dcc4f",
+      "clause_id": "bdb706f8-ffa8-4351-8c54-5cce7c10a17f",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    }
+  ]
+}

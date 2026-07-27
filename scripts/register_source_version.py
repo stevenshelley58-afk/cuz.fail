@@ -24,7 +24,7 @@ import json
 import os
 import shutil
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from uuid import uuid4
 
@@ -84,12 +84,12 @@ def main() -> int:
     sha = sha256_file(pdf_path)
     storage_root = Path(os.getenv("DRAFTCHECK_STORAGE_ROOT", "/srv/draftcheck/storage"))
     effective_from = (
-        datetime.fromisoformat(args.effective_from).replace(tzinfo=timezone.utc)
+        datetime.fromisoformat(args.effective_from).replace(tzinfo=UTC)
         if args.effective_from else None
     )
 
     if args.dry_run:
-        print(f"[DRY RUN] Would register source version:")
+        print("[DRY RUN] Would register source version:")
         print(f"  title:          {args.title}")
         print(f"  authority:      {args.authority}")
         print(f"  source_type:    {args.source_type}")
@@ -161,14 +161,15 @@ def main() -> int:
         )
         print(f"Created source version: {version_id}")
 
-        # 5. Create ContentAddressedArtifact
+        # 5. Create artifact row (live schema: public.artifacts)
         artifact_id = str(uuid4())
         cur.execute(
-            """INSERT INTO content_addressed_artifacts
-               (id, sha256, kind, storage_path, byte_size, metadata_json, created_at, updated_at)
-               VALUES (%s, %s, 'raw_pdf', %s, %s, '{}', now(), now())
-               ON CONFLICT (sha256, kind) DO NOTHING""",
-            (artifact_id, sha, str(stored_path), pdf_path.stat().st_size),
+            """INSERT INTO artifacts
+               (id, subject_type, subject_id, kind, storage_path, sha256,
+                size_bytes, metadata_json, created_at)
+               VALUES (%s, 'source_version', %s, 'raw_pdf', %s, %s, %s, '{}', now())""",
+            (artifact_id, version_id, str(stored_path), sha,
+             pdf_path.stat().st_size),
         )
 
         conn.commit()

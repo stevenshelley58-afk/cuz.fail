@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase5_op22_subdivision_extraction.json",
+  "source_version_id": "e10d9b6d-ce7b-498f-be4d-86ffdbb9b664",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 28,
+  "failed_count": 0,
+  "skipped_needs_review": 3,
+  "failures": [],
+  "timestamp": "20260726_124654"
+}

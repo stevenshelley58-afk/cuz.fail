@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase6_armadale_pln310_rcodes_variations_extraction.json",
+  "source_version_id": "ef718abf-5c9e-4ed7-b2f6-de944117dcdf",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 30,
+  "failed_count": 0,
+  "skipped_needs_review": 0,
+  "failures": [],
+  "timestamp": "20260726_131740"
+}

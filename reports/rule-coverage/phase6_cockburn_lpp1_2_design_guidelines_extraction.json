@@ -1,0 +1,41 @@
+{
+  "source_version_id": "60054dab-bc07-455e-a17d-5cb154b134f1",
+  "source_pdf": "/app/data/raw-sources/councils/cockburn/lpp1_2_residential_design_guidelines.docx",
+  "instrument_section": "Policy Statement",
+  "tables_requested": [
+    "Attachment 1 (raster images - not extracted)"
+  ],
+  "candidates_extracted": 1,
+  "warnings": [
+    "Residential Design Guidelines (Attachment 1, incl. garage widths cl 10.4, fencing cl 10.5, split-coded lots cl 9.1/9.2) are embedded raster images; not extracted without calibration - flagged for operator review."
+  ],
+  "candidates": [
+    {
+      "rule_key": "cockburn.design_guidelines_applicability_single_house",
+      "canonical_rule_key": "cockburn.design_guidelines_applicability_single_house",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Cockburn",
+      "operator": "eq",
+      "value_json": {
+        "value": "frontage<10.5m or lot<260m2",
+        "raw_text": "applicability threshold: frontage < 10.5m; lot area < 260m2"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "This policy applies to single houses on lots with a frontage less than 10.5m wide; single houses on lots less than 260m\u00b2.",
+      "instrument_section": "Policy Statement (4)",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "60054dab-bc07-455e-a17d-5cb154b134f1",
+      "clause_id": "6b0d8be4-4e8a-4f6c-9df4-d5c99d2d61e6",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "policy_applicability",
+      "evaluable": "needs_human_review"
+    }
+  ]
+}

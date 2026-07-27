@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase6_vincent_lpp711_built_form_extraction.json",
+  "source_version_id": "f3da5cec-aac6-4b5e-ab62-a0eee334bd48",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 177,
+  "failed_count": 0,
+  "skipped_needs_review": 0,
+  "failures": [],
+  "timestamp": "20260726_123043"
+}

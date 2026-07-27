@@ -1,0 +1,288 @@
+{
+  "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+  "instrument_section": "Part 5 / s.129",
+  "candidates_extracted": 10,
+  "warnings": [],
+  "candidates": [
+    {
+      "rule_key": "heritage_registered_place_check",
+      "canonical_rule_key": "heritage_registered_place_check",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: is the subject land (or adjacent land) a registered place in the State Register of Heritage Places"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "registered place means a place in relation to which there is an entry in the register",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "f22d1df7-0e9d-45fc-b056-bd0da6701d1e",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_proposal_scope",
+      "canonical_rule_key": "heritage_proposal_scope",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "scope: 'proposal' includes an application for development approval affecting a registered place"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "proposal means - (a) an application for development approval; or (b) a proposal, project, plan, programme, policy, public",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "694f68c7-113a-4192-bd00-e6ef79ff165a",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_referral_trigger",
+      "canonical_rule_key": "heritage_referral_trigger",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: decision-maker considering a proposal affecting a registered place must refer it to the Heritage Council for advice"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "73. Referral of certain proposals to Council (1) A decision-maker considering a proposal to which this Subdivision applies must refer the proposal to the Council for its advice.",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "d49d325a-a4c2-4633-9257-98891c0d28a7",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_referral_timing",
+      "canonical_rule_key": "heritage_referral_timing",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "referral must occur as soon as practicable after the decision-maker becomes aware of the proposal"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "(2) The decision-maker must refer the proposal under subsection (1) as soon as practicable after it becomes aware of the proposal.",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "07ca535d-f7f3-4b68-8907-8c0c73383f15",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_council_advice",
+      "canonical_rule_key": "heritage_council_advice",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "Heritage Council must provide advice on a referred proposal to the decision-maker and (for a development application) the applicant"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "74. Advice on referred proposal (1) The Council must provide advice on a referred proposal to the decision-maker and, if the proposal is an application for development approval, to the applicant.",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "c05bdb01-33db-4366-8f4e-cd74ecc467c6",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_agreement_condition",
+      "canonical_rule_key": "heritage_agreement_condition",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: Council may advise approval be conditional on the owner entering into a heritage agreement"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "the Council may advise that a decision to approve a proposal relating to the land must be conditional upon the owner of that land entering into a heritage agreement",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "cdfd24fe-b7bd-47f2-818a-9d02c0e9f86f",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_works_permit_trigger",
+      "canonical_rule_key": "heritage_works_permit_trigger",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: works affecting a registered place with no other decision-maker require a works permit under s.79"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "79. Permit for works affecting registered place (1) In this section - works means anything - (a) the doing of which would contravene section 129 but not section 130",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "53f133b5-956e-4fcb-a548-c84bea853a9c",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_damage_offence",
+      "canonical_rule_key": "heritage_damage_offence",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: works must not alter the fabric / demolish / damage a registered place except as authorised (s.129 offence)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "129. Damaging registered place (1) Subject to subsection (4), a person must not in, or in relation to, a registered place - (a) alter the fabric of the place or any part of, or thing in,",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "0aff892a-c933-4a84-b547-0f305e039360",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_church_interior_exemption",
+      "canonical_rule_key": "heritage_church_interior_exemption",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "exemption: referral not required for interior alterations to a place of worship where s.73(3) conditions are met (60 days notice, liturgical declaration)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Subsection (1) does not apply to a proposal to alter the interior fabric of a church or other building used primarily for services of worship if",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "904382a5-dc4c-49e9-9dd3-f88cb716e328",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "heritage_repair_order_risk",
+      "canonical_rule_key": "heritage_repair_order_risk",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: Minister may make a repair order for a registered place suffering prescribed neglect"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "the Minister may make an order under this section in relation to a registered place (a repair order) requiring the owner or occupier of the place to undertake",
+      "instrument_section": "Part 5 / s.129",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "3af5b793-b7ed-4acc-8fc5-9f0e6a24a1ec",
+      "clause_id": "22ee35fe-8b56-495a-b1c6-114819e1e291",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    }
+  ]
+}

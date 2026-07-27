@@ -1,0 +1,665 @@
+{
+  "source_report": "reports/phase2_rcodes_partc_extraction.json",
+  "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 0,
+  "failed_count": 109,
+  "skipped_needs_review": 3,
+  "failures": [
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_storeys_max_r100_sl2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_storeys_max_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_storeys_max_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_storeys_max_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_storeys_max_r50",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_storeys_max_r60",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "partc_storeys_max_r80",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    }
+  ],
+  "timestamp": "20260726_115346"
+}

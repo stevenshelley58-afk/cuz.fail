@@ -30,7 +30,15 @@ from sqlalchemy.orm import Session
 from draftcheck.api.auth import get_current_session
 from draftcheck.api.deps import get_db_session
 from draftcheck.checks.engine import ComplianceEngine
-from draftcheck.db.models import AuditEvent, CheckResult, CheckRun
+from draftcheck.db.models import (
+    AuditEvent,
+    CheckResult,
+    CheckRun,
+    Clause,
+    Rule,
+    Source,
+    SourceVersion,
+)
 from draftcheck.domain.identity import ActiveSession, IdentityRole, normalize_role
 
 router = APIRouter(prefix="/compliance", tags=["compliance"])
@@ -46,13 +54,19 @@ DbSession = Annotated[Session, Depends(get_db_session)]
 # ---------------------------------------------------------------------------
 
 
+class RuleSourceResponse(BaseModel):
+    title: str
+    url: str | None
+    authority: str | None
+    section: str | None
+    version_label: str | None
+
+
 class CheckResultItemResponse(BaseModel):
     result_id: str
     check_key: str
     display_name: str
-    status: str = Field(
-        description="likely_pass | likely_fail | needs_more_info | unsupported"
-    )
+    status: str = Field(description="likely_pass | likely_fail | needs_more_info | unsupported")
     threshold_value: float | None
     threshold_unit: str | None
     measured_value: float | None
@@ -60,6 +74,11 @@ class CheckResultItemResponse(BaseModel):
     rule_quote: str | None
     citation: str | None
     note: str | None
+    category: str | None
+    check_type: str | None
+    what_it_means: str | None
+    modality: str | None
+    source: RuleSourceResponse | None
     missing_info_reason: str | None
     drawing_evidence: dict[str, Any]
     review_reason: str | None
@@ -105,7 +124,9 @@ class ComplianceMatrixResponse(BaseModel):
     results: list[CheckResultItemResponse]
 
 
-_DISCLAIMER = "Advisory — cite-checked against approved sources, not a final compliance determination."
+_DISCLAIMER = (
+    "Advisory — cite-checked against approved sources, not a final compliance determination."
+)
 
 
 # ---------------------------------------------------------------------------
@@ -142,10 +163,11 @@ def _require_review_actor(active_session: ActiveSession) -> None:
         )
 
 
-def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
+def _check_result_response(row: CheckResult, db: Session) -> CheckResultItemResponse:
     from draftcheck.checks.registry import TIER1_CHECKS, TIER2_CHECKS
 
-    _display_map = {cd.key: cd.name for cd in TIER1_CHECKS + TIER2_CHECKS}
+    definitions = {cd.key: cd for cd in TIER1_CHECKS + TIER2_CHECKS}
+    definition = definitions.get(row.check_key)
 
     req = row.requirement_json or {}
     prop = row.proposed_json or {}
@@ -159,10 +181,37 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
     _ri = req.get("rule_id")
     _note = trace.get("note")
     _missing_info_reason = trace.get("missing_info_reason")
+
+    rule: Rule | None = None
+    source_response: RuleSourceResponse | None = None
+    if _ri is not None:
+        try:
+            rule = db.get(Rule, UUID(str(_ri)))
+        except ValueError:
+            rule = None
+
+    if rule is not None:
+        version = db.get(SourceVersion, rule.source_version_id)
+        source = db.get(Source, version.source_id) if version is not None else None
+        clause = db.get(Clause, rule.clause_id)
+        if source is not None:
+            source_response = RuleSourceResponse(
+                title=source.title,
+                url=source.canonical_url,
+                authority=source.authority,
+                section=(clause.section_ref or clause.clause_path if clause is not None else None),
+                version_label=version.version_label if version is not None else None,
+            )
+
+    logic = dict(rule.rule_logic_json or {}) if rule is not None else {}
+    what_it_means = logic.get("what_it_means")
+    if not isinstance(what_it_means, str) or not what_it_means.strip():
+        what_it_means = definition.description if definition is not None else None
+
     return CheckResultItemResponse(
         result_id=str(row.id),
         check_key=row.check_key,
-        display_name=_display_map.get(row.check_key, row.check_key),
+        display_name=definition.name if definition is not None else row.check_key,
         status=row.status,
         threshold_value=float(str(_tv)) if _tv is not None else None,
         threshold_unit=str(_tu) if _tu is not None else None,
@@ -171,6 +220,11 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
         rule_quote=row.why_this_applies,
         citation=str(citation) if citation is not None else None,
         note=str(_note) if _note is not None else None,
+        category=str(definition.category) if definition is not None else None,
+        check_type=rule.check_type if rule is not None else None,
+        what_it_means=what_it_means,
+        modality=rule.pathway if rule is not None else None,
+        source=source_response,
         missing_info_reason=str(_missing_info_reason) if _missing_info_reason is not None else None,
         drawing_evidence=dict(row.drawing_evidence_json or {}),
         review_reason=row.review_reason,
@@ -180,7 +234,7 @@ def _check_result_response(row: CheckResult) -> CheckResultItemResponse:
     )
 
 
-def _run_response(run: CheckRun, results: list[CheckResult]) -> ComplianceRunResponse:
+def _run_response(run: CheckRun, results: list[CheckResult], db: Session) -> ComplianceRunResponse:
     return ComplianceRunResponse(
         run_id=str(run.id),
         project_id=str(run.project_id),
@@ -189,7 +243,7 @@ def _run_response(run: CheckRun, results: list[CheckResult]) -> ComplianceRunRes
         as_of_date=run.as_of_date,
         engine_version=run.engine_version,
         advisory_disclaimer=_DISCLAIMER,
-        results=[_check_result_response(r) for r in results],
+        results=[_check_result_response(r, db) for r in results],
     )
 
 
@@ -244,7 +298,7 @@ def run_compliance(
         .order_by(CheckResult.check_key)
         .all()
     )
-    return _run_response(run, results)
+    return _run_response(run, results, db)
 
 
 @router.get(
@@ -282,7 +336,7 @@ def get_compliance_matrix(
         .all()
     )
 
-    matrix_data = _run_response(run, results)
+    matrix_data = _run_response(run, results, db)
     return ComplianceMatrixResponse(**matrix_data.model_dump())
 
 
@@ -320,7 +374,9 @@ def record_check_result_override(
         "status": result.status,
         "review_reason": result.review_reason,
         "human_override": dict(result.human_override_json or {}),
-        "reviewed_by_user_id": str(result.reviewed_by_user_id) if result.reviewed_by_user_id else None,
+        "reviewed_by_user_id": str(result.reviewed_by_user_id)
+        if result.reviewed_by_user_id
+        else None,
         "reviewed_at": result.reviewed_at.isoformat() if result.reviewed_at else None,
     }
     now = datetime.now(UTC)
@@ -362,7 +418,7 @@ def record_check_result_override(
         )
     )
     db.flush()
-    return _check_result_response(result)
+    return _check_result_response(result, db)
 
 
 @router.get(
@@ -391,4 +447,4 @@ def get_compliance_run(
         .order_by(CheckResult.check_key)
         .all()
     )
-    return _run_response(run, results)
+    return _run_response(run, results, db)

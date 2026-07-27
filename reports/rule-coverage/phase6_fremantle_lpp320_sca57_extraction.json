@@ -1,0 +1,861 @@
+{
+  "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+  "source_pdf": "/app/data/raw-sources/councils/fremantle/lpp3_20_sca57_small_infill.pdf",
+  "instrument_section": "LPP3.20 SCA 5.7 Small Infill Development",
+  "tables_requested": [],
+  "candidates_extracted": 29,
+  "warnings": [
+    "Dwelling count and floor area limits are LPS4 cl 5.7 mandatory with no variation.",
+    "Visual appearance (s3.1) relies on Design Advisory Committee \u2014 qualitative, not extracted.",
+    "s7.2 street interface D-t-C criteria qualitative \u2014 not extracted."
+  ],
+  "candidates": [
+    {
+      "rule_key": "fremantle.sca57_site_area_min_m2",
+      "canonical_rule_key": "fremantle.sca57_site_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 600
+      },
+      "unit": "m2",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7"
+      },
+      "quote": "As per the requirements of clause 5.7 of LPS4, development of housing under this policy can be considered on properties in areas identified on the scheme map as SCA 5.7, and where the site is 600m2 or over.",
+      "instrument_section": "s1 Location",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "0aa83a5f-29a8-4e4e-b0b5-4947b793d437",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_dwelling_floor_area_max_m2",
+      "canonical_rule_key": "fremantle.sca57_dwelling_floor_area_max_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 120
+      },
+      "unit": "m2",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "source": "LPS4 cl 5.7",
+        "variation": "none permitted"
+      },
+      "quote": "As per the requirements of the clause 5.7 of LPS4 the following applies to development under this policy: Any new dwelling shall have a maximum floor area of 120m2.",
+      "instrument_section": "s2 Housing choice",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "0aa83a5f-29a8-4e4e-b0b5-4947b793d437",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_dwellings_max_count.lot_750_or_less",
+      "canonical_rule_key": "fremantle.sca57_dwellings_max_count.lot_750_or_less",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "dwellings",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "lot_area_max_m2": 750,
+        "includes_existing": true,
+        "variation": "none permitted"
+      },
+      "quote": "A maximum of three dwellings, including existing dwellings, on lots 750m2 or less. On lots over 750m2 an additional dwelling for every 150m2 in excess of 750m2.",
+      "instrument_section": "s2 Housing choice",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "0aa83a5f-29a8-4e4e-b0b5-4947b793d437",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_additional_dwelling_per_m2_over_750",
+      "canonical_rule_key": "fremantle.sca57_additional_dwelling_per_m2_over_750",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "eq",
+      "value_json": {
+        "value": 150
+      },
+      "unit": "m2 per additional dwelling",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "lot_area_gt_m2": 750,
+        "variation": "none permitted"
+      },
+      "quote": "On lots over 750m2 an additional dwelling for every 150m2 in excess of 750m2.",
+      "instrument_section": "s2 Housing choice",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "0aa83a5f-29a8-4e4e-b0b5-4947b793d437",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "exact_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_rear_setback_min_m",
+      "canonical_rule_key": "fremantle.sca57_rear_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 5.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7"
+      },
+      "quote": "DEEMED-TO-COMPLY All buildings shall be set back a minimum 5.0m from the rear boundary of the development site.",
+      "instrument_section": "s3.2 Rear setback",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "de372168-e012-48aa-ae38-83007f46d4ef",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_outdoor_living_area_min_m2",
+      "canonical_rule_key": "fremantle.sca57_outdoor_living_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 30
+      },
+      "unit": "m2",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "per": "dwelling",
+        "access": "directly accessible from a habitable room"
+      },
+      "quote": "A minimum 30m2 of outdoor living area shall be provided per dwelling, with minimum length and width dimension of 4.0m, directly accessible from a habitable room. 20m2 of this area is to be without a permanent roof cover.",
+      "instrument_section": "s3.3 Private outdoor living",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "de372168-e012-48aa-ae38-83007f46d4ef",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_outdoor_living_min_dimension_m",
+      "canonical_rule_key": "fremantle.sca57_outdoor_living_min_dimension_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "applies_to": "length and width"
+      },
+      "quote": "A minimum 30m2 of outdoor living area shall be provided per dwelling, with minimum length and width dimension of 4.0m, directly accessible from a habitable room.",
+      "instrument_section": "s3.3 Private outdoor living",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "de372168-e012-48aa-ae38-83007f46d4ef",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_outdoor_living_unroofed_min_m2",
+      "canonical_rule_key": "fremantle.sca57_outdoor_living_unroofed_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "m2",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7"
+      },
+      "quote": "20m2 of this area is to be without a permanent roof cover.",
+      "instrument_section": "s3.3 Private outdoor living",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "de372168-e012-48aa-ae38-83007f46d4ef",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_upper_floor_balcony_min_m2",
+      "canonical_rule_key": "fremantle.sca57_upper_floor_balcony_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "m2",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "storey": "upper floor dwelling only"
+      },
+      "quote": "The outdoor living area (balcony) may be reduced to a minimum 15m2 where the outdoor living area is to an upper floor dwelling only.",
+      "instrument_section": "s3.3 Private outdoor living",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "de372168-e012-48aa-ae38-83007f46d4ef",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_nathers_stars_above_ncc_min",
+      "canonical_rule_key": "fremantle.sca57_nathers_stars_above_ncc_min",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "stars above NCC requirement",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "certification": "accredited energy assessor"
+      },
+      "quote": "1. The development achieves a star rating of one star in excess of the current energy efficiency requirement of the National Construction Code. The star rating shall be certified by an accredited energy assessor.",
+      "instrument_section": "s4.1 D-t-C 1",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "a0dc07d5-8010-459f-947f-a0efa417bece",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_pv_system_min_kw_per_dwelling",
+      "canonical_rule_key": "fremantle.sca57_pv_system_min_kw_per_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "kW",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "option_of": "at least two of four sustainability options",
+        "per": "dwelling"
+      },
+      "quote": "The development includes at least two of the following: The provision of a minimum 1.5kw photovoltaic solar panel system per dwelling.",
+      "instrument_section": "s4.1 D-t-C 2",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "a0dc07d5-8010-459f-947f-a0efa417bece",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_rainwater_storage_min_l_per_dwelling",
+      "canonical_rule_key": "fremantle.sca57_rainwater_storage_min_l_per_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 1000
+      },
+      "unit": "L",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "option_of": "at least two of four sustainability options",
+        "per": "dwelling"
+      },
+      "quote": "The provision of holding at least 1000 litres of rainwater per dwelling. The rainwater is to be connected to water use in a dwelling(s), e.g. toilet or washing machine, and/or used for irrigation on private or communal outdoor areas.",
+      "instrument_section": "s4.1 D-t-C 2",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "a0dc07d5-8010-459f-947f-a0efa417bece",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_open_space_min_pct",
+      "canonical_rule_key": "fremantle.sca57_open_space_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 70
+      },
+      "unit": "%",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "of": "entire development site"
+      },
+      "quote": "DEEMED-TO-COMPLY A minimum 70% of the entire development site shall be open space.",
+      "instrument_section": "s5.1 Open space",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "a0dc07d5-8010-459f-947f-a0efa417bece",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_open_space_reduced_min_pct",
+      "canonical_rule_key": "fremantle.sca57_open_space_reduced_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 60
+      },
+      "unit": "%",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "pathway": "design principles (discretionary reduction)"
+      },
+      "quote": "Council may consider a reduction in open space to a minimum of 60% open space where - an existing dwelling is retained or adapted with no significant enlargement ... or a building assessed as having 'some' or more cultural heritage significance is retained; or a building with a high degree of embedded energy is retained; or a minimum of 50% of the available open space includes areas that are developed as water permeable uncovered: outdoor living areas, communal areas and/or deep planting zones.",
+      "instrument_section": "s5.1 Design principles",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "a0dc07d5-8010-459f-947f-a0efa417bece",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "fremantle.sca57_trees_min_count",
+      "canonical_rule_key": "fremantle.sca57_trees_min_count",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "trees",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7"
+      },
+      "quote": "DEEMED-TO-COMPLY Retain or plant at least one tree on site that meets the following requirements - Healthy specimen with ongoing viability as identified by a suitably qualified arborist. At least 3m in height and/or have a trunk with a diameter of at least 100mm, one metre from the ground and/or has a canopy of 3.0m or more or the potential to reach these measurements.",
+      "instrument_section": "s6.1 Canopy cover",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "e9eb513f-9c72-4348-82a3-4f367878a835",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_tree_height_min_m",
+      "canonical_rule_key": "fremantle.sca57_tree_height_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "alternatives": "trunk diameter >=100mm at 1m from ground, or canopy >=3.0m, or potential to reach these"
+      },
+      "quote": "At least 3m in height and/or have a trunk with a diameter of at least 100mm, one metre from the ground and/or has a canopy of 3.0m or more or the potential to reach these measurements.",
+      "instrument_section": "s6.1 Canopy cover",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "e9eb513f-9c72-4348-82a3-4f367878a835",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_deep_planting_zone_min_pct",
+      "canonical_rule_key": "fremantle.sca57_deep_planting_zone_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 25
+      },
+      "unit": "%",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "of": "development site area",
+        "source": "LPS4 mandatory"
+      },
+      "quote": "A minimum 25% of the development site area shall be provided as deep planting zone.",
+      "instrument_section": "s6.2 Deep planting zone",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "e9eb513f-9c72-4348-82a3-4f367878a835",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_deep_planting_zone_rear_min_pct",
+      "canonical_rule_key": "fremantle.sca57_deep_planting_zone_rear_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "of": "deep planting zone"
+      },
+      "quote": "50% of the deep planting zone must be provided on the rear portion of the site.",
+      "instrument_section": "s6.2 Deep planting zone",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "e9eb513f-9c72-4348-82a3-4f367878a835",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_deep_planting_zone_min_dimension_m",
+      "canonical_rule_key": "fremantle.sca57_deep_planting_zone_min_dimension_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "applies_to": "length and width"
+      },
+      "quote": "The deep planting zone shall: Be landscaped, water permeable, unpaved and uncovered; Be a minimum length and width dimension of 3.0 metres; Not be used for vehicle parking or access; Contain no buildings, patios, pergolas, swimming pools or external fixtures.",
+      "instrument_section": "s6.2 Deep planting zone",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "e9eb513f-9c72-4348-82a3-4f367878a835",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_communal_space_min_dimension_m",
+      "canonical_rule_key": "fremantle.sca57_communal_space_min_dimension_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "trigger": "three or more dwellings proposed"
+      },
+      "quote": "Where three or more dwellings are proposed, usable and effective communal space shall be provided that is accessible to all residents of a development site, with a minimum dimension of 3.0m.",
+      "instrument_section": "s7.1 Communal space",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "e9eb513f-9c72-4348-82a3-4f367878a835",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_driveway_width_min_m",
+      "canonical_rule_key": "fremantle.sca57_driveway_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.75
+      },
+      "unit": "m",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "amends": "R-Codes cl 5.3.5",
+        "surface": "water permeable construction required"
+      },
+      "quote": "The minimum width of a driveway shall be 2.75m.",
+      "instrument_section": "s8.1 Vehicle access",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_driveway_width_max_m",
+      "canonical_rule_key": "fremantle.sca57_driveway_width_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "amends": "R-Codes cl 5.3.5"
+      },
+      "quote": "The maximum width of a driveway shall be 3.0m.",
+      "instrument_section": "s8.1 Vehicle access",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_crossover_aggregate_width_max_m",
+      "canonical_rule_key": "fremantle.sca57_crossover_aggregate_width_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "per_crossover_max_m": 3.0
+      },
+      "quote": "If the existing driveway/crossover doesn't allow access to the rear of the site, then an additional crossover is permitted subject to a 3.0m maximum width and in aggregate width of crossovers on a development site to not be over 6.0m.",
+      "instrument_section": "s8.1 Vehicle access",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_driveway_water_permeable",
+      "canonical_rule_key": "fremantle.sca57_driveway_water_permeable",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "eq",
+      "value_json": {
+        "value": true
+      },
+      "unit": null,
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7"
+      },
+      "quote": "Driveways shall be water permeable in construction; no hardstand or impermeable paved driveways will be approved on site.",
+      "instrument_section": "s8.1 Vehicle access",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "boolean",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "fremantle.sca57_parking_max_bays_per_new_dwelling",
+      "canonical_rule_key": "fremantle.sca57_parking_max_bays_per_new_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "bays",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "dwelling": "new",
+        "source": "LPS4 mandatory"
+      },
+      "quote": "A maximum of 1 vehicle parking bay shall be provided for each new dwelling and a maximum of two car bays for any existing dwelling on the development site.",
+      "instrument_section": "s8.2 Vehicle parking",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_parking_max_bays_per_existing_dwelling",
+      "canonical_rule_key": "fremantle.sca57_parking_max_bays_per_existing_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "bays",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "dwelling": "existing",
+        "source": "LPS4 mandatory"
+      },
+      "quote": "A maximum of 1 vehicle parking bay shall be provided for each new dwelling and a maximum of two car bays for any existing dwelling on the development site.",
+      "instrument_section": "s8.2 Vehicle parking",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_parking_waiver_dwelling_floor_area_max_m2",
+      "canonical_rule_key": "fremantle.sca57_parking_waiver_dwelling_floor_area_max_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 60
+      },
+      "unit": "m2",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "waives": "1 bay requirement for that dwelling"
+      },
+      "quote": "The vehicle parking bay requirement above, can be waived where one small dwelling within a development achieves a floor area of 60m2 or less.",
+      "instrument_section": "s8.2 Vehicle parking",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_visitor_parking_max_bays.under_5_dwellings",
+      "canonical_rule_key": "fremantle.sca57_visitor_parking_max_bays.under_5_dwellings",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 0
+      },
+      "unit": "bays",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "development_max_dwellings": 4
+      },
+      "quote": "Visitor parking shall not be provided for development less than 5 dwellings.",
+      "instrument_section": "s8.2 Vehicle parking",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fremantle.sca57_front_parking_max_bays",
+      "canonical_rule_key": "fremantle.sca57_front_parking_max_bays",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Fremantle",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "bays",
+      "condition_json": {
+        "area": "LPS4 Special Control Area 5.7",
+        "location": "front of the development"
+      },
+      "quote": "A maximum of two car bays shall be provided to the front of the development.",
+      "instrument_section": "s8.2 Vehicle parking",
+      "table_reference": null,
+      "effective_from": "2019-02-27",
+      "effective_to": null,
+      "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+      "clause_id": "f886a560-1c9d-49b5-b49c-4290f1a14c6e",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_count",
+      "evaluable": "yes"
+    }
+  ]
+}

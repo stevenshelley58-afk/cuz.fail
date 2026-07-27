@@ -41,6 +41,11 @@ beforeEach(() => {
           rule_id: "rule-site-cover",
           rule_quote: "Fixture site-cover rule atom.",
           citation: "site_cover | source_version:fixture-source-version",
+          source: {
+            title: "Residential Design Codes Volume 1",
+            url: "https://example.test/r-codes-volume-1.pdf",
+            section: "Clause 5.1.4",
+          },
           note: null,
           missing_info_reason: null,
           drawing_evidence: {
@@ -76,13 +81,16 @@ test("compliance panel renders cited advisory drawing-backed results after a run
   });
 
   await userEvent.click(screen.getByRole("button", { name: /site cover/i }));
-  const resultRegion = screen.getByText("Fixture site-cover rule atom.").closest("div");
+  const resultRegion = screen.getByRole("button", { name: /site cover/i }).parentElement;
   expect(resultRegion).toBeTruthy();
   const result = within(resultRegion as HTMLElement);
 
   expect(result.getByText("48.44")).toBeTruthy();
   expect(result.getByText("50")).toBeTruthy();
-  expect(result.getByText(/site_cover \| source_version:fixture-source-version/i)).toBeTruthy();
+  expect(result.queryByText(/source_version:fixture-source-version/i)).toBeNull();
+  expect(
+    result.getByRole("link", { name: /open source document: residential design codes volume 1/i }).getAttribute("href"),
+  ).toBe("https://example.test/r-codes-volume-1.pdf");
   expect(result.getByText("Drawing evidence")).toBeTruthy();
   expect(result.getByText(/proposed_site_cover_pct/i)).toBeTruthy();
   expect(result.getByText(/document_extraction_promoted/i)).toBeTruthy();
@@ -279,9 +287,15 @@ test("compliance panel renders an address-only matrix as a positive rules browse
           rule_id: "rule-front-setback",
           rule_quote: "Buildings set back from the primary street as set out in Table 1.",
           citation: "R-Codes Vol. 1 | clause 5.1.2",
+          category: "setback",
           check_type: "numeric_threshold",
           what_it_means: "The design needs a primary street setback measurement before this rule can be assessed.",
           modality: "mandatory",
+          source: {
+            title: "Residential Design Codes Volume 1",
+            url: "https://example.test/r-codes-volume-1.pdf",
+            section: "Clause 5.1.2",
+          },
           note: null,
           missing_info_reason: "missing_drawing_measurement",
           drawing_evidence: {},
@@ -301,9 +315,15 @@ test("compliance panel renders an address-only matrix as a positive rules browse
           rule_id: "rule-site-cover",
           rule_quote: "Site coverage is not to exceed the table value.",
           citation: "R-Codes Vol. 1 | clause 5.1.4",
+          category: "site_cover",
           check_type: "numeric_threshold",
           what_it_means: "Site cover rules apply to the lot once the proposed building footprint is known.",
           modality: "mandatory",
+          source: {
+            title: "Residential Design Codes Volume 1",
+            url: "https://example.test/r-codes-volume-1.pdf",
+            section: "Clause 5.1.4",
+          },
           note: null,
           missing_info_reason: null,
           drawing_evidence: {},
@@ -316,15 +336,33 @@ test("compliance panel renders an address-only matrix as a positive rules browse
     },
   });
 
-  render(<CompliancePanel projectId="project-golden" onUploadDrawing={onUploadDrawing} councilName="City of Cockburn" />);
+  render(
+    <CompliancePanel
+      projectId="project-golden"
+      onUploadDrawing={onUploadDrawing}
+      councilName="City of Cockburn"
+      propertyImage={{
+        url: "https://imagery.example.test/property.jpg",
+        alt: "Aerial view of the test property",
+        provider: "Nearmap",
+        captured_at: "2026-07-12",
+        attribution: "© Nearmap",
+      }}
+    />,
+  );
 
   expect(await screen.findByText(/we found 2 planning rules that apply to this property/i)).toBeTruthy();
   expect(screen.getByText(/planning context: city of cockburn/i)).toBeTruthy();
+  expect(screen.getByRole("img", { name: /aerial view of the test property/i }).getAttribute("src")).toBe(
+    "https://imagery.example.test/property.jpg",
+  );
+  expect(screen.getByText(/nearmap · captured 2026-07-12/i)).toBeTruthy();
 
   // Rule list starts collapsed behind a clear expand control
-  expect(screen.queryByText("Numeric Threshold")).toBeNull();
-  await userEvent.click(screen.getByRole("button", { name: /show all 2 rules/i }));
-  expect(screen.getByText("Numeric Threshold")).toBeTruthy();
+  expect(screen.queryByText("Setbacks & boundaries")).toBeTruthy();
+  await userEvent.click(screen.getByRole("button", { name: /explore all 2 rules/i }));
+  expect(screen.getAllByText("Setbacks & boundaries").length).toBeGreaterThan(0);
+  expect(screen.getAllByText("Site design & landscaping").length).toBeGreaterThan(0);
   expect(screen.queryByText(/likely pass/i)).toBeNull();
   expect(screen.queryByText(/more info needed/i)).toBeNull();
   expect(screen.queryByText(/need a measurement/i)).toBeNull();
@@ -333,9 +371,12 @@ test("compliance panel renders an address-only matrix as a positive rules browse
   await userEvent.click(screen.getByRole("button", { name: /primary street setback/i }));
   expect(screen.getByText(/the design needs a primary street setback measurement/i)).toBeTruthy();
   expect(screen.getByText(/buildings set back from the primary street/i)).toBeTruthy();
-  expect(screen.getByText(/r-codes vol\. 1 \| clause 5\.1\.2/i)).toBeTruthy();
+  expect(screen.queryByText(/r-codes vol\. 1 \| clause 5\.1\.2/i)).toBeNull();
+  expect(
+    screen.getByRole("link", { name: /open source document: residential design codes volume 1/i }).getAttribute("href"),
+  ).toBe("https://example.test/r-codes-volume-1.pdf");
   expect(screen.getByText(/mandatory standard/i)).toBeTruthy();
-  expect(screen.getByText(/add your proposal details or upload house plans/i)).toBeTruthy();
+  expect(screen.getByText(/add your proposal details or house plans/i)).toBeTruthy();
 
   await userEvent.click(screen.getByRole("button", { name: /next: upload house plans/i }));
   expect(onUploadDrawing).toHaveBeenCalledTimes(1);

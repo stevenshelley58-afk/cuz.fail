@@ -5,6 +5,7 @@ tests pin the structural contract so accidental drift (a hand-edit, a bad
 generator change, a duplicate key) is caught in CI, without pinning a brittle
 exact checksum that would churn on every legitimate re-derivation.
 """
+
 from __future__ import annotations
 
 import re
@@ -65,31 +66,34 @@ def test_registry_has_at_least_seed_count() -> None:
 
 # --- generator derivation logic (offline, no DB) -------------------------------
 
+
 def _stat(key: str, n: int, unit: str = "m") -> dict:
-    return {"canonical_rule_key": key, "n_approved": n, "unit": unit,
-            "sample_quote": f"quote for {key}", "source": "sv-test"}
+    return {
+        "canonical_rule_key": key,
+        "n_approved": n,
+        "unit": unit,
+        "sample_quote": f"quote for {key}",
+        "source": "sv-test",
+    }
 
 
 def test_derive_skips_seed_covered_and_respects_min_rules() -> None:
-    derive_checks = pytest.importorskip(
-        "scripts.wp6_register_checks_from_clusters"
-    ).derive_checks
+    derive_checks = pytest.importorskip("scripts.wp6_register_checks_from_clusters").derive_checks
     stats = [
         _stat("primary_street_setback", 113),  # seed-covered -> skip
-        _stat("building_height", 100),          # seed-covered -> skip
-        _stat("outdoor_living_area", 59, "m2"), # derive
-        _stat("driveway_width", 12),            # derive
-        _stat("rarely_seen_key", 3),            # below min_rules=5 -> skip
-        _stat("Bad Key!", 40),                  # not snake_case -> skip
-        _stat("monetary_penalty", 40),          # denylisted noise -> skip
-        _stat("none", 99),                      # denylisted noise -> skip
+        _stat("building_height", 100),  # seed-covered -> skip
+        _stat("outdoor_living_area", 59, "m2"),  # coverage-seed-covered -> skip
+        _stat("driveway_width", 12),  # derive
+        _stat("rarely_seen_key", 3),  # below min_rules=5 -> skip
+        _stat("Bad Key!", 40),  # not snake_case -> skip
+        _stat("monetary_penalty", 40),  # denylisted noise -> skip
+        _stat("none", 99),  # denylisted noise -> skip
     ]
     derived = derive_checks(stats, min_rules=5)
     keys = {d["key"] for d in derived}
-    assert keys == {"outdoor_living_area", "driveway_width"}
-    # tier promotion: outdoor_living_area (59 >= 20) -> TIER1; driveway (12) -> TIER2
+    assert keys == {"driveway_width"}
+    # tier promotion: driveway has fewer than 20 approved rules -> TIER2
     by = {d["key"]: d for d in derived}
-    assert by["outdoor_living_area"]["tier"] == "TIER1"
     assert by["driveway_width"]["tier"] == "TIER2"
     # determinism: sorted by key
     assert [d["key"] for d in derived] == sorted(d["key"] for d in derived)

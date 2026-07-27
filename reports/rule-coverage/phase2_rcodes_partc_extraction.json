@@ -1,0 +1,3224 @@
+{
+  "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+  "source_pdf": "/app/data/raw-sources/rcodes_vol1_april2026.pdf",
+  "instrument_section": "Part C",
+  "tables_requested": [
+    "Table C"
+  ],
+  "candidates_extracted": 112,
+  "warnings": [],
+  "candidates": [
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r100_sl2",
+      "canonical_rule_key": "boundary_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 13.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "boundary_wall_label": "4 storey"
+      },
+      "quote": "Table C: max boundary wall height (4 storey) \u2014 R100-SL2 \u2014 13m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r30",
+      "canonical_rule_key": "boundary_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "boundary_wall_label": "1 storey"
+      },
+      "quote": "Table C: max boundary wall height (1 storey) \u2014 R30 \u2014 3.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r35",
+      "canonical_rule_key": "boundary_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "boundary_wall_label": "1 storey"
+      },
+      "quote": "Table C: max boundary wall height (1 storey) \u2014 R35 \u2014 3.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r40",
+      "canonical_rule_key": "boundary_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "boundary_wall_label": "1 storey"
+      },
+      "quote": "Table C: max boundary wall height (1 storey) \u2014 R40 \u2014 3.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r50",
+      "canonical_rule_key": "boundary_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 7.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "boundary_wall_label": "2 storey"
+      },
+      "quote": "Table C: max boundary wall height (2 storey) \u2014 R50 \u2014 7m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r60",
+      "canonical_rule_key": "boundary_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 7.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "boundary_wall_label": "2 storey"
+      },
+      "quote": "Table C: max boundary wall height (2 storey) \u2014 R60 \u2014 7m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_boundary_wall_height_max_m_r80",
+      "canonical_rule_key": "boundary_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 7.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "boundary_wall_label": "2 storey"
+      },
+      "quote": "Table C: max boundary wall height (2 storey) \u2014 R80 \u2014 7m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r100_sl2",
+      "canonical_rule_key": "building_height_roof_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 16.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max roof height \u2013 pitched/hipped (m) \u2014 R100-SL2 \u2014 16m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r30",
+      "canonical_rule_key": "building_height_roof_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max roof height \u2013 pitched/hipped (m) \u2014 R30 \u2014 10m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r35",
+      "canonical_rule_key": "building_height_roof_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max roof height \u2013 pitched/hipped (m) \u2014 R35 \u2014 10m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r40",
+      "canonical_rule_key": "building_height_roof_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max roof height \u2013 pitched/hipped (m) \u2014 R40 \u2014 10m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r50",
+      "canonical_rule_key": "building_height_roof_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 13.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max roof height \u2013 pitched/hipped (m) \u2014 R50 \u2014 13m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r60",
+      "canonical_rule_key": "building_height_roof_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 13.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max roof height \u2013 pitched/hipped (m) \u2014 R60 \u2014 13m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_roof_pitched_hipped_max_m_r80",
+      "canonical_rule_key": "building_height_roof_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 16.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max roof height \u2013 pitched/hipped (m) \u2014 R80 \u2014 16m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r100_sl2",
+      "canonical_rule_key": "building_height_wall_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 13.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall height \u2013 pitched/hipped (m) \u2014 R100-SL2 \u2014 13m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r30",
+      "canonical_rule_key": "building_height_wall_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 7.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall height \u2013 pitched/hipped (m) \u2014 R30 \u2014 7m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r35",
+      "canonical_rule_key": "building_height_wall_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 7.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall height \u2013 pitched/hipped (m) \u2014 R35 \u2014 7m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r40",
+      "canonical_rule_key": "building_height_wall_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 7.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall height \u2013 pitched/hipped (m) \u2014 R40 \u2014 7m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r50",
+      "canonical_rule_key": "building_height_wall_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall height \u2013 pitched/hipped (m) \u2014 R50 \u2014 10m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r60",
+      "canonical_rule_key": "building_height_wall_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall height \u2013 pitched/hipped (m) \u2014 R60 \u2014 10m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_pitched_hipped_max_m_r80",
+      "canonical_rule_key": "building_height_wall_pitched_hipped_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 13.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall height \u2013 pitched/hipped (m) \u2014 R80 \u2014 13m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r100_sl2",
+      "canonical_rule_key": "building_height_wall_roof_skillion_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 14.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall/roof height \u2013 skillion (m) \u2014 R100-SL2 \u2014 14m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r30",
+      "canonical_rule_key": "building_height_wall_roof_skillion_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 8.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall/roof height \u2013 skillion (m) \u2014 R30 \u2014 8m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r35",
+      "canonical_rule_key": "building_height_wall_roof_skillion_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 8.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall/roof height \u2013 skillion (m) \u2014 R35 \u2014 8m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r40",
+      "canonical_rule_key": "building_height_wall_roof_skillion_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 8.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall/roof height \u2013 skillion (m) \u2014 R40 \u2014 8m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r50",
+      "canonical_rule_key": "building_height_wall_roof_skillion_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 11.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall/roof height \u2013 skillion (m) \u2014 R50 \u2014 11m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r60",
+      "canonical_rule_key": "building_height_wall_roof_skillion_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 11.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall/roof height \u2013 skillion (m) \u2014 R60 \u2014 11m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_building_height_wall_roof_skillion_max_m_r80",
+      "canonical_rule_key": "building_height_wall_roof_skillion_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 14.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Max wall/roof height \u2013 skillion (m) \u2014 R80 \u2014 14m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r100_sl2",
+      "canonical_rule_key": "setback_communal_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "NA"
+      },
+      "unit": "m",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "Table C: Communal street setback (m) \u2014 NA",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r30",
+      "canonical_rule_key": "setback_communal_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Communal street setback (m) \u2014 R30 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r35",
+      "canonical_rule_key": "setback_communal_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Communal street setback (m) \u2014 R35 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r40",
+      "canonical_rule_key": "setback_communal_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Communal street setback (m) \u2014 R40 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r50",
+      "canonical_rule_key": "setback_communal_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Communal street setback (m) \u2014 R50 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r60",
+      "canonical_rule_key": "setback_communal_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Communal street setback (m) \u2014 R60 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_communal_street_min_m_r80",
+      "canonical_rule_key": "setback_communal_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Communal street setback (m) \u2014 R80 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r100_sl2",
+      "canonical_rule_key": "setback_laneway_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "0.5m/nil"
+      },
+      "unit": "m",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "Table C: Adjoining laneway/ROW setback (m) \u2014 0.5m/nil",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r30",
+      "canonical_rule_key": "setback_laneway_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW setback (m) \u2014 R30 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r35",
+      "canonical_rule_key": "setback_laneway_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW setback (m) \u2014 R35 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r40",
+      "canonical_rule_key": "setback_laneway_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW setback (m) \u2014 R40 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r50",
+      "canonical_rule_key": "setback_laneway_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW setback (m) \u2014 R50 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r60",
+      "canonical_rule_key": "setback_laneway_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW setback (m) \u2014 R60 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_min_m_r80",
+      "canonical_rule_key": "setback_laneway_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW setback (m) \u2014 R80 \u2014 0.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r100_sl2",
+      "canonical_rule_key": "setback_laneway_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "NA"
+      },
+      "unit": "m",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "Table C: Adjoining laneway/ROW as primary street setback (m) \u2014 NA",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r30",
+      "canonical_rule_key": "setback_laneway_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW as primary street setback (m) \u2014 R30 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r35",
+      "canonical_rule_key": "setback_laneway_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW as primary street setback (m) \u2014 R35 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r40",
+      "canonical_rule_key": "setback_laneway_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW as primary street setback (m) \u2014 R40 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r50",
+      "canonical_rule_key": "setback_laneway_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW as primary street setback (m) \u2014 R50 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r60",
+      "canonical_rule_key": "setback_laneway_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW as primary street setback (m) \u2014 R60 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_laneway_primary_street_min_m_r80",
+      "canonical_rule_key": "setback_laneway_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Adjoining laneway/ROW as primary street setback (m) \u2014 R80 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r100_sl2",
+      "canonical_rule_key": "setback_lot_boundary_storey1_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "Up to 3.5m (1st storey)"
+      },
+      "quote": "Table C: lot boundary setback Up to 3.5m (1st storey) \u2014 R100-SL2 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r30",
+      "canonical_rule_key": "setback_lot_boundary_storey1_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "Up to 3.5m (1st storey)"
+      },
+      "quote": "Table C: lot boundary setback Up to 3.5m (1st storey) \u2014 R30 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r35",
+      "canonical_rule_key": "setback_lot_boundary_storey1_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "Up to 3.5m (1st storey)"
+      },
+      "quote": "Table C: lot boundary setback Up to 3.5m (1st storey) \u2014 R35 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r40",
+      "canonical_rule_key": "setback_lot_boundary_storey1_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "Up to 3.5m (1st storey)"
+      },
+      "quote": "Table C: lot boundary setback Up to 3.5m (1st storey) \u2014 R40 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r50",
+      "canonical_rule_key": "setback_lot_boundary_storey1_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "Up to 3.5m (1st storey)"
+      },
+      "quote": "Table C: lot boundary setback Up to 3.5m (1st storey) \u2014 R50 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r60",
+      "canonical_rule_key": "setback_lot_boundary_storey1_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "Up to 3.5m (1st storey)"
+      },
+      "quote": "Table C: lot boundary setback Up to 3.5m (1st storey) \u2014 R60 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey1_min_m_r80",
+      "canonical_rule_key": "setback_lot_boundary_storey1_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "Up to 3.5m (1st storey)"
+      },
+      "quote": "Table C: lot boundary setback Up to 3.5m (1st storey) \u2014 R80 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r100_sl2",
+      "canonical_rule_key": "setback_lot_boundary_storey2_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "3.6m-7m (2nd storey)"
+      },
+      "quote": "Table C: lot boundary setback 3.6m-7m (2nd storey) \u2014 R100-SL2 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r30",
+      "canonical_rule_key": "setback_lot_boundary_storey2_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "3.6m-7m (2nd storey)"
+      },
+      "quote": "Table C: lot boundary setback 3.6m-7m (2nd storey) \u2014 R30 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r35",
+      "canonical_rule_key": "setback_lot_boundary_storey2_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "3.6m-7m (2nd storey)"
+      },
+      "quote": "Table C: lot boundary setback 3.6m-7m (2nd storey) \u2014 R35 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r40",
+      "canonical_rule_key": "setback_lot_boundary_storey2_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "3.6m-7m (2nd storey)"
+      },
+      "quote": "Table C: lot boundary setback 3.6m-7m (2nd storey) \u2014 R40 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r50",
+      "canonical_rule_key": "setback_lot_boundary_storey2_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "3.6m-7m (2nd storey)"
+      },
+      "quote": "Table C: lot boundary setback 3.6m-7m (2nd storey) \u2014 R50 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r60",
+      "canonical_rule_key": "setback_lot_boundary_storey2_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "3.6m-7m (2nd storey)"
+      },
+      "quote": "Table C: lot boundary setback 3.6m-7m (2nd storey) \u2014 R60 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey2_min_m_r80",
+      "canonical_rule_key": "setback_lot_boundary_storey2_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "3.6m-7m (2nd storey)"
+      },
+      "quote": "Table C: lot boundary setback 3.6m-7m (2nd storey) \u2014 R80 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r100_sl2",
+      "canonical_rule_key": "setback_lot_boundary_storey3_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "7.1m-10m (3rd storey)"
+      },
+      "quote": "Table C: lot boundary setback 7.1m-10m (3rd storey) \u2014 R100-SL2 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r30",
+      "canonical_rule_key": "setback_lot_boundary_storey3_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "7.1m-10m (3rd storey)"
+      },
+      "quote": "Table C: lot boundary setback 7.1m-10m (3rd storey) \u2014 R30 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r35",
+      "canonical_rule_key": "setback_lot_boundary_storey3_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "7.1m-10m (3rd storey)"
+      },
+      "quote": "Table C: lot boundary setback 7.1m-10m (3rd storey) \u2014 R35 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r40",
+      "canonical_rule_key": "setback_lot_boundary_storey3_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "7.1m-10m (3rd storey)"
+      },
+      "quote": "Table C: lot boundary setback 7.1m-10m (3rd storey) \u2014 R40 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r50",
+      "canonical_rule_key": "setback_lot_boundary_storey3_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "7.1m-10m (3rd storey)"
+      },
+      "quote": "Table C: lot boundary setback 7.1m-10m (3rd storey) \u2014 R50 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r60",
+      "canonical_rule_key": "setback_lot_boundary_storey3_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "7.1m-10m (3rd storey)"
+      },
+      "quote": "Table C: lot boundary setback 7.1m-10m (3rd storey) \u2014 R60 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey3_min_m_r80",
+      "canonical_rule_key": "setback_lot_boundary_storey3_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "7.1m-10m (3rd storey)"
+      },
+      "quote": "Table C: lot boundary setback 7.1m-10m (3rd storey) \u2014 R80 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r100_sl2",
+      "canonical_rule_key": "setback_lot_boundary_storey4_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "10.1m and above (4th storey)"
+      },
+      "quote": "Table C: lot boundary setback 10.1m and above (4th storey) \u2014 R100-SL2 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r30",
+      "canonical_rule_key": "setback_lot_boundary_storey4_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "10.1m and above (4th storey)"
+      },
+      "quote": "Table C: lot boundary setback 10.1m and above (4th storey) \u2014 R30 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r35",
+      "canonical_rule_key": "setback_lot_boundary_storey4_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "10.1m and above (4th storey)"
+      },
+      "quote": "Table C: lot boundary setback 10.1m and above (4th storey) \u2014 R35 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r40",
+      "canonical_rule_key": "setback_lot_boundary_storey4_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "10.1m and above (4th storey)"
+      },
+      "quote": "Table C: lot boundary setback 10.1m and above (4th storey) \u2014 R40 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r50",
+      "canonical_rule_key": "setback_lot_boundary_storey4_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "10.1m and above (4th storey)"
+      },
+      "quote": "Table C: lot boundary setback 10.1m and above (4th storey) \u2014 R50 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r60",
+      "canonical_rule_key": "setback_lot_boundary_storey4_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "10.1m and above (4th storey)"
+      },
+      "quote": "Table C: lot boundary setback 10.1m and above (4th storey) \u2014 R60 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_lot_boundary_storey4_min_m_r80",
+      "canonical_rule_key": "setback_lot_boundary_storey4_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storey_height_range": "10.1m and above (4th storey)"
+      },
+      "quote": "Table C: lot boundary setback 10.1m and above (4th storey) \u2014 R80 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r100_sl2",
+      "canonical_rule_key": "setback_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Primary street setback (m) \u2014 R100-SL2 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r30",
+      "canonical_rule_key": "setback_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Primary street setback (m) \u2014 R30 \u2014 4m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r35",
+      "canonical_rule_key": "setback_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Primary street setback (m) \u2014 R35 \u2014 4m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r40",
+      "canonical_rule_key": "setback_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Primary street setback (m) \u2014 R40 \u2014 3m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r50",
+      "canonical_rule_key": "setback_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Primary street setback (m) \u2014 R50 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r60",
+      "canonical_rule_key": "setback_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Primary street setback (m) \u2014 R60 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_primary_street_min_m_r80",
+      "canonical_rule_key": "setback_primary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Primary street setback (m) \u2014 R80 \u2014 2m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r100_sl2",
+      "canonical_rule_key": "setback_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Secondary street setback (m) \u2014 R100-SL2 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r30",
+      "canonical_rule_key": "setback_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Secondary street setback (m) \u2014 R30 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r35",
+      "canonical_rule_key": "setback_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Secondary street setback (m) \u2014 R35 \u2014 1.5m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r40",
+      "canonical_rule_key": "setback_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Secondary street setback (m) \u2014 R40 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r50",
+      "canonical_rule_key": "setback_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Secondary street setback (m) \u2014 R50 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r60",
+      "canonical_rule_key": "setback_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Secondary street setback (m) \u2014 R60 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_setback_secondary_street_min_m_r80",
+      "canonical_rule_key": "setback_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table C: Secondary street setback (m) \u2014 R80 \u2014 1m",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r100_sl2",
+      "canonical_rule_key": "site_cover_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 85.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Maximum site cover (% of site area) \u2014 R100-SL2 \u2014 85%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r30",
+      "canonical_rule_key": "site_cover_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 60.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Maximum site cover (% of site area) \u2014 R30 \u2014 60%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r35",
+      "canonical_rule_key": "site_cover_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 60.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Maximum site cover (% of site area) \u2014 R35 \u2014 60%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r40",
+      "canonical_rule_key": "site_cover_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 65.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Maximum site cover (% of site area) \u2014 R40 \u2014 65%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r50",
+      "canonical_rule_key": "site_cover_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 65.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Maximum site cover (% of site area) \u2014 R50 \u2014 65%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r60",
+      "canonical_rule_key": "site_cover_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 70.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Maximum site cover (% of site area) \u2014 R60 \u2014 70%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_site_cover_max_pct_r80",
+      "canonical_rule_key": "site_cover_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 70.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Maximum site cover (% of site area) \u2014 R80 \u2014 70%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r100_sl2",
+      "canonical_rule_key": "soft_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Soft landscaping (% of site area) \u2014 R100-SL2 \u2014 10%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r30",
+      "canonical_rule_key": "soft_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 15.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Soft landscaping (% of site area) \u2014 R30 \u2014 15%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r35",
+      "canonical_rule_key": "soft_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 15.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Soft landscaping (% of site area) \u2014 R35 \u2014 15%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r40",
+      "canonical_rule_key": "soft_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 15.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Soft landscaping (% of site area) \u2014 R40 \u2014 15%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r50",
+      "canonical_rule_key": "soft_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 15.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Soft landscaping (% of site area) \u2014 R50 \u2014 15%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r60",
+      "canonical_rule_key": "soft_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 15.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Soft landscaping (% of site area) \u2014 R60 \u2014 15%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_soft_landscaping_min_pct_r80",
+      "canonical_rule_key": "soft_landscaping_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 15.0
+      },
+      "unit": "%",
+      "condition_json": {},
+      "quote": "Table C: Soft landscaping (% of site area) \u2014 R80 \u2014 15%",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_storeys_max_r100_sl2",
+      "canonical_rule_key": "storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R100-SL2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "count",
+      "condition_json": {},
+      "quote": "Table C: Maximum storeys \u2014 R100-SL2 \u2014 4",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_storeys_max_r30",
+      "canonical_rule_key": "storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R30"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "count",
+      "condition_json": {},
+      "quote": "Table C: Maximum storeys \u2014 R30 \u2014 2",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_storeys_max_r35",
+      "canonical_rule_key": "storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R35"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "count",
+      "condition_json": {},
+      "quote": "Table C: Maximum storeys \u2014 R35 \u2014 2",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_storeys_max_r40",
+      "canonical_rule_key": "storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R40"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "count",
+      "condition_json": {},
+      "quote": "Table C: Maximum storeys \u2014 R40 \u2014 2",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_storeys_max_r50",
+      "canonical_rule_key": "storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R50"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "count",
+      "condition_json": {},
+      "quote": "Table C: Maximum storeys \u2014 R50 \u2014 3",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_storeys_max_r60",
+      "canonical_rule_key": "storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R60"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "count",
+      "condition_json": {},
+      "quote": "Table C: Maximum storeys \u2014 R60 \u2014 3",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "partc_storeys_max_r80",
+      "canonical_rule_key": "storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "count",
+      "condition_json": {},
+      "quote": "Table C: Maximum storeys \u2014 R80 \u2014 4",
+      "instrument_section": "Part C",
+      "table_reference": "Table C",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+      "clause_id": "3fb769d7-ae3a-476d-a84a-2048aa3af519",
+      "extractor_model": "deterministic_table_parser:v2-april2026",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    }
+  ]
+}

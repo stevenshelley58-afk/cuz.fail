@@ -1,0 +1,122 @@
+{
+  "source_version_id": "b32e0648-b379-4c07-a735-90ffbb062887",
+  "instrument_section": "metadata-only",
+  "candidates_extracted": 4,
+  "warnings": [
+    "Metadata-only source; service verification triggers only."
+  ],
+  "candidates": [
+    {
+      "rule_key": "svc_power_connection_verification",
+      "canonical_rule_key": "svc_power_connection_verification",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify: electricity connection available/applied for with Western Power before occupancy"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Western Power connection requirements (metadata-only verification pointer - Western Power technical requirements not stored; verify with Western Power)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "b32e0648-b379-4c07-a735-90ffbb062887",
+      "clause_id": "9fc04a19-24d9-402f-979a-b8cd6395ef16",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "svc_underground_power_check",
+      "canonical_rule_key": "svc_underground_power_check",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: whether underground power required for new development/subdivision in the locality"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Western Power / local government underground power requirements (metadata-only verification pointer - Western Power technical requirements not stored; verify with Western Power)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "b32e0648-b379-4c07-a735-90ffbb062887",
+      "clause_id": "e5a3b197-51fa-4377-88a0-27f3f6033a02",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "svc_westernpower_design_approval",
+      "canonical_rule_key": "svc_westernpower_design_approval",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: developments requiring network extension/upgrade need Western Power design approval"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Western Power network design approval requirements (metadata-only verification pointer - Western Power technical requirements not stored; verify with Western Power)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "b32e0648-b379-4c07-a735-90ffbb062887",
+      "clause_id": "9694a0f5-666c-47ed-8a2b-db559d5410ba",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "svc_transmission_easement_check",
+      "canonical_rule_key": "svc_transmission_easement_check",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: proximity to transmission lines/easements; building exclusion zones vary - verify with Western Power"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Western Power transmission corridor/easement constraints (metadata-only verification pointer - Western Power technical requirements not stored; verify with Western Power)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "b32e0648-b379-4c07-a735-90ffbb062887",
+      "clause_id": "753bb540-4885-4fdf-8cd0-b4200e99858c",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "needs_human_review"
+    }
+  ]
+}

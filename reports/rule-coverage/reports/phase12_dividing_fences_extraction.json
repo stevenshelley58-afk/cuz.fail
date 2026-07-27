@@ -1,0 +1,150 @@
+{
+  "source_version_id": "a925e8ae-951c-43bf-aa29-c14d26b3c67d",
+  "instrument_section": "Parts II-III",
+  "candidates_extracted": 5,
+  "warnings": [
+    "Reused pre-existing approved source version (no duplicate registration)."
+  ],
+  "candidates": [
+    {
+      "rule_key": "fence_cost_sharing_trigger",
+      "canonical_rule_key": "fence_cost_sharing_trigger",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: owners of adjoining lands not divided by a sufficient fence are liable to contribute in equal proportions to construction (Dividing Fences Act 1961 s.7)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "Subject to this Act the owners of adjoining lands not divided by a sufficient fence are liable to join in or contribute in equal proportions to the construction of a dividing fence between those lands.",
+      "instrument_section": "Parts II-III",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "a925e8ae-951c-43bf-aa29-c14d26b3c67d",
+      "clause_id": "061e1dd4-81c4-4722-9b45-bdda50ef87d8",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fence_notice_trigger",
+      "canonical_rule_key": "fence_notice_trigger",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: owner may give notice to adjoining owner to compel contribution to a dividing fence (s.8 notice requirements)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "An owner of land desiring to compel the owner of adjoining land to join in or contribute to the construction of a dividing fence under this Act may give him a notice which shall",
+      "instrument_section": "Parts II-III",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "a925e8ae-951c-43bf-aa29-c14d26b3c67d",
+      "clause_id": "63f22cee-bd41-430f-82c1-626c7457d500",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fence_dividing_fence_definition",
+      "canonical_rule_key": "fence_dividing_fence_definition",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: 'dividing fence' separates lands of different owners whether or not on the common boundary"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "dividing fence means a fence that separates the lands of different owners whether the fence is on the common boundary",
+      "instrument_section": "Parts II-III",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "a925e8ae-951c-43bf-aa29-c14d26b3c67d",
+      "clause_id": "f3ff34f8-8495-49c3-8076-57c3326a61a1",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fence_court_boundary_determination",
+      "canonical_rule_key": "fence_court_boundary_determination",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: where owners disagree on need/kind of fence, Magistrates Court may determine matters including the boundary line (s.9)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "determine - (g) the boundary or line upon which the dividing fence is to be constructed",
+      "instrument_section": "Parts II-III",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "a925e8ae-951c-43bf-aa29-c14d26b3c67d",
+      "clause_id": "77aa85ec-4c2f-4e19-b2e6-aa84d194eca3",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "fence_repair_liability",
+      "canonical_rule_key": "fence_repair_liability",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: adjoining owners liable to repair dividing fence (s.14) - exact apportionment to be verified against current consolidated text"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "14. Liability of adjoining owners to repair dividing fence",
+      "instrument_section": "Parts II-III",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "a925e8ae-951c-43bf-aa29-c14d26b3c67d",
+      "clause_id": "6b536e29-dde5-42b8-901b-0abeedf005b4",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "needs_human_review"
+    }
+  ]
+}

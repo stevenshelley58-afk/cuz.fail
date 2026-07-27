@@ -1,0 +1,1046 @@
+{
+  "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+  "source_pdf": "/app/data/raw-sources/councils/cockburn/lpp1_design_requirements_incidental_structures.docx",
+  "instrument_section": "Policy Statement (1) Provisions",
+  "tables_requested": [
+    "Provisions tables rows 1-17"
+  ],
+  "candidates_extracted": 33,
+  "warnings": [
+    "All values transcribed verbatim from DOCX provisions tables (python-docx); quotes are operative condition text.",
+    "Rules are development-approval exemption conditions (Clause 61(1) Table 20 LPS Regs); expressed as standards for evaluation."
+  ],
+  "candidates": [
+    {
+      "rule_key": "cockburn.solar_freestanding_area_max_m2.residential",
+      "canonical_rule_key": "cockburn.solar_freestanding_area_max_m2.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential",
+        "Regional Centre",
+        "District Centre",
+        "Local Centre"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 25
+      },
+      "unit": "m2",
+      "condition_json": {
+        "works": "free standing (ground mounted) solar energy systems"
+      },
+      "quote": "The works do not occupy an area greater than 25m2 and have a maximum height of 3m as measured from the natural ground level",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.solar_freestanding_height_max_m.residential",
+      "canonical_rule_key": "cockburn.solar_freestanding_height_max_m.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential",
+        "Regional Centre",
+        "District Centre",
+        "Local Centre"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "free standing (ground mounted) solar energy systems",
+        "measured_from": "natural ground level"
+      },
+      "quote": "The works do not occupy an area greater than 25m2 and have a maximum height of 3m as measured from the natural ground level",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.solar_freestanding_area_max_m2.nonresidential",
+      "canonical_rule_key": "cockburn.solar_freestanding_area_max_m2.nonresidential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Mixed Use",
+        "Mixed Business",
+        "Light and Service Industry",
+        "Industry",
+        "Rural Living",
+        "Rural and Resource"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "m2",
+      "condition_json": {
+        "works": "free standing (ground mounted) solar energy systems"
+      },
+      "quote": "The works do not occupy an area greater than 50m2",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.wind_turbine_blade_diameter_max_m.horizontal_axis",
+      "canonical_rule_key": "cockburn.wind_turbine_blade_diameter_max_m.horizontal_axis",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Horizontal Axis Wind Turbine",
+        "lot_area_lte_m2": 2000
+      },
+      "quote": "For any lot which is 2000m2 or less in area, the maximum blade diameter does not exceed 2m",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.wind_turbine_height_exceedance_max_m.vertical_axis",
+      "canonical_rule_key": "cockburn.wind_turbine_height_exceedance_max_m.vertical_axis",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Vertical Axis Wind Turbine",
+        "location": "on an existing residential building"
+      },
+      "quote": "The works, where located on an existing residential building, do not exceed the maximum height requirements applicable to the site by 1m",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.windmill_blade_diameter_max_m",
+      "canonical_rule_key": "cockburn.windmill_blade_diameter_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All zones except Residential"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Windmills",
+        "lot_area_lte_m2": 2000
+      },
+      "quote": "For any lot which is 2000m2 or less in area, the maximum blade diameter does not exceed 2m",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.rainwater_tank_height_max_m.rural",
+      "canonical_rule_key": "cockburn.rainwater_tank_height_max_m.rural",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Rural Living",
+        "Rural and Resource"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 5
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Rainwater Tanks",
+        "measured_from": "natural ground level"
+      },
+      "quote": "The height of the works does not exceed 5m above the natural ground level",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.cubby_house_primary_street_setback_min_m.rural_living",
+      "canonical_rule_key": "cockburn.cubby_house_primary_street_setback_min_m.rural_living",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Rural Living"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Cubby Houses"
+      },
+      "quote": "Located a minimum 6m from the primary street",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.cubby_house_boundary_setback_min_m.rural_living",
+      "canonical_rule_key": "cockburn.cubby_house_boundary_setback_min_m.rural_living",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Rural Living"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Cubby Houses"
+      },
+      "quote": "Located a minimum 2.5m from any other boundary",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.cubby_house_floor_area_max_m2",
+      "canonical_rule_key": "cockburn.cubby_house_floor_area_max_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones (R-Codes lots: Single House or Grouped Dwelling)"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "m2",
+      "condition_json": {
+        "works": "Cubby Houses"
+      },
+      "quote": "Does not have a footprint or floor area of greater than 10m2",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.cubby_house_height_max_m",
+      "canonical_rule_key": "cockburn.cubby_house_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones (R-Codes lots: Single House or Grouped Dwelling)"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Cubby Houses",
+        "measured_from": "existing natural ground level"
+      },
+      "quote": "Does not exceed a building height of 3 metres measured from the existing natural ground level",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.cubby_house_max_count_per_lot",
+      "canonical_rule_key": "cockburn.cubby_house_max_count_per_lot",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones (R-Codes lots: Single House or Grouped Dwelling)"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "count",
+      "condition_json": {
+        "works": "Cubby Houses"
+      },
+      "quote": "There is only one cubby on the lot",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.shade_sail_primary_street_setback_min_m",
+      "canonical_rule_key": "cockburn.shade_sail_primary_street_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Local Centre",
+        "District centre",
+        "Regional Centre",
+        "Mixed Business",
+        "Light and Service Industry",
+        "Industry",
+        "Strategic Industry"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Shade Sails"
+      },
+      "quote": "Located a minimum 15m from the primary street lot boundary",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.shade_sail_boundary_setback_min_m",
+      "canonical_rule_key": "cockburn.shade_sail_boundary_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Local Centre",
+        "District centre",
+        "Regional Centre",
+        "Mixed Business",
+        "Light and Service Industry",
+        "Industry",
+        "Strategic Industry"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Shade Sails"
+      },
+      "quote": "Located a minimum 3m from any other boundary",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.shade_sail_corner_lot_street_setback_min_m",
+      "canonical_rule_key": "cockburn.shade_sail_corner_lot_street_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Local Centre",
+        "District centre",
+        "Regional Centre",
+        "Mixed Business",
+        "Light and Service Industry",
+        "Industry",
+        "Strategic Industry"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Shade Sails",
+        "lot_type": "two street frontages"
+      },
+      "quote": "Where a lot has frontages to two streets (excluding the secondary street) then both street setbacks shall be 15m",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.flagpole_height_max_m",
+      "canonical_rule_key": "cockburn.flagpole_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Flag Poles",
+        "measured_from": "natural ground level"
+      },
+      "quote": "The height of the flagpole is no more than 6m above the natural ground level",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.flagpole_diameter_max_mm",
+      "canonical_rule_key": "cockburn.flagpole_diameter_max_mm",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 200
+      },
+      "unit": "mm",
+      "condition_json": {
+        "works": "Flag Poles"
+      },
+      "quote": "The flagpole is no more than 200mm in diameter",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.flagpole_max_count_per_lot",
+      "canonical_rule_key": "cockburn.flagpole_max_count_per_lot",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "count",
+      "condition_json": {
+        "works": "Flag Poles"
+      },
+      "quote": "There is no more than 1 flagpole on the lot",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.camera_pole_primary_street_setback_min_m.rural",
+      "canonical_rule_key": "cockburn.camera_pole_primary_street_setback_min_m.rural",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Resource and Rural"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Camera Poles"
+      },
+      "quote": "Located a minimum 20 m from the primary street",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.camera_pole_boundary_setback_min_m.rural",
+      "canonical_rule_key": "cockburn.camera_pole_boundary_setback_min_m.rural",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Resource and Rural"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Camera Poles"
+      },
+      "quote": "Located a minimum 10 m from any other boundary",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.camera_pole_primary_street_setback_min_m.rural_living",
+      "canonical_rule_key": "cockburn.camera_pole_primary_street_setback_min_m.rural_living",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Rural Living"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Camera Poles"
+      },
+      "quote": "Located a minimum 6m from the primary street",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.camera_pole_boundary_setback_min_m.rural_living",
+      "canonical_rule_key": "cockburn.camera_pole_boundary_setback_min_m.rural_living",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Rural Living"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 2.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Camera Poles"
+      },
+      "quote": "Located a minimum 2.5m from any other boundary",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.camera_pole_residential_interface_setback_min_m.regional_centre",
+      "canonical_rule_key": "cockburn.camera_pole_residential_interface_setback_min_m.regional_centre",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Regional Centre"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Camera Poles"
+      },
+      "quote": "Located a minimum 15m from any boundary that adjoins residential zoned land",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.camera_pole_max_density.regional_centre",
+      "canonical_rule_key": "cockburn.camera_pole_max_density.regional_centre",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Regional Centre"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "per 2000m2",
+      "condition_json": {
+        "works": "Camera Poles"
+      },
+      "quote": "Where there is not more than one (1) camera pole per 2,000m2 of lot area",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.camera_pole_height_max_m",
+      "canonical_rule_key": "cockburn.camera_pole_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Camera Poles",
+        "also_lte": "wall height of existing/proposed dwelling"
+      },
+      "quote": "Where the height of the structure does not exceed the wall height of the existing/proposed dwelling on-site, to a maximum height of 6m",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.camera_pole_max_count_per_lot",
+      "canonical_rule_key": "cockburn.camera_pole_max_count_per_lot",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "count",
+      "condition_json": {
+        "works": "Camera Poles"
+      },
+      "quote": "Where only one (1) structure is proposed per lot",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.satellite_dish_diameter_max_m.residential",
+      "canonical_rule_key": "cockburn.satellite_dish_diameter_max_m.residential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "Residential",
+        "Local Centre"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lt",
+      "value_json": {
+        "value": 1.2
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Satellite Dishes"
+      },
+      "quote": "Has a diameter of less than 1.2m",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.satellite_dish_diameter_max_m.other_zones",
+      "canonical_rule_key": "cockburn.satellite_dish_diameter_max_m.other_zones",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lt",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Satellite Dishes"
+      },
+      "quote": "Has a diameter of less than 3m",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.satellite_dish_max_count_per_lot",
+      "canonical_rule_key": "cockburn.satellite_dish_max_count_per_lot",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "count",
+      "condition_json": {
+        "works": "Satellite Dishes"
+      },
+      "quote": "No more than 2 dishes are proposed on any one lot",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.satellite_dish_ground_mounted_diameter_max_m",
+      "canonical_rule_key": "cockburn.satellite_dish_ground_mounted_diameter_max_m",
+      "rule_type": "standard",
+      "pathway": "design_principle",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All zones"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Satellite Dishes requiring development approval"
+      },
+      "quote": "Dishes must be ground mounted with a maximum diameter of 3m.",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.pergola_primary_street_setback_min_m.nonresidential",
+      "canonical_rule_key": "cockburn.pergola_primary_street_setback_min_m.nonresidential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones (non-residential)"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Pergolas/Vergolas"
+      },
+      "quote": "Located 15m from the primary street boundary",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.pergola_boundary_setback_min_m.nonresidential",
+      "canonical_rule_key": "cockburn.pergola_boundary_setback_min_m.nonresidential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones (non-residential)"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Pergolas/Vergolas"
+      },
+      "quote": "Located 3m from any other boundary",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "cockburn.pergola_corner_lot_street_setback_min_m.nonresidential",
+      "canonical_rule_key": "cockburn.pergola_corner_lot_street_setback_min_m.nonresidential",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": [
+        "All other zones (non-residential)"
+      ],
+      "council_scope": "City of Cockburn",
+      "operator": "gte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "m",
+      "condition_json": {
+        "works": "Pergolas/Vergolas",
+        "lot_type": "two street frontages"
+      },
+      "quote": "Where a lot has frontages to two streets (excluding the secondary street) then both street setbacks shall be 15m",
+      "instrument_section": "Policy Statement (1) Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "16b08790-b4ca-44f6-9c96-733fdf096387",
+      "clause_id": "589253da-66ce-4c35-839c-4281c56578df",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    }
+  ]
+}

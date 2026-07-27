@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase10_ass_extraction.json",
+  "source_version_id": "986bfb24-9969-47ce-8ef0-e58e2626185c",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 2,
+  "failed_count": 0,
+  "skipped_needs_review": 1,
+  "failures": [],
+  "timestamp": "20260726_123626"
+}

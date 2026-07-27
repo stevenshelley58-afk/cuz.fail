@@ -1,0 +1,2789 @@
+{
+  "source_report": "reports/phase1_rcodes_partb_extraction.json",
+  "source_version_id": "7270694f-891f-48aa-af86-a649bf5b2726",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 0,
+  "failed_count": 463,
+  "skipped_needs_review": 0,
+  "failures": [
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h10_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h3_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h4_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h5_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h6_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h7_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h8_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_major_openings_min_m_h9_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h10_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h3_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h4_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h5_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h6_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h7_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h8_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_0_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l11",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l12",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l13",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l14",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l16",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l17",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l18",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l19",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l25plus",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "boundary_setback_no_major_openings_min_m_h9_5_l9",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_total_gable_skillion_max_m_cat_a",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_total_gable_skillion_max_m_cat_b",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_total_gable_skillion_max_m_cat_c",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_total_hipped_pitched_max_m_cat_a",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_total_hipped_pitched_max_m_cat_b",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_total_hipped_pitched_max_m_cat_c",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_wall_max_m_cat_a",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_wall_max_m_cat_b",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "building_height_wall_max_m_cat_c",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r10_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r12_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r12_5_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r15_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r17_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r17_5_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r20_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r25_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r2_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "open_space_min_total_pct_r5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "outdoor_living_area_min_m2_r17_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "outdoor_living_area_min_m2_r20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "outdoor_living_area_min_m2_r25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "outdoor_living_area_min_m2_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "outdoor_living_area_min_m2_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "outdoor_living_area_min_m2_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_other_rear_min_m_r2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_other_rear_min_m_r2_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r10_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r12_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r12_5_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r15_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r17_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r17_5_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r20_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r25_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r2_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_primary_street_min_m_r5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r10",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r10_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r12_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r12_5_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r15",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r15_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r17_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r17_5_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r2",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r20",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r20_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r25",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r25_multiple",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r2_5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r30",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r35",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r40",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    },
+    {
+      "rule_key": "setback_secondary_street_min_m_r5",
+      "failures": [
+        "GOV-RULE-003: approver role 'owner' lacks operator permission"
+      ]
+    }
+  ],
+  "timestamp": "20260726_115143"
+}

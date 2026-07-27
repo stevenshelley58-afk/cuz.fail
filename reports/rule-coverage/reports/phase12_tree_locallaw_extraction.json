@@ -1,0 +1,66 @@
+{
+  "source_version_id": "4d419e6b-83b2-4f6b-8d28-3a7a0d252281",
+  "instrument_section": "metadata-only",
+  "candidates_extracted": 2,
+  "warnings": [
+    "Generic per-council register; per-council verification flagged."
+  ],
+  "candidates": [
+    {
+      "rule_key": "tree_preservation_permit_check",
+      "canonical_rule_key": "tree_preservation_permit_check",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "trigger: check whether the applicable council has a tree preservation/significant tree local law requiring a permit for removal or pruning of regulated trees"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "WA local government tree preservation local laws (generic) (metadata-only register - tree preservation local laws vary per council; verify applicable local law)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "4d419e6b-83b2-4f6b-8d28-3a7a0d252281",
+      "clause_id": "2f4cd2e0-a77b-42be-a2df-ea5a2c59cb32",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "tree_local_law_per_council",
+      "canonical_rule_key": "tree_local_law_per_council",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "check: per-council variation - regulated species, trunk diameter thresholds and exemptions differ by local government; requires per-council verification"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "WA local government tree preservation local laws (generic) (metadata-only register - tree preservation local laws vary per council; verify applicable local law)",
+      "instrument_section": "metadata-only",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "4d419e6b-83b2-4f6b-8d28-3a7a0d252281",
+      "clause_id": "39296d35-0111-450d-8872-a6974740f4ff",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "needs_human_review"
+    }
+  ]
+}

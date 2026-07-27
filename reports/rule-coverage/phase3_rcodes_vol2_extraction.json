@@ -1,0 +1,4089 @@
+{
+  "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+  "source_pdf": "/app/data/raw-sources/rcodes_vol2.pdf",
+  "instrument_section": "Parts 2-4",
+  "tables_requested": [
+    "Table 2.1",
+    "Table 2.2",
+    "Table 2.7",
+    "Table 3.3a",
+    "Table 3.3b",
+    "Table 3.4",
+    "Table 3.5",
+    "Table 3.9",
+    "Table 4.3a",
+    "Table 4.3b",
+    "Table 4.4",
+    "Table 4.6",
+    "A 3.9",
+    "A 4.3"
+  ],
+  "candidates_extracted": 117,
+  "warnings": [],
+  "candidates": [
+    {
+      "rule_key": "vol2_basement_parking_protrusion_max_m",
+      "canonical_rule_key": "basement_parking_protrusion_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "A 3.9.10: Basement parking does not protrude more than 1m above ground, and where it protrudes above ground is designed or screened to prevent negative visual impact on the streetscape.",
+      "instrument_section": "Part 3",
+      "table_reference": "A 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0e889b32-6b9d-4a7a-bbdc-13fec99467bd",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_bicycle_parking_min_spaces_per_dwelling_resident",
+      "canonical_rule_key": "bicycle_parking_min_spaces_per_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "spaces_per_dwelling",
+      "condition_json": {
+        "bicycle": true,
+        "resident": true
+      },
+      "quote": "Table 3.9 Parking ratio: Resident 0.5 space per dwelling",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_bicycle_parking_min_spaces_per_dwelling_visitor",
+      "canonical_rule_key": "bicycle_parking_min_spaces_per_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.1
+      },
+      "unit": "spaces_per_dwelling",
+      "condition_json": {
+        "bicycle": true,
+        "visitor": true
+      },
+      "quote": "Table 3.9 Parking ratio: Visitor 1 space per 10 dwellings",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_boundary_wall_height_storeys_max_r100",
+      "canonical_rule_key": "boundary_wall_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R100"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "note_3": "Boundary wall only permitted on one boundary, and shall not exceed 2/3 length."
+      },
+      "quote": "Table 2.1: Boundary wall height (storeys)1,2 refer 2.4 \u2014 2 3",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_boundary_wall_height_storeys_max_r160",
+      "canonical_rule_key": "boundary_wall_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "note_3": "Boundary wall only permitted on one boundary, and shall not exceed 2/3 length."
+      },
+      "quote": "Table 2.1: Boundary wall height (storeys)1,2 refer 2.4 \u2014 2 3",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_boundary_wall_height_storeys_max_r80",
+      "canonical_rule_key": "boundary_wall_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "note_3": "Boundary wall only permitted on one boundary, and shall not exceed 2/3 length."
+      },
+      "quote": "Table 2.1: Boundary wall height (storeys)1,2 refer 2.4 \u2014 2 3",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_boundary_wall_height_storeys_max_r_ac1",
+      "canonical_rule_key": "boundary_wall_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC1"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "note_3": "Boundary wall only permitted on one boundary, and shall not exceed 2/3 length."
+      },
+      "quote": "Table 2.1: Boundary wall height (storeys)1,2 refer 2.4 \u2014 4",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_boundary_wall_height_storeys_max_r_ac2",
+      "canonical_rule_key": "boundary_wall_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "note_3": "Boundary wall only permitted on one boundary, and shall not exceed 2/3 length."
+      },
+      "quote": "Table 2.1: Boundary wall height (storeys)1,2 refer 2.4 \u2014 4",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_boundary_wall_height_storeys_max_r_ac3",
+      "canonical_rule_key": "boundary_wall_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC3"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "note_3": "Boundary wall only permitted on one boundary, and shall not exceed 2/3 length."
+      },
+      "quote": "Table 2.1: Boundary wall height (storeys)1,2 refer 2.4 \u2014 3",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_boundary_wall_height_storeys_max_r_ac4",
+      "canonical_rule_key": "boundary_wall_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC4"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "storeys",
+      "condition_json": {
+        "note_3": "Boundary wall only permitted on one boundary, and shall not exceed 2/3 length."
+      },
+      "quote": "Table 2.1: Boundary wall height (storeys)1,2 refer 2.4 \u2014 2",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_10storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 33.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 10
+      },
+      "quote": "Table 2.2 Indicative building height: 10 storeys \u2014 33 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_2storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 9.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 2
+      },
+      "quote": "Table 2.2 Indicative building height: 2 storeys \u2014 9 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_3storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 12.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 3
+      },
+      "quote": "Table 2.2 Indicative building height: 3 storeys \u2014 12 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_4storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 15.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 4
+      },
+      "quote": "Table 2.2 Indicative building height: 4 storeys \u2014 15 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_5storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 18.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 5
+      },
+      "quote": "Table 2.2 Indicative building height: 5 storeys \u2014 18 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_6storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 21.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 6
+      },
+      "quote": "Table 2.2 Indicative building height: 6 storeys \u2014 21 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_7storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 24.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 7
+      },
+      "quote": "Table 2.2 Indicative building height: 7 storeys \u2014 24 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_8storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 27.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 8
+      },
+      "quote": "Table 2.2 Indicative building height: 8 storeys \u2014 27 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_indicative_max_m_9storeys",
+      "canonical_rule_key": "building_height_indicative_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 30.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "storeys": 9
+      },
+      "quote": "Table 2.2 Indicative building height: 9 storeys \u2014 30 m (indicative overall building height in metres)",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.2",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "288d67ef-e996-452e-974f-c386d0a91650",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_storeys_max_r100",
+      "canonical_rule_key": "building_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R100"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "storeys",
+      "condition_json": {},
+      "quote": "Table 2.1: Building height (storeys) refer 2.2 \u2014 4",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_storeys_max_r160",
+      "canonical_rule_key": "building_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 5.0
+      },
+      "unit": "storeys",
+      "condition_json": {},
+      "quote": "Table 2.1: Building height (storeys) refer 2.2 \u2014 5",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_storeys_max_r80",
+      "canonical_rule_key": "building_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "storeys",
+      "condition_json": {},
+      "quote": "Table 2.1: Building height (storeys) refer 2.2 \u2014 4",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_storeys_max_r_ac1",
+      "canonical_rule_key": "building_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC1"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 9.0
+      },
+      "unit": "storeys",
+      "condition_json": {},
+      "quote": "Table 2.1: Building height (storeys) refer 2.2 \u2014 9",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_storeys_max_r_ac2",
+      "canonical_rule_key": "building_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 7.0
+      },
+      "unit": "storeys",
+      "condition_json": {},
+      "quote": "Table 2.1: Building height (storeys) refer 2.2 \u2014 7",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_storeys_max_r_ac3",
+      "canonical_rule_key": "building_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC3"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "storeys",
+      "condition_json": {},
+      "quote": "Table 2.1: Building height (storeys) refer 2.2 \u2014 6",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_height_storeys_max_r_ac4",
+      "canonical_rule_key": "building_height_storeys_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC4"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "storeys",
+      "condition_json": {},
+      "quote": "Table 2.1: Building height (storeys) refer 2.2 \u2014 3",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_to_adjoining_property_boundary_habitable_balconies_boundary_5_8_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 9.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "to_adjoining_property_boundary",
+        "opening_type": "habitable_balconies_boundary",
+        "building_height_band": "5-8 storeys (up to 28m)"
+      },
+      "quote": "Table 2.7 Building separation: Habitable rooms/balconies and boundary \u2014 5-8 storeys (up to 28m) \u2014 9m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_to_adjoining_property_boundary_habitable_balconies_boundary_ge_9_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 12.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "to_adjoining_property_boundary",
+        "opening_type": "habitable_balconies_boundary",
+        "building_height_band": "\u2265 9 storeys (over 28m)"
+      },
+      "quote": "Table 2.7 Building separation: Habitable rooms/balconies and boundary \u2014 \u2265 9 storeys (over 28m) \u2014 12m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_habitable_and_non_habitable_5_8_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 12.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "habitable_and_non_habitable",
+        "building_height_band": "5-8 storeys (up to 28m)"
+      },
+      "quote": "Table 2.7 Building separation: Habitable and non-habitable \u2014 5-8 storeys (up to 28m) \u2014 12m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_habitable_and_non_habitable_ge_9_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 18.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "habitable_and_non_habitable",
+        "building_height_band": "\u2265 9 storeys (over 28m)"
+      },
+      "quote": "Table 2.7 Building separation: Habitable and non-habitable \u2014 \u2265 9 storeys (over 28m) \u2014 18m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_habitable_and_non_habitable_le_4_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 7.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "habitable_and_non_habitable",
+        "building_height_band": "\u2264 4 storeys (up to 15m)"
+      },
+      "quote": "Table 2.7 Building separation: Habitable and non-habitable \u2014 \u2264 4 storeys (up to 15m) \u2014 7.5m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_habitable_balconies_5_8_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 18.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "habitable_balconies",
+        "building_height_band": "5-8 storeys (up to 28m)"
+      },
+      "quote": "Table 2.7 Building separation: Habitable rooms/balconies \u2014 5-8 storeys (up to 28m) \u2014 18m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_habitable_balconies_ge_9_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 24.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "habitable_balconies",
+        "building_height_band": "\u2265 9 storeys (over 28m)"
+      },
+      "quote": "Table 2.7 Building separation: Habitable rooms/balconies \u2014 \u2265 9 storeys (over 28m) \u2014 24m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_habitable_balconies_le_4_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 12.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "habitable_balconies",
+        "building_height_band": "\u2264 4 storeys (up to 15m)"
+      },
+      "quote": "Table 2.7 Building separation: Habitable rooms/balconies \u2014 \u2264 4 storeys (up to 15m) \u2014 12m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_non_habitable_5_8_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "non_habitable",
+        "building_height_band": "5-8 storeys (up to 28m)"
+      },
+      "quote": "Table 2.7 Building separation: ^Non-habitable rooms \u2014 5-8 storeys (up to 28m) \u2014 6m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_non_habitable_ge_9_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 9.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "non_habitable",
+        "building_height_band": "\u2265 9 storeys (over 28m)"
+      },
+      "quote": "Table 2.7 Building separation: ^Non-habitable rooms \u2014 \u2265 9 storeys (over 28m) \u2014 9m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_building_separation_min_m_within_site_non_habitable_le_4_storeys",
+      "canonical_rule_key": "building_separation_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within_site",
+        "opening_type": "non_habitable",
+        "building_height_band": "\u2264 4 storeys (up to 15m)"
+      },
+      "quote": "Table 2.7 Building separation: ^Non-habitable rooms \u2014 \u2264 4 storeys (up to 15m) \u2014 4.5m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.7",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "8ef7e646-8cd8-470b-a534-f5bc8c4bde78",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_car_parking_max_multiple_of_minimum",
+      "canonical_rule_key": "car_parking_max_multiple_of_minimum",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "x_table_minimum",
+      "condition_json": {},
+      "quote": "A 3.9.3: Maximum parking provision does not exceed double the minimum number of bays specified in Table 3.9.",
+      "instrument_section": "Part 3",
+      "table_reference": "A 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0e889b32-6b9d-4a7a-bbdc-13fec99467bd",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_car_parking_min_bays_per_dwelling_1bed_loc_a",
+      "canonical_rule_key": "car_parking_min_bays_per_dwelling_1bed",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.75
+      },
+      "unit": "bays_per_dwelling",
+      "condition_json": {
+        "dwelling_size": "1_bedroom",
+        "location": "A"
+      },
+      "quote": "Table 3.9 Parking ratio: 1 bedroom dwellings 0.75 bay per dwelling",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_car_parking_min_bays_per_dwelling_1bed_loc_b",
+      "canonical_rule_key": "car_parking_min_bays_per_dwelling_1bed",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "bays_per_dwelling",
+      "condition_json": {
+        "dwelling_size": "1_bedroom",
+        "location": "B"
+      },
+      "quote": "Table 3.9 Parking ratio: 1 bedroom dwellings 0.75 bay per dwelling 1 bay per dwelling",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_car_parking_min_bays_per_dwelling_2plus_loc_a",
+      "canonical_rule_key": "car_parking_min_bays_per_dwelling_2plus",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "bays_per_dwelling",
+      "condition_json": {
+        "dwelling_size": "2plus_bedroom",
+        "location": "A"
+      },
+      "quote": "Table 3.9 Parking ratio: 2+ bedroom dwellings 1 bay per dwelling",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_car_parking_min_bays_per_dwelling_2plus_loc_b",
+      "canonical_rule_key": "car_parking_min_bays_per_dwelling_2plus",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.25
+      },
+      "unit": "bays_per_dwelling",
+      "condition_json": {
+        "dwelling_size": "2plus_bedroom",
+        "location": "B"
+      },
+      "quote": "Table 3.9 Parking ratio: 2+ bedroom dwellings 1 bay per dwelling 1.25 bays per dwelling",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_ceiling_height_habitable_min_m",
+      "canonical_rule_key": "ceiling_height_habitable_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.7
+      },
+      "unit": "m",
+      "condition_json": {
+        "room_type": "habitable"
+      },
+      "quote": "A 4.3.3: minimum ceiling heights \u2014 Habitable rooms \u2013 2.7m",
+      "instrument_section": "Part 4",
+      "table_reference": "A 4.3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "465907b6-2bcb-496c-84d4-2efc5278c04d",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_ceiling_height_non_habitable_min_m",
+      "canonical_rule_key": "ceiling_height_non_habitable_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.4
+      },
+      "unit": "m",
+      "condition_json": {
+        "room_type": "non_habitable"
+      },
+      "quote": "A 4.3.3: minimum ceiling heights \u2014 Non-habitable rooms \u2013 2.4m",
+      "instrument_section": "Part 4",
+      "table_reference": "A 4.3",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "465907b6-2bcb-496c-84d4-2efc5278c04d",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_communal_open_space_accessible_min_m2_per_dwelling",
+      "canonical_rule_key": "communal_open_space_accessible_min_m2_per_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m2_per_dwelling",
+      "condition_json": {
+        "development_size": "more_than_10_dwellings",
+        "cap_m2": 100.0
+      },
+      "quote": "Table 3.4: More than 10 dwellings \u2014 At least 2m2 per dwelling up to 100m2",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "26669c93-2784-4d6d-bb1d-c8d6e2b49a83",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_communal_open_space_dimension_min_m",
+      "canonical_rule_key": "communal_open_space_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "development_size": "more_than_10_dwellings"
+      },
+      "quote": "Table 3.4: More than 10 dwellings \u2014 4m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "26669c93-2784-4d6d-bb1d-c8d6e2b49a83",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_communal_open_space_total_min_m2_per_dwelling",
+      "canonical_rule_key": "communal_open_space_total_min_m2_per_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m2_per_dwelling",
+      "condition_json": {
+        "development_size": "more_than_10_dwellings",
+        "cap_m2": 300.0
+      },
+      "quote": "Table 3.4: More than 10 dwellings \u2014 Total: 6m2 per dwelling up to maximum 300m2",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "26669c93-2784-4d6d-bb1d-c8d6e2b49a83",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_deep_soil_area_min_pct_700_1000m2",
+      "canonical_rule_key": "deep_soil_area_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "%",
+      "condition_json": {
+        "site_area_band": "700 \u2013 1,000m2",
+        "alternative": "7% if existing tree(s) retained on site"
+      },
+      "quote": "Table 3.3a: Site area 700 \u2013 1,000m2 \u2014 Minimum deep soil area \u2014 10% OR 7% if existing tree(s) retained on site (% site area)",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "c08a4d2a-019e-4e53-828c-0b34b6e54ca4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_deep_soil_area_min_pct_gt_1000m2",
+      "canonical_rule_key": "deep_soil_area_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "%",
+      "condition_json": {
+        "site_area_band": "> 1,000m2",
+        "alternative": "7% if existing tree(s) retained on site"
+      },
+      "quote": "Table 3.3a: Site area > 1,000m2 \u2014 Minimum deep soil area \u2014 10% OR 7% if existing tree(s) retained on site (% site area)",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "c08a4d2a-019e-4e53-828c-0b34b6e54ca4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_deep_soil_area_min_pct_lt_700m2",
+      "canonical_rule_key": "deep_soil_area_min_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "%",
+      "condition_json": {
+        "site_area_band": "Less than 700m2",
+        "alternative": "7% if existing tree(s) retained on site"
+      },
+      "quote": "Table 3.3a: Site area Less than 700m2 \u2014 Minimum deep soil area \u2014 10% OR 7% if existing tree(s) retained on site (% site area)",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "c08a4d2a-019e-4e53-828c-0b34b6e54ca4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_dwelling_floor_area_min_m2_1bed",
+      "canonical_rule_key": "dwelling_floor_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 47.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "1bed"
+      },
+      "quote": "Table 4.3a: 1 bed \u2014 Minimum internal floor area \u2014 47m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "53e135d2-2c13-4019-a8c6-3bdc2a6e3a03",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_dwelling_floor_area_min_m2_2bed_1bath",
+      "canonical_rule_key": "dwelling_floor_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 67.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "2bed_1bath",
+        "note_1": "An additional 3m2 shall be provided for designs that include a second or separate toilet, and 5m2 for designs that include a second bathroom."
+      },
+      "quote": "Table 4.3a: 2 bed \u00d7 1 bath1 \u2014 Minimum internal floor area \u2014 67m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "53e135d2-2c13-4019-a8c6-3bdc2a6e3a03",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_dwelling_floor_area_min_m2_3bed_1bath",
+      "canonical_rule_key": "dwelling_floor_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 90.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "3bed_1bath",
+        "note_1": "An additional 3m2 shall be provided for designs that include a second or separate toilet, and 5m2 for designs that include a second bathroom."
+      },
+      "quote": "Table 4.3a: 3 bed \u00d7 1 bath1 \u2014 Minimum internal floor area \u2014 90m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "53e135d2-2c13-4019-a8c6-3bdc2a6e3a03",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_dwelling_floor_area_min_m2_studio",
+      "canonical_rule_key": "dwelling_floor_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 36.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "studio"
+      },
+      "quote": "Table 4.3a: Studio \u2014 Minimum internal floor area \u2014 36m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "53e135d2-2c13-4019-a8c6-3bdc2a6e3a03",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_motorcycle_parking_min_spaces_per_car_bay",
+      "canonical_rule_key": "motorcycle_parking_min_spaces_per_car_bay",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.1
+      },
+      "unit": "spaces_per_car_bay",
+      "condition_json": {
+        "motorcycle_scooter": true,
+        "development_size": "exceeding_20_dwellings"
+      },
+      "quote": "Table 3.9 Parking ratio: 1 motorcycle/scooter space for every 10 car bays",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_plot_ratio_max_r100",
+      "canonical_rule_key": "plot_ratio_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R100"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 1.3
+      },
+      "unit": "ratio",
+      "condition_json": {},
+      "quote": "Table 2.1: Plot ratio 7 refer 2.5 \u2014 1.3",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_plot_ratio_max_r160",
+      "canonical_rule_key": "plot_ratio_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "ratio",
+      "condition_json": {},
+      "quote": "Table 2.1: Plot ratio 7 refer 2.5 \u2014 2.0",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_plot_ratio_max_r80",
+      "canonical_rule_key": "plot_ratio_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 1.0
+      },
+      "unit": "ratio",
+      "condition_json": {},
+      "quote": "Table 2.1: Plot ratio 7 refer 2.5 \u2014 1.0",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_plot_ratio_max_r_ac1",
+      "canonical_rule_key": "plot_ratio_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC1"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "ratio",
+      "condition_json": {},
+      "quote": "Table 2.1: Plot ratio 7 refer 2.5 \u2014 3.0",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_plot_ratio_max_r_ac2",
+      "canonical_rule_key": "plot_ratio_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.5
+      },
+      "unit": "ratio",
+      "condition_json": {},
+      "quote": "Table 2.1: Plot ratio 7 refer 2.5 \u2014 2.5",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_plot_ratio_max_r_ac3",
+      "canonical_rule_key": "plot_ratio_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC3"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "ratio",
+      "condition_json": {},
+      "quote": "Table 2.1: Plot ratio 7 refer 2.5 \u2014 2.0",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_plot_ratio_max_r_ac4",
+      "canonical_rule_key": "plot_ratio_max",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC4"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 1.2
+      },
+      "unit": "ratio",
+      "condition_json": {},
+      "quote": "Table 2.1: Plot ratio 7 refer 2.5 \u2014 1.2",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_private_open_space_area_min_m2_2bed",
+      "canonical_rule_key": "private_open_space_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "2bed"
+      },
+      "quote": "Table 4.4: 2 bedroom \u2014 Minimum Area \u2014 10m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "879ee45a-d11e-4fca-8d0e-0c710999c15a",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_private_open_space_area_min_m2_3bed",
+      "canonical_rule_key": "private_open_space_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 12.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "3bed"
+      },
+      "quote": "Table 4.4: 3 bedroom \u2014 Minimum Area \u2014 12m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "879ee45a-d11e-4fca-8d0e-0c710999c15a",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_private_open_space_area_min_m2_ground_floor",
+      "canonical_rule_key": "private_open_space_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 15.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "ground_floor"
+      },
+      "quote": "Table 4.4: Ground floor / apartment with a terrace \u2014 Minimum Area \u2014 15m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "879ee45a-d11e-4fca-8d0e-0c710999c15a",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_private_open_space_area_min_m2_studio_1bed",
+      "canonical_rule_key": "private_open_space_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 8.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "studio_1bed"
+      },
+      "quote": "Table 4.4: Studio apartment + 1 bedroom \u2014 Minimum Area \u2014 8m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "879ee45a-d11e-4fca-8d0e-0c710999c15a",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_private_open_space_dimension_min_m_2bed",
+      "canonical_rule_key": "private_open_space_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.4
+      },
+      "unit": "m",
+      "condition_json": {
+        "dwelling_size": "2bed"
+      },
+      "quote": "Table 4.4: 2 bedroom \u2014 Minimum Dimension \u2014 2.4m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "879ee45a-d11e-4fca-8d0e-0c710999c15a",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_private_open_space_dimension_min_m_3bed",
+      "canonical_rule_key": "private_open_space_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.4
+      },
+      "unit": "m",
+      "condition_json": {
+        "dwelling_size": "3bed"
+      },
+      "quote": "Table 4.4: 3 bedroom \u2014 Minimum Dimension \u2014 2.4m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "879ee45a-d11e-4fca-8d0e-0c710999c15a",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_private_open_space_dimension_min_m_ground_floor",
+      "canonical_rule_key": "private_open_space_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "dwelling_size": "ground_floor"
+      },
+      "quote": "Table 4.4: Ground floor / apartment with a terrace \u2014 Minimum Dimension \u2014 3m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "879ee45a-d11e-4fca-8d0e-0c710999c15a",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_private_open_space_dimension_min_m_studio_1bed",
+      "canonical_rule_key": "private_open_space_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "dwelling_size": "studio_1bed"
+      },
+      "quote": "Table 4.4: Studio apartment + 1 bedroom \u2014 Minimum Dimension \u2014 2.0m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.4",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "879ee45a-d11e-4fca-8d0e-0c710999c15a",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_room_dimension_min_m_living_room_other",
+      "canonical_rule_key": "room_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "room_type": "living_room_other",
+        "note_1": "Excluding robes"
+      },
+      "quote": "Table 4.3b: Living room \u2013 other dwelling types \u2014 Minimum internal dimension \u2014 4m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "88b86fda-b5bf-40b3-8b89-6c42cd198eb2",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_room_dimension_min_m_living_room_studio_1bed",
+      "canonical_rule_key": "room_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.6
+      },
+      "unit": "m",
+      "condition_json": {
+        "room_type": "living_room_studio_1bed",
+        "note_1": "Excluding robes"
+      },
+      "quote": "Table 4.3b: Living room \u2013 studio and 1 bed apartments \u2014 Minimum internal dimension \u2014 3.6m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "88b86fda-b5bf-40b3-8b89-6c42cd198eb2",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_room_dimension_min_m_master_bedroom",
+      "canonical_rule_key": "room_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "room_type": "master_bedroom",
+        "note_1": "Excluding robes"
+      },
+      "quote": "Table 4.3b: Master bedroom \u2014 Minimum internal dimension \u2014 13m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "88b86fda-b5bf-40b3-8b89-6c42cd198eb2",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_room_dimension_min_m_other_bedrooms",
+      "canonical_rule_key": "room_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "room_type": "other_bedrooms",
+        "note_1": "Excluding robes"
+      },
+      "quote": "Table 4.3b: Other bedrooms \u2014 Minimum internal dimension \u2014 13m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "88b86fda-b5bf-40b3-8b89-6c42cd198eb2",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_room_floor_area_min_m2_master_bedroom",
+      "canonical_rule_key": "room_floor_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 10.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "room_type": "master_bedroom",
+        "note_1": "Excluding robes"
+      },
+      "quote": "Table 4.3b: Master bedroom \u2014 Minimum internal floor area \u2014 10m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "88b86fda-b5bf-40b3-8b89-6c42cd198eb2",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_room_floor_area_min_m2_other_bedrooms",
+      "canonical_rule_key": "room_floor_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 9.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "room_type": "other_bedrooms",
+        "note_1": "Excluding robes"
+      },
+      "quote": "Table 4.3b: Other bedrooms \u2014 Minimum internal floor area \u2014 9m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "88b86fda-b5bf-40b3-8b89-6c42cd198eb2",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_primary_secondary_street_min_m_r100",
+      "canonical_rule_key": "setback_primary_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R100"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum primary and secondary street setbacks refer 2.3 \u2014 2m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_primary_secondary_street_min_m_r160",
+      "canonical_rule_key": "setback_primary_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum primary and secondary street setbacks refer 2.3 \u2014 2m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_primary_secondary_street_min_m_r80",
+      "canonical_rule_key": "setback_primary_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum primary and secondary street setbacks refer 2.3 \u2014 2m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_primary_secondary_street_min_m_r_ac1",
+      "canonical_rule_key": "setback_primary_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC1"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "alternative": "Nil setback applicable if commercial use at ground floor (Note 5)"
+      },
+      "quote": "Table 2.1: Minimum primary and secondary street setbacks refer 2.3 \u2014 2m or Nil 5",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_primary_secondary_street_min_m_r_ac2",
+      "canonical_rule_key": "setback_primary_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC2"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "alternative": "Nil setback applicable if commercial use at ground floor (Note 5)"
+      },
+      "quote": "Table 2.1: Minimum primary and secondary street setbacks refer 2.3 \u2014 2m or Nil 5",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_primary_secondary_street_min_m_r_ac3",
+      "canonical_rule_key": "setback_primary_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC3"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "alternative": "Nil setback applicable if commercial use at ground floor (Note 5)"
+      },
+      "quote": "Table 2.1: Minimum primary and secondary street setbacks refer 2.3 \u2014 2m or Nil5",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_primary_secondary_street_min_m_r_ac4",
+      "canonical_rule_key": "setback_primary_secondary_street_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC4"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "alternative": "Nil setback applicable if commercial use at ground floor (Note 5)"
+      },
+      "quote": "Table 2.1: Minimum primary and secondary street setbacks refer 2.3 \u2014 2m or Nil 5",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_rear_min_m_r100",
+      "canonical_rule_key": "setback_rear_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R100"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum rear setback refer 2.4 \u2014 6m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_rear_min_m_r160",
+      "canonical_rule_key": "setback_rear_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum rear setback refer 2.4 \u2014 6m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_rear_min_m_r80",
+      "canonical_rule_key": "setback_rear_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum rear setback refer 2.4 \u2014 3m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_rear_min_m_r_ac4",
+      "canonical_rule_key": "setback_rear_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R-AC4"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum rear setback refer 2.4 \u2014 6m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_side_avg_min_m_r100",
+      "canonical_rule_key": "setback_side_avg_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R100"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "building_length_m_gt": 16
+      },
+      "quote": "Table 2.1: Average side setback where building length exceeds 16m refer 2.4 \u2014 3.5m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_side_avg_min_m_r160",
+      "canonical_rule_key": "setback_side_avg_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "building_length_m_gt": 16
+      },
+      "quote": "Table 2.1: Average side setback where building length exceeds 16m refer 2.4 \u2014 4.0m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_side_avg_min_m_r80",
+      "canonical_rule_key": "setback_side_avg_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "building_length_m_gt": 16
+      },
+      "quote": "Table 2.1: Average side setback where building length exceeds 16m refer 2.4 \u2014 3.5m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_side_min_m_r100",
+      "canonical_rule_key": "setback_side_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R100"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum side setbacks6 refer 2.4 \u2014 3m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_side_min_m_r160",
+      "canonical_rule_key": "setback_side_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R160"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum side setbacks6 refer 2.4 \u2014 3m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_setback_side_min_m_r80",
+      "canonical_rule_key": "setback_side_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 2.1: Minimum side setbacks6 refer 2.4 \u2014 3m",
+      "instrument_section": "Part 2",
+      "table_reference": "Table 2.1",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "733b0709-78bc-4304-9469-30ba3300cee5",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_storage_area_min_m2_1bed",
+      "canonical_rule_key": "storage_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "1bed"
+      },
+      "quote": "Table 4.6: 1 bedroom dwelling \u2014 Storage area \u2014 3m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "fe9075dc-6ae7-4d47-b361-8a19b19857d7",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_storage_area_min_m2_2bed",
+      "canonical_rule_key": "storage_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "2bed"
+      },
+      "quote": "Table 4.6: 2 bedroom dwellings \u2014 Storage area \u2014 4m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "fe9075dc-6ae7-4d47-b361-8a19b19857d7",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_storage_area_min_m2_3bed",
+      "canonical_rule_key": "storage_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 5.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "3bed"
+      },
+      "quote": "Table 4.6: 3 bedroom dwellings \u2014 Storage area \u2014 5m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "fe9075dc-6ae7-4d47-b361-8a19b19857d7",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_storage_area_min_m2_studio",
+      "canonical_rule_key": "storage_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "dwelling_size": "studio"
+      },
+      "quote": "Table 4.6: Studio dwelling \u2014 Storage area \u2014 3m2",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "fe9075dc-6ae7-4d47-b361-8a19b19857d7",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_storage_dimension_min_m",
+      "canonical_rule_key": "storage_dimension_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 4.6 Storage requirements: storage dimension min m \u2014 1.5m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "fe9075dc-6ae7-4d47-b361-8a19b19857d7",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_storage_height_min_m",
+      "canonical_rule_key": "storage_height_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.1
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "Table 4.6 Storage requirements: storage height min m \u2014 2.1m",
+      "instrument_section": "Part 4",
+      "table_reference": "Table 4.6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "fe9075dc-6ae7-4d47-b361-8a19b19857d7",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_tree_dsa_min_m2_large",
+      "canonical_rule_key": "tree_dsa_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 64.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "tree_size": "Large"
+      },
+      "quote": "Table 3.3b: Large tree \u2014 Required DSA per tree \u2014 64m2",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "4e6c5516-84b5-43aa-998c-d71814c1b7d4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_tree_dsa_min_m2_medium",
+      "canonical_rule_key": "tree_dsa_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 36.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "tree_size": "Medium"
+      },
+      "quote": "Table 3.3b: Medium tree \u2014 Required DSA per tree \u2014 36m2",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "4e6c5516-84b5-43aa-998c-d71814c1b7d4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_tree_dsa_min_m2_small",
+      "canonical_rule_key": "tree_dsa_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 9.0
+      },
+      "unit": "m2",
+      "condition_json": {
+        "tree_size": "Small"
+      },
+      "quote": "Table 3.3b: Small tree \u2014 Required DSA per tree \u2014 9m2",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "4e6c5516-84b5-43aa-998c-d71814c1b7d4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_tree_dsa_width_min_m_large",
+      "canonical_rule_key": "tree_dsa_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "tree_size": "Large",
+        "recommendation": true
+      },
+      "quote": "Table 3.3b: Large tree \u2014 Recommended minimum DSA width \u2014 6m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "4e6c5516-84b5-43aa-998c-d71814c1b7d4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_tree_dsa_width_min_m_medium",
+      "canonical_rule_key": "tree_dsa_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "tree_size": "Medium",
+        "recommendation": true
+      },
+      "quote": "Table 3.3b: Medium tree \u2014 Recommended minimum DSA width \u2014 3m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "4e6c5516-84b5-43aa-998c-d71814c1b7d4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_tree_dsa_width_min_m_small",
+      "canonical_rule_key": "tree_dsa_width_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 2.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "tree_size": "Small",
+        "recommendation": true
+      },
+      "quote": "Table 3.3b: Small tree \u2014 Recommended minimum DSA width \u2014 2m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3b",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "4e6c5516-84b5-43aa-998c-d71814c1b7d4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_tree_provision_700_1000m2",
+      "canonical_rule_key": "tree_provision_requirement",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "2 medium trees OR 1 large tree AND small trees to suit area"
+      },
+      "unit": "text",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "Table 3.3a: Site area 700 \u2013 1,000m2 \u2014 Minimum requirement for trees \u2014 2 medium trees OR 1 large tree AND small trees to suit area",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "c08a4d2a-019e-4e53-828c-0b34b6e54ca4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "vol2_tree_provision_gt_1000m2",
+      "canonical_rule_key": "tree_provision_requirement",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "1 large tree and 1 medium tree for each additional 400m2 in excess of 1000m2 OR 1 large tree for each additional 900m2 in excess of 1000m2 AND small trees to suit area"
+      },
+      "unit": "text",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "Table 3.3a: Site area > 1,000m2 \u2014 Minimum requirement for trees \u2014 1 large tree and 1 medium tree for each additional 400m2 in excess of 1000m2 OR 1 large tree for each additional 900m2 in excess of 1000m2 AND small trees to suit area",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "c08a4d2a-019e-4e53-828c-0b34b6e54ca4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "vol2_tree_provision_lt_700m2",
+      "canonical_rule_key": "tree_provision_requirement",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "raw_text": "1 medium tree and small trees to suit area"
+      },
+      "unit": "text",
+      "condition_json": {
+        "needs_human_review": true
+      },
+      "quote": "Table 3.3a: Site area Less than 700m2 \u2014 Minimum requirement for trees \u2014 1 medium tree and small trees to suit area",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.3a",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "c08a4d2a-019e-4e53-828c-0b34b6e54ca4",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "vol2_uncovered_parking_trees_min_per_bay",
+      "canonical_rule_key": "uncovered_parking_trees_min_per_bay",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.25
+      },
+      "unit": "trees_per_bay",
+      "condition_json": {},
+      "quote": "A 3.9.9: Uncovered at-grade parking is planted with trees at a minimum rate of one tree per four bays.",
+      "instrument_section": "Part 3",
+      "table_reference": "A 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0e889b32-6b9d-4a7a-bbdc-13fec99467bd",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_visitor_car_parking_min_bays_per_dwelling_from_13th",
+      "canonical_rule_key": "visitor_car_parking_min_bays_per_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.125
+      },
+      "unit": "bays_per_dwelling",
+      "condition_json": {
+        "visitor": true,
+        "from_13th_dwelling": true
+      },
+      "quote": "Table 3.9 Parking ratio: 1 bay per eight dwellings for the 13th dwelling and above",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_visitor_car_parking_min_bays_per_dwelling_up_to_12",
+      "canonical_rule_key": "visitor_car_parking_min_bays_per_dwelling",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 0.25
+      },
+      "unit": "bays_per_dwelling",
+      "condition_json": {
+        "visitor": true,
+        "up_to_12_dwellings": true
+      },
+      "quote": "Table 3.9 Parking ratio: 1 bay per four dwellings up to 12 dwellings",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.9",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "5391c1d9-6a8e-40b8-8d53-2568a5c53931",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_visual_privacy_setback_min_m_bedroom_study_walkways_adjoining_R50_or_lower",
+      "canonical_rule_key": "visual_privacy_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "opening_type": "bedroom_study_walkways",
+        "adjoining_site_code": "Adjoining sites coded R50 or lower",
+        "storeys": "first_4_storeys"
+      },
+      "quote": "Table 3.5: Major opening to bedroom \u2014 Adjoining sites coded R50 or lower \u2014 4.5m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0da6d3d0-2cbb-484c-a65e-de093f33667e",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_visual_privacy_setback_min_m_bedroom_study_walkways_adjoining_higher_than_R50",
+      "canonical_rule_key": "visual_privacy_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 3.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "opening_type": "bedroom_study_walkways",
+        "adjoining_site_code": "Adjoining sites coded higher than R50",
+        "storeys": "first_4_storeys"
+      },
+      "quote": "Table 3.5: Major opening to bedroom \u2014 Adjoining sites coded higher than R50 \u2014 3m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0da6d3d0-2cbb-484c-a65e-de093f33667e",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_visual_privacy_setback_min_m_habitable_other_than_bedrooms_adjoining_R50_or_lower",
+      "canonical_rule_key": "visual_privacy_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "opening_type": "habitable_other_than_bedrooms",
+        "adjoining_site_code": "Adjoining sites coded R50 or lower",
+        "storeys": "first_4_storeys"
+      },
+      "quote": "Table 3.5: Major openings to habitable rooms other than bedrooms \u2014 Adjoining sites coded R50 or lower \u2014 6m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0da6d3d0-2cbb-484c-a65e-de093f33667e",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_visual_privacy_setback_min_m_habitable_other_than_bedrooms_adjoining_higher_than_R50",
+      "canonical_rule_key": "visual_privacy_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "opening_type": "habitable_other_than_bedrooms",
+        "adjoining_site_code": "Adjoining sites coded higher than R50",
+        "storeys": "first_4_storeys"
+      },
+      "quote": "Table 3.5: Major openings to habitable rooms other than bedrooms \u2014 Adjoining sites coded higher than R50 \u2014 4.5m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0da6d3d0-2cbb-484c-a65e-de093f33667e",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_visual_privacy_setback_min_m_unenclosed_private_outdoor_spaces_adjoining_R50_or_lower",
+      "canonical_rule_key": "visual_privacy_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 7.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "opening_type": "unenclosed_private_outdoor_spaces",
+        "adjoining_site_code": "Adjoining sites coded R50 or lower",
+        "storeys": "first_4_storeys"
+      },
+      "quote": "Table 3.5: Unenclosed private outdoor \u2014 Adjoining sites coded R50 or lower \u2014 7.5m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0da6d3d0-2cbb-484c-a65e-de093f33667e",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "vol2_visual_privacy_setback_min_m_unenclosed_private_outdoor_spaces_adjoining_higher_than_R50",
+      "canonical_rule_key": "visual_privacy_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": "multiple_dwelling",
+      "applicable_r_codes": [
+        "R80",
+        "R100",
+        "R160",
+        "R-AC4",
+        "R-AC3",
+        "R-AC2",
+        "R-AC1",
+        "R-AC0"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 6.0
+      },
+      "unit": "m",
+      "condition_json": {
+        "opening_type": "unenclosed_private_outdoor_spaces",
+        "adjoining_site_code": "Adjoining sites coded higher than R50",
+        "storeys": "first_4_storeys"
+      },
+      "quote": "Table 3.5: Unenclosed private outdoor \u2014 Adjoining sites coded higher than R50 \u2014 6m",
+      "instrument_section": "Part 3",
+      "table_reference": "Table 3.5",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "27277d7d-89f1-4b98-adaf-147925ea755c",
+      "clause_id": "0da6d3d0-2cbb-484c-a65e-de093f33667e",
+      "extractor_model": "deterministic_table_parser:v3-vol2-apr2024",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    }
+  ]
+}

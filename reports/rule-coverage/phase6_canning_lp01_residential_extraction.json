@@ -1,0 +1,1148 @@
+{
+  "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+  "source_pdf": "/app/data/raw-sources/councils/canning/lp01_residential_development.pdf",
+  "instrument_section": "LP.01 Residential Development",
+  "tables_requested": [
+    "s3.7 C3 Table B Large and multiple outbuildings"
+  ],
+  "candidates_extracted": 40,
+  "warnings": [
+    "s3.5 C4.3 (prohibited fence materials) is qualitative \u2014 not extracted.",
+    "s3.8 C4.8 waste management plan trigger (multiple/5+ grouped dwellings) is procedural \u2014 not extracted.",
+    "Figures 1-5 are illustrative only; numeric values captured in rule conditions."
+  ],
+  "candidates": [
+    {
+      "rule_key": "canning.tree_worthy_retention_height_min_m",
+      "canonical_rule_key": "canning.tree_worthy_retention_height_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "definition_of": "tree worthy of retention (also Grass Tree)"
+      },
+      "quote": "Tree worthy of retention A tree that: a) Is equal to or in excess of 3m in height; or b) Has a trunk equal to or in excess of 100mm in diameter (sum of 200mm diameter for multiple trunk species) measured at 1.4m above ground level; or c) Has a canopy spread of 3m or more; or d) A Grass Tree",
+      "instrument_section": "s1 Definitions",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "ed5091ef-a64f-40e0-ab67-7c7957f7bd8b",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.tree_worthy_retention_trunk_diameter_min_mm",
+      "canonical_rule_key": "canning.tree_worthy_retention_trunk_diameter_min_mm",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 100
+      },
+      "unit": "mm",
+      "condition_json": {
+        "definition_of": "tree worthy of retention (also Grass Tree)",
+        "measured_at": "1.4m above ground level",
+        "multi_trunk_sum_mm": 200
+      },
+      "quote": "Has a trunk equal to or in excess of 100mm in diameter (sum of 200mm diameter for multiple trunk species) measured at 1.4m above ground level",
+      "instrument_section": "s1 Definitions",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "ed5091ef-a64f-40e0-ab67-7c7957f7bd8b",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.tree_worthy_retention_canopy_min_m",
+      "canonical_rule_key": "canning.tree_worthy_retention_canopy_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "definition_of": "tree worthy of retention (also Grass Tree)"
+      },
+      "quote": "Has a canopy spread of 3m or more",
+      "instrument_section": "s1 Definitions",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "ed5091ef-a64f-40e0-ab67-7c7957f7bd8b",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.primary_street_setback_reduction_max_pct",
+      "canonical_rule_key": "canning.primary_street_setback_reduction_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "requires": "equal-area open space compensation OR retained tree + 9m2 deep soil"
+      },
+      "quote": "C2.1 Buildings, excluding carports, porches, balconies, verandahs, or equivalent, set back from the primary street boundary: iii. Reduced by up to 50 per cent provided that the area of any building, including a garage encroaching into the setback area, is compensated for by: a. At least an equal area of open space that is located between the street setback line and a line drawn parallel to it at twice the setback distance, or, b. Where a tree worthy of retention is retained between the street setback line and twice the setback distance with a minimum of 9m2 (minimum dimension 3m) of deep soil area.",
+      "instrument_section": "s3.1 C2.1(iii)",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "ed5091ef-a64f-40e0-ab67-7c7957f7bd8b",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "canning.tree_retention_deep_soil_area_min_m2",
+      "canonical_rule_key": "canning.tree_retention_deep_soil_area_min_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 9
+      },
+      "unit": "m2",
+      "condition_json": {
+        "for": "tree worthy of retention retention concession"
+      },
+      "quote": "Where a tree worthy of retention is retained between the street setback line and twice the setback distance with a minimum of 9m2 (minimum dimension 3m) of deep soil area.",
+      "instrument_section": "s3.1 C2.1(iii)b / s3.2 C3.2(v)",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "ed5091ef-a64f-40e0-ab67-7c7957f7bd8b",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.tree_retention_deep_soil_min_dimension_m",
+      "canonical_rule_key": "canning.tree_retention_deep_soil_min_dimension_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "applies_to": "length and width"
+      },
+      "quote": "with a minimum of 9m2 (minimum dimension 3m) of deep soil area.",
+      "instrument_section": "s3.1 C2.1(iii)b / s3.2 C3.2(v)",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "ed5091ef-a64f-40e0-ab67-7c7957f7bd8b",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.boundary_wall_length_extension_max_m",
+      "canonical_rule_key": "canning.boundary_wall_length_extension_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "requires": "retained tree + 9m2 deep soil behind twice the setback distance"
+      },
+      "quote": "v. The maximum length to one boundary wall can be increased by up to 3m where a tree worthy of retention is retained with a minimum of 9m2 (minimum dimension 3m) of deep soil area and is located behind twice the setback distance.",
+      "instrument_section": "s3.2 C3.2(v)",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "ed5091ef-a64f-40e0-ab67-7c7957f7bd8b",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.garage_primary_street_setback_min_m",
+      "canonical_rule_key": "canning.garage_primary_street_setback_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 4.5
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "C1.1 Garages set back 4.5m from the primary street except that the setback may be reduced: i. In accordance with Part B Figure 8b where the garage adjoins a dwelling provided the garage is at least 0.5m behind the dwelling alignment ...; or ii. To 3m where the garage allows vehicles to be parked parallel to the street ...; iii. Where the garage is setback in accordance with Clause 5.1.2 C2.1 iii b.",
+      "instrument_section": "s3.3 C1.1",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "f470ea0c-c389-4510-987a-33b7e5cb92e8",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.garage_behind_dwelling_alignment_min_m",
+      "canonical_rule_key": "canning.garage_behind_dwelling_alignment_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "reduction_path": "garage adjoins dwelling (Part B Figure 8b)"
+      },
+      "quote": "the garage adjoins a dwelling provided the garage is at least 0.5m behind the dwelling alignment (excluding any porch, verandah or balcony)",
+      "instrument_section": "s3.3 C1.1(i)",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "f470ea0c-c389-4510-987a-33b7e5cb92e8",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.garage_setback_parallel_parking_min_m",
+      "canonical_rule_key": "canning.garage_setback_parallel_parking_min_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "requires": "parallel parking + openings in street-parallel wall"
+      },
+      "quote": "To 3m where the garage allows vehicles to be parked parallel to the street. The wall parallel to the street must include openings.",
+      "instrument_section": "s3.3 C1.1(ii)",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "f470ea0c-c389-4510-987a-33b7e5cb92e8",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.garage_door_width_max_pct_frontage",
+      "canonical_rule_key": "canning.garage_door_width_max_pct_frontage",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "measured_at": "setback line as viewed from street"
+      },
+      "quote": "C2.1 A garage door and its supporting structures (or a garage wall where a garage is aligned parallel to the street) facing the primary street is not to occupy more than 50 per cent of the frontage at the setback line as viewed from the street. This may be increased up to 60 per cent where an upper floor or balcony extends for more than half the width of the garage ... and the entrance to the dwelling is clearly visible from the primary street.",
+      "instrument_section": "s3.4 C2.1",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "f470ea0c-c389-4510-987a-33b7e5cb92e8",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.garage_door_width_max_pct_frontage.upper_floor",
+      "canonical_rule_key": "canning.garage_door_width_max_pct_frontage.upper_floor",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 60
+      },
+      "unit": "%",
+      "condition_json": {
+        "requires": "upper floor/balcony over half garage width + visible entrance"
+      },
+      "quote": "This may be increased up to 60 per cent where an upper floor or balcony extends for more than half the width of the garage and its supporting structures and the entrance to the dwelling is clearly visible from the primary street.",
+      "instrument_section": "s3.4 C2.1",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "f470ea0c-c389-4510-987a-33b7e5cb92e8",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.garage_door_width_max_pct_frontage.tree_retention",
+      "canonical_rule_key": "canning.garage_door_width_max_pct_frontage.tree_retention",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 60
+      },
+      "unit": "%",
+      "condition_json": {
+        "frontage_max_m": 12,
+        "requires": "retained tree per C2.1(iii)b"
+      },
+      "quote": "C2.2 For lots with 12m frontage or less, where a tree worthy of retention is retained in accordance with Clause 5.1.2 C2.1 iii b, a garage door and its supporting structures ... facing the primary street is not to occupy more than 60 per cent of the frontage at the setback line as viewed from the street.",
+      "instrument_section": "s3.4 C2.2",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "f470ea0c-c389-4510-987a-33b7e5cb92e8",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.fence_pillar_height_max_m",
+      "canonical_rule_key": "canning.fence_pillar_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 1.8
+      },
+      "unit": "m",
+      "condition_json": {
+        "measured_from": "natural ground level",
+        "requires": "visually permeable fencing between pillars"
+      },
+      "quote": "C4.2 Solid pillars that form part of front fences not more than 1.8m above natural ground level provided the horizontal dimension of the pillars is not greater than 450mm by 450mm and pillars are separated by visually permeable fencing.",
+      "instrument_section": "s3.5 C4.2",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.fence_pillar_dimension_max_mm",
+      "canonical_rule_key": "canning.fence_pillar_dimension_max_mm",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 450
+      },
+      "unit": "mm",
+      "condition_json": {
+        "applies_to": "front fence pillars and uniform fencing piers (both dimensions)"
+      },
+      "quote": "the horizontal dimension of the pillars is not greater than 450mm by 450mm",
+      "instrument_section": "s3.5 C4.2 / C4.5",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.metal_fence_height_front_setback_max_m",
+      "canonical_rule_key": "canning.metal_fence_height_front_setback_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 1.2
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "within primary street setback area",
+        "material": "metal sheeting"
+      },
+      "quote": "ii. The height of the metal sheeting fence (e.g. Colorbond) is to a maximum height of 1.2m within the front setback line.",
+      "instrument_section": "s3.5 C4.4(ii)",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.uniform_fence_height_max_mm.transport_corridor",
+      "canonical_rule_key": "canning.uniform_fence_height_max_mm.transport_corridor",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 2100
+      },
+      "unit": "mm",
+      "condition_json": {
+        "location": "abutting major transport corridor",
+        "requires": "anti-graffiti coating"
+      },
+      "quote": "Along Major Transport Corridors (Railway Reservation, and a Primary or Other Regional Road Reservations) Only: i. Fencing maximum height shall be 2100mm above natural ground level;",
+      "instrument_section": "s3.5 C4.5 major transport corridors",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.uniform_fence_height_max_mm.other",
+      "canonical_rule_key": "canning.uniform_fence_height_max_mm.other",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 1800
+      },
+      "unit": "mm",
+      "condition_json": {
+        "location": "uniform fencing all other locations",
+        "requires": "anti-graffiti coating"
+      },
+      "quote": "All other locations: i. Fencing maximum height shall be 1800mm above natural ground level, with solid sections not exceeding a maximum height of 1.2m, and visually permeable infill panels above up to 1.8m height between piers;",
+      "instrument_section": "s3.5 C4.5 all other locations",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.uniform_fence_solid_height_max_m",
+      "canonical_rule_key": "canning.uniform_fence_solid_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 1.2
+      },
+      "unit": "m",
+      "condition_json": {
+        "location": "uniform fencing all other locations"
+      },
+      "quote": "with solid sections not exceeding a maximum height of 1.2m, and visually permeable infill panels above up to 1.8m height between piers",
+      "instrument_section": "s3.5 C4.5 all other locations",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.uniform_fence_solid_length_max_pct",
+      "canonical_rule_key": "canning.uniform_fence_solid_length_max_pct",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "%",
+      "condition_json": {
+        "of": "boundary length behind primary street setback line"
+      },
+      "quote": "iii. The solid section of fencing shall be maximum length of 50% of the length of the boundary behind the primary street setback line;",
+      "instrument_section": "s3.5 C4.5 all other locations",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.sightline_structure_height_max_m",
+      "canonical_rule_key": "canning.sightline_structure_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 0.75
+      },
+      "unit": "m",
+      "condition_json": {
+        "within_m_of_intersection": 1.5
+      },
+      "quote": "C5.1 Walls, fences and other structures truncated or reduced to no higher than 0.75m within 1.5m of where walls, fences, or other structures adjoin: i. a driveway that intersects a street, right-of-way or communal street; ii. a right-of-way or communal street that intersects a public street; and iii. two streets that intersect.",
+      "instrument_section": "s3.6 C5.1",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.driveway_fence_height_max_m",
+      "canonical_rule_key": "canning.driveway_fence_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 1.8
+      },
+      "unit": "m",
+      "condition_json": {
+        "within_m_of_driveway_street_junction": 1.5,
+        "max_solid_pillars": 1
+      },
+      "quote": "C5.2 Fencing no higher than 1.8m high above natural ground level within 1.5m of where a driveway meets a street with: i. no more than one solid pillar provided the horizontal dimension of the pillar is not greater than 450mm by 450mm; ii. no more than two panels ... with visually permeable fencing ...; iv. where there are no existing or planned footpaths adjacent to the property boundary.",
+      "instrument_section": "s3.6 C5.2",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "1a82ba1f-37c8-4b43-b362-a1f49293b6c9",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_area_max_m2.lot_le_600",
+      "canonical_rule_key": "canning.outbuilding_area_max_m2.lot_le_600",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 60
+      },
+      "unit": "m2",
+      "condition_json": {
+        "lot_area_max_m2": 600,
+        "alternative_cap": "10% of site area, whichever is lesser"
+      },
+      "quote": "Lots up to 600m2 in site area: individually or collectively does not exceed 60m2 in area or 10 percent in aggregate of the site area, whichever is the lesser.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_ridge_height_max_m.lot_le_600",
+      "canonical_rule_key": "canning.outbuilding_ridge_height_max_m.lot_le_600",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.2
+      },
+      "unit": "m",
+      "condition_json": {
+        "lot_area_max_m2": 600
+      },
+      "quote": "Lots up to 600m2 in site area: does not exceed a ridge height of 4.2m.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_area_max_m2.lot_601_800",
+      "canonical_rule_key": "canning.outbuilding_area_max_m2.lot_601_800",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 80
+      },
+      "unit": "m2",
+      "condition_json": {
+        "lot_area_min_m2": 601,
+        "lot_area_max_m2": 800,
+        "alternative_cap": "10% of site area, whichever is lesser"
+      },
+      "quote": "Lots 601m2 - 800m2 in site area: individually or collectively does not exceed 80m2 in area or 10 percent in aggregate of the site area, whichever is the lesser.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_ridge_height_max_m.lot_601_800",
+      "canonical_rule_key": "canning.outbuilding_ridge_height_max_m.lot_601_800",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.2
+      },
+      "unit": "m",
+      "condition_json": {
+        "lot_area_min_m2": 601,
+        "lot_area_max_m2": 800
+      },
+      "quote": "Lots 601m2 - 800m2 in site area: does not exceed a ridge height of 4.2m.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_area_max_m2.lot_801_1000",
+      "canonical_rule_key": "canning.outbuilding_area_max_m2.lot_801_1000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 90
+      },
+      "unit": "m2",
+      "condition_json": {
+        "lot_area_min_m2": 801,
+        "lot_area_max_m2": 1000,
+        "alternative_cap": "10% of site area, whichever is lesser"
+      },
+      "quote": "Lots 801m2 - 1000m2 in site area: individually or collectively does not exceed 90m2 in area or 10 percent in aggregate of the site area, whichever is the lesser.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_ridge_height_max_m.lot_801_1000",
+      "canonical_rule_key": "canning.outbuilding_ridge_height_max_m.lot_801_1000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.8
+      },
+      "unit": "m",
+      "condition_json": {
+        "lot_area_min_m2": 801,
+        "lot_area_max_m2": 1000
+      },
+      "quote": "Lots 801m2 - 1000m2 in site area: does not exceed a ridge height of 4.8m.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_area_max_m2.lot_1001_2000",
+      "canonical_rule_key": "canning.outbuilding_area_max_m2.lot_1001_2000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 100
+      },
+      "unit": "m2",
+      "condition_json": {
+        "lot_area_min_m2": 1001,
+        "lot_area_max_m2": 2000,
+        "alternative_cap": "10% of site area, whichever is lesser"
+      },
+      "quote": "Lots 1001m2 - 2000m2: individually or collectively does not exceed 100m2 in area or 10 percent in aggregate of the site area, whichever is the lesser.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_ridge_height_max_m.lot_1001_2000",
+      "canonical_rule_key": "canning.outbuilding_ridge_height_max_m.lot_1001_2000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.8
+      },
+      "unit": "m",
+      "condition_json": {
+        "lot_area_min_m2": 1001,
+        "lot_area_max_m2": 2000
+      },
+      "quote": "Lots 1001m2 - 2000m2: does not exceed a ridge height of 4.8m.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_area_max_m2.lot_gt_2000",
+      "canonical_rule_key": "canning.outbuilding_area_max_m2.lot_gt_2000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 130
+      },
+      "unit": "m2",
+      "condition_json": {
+        "lot_area_min_m2": 2001,
+        "alternative_cap": "10% of site area, whichever is lesser"
+      },
+      "quote": "Lots over 2001m2: individually or collectively does not exceed 130m2 in area or 10 percent in aggregate of the site area, whichever is the lesser.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_ridge_height_max_m.lot_gt_2000",
+      "canonical_rule_key": "canning.outbuilding_ridge_height_max_m.lot_gt_2000",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.8
+      },
+      "unit": "m",
+      "condition_json": {
+        "lot_area_min_m2": 2001
+      },
+      "quote": "Lots over 2001m2: does not exceed a ridge height of 4.8m.",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_area_max_pct_site",
+      "canonical_rule_key": "canning.outbuilding_area_max_pct_site",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "%",
+      "condition_json": {
+        "applies": "all lot size bands, aggregate of all outbuildings"
+      },
+      "quote": "individually or collectively does not exceed ... 10 percent in aggregate of the site area, whichever is the lesser",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.outbuilding_wall_height_max_m",
+      "canonical_rule_key": "canning.outbuilding_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "applies": "all lot size bands"
+      },
+      "quote": "does not exceed a wall height of 3m (all lot size bands)",
+      "instrument_section": "s3.7 C3 Table B",
+      "table_reference": "s3.7 C3 Table B Large and multiple outbuildings",
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.sea_container_max_count",
+      "canonical_rule_key": "canning.sea_container_max_count",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "containers",
+      "condition_json": {},
+      "quote": "C. Sea Containers i. Only one (1) sea container is permitted per site to a maximum area of 30m2;",
+      "instrument_section": "s3.7 C Sea Containers",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_count",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.sea_container_area_max_m2",
+      "canonical_rule_key": "canning.sea_container_area_max_m2",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 30
+      },
+      "unit": "m2",
+      "condition_json": {
+        "not_in": "primary or secondary street setback area"
+      },
+      "quote": "Only one (1) sea container is permitted per site to a maximum area of 30m2; not located within a primary or secondary street setback area;",
+      "instrument_section": "s3.7 C Sea Containers",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.sea_container_wall_height_max_m",
+      "canonical_rule_key": "canning.sea_container_wall_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 2.4
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "iv. does not exceed a wall height of 2.4m;",
+      "instrument_section": "s3.7 C Sea Containers",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.sea_container_ridge_height_max_m",
+      "canonical_rule_key": "canning.sea_container_ridge_height_max_m",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 4.2
+      },
+      "unit": "m",
+      "condition_json": {},
+      "quote": "v. does not exceed a ridge height of 4.2m;",
+      "instrument_section": "s3.7 C Sea Containers",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.garage_power_outlet_min_amp",
+      "canonical_rule_key": "canning.garage_power_outlet_min_amp",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "gte",
+      "value_json": {
+        "value": 15
+      },
+      "unit": "amp",
+      "condition_json": {
+        "per": "car parking space within a garage"
+      },
+      "quote": "C4.9 A power outlet (minimum 15 amp) shall be provided to each car parking space within a garage.",
+      "instrument_section": "s3.8 C4.9",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "canning.sea_container_temporary_max_months",
+      "canonical_rule_key": "canning.sea_container_temporary_max_months",
+      "rule_type": "standard",
+      "pathway": "deemed_to_comply",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": "City of Canning",
+      "operator": "lte",
+      "value_json": {
+        "value": 1
+      },
+      "unit": "months",
+      "condition_json": {
+        "development_approval": "not required",
+        "max_occurrences_per_calendar_year": 1
+      },
+      "quote": "Sea containers can be placed within a residential property and incidental to a dwelling for a temporary period of up to one (1) month ... The occurrence only happens once per calendar year to the lot.",
+      "instrument_section": "s4.1 Other exemptions",
+      "table_reference": null,
+      "effective_from": "2024-12-10",
+      "effective_to": null,
+      "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+      "clause_id": "886b0185-b928-4f4d-9f16-18d237adfa2c",
+      "extractor_model": "manual_lpp_extraction:phase6-v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    }
+  ]
+}

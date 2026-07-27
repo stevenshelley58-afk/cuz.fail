@@ -1,7 +1,27 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CheckCircle2, ChevronDown, ChevronRight, CircleAlert, CircleHelp, MessageSquare, RefreshCw, Search } from "lucide-react";
-import { api, type ComplianceResultItem, type ComplianceRunResponse } from "../api";
+import {
+  Building2,
+  CarFront,
+  CheckCircle2,
+  ChevronDown,
+  ChevronRight,
+  CircleAlert,
+  CircleHelp,
+  ExternalLink,
+  Fence,
+  FileText,
+  ImageIcon,
+  LandPlot,
+  Leaf,
+  MessageSquare,
+  RefreshCw,
+  Ruler,
+  Search,
+  ShieldCheck,
+} from "lucide-react";
+import { api, type ComplianceResultItem, type ComplianceRunResponse, type PropertyImage } from "../api";
 import { trackEvent } from "../analytics";
+import "./compliance.css";
 
 /* ── CompliancePanel ── */
 
@@ -11,6 +31,7 @@ type CompliancePanelProps = {
   onProposalDetails?: () => void;
   proposalReady?: boolean;
   councilName?: string | null;
+  propertyImage?: PropertyImage | null;
   /** Run a check automatically when no saved results exist yet (results-first view). */
   autoRun?: boolean;
   /** Increment to trigger a fresh run from outside (e.g. after refining the proposal). */
@@ -60,9 +81,53 @@ function missingBadgeLabel(item: ComplianceResultItem): string {
   return "More info needed";
 }
 
+type RuleGroup = {
+  key: string;
+  label: string;
+  description: string;
+};
+
+const RULE_GROUPS: RuleGroup[] = [
+  { key: "setbacks", label: "Setbacks & boundaries", description: "Distances from streets, side and rear boundaries." },
+  { key: "building", label: "Building form", description: "Height, storeys, roof form and the overall building envelope." },
+  { key: "site", label: "Site design & landscaping", description: "Site cover, open space, trees, landscaping and outdoor areas." },
+  { key: "access", label: "Parking & access", description: "Garages, parking bays, driveways and vehicle access." },
+  { key: "walls", label: "Walls & fences", description: "Boundary walls, retaining walls, screening and fencing." },
+  { key: "lot", label: "Lot & subdivision", description: "Lot dimensions, density and subdivision requirements." },
+  { key: "amenity", label: "Amenity & safety", description: "Neighbour amenity, environmental constraints and building safety." },
+  { key: "other", label: "Other planning requirements", description: "Additional requirements that apply to this property." },
+];
+
+function ruleGroup(item: ComplianceResultItem): RuleGroup {
+  const category = item.category?.trim().toLowerCase() ?? "";
+  const key = `${item.check_key} ${item.display_name ?? ""}`.toLowerCase();
+  let groupKey = "other";
+
+  if (category === "setback" || /\bsetback|boundary distance/.test(key)) groupKey = "setbacks";
+  else if (["height", "storeys"].includes(category) || /\bheight|storey|storeys|ceiling|roof|building envelope/.test(key)) groupKey = "building";
+  else if (["site_cover", "open_space", "site", "landscape"].includes(category) || /site cover|open space|landscap|tree|deep soil/.test(key)) groupKey = "site";
+  else if (["garage", "parking", "driveway"].includes(category) || /garage|parking|car ?park|driveway|vehicle access/.test(key)) groupKey = "access";
+  else if (["boundary_wall", "wall", "fence"].includes(category) || /wall|fence|screening/.test(key)) groupKey = "walls";
+  else if (["lot", "subdivision"].includes(category) || /lot width|lot area|density|subdivision/.test(key)) groupKey = "lot";
+  else if (["amenity", "building_safety", "environmental"].includes(category) || /amenity|privacy|overlooking|bushfire|flood|noise|safety|environment/.test(key)) groupKey = "amenity";
+
+  return RULE_GROUPS.find((group) => group.key === groupKey) ?? RULE_GROUPS[RULE_GROUPS.length - 1];
+}
+
 function ruleTopic(item: ComplianceResultItem): string {
-  if (item.check_type?.trim()) return humanizeLabel(item.check_type);
-  return "Planning Rules";
+  return ruleGroup(item).label;
+}
+
+function RuleGroupIcon({ groupKey }: { groupKey: string }) {
+  const props = { size: 18, strokeWidth: 1.8, "aria-hidden": true } as const;
+  if (groupKey === "setbacks") return <Ruler {...props} />;
+  if (groupKey === "building") return <Building2 {...props} />;
+  if (groupKey === "site") return <Leaf {...props} />;
+  if (groupKey === "access") return <CarFront {...props} />;
+  if (groupKey === "walls") return <Fence {...props} />;
+  if (groupKey === "lot") return <LandPlot {...props} />;
+  if (groupKey === "amenity") return <ShieldCheck {...props} />;
+  return <FileText {...props} />;
 }
 
 function modalityLabel(modality: string): string {
@@ -74,6 +139,12 @@ function modalityLabel(modality: string): string {
     advisory: "Advisory / guidance",
   };
   return labels[key] ?? humanizeLabel(key);
+}
+
+function externalDocumentUrl(value: string | null | undefined): string | null {
+  if (!value) return null;
+  const trimmed = value.trim();
+  return /^https?:\/\//i.test(trimmed) ? trimmed : null;
 }
 
 function hasProposalEvidence(item: ComplianceResultItem): boolean {
@@ -119,80 +190,71 @@ function StatusBadge({ item }: { item: ComplianceResultItem }) {
 }
 
 function RuleSourceDetails({ item, preProposal = false }: { item: ComplianceResultItem; preProposal?: boolean }) {
-  const whatItMeans = item.what_it_means?.trim() || item.note?.trim();
+  const whatItMeans = item.what_it_means?.trim();
+  const source = item.source;
+  const sourceUrl = externalDocumentUrl(source?.url);
 
   return (
-    <>
+    <div className="rule-details">
       {whatItMeans && (
-        <div style={{ marginBottom: 10 }}>
-          <div style={{ fontSize: 11, color: "#6b7280", marginBottom: 3, fontWeight: 600 }}>What this rule says</div>
-          <div style={{ color: "#374151" }}>{whatItMeans}</div>
+        <div className="rule-details__summary">
+          <div className="rule-details__eyebrow">In plain English</div>
+          <div>{whatItMeans}</div>
         </div>
       )}
 
       {item.rule_quote && (
-        <blockquote
-          style={{
-            margin: "0 0 8px",
-            paddingLeft: 10,
-            borderLeft: "3px solid #d1d5db",
-            color: "#4b5563",
-            fontStyle: "italic",
-            fontSize: 12,
-          }}
-        >
+        <blockquote className="rule-details__quote">
           {item.rule_quote}
         </blockquote>
       )}
 
-      {item.citation && (
-        <div style={{ fontSize: 12, color: "#6b7280", marginBottom: 8 }}>
-          <span style={{ fontWeight: 500 }}>Source:</span> {item.citation}
+      {source && (
+        <div className="rule-details__source">
+          <FileText size={15} aria-hidden="true" />
+          <div className="rule-details__source-copy">
+            <span>{source.title}</span>
+            {source.section && <small>{source.section}</small>}
+          </div>
+          {sourceUrl && (
+            <a href={sourceUrl} target="_blank" rel="noreferrer" aria-label={`Open source document: ${source.title}`}>
+              View document <ExternalLink size={13} aria-hidden="true" />
+            </a>
+          )}
         </div>
       )}
 
       {item.modality?.trim() && (
-        <div style={{ fontSize: 12, color: "#6b7280", marginBottom: 8 }}>
-          <span style={{ fontWeight: 500 }}>Modality:</span> {modalityLabel(item.modality)}
+        <div className="rule-details__meta">
+          {modalityLabel(item.modality)}
         </div>
       )}
 
       {preProposal && (
-        <div style={{ fontSize: 12, color: "#6b7280", marginTop: 10 }}>
-          Add your proposal details or upload house plans and we'll review this rule against your design.
+        <div className="rule-details__next">
+          Add your proposal details or house plans when you’re ready to check your design against this requirement.
         </div>
       )}
-    </>
+    </div>
   );
 }
 
 function RuleBrowserRow({ item }: { item: ComplianceResultItem }) {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div style={{ border: "1px solid #e5e7eb", borderRadius: 8, overflow: "hidden", background: "#fff" }}>
+    <div className={`rule-row${expanded ? " rule-row--expanded" : ""}`}>
       <button
         onClick={() => setExpanded((value) => !value)}
         aria-expanded={expanded}
-        style={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 12,
-          padding: "10px 14px",
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          textAlign: "left",
-        }}
+        className="rule-row__toggle"
       >
-        <span style={{ fontWeight: 600, fontSize: 14, color: "#111827" }}>{item.display_name ?? humanizeLabel(item.check_key)}</span>
-        <span style={{ display: "inline-flex", alignItems: "center", color: "#6b7280" }}>
+        <span>{item.display_name ?? humanizeLabel(item.check_key)}</span>
+        <span className="rule-row__chevron">
           {expanded ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
         </span>
       </button>
       {expanded && (
-        <div style={{ padding: "0 14px 14px", fontSize: 13, color: "#374151" }}>
+        <div className="rule-row__body">
           <RuleSourceDetails item={item} preProposal />
         </div>
       )}
@@ -221,9 +283,10 @@ function RulesBrowser({
   const foundCount = totalCount ?? applicableRules.length;
   const grouped = new Map<string, ComplianceResultItem[]>();
   for (const item of applicableRules) {
-    const topic = ruleTopic(item);
-    grouped.set(topic, [...(grouped.get(topic) ?? []), item]);
+    const group = ruleGroup(item);
+    grouped.set(group.key, [...(grouped.get(group.key) ?? []), item]);
   }
+  const visibleGroups = RULE_GROUPS.filter((group) => grouped.has(group.key));
   const planningContext = councilName ? `Planning context: ${councilName}` : "Planning context resolved for this address.";
   const rulesVisible = showRules || filterActive;
 
@@ -236,22 +299,24 @@ function RulesBrowser({
   }
 
   return (
-    <div>
-      <div
-        style={{
-          background: "#f0fdf4",
-          border: "1px solid #bbf7d0",
-          borderRadius: 8,
-          padding: "12px 14px",
-          marginBottom: 14,
-        }}
-      >
-        <div style={{ color: "#166534", fontSize: 15, fontWeight: 700, marginBottom: 4 }}>
+    <div className="rules-browser">
+      <div className="rules-summary">
+        <div className="rules-summary__eyebrow">Property planning summary</div>
+        <div className="rules-summary__title">
           We found {foundCount} planning rule{foundCount === 1 ? "" : "s"} that apply to this property
         </div>
-        <div style={{ color: "#166534", fontSize: 13 }}>
+        <div className="rules-summary__context">
           {planningContext}
           {applicableRules.length !== foundCount ? ` · Showing ${applicableRules.length}` : ""}
+        </div>
+        <div className="rules-summary__topics" aria-label={`${visibleGroups.length} planning topics`}>
+          {visibleGroups.map((group) => (
+            <span key={group.key}>
+              <RuleGroupIcon groupKey={group.key} />
+              {group.label}
+              <strong>{grouped.get(group.key)?.length ?? 0}</strong>
+            </span>
+          ))}
         </div>
       </div>
 
@@ -259,26 +324,10 @@ function RulesBrowser({
         <button
           onClick={() => setShowRules((v) => !v)}
           aria-expanded={rulesVisible}
-          style={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 6,
-            padding: "10px 14px",
-            marginBottom: rulesVisible ? 14 : 0,
-            background: "#fff",
-            border: "1px solid #e5e7eb",
-            borderRadius: 8,
-            cursor: "pointer",
-            fontWeight: 600,
-            fontSize: 13,
-            color: "#374151",
-            fontFamily: "inherit",
-          }}
+          className="rules-browser__toggle"
         >
           {rulesVisible ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-          {rulesVisible ? "Hide rules" : `Show all ${foundCount} rule${foundCount === 1 ? "" : "s"}`}
+          {rulesVisible ? "Hide planning details" : `Explore all ${foundCount} rule${foundCount === 1 ? "" : "s"}`}
         </button>
       )}
 
@@ -288,17 +337,27 @@ function RulesBrowser({
             <div style={{ color: "#6b7280", fontSize: 14, marginBottom: 12 }}>No rules match your filter.</div>
           )}
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-            {Array.from(grouped.entries()).map(([topic, items]) => (
-              <section key={topic}>
-                <h4 style={{ margin: "0 0 8px", fontSize: 13, fontWeight: 700, color: "#374151" }}>{topic}</h4>
-                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <div className="rule-groups">
+            {visibleGroups.map((group) => {
+              const items = grouped.get(group.key) ?? [];
+              return (
+              <section className="rule-group" key={group.key}>
+                <header className="rule-group__header">
+                  <span className="rule-group__icon"><RuleGroupIcon groupKey={group.key} /></span>
+                  <div>
+                    <h4>{group.label}</h4>
+                    <p>{group.description}</p>
+                  </div>
+                  <span className="rule-group__count">{items.length}</span>
+                </header>
+                <div className="rule-group__items">
                   {items.map((item) => (
                     <RuleBrowserRow key={item.result_id} item={item} />
                   ))}
                 </div>
               </section>
-            ))}
+              );
+            })}
           </div>
         </>
       )}
@@ -342,6 +401,23 @@ function RulesBrowser({
         </div>
       )}
     </div>
+  );
+}
+
+function PropertyImageCard({ image }: { image: PropertyImage }) {
+  const details = [image.provider, image.captured_at ? `Captured ${image.captured_at}` : null].filter(Boolean).join(" · ");
+  return (
+    <figure className="property-image">
+      <img src={image.url} alt={image.alt ?? "Aerial view of the property"} loading="lazy" referrerPolicy="no-referrer" />
+      <figcaption>
+        <span className="property-image__icon"><ImageIcon size={16} aria-hidden="true" /></span>
+        <span>
+          <strong>Property aerial</strong>
+          {details && <small>{details}</small>}
+        </span>
+        {image.attribution && <span className="property-image__attribution">{image.attribution}</span>}
+      </figcaption>
+    </figure>
   );
 }
 
@@ -578,6 +654,7 @@ export function CompliancePanel({
   onProposalDetails,
   proposalReady = false,
   councilName,
+  propertyImage,
   autoRun = false,
   runRequest,
 }: CompliancePanelProps) {
@@ -768,6 +845,8 @@ export function CompliancePanel({
           </button>
         )}
       </div>
+
+      {results.length > 0 && propertyImage && <PropertyImageCard image={propertyImage} />}
 
       {error && (
         <div

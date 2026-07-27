@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase6_fremantle_lpp320_sca57_extraction.json",
+  "source_version_id": "c1654799-75c6-4dbc-ad09-5a5b6df2f121",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 27,
+  "failed_count": 0,
+  "skipped_needs_review": 2,
+  "failures": [],
+  "timestamp": "20260726_131200"
+}

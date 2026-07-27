@@ -1,0 +1,1562 @@
+{
+  "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+  "source_pdf": "/app/data/raw-sources/building_regs_2012.pdf",
+  "instrument_section": "Parts 2, 3, 5, 6, 8 and Schedule 4 (safety & permit provisions)",
+  "tables_requested": [
+    "r. 15B",
+    "r. 16",
+    "r. 18",
+    "r. 36",
+    "r. 38",
+    "r. 41",
+    "r. 42",
+    "r. 43",
+    "r. 50",
+    "r. 50A",
+    "r. 51",
+    "r. 52",
+    "r. 53",
+    "r. 55",
+    "r. 56",
+    "r. 57",
+    "r. 58",
+    "r. 59",
+    "r. 60",
+    "r. 61",
+    "Sch. 4 cl. 2"
+  ],
+  "candidates_extracted": 53,
+  "warnings": [
+    "Textual regulation codified manually; applicable_r_codes and operator are null for boolean/verification rules by design.",
+    "RCD (residual current device) requirements: NO provision found anywhere in Building Regulations 2012 (as at 17 Apr 2025) \u2014 RCD obligations arise under electricity safety legislation, not this instrument. Gap reported, no rule invented.",
+    "Photoelectric smoke alarm type: the term does not appear in this instrument; alarm type/location requirements are incorporated via the Building Code deemed-to-satisfy reference in r. 60(2)(a). Codified as such.",
+    "Barrier height 1200mm: appears in this instrument only as the modified boundary-barrier outside height (r. 15B cl. 2.2.4(b)(i)); general 1200mm fence heights live in AS 1926.1-2012 as referenced by the Building Code, not in the regulation text."
+  ],
+  "candidates": [
+    {
+      "rule_key": "br_pool_barrier_required_water_depth_mm",
+      "canonical_rule_key": "br_pool_barrier_required_water_depth_mm",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gt",
+      "value_json": {
+        "value": 300
+      },
+      "unit": "mm",
+      "condition_json": {
+        "element": "pool water depth",
+        "consequence": "compliant pool barrier required",
+        "penalty_aud": 5000
+      },
+      "quote": "Each owner and occupier of premises on which there is a private swimming pool containing water that is more than 300 mm deep must ensure that a pool barrier that restricts access to the pool and complies with the requirements of regulation 50A (and, if applicable, regulation 52) is installed or provided around the pool. Penalty for this subregulation: a fine of $5 000.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 50(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "5ba25b87-9a7d-4e7f-9cdb-5bb9388af992",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "numeric_threshold",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_barrier_restricts_access_from_building",
+      "canonical_rule_key": "br_pool_barrier_restricts_access_from_building",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_barrier_restricts_access_from_building"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "building (other than Class 10) within area bounded by pool barrier"
+      },
+      "quote": "If all or part of a building (other than a Class 10 building) is within the area bounded by a pool barrier, that pool barrier or another pool barrier must restrict access to the pool from the building.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 50A(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "ecaa1b52-fedd-4445-bce9-703e45b9032b",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_barrier_building_code_compliance",
+      "canonical_rule_key": "br_pool_barrier_building_code_compliance",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_barrier_building_code_compliance"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "barrier complies with Building Code pool barrier requirement in effect at/after permit application or construction commencement"
+      },
+      "quote": "Subject to subregulations (3) and (4), a pool barrier must comply with a Building Code pool barrier requirement that was in effect \u2014 (a) if a building permit applies to the construction of the pool \u2014 at or after the time the application for a building permit to construct the pool was made; or (b) otherwise \u2014 at or after the time the construction of the pool commenced. Note for this subregulation: See also regulation 15B which modifies AS 1926.1-2012.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 50A(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "ecaa1b52-fedd-4445-bce9-703e45b9032b",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_barrier_performance_solution_must_be_approved",
+      "canonical_rule_key": "br_pool_barrier_performance_solution_must_be_approved",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_barrier_performance_solution_must_be_approved"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "performance solution used only if approved barrier solution"
+      },
+      "quote": "For the purposes of subregulation (2), a performance solution cannot be used to comply with a Building Code pool barrier requirement unless the performance solution is an approved barrier solution.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 50A(3)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "ecaa1b52-fedd-4445-bce9-703e45b9032b",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_pre_may_2016_alternative_compliance",
+      "canonical_rule_key": "br_pool_pre_may_2016_alternative_compliance",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_pre_may_2016_alternative_compliance"
+      },
+      "unit": null,
+      "condition_json": {
+        "pool_era": "pre-May 2016 private swimming pool"
+      },
+      "quote": "If the pool is a pre-May 2016 private swimming pool, the pool barrier need not comply with subregulation (2) if \u2014 (a) it is in accordance with \u2014 (i) the requirements of AS 1926.1-1993; or (ii) approved alternative requirements; and (b) any wall comprising part of the pool barrier has no means of access to the pool through a building other than \u2014 (i) a window that is in accordance with the requirements of AS 1926.1-1993; or (ii) an approved door.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 50A(4)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "ecaa1b52-fedd-4445-bce9-703e45b9032b",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_boundary_fence_as1926_1993",
+      "canonical_rule_key": "br_pool_boundary_fence_as1926_1993",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_boundary_fence_as1926_1993"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "AS 1926.1-1993 clauses 2.3, 2.6, 2.7 satisfied on either side of boundary fence"
+      },
+      "quote": "For the purposes of subregulation (4)(a), a boundary fence of the premises that is part of the pool barrier is in accordance with the requirements of clauses 2.3, 2.6 and 2.7 of AS 1926.1-1993 if all those requirements are satisfied in relation to either side of the fence.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 50A(5)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "ecaa1b52-fedd-4445-bce9-703e45b9032b",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_pre_nov_2001_concession",
+      "canonical_rule_key": "br_pool_pre_nov_2001_concession",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_pre_nov_2001_concession"
+      },
+      "unit": null,
+      "condition_json": {
+        "pool_era": "installed before 5 November 2001 (or per plans submitted before that day)"
+      },
+      "quote": "For the purposes of regulation 50(2), the immediate surrounds of a private swimming pool to which this regulation applies may include any part of the premises on which the pool is located. The pool barrier required by regulation 50(2) may include a wall that contains a door permitting access to the pool through a building if that door satisfies the requirements of AS 1926.1-1993.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 52(2)-(3)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "f4b0c478-8804-4caa-90e0-6aca8914b141",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_inspection_initial_max_days",
+      "canonical_rule_key": "br_pool_inspection_initial_max_days",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 30
+      },
+      "unit": "days",
+      "condition_json": {
+        "trigger": "local government becomes aware of completed uninspected pool barrier"
+      },
+      "quote": "if the local government has never arranged for an authorised person to inspect the barrier \u2014 a day that is no more than 30 days after the day on which the first of the following occurs \u2014 (i) the local government receives a notice of completion under section 33 stating that the building work in respect of the barrier or the private swimming pool is completed; (ii) the local government receives details of a notice of completion under section 7(2)(b) indicating that the building work in respect of the barrier or the private swimming pool is completed; (iii) the local government otherwise becomes aware that it has never arranged for an authorised person to inspect a barrier to the private swimming pool.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 53(2)(a)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "a73cfac5-974a-4a21-b792-daa5dc7718d7",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_inspection_reinspection_max_days",
+      "canonical_rule_key": "br_pool_inspection_reinspection_max_days",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 60
+      },
+      "unit": "days",
+      "condition_json": {
+        "trigger": "inspection finds r. 50(2) non-compliance",
+        "note": "further inspections required until compliant"
+      },
+      "quote": "if the authorised person is not satisfied that regulation 50(2) is being complied with \u2014 on a day that is within 60 days after the day of the relevant inspection.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 53(2)(b)(i)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "a73cfac5-974a-4a21-b792-daa5dc7718d7",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_inspection_routine_max_interval_years",
+      "canonical_rule_key": "br_pool_inspection_routine_max_interval_years",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 4
+      },
+      "unit": "years",
+      "condition_json": {
+        "trigger": "routine pool barrier inspection cycle"
+      },
+      "quote": "in any other case \u2014 on a day that is within 4 years after the day of the relevant inspection.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 53(2)(b)(ii)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "a73cfac5-974a-4a21-b792-daa5dc7718d7",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_permit_authority_alternative_approval",
+      "canonical_rule_key": "br_pool_permit_authority_alternative_approval",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_permit_authority_alternative_approval"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "alternative requirements approved by permit authority as equally effective"
+      },
+      "quote": "A permit authority may approve requirements alternative to the requirements of regulation 50A(4)(a)(i) if it is satisfied that the alternative requirements will restrict access to the pool as effectively as if there were compliance with AS 1926.1-1993.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 51(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "6cab06d5-e159-4566-84db-e25ec56baaf3",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_approved_door_conditions",
+      "canonical_rule_key": "br_pool_approved_door_conditions",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_approved_door_conditions"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "approved door per AS 1926.1-1993 plus permit authority satisfaction; young child residence must be considered (r. 51(4))"
+      },
+      "quote": "A permit authority may approve a door for the purposes of regulation 50A(4)(b)(ii) if the door is in accordance with the requirements of AS 1926.l-1993 and \u2014 (a) in the opinion of the permit authority, a fence or barrier satisfying regulation 50A between the building and the private swimming pool would cause \u2014 (i) a significant problem of a structural nature; or (ii) a significant problem of any other nature, the cause of which is not within the control of the owner or occupier; or (b) the private swimming pool is totally enclosed by a building; or (c) in the opinion of the permit authority, a fence or barrier satisfying regulation 50A between the building and the private swimming pool would create a significant problem for a person with a disability who is resident at the premises and wishes to have access to the pool.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 2 \u2014 Private swimming pools",
+      "table_reference": "r. 51(3)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "6cab06d5-e159-4566-84db-e25ec56baaf3",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_boundary_barrier_inside_height_min_mm",
+      "canonical_rule_key": "br_pool_boundary_barrier_inside_height_min_mm",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1800
+      },
+      "unit": "mm",
+      "condition_json": {
+        "barrier_type": "boundary barrier",
+        "option": "paragraph (a)",
+        "measured": "inside (pool side)"
+      },
+      "quote": "A boundary barrier satisfies this paragraph if \u2014 (i) it has a height on the inside of not less than 1800 mm.",
+      "instrument_section": "Part 2 \u2014 General matters",
+      "table_reference": "r. 15B(a), cl. 2.2.4(a)(i)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "e9674e8e-5eab-42ad-a2cf-61278562e8cb",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_boundary_barrier_ncz5_quadrant_radius_mm",
+      "canonical_rule_key": "br_pool_boundary_barrier_ncz5_quadrant_radius_mm",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "value": 900
+      },
+      "unit": "mm",
+      "condition_json": {
+        "barrier_type": "boundary barrier",
+        "zone": "NCZ-5 quadrant from top of inside of barrier"
+      },
+      "quote": "it has NCZ-5 formed as a quadrant of 900 mm radius down from the top of the inside of the barrier.",
+      "instrument_section": "Part 2 \u2014 General matters",
+      "table_reference": "r. 15B(a), cl. 2.2.4(a)(ii)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "e9674e8e-5eab-42ad-a2cf-61278562e8cb",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "numeric_threshold",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_ncz5_internal_barrier_top_rail_max_mm",
+      "canonical_rule_key": "br_pool_ncz5_internal_barrier_top_rail_max_mm",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 50
+      },
+      "unit": "mm",
+      "condition_json": {
+        "zone": "NCZ 5",
+        "consequence": "internal barrier may intersect at 45-135 degrees"
+      },
+      "quote": "where the width of the top rail or surface of the internal barrier is not more than 50 mm wide at any point within NCZ 5 \u2014 the internal barrier intersects at an angle of between 45 and 135 degrees to the 1800 mm boundary barrier.",
+      "instrument_section": "Part 2 \u2014 General matters",
+      "table_reference": "r. 15B(a), cl. 2.2.4(a)(ii)(I)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "e9674e8e-5eab-42ad-a2cf-61278562e8cb",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_ncz5_internal_barrier_height_min_mm",
+      "canonical_rule_key": "br_pool_ncz5_internal_barrier_height_min_mm",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1800
+      },
+      "unit": "mm",
+      "condition_json": {
+        "zone": "NCZ 5",
+        "trigger": "internal barrier top rail greater than 50 mm wide",
+        "extension_min_mm": 900
+      },
+      "quote": "where the width of the top rail or surface of the internal barrier is greater than 50 mm at any point within NCZ 5 \u2014 the internal barrier has a height not less than 1800 mm extending not less than 900 mm from the intersection.",
+      "instrument_section": "Part 2 \u2014 General matters",
+      "table_reference": "r. 15B(a), cl. 2.2.4(a)(ii)(II)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "e9674e8e-5eab-42ad-a2cf-61278562e8cb",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_boundary_barrier_outside_height_min_mm",
+      "canonical_rule_key": "br_pool_boundary_barrier_outside_height_min_mm",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 1200
+      },
+      "unit": "mm",
+      "condition_json": {
+        "barrier_type": "boundary barrier",
+        "option": "paragraph (b)",
+        "measured": "outside (non-pool side)"
+      },
+      "quote": "A boundary barrier satisfies this paragraph if \u2014 (i) it has a height on the outside (the non-pool side) of not less than 1200 mm.",
+      "instrument_section": "Part 2 \u2014 General matters",
+      "table_reference": "r. 15B(a), cl. 2.2.4(b)(i)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "e9674e8e-5eab-42ad-a2cf-61278562e8cb",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_boundary_barrier_outside_clear_zone_mm",
+      "canonical_rule_key": "br_pool_boundary_barrier_outside_clear_zone_mm",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 500
+      },
+      "unit": "mm",
+      "condition_json": {
+        "zone": "within 500 mm of outside of boundary barrier",
+        "requirement": "no steps, retaining walls, objects or level changes reducing effective height below 1200 mm"
+      },
+      "quote": "within 500 mm of the outside of the boundary barrier there are no steps, retaining walls, objects or level changes that would reduce the height of the outside of the boundary barrier below 1200 mm.",
+      "instrument_section": "Part 2 \u2014 General matters",
+      "table_reference": "r. 15B(a), cl. 2.2.4(b)(ii)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "e9674e8e-5eab-42ad-a2cf-61278562e8cb",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "numeric_threshold",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_boundary_barrier_ncz_requirements",
+      "canonical_rule_key": "br_pool_boundary_barrier_ncz_requirements",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_pool_boundary_barrier_ncz_requirements"
+      },
+      "unit": null,
+      "condition_json": {
+        "zones": "NCZ 1, 2, 3 always; NCZ 4 if vertical openings 10-100 mm"
+      },
+      "quote": "NCZ 1, 2, 3 and, if the boundary barrier has vertical openings of 10-100 mm in width, NCZ 4 (as described in clause 2.2.2) are present on the boundary barrier.",
+      "instrument_section": "Part 2 \u2014 General matters",
+      "table_reference": "r. 15B(a), cl. 2.2.4(b)(iii)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "e9674e8e-5eab-42ad-a2cf-61278562e8cb",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_pool_barrier_vertical_member_opening_max_mm",
+      "canonical_rule_key": "br_pool_barrier_vertical_member_opening_max_mm",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "mm",
+      "condition_json": {
+        "element": "clear opening between vertical members (modified AS 1926.1-2012 cl. 2.3.5(a); Figure 2.6 modified from 100 mm to 10 mm)"
+      },
+      "quote": "is modified in clause 2.3.5(a) to insert after \"plane\": and vertical members are spaced to provide a clear opening of not more than 10 mm.",
+      "instrument_section": "Part 2 \u2014 General matters",
+      "table_reference": "r. 15B(b), cl. 2.3.5(a)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "e9674e8e-5eab-42ad-a2cf-61278562e8cb",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_required_on_transfer",
+      "canonical_rule_key": "br_smoke_alarm_required_on_transfer",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_smoke_alarm_required_on_transfer"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "transfer of ownership of dwelling",
+        "penalty_aud": 5000,
+        "defence": "declaration of intended demolition given before transfer (r. 56(2))"
+      },
+      "quote": "If an owner of a dwelling transfers the ownership of it, the owner must, to the extent practicable, ensure that at the time of the transfer \u2014 (a) the dwelling has smoke alarms installed so that the dwelling and the alarms comply with the requirements of regulation 60(2); or (b) if an approved alternative building solution applies in relation to the dwelling \u2014 the solution is in effect. Penalty for this subregulation: a fine of $5 000.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 56(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "a6258715-1c92-494b-a480-6a315a36e5ba",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_new_owner_install_max_months",
+      "canonical_rule_key": "br_smoke_alarm_new_owner_install_max_months",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 12
+      },
+      "unit": "months",
+      "condition_json": {
+        "trigger": "prior owner failed to comply with r. 56(1)",
+        "penalty_aud": 5000
+      },
+      "quote": "the new owner must, within the post-transfer period, ensure that \u2014 (a) the dwelling has smoke alarms installed so that the dwelling and the alarms comply with the requirements of regulation 60(2) ... post-transfer period, in relation to a dwelling, means \u2014 (b) if the new owner did not give the prior owner a declaration of intended demolition for the dwelling before the time of the transfer \u2014 the period of 12 months beginning on the transfer day.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 57(1), (1A)(b)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "f5102f7a-1ba0-4235-878d-a44cd194716a",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_new_owner_demolition_max_months",
+      "canonical_rule_key": "br_smoke_alarm_new_owner_demolition_max_months",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 6
+      },
+      "unit": "months",
+      "condition_json": {
+        "trigger": "declaration of intended demolition given before transfer"
+      },
+      "quote": "post-transfer period, in relation to a dwelling, means \u2014 (a) if the new owner gave the prior owner a declaration of intended demolition for the dwelling before the time of the transfer \u2014 the period of 6 months beginning on the transfer day.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 57(1A)(a)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "f5102f7a-1ba0-4235-878d-a44cd194716a",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_required_prior_to_tenancy",
+      "canonical_rule_key": "br_smoke_alarm_required_prior_to_tenancy",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_smoke_alarm_required_prior_to_tenancy"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "dwelling rented or made available for rent under residential tenancy agreement, or is/made available as short-term rental accommodation",
+        "penalty_aud": 5000
+      },
+      "quote": "The owner of the dwelling must, to the extent practicable, ensure that \u2014 (a) the dwelling has smoke alarms installed so that the dwelling and the alarms comply with the requirements of regulation 60(2); or (b) if an approved alternative building solution applies in relation to the dwelling \u2014 the solution is in effect. Penalty for this subregulation: a fine of $5 000.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 58(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "74217caa-02c8-4485-b15a-5bad2d0152f6",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_required_prior_to_hire",
+      "canonical_rule_key": "br_smoke_alarm_required_prior_to_hire",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_smoke_alarm_required_prior_to_hire"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "dwelling made available for hire",
+        "penalty_aud": 5000
+      },
+      "quote": "The owner of a dwelling must not make the dwelling available for hire unless \u2014 (a) the dwelling has smoke alarms installed so that the dwelling and the alarms comply with the requirements of regulation 60(2); or (b) if an approved alternative building solution applies in relation to the dwelling \u2014 the solution is in effect. Penalty: a fine of $5 000.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 59",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "f06e4545-5770-4616-9e42-4eea524680d0",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_building_code_dts_compliance",
+      "canonical_rule_key": "br_smoke_alarm_building_code_dts_compliance",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_smoke_alarm_building_code_dts_compliance"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "dwelling meets Building Code deemed-to-satisfy smoke alarm provisions applicable at time of installation"
+      },
+      "quote": "the dwelling meets the requirements of the deemed-to-satisfy provisions about smoke alarms or smoke hazard management (other than the provisions about evacuation lighting) of the Building Code applicable at the time of installation of the alarms.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 60(2)(a)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "93486267-1036-4362-aea7-bb5eba930933",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_max_age_years",
+      "canonical_rule_key": "br_smoke_alarm_max_age_years",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lt",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "years",
+      "condition_json": {
+        "element": "smoke alarm age at relevant day (where no expiry date provided)"
+      },
+      "quote": "each smoke alarm necessary to meet those requirements \u2014 (i) if an expiry date is provided on the alarm \u2014 has not reached that expiry date; or (ii) if no expiry date is provided on the alarm \u2014 was installed less than 10 years before the relevant day.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 60(2)(b)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "93486267-1036-4362-aea7-bb5eba930933",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_working_order",
+      "canonical_rule_key": "br_smoke_alarm_working_order",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_smoke_alarm_working_order"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "smoke alarm in working order"
+      },
+      "quote": "each smoke alarm referred to in paragraph (b) is in working order.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 60(2)(c)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "93486267-1036-4362-aea7-bb5eba930933",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_mains_power_connection",
+      "canonical_rule_key": "br_smoke_alarm_mains_power_connection",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_smoke_alarm_mains_power_connection"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "mains-powered where required at installation; otherwise non-removable 10 year life battery"
+      },
+      "quote": "if a smoke alarm referred to in paragraph (b) was, at the time of its installation, required to be connected to the mains power supply to meet those requirements \u2014 (i) the alarm is permanently connected to the mains power supply; or (ii) if the alarm is to be installed at a location in the dwelling where there is no hidden space in which to run the necessary electrical wiring and there is no appropriate alternative location \u2014 the alarm has a 10 year life battery that cannot be removed; or (iii) if, in relation to the alarm, the use of a battery powered smoke alarm has been approved under regulation 61 \u2014 the alarm has a 10 year life battery that cannot be removed.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 60(2)(d)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "93486267-1036-4362-aea7-bb5eba930933",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_10_year_life_battery_definition",
+      "canonical_rule_key": "br_smoke_alarm_10_year_life_battery_definition",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "gte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "years",
+      "condition_json": {
+        "element": "10 year life battery capability"
+      },
+      "quote": "10 year life battery means a battery that is capable of powering a smoke alarm for at least 10 years without the alarm indicating the battery power is low.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 55(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "4a941115-5c60-4b5d-aee0-5fd6b539d478",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "min_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_interconnection_exemption",
+      "canonical_rule_key": "br_smoke_alarm_interconnection_exemption",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_smoke_alarm_interconnection_exemption"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "interconnection per Building Code unless pre-1 May 2015 exemption applies"
+      },
+      "quote": "Despite subregulation (2)(a) a dwelling is not required to meet a provision of the Building Code applicable at the time of installation of the alarms that requires smoke alarms to be interconnected if \u2014 (a) a building licence for the construction, erection, assembly or placement of the dwelling was issued under the Local Government (Miscellaneous Provisions) Act 1960 before commencement day; or (b) a building permit for the construction, erection, assembly or placement of the dwelling was granted on an application for a building permit made before 1 May 2015; or (c) a building permit or a building licence was not required for the construction, erection, assembly or placement of the dwelling and the construction, erection, assembly or placement of the dwelling commenced before 1 May 2015.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 60(4)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "93486267-1036-4362-aea7-bb5eba930933",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_battery_approval_grounds",
+      "canonical_rule_key": "br_smoke_alarm_battery_approval_grounds",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_smoke_alarm_battery_approval_grounds"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "local government approval for battery powered alarm"
+      },
+      "quote": "The local government of the district in which a dwelling is located may approve of the use, in the dwelling or a part of the dwelling, of a battery powered smoke alarm (rather than one that is connected to the mains power supply) if satisfied that, at the time of giving the approval, installing a smoke alarm connected to the mains power supply would involve \u2014 (a) a sufficient problem of a structural nature; or (b) a sufficient problem of any other nature, the cause of which is not within the control of the owner.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 61(1)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "0c32c2e5-6ac9-40c1-b9d3-8cabee860003",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_battery_approval_fee_max_aud",
+      "canonical_rule_key": "br_smoke_alarm_battery_approval_fee_max_aud",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 179.4
+      },
+      "unit": "AUD",
+      "condition_json": {
+        "element": "local government fee for battery powered smoke alarm approval"
+      },
+      "quote": "An application for approval must be made in the manner and form approved by the local government, and must include or be accompanied by \u2014 (a) the plans and information required by the local government; and (b) the fee set by the local government, which cannot exceed $179.40.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 61(3)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "0c32c2e5-6ac9-40c1-b9d3-8cabee860003",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_smoke_alarm_battery_approval_deemed_refusal_days",
+      "canonical_rule_key": "br_smoke_alarm_battery_approval_deemed_refusal_days",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 35
+      },
+      "unit": "days",
+      "condition_json": {
+        "consequence": "deemed refusal if no decision within 35 days"
+      },
+      "quote": "The local government is to be taken to have refused approval if it has not made a decision whether to give approval within 35 days after the later of \u2014 (a) the day on which the person made the application for approval; or (b) the day on which the person complied with a, or the latest, request by the local government for further plans or information.",
+      "instrument_section": "Part 8 \u2014 Existing buildings, Division 3 \u2014 Smoke alarms",
+      "table_reference": "r. 61(4)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "0c32c2e5-6ac9-40c1-b9d3-8cabee860003",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_building_permit_exemption_schedule4",
+      "canonical_rule_key": "br_building_permit_exemption_schedule4",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_building_permit_exemption_schedule4"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "building work kind listed in Schedule 4 clause 2 Table"
+      },
+      "quote": "A building permit is not required for building work of a kind described in the Table in Schedule 4 clause 2.",
+      "instrument_section": "Part 6 \u2014 Circumstances in which building, demolition or occupancy permits not required",
+      "table_reference": "r. 41(3)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "4d73dd99-6688-43fd-8a26-60f6a04fa9ba",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_demolition_permit_exemption_class10_max_m2",
+      "canonical_rule_key": "br_demolition_permit_exemption_class10_max_m2",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 40
+      },
+      "unit": "m2",
+      "condition_json": {
+        "building_class": "Class 10",
+        "additional_conditions": "no adverse safety/health effect; no protection order, heritage works permit, repair notice or repair order"
+      },
+      "quote": "A demolition permit is not required for the following demolition work \u2014 (a) demolition of a Class 10 building or incidental structure if \u2014 (i) the floor area of the building does not exceed 40 m2; and (ii) the demolition work will not adversely affect the safety and health of the occupants or other users of the building or incidental structure or of the public; and (iii) the building or incidental structure is not the subject of a protection order, heritage works permit, repair notice or repair order.",
+      "instrument_section": "Part 6 \u2014 Circumstances in which building, demolition or occupancy permits not required",
+      "table_reference": "r. 42(a)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "bab0cf01-ba87-453b-b6e2-1e2e52ef549d",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_occupancy_permit_not_required_class1_class10",
+      "canonical_rule_key": "br_occupancy_permit_not_required_class1_class10",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_occupancy_permit_not_required_class1_class10"
+      },
+      "unit": null,
+      "condition_json": {
+        "building_class": [
+          "Class 1",
+          "Class 10"
+        ],
+        "verification": "occupancy permit exemption"
+      },
+      "quote": "An occupancy permit is not required for any of the following \u2014 (a) a Class 1 or Class 10 building.",
+      "instrument_section": "Part 6 \u2014 Circumstances in which building, demolition or occupancy permits not required",
+      "table_reference": "r. 43(a)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "6c87e973-fa40-488f-9142-ec379f547a99",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_occupancy_permit_decision_max_business_days",
+      "canonical_rule_key": "br_occupancy_permit_decision_max_business_days",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "business_days",
+      "condition_json": {
+        "trigger": "application for occupancy permit or building approval certificate"
+      },
+      "quote": "For the purposes of section 59(1)(a)(i) the period for deciding whether or not to grant or modify an occupancy permit or grant a building approval certificate is 10 business days.",
+      "instrument_section": "Part 5 \u2014 Occupancy permits and building approval certificates",
+      "table_reference": "r. 38",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "0fb8b6e2-93b0-456d-b8c6-ca27e9a459dd",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_occupancy_permit_display_required",
+      "canonical_rule_key": "br_occupancy_permit_display_required",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_occupancy_permit_display_required"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "occupancy permit details displayed at or near principal entrance"
+      },
+      "quote": "For the purposes of section 42(a) the following information about, or contained in, an occupancy permit must be displayed at or near the principal entrance to each part of the building to which the occupancy permit relates in a manner that is clearly visible to occupiers and other persons using the building \u2014 (a) the name or other description of the building; (b) the classification of the building; (c) the use authorised by the occupancy permit; (d) the name of the permit authority for the building.",
+      "instrument_section": "Part 5 \u2014 Occupancy permits and building approval certificates",
+      "table_reference": "r. 36",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "3d3b917d-6420-439b-ac2c-57dc7e6967bc",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_owner_builder_approval_number_required",
+      "canonical_rule_key": "br_owner_builder_approval_number_required",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_owner_builder_approval_number_required"
+      },
+      "unit": null,
+      "condition_json": {
+        "trigger": "building permit application for builder work",
+        "verification": "builder registration number or owner-builder approval number accompanies application"
+      },
+      "quote": "if the application is an application for a building permit to carry out builder work \u2014 (i) the registration number of the person as a building service contractor under the Building Services (Registration) Act 2011; or (ii) the number of the owner-builder approval given under the Building Services (Registration) Act 2011.",
+      "instrument_section": "Part 3 \u2014 Building and demolition permits",
+      "table_reference": "r. 16(2)(c)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "313b7555-a72a-41c3-ae7d-0f1858a52b04",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "boolean_presence",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_building_permit_prerequisite_approvals",
+      "canonical_rule_key": "br_building_permit_prerequisite_approvals",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_building_permit_prerequisite_approvals"
+      },
+      "unit": null,
+      "condition_json": {
+        "verification": "health/sewage and planning approvals obtained before building permit grant where applicable"
+      },
+      "quote": "For the purposes of section 20(1)(n), the following authorities under written laws are prescribed \u2014 (a) if the building work involves the construction or installation of any apparatus for the treatment of sewage as defined in the Health (Miscellaneous Provisions) Act 1911 section 3(1), the approval required under section 107(2)(a) or (b) of that Act; (b) if the building work is development as defined in the Planning and Development Act 2005 section 4, each approval required under that Act in relation to the work.",
+      "instrument_section": "Part 3 \u2014 Building and demolition permits",
+      "table_reference": "r. 18(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "b6e7d054-fbc5-4ec1-8df2-c14e35f447bf",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_class10a_floor_area_max_m2",
+      "canonical_rule_key": "br_exempt_class10a_floor_area_max_m2",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 10
+      },
+      "unit": "m2",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "building_class": "freestanding Class 10a",
+        "also": "height no more than 2.4 m; not in wind region C or D (AS 1170.2)"
+      },
+      "quote": "Construction, erection, assembly or placement of a freestanding Class 10a building that \u2014 (a) has a floor area not exceeding 10 m2.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 1(a)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_class10a_height_max_m",
+      "canonical_rule_key": "br_exempt_class10a_height_max_m",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.4
+      },
+      "unit": "m",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "building_class": "freestanding Class 10a",
+        "also": "floor area not exceeding 10 m2; not in wind region C or D (AS 1170.2)"
+      },
+      "quote": "Construction, erection, assembly or placement of a freestanding Class 10a building that \u2014 (b) is no more than 2.4 m in height.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 1(b)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_fence_masonry_height_max_m",
+      "canonical_rule_key": "br_exempt_fence_masonry_height_max_m",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 0.75
+      },
+      "unit": "m",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "material": "masonry",
+        "also": "not a fall prevention barrier; not in wind region C or D (AS 1170.2); no applicable LG s. 9.60 local law"
+      },
+      "quote": "the fence, screen or similar structure is, or is to be, located in a district in which there is no local law of a type referred to in paragraph (a) and the fence, screen or similar structure \u2014 (i) if constructed of masonry \u2014 is no more than 0.75 m in height.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 4(b)(i)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_fence_other_height_max_m",
+      "canonical_rule_key": "br_exempt_fence_other_height_max_m",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 1.8
+      },
+      "unit": "m",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "material": "other than masonry",
+        "also": "not a fall prevention barrier; not in wind region C or D (AS 1170.2); no applicable LG s. 9.60 local law"
+      },
+      "quote": "if constructed of a material other than masonry \u2014 is no more than 1.8 m in height.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 4(b)(ii)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_antenna_attached_height_max_m",
+      "canonical_rule_key": "br_exempt_antenna_attached_height_max_m",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2
+      },
+      "unit": "m",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "element": "mast, antenna or similar structure attached to building",
+        "also": "not in wind region C or D (AS 1170.2)"
+      },
+      "quote": "if attached to a building \u2014 (i) is no more than 2 m in height above the highest point of attachment to the building; and (ii) will not affect the way in which the building complies with each building standard that applies to the building.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 5(b)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_antenna_freestanding_height_max_m",
+      "canonical_rule_key": "br_exempt_antenna_freestanding_height_max_m",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 3
+      },
+      "unit": "m",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "element": "freestanding mast, antenna or similar structure",
+        "also": "not in wind region C or D (AS 1170.2)"
+      },
+      "quote": "if not attached to a building, is no more than 3 m in height.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 5(c)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_retaining_wall_height_max_m",
+      "canonical_rule_key": "br_exempt_retaining_wall_height_max_m",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 0.5
+      },
+      "unit": "m",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "element": "retained ground height"
+      },
+      "quote": "Construction, erection, assembly or placement of a retaining wall that \u2014 (a) retains ground no more than 0.5 m in height; and (b) is not associated with other building work or with the protection of land adjoining the land on which the retaining wall is located; and (c) is not work of a kind to which section 76, 77, 78 or 79 relates.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 6",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_pergola_height_max_m",
+      "canonical_rule_key": "br_exempt_pergola_height_max_m",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 2.4
+      },
+      "unit": "m",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "element": "pergola associated with Class 1 building",
+        "also": "covers area not exceeding 20 m2; not in wind region C or D (AS 1170.2)"
+      },
+      "quote": "Construction, erection, assembly or placement of a pergola associated with a Class 1 building that \u2014 (a) is no more than 2.4 m in height.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 7(a)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_pergola_area_max_m2",
+      "canonical_rule_key": "br_exempt_pergola_area_max_m2",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 20
+      },
+      "unit": "m2",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "element": "pergola associated with Class 1 building",
+        "also": "height no more than 2.4 m; not in wind region C or D (AS 1170.2)"
+      },
+      "quote": "Construction, erection, assembly or placement of a pergola associated with a Class 1 building that \u2014 (c) covers an area not exceeding 20 m2.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 7(c)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_exempt_water_tank_capacity_max_l",
+      "canonical_rule_key": "br_exempt_water_tank_capacity_max_l",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "lte",
+      "value_json": {
+        "value": 5000
+      },
+      "unit": "L",
+      "condition_json": {
+        "exemption": "building permit not required",
+        "element": "water storage tank capacity"
+      },
+      "quote": "Construction, erection, assembly or placement of a water storage tank with a capacity of 5 000 L or less.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 8",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "max_value",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "br_building_permit_exemption_district_areas",
+      "canonical_rule_key": "br_building_permit_exemption_district_areas",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_building_permit_exemption_district_areas"
+      },
+      "unit": null,
+      "condition_json": {
+        "reason": "exemption depends on district-specific areas in Schedule 4 clause 1 Table; requires per-district spatial resolution"
+      },
+      "quote": "A building permit is not required for the following building work \u2014 (a) building work for a Class 10 building or incidental structure that is located, or to be located, in a local government district specified in column 1 of the Table in the area specified for that district in column 2 of the Table; (b) building work for a building or incidental structure that is not a Class 10 building or incidental structure and that is located, or to be located, in a local government district specified in column 1 of the Table in the area (if any) specified for that district in column 3 of the Table.",
+      "instrument_section": "Part 6 \u2014 Circumstances in which building, demolition or occupancy permits not required",
+      "table_reference": "r. 41(1)-(2)",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "4d73dd99-6688-43fd-8a26-60f6a04fa9ba",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "needs_review"
+    },
+    {
+      "rule_key": "br_exempt_evaporative_cooler_bushfire_conditions",
+      "canonical_rule_key": "br_exempt_evaporative_cooler_bushfire_conditions",
+      "rule_type": "requirement",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": null,
+      "value_json": {
+        "base_rule_key": "br_exempt_evaporative_cooler_bushfire_conditions"
+      },
+      "unit": null,
+      "condition_json": {
+        "reason": "multi-branch BAL/building-class conditions require site BAL determination before evaluation"
+      },
+      "quote": "The installation of a roof mounted evaporative cooling unit on a building or incidental structure if \u2014 (a) the building or incidental structure is not located in a bush fire prone area; or (b) the building is a Class 4 to Class 9 building (other than a Class 9 vulnerable use building); or (c) the building or incidental structure is located in a bush fire prone area, the BAL for the building site is BAL LOW ... (d) ... the BAL for the building site is BAL-12.5, BAL-19 or BAL-29; (iii) the installation of the evaporative cooling unit complies with the requirements for roof penetration in respect of the building or incidental structure set out in AS 3959.",
+      "instrument_section": "Schedule 4 \u2014 Building work that does not require building permit",
+      "table_reference": "Sch. 4 cl. 2 Table item 13",
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "ccddad06-71b2-43e7-b2af-26ddc1128793",
+      "clause_id": "2a77825a-9046-4216-87d1-bd0d3dc48ca9",
+      "extractor_model": "manual_statutory_codification:v1",
+      "check_type": "conditional",
+      "evaluable": "needs_review"
+    }
+  ]
+}

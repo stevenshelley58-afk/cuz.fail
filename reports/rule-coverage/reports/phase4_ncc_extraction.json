@@ -1,0 +1,655 @@
+{
+  "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+  "instrument_section": "Volume Two Housing Provisions",
+  "candidates_extracted": 23,
+  "warnings": [
+    "Licence-constrained: NCC 2022 full text not downloaded/stored. All rules are verification pointers.",
+    "Operator example cited H3P1 for ceiling heights; verified identifier is H4P2/H4D4 (room heights). H3P1 is 'Spread of fire'."
+  ],
+  "candidates": [
+    {
+      "rule_key": "ncc_structure_class1_verification",
+      "canonical_rule_key": "ncc_structure_class1_verification",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify Class 1/10 structural stability per NCC 2022 H1P1 (ABCB Housing Provisions Parts 2-8)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H1P1 'Structure' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "7128b598-0daf-41f8-9d1b-749ab2009dde",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_flood_hazard_area_construction",
+      "canonical_rule_key": "ncc_flood_hazard_area_construction",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify construction in flood hazard area per NCC 2022 H1P2/H1D10 (ABCB Standard for Construction of Buildings in Flood Hazard Areas)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H1P2/H1D10 'Flood hazard areas' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "c32e6295-463f-4275-88d1-6e1ad44ec688",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_damp_weatherproofing",
+      "canonical_rule_key": "ncc_damp_weatherproofing",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify damp and weatherproofing per NCC 2022 H2P2/H2D2"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H2P2 'Weatherproofing' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "a2016511-f9e6-48de-a5f2-b009e6ee2aec",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_subfloor_ventilation",
+      "canonical_rule_key": "ncc_subfloor_ventilation",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify subfloor ventilation per NCC 2022 H2D5"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H2D5 'Subfloor ventilation' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "477d8b7b-747c-4b92-8adb-d533623de757",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_fire_spread_external_walls",
+      "canonical_rule_key": "ncc_fire_spread_external_walls",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify fire separation of external walls near boundaries per NCC 2022 H3P1/H3D3"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H3P1 'Spread of fire' / H3D3 'Fire separation of external walls' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "67a3efbd-768c-45e9-8bdc-dda8be4a1df3",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_frl_external_wall_boundary",
+      "canonical_rule_key": "ncc_frl_external_wall_boundary",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify FRL of external walls within boundary distance per NCC 2022 H3D3 / Housing Provisions (category: FRL)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H3D3 referencing ABCB Housing Provisions fire-resistance requirements (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "8a193370-15bc-4fff-aa2f-5db9c81a0db4",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_fire_separation_separating_walls",
+      "canonical_rule_key": "ncc_fire_separation_separating_walls",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify separating wall/floor fire protection for attached dwellings per NCC 2022 H3D4"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H3D4 'Fire protection of separating walls and floors' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "69cfbd8c-e6ed-401b-b3ef-e1ffc5bd6c1e",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_garage_top_dwelling_fire",
+      "canonical_rule_key": "ncc_garage_top_dwelling_fire",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify garage-top dwelling fire separation per NCC 2022 H3D5"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H3D5 'Fire separation of garage-top-dwellings' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "e52953a5-8bf9-4f28-88da-859c6cd3f097",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_smoke_alarms",
+      "canonical_rule_key": "ncc_smoke_alarms",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify smoke alarm provision per NCC 2022 H3P2/H3D6"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H3P2 'Automatic warning for occupants' / H3D6 'Smoke alarms and evacuation lighting' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "98c3e10d-2194-4ba1-81e9-ac31f58c0b27",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_wet_areas",
+      "canonical_rule_key": "ncc_wet_areas",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify wet area waterproofing per NCC 2022 H4P1/H4D2"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H4P1 'Wet areas' / H4D2 (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "c17dc120-6dec-4926-8956-6fb253be5e64",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_room_heights",
+      "canonical_rule_key": "ncc_room_heights",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify ceiling height >= 2400mm to habitable rooms per NCC 2022 H4P2/H4D4 (category: dwelling amenity)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H4P2 'Room heights' / H4D4 (operator example referenced H3P1; verified identifier is H4P2/H4D4) (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "c985bbb9-3bf0-4c89-91ad-ed2da012f293",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_facilities",
+      "canonical_rule_key": "ncc_facilities",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify required sanitary/kitchen/laundry facilities per NCC 2022 H4P3"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H4P3 'Personal hygiene and other facilities' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "25060aa9-17f8-4bfc-86d8-2921017c81af",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_natural_light",
+      "canonical_rule_key": "ncc_natural_light",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify natural/artificial light to habitable rooms per NCC 2022 H4P4"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H4P4 'Lighting' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "e7481899-24ac-41ea-8944-d7d9af1e4fa7",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_ventilation",
+      "canonical_rule_key": "ncc_ventilation",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify ventilation per NCC 2022 H4P5"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H4P5 'Ventilation' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "d3b4511d-76cb-4795-8298-1e14ef958c80",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_sound_insulation",
+      "canonical_rule_key": "ncc_sound_insulation",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify sound insulation of separating walls/floors (attached dwellings) per NCC 2022 H4P6"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H4P6 'Sound insulation' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "8bd57ab6-2831-4706-bc58-ca43c6469cdd",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_condensation_management",
+      "canonical_rule_key": "ncc_condensation_management",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify condensation management per NCC 2022 H4P7"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H4P7 'Condensation and water vapour management' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "52e1a788-d3d4-4616-8534-917330a214f9",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_safe_movement_egress",
+      "canonical_rule_key": "ncc_safe_movement_egress",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify safe movement/egress provisions per NCC 2022 H5P1 (category: egress)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H5P1 'Movement to and within a building' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "ac6726f7-a38c-4020-9f1d-e59d6876ecc5",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_fall_prevention_barriers",
+      "canonical_rule_key": "ncc_fall_prevention_barriers",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify barriers for fall prevention (balustrades etc.) per NCC 2022 H5P2"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H5P2 'Fall prevention barriers' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "799ee275-fefd-4fec-8330-bec520729934",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_energy_efficiency_envelope",
+      "canonical_rule_key": "ncc_energy_efficiency_envelope",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify NatHERS thermal performance compliance per NCC 2022 H6P1/H6D2 (category: NatHERS)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H6P1/H6D2 'Energy efficiency' (NatHERS thermal performance pathway) (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "ee7f7017-1ff2-4bee-aaf8-ed50ccd66b91",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_energy_efficiency_services",
+      "canonical_rule_key": "ncc_energy_efficiency_services",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify whole-of-home energy budget for services per NCC 2022 H6P2 (category: NatHERS)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H6P2 'Energy usage' (whole-of-home) (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "c8a80538-f479-4fe5-b513-1351b1057e7c",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "needs_human_review"
+    },
+    {
+      "rule_key": "ncc_swimming_pool_safety_barrier",
+      "canonical_rule_key": "ncc_swimming_pool_safety_barrier",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify swimming pool safety barrier per NCC 2022 H7P1/H7D2"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H7P1 'Swimming pool access' / H7D2 'Swimming pools' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "def50a8d-9d83-4a10-ab4c-322a9060c74a",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_bushfire_construction_as3959",
+      "canonical_rule_key": "ncc_bushfire_construction_as3959",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify construction per NCC 2022 H7D4 (references AS 3959; AS 3959 values are paid Standards - not codified)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 Vol Two H7D4 'Construction in bushfire prone areas' (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "6b5831c6-dee5-47a5-b898-1c7d8849debc",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "yes"
+    },
+    {
+      "rule_key": "ncc_livable_housing_design",
+      "canonical_rule_key": "ncc_livable_housing_design",
+      "rule_type": "standard",
+      "pathway": "none",
+      "dwelling_type": null,
+      "applicable_r_codes": [
+        "ALL"
+      ],
+      "applicable_zones": null,
+      "council_scope": null,
+      "operator": "eq",
+      "value_json": {
+        "raw_text": "verify livable housing design applicability/adoption per NCC 2022 (WA adoption status varies)"
+      },
+      "unit": null,
+      "condition_json": {},
+      "quote": "NCC 2022 liveable housing design provisions (ABCB Livable Housing Design Standard); exact Volume Two provision identifier unverified (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)",
+      "instrument_section": "Volume Two Housing Provisions",
+      "table_reference": null,
+      "effective_from": null,
+      "effective_to": null,
+      "source_version_id": "49634971-dc37-4aca-8693-e9dbb80c6508",
+      "clause_id": "c7c28d7c-ecf7-4571-ba74-2bbe1ce48ec2",
+      "extractor_model": "operator_handbuilt:v1",
+      "check_type": "conditional",
+      "evaluable": "needs_human_review"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import type { PropertyFactResponse, PropertyProfileResponse } from "../api";
+import type { PropertyFactResponse, PropertyImage, PropertyProfileResponse } from "../api";
 
 /* ── property fact formatting ── */
 
@@ -109,6 +109,41 @@ export function formatFactValueForType(factType: string, value: unknown): string
   return formatFactValue(value);
 }
 
+const IMAGE_FACT_TYPES = new Set(["aerial_image", "property_image", "site_image", "imagery"]);
+
+function httpImageUrl(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return /^https?:\/\//i.test(trimmed) ? trimmed : null;
+}
+
+/** Returns provider-backed property imagery when the resolver has supplied it.
+ *  No placeholder is fabricated: licensed imagery remains attributable to its source. */
+export function propertyImage(property: PropertyProfileResponse | null | undefined): PropertyImage | null {
+  const fact = (property?.facts ?? []).find((item) => IMAGE_FACT_TYPES.has(item.fact_type));
+  if (!fact) return null;
+
+  if (typeof fact.value === "string") {
+    const url = httpImageUrl(fact.value);
+    return url ? { url, alt: property?.address ? `Aerial view of ${property.address}` : "Aerial view of the property" } : null;
+  }
+  if (!fact.value || typeof fact.value !== "object" || Array.isArray(fact.value)) return null;
+
+  const value = fact.value as Record<string, unknown>;
+  const url = [value.url, value.image_url, value.thumbnail_url].map(httpImageUrl).find(Boolean);
+  if (!url) return null;
+  const text = (candidate: unknown): string | null =>
+    typeof candidate === "string" && candidate.trim() ? candidate.trim() : null;
+
+  return {
+    url,
+    alt: text(value.alt) ?? (property?.address ? `Aerial view of ${property.address}` : "Aerial view of the property"),
+    provider: text(value.provider) ?? text(value.source),
+    captured_at: text(value.captured_at) ?? text(value.capture_date) ?? text(value.date),
+    attribution: text(value.attribution),
+  };
+}
+
 /** Curated, de-duplicated, non-empty property detail rows for the resolution view.
  *  Address and LGA come from the profile fields; the rest are formatted facts with values. */
 export function propertyDetailRows(property: PropertyProfileResponse): PropertyDetailRow[] {
@@ -120,7 +155,7 @@ export function propertyDetailRows(property: PropertyProfileResponse): PropertyD
   let zoneInsertIndex: number | null = null;
 
   (property.facts ?? [])
-    .filter((f) => !HEADER_FACT_TYPES.has(f.fact_type))
+    .filter((f) => !HEADER_FACT_TYPES.has(f.fact_type) && !IMAGE_FACT_TYPES.has(f.fact_type))
     .map((f) => ({ f, value: formatFactValueForType(f.fact_type, f.value) }))
     .filter((x): x is { f: PropertyFactResponse; value: string } => x.value !== null)
     .sort((a, b) => factOrderIndex(a.f.fact_type) - factOrderIndex(b.f.fact_type))

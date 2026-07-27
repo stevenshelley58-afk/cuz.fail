@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase8_tla_extraction.json",
+  "source_version_id": "f4c5a48c-b589-4617-bb82-2853d52131bd",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 24,
+  "failed_count": 0,
+  "skipped_needs_review": 0,
+  "failures": [],
+  "timestamp": "20260726_123751"
+}

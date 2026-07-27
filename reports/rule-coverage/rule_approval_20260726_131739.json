@@ -1,0 +1,10 @@
+{
+  "source_report": "reports/phase6_canning_lp01_residential_extraction.json",
+  "source_version_id": "f08dc22d-69f2-4274-8509-77f8c3a1c7b9",
+  "approver_user_id": "393277fe-3581-4a29-b394-a41cfc26f01b",
+  "approved_count": 39,
+  "failed_count": 0,
+  "skipped_needs_review": 1,
+  "failures": [],
+  "timestamp": "20260726_131739"
+}
