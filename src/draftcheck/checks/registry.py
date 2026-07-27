@@ -9,6 +9,7 @@
 from dataclasses import dataclass
 from enum import StrEnum
 
+
 class CheckTier(StrEnum):
     TIER1 = "tier1"
     TIER2 = "tier2"
@@ -44,12 +45,12 @@ class CheckCategory(StrEnum):
 
 @dataclass(frozen=True)
 class CheckDefinition:
-    key: str                   # e.g. "setback_front"
-    name: str                  # human display
+    key: str  # e.g. "setback_front"
+    name: str  # human display
     tier: CheckTier
     category: CheckCategory
     fact_keys: tuple[str, ...]  # PropertyFact keys to look up
-    rule_key_pattern: str      # pattern to match rule_key in rules table
+    rule_key_pattern: str  # pattern to match rule_key in rules table
     unit: str
     description: str
 
@@ -143,9 +144,7 @@ SEED_TIER1_CHECKS: list[CheckDefinition] = [
         name="Boundary wall length",
         tier=CheckTier.TIER1,
         category=CheckCategory.BOUNDARY_WALL,
-        fact_keys=(
-            "proposed_boundary_wall_length_m",
-        ),
+        fact_keys=("proposed_boundary_wall_length_m",),
         rule_key_pattern="boundary_wall.length.max",
         unit="m",
         description=(
@@ -183,8 +182,6 @@ SEED_TIER2_CHECKS: list[CheckDefinition] = [
         ),
     ),
 ]
-
-SEED_ALL_CHECKS: list[CheckDefinition] = SEED_TIER1_CHECKS + SEED_TIER2_CHECKS
 
 # ---------------------------------------------------------------------------
 # Rule coverage expansion checks (§2.3, 2026-07-26).
@@ -230,6 +227,16 @@ COVERAGE_TIER1_CHECKS: list[CheckDefinition] = [
         rule_key_pattern="outdoor_living.dimension",
         unit="m",
         description="Minimum dimension of the outdoor living area.",
+    ),
+    CheckDefinition(
+        key="outdoor_living_area",
+        name="Outdoor living area",
+        tier=CheckTier.TIER1,
+        category=CheckCategory.OPEN_SPACE,
+        fact_keys=("proposed_outdoor_living_area_m2",),
+        rule_key_pattern="outdoor_living_area",
+        unit="m2",
+        description="Minimum area of the outdoor living area.",
     ),
     CheckDefinition(
         key="pool_barrier_height",
@@ -355,6 +362,136 @@ COVERAGE_TIER2_CHECKS: list[CheckDefinition] = [
         description="Minimum communal open space for grouped/multiple dwellings.",
     ),
     CheckDefinition(
+        key="plot_ratio",
+        name="Plot ratio",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.SITE_COVER,
+        fact_keys=("proposed_plot_ratio",),
+        rule_key_pattern="plot_ratio",
+        unit="ratio",
+        description="Maximum floor-area-to-site-area ratio.",
+    ),
+    CheckDefinition(
+        key="min_frontage",
+        name="Minimum lot frontage",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.LOT,
+        fact_keys=("frontage_width_m",),
+        rule_key_pattern="min_frontage",
+        unit="m",
+        description="Minimum lot frontage for the applicable subdivision standard.",
+    ),
+    CheckDefinition(
+        key="approved_structure_plan_regard",
+        name="Approved structure plan",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.SUBDIVISION,
+        fact_keys=("approved_structure_plan_considered",),
+        rule_key_pattern="approved_structure_plan_regard",
+        unit="boolean",
+        description="Whether the proposal has regard to an approved structure plan.",
+    ),
+    CheckDefinition(
+        key="asset_protection_zone",
+        name="Asset protection zone",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.ENVIRONMENTAL,
+        fact_keys=("proposed_asset_protection_zone_m",),
+        rule_key_pattern="asset_protection_zone",
+        unit="m",
+        description="Required bushfire asset protection zone.",
+    ),
+    CheckDefinition(
+        key="average_lot_size",
+        name="Average lot size",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.LOT,
+        fact_keys=("proposed_average_lot_size_m2",),
+        rule_key_pattern="average_lot_size",
+        unit="m2",
+        description="Required average lot size for the applicable subdivision standard.",
+    ),
+    CheckDefinition(
+        key="environmental_management_plan",
+        name="Environmental management plan",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.ENVIRONMENTAL,
+        fact_keys=("environmental_management_plan_provided",),
+        rule_key_pattern="environmental_management_plan",
+        unit="boolean",
+        description="Whether an environmental management plan is required and provided.",
+    ),
+    CheckDefinition(
+        key="local_water_management_strategy",
+        name="Local water management strategy",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.ENVIRONMENTAL,
+        fact_keys=("local_water_management_strategy_provided",),
+        rule_key_pattern="local_water_management_strategy",
+        unit="boolean",
+        description="Whether a local water management strategy is required and provided.",
+    ),
+    CheckDefinition(
+        key="min_lot_area_per_dwelling",
+        name="Minimum lot area per dwelling",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.LOT,
+        fact_keys=("proposed_lot_area_per_dwelling_m2",),
+        rule_key_pattern="min_lot_area_per_dwelling",
+        unit="m2",
+        description="Minimum site area allocated to each dwelling.",
+    ),
+    CheckDefinition(
+        key="notification_on_title",
+        name="Notification on title",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.OTHER,
+        fact_keys=("notification_on_title_provided",),
+        rule_key_pattern="notification_on_title",
+        unit="boolean",
+        description="Whether the applicable notification is recorded on title.",
+    ),
+    CheckDefinition(
+        key="parking_ratio_hotel_tavern",
+        name="Hotel or tavern parking ratio",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.PARKING,
+        fact_keys=("proposed_parking_ratio_hotel_tavern",),
+        rule_key_pattern="parking_ratio_hotel_tavern",
+        unit="ratio",
+        description="Required parking ratio for a hotel or tavern use.",
+    ),
+    CheckDefinition(
+        key="parking_ratio_medical_centre",
+        name="Medical centre parking ratio",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.PARKING,
+        fact_keys=("proposed_parking_ratio_medical_centre",),
+        rule_key_pattern="parking_ratio_medical_centre",
+        unit="ratio",
+        description="Required parking ratio for a medical centre use.",
+    ),
+    CheckDefinition(
+        key="parking_ratio_per_gla",
+        name="Parking ratio per gross lettable area",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.PARKING,
+        fact_keys=("proposed_parking_ratio_per_gla",),
+        rule_key_pattern="parking_ratio_per_gla",
+        unit="ratio",
+        description="Required parking ratio per gross lettable area.",
+    ),
+    CheckDefinition(
+        key="urban_water_management_plan",
+        name="Urban water management plan",
+        tier=CheckTier.TIER2,
+        category=CheckCategory.ENVIRONMENTAL,
+        fact_keys=("urban_water_management_plan_provided",),
+        rule_key_pattern="urban_water_management_plan",
+        unit="boolean",
+        description="Whether an urban water management plan is required and provided.",
+    ),
+    CheckDefinition(
         key="bal_construction",
         name="BAL construction level",
         tier=CheckTier.TIER2,
@@ -365,6 +502,10 @@ COVERAGE_TIER2_CHECKS: list[CheckDefinition] = [
         description="Bushfire Attack Level construction requirement.",
     ),
 ]
+
+SEED_ALL_CHECKS: list[CheckDefinition] = (
+    SEED_TIER1_CHECKS + SEED_TIER2_CHECKS + COVERAGE_TIER1_CHECKS + COVERAGE_TIER2_CHECKS
+)
 
 # Maps a seed check key -> the canonical_rule_key (open-vocab cluster label) that
 # covers the same regulated thing.  The check derivation skips generating a
@@ -404,6 +545,17 @@ SEED_CANONICAL_RULE_KEYS: dict[str, str] = {
     "smoke_alarm": "smoke_alarm",
     "min_lot_size": "min_lot_size",
     "min_frontage": "min_frontage",
+    "approved_structure_plan_regard": "approved_structure_plan_regard",
+    "asset_protection_zone": "asset_protection_zone",
+    "average_lot_size": "average_lot_size",
+    "environmental_management_plan": "environmental_management_plan",
+    "local_water_management_strategy": "local_water_management_strategy",
+    "min_lot_area_per_dwelling": "min_lot_area_per_dwelling",
+    "notification_on_title": "notification_on_title",
+    "parking_ratio_hotel_tavern": "parking_ratio_hotel_tavern",
+    "parking_ratio_medical_centre": "parking_ratio_medical_centre",
+    "parking_ratio_per_gla": "parking_ratio_per_gla",
+    "urban_water_management_plan": "urban_water_management_plan",
 }
 
 # ---------------------------------------------------------------------------

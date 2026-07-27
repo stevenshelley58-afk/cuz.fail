@@ -1,4 +1,4 @@
-﻿"""Deterministic compliance engine for LotFile.
+"""Deterministic compliance engine for LotFile.
 
 The engine loads approved rules, looks up measured PropertyFacts, and
 produces advisory results.  It never hardcodes thresholds — every
@@ -41,9 +41,9 @@ ENGINE_VERSION = "1.0.0"
 _OPERATORS: dict[str, Any] = {
     "lte": lambda measured, threshold: float(measured) <= float(threshold),
     "gte": lambda measured, threshold: float(measured) >= float(threshold),
-    "lt":  lambda measured, threshold: float(measured) <  float(threshold),
-    "gt":  lambda measured, threshold: float(measured) >  float(threshold),
-    "eq":  lambda measured, threshold: float(measured) == float(threshold),
+    "lt": lambda measured, threshold: float(measured) < float(threshold),
+    "gt": lambda measured, threshold: float(measured) > float(threshold),
+    "eq": lambda measured, threshold: float(measured) == float(threshold),
 }
 
 # Spelling variants written by extractors (WP6 percent atoms, legacy seeds).
@@ -93,11 +93,95 @@ def _dwelling_type(rule: Rule) -> str:
     return str(cond.get("dwelling_type") or "any")
 
 
-def _select_rule(
+_NUMERIC_CONDITION_FACTS: dict[str, tuple[str, ...]] = {
+    "wall_height_m": (
+        "proposed_wall_height_m",
+        "proposed_boundary_wall_height_m",
+        "wall_height_m",
+    ),
+    "wall_length_m": (
+        "proposed_wall_length_m",
+        "proposed_boundary_wall_length_m",
+        "wall_length_m",
+    ),
+}
+_CONDITION_METADATA_KEYS = {
+    "density_codes",
+    "dwelling_type",
+    "wall_height_label",
+    "wall_length_label",
+}
+
+
+def _numeric_fact(
+    fact_by_type: dict[str, PropertyFact],
+    fact_keys: tuple[str, ...],
+) -> float | None:
+    for fact_key in fact_keys:
+        fact = fact_by_type.get(fact_key)
+        if fact is None:
+            continue
+        value_json = fact.value_json
+        if not isinstance(value_json, dict):
+            value_json = {"value": value_json}
+        value = _extract_numeric(value_json)
+        if value is not None:
+            return value
+    return None
+
+
+def _condition_rank(
+    rule: Rule,
+    fact_by_type: dict[str, PropertyFact],
+) -> tuple[bool, float, tuple[str, ...]]:
+    """Return whether a rule's structured conditions are satisfied.
+
+    Numeric table headings are upper-bound buckets unless their label says
+    ``over``. Unknown conditions are never guessed: they require operator
+    review rather than allowing a compliance verdict.
+    """
+    conditions = rule.condition_json if isinstance(rule.condition_json, dict) else {}
+    if not conditions:
+        return True, 0.0, ()
+
+    missing: list[str] = []
+    distance = 0.0
+    for condition_key, fact_keys in _NUMERIC_CONDITION_FACTS.items():
+        if conditions.get(condition_key) is None:
+            continue
+        measured = _numeric_fact(fact_by_type, fact_keys)
+        if measured is None:
+            missing.extend(fact_keys)
+            continue
+        try:
+            boundary = float(str(conditions[condition_key]))
+        except (TypeError, ValueError):
+            missing.append(f"condition:{condition_key}")
+            continue
+
+        label = str(conditions.get(condition_key.replace("_m", "_label")) or "").lower()
+        if "over" in label:
+            if measured <= boundary:
+                return False, 0.0, ()
+            distance += measured - boundary
+        else:
+            if measured > boundary:
+                return False, 0.0, ()
+            distance += boundary - measured
+
+    unsupported = set(conditions) - set(_NUMERIC_CONDITION_FACTS) - _CONDITION_METADATA_KEYS
+    missing.extend(f"condition:{key}" for key in sorted(unsupported))
+    if missing:
+        return False, 0.0, tuple(dict.fromkeys(missing))
+    return True, -distance, ()
+
+
+def _select_rule_with_context(
     rules: list[Rule],
     check_key: str,
     r_codes: list[str],
-) -> Rule | None:
+    fact_by_type: dict[str, PropertyFact],
+) -> tuple[Rule | None, tuple[str, ...]]:
     """Pick the best approved rule for a check key.
 
     Ranking: a usable numeric threshold dominates, then an R-code-specific
@@ -107,27 +191,27 @@ def _select_rule(
     base_keys = _CHECK_TO_BASE_RULE_KEYS.get(check_key, ())
     accepted = (check_key, *base_keys)
     best: Rule | None = None
-    best_rank: tuple = ()
+    best_rank: tuple[Any, ...] = ()
+    missing_conditions: list[str] = []
     for rule in rules:
         base = _base_rule_key(rule)
         # Open-vocab derived checks key on canonical_rule_key (filled by
         # wp6_apply_clustering.py); the seed checks key on rule_key / base key.
         canonical = getattr(rule, "canonical_rule_key", None)
-        if (
-            rule.rule_key != check_key
-            and base not in accepted
-            and canonical != check_key
-        ):
+        if rule.rule_key != check_key and base not in accepted and canonical != check_key:
             continue
+        conditions_match, conditions_rank, missing = _condition_rank(rule, fact_by_type)
+        missing_conditions.extend(missing)
+        if not conditions_match:
+            continue
+
         raw = rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
         try:
             has_threshold = raw is not None and float(str(raw)) == float(str(raw))
         except (TypeError, ValueError):
             has_threshold = False
         specific = bool(
-            rule.applicable_r_codes
-            and r_codes
-            and set(r_codes) & set(rule.applicable_r_codes)
+            rule.applicable_r_codes and r_codes and set(r_codes) & set(rule.applicable_r_codes)
         )
         # A check's headline threshold should come from a base/standard rule, not
         # an exception modifier.  Open-vocab clustering can pull "<key>.exception_*"
@@ -139,12 +223,28 @@ def _select_rule(
             1 if is_standard else 0,
             2 if specific else (1 if not rule.applicable_r_codes else 0),
             1 if _dwelling_type(rule) == "any" else 0,
+            conditions_rank,
             len(accepted) - accepted.index(base if base in accepted else check_key),
             rule.created_at or datetime.min.replace(tzinfo=UTC),
         )
         if rank > best_rank:
             best, best_rank = rule, rank
-    return best
+    return best, tuple(dict.fromkeys(missing_conditions))
+
+
+def _select_rule(
+    rules: list[Rule],
+    check_key: str,
+    r_codes: list[str],
+    fact_by_type: dict[str, PropertyFact] | None = None,
+) -> Rule | None:
+    """Pick the best approved rule whose conditions are supported by facts."""
+    return _select_rule_with_context(
+        rules,
+        check_key,
+        r_codes,
+        fact_by_type or {},
+    )[0]
 
 
 @dataclass
@@ -214,7 +314,9 @@ def _project_council_scope(project: Project) -> str | None:
     return council_scope
 
 
-def _resolve_council_scope(project: Project, fact_by_type: dict[str, PropertyFact]) -> tuple[str | None, str]:
+def _resolve_council_scope(
+    project: Project, fact_by_type: dict[str, PropertyFact]
+) -> tuple[str | None, str]:
     """Resolve council from confirmed facts first, then legacy project fields.
 
     Spatial synth writes the resolved LGA as ``fact_type='local_government'``
@@ -302,17 +404,13 @@ def _get_applicable_rules(
     if zone_codes and any(zone_codes):
         zone_filters = [Rule.applicable_zones == None]  # noqa: E711
         for zc in zone_codes:
-            zone_filters.append(
-                Rule.applicable_zones.contains(cast([zc], PgJSONB))
-            )
+            zone_filters.append(Rule.applicable_zones.contains(cast([zc], PgJSONB)))
         q = q.filter(or_(*zone_filters))
 
     if r_codes and any(r_codes):
         r_code_filters = [Rule.applicable_r_codes == None]  # noqa: E711
         for rc in r_codes:
-            r_code_filters.append(
-                Rule.applicable_r_codes.contains(cast([rc], PgJSONB))
-            )
+            r_code_filters.append(Rule.applicable_r_codes.contains(cast([rc], PgJSONB)))
         q = q.filter(or_(*r_code_filters))
 
     return q.all()
@@ -330,16 +428,58 @@ _ADVISORY_CHECK_TYPES = (
 # cannot scope them — we score by content so a residential lot surfaces siting/
 # design rules first instead of an alphabetical wall of subdivision/admin items.
 _RESIDENTIAL_KW = (
-    "setback", "boundary", "wall", "fence", "garage", "carport", "outbuilding",
-    "patio", "shed", "dwelling", "height", "storey", "plot ratio", "site cover",
-    "open space", "outdoor living", "landscap", "overlook", "privacy", "solar",
-    "parking", "driveway", "crossover", "building envelope", "facade", "roof",
-    "eaves", "porch", "verandah", "retaining", "fill", "excavation", "amenity",
+    "setback",
+    "boundary",
+    "wall",
+    "fence",
+    "garage",
+    "carport",
+    "outbuilding",
+    "patio",
+    "shed",
+    "dwelling",
+    "height",
+    "storey",
+    "plot ratio",
+    "site cover",
+    "open space",
+    "outdoor living",
+    "landscap",
+    "overlook",
+    "privacy",
+    "solar",
+    "parking",
+    "driveway",
+    "crossover",
+    "building envelope",
+    "facade",
+    "roof",
+    "eaves",
+    "porch",
+    "verandah",
+    "retaining",
+    "fill",
+    "excavation",
+    "amenity",
 )
 _DOWNWEIGHT_KW = (
-    "subdivision", "subdivide", "lot design", "road reserve", "developer contribution",
-    "strata", "commercial", "industrial", "rural", "pastoral", "mining", "marina",
-    "dredging", "structure plan area", "precinct", "regional", "foreshore reserve",
+    "subdivision",
+    "subdivide",
+    "lot design",
+    "road reserve",
+    "developer contribution",
+    "strata",
+    "commercial",
+    "industrial",
+    "rural",
+    "pastoral",
+    "mining",
+    "marina",
+    "dredging",
+    "structure plan area",
+    "precinct",
+    "regional",
+    "foreshore reserve",
 )
 
 
@@ -353,17 +493,19 @@ def _advisory_relevance_score(
     """
     logic = rule.rule_logic_json if isinstance(rule.rule_logic_json, dict) else {}
     applies = str(logic.get("applies_when") or "").lower()
-    text = " ".join([
-        rule.canonical_rule_key or rule.rule_key or "",
-        str(logic.get("what_it_means") or ""),
-        applies,
-    ]).lower()
+    text = " ".join(
+        [
+            rule.canonical_rule_key or rule.rule_key or "",
+            str(logic.get("what_it_means") or ""),
+            applies,
+        ]
+    ).lower()
     score = 0.0
-    for rc in (r_codes or []):
+    for rc in r_codes or []:
         rcl = str(rc).lower()
         if rcl and (rcl in applies or rcl in text):
             score += 6.0
-    for zc in (zone_codes or []):
+    for zc in zone_codes or []:
         if str(zc).lower() in text:
             score += 3.0
     if "residential" in text or "dwelling" in text:
@@ -506,14 +648,11 @@ class ComplianceEngine:
             r_codes=r_codes or None,
         )
 
-
         # ------------------------------------------------------------------
         # 5. Create the CheckRun record
         # ------------------------------------------------------------------
         pack_hash = _rule_pack_hash(rules) if rules else None
-        source_version_ids = list(
-            {str(r.source_version_id) for r in rules if r.source_version_id}
-        )
+        source_version_ids = list({str(r.source_version_id) for r in rules if r.source_version_id})
 
         check_run = CheckRun(
             org_id=UUID(org_id),
@@ -538,26 +677,41 @@ class ComplianceEngine:
         for check_def in ALL_CHECKS:
             check_key = check_def.key
             # Find the best matching approved rule for this check
-            rule: Rule | None = _select_rule(rules, check_key, r_codes)
+            rule, missing_condition_facts = _select_rule_with_context(
+                rules,
+                check_key,
+                r_codes,
+                fact_by_type,
+            )
 
             if rule is None:
-                # No approved rule covers this check for this context
+                # A conditional rule without its condition facts is not
+                # unsupported; it is explicitly blocked pending more evidence.
+                missing_conditions = bool(missing_condition_facts)
                 item = CheckResultItem(
                     check_key=check_key,
-                    status="unsupported",
+                    status="needs_more_info" if missing_conditions else "unsupported",
                     threshold_value=None,
                     threshold_unit=None,
                     measured_value=None,
                     rule_id=None,
                     rule_quote=None,
                     citation=None,
-                    note="missing_rule: no approved rule found for this check key",
+                    note=(
+                        "missing_rule_conditions: required condition facts are absent or "
+                        f"unsupported ({list(missing_condition_facts)})"
+                        if missing_conditions
+                        else "missing_rule: no approved rule found for this check key"
+                    ),
                 )
                 results.append(item)
+                any_missing = any_missing or missing_conditions
                 continue
 
             # Extract threshold from rule.value_json
-            threshold_raw = rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
+            threshold_raw = (
+                rule.value_json.get("value") if isinstance(rule.value_json, dict) else None
+            )
             threshold_value: float | None = None
             if threshold_raw is not None:
                 try:
@@ -678,12 +832,14 @@ class ComplianceEngine:
                     "quote": rule.quote,
                     "lifecycle_status": rule.lifecycle_status,
                     "source_version_id": str(rule.source_version_id),
+                    "condition_json": rule.condition_json,
                 },
                 selection_trace_json={
                     "engine_version": ENGINE_VERSION,
                     "matched_on": "rule_key",
                     "council_scope": council_scope,
                     "council_scope_source": council_scope_source,
+                    "condition_json": rule.condition_json,
                 },
                 citations_json=[citation] if citation else [],
             )
@@ -717,6 +873,7 @@ class ComplianceEngine:
                     "result": status,
                     "note": note,
                     "missing_info_reason": missing_reason,
+                    "condition_json": rule.condition_json,
                 },
                 drawing_evidence_json=_drawing_evidence(matched_fact),
                 pathway_note=rule.pathway if rule.pathway != "none" else None,
@@ -733,7 +890,9 @@ class ComplianceEngine:
         emitted_keys = {it.check_key for it in results}
         seen_adv: set[str] = set()
         for rule in _get_advisory_rules(
-            session, council_scope=council_scope, r_codes=r_codes or None,
+            session,
+            council_scope=council_scope,
+            r_codes=r_codes or None,
             zone_codes=zone_codes or None,
         ):
             key = rule.canonical_rule_key or rule.rule_key
