@@ -257,7 +257,8 @@ property_facts  row-per-fact provenance (below)
 `property_facts` (the queryable spatial spine — never bury legal facts in opaque JSON):
 
 ```text
-fact_type   council | parcel | zone | r_code | overlay | bushfire | heritage |
+fact_type   council | parcel | zone | r_code | structure_plan | special_area |
+            spatial_verification | overlay | bushfire | heritage |
             lot_area | frontage | corner_lot | primary_street | secondary_street |
             lot_topology | easement
 value_json, confidence, method ∈ {parcel_intersection, point_intersection, manual_override,
@@ -273,7 +274,8 @@ effective_from, effective_to, stale_at, review_status
 ```text
 parcels            cadastral polygons (GDA2020)
 address_points     G-NAF points (the resolver's first hop — was missing from the greenfield spec)
-planning_features  layer_type ∈ {zone, overlay, bushfire, heritage, airport, noise, region_scheme}
+planning_features  layer_type ∈ {zone, r_code, structure_plan, special_area, overlay,
+                                 bushfire, heritage, airport, noise, region_scheme}
 lg_areas           local government areas (merged legacy boundaries + registry)
 spatial_datasets   dataset_id, licence, licence_status, source_crs, version, fetched_at, refresh_due
 ```
@@ -499,11 +501,12 @@ address (autocomplete: any geocoder, display only)
                                  confirmed with Landgate before launch. Risk register item.)
   -> LGA by parcel intersection (Landgate admin boundaries)
   -> zone + R-code              (DPLH Local Planning Scheme Zones and Reserves, DPLH-071, WFS)
+  -> structure plan + special area (DPLH-024 + DPLH-068; weekly versioned ArcGIS import)
   -> bushfire / heritage / overlays (SPP 3.7 bushfire-prone mapping via SLIP; heritage registers;
                                  confirm current dataset IDs + licence at import)
 ```
 
-Everything transforms to GDA2020 (EPSG:7844) at import; `spatial_datasets` records dataset id, licence, source CRS, version, fetched_at, refresh cadence. Parcel intersection is primary; point-in-polygon is a flagged lower-confidence fallback. A Google/other geocoder result is never legal proof — resolution must land on a G-NAF point + parcel, both with provenance. Dataset refresh diffs mark dependent `property_facts` stale → `review_items`.
+Everything transforms to GDA2020 (EPSG:7844) at import; `spatial_datasets` records dataset id, licence, source CRS, version, fetched_at, refresh cadence. Parcel intersection is primary; point-in-polygon is a flagged lower-confidence fallback. A Google/other geocoder result is never legal proof — resolution must land on a G-NAF point + parcel, both with provenance. The public PlanWA API may be used as a live second opinion: disagreement with the approved local version fails closed to `needs_more_info`; API unavailability is recorded but does not replace the local source. Dataset refresh diffs mark dependent `property_facts` stale → `review_items`.
 
 Precedence (explicit, recorded in `precedence_trace`):
 
@@ -732,6 +735,8 @@ Table count never overrides provenance, auditability, or query correctness.
 | G-NAF (address points) | Geoscape via data.gov.au | EULA based on CC BY 4.0; mail-use restriction; GDA2020 builds available | Quarterly |
 | Cadastre (parcels), LGATE-218 | Landgate via SLIP / data.wa.gov.au | Public tier = simplified subset under **personal-use terms** — confirm commercial licence with Landgate before launch (**risk register**) | Ongoing |
 | Local Planning Scheme Zones and Reserves, DPLH-071 | DPLH via data.wa.gov.au (WFS) | Open access; verify attribution terms at import | Ongoing |
+| Structure Plan Boundaries, DPLH-024 | DPLH via PlanWA public ArcGIS / data.wa.gov.au | Public endpoint; record and review the published DPLH licence at each version | Weekly |
+| Local Planning Scheme Special Areas, DPLH-068 | DPLH via PlanWA public ArcGIS / data.wa.gov.au | Public endpoint; record and review the published DPLH licence at each version | Weekly |
 | Bushfire-prone area mapping (SPP 3.7) | Via SLIP / data.wa.gov.au | Confirm current dataset ID at import (older buffers retired) | Periodic |
 | LGA boundaries | Landgate admin boundaries via SLIP | Verify at import | Periodic |
 | Heritage (state register + local surveys) | inHerit / councils | Register per-dataset with licence check | Periodic |

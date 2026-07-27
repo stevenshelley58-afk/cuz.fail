@@ -1,0 +1,12 @@
+[Unit]
+Description=Refresh versioned DPLH PlanWA spatial layers
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/srv/draftcheck/app
+ExecStart=/usr/bin/python3 /srv/draftcheck/app/scripts/planwa_spatial_refresh.py
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=6
