@@ -7,6 +7,7 @@ s4 Transit Corridor, s5 Residential; Volume 2 s1 Town Centre (multiple
 dwellings / mixed use acceptable outcomes).
 """
 import sys
+
 sys.path.insert(0, "/app/scripts/phase6")
 from lpp_lib import cand, ensure_clause, write_report
 

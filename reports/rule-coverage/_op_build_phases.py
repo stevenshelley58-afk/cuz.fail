@@ -37,74 +37,74 @@ SV_DIVIDING_FENCES = "a925e8ae-951c-43bf-aa29-c14d26b3c67d"        # Dividing Fe
 # Metadata-only sources to create (no content stored)
 # ---------------------------------------------------------------------------
 METADATA_SOURCES = {
-    "ncc": dict(
-        title="National Construction Code 2022",
-        authority="Australian Building Codes Board",
-        source_type="ncc",
-        jurisdiction="AU",
-        version_label="2022-amendment-1",
-        licence_status="restricted",
-        canonical_url="https://ncc.abcb.gov.au/",
-        note=("Licence-restricted. No NCC content downloaded or stored. "
+    "ncc": {
+        "title": "National Construction Code 2022",
+        "authority": "Australian Building Codes Board",
+        "source_type": "ncc",
+        "jurisdiction": "AU",
+        "version_label": "2022-amendment-1",
+        "licence_status": "restricted",
+        "canonical_url": "https://ncc.abcb.gov.au/",
+        "note": ("Licence-restricted. No NCC content downloaded or stored. "
               "Metadata-only registration; rules are verification pointers "
               "referencing NCC provision identifiers only."),
-    ),
-    "flood": dict(
-        title="Department of Water and Environmental Regulation - Floodplain Mapping (1:100 ARI)",
-        authority="Department of Water and Environmental Regulation",
-        source_type="spatial_dataset",
-        jurisdiction="WA",
-        version_label="current-metadata-only",
-        licence_status="metadata_only",
-        canonical_url="https://www.wa.gov.au/organisation/department-of-water-and-environmental-regulation",
-        note=("Metadata-only registration of DWER floodplain mapping service. "
+    },
+    "flood": {
+        "title": "Department of Water and Environmental Regulation - Floodplain Mapping (1:100 ARI)",
+        "authority": "Department of Water and Environmental Regulation",
+        "source_type": "spatial_dataset",
+        "jurisdiction": "WA",
+        "version_label": "current-metadata-only",
+        "licence_status": "metadata_only",
+        "canonical_url": "https://www.wa.gov.au/organisation/department-of-water-and-environmental-regulation",
+        "note": ("Metadata-only registration of DWER floodplain mapping service. "
               "No spatial data stored; referral-trigger rules only."),
-    ),
-    "ass": dict(
-        title="Department of Water and Environmental Regulation - Acid Sulfate Soil Risk Maps",
-        authority="Department of Water and Environmental Regulation",
-        source_type="spatial_dataset",
-        jurisdiction="WA",
-        version_label="current-metadata-only",
-        licence_status="metadata_only",
-        canonical_url=None,
-        note=("Metadata-only registration of DWER acid sulfate soil risk mapping. "
+    },
+    "ass": {
+        "title": "Department of Water and Environmental Regulation - Acid Sulfate Soil Risk Maps",
+        "authority": "Department of Water and Environmental Regulation",
+        "source_type": "spatial_dataset",
+        "jurisdiction": "WA",
+        "version_label": "current-metadata-only",
+        "licence_status": "metadata_only",
+        "canonical_url": None,
+        "note": ("Metadata-only registration of DWER acid sulfate soil risk mapping. "
               "No spatial data stored; referral-trigger rules only."),
-    ),
-    "watercorp": dict(
-        title="Water Corporation - Water and Wastewater Service Connection Requirements",
-        authority="Water Corporation",
-        source_type="planning_guidance",
-        jurisdiction="WA",
-        version_label="current-metadata-only",
-        licence_status="metadata_only",
-        canonical_url="https://www.watercorporation.com.au/",
-        note=("Metadata-only registration. Service connection verification "
+    },
+    "watercorp": {
+        "title": "Water Corporation - Water and Wastewater Service Connection Requirements",
+        "authority": "Water Corporation",
+        "source_type": "planning_guidance",
+        "jurisdiction": "WA",
+        "version_label": "current-metadata-only",
+        "licence_status": "metadata_only",
+        "canonical_url": "https://www.watercorporation.com.au/",
+        "note": ("Metadata-only registration. Service connection verification "
               "triggers only; no Water Corporation technical content stored."),
-    ),
-    "westernpower": dict(
-        title="Western Power - Electricity Connection Requirements",
-        authority="Western Power",
-        source_type="planning_guidance",
-        jurisdiction="WA",
-        version_label="current-metadata-only",
-        licence_status="metadata_only",
-        canonical_url="https://www.westernpower.com.au/",
-        note=("Metadata-only registration. Service connection verification "
+    },
+    "westernpower": {
+        "title": "Western Power - Electricity Connection Requirements",
+        "authority": "Western Power",
+        "source_type": "planning_guidance",
+        "jurisdiction": "WA",
+        "version_label": "current-metadata-only",
+        "licence_status": "metadata_only",
+        "canonical_url": "https://www.westernpower.com.au/",
+        "note": ("Metadata-only registration. Service connection verification "
               "triggers only; no Western Power technical content stored."),
-    ),
-    "treelaw": dict(
-        title="WA Local Government Tree Preservation Local Laws (generic register)",
-        authority="Various WA local governments",
-        source_type="local_planning_policy",
-        jurisdiction="WA",
-        version_label="generic-metadata-only",
-        licence_status="metadata_only",
-        canonical_url=None,
-        note=("Metadata-only register for tree preservation / significant tree "
+    },
+    "treelaw": {
+        "title": "WA Local Government Tree Preservation Local Laws (generic register)",
+        "authority": "Various WA local governments",
+        "source_type": "local_planning_policy",
+        "jurisdiction": "WA",
+        "version_label": "generic-metadata-only",
+        "licence_status": "metadata_only",
+        "canonical_url": None,
+        "note": ("Metadata-only register for tree preservation / significant tree "
               "local laws, which vary per council. Generic trigger rules only; "
               "per-council verification required."),
-    ),
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -114,8 +114,8 @@ METADATA_SOURCES = {
 # ---------------------------------------------------------------------------
 
 def r(key, ck, ref, title, quote, raw, ev="yes", ct="conditional"):
-    return dict(rule_key=key, clause_key=ck, section_ref=ref, clause_title=title,
-                quote=quote, raw_text=raw, evaluable=ev, check_type=ct)
+    return {"rule_key": key, "clause_key": ck, "section_ref": ref, "clause_title": title,
+                "quote": quote, "raw_text": raw, "evaluable": ev, "check_type": ct}
 
 
 NCC_PTR = " (metadata-only verification pointer — NCC 2022 is licence-restricted; no NCC text reproduced or stored; verify against licensed NCC 2022 Volume Two / ABCB Housing Provisions)"

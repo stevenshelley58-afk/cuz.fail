@@ -11,6 +11,7 @@ Sources:
   embedded raster images; policy-statement applicability clauses only.
 """
 import sys
+
 sys.path.insert(0, "/app/scripts/phase6")
 from lpp_lib import cand, ensure_clause, write_report
 

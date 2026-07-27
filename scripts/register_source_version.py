@@ -24,7 +24,7 @@ import json
 import os
 import shutil
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from uuid import uuid4
 
@@ -84,12 +84,12 @@ def main() -> int:
     sha = sha256_file(pdf_path)
     storage_root = Path(os.getenv("DRAFTCHECK_STORAGE_ROOT", "/srv/draftcheck/storage"))
     effective_from = (
-        datetime.fromisoformat(args.effective_from).replace(tzinfo=timezone.utc)
+        datetime.fromisoformat(args.effective_from).replace(tzinfo=UTC)
         if args.effective_from else None
     )
 
     if args.dry_run:
-        print(f"[DRY RUN] Would register source version:")
+        print("[DRY RUN] Would register source version:")
         print(f"  title:          {args.title}")
         print(f"  authority:      {args.authority}")
         print(f"  source_type:    {args.source_type}")

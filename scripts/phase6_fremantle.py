@@ -7,6 +7,7 @@ Sources:
 - LPP2.2 Split Density Codes & Energy Efficiency Schedule (8d9af7c2-...), Part B.
 """
 import sys
+
 sys.path.insert(0, "/app/scripts/phase6")
 from lpp_lib import cand, ensure_clause, write_report
 
@@ -255,8 +256,8 @@ a22(c22b, "Part B alternative", "fremantle.splitcode_alternative_nathers_stars_m
 write_report("/app/reports/phase6_fremantle_lpp29_streetscape_extraction.json",
              SV_29, PDF_29, "LPP2.9 Residential Streetscapes",
              ["Table 1.1a Primary Street Setbacks"], R29,
-             ["Heritage areas excluded from all provisions; South Fremantle/Samson/O'Connor/Hilton "
-              "ground+upper setbacks revert to R-Codes (no LPP override).",
+             [("Heritage areas excluded from all provisions; South Fremantle/Samson/O'Connor/Hilton "
+              "ground+upper setbacks revert to R-Codes (no LPP override)."),
               "s3 Building height modifies no D-t-C criteria (design principles only) — not extracted.",
               "LPP2.8 Fences cross-referenced for carport doors/gates — separate instrument."])
 write_report("/app/reports/phase6_fremantle_lpp320_sca57_extraction.json",
@@ -268,7 +269,7 @@ write_report("/app/reports/phase6_fremantle_lpp320_sca57_extraction.json",
 write_report("/app/reports/phase6_fremantle_lpp22_split_density_extraction.json",
              SV_22, PDF_22, "LPP2.2 Part B Energy Efficiency and Sustainability Schedule",
              [], R22,
-             ["Part A pathways (heritage retention, low income housing, non-conforming use removal) "
-              "are qualitative eligibility routes under LPS4 cl 4.3.4 — not extracted.",
-              "Part B cl 1.4 (electric hot water/cooking) is a specification requirement — "
-              "qualitative, not extracted."])
+             [("Part A pathways (heritage retention, low income housing, non-conforming use removal) "
+              "are qualitative eligibility routes under LPS4 cl 4.3.4 — not extracted."),
+              ("Part B cl 1.4 (electric hot water/cooking) is a specification requirement — "
+              "qualitative, not extracted.")])

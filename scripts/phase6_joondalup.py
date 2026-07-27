@@ -6,6 +6,7 @@ Sources:
 - LPP Development in Housing Opportunity Areas (1bc7ba4a-...), sections 1-19.
 """
 import sys
+
 sys.path.insert(0, "/app/scripts/phase6")
 from lpp_lib import cand, ensure_clause, write_report
 

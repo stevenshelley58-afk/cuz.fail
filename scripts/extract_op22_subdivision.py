@@ -13,12 +13,12 @@ bulk_approve_rules.py satisfies the rules.clause_id FK.
 from __future__ import annotations
 
 import argparse
+import itertools
 import json
 import os
 import re
 import sys
 from pathlib import Path
-from typing import Any
 from uuid import uuid4
 
 try:
@@ -94,8 +94,8 @@ def ensure_clauses(db_url, sv_id):
                            'targeted_text_extraction', 'op2_2-may2024',
                            now(), now())""",
                 (cid, sv_id, clause_key, title,
-                 f"{title} — WAPC Operational Policy 2.2 Residential "
-                 f"Subdivision (May 2024)"))
+                 (f"{title} — WAPC Operational Policy 2.2 Residential "
+                 f"Subdivision (May 2024)")))
             ids[clause_key] = cid
             print(f"  Created clause {clause_key}: {cid}")
         conn.commit()
@@ -118,8 +118,8 @@ def build_candidates(sv_id, clause_ids):
             condition={"applies_to": "one_lot_only",
                        "reference": "R-Codes Volume 1 Table D minimum lot size",
                        "note": "For dual coded land, applicable to base coding only"}),
-        "reduces the area of that one lot by no more than five per cent of the "
-        "minimum lot size"))
+        ("reduces the area of that one lot by no more than five per cent of the "
+        "minimum lot size")))
 
     # --- 4.2.4(a): 5% variation to average lot size -------------------------
     out.append((
@@ -132,8 +132,8 @@ def build_candidates(sv_id, clause_ids):
             "R-Codes Volume 1 Table D or elsewhere in the R-Codes.",
             "s4_2", CODES_ALL, clause_ids["s4_2"], sv_id,
             condition={"reference": "R-Codes Volume 1 Table D average lot size"}),
-        "reduces the average lot size of the overall subdivision by no more "
-        "than five per cent"))
+        ("reduces the average lot size of the overall subdivision by no more "
+        "than five per cent")))
 
     # --- 4.2.4(b): average variation >5% eligibility (R10-R35, corner) ------
     out.append((
@@ -346,7 +346,7 @@ def page_column_texts(page):
                    {round(wd["x1"], 1) for wd in words if lo < wd["x1"] < hi})
     gutter = None
     best = 0.0
-    for a, b in zip(edges, edges[1:]):
+    for a, b in itertools.pairwise(edges):
         if b - a > best:
             best = b - a
             gutter = (a + b) / 2

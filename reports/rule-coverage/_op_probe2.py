@@ -1,8 +1,9 @@
+import json
 import os
 import re
-import json
-import psycopg
+
 import pdfplumber
+import psycopg
 
 url = os.environ['DATABASE_URL'].replace('postgresql+asyncpg://', 'postgresql://').replace('postgresql+psycopg://', 'postgresql://')
 storage = os.getenv('DRAFTCHECK_STORAGE_ROOT', '/srv/draftcheck/storage')

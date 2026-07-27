@@ -8,6 +8,7 @@ NOTE: Section 2 policies 2.6 Residential Building Heights, 2.7 Streetscapes,
 Parking are REVOKED in this manual and were not extracted.
 """
 import sys
+
 sys.path.insert(0, "/app/scripts/phase6")
 from lpp_lib import cand, ensure_clause, write_report
 

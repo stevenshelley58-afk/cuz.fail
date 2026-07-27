@@ -28,7 +28,7 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 from uuid import uuid4
@@ -140,7 +140,7 @@ def approve_candidate(
     """Promote a candidate to the rules table. Returns rule_id or None."""
     cur = conn.cursor()
     rule_id = str(uuid4())
-    now = datetime.now(timezone.utc).isoformat()
+    now = datetime.now(UTC).isoformat()
 
     try:
         cur.execute(
@@ -300,7 +300,7 @@ def main() -> int:
         conn.commit()
 
     # Write approval report
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    timestamp = datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
     approval_report_path = _ROOT / "reports" / f"rule_approval_{timestamp}.json"
     approval_report = {
         "source_report": str(report_path),
@@ -316,14 +316,14 @@ def main() -> int:
     with open(approval_report_path, "w") as f:
         json.dump(approval_report, f, indent=2)
 
-    print(f"\n--- Approval Summary ---")
+    print("\n--- Approval Summary ---")
     print(f"Approved: {approved_count}")
     print(f"Failed governance: {failed_count}")
     print(f"Skipped (needs review): {skipped}")
     print(f"Report: {approval_report_path}")
 
     if failed_count > 0:
-        print(f"\nGovernance failures:")
+        print("\nGovernance failures:")
         for fl in failure_log[:10]:
             print(f"  {fl['rule_key']}: {', '.join(fl['failures'])}")
 

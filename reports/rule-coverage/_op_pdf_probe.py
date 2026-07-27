@@ -1,4 +1,3 @@
-import sys
 import pdfplumber
 
 for name in ['heritage_act_2018', 'wapc_coastal_policy']:

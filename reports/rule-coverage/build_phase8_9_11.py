@@ -5,9 +5,10 @@ Inserts clause rows (idempotent) and writes extraction report JSONs to
 Strata Titles Act 1985. All quotes transcribed verbatim from the official
 consolidated PDFs stored in /app/data/raw-sources/.
 """
-import os
 import json
+import os
 import uuid
+
 import psycopg
 
 DB = os.environ["DATABASE_URL"].replace(

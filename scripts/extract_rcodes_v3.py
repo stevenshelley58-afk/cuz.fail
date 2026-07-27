@@ -160,7 +160,7 @@ def parse_table_b(pdf, section, sv_id, clause_id):
 
 
 # ----------------------------------------------------------- Tables 2a/2b
-def parse_table_2x(pdf, section, sv_id, clause_ids):
+def parse_table_2x(pdf, section, sv_id, clause_ids, requested_tables=None):
     out = []
     warnings = []
     page_idx = find_page(pdf, r"Table 2a\s+Boundary setbacks")
@@ -175,6 +175,8 @@ def parse_table_2x(pdf, section, sv_id, clause_ids):
     if len(tables) < 2:
         warnings.append(f"expected 2 setback matrices, found {len(tables)}")
     for t, name, base in zip(tables, names, bases):
+        if requested_tables is not None and name not in requested_tables:
+            continue
         lengths = [ (c or "").strip() for c in t[1][1:] ]
         for row in t[3:]:
             h_label = (row[0] or "").strip()
@@ -329,9 +331,9 @@ def parse_table_c(pdf, section, sv_id, clause_id):
         codes = covered_codes(bbox, spans)
         if not codes or codes[0] == "R100-SL2":
             continue  # R100-SL2 has per-row cells, handled below
-        lines = [l.strip() for l in
+        lines = [line.strip() for line in
                  (page.crop(bbox).extract_text() or "").split("\n")
-                 if l.strip()]
+                 if line.strip()]
         if len(lines) != 4:
             warnings.append(f"Table C height block: expected 4 stacked "
                             f"values for {codes}, got {lines!r}")
@@ -401,9 +403,9 @@ def parse_table_c(pdf, section, sv_id, clause_id):
     # Maximum boundary wall height: cells carry "7m\n(2 storey)"
     for ci, bbox in row_cells(boundary_wall_row):
         codes = covered_codes(bbox, spans)
-        raw_lines = [l.strip() for l in
+        raw_lines = [line.strip() for line in
                      (page.crop(bbox).extract_text() or "").split("\n")
-                     if l.strip()]
+                     if line.strip()]
         if not raw_lines:
             continue
         val = parse_num(raw_lines[0])
@@ -519,8 +521,13 @@ def main() -> int:
 
     with pdfplumber.open(pdf_path) as pdf:
         if any(t in ("Table 2a", "Table 2b") for t in table_names):
-            cands, w = parse_table_2x(pdf, args.instrument_section,
-                                      args.source_version_id, clause_ids)
+            cands, w = parse_table_2x(
+                pdf,
+                args.instrument_section,
+                args.source_version_id,
+                clause_ids,
+                requested_tables=set(table_names),
+            )
             all_candidates.extend(cands)
             warnings.extend(w)
         for name in table_names:

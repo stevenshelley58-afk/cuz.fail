@@ -7,6 +7,7 @@ Armadale PLN 3.10 R-Codes Variations & R-MD Codes (ef718abf-...): R17.5 garage
 boundary walls + Table 1 R-MD 25/30/40 single house standards.
 """
 import sys
+
 sys.path.insert(0, "/app/scripts/phase6")
 from lpp_lib import cand, ensure_clause, write_report
 
@@ -277,8 +278,8 @@ write_report("/app/reports/phase6_canning_lp01_residential_extraction.json",
              SV_CAN, PDF_CAN, "LP.01 Residential Development",
              ["s3.7 C3 Table B Large and multiple outbuildings"], CAN,
              ["s3.5 C4.3 (prohibited fence materials) is qualitative — not extracted.",
-              "s3.8 C4.8 waste management plan trigger (multiple/5+ grouped dwellings) is "
-              "procedural — not extracted.",
+              ("s3.8 C4.8 waste management plan trigger (multiple/5+ grouped dwellings) is "
+              "procedural — not extracted."),
               "Figures 1-5 are illustrative only; numeric values captured in rule conditions."])
 write_report("/app/reports/phase6_armadale_pln310_rcodes_variations_extraction.json",
              SV_ARM, PDF_ARM, "PLN 3.10 R-Codes Variations & R-MD Codes",

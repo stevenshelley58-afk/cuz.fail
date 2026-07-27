@@ -1,5 +1,6 @@
-import sys
 import re
+import sys
+
 import pdfplumber
 
 path, pattern, out = sys.argv[1], sys.argv[2], sys.argv[3]
