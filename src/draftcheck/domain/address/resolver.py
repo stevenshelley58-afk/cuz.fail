@@ -766,7 +766,8 @@ class AddressResolver:
             text(
                 "DELETE FROM property_facts "
                 "WHERE org_id = :org_id AND project_id = :project_id "
-                "AND review_status NOT IN ('approved', 'promoted', 'confirmed')"
+                "AND review_status NOT IN ('approved', 'promoted', 'confirmed') "
+                "AND method != 'manual_override'"
             ),
             {"org_id": str(org_uuid), "project_id": str(project_uuid)},
         )

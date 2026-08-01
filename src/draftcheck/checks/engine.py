@@ -601,8 +601,9 @@ def _source_spatial_scope(source: Source) -> tuple[bool, str, set[str]]:
         marker in title_lower for marker in _SPATIALLY_SCOPED_TITLE_MARKERS
     )
     fact_type = str(explicit.get("fact_type") or explicit.get("kind") or "structure_plan")
-    if fact_type == "local_development_plan":
-        fact_type = "structure_plan"
+    # Keep local_development_plan distinct — resolver writes fact_type as-is
+    # from _SPATIAL_SCOPE_FACT_TYPES (no remap), so remapping here would cause
+    # _source_applies_to_spatial_facts to look up the wrong property_scopes key.
 
     refs: set[str] = set()
     explicit_refs = explicit.get("references") or explicit.get("refs") or []
@@ -669,8 +670,11 @@ def _filter_rules_by_spatial_scope(
         rule
         for rule in rules
         if (
-            rule.source_version_id not in sources_by_version
-            or _source_applies_to_spatial_facts(
+            # Fail closed: if the source_version can't be resolved (deleted
+            # source, missing version), exclude the rule rather than silently
+            # applying it LGA-wide.
+            rule.source_version_id in sources_by_version
+            and _source_applies_to_spatial_facts(
                 sources_by_version[rule.source_version_id],
                 property_scopes,
             )
@@ -740,6 +744,11 @@ def _get_applicable_rules(
         q = q.filter(
             (Rule.council_scope == None) | (Rule.council_scope == council_scope)  # noqa: E711
         )
+    else:
+        # When the property's LGA is unknown, restrict to global rules only.
+        # Without this, council-scoped rules from every LGA leak into the
+        # candidate set and may be selected over the correct global rule.
+        q = q.filter(Rule.council_scope == None)  # noqa: E711
 
     if zone_codes and any(zone_codes):
         zone_filters = [Rule.applicable_zones == None]  # noqa: E711
@@ -884,6 +893,8 @@ def _get_advisory_rules(
         q = q.filter(
             (Rule.council_scope == None) | (Rule.council_scope == council_scope)  # noqa: E711
         )
+    else:
+        q = q.filter(Rule.council_scope == None)  # noqa: E711
     if r_codes and any(r_codes):
         r_code_filters = [Rule.applicable_r_codes == None]  # noqa: E711
         for rc in r_codes:
@@ -958,6 +969,11 @@ class ComplianceEngine:
                 or_(
                     PropertyFact.review_status == "confirmed",
                     PropertyFact.method == "manual_override",
+                    # Resolver-written spatial facts are authoritative even though
+                    # they arrive as pending_review — without this the engine sees
+                    # zero facts for freshly-resolved projects.
+                    PropertyFact.method.like("postgis_st_intersects%"),
+                    PropertyFact.method == "gnaf_trigram_or_like_match",
                 ),
             )
             .all()
