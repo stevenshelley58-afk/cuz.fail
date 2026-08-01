@@ -14,7 +14,6 @@ from __future__ import annotations
 from collections.abc import Sequence
 
 from alembic import op
-import sqlalchemy as sa
 
 revision: str = "0021_performance_indexes"
 down_revision: str | None = "0020_add_rule_coverage_columns"

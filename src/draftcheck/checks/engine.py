@@ -223,7 +223,8 @@ def _condition_rank(
             continue
 
         label = str(conditions.get(condition_key.replace("_m", "_label")) or "").lower()
-        if "over" in label:
+        _LOWER_BOUND_MARKERS = ("over", "more than", "greater than", "exceeds", "minimum", "at least")
+        if any(marker in label for marker in _LOWER_BOUND_MARKERS):
             if measured <= boundary:
                 return False, 0.0, ()
             distance += measured - boundary
