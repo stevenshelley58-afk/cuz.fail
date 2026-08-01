@@ -35,3 +35,8 @@ coverage/
 data/corpus/
 data/harvest/
 data/seed/*.pdf
+.worktrees/
+.superpowers/
+.ops/
+tunnel.log
+reports_tmp_register_fix.py
