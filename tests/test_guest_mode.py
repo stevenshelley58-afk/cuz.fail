@@ -47,6 +47,7 @@ import os  # noqa: E402
 from contextlib import contextmanager  # noqa: E402
 from typing import Iterator  # noqa: E402
 
+import pytest  # noqa: E402
 from fastapi.testclient import TestClient  # noqa: E402
 from sqlalchemy import create_engine  # noqa: E402
 from sqlalchemy.orm import sessionmaker  # noqa: E402
@@ -192,7 +193,9 @@ def test_429_leaks_no_numbers() -> None:
                 assert not any(ch.isdigit() for ch in value)
 
 
-def test_non_guest_sessions_are_never_metered() -> None:
+def test_non_guest_sessions_are_never_metered(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("DEV_LOGIN_USERNAME", "jemma")
+    monkeypatch.setenv("DEV_LOGIN_PASSWORD", "jemma123")
     with guest_app() as (app, _store):
         client = _client(app)
         login = client.post(

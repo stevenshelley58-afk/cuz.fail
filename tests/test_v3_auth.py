@@ -85,7 +85,9 @@ def test_magic_link_and_session_expiry_windows() -> None:
 
 
 
-def test_dev_login_issues_session_for_valid_credentials() -> None:
+def test_dev_login_issues_session_for_valid_credentials(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("DEV_LOGIN_USERNAME", "jemma")
+    monkeypatch.setenv("DEV_LOGIN_PASSWORD", "jemma123")
     with auth_client() as (client, store, _sender, settings):
         response = client.post(
             "/api/v1/auth/dev-login",
@@ -108,7 +110,9 @@ def test_dev_login_issues_session_for_valid_credentials() -> None:
         assert session.json()["user"]["email"] == "jemma@dev.local"
 
 
-def test_dev_login_rejects_invalid_credentials() -> None:
+def test_dev_login_rejects_invalid_credentials(monkeypatch: pytest.MonkeyPatch) -> None:
+    monkeypatch.setenv("DEV_LOGIN_USERNAME", "jemma")
+    monkeypatch.setenv("DEV_LOGIN_PASSWORD", "jemma123")
     with auth_client() as (client, _store, _sender, _settings):
         response = client.post(
             "/api/v1/auth/dev-login",
@@ -117,6 +121,44 @@ def test_dev_login_rejects_invalid_credentials() -> None:
         )
 
         assert response.status_code == 401
+
+
+def test_dev_login_is_404_in_production(monkeypatch: pytest.MonkeyPatch) -> None:
+    # Even with credentials configured, a production-typed app must not serve it.
+    monkeypatch.setenv("DEV_LOGIN_USERNAME", "jemma")
+    monkeypatch.setenv("DEV_LOGIN_PASSWORD", "jemma123")
+    app = create_app()
+    store = InMemoryIdentityStore()
+    sender = DevLogEmailSender()
+    settings = Settings(
+        frontend_url="http://app.test",
+        session_cookie_secure=False,
+        cors_allowed_origins=("http://app.test",),
+        app_env="production",
+    )
+    app.dependency_overrides[get_identity_store] = lambda: store
+    app.dependency_overrides[get_email_sender] = lambda: sender
+    app.dependency_overrides[get_settings] = lambda: settings
+    with TestClient(app) as client:
+        response = client.post(
+            "/api/v1/auth/dev-login",
+            json={"username": "jemma", "password": "jemma123"},
+            headers={"origin": "http://app.test"},
+        )
+        assert response.status_code == 404
+
+
+def test_dev_login_is_404_without_configured_credentials(monkeypatch: pytest.MonkeyPatch) -> None:
+    # No fallback credentials: with env unset, the endpoint is inert even in dev.
+    monkeypatch.delenv("DEV_LOGIN_USERNAME", raising=False)
+    monkeypatch.delenv("DEV_LOGIN_PASSWORD", raising=False)
+    with auth_client() as (client, _store, _sender, _settings):
+        response = client.post(
+            "/api/v1/auth/dev-login",
+            json={"username": "jemma", "password": "jemma123"},
+            headers={"origin": "http://app.test"},
+        )
+        assert response.status_code == 404
 
 
 
