@@ -223,10 +223,19 @@ def dev_login(
     settings: Annotated[Settings, Depends(get_settings)],
     store: Annotated[InMemoryIdentityStore, Depends(get_identity_store)],
 ) -> VerifyMagicLinkResponse:
+    # Development-only surface. Hard-disabled outside explicit dev environments so
+    # a misconfigured production host can never serve it. No fallback credentials:
+    # both env vars must be set, otherwise the endpoint is inert.
+    if settings.app_env.strip().lower() not in {"local", "development", "dev"}:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+
+    expected_username = os.getenv("DEV_LOGIN_USERNAME", "").strip().lower()
+    expected_password = os.getenv("DEV_LOGIN_PASSWORD", "")
+    if not expected_username or not expected_password:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+
     _assert_allowed_origin(request, settings)
 
-    expected_username = os.getenv("DEV_LOGIN_USERNAME", "jemma").strip().lower()
-    expected_password = os.getenv("DEV_LOGIN_PASSWORD", "jemma123")
     if payload.username.strip().lower() != expected_username or payload.password != expected_password:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
