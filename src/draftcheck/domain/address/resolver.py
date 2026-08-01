@@ -82,6 +82,15 @@ class OverlayFact:
 
 
 @dataclass
+class FrontageResult:
+    """Result of frontage heuristic with battle-axe detection."""
+
+    frontage_m: float
+    battle_axe_likely: bool = False
+    confidence: float = 0.6
+
+
+@dataclass
 class ResolverResult:
     """Outcome of ``AddressResolver.resolve``."""
 
@@ -167,12 +176,17 @@ class AddressResolver:
                 address=gnaf.formatted_address,
             )
 
-        # Step 3: LGA
-        lga_name = await self._lga_from_point(gnaf.lat, gnaf.lon, session)
-        if lga_name is None and parcel.local_government:
-            lga_name = parcel.local_government
-        if lga_name is None:
+        # Step 3: LGA (may return multiple for boundary-straddling parcels)
+        lga_names = await self._lga_from_point(gnaf.lat, gnaf.lon, session)
+        if not lga_names and parcel.local_government:
+            lga_names = [parcel.local_government]
+        if not lga_names:
             warnings.append("lga_not_resolved")
+        elif len(lga_names) > 1:
+            warnings.append(
+                "parcel_straddles_multiple_lgas:" + "|".join(lga_names)
+            )
+        lga_name = lga_names[0] if lga_names else None
 
         # Step 4: Zone facts
         zones = await self._zone_from_parcel(parcel.parcel_db_id, session)
@@ -192,8 +206,9 @@ class AddressResolver:
             if lot_area_m2 is not None:
                 warnings.append("lot_area_calculated_from_geometry_not_cadastre_record")
 
-        # Step 7: Frontage heuristic
-        frontage_m = await self._frontage_from_parcel(parcel.parcel_db_id, session)
+        # Step 7: Frontage heuristic (with battle-axe detection)
+        frontage_result = await self._frontage_from_parcel(parcel.parcel_db_id, session)
+        frontage_m = frontage_result.frontage_m if frontage_result else None
         if frontage_m is None:
             warnings.append("frontage_not_calculable")
 
@@ -218,12 +233,12 @@ class AddressResolver:
             property_id=property_id,
             gnaf=gnaf,
             parcel=parcel,
-            lga_name=lga_name,
+            lga_names=lga_names,
             zones=zones,
             r_code_facts=r_code_facts,
             overlays=overlays,
             lot_area_m2=lot_area_m2,
-            frontage_m=frontage_m,
+            frontage_result=frontage_result,
             corner_lot=corner_lot,
             session=session,
         )
@@ -358,8 +373,12 @@ class AddressResolver:
 
     async def _lga_from_point(
         self, lat: float, lon: float, session: Any
-    ) -> str | None:
-        """ST_Intersects lookup on lg_areas for the given point."""
+    ) -> list[str]:
+        """ST_Intersects lookup on lg_areas for the given point.
+
+        Returns ALL intersecting LGA names.  Parcels on LGA boundaries may
+        intersect multiple councils; the engine loads rules for all of them.
+        """
         from sqlalchemy import text
 
         result = await _execute(
@@ -370,12 +389,12 @@ class AddressResolver:
                 "  geom, "
                 "  ST_SetSRID(ST_Point(:lon, :lat), 7844)"
                 ") "
-                "LIMIT 1"
+                "ORDER BY name"
             ),
             {"lat": lat, "lon": lon},
         )
-        row = result.fetchone()
-        return str(row[0]) if row else None
+        rows = result.fetchall()
+        return [str(r[0]) for r in rows]
 
     async def _zone_from_parcel(
         self, parcel_db_id: str, session: Any
@@ -413,7 +432,7 @@ class AddressResolver:
     async def _overlays_from_parcel(
         self, parcel_db_id: str, session: Any
     ) -> list[OverlayFact]:
-        """ST_Intersects on planning_features for overlay/bushfire/heritage."""
+        """ST_Intersects on planning_features for overlay/bushfire/heritage/structure_plan."""
         from sqlalchemy import text
 
         result = await _execute(
@@ -421,7 +440,10 @@ class AddressResolver:
             text(
                 "SELECT pf.id, pf.layer_type, pf.code, pf.label, pf.metadata_json "
                 "FROM planning_features pf "
-                "WHERE pf.layer_type IN ('overlay', 'bushfire', 'heritage', 'special_control') "
+                "WHERE pf.layer_type IN ("
+                "'overlay', 'bushfire', 'heritage', 'special_control', "
+                "'structure_plan', 'local_development_plan'"
+                ") "
                 "AND ST_Intersects("
                 "  pf.geom, "
                 "  (SELECT geom FROM parcels WHERE id = :pid)"
@@ -493,44 +515,78 @@ class AddressResolver:
 
     async def _frontage_from_parcel(
         self, parcel_db_id: str, session: Any
-    ) -> float | None:
+    ) -> FrontageResult | None:
         """Estimate frontage as the longest exterior ring edge in metres.
 
         This is a geometric heuristic -- the longest edge of the parcel's
         exterior ring is used as an approximation of the primary street
-        frontage.  It does not account for rear lanes or battle-axe lots.
+        frontage.
+
+        Battle-axe detection: if the parcel area > 500 m², the longest edge
+        > 30 m, and the second-longest edge < 15 m, the lot is flagged as a
+        probable battle-axe (the "handle" is the longest edge, not the street
+        frontage).  In that case confidence is lowered to 0.3.
+
+        Returns ``None`` if geometry is degenerate or frontage is zero.
         """
         from sqlalchemy import text
 
         result = await _execute(
             session,
             text(
-                "WITH pts AS ("
+                "WITH poly AS ("
                 "  SELECT "
-                "    ST_PointN(ST_ExteriorRing(ST_Transform("
-                "      (CASE WHEN ST_GeometryType(geom) = 'ST_MultiPolygon'"
-                "            THEN ST_GeometryN(geom, 1)"
-                "            ELSE geom END), :srid)), i) AS p1, "
-                "    ST_PointN(ST_ExteriorRing(ST_Transform("
-                "      (CASE WHEN ST_GeometryType(geom) = 'ST_MultiPolygon'"
-                "            THEN ST_GeometryN(geom, 1)"
-                "            ELSE geom END), :srid)), i + 1) AS p2 "
-                "  FROM parcels, "
-                "    generate_series(1, "
-                "      ST_NPoints(ST_ExteriorRing(ST_Transform("
-                "        (CASE WHEN ST_GeometryType(geom) = 'ST_MultiPolygon'"
-                "              THEN ST_GeometryN(geom, 1)"
-                "              ELSE geom END), :srid))) - 1) AS i "
-                "  WHERE id = :pid"
+                "    ST_Transform("
+                "      CASE WHEN ST_GeometryType(geom) = 'ST_MultiPolygon'"
+                "           THEN ST_GeometryN(geom, 1)"
+                "           ELSE geom END, :srid) AS g "
+                "  FROM parcels WHERE id = :pid"
+                "), "
+                "edges AS ("
+                "  SELECT ST_Distance("
+                "    ST_PointN(ST_ExteriorRing(g), i),"
+                "    ST_PointN(ST_ExteriorRing(g), i + 1)"
+                "  ) AS edge_len "
+                "  FROM poly, "
+                "    generate_series(1, ST_NPoints(ST_ExteriorRing(g)) - 1) AS i"
+                "), "
+                "ranked AS ("
+                "  SELECT edge_len, "
+                "    ROW_NUMBER() OVER (ORDER BY edge_len DESC) AS rn "
+                "  FROM edges"
                 ") "
-                "SELECT MAX(ST_Distance(p1, p2)) FROM pts"
+                "SELECT "
+                "  (SELECT ST_Area(g) FROM poly) AS area_m2, "
+                "  (SELECT edge_len FROM ranked WHERE rn = 1) AS max_edge, "
+                "  (SELECT edge_len FROM ranked WHERE rn = 2) AS second_edge"
             ),
             {"pid": parcel_db_id, "srid": _AREA_CRS_SRID},
         )
         row = result.fetchone()
-        if row is None or row[0] is None:
+        if row is None:
             return None
-        return float(row[0])
+
+        area_m2 = float(row[0]) if row[0] is not None else 0.0
+        max_edge = float(row[1]) if row[1] is not None else 0.0
+        second_edge = float(row[2]) if row[2] is not None else 0.0
+
+        # Finding #9: zero frontage → return None to avoid divide-by-zero
+        if max_edge <= 0:
+            return None
+
+        # Finding #4: battle-axe detection heuristic
+        battle_axe_likely = (
+            area_m2 > 500
+            and max_edge > 30
+            and second_edge < 15
+        )
+        confidence = 0.3 if battle_axe_likely else 0.6
+
+        return FrontageResult(
+            frontage_m=max_edge,
+            battle_axe_likely=battle_axe_likely,
+            confidence=confidence,
+        )
 
     async def _corner_lot_from_parcel(
         self, parcel_db_id: str, session: Any
@@ -687,12 +743,12 @@ class AddressResolver:
         property_id: str,
         gnaf: GnafResult,
         parcel: ParcelResult,
-        lga_name: str | None,
+        lga_names: list[str],
         zones: list[ZoneFact],
         r_code_facts: list[RCodeFact],
         overlays: list[OverlayFact],
         lot_area_m2: float | None,
-        frontage_m: float | None,
+        frontage_result: FrontageResult | None,
         corner_lot: bool | None,
         session: Any,
     ) -> int:
@@ -738,7 +794,10 @@ class AddressResolver:
                 method="postgis_st_within",
             )
         )
-        if lga_name:
+        # Finding #6: store ALL intersecting LGA names as separate facts so
+        # the engine loads rules for every council a boundary-straddling
+        # parcel touches.
+        for lga_name in lga_names:
             facts.append(
                 _make_fact(
                     org_uuid, project_uuid, property_id,
@@ -758,16 +817,44 @@ class AddressResolver:
                     method="postgis_st_area_epsg3112",
                 )
             )
-        if frontage_m is not None:
+        # Finding #9: frontage_result is None when frontage is 0/degenerate;
+        # only emit a frontage fact for a positive value.
+        if frontage_result is not None and frontage_result.frontage_m > 0:
             facts.append(
                 _make_fact(
                     org_uuid, project_uuid, property_id,
                     fact_type="frontage",
-                    value={"value": round(frontage_m, 2), "unit": "m", "method": "longest_edge_heuristic"},
-                    confidence=0.6,
+                    value={
+                        "value": round(frontage_result.frontage_m, 2),
+                        "unit": "m",
+                        "method": "longest_edge_heuristic",
+                        # Finding #4: flag probable battle-axe lots so
+                        # downstream consumers know the longest edge may be
+                        # the access handle, not the street frontage.
+                        "battle_axe_likely": frontage_result.battle_axe_likely,
+                    },
+                    confidence=frontage_result.confidence,
                     method="longest_exterior_edge_heuristic",
                 )
             )
+            if frontage_result.battle_axe_likely:
+                facts.append(
+                    _make_fact(
+                        org_uuid, project_uuid, property_id,
+                        fact_type="frontage_warning",
+                        value={
+                            "warning": (
+                                "Probable battle-axe lot: the longest exterior "
+                                "edge is likely the narrow access handle, not "
+                                "the street frontage. Frontage value is "
+                                "uncertain."
+                            ),
+                            "heuristic": "area>500m2_and_longest>30m_and_second<15m",
+                        },
+                        confidence=0.3,
+                        method="battle_axe_heuristic",
+                    )
+                )
         if corner_lot is not None:
             facts.append(
                 _make_fact(
@@ -805,11 +892,21 @@ class AddressResolver:
                     spatial_dataset_id=r_code_row.spatial_dataset_id,
                 )
             )
+        # Canonical fact_type for spatial-scope overlay layers.  The engine's
+        # _filter_rules_by_spatial_scope() expects fact_type='structure_plan'
+        # (or 'local_development_plan') with value_json containing 'code'.
+        _SPATIAL_SCOPE_FACT_TYPES: dict[str, str] = {
+            "structure_plan": "structure_plan",
+            "local_development_plan": "local_development_plan",
+        }
         for overlay in overlays:
+            fact_type = _SPATIAL_SCOPE_FACT_TYPES.get(
+                overlay.layer_type, overlay.layer_type
+            )
             facts.append(
                 _make_fact(
                     org_uuid, project_uuid, property_id,
-                    fact_type=overlay.layer_type,
+                    fact_type=fact_type,
                     value={
                         "code": overlay.code,
                         "label": overlay.label,

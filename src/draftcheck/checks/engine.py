@@ -73,8 +73,8 @@ def _normalize_operator(operator: str | None) -> str:
 _CHECK_TO_BASE_RULE_KEYS: dict[str, tuple[str, ...]] = {
     "setback_front": ("primary_street_setback", "front_setback"),
     "setback_rear": ("rear_setback",),
-    "setback_side_primary": ("side_setback",),
-    "setback_side_secondary": ("secondary_street_setback", "side_setback"),
+    "setback_side_primary": ("side_setback_primary", "primary_street_setback", "side_setback"),
+    "setback_side_secondary": ("side_setback_secondary", "secondary_street_setback", "side_setback"),
     "site_cover": ("site_cover",),
     "open_space": ("open_space",),
     "garage_width": ("garage_width",),
@@ -88,7 +88,18 @@ def _base_rule_key(rule: Rule) -> str:
         base = rule.value_json.get("base_rule_key")
         if base:
             return str(base)
-    return (rule.rule_key or "").split(".", 1)[0]
+    raw = rule.rule_key or ""
+    parts = raw.split(".")
+    if len(parts) <= 1:
+        return raw
+    if len(parts) == 2:
+        # Two-part keys like "side_setback.primary" carry a meaningful
+        # qualifier — join so they match specific base keys (e.g.
+        # "side_setback_primary" in _CHECK_TO_BASE_RULE_KEYS).
+        return "_".join(parts)
+    # 3+ segment keys are WP6 density/dwelling-suffixed (e.g.
+    # "site_area.R40.grouped_dwelling") — first segment is the base.
+    return parts[0]
 
 
 def _dwelling_type(rule: Rule) -> str:
@@ -109,10 +120,14 @@ _NUMERIC_CONDITION_FACTS: dict[str, tuple[str, ...]] = {
     ),
 }
 _CONDITION_METADATA_KEYS = {
-    "density_codes",
-    "dwelling_type",
     "wall_height_label",
     "wall_length_label",
+    # Documentation artifacts from extraction, not real conditions:
+    "notes",
+    "reference",
+    "source_clause",
+    "figure_ref",
+    "table_ref",
 }
 
 
@@ -148,6 +163,51 @@ def _condition_rank(
         return True, 0.0, ()
 
     missing: list[str] = []
+
+    # dwelling_type is a hard categorical filter: a rule scoped to a specific
+    # dwelling type must not apply to a property of a different type.  If the
+    # property has no dwelling_type fact the rule is blocked (missing), not
+    # silently ignored.
+    required_dwelling = conditions.get("dwelling_type")
+    if required_dwelling is not None and str(required_dwelling).strip():
+        dwelling_fact = fact_by_type.get("dwelling_type")
+        actual_dwelling = (
+            _extract_text_value(
+                dwelling_fact.value_json
+                if dwelling_fact is not None and isinstance(dwelling_fact.value_json, dict)
+                else None
+            )
+            if dwelling_fact is not None
+            else None
+        )
+        if actual_dwelling is None:
+            missing.append("dwelling_type")
+        elif actual_dwelling.lower() != str(required_dwelling).strip().lower():
+            return False, 0.0, ()
+
+    # density_codes is a hard categorical filter scoped to R-codes: a rule
+    # listing density_codes (e.g. ["R40","R60"]) must only apply to properties
+    # whose R-code appears in that list.  If the property has no r_code fact
+    # the rule is blocked (missing), not silently ignored.
+    required_density_codes = conditions.get("density_codes")
+    if isinstance(required_density_codes, list) and required_density_codes:
+        r_code_fact = fact_by_type.get("r_code")
+        actual_r_code = (
+            _extract_text_value(
+                r_code_fact.value_json
+                if r_code_fact is not None and isinstance(r_code_fact.value_json, dict)
+                else None
+            )
+            if r_code_fact is not None
+            else None
+        )
+        if actual_r_code is None:
+            missing.append("r_code")
+        else:
+            allowed = {str(c).strip().upper() for c in required_density_codes if str(c).strip()}
+            if actual_r_code.strip().upper() not in allowed:
+                return False, 0.0, ()
+
     distance = 0.0
     for condition_key, fact_keys in _NUMERIC_CONDITION_FACTS.items():
         if conditions.get(condition_key) is None:
@@ -172,11 +232,101 @@ def _condition_rank(
                 return False, 0.0, ()
             distance += boundary - measured
 
-    unsupported = set(conditions) - set(_NUMERIC_CONDITION_FACTS) - _CONDITION_METADATA_KEYS
+    unsupported = (
+        set(conditions)
+        - set(_NUMERIC_CONDITION_FACTS)
+        - _CONDITION_METADATA_KEYS
+        - {"dwelling_type", "density_codes"}
+    )
     missing.extend(f"condition:{key}" for key in sorted(unsupported))
     if missing:
         return False, 0.0, tuple(dict.fromkeys(missing))
     return True, -distance, ()
+
+
+_EXCEPTION_KEY_MARKERS = ("exception", "variant")
+
+
+def _is_exception_rule(rule: Rule) -> bool:
+    """Whether a rule is an exception/variant that modifies a base standard.
+
+    Exceptions carry a trigger condition and must only apply when that trigger
+    is genuinely met.  They are flagged either by ``rule_type == "exception"``
+    or by a ``rule_key`` containing an ``exception``/``variant`` marker (open-
+    vocab clustering pulls ``<key>.exception_*`` rows into canonical clusters).
+    """
+    if (rule.rule_type or "").strip().lower() == "exception":
+        return True
+    key = (rule.rule_key or "").lower()
+    return any(marker in key for marker in _EXCEPTION_KEY_MARKERS)
+
+
+def _exception_trigger_satisfied(
+    key: str,
+    required: object,
+    fact_by_type: dict[str, PropertyFact],
+) -> bool:
+    """Whether one non-numeric trigger condition on an exception rule is backed
+    by a satisfied property fact.  Unknown categorical triggers have no fact
+    mapping and can never be verified, so they are treated as unsatisfied."""
+    if key == "dwelling_type":
+        if required is None or not str(required).strip():
+            return True
+        fact = fact_by_type.get("dwelling_type")
+        actual = _extract_text_value(
+            fact.value_json if fact is not None and isinstance(fact.value_json, dict) else None
+        )
+        return actual is not None and actual.lower() == str(required).strip().lower()
+    if key == "density_codes":
+        fact = fact_by_type.get("r_code")
+        actual = _extract_text_value(
+            fact.value_json if fact is not None and isinstance(fact.value_json, dict) else None
+        )
+        if actual is None:
+            return False
+        allowed = {
+            str(c).strip().upper()
+            for c in (required if isinstance(required, list) else [])
+            if str(c).strip()
+        }
+        return actual.strip().upper() in allowed
+    return False
+
+
+def _exception_trigger_gap(
+    rule: Rule,
+    fact_by_type: dict[str, PropertyFact],
+) -> tuple[str, ...]:
+    """Non-numeric trigger conditions on an exception rule not backed by a
+    satisfied fact.  An exception must never be selected on an unmet trigger,
+    so any such gap is a hard block (returned as missing condition facts)."""
+    conditions = rule.condition_json if isinstance(rule.condition_json, dict) else {}
+    trigger_keys = set(conditions) - set(_NUMERIC_CONDITION_FACTS) - _CONDITION_METADATA_KEYS
+    return tuple(
+        f"condition:{key}"
+        for key in sorted(trigger_keys)
+        if not _exception_trigger_satisfied(key, conditions[key], fact_by_type)
+    )
+
+
+def _source_type_hierarchy_rank(rule: Rule) -> int:
+    """Rank rules by WA planning instrument hierarchy.
+
+    Local planning schemes outrank structure plans, which outrank state-level
+    R-Codes.  The source_type is read from ``metadata_json`` (denormalised at
+    rule creation) or, as a fallback, via a direct attribute.
+    """
+    st = ""
+    meta = getattr(rule, "metadata_json", None)
+    meta = meta if isinstance(meta, dict) else {}
+    st = str(meta.get("source_type") or "").strip().lower()
+    if not st:
+        st = str(getattr(rule, "source_type", "") or "").strip().lower()
+    if "local_planning" in st or "planning_scheme" in st or "scheme" in st:
+        return 2
+    if "structure_plan" in st or "local_development_plan" in st:
+        return 1
+    return 0
 
 
 def _select_rule_with_context(
@@ -187,9 +337,11 @@ def _select_rule_with_context(
 ) -> tuple[Rule | None, tuple[str, ...]]:
     """Pick the best approved rule for a check key.
 
-    Ranking: a usable numeric threshold dominates, then an R-code-specific
-    match beats a global rule, then dwelling-type-agnostic beats specific,
-    then base-key preference order, then newest.
+    Ranking: a usable numeric threshold dominates, then zone-specific rules
+    (local scheme scoped to the property's zone) beat global rules, then
+    source-type hierarchy (local scheme > structure plan > state R-Codes),
+    then R-code-specific match, then dwelling-type-agnostic, then base-key
+    preference order, then newest.
     """
     base_keys = _CHECK_TO_BASE_RULE_KEYS.get(check_key, ())
     accepted = (check_key, *base_keys)
@@ -198,11 +350,23 @@ def _select_rule_with_context(
     missing_conditions: list[str] = []
     conditional_rules_seen = False
     conditional_rule_matched = False
+
+    # Collect the property's zone codes from zone facts for zone-specificity
+    # ranking.  Rules scoped to one of these zones outrank global rules.
+    property_zones: set[str] = set()
+    for fact in fact_by_type.values():
+        if getattr(fact, "fact_type", None) == "zone" and isinstance(
+            getattr(fact, "value_json", None), dict
+        ):
+            code = fact.value_json.get("code")
+            if code:
+                property_zones.add(str(code).strip().upper())
+
     for rule in rules:
         base = _base_rule_key(rule)
         # Open-vocab derived checks key on canonical_rule_key (filled by
         # wp6_apply_clustering.py); the seed checks key on rule_key / base key.
-        canonical = getattr(rule, "canonical_rule_key", None)
+        canonical = getattr(rule, "canonical_rule_key", None) or base
         if rule.rule_key != check_key and base not in accepted and canonical != check_key:
             continue
         conditions = rule.condition_json if isinstance(rule.condition_json, dict) else {}
@@ -222,6 +386,15 @@ def _select_rule_with_context(
         specific = bool(
             rule.applicable_r_codes and r_codes and set(r_codes) & set(rule.applicable_r_codes)
         )
+        # Zone specificity: a rule scoped to the property's zone outranks a
+        # global rule (applicable_zones NULL/empty).  This enforces the WA
+        # planning hierarchy where local scheme provisions take precedence.
+        rule_zones = getattr(rule, "applicable_zones", None)
+        zone_specific = bool(
+            rule_zones
+            and property_zones
+            and {str(z).strip().upper() for z in rule_zones if str(z).strip()} & property_zones
+        )
         # A check's headline threshold should come from a base/standard rule, not
         # an exception modifier.  Open-vocab clustering can pull "<key>.exception_*"
         # rows into a canonical cluster; deprioritise them so the engine reports
@@ -230,6 +403,8 @@ def _select_rule_with_context(
         rank = (
             1 if has_threshold else 0,
             1 if is_standard else 0,
+            1 if zone_specific else 0,
+            _source_type_hierarchy_rank(rule),
             2 if specific else (1 if not rule.applicable_r_codes else 0),
             1 if _dwelling_type(rule) == "any" else 0,
             1 if has_material_conditions else 0,
@@ -244,6 +419,15 @@ def _select_rule_with_context(
         return None, unresolved
     if conditional_rules_seen and not conditional_rule_matched:
         return None, ("condition:no_matching_rule",)
+    # Finding #8: an exception/variant rule must never be selected on an unmet
+    # trigger.  If the winning rule is an exception carrying a non-numeric
+    # trigger condition that no satisfied fact backs, treat it as a hard block
+    # (needs_more_info) rather than applying the exception.  Standard rules are
+    # unaffected.
+    if best is not None and _is_exception_rule(best):
+        trigger_gap = _exception_trigger_gap(best, fact_by_type)
+        if trigger_gap:
+            return None, trigger_gap
     return best, ()
 
 
@@ -284,6 +468,7 @@ class CheckResultItem:
     check_type: str | None = None  # numeric_threshold | categorical | boolean_presence | ...
     what_it_means: str | None = None
     how_to_query: str | None = None
+    spatial_disagreement_active: bool = False
 
 
 @dataclass
@@ -295,6 +480,7 @@ class CheckRunResult:
     org_id: str
     status: str
     results: list[CheckResultItem] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
 
 
 def _extract_numeric(value_json: dict[str, object] | None) -> float | None:
@@ -617,7 +803,6 @@ _RESIDENTIAL_KW = (
     "amenity",
 )
 _DOWNWEIGHT_KW = (
-    "subdivision",
     "subdivide",
     "lot design",
     "road reserve",
@@ -634,6 +819,10 @@ _DOWNWEIGHT_KW = (
     "precinct",
     "regional",
     "foreshore reserve",
+)
+_LIGHT_DOWNWEIGHT_KW = (
+    # Sometimes relevant in residential contexts — lighter penalty.
+    "subdivision",
 )
 
 
@@ -666,6 +855,7 @@ def _advisory_relevance_score(
         score += 2.0
     score += sum(1.0 for kw in _RESIDENTIAL_KW if kw in text)
     score -= sum(1.5 for kw in _DOWNWEIGHT_KW if kw in text)
+    score -= sum(0.5 for kw in _LIGHT_DOWNWEIGHT_KW if kw in text)
     # Rules explicitly scoped to this proposal (non-null applicable_*) rank above
     # globally-applicable ones of equal content.
     if rule.applicable_r_codes or rule.applicable_zones:
@@ -979,18 +1169,10 @@ class ComplianceEngine:
                         note = f"{missing_reason}: {exc}"
                         any_missing = True
                     else:
-                        if live_disagreements:
-                            status = "needs_more_info"
-                            note = (
-                                "planwa_live_disagreement: local and live official spatial "
-                                f"layers differ ({sorted(live_disagreements)})"
-                            )
-                            any_missing = True
-                        else:
-                            status = "likely_pass" if passes else "likely_fail"
-                            note = None
-                            if not passes:
-                                any_fail = True
+                        status = "likely_pass" if passes else "likely_fail"
+                        note = None
+                        if not passes:
+                            any_fail = True
 
             item = CheckResultItem(
                 check_key=check_key,
@@ -1002,6 +1184,9 @@ class ComplianceEngine:
                 rule_quote=rule.quote,
                 citation=citation,
                 note=note,
+                spatial_disagreement_active=bool(live_disagreements) and status in (
+                    "likely_pass", "likely_fail",
+                ),
             )
             results.append(item)
 
@@ -1097,7 +1282,7 @@ class ComplianceEngine:
             if not key or key in emitted_keys or key in seen_adv:
                 continue
             seen_adv.add(key)
-            if len(seen_adv) > 80:
+            if len(seen_adv) > 200:
                 break
             logic = rule.rule_logic_json if isinstance(rule.rule_logic_json, dict) else {}
             adv_status = (
@@ -1136,12 +1321,21 @@ class ComplianceEngine:
         check_run.completed_at = datetime.now(UTC)
         session.flush()
 
+        run_warnings: list[str] = []
+        if live_disagreements:
+            run_warnings.append(
+                "planwa_live_disagreement: local and live official spatial "
+                f"layers differ ({sorted(live_disagreements)}). Results are "
+                "advisory pending spatial reconciliation."
+            )
+
         return CheckRunResult(
             check_run_id=str(check_run.id),
             project_id=project_id,
             org_id=org_id,
             status=overall_status,
             results=results,
+            warnings=run_warnings,
         )
 
 

@@ -77,7 +77,11 @@ def test_normalize_operator_aliases():
 
 def test_base_rule_key_prefers_value_json():
     assert _base_rule_key(_rule("site_area.R40", base="site_area")) == "site_area"
-    assert _base_rule_key(_rule("primary_street_setback.all")) == "primary_street_setback"
+    # Two-part keys join the qualifier so specific base keys can match
+    # (side_setback.primary -> side_setback_primary in _CHECK_TO_BASE_RULE_KEYS).
+    assert _base_rule_key(_rule("side_setback.primary")) == "side_setback_primary"
+    # 3+ segment keys are WP6 density/dwelling-suffixed: first segment is base.
+    assert _base_rule_key(_rule("site_area.R40.grouped_dwelling")) == "site_area"
 
 
 def test_select_rule_maps_check_key_to_wp6_base_keys():
@@ -90,9 +94,11 @@ def test_select_rule_prefers_r_code_specific_match():
     glob = _rule("garage_width.all", base="garage_width", value=6.0)
     specific = _rule("garage_width.R40.single_house", base="garage_width",
                      value=5.0, r_codes=["R40"], dwelling="single_house")
-    assert _select_rule([glob, specific], "garage_width", ["R40"]) is specific
-    assert _select_rule([glob, specific], "garage_width", ["R60"]) is glob
-    assert _select_rule([glob, specific], "garage_width", []) is glob
+    dt_fact = PropertyFact(fact_type="dwelling_type", value_json={"value": "single_house"})
+    fbt = {"dwelling_type": dt_fact}
+    assert _select_rule([glob, specific], "garage_width", ["R40"], fbt) is specific
+    assert _select_rule([glob, specific], "garage_width", ["R60"], fbt) is glob
+    assert _select_rule([glob, specific], "garage_width", [], fbt) is glob
 
 
 def test_select_rule_skips_rules_without_numeric_threshold():
