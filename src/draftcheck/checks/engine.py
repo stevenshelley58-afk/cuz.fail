@@ -973,8 +973,15 @@ class ComplianceEngine:
                     # Resolver-written spatial facts are authoritative even though
                     # they arrive as pending_review — without this the engine sees
                     # zero facts for freshly-resolved projects.
-                    PropertyFact.method.like("postgis_st_intersects%"),
+                    # Broadened from postgis_st_intersects% to postgis_% to also
+                    # capture postgis_st_within (parcel) and postgis_st_area_epsg3112
+                    # (lot area).  Heuristic-derived facts (frontage, corner lot)
+                    # are also deterministic resolver outputs that must flow in.
+                    PropertyFact.method.like("postgis_%"),
                     PropertyFact.method == "gnaf_trigram_or_like_match",
+                    PropertyFact.method == "longest_exterior_edge_heuristic",
+                    PropertyFact.method == "battle_axe_heuristic",
+                    PropertyFact.method == "two_long_edges_heuristic",
                 ),
             )
             .all()
