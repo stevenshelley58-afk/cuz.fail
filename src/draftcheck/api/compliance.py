@@ -315,11 +315,11 @@ def get_compliance_matrix(
 
     Returns 404 if no compliance run has been executed for this project.
     """
-    _resolve_org_id(active_session)
+    org_id = _resolve_org_id(active_session)
 
     run: CheckRun | None = (
         db.query(CheckRun)
-        .filter(CheckRun.project_id == UUID(project_id))
+        .filter(CheckRun.project_id == UUID(project_id), CheckRun.org_id == UUID(org_id))
         .order_by(CheckRun.started_at.desc())
         .first()
     )
@@ -432,10 +432,10 @@ def get_compliance_run(
     db: DbSession,
 ) -> ComplianceRunResponse:
     """Return a specific CheckRun by id with all its check results."""
-    _resolve_org_id(active_session)
+    org_id = _resolve_org_id(active_session)
 
     run: CheckRun | None = db.get(CheckRun, UUID(run_id))
-    if run is None:
+    if run is None or str(run.org_id) != org_id:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"Compliance run {run_id} not found.",
