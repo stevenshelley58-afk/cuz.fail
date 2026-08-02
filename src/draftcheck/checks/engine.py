@@ -601,10 +601,17 @@ def _source_spatial_scope(source: Source) -> tuple[bool, str, set[str]]:
     scope_required = scope_required or any(
         marker in title_lower for marker in _SPATIALLY_SCOPED_TITLE_MARKERS
     )
-    fact_type = str(explicit.get("fact_type") or explicit.get("kind") or "structure_plan")
-    # Keep local_development_plan distinct — resolver writes fact_type as-is
-    # from _SPATIAL_SCOPE_FACT_TYPES (no remap), so remapping here would cause
-    # _source_applies_to_spatial_facts to look up the wrong property_scopes key.
+    # Map source_type to the fact_type the resolver actually writes.  The
+    # resolver stores fact_type from planning_features.layer_type, so all
+    # structure-plan subtypes become 'structure_plan' while LDP stays distinct.
+    _SOURCE_TYPE_TO_FACT_TYPE = {
+        "structure_plan": "structure_plan",
+        "local_structure_plan": "structure_plan",
+        "precinct_structure_plan": "structure_plan",
+        "local_development_plan": "local_development_plan",
+    }
+    default_fact_type = _SOURCE_TYPE_TO_FACT_TYPE.get(source_type, "structure_plan")
+    fact_type = str(explicit.get("fact_type") or explicit.get("kind") or default_fact_type)
 
     refs: set[str] = set()
     explicit_refs = explicit.get("references") or explicit.get("refs") or []
