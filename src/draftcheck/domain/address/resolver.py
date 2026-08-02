@@ -176,8 +176,10 @@ class AddressResolver:
                 address=gnaf.formatted_address,
             )
 
-        # Step 3: LGA (may return multiple for boundary-straddling parcels)
-        lga_names = await self._lga_from_point(gnaf.lat, gnaf.lon, session)
+        # Step 3: LGA — query by parcel geometry, not just the G-NAF point.
+        # A parcel that straddles an LGA boundary has its address point in
+        # only one LGA; the parcel geometry captures all intersecting councils.
+        lga_names = await self._lga_from_parcel(parcel.parcel_db_id, session)
         if not lga_names and parcel.local_government:
             lga_names = [parcel.local_government]
         if not lga_names:
@@ -392,6 +394,33 @@ class AddressResolver:
                 "ORDER BY name"
             ),
             {"lat": lat, "lon": lon},
+        )
+        rows = result.fetchall()
+        return [str(r[0]) for r in rows]
+
+    async def _lga_from_parcel(
+        self, parcel_db_id: str, session: Any
+    ) -> list[str]:
+        """ST_Intersects lookup on lg_areas using the parcel geometry.
+
+        Returns ALL intersecting LGA names.  Using the parcel geometry (rather
+        than the G-NAF point) correctly detects boundary-straddling parcels
+        whose address point falls in only one council area.
+        """
+        from sqlalchemy import text
+
+        result = await _execute(
+            session,
+            text(
+                "SELECT DISTINCT la.name "
+                "FROM lg_areas la "
+                "WHERE ST_Intersects("
+                "  la.geom, "
+                "  (SELECT geom FROM parcels WHERE id = :pid)"
+                ") "
+                "ORDER BY la.name"
+            ),
+            {"pid": parcel_db_id},
         )
         rows = result.fetchall()
         return [str(r[0]) for r in rows]
