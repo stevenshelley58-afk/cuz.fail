@@ -763,12 +763,21 @@ def _get_applicable_rules(
         for zc in zone_codes:
             zone_filters.append(Rule.applicable_zones.contains(cast([zc], PgJSONB)))
         q = q.filter(or_(*zone_filters))
+    else:
+        # No zone facts for the property — restrict to global rules only.
+        # Without this, zone-specific rules from every zone leak into the
+        # candidate set and a zone-scoped rule with a numeric threshold can
+        # outrank the correct global rule in _select_rule_with_context.
+        q = q.filter(Rule.applicable_zones == None)  # noqa: E711
 
     if r_codes and any(r_codes):
         r_code_filters = [Rule.applicable_r_codes == None]  # noqa: E711
         for rc in r_codes:
             r_code_filters.append(Rule.applicable_r_codes.contains(cast([rc], PgJSONB)))
         q = q.filter(or_(*r_code_filters))
+    else:
+        # Same rationale as zones: no R-code data → global rules only.
+        q = q.filter(Rule.applicable_r_codes == None)  # noqa: E711
 
     return q.all()
 
@@ -908,11 +917,15 @@ def _get_advisory_rules(
         for rc in r_codes:
             r_code_filters.append(Rule.applicable_r_codes.contains(cast([rc], PgJSONB)))
         q = q.filter(or_(*r_code_filters))
+    else:
+        q = q.filter(Rule.applicable_r_codes == None)  # noqa: E711
     if zone_codes and any(zone_codes):
         zone_filters = [Rule.applicable_zones == None]  # noqa: E711
         for zc in zone_codes:
             zone_filters.append(Rule.applicable_zones.contains(cast([zc], PgJSONB)))
         q = q.filter(or_(*zone_filters))
+    else:
+        q = q.filter(Rule.applicable_zones == None)  # noqa: E711
     # Spatially-scoped sources are filtered after this query because their
     # applicability comes from the source document + parcel facts. Loading the
     # complete approved advisory set prevents a large unrelated structure-plan
