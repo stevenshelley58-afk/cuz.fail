@@ -1322,14 +1322,22 @@ class ComplianceEngine:
         # ------------------------------------------------------------------
         emitted_keys = {it.check_key for it in results}
         seen_adv: set[str] = set()
-        advisory_rules = _filter_rules_by_spatial_scope(
-            session,
-            _get_advisory_rules(
+        # Load advisory rules for ALL councils on boundary-straddling parcels
+        advisory_candidates: list[Rule] = []
+        seen_adv_rule_ids: set = set()
+        for scope in scopes_to_query:
+            for rule in _get_advisory_rules(
                 session,
-                council_scope=council_scope,
+                council_scope=scope,
                 r_codes=r_codes or None,
                 zone_codes=zone_codes or None,
-            ),
+            ):
+                if rule.id not in seen_adv_rule_ids:
+                    seen_adv_rule_ids.add(rule.id)
+                    advisory_candidates.append(rule)
+        advisory_rules = _filter_rules_by_spatial_scope(
+            session,
+            advisory_candidates,
             facts,
             blocked_scope_types=blocked_scope_types,
         )
