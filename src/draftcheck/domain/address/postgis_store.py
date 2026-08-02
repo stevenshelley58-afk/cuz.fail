@@ -665,7 +665,10 @@ class PostGISSpatialDatasetStore:
         # ARE the right answers — the user typed the literal start of an
         # address — so the expensive arm runs only when prefix finds nothing
         # (typos, unit/lot-prefixed addresses, mid-string matches).
-        prefix_patterns = {f"{normalized}%", f"{expanded}%"}
+        prefix_patterns = {
+            f"{self._escape_like(normalized)}%",
+            f"{self._escape_like(expanded)}%",
+        }
         prefix_stmt = (
             select(
                 DbAddressPoint.id,
@@ -729,11 +732,19 @@ class PostGISSpatialDatasetStore:
                 break
         return results
 
+    @staticmethod
+    def _escape_like(value: str) -> str:
+        """Escape SQL LIKE/ILIKE wildcards so user input is matched literally."""
+        return value.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+
     def _ilike_search_rows(
         self, session: Session, normalized: str, expanded: str, limit: int
     ):
         """Substring fallback used only when pg_trgm is unavailable."""
-        patterns = {f"%{normalized}%", f"%{expanded}%"}
+        patterns = {
+            f"%{self._escape_like(normalized)}%",
+            f"%{self._escape_like(expanded)}%",
+        }
         stmt = (
             select(
                 DbAddressPoint.id,

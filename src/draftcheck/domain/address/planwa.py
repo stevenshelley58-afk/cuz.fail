@@ -65,8 +65,20 @@ def structure_plan_is_current(
     *,
     at: datetime | None = None,
 ) -> bool:
-    """Accept only endorsed/adopted, unexpired structure-plan boundaries."""
+    """Accept only endorsed/adopted, unexpired structure-plan boundaries.
+
+    Checks both the top-level keys and a nested ``metadata`` sub-dict, since
+    the resolver stores overlay metadata nested inside value_json.
+    """
     lowered = {str(key).lower(): value for key, value in properties.items()}
+    # Also flatten a nested metadata dict (resolver writes metadata_json inside
+    # value_json["metadata"]) so status/expiry_date are found regardless of shape.
+    nested = lowered.get("metadata")
+    if isinstance(nested, dict):
+        for key, value in nested.items():
+            lk = str(key).lower()
+            if lk not in lowered or lowered[lk] is None:
+                lowered[lk] = value
     status = str(lowered.get("status") or "").strip().lower()
     if status and "endorsed" not in status and "adopted" not in status:
         return False

@@ -315,8 +315,10 @@ class AddressResolver:
         except Exception:
             logger.debug("_gnaf_lookup: pg_trgm not available, falling back to LIKE")
 
-        # LIKE fallback
-        like_pattern = f"%{address.strip()}%"
+        # LIKE fallback — escape SQL LIKE wildcards in user input so
+        # literal '%' and '_' in addresses don't become glob characters.
+        escaped = address.strip().replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+        like_pattern = f"%{escaped}%"
         result = await _execute(
             session,
             text(
