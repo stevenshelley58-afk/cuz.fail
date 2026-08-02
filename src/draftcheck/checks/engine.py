@@ -1024,6 +1024,22 @@ class ComplianceEngine:
         # ------------------------------------------------------------------
         council_scope, council_scope_source = _resolve_council_scope(project, fact_by_type)
 
+        # Extract ALL council names for boundary-straddling parcels.  The
+        # resolver writes one local_government fact per intersecting LGA;
+        # fact_by_type only keeps the most-recent, so we scan the full list.
+        all_council_scopes: list[str] = []
+        seen_councils: set[str] = set()
+        for fact in facts:
+            if fact.fact_type in ("council", "local_government") and isinstance(fact.value_json, dict):
+                name = _extract_text_value(fact.value_json)
+                if name:
+                    canonical = canonical_local_government_name(name) or name
+                    if canonical not in seen_councils:
+                        seen_councils.add(canonical)
+                        all_council_scopes.append(canonical)
+        if council_scope and council_scope not in seen_councils:
+            all_council_scopes.insert(0, council_scope)
+
         # Extract zone and r_code codes for rule applicability filtering
         zone_codes: list[str] = []
         r_codes: list[str] = []
@@ -1039,13 +1055,22 @@ class ComplianceEngine:
 
         # ------------------------------------------------------------------
         # 4. Load approved rules filtered by zone/R-code applicability
+        #    For boundary-straddling parcels, load rules for EVERY council
+        #    the parcel touches and merge (dedup by rule id).
         # ------------------------------------------------------------------
-        rules: list[Rule] = _get_applicable_rules(
-            session,
-            council_scope=council_scope,
-            zone_codes=zone_codes or None,
-            r_codes=r_codes or None,
-        )
+        scopes_to_query = all_council_scopes if len(all_council_scopes) > 1 else [council_scope]
+        rules: list[Rule] = []
+        seen_rule_ids: set = set()
+        for scope in scopes_to_query:
+            for rule in _get_applicable_rules(
+                session,
+                council_scope=scope,
+                zone_codes=zone_codes or None,
+                r_codes=r_codes or None,
+            ):
+                if rule.id not in seen_rule_ids:
+                    seen_rule_ids.add(rule.id)
+                    rules.append(rule)
         rules = _filter_rules_by_spatial_scope(
             session,
             rules,
